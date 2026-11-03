@@ -1,0 +1,22 @@
+# Local launch instructions contain private workspace-policy references.
+/startprompt.md
+
+# Unversioned inputs and runtime/control state; never the only copy of findings.
+/local/
+/inputs/
+/raw/
+/coordination/
+/handoffs/
+/validation/runtime/
+/private/
+
+# Reproducible environments, caches and editor state.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.idea/
+.vscode/
+.DS_Store
