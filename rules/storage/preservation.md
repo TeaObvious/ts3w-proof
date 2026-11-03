@@ -26,8 +26,15 @@ Git-Ignore ersetzt keine dauerhafte Aufbewahrung wichtiger Ergebnisse.
 
 build, workqueue und /tmp dürfen keine einzige Fassung wichtiger Ergebnisse,
 offener Änderungen, Skripte oder Wiederherstellungsinformationen enthalten.
-Eigene Git-Worktrees bleiben unter workqueue/checkouts; einzigartige Änderungen
-und unveröffentlichte Commits zusätzlich lesbar und wiederherstellbar sichern.
+Alle Research-Checkouts, auch Agenten-Worktrees, liegen ausschließlich unter
+TS3W-Research/checkouts. Eigene Ausgaben, temporäre Profile und Werkzeuge bleiben
+ebenfalls unter TS3W-Research, etwa outputs/, local/ und tools/. workqueue, build
+und EssentialData sind keine Ablage für neue Research-Arbeit. Externe Originale
+und vorhandene Referenzrepos nur lesen; sie werden deshalb nicht vollständig kopiert.
+
+Live-Worktrees und Betriebsdaten nicht pauschal ins Forschungs-Git stagen.
+Einzigartige Änderungen und unveröffentlichte Commits zusätzlich lesbar und
+wiederherstellbar innerhalb TS3W-Research sichern.
 
 Reproduzierbare Venvs, Caches und Builds sind keine dauerhaften Forschungsbelege.
 Quellen, Abhängigkeitslisten und Wiederherstellungsanleitung dagegen schon.

@@ -18,5 +18,9 @@ erarbeiten; später geprüfte Inhalte gezielt in den bisherigen OpenTS3-Proof-Br
 übertragen. Vor Veröffentlichung [Repo-Zuordnung](references/repositories.md)
 und [Proof-Regeln](rules/publication/proof.md) lesen.
 
+Der Hauptcheckout liegt direkt in TS3W-Research. Auch weitere Research-Worktrees,
+eigene Ausgaben und Betriebsdaten bleiben vollständig in diesem Projektordner;
+keine neue Research-Arbeit nach workqueue, build oder EssentialData auslagern.
+
 Die Regeln beschreiben Originalforschung; Kenntnisse der OpenTS3-Modulstruktur
 sind dafür nicht erforderlich. Keine alte Migration oder Spieltestserie starten.

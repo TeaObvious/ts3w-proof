@@ -5,6 +5,8 @@
     git@github.com:TeaObvious/ts3w-proof.git
 
 Lokaler Hauptcheckout: /home/lego/WorldTool/TS3W-Research.
+Weitere Research-Worktrees: TS3W-Research/checkouts/. Alle weiteren Arbeitsdaten
+dieses Projekts bleiben ebenfalls innerhalb TS3W-Research.
 Arbeitsbranch: main. Das Repository war laut GitHub-Metadaten am 03.11.2026
 leer und öffentlich; tatsächlichen Stand vor jeder Mutation frisch prüfen.
 
