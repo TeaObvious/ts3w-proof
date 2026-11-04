@@ -1,0 +1,24 @@
+Original PC 1.67 TS3W.exe; final saved Ghidra Listing with original PE bytes.
+Entry: 0x0056D0E0 (ReadUInt16AndAccumulateStatus)
+Paired annotated Ghidra pseudocode: 0056D0E0.c
+Owned half-open ranges: [['0x56d0e0', '0x56d104']]
+Owned bytes: 36; Listing instructions: 15
+Original identity: references/pc-167.md. Every instruction independently decoded from PE.
+Function ownership and generated ABI remain unchanged; semantic annotations were read back.
+
+SAVED GHIDRA LISTING WITH ORIGINAL BYTES
+  0056d0e0: 56                                           PUSH ESI
+  0056d0e1: 8b f1                                        MOV ESI, ECX
+  0056d0e3: 8b 46 10                                     MOV EAX, dword ptr [ESI + 0x10]
+  0056d0e6: 8b 4c 24 08                                  MOV ECX, dword ptr [ESP + 0x8]
+  0056d0ea: 8b 56 08                                     MOV EDX, dword ptr [ESI + 0x8]
+  0056d0ed: 50                                           PUSH EAX
+  0056d0ee: 51                                           PUSH ECX
+  0056d0ef: 52                                           PUSH EDX
+  0056d0f0: e8 eb 07 f7 ff                               CALL 0x004dd8e0 ; Read two bytes from reader stream+8 to supplied output, with fullDWORD endian mode+10. A short read may partly modify output and returns AL=false.
+  0056d0f5: 83 c4 0c                                     ADD ESP, 0xc
+  0056d0f8: 8b ce                                        MOV ECX, ESI
+  0056d0fa: 50                                           PUSH EAX
+  0056d0fb: e8 f0 a8 26 00                               CALL 0x007d79f0 ; Sticky reader status+14 &= low-byte read result. Does not branch or throw locally; caller controls whether output is stored after failure.
+  0056d100: 5e                                           POP ESI
+  0056d101: c2 04 00                                     RET 0x4

@@ -1,0 +1,1250 @@
+// Original ScriptCore PC1.67; assembly identity: ../../reference-inputs.json.
+// Complete selected methods or type, ILSpy with metadata tokens.
+
+.method /* 06000D30 */ private hidebysig
+	instance object LoadObject (
+		int32 i,
+		valuetype ScriptCore.PersistReader/ObjectLoadMode loadMode
+	) cil managed
+{
+	// Method begins at RVA 0xff3c
+	// Header size: 12
+	// Code size: 146 (0x92)
+	.maxstack 4
+	.locals /* 110000AF */ init (
+		[0] int32,
+		[1] int32,
+		[2] object[],
+		[3] object,
+		[4] int32[],
+		[5] int32,
+		[6] valuetype ScriptCore.PersistedTypeCode
+	)
+
+	IL_0000: ldarg.1
+	IL_0001: ldc.i4.8
+	IL_0002: shr
+	IL_0003: stloc.0
+	IL_0004: ldarg.1
+	IL_0005: ldc.i4 255
+	IL_000a: and
+	IL_000b: stloc.1
+	IL_000c: ldarg.0
+	IL_000d: ldfld object[][] ScriptCore.PersistReader::mObjectTables /* 040000FE */
+	IL_0012: ldloc.0
+	IL_0013: ldelem.ref
+	IL_0014: stloc.2
+	IL_0015: ldarg.2
+	IL_0016: ldc.i4.2
+	IL_0017: beq.s IL_0022
+
+	IL_0019: ldloc.2
+	IL_001a: ldloc.1
+	IL_001b: ldelem.ref
+	IL_001c: stloc.3
+	IL_001d: ldloc.3
+	IL_001e: brfalse.s IL_0022
+
+	IL_0020: ldloc.3
+	IL_0021: ret
+
+	IL_0022: ldarg.0
+	IL_0023: ldfld int32[][] ScriptCore.PersistReader::mObjectOffsetTables /* 040000FF */
+	IL_0028: ldloc.0
+	IL_0029: ldelem.ref
+	IL_002a: stloc.s 4
+	IL_002c: ldloc.s 4
+	IL_002e: ldloc.1
+	IL_002f: ldelem.i4
+	IL_0030: ldc.i4.0
+	IL_0031: bge.s IL_0037
+
+	IL_0033: ldloc.2
+	IL_0034: ldloc.1
+	IL_0035: ldelem.ref
+	IL_0036: ret
+
+	IL_0037: ldarg.0
+	IL_0038: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_003d: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::get_Position() /* 0A00012D */
+	IL_0042: stloc.s 5
+	IL_0044: ldarg.0
+	IL_0045: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_004a: ldloc.s 4
+	IL_004c: ldloc.1
+	IL_004d: ldelem.i4
+	IL_004e: ldc.i4.0
+	IL_004f: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamReader::Seek(int32, valuetype [mscorlib]System.IO.SeekOrigin) /* 0A00012F */
+	IL_0054: ldarg.2
+	IL_0055: ldc.i4.1
+	IL_0056: bne.un.s IL_005b
+
+	IL_0058: ldc.i4.0
+	IL_0059: starg.s loadMode
+
+	IL_005b: ldarg.2
+	IL_005c: brfalse.s IL_0063
+
+	IL_005e: ldloc.s 4
+	IL_0060: ldloc.1
+	IL_0061: ldc.i4.m1
+	IL_0062: stelem.i4
+
+	IL_0063: ldarg.0
+	IL_0064: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0069: callvirt instance uint8 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadByte() /* 0A0001A1 */
+	IL_006e: stloc.s 6
+	IL_0070: ldarg.0
+	IL_0071: ldloc.s 6
+	IL_0073: ldloc.2
+	IL_0074: ldloc.1
+	IL_0075: ldelema [mscorlib]System.Object /* 01000001 */
+	IL_007a: ldarg.2
+	IL_007b: call instance void ScriptCore.PersistReader::LoadObject(valuetype ScriptCore.PersistedTypeCode, object&, valuetype ScriptCore.PersistReader/ObjectLoadMode) /* 06000D31 */
+	IL_0080: ldarg.0
+	IL_0081: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0086: ldloc.s 5
+	IL_0088: ldc.i4.0
+	IL_0089: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamReader::Seek(int32, valuetype [mscorlib]System.IO.SeekOrigin) /* 0A00012F */
+	IL_008e: ldloc.2
+	IL_008f: ldloc.1
+	IL_0090: ldelem.ref
+	IL_0091: ret
+} // end of method PersistReader::LoadObject
+.method /* 06000D31 */ private hidebysig
+	instance void LoadObject (
+		valuetype ScriptCore.PersistedTypeCode saveType,
+		object& obj,
+		valuetype ScriptCore.PersistReader/ObjectLoadMode loadMode
+	) cil managed
+{
+	// Method begins at RVA 0xffdc
+	// Header size: 12
+	// Code size: 2299 (0x8fb)
+	.maxstack 6
+	.locals /* 110000B0 */ init (
+		[0] int32,
+		[1] int32,
+		[2] int32,
+		[3] class ScriptCore.PersistedClass,
+		[4] int32,
+		[5] valuetype ScriptCore.PersistedFieldInfo,
+		[6] class [mscorlib]System.Reflection.FieldInfo,
+		[7] class [SimIFace]Sims3.SimIFace.LoadFieldAttribute/Info,
+		[8] object,
+		[9] class [mscorlib]System.Type,
+		[10] object,
+		[11] valuetype [SimIFace]Sims3.SimIFace.ReflectionTypeFlags,
+		[12] class [mscorlib]System.Type,
+		[13] int32,
+		[14] valuetype ScriptCore.PersistedTypeCode,
+		[15] class [mscorlib]System.Type,
+		[16] class [mscorlib]System.Array,
+		[17] class [mscorlib]System.Type,
+		[18] class [mscorlib]System.Array,
+		[19] int32,
+		[20] object,
+		[21] int32,
+		[22] object,
+		[23] int32,
+		[24] class ScriptCore.PersistedClass,
+		[25] int32,
+		[26] class ScriptCore.PersistedClass,
+		[27] int32,
+		[28] int64,
+		[29] int64,
+		[30] int32,
+		[31] class ScriptCore.PersistedClass,
+		[32] int32,
+		[33] class ScriptCore.PersistedClass,
+		[34] valuetype ScriptCore.PersistedTypeCode,
+		[35] class [mscorlib]System.Type,
+		[36] string,
+		[37] class [mscorlib]System.Type[],
+		[38] class [mscorlib]System.Type[],
+		[39] class [mscorlib]System.Reflection.MethodInfo,
+		[40] class [mscorlib]System.Reflection.MethodInfo[],
+		[41] class [mscorlib]System.Reflection.MethodInfo,
+		[42] class [mscorlib]System.Reflection.MethodInfo,
+		[43] int32,
+		[44] valuetype ScriptCore.PersistedTypeCode,
+		[45] valuetype ScriptCore.PersistedFieldInfo[],
+		[46] int32,
+		[47] valuetype ScriptCore.PersistedTypeCode,
+		[48] valuetype ScriptCore.PersistedTypeCode,
+		[49] class [mscorlib]System.Reflection.MethodInfo[],
+		[50] int32,
+		[51] valuetype [SimIFace]Sims3.SimIFace.ResourceKey
+	)
+
+	IL_0000: ldarg.1
+	IL_0001: stloc.s 44
+	IL_0003: ldloc.s 44
+	IL_0005: switch (IL_0077, IL_018a, IL_007b, IL_008e, IL_00a1, IL_00b4, IL_00cc, IL_00df, IL_00f2, IL_0105, IL_0118, IL_012b, IL_013e, IL_0151, IL_0164, IL_0177, IL_01ce, IL_0416, IL_0554, IL_05a2, IL_0611, IL_064c, IL_05a2, IL_064c, IL_07af, IL_08aa, IL_0576)
+
+	IL_0076: ret
+
+	IL_0077: ldarg.2
+	IL_0078: ldnull
+	IL_0079: stind.ref
+	IL_007a: ret
+
+	IL_007b: ldarg.2
+	IL_007c: ldarg.0
+	IL_007d: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0082: callvirt instance bool [SimIFace]Sims3.SimIFace.FastStreamReader::ReadBoolean() /* 0A000205 */
+	IL_0087: box [mscorlib]System.Boolean /* 0100014D */
+	IL_008c: stind.ref
+	IL_008d: ret
+
+	IL_008e: ldarg.2
+	IL_008f: ldarg.0
+	IL_0090: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0095: callvirt instance uint8 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadByte() /* 0A0001A1 */
+	IL_009a: box [mscorlib]System.Byte /* 01000183 */
+	IL_009f: stind.ref
+	IL_00a0: ret
+
+	IL_00a1: ldarg.2
+	IL_00a2: ldarg.0
+	IL_00a3: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_00a8: callvirt instance char [SimIFace]Sims3.SimIFace.FastStreamReader::ReadChar() /* 0A000206 */
+	IL_00ad: box [mscorlib]System.Char /* 01000142 */
+	IL_00b2: stind.ref
+	IL_00b3: ret
+
+	IL_00b4: ldarg.2
+	IL_00b5: ldarg.0
+	IL_00b6: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_00bb: callvirt instance int64 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt64() /* 0A000207 */
+	IL_00c0: newobj instance void [mscorlib]System.DateTime::.ctor(int64) /* 0A000208 */
+	IL_00c5: box [mscorlib]System.DateTime /* 01000139 */
+	IL_00ca: stind.ref
+	IL_00cb: ret
+
+	IL_00cc: ldarg.2
+	IL_00cd: ldarg.0
+	IL_00ce: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_00d3: callvirt instance valuetype [mscorlib]System.Decimal [SimIFace]Sims3.SimIFace.FastStreamReader::ReadDecimal() /* 0A000209 */
+	IL_00d8: box [mscorlib]System.Decimal /* 01000051 */
+	IL_00dd: stind.ref
+	IL_00de: ret
+
+	IL_00df: ldarg.2
+	IL_00e0: ldarg.0
+	IL_00e1: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_00e6: callvirt instance float64 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadDouble() /* 0A00020A */
+	IL_00eb: box [mscorlib]System.Double /* 01000184 */
+	IL_00f0: stind.ref
+	IL_00f1: ret
+
+	IL_00f2: ldarg.2
+	IL_00f3: ldarg.0
+	IL_00f4: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_00f9: callvirt instance int16 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt16() /* 0A00020B */
+	IL_00fe: box [mscorlib]System.Int16 /* 01000185 */
+	IL_0103: stind.ref
+	IL_0104: ret
+
+	IL_0105: ldarg.2
+	IL_0106: ldarg.0
+	IL_0107: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_010c: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt32() /* 0A0000D3 */
+	IL_0111: box [mscorlib]System.Int32 /* 01000145 */
+	IL_0116: stind.ref
+	IL_0117: ret
+
+	IL_0118: ldarg.2
+	IL_0119: ldarg.0
+	IL_011a: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_011f: callvirt instance int64 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt64() /* 0A000207 */
+	IL_0124: box [mscorlib]System.Int64 /* 01000186 */
+	IL_0129: stind.ref
+	IL_012a: ret
+
+	IL_012b: ldarg.2
+	IL_012c: ldarg.0
+	IL_012d: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0132: callvirt instance int8 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadSByte() /* 0A00020C */
+	IL_0137: box [mscorlib]System.SByte /* 01000187 */
+	IL_013c: stind.ref
+	IL_013d: ret
+
+	IL_013e: ldarg.2
+	IL_013f: ldarg.0
+	IL_0140: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0145: callvirt instance float32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadSingle() /* 0A00020D */
+	IL_014a: box [mscorlib]System.Single /* 01000150 */
+	IL_014f: stind.ref
+	IL_0150: ret
+
+	IL_0151: ldarg.2
+	IL_0152: ldarg.0
+	IL_0153: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0158: callvirt instance uint16 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadUInt16() /* 0A00020E */
+	IL_015d: box [mscorlib]System.UInt16 /* 01000188 */
+	IL_0162: stind.ref
+	IL_0163: ret
+
+	IL_0164: ldarg.2
+	IL_0165: ldarg.0
+	IL_0166: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_016b: callvirt instance uint32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadUInt32() /* 0A00012E */
+	IL_0170: box [mscorlib]System.UInt32 /* 01000161 */
+	IL_0175: stind.ref
+	IL_0176: ret
+
+	IL_0177: ldarg.2
+	IL_0178: ldarg.0
+	IL_0179: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_017e: callvirt instance uint64 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadUInt64() /* 0A0000CC */
+	IL_0183: box [mscorlib]System.UInt64 /* 01000149 */
+	IL_0188: stind.ref
+	IL_0189: ret
+
+	IL_018a: ldarg.0
+	IL_018b: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0190: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt32() /* 0A0000D3 */
+	IL_0195: stloc.0
+	IL_0196: ldloc.0
+	IL_0197: brtrue.s IL_019d
+
+	IL_0199: ldarg.2
+	IL_019a: ldnull
+	IL_019b: stind.ref
+	IL_019c: ret
+
+	IL_019d: ldloc.0
+	IL_019e: ldc.i4.1
+	IL_019f: sub
+	IL_01a0: stloc.1
+	IL_01a1: ldarg.2
+	IL_01a2: ldarg.0
+	IL_01a3: ldfld object[][] ScriptCore.PersistReader::mObjectTables /* 040000FE */
+	IL_01a8: ldloc.1
+	IL_01a9: ldc.i4.8
+	IL_01aa: shr
+	IL_01ab: ldelem.ref
+	IL_01ac: ldloc.1
+	IL_01ad: ldc.i4 255
+	IL_01b2: and
+	IL_01b3: ldelem.ref
+	IL_01b4: stind.ref
+	IL_01b5: ldarg.2
+	IL_01b6: ldind.ref
+	IL_01b7: brtrue IL_08fa
+
+	IL_01bc: ldarg.3
+	IL_01bd: ldc.i4.3
+	IL_01be: beq IL_08fa
+
+	IL_01c3: ldarg.2
+	IL_01c4: ldarg.0
+	IL_01c5: ldloc.1
+	IL_01c6: ldc.i4.1
+	IL_01c7: call instance object ScriptCore.PersistReader::LoadObject(int32, valuetype ScriptCore.PersistReader/ObjectLoadMode) /* 06000D30 */
+	IL_01cc: stind.ref
+	IL_01cd: ret
+
+	IL_01ce: ldarg.0
+	IL_01cf: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_01d4: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt32() /* 0A0000D3 */
+	IL_01d9: stloc.2
+	IL_01da: ldarg.0
+	IL_01db: ldfld class ScriptCore.PersistedClass[] ScriptCore.PersistReader::mClasses /* 04000101 */
+	IL_01e0: ldloc.2
+	IL_01e1: ldelem.ref
+	IL_01e2: stloc.3
+	IL_01e3: ldloc.3
+	IL_01e4: ldfld class [SimIFace]Sims3.SimIFace.IPersistFormatter ScriptCore.PersistedClass::mCustomFormatter /* 040000DD */
+	IL_01e9: brfalse.s IL_0223
+
+	IL_01eb: ldarg.3
+	IL_01ec: brtrue.s IL_0209
+
+	IL_01ee: ldarg.2
+	IL_01ef: ldloc.3
+	IL_01f0: ldfld class [SimIFace]Sims3.SimIFace.IPersistFormatter ScriptCore.PersistedClass::mCustomFormatter /* 040000DD */
+	IL_01f5: ldarg.0
+	IL_01f6: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_01fb: ldarg.0
+	IL_01fc: ldloc.3
+	IL_01fd: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_0202: callvirt instance object [SimIFace]Sims3.SimIFace.IPersistFormatter::Precreate(class [SimIFace]Sims3.SimIFace.FastStreamReader, class [SimIFace]Sims3.SimIFace.IPersistReader, class [mscorlib]System.Type) /* 0A00020F */
+	IL_0207: stind.ref
+	IL_0208: ret
+
+	IL_0209: ldloc.3
+	IL_020a: ldfld class [SimIFace]Sims3.SimIFace.IPersistFormatter ScriptCore.PersistedClass::mCustomFormatter /* 040000DD */
+	IL_020f: ldarg.2
+	IL_0210: ldarg.0
+	IL_0211: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0216: ldarg.0
+	IL_0217: ldloc.3
+	IL_0218: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_021d: callvirt instance void [SimIFace]Sims3.SimIFace.IPersistFormatter::Read(object&, class [SimIFace]Sims3.SimIFace.FastStreamReader, class [SimIFace]Sims3.SimIFace.IPersistReader, class [mscorlib]System.Type) /* 0A000210 */
+	IL_0222: ret
+
+	IL_0223: ldarg.2
+	IL_0224: ldind.ref
+	IL_0225: brtrue.s IL_026a
+	.try
+	{
+		IL_0227: ldloc.3
+		IL_0228: ldfld bool ScriptCore.PersistedClass::mPersistable /* 040000D2 */
+		IL_022d: brfalse.s IL_0265
+
+		IL_022f: ldloc.3
+		IL_0230: ldfld valuetype [SimIFace]Sims3.SimIFace.ReflectionTypeFlags ScriptCore.PersistedClass::mTypeFlags /* 040000D8 */
+		IL_0235: ldc.i4.4
+		IL_0236: and
+		IL_0237: brfalse.s IL_024f
+
+		IL_0239: ldarg.2
+		IL_023a: ldloc.3
+		IL_023b: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+		IL_0240: ldc.i4.1
+		IL_0241: call class [mscorlib]System.Array [mscorlib]System.Array::CreateInstance(class [mscorlib]System.Type, int32) /* 0A000155 */
+		IL_0246: ldc.i4.0
+		IL_0247: callvirt instance object [mscorlib]System.Array::GetValue(int32) /* 0A00014F */
+		IL_024c: stind.ref
+		IL_024d: br.s IL_0265
+
+		IL_024f: ldloc.3
+		IL_0250: ldfld class [mscorlib]System.Reflection.ConstructorInfo ScriptCore.PersistedClass::mCtor /* 040000D9 */
+		IL_0255: brfalse.s IL_0265
+
+		IL_0257: ldarg.2
+		IL_0258: ldloc.3
+		IL_0259: ldfld class [mscorlib]System.Reflection.ConstructorInfo ScriptCore.PersistedClass::mCtor /* 040000D9 */
+		IL_025e: ldnull
+		IL_025f: callvirt instance object [mscorlib]System.Reflection.ConstructorInfo::Invoke(object[]) /* 0A00017F */
+		IL_0264: stind.ref
+
+		IL_0265: leave.s IL_026a
+	} // end .try
+	catch [mscorlib]System.Exception
+	{
+		IL_0267: pop
+		IL_0268: leave.s IL_026a
+	} // end handler
+
+	IL_026a: ldarg.3
+	IL_026b: brtrue.s IL_026e
+
+	IL_026d: ret
+
+	IL_026e: ldarg.2
+	IL_026f: ldind.ref
+	IL_0270: pop
+	IL_0271: ldloc.3
+	IL_0272: ldfld valuetype ScriptCore.PersistFastField[] ScriptCore.PersistedClass::mFastFields /* 040000DB */
+	IL_0277: brfalse.s IL_0299
+
+	IL_0279: ldarg.2
+	IL_027a: ldind.ref
+	IL_027b: ldloc.3
+	IL_027c: ldfld valuetype ScriptCore.PersistFastField[] ScriptCore.PersistedClass::mFastFields /* 040000DB */
+	IL_0281: ldarg.0
+	IL_0282: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0287: callvirt instance uint32 [SimIFace]Sims3.SimIFace.FastStreamReader::get_Handle() /* 0A000211 */
+	IL_028c: call int32 ScriptCore.PersistImports::Serializer_ReadFastFields(object, valuetype ScriptCore.PersistFastField[], uint32) /* 06000CAE */
+	IL_0291: stloc.s 4
+	IL_0293: ldloc.s 4
+	IL_0295: ldc.i4.0
+	IL_0296: bge.s IL_0299
+
+	IL_0298: ret
+
+	IL_0299: ldloc.3
+	IL_029a: ldfld valuetype ScriptCore.PersistedFieldInfo[] ScriptCore.PersistedClass::mFields /* 040000DA */
+	IL_029f: stloc.s 45
+	IL_02a1: ldc.i4.0
+	IL_02a2: stloc.s 46
+	IL_02a4: br IL_03eb
+	// loop start (head: IL_03eb)
+		IL_02a9: ldloc.s 45
+		IL_02ab: ldloc.s 46
+		IL_02ad: ldelema ScriptCore.PersistedFieldInfo /* 02000066 */
+		IL_02b2: ldobj ScriptCore.PersistedFieldInfo /* 02000066 */
+		IL_02b7: stloc.s 5
+		IL_02b9: ldloca.s 5
+		IL_02bb: ldfld class [mscorlib]System.Reflection.FieldInfo ScriptCore.PersistedFieldInfo::mFieldInfo /* 040000CE */
+		IL_02c0: stloc.s 6
+		IL_02c2: ldnull
+		IL_02c3: stloc.s 7
+		IL_02c5: ldarg.2
+		IL_02c6: ldind.ref
+		IL_02c7: brfalse.s IL_02e1
+
+		IL_02c9: ldloc.s 6
+		IL_02cb: brtrue.s IL_02e1
+
+		IL_02cd: ldloc.3
+		IL_02ce: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+		IL_02d3: ldloca.s 5
+		IL_02d5: ldfld string ScriptCore.PersistedFieldInfo::mFullName /* 040000CD */
+		IL_02da: call class [SimIFace]Sims3.SimIFace.LoadFieldAttribute/Info [SimIFace]Sims3.SimIFace.LoadFieldAttribute::FindLoadMethod(class [mscorlib]System.Type, string) /* 0A000212 */
+		IL_02df: stloc.s 7
+
+		IL_02e1: ldarg.2
+		IL_02e2: ldind.ref
+		IL_02e3: brfalse.s IL_02ed
+
+		IL_02e5: ldloc.s 6
+		IL_02e7: brtrue.s IL_0305
+
+		IL_02e9: ldloc.s 7
+		IL_02eb: brtrue.s IL_0305
+
+		IL_02ed: ldnull
+		IL_02ee: stloc.s 8
+		IL_02f0: ldarg.0
+		IL_02f1: ldloca.s 5
+		IL_02f3: ldfld valuetype ScriptCore.PersistedTypeCode ScriptCore.PersistedFieldInfo::mCode /* 040000CF */
+		IL_02f8: ldloca.s 8
+		IL_02fa: ldc.i4.3
+		IL_02fb: call instance void ScriptCore.PersistReader::LoadObject(valuetype ScriptCore.PersistedTypeCode, object&, valuetype ScriptCore.PersistReader/ObjectLoadMode) /* 06000D31 */
+		IL_0300: br IL_03e5
+
+		IL_0305: ldloc.s 6
+		IL_0307: brfalse.s IL_0314
+
+		IL_0309: ldloc.s 6
+		IL_030b: callvirt instance class [mscorlib]System.Type [mscorlib]System.Reflection.FieldInfo::get_FieldType() /* 0A0001B4 */
+		IL_0310: stloc.s 9
+		IL_0312: br.s IL_031d
+
+		IL_0314: ldloc.s 7
+		IL_0316: ldfld class [mscorlib]System.Type [SimIFace]Sims3.SimIFace.LoadFieldAttribute/Info::FieldType /* 0A000213 */
+		IL_031b: stloc.s 9
+
+		IL_031d: ldnull
+		IL_031e: stloc.s 10
+		IL_0320: ldloc.s 6
+		IL_0322: brfalse.s IL_032f
+
+		IL_0324: ldloc.s 6
+		IL_0326: ldarg.2
+		IL_0327: ldind.ref
+		IL_0328: callvirt instance object [mscorlib]System.Reflection.FieldInfo::GetValue(object) /* 0A0001F1 */
+		IL_032d: stloc.s 10
+		.try
+		{
+			IL_032f: ldarg.0
+			IL_0330: ldloca.s 5
+			IL_0332: ldfld valuetype ScriptCore.PersistedTypeCode ScriptCore.PersistedFieldInfo::mCode /* 040000CF */
+			IL_0337: ldloca.s 10
+			IL_0339: ldc.i4.1
+			IL_033a: call instance void ScriptCore.PersistReader::LoadObject(valuetype ScriptCore.PersistedTypeCode, object&, valuetype ScriptCore.PersistReader/ObjectLoadMode) /* 06000D31 */
+			IL_033f: ldloc.s 10
+			IL_0341: brtrue.s IL_036d
+
+			IL_0343: ldloc.s 6
+			IL_0345: brfalse.s IL_0356
+
+			IL_0347: ldloc.s 6
+			IL_0349: ldarg.2
+			IL_034a: ldind.ref
+			IL_034b: ldnull
+			IL_034c: callvirt instance void [mscorlib]System.Reflection.FieldInfo::SetValue(object, object) /* 0A000214 */
+			IL_0351: br IL_03e0
+
+			IL_0356: ldloc.s 7
+			IL_0358: ldfld class [mscorlib]System.Reflection.MethodInfo [SimIFace]Sims3.SimIFace.LoadFieldAttribute/Info::MethodInfo /* 0A000215 */
+			IL_035d: ldarg.2
+			IL_035e: ldind.ref
+			IL_035f: ldarg.0
+			IL_0360: ldfld object[] ScriptCore.PersistReader::mObjectArrayOneNull /* 04000103 */
+			IL_0365: callvirt instance object [mscorlib]System.Reflection.MethodBase::Invoke(object, object[]) /* 0A000109 */
+			IL_036a: pop
+			IL_036b: br.s IL_03e0
+
+			IL_036d: ldloc.s 9
+			IL_036f: call uint32 ScriptCore.Reflection::Reflection_GetTypeClassification(class [mscorlib]System.Type) /* 06001049 */
+			IL_0374: stloc.s 11
+			IL_0376: ldloc.s 9
+			IL_0378: ldloc.s 11
+			IL_037a: call class [mscorlib]System.Type ScriptCore.Persist::GetUnnullifiedType(class [mscorlib]System.Type, valuetype [SimIFace]Sims3.SimIFace.ReflectionTypeFlags) /* 06000CCF */
+			IL_037f: stloc.s 12
+			IL_0381: ldloc.s 12
+			IL_0383: ldloc.s 10
+			IL_0385: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType() /* 0A0000CB */
+			IL_038a: call bool ScriptCore.Reflection::Reflection_IsTypeAssignableFrom(class [mscorlib]System.Type, class [mscorlib]System.Type) /* 0600104A */
+			IL_038f: brtrue.s IL_03a7
+
+			IL_0391: ldloc.s 12
+			IL_0393: callvirt instance bool [mscorlib]System.Type::get_IsEnum() /* 0A000216 */
+			IL_0398: brfalse.s IL_03a5
+
+			IL_039a: ldloc.s 12
+			IL_039c: ldloca.s 10
+			IL_039e: call bool ScriptCore.Persist::CoerceToEnum(class [mscorlib]System.Type, object&) /* 06000CCD */
+			IL_03a3: brtrue.s IL_03a7
+
+			IL_03a5: leave.s IL_03e5
+
+			IL_03a7: ldloc.s 6
+			IL_03a9: brfalse.s IL_03b8
+
+			IL_03ab: ldloc.s 6
+			IL_03ad: ldarg.2
+			IL_03ae: ldind.ref
+			IL_03af: ldloc.s 10
+			IL_03b1: callvirt instance void [mscorlib]System.Reflection.FieldInfo::SetValue(object, object) /* 0A000214 */
+			IL_03b6: br.s IL_03e0
+
+			IL_03b8: ldarg.0
+			IL_03b9: ldfld object[] ScriptCore.PersistReader::mObjectArrayOneObject /* 04000104 */
+			IL_03be: ldc.i4.0
+			IL_03bf: ldloc.s 10
+			IL_03c1: stelem.ref
+			IL_03c2: ldloc.s 7
+			IL_03c4: ldfld class [mscorlib]System.Reflection.MethodInfo [SimIFace]Sims3.SimIFace.LoadFieldAttribute/Info::MethodInfo /* 0A000215 */
+			IL_03c9: ldarg.2
+			IL_03ca: ldind.ref
+			IL_03cb: ldarg.0
+			IL_03cc: ldfld object[] ScriptCore.PersistReader::mObjectArrayOneObject /* 04000104 */
+			IL_03d1: callvirt instance object [mscorlib]System.Reflection.MethodBase::Invoke(object, object[]) /* 0A000109 */
+			IL_03d6: pop
+			IL_03d7: ldarg.0
+			IL_03d8: ldfld object[] ScriptCore.PersistReader::mObjectArrayOneObject /* 04000104 */
+			IL_03dd: ldc.i4.0
+			IL_03de: ldnull
+			IL_03df: stelem.ref
+
+			IL_03e0: leave.s IL_03e5
+		} // end .try
+		catch [mscorlib]System.Exception
+		{
+			IL_03e2: pop
+			IL_03e3: leave.s IL_03e5
+		} // end handler
+
+		IL_03e5: ldloc.s 46
+		IL_03e7: ldc.i4.1
+		IL_03e8: add
+		IL_03e9: stloc.s 46
+
+		IL_03eb: ldloc.s 46
+		IL_03ed: ldloc.s 45
+		IL_03ef: ldlen
+		IL_03f0: conv.i4
+		IL_03f1: blt IL_02a9
+	// end loop
+
+	IL_03f6: ldarg.2
+	IL_03f7: ldind.ref
+	IL_03f8: brfalse IL_08fa
+
+	IL_03fd: ldloc.3
+	IL_03fe: ldfld class [SimIFace]Sims3.SimIFace.IPersistGroupMarshaler ScriptCore.PersistedClass::mGroupMarshaler /* 040000DE */
+	IL_0403: brfalse IL_08fa
+
+	IL_0408: ldloc.3
+	IL_0409: ldfld class [SimIFace]Sims3.SimIFace.IPersistGroupMarshaler ScriptCore.PersistedClass::mGroupMarshaler /* 040000DE */
+	IL_040e: ldarg.2
+	IL_040f: ldind.ref
+	IL_0410: callvirt instance void [SimIFace]Sims3.SimIFace.IPersistGroupMarshaler::Register(object) /* 0A000217 */
+	IL_0415: ret
+
+	IL_0416: ldarg.0
+	IL_0417: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_041c: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt32() /* 0A0000D3 */
+	IL_0421: stloc.s 13
+	IL_0423: ldarg.0
+	IL_0424: ldloca.s 14
+	IL_0426: call instance class [mscorlib]System.Type ScriptCore.PersistReader::ReadElementType(valuetype ScriptCore.PersistedTypeCode&) /* 06000D32 */
+	IL_042b: stloc.s 15
+	IL_042d: ldloc.s 14
+	IL_042f: ldc.i4.s 17
+	IL_0431: beq.s IL_0439
+
+	IL_0433: ldloc.s 14
+	IL_0435: ldc.i4.s 16
+	IL_0437: bne.un.s IL_043c
+
+	IL_0439: ldc.i4.1
+	IL_043a: stloc.s 14
+
+	IL_043c: ldloc.s 15
+	IL_043e: brfalse IL_0534
+
+	IL_0443: ldnull
+	IL_0444: stloc.s 16
+	IL_0446: ldarg.2
+	IL_0447: ldind.ref
+	IL_0448: brfalse.s IL_047f
+
+	IL_044a: ldarg.2
+	IL_044b: ldind.ref
+	IL_044c: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType() /* 0A0000CB */
+	IL_0451: stloc.s 17
+	IL_0453: ldloc.s 17
+	IL_0455: callvirt instance bool [mscorlib]System.Type::get_IsArray() /* 0A000218 */
+	IL_045a: brfalse.s IL_047f
+
+	IL_045c: ldloc.s 17
+	IL_045e: callvirt instance class [mscorlib]System.Type [mscorlib]System.Type::GetElementType() /* 0A00014D */
+	IL_0463: ldloc.s 15
+	IL_0465: bne.un.s IL_047f
+
+	IL_0467: ldarg.2
+	IL_0468: ldind.ref
+	IL_0469: castclass [mscorlib]System.Array /* 01000098 */
+	IL_046e: stloc.s 18
+	IL_0470: ldloc.s 18
+	IL_0472: callvirt instance int32 [mscorlib]System.Array::get_Length() /* 0A00014E */
+	IL_0477: ldloc.s 13
+	IL_0479: bne.un.s IL_047f
+
+	IL_047b: ldloc.s 18
+	IL_047d: stloc.s 16
+
+	IL_047f: ldloc.s 16
+	IL_0481: brtrue.s IL_048e
+
+	IL_0483: ldloc.s 15
+	IL_0485: ldloc.s 13
+	IL_0487: call class [mscorlib]System.Array [mscorlib]System.Array::CreateInstance(class [mscorlib]System.Type, int32) /* 0A000155 */
+	IL_048c: stloc.s 16
+
+	IL_048e: ldarg.2
+	IL_048f: ldloc.s 16
+	IL_0491: stind.ref
+	IL_0492: ldarg.3
+	IL_0493: brtrue.s IL_0496
+
+	IL_0495: ret
+
+	IL_0496: ldloc.s 14
+	IL_0498: stloc.s 47
+	IL_049a: ldloc.s 47
+	IL_049c: ldc.i4.3
+	IL_049d: sub
+	IL_049e: switch (IL_04d9, IL_04f0, IL_04f0, IL_04f0, IL_04d9, IL_04d9, IL_04d9, IL_04d9, IL_04d9, IL_04d9, IL_04d9, IL_04d9, IL_04d9)
+
+	IL_04d7: br.s IL_04f0
+
+	IL_04d9: ldloc.s 16
+	IL_04db: ldarg.0
+	IL_04dc: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_04e1: callvirt instance uint32 [SimIFace]Sims3.SimIFace.FastStreamReader::get_Handle() /* 0A000211 */
+	IL_04e6: ldloc.s 14
+	IL_04e8: call bool ScriptCore.PersistImports::Serializer_ReadPrimitiveArray(class [mscorlib]System.Array, uint32, uint8) /* 06000CAB */
+	IL_04ed: brfalse.s IL_04f0
+
+	IL_04ef: ret
+
+	IL_04f0: ldc.i4.0
+	IL_04f1: stloc.s 19
+	IL_04f3: br.s IL_052d
+	// loop start (head: IL_052d)
+		IL_04f5: ldnull
+		IL_04f6: stloc.s 20
+		IL_04f8: ldarg.0
+		IL_04f9: ldloc.s 14
+		IL_04fb: ldloca.s 20
+		IL_04fd: ldc.i4.1
+		IL_04fe: call instance void ScriptCore.PersistReader::LoadObject(valuetype ScriptCore.PersistedTypeCode, object&, valuetype ScriptCore.PersistReader/ObjectLoadMode) /* 06000D31 */
+		.try
+		{
+			IL_0503: ldloc.s 20
+			IL_0505: brfalse.s IL_0517
+
+			IL_0507: ldloc.s 15
+			IL_0509: ldloc.s 20
+			IL_050b: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType() /* 0A0000CB */
+			IL_0510: call bool ScriptCore.Reflection::Reflection_IsTypeAssignableFrom(class [mscorlib]System.Type, class [mscorlib]System.Type) /* 0600104A */
+			IL_0515: brfalse.s IL_0522
+
+			IL_0517: ldloc.s 16
+			IL_0519: ldloc.s 20
+			IL_051b: ldloc.s 19
+			IL_051d: callvirt instance void [mscorlib]System.Array::SetValue(object, int32) /* 0A000151 */
+
+			IL_0522: leave.s IL_0527
+		} // end .try
+		catch [mscorlib]System.Exception
+		{
+			IL_0524: pop
+			IL_0525: leave.s IL_0527
+		} // end handler
+
+		IL_0527: ldloc.s 19
+		IL_0529: ldc.i4.1
+		IL_052a: add
+		IL_052b: stloc.s 19
+
+		IL_052d: ldloc.s 19
+		IL_052f: ldloc.s 13
+		IL_0531: blt.s IL_04f5
+	// end loop
+
+	IL_0533: ret
+
+	IL_0534: ldc.i4.0
+	IL_0535: stloc.s 21
+	IL_0537: br.s IL_054d
+	// loop start (head: IL_054d)
+		IL_0539: ldnull
+		IL_053a: stloc.s 22
+		IL_053c: ldarg.0
+		IL_053d: ldloc.s 14
+		IL_053f: ldloca.s 22
+		IL_0541: ldc.i4.3
+		IL_0542: call instance void ScriptCore.PersistReader::LoadObject(valuetype ScriptCore.PersistedTypeCode, object&, valuetype ScriptCore.PersistReader/ObjectLoadMode) /* 06000D31 */
+		IL_0547: ldloc.s 21
+		IL_0549: ldc.i4.1
+		IL_054a: add
+		IL_054b: stloc.s 21
+
+		IL_054d: ldloc.s 21
+		IL_054f: ldloc.s 13
+		IL_0551: blt.s IL_0539
+	// end loop
+
+	IL_0553: ret
+
+	IL_0554: ldarg.0
+	IL_0555: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_055a: call uint32 ScriptCore.Persist::ReadCompressedUint(class [SimIFace]Sims3.SimIFace.FastStreamReader) /* 06000CBF */
+	IL_055f: stloc.s 23
+	IL_0561: ldarg.0
+	IL_0562: ldfld class ScriptCore.PersistedClass[] ScriptCore.PersistReader::mClasses /* 04000101 */
+	IL_0567: ldloc.s 23
+	IL_0569: ldelem.ref
+	IL_056a: stloc.s 24
+	IL_056c: ldarg.2
+	IL_056d: ldloc.s 24
+	IL_056f: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_0574: stind.ref
+	IL_0575: ret
+
+	IL_0576: ldarg.0
+	IL_0577: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_057c: call uint32 ScriptCore.Persist::ReadCompressedUint(class [SimIFace]Sims3.SimIFace.FastStreamReader) /* 06000CBF */
+	IL_0581: stloc.s 25
+	IL_0583: ldloc.s 25
+	IL_0585: brtrue.s IL_058b
+
+	IL_0587: ldarg.2
+	IL_0588: ldnull
+	IL_0589: stind.ref
+	IL_058a: ret
+
+	IL_058b: ldarg.0
+	IL_058c: ldfld class ScriptCore.PersistedClass[] ScriptCore.PersistReader::mClasses /* 04000101 */
+	IL_0591: ldloc.s 25
+	IL_0593: ldc.i4.1
+	IL_0594: sub
+	IL_0595: ldelem.ref
+	IL_0596: stloc.s 26
+	IL_0598: ldarg.2
+	IL_0599: ldloc.s 26
+	IL_059b: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_05a0: stind.ref
+	IL_05a1: ret
+
+	IL_05a2: ldarg.1
+	IL_05a3: ldc.i4.s 22
+	IL_05a5: bne.un.s IL_05b6
+
+	IL_05a7: ldarg.0
+	IL_05a8: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_05ad: call uint32 ScriptCore.Persist::ReadCompressedUint(class [SimIFace]Sims3.SimIFace.FastStreamReader) /* 06000CBF */
+	IL_05b2: stloc.s 27
+	IL_05b4: br.s IL_05c3
+
+	IL_05b6: ldarg.0
+	IL_05b7: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_05bc: call int32 ScriptCore.Persist::ReadBrokenCompressedInt(class [SimIFace]Sims3.SimIFace.FastStreamReader) /* 06000CBD */
+	IL_05c1: stloc.s 27
+
+	IL_05c3: ldarg.0
+	IL_05c4: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_05c9: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::get_Position() /* 0A00012D */
+	IL_05ce: conv.i8
+	IL_05cf: stloc.s 28
+	IL_05d1: ldarg.3
+	IL_05d2: ldc.i4.3
+	IL_05d3: beq.s IL_05fd
+
+	IL_05d5: ldloc.s 27
+	IL_05d7: ldc.i4.0
+	IL_05d8: blt.s IL_05fd
+
+	IL_05da: ldarg.0
+	IL_05db: ldc.i4.s 16
+	IL_05dd: ldarg.2
+	IL_05de: ldarg.3
+	IL_05df: call instance void ScriptCore.PersistReader::LoadObject(valuetype ScriptCore.PersistedTypeCode, object&, valuetype ScriptCore.PersistReader/ObjectLoadMode) /* 06000D31 */
+	IL_05e4: ldarg.0
+	IL_05e5: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_05ea: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::get_Position() /* 0A00012D */
+	IL_05ef: conv.i8
+	IL_05f0: stloc.s 29
+	IL_05f2: ldloc.s 29
+	IL_05f4: ldloc.s 28
+	IL_05f6: ldloc.s 27
+	IL_05f8: conv.i8
+	IL_05f9: add
+	IL_05fa: bne.un.s IL_05fd
+
+	IL_05fc: ret
+
+	IL_05fd: ldarg.0
+	IL_05fe: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0603: ldloc.s 28
+	IL_0605: ldloc.s 27
+	IL_0607: conv.i8
+	IL_0608: add
+	IL_0609: conv.i4
+	IL_060a: ldc.i4.0
+	IL_060b: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamReader::Seek(int32, valuetype [mscorlib]System.IO.SeekOrigin) /* 0A00012F */
+	IL_0610: ret
+
+	IL_0611: ldarg.0
+	IL_0612: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0617: call int32 ScriptCore.Persist::ReadCompressedInt(class [SimIFace]Sims3.SimIFace.FastStreamReader) /* 06000CBC */
+	IL_061c: stloc.s 30
+	IL_061e: ldarg.0
+	IL_061f: ldfld class ScriptCore.PersistedClass[] ScriptCore.PersistReader::mClasses /* 04000101 */
+	IL_0624: ldloc.s 30
+	IL_0626: ldelem.ref
+	IL_0627: stloc.s 31
+	IL_0629: ldloc.s 31
+	IL_062b: ldfld class [SimIFace]Sims3.SimIFace.IPersistGroupMarshaler ScriptCore.PersistedClass::mGroupMarshaler /* 040000DE */
+	IL_0630: brtrue.s IL_0636
+
+	IL_0632: ldarg.2
+	IL_0633: ldnull
+	IL_0634: stind.ref
+	IL_0635: ret
+
+	IL_0636: ldarg.2
+	IL_0637: ldloc.s 31
+	IL_0639: ldfld class [SimIFace]Sims3.SimIFace.IPersistGroupMarshaler ScriptCore.PersistedClass::mGroupMarshaler /* 040000DE */
+	IL_063e: ldarg.0
+	IL_063f: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0644: ldarg.0
+	IL_0645: callvirt instance object [SimIFace]Sims3.SimIFace.IPersistGroupMarshaler::Read(class [SimIFace]Sims3.SimIFace.FastStreamReader, class [SimIFace]Sims3.SimIFace.IPersistReader) /* 0A000219 */
+	IL_064a: stind.ref
+	IL_064b: ret
+
+	IL_064c: ldarg.1
+	IL_064d: ldc.i4.s 23
+	IL_064f: bne.un.s IL_0660
+
+	IL_0651: ldarg.0
+	IL_0652: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0657: call int32 ScriptCore.Persist::ReadCompressedInt(class [SimIFace]Sims3.SimIFace.FastStreamReader) /* 06000CBC */
+	IL_065c: stloc.s 32
+	IL_065e: br.s IL_066d
+
+	IL_0660: ldarg.0
+	IL_0661: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0666: call int32 ScriptCore.Persist::ReadBrokenCompressedInt(class [SimIFace]Sims3.SimIFace.FastStreamReader) /* 06000CBD */
+	IL_066b: stloc.s 32
+
+	IL_066d: ldarg.0
+	IL_066e: ldfld class ScriptCore.PersistedClass[] ScriptCore.PersistReader::mClasses /* 04000101 */
+	IL_0673: ldloc.s 32
+	IL_0675: ldelem.ref
+	IL_0676: stloc.s 33
+	IL_0678: ldarg.0
+	IL_0679: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_067e: callvirt instance uint8 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadByte() /* 0A0001A1 */
+	IL_0683: stloc.s 34
+	IL_0685: ldloc.s 33
+	IL_0687: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_068c: brfalse.s IL_0692
+
+	IL_068e: ldarg.3
+	IL_068f: ldc.i4.3
+	IL_0690: bne.un.s IL_069d
+
+	IL_0692: ldarg.0
+	IL_0693: ldloc.s 34
+	IL_0695: ldarg.2
+	IL_0696: ldarg.3
+	IL_0697: call instance void ScriptCore.PersistReader::LoadObject(valuetype ScriptCore.PersistedTypeCode, object&, valuetype ScriptCore.PersistReader/ObjectLoadMode) /* 06000D31 */
+	IL_069c: ret
+
+	IL_069d: ldloc.s 34
+	IL_069f: stloc.s 48
+	IL_06a1: ldloc.s 48
+	IL_06a3: ldc.i4.3
+	IL_06a4: sub
+	IL_06a5: switch (IL_06f9, IL_08fa, IL_08fa, IL_08fa, IL_08fa, IL_0713, IL_0747, IL_077b, IL_06df, IL_08fa, IL_072d, IL_0761, IL_0795)
+
+	IL_06de: ret
+
+	IL_06df: ldarg.2
+	IL_06e0: ldloc.s 33
+	IL_06e2: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_06e7: ldarg.0
+	IL_06e8: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_06ed: callvirt instance int8 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadSByte() /* 0A00020C */
+	IL_06f2: call object [mscorlib]System.Enum::ToObject(class [mscorlib]System.Type, int8) /* 0A00021A */
+	IL_06f7: stind.ref
+	IL_06f8: ret
+
+	IL_06f9: ldarg.2
+	IL_06fa: ldloc.s 33
+	IL_06fc: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_0701: ldarg.0
+	IL_0702: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0707: callvirt instance uint8 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadByte() /* 0A0001A1 */
+	IL_070c: call object [mscorlib]System.Enum::ToObject(class [mscorlib]System.Type, uint8) /* 0A00021B */
+	IL_0711: stind.ref
+	IL_0712: ret
+
+	IL_0713: ldarg.2
+	IL_0714: ldloc.s 33
+	IL_0716: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_071b: ldarg.0
+	IL_071c: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0721: callvirt instance int16 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt16() /* 0A00020B */
+	IL_0726: call object [mscorlib]System.Enum::ToObject(class [mscorlib]System.Type, int16) /* 0A00021C */
+	IL_072b: stind.ref
+	IL_072c: ret
+
+	IL_072d: ldarg.2
+	IL_072e: ldloc.s 33
+	IL_0730: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_0735: ldarg.0
+	IL_0736: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_073b: callvirt instance uint16 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadUInt16() /* 0A00020E */
+	IL_0740: call object [mscorlib]System.Enum::ToObject(class [mscorlib]System.Type, uint16) /* 0A00021D */
+	IL_0745: stind.ref
+	IL_0746: ret
+
+	IL_0747: ldarg.2
+	IL_0748: ldloc.s 33
+	IL_074a: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_074f: ldarg.0
+	IL_0750: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0755: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt32() /* 0A0000D3 */
+	IL_075a: call object [mscorlib]System.Enum::ToObject(class [mscorlib]System.Type, int32) /* 0A00021E */
+	IL_075f: stind.ref
+	IL_0760: ret
+
+	IL_0761: ldarg.2
+	IL_0762: ldloc.s 33
+	IL_0764: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_0769: ldarg.0
+	IL_076a: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_076f: callvirt instance uint32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadUInt32() /* 0A00012E */
+	IL_0774: call object [mscorlib]System.Enum::ToObject(class [mscorlib]System.Type, uint32) /* 0A00021F */
+	IL_0779: stind.ref
+	IL_077a: ret
+
+	IL_077b: ldarg.2
+	IL_077c: ldloc.s 33
+	IL_077e: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_0783: ldarg.0
+	IL_0784: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_0789: callvirt instance int64 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt64() /* 0A000207 */
+	IL_078e: call object [mscorlib]System.Enum::ToObject(class [mscorlib]System.Type, int64) /* 0A000220 */
+	IL_0793: stind.ref
+	IL_0794: ret
+
+	IL_0795: ldarg.2
+	IL_0796: ldloc.s 33
+	IL_0798: ldfld class [mscorlib]System.Type ScriptCore.PersistedClass::mType /* 040000D7 */
+	IL_079d: ldarg.0
+	IL_079e: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_07a3: callvirt instance uint64 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadUInt64() /* 0A0000CC */
+	IL_07a8: call object [mscorlib]System.Enum::ToObject(class [mscorlib]System.Type, uint64) /* 0A000221 */
+	IL_07ad: stind.ref
+	IL_07ae: ret
+
+	IL_07af: ldarg.2
+	IL_07b0: ldind.ref
+	IL_07b1: brtrue IL_08fa
+
+	IL_07b6: ldarg.3
+	IL_07b7: ldc.i4.3
+	IL_07b8: beq IL_08fa
+
+	IL_07bd: ldarg.0
+	IL_07be: call instance object ScriptCore.PersistReader::ReadReference() /* 06000D27 */
+	IL_07c3: castclass [mscorlib]System.Type /* 01000096 */
+	IL_07c8: stloc.s 35
+	IL_07ca: ldloc.s 35
+	IL_07cc: brtrue.s IL_07d2
+
+	IL_07ce: ldarg.2
+	IL_07cf: ldnull
+	IL_07d0: stind.ref
+	IL_07d1: ret
+
+	IL_07d2: ldarg.0
+	IL_07d3: call instance object ScriptCore.PersistReader::ReadReference() /* 06000D27 */
+	IL_07d8: castclass [mscorlib]System.String /* 01000141 */
+	IL_07dd: stloc.s 36
+	IL_07df: ldarg.0
+	IL_07e0: call instance object ScriptCore.PersistReader::ReadReferenceForceLive() /* 06000D28 */
+	IL_07e5: castclass class [mscorlib]System.Type[] /* 1B000029 */
+	IL_07ea: stloc.s 37
+	IL_07ec: ldarg.0
+	IL_07ed: call instance object ScriptCore.PersistReader::ReadReferenceForceLive() /* 06000D28 */
+	IL_07f2: castclass class [mscorlib]System.Type[] /* 1B000029 */
+	IL_07f7: stloc.s 38
+	IL_07f9: ldnull
+	IL_07fa: stloc.s 39
+	IL_07fc: ldloc.s 35
+	IL_07fe: brfalse.s IL_0873
+
+	IL_0800: ldloc.s 36
+	IL_0802: brfalse.s IL_0873
+	.try
+	{
+		IL_0804: ldloc.s 36
+		IL_0806: ldstr "<" /* 700006E3 */
+		IL_080b: callvirt instance bool [mscorlib]System.String::StartsWith(string) /* 0A0001A8 */
+		IL_0810: brfalse.s IL_085a
+
+		IL_0812: ldloc.s 35
+		IL_0814: ldc.i4.s 62
+		IL_0816: callvirt instance class [mscorlib]System.Reflection.MethodInfo[] [mscorlib]System.Type::GetMethods(valuetype [mscorlib]System.Reflection.BindingFlags) /* 0A000222 */
+		IL_081b: stloc.s 40
+		IL_081d: ldloc.s 40
+		IL_081f: stloc.s 49
+		IL_0821: ldc.i4.0
+		IL_0822: stloc.s 50
+		IL_0824: br.s IL_0850
+		// loop start (head: IL_0850)
+			IL_0826: ldloc.s 49
+			IL_0828: ldloc.s 50
+			IL_082a: ldelem.ref
+			IL_082b: stloc.s 41
+			IL_082d: ldloc.s 41
+			IL_082f: callvirt instance string [mscorlib]System.Reflection.MemberInfo::get_Name() /* 0A0000FA */
+			IL_0834: ldloc.s 36
+			IL_0836: callvirt instance bool [mscorlib]System.String::StartsWith(string) /* 0A0001A8 */
+			IL_083b: brfalse.s IL_084a
+
+			IL_083d: ldloc.s 39
+			IL_083f: brfalse.s IL_0846
+
+			IL_0841: ldnull
+			IL_0842: stloc.s 39
+			IL_0844: br.s IL_086e
+
+			IL_0846: ldloc.s 41
+			IL_0848: stloc.s 39
+
+			IL_084a: ldloc.s 50
+			IL_084c: ldc.i4.1
+			IL_084d: add
+			IL_084e: stloc.s 50
+
+			IL_0850: ldloc.s 50
+			IL_0852: ldloc.s 49
+			IL_0854: ldlen
+			IL_0855: conv.i4
+			IL_0856: blt.s IL_0826
+		// end loop
+
+		IL_0858: br.s IL_086e
+
+		IL_085a: ldloc.s 35
+		IL_085c: ldloc.s 36
+		IL_085e: ldc.i4 65660
+		IL_0863: ldnull
+		IL_0864: ldloc.s 37
+		IL_0866: ldnull
+		IL_0867: callvirt instance class [mscorlib]System.Reflection.MethodInfo [mscorlib]System.Type::GetMethod(string, valuetype [mscorlib]System.Reflection.BindingFlags, class [mscorlib]System.Reflection.Binder, class [mscorlib]System.Type[], valuetype [mscorlib]System.Reflection.ParameterModifier[]) /* 0A000223 */
+		IL_086c: stloc.s 39
+
+		IL_086e: leave.s IL_0873
+	} // end .try
+	catch [mscorlib]System.Exception
+	{
+		IL_0870: pop
+		IL_0871: leave.s IL_0877
+	} // end handler
+
+	IL_0873: ldloc.s 39
+	IL_0875: brtrue.s IL_0878
+
+	IL_0877: ret
+
+	IL_0878: ldloc.s 38
+	IL_087a: brtrue.s IL_088b
+
+	IL_087c: ldloc.s 39
+	IL_087e: callvirt instance bool [mscorlib]System.Reflection.MethodBase::get_IsGenericMethod() /* 0A000149 */
+	IL_0883: brfalse.s IL_0886
+
+	IL_0885: ret
+
+	IL_0886: ldarg.2
+	IL_0887: ldloc.s 39
+	IL_0889: stind.ref
+	IL_088a: ret
+
+	IL_088b: ldloc.s 39
+	IL_088d: callvirt instance bool [mscorlib]System.Reflection.MethodBase::get_IsGenericMethod() /* 0A000149 */
+	IL_0892: brtrue.s IL_0895
+
+	IL_0894: ret
+
+	IL_0895: ldloc.s 39
+	IL_0897: ldloc.s 38
+	IL_0899: callvirt instance class [mscorlib]System.Reflection.MethodInfo [mscorlib]System.Reflection.MethodInfo::MakeGenericMethod(class [mscorlib]System.Type[]) /* 0A000224 */
+	IL_089e: stloc.s 42
+	IL_08a0: ldloc.s 42
+	IL_08a2: brtrue.s IL_08a5
+
+	IL_08a4: ret
+
+	IL_08a5: ldarg.2
+	IL_08a6: ldloc.s 42
+	IL_08a8: stind.ref
+	IL_08a9: ret
+
+	IL_08aa: ldarg.2
+	IL_08ab: ldind.ref
+	IL_08ac: brtrue.s IL_08bf
+
+	IL_08ae: ldarg.2
+	IL_08af: ldloca.s 51
+	IL_08b1: initobj [SimIFace]Sims3.SimIFace.ResourceKey /* 01000055 */
+	IL_08b7: ldloc.s 51
+	IL_08b9: box [SimIFace]Sims3.SimIFace.ResourceKey /* 01000055 */
+	IL_08be: stind.ref
+
+	IL_08bf: ldarg.3
+	IL_08c0: brtrue.s IL_08c3
+
+	IL_08c2: ret
+
+	IL_08c3: ldarg.0
+	IL_08c4: ldfld class [SimIFace]Sims3.SimIFace.FastStreamReader ScriptCore.PersistReader::mReader /* 040000FC */
+	IL_08c9: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamReader::ReadInt32() /* 0A0000D3 */
+	IL_08ce: stloc.s 43
+	IL_08d0: ldloc.s 43
+	IL_08d2: ldc.i4.0
+	IL_08d3: blt.s IL_08fa
+
+	IL_08d5: ldloc.s 43
+	IL_08d7: ldarg.0
+	IL_08d8: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey[] ScriptCore.PersistReader::mResourceKeyTable /* 04000100 */
+	IL_08dd: ldlen
+	IL_08de: conv.i4
+	IL_08df: bge.s IL_08fa
+
+	IL_08e1: ldarg.2
+	IL_08e2: ldarg.0
+	IL_08e3: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey[] ScriptCore.PersistReader::mResourceKeyTable /* 04000100 */
+	IL_08e8: ldloc.s 43
+	IL_08ea: ldelema [SimIFace]Sims3.SimIFace.ResourceKey /* 01000055 */
+	IL_08ef: ldobj [SimIFace]Sims3.SimIFace.ResourceKey /* 01000055 */
+	IL_08f4: box [SimIFace]Sims3.SimIFace.ResourceKey /* 01000055 */
+	IL_08f9: stind.ref
+
+	IL_08fa: ret
+} // end of method PersistReader::LoadObject

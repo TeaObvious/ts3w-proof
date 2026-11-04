@@ -1,0 +1,635 @@
+// Original ScriptCore PC1.67; assembly identity: ../../reference-inputs.json.
+// Complete selected methods or type, ILSpy with metadata tokens.
+
+.method /* 06000D1B */ private hidebysig
+	instance void SaveObjectAsType (
+		object obj,
+		valuetype ScriptCore.PersistedTypeCode ptc
+	) cil managed
+{
+	// Method begins at RVA 0xf1c8
+	// Header size: 12
+	// Code size: 1519 (0x5ef)
+	.maxstack 4
+	.locals /* 110000A7 */ init (
+		[0] class [SimIFace]Sims3.SimIFace.FastStreamWriter,
+		[1] class [SimIFace]Sims3.SimIFace.FastStreamWriter,
+		[2] int32,
+		[3] class [mscorlib]System.Type,
+		[4] class ScriptCore.PersistedClass,
+		[5] valuetype ScriptCore.PersistFastField[],
+		[6] int32,
+		[7] valuetype ScriptCore.PersistedFieldInfo[],
+		[8] int32,
+		[9] valuetype ScriptCore.PersistedFieldInfo,
+		[10] valuetype ScriptCore.PersistedTypeCode,
+		[11] object,
+		[12] int32,
+		[13] class [mscorlib]System.Array,
+		[14] class [mscorlib]System.Type,
+		[15] valuetype ScriptCore.PersistedTypeCode,
+		[16] bool,
+		[17] object,
+		[18] int32,
+		[19] class [mscorlib]System.Type,
+		[20] class ScriptCore.PersistedClass,
+		[21] class [mscorlib]System.Type,
+		[22] valuetype ScriptCore.PersistedTypeCode,
+		[23] class [mscorlib]System.Reflection.MethodInfo,
+		[24] class [mscorlib]System.Type,
+		[25] string,
+		[26] int32,
+		[27] class [mscorlib]System.Reflection.ParameterInfo[],
+		[28] class [mscorlib]System.Type[],
+		[29] int32,
+		[30] valuetype [SimIFace]Sims3.SimIFace.ResourceKey,
+		[31] int32,
+		[32] valuetype ScriptCore.PersistedTypeCode,
+		[33] valuetype [mscorlib]System.DateTime,
+		[34] valuetype ScriptCore.PersistedTypeCode,
+		[35] class [mscorlib]System.Collections.IEnumerator,
+		[36] class [mscorlib]System.IDisposable,
+		[37] valuetype ScriptCore.PersistedTypeCode
+	)
+
+	IL_0000: ldarg.2
+	IL_0001: stloc.s 32
+	IL_0003: ldloc.s 32
+	IL_0005: switch (IL_05ee, IL_029c, IL_0077, IL_0089, IL_009b, IL_00ad, IL_00c8, IL_00da, IL_00ec, IL_00fe, IL_0110, IL_0122, IL_0134, IL_0146, IL_0158, IL_016a, IL_01d1, IL_02b3, IL_05ee, IL_05ee, IL_05ee, IL_05ee, IL_017c, IL_03e5, IL_0506, IL_05cf, IL_03ba)
+
+	IL_0076: ret
+
+	IL_0077: ldarg.0
+	IL_0078: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_007d: ldarg.1
+	IL_007e: unbox.any [mscorlib]System.Boolean /* 0100014D */
+	IL_0083: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(bool) /* 0A0001E3 */
+	IL_0088: ret
+
+	IL_0089: ldarg.0
+	IL_008a: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_008f: ldarg.1
+	IL_0090: unbox.any [mscorlib]System.Byte /* 01000183 */
+	IL_0095: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint8) /* 0A0001A0 */
+	IL_009a: ret
+
+	IL_009b: ldarg.0
+	IL_009c: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_00a1: ldarg.1
+	IL_00a2: unbox.any [mscorlib]System.Char /* 01000142 */
+	IL_00a7: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(char) /* 0A0001E4 */
+	IL_00ac: ret
+
+	IL_00ad: ldarg.0
+	IL_00ae: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_00b3: ldarg.1
+	IL_00b4: unbox.any [mscorlib]System.DateTime /* 01000139 */
+	IL_00b9: stloc.s 33
+	IL_00bb: ldloca.s 33
+	IL_00bd: call instance int64 [mscorlib]System.DateTime::get_Ticks() /* 0A0001E5 */
+	IL_00c2: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int64) /* 0A0001E6 */
+	IL_00c7: ret
+
+	IL_00c8: ldarg.0
+	IL_00c9: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_00ce: ldarg.1
+	IL_00cf: unbox.any [mscorlib]System.Decimal /* 01000051 */
+	IL_00d4: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(valuetype [mscorlib]System.Decimal) /* 0A0001E7 */
+	IL_00d9: ret
+
+	IL_00da: ldarg.0
+	IL_00db: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_00e0: ldarg.1
+	IL_00e1: unbox.any [mscorlib]System.Double /* 01000184 */
+	IL_00e6: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(float64) /* 0A0001E8 */
+	IL_00eb: ret
+
+	IL_00ec: ldarg.0
+	IL_00ed: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_00f2: ldarg.1
+	IL_00f3: unbox.any [mscorlib]System.Int16 /* 01000185 */
+	IL_00f8: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int16) /* 0A0001E9 */
+	IL_00fd: ret
+
+	IL_00fe: ldarg.0
+	IL_00ff: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_0104: ldarg.1
+	IL_0105: unbox.any [mscorlib]System.Int32 /* 01000145 */
+	IL_010a: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int32) /* 0A0000D4 */
+	IL_010f: ret
+
+	IL_0110: ldarg.0
+	IL_0111: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_0116: ldarg.1
+	IL_0117: unbox.any [mscorlib]System.Int64 /* 01000186 */
+	IL_011c: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int64) /* 0A0001E6 */
+	IL_0121: ret
+
+	IL_0122: ldarg.0
+	IL_0123: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_0128: ldarg.1
+	IL_0129: unbox.any [mscorlib]System.SByte /* 01000187 */
+	IL_012e: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int8) /* 0A0001EA */
+	IL_0133: ret
+
+	IL_0134: ldarg.0
+	IL_0135: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_013a: ldarg.1
+	IL_013b: unbox.any [mscorlib]System.Single /* 01000150 */
+	IL_0140: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(float32) /* 0A0001EB */
+	IL_0145: ret
+
+	IL_0146: ldarg.0
+	IL_0147: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_014c: ldarg.1
+	IL_014d: unbox.any [mscorlib]System.UInt16 /* 01000188 */
+	IL_0152: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint16) /* 0A0001EC */
+	IL_0157: ret
+
+	IL_0158: ldarg.0
+	IL_0159: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_015e: ldarg.1
+	IL_015f: unbox.any [mscorlib]System.UInt32 /* 01000161 */
+	IL_0164: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint32) /* 0A00013A */
+	IL_0169: ret
+
+	IL_016a: ldarg.0
+	IL_016b: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_0170: ldarg.1
+	IL_0171: unbox.any [mscorlib]System.UInt64 /* 01000149 */
+	IL_0176: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint64) /* 0A0000CE */
+	IL_017b: ret
+
+	IL_017c: ldarg.0
+	IL_017d: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_0182: stloc.0
+	IL_0183: newobj instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::.ctor() /* 0A0001ED */
+	IL_0188: stloc.1
+	IL_0189: ldarg.0
+	IL_018a: ldloc.1
+	IL_018b: stfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_0190: ldc.i4.m1
+	IL_0191: stloc.2
+	.try
+	{
+		IL_0192: ldarg.0
+		IL_0193: ldarg.1
+		IL_0194: ldc.i4.s 16
+		IL_0196: call instance void ScriptCore.PersistWriter::SaveObjectAsType(object, valuetype ScriptCore.PersistedTypeCode) /* 06000D1B */
+		IL_019b: ldloc.1
+		IL_019c: callvirt instance int32 [SimIFace]Sims3.SimIFace.FastStreamWriter::get_Position() /* 0A000139 */
+		IL_01a1: stloc.2
+		IL_01a2: leave.s IL_01a7
+	} // end .try
+	catch [mscorlib]System.Exception
+	{
+		IL_01a4: pop
+		IL_01a5: leave.s IL_01a7
+	} // end handler
+
+	IL_01a7: ldarg.0
+	IL_01a8: ldloc.0
+	IL_01a9: stfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_01ae: ldarg.0
+	IL_01af: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_01b4: ldloc.2
+	IL_01b5: call void ScriptCore.Persist::WriteCompressedUint(class [SimIFace]Sims3.SimIFace.FastStreamWriter, uint32) /* 06000CBE */
+	IL_01ba: ldloc.2
+	IL_01bb: ldc.i4.0
+	IL_01bc: ble.s IL_01ca
+
+	IL_01be: ldarg.0
+	IL_01bf: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_01c4: ldloc.1
+	IL_01c5: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::CopyStream(class [SimIFace]Sims3.SimIFace.FastStreamWriter) /* 0A0001EE */
+
+	IL_01ca: ldloc.1
+	IL_01cb: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Dispose() /* 0A0001EF */
+	IL_01d0: ret
+
+	IL_01d1: ldarg.1
+	IL_01d2: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType() /* 0A0000CB */
+	IL_01d7: stloc.3
+	IL_01d8: ldarg.0
+	IL_01d9: ldfld class ScriptCore.PersistedClassDB ScriptCore.PersistWriter::mClassDB /* 040000F2 */
+	IL_01de: ldloc.3
+	IL_01df: ldc.i4.1
+	IL_01e0: callvirt instance class ScriptCore.PersistedClass ScriptCore.PersistedClassDB::GetPersistedClass(class [mscorlib]System.Type, bool) /* 06000CB4 */
+	IL_01e5: stloc.s 4
+	IL_01e7: ldarg.0
+	IL_01e8: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_01ed: ldloc.s 4
+	IL_01ef: ldfld int32 ScriptCore.PersistedClass::mIndex /* 040000D1 */
+	IL_01f4: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int32) /* 0A0000D4 */
+	IL_01f9: ldloc.s 4
+	IL_01fb: ldfld class [SimIFace]Sims3.SimIFace.IPersistFormatter ScriptCore.PersistedClass::mCustomFormatter /* 040000DD */
+	IL_0200: brfalse.s IL_0217
+
+	IL_0202: ldloc.s 4
+	IL_0204: ldfld class [SimIFace]Sims3.SimIFace.IPersistFormatter ScriptCore.PersistedClass::mCustomFormatter /* 040000DD */
+	IL_0209: ldarg.1
+	IL_020a: ldarg.0
+	IL_020b: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_0210: ldarg.0
+	IL_0211: callvirt instance void [SimIFace]Sims3.SimIFace.IPersistFormatter::Write(object, class [SimIFace]Sims3.SimIFace.FastStreamWriter, class [SimIFace]Sims3.SimIFace.IPersistWriter) /* 0A0001F0 */
+	IL_0216: ret
+
+	IL_0217: ldloc.s 4
+	IL_0219: ldfld valuetype ScriptCore.PersistFastField[] ScriptCore.PersistedClass::mFastFields /* 040000DB */
+	IL_021e: stloc.s 5
+	IL_0220: ldc.i4.0
+	IL_0221: stloc.s 6
+	IL_0223: ldloc.s 5
+	IL_0225: brfalse.s IL_024c
+
+	IL_0227: ldarg.0
+	IL_0228: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_022d: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Flush() /* 0A000138 */
+	IL_0232: ldarg.1
+	IL_0233: ldloc.s 5
+	IL_0235: ldarg.0
+	IL_0236: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_023b: callvirt instance uint32 [SimIFace]Sims3.SimIFace.FastStreamWriter::get_Handle() /* 0A00001C */
+	IL_0240: call uint32 ScriptCore.PersistImports::Serializer_WriteFastFields(object, valuetype ScriptCore.PersistFastField[], uint32) /* 06000CAF */
+	IL_0245: pop
+	IL_0246: ldloc.s 5
+	IL_0248: ldlen
+	IL_0249: conv.i4
+	IL_024a: stloc.s 6
+
+	IL_024c: ldloc.s 4
+	IL_024e: ldfld valuetype ScriptCore.PersistedFieldInfo[] ScriptCore.PersistedClass::mFields /* 040000DA */
+	IL_0253: stloc.s 7
+	IL_0255: ldloc.s 6
+	IL_0257: stloc.s 8
+	IL_0259: br.s IL_0293
+	// loop start (head: IL_0293)
+		IL_025b: ldloc.s 7
+		IL_025d: ldloc.s 8
+		IL_025f: ldelema ScriptCore.PersistedFieldInfo /* 02000066 */
+		IL_0264: ldobj ScriptCore.PersistedFieldInfo /* 02000066 */
+		IL_0269: stloc.s 9
+		IL_026b: ldloca.s 9
+		IL_026d: ldfld valuetype ScriptCore.PersistedTypeCode ScriptCore.PersistedFieldInfo::mCode /* 040000CF */
+		IL_0272: stloc.s 10
+		IL_0274: ldloca.s 9
+		IL_0276: ldfld class [mscorlib]System.Reflection.FieldInfo ScriptCore.PersistedFieldInfo::mFieldInfo /* 040000CE */
+		IL_027b: ldarg.1
+		IL_027c: callvirt instance object [mscorlib]System.Reflection.FieldInfo::GetValue(object) /* 0A0001F1 */
+		IL_0281: stloc.s 11
+		IL_0283: ldarg.0
+		IL_0284: ldloc.s 11
+		IL_0286: ldloc.s 10
+		IL_0288: call instance void ScriptCore.PersistWriter::SaveObjectAsType(object, valuetype ScriptCore.PersistedTypeCode) /* 06000D1B */
+		IL_028d: ldloc.s 8
+		IL_028f: ldc.i4.1
+		IL_0290: add
+		IL_0291: stloc.s 8
+
+		IL_0293: ldloc.s 8
+		IL_0295: ldloc.s 7
+		IL_0297: ldlen
+		IL_0298: conv.i4
+		IL_0299: blt.s IL_025b
+	// end loop
+
+	IL_029b: ret
+
+	IL_029c: ldarg.0
+	IL_029d: ldarg.1
+	IL_029e: call instance int32 ScriptCore.PersistWriter::GetObjectIndex(object) /* 06000D1C */
+	IL_02a3: stloc.s 12
+	IL_02a5: ldarg.0
+	IL_02a6: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_02ab: ldloc.s 12
+	IL_02ad: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int32) /* 0A0000D4 */
+	IL_02b2: ret
+
+	IL_02b3: ldarg.1
+	IL_02b4: castclass [mscorlib]System.Array /* 01000098 */
+	IL_02b9: stloc.s 13
+	IL_02bb: ldloc.s 13
+	IL_02bd: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType() /* 0A0000CB */
+	IL_02c2: callvirt instance class [mscorlib]System.Type [mscorlib]System.Type::GetElementType() /* 0A00014D */
+	IL_02c7: stloc.s 14
+	IL_02c9: ldloc.s 14
+	IL_02cb: ldarg.0
+	IL_02cc: ldfld class ScriptCore.PersistedClassDB ScriptCore.PersistWriter::mClassDB /* 040000F2 */
+	IL_02d1: call valuetype ScriptCore.PersistedTypeCode ScriptCore.Persist::GetPersistedTypeCode(class [mscorlib]System.Type, class ScriptCore.PersistedClassDB) /* 06000CCB */
+	IL_02d6: stloc.s 15
+	IL_02d8: ldloc.s 15
+	IL_02da: ldc.i4.s 16
+	IL_02dc: beq.s IL_02e4
+
+	IL_02de: ldloc.s 15
+	IL_02e0: ldc.i4.s 17
+	IL_02e2: bne.un.s IL_02e7
+
+	IL_02e4: ldc.i4.1
+	IL_02e5: stloc.s 15
+
+	IL_02e7: ldarg.0
+	IL_02e8: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_02ed: ldloc.s 13
+	IL_02ef: callvirt instance int32 [mscorlib]System.Array::get_Length() /* 0A00014E */
+	IL_02f4: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int32) /* 0A0000D4 */
+	IL_02f9: ldarg.0
+	IL_02fa: ldloc.s 13
+	IL_02fc: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType() /* 0A0000CB */
+	IL_0301: callvirt instance class [mscorlib]System.Type [mscorlib]System.Type::GetElementType() /* 0A00014D */
+	IL_0306: call instance void ScriptCore.PersistWriter::WriteElementType(class [mscorlib]System.Type) /* 06000D1E */
+	IL_030b: ldc.i4.0
+	IL_030c: stloc.s 16
+	IL_030e: ldloc.s 15
+	IL_0310: stloc.s 34
+	IL_0312: ldloc.s 34
+	IL_0314: ldc.i4.3
+	IL_0315: sub
+	IL_0316: switch (IL_0351, IL_0354, IL_0354, IL_0354, IL_0351, IL_0351, IL_0351, IL_0351, IL_0351, IL_0351, IL_0351, IL_0351, IL_0351)
+
+	IL_034f: br.s IL_0354
+
+	IL_0351: ldc.i4.1
+	IL_0352: stloc.s 16
+
+	IL_0354: ldloc.s 16
+	IL_0356: brfalse.s IL_0379
+
+	IL_0358: ldarg.0
+	IL_0359: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_035e: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Flush() /* 0A000138 */
+	IL_0363: ldloc.s 13
+	IL_0365: ldarg.0
+	IL_0366: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_036b: callvirt instance uint32 [SimIFace]Sims3.SimIFace.FastStreamWriter::get_Handle() /* 0A00001C */
+	IL_0370: ldloc.s 15
+	IL_0372: call bool ScriptCore.PersistImports::Serializer_WritePrimitiveArray(class [mscorlib]System.Array, uint32, uint8) /* 06000CAC */
+	IL_0377: pop
+	IL_0378: ret
+
+	IL_0379: ldloc.s 13
+	IL_037b: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Array::GetEnumerator() /* 0A0001F2 */
+	IL_0380: stloc.s 35
+	.try
+	{
+		IL_0382: br.s IL_0397
+		// loop start (head: IL_0397)
+			IL_0384: ldloc.s 35
+			IL_0386: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current() /* 0A000001 */
+			IL_038b: stloc.s 17
+			IL_038d: ldarg.0
+			IL_038e: ldloc.s 17
+			IL_0390: ldloc.s 15
+			IL_0392: call instance void ScriptCore.PersistWriter::SaveObjectAsType(object, valuetype ScriptCore.PersistedTypeCode) /* 06000D1B */
+
+			IL_0397: ldloc.s 35
+			IL_0399: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext() /* 0A00004C */
+			IL_039e: brtrue.s IL_0384
+		// end loop
+
+		IL_03a0: leave IL_05ee
+	} // end .try
+	finally
+	{
+		IL_03a5: ldloc.s 35
+		IL_03a7: isinst [mscorlib]System.IDisposable /* 01000007 */
+		IL_03ac: stloc.s 36
+		IL_03ae: ldloc.s 36
+		IL_03b0: brfalse.s IL_03b9
+
+		IL_03b2: ldloc.s 36
+		IL_03b4: callvirt instance void [mscorlib]System.IDisposable::Dispose() /* 0A00004D */
+
+		IL_03b9: endfinally
+	} // end handler
+
+	IL_03ba: ldarg.1
+	IL_03bb: brtrue.s IL_03c2
+
+	IL_03bd: ldc.i4.0
+	IL_03be: stloc.s 18
+	IL_03c0: br.s IL_03d7
+
+	IL_03c2: ldarg.0
+	IL_03c3: ldfld class ScriptCore.PersistedClassDB ScriptCore.PersistWriter::mClassDB /* 040000F2 */
+	IL_03c8: ldarg.1
+	IL_03c9: castclass [mscorlib]System.Type /* 01000096 */
+	IL_03ce: callvirt instance int32 ScriptCore.PersistedClassDB::GetPersistedClassRef(class [mscorlib]System.Type) /* 06000CB3 */
+	IL_03d3: ldc.i4.1
+	IL_03d4: add
+	IL_03d5: stloc.s 18
+
+	IL_03d7: ldarg.0
+	IL_03d8: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_03dd: ldloc.s 18
+	IL_03df: call void ScriptCore.Persist::WriteCompressedUint(class [SimIFace]Sims3.SimIFace.FastStreamWriter, uint32) /* 06000CBE */
+	IL_03e4: ret
+
+	IL_03e5: ldarg.1
+	IL_03e6: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType() /* 0A0000CB */
+	IL_03eb: stloc.s 19
+	IL_03ed: ldarg.0
+	IL_03ee: ldfld class ScriptCore.PersistedClassDB ScriptCore.PersistWriter::mClassDB /* 040000F2 */
+	IL_03f3: ldloc.s 19
+	IL_03f5: ldc.i4.1
+	IL_03f6: callvirt instance class ScriptCore.PersistedClass ScriptCore.PersistedClassDB::GetPersistedClass(class [mscorlib]System.Type, bool) /* 06000CB4 */
+	IL_03fb: stloc.s 20
+	IL_03fd: ldloc.s 19
+	IL_03ff: call class [mscorlib]System.Type [mscorlib]System.Enum::GetUnderlyingType(class [mscorlib]System.Type) /* 0A0001F3 */
+	IL_0404: stloc.s 21
+	IL_0406: ldloc.s 21
+	IL_0408: ldarg.0
+	IL_0409: ldfld class ScriptCore.PersistedClassDB ScriptCore.PersistWriter::mClassDB /* 040000F2 */
+	IL_040e: call valuetype ScriptCore.PersistedTypeCode ScriptCore.Persist::GetPersistedTypeCode(class [mscorlib]System.Type, class ScriptCore.PersistedClassDB) /* 06000CCB */
+	IL_0413: stloc.s 22
+	IL_0415: ldarg.0
+	IL_0416: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_041b: ldloc.s 20
+	IL_041d: ldfld int32 ScriptCore.PersistedClass::mIndex /* 040000D1 */
+	IL_0422: call void ScriptCore.Persist::WriteCompressedInt(class [SimIFace]Sims3.SimIFace.FastStreamWriter, int32) /* 06000CBB */
+	IL_0427: ldarg.0
+	IL_0428: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_042d: ldloc.s 22
+	IL_042f: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint8) /* 0A0001A0 */
+	IL_0434: ldloc.s 22
+	IL_0436: stloc.s 37
+	IL_0438: ldloc.s 37
+	IL_043a: ldc.i4.3
+	IL_043b: sub
+	IL_043c: switch (IL_0488, IL_05ee, IL_05ee, IL_05ee, IL_05ee, IL_049a, IL_04be, IL_04e2, IL_0476, IL_05ee, IL_04ac, IL_04d0, IL_04f4)
+
+	IL_0475: ret
+
+	IL_0476: ldarg.0
+	IL_0477: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_047c: ldarg.1
+	IL_047d: unbox.any [mscorlib]System.SByte /* 01000187 */
+	IL_0482: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int8) /* 0A0001EA */
+	IL_0487: ret
+
+	IL_0488: ldarg.0
+	IL_0489: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_048e: ldarg.1
+	IL_048f: unbox.any [mscorlib]System.Byte /* 01000183 */
+	IL_0494: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint8) /* 0A0001A0 */
+	IL_0499: ret
+
+	IL_049a: ldarg.0
+	IL_049b: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_04a0: ldarg.1
+	IL_04a1: unbox.any [mscorlib]System.Int16 /* 01000185 */
+	IL_04a6: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int16) /* 0A0001E9 */
+	IL_04ab: ret
+
+	IL_04ac: ldarg.0
+	IL_04ad: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_04b2: ldarg.1
+	IL_04b3: unbox.any [mscorlib]System.UInt16 /* 01000188 */
+	IL_04b8: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint16) /* 0A0001EC */
+	IL_04bd: ret
+
+	IL_04be: ldarg.0
+	IL_04bf: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_04c4: ldarg.1
+	IL_04c5: unbox.any [mscorlib]System.Int32 /* 01000145 */
+	IL_04ca: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int32) /* 0A0000D4 */
+	IL_04cf: ret
+
+	IL_04d0: ldarg.0
+	IL_04d1: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_04d6: ldarg.1
+	IL_04d7: unbox.any [mscorlib]System.UInt32 /* 01000161 */
+	IL_04dc: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint32) /* 0A00013A */
+	IL_04e1: ret
+
+	IL_04e2: ldarg.0
+	IL_04e3: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_04e8: ldarg.1
+	IL_04e9: unbox.any [mscorlib]System.Int64 /* 01000186 */
+	IL_04ee: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int64) /* 0A0001E6 */
+	IL_04f3: ret
+
+	IL_04f4: ldarg.0
+	IL_04f5: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_04fa: ldarg.1
+	IL_04fb: unbox.any [mscorlib]System.UInt64 /* 01000149 */
+	IL_0500: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(uint64) /* 0A0000CE */
+	IL_0505: ret
+
+	IL_0506: ldarg.1
+	IL_0507: brtrue.s IL_0512
+
+	IL_0509: ldarg.0
+	IL_050a: ldnull
+	IL_050b: call instance bool ScriptCore.PersistWriter::WriteReference(object) /* 06000D17 */
+	IL_0510: pop
+	IL_0511: ret
+
+	IL_0512: ldarg.1
+	IL_0513: castclass [mscorlib]System.Reflection.MethodInfo /* 010000B6 */
+	IL_0518: stloc.s 23
+	IL_051a: ldloc.s 23
+	IL_051c: callvirt instance class [mscorlib]System.Type [mscorlib]System.Reflection.MemberInfo::get_DeclaringType() /* 0A0000FC */
+	IL_0521: stloc.s 24
+	IL_0523: ldarg.0
+	IL_0524: ldloc.s 24
+	IL_0526: call instance bool ScriptCore.PersistWriter::WriteReference(object) /* 06000D17 */
+	IL_052b: pop
+	IL_052c: ldloc.s 23
+	IL_052e: callvirt instance string [mscorlib]System.Reflection.MemberInfo::get_Name() /* 0A0000FA */
+	IL_0533: stloc.s 25
+	IL_0535: ldloc.s 25
+	IL_0537: ldstr "<" /* 700006E3 */
+	IL_053c: callvirt instance bool [mscorlib]System.String::StartsWith(string) /* 0A0001A8 */
+	IL_0541: brfalse.s IL_0566
+
+	IL_0543: ldloc.s 25
+	IL_0545: ldc.i4.s 62
+	IL_0547: callvirt instance int32 [mscorlib]System.String::IndexOf(char) /* 0A0001F4 */
+	IL_054c: stloc.s 26
+	IL_054e: ldloc.s 26
+	IL_0550: ldc.i4.0
+	IL_0551: bge.s IL_0558
+
+	IL_0553: ldnull
+	IL_0554: stloc.s 25
+	IL_0556: br.s IL_0566
+
+	IL_0558: ldloc.s 25
+	IL_055a: ldc.i4.0
+	IL_055b: ldloc.s 26
+	IL_055d: ldc.i4.1
+	IL_055e: add
+	IL_055f: callvirt instance string [mscorlib]System.String::Substring(int32, int32) /* 0A0001F5 */
+	IL_0564: stloc.s 25
+
+	IL_0566: ldarg.0
+	IL_0567: ldloc.s 25
+	IL_0569: call instance bool ScriptCore.PersistWriter::WriteReference(object) /* 06000D17 */
+	IL_056e: pop
+	IL_056f: ldloc.s 23
+	IL_0571: callvirt instance class [mscorlib]System.Reflection.ParameterInfo[] [mscorlib]System.Reflection.MethodBase::GetParameters() /* 0A0000FE */
+	IL_0576: stloc.s 27
+	IL_0578: ldloc.s 27
+	IL_057a: ldlen
+	IL_057b: conv.i4
+	IL_057c: newarr [mscorlib]System.Type /* 01000096 */
+	IL_0581: stloc.s 28
+	IL_0583: ldc.i4.0
+	IL_0584: stloc.s 29
+	IL_0586: br.s IL_059d
+	// loop start (head: IL_059d)
+		IL_0588: ldloc.s 28
+		IL_058a: ldloc.s 29
+		IL_058c: ldloc.s 27
+		IL_058e: ldloc.s 29
+		IL_0590: ldelem.ref
+		IL_0591: callvirt instance class [mscorlib]System.Type [mscorlib]System.Reflection.ParameterInfo::get_ParameterType() /* 0A0000FF */
+		IL_0596: stelem.ref
+		IL_0597: ldloc.s 29
+		IL_0599: ldc.i4.1
+		IL_059a: add
+		IL_059b: stloc.s 29
+
+		IL_059d: ldloc.s 29
+		IL_059f: ldloc.s 27
+		IL_05a1: ldlen
+		IL_05a2: conv.i4
+		IL_05a3: blt.s IL_0588
+	// end loop
+
+	IL_05a5: ldarg.0
+	IL_05a6: ldloc.s 28
+	IL_05a8: call instance bool ScriptCore.PersistWriter::WriteReference(object) /* 06000D17 */
+	IL_05ad: pop
+	IL_05ae: ldloc.s 23
+	IL_05b0: callvirt instance bool [mscorlib]System.Reflection.MethodBase::get_IsGenericMethod() /* 0A000149 */
+	IL_05b5: brfalse.s IL_05c6
+
+	IL_05b7: ldarg.0
+	IL_05b8: ldloc.s 23
+	IL_05ba: callvirt instance class [mscorlib]System.Type[] [mscorlib]System.Reflection.MethodBase::GetGenericArguments() /* 0A00014B */
+	IL_05bf: call instance bool ScriptCore.PersistWriter::WriteReference(object) /* 06000D17 */
+	IL_05c4: pop
+	IL_05c5: ret
+
+	IL_05c6: ldarg.0
+	IL_05c7: ldnull
+	IL_05c8: call instance bool ScriptCore.PersistWriter::WriteReference(object) /* 06000D17 */
+	IL_05cd: pop
+	IL_05ce: ret
+
+	IL_05cf: ldarg.1
+	IL_05d0: unbox.any [SimIFace]Sims3.SimIFace.ResourceKey /* 01000055 */
+	IL_05d5: stloc.s 30
+	IL_05d7: ldarg.0
+	IL_05d8: ldloc.s 30
+	IL_05da: call instance int32 ScriptCore.PersistWriter::GetResourceKeyIndex(valuetype [SimIFace]Sims3.SimIFace.ResourceKey) /* 06000D1D */
+	IL_05df: stloc.s 31
+	IL_05e1: ldarg.0
+	IL_05e2: ldfld class [SimIFace]Sims3.SimIFace.FastStreamWriter ScriptCore.PersistWriter::mWriter /* 040000ED */
+	IL_05e7: ldloc.s 31
+	IL_05e9: callvirt instance void [SimIFace]Sims3.SimIFace.FastStreamWriter::Write(int32) /* 0A0000D4 */
+
+	IL_05ee: ret
+} // end of method PersistWriter::SaveObjectAsType

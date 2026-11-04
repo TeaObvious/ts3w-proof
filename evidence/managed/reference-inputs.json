@@ -1,0 +1,106 @@
+{
+  "schema": "ts3w-managed-reference-inputs-v1",
+  "reference": "The Sims 3 PC patch 1.67.2.024002",
+  "verified_date": "2026-11-04",
+  "scope": "Three package identities and three selected S3SA/CLI identities. No complete method or native-binding inventory.",
+  "package_read_mode": "read-only; before/after SHA-256 equality",
+  "packages": [
+    {
+      "name": "scripts.package",
+      "bytes": 1179275,
+      "sha256": "1fc5e1a7a43c4019595c817631efc9bb5bc3bdfd3925a2a3a65783ad8229a76c",
+      "dbpf_major": 2,
+      "dbpf_minor": 0,
+      "index_rows": 3
+    },
+    {
+      "name": "simcore.package",
+      "bytes": 1689001,
+      "sha256": "cfec4dc8bf90a67a89437e3871bf20f1146330358a39b4a4f8e41f9b045d8575",
+      "dbpf_major": 2,
+      "dbpf_minor": 0,
+      "index_rows": 3
+    },
+    {
+      "name": "gameplay.package",
+      "bytes": 26112640,
+      "sha256": "c2fef6f7ce66f124c48b3a26c58309ed53867b2f995912a5cb95f8f6ea41497a",
+      "dbpf_major": 2,
+      "dbpf_minor": 0,
+      "index_rows": 4
+    }
+  ],
+  "assemblies": [
+    {
+      "package": "scripts.package",
+      "package_sha256": "1fc5e1a7a43c4019595c817631efc9bb5bc3bdfd3925a2a3a65783ad8229a76c",
+      "key": "073faa07-00000000-c356df69b70add42",
+      "ordinal": 0,
+      "resource_offset": 426749,
+      "resource_bytes": 618013,
+      "resource_sha256": "b110c11614dacdffa5ad0d9337ae23fd73dc914586efc92ebdc5da3b067c1f7a",
+      "envelope_version": 2,
+      "envelope_game_version": "0.2.0.209",
+      "assembly_sha256": "6ddedb668e1b6da037e346cd5cf6f500f37407dca633b428e7ec410daa00fcb2",
+      "decoded_bytes": 618496,
+      "name": "SimIFace",
+      "version": "1.0.0.50",
+      "mvid": "e4365bd8-6054-4cb5-8702-c69b1c102ce9",
+      "identity_status": "fresh-selected-resource-decode-and-static-metadata; matches-retained-identity"
+    },
+    {
+      "package": "scripts.package",
+      "package_sha256": "1fc5e1a7a43c4019595c817631efc9bb5bc3bdfd3925a2a3a65783ad8229a76c",
+      "key": "073faa07-00000000-78cf6cf5304d0c4f",
+      "ordinal": 1,
+      "resource_offset": 96,
+      "resource_bytes": 426653,
+      "resource_sha256": "3069fcfd09c7532ba4813668ad3c1d1673eed3ec0692b3a435a4cdbf654a19f5",
+      "envelope_version": 2,
+      "envelope_game_version": "0.2.0.209",
+      "assembly_sha256": "1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115",
+      "decoded_bytes": 430080,
+      "name": "ScriptCore",
+      "version": "1.0.5129.30674",
+      "mvid": "da71f9d5-3a90-44c6-8f98-5bafd2fca18a",
+      "identity_status": "fresh-selected-resource-decode-and-static-metadata; matches-retained-identity"
+    },
+    {
+      "package": "gameplay.package",
+      "package_sha256": "c2fef6f7ce66f124c48b3a26c58309ed53867b2f995912a5cb95f8f6ea41497a",
+      "key": "073faa07-00000000-03d6c8d903ce868c",
+      "ordinal": 2,
+      "resource_offset": 96,
+      "resource_bytes": 14083421,
+      "resource_sha256": "3f279a4fe13753cd4413f95f33f0f49e3c59fd9d48db87a6ec92102f07e2f904",
+      "envelope_version": 2,
+      "envelope_game_version": "0.2.0.209",
+      "assembly_sha256": "f9b2e5ef2ebd09ff26ec5d173ff8b72752573f741430972edc8fdbb3c6bc93fd",
+      "decoded_bytes": 13877248,
+      "name": "Sims3GameplaySystems",
+      "version": "1.0.0.0",
+      "mvid": "e8701302-f3cd-4f23-9387-d9d17a68ff9e",
+      "identity_status": "fresh-selected-resource-decode-and-static-metadata; matches-retained-identity"
+    }
+  ],
+  "tools": {
+    "dotnet_sdk": "10.0.113",
+    "dotnet_runtime": "10.0.13",
+    "ilspy_decompiler_sha256": "0b0991239d13b930b4d2063c78bf51af2a8f34847b79b9a88eed04cf4463ddc8",
+    "metadata_route": "ILSpy PEFile/System.Reflection.Metadata; independently corroborated SimIFace via REA inspect_managed_artifact",
+    "decompilation_smoke": {
+      "assembly": "SimIFace",
+      "type": "Sims3.SimIFace.CAS.SimBuilder",
+      "method": "get_TextureSize",
+      "token": "0x06001088",
+      "result": "CSharpDecompiler and ReflectionDisassembler completed; no target execution"
+    }
+  },
+  "limits": [
+    "No retail assembly was executed.",
+    "Envelope game-version text is not the patch identity.",
+    "Package provenance follows the retained extraction manifest; the patch installer was not rehashed or independently authenticated in this bounded pass.",
+    "simcore.package identity was rehashed, but its S3SA assemblies were not decoded again in this pass.",
+    "No completeness or behavior claim follows from matching assembly identities."
+  ]
+}
