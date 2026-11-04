@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "scope": "Initial list_functions definition baseline from retained list_functions pages. Not a whole executable code/ownership/semantics inventory.",
+  "reference_id": "ts3w-pc-1.67",
+  "image_base": "0x00400000",
+  "capture_collection": "20261104-start",
+  "capture_program_context": "TS3W.exe",
+  "capture_date": "2026-11-04",
+  "legacy_source": {
+    "repository": "JJCodes90/OpenTS3-Playtest",
+    "commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+    "root": "tools/ts3w-proof"
+  },
+  "current_source": {
+    "repository": "TeaObvious/ts3w-proof",
+    "status": "Selected snapshot of 25 pairs from the coordinator-owned authoritative native-evidence index, not yet published; this join validates exact addresses and file presence, not acceptance or semantics. Observed names remain the original list capture; current canonical aliases are separate.",
+    "indexes": [
+      {
+        "file": "native-evidence.tsv",
+        "records": 25,
+        "snapshot_status": "selected_current_evidence_index_25_pairs_publisher_review_pending"
+      }
+    ]
+  },
+  "summary": {
+    "page_count": 41,
+    "listed_records": 40854,
+    "unique_listed_vas": 40854,
+    "duplicate_vas": 0,
+    "out_of_order_vas": 0,
+    "page_gaps": 0,
+    "parse_errors": 0,
+    "reported_list_functions_total": 40854,
+    "reported_get_program_info_count": 41505,
+    "program_count_minus_internal_listing_count": 651,
+    "unreconciled_count_difference": 0,
+    "legacy_index_entries": 5054,
+    "legacy_exact_va_matches": 5052,
+    "legacy_entries_without_listed_va": 2,
+    "selected_current_pair_entries": 25,
+    "current_exact_va_matches": 25,
+    "current_entries_without_listed_va": 0,
+    "listed_memory_block_counts": {
+      ".text": 40854
+    },
+    "listed_entrypoint_matches": 1,
+    "recorded_entrypoints": 2,
+    "recorded_entrypoints_not_listed": [
+      "0x011cf378"
+    ]
+  },
+  "count_reconciliation": {
+    "relation": "41505 program-info Function Count = 40854 listing/statistics internal definitions + 651 import-locations marked Function",
+    "status": "count_relation_reconciled_from_retained_distinct_scopes",
+    "import_external_locations": 665,
+    "import_function_locations": 651,
+    "import_label_locations": 14,
+    "import_from_field_meaning": "Ghidra observed namespace or library label; demangled C++ scopes can occupy this field. No DLL or PE import-descriptor join is inferred.",
+    "function_statistics": {
+      "total_functions": 40854,
+      "named_functions": 5013,
+      "auto_generated_names": 35841,
+      "thunk_functions": 223,
+      "external_functions": 0
+    },
+    "scope_limit": "Statistics External functions:0 describes that internal enumeration scope; imports have their own EXTERNAL address space. This reconciles counts without proving complete import target ABI, PE import-table correspondence, whole-program code recognition, or semantic coverage."
+  },
+  "import_observed_namespace_or_library_counts": {
+    "D3D9.DLL": 1,
+    "D3DX9_31.DLL": 2,
+    "DDRAW.DLL": 1,
+    "IPHLPAPI.DLL": 2,
+    "WININET.DLL": 19,
+    "KERNEL32.DLL": 179,
+    "USER32.DLL": 89,
+    "GDI32.DLL": 8,
+    "ADVAPI32.DLL": 41,
+    "SHELL32.DLL": 4,
+    "OLE32.DLL": 9,
+    "OLEAUT32.DLL": 5,
+    "basic_ostream<char,std::char_traits<char>_>": 5,
+    "char_traits<char>": 3,
+    "basic_streambuf<char,std::char_traits<char>_>": 2,
+    "basic_ios<char,std::char_traits<char>_>": 1,
+    "std": 2,
+    "_Mutex": 2,
+    "basic_istream<char,std::char_traits<char>_>": 1,
+    "MSVCR80.DLL": 215,
+    "type_info": 1,
+    "IMM32.DLL": 8,
+    "USP10.DLL": 2,
+    "DBGHELP.DLL": 7,
+    "PSAPI.DLL": 1,
+    "VERSION.DLL": 3,
+    "NETAPI32.DLL": 1,
+    "WS2_32.DLL": 42,
+    "SETUPAPI.DLL": 4,
+    "DSOUND.DLL": 2,
+    "WINMM.DLL": 3
+  },
+  "entrypoint_roots": [
+    {
+      "va": "0x011cf378",
+      "observed_label": "SecuROM",
+      "function_listing_match": false,
+      "root_status": "recorded_root_pending_path_and_boundary_review"
+    },
+    {
+      "va": "0x00f7fd51",
+      "observed_label": "entry (function, 0 params)",
+      "function_listing_match": true,
+      "root_status": "recorded_root_pending_path_and_boundary_review"
+    }
+  ],
+  "pages": [
+    {
+      "page": "functions-page-00000.json",
+      "offset": 0,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00401000",
+      "last_va": "0x00448ed0"
+    },
+    {
+      "page": "functions-page-01000.json",
+      "offset": 1000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00448ff0",
+      "last_va": "0x0049d050"
+    },
+    {
+      "page": "functions-page-02000.json",
+      "offset": 2000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x0049d0a0",
+      "last_va": "0x004dbca0"
+    },
+    {
+      "page": "functions-page-03000.json",
+      "offset": 3000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x004dbcf0",
+      "last_va": "0x0050d6d0"
+    },
+    {
+      "page": "functions-page-04000.json",
+      "offset": 4000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x0050d980",
+      "last_va": "0x0055d2a0"
+    },
+    {
+      "page": "functions-page-05000.json",
+      "offset": 5000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x0055d2e0",
+      "last_va": "0x00590810"
+    },
+    {
+      "page": "functions-page-06000.json",
+      "offset": 6000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00590c70",
+      "last_va": "0x005bf290"
+    },
+    {
+      "page": "functions-page-07000.json",
+      "offset": 7000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x005bf2f0",
+      "last_va": "0x005fe510"
+    },
+    {
+      "page": "functions-page-08000.json",
+      "offset": 8000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x005fe6f0",
+      "last_va": "0x0062e210"
+    },
+    {
+      "page": "functions-page-09000.json",
+      "offset": 9000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x0062e5d0",
+      "last_va": "0x00690de0"
+    },
+    {
+      "page": "functions-page-10000.json",
+      "offset": 10000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00690e80",
+      "last_va": "0x006c6b80"
+    },
+    {
+      "page": "functions-page-11000.json",
+      "offset": 11000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x006c6c10",
+      "last_va": "0x006fe160"
+    },
+    {
+      "page": "functions-page-12000.json",
+      "offset": 12000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x006fe180",
+      "last_va": "0x0073e3a0"
+    },
+    {
+      "page": "functions-page-13000.json",
+      "offset": 13000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x0073e3f0",
+      "last_va": "0x007702e0"
+    },
+    {
+      "page": "functions-page-14000.json",
+      "offset": 14000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00770300",
+      "last_va": "0x007999f0"
+    },
+    {
+      "page": "functions-page-15000.json",
+      "offset": 15000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00799a10",
+      "last_va": "0x007d7920"
+    },
+    {
+      "page": "functions-page-16000.json",
+      "offset": 16000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x007d7950",
+      "last_va": "0x0080f670"
+    },
+    {
+      "page": "functions-page-17000.json",
+      "offset": 17000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x0080f690",
+      "last_va": "0x0086bcb0"
+    },
+    {
+      "page": "functions-page-18000.json",
+      "offset": 18000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x0086c0f0",
+      "last_va": "0x008a8530"
+    },
+    {
+      "page": "functions-page-19000.json",
+      "offset": 19000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x008a8590",
+      "last_va": "0x00915bc0"
+    },
+    {
+      "page": "functions-page-20000.json",
+      "offset": 20000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00915c30",
+      "last_va": "0x00953120"
+    },
+    {
+      "page": "functions-page-21000.json",
+      "offset": 21000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x009531c0",
+      "last_va": "0x00996a50"
+    },
+    {
+      "page": "functions-page-22000.json",
+      "offset": 22000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00996bd0",
+      "last_va": "0x009e5b40"
+    },
+    {
+      "page": "functions-page-23000.json",
+      "offset": 23000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x009e5b70",
+      "last_va": "0x00a24400"
+    },
+    {
+      "page": "functions-page-24000.json",
+      "offset": 24000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00a24440",
+      "last_va": "0x00a66650"
+    },
+    {
+      "page": "functions-page-25000.json",
+      "offset": 25000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00a66710",
+      "last_va": "0x00aad150"
+    },
+    {
+      "page": "functions-page-26000.json",
+      "offset": 26000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00aad2a0",
+      "last_va": "0x00af5830"
+    },
+    {
+      "page": "functions-page-27000.json",
+      "offset": 27000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00af58c0",
+      "last_va": "0x00b47bd0"
+    },
+    {
+      "page": "functions-page-28000.json",
+      "offset": 28000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00b47c80",
+      "last_va": "0x00bac9b0"
+    },
+    {
+      "page": "functions-page-29000.json",
+      "offset": 29000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00bad7e0",
+      "last_va": "0x00c2f9e0"
+    },
+    {
+      "page": "functions-page-30000.json",
+      "offset": 30000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00c2fcb0",
+      "last_va": "0x00c6e960"
+    },
+    {
+      "page": "functions-page-31000.json",
+      "offset": 31000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00c6eb90",
+      "last_va": "0x00cb4ff0"
+    },
+    {
+      "page": "functions-page-32000.json",
+      "offset": 32000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00cb5460",
+      "last_va": "0x00d13fc0"
+    },
+    {
+      "page": "functions-page-33000.json",
+      "offset": 33000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00d14310",
+      "last_va": "0x00d64160"
+    },
+    {
+      "page": "functions-page-34000.json",
+      "offset": 34000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00d64170",
+      "last_va": "0x00dbdc60"
+    },
+    {
+      "page": "functions-page-35000.json",
+      "offset": 35000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00dbdd50",
+      "last_va": "0x00e14650"
+    },
+    {
+      "page": "functions-page-36000.json",
+      "offset": 36000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00e14800",
+      "last_va": "0x00e6af10"
+    },
+    {
+      "page": "functions-page-37000.json",
+      "offset": 37000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00e6aff0",
+      "last_va": "0x00eb8e90"
+    },
+    {
+      "page": "functions-page-38000.json",
+      "offset": 38000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00eb8f40",
+      "last_va": "0x00f0c760"
+    },
+    {
+      "page": "functions-page-39000.json",
+      "offset": 39000,
+      "records": 1000,
+      "reported_total": 40854,
+      "first_va": "0x00f0c8d0",
+      "last_va": "0x00f57d90"
+    },
+    {
+      "page": "functions-page-40000.json",
+      "offset": 40000,
+      "records": 854,
+      "reported_total": 40854,
+      "first_va": "0x00f57e30",
+      "last_va": "0x00f912d0"
+    }
+  ],
+  "legacy_entries_without_listed_va": [
+    {
+      "va": "0x0095f620",
+      "name": "VisualState_ParentVisibility_QualifiedWindow",
+      "boundary_rule": "instruction_qualified_cfg_window_no_owned_body_claim"
+    },
+    {
+      "va": "0x00c99950",
+      "name": "CWAL_QueryInterface_QualifiedWindow",
+      "boundary_rule": "instruction_qualified_cfg_window_no_ghidra_function"
+    }
+  ],
+  "current_entries_without_listed_va": [],
+  "limits": [
+    "The 651 count difference is reconciled by separate import Function locations; they remain separate EXTERNAL identities and are not image RVA records.",
+    "Observed parameter counts are database metadata, not ABI proof.",
+    "Function names are observed labels, not verified recovered symbols or semantic assignments.",
+    "No body extent, instruction count, real-function completeness, relevance, exclusion or semantic acceptance is inferred.",
+    "Existing export absence means no exact address match in the selected indexes; it does not prove absence of all useful evidence.",
+    "Memory-block membership is descriptive; no remaining executable-area union or code/data disposition is computed."
+  ]
+}

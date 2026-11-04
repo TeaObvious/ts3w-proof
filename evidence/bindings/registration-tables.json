@@ -1,0 +1,1673 @@
+{
+  "schema_version": 1,
+  "reference": "references/pc-167.md",
+  "provenance": {
+    "legacy_source_repository": "JJCodes90/OpenTS3-Playtest",
+    "legacy_source_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+    "source_paths": [
+      "tools/ts3w-proof/evidence/bindings/tables.json",
+      "tools/ts3w-proof/evidence/bindings/registration-map.json",
+      "tools/ts3w-proof/API-INDEX.tsv"
+    ],
+    "selection": "Only prior43 table/getter seeds plus two explicit binder calls in the already reviewed consumer. No global pointer-pattern discovery or completeness claim.",
+    "managed_index": "evidence/managed/native-methods.jsonl",
+    "managed_index_sha256": "455f6279a22c97c127c9811a905f8bdf28255174b5097fe346dc298070aad64a",
+    "managed_reference_inputs": "evidence/managed/reference-inputs.json",
+    "managed_reference_inputs_schema": "ts3w-managed-reference-inputs-v2",
+    "managed_reference_inputs_sha256": "8d324a24c75588d11a4d43de65b61b28bd0b915cd4480b089d2dbe2eb597cea9",
+    "managed_source_records": 4722,
+    "native_declared_join_records": 2266,
+    "runtime_delegate_shapes_excluded": 2456,
+    "current_canonical_source_commit": "3223a36865a682d455589a66fccbe18a9a231165",
+    "join_policy": "Exact unqualified declaring-type::method name -> candidates. Candidate IDs are lookup aids, not verified overload or ABI resolution."
+  },
+  "summary": {
+    "known_table_count": 43,
+    "known_table_records": 1775,
+    "unique_table_native_targets": 1731,
+    "additional_explicit_bind_calls": 2,
+    "indexed_bindings": 1777,
+    "indexed_unique_native_targets": 1733,
+    "getter_bytes_verified": 559,
+    "null_sentinels_verified": 43,
+    "selected_descriptors_verified": 43,
+    "type_name_getters": {
+      "literal": 40,
+      "instance-field": 3
+    },
+    "unselected_legacy_pointer_candidates": 9,
+    "managed_name_joins": {
+      "unique-name-candidate": 1771,
+      "ambiguous-name-overloads": 1,
+      "no-exact-name-candidate": 5
+    },
+    "runtime_activation_observed": false,
+    "complete_all_native_bindings_claim": false
+  },
+  "tables": [
+    {
+      "label": "ScriptCore.PersistImports",
+      "start_va": "0x0108D118",
+      "stop_exclusive_va": "0x0108D148",
+      "row_count": 6,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0108D148",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00D835A0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70018d10801c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00d835a0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00d835a0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0108D2C0",
+          "first_five_slots_hex": "503a7400503d5100c0404b00b035d800a035d800",
+          "table_getter_slot_va": "0x0108D2D0",
+          "type_name_getter_va": "0x00D835B0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0108D2B0",
+            "utf8": "PersistImports",
+            "getter_bytes_hex": "b8b0d20801c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.TaskControl",
+      "start_va": "0x0108D648",
+      "stop_exclusive_va": "0x0108D6A0",
+      "row_count": 11,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0108D6A0",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00D84E80",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70048d60801c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00d84e80.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00d84e80.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0108D5FC",
+          "first_five_slots_hex": "503a7400503d5100c0404b00903cd800804ed800",
+          "table_getter_slot_va": "0x0108D60C",
+          "type_name_getter_va": "0x00D83C90",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0108D5F0",
+            "utf8": "TaskControl",
+            "getter_bytes_hex": "b8f0d50801c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.CASUtils",
+      "start_va": "0x011561F8",
+      "stop_exclusive_va": "0x01156860",
+      "row_count": 205,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01156860",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x005ADCA0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700f8611501c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x005adca0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x005adca0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x00FDF718",
+          "first_five_slots_hex": "503a7400503d5100c0404b0050595a00a0dc5a00",
+          "table_getter_slot_va": "0x00FDF728",
+          "type_name_getter_va": "0x005A5950",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x00FDF6D4",
+            "utf8": "CASUtils",
+            "getter_bytes_hex": "b8d4f6fd00c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Animation",
+      "start_va": "0x0115EB10",
+      "stop_exclusive_va": "0x0115EBC0",
+      "row_count": 22,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0115EBC0",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0073B7E0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70010eb1501c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0073b7e0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0073b7e0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x00FFFD4C",
+          "first_five_slots_hex": "60a27300503d5100c0404b00b0a17300e0b77300",
+          "table_getter_slot_va": "0x00FFFD5C",
+          "type_name_getter_va": "0x0073A1B0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x00FFFD40",
+            "utf8": "Animation",
+            "getter_bytes_hex": "b840fdff00c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.AutomationUtils",
+      "start_va": "0x0115EBC8",
+      "stop_exclusive_va": "0x0115EBE8",
+      "row_count": 4,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0115EBE8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0073C6D0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700c8eb1501c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0073c6d0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0073c6d0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01000580",
+          "first_five_slots_hex": "80c47300503d5100c0404b0030c27300d0c67300",
+          "table_getter_slot_va": "0x01000590",
+          "type_name_getter_va": "0x0073C230",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01000594",
+            "utf8": "AutomationUtils",
+            "getter_bytes_hex": "b894050001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.CacheManager",
+      "start_va": "0x0115EBF8",
+      "stop_exclusive_va": "0x0115EC30",
+      "row_count": 7,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0115EC30",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0073CFE0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700f8eb1501c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0073cfe0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0073cfe0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010006C8",
+          "first_five_slots_hex": "503a7400f0cf7300e0c6730020c77300e0cf7300",
+          "table_getter_slot_va": "0x010006D8",
+          "type_name_getter_va": "0x0073C720",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010006B8",
+            "utf8": "CacheManager",
+            "getter_bytes_hex": "b8b8060001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.CameraController",
+      "start_va": "0x0115EC38",
+      "stop_exclusive_va": "0x0115ED98",
+      "row_count": 44,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0115ED98",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0073EA80",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70038ec1501c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0073ea80.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0073ea80.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010009B4",
+          "first_five_slots_hex": "503a7400503d5100c0404b00f0d7730080ea7300",
+          "table_getter_slot_va": "0x010009C4",
+          "type_name_getter_va": "0x0073D7F0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0100099C",
+            "utf8": "CameraController",
+            "getter_bytes_hex": "b89c090001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.CommandSystem",
+      "start_va": "0x0115EDB0",
+      "stop_exclusive_va": "0x0115EDD8",
+      "row_count": 5,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0115EDD8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00740020",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700b0ed1501c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00740020.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00740020.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0100141C",
+          "first_five_slots_hex": "10f27300503d5100c0404b0090eb730020007400",
+          "table_getter_slot_va": "0x0100142C",
+          "type_name_getter_va": "0x0073EB90",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010013E4",
+            "utf8": "CommandSystem",
+            "getter_bytes_hex": "b8e4130001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.DataFactory",
+      "start_va": "0x0115EDF0",
+      "stop_exclusive_va": "0x0115EE28",
+      "row_count": 7,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0115EE28",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00740120",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700f0ed1501c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00740120.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00740120.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010017C0",
+          "first_five_slots_hex": "503a7400503d5100c0404b003001740020017400",
+          "table_getter_slot_va": "0x010017D0",
+          "type_name_getter_va": "0x00740130",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010017B4",
+            "utf8": "DataFactory",
+            "getter_bytes_hex": "b8b4170001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.DebugDraw",
+      "start_va": "0x0115EE30",
+      "stop_exclusive_va": "0x0115EE58",
+      "row_count": 5,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x0115EE58",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00740E90",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70030ee1501c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00740e90.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00740e90.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010018B0",
+          "first_five_slots_hex": "70067400503d5100c0404b0090017400900e7400",
+          "table_getter_slot_va": "0x010018C0",
+          "type_name_getter_va": "0x00740190",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010017FC",
+            "utf8": "DebugDraw",
+            "getter_bytes_hex": "b8fc170001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.DeviceConfig",
+      "start_va": "0x01160FF8",
+      "stop_exclusive_va": "0x011610A8",
+      "row_count": 22,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011610A8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x007419A0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700f80f1601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x007419a0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x007419a0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01001A20",
+          "first_five_slots_hex": "503a7400503d5100c0404b0010117400a0197400",
+          "table_getter_slot_va": "0x01001A30",
+          "type_name_getter_va": "0x00741110",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01001A10",
+            "utf8": "DeviceConfig",
+            "getter_bytes_hex": "b8101a0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.EAText",
+      "start_va": "0x011610B0",
+      "stop_exclusive_va": "0x011610D0",
+      "row_count": 4,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011610D0",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00741E80",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700b0101601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00741e80.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00741e80.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01001F14",
+          "first_five_slots_hex": "201a7400503d5100c0404b00b0197400801e7400",
+          "table_getter_slot_va": "0x01001F24",
+          "type_name_getter_va": "0x007419B0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01001F04",
+            "utf8": "EAText",
+            "getter_bytes_hex": "b8041f0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.EATrace",
+      "start_va": "0x01161178",
+      "stop_exclusive_va": "0x011611B8",
+      "row_count": 8,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011611B8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00741F10",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70078111601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00741f10.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00741f10.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01002190",
+          "first_five_slots_hex": "60207400503d5100c0404b00c0605300101f7400",
+          "table_getter_slot_va": "0x010021A0",
+          "type_name_getter_va": "0x005360C0",
+          "type_name": {
+            "kind": "instance-field",
+            "field_offset": "0x00000004",
+            "getter_bytes_hex": "8b4104c3",
+            "runtime_value": "not observed"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.EventQueue",
+      "start_va": "0x011611C0",
+      "stop_exclusive_va": "0x011611D0",
+      "row_count": 2,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011611D0",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x007428F0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700c0111601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x007428f0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x007428f0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010022BC",
+          "first_five_slots_hex": "10287400503d5100c0404b00a0277400f0287400",
+          "table_getter_slot_va": "0x010022CC",
+          "type_name_getter_va": "0x007427A0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010022A4",
+            "utf8": "EventQueueInitializer",
+            "getter_bytes_hex": "b8a4220001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.LoadSaveManager",
+      "start_va": "0x011611D8",
+      "stop_exclusive_va": "0x01161260",
+      "row_count": 17,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01161260",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00743970",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700d8111601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00743970.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00743970.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01002408",
+          "first_five_slots_hex": "c02e7400503d5100c0404b00302c740070397400",
+          "table_getter_slot_va": "0x01002418",
+          "type_name_getter_va": "0x00742C30",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010023F8",
+            "utf8": "LoadSaveManager",
+            "getter_bytes_hex": "b8f8230001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.LocalizedStringService",
+      "start_va": "0x01161288",
+      "stop_exclusive_va": "0x011612C0",
+      "row_count": 7,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011612C0",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00743A70",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70088121601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00743a70.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00743a70.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01002B68",
+          "first_five_slots_hex": "503a7400503d5100c0404b0080397400703a7400",
+          "table_getter_slot_va": "0x01002B78",
+          "type_name_getter_va": "0x00743980",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01002B50",
+            "utf8": "LocalizedStringService",
+            "getter_bytes_hex": "b8502b0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.LookAtTask",
+      "start_va": "0x011612C8",
+      "stop_exclusive_va": "0x011613D0",
+      "row_count": 33,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011613D0",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00744B00",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700c8121601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00744b00.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00744b00.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01002DD8",
+          "first_five_slots_hex": "003c7400503d5100c0404b00c03a7400004b7400",
+          "table_getter_slot_va": "0x01002DE8",
+          "type_name_getter_va": "0x00743AC0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01002DC4",
+            "utf8": "LookAtMgr",
+            "getter_bytes_hex": "b8c42d0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.NameGuidMapService",
+      "start_va": "0x011613D8",
+      "stop_exclusive_va": "0x011613E8",
+      "row_count": 2,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011613E8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00744B70",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700d8131601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00744b70.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00744b70.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010034EC",
+          "first_five_slots_hex": "503a7400503d5100c0404b00104b7400704b7400",
+          "table_getter_slot_va": "0x010034FC",
+          "type_name_getter_va": "0x00744B10",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010034D8",
+            "utf8": "NameGuidMapService",
+            "getter_bytes_hex": "b8d8340001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Objects",
+      "start_va": "0x01161400",
+      "stop_exclusive_va": "0x011614A8",
+      "row_count": 21,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011614A8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00745B90",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70000141601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00745b90.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00745b90.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01003634",
+          "first_five_slots_hex": "503a7400503d5100c0404b0020de8600905b7400",
+          "table_getter_slot_va": "0x01003644",
+          "type_name_getter_va": "0x0086DE20",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0100362C",
+            "utf8": "Objects",
+            "getter_bytes_hex": "b82c360001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.OnlineFeatures",
+      "start_va": "0x01161550",
+      "stop_exclusive_va": "0x01161688",
+      "row_count": 39,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01161688",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00749770",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70050151601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00749770.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00749770.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01003A74",
+          "first_five_slots_hex": "20697400503d5100c0404b00505d740070977400",
+          "table_getter_slot_va": "0x01003A84",
+          "type_name_getter_va": "0x00745D50",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01003A08",
+            "utf8": "OnlineFeatures",
+            "getter_bytes_hex": "b8083a0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.ProfilerUtils",
+      "start_va": "0x01161690",
+      "stop_exclusive_va": "0x011616B8",
+      "row_count": 5,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011616B8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00749780",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70090161601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00749780.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00749780.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01004D14",
+          "first_five_slots_hex": "503a7400503d5100c0404b009097740080977400",
+          "table_getter_slot_va": "0x01004D24",
+          "type_name_getter_va": "0x00749790",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01004D04",
+            "utf8": "ProfilerUtils",
+            "getter_bytes_hex": "b8044d0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Queries",
+      "start_va": "0x011616F0",
+      "stop_exclusive_va": "0x01161740",
+      "row_count": 10,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01161740",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0074A960",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700f0161601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0074a960.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0074a960.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01004DD8",
+          "first_five_slots_hex": "503a7400503d5100c0404b002098740060a97400",
+          "table_getter_slot_va": "0x01004DE8",
+          "type_name_getter_va": "0x00749820",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01004DD0",
+            "utf8": "Queries",
+            "getter_bytes_hex": "b8d04d0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Random",
+      "start_va": "0x01161748",
+      "stop_exclusive_va": "0x01161750",
+      "row_count": 1,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01161750",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0074A990",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70048171601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0074a990.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0074a990.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010050CC",
+          "first_five_slots_hex": "503a7400503d5100c0404b00a0a9740090a97400",
+          "table_getter_slot_va": "0x010050DC",
+          "type_name_getter_va": "0x0074A9A0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x00FEE300",
+            "utf8": "Random",
+            "getter_bytes_hex": "b800e3fe00c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Route",
+      "start_va": "0x01161890",
+      "stop_exclusive_va": "0x01161DD8",
+      "row_count": 169,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01161DD8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00766DB0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70090181601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00766db0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00766db0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01005364",
+          "first_five_slots_hex": "703a7500503d5100c0404b00a0b47400b06d7600",
+          "table_getter_slot_va": "0x01005374",
+          "type_name_getter_va": "0x0074B4A0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01005224",
+            "utf8": "RouteManager",
+            "getter_bytes_hex": "b824520001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.SACS",
+      "start_va": "0x01161DE0",
+      "stop_exclusive_va": "0x01161EC8",
+      "row_count": 29,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01161EC8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x007691D0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700e01d1601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x007691d0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x007691d0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01007DA8",
+          "first_five_slots_hex": "50737600503d5100c0404b00006f7600d0917600",
+          "table_getter_slot_va": "0x01007DB8",
+          "type_name_getter_va": "0x00766F00",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01007DA0",
+            "utf8": "SACS",
+            "getter_bytes_hex": "b8a07d0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.ScriptProxy",
+      "start_va": "0x01161F00",
+      "stop_exclusive_va": "0x01161F10",
+      "row_count": 2,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01161F10",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0076B160",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700001f1601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0076b160.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0076b160.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01008BCC",
+          "first_five_slots_hex": "503a7400503d5100c0404b0070b1760060b17600",
+          "table_getter_slot_va": "0x01008BDC",
+          "type_name_getter_va": "0x0076B170",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01008BC0",
+            "utf8": "ScriptProxy",
+            "getter_bytes_hex": "b8c08b0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Simulator",
+      "start_va": "0x01161F58",
+      "stop_exclusive_va": "0x01162040",
+      "row_count": 29,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01162040",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0076E3D0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700581f1601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0076e3d0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0076e3d0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01008EB8",
+          "first_five_slots_hex": "503a7400503d5100c0404b00c0605300d0e37600",
+          "table_getter_slot_va": "0x01008EC8",
+          "type_name_getter_va": "0x005360C0",
+          "type_name": {
+            "kind": "instance-field",
+            "field_offset": "0x00000004",
+            "getter_bytes_hex": "8b4104c3",
+            "runtime_value": "not observed"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Slots",
+      "start_va": "0x011620A0",
+      "stop_exclusive_va": "0x01162120",
+      "row_count": 16,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01162120",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x0076FE80",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700a0201601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0076fe80.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0076fe80.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010098FC",
+          "first_five_slots_hex": "d0e57600503d5100c0404b00e0e3760080fe7600",
+          "table_getter_slot_va": "0x0100990C",
+          "type_name_getter_va": "0x0076E3E0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010098F4",
+            "utf8": "Slots",
+            "getter_bytes_hex": "b8f4980001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.SocialFeatures",
+      "start_va": "0x011621C8",
+      "stop_exclusive_va": "0x01162830",
+      "row_count": 205,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01162830",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00774A70",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700c8211601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00774a70.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00774a70.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01009C6C",
+          "first_five_slots_hex": "c0117700503d5100c0404b0090fe7600704a7700",
+          "table_getter_slot_va": "0x01009C7C",
+          "type_name_getter_va": "0x0076FE90",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01009C54",
+            "utf8": "SocialFeatures",
+            "getter_bytes_hex": "b8549c0001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.StopWatch",
+      "start_va": "0x01162838",
+      "stop_exclusive_va": "0x01162890",
+      "row_count": 11,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01162890",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00774E00",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70038281601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00774e00.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00774e00.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0100D520",
+          "first_five_slots_hex": "404c7700503d5100c0404b00804a7700004e7700",
+          "table_getter_slot_va": "0x0100D530",
+          "type_name_getter_va": "0x00774A80",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0100D4EC",
+            "utf8": "StopWatch",
+            "getter_bytes_hex": "b8ecd40001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.StreamHost",
+      "start_va": "0x01162898",
+      "stop_exclusive_va": "0x01162970",
+      "row_count": 27,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01162970",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00776910",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70098281601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00776910.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00776910.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0100D7A4",
+          "first_five_slots_hex": "503a7400503d5100c0404b00704e770010697700",
+          "table_getter_slot_va": "0x0100D7B4",
+          "type_name_getter_va": "0x00774E70",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0100D780",
+            "utf8": "StreamHost",
+            "getter_bytes_hex": "b880d70001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.VisualEffect",
+      "start_va": "0x011629A0",
+      "stop_exclusive_va": "0x01162A40",
+      "row_count": 20,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01162A40",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x007777C0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700a0291601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x007777c0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x007777c0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0100DD64",
+          "first_five_slots_hex": "406b7700206977005069770080697700c0777700",
+          "table_getter_slot_va": "0x0100DD74",
+          "type_name_getter_va": "0x00776980",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x00FFDA5C",
+            "utf8": "Swarm",
+            "getter_bytes_hex": "b85cdaff00c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.ThumbnailManager",
+      "start_va": "0x01162A48",
+      "stop_exclusive_va": "0x01162B80",
+      "row_count": 39,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01162B80",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x007794E0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700482a1601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x007794e0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x007794e0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0100E200",
+          "first_five_slots_hex": "503a7400503d5100c0404b0060aad400e0947700",
+          "table_getter_slot_va": "0x0100E210",
+          "type_name_getter_va": "0x00D4AA60",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0100E1EC",
+            "utf8": "ThumbnailManager",
+            "getter_bytes_hex": "b8ece10001c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.UIManager",
+      "start_va": "0x01162D90",
+      "stop_exclusive_va": "0x01163100",
+      "row_count": 110,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01163100",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00784170",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700902d1601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00784170.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00784170.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0100FBBC",
+          "first_five_slots_hex": "303e7800503d5100c0404b0070fc600070417800",
+          "table_getter_slot_va": "0x0100FBCC",
+          "type_name_getter_va": "0x0060FC70",
+          "type_name": {
+            "kind": "instance-field",
+            "field_offset": "0x00000044",
+            "getter_bytes_hex": "8b4144c3",
+            "runtime_value": "not observed"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.VideoRecorder",
+      "start_va": "0x01163108",
+      "stop_exclusive_va": "0x01163170",
+      "row_count": 13,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01163170",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x007847A0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70008311601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x007847a0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x007847a0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0101142C",
+          "first_five_slots_hex": "503a7400503d5100c0404b0070447800a0477800",
+          "table_getter_slot_va": "0x0101143C",
+          "type_name_getter_va": "0x00784470",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0101141C",
+            "utf8": "VideoRecorder",
+            "getter_bytes_hex": "b81c140101c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.WeatherControl",
+      "start_va": "0x01163178",
+      "stop_exclusive_va": "0x01163188",
+      "row_count": 2,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01163188",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00784D70",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70078311601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00784d70.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00784d70.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01011758",
+          "first_five_slots_hex": "503a7400503d5100c0404b00b0477800704d7800",
+          "table_getter_slot_va": "0x01011768",
+          "type_name_getter_va": "0x007847B0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01011748",
+            "utf8": "WeatherControl",
+            "getter_bytes_hex": "b848170101c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.World",
+      "start_va": "0x01163228",
+      "stop_exclusive_va": "0x01163DC8",
+      "row_count": 372,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01163DC8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00798970",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70028321601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00798970.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00798970.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010119CC",
+          "first_five_slots_hex": "c09a7800503d5100c0404b007065780070897900",
+          "table_getter_slot_va": "0x010119DC",
+          "type_name_getter_va": "0x00786570",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x00FC3DEC",
+            "utf8": "World",
+            "getter_bytes_hex": "b8ec3dfc00c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Audio",
+      "start_va": "0x01167750",
+      "stop_exclusive_va": "0x01167818",
+      "row_count": 25,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01167818",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00864420",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70050771601c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00864420.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00864420.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01028F10",
+          "first_five_slots_hex": "503a7400503d5100c0404b008030860020448600",
+          "table_getter_slot_va": "0x01028F20",
+          "type_name_getter_va": "0x00863080",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01028EFC",
+            "utf8": "Audio",
+            "getter_bytes_hex": "b8fc8e0201c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.DownloadContent",
+      "start_va": "0x01181610",
+      "stop_exclusive_va": "0x011817F8",
+      "row_count": 61,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011817F8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00999260",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70010161801c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00999260.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00999260.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01049F34",
+          "first_five_slots_hex": "503a7400503d5100c0404b004057990060929900",
+          "table_getter_slot_va": "0x01049F44",
+          "type_name_getter_va": "0x00995740",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01049F00",
+            "utf8": "DownloadContent",
+            "getter_bytes_hex": "b8009f0401c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.CTProductModularObject",
+      "start_va": "0x011877B8",
+      "stop_exclusive_va": "0x011877D8",
+      "row_count": 4,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x011877D8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00C95EC0",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700b8771801c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00c95ec0.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00c95ec0.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0107CDC4",
+          "first_five_slots_hex": "503a7400503d5100c0404b00205cc900c05ec900",
+          "table_getter_slot_va": "0x0107CDD4",
+          "type_name_getter_va": "0x00C95C20",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0107CDAC",
+            "utf8": "CTProductModularObject",
+            "getter_bytes_hex": "b8accd0701c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.UserToolUtils",
+      "start_va": "0x01189DC8",
+      "stop_exclusive_va": "0x01189FD8",
+      "row_count": 66,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01189FD8",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00CEBF10",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700c89d1801c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00cebf10.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00cebf10.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x01081558",
+          "first_five_slots_hex": "f081ce00503d5100c0404b00a05cce0010bfce00",
+          "table_getter_slot_va": "0x01081568",
+          "type_name_getter_va": "0x00CE5CA0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x01081540",
+            "utf8": "UserToolUtils",
+            "getter_bytes_hex": "b840150801c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.Reflection",
+      "start_va": "0x01195440",
+      "stop_exclusive_va": "0x01195450",
+      "row_count": 2,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01195450",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00D82F50",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c70040541901c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00d82f50.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00d82f50.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x0108D0F0",
+          "first_five_slots_hex": "503a7400503d5100c0404b00602fd800502fd800",
+          "table_getter_slot_va": "0x0108D100",
+          "type_name_getter_va": "0x00D82F60",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x0108D0E4",
+            "utf8": "Reflection",
+            "getter_bytes_hex": "b8e4d00801c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    },
+    {
+      "label": "ScriptCore.GameUtils",
+      "start_va": "0x011970A0",
+      "stop_exclusive_va": "0x01197350",
+      "row_count": 86,
+      "stride_bytes": 8,
+      "row_layout": [
+        "native_target_u32le",
+        "registration_name_pointer_u32le"
+      ],
+      "sentinel_va": "0x01197350",
+      "sentinel_hex": "0000000000000000",
+      "getter": {
+        "va": "0x00EC5110",
+        "byte_count": 13,
+        "bytes_hex": "8b442404c700a0701901c20400",
+        "semantics": "one output pointer on stack; stores table VA; RET4",
+        "asm_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x00ec5110.asm.txt",
+        "pseudocode_reference": "https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x00ec5110.c"
+      },
+      "selected_descriptors": [
+        {
+          "vtable_va": "0x010F345C",
+          "first_five_slots_hex": "204cec00503d5100c0404b00f011ec001051ec00",
+          "table_getter_slot_va": "0x010F346C",
+          "type_name_getter_va": "0x00EC11F0",
+          "type_name": {
+            "kind": "literal",
+            "address": "0x010F3194",
+            "utf8": "GameUtils",
+            "getter_bytes_hex": "b894310f01c3"
+          },
+          "selection": "legacy selected descriptor; both slots freshly PE-verified; activation not observed"
+        }
+      ]
+    }
+  ],
+  "unselected_legacy_candidates": [
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x00fb4d5c",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    },
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x00fb4d9c",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    },
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x00fb4de0",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    },
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x010499f4",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    },
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x0107a5a0",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    },
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x010806ec",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    },
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x0108a9d8",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    },
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x010f2e54",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    },
+    {
+      "table_label": "ScriptCore.CommandSystem",
+      "candidate_va": "0x010f615c",
+      "status": "legacy pointer-pattern candidate; not selected as a descriptor or counted as a registration root"
+    }
+  ],
+  "explicit_non_table_binds": [
+    {
+      "name": "ScriptCore.Simulator::MonoScriptHost_GetEnumSimpleName",
+      "target_va": "0x00D7CE10",
+      "name_va": "0x0108CEAC",
+      "push_target_va": "0x00D7EAF6",
+      "call_va": "0x00D7EB06",
+      "call_bytes_hex": "e8153d1000",
+      "binder_va": "0x00E82820",
+      "status": "explicit static bind call in existing consumer; runtime activation not observed"
+    },
+    {
+      "name": "ScriptCore.Simulator::MonoScriptHost_GetEnumSimpleHash",
+      "target_va": "0x00D7CEA0",
+      "name_va": "0x0108CE74",
+      "push_target_va": "0x00D7EB0B",
+      "call_va": "0x00D7EB15",
+      "call_bytes_hex": "e8063d1000",
+      "binder_va": "0x00E82820",
+      "status": "explicit static bind call in existing consumer; runtime activation not observed"
+    }
+  ],
+  "limits": [
+    "Runtime registration activation not observed.",
+    "Per-descriptor construction/registration reachability not newly proved for every selected descriptor.",
+    "Three instance type-name getters require object construction values; not inferred from table label.",
+    "Native calling convention, arguments, ownership and semantics not proved by string-name join.",
+    "Other direct registrations, internal calls, dynamic bindings, callbacks and raw code remain outside the43-table census."
+  ]
+}

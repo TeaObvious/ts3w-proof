@@ -9,4 +9,8 @@ The reference is in active research. None of these inventories establishes seman
 
 The five confirmed omitted-branch cases are now represented by the [fast-field guide](../guides/persistence/fast-field-reading.md) and [thumbnail guide](../guides/rendering/thumbnail-generation-callbacks.md). Their old snapshot audit remains historical; its recorded open questions are not silently rewritten into global closure. Capturing the continuation bytes closes the concrete old ASM omission, while downstream and database-boundary questions remain explicit.
 
-The [native evidence index](../indexes/native-evidence.tsv) resolves the currently adopted canonical pairs. The full defined-function census and remaining-code disposition are separate work still in progress. No exclusion follows from an unknown name or missing pair.
+The [native evidence index](../indexes/native-evidence.tsv) resolves the currently adopted canonical pairs. The complete stored-definition/range census is now recorded. Semantic dispositions of functions and remaining code are still in progress. No exclusion follows from an unknown name or missing pair.
+
+- [Defined-function census](native-function-census.md): 40,854 internal definitions and separately identified external locations.
+- [Complete stored-range census](full-body-coverage.md): 44,903 ranges, exact mapped-code complement, 1,023 singleton metadata entries and unassessed semantic status.
+- [Executable input zones](remaining-code-method.md): independent PE checks and the limits of interpreting stored ownership.
