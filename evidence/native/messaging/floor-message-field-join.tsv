@@ -1,0 +1,18 @@
+message_offset_hex	producer_origin	consumer_use	qualification
+08..0F	A913D0 copies core lot+48/+4C	AA4350 compares attached renderer owner+10/+14	owner pair; equality required; producing relation not closed
+10..13	copied single-quarter packed cell	AA36A0 then AA1F70 receive pointer	consumer accepts general input mask; A913D0 supplies one quarter
+18..57	copied/resolved64-byte key record	AA1F70 first-key and complete-quad tests	A8AE70 returns inequality, not equality
+58..59	A911C0 UInt16 interned key ID	AA3890 MOVZX to AA1F70 argument	raw numeric storage ID
+5A	separate manager+30 byte grid	address passed to AA1F70	separate from stored support nibble
+5B	AD2990 AL; same support decision as high bit q+4	AA3890 MOVZX; AA1F70 parameter7	used by selected null-quad branches
+5C	ACF820 result	AA3890 MOVZX to AA1F70	separate support-region predicate
+5E..5F	C03FC0 AX room result	AA3890 MOVZX to AA36A0 and AA1F70	same16-bit pattern; no signed arithmetic inferred
+60..6F	optional payload DWORD0/4/8/C; selected ctor zeroes if absent	pointer forwarded by AA3890 to AA1F70	live default-key equality and semantic use remain child boundaries
+70..77	optional source Float32+10/+14	pointer forwarded to AA1F70	no default initialization established when source absent
+78..7B	optional source Float32+18	x87 load/store into AA1F70 argument before child gate	no default initialization established when source absent
+7C..83	optional source Float32+30/+34	pointer forwarded; selected AA1F70 branches load both words	no default initialization established when source absent
+84	strict platform AFED60 AL	AA3890 MOVZX to AA1F70	platform independent of +5B
+85	final support-below ACFA20 AL; earlier result overwritten	AA3890 MOVZX to AA1F70	two producer calls remain distinct
+86	AD1380 AL	AA3890 MOVZX to AA1F70	separate predicate
+87	optional source byte+38; selected ctor zeroes	AA3890 MOVZX to AA1F70	separate optional source flag
+88	AB3A00 AL	AA3890 MOVZX to AA1F70	separate predicate

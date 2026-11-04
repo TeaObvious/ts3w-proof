@@ -249,3 +249,5 @@ and pending-refresh/removal relationship are established. The full support
 child graph, neighbor/rectangle producers, catalog/resource lifetime,
 allocation recovery, reentrant/concurrent mutation, message receiver behavior
 and actual game/rendering acceptance remain separate work.
+
+The [bounded message-delivery contract](floor-pattern-message-delivery.md) now joins the concrete queue slot, pump, subscription/callback data, receiver owner filter, separate deferred queue and atomic payload references. Complete outer broadcast, owner-ID construction and original runtime behavior retain explicit gaps.

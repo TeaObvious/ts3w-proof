@@ -1,0 +1,16 @@
+.method /* 06000587 */ public final hidebysig newslot virtual
+	instance uint32 GetEnumSimpleHash (
+		class [mscorlib]System.Type enumType,
+		uint64 val
+	) cil managed
+{
+	// Method begins at RVA 0x7513
+	// Header size: 1
+	// Code size: 8 (0x8)
+	.maxstack 8
+
+	IL_0000: ldarg.1
+	IL_0001: ldarg.2
+	IL_0002: call uint32 ScriptCore.Simulator::MonoScriptHost_GetEnumSimpleHash(class [mscorlib]System.Type, uint64) /* 06000549 */
+	IL_0007: ret
+} // end of method Simulator::GetEnumSimpleHash

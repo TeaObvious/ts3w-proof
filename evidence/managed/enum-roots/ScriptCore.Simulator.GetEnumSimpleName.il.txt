@@ -1,0 +1,16 @@
+.method /* 06000586 */ public final hidebysig newslot virtual
+	instance string GetEnumSimpleName (
+		class [mscorlib]System.Type enumType,
+		uint64 val
+	) cil managed
+{
+	// Method begins at RVA 0x750a
+	// Header size: 1
+	// Code size: 8 (0x8)
+	.maxstack 8
+
+	IL_0000: ldarg.1
+	IL_0001: ldarg.2
+	IL_0002: call string ScriptCore.Simulator::MonoScriptHost_GetEnumSimpleName(class [mscorlib]System.Type, uint64) /* 06000548 */
+	IL_0007: ret
+} // end of method Simulator::GetEnumSimpleName

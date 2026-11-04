@@ -4,6 +4,8 @@
 
 The frontier joins the current [registration index](../indexes/native-registrations.tsv), the 40,854-entry [definition census](native-function-census.md), all 44,903 [stored ranges](native-owned-ranges.tsv), the current 25-pair [canonical evidence index](../indexes/native-evidence.tsv), and the 5,054-pair historical source at **[JJCodes90/OpenTS3-Playtest, cf6f60a42fe8c5bd181495a32161217972cefebc](https://github.com/JJCodes90/OpenTS3-Playtest/tree/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof)**. Historical paths are relative to that repository; current paths are relative to this research repository. Reference identity plus RVA is the target key. Registration IDs retain their source kind and record/call VA; alias names and managed candidate tokens are preserved together without inventing exact managed-signature matches.
 
+This frontier freezes the 25 canonical pairs and metadata available in the [2ab2fa2a80 input snapshot](https://github.com/TeaObvious/ts3w-proof/tree/2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944). Later evidence and names are resolved through the [current canonical index](../indexes/native-evidence.tsv); new pairs do not silently rewrite these historical frontier rows.
+
 ## Evidence-first order
 
 | Priority | Targets | Concrete next work |
