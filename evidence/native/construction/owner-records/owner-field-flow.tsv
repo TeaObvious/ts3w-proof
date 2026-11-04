@@ -1,0 +1,10 @@
+reference_id	stored_field	producer_instruction	stored_value	actual_reader_or_binding	qualification
+ts3w-pc-1.67	L+290	ACDC90@ACDDA1;AC8C80@AC8CBB	floorManager M	ACDC90@ACDDA7 calls A8DD00(M,L)	new-manager branch only
+ts3w-pc-1.67	M+4	A8DD00@A8DD0D	coreLot L	A913D0 reads M+4 before message owner copy	pointer identity; no owner retain here
+ts3w-pc-1.67	L+364	AB3130@AB3182	lotRenderer R	AB3130@AB319A calls AE4790(R,L)	existing nonnull skips rebind
+ts3w-pc-1.67	R+18	AE4790@AE4816	coreLot L	AE8AA0 core access and conditional lock	plain stored pointer; complete owner lifetime open
+ts3w-pc-1.67	R+10	AE4790@AE481C	L+48 copied UInt32	AA4350 compares message+8	bind-time snapshot; later L writes unresolved
+ts3w-pc-1.67	R+14	AE4790@AE4829	L+4C copied UInt32	AA4350 compares message+C	bind-time snapshot; later L writes unresolved
+ts3w-pc-1.67	R+230	AE8AA0@AE8DC3	floorReceiver F	AE8AA0@AE8DC9 calls AA0640(F,R)	stage3/substate0, admitted initializer route
+ts3w-pc-1.67	F+8	AA0640@AA064B	same renderer R	AA4350 filters payload+8/+C against R+10/+14	existing canonical body reused
+ts3w-pc-1.67	message+8/+C	A913D0@A91582/A91588	current M+4 coreLot +48/+4C	AA4350 owner comparison	live producer read versus renderer snapshot

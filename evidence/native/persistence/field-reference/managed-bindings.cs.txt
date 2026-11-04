@@ -1,0 +1,28 @@
+// Original PC 1.67 ScriptCore; assembly SHA256 1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115
+// MVID da71f9d5-3a90-44c6-8f98-5bafd2fca18a. Fresh ILSpy 11.1 static decompilation; no target execution.
+// Import/wrapper methods are complete; TaskFieldReference is the complete selected type.
+// Selections below are separate original decompiler projections, not one compilable source unit.
+
+using System.Runtime.InteropServices;
+
+[DllImport("Sims3Common.dll")]
+private static extern bool TaskControl_ResolveFieldReference(ulong taskId, ref TaskFieldReference fieldRef);
+
+
+public static bool ResolveFieldReference(ulong taskId, ref TaskFieldReference fieldRef)
+{
+	return TaskControl_ResolveFieldReference(taskId, ref fieldRef);
+}
+
+
+public struct TaskFieldReference
+{
+	public int mFrameIndex;
+
+	public int mFieldIndex;
+
+	public override string ToString()
+	{
+		return $"{mFrameIndex}:{mFieldIndex}";
+	}
+}

@@ -1,0 +1,757 @@
+{
+  "schema": "ts3w-original-scriptcore-enum-inputs-v1",
+  "assembly": "ScriptCore",
+  "enum_types": 8,
+  "literal_constants": 55,
+  "alias_groups": 0,
+  "entries": [
+    {
+      "type": "ScriptCore.DownloadContent+ContentType",
+      "type_token": "0x0200000D",
+      "base_reference_token": "0x0100000D",
+      "underlying_field": {
+        "token": "0x0400000A",
+        "name": "value__",
+        "attributes": "0x0606",
+        "signature_blob": "0609"
+      },
+      "declared_field_count": 2,
+      "literal_constant_count": 1,
+      "distinct_constant_count": 1,
+      "constants": [
+        {
+          "field_token": "0x0400000B",
+          "name": "Downloaded",
+          "signature_blob": "061134",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000002",
+          "constant_parent_token": "0x0400000B",
+          "constant_type": "UInt32",
+          "constant_blob": "02000000",
+          "value": "2"
+        }
+      ],
+      "alias_groups": []
+    },
+    {
+      "type": "ScriptCore.TaskStateCollection+WriteTaskResult",
+      "type_token": "0x02000045",
+      "base_reference_token": "0x0100000D",
+      "underlying_field": {
+        "token": "0x04000091",
+        "name": "value__",
+        "attributes": "0x0606",
+        "signature_blob": "0608"
+      },
+      "declared_field_count": 4,
+      "literal_constant_count": 3,
+      "distinct_constant_count": 3,
+      "constants": [
+        {
+          "field_token": "0x04000092",
+          "name": "OK",
+          "signature_blob": "06118114",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000007",
+          "constant_parent_token": "0x04000092",
+          "constant_type": "Int32",
+          "constant_blob": "00000000",
+          "value": "0"
+        },
+        {
+          "field_token": "0x04000093",
+          "name": "NotSleeping",
+          "signature_blob": "06118114",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000008",
+          "constant_parent_token": "0x04000093",
+          "constant_type": "Int32",
+          "constant_blob": "01000000",
+          "value": "1"
+        },
+        {
+          "field_token": "0x04000094",
+          "name": "Failed",
+          "signature_blob": "06118114",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000009",
+          "constant_parent_token": "0x04000094",
+          "constant_type": "Int32",
+          "constant_blob": "02000000",
+          "value": "2"
+        }
+      ],
+      "alias_groups": []
+    },
+    {
+      "type": "ScriptCore.ScriptProxy+eResetStatus",
+      "type_token": "0x0200004B",
+      "base_reference_token": "0x0100000D",
+      "underlying_field": {
+        "token": "0x040000A1",
+        "name": "value__",
+        "attributes": "0x0606",
+        "signature_blob": "0608"
+      },
+      "declared_field_count": 3,
+      "literal_constant_count": 2,
+      "distinct_constant_count": 2,
+      "constants": [
+        {
+          "field_token": "0x040000A2",
+          "name": "kResetNone",
+          "signature_blob": "0611812C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00000A",
+          "constant_parent_token": "0x040000A2",
+          "constant_type": "Int32",
+          "constant_blob": "00000000",
+          "value": "0"
+        },
+        {
+          "field_token": "0x040000A3",
+          "name": "kResetRequested",
+          "signature_blob": "0611812C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00000B",
+          "constant_parent_token": "0x040000A3",
+          "constant_type": "Int32",
+          "constant_blob": "01000000",
+          "value": "1"
+        }
+      ],
+      "alias_groups": []
+    },
+    {
+      "type": "ScriptCore.PersistedTypeCode",
+      "type_token": "0x02000063",
+      "base_reference_token": "0x0100000D",
+      "underlying_field": {
+        "token": "0x040000A9",
+        "name": "value__",
+        "attributes": "0x0606",
+        "signature_blob": "0605"
+      },
+      "declared_field_count": 28,
+      "literal_constant_count": 27,
+      "distinct_constant_count": 27,
+      "constants": [
+        {
+          "field_token": "0x040000AA",
+          "name": "Null",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00000C",
+          "constant_parent_token": "0x040000AA",
+          "constant_type": "Byte",
+          "constant_blob": "00",
+          "value": "0"
+        },
+        {
+          "field_token": "0x040000AB",
+          "name": "ObjectRef",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00000D",
+          "constant_parent_token": "0x040000AB",
+          "constant_type": "Byte",
+          "constant_blob": "01",
+          "value": "1"
+        },
+        {
+          "field_token": "0x040000AC",
+          "name": "Boolean",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00000E",
+          "constant_parent_token": "0x040000AC",
+          "constant_type": "Byte",
+          "constant_blob": "02",
+          "value": "2"
+        },
+        {
+          "field_token": "0x040000AD",
+          "name": "Byte",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00000F",
+          "constant_parent_token": "0x040000AD",
+          "constant_type": "Byte",
+          "constant_blob": "03",
+          "value": "3"
+        },
+        {
+          "field_token": "0x040000AE",
+          "name": "Char",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000010",
+          "constant_parent_token": "0x040000AE",
+          "constant_type": "Byte",
+          "constant_blob": "04",
+          "value": "4"
+        },
+        {
+          "field_token": "0x040000AF",
+          "name": "DateTime",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000011",
+          "constant_parent_token": "0x040000AF",
+          "constant_type": "Byte",
+          "constant_blob": "05",
+          "value": "5"
+        },
+        {
+          "field_token": "0x040000B0",
+          "name": "Decimal",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000012",
+          "constant_parent_token": "0x040000B0",
+          "constant_type": "Byte",
+          "constant_blob": "06",
+          "value": "6"
+        },
+        {
+          "field_token": "0x040000B1",
+          "name": "Double",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000013",
+          "constant_parent_token": "0x040000B1",
+          "constant_type": "Byte",
+          "constant_blob": "07",
+          "value": "7"
+        },
+        {
+          "field_token": "0x040000B2",
+          "name": "Int16",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000014",
+          "constant_parent_token": "0x040000B2",
+          "constant_type": "Byte",
+          "constant_blob": "08",
+          "value": "8"
+        },
+        {
+          "field_token": "0x040000B3",
+          "name": "Int32",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000015",
+          "constant_parent_token": "0x040000B3",
+          "constant_type": "Byte",
+          "constant_blob": "09",
+          "value": "9"
+        },
+        {
+          "field_token": "0x040000B4",
+          "name": "Int64",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000016",
+          "constant_parent_token": "0x040000B4",
+          "constant_type": "Byte",
+          "constant_blob": "0A",
+          "value": "10"
+        },
+        {
+          "field_token": "0x040000B5",
+          "name": "SByte",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000017",
+          "constant_parent_token": "0x040000B5",
+          "constant_type": "Byte",
+          "constant_blob": "0B",
+          "value": "11"
+        },
+        {
+          "field_token": "0x040000B6",
+          "name": "Single",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000018",
+          "constant_parent_token": "0x040000B6",
+          "constant_type": "Byte",
+          "constant_blob": "0C",
+          "value": "12"
+        },
+        {
+          "field_token": "0x040000B7",
+          "name": "UInt16",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000019",
+          "constant_parent_token": "0x040000B7",
+          "constant_type": "Byte",
+          "constant_blob": "0D",
+          "value": "13"
+        },
+        {
+          "field_token": "0x040000B8",
+          "name": "UInt32",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00001A",
+          "constant_parent_token": "0x040000B8",
+          "constant_type": "Byte",
+          "constant_blob": "0E",
+          "value": "14"
+        },
+        {
+          "field_token": "0x040000B9",
+          "name": "UInt64",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00001B",
+          "constant_parent_token": "0x040000B9",
+          "constant_type": "Byte",
+          "constant_blob": "0F",
+          "value": "15"
+        },
+        {
+          "field_token": "0x040000BA",
+          "name": "ObjectInst",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00001C",
+          "constant_parent_token": "0x040000BA",
+          "constant_type": "Byte",
+          "constant_blob": "10",
+          "value": "16"
+        },
+        {
+          "field_token": "0x040000BB",
+          "name": "ArrayInst",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00001D",
+          "constant_parent_token": "0x040000BB",
+          "constant_type": "Byte",
+          "constant_blob": "11",
+          "value": "17"
+        },
+        {
+          "field_token": "0x040000BC",
+          "name": "TypeInstZeroBased",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00001E",
+          "constant_parent_token": "0x040000BC",
+          "constant_type": "Byte",
+          "constant_blob": "12",
+          "value": "18"
+        },
+        {
+          "field_token": "0x040000BD",
+          "name": "BrokenProtectedObjectInst",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00001F",
+          "constant_parent_token": "0x040000BD",
+          "constant_type": "Byte",
+          "constant_blob": "13",
+          "value": "19"
+        },
+        {
+          "field_token": "0x040000BE",
+          "name": "ExternalObject",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000020",
+          "constant_parent_token": "0x040000BE",
+          "constant_type": "Byte",
+          "constant_blob": "14",
+          "value": "20"
+        },
+        {
+          "field_token": "0x040000BF",
+          "name": "BrokenEnumInst",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000021",
+          "constant_parent_token": "0x040000BF",
+          "constant_type": "Byte",
+          "constant_blob": "15",
+          "value": "21"
+        },
+        {
+          "field_token": "0x040000C0",
+          "name": "ProtectedObjectInst",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000022",
+          "constant_parent_token": "0x040000C0",
+          "constant_type": "Byte",
+          "constant_blob": "16",
+          "value": "22"
+        },
+        {
+          "field_token": "0x040000C1",
+          "name": "EnumInst",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000023",
+          "constant_parent_token": "0x040000C1",
+          "constant_type": "Byte",
+          "constant_blob": "17",
+          "value": "23"
+        },
+        {
+          "field_token": "0x040000C2",
+          "name": "MethodInst",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000024",
+          "constant_parent_token": "0x040000C2",
+          "constant_type": "Byte",
+          "constant_blob": "18",
+          "value": "24"
+        },
+        {
+          "field_token": "0x040000C3",
+          "name": "ResourceKeyInst",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000025",
+          "constant_parent_token": "0x040000C3",
+          "constant_type": "Byte",
+          "constant_blob": "19",
+          "value": "25"
+        },
+        {
+          "field_token": "0x040000C4",
+          "name": "TypeInstOneBased",
+          "signature_blob": "0611818C",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000026",
+          "constant_parent_token": "0x040000C4",
+          "constant_type": "Byte",
+          "constant_blob": "1A",
+          "value": "26"
+        }
+      ],
+      "alias_groups": []
+    },
+    {
+      "type": "ScriptCore.PersistedClass+TypeCode",
+      "type_token": "0x02000068",
+      "base_reference_token": "0x0100000D",
+      "underlying_field": {
+        "token": "0x040000DF",
+        "name": "value__",
+        "attributes": "0x0606",
+        "signature_blob": "0605"
+      },
+      "declared_field_count": 8,
+      "literal_constant_count": 7,
+      "distinct_constant_count": 7,
+      "constants": [
+        {
+          "field_token": "0x040000E0",
+          "name": "BaseType",
+          "signature_blob": "061181A0",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000027",
+          "constant_parent_token": "0x040000E0",
+          "constant_type": "Byte",
+          "constant_blob": "00",
+          "value": "0"
+        },
+        {
+          "field_token": "0x040000E1",
+          "name": "Pointer",
+          "signature_blob": "061181A0",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000028",
+          "constant_parent_token": "0x040000E1",
+          "constant_type": "Byte",
+          "constant_blob": "01",
+          "value": "1"
+        },
+        {
+          "field_token": "0x040000E2",
+          "name": "ByRef",
+          "signature_blob": "061181A0",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000029",
+          "constant_parent_token": "0x040000E2",
+          "constant_type": "Byte",
+          "constant_blob": "02",
+          "value": "2"
+        },
+        {
+          "field_token": "0x040000E3",
+          "name": "Vector",
+          "signature_blob": "061181A0",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00002A",
+          "constant_parent_token": "0x040000E3",
+          "constant_type": "Byte",
+          "constant_blob": "03",
+          "value": "3"
+        },
+        {
+          "field_token": "0x040000E4",
+          "name": "AnonymousBaseType",
+          "signature_blob": "061181A0",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00002B",
+          "constant_parent_token": "0x040000E4",
+          "constant_type": "Byte",
+          "constant_blob": "04",
+          "value": "4"
+        },
+        {
+          "field_token": "0x040000E5",
+          "name": "Array",
+          "signature_blob": "061181A0",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00002C",
+          "constant_parent_token": "0x040000E5",
+          "constant_type": "Byte",
+          "constant_blob": "10",
+          "value": "16"
+        },
+        {
+          "field_token": "0x040000E6",
+          "name": "Generic",
+          "signature_blob": "061181A0",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00002D",
+          "constant_parent_token": "0x040000E6",
+          "constant_type": "Byte",
+          "constant_blob": "20",
+          "value": "32"
+        }
+      ],
+      "alias_groups": []
+    },
+    {
+      "type": "ScriptCore.PersistedClass+FieldPersistability",
+      "type_token": "0x02000069",
+      "base_reference_token": "0x0100000D",
+      "underlying_field": {
+        "token": "0x040000E7",
+        "name": "value__",
+        "attributes": "0x0606",
+        "signature_blob": "0608"
+      },
+      "declared_field_count": 4,
+      "literal_constant_count": 3,
+      "distinct_constant_count": 3,
+      "constants": [
+        {
+          "field_token": "0x040000E8",
+          "name": "Yes",
+          "signature_blob": "061181A4",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00002E",
+          "constant_parent_token": "0x040000E8",
+          "constant_type": "Int32",
+          "constant_blob": "00000000",
+          "value": "0"
+        },
+        {
+          "field_token": "0x040000E9",
+          "name": "No",
+          "signature_blob": "061181A4",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00002F",
+          "constant_parent_token": "0x040000E9",
+          "constant_type": "Int32",
+          "constant_blob": "01000000",
+          "value": "1"
+        },
+        {
+          "field_token": "0x040000EA",
+          "name": "Enforced",
+          "signature_blob": "061181A4",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000030",
+          "constant_parent_token": "0x040000EA",
+          "constant_type": "Int32",
+          "constant_blob": "02000000",
+          "value": "2"
+        }
+      ],
+      "alias_groups": []
+    },
+    {
+      "type": "ScriptCore.PersistReader+ObjectLoadMode",
+      "type_token": "0x02000071",
+      "base_reference_token": "0x0100000D",
+      "underlying_field": {
+        "token": "0x04000105",
+        "name": "value__",
+        "attributes": "0x0606",
+        "signature_blob": "0608"
+      },
+      "declared_field_count": 5,
+      "literal_constant_count": 4,
+      "distinct_constant_count": 4,
+      "constants": [
+        {
+          "field_token": "0x04000106",
+          "name": "Precreate",
+          "signature_blob": "061181C4",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000034",
+          "constant_parent_token": "0x04000106",
+          "constant_type": "Int32",
+          "constant_blob": "00000000",
+          "value": "0"
+        },
+        {
+          "field_token": "0x04000107",
+          "name": "Reference",
+          "signature_blob": "061181C4",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000035",
+          "constant_parent_token": "0x04000107",
+          "constant_type": "Int32",
+          "constant_blob": "01000000",
+          "value": "1"
+        },
+        {
+          "field_token": "0x04000108",
+          "name": "Create",
+          "signature_blob": "061181C4",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000036",
+          "constant_parent_token": "0x04000108",
+          "constant_type": "Int32",
+          "constant_blob": "02000000",
+          "value": "2"
+        },
+        {
+          "field_token": "0x04000109",
+          "name": "Skip",
+          "signature_blob": "061181C4",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000037",
+          "constant_parent_token": "0x04000109",
+          "constant_type": "Int32",
+          "constant_blob": "03000000",
+          "value": "3"
+        }
+      ],
+      "alias_groups": []
+    },
+    {
+      "type": "ScriptCore.StreamHost+ErrorCodes",
+      "type_token": "0x02000082",
+      "base_reference_token": "0x0100000D",
+      "underlying_field": {
+        "token": "0x04000126",
+        "name": "value__",
+        "attributes": "0x0606",
+        "signature_blob": "0608"
+      },
+      "declared_field_count": 9,
+      "literal_constant_count": 8,
+      "distinct_constant_count": 8,
+      "constants": [
+        {
+          "field_token": "0x04000127",
+          "name": "Success",
+          "signature_blob": "06118208",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00003C",
+          "constant_parent_token": "0x04000127",
+          "constant_type": "Int32",
+          "constant_blob": "00000000",
+          "value": "0"
+        },
+        {
+          "field_token": "0x04000128",
+          "name": "EndOfStream",
+          "signature_blob": "06118208",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00003D",
+          "constant_parent_token": "0x04000128",
+          "constant_type": "Int32",
+          "constant_blob": "FFFFFFFF",
+          "value": "-1"
+        },
+        {
+          "field_token": "0x04000129",
+          "name": "StreamClosed",
+          "signature_blob": "06118208",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00003E",
+          "constant_parent_token": "0x04000129",
+          "constant_type": "Int32",
+          "constant_blob": "FEFFFFFF",
+          "value": "-2"
+        },
+        {
+          "field_token": "0x0400012A",
+          "name": "IOError",
+          "signature_blob": "06118208",
+          "attributes": "0x8056",
+          "constant_token": "0x0B00003F",
+          "constant_parent_token": "0x0400012A",
+          "constant_type": "Int32",
+          "constant_blob": "FDFFFFFF",
+          "value": "-3"
+        },
+        {
+          "field_token": "0x0400012B",
+          "name": "InvalidData",
+          "signature_blob": "06118208",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000040",
+          "constant_parent_token": "0x0400012B",
+          "constant_type": "Int32",
+          "constant_blob": "FCFFFFFF",
+          "value": "-4"
+        },
+        {
+          "field_token": "0x0400012C",
+          "name": "OutOfMemory",
+          "signature_blob": "06118208",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000041",
+          "constant_parent_token": "0x0400012C",
+          "constant_type": "Int32",
+          "constant_blob": "FBFFFFFF",
+          "value": "-5"
+        },
+        {
+          "field_token": "0x0400012D",
+          "name": "NullReference",
+          "signature_blob": "06118208",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000042",
+          "constant_parent_token": "0x0400012D",
+          "constant_type": "Int32",
+          "constant_blob": "FAFFFFFF",
+          "value": "-6"
+        },
+        {
+          "field_token": "0x0400012E",
+          "name": "ArgumentOutOfRange",
+          "signature_blob": "06118208",
+          "attributes": "0x8056",
+          "constant_token": "0x0B000043",
+          "constant_parent_token": "0x0400012E",
+          "constant_type": "Int32",
+          "constant_blob": "F9FFFFFF",
+          "value": "-7"
+        }
+      ],
+      "alias_groups": []
+    }
+  ],
+  "limits": [
+    "Original CLI Field/Constant table input only; no target assembly executed.",
+    "Metadata field order, alias equality and literal bytes do not prove native runtime field enumeration order, lazy materialization or cache state."
+  ],
+  "source_identity": "../../../managed/reference-inputs.json",
+  "source_assembly": "ScriptCore",
+  "methodology": "System.Reflection.Metadata PEReader; enum owners extend System.Enum; ordered Field rows, underlying value__ signature and Constant rows are read directly. ScriptCore identity was checked against the central input record before reading."
+}

@@ -1,0 +1,223 @@
+.class /* 020002D4 */ public auto ansi beforefieldinit Sims3.UI.FrameDrawable
+	extends Sims3.UI.DrawableBase
+{
+	// Nested Types
+	.class /* 020002D5 */ nested family auto ansi sealed PropertyID
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field /* 0400196E */ public specialname rtspecialname int32 value__
+		.field /* 0400196F */ public static literal valuetype Sims3.UI.FrameDrawable/PropertyID kPropFrameDrawableBorderWidth = int32(51183616)
+		.field /* 04001970 */ public static literal valuetype Sims3.UI.FrameDrawable/PropertyID kPropFrameDrawableOutlineColor = int32(51183618)
+
+	} // end of class PropertyID
+
+	.class /* 020002D6 */ nested assembly auto ansi sealed FrameDrawableGenericID
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field /* 04001971 */ public specialname rtspecialname int32 value__
+		.field /* 04001972 */ public static literal valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID kFrameDrawableGetBorderStyle = int32(0)
+		.field /* 04001973 */ public static literal valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID kFrameDrawableSetBorderStyle = int32(1)
+		.field /* 04001974 */ public static literal valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID kFrameDrawableGetBorderColor = int32(2)
+		.field /* 04001975 */ public static literal valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID kFrameDrawableSetBorderColor = int32(3)
+
+	} // end of class FrameDrawableGenericID
+
+	.class /* 020002D7 */ nested public auto ansi sealed BorderStyle
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field /* 04001976 */ public specialname rtspecialname int32 value__
+		.field /* 04001977 */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Default = int32(0)
+		.field /* 04001978 */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Hidden = int32(1)
+		.field /* 04001979 */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Solid = int32(2)
+		.field /* 0400197A */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Dotted = int32(3)
+		.field /* 0400197B */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Dashed = int32(4)
+		.field /* 0400197C */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Inset = int32(5)
+		.field /* 0400197D */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Outset = int32(6)
+		.field /* 0400197E */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Groove = int32(7)
+		.field /* 0400197F */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle Ridge = int32(8)
+		.field /* 04001980 */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle OutsetOutline = int32(9)
+		.field /* 04001981 */ public static literal valuetype Sims3.UI.FrameDrawable/BorderStyle InsetOutline = int32(10)
+
+	} // end of class BorderStyle
+
+
+	// Fields
+	.field /* 0400196D */ assembly static literal uint32 ClassId = uint32(51205305)
+
+	// Methods
+	.method /* 060018ED */ public hidebysig specialname rtspecialname
+		instance void .ctor (
+			uint32 drawableHandle
+		) cil managed
+	{
+		// Method begins at RVA 0x88e4e
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void Sims3.UI.DrawableBase::.ctor(uint32) /* 060002E3 */
+		IL_0007: ret
+	} // end of method FrameDrawable::.ctor
+
+	.method /* 060018EE */ public hidebysig specialname
+		instance valuetype [SimIFace]Sims3.SimIFace.Rect get_BorderWidth () cil managed
+	{
+		// Method begins at RVA 0x88e57
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance uint32 Sims3.UI.DrawableBase::get_DrawableHandle() /* 060002E2 */
+		IL_0006: ldc.i4 51183616
+		IL_000b: call valuetype [SimIFace]Sims3.SimIFace.Rect Sims3.UI.UIManager::GetRectProperty(uint32, uint32) /* 06001295 */
+		IL_0010: ret
+	} // end of method FrameDrawable::get_BorderWidth
+
+	.method /* 060018EF */ public hidebysig specialname
+		instance void set_BorderWidth (
+			valuetype [SimIFace]Sims3.SimIFace.Rect 'value'
+		) cil managed
+	{
+		// Method begins at RVA 0x88e69
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance uint32 Sims3.UI.DrawableBase::get_DrawableHandle() /* 060002E2 */
+		IL_0006: ldc.i4 51183616
+		IL_000b: ldarg.1
+		IL_000c: call void Sims3.UI.UIManager::SetRectProperty(uint32, uint32, valuetype [SimIFace]Sims3.SimIFace.Rect) /* 06001294 */
+		IL_0011: ret
+	} // end of method FrameDrawable::set_BorderWidth
+
+	.method /* 060018F0 */ public hidebysig specialname
+		instance valuetype [SimIFace]Sims3.SimIFace.Color get_OutlineColor () cil managed
+	{
+		// Method begins at RVA 0x88e7c
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance uint32 Sims3.UI.DrawableBase::get_DrawableHandle() /* 060002E2 */
+		IL_0006: ldc.i4 51183618
+		IL_000b: call valuetype [SimIFace]Sims3.SimIFace.Color Sims3.UI.UIManager::GetColorProperty(uint32, uint32) /* 0600128F */
+		IL_0010: ret
+	} // end of method FrameDrawable::get_OutlineColor
+
+	.method /* 060018F1 */ public hidebysig specialname
+		instance void set_OutlineColor (
+			valuetype [SimIFace]Sims3.SimIFace.Color 'value'
+		) cil managed
+	{
+		// Method begins at RVA 0x88e8e
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance uint32 Sims3.UI.DrawableBase::get_DrawableHandle() /* 060002E2 */
+		IL_0006: ldc.i4 51183618
+		IL_000b: ldarg.1
+		IL_000c: call void Sims3.UI.UIManager::SetColorProperty(uint32, uint32, valuetype [SimIFace]Sims3.SimIFace.Color) /* 0600128E */
+		IL_0011: ret
+	} // end of method FrameDrawable::set_OutlineColor
+
+	.method /* 060018F2 */ public hidebysig
+		instance valuetype [SimIFace]Sims3.SimIFace.Color GetBorderColorForState (
+			valuetype Sims3.UI.DrawableBase/ControlStates state
+		) cil managed
+	{
+		// Method begins at RVA 0x88ea1
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.2
+		IL_0002: ldarg.1
+		IL_0003: ldc.i4.0
+		IL_0004: call uint32 Sims3.UI.UIManager::FrameDrawableGeneric(class Sims3.UI.FrameDrawable, valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID, valuetype Sims3.UI.DrawableBase/ControlStates, uint32) /* 060012AD */
+		IL_0009: newobj instance void [SimIFace]Sims3.SimIFace.Color::.ctor(uint32) /* 0A000035 */
+		IL_000e: ret
+	} // end of method FrameDrawable::GetBorderColorForState
+
+	.method /* 060018F3 */ public hidebysig
+		instance void SetBorderColorForState (
+			valuetype Sims3.UI.DrawableBase/ControlStates state,
+			valuetype [SimIFace]Sims3.SimIFace.Color color
+		) cil managed
+	{
+		// Method begins at RVA 0x88eb1
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.3
+		IL_0002: ldarg.1
+		IL_0003: ldarga.s color
+		IL_0005: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB() /* 0A000034 */
+		IL_000a: call uint32 Sims3.UI.UIManager::FrameDrawableGeneric(class Sims3.UI.FrameDrawable, valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID, valuetype Sims3.UI.DrawableBase/ControlStates, uint32) /* 060012AD */
+		IL_000f: pop
+		IL_0010: ret
+	} // end of method FrameDrawable::SetBorderColorForState
+
+	.method /* 060018F4 */ public hidebysig
+		instance valuetype Sims3.UI.FrameDrawable/BorderStyle GetBorderStyleForState (
+			valuetype Sims3.UI.DrawableBase/ControlStates state
+		) cil managed
+	{
+		// Method begins at RVA 0x88ec3
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: ldarg.1
+		IL_0003: ldc.i4.0
+		IL_0004: call uint32 Sims3.UI.UIManager::FrameDrawableGeneric(class Sims3.UI.FrameDrawable, valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID, valuetype Sims3.UI.DrawableBase/ControlStates, uint32) /* 060012AD */
+		IL_0009: ret
+	} // end of method FrameDrawable::GetBorderStyleForState
+
+	.method /* 060018F5 */ public hidebysig
+		instance void SetBorderStyleForState (
+			valuetype Sims3.UI.DrawableBase/ControlStates state,
+			valuetype Sims3.UI.FrameDrawable/BorderStyle style
+		) cil managed
+	{
+		// Method begins at RVA 0x88ece
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: ldarg.1
+		IL_0003: ldarg.2
+		IL_0004: call uint32 Sims3.UI.UIManager::FrameDrawableGeneric(class Sims3.UI.FrameDrawable, valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID, valuetype Sims3.UI.DrawableBase/ControlStates, uint32) /* 060012AD */
+		IL_0009: pop
+		IL_000a: ret
+	} // end of method FrameDrawable::SetBorderStyleForState
+
+	// Properties
+	.property /* 17000424 */ instance valuetype [SimIFace]Sims3.SimIFace.Rect BorderWidth()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Rect Sims3.UI.FrameDrawable::get_BorderWidth()
+		.set instance void Sims3.UI.FrameDrawable::set_BorderWidth(valuetype [SimIFace]Sims3.SimIFace.Rect)
+	}
+	.property /* 17000425 */ instance valuetype [SimIFace]Sims3.SimIFace.Color OutlineColor()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Color Sims3.UI.FrameDrawable::get_OutlineColor()
+		.set instance void Sims3.UI.FrameDrawable::set_OutlineColor(valuetype [SimIFace]Sims3.SimIFace.Color)
+	}
+
+} // end of class Sims3.UI.FrameDrawable

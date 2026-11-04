@@ -1,0 +1,280 @@
+PC 1.67 TS3W.exe; reference_id: ts3w-pc-1.67; identity: evidence/reference.json.
+Current Ghidra analyst name: InitializeLotStateAndOwners.
+Complete existing Ghidra stored body union: [00ACDC90,00ACDF8C] inclusive, [00ACDF90,00ACE047] inclusive; 949 owned bytes / 271 instruction starts.
+Original PE bytes and independent objdump starts match the Listing.
+
+Initializes selected core-lot state and missing layer owners, performs the guarded floor-level/height setup, and optionally creates the renderer. Its missing-floor-manager branch binds that manager to this exact core lot before the later optional AB3130 renderer call. ECX core lot and 11 stack words, RET2Ch. Early ABCBE0 failure returns its result; successful tail writes AL=1. Child geometry and virtual identity setters retain their separate contracts. Analyst-assigned name.
+
+Excluded envelope gap [00ACDF8D,00ACDF8F]: 8d4900 (3 alignment bytes, not owned).
+
+00acdc90	83ec0c	SUB ESP, 0xc
+00acdc93	55	PUSH EBP
+00acdc94	56	PUSH ESI
+00acdc95	33ed	XOR EBP, EBP
+00acdc97	807c243400	CMP byte ptr [ESP + 0x34], 0x0
+00acdc9c	57	PUSH EDI
+00acdc9d	8bf1	MOV ESI, ECX
+00acdc9f	741f	JZ 0x00acdcc0
+00acdca1	55	PUSH EBP
+00acdca2	e85921d0ff	CALL 0x007cfe00 ; Optional 7CFE00 result is passed by address to core virtual+60. The actual virtual target and the provenance of core+48/+4C are not resolved merely by this call.
+00acdca7	83c404	ADD ESP, 0x4
+00acdcaa	8944240c	MOV dword ptr [ESP + 0xc], EAX
+00acdcae	8b06	MOV EAX, dword ptr [ESI]
+00acdcb0	8d4c240c	LEA ECX, [ESP + 0xc]
+00acdcb4	89542410	MOV dword ptr [ESP + 0x10], EDX
+00acdcb8	8b5060	MOV EDX, dword ptr [EAX + 0x60]
+00acdcbb	51	PUSH ECX
+00acdcbc	8bce	MOV ECX, ESI
+00acdcbe	ffd2	CALL EDX
+00acdcc0	8b442420	MOV EAX, dword ptr [ESP + 0x20]
+00acdcc4	8b4c241c	MOV ECX, dword ptr [ESP + 0x1c]
+00acdcc8	55	PUSH EBP
+00acdcc9	55	PUSH EBP
+00acdcca	50	PUSH EAX
+00acdccb	51	PUSH ECX
+00acdccc	8bce	MOV ECX, ESI
+00acdcce	89ae9c030000	MOV dword ptr [ESI + 0x39c], EBP
+00acdcd4	89aea0030000	MOV dword ptr [ESI + 0x3a0], EBP
+00acdcda	e82171ffff	CALL 0x00ac4e00
+00acdcdf	80bec900000000	CMP byte ptr [ESI + 0xc9], 0x0
+00acdce6	8b7c2424	MOV EDI, dword ptr [ESP + 0x24]
+00acdcea	7525	JNZ 0x00acdd11
+00acdcec	807c244000	CMP byte ptr [ESP + 0x40], 0x0
+00acdcf1	741e	JZ 0x00acdd11
+00acdcf3	d9442428	FLD float ptr [ESP + 0x28]
+00acdcf7	55	PUSH EBP
+00acdcf8	51	PUSH ECX
+00acdcf9	d91c24	FSTP float ptr [ESP]
+00acdcfc	57	PUSH EDI
+00acdcfd	8bce	MOV ECX, ESI
+00acdcff	e8dceefeff	CALL 0x00abcbe0
+00acdd04	84c0	TEST AL, AL
+00acdd06	7509	JNZ 0x00acdd11
+00acdd08	5f	POP EDI
+00acdd09	5e	POP ESI
+00acdd0a	5d	POP EBP
+00acdd0b	83c40c	ADD ESP, 0xc
+00acdd0e	c22c00	RET 0x2c
+00acdd11	39aedc020000	CMP dword ptr [ESI + 0x2dc], EBP
+00acdd17	53	PUSH EBX
+00acdd18	bb01000000	MOV EBX, 0x1
+00acdd1d	7552	JNZ 0x00acdd71
+00acdd1f	55	PUSH EBP
+00acdd20	55	PUSH EBP
+00acdd21	55	PUSH EBP
+00acdd22	55	PUSH EBP
+00acdd23	68fc6a0601	PUSH 0x1066afc
+00acdd28	6a20	PUSH 0x20
+00acdd2a	e8d167a1ff	CALL 0x004e4500
+00acdd2f	83c418	ADD ESP, 0x18
+00acdd32	3bc5	CMP EAX, EBP
+00acdd34	7433	JZ 0x00acdd69
+00acdd36	f30f1005f898f900	MOVSS XMM0, dword ptr [0x00f998f8]
+00acdd3e	f30f114010	MOVSS dword ptr [EAX + 0x10], XMM0
+00acdd43	f30f100588fd0301	MOVSS XMM0, dword ptr [0x0103fd88]
+00acdd4b	f30f114014	MOVSS dword ptr [EAX + 0x14], XMM0
+00acdd50	c7401c24610601	MOV dword ptr [EAX + 0x1c], 0x1066124
+00acdd57	895808	MOV dword ptr [EAX + 0x8], EBX
+00acdd5a	c7400400d91401	MOV dword ptr [EAX + 0x4], 0x114d900
+00acdd61	89680c	MOV dword ptr [EAX + 0xc], EBP
+00acdd64	896818	MOV dword ptr [EAX + 0x18], EBP
+00acdd67	eb02	JMP 0x00acdd6b
+00acdd69	33c0	XOR EAX, EAX
+00acdd6b	8986dc020000	MOV dword ptr [ESI + 0x2dc], EAX
+00acdd71	39ae90020000	CMP dword ptr [ESI + 0x290], EBP
+00acdd77	7533	JNZ 0x00acddac
+00acdd79	55	PUSH EBP
+00acdd7a	55	PUSH EBP
+00acdd7b	55	PUSH EBP
+00acdd7c	55	PUSH EBP
+00acdd7d	68f0670601	PUSH 0x10667f0
+00acdd82	6830020000	PUSH 0x230
+00acdd87	e87467a1ff	CALL 0x004e4500
+00acdd8c	83c418	ADD ESP, 0x18
+00acdd8f	3bc5	CMP EAX, EBP
+00acdd91	7409	JZ 0x00acdd9c
+00acdd93	8bc8	MOV ECX, EAX
+00acdd95	e8f64efcff	CALL 0x00a92c90
+00acdd9a	eb02	JMP 0x00acdd9e
+00acdd9c	33c0	XOR EAX, EAX
+00acdd9e	56	PUSH ESI
+00acdd9f	8bc8	MOV ECX, EAX
+00acdda1	898690020000	MOV dword ptr [ESI + 0x290], EAX
+00acdda7	e854fffbff	CALL 0x00a8dd00 ; ESI remains the core-lot this pointer: ECX is the new manager stored at core+290, and the sole stack argument is that identical ESI. A8DD00 stores it at manager+4.
+00acddac	8b8e90020000	MOV ECX, dword ptr [ESI + 0x290]
+00acddb2	e8c901fcff	CALL 0x00a8df80
+00acddb7	d944242c	FLD float ptr [ESP + 0x2c]
+00acddbb	51	PUSH ECX
+00acddbc	d91c24	FSTP float ptr [ESP]
+00acddbf	57	PUSH EDI
+00acddc0	8bce	MOV ECX, ESI
+00acddc2	e849d7feff	CALL 0x00abb510
+00acddc7	80bec900000000	CMP byte ptr [ESI + 0xc9], 0x0
+00acddce	8b542430	MOV EDX, dword ptr [ESP + 0x30]
+00acddd2	8b442434	MOV EAX, dword ptr [ESP + 0x34]
+00acddd6	8a4c2448	MOV CL, byte ptr [ESP + 0x48]
+00acddda	899608040000	MOV dword ptr [ESI + 0x408], EDX
+00acdde0	89860c040000	MOV dword ptr [ESI + 0x40c], EAX
+00acdde6	888ebc040000	MOV byte ptr [ESI + 0x4bc], CL
+00acddec	7509	JNZ 0x00acddf7
+00acddee	53	PUSH EBX
+00acddef	55	PUSH EBP
+00acddf0	8bce	MOV ECX, ESI
+00acddf2	e8e946ffff	CALL 0x00ac24e0
+00acddf7	39aed0020000	CMP dword ptr [ESI + 0x2d0], EBP
+00acddfd	7549	JNZ 0x00acde48
+00acddff	55	PUSH EBP
+00acde00	55	PUSH EBP
+00acde01	55	PUSH EBP
+00acde02	55	PUSH EBP
+00acde03	68ec6a0601	PUSH 0x1066aec
+00acde08	6a58	PUSH 0x58
+00acde0a	e8f166a1ff	CALL 0x004e4500
+00acde0f	83c418	ADD ESP, 0x18
+00acde12	3bc5	CMP EAX, EBP
+00acde14	740e	JZ 0x00acde24
+00acde16	68ec6a0601	PUSH 0x1066aec
+00acde1b	8bc8	MOV ECX, EAX
+00acde1d	e85e28ffff	CALL 0x00ac0680
+00acde22	eb02	JMP 0x00acde26
+00acde24	33c0	XOR EAX, EAX
+00acde26	8b9684010000	MOV EDX, dword ptr [ESI + 0x184]
+00acde2c	8b8e78010000	MOV ECX, dword ptr [ESI + 0x178]
+00acde32	52	PUSH EDX
+00acde33	8b9674010000	MOV EDX, dword ptr [ESI + 0x174]
+00acde39	51	PUSH ECX
+00acde3a	52	PUSH EDX
+00acde3b	8bc8	MOV ECX, EAX
+00acde3d	8986d0020000	MOV dword ptr [ESI + 0x2d0], EAX
+00acde43	e8f8e2ffff	CALL 0x00acc140
+00acde48	80bec900000000	CMP byte ptr [ESI + 0xc9], 0x0
+00acde4f	750b	JNZ 0x00acde5c
+00acde51	0f57c0	XORPS XMM0, XMM0
+00acde54	f30f118618040000	MOVSS dword ptr [ESI + 0x418], XMM0
+00acde5c	8bce	MOV ECX, ESI
+00acde5e	889e1c040000	MOV byte ptr [ESI + 0x41c], BL
+00acde64	889e28030000	MOV byte ptr [ESI + 0x328], BL
+00acde6a	889e34030000	MOV byte ptr [ESI + 0x334], BL
+00acde70	889e70020000	MOV byte ptr [ESI + 0x270], BL
+00acde76	889e3c030000	MOV byte ptr [ESI + 0x33c], BL
+00acde7c	889e3d030000	MOV byte ptr [ESI + 0x33d], BL
+00acde82	e8f9adffff	CALL 0x00ac8c80 ; Existing AC8C80 creates other missing layer owners on the same core lot. Its independent floor-manager branch also passes this exact core pointer to A8DD00.
+00acde87	399e08040000	CMP dword ptr [ESI + 0x408], EBX
+00acde8d	7509	JNZ 0x00acde98
+00acde8f	83be0c04000050	CMP dword ptr [ESI + 0x40c], 0x50
+00acde96	740d	JZ 0x00acdea5
+00acde98	80beb004000000	CMP byte ptr [ESI + 0x4b0], 0x0
+00acde9f	0f8469010000	JZ 0x00ace00e
+00acdea5	39ae90020000	CMP dword ptr [ESI + 0x290], EBP
+00acdeab	0f845d010000	JZ 0x00ace00e
+00acdeb1	39ae80010000	CMP dword ptr [ESI + 0x180], EBP
+00acdeb7	752f	JNZ 0x00acdee8
+00acdeb9	53	PUSH EBX
+00acdeba	53	PUSH EBX
+00acdebb	8bce	MOV ECX, ESI
+00acdebd	e8befbffff	CALL 0x00acda80
+00acdec2	8b8e90020000	MOV ECX, dword ptr [ESI + 0x290]
+00acdec8	b802000000	MOV EAX, 0x2
+00acdecd	2b867c010000	SUB EAX, dword ptr [ESI + 0x17c]
+00acded3	3bcd	CMP ECX, EBP
+00acded5	899e80010000	MOV dword ptr [ESI + 0x180], EBX
+00acdedb	898684010000	MOV dword ptr [ESI + 0x184], EAX
+00acdee1	7405	JZ 0x00acdee8
+00acdee3	e84880fcff	CALL 0x00a95f30
+00acdee8	8bce	MOV ECX, ESI
+00acdeea	e8a13bfeff	CALL 0x00ab1a90
+00acdeef	d95c2448	FSTP float ptr [ESP + 0x48]
+00acdef3	56	PUSH ESI
+00acdef4	53	PUSH EBX
+00acdef5	8d4c2418	LEA ECX, [ESP + 0x18]
+00acdef9	e832860200	CALL 0x00af6530
+00acdefe	8d4c2410	LEA ECX, [ESP + 0x10]
+00acdf02	e889850200	CALL 0x00af6490
+00acdf07	84c0	TEST AL, AL
+00acdf09	0f85ff000000	JNZ 0x00ace00e
+00acdf0f	90	NOP
+00acdf10	8d4c2410	LEA ECX, [ESP + 0x10]
+00acdf14	e8c7850200	CALL 0x00af64e0
+00acdf19	668b08	MOV CX, word ptr [EAX]
+00acdf1c	66894c243c	MOV word ptr [ESP + 0x3c], CX
+00acdf21	8a5002	MOV DL, byte ptr [EAX + 0x2]
+00acdf24	8b8e90020000	MOV ECX, dword ptr [ESI + 0x290]
+00acdf2a	8854243e	MOV byte ptr [ESP + 0x3e], DL
+00acdf2e	8b4124	MOV EAX, dword ptr [ECX + 0x24]
+00acdf31	0fbed2	MOVSX EDX, DL
+00acdf34	2b5110	SUB EDX, dword ptr [ECX + 0x10]
+00acdf37	0fbe4c243c	MOVSX ECX, byte ptr [ESP + 0x3c]
+00acdf3c	0faf5004	IMUL EDX, dword ptr [EAX + 0x4]
+00acdf40	03d1	ADD EDX, ECX
+00acdf42	0faf5008	IMUL EDX, dword ptr [EAX + 0x8]
+00acdf46	0fbe4c243d	MOVSX ECX, byte ptr [ESP + 0x3d]
+00acdf4b	8b4010	MOV EAX, dword ptr [EAX + 0x10]
+00acdf4e	03d1	ADD EDX, ECX
+00acdf50	80beb004000000	CMP byte ptr [ESI + 0x4b0], 0x0
+00acdf57	f30f100c90	MOVSS XMM1, dword ptr [EAX + EDX*0x4]
+00acdf5c	740a	JZ 0x00acdf68
+00acdf5e	f30f1005a85c0601	MOVSS XMM0, dword ptr [0x01065ca8]
+00acdf66	eb03	JMP 0x00acdf6b
+00acdf68	0f57c0	XORPS XMM0, XMM0
+00acdf6b	399e80010000	CMP dword ptr [ESI + 0x180], EBX
+00acdf71	8bfb	MOV EDI, EBX
+00acdf73	7c7f	JL 0x00acdff4
+00acdf75	f30f58442448	ADDSS XMM0, dword ptr [ESP + 0x48]
+00acdf7b	f30f1144242c	MOVSS dword ptr [ESP + 0x2c], XMM0
+00acdf81	8b6c242c	MOV EBP, dword ptr [ESP + 0x2c]
+00acdf85	f30f11442424	MOVSS dword ptr [ESP + 0x24], XMM0
+00acdf8b	eb09	JMP 0x00acdf96
+00acdf90	f30f10442424	MOVSS XMM0, dword ptr [ESP + 0x24]
+00acdf96	f30f5cc1	SUBSS XMM0, XMM1
+00acdf9a	f30f11442420	MOVSS dword ptr [ESP + 0x20], XMM0
+00acdfa0	8b442420	MOV EAX, dword ptr [ESP + 0x20]
+00acdfa4	c1f81f	SAR EAX, 0x1f
+00acdfa7	8bc8	MOV ECX, EAX
+00acdfa9	f30f114c2428	MOVSS dword ptr [ESP + 0x28], XMM1
+00acdfaf	8b542428	MOV EDX, dword ptr [ESP + 0x28]
+00acdfb3	f7d1	NOT ECX
+00acdfb5	23cd	AND ECX, EBP
+00acdfb7	23d0	AND EDX, EAX
+00acdfb9	0bca	OR ECX, EDX
+00acdfbb	53	PUSH EBX
+00acdfbc	8d442440	LEA EAX, [ESP + 0x40]
+00acdfc0	894c2448	MOV dword ptr [ESP + 0x48], ECX
+00acdfc4	d9442448	FLD float ptr [ESP + 0x48]
+00acdfc8	50	PUSH EAX
+00acdfc9	51	PUSH ECX
+00acdfca	8b8e90020000	MOV ECX, dword ptr [ESI + 0x290]
+00acdfd0	d91c24	FSTP float ptr [ESP]
+00acdfd3	e8c850fcff	CALL 0x00a930a0
+00acdfd8	005c243e	ADD byte ptr [ESP + 0x3e], BL
+00acdfdc	f30f104c2444	MOVSS XMM1, dword ptr [ESP + 0x44]
+00acdfe2	f30f580da85c0601	ADDSS XMM1, dword ptr [0x01065ca8]
+00acdfea	03fb	ADD EDI, EBX
+00acdfec	3bbe80010000	CMP EDI, dword ptr [ESI + 0x180]
+00acdff2	7e9c	JLE 0x00acdf90
+00acdff4	8d4c2410	LEA ECX, [ESP + 0x10]
+00acdff8	e813860200	CALL 0x00af6610
+00acdffd	8d4c2410	LEA ECX, [ESP + 0x10]
+00ace001	e88a840200	CALL 0x00af6490
+00ace006	84c0	TEST AL, AL
+00ace008	0f8402ffffff	JZ 0x00acdf10
+00ace00e	8b16	MOV EDX, dword ptr [ESI]
+00ace010	8b4210	MOV EAX, dword ptr [EDX + 0x10]
+00ace013	8bce	MOV ECX, ESI
+00ace015	ffd0	CALL EAX
+00ace017	807c243800	CMP byte ptr [ESP + 0x38], 0x0
+00ace01c	7407	JZ 0x00ace025
+00ace01e	8bce	MOV ECX, ESI
+00ace020	e80b51feff	CALL 0x00ab3130 ; Only a nonzero low byte of the seventh stack word reaches AB3130, with unchanged core pointer ESI in ECX. That child skips existing renderers and otherwise binds a newly constructed renderer to this same core lot.
+00ace025	807c244000	CMP byte ptr [ESP + 0x40], 0x0
+00ace02a	885e74	MOV byte ptr [ESI + 0x74], BL
+00ace02d	889ec0000000	MOV byte ptr [ESI + 0xc0], BL
+00ace033	7407	JZ 0x00ace03c
+00ace035	8bce	MOV ECX, ESI
+00ace037	e86431feff	CALL 0x00ab11a0
+00ace03c	8ac3	MOV AL, BL
+00ace03e	5b	POP EBX
+00ace03f	5f	POP EDI
+00ace040	5e	POP ESI
+00ace041	5d	POP EBP
+00ace042	83c40c	ADD ESP, 0xc
+00ace045	c22c00	RET 0x2c

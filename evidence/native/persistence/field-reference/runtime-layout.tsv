@@ -1,0 +1,24 @@
+owner_expression	offset	physical_width	role_or_original_field	qualified_contract
+fieldRef	0x00	Int32 managed / UInt32 native reads	mFrameIndex	Original ScriptCore field04000020; zero fails normalization, earlier output zero is legal.
+fieldRef	0x04	Int32 managed / UInt32 native reads	mFieldIndex	Original ScriptCore field04000021; arguments then locals, no type-equivalence guarantee.
+taskState	0x140	UInt32	highestFrameIndex	Inclusive unsigned bound; array count producer GetTaskContext uses this+1.
+taskState	0x3C+4*frameIndex	pointer32	nativeFrame	Null selected frame fails; earlier null frames are skipped.
+nativeFrame	0x00	pointer32	layout	Runtime layout pointer; analyst label.
+nativeFrame	0x20	pointer32	storageBase	Address arithmetic base; no ownership/lifetime acquired.
+layout	0x08	pointer32	methodA	Used by D835D0 normalization; GetTaskContext first choice.
+layout	0x0C	pointer32	methodB	Used by D837B0 slot locator; GetTaskContext header fallback. Not assumed equal to methodA.
+layout	0x1C	pointer32	argumentOffsets	UInt32 offset array,4-byte stride; exact offset equality in reverse search.
+layout	0x20	pointer32	localOffsets	UInt32 offset array,4-byte stride; local region-relative offsets.
+layout	0x34	UInt16	intermediateSpanA	Added to local slot offset; hit while reverse searching terminates normalization false.
+layout	0x36	UInt16	intermediateSpanB	Added to local slot offset; hit while reverse searching terminates normalization false.
+layout	0x38	UInt16	totalStorageSpan	Unsigned candidate offset must be below this span.
+layout	0x3C	UInt16	localStorageSpan	Region admission before exact local-offset search.
+layout	0x3E	UInt16	argumentStorageSpan	First reverse-search region and part of local base offset.
+layout	0x40	UInt8	argumentCountByte	Initial argument/local split; distinct from signature UInt16 count.
+methodA or methodB	0x0C	pointer32	signature	Selected corresponding method pointer determines this signature.
+signature	0x04	UInt16	argumentCountWord	Argument reverse-search count and offset added to resolved local ordinal.
+signature	0x10+4*argumentIndex	pointer32	argumentType	Runtime type pointer array.
+methodA or methodB	0x20	pointer32	cachedBodyHeader	E85670 returns cache or may populate under global critical section.
+bodyHeader	0x10	UInt16	localCount	Bounds the local type/offset index.
+bodyHeader	0x18+4*localIndex	pointer32	localType	Runtime local type pointer array.
+runtimeType	0x04	UInt32 flags	byRefBit	Mask0x40000000 required only for input normalization; candidate target type compatibility is not checked.

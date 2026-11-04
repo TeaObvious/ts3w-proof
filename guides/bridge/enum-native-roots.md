@@ -102,3 +102,5 @@ A bounded E8/E9 byte-pattern scan of the original `.text` found no direct native
 call/jump to either root. It does not search indirect runtime calls and cannot
 establish absence of callers. These roots remain relevant because the explicit
 binder and original managed declarations provide independent entry provenance.
+
+The [downstream lookup contract](enum-lookup-contract.md) records twelve complete existing definitions, width/sign dispatch and shared class-keyed cache storage. [Original enum inputs and aliases](../managed/enum-inputs-and-aliases.md) retain exact original Constant-table evidence; aliases alone do not establish warm/cold cache parity or a runtime failure.

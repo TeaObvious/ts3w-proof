@@ -1,0 +1,1062 @@
+{
+  "schema": "ts3w-enum-lookup-contract-v1",
+  "source_identity": "../../../../references/pc-167.md",
+  "managed_identity": "../../../managed/reference-inputs.json",
+  "scope": "Twelve existing native definitions downstream of two separately documented registered root candidates. Static body and data contracts; dependency closure and runtime behavior remain open.",
+  "functions": [
+    {
+      "entry": "00D78F80",
+      "end_exclusive": "00D79007",
+      "bytes": 135,
+      "instructions": 58,
+      "analyst_name": "UInt8FieldPairs_GetValueSlot",
+      "asm": "00D78F80.asm.txt",
+      "pseudocode": "00D78F80.c",
+      "direct_calls": [
+        {
+          "site": "00D78F9A",
+          "target": "00D73430"
+        },
+        {
+          "site": "00D78FD7",
+          "target": "00D77470"
+        },
+        {
+          "site": "00D78FF5",
+          "target": "00D77530"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D792E0",
+      "end_exclusive": "00D79343",
+      "bytes": 99,
+      "instructions": 40,
+      "analyst_name": "UInt64FieldPairs_GetValueSlot",
+      "asm": "00D792E0.asm.txt",
+      "pseudocode": "00D792E0.c",
+      "direct_calls": [
+        {
+          "site": "00D792F9",
+          "target": "00A862D0"
+        },
+        {
+          "site": "00D79332",
+          "target": "00D78920"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7A440",
+      "end_exclusive": "00D7A6C4",
+      "bytes": 644,
+      "instructions": 215,
+      "analyst_name": "EnumFieldCache_FindUInt8",
+      "asm": "00D7A440.asm.txt",
+      "pseudocode": "00D7A440.c",
+      "direct_calls": [
+        {
+          "site": "00D7A46B",
+          "target": "005325C0"
+        },
+        {
+          "site": "00D7A48E",
+          "target": "00D73210"
+        },
+        {
+          "site": "00D7A4D7",
+          "target": "00E6BA40"
+        },
+        {
+          "site": "00D7A4F5",
+          "target": "00D75320"
+        },
+        {
+          "site": "00D7A50C",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7A56A",
+          "target": "00E6FAA0"
+        },
+        {
+          "site": "00D7A576",
+          "target": "00E9CD80"
+        },
+        {
+          "site": "00D7A58A",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7A59D",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7A5AA",
+          "target": "00E9B3F0"
+        },
+        {
+          "site": "00D7A5C2",
+          "target": "00E9B5B0"
+        },
+        {
+          "site": "00D7A5DD",
+          "target": "00D78F80"
+        },
+        {
+          "site": "00D7A5F8",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7A623",
+          "target": "004E44E0"
+        },
+        {
+          "site": "00D7A64D",
+          "target": "00D73AF0"
+        },
+        {
+          "site": "00D7A669",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7A67A",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7A6AE",
+          "target": "004E44E0"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7A6D0",
+      "end_exclusive": "00D7A954",
+      "bytes": 644,
+      "instructions": 215,
+      "analyst_name": "EnumFieldCache_FindInt8",
+      "asm": "00D7A6D0.asm.txt",
+      "pseudocode": "00D7A6D0.c",
+      "direct_calls": [
+        {
+          "site": "00D7A6FB",
+          "target": "005325C0"
+        },
+        {
+          "site": "00D7A71E",
+          "target": "00D73250"
+        },
+        {
+          "site": "00D7A767",
+          "target": "00E6BA40"
+        },
+        {
+          "site": "00D7A785",
+          "target": "00D75320"
+        },
+        {
+          "site": "00D7A79C",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7A7FA",
+          "target": "00E6FAA0"
+        },
+        {
+          "site": "00D7A806",
+          "target": "00E9CD80"
+        },
+        {
+          "site": "00D7A81A",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7A82D",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7A83A",
+          "target": "00E9B3F0"
+        },
+        {
+          "site": "00D7A852",
+          "target": "00E9B5B0"
+        },
+        {
+          "site": "00D7A86D",
+          "target": "00D79010"
+        },
+        {
+          "site": "00D7A888",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7A8B3",
+          "target": "004E44E0"
+        },
+        {
+          "site": "00D7A8DD",
+          "target": "00D73AF0"
+        },
+        {
+          "site": "00D7A8F9",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7A90A",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7A93E",
+          "target": "004E44E0"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7A960",
+      "end_exclusive": "00D7ABEF",
+      "bytes": 655,
+      "instructions": 216,
+      "analyst_name": "EnumFieldCache_FindUInt16",
+      "asm": "00D7A960.asm.txt",
+      "pseudocode": "00D7A960.c",
+      "direct_calls": [
+        {
+          "site": "00D7A98B",
+          "target": "005325C0"
+        },
+        {
+          "site": "00D7A9AF",
+          "target": "00D73290"
+        },
+        {
+          "site": "00D7A9FA",
+          "target": "00E6BA40"
+        },
+        {
+          "site": "00D7AA18",
+          "target": "00D75320"
+        },
+        {
+          "site": "00D7AA2F",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7AA8B",
+          "target": "00E6FAA0"
+        },
+        {
+          "site": "00D7AA97",
+          "target": "00E9CD80"
+        },
+        {
+          "site": "00D7AAAB",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7AABE",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7AACB",
+          "target": "00E9B3F0"
+        },
+        {
+          "site": "00D7AAE3",
+          "target": "00E9B5B0"
+        },
+        {
+          "site": "00D7AAFF",
+          "target": "00D790A0"
+        },
+        {
+          "site": "00D7AB17",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7AB42",
+          "target": "004E44E0"
+        },
+        {
+          "site": "00D7AB6C",
+          "target": "00D73AF0"
+        },
+        {
+          "site": "00D7AB88",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7AB9C",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7ABD9",
+          "target": "004E44E0"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7ABF0",
+      "end_exclusive": "00D7AE7F",
+      "bytes": 655,
+      "instructions": 216,
+      "analyst_name": "EnumFieldCache_FindInt16",
+      "asm": "00D7ABF0.asm.txt",
+      "pseudocode": "00D7ABF0.c",
+      "direct_calls": [
+        {
+          "site": "00D7AC1B",
+          "target": "005325C0"
+        },
+        {
+          "site": "00D7AC3F",
+          "target": "00ABA600"
+        },
+        {
+          "site": "00D7AC8A",
+          "target": "00E6BA40"
+        },
+        {
+          "site": "00D7ACA8",
+          "target": "00D75320"
+        },
+        {
+          "site": "00D7ACBF",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7AD1B",
+          "target": "00E6FAA0"
+        },
+        {
+          "site": "00D7AD27",
+          "target": "00E9CD80"
+        },
+        {
+          "site": "00D7AD3B",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7AD4E",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7AD5B",
+          "target": "00E9B3F0"
+        },
+        {
+          "site": "00D7AD73",
+          "target": "00E9B5B0"
+        },
+        {
+          "site": "00D7AD8F",
+          "target": "00D79130"
+        },
+        {
+          "site": "00D7ADA7",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7ADD2",
+          "target": "004E44E0"
+        },
+        {
+          "site": "00D7ADFC",
+          "target": "00D73AF0"
+        },
+        {
+          "site": "00D7AE18",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7AE2C",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7AE69",
+          "target": "004E44E0"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7AE80",
+      "end_exclusive": "00D7B0F6",
+      "bytes": 630,
+      "instructions": 213,
+      "analyst_name": "EnumFieldCache_FindUInt32",
+      "asm": "00D7AE80.asm.txt",
+      "pseudocode": "00D7AE80.c",
+      "direct_calls": [
+        {
+          "site": "00D7AEAB",
+          "target": "005325C0"
+        },
+        {
+          "site": "00D7AECF",
+          "target": "00B09680"
+        },
+        {
+          "site": "00D7AF19",
+          "target": "00E6BA40"
+        },
+        {
+          "site": "00D7AF37",
+          "target": "00D75320"
+        },
+        {
+          "site": "00D7AF4E",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7AFAA",
+          "target": "00E6FAA0"
+        },
+        {
+          "site": "00D7AFB6",
+          "target": "00E9CD80"
+        },
+        {
+          "site": "00D7AFCA",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7AFDD",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7AFEA",
+          "target": "00E9B3F0"
+        },
+        {
+          "site": "00D7B002",
+          "target": "00E9B5B0"
+        },
+        {
+          "site": "00D7B01D",
+          "target": "00D791C0"
+        },
+        {
+          "site": "00D7B034",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7B05F",
+          "target": "004E44E0"
+        },
+        {
+          "site": "00D7B089",
+          "target": "00D73AF0"
+        },
+        {
+          "site": "00D7B0A2",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7B0B3",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7B0E0",
+          "target": "004E44E0"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7B100",
+      "end_exclusive": "00D7B376",
+      "bytes": 630,
+      "instructions": 213,
+      "analyst_name": "EnumFieldCache_FindInt32",
+      "asm": "00D7B100.asm.txt",
+      "pseudocode": "00D7B100.c",
+      "direct_calls": [
+        {
+          "site": "00D7B12B",
+          "target": "005325C0"
+        },
+        {
+          "site": "00D7B14F",
+          "target": "0082A5E0"
+        },
+        {
+          "site": "00D7B199",
+          "target": "00E6BA40"
+        },
+        {
+          "site": "00D7B1B7",
+          "target": "00D75320"
+        },
+        {
+          "site": "00D7B1CE",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7B22A",
+          "target": "00E6FAA0"
+        },
+        {
+          "site": "00D7B236",
+          "target": "00E9CD80"
+        },
+        {
+          "site": "00D7B24A",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7B25D",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7B26A",
+          "target": "00E9B3F0"
+        },
+        {
+          "site": "00D7B282",
+          "target": "00E9B5B0"
+        },
+        {
+          "site": "00D7B29D",
+          "target": "00D79250"
+        },
+        {
+          "site": "00D7B2B4",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7B2DF",
+          "target": "004E44E0"
+        },
+        {
+          "site": "00D7B309",
+          "target": "00D73AF0"
+        },
+        {
+          "site": "00D7B322",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7B333",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7B360",
+          "target": "004E44E0"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7B380",
+      "end_exclusive": "00D7B634",
+      "bytes": 692,
+      "instructions": 227,
+      "analyst_name": "EnumFieldCache_FindUInt64",
+      "asm": "00D7B380.asm.txt",
+      "pseudocode": "00D7B380.c",
+      "direct_calls": [
+        {
+          "site": "00D7B3AB",
+          "target": "005325C0"
+        },
+        {
+          "site": "00D7B3CF",
+          "target": "00627330"
+        },
+        {
+          "site": "00D7B42A",
+          "target": "00E6BA40"
+        },
+        {
+          "site": "00D7B448",
+          "target": "00D75380"
+        },
+        {
+          "site": "00D7B45F",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7B4BB",
+          "target": "00E6FAA0"
+        },
+        {
+          "site": "00D7B4C7",
+          "target": "00E9CD80"
+        },
+        {
+          "site": "00D7B4DB",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7B4EE",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7B4FB",
+          "target": "00E9B3F0"
+        },
+        {
+          "site": "00D7B513",
+          "target": "00E9B5B0"
+        },
+        {
+          "site": "00D7B535",
+          "target": "00D792E0"
+        },
+        {
+          "site": "00D7B552",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7B57D",
+          "target": "004E44E0"
+        },
+        {
+          "site": "00D7B5A7",
+          "target": "00D73AF0"
+        },
+        {
+          "site": "00D7B5C3",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7B5DB",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7B61E",
+          "target": "004E44E0"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7B640",
+      "end_exclusive": "00D7B8F4",
+      "bytes": 692,
+      "instructions": 227,
+      "analyst_name": "EnumFieldCache_FindInt64",
+      "asm": "00D7B640.asm.txt",
+      "pseudocode": "00D7B640.c",
+      "direct_calls": [
+        {
+          "site": "00D7B66B",
+          "target": "005325C0"
+        },
+        {
+          "site": "00D7B68F",
+          "target": "00D732D0"
+        },
+        {
+          "site": "00D7B6EA",
+          "target": "00E6BA40"
+        },
+        {
+          "site": "00D7B708",
+          "target": "00D75380"
+        },
+        {
+          "site": "00D7B71F",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7B77B",
+          "target": "00E6FAA0"
+        },
+        {
+          "site": "00D7B787",
+          "target": "00E9CD80"
+        },
+        {
+          "site": "00D7B79B",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7B7AE",
+          "target": "00E9B500"
+        },
+        {
+          "site": "00D7B7BB",
+          "target": "00E9B3F0"
+        },
+        {
+          "site": "00D7B7D3",
+          "target": "00E9B5B0"
+        },
+        {
+          "site": "00D7B7F5",
+          "target": "00D79350"
+        },
+        {
+          "site": "00D7B812",
+          "target": "00E70470"
+        },
+        {
+          "site": "00D7B83D",
+          "target": "004E44E0"
+        },
+        {
+          "site": "00D7B867",
+          "target": "00D73AF0"
+        },
+        {
+          "site": "00D7B883",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7B89B",
+          "target": "004E6F20"
+        },
+        {
+          "site": "00D7B8DE",
+          "target": "004E44E0"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00D7CC60",
+      "end_exclusive": "00D7CD41",
+      "bytes": 225,
+      "instructions": 67,
+      "analyst_name": "EnumFieldLookup_ByUnderlyingValue",
+      "asm": "00D7CC60.asm.txt",
+      "pseudocode": "00D7CC60.c",
+      "direct_calls": [
+        {
+          "site": "00D7CC8A",
+          "target": "00D7A440"
+        },
+        {
+          "site": "00D7CC9E",
+          "target": "00D7A6D0"
+        },
+        {
+          "site": "00D7CCB2",
+          "target": "00D7A960"
+        },
+        {
+          "site": "00D7CCC6",
+          "target": "00D7A960"
+        },
+        {
+          "site": "00D7CCDA",
+          "target": "00D7ABF0"
+        },
+        {
+          "site": "00D7CCEE",
+          "target": "00D7AE80"
+        },
+        {
+          "site": "00D7CD02",
+          "target": "00D7B100"
+        },
+        {
+          "site": "00D7CD1B",
+          "target": "00D7B380"
+        },
+        {
+          "site": "00D7CD34",
+          "target": "00D7B640"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    },
+    {
+      "entry": "00E71040",
+      "end_exclusive": "00E71208",
+      "bytes": 456,
+      "instructions": 149,
+      "analyst_name": "RuntimeTypeDescriptor_ResolveClass",
+      "asm": "00E71040.asm.txt",
+      "pseudocode": "00E71040.c",
+      "direct_calls": [
+        {
+          "site": "00E71187",
+          "target": "00E70990"
+        },
+        {
+          "site": "00E7119E",
+          "target": "00E6B190"
+        },
+        {
+          "site": "00E711AC",
+          "target": "00E70990"
+        },
+        {
+          "site": "00E711CA",
+          "target": "00E707A0"
+        },
+        {
+          "site": "00E711DA",
+          "target": "00E707A0"
+        },
+        {
+          "site": "00E711E9",
+          "target": "00E46E50"
+        },
+        {
+          "site": "00E711FD",
+          "target": "00E46E00"
+        }
+      ],
+      "range_source": "../../../../inventory/native-owned-ranges.tsv",
+      "status": "Existing defined function; analyst name and plate verified from final Ghidra readback, owned body and memory equal original PE, canonical final ASM/C pair checked."
+    }
+  ],
+  "typed_lookups": [
+    {
+      "entry": "00D7A440",
+      "value_bits": 8,
+      "ordering": "unsigned",
+      "tags": [
+        5
+      ],
+      "low_word_only": true,
+      "warm_search": "00D73210",
+      "warm_search_body_status": "direct target only; search body not reviewed in this packet",
+      "warm_guard_instruction_sites": [
+        "00D7A4A2",
+        "00D7A4A4"
+      ],
+      "temporary_slot_helper": "00D78F80",
+      "temporary_pair_stride": 8,
+      "field_pointer_slot_offset": 4,
+      "temporary_slot_status": "full body reviewed, search/insert children open",
+      "cache_value_stride": 1,
+      "callee_stack_pop": 8
+    },
+    {
+      "entry": "00D7A6D0",
+      "value_bits": 8,
+      "ordering": "signed",
+      "tags": [
+        4
+      ],
+      "low_word_only": true,
+      "warm_search": "00D73250",
+      "warm_search_body_status": "direct target only; search body not reviewed in this packet",
+      "warm_guard_instruction_sites": [
+        "00D7A732",
+        "00D7A734"
+      ],
+      "temporary_slot_helper": "00D79010",
+      "temporary_pair_stride": 8,
+      "field_pointer_slot_offset": 4,
+      "temporary_slot_status": "direct target only; body open",
+      "cache_value_stride": 1,
+      "callee_stack_pop": 8
+    },
+    {
+      "entry": "00D7A960",
+      "value_bits": 16,
+      "ordering": "unsigned",
+      "tags": [
+        3,
+        7
+      ],
+      "low_word_only": true,
+      "warm_search": "00D73290",
+      "warm_search_body_status": "direct target only; search body not reviewed in this packet",
+      "warm_guard_instruction_sites": [
+        "00D7A9C4",
+        "00D7A9C7"
+      ],
+      "temporary_slot_helper": "00D790A0",
+      "temporary_pair_stride": 8,
+      "field_pointer_slot_offset": 4,
+      "temporary_slot_status": "direct target only; body open",
+      "cache_value_stride": 2,
+      "callee_stack_pop": 8
+    },
+    {
+      "entry": "00D7ABF0",
+      "value_bits": 16,
+      "ordering": "signed",
+      "tags": [
+        6
+      ],
+      "low_word_only": true,
+      "warm_search": "00ABA600",
+      "warm_search_body_status": "full legacy body independently byte-checked",
+      "warm_guard_instruction_sites": [
+        "00D7AC54",
+        "00D7AC57"
+      ],
+      "temporary_slot_helper": "00D79130",
+      "temporary_pair_stride": 8,
+      "field_pointer_slot_offset": 4,
+      "temporary_slot_status": "direct target only; body open",
+      "cache_value_stride": 2,
+      "callee_stack_pop": 8
+    },
+    {
+      "entry": "00D7AE80",
+      "value_bits": 32,
+      "ordering": "unsigned",
+      "tags": [
+        9
+      ],
+      "low_word_only": true,
+      "warm_search": "00B09680",
+      "warm_search_body_status": "full legacy body independently byte-checked",
+      "warm_guard_instruction_sites": [
+        "00D7AEE3",
+        "00D7AEE5"
+      ],
+      "temporary_slot_helper": "00D791C0",
+      "temporary_pair_stride": 8,
+      "field_pointer_slot_offset": 4,
+      "temporary_slot_status": "direct target only; body open",
+      "cache_value_stride": 4,
+      "callee_stack_pop": 8
+    },
+    {
+      "entry": "00D7B100",
+      "value_bits": 32,
+      "ordering": "signed",
+      "tags": [
+        8
+      ],
+      "low_word_only": true,
+      "warm_search": "0082A5E0",
+      "warm_search_body_status": "direct target only; search body not reviewed in this packet",
+      "warm_guard_instruction_sites": [
+        "00D7B163",
+        "00D7B165"
+      ],
+      "temporary_slot_helper": "00D79250",
+      "temporary_pair_stride": 8,
+      "field_pointer_slot_offset": 4,
+      "temporary_slot_status": "direct target only; body open",
+      "cache_value_stride": 4,
+      "callee_stack_pop": 8
+    },
+    {
+      "entry": "00D7B380",
+      "value_bits": 64,
+      "ordering": "unsigned",
+      "tags": [
+        11
+      ],
+      "low_word_only": false,
+      "warm_search": "00627330",
+      "warm_search_body_status": "direct target only; search body not reviewed in this packet",
+      "warm_guard_instruction_sites": [
+        "00D7B3E3",
+        "00D7B3E6",
+        "00D7B3EC",
+        "00D7B3F2",
+        "00D7B3F4"
+      ],
+      "temporary_slot_helper": "00D792E0",
+      "temporary_pair_stride": 16,
+      "field_pointer_slot_offset": 8,
+      "temporary_slot_status": "full body reviewed, search/insert children open",
+      "cache_value_stride": 8,
+      "callee_stack_pop": 12
+    },
+    {
+      "entry": "00D7B640",
+      "value_bits": 64,
+      "ordering": "signed",
+      "tags": [
+        10
+      ],
+      "low_word_only": false,
+      "warm_search": "00D732D0",
+      "warm_search_body_status": "direct target only; search body not reviewed in this packet",
+      "warm_guard_instruction_sites": [
+        "00D7B6A3",
+        "00D7B6A6",
+        "00D7B6AC",
+        "00D7B6B2",
+        "00D7B6B4"
+      ],
+      "temporary_slot_helper": "00D79350",
+      "temporary_pair_stride": 16,
+      "field_pointer_slot_offset": 8,
+      "temporary_slot_status": "direct target only; body open",
+      "cache_value_stride": 8,
+      "callee_stack_pop": 12
+    }
+  ],
+  "cache_layout": {
+    "shared_by_eight_typed_paths": true,
+    "key": "raw class-record pointer supplied to map lookup",
+    "receiver_map_offset": "0xB4C",
+    "entry_count_offset": "0x04",
+    "entry_values_offset": "0x08",
+    "entry_field_pointers_offset": "0x0C",
+    "field_name_pointer_offset": "0x0C",
+    "field_blob_pointer_offset": "0x10",
+    "field_constant_tag_offset": "0x18"
+  },
+  "alias_boundary": {
+    "cold_result": "Every exact width-masked match overwrites the local result; the last matching field returned by the iterator wins that cold invocation.",
+    "slot_reuse": "Reviewed UInt8/UInt64 accessors return the existing field-pointer slot when their search result has equal key; callers overwrite it. Global duplicate coalescing still depends on the search/insert children.",
+    "published_count": "E6BA40(class)-1; original field-derived count is retained, not locally recomputed from emitted pairs.",
+    "unproven": [
+      "native iterator field order",
+      "number of emitted pairs equals the published cache count",
+      "all aliases route to one candidate slot",
+      "warm/cold alias equivalence",
+      "allocator initialization and untouched array tail contents",
+      "thread-safe construction/lifetime/invalidation"
+    ]
+  },
+  "producer_chain": [
+    {
+      "target": "00E70470",
+      "role": "field-like iterator with mutable cursor; exact enumeration order open"
+    },
+    {
+      "target": "00E6BA40",
+      "role": "count source, minus one and signed-positive guard; precise count producer open"
+    },
+    {
+      "target": "00E6FAA0",
+      "role": "receives field-like pointer in lazy blob path"
+    },
+    {
+      "target": "00E9CD80",
+      "role": "receives class/module source, prior result and a local hint; output minus one indexes following metadata queries"
+    },
+    {
+      "target": "00E9B500",
+      "role": "queries structure at [class]+E8 with row index and selectors 0 and 3; outputs stored in field+18 and used by blob fetch"
+    },
+    {
+      "target": "00E9B3F0",
+      "role": "blob-like source; output stored field+10"
+    },
+    {
+      "target": "00E9B5B0",
+      "role": "receives field+10 and an output pointer, followed by a raw width-sized value read; decoder semantics open"
+    }
+  ],
+  "limits": [
+    "No function definitions, function boundary changes, byte changes or original runtime execution.",
+    "Names are analyst descriptions, not recovered original symbol names.",
+    "Decompiler types and prototypes are retained as display evidence; instruction operands govern width, signedness, receiver and stack observations.",
+    "Only UInt8/UInt64 temporary slot accessor bodies are reviewed; other six accessors remain dependencies.",
+    "No flags composition or correspondence to System.Enum.ToString is claimed."
+  ]
+}

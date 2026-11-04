@@ -1,0 +1,58 @@
+// Original PC 1.67 ScriptCore; assembly SHA256 1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115
+// MVID da71f9d5-3a90-44c6-8f98-5bafd2fca18a. Fresh ILSpy 11.1 static decompilation; no target execution.
+// Import/wrapper methods are complete; TaskFieldReference is the complete selected type.
+.method /* 06000126 */ private hidebysig static pinvokeimpl("Sims3Common.dll" winapi)
+	bool TaskControl_ResolveFieldReference (
+		uint64 taskId,
+		valuetype ScriptCore.TaskFieldReference& fieldRef
+	) cil managed preservesig
+{
+} // end of method TaskControl::TaskControl_ResolveFieldReference
+
+
+.method /* 06000132 */ public hidebysig static
+	bool ResolveFieldReference (
+		uint64 taskId,
+		valuetype ScriptCore.TaskFieldReference& fieldRef
+	) cil managed
+{
+	// Method begins at RVA 0x321a
+	// Header size: 1
+	// Code size: 8 (0x8)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: ldarg.1
+	IL_0002: call bool ScriptCore.TaskControl::TaskControl_ResolveFieldReference(uint64, valuetype ScriptCore.TaskFieldReference&) /* 06000126 */
+	IL_0007: ret
+} // end of method TaskControl::ResolveFieldReference
+
+
+.class /* 02000013 */ public sequential ansi sealed beforefieldinit ScriptCore.TaskFieldReference
+	extends [mscorlib]System.ValueType
+{
+	// Fields
+	.field /* 04000020 */ public int32 mFrameIndex
+	.field /* 04000021 */ public int32 mFieldIndex
+
+	// Methods
+	.method /* 06000139 */ public hidebysig virtual
+		instance string ToString () cil managed
+	{
+		// Method begins at RVA 0x3282
+		// Header size: 1
+		// Code size: 33 (0x21)
+		.maxstack 8
+
+		IL_0000: ldstr "{0}:{1}" /* 70000069 */
+		IL_0005: ldarg.0
+		IL_0006: ldfld int32 ScriptCore.TaskFieldReference::mFrameIndex /* 04000020 */
+		IL_000b: box [mscorlib]System.Int32 /* 01000145 */
+		IL_0010: ldarg.0
+		IL_0011: ldfld int32 ScriptCore.TaskFieldReference::mFieldIndex /* 04000021 */
+		IL_0016: box [mscorlib]System.Int32 /* 01000145 */
+		IL_001b: call string [mscorlib]System.String::Format(string, object, object) /* 0A000043 */
+		IL_0020: ret
+	} // end of method TaskFieldReference::ToString
+
+} // end of class ScriptCore.TaskFieldReference

@@ -1,0 +1,22 @@
+.method /* 060012AD */ assembly hidebysig static
+	uint32 FrameDrawableGeneric (
+		class Sims3.UI.FrameDrawable drawable,
+		valuetype Sims3.UI.FrameDrawable/FrameDrawableGenericID funcID,
+		valuetype Sims3.UI.DrawableBase/ControlStates state,
+		uint32 'value'
+	) cil managed
+{
+	// Method begins at RVA 0x663fd
+	// Header size: 1
+	// Code size: 20 (0x14)
+	.maxstack 8
+
+	IL_0000: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_0005: ldarg.0
+	IL_0006: callvirt instance uint32 Sims3.UI.DrawableBase::get_DrawableHandle() /* 060002E2 */
+	IL_000b: ldarg.1
+	IL_000c: ldarg.2
+	IL_000d: ldarg.3
+	IL_000e: callvirt instance uint32 [SimIFace]Sims3.SimIFace.IUIManager::FrameDrawableGeneric(uint32, uint32, uint32, uint32) /* 0A0004DF */
+	IL_0013: ret
+} // end of method UIManager::FrameDrawableGeneric

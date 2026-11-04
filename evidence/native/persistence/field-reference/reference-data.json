@@ -1,0 +1,311 @@
+{
+  "original_exe_sha256": "694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3",
+  "registration_record": {
+    "va": "0x0108D658",
+    "bytes": "d035d80010d70801",
+    "target_va": "0x00D835D0",
+    "name_va": "0x0108D710"
+  },
+  "strings": [
+    {
+      "va": "0x0108F334",
+      "encoding": "ASCII",
+      "bytes_including_nul": "2a20417373657274696f6e2061742025733a25642c20636f6e646974696f6e2060257327206e6f74206d65740a00",
+      "text": "* Assertion at %s:%d, condition `%s' not met\n"
+    },
+    {
+      "va": "0x010B7F88",
+      "encoding": "ASCII",
+      "bytes_including_nul": "2e2e5c2e2e5c6d6f6e6f5c6d6f6e6f5c6d657461646174615c6c6f616465722e6300",
+      "text": "..\\..\\mono\\mono\\metadata\\loader.c"
+    },
+    {
+      "va": "0x010B8344",
+      "encoding": "ASCII",
+      "bytes_including_nul": "6c6f6300",
+      "text": "loc"
+    },
+    {
+      "va": "0x010B8348",
+      "encoding": "ASCII",
+      "bytes_including_nul": "6d6f6e6f5f6d657461646174615f746f6b656e5f7461626c6520286d6574686f642d3e746f6b656e29203d3d204d4f4e4f5f5441424c455f4d4554484f4400",
+      "text": "mono_metadata_token_table (method->token) == MONO_TABLE_METHOD"
+    },
+    {
+      "va": "0x0108D710",
+      "encoding": "ASCII",
+      "bytes_including_nul": "536372697074436f72652e5461736b436f6e74726f6c3a3a5461736b436f6e74726f6c5f5265736f6c76654669656c645265666572656e636500",
+      "text": "ScriptCore.TaskControl::TaskControl_ResolveFieldReference"
+    }
+  ],
+  "metadata_helper_imports": [
+    {
+      "iat_va": "0x00F9612C",
+      "original_iat_bytes": "f83dd400",
+      "dll": "KERNEL32.dll",
+      "name": "EnterCriticalSection",
+      "hint": 152
+    },
+    {
+      "iat_va": "0x00F96130",
+      "original_iat_bytes": "103ed400",
+      "dll": "KERNEL32.dll",
+      "name": "LeaveCriticalSection",
+      "hint": 593
+    }
+  ],
+  "critical_section": {
+    "va": "0x011F53A8",
+    "role": "E85670 process-runtime lock object; initialized at runtime, original-file initial bytes are not a runtime snapshot."
+  },
+  "managed_original": {
+    "assembly": "ScriptCore",
+    "sha256": "1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115",
+    "mvid": "da71f9d5-3a90-44c6-8f98-5bafd2fca18a",
+    "selected_complete_method_code": [
+      {
+        "method_token": "06000132",
+        "rva": "0x321a",
+        "code_size": 8,
+        "code_bytes": "020328260100062a",
+        "code_sha256": "9e43c1b695ecb0d77a8844c862fba212ce87cece64c0d8ea4610c78bf82f39c7"
+      },
+      {
+        "method_token": "06000139",
+        "rva": "0x3282",
+        "code_size": 33,
+        "code_bytes": "7269000070027b200000048c45010001027b210000048c45010001284300000a2a",
+        "code_sha256": "dd05780bde4f2b038c1eac5eefc58d313eee3bded6c5ff57e5179b26911ca35d"
+      }
+    ],
+    "reused_complete_method_code": [
+      {
+        "legacy_path": "evidence/managed/selected/save-object-stack/ScriptCore.TaskStateCollection.restoration.il.txt",
+        "token": "060006A2",
+        "rva": "0x9310",
+        "original_CIL_bytes_equal": 882
+      },
+      {
+        "legacy_path": "evidence/managed/selected/save-object-stack/ScriptCore.SavedTaskContext.restoration.il.txt",
+        "token": "06000691",
+        "rva": "0x8b1c",
+        "original_CIL_bytes_equal": 235
+      }
+    ]
+  },
+  "limits": [
+    "Runtime frame/type/header/offset arrays are dynamic inputs; their values and lifetime are not inferred from original-file constants.",
+    "Assertion-child behavior and metadata decoding remain explicit dependencies.",
+    "No original runtime execution observed."
+  ],
+  "native_call_dependencies": [
+    {
+      "caller_va": "0x00D835D0",
+      "instruction_va": "0x00D835E4",
+      "kind": "direct",
+      "target_va": "0x00769390",
+      "original_operand": "0x769390",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D835D0",
+      "instruction_va": "0x00D83601",
+      "kind": "direct",
+      "target_va": "0x00D760C0",
+      "original_operand": "0xd760c0",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D835D0",
+      "instruction_va": "0x00D83637",
+      "kind": "direct",
+      "target_va": "0x00E85670",
+      "original_operand": "0xe85670",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D835D0",
+      "instruction_va": "0x00D836D1",
+      "kind": "direct",
+      "target_va": "0x00E85670",
+      "original_operand": "0xe85670",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D760C0",
+      "instruction_va": "0x00D760D9",
+      "kind": "direct",
+      "target_va": "0x00923640",
+      "original_operand": "0x923640",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D760C0",
+      "instruction_va": "0x00D76117",
+      "kind": "direct",
+      "target_va": "0x00923640",
+      "original_operand": "0x923640",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D760C0",
+      "instruction_va": "0x00D7613D",
+      "kind": "direct",
+      "target_va": "0x00923640",
+      "original_operand": "0x923640",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D760C0",
+      "instruction_va": "0x00D76185",
+      "kind": "direct",
+      "target_va": "0x00D73BD0",
+      "original_operand": "0xd73bd0",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D760C0",
+      "instruction_va": "0x00D76198",
+      "kind": "direct",
+      "target_va": "0x00E4C120",
+      "original_operand": "0xe4c120",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D760C0",
+      "instruction_va": "0x00D761AC",
+      "kind": "direct",
+      "target_va": "0x00E53060",
+      "original_operand": "0xe53060",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D760C0",
+      "instruction_va": "0x00D761BE",
+      "kind": "direct",
+      "target_va": "0x00D74AA0",
+      "original_operand": "0xd74aa0",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E856B3",
+      "kind": "static_iat",
+      "target_va": "0x00F9612C",
+      "original_operand": "DWORD PTR ds:0xf9612c",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E856C4",
+      "kind": "static_iat",
+      "target_va": "0x00F96130",
+      "original_operand": "DWORD PTR ds:0xf96130",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E856DD",
+      "kind": "direct",
+      "target_va": "0x00E85670",
+      "original_operand": "0xe85670",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E856F1",
+      "kind": "direct",
+      "target_va": "0x00E69EF0",
+      "original_operand": "0xe69ef0",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E856FA",
+      "kind": "direct",
+      "target_va": "0x00E84F00",
+      "original_operand": "0xe84f00",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E8570A",
+      "kind": "static_iat",
+      "target_va": "0x00F96130",
+      "original_operand": "DWORD PTR ds:0xf96130",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E8573B",
+      "kind": "direct",
+      "target_va": "0x00E46E00",
+      "original_operand": "0xe46e00",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E8575E",
+      "kind": "direct",
+      "target_va": "0x00E9B500",
+      "original_operand": "0xe9b500",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E85765",
+      "kind": "direct",
+      "target_va": "0x00E842F0",
+      "original_operand": "0xe842f0",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E85787",
+      "kind": "direct",
+      "target_va": "0x00E46E00",
+      "original_operand": "0xe46e00",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E85799",
+      "kind": "direct",
+      "target_va": "0x00E9EDA0",
+      "original_operand": "0xe9eda0",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00E85670",
+      "instruction_va": "0x00E857A9",
+      "kind": "static_iat",
+      "target_va": "0x00F96130",
+      "original_operand": "DWORD PTR ds:0xf96130",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D837B0",
+      "instruction_va": "0x00D837B0",
+      "kind": "direct",
+      "target_va": "0x00769390",
+      "original_operand": "0x769390",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D837B0",
+      "instruction_va": "0x00D837CD",
+      "kind": "direct",
+      "target_va": "0x00D760C0",
+      "original_operand": "0xd760c0",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    },
+    {
+      "caller_va": "0x00D837B0",
+      "instruction_va": "0x00D837F6",
+      "kind": "direct",
+      "target_va": "0x00E85670",
+      "original_operand": "0xe85670",
+      "limit": "Static call instruction, not runtime execution or full child acceptance."
+    }
+  ]
+}

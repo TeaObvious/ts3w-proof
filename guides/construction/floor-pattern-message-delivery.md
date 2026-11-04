@@ -290,3 +290,5 @@ The explicit project save reported `saved_files=1`. No database close/reopen
 persistence test and no original-runtime observation were performed. These
 checks establish this bounded static package, not full outer delivery or
 complete Building coverage.
+
+The [concrete manager/renderer owner-binding chain](floor-message-owner-identity.md) joins this message filter to one shared core-lot pointer and its copied owner words. It preserves the distinction between live manager reads and renderer snapshots; later writes and whole-object lifetime remain open.

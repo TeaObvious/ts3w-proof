@@ -1,0 +1,448 @@
+{
+  "schema": "ts3w-original-enum-alias-examples-v1",
+  "identity_source": "../reference-inputs.json",
+  "selection": "Six explicit original owners covering Byte, UInt32, UInt64 and Int32 aliases, a high-word UInt64 value, a many-name set and the mscorlib local-base case. First three alias groups retained per selected owner; complete groups and all other owners remain in the per-assembly JSONL.",
+  "examples": [
+    {
+      "assembly": "Sims3GameplaySystems",
+      "type_token": "0x02000D1E",
+      "type": "Sims3.Gameplay.DreamsAndPromises.ActiveNodeBase+FlagField",
+      "underlying_fields": [
+        {
+          "token": "0x04003177",
+          "attributes": "0x0606",
+          "signature_blob": "0605",
+          "element_type": 5,
+          "type": "Byte"
+        }
+      ],
+      "declared_field_count": 11,
+      "literal_field_count": 10,
+      "distinct_typed_constant_count": 9,
+      "alias_groups": [
+        {
+          "constant_type": "Byte",
+          "constant_blob": "10",
+          "value": "16",
+          "fields": [
+            {
+              "field_token": "0x0400317E",
+              "name": "HasTriggered",
+              "constant_token": "0x0B0010C4",
+              "constant_parent_token": "0x0400317E",
+              "signature_blob": "0611B478",
+              "constant_type": "Byte",
+              "constant_blob": "10",
+              "value": "16"
+            },
+            {
+              "field_token": "0x0400317F",
+              "name": "WasPromisedAndBroken",
+              "constant_token": "0x0B0010C5",
+              "constant_parent_token": "0x0400317F",
+              "signature_blob": "0611B478",
+              "constant_type": "Byte",
+              "constant_blob": "10",
+              "value": "16"
+            }
+          ]
+        }
+      ],
+      "flags_attribute_declared": true,
+      "flags_attribute_constructor_tokens": [
+        "0x0A00019D"
+      ],
+      "complete_record_file": "Sims3GameplaySystems.jsonl"
+    },
+    {
+      "assembly": "SimIFace",
+      "type_token": "0x0200001B",
+      "type": "Sims3.SimIFace.BuildBuy.BuildBuyProduct+eBuySubCategory2",
+      "underlying_fields": [
+        {
+          "token": "0x040000C7",
+          "attributes": "0x0606",
+          "signature_blob": "060B",
+          "element_type": 11,
+          "type": "UInt64"
+        }
+      ],
+      "declared_field_count": 10,
+      "literal_field_count": 9,
+      "distinct_typed_constant_count": 8,
+      "alias_groups": [
+        {
+          "constant_type": "UInt64",
+          "constant_blob": "0800000000000000",
+          "value": "8",
+          "fields": [
+            {
+              "field_token": "0x040000CA",
+              "name": "kBuySubCategory2Misc",
+              "constant_token": "0x0B0000B3",
+              "constant_parent_token": "0x040000CA",
+              "signature_blob": "06116C",
+              "constant_type": "UInt64",
+              "constant_blob": "0800000000000000",
+              "value": "8"
+            },
+            {
+              "field_token": "0x040000D0",
+              "name": "kBuySubCategory2Miscellaneous",
+              "constant_token": "0x0B0000B9",
+              "constant_parent_token": "0x040000D0",
+              "signature_blob": "06116C",
+              "constant_type": "UInt64",
+              "constant_blob": "0800000000000000",
+              "value": "8"
+            }
+          ]
+        }
+      ],
+      "flags_attribute_declared": false,
+      "flags_attribute_constructor_tokens": [],
+      "complete_record_file": "SimIFace.jsonl"
+    },
+    {
+      "assembly": "UI",
+      "type_token": "0x0200058C",
+      "type": "Sims3.UI.GameEntry.MaptagTypes",
+      "underlying_fields": [
+        {
+          "token": "0x04003255",
+          "attributes": "0x0606",
+          "signature_blob": "060B",
+          "element_type": 11,
+          "type": "UInt64"
+        }
+      ],
+      "declared_field_count": 43,
+      "literal_field_count": 42,
+      "distinct_typed_constant_count": 41,
+      "alias_groups": [
+        {
+          "constant_type": "UInt64",
+          "constant_blob": "0000000080000000",
+          "value": "549755813888",
+          "fields": [
+            {
+              "field_token": "0x0400327E",
+              "name": "SelectedBaseCampFuture",
+              "constant_token": "0x0B0019D1",
+              "constant_parent_token": "0x0400327E",
+              "signature_blob": "06119630",
+              "constant_type": "UInt64",
+              "constant_blob": "0000000080000000",
+              "value": "549755813888"
+            },
+            {
+              "field_token": "0x0400327F",
+              "name": "Last",
+              "constant_token": "0x0B0019D2",
+              "constant_parent_token": "0x0400327F",
+              "signature_blob": "06119630",
+              "constant_type": "UInt64",
+              "constant_blob": "0000000080000000",
+              "value": "549755813888"
+            }
+          ]
+        }
+      ],
+      "flags_attribute_declared": true,
+      "flags_attribute_constructor_tokens": [
+        "0x0A00010E"
+      ],
+      "complete_record_file": "UI.jsonl"
+    },
+    {
+      "assembly": "SimIFace",
+      "type_token": "0x02000079",
+      "type": "Sims3.SimIFace.CAS.FacialBlend+FacialRegions",
+      "underlying_fields": [
+        {
+          "token": "0x040002A1",
+          "attributes": "0x0606",
+          "signature_blob": "0609",
+          "element_type": 9,
+          "type": "UInt32"
+        }
+      ],
+      "declared_field_count": 41,
+      "literal_field_count": 40,
+      "distinct_typed_constant_count": 21,
+      "alias_groups": [
+        {
+          "constant_type": "UInt32",
+          "constant_blob": "02000000",
+          "value": "2",
+          "fields": [
+            {
+              "field_token": "0x040002A3",
+              "name": "Nose",
+              "constant_token": "0x0B000200",
+              "constant_parent_token": "0x040002A3",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "02000000",
+              "value": "2"
+            },
+            {
+              "field_token": "0x040002A4",
+              "name": "SquareNose",
+              "constant_token": "0x0B000201",
+              "constant_parent_token": "0x040002A4",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "02000000",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "constant_type": "UInt32",
+          "constant_blob": "80000000",
+          "value": "128",
+          "fields": [
+            {
+              "field_token": "0x040002AA",
+              "name": "Head",
+              "constant_token": "0x0B000207",
+              "constant_parent_token": "0x040002AA",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "80000000",
+              "value": "128"
+            },
+            {
+              "field_token": "0x040002AB",
+              "name": "Forehead",
+              "constant_token": "0x0B000208",
+              "constant_parent_token": "0x040002AB",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "80000000",
+              "value": "128"
+            },
+            {
+              "field_token": "0x040002AC",
+              "name": "Temple",
+              "constant_token": "0x0B000209",
+              "constant_parent_token": "0x040002AC",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "80000000",
+              "value": "128"
+            },
+            {
+              "field_token": "0x040002AD",
+              "name": "Crest",
+              "constant_token": "0x0B00020A",
+              "constant_parent_token": "0x040002AD",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "80000000",
+              "value": "128"
+            },
+            {
+              "field_token": "0x040002AE",
+              "name": "Flews",
+              "constant_token": "0x0B00020B",
+              "constant_parent_token": "0x040002AE",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "80000000",
+              "value": "128"
+            }
+          ]
+        },
+        {
+          "constant_type": "UInt32",
+          "constant_blob": "00020000",
+          "value": "512",
+          "fields": [
+            {
+              "field_token": "0x040002B0",
+              "name": "Jaw",
+              "constant_token": "0x0B00020D",
+              "constant_parent_token": "0x040002B0",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "00020000",
+              "value": "512"
+            },
+            {
+              "field_token": "0x040002B1",
+              "name": "SquareJaw",
+              "constant_token": "0x0B00020E",
+              "constant_parent_token": "0x040002B1",
+              "signature_blob": "061181E4",
+              "constant_type": "UInt32",
+              "constant_blob": "00020000",
+              "value": "512"
+            }
+          ]
+        }
+      ],
+      "flags_attribute_declared": false,
+      "flags_attribute_constructor_tokens": [],
+      "complete_record_file": "SimIFace.jsonl"
+    },
+    {
+      "assembly": "mscorlib",
+      "type_token": "0x0200004C",
+      "type": "System.Reflection.MethodImplAttributes",
+      "underlying_fields": [
+        {
+          "token": "0x04000071",
+          "attributes": "0x0606",
+          "signature_blob": "0608",
+          "element_type": 8,
+          "type": "Int32"
+        }
+      ],
+      "declared_field_count": 15,
+      "literal_field_count": 14,
+      "distinct_typed_constant_count": 11,
+      "alias_groups": [
+        {
+          "constant_type": "Int32",
+          "constant_blob": "03000000",
+          "value": "3",
+          "fields": [
+            {
+              "field_token": "0x04000072",
+              "name": "CodeTypeMask",
+              "constant_token": "0x0B000028",
+              "constant_parent_token": "0x04000072",
+              "signature_blob": "06118130",
+              "constant_type": "Int32",
+              "constant_blob": "03000000",
+              "value": "3"
+            },
+            {
+              "field_token": "0x04000076",
+              "name": "Runtime",
+              "constant_token": "0x0B00002C",
+              "constant_parent_token": "0x04000076",
+              "signature_blob": "06118130",
+              "constant_type": "Int32",
+              "constant_blob": "03000000",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "constant_type": "Int32",
+          "constant_blob": "00000000",
+          "value": "0",
+          "fields": [
+            {
+              "field_token": "0x04000073",
+              "name": "IL",
+              "constant_token": "0x0B000029",
+              "constant_parent_token": "0x04000073",
+              "signature_blob": "06118130",
+              "constant_type": "Int32",
+              "constant_blob": "00000000",
+              "value": "0"
+            },
+            {
+              "field_token": "0x04000079",
+              "name": "Managed",
+              "constant_token": "0x0B00002F",
+              "constant_parent_token": "0x04000079",
+              "signature_blob": "06118130",
+              "constant_type": "Int32",
+              "constant_blob": "00000000",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "constant_type": "Int32",
+          "constant_blob": "04000000",
+          "value": "4",
+          "fields": [
+            {
+              "field_token": "0x04000077",
+              "name": "ManagedMask",
+              "constant_token": "0x0B00002D",
+              "constant_parent_token": "0x04000077",
+              "signature_blob": "06118130",
+              "constant_type": "Int32",
+              "constant_blob": "04000000",
+              "value": "4"
+            },
+            {
+              "field_token": "0x04000078",
+              "name": "Unmanaged",
+              "constant_token": "0x0B00002E",
+              "constant_parent_token": "0x04000078",
+              "signature_blob": "06118130",
+              "constant_type": "Int32",
+              "constant_blob": "04000000",
+              "value": "4"
+            }
+          ]
+        }
+      ],
+      "flags_attribute_declared": false,
+      "flags_attribute_constructor_tokens": [],
+      "complete_record_file": "mscorlib.jsonl"
+    },
+    {
+      "assembly": "SimIFace",
+      "type_token": "0x020001EE",
+      "type": "Sims3.SimIFace.ThumbnailCamera",
+      "underlying_fields": [
+        {
+          "token": "0x04000CF7",
+          "attributes": "0x0606",
+          "signature_blob": "0608",
+          "element_type": 8,
+          "type": "Int32"
+        }
+      ],
+      "declared_field_count": 6,
+      "literal_field_count": 5,
+      "distinct_typed_constant_count": 4,
+      "alias_groups": [
+        {
+          "constant_type": "Int32",
+          "constant_blob": "00000000",
+          "value": "0",
+          "fields": [
+            {
+              "field_token": "0x04000CF8",
+              "name": "Default",
+              "constant_token": "0x0B0009EC",
+              "constant_parent_token": "0x04000CF8",
+              "signature_blob": "061187B8",
+              "constant_type": "Int32",
+              "constant_blob": "00000000",
+              "value": "0"
+            },
+            {
+              "field_token": "0x04000CF9",
+              "name": "Head",
+              "constant_token": "0x0B0009ED",
+              "constant_parent_token": "0x04000CF9",
+              "signature_blob": "061187B8",
+              "constant_type": "Int32",
+              "constant_blob": "00000000",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "flags_attribute_declared": false,
+      "flags_attribute_constructor_tokens": [],
+      "complete_record_file": "SimIFace.jsonl"
+    }
+  ],
+  "limits": [
+    "Exact typed Constant equality within the selected original TypeDef only.",
+    "Metadata field counts/order are not native iterator/count/cache behavior.",
+    "No target assembly or original native code executed."
+  ]
+}

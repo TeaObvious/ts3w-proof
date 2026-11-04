@@ -1,0 +1,20 @@
+.method /* 06000EB4 */ public final hidebysig newslot virtual
+	instance uint32 FrameDrawableGeneric (
+		uint32 dHandle,
+		uint32 funcID,
+		uint32 state,
+		uint32 'value'
+	) cil managed
+{
+	// Method begins at RVA 0x11df3
+	// Header size: 1
+	// Code size: 11 (0xb)
+	.maxstack 8
+
+	IL_0000: ldarg.1
+	IL_0001: ldarg.2
+	IL_0002: ldarg.3
+	IL_0003: ldarg.s 'value'
+	IL_0005: call uint32 ScriptCore.UIManager::UIManager_FrameDrawableGenericImpl(uint32, uint32, uint32, uint32) /* 06000E43 */
+	IL_000a: ret
+} // end of method UIManager::FrameDrawableGeneric
