@@ -1,0 +1,519 @@
+{
+  "schema": "ts3w-reference-resolution-pilots-v1",
+  "corpus_manifest": "../reference-inputs.json",
+  "frozen_root_index": "../native-methods.jsonl",
+  "frozen_reference_index": "../method-references.jsonl",
+  "standard": {
+    "url": "https://ecma-international.org/wp-content/uploads/ECMA-335_6th_edition_june_2012.pdf",
+    "edition": "6th, June2012",
+    "sections": [
+      "II.9.8 Signatures and binding",
+      "II.14.2 Arrays"
+    ],
+    "role": "Interpretation of the original metadata encoding; original-host execution/conformance not observed"
+  },
+  "pilot_count": 5,
+  "pilots": [
+    {
+      "reference_id": "UI:0x0A000090",
+      "assembly": "UI",
+      "operand_token": "0x0A000090",
+      "original_memberref_signature_blob": "2002011C18",
+      "uninstantiated_signature": "header=0x20;generic=0;required=2;ret=Void;params=(Object,IntPtr)",
+      "member_name": ".ctor",
+      "owner": {
+        "family": "generic-instantiation-typespec",
+        "parent_token": "0x1B000015",
+        "parent_kind": "TypeSpecification",
+        "signature_blob": "15128ABC01128AE0",
+        "decoded_owner": "[UI]Sims3.UI.UIEventHandler`1<[UI]Sims3.UI.UIButtonClickEventArgs>",
+        "nominal_type": "[UI]Sims3.UI.UIEventHandler`1",
+        "type_arguments": [
+          "[UI]Sims3.UI.UIButtonClickEventArgs"
+        ],
+        "nominal_token": "0x020002AF"
+      },
+      "substitution": {
+        "!0": "[UI]Sims3.UI.UIButtonClickEventArgs"
+      },
+      "target": {
+        "method": {
+          "id": "UI:060017E7",
+          "assembly": "UI",
+          "method_token": "0x060017E7",
+          "declaring_type": "[UI]Sims3.UI.UIEventHandler`1",
+          "name": ".ctor",
+          "signature": "header=0x20;generic=0;required=2;ret=Void;params=(Object,IntPtr)",
+          "signature_blob": "2002011C18",
+          "method_attributes": "0x1886",
+          "method_attribute_names": "Public, HideBySig, SpecialName, RTSpecialName",
+          "implementation_attributes": "0x0003",
+          "implementation_attribute_names": "CodeTypeMask",
+          "rva": "0x00000000",
+          "root_reasons": [
+            "runtime"
+          ],
+          "runtime_delegate_shape": true,
+          "pinvoke": null
+        },
+        "target_typedef_token": "0x020002AF",
+        "generic_parameters": [
+          {
+            "index": 0,
+            "name": "ArgsType"
+          }
+        ],
+        "effective_signature": "header=0x20;generic=0;required=2;ret=Void;params=(Object,IntPtr)",
+        "signature_comparison": "exact generic/uninstantiated member signature, before owner substitution"
+      },
+      "status": "resolved-runtime-delegate-declaration",
+      "call_sites": 1582,
+      "example_call": {
+        "caller": {
+          "id": "UI:060001EF",
+          "assembly": "UI",
+          "method_token": "0x060001EF",
+          "declaring_type": "[UI]Sims3.UI.Dialogs.ReportCard",
+          "name": ".ctor",
+          "signature": "header=0x20;generic=0;required=1;ret=Void;params=([UI]Sims3.UI.Hud.IReportCardData[])",
+          "signature_blob": "2001011D12810C",
+          "method_attributes": "0x1886",
+          "method_attribute_names": "Public, HideBySig, SpecialName, RTSpecialName",
+          "implementation_attributes": "0x0000",
+          "implementation_attribute_names": "IL",
+          "rva": "0x00006D1C",
+          "root_reasons": [],
+          "runtime_delegate_shape": false,
+          "pinvoke": null
+        },
+        "il_offset": "IL_0038",
+        "opcode": "newobj",
+        "instruction_bytes": "739000000A",
+        "ilspy_disassembly_line": "IL_0038: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIButtonClickEventArgs>::.ctor(object, native int) /* 0A000090 */",
+        "raw_pe_check": {
+          "body_il_file_offset": 23848,
+          "instruction_file_offset": 23904,
+          "method_header_bytes": 12,
+          "method_il_bytes": 125,
+          "original_instruction_bytes_confirmed": true
+        }
+      },
+      "metadata_base_chain": [
+        {
+          "declaring_type": "[UI]Sims3.UI.UIEventHandler`1",
+          "base_type": "[mscorlib]System.MulticastDelegate",
+          "base_token": "0x01000003"
+        },
+        {
+          "declaring_type": "[mscorlib]System.MulticastDelegate",
+          "base_type": "[mscorlib]System.Delegate",
+          "base_token": "0x02000022"
+        },
+        {
+          "declaring_type": "[mscorlib]System.Delegate",
+          "base_type": "[mscorlib]System.Object",
+          "base_token": "0x02000002"
+        }
+      ],
+      "limits": [
+        "One declared-member binding pilot; not a runtime target or native-address claim",
+        "Effective signature display substitutes type parameters only after uninstantiated signature matching; source-context generic variables remain open",
+        "No generic/array/inherited resolution is automatically applied to the frozen corpus indexes"
+      ],
+      "same_name_native_contrast_ids": [
+        "mscorlib:060008BC",
+        "mscorlib:060008BD",
+        "mscorlib:060008BE",
+        "mscorlib:060008BF",
+        "mscorlib:060008C0",
+        "mscorlib:060008C1",
+        "mscorlib:060008C2",
+        "mscorlib:060008C3"
+      ],
+      "same_name_native_contrast_status": "Name-only contrast; no binding implied. Native declarations are in ../native-methods.jsonl.",
+      "target_ilspy_header_excerpt": ".method /* 060017E7 */ public hidebysig specialname rtspecialname \n\tinstance void .ctor (\n\t\tobject 'object',\n\t\tnative int 'method'\n\t) runtime managed \n{",
+      "evidence_kind": "Original metadata and selected CIL instruction/header excerpts; not a complete exported function-body contract",
+      "binding_status": "Confirmed static declared-member identification"
+    },
+    {
+      "reference_id": "Sims3GameplayObjects:0x0A0001B1",
+      "assembly": "Sims3GameplayObjects",
+      "operand_token": "0x0A0001B1",
+      "original_memberref_signature_blob": "2001011300",
+      "uninstantiated_signature": "header=0x20;generic=0;required=1;ret=Void;params=(!0)",
+      "member_name": "Add",
+      "owner": {
+        "family": "generic-instantiation-typespec",
+        "parent_token": "0x1B000CDA",
+        "parent_kind": "TypeSpecification",
+        "signature_blob": "15128CD901128CF1",
+        "decoded_owner": "[mscorlib]System.Collections.Generic.List`1<[Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>",
+        "nominal_type": "[mscorlib]System.Collections.Generic.List`1",
+        "type_arguments": [
+          "[Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair"
+        ],
+        "nominal_token": "0x01000336"
+      },
+      "substitution": {
+        "!0": "[Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair"
+      },
+      "target": {
+        "method": {
+          "id": "mscorlib:06001C7D",
+          "assembly": "mscorlib",
+          "method_token": "0x06001C7D",
+          "declaring_type": "[mscorlib]System.Collections.Generic.List`1",
+          "name": "Add",
+          "signature": "header=0x20;generic=0;required=1;ret=Void;params=(!0)",
+          "signature_blob": "2001011300",
+          "method_attributes": "0x01E6",
+          "method_attribute_names": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+          "implementation_attributes": "0x0000",
+          "implementation_attribute_names": "IL",
+          "rva": "0x000448BC",
+          "root_reasons": [],
+          "runtime_delegate_shape": false,
+          "pinvoke": null
+        },
+        "target_typedef_token": "0x0200030B",
+        "generic_parameters": [
+          {
+            "index": 0,
+            "name": "T"
+          }
+        ],
+        "effective_signature": "header=0x20;generic=0;required=1;ret=Void;params=([Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair)",
+        "signature_comparison": "exact generic/uninstantiated member signature, before owner substitution"
+      },
+      "status": "resolved-managed-declaration",
+      "call_sites": 1012,
+      "example_call": {
+        "caller": {
+          "id": "Sims3GameplayObjects:060000E7",
+          "assembly": "Sims3GameplayObjects",
+          "method_token": "0x060000E7",
+          "declaring_type": "[Sims3GameplayObjects]Sims3.Gameplay.Objects.Plumbing.Bathtub+BathePet+Definition",
+          "name": "AddInteractions",
+          "signature": "header=0x20;generic=0;required=4;ret=Void;params=([Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair,[Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim,[Sims3GameplayObjects]Sims3.Gameplay.Objects.Plumbing.Bathtub,[mscorlib]System.Collections.Generic.List`1<[Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>)",
+          "signature_blob": "200401128CF1121D123C15128CD901128CF1",
+          "method_attributes": "0x00C4",
+          "method_attribute_names": "Family, Virtual, HideBySig",
+          "implementation_attributes": "0x0000",
+          "implementation_attribute_names": "IL",
+          "rva": "0x000056C0",
+          "root_reasons": [],
+          "runtime_delegate_shape": false,
+          "pinvoke": null
+        },
+        "il_offset": "IL_0026",
+        "opcode": "callvirt",
+        "instruction_bytes": "6FB101000A",
+        "ilspy_disassembly_line": "IL_0026: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0) /* 0A0001B1 */",
+        "raw_pe_check": {
+          "body_il_file_offset": 18124,
+          "instruction_file_offset": 18162,
+          "method_header_bytes": 12,
+          "method_il_bytes": 53,
+          "original_instruction_bytes_confirmed": true
+        }
+      },
+      "metadata_base_chain": [
+        {
+          "declaring_type": "[mscorlib]System.Collections.Generic.List`1",
+          "base_type": "[mscorlib]System.Object",
+          "base_token": "0x02000002"
+        }
+      ],
+      "limits": [
+        "One declared-member binding pilot; not a runtime target or native-address claim",
+        "Effective signature display substitutes type parameters only after uninstantiated signature matching; source-context generic variables remain open",
+        "No generic/array/inherited resolution is automatically applied to the frozen corpus indexes"
+      ],
+      "same_name_native_contrast_ids": [],
+      "same_name_native_contrast_status": "Name-only contrast; no binding implied. Native declarations are in ../native-methods.jsonl.",
+      "target_ilspy_header_excerpt": ".method /* 06001C7D */ public final hidebysig newslot virtual \n\tinstance void Add (\n\t\t!T item\n\t) cil managed \n{",
+      "evidence_kind": "Original metadata and selected CIL instruction/header excerpts; not a complete exported function-body contract",
+      "binding_status": "Confirmed static declared-member identification"
+    },
+    {
+      "reference_id": "Sims3GameplaySystems:0x0A0000AF",
+      "assembly": "Sims3GameplaySystems",
+      "operand_token": "0x0A0000AF",
+      "original_memberref_signature_blob": "20001300",
+      "uninstantiated_signature": "header=0x20;generic=0;required=0;ret=!0;params=()",
+      "member_name": "get_Current",
+      "owner": {
+        "family": "generic-instantiation-typespec",
+        "parent_token": "0x1B0009FC",
+        "parent_kind": "TypeSpecification",
+        "signature_blob": "15118BD901128598",
+        "decoded_owner": "[mscorlib]System.Collections.Generic.List`1+Enumerator<[Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>",
+        "nominal_type": "[mscorlib]System.Collections.Generic.List`1+Enumerator",
+        "type_arguments": [
+          "[Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim"
+        ],
+        "nominal_token": "0x010002F6"
+      },
+      "substitution": {
+        "!0": "[Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim"
+      },
+      "target": {
+        "method": {
+          "id": "mscorlib:06001CCF",
+          "assembly": "mscorlib",
+          "method_token": "0x06001CCF",
+          "declaring_type": "[mscorlib]System.Collections.Generic.List`1+Enumerator",
+          "name": "get_Current",
+          "signature": "header=0x20;generic=0;required=0;ret=!0;params=()",
+          "signature_blob": "20001300",
+          "method_attributes": "0x09E6",
+          "method_attribute_names": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+          "implementation_attributes": "0x0000",
+          "implementation_attribute_names": "IL",
+          "rva": "0x000454DC",
+          "root_reasons": [],
+          "runtime_delegate_shape": false,
+          "pinvoke": null
+        },
+        "target_typedef_token": "0x0200030C",
+        "generic_parameters": [
+          {
+            "index": 0,
+            "name": "T"
+          }
+        ],
+        "effective_signature": "header=0x20;generic=0;required=0;ret=[Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim;params=()",
+        "signature_comparison": "exact generic/uninstantiated member signature, before owner substitution"
+      },
+      "status": "resolved-managed-declaration",
+      "call_sites": 1063,
+      "example_call": {
+        "caller": {
+          "id": "Sims3GameplaySystems:06000184",
+          "assembly": "Sims3GameplaySystems",
+          "method_token": "0x06000184",
+          "declaring_type": "[Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3",
+          "name": "PopulateSimPicker",
+          "signature": "header=0x20;generic=0;required=7;ret=Void;params=([Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim,[Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&,[mscorlib]System.Collections.Generic.List`1<[UI]Sims3.UI.ObjectPicker+TabInfo>&,[mscorlib]System.Collections.Generic.List`1<[UI]Sims3.UI.ObjectPicker+HeaderInfo>&,[mscorlib]System.Collections.Generic.List`1<[Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>,Boolean,Boolean)",
+          "signature_blob": "2007011285981011C0009E9810151283090112838510151283090112838915128309011285980202",
+          "method_attributes": "0x0084",
+          "method_attribute_names": "Family, HideBySig",
+          "implementation_attributes": "0x0000",
+          "implementation_attribute_names": "IL",
+          "rva": "0x00004DCC",
+          "root_reasons": [],
+          "runtime_delegate_shape": false,
+          "pinvoke": null
+        },
+        "il_offset": "IL_00A9",
+        "opcode": "call",
+        "instruction_bytes": "28AF00000A",
+        "ilspy_disassembly_line": "IL_00a9: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current() /* 0A0000AF */",
+        "raw_pe_check": {
+          "body_il_file_offset": 15832,
+          "instruction_file_offset": 16001,
+          "method_header_bytes": 12,
+          "method_il_bytes": 366,
+          "original_instruction_bytes_confirmed": true
+        }
+      },
+      "metadata_base_chain": [
+        {
+          "declaring_type": "[mscorlib]System.Collections.Generic.List`1+Enumerator",
+          "base_type": "[mscorlib]System.ValueType",
+          "base_token": "0x02000018"
+        },
+        {
+          "declaring_type": "[mscorlib]System.ValueType",
+          "base_type": "[mscorlib]System.Object",
+          "base_token": "0x02000002"
+        }
+      ],
+      "limits": [
+        "One declared-member binding pilot; not a runtime target or native-address claim",
+        "Effective signature display substitutes type parameters only after uninstantiated signature matching; source-context generic variables remain open",
+        "No generic/array/inherited resolution is automatically applied to the frozen corpus indexes"
+      ],
+      "same_name_native_contrast_ids": [],
+      "same_name_native_contrast_status": "Name-only contrast; no binding implied. Native declarations are in ../native-methods.jsonl.",
+      "target_ilspy_header_excerpt": ".method /* 06001CCF */ public final hidebysig specialname newslot virtual \n\tinstance !T get_Current () cil managed \n{",
+      "evidence_kind": "Original metadata and selected CIL instruction/header excerpts; not a complete exported function-body contract",
+      "binding_status": "Confirmed static declared-member identification"
+    },
+    {
+      "reference_id": "mscorlib:0x0A00001D",
+      "assembly": "mscorlib",
+      "operand_token": "0x0A00001D",
+      "original_memberref_signature_blob": "200102151180B4011300",
+      "uninstantiated_signature": "header=0x20;generic=0;required=1;ret=Boolean;params=([mscorlib]System.ArraySegment`1<!0>)",
+      "member_name": "Equals",
+      "owner": {
+        "family": "generic-instantiation-typespec",
+        "parent_token": "0x1B00003E",
+        "parent_kind": "TypeSpecification",
+        "signature_blob": "151180B4011300",
+        "decoded_owner": "[mscorlib]System.ArraySegment`1<!0>",
+        "nominal_type": "[mscorlib]System.ArraySegment`1",
+        "type_arguments": [
+          "!0"
+        ],
+        "nominal_token": "0x0200002D"
+      },
+      "substitution": {
+        "!0": "!0"
+      },
+      "target": {
+        "method": {
+          "id": "mscorlib:060001E9",
+          "assembly": "mscorlib",
+          "method_token": "0x060001E9",
+          "declaring_type": "[mscorlib]System.ArraySegment`1",
+          "name": "Equals",
+          "signature": "header=0x20;generic=0;required=1;ret=Boolean;params=([mscorlib]System.ArraySegment`1<!0>)",
+          "signature_blob": "200102151180B4011300",
+          "method_attributes": "0x0086",
+          "method_attribute_names": "Public, HideBySig",
+          "implementation_attributes": "0x0000",
+          "implementation_attribute_names": "IL",
+          "rva": "0x00006B74",
+          "root_reasons": [],
+          "runtime_delegate_shape": false,
+          "pinvoke": null
+        },
+        "target_typedef_token": "0x0200002D",
+        "generic_parameters": [
+          {
+            "index": 0,
+            "name": "T"
+          }
+        ],
+        "effective_signature": "header=0x20;generic=0;required=1;ret=Boolean;params=([mscorlib]System.ArraySegment`1<!0>)",
+        "signature_comparison": "exact generic/uninstantiated member signature, before owner substitution"
+      },
+      "status": "resolved-managed-declaration",
+      "call_sites": 3,
+      "example_call": {
+        "caller": {
+          "id": "mscorlib:060001E8",
+          "assembly": "mscorlib",
+          "method_token": "0x060001E8",
+          "declaring_type": "[mscorlib]System.ArraySegment`1",
+          "name": "Equals",
+          "signature": "header=0x20;generic=0;required=1;ret=Boolean;params=(Object)",
+          "signature_blob": "2001021C",
+          "method_attributes": "0x00C6",
+          "method_attribute_names": "Public, Virtual, HideBySig",
+          "implementation_attributes": "0x0000",
+          "implementation_attribute_names": "IL",
+          "rva": "0x00006B5C",
+          "root_reasons": [],
+          "runtime_delegate_shape": false,
+          "pinvoke": null
+        },
+        "il_offset": "IL_000F",
+        "opcode": "call",
+        "instruction_bytes": "281D00000A",
+        "ilspy_disassembly_line": "IL_000f: call instance bool valuetype System.ArraySegment`1<!T>::Equals(valuetype System.ArraySegment`1<!0>) /* 0A00001D */",
+        "raw_pe_check": {
+          "body_il_file_offset": 23389,
+          "instruction_file_offset": 23404,
+          "method_header_bytes": 1,
+          "method_il_bytes": 23,
+          "original_instruction_bytes_confirmed": true
+        }
+      },
+      "metadata_base_chain": [
+        {
+          "declaring_type": "[mscorlib]System.ArraySegment`1",
+          "base_type": "[mscorlib]System.ValueType",
+          "base_token": "0x02000018"
+        },
+        {
+          "declaring_type": "[mscorlib]System.ValueType",
+          "base_type": "[mscorlib]System.Object",
+          "base_token": "0x02000002"
+        }
+      ],
+      "limits": [
+        "One declared-member binding pilot; not a runtime target or native-address claim",
+        "Effective signature display substitutes type parameters only after uninstantiated signature matching; source-context generic variables remain open",
+        "No generic/array/inherited resolution is automatically applied to the frozen corpus indexes"
+      ],
+      "same_name_native_contrast_ids": [
+        "mscorlib:0600053A"
+      ],
+      "same_name_native_contrast_status": "The generic owner declares the exact ArraySegment<!0> Equals overload, while native mscorlib:0600053A is System.Type.Equals(System.Type). The recorded ValueType/Object base chain does not identify Type as an inherited owner.",
+      "target_ilspy_header_excerpt": ".method /* 060001E9 */ public hidebysig \n\tinstance bool Equals (\n\t\tvaluetype System.ArraySegment`1<!T> obj\n\t) cil managed \n{",
+      "evidence_kind": "Original metadata and selected CIL instruction/header excerpts; not a complete exported function-body contract",
+      "binding_status": "Confirmed static declared-member identification"
+    },
+    {
+      "reference_id": "UI:0x0A00026A",
+      "assembly": "UI",
+      "operand_token": "0x0A00026A",
+      "original_memberref_signature_blob": "200301080812822C",
+      "uninstantiated_signature": "header=0x20;generic=0;required=3;ret=Void;params=(Int32,Int32,[UI]Sims3.UI.UIImage)",
+      "member_name": "Set",
+      "owner": {
+        "family": "array-typespec",
+        "parent_token": "0x1B000077",
+        "parent_kind": "TypeSpecification",
+        "signature_blob": "1412822C0200020000",
+        "decoded_owner": "[UI]Sims3.UI.UIImage[rank=2;sizes=;bounds=0,0]",
+        "nominal_type": null,
+        "type_arguments": [],
+        "nominal_token": null
+      },
+      "substitution": {},
+      "target": null,
+      "status": "synthetic-array-member; no named TypeDef/MethodDef assumed",
+      "call_sites": 100,
+      "example_call": {
+        "caller": {
+          "id": "UI:06000C21",
+          "assembly": "UI",
+          "method_token": "0x06000C21",
+          "declaring_type": "[UI]Sims3.UI.Hud.InteractionQueueItem",
+          "name": "LoadInteractionBGImages",
+          "signature": "header=0x20;generic=0;required=0;ret=Void;params=()",
+          "signature_blob": "200001",
+          "method_attributes": "0x0081",
+          "method_attribute_names": "Private, HideBySig",
+          "implementation_attributes": "0x0000",
+          "implementation_attribute_names": "IL",
+          "rva": "0x00033EC4",
+          "root_reasons": [],
+          "runtime_delegate_shape": false,
+          "pinvoke": null
+        },
+        "il_offset": "IL_002D",
+        "opcode": "call",
+        "instruction_bytes": "286A02000A",
+        "ilspy_disassembly_line": "IL_002d: call instance void class Sims3.UI.UIImage[0..., 0...]::Set(int32, int32, class Sims3.UI.UIImage) /* 0A00026A */",
+        "raw_pe_check": {
+          "body_il_file_offset": 208592,
+          "instruction_file_offset": 208637,
+          "method_header_bytes": 12,
+          "method_il_bytes": 1889,
+          "original_instruction_bytes_confirmed": true
+        }
+      },
+      "metadata_base_chain": [],
+      "limits": [
+        "One declared-member binding pilot; not a runtime target or native-address claim",
+        "Effective signature display substitutes type parameters only after uninstantiated signature matching; source-context generic variables remain open",
+        "No generic/array/inherited resolution is automatically applied to the frozen corpus indexes"
+      ],
+      "same_name_native_contrast_ids": [],
+      "same_name_native_contrast_status": "Name-only contrast; no binding implied. Native declarations are in ../native-methods.jsonl.",
+      "evidence_kind": "Original metadata and selected CIL instruction/header excerpts; not a complete exported function-body contract",
+      "binding_status": "CLI array-member shape identified; no MethodDef/native-address assignment"
+    }
+  ],
+  "limits": [
+    "Only five selected reference tokens are resolved or qualified here.",
+    "No frozen index is overwritten and no count is subtracted from the frozen unresolved corpus.",
+    "No native address, live dispatch, callback lifetime or original runtime result is inferred.",
+    "Inherited lookup and generic-interface dispatch outside these concrete declared-owner matches remain open."
+  ]
+}

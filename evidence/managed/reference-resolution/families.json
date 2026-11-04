@@ -1,0 +1,97 @@
+{
+  "schema": "ts3w-reference-resolution-families-v1",
+  "scope": "Structural metadata partition of frozen unresolved references; no automatic resolution or native match",
+  "unresolved_tokens": 24345,
+  "families": [
+    {
+      "family": "member-ref/generic-instantiation-typespec",
+      "tokens": 24308,
+      "call_sites": 91639
+    },
+    {
+      "family": "member-ref/array-typespec",
+      "tokens": 33,
+      "call_sites": 290
+    },
+    {
+      "family": "method-spec/generic-instantiation-typespec",
+      "tokens": 4,
+      "call_sites": 5
+    }
+  ],
+  "largest_owner_definitions": [
+    {
+      "owner": "[mscorlib]System.Collections.Generic.List`1",
+      "tokens": 5903,
+      "call_sites": 38394
+    },
+    {
+      "owner": "[mscorlib]System.Collections.Generic.List`1+Enumerator",
+      "tokens": 1715,
+      "call_sites": 13245
+    },
+    {
+      "owner": "[mscorlib]System.Collections.Generic.Dictionary`2",
+      "tokens": 3890,
+      "call_sites": 10659
+    },
+    {
+      "owner": "[Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3",
+      "tokens": 3957,
+      "call_sites": 4714
+    },
+    {
+      "owner": "[Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2",
+      "tokens": 1300,
+      "call_sites": 4233
+    },
+    {
+      "owner": "[UI]Sims3.UI.UIEventHandler`1",
+      "tokens": 33,
+      "call_sites": 3426
+    },
+    {
+      "owner": "[mscorlib]System.Collections.Generic.KeyValuePair`2",
+      "tokens": 567,
+      "call_sites": 1724
+    },
+    {
+      "owner": "[mscorlib]System.Collections.Generic.IEnumerator`1",
+      "tokens": 194,
+      "call_sites": 1410
+    },
+    {
+      "owner": "[mscorlib]System.Collections.Generic.IEnumerable`1",
+      "tokens": 140,
+      "call_sites": 1278
+    },
+    {
+      "owner": "[Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2",
+      "tokens": 352,
+      "call_sites": 1119
+    },
+    {
+      "owner": "[mscorlib]System.Collections.Generic.Dictionary`2+Enumerator",
+      "tokens": 516,
+      "call_sites": 1026
+    },
+    {
+      "owner": "[Sims3GameplaySystems]Sims3.Gameplay.Utilities.PairedListDictionary`2",
+      "tokens": 466,
+      "call_sites": 910
+    }
+  ],
+  "strict_native_method_records": 2266,
+  "strict_native_methods_on_generic_typedefs": 0,
+  "references": {
+    "original_assemblies": "../reference-inputs.json",
+    "frozen_unresolved_operands": "../method-references.jsonl",
+    "assembly_reference_identity_checks": "../assembly-references.json"
+  },
+  "limits": [
+    "Family labels read the underlying MemberRef parent TypeSpec signature code; they are not string-name heuristics or native/irrelevance dispositions.",
+    "Four MethodSpec entries are counted structurally but not resolved by the five-pilot study.",
+    "The 127 references outside the call subset remain in these token counts; call_site totals include only the original 91934 call-like sites.",
+    "No inference that inherited/generic/dynamic binding is fully closed follows from these structural counts."
+  ]
+}

@@ -14,3 +14,6 @@ The [native evidence index](../indexes/native-evidence.tsv) resolves the current
 - [Defined-function census](native-function-census.md): 40,854 internal definitions and separately identified external locations.
 - [Complete stored-range census](full-body-coverage.md): 44,903 ranges, exact mapped-code complement, 1,023 singleton metadata entries and unassessed semantic status.
 - [Executable input zones](remaining-code-method.md): independent PE checks and the limits of interpreting stored ownership.
+
+- [Registered capture frontier](native-capture-frontier.md): 1,733 distinct native targets joined to 1,777 bindings, with qualified acquisition priorities and dependency edges.
+- [Bounded remaining-region data assertions](remaining-region-dispositions.md): four guarded dispatch-table intervals totaling 118 bytes; baseline regions and all unasserted pieces remain explicit.
