@@ -29,6 +29,12 @@ Pseudocode mit konkreten Instruktionsbezügen annotieren: Branches, Feldbreiten,
 Vorzeichen, Rückgaberegister, arithmetische Operationen, Pointerbesitz und
 Nebenwirkungen. Kommentiere die Bedeutung, nicht bloß die C-Zeile.
 Die Erläuterungen stehen IM Pseudocode, keine ausgelagerte Kommentar-Sidecar-Datei.
+Ein verständlicher Funktionskopf aus Ghidra ist Pflicht. Bestätigte Namen für
+Funktion, Parameter und lokale Variablen müssen im frischen Export erscheinen.
+Nach Callee-Umbenennungen alle betroffenen erfassten Caller erneut exportieren;
+veraltete `FUN_Adresse`-Aufrufe sind kein final synchronisierter Referenzstand.
+Es gelten verbindlich [Funktionsbenennung](../naming/functions.md),
+[Dateinamen](../naming/files.md) und [Ghidra-Pflege](../ghidra/annotations.md).
 
 ## ABI und Datenfluss
 

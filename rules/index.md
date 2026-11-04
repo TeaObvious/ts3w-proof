@@ -2,9 +2,15 @@
 
 Einstieg: [Projektanweisungen](../AGENTS.md). Der lokale startprompt.md führt
 zusätzlich durch die rechnerbezogene Einrichtung und ist nicht Teil des Git-Exports.
-Dieses Regelbuch beschreibt die spätere Forschung, es startet sie nicht.
+Dieses Regelbuch gilt für die ausdrücklich gestartete Forschung. Seine bloße
+Anwesenheit startet keine neue Arbeit und hebt den laufenden Auftrag nicht auf.
 Direkte aktuelle Nutzeranweisungen haben Vorrang; Ausnahmen mit ihrem konkreten
 Umfang dokumentieren und nicht auf andere Dienste übertragen.
+Benennungsregeln sind verbindlich: Adresse_Funktionsname.c/.asm, bestätigte
+Funktions-/Parameter-/Variablennamen tatsächlich in Ghidra, verständliche
+Funktionsköpfe und frische Neu-Exporte sämtlicher betroffener erfasster Caller.
+Siehe [Funktionsnamen](naming/functions.md), [Dateien](naming/files.md) und
+[Ghidra-Pflege](ghidra/annotations.md). Ungeklärte Rollen bleiben explizit offen.
 
 ## Zuerst lesen
 

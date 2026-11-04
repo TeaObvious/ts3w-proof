@@ -4,7 +4,8 @@
 
 ## Name aus der Verantwortung
 
-Benennen wie in einem großen Softwareprojekt: Ein Name beschreibt die
+Die folgenden Benennungsanforderungen sind verbindlich. Benennen wie in einem
+großen Softwareprojekt: Ein Name beschreibt die
 verstandene Operation und ihren Gegenstand, nicht die Entdeckungsgeschichte.
 Die Bedeutung aus Körper, realen Aufrufern, Produzenten und Verbrauchern ableiten.
 
@@ -50,3 +51,26 @@ Namen ersetzen keine Vertragsprüfung. Neue Erkenntnisse können einen Namen
 Bestätigte Namen und Kommentare müssen nach
 [Ghidra-Annotationsregel](../ghidra/annotations.md) tatsächlich in Ghidra
 übernommen werden. Nur umbenannte Exportdateien reichen nicht.
+
+## Namen durch den gesamten erfassten Zusammenhang ziehen
+
+Eine aufgenommene oder umbenannte Funktion ist erst synchronisiert, wenn alle
+betroffenen erfassten Aufrufer, Funktionszeiger-/Tabellenzuordnungen, Guides,
+Dateinamen und Indizes den aktuellen bestätigten Namen verwenden. Nach einer
+Umbenennung dürfen aktuelle Aufrufe nicht weiter `FUN_Adresse(...)` verwenden,
+wenn das Ziel bereits einen bestätigten Namen besitzt. Historische Belege und
+ausdrücklich ungeklärte Ziele bleiben als solche erkennbar.
+
+Parameter, Rückgabewerte, lokale Variablen und belegte Felder ebenfalls fachlich
+benennen, sobald ihre Rolle durch Instruktionen und tatsächlichen Datenfluss
+geklärt ist. Für neue Parameter-/Variablennamen lowerCamelCase verwenden;
+belegte Originalnamen erhalten. Zähler, Index, Kapazität, Byteanzahl, Schlüssel,
+Pointer und rohe Bitmuster nicht gleichsetzen. Decompiler-HighVars, die Speicher
+für mehrere Rollen zusammenfassen, nicht mit einem irreführenden Einzelnamen
+versehen; Gültigkeitsbereiche prüfen und die konkrete Grenze dokumentieren.
+
+Die Namen tatsächlich in Ghidra an die geprüfte Parameter-/Variablenidentität
+binden. Belegte Typ-/Signaturpräzisierungen getrennt begründen und prüfen;
+eine Namenspflege erlaubt keine geratenen Typen oder geänderte ABI. Anschließend
+betroffene Funktionen und Aufrufer frisch dekompilieren und kanonische Paare
+erneuern. Eine reine Textersetzung im Export erfüllt diese Pflicht nicht.

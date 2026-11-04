@@ -38,6 +38,12 @@ Bisheriger lokaler Referenzclone: /home/lego/WorldTool/ts3w-proof.
 Er bleibt erhalten. Sein Remote wird nicht auf das neue Repository umgestellt.
 Er ist zunächst Quelle vorhandener Belege, kein paralleles Publikationsziel.
 
+Aktuelle Nutzergrenze während der Forschung: Keine Änderungen am
+OpenTS3-Repository und keine weiteren Issue-Kommentare. Vorhandene Kommentare
+bleiben erhalten. Keine TeaObvious-Research-Links in OpenTS3 hinzufügen; die
+spätere Ersetzung des bisherigen Proof-Bestands bleibt getrennt von der
+laufenden Research-Veröffentlichung.
+
 Nach Prüfung ausgewählte Ergebnisse mit vollständigen Quellcommit-IDs und
 Pfadzuordnung integrieren: etwa evidence/ → tools/ts3w-proof/evidence/ und
 guides/ → tools/ts3w-proof/guides/. Abweichende Indizes bewusst zuordnen.

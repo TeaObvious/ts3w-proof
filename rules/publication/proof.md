@@ -31,6 +31,12 @@ Typ- und Runtimefragen explizit belassen.
 
 Adressen, API-/Adress-/Callindizes, Namen, Paare und Links gemeinsam pflegen.
 Originalidentität zentral führen, keine redundanten öffentlichen Prüfsummenlisten.
+Die verbindlichen kanonischen Namen sind `Adresse_Funktionsname.c` und
+`Adresse_Funktionsname.asm`. Alle betroffenen erfassten Aufrufer müssen nach
+Namens-/Signaturpflege aus Ghidra neu exportiert sein. Keine veralteten
+`FUN_Adresse`-Aufrufe auf bereits bestätigte Ziele als final veröffentlichen.
+Belegte Parameter-/Variablennamen und Funktionsköpfe gehören in DB und Export;
+manuelle Symbolersetzung allein ist kein Nachweis dieser Synchronisation.
 
 ## Git-Transaktion
 
@@ -51,8 +57,14 @@ Keine parallele automatische Doppelveröffentlichung.
 
 Öffentliche Antworten verlinken das tatsächliche Repository und den vollständigen
 Commit; Privateingaben und lokale Pfade sind keine öffentlichen Belege.
-Zusätzliche Foundation-/Building-Erkenntnisse bleiben als neuer englischer
-Kommentar in Issue #307 beauftragt, mit passendem tatsächlichem Proof-Link.
+Neuere Nutzerentscheidung während der laufenden Forschung: Im OpenTS3-Repository
+nichts aktualisieren und keine weiteren Issue-Kommentare schreiben. Vorhandene
+Kommentare bleiben stehen. TeaObvious-Forschungslinks nicht in OpenTS3 setzen;
+für dessen Leser ist der bisherige Proof-Bestand das zugängliche Ziel. Der
+frühere Auftrag für weitere Kommentare in Issue #307 ist damit ausgesetzt.
+Forschung und Veröffentlichungen gehen weiter ausschließlich zuerst in dieses
+Research-Repository. Die spätere geprüfte Übertragung in den bisherigen
+`tools/ts3w-proof/`-Bestand ist eine getrennte Phase.
 
 Bestehendes Board-Protokoll und dessen Zielrepoannahmen respektieren.
 Neue Repo-Commits nicht als alte Branch-Commits ausgeben. Falls ein Boardabschluss

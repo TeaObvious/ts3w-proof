@@ -32,6 +32,9 @@ Research-Worktrees liegen unter TS3W-Research/checkouts, niemals in der allgemei
 workqueue. Der Hauptcheckout befindet sich direkt in TS3W-Research.
 Kein Worker schreibt in den Integrationscheckout oder Index eines anderen.
 Ein Publisher integriert; gleichzeitige Autoren derselben Funktion vermeiden.
+Umbenennungen an gemeinsamen Callees betreffen auch andere Pakete. Diese
+Caller-/Referenzmenge koordinieren und vor finaler Veröffentlichung gemeinsam
+aus der gepflegten DB erneuern; keine fremden Exporte still textuell umschreiben.
 
 ## Asynchron arbeiten
 

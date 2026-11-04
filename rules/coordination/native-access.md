@@ -9,25 +9,32 @@ Nativeaufrufe immer ausdrücklich an /TS3W.exe richten. Nicht aufgrund eines
 aktiven TSM-Fensters auf das falsche Programm zugreifen. Ghidra-Projekt des
 Nutzers erhalten; keine zweite DB als unbegründeten Standardweg erzeugen.
 
-Der bisherige gemeinsame Lock:
+## Eigener Research-Lock — direkte Nutzeranweisung vom 04.11.2026
 
-    /home/lego/WorldTool/workqueue/root/test-branch-integration.lock
-
-Für die Research-Aufgabe ist ein zusätzlicher Forschungslock erlaubt:
+Für Research-Transaktionen ausschließlich den projektspezifischen Lock verwenden:
 
     /home/lego/WorldTool/TS3W-Research/coordination/ghidra-access.lock
 
-## Schutz muss alle Nutzer erfassen
+Den globalen Workspace-/OpenTS3-Lock für diese Forschung nicht erwerben oder
+halten. Research darf dadurch keine fremden Git-Fetches, Builds oder Spieltests
+blockieren. Diese neuere Nutzeranweisung ersetzt die frühere doppelte Lease und
+deren Lockreihenfolge. Regeln fremder Projekte werden dadurch nicht geändert.
 
-Zwei verschiedene Locks schützen dieselbe Ghidra-DB nicht gegenseitig.
-Vor Einrichtung gemeinsamen Zugriffsplan mit bestehenden Nutzern festlegen.
-Bis dahin bestehendes gemeinsames Protokoll verwenden, keinen belegten Lock
-mit dem Forschungslock umgehen.
+## Schutz der gemeinsam genutzten Ghidra-Sitzung
 
-Eine eindeutige Lockreihenfolge dokumentieren. Nur nötige Transaktionen halten,
-nicht während Offlineanalyse oder Warten auf Nutzerantworten. Keine Lockdatei
-löschen/ersetzen, um eine Sperre zu brechen. PID, Taskbesitzer und tatsächliche
-Aktivität prüfen; Alter allein beweist keine verwaiste Transaktion.
+Alle Research-Nativezugriffe unter dem eigenen Research-Lock koordinieren.
+Root bleibt bis zu einem geprüften Parallelversuch einziger Native-Controller.
+Bestehende andere Nutzer derselben Ghidra-Sitzung ausdrücklich abstimmen: Zwei
+unabhängige Locks bieten keinen gemeinsamen DB-Schutz. Vor jeder Native-Lease
+Programmidentität, bekannte Taskbesitzer und laufende/pending Tasks prüfen.
+Bei fremder oder ungeklärter Ghidra-Aktivität Nativezugriffe zurückstellen und
+Offlinearbeit fortsetzen; keinen globalen Lock als Ersatz erwerben.
+
+Nur nötige Transaktionen halten, nicht während Offlineanalyse oder Warten auf
+Nutzerantworten. Keine Lockdatei löschen/ersetzen, um eine Sperre zu brechen.
+PID, Taskbesitzer und tatsächliche Aktivität prüfen; Alter allein beweist keine
+verwaiste Transaktion. Git-Arbeit im Research-Repo zusätzlich über eindeutige
+Checkoutbesitzer und einen Publisher koordinieren; der globale Lock entfällt.
 
 ## Kontrollierter Parallelversuch
 

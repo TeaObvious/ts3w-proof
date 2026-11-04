@@ -20,6 +20,10 @@ abzuhaken. Ein Vertrag befreit nicht von Körper-/Abhängigkeitsprüfung.
 Primärschlüssel: Referenzidentität plus RVA. Imagebase, VA, bekannte Namen,
 exakte Besitzbereiche und Belegverweise zusätzlich führen.
 Veränderliche Namen und Pfade sind keine alleinigen Schlüssel.
+Jede Namens-/Signaturänderung erhält eine betroffene Caller-/Referenzmenge.
+Solange aktuelle Callerexports, Dateinamen oder Indizes noch alte bestätigte
+Zielnamen enthalten, bleibt die Ghidra-/Exportsynchronisation offen. Das ändert
+weder die stabile Identität noch die fachliche Vollständigkeitsbewertung.
 
 Inventar umfasst definierte Funktionen, Thunks, Aliase, Imports und verbleibende
 ausführbare Bereiche. Ghidras definierte Funktionen sind kein Beweis, dass alle

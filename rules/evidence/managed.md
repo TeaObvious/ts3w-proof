@@ -2,6 +2,11 @@
 
 [Regelindex](../index.md)
 
+Originale Managed-Namen, Tokens und IL-Operanden unverändert belegen. Neue native
+Analystennamen in den Bindungs-/Callindizes zusätzlich zuordnen; sie ersetzen
+keine Original-Importnamen. Nach nativen Namensänderungen diese Zuordnungen
+gemeinsam mit den betroffenen nativen Callerbelegen aktualisieren.
+
 ## Originalquelle
 
 Retail-Assemblies aus den passenden S3SA-Paketressourcen gewinnen.

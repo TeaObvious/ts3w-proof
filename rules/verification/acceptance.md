@@ -22,6 +22,10 @@ Erfundene Runtimewerte und gesperrte Fixtureläufe sind kein Prüfweg.
 - Analystennamen und Unsicherheit sind klar; bestätigte Ghidra-Änderungen sind
   angewandt und zurückgelesen, Persistenzstatus ist belegt.
 - Exportkommentare, Namen, kanonische Paare, Guides und Indizes sind konsistent.
+- Verständliche Funktionsköpfe und belegte Parameter-/Variablennamen sind in
+  Ghidra gepflegt und im frischen Export enthalten. Betroffene erfasste Caller
+  wurden neu dekompiliert; bekannte Ziele tragen aktuelle Namen. Dateinamen
+  entsprechen verbindlich Adresse_Funktionsname.c/.asm.
 - Offene Fragen, Reviewerbefund und Belegverweise sind nachvollziehbar.
 - Bei Veröffentlichung stimmen tatsächlicher Remote-Commit und Quittierung.
 

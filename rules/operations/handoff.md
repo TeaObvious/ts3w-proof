@@ -10,6 +10,8 @@ Unter TS3W-Research kompakt und maschinenlesbar führen:
 - Pakete, Besitzer, aktuelle Fragen und Abhängigkeiten.
 - Native-Intents, ursprüngliche Taskhandles und terminale Ergebnisse.
 - Geplante/angewandte Ghidra-Annotationen mit Preimages und Readbacks.
+- Geprüfte Variablen-/Parameter-Storagebindungen, betroffene Caller und noch
+  ausstehende Neu-Exporte oder Namens-/Pfadmigrationen.
 - Finale Ergebnisse, Prüfungen, offene Grenzen und veröffentlichte Commits.
 
 Der globale Workspace-Handoff bleibt
