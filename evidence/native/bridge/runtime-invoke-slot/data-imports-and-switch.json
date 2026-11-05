@@ -1,0 +1,291 @@
+{
+  "schema": "ts3w-original-runtime-invoke-data-v1",
+  "reference_id": "ts3w-pc-1.67",
+  "reference_identity": "../../../reference.json",
+  "historical_ownership_inventory": "../../../../inventory/native-owned-ranges.tsv",
+  "scope": "Faithful retained Original instruction evidence, independently GNU/LLVM reviewed; not fresh Ghidra ownership, canonical pair adoption or runtime execution.",
+  "views": [
+    {
+      "va": "01196B54",
+      "file_offset": 14248788,
+      "bytes": 20,
+      "bytes_hex": "201fea00600cea00700cea006013ea00901bea00",
+      "role": "Five original adjacent callback words; distinct slots, no bulk table-install claim"
+    },
+    {
+      "va": "00E5A8A8",
+      "file_offset": 10856616,
+      "bytes": 36,
+      "bytes_hex": "32a6e50046a6e5005aa6e5006da6e5000ca6e5001fa6e50087a6e500bea4e500dca4e500",
+      "role": "Nine argument conversion switch target DWORDs"
+    },
+    {
+      "va": "00E5A8CC",
+      "file_offset": 10856652,
+      "bytes": 28,
+      "bytes_hex": "00010000010102020303040506060807060806060808020208080606",
+      "role": "Argument conversion byte map after unsigned type-minus2 <=1B guard"
+    },
+    {
+      "va": "010EE284",
+      "file_offset": 13558404,
+      "bytes": 47,
+      "bytes_hex": "72756e74696d6520696e766f6b652063616c6c6564206f6e20756e696e697469616c697a65642072756e74696d6500",
+      "ASCII": "runtime invoke called on uninitialized runtime",
+      "role": "Initial invoke stub diagnostic"
+    },
+    {
+      "va": "0108CEE4",
+      "file_offset": 13160164,
+      "bytes": 11,
+      "bytes_hex": "4d6f6e6f456e67696e6500",
+      "ASCII": "MonoEngine",
+      "role": "Initializer name argument, not a DLL or assembly identity"
+    },
+    {
+      "va": "0108F928",
+      "file_offset": 13170984,
+      "bytes": 22,
+      "bytes_hex": "64726f7070656420657863657074696f6e2e2e2e0a00",
+      "ASCII": "dropped exception...\n",
+      "role": "Processor no-local-output error diagnostic"
+    }
+  ],
+  "switch_expansion": [
+    {
+      "raw_type_byte": 2,
+      "index_after_sub2": 0,
+      "mapped_slot": 0,
+      "target": "00E5A632",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 3,
+      "index_after_sub2": 1,
+      "mapped_slot": 1,
+      "target": "00E5A646",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 4,
+      "index_after_sub2": 2,
+      "mapped_slot": 0,
+      "target": "00E5A632",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 5,
+      "index_after_sub2": 3,
+      "mapped_slot": 0,
+      "target": "00E5A632",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 6,
+      "index_after_sub2": 4,
+      "mapped_slot": 1,
+      "target": "00E5A646",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 7,
+      "index_after_sub2": 5,
+      "mapped_slot": 1,
+      "target": "00E5A646",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 8,
+      "index_after_sub2": 6,
+      "mapped_slot": 2,
+      "target": "00E5A65A",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 9,
+      "index_after_sub2": 7,
+      "mapped_slot": 2,
+      "target": "00E5A65A",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 10,
+      "index_after_sub2": 8,
+      "mapped_slot": 3,
+      "target": "00E5A66D",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 11,
+      "index_after_sub2": 9,
+      "mapped_slot": 3,
+      "target": "00E5A66D",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 12,
+      "index_after_sub2": 10,
+      "mapped_slot": 4,
+      "target": "00E5A60C",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 13,
+      "index_after_sub2": 11,
+      "mapped_slot": 5,
+      "target": "00E5A61F",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 14,
+      "index_after_sub2": 12,
+      "mapped_slot": 6,
+      "target": "00E5A687",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 15,
+      "index_after_sub2": 13,
+      "mapped_slot": 6,
+      "target": "00E5A687",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 16,
+      "index_after_sub2": 14,
+      "mapped_slot": 8,
+      "target": "00E5A4DC",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 17,
+      "index_after_sub2": 15,
+      "mapped_slot": 7,
+      "target": "00E5A4BE",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 18,
+      "index_after_sub2": 16,
+      "mapped_slot": 6,
+      "target": "00E5A687",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 19,
+      "index_after_sub2": 17,
+      "mapped_slot": 8,
+      "target": "00E5A4DC",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 20,
+      "index_after_sub2": 18,
+      "mapped_slot": 6,
+      "target": "00E5A687",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 21,
+      "index_after_sub2": 19,
+      "mapped_slot": 6,
+      "target": "00E5A687",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 22,
+      "index_after_sub2": 20,
+      "mapped_slot": 8,
+      "target": "00E5A4DC",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 23,
+      "index_after_sub2": 21,
+      "mapped_slot": 8,
+      "target": "00E5A4DC",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 24,
+      "index_after_sub2": 22,
+      "mapped_slot": 2,
+      "target": "00E5A65A",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 25,
+      "index_after_sub2": 23,
+      "mapped_slot": 2,
+      "target": "00E5A65A",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 26,
+      "index_after_sub2": 24,
+      "mapped_slot": 8,
+      "target": "00E5A4DC",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 27,
+      "index_after_sub2": 25,
+      "mapped_slot": 8,
+      "target": "00E5A4DC",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 28,
+      "index_after_sub2": 26,
+      "mapped_slot": 6,
+      "target": "00E5A687",
+      "target_is_owned_original_start": true
+    },
+    {
+      "raw_type_byte": 29,
+      "index_after_sub2": 27,
+      "mapped_slot": 6,
+      "target": "00E5A687",
+      "target_is_owned_original_start": true
+    }
+  ],
+  "selected_PE_imports": [
+    {
+      "slot_va": "00F96124",
+      "module": "KERNEL32.dll",
+      "name": "InitializeCriticalSection"
+    },
+    {
+      "slot_va": "00F96200",
+      "module": "KERNEL32.dll",
+      "name": "TlsAlloc"
+    },
+    {
+      "slot_va": "00F96204",
+      "module": "KERNEL32.dll",
+      "name": "TlsSetValue"
+    },
+    {
+      "slot_va": "00F96208",
+      "module": "KERNEL32.dll",
+      "name": "TlsGetValue"
+    },
+    {
+      "slot_va": "00F965C0",
+      "module": "MSVCR80.dll",
+      "name": "printf"
+    },
+    {
+      "slot_va": "00F96668",
+      "module": "MSVCR80.dll",
+      "name": "memset"
+    },
+    {
+      "slot_va": "00F96708",
+      "module": "MSVCR80.dll",
+      "name": "longjmp"
+    }
+  ],
+  "live_runtime_values_read": false,
+  "switch_scope": "All target/map bytes are data, not additional owned instructions. No managed enum type or complete physical interop marshaling contract inferred."
+}

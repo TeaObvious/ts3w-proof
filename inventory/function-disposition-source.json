@@ -1,0 +1,496 @@
+{
+  "schema_version": 1,
+  "inventory_kind": "metadata_identity_and_available_evidence_join_not_semantic_disposition_acceptance",
+  "reference_id": "ts3w-pc-1.67",
+  "image_base": "00400000",
+  "source_repository": "TeaObvious/ts3w-proof",
+  "source_commit": "34315bfd1e3f0978b3595c576f954cf1f9d0495e",
+  "source_paths": [
+    "inventory/native-function-census.tsv",
+    "indexes/native-evidence.tsv",
+    "indexes/native-registrations.tsv",
+    "evidence/native/direct-calls.tsv",
+    "inventory/native-owned-ranges.tsv",
+    "inventory/native-imports.tsv",
+    "inventory/remaining-executable-regions.tsv",
+    "inventory/remaining-region-dispositions.tsv",
+    "inventory/remaining-instruction-evidence.tsv",
+    "inventory/remaining-instruction-context-assertions.tsv",
+    "inventory/native-function-census.json",
+    "inventory/remaining-code-method.md",
+    "inventory/full-body-coverage.md",
+    "guides/reference/retained-proof-snapshot.md",
+    "references/retained-proof-bd11-update.md"
+  ],
+  "counts": {
+    "internal_definitions": 40854,
+    "canonical_evidence_entries": 5117,
+    "paired_internal_definitions": 5115,
+    "internal_definitions_without_exact_canonical_pair": 35739,
+    "qualified_nondefinition_windows": 2,
+    "original_registration_records": 1777,
+    "distinct_registered_targets": 1733,
+    "registered_targets_with_pair": 1731,
+    "registered_targets_without_exact_definition_or_pair": 2,
+    "joined_image_entry_rows": 40858,
+    "selected_transfer_rows": 28558,
+    "selected_transfer_source_identities": 3237,
+    "selected_transfer_image_destination_identities": 7444,
+    "selected_transfer_external_destination_identities": 28,
+    "declared_range_rows": 44903,
+    "external_locations": 665,
+    "external_function_locations": 651,
+    "external_label_locations": 14,
+    "baseline_remaining_regions": 42715,
+    "baseline_remaining_bytes": 1404655,
+    "partially_asserted_baseline_regions": 6,
+    "asserted_complement_bytes": 1839,
+    "unasserted_complement_bytes": 1402816,
+    "untouched_baseline_remaining_regions": 42709,
+    "residual_interval_count_after_assertion_subtraction": 42719
+  },
+  "line_locator_convention": "All *_line and *_rows fields are physical 1-based TSV file lines including header; ranges inclusive; semicolon separates ranges. Empty is no exact selected-index relation, never global absence.",
+  "line_locator_sources": {
+    "census_source_line": "inventory/native-function-census.tsv",
+    "canonical_index_line": "indexes/native-evidence.tsv",
+    "declared_range_rows": "inventory/native-owned-ranges.tsv",
+    "registration_rows": "indexes/native-registrations.tsv",
+    "selected_outgoing_transfer_rows": "evidence/native/direct-calls.tsv",
+    "selected_incoming_transfer_rows": "evidence/native/direct-calls.tsv"
+  },
+  "snapshot_provenance": {
+    "census": "20261104-start retained definition observation; not renamed by this join",
+    "ownership": "20261104 complete declared ownership snapshot, not real-function extent acceptance",
+    "canonical": "34315bfd current adopted paths and separately qualified name observations; source export/coverage/variable statuses remain in native-evidence.tsv",
+    "transfers": "Retained selected resolved transfer index updated by bd11; E8/E9/FF15 or exact instruction kind requires source inspection, not inferred from filename",
+    "runtime": "No target execution or live metadata observation performed by this join"
+  },
+  "external_identity_scope": {
+    "source": "inventory/native-imports.tsv",
+    "all_rows_retained": true,
+    "function_location_count": 651,
+    "label_location_count": 14,
+    "primary_identity": "reference_id + external_location in EXTERNAL address space",
+    "no_image_rva_or_owned_original_body_claim": true,
+    "observed_namespace_or_library": "Tool display may be a demangled namespace, not a PE DLL. Import order is not a proved IAT identity mapping.",
+    "disposition": "unresolved_dependency_boundary; no library/name exclusion",
+    "selected_transfer_destinations": [
+      {
+        "external_location": "EXTERNAL:00000023",
+        "import_source_line": 36,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "18236-18238"
+      },
+      {
+        "external_location": "EXTERNAL:00000024",
+        "import_source_line": 37,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "25830;25833;25836;25841;25861;25937"
+      },
+      {
+        "external_location": "EXTERNAL:00000025",
+        "import_source_line": 38,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "25832;25835;25837;25842;25862;25938"
+      },
+      {
+        "external_location": "EXTERNAL:0000002f",
+        "import_source_line": 48,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "11691"
+      },
+      {
+        "external_location": "EXTERNAL:000000c8",
+        "import_source_line": 201,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "25839;28485"
+      },
+      {
+        "external_location": "EXTERNAL:00000103",
+        "import_source_line": 260,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "11817"
+      },
+      {
+        "external_location": "EXTERNAL:00000107",
+        "import_source_line": 264,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "3;6"
+      },
+      {
+        "external_location": "EXTERNAL:00000108",
+        "import_source_line": 265,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "4"
+      },
+      {
+        "external_location": "EXTERNAL:00000109",
+        "import_source_line": 266,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "5"
+      },
+      {
+        "external_location": "EXTERNAL:00000113",
+        "import_source_line": 276,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "11816"
+      },
+      {
+        "external_location": "EXTERNAL:00000115",
+        "import_source_line": 278,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "11815"
+      },
+      {
+        "external_location": "EXTERNAL:00000125",
+        "import_source_line": 294,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "2"
+      },
+      {
+        "external_location": "EXTERNAL:000001a1",
+        "import_source_line": 418,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "1038"
+      },
+      {
+        "external_location": "EXTERNAL:000001a4",
+        "import_source_line": 421,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "524-525;11732"
+      },
+      {
+        "external_location": "EXTERNAL:000001ab",
+        "import_source_line": 428,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "521-522;1021"
+      },
+      {
+        "external_location": "EXTERNAL:000001ed",
+        "import_source_line": 494,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "17771"
+      },
+      {
+        "external_location": "EXTERNAL:00000215",
+        "import_source_line": 534,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "1245;1248;1269;1273;1281;1287;1293;12056;12224;12276;14249;15786;19465;19467;19616;21167;22614;22622;24044;24182;24243;24481;25464-25465;25655"
+      },
+      {
+        "external_location": "EXTERNAL:00000216",
+        "import_source_line": 535,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "11714"
+      },
+      {
+        "external_location": "EXTERNAL:0000021d",
+        "import_source_line": 542,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "161-162;817"
+      },
+      {
+        "external_location": "EXTERNAL:00000223",
+        "import_source_line": 548,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "167-168;11442"
+      },
+      {
+        "external_location": "EXTERNAL:0000022c",
+        "import_source_line": 557,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "147-148"
+      },
+      {
+        "external_location": "EXTERNAL:00000237",
+        "import_source_line": 568,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "212"
+      },
+      {
+        "external_location": "EXTERNAL:00000248",
+        "import_source_line": 585,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "1020"
+      },
+      {
+        "external_location": "EXTERNAL:00000249",
+        "import_source_line": 586,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "114-115;117;517-519;564;567;606;609"
+      },
+      {
+        "external_location": "EXTERNAL:0000024a",
+        "import_source_line": 587,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "512;1002-1011;1161;14455"
+      },
+      {
+        "external_location": "EXTERNAL:0000024b",
+        "import_source_line": 588,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "513-515;1024"
+      },
+      {
+        "external_location": "EXTERNAL:0000024d",
+        "import_source_line": 590,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "11441"
+      },
+      {
+        "external_location": "EXTERNAL:0000024f",
+        "import_source_line": 592,
+        "symbol_kind": "Function",
+        "selected_transfer_rows": "1000-1001"
+      }
+    ],
+    "reported_function_count_relation": {
+      "reported_program_function_count": 41505,
+      "internal_definition_count": 40854,
+      "external_function_locations": 651,
+      "relation": "41505 = 40854 + 651; count reconciliation only, not whole-code recognition or semantic coverage"
+    }
+  },
+  "remaining_executable_scope": {
+    "baseline_source": "inventory/remaining-executable-regions.tsv",
+    "baseline_inventory_version": "20261104",
+    "domain": "original .text file-backed virtual extent and excess raw/alignment tail; declared metadata ownership complement, not all real code",
+    "default_for_untouched_rows": "unresolved",
+    "assertion_sources": {
+      "inventory/remaining-region-dispositions.tsv": {
+        "rows": 4,
+        "bytes": 118
+      },
+      "inventory/remaining-instruction-evidence.tsv": {
+        "rows": 4,
+        "bytes": 1690
+      },
+      "inventory/remaining-instruction-context-assertions.tsv": {
+        "rows": 1,
+        "bytes": 31
+      }
+    },
+    "partially_asserted_parents": [
+      {
+        "parent_region_id": "ts3w-pc-1.67:0011a71f:0011a780:20261104",
+        "baseline_source": "inventory/remaining-executable-regions.tsv#L4579",
+        "baseline_bytes": 97,
+        "assertions": [
+          {
+            "assertion_id": "eventqueue-slot8-unowned-entry-context",
+            "source": "inventory/remaining-instruction-context-assertions.tsv#L2",
+            "start_va": "0051A720",
+            "stop_va_exclusive": "0051A73F",
+            "byte_count": 31,
+            "disposition": "needed_instruction_evidence"
+          }
+        ],
+        "unasserted_intervals_va_exclusive": [
+          [
+            "0051A71F",
+            "0051A720"
+          ],
+          [
+            "0051A73F",
+            "0051A780"
+          ]
+        ],
+        "unasserted_bytes": 66,
+        "unasserted_disposition": "unresolved"
+      },
+      {
+        "parent_region_id": "ts3w-pc-1.67:003619e1:00361e70:20261104",
+        "baseline_source": "inventory/remaining-executable-regions.tsv#L14341",
+        "baseline_bytes": 1167,
+        "assertions": [
+          {
+            "assertion_id": "route-smooth-connections-split-entry-instruction-fragment",
+            "source": "inventory/remaining-instruction-evidence.tsv#L2",
+            "start_va": "007619E1",
+            "stop_va_exclusive": "007619E6",
+            "byte_count": 5,
+            "disposition": "needed_instruction_evidence"
+          },
+          {
+            "assertion_id": "route-smooth-connections-complete-instruction-continuation",
+            "source": "inventory/remaining-instruction-evidence.tsv#L3",
+            "start_va": "007619E6",
+            "stop_va_exclusive": "00761E6B",
+            "byte_count": 1157,
+            "disposition": "needed_instruction_evidence"
+          }
+        ],
+        "unasserted_intervals_va_exclusive": [
+          [
+            "00761E6B",
+            "00761E70"
+          ]
+        ],
+        "unasserted_bytes": 5,
+        "unasserted_disposition": "unresolved"
+      },
+      {
+        "parent_region_id": "ts3w-pc-1.67:0037d321:0037d3b0:20261104",
+        "baseline_source": "inventory/remaining-executable-regions.tsv#L15030",
+        "baseline_bytes": 143,
+        "assertions": [
+          {
+            "assertion_id": "frame-drawable-dispatch",
+            "source": "inventory/remaining-region-dispositions.tsv#L5",
+            "start_va": "0077D39C",
+            "stop_va_exclusive": "0077D3AC",
+            "byte_count": 16,
+            "disposition": "needed_data"
+          }
+        ],
+        "unasserted_intervals_va_exclusive": [
+          [
+            "0077D321",
+            "0077D39C"
+          ],
+          [
+            "0077D3AC",
+            "0077D3B0"
+          ]
+        ],
+        "unasserted_bytes": 127,
+        "unasserted_disposition": "unresolved"
+      },
+      {
+        "parent_region_id": "ts3w-pc-1.67:0038dcf1:0038df10:20261104",
+        "baseline_source": "inventory/remaining-executable-regions.tsv#L15445",
+        "baseline_bytes": 543,
+        "assertions": [
+          {
+            "assertion_id": "world-winattach-split-entry-instruction-fragment",
+            "source": "inventory/remaining-instruction-evidence.tsv#L4",
+            "start_va": "0078DCF1",
+            "stop_va_exclusive": "0078DCF5",
+            "byte_count": 4,
+            "disposition": "needed_instruction_evidence"
+          },
+          {
+            "assertion_id": "world-winattach-complete-instruction-continuation",
+            "source": "inventory/remaining-instruction-evidence.tsv#L5",
+            "start_va": "0078DCF5",
+            "stop_va_exclusive": "0078DF01",
+            "byte_count": 524,
+            "disposition": "needed_instruction_evidence"
+          }
+        ],
+        "unasserted_intervals_va_exclusive": [
+          [
+            "0078DF01",
+            "0078DF10"
+          ]
+        ],
+        "unasserted_bytes": 15,
+        "unasserted_disposition": "unresolved"
+      },
+      {
+        "parent_region_id": "ts3w-pc-1.67:009831ec:00983240:20261104",
+        "baseline_source": "inventory/remaining-executable-regions.tsv#L36034",
+        "baseline_bytes": 84,
+        "assertions": [
+          {
+            "assertion_id": "fast-fields-nonnull-dispatch",
+            "source": "inventory/remaining-region-dispositions.tsv#L2",
+            "start_va": "00D831EC",
+            "stop_va_exclusive": "00D8320E",
+            "byte_count": 34,
+            "disposition": "needed_data"
+          },
+          {
+            "assertion_id": "fast-fields-null-dispatch",
+            "source": "inventory/remaining-region-dispositions.tsv#L3",
+            "start_va": "00D83210",
+            "stop_va_exclusive": "00D83232",
+            "byte_count": 34,
+            "disposition": "needed_data"
+          }
+        ],
+        "unasserted_intervals_va_exclusive": [
+          [
+            "00D8320E",
+            "00D83210"
+          ],
+          [
+            "00D83232",
+            "00D83240"
+          ]
+        ],
+        "unasserted_bytes": 16,
+        "unasserted_disposition": "unresolved"
+      },
+      {
+        "parent_region_id": "ts3w-pc-1.67:00983471:00983540:20261104",
+        "baseline_source": "inventory/remaining-executable-regions.tsv#L36037",
+        "baseline_bytes": 207,
+        "assertions": [
+          {
+            "assertion_id": "primitive-array-dispatch",
+            "source": "inventory/remaining-region-dispositions.tsv#L4",
+            "start_va": "00D83518",
+            "stop_va_exclusive": "00D8353A",
+            "byte_count": 34,
+            "disposition": "needed_data"
+          }
+        ],
+        "unasserted_intervals_va_exclusive": [
+          [
+            "00D83471",
+            "00D83518"
+          ],
+          [
+            "00D8353A",
+            "00D83540"
+          ]
+        ],
+        "unasserted_bytes": 173,
+        "unasserted_disposition": "unresolved"
+      }
+    ],
+    "exact_residual_recipe": "For each baseline half-open interval, subtract only the union of explicitly sourced assertion intervals listed for its parent. Every untouched interval and every unasserted successor interval remains unresolved. No parent is closed.",
+    "asserted_data_is_not_instruction_ownership": true,
+    "captured_instruction_evidence_does_not_certify_real_body_or_whole_semantics": true
+  },
+  "additional_nontext_root": {
+    "source": "inventory/native-function-census.json#entrypoint_roots",
+    "va": "011CF378",
+    "label": "SecuROM",
+    "initial_PE_zone": "RW .data virtual zero-fill; outside initial .text audit domain",
+    "status": "recorded_root_pending_code_data_initialization_and_boundary_review; no exclusion"
+  },
+  "column_schema": {
+    "reference_id": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "rva": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "va": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "entry_kind": "internal_definition | qualified_nondefinition_window | original_registration_target_no_definition",
+    "census_source_line": "Physical 1-based source TSV line locator; see line_locator_sources.",
+    "census_observed_name": "Unmodified November4 definition observation, not the current canonical name",
+    "census_observed_parameters": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "canonical_index_line": "Physical 1-based source TSV line locator; see line_locator_sources.",
+    "canonical_name": "Separately observed/qualified current name copied from the authoritative canonical index, with name_source; not an original EA symbol guarantee",
+    "canonical_name_source": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "canonical_asm": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "canonical_c": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "source_guide": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "declared_range_rows": "Physical 1-based source TSV line locator; see line_locator_sources.",
+    "declared_range_count": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "declared_address_count_sum": "Sum of this function metadata range byte_count, NOT unique whole-program union bytes or instruction count",
+    "registration_rows": "Physical 1-based source TSV line locator; see line_locator_sources.",
+    "registration_count": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "selected_outgoing_transfer_rows": "Physical 1-based source TSV line locator; see line_locator_sources.",
+    "selected_incoming_transfer_rows": "Physical 1-based source TSV line locator; see line_locator_sources.",
+    "recorded_entrypoint": "Copied identity, metadata or source-scoped lookup attribute; not scientific acceptance.",
+    "body_evidence": "Presence and source scope only; exact canonical-index coverage claims retained without upgrading them",
+    "c_export_status": "Comment-only windows distinct from actual C; exact freshness/export status remains at canonical_index_line",
+    "data_closure": "Not adjudicated by this inventory; existing bounded source claims retained",
+    "binding_closure": "Exact registered-target equality only, not overload/ABI/marshaling/indirect closure",
+    "bounded_contract": "An explicit source guide link is a lookup aid; no semantic acceptance inferred",
+    "ghidra_annotations": "No live DB readback/save by join; earlier qualified source claims remain authoritative for their own scopes",
+    "runtime": "No execution observed by this inventory; static evidence does not imply runtime",
+    "whole_entry_disposition": "All remain open at comprehensive entry scope; no earlier bounded accepted source claim is revoked",
+    "next_question": "Original evidence review, never a blanket re-export instruction or unknown-as-bloat decision"
+  }
+}

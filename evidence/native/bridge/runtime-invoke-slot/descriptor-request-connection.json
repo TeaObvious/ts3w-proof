@@ -1,0 +1,663 @@
+{
+  "schema": "ts3w-ui-descriptor-to-runtime-invoke-connection-v1",
+  "reference_id": "ts3w-pc-1.67",
+  "reference_identity": "../../../reference.json",
+  "historical_ownership_inventory": "../../../../inventory/native-owned-ranges.tsv",
+  "scope": "Faithful retained Original instruction evidence, independently GNU/LLVM reviewed; not fresh Ghidra ownership, canonical pair adoption or runtime execution.",
+  "relationship": "Conditional original UIManager name producer/getter/constructor request, not proof of live list/domain/image/MethodDef or successful activation.",
+  "facts": {
+    "writer": {
+      "function": "00783CD0",
+      "ECX_receiver_retained_at": "00783CE1",
+      "incoming_word_load": {
+        "address": "00783CD8",
+        "bytes": "8b442404",
+        "asm": "mov    eax,DWORD PTR [esp+0x4]"
+      },
+      "vtable_store": {
+        "address": "00783CEA",
+        "bytes": "c706bcfb0001",
+        "asm": "mov    DWORD PTR [esi],0x100fbbc"
+      },
+      "field44_store": {
+        "address": "00783D27",
+        "bytes": "894644",
+        "asm": "mov    DWORD PTR [esi+0x44],eax"
+      },
+      "global_instance_word_store": {
+        "address": "00783D57",
+        "bytes": "893588791d01",
+        "asm": "mov    DWORD PTR ds:0x11d7988,esi"
+      },
+      "return_receiver": "00783E23",
+      "physical_RET4": "00783E28",
+      "no_explicit_local_copy_of_name": "Stores the incoming DWORD verbatim at+44; it neither scans nor duplicates this name. Called helpers and aliases remain external.",
+      "global_publication_order": "The explicit011D7988 store is before several opaque child calls. No general lifetime, failure rollback, constructor success or atomic publication is proved."
+    },
+    "input_producer": {
+      "function": "00784120",
+      "record_size_request": "00000058",
+      "allocator_call": {
+        "address": "0078412F",
+        "bytes": "e8cc03d6ff",
+        "asm": "call   0x4e4500"
+      },
+      "name_pointer_push": {
+        "address": "0078413B",
+        "bytes": "6864fc0001",
+        "asm": "push   0x100fc64"
+      },
+      "name_literal_va": "0100FC64",
+      "name_literal_ASCII_NUL": "UIManager",
+      "constructor_call": {
+        "address": "00784142",
+        "bytes": "e889fbffff",
+        "asm": "call   0x783cd0"
+      },
+      "allocation_null_branch": {
+        "address": "00784139",
+        "bytes": "7419",
+        "asm": "je     0x784154"
+      },
+      "nonnull_host_dispatch_sites": [
+        "00784147",
+        "00784151"
+      ],
+      "null_host_dispatch_sites": [
+        "00784154",
+        "00784160"
+      ],
+      "rule": "On nonzero allocation return, passes the exact name pointer to783CD0 and the returned EAX to incoming host virtual+48. On zero allocation, still dispatches host+48 with zero. No local host-null check, general rejection policy or allocation success is supplied.",
+      "physical_RET": "plain RET after host dispatch; no normalized result established"
+    },
+    "getter": {
+      "function": "0060FC70",
+      "instructions": [
+        {
+          "address": "0060FC70",
+          "bytes": "8b4144",
+          "asm": "mov    eax,DWORD PTR [ecx+0x44]"
+        },
+        {
+          "address": "0060FC73",
+          "bytes": "c3",
+          "asm": "ret"
+        }
+      ],
+      "qualification": "Shared generic field44 getter role is receiver-dependent; other callers do not have descriptor semantics automatically."
+    },
+    "descriptor_and_table": {
+      "primary_vtable": "0100FBBC",
+      "type_name_getter_slot_offset": "0C",
+      "type_name_getter": "0060FC70",
+      "table_getter_slot_offset": "10",
+      "table_getter": "00784170",
+      "native_table": "01162D90",
+      "secondary_vtable": "0100FBB4",
+      "secondary_slot0": "00783B80",
+      "secondary_adjustment": "SUB ECX,4; JMP783E30 (separate unowned8B context)",
+      "table_getter_metadata": "Retained stored singleton[784170,784171); independently reused13B original context, not promoted to owned function."
+    },
+    "conditional_consumer": {
+      "function": "00D7E9F0",
+      "descriptor_list_relative_to_input_receiver": "1600",
+      "descriptor_load": "00D7EE33",
+      "getter_virtual0C_call": {
+        "address": "00D7EE3D",
+        "bytes": "ffd2",
+        "asm": "call   edx"
+      },
+      "nonnull_name_test": "00D7EE3F",
+      "null_name_skip": "00D7EE41",
+      "name_push": "00D7EE43",
+      "namespace_push": {
+        "address": "00D7EE44",
+        "bytes": "68f0c80801",
+        "asm": "push   0x108c8f0"
+      },
+      "namespace_ASCII_NUL": "ScriptCore",
+      "constructor_request_call": {
+        "address": "00D7EE4B",
+        "bytes": "e8c0f1ffff",
+        "asm": "call   0xd7e010"
+      },
+      "request_receiver": "EDI=original consumerECX-8, established atD7EB7A; not an invented separate pointer type",
+      "after_request_virtual04": "00D7EE57",
+      "boundary": "If this descriptor reaches this list and the getter still returns its constructed field, the request is ScriptCore(namespace), UIManager(name). Same runtime instance/list/domain or successful construction is not observed."
+    },
+    "request_helper": {
+      "function": "00D7E010",
+      "physical_inputs": "ECX context; first stackword namespace, second stackword type name; RET8",
+      "class_lookup_call": {
+        "address": "00D7E022",
+        "bytes": "e869c0ffff",
+        "asm": "call   0xd7a090"
+      },
+      "class_lookup_zero_exit": [
+        "00D7E027",
+        "00D7E035"
+      ],
+      "method_cache_key_sources": [
+        "namespace bytes",
+        "dot literalF98F7C",
+        "type-name bytes",
+        ":.ctor() literal108C9A8"
+      ],
+      "cached_method_context_field": "0B2C",
+      "method_name_request": {
+        "address": "00D7E0E7",
+        "bytes": "68a0c90801",
+        "asm": "push   0x108c9a0"
+      },
+      "method_lookup_call": {
+        "address": "00D7E0F0",
+        "bytes": "e8fbe9ffff",
+        "asm": "call   0xd7caf0"
+      },
+      "method_zero_exit": "00D7E0F9",
+      "object_word_request_call": {
+        "address": "00D7E115",
+        "bytes": "e8d6581200",
+        "asm": "call   0xea39f0"
+      },
+      "object_zero_exit": "00D7E121",
+      "invoke_word_setup": [
+        "00D7E14D",
+        "00D7E152",
+        "00D7E154",
+        "00D7E155",
+        "00D7E156"
+      ],
+      "invoke_call": {
+        "address": "00D7E15E",
+        "bytes": "e80d321200",
+        "asm": "call   0xea1370"
+      },
+      "invoke_four_stack_words_in_order": [
+        "method lookup result",
+        "object word",
+        "zero",
+        "address of local output word initialized zero"
+      ],
+      "invoke_output_nonzero_branch": "00D7E175 returns0 through cleanup",
+      "invoke_output_zero_return_object": "00D7E18B..D7E194 returns object word",
+      "qualification": "Calls/branches and physical words are proved. Exact loaded image, class/MethodDef token, allocation class contract and exception-object interpretation remain unproved here; no target execution, success/lifetime or AppDomain guarantee."
+    },
+    "lookup_boundaries": {
+      "D7A090": "Caches a key built from namespace, __ and type-name. On a miss it walks context image-list words and passes image-derived word+20 plus both input strings toE6FD80. Actual image contents and fullE6FD80 union remain a specific next Original question. No assembly namedScriptCore is inferred merely from the namespace argument.",
+      "D7CAF0": "Caches namespace.type:signature key; requestsD7A090, parses suppliedname request throughE71BD0, passes parsed descriptor+lookup result toE71E50, frees parsed descriptor throughE71CD0. MatcherE71D00 and enumerationE704E0 remain external; the requested .ctor() is not falsely equated with a live MethodDef token.",
+      "string_helpers": "D72210/D72B50 complete original bodies include original MSVCR80!memmove slotF96688. Class-cache delimiter bytes are __, not a guessed period; method-cache delimiters are separately recorded."
+    },
+    "managed_bridge": {
+      "original_manifest": "evidence/managed/reference-inputs.json",
+      "assembly": "ScriptCore",
+      "MVID": "da71f9d5-3a90-44c6-8f98-5bafd2fca18a",
+      "type_candidates": [
+        {
+          "TypeDef": "0200007A",
+          "full_name": "ScriptCore.UIManager",
+          "constructor": "06000E5B",
+          "body_bytes": 23
+        },
+        {
+          "TypeDef": "0200007C",
+          "full_name": "ScriptCore.UTFConnectorUIManager",
+          "constructor": "06000F3C",
+          "body_bytes": 23
+        }
+      ],
+      "fact": "The new native requested short name is UIManager, not UTFConnectorUIManager. Metadata contains the corresponding original namespace/type spelling and constructors. Runtime image resolution and the actual selectedMethodDef are not joined by this observation.",
+      "existing_original_ctor_contract": "Eachselected constructor requestsCurrentDomain.SetData(UIManager,this); invocation, same domain, module binding and lifetime remain separate."
+    }
+  },
+  "selected_instruction_contexts": [
+    {
+      "function": "00783CD0",
+      "scope": "selected whole Original instruction witnesses; complete existing canonical pair linked",
+      "canonical_pair": {
+        "name": "FUN_00783cd0",
+        "asm": "evidence/native/functions/00783CD0_FUN_00783cd0.asm",
+        "pseudocode": "evidence/native/functions/00783CD0_FUN_00783cd0.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      },
+      "instructions": [
+        {
+          "address": "00783CD8",
+          "bytes": "8b442404",
+          "asm": "mov    eax,DWORD PTR [esp+0x4]"
+        },
+        {
+          "address": "00783CE1",
+          "bytes": "8bf1",
+          "asm": "mov    esi,ecx"
+        },
+        {
+          "address": "00783CEA",
+          "bytes": "c706bcfb0001",
+          "asm": "mov    DWORD PTR [esi],0x100fbbc"
+        },
+        {
+          "address": "00783D27",
+          "bytes": "894644",
+          "asm": "mov    DWORD PTR [esi+0x44],eax"
+        },
+        {
+          "address": "00783D2F",
+          "bytes": "3bc5",
+          "asm": "cmp    eax,ebp"
+        },
+        {
+          "address": "00783D57",
+          "bytes": "893588791d01",
+          "asm": "mov    DWORD PTR ds:0x11d7988,esi"
+        },
+        {
+          "address": "00783D5D",
+          "bytes": "7527",
+          "asm": "jne    0x783d86"
+        },
+        {
+          "address": "00783E23",
+          "bytes": "8bc6",
+          "asm": "mov    eax,esi"
+        },
+        {
+          "address": "00783E28",
+          "bytes": "c20400",
+          "asm": "ret    0x4"
+        }
+      ]
+    },
+    {
+      "function": "00784120",
+      "start": "00784120",
+      "stop_exclusive": "00784163",
+      "bytes": 67,
+      "starts": 26,
+      "instructions": [
+        {
+          "address": "00784120",
+          "bytes": "6a00",
+          "asm": "push   0x0"
+        },
+        {
+          "address": "00784122",
+          "bytes": "6a00",
+          "asm": "push   0x0"
+        },
+        {
+          "address": "00784124",
+          "bytes": "6a00",
+          "asm": "push   0x0"
+        },
+        {
+          "address": "00784126",
+          "bytes": "6a00",
+          "asm": "push   0x0"
+        },
+        {
+          "address": "00784128",
+          "bytes": "682cf7fd00",
+          "asm": "push   0xfdf72c"
+        },
+        {
+          "address": "0078412D",
+          "bytes": "6a58",
+          "asm": "push   0x58"
+        },
+        {
+          "address": "0078412F",
+          "bytes": "e8cc03d6ff",
+          "asm": "call   0x4e4500"
+        },
+        {
+          "address": "00784134",
+          "bytes": "83c418",
+          "asm": "add    esp,0x18"
+        },
+        {
+          "address": "00784137",
+          "bytes": "85c0",
+          "asm": "test   eax,eax"
+        },
+        {
+          "address": "00784139",
+          "bytes": "7419",
+          "asm": "je     0x784154"
+        },
+        {
+          "address": "0078413B",
+          "bytes": "6864fc0001",
+          "asm": "push   0x100fc64"
+        },
+        {
+          "address": "00784140",
+          "bytes": "8bc8",
+          "asm": "mov    ecx,eax"
+        },
+        {
+          "address": "00784142",
+          "bytes": "e889fbffff",
+          "asm": "call   0x783cd0"
+        },
+        {
+          "address": "00784147",
+          "bytes": "8b4c2404",
+          "asm": "mov    ecx,DWORD PTR [esp+0x4]"
+        },
+        {
+          "address": "0078414B",
+          "bytes": "8b11",
+          "asm": "mov    edx,DWORD PTR [ecx]"
+        },
+        {
+          "address": "0078414D",
+          "bytes": "50",
+          "asm": "push   eax"
+        },
+        {
+          "address": "0078414E",
+          "bytes": "8b4248",
+          "asm": "mov    eax,DWORD PTR [edx+0x48]"
+        },
+        {
+          "address": "00784151",
+          "bytes": "ffd0",
+          "asm": "call   eax"
+        },
+        {
+          "address": "00784153",
+          "bytes": "c3",
+          "asm": "ret"
+        },
+        {
+          "address": "00784154",
+          "bytes": "8b4c2404",
+          "asm": "mov    ecx,DWORD PTR [esp+0x4]"
+        },
+        {
+          "address": "00784158",
+          "bytes": "8b11",
+          "asm": "mov    edx,DWORD PTR [ecx]"
+        },
+        {
+          "address": "0078415A",
+          "bytes": "33c0",
+          "asm": "xor    eax,eax"
+        },
+        {
+          "address": "0078415C",
+          "bytes": "50",
+          "asm": "push   eax"
+        },
+        {
+          "address": "0078415D",
+          "bytes": "8b4248",
+          "asm": "mov    eax,DWORD PTR [edx+0x48]"
+        },
+        {
+          "address": "00784160",
+          "bytes": "ffd0",
+          "asm": "call   eax"
+        },
+        {
+          "address": "00784162",
+          "bytes": "c3",
+          "asm": "ret"
+        }
+      ],
+      "ownership": "retained_historical_owner_range",
+      "canonical_pair": null
+    },
+    {
+      "function": "0060FC70",
+      "start": "0060FC70",
+      "stop_exclusive": "0060FC74",
+      "bytes": 4,
+      "starts": 2,
+      "instructions": [
+        {
+          "address": "0060FC70",
+          "bytes": "8b4144",
+          "asm": "mov    eax,DWORD PTR [ecx+0x44]"
+        },
+        {
+          "address": "0060FC73",
+          "bytes": "c3",
+          "asm": "ret"
+        }
+      ],
+      "ownership": "retained_historical_owner_range",
+      "canonical_pair": {
+        "name": "GetNativeDescriptorTypeName_Field44",
+        "asm": "evidence/native/functions/0060FC70_GetNativeDescriptorTypeName_Field44.asm",
+        "pseudocode": "evidence/native/functions/0060FC70_GetNativeDescriptorTypeName_Field44.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      }
+    },
+    {
+      "function": "00D7E9F0",
+      "scope": "selected initializer and descriptor-loop witnesses; complete existing canonical pair linked",
+      "canonical_pair": {
+        "name": "RegisterAllNativeMethodTables",
+        "asm": "evidence/native/functions/00D7E9F0_RegisterAllNativeMethodTables.asm",
+        "pseudocode": "evidence/native/functions/00D7E9F0_RegisterAllNativeMethodTables.c",
+        "export_state": "retained_snapshot; genuine_function_identifier_export_pending"
+      },
+      "instructions": [
+        {
+          "address": "00D7EA90",
+          "bytes": "ffd0",
+          "asm": "call   eax"
+        },
+        {
+          "address": "00D7EA92",
+          "bytes": "e8a9fc0c00",
+          "asm": "call   0xe4e740"
+        },
+        {
+          "address": "00D7EA97",
+          "bytes": "68e4ce0801",
+          "asm": "push   0x108cee4"
+        },
+        {
+          "address": "00D7EA9C",
+          "bytes": "e8cfbe0d00",
+          "asm": "call   0xe5a970"
+        },
+        {
+          "address": "00D7EAA1",
+          "bytes": "83c404",
+          "asm": "add    esp,0x4"
+        },
+        {
+          "address": "00D7EAA4",
+          "bytes": "3bc3",
+          "asm": "cmp    eax,ebx"
+        },
+        {
+          "address": "00D7EAA6",
+          "bytes": "8986c40a0000",
+          "asm": "mov    DWORD PTR [esi+0xac4],eax"
+        },
+        {
+          "address": "00D7EAAC",
+          "bytes": "7507",
+          "asm": "jne    0xd7eab5"
+        },
+        {
+          "address": "00D7EAAE",
+          "bytes": "5f",
+          "asm": "pop    edi"
+        },
+        {
+          "address": "00D7EAAF",
+          "bytes": "5e",
+          "asm": "pop    esi"
+        },
+        {
+          "address": "00D7EAB0",
+          "bytes": "32c0",
+          "asm": "xor    al,al"
+        },
+        {
+          "address": "00D7EAB2",
+          "bytes": "5b",
+          "asm": "pop    ebx"
+        },
+        {
+          "address": "00D7EAB3",
+          "bytes": "59",
+          "asm": "pop    ecx"
+        },
+        {
+          "address": "00D7EAB4",
+          "bytes": "c3",
+          "asm": "ret"
+        },
+        {
+          "address": "00D7EAB5",
+          "bytes": "68a0010000",
+          "asm": "push   0x1a0"
+        },
+        {
+          "address": "00D7EE31",
+          "bytes": "7433",
+          "asm": "je     0xd7ee66"
+        },
+        {
+          "address": "00D7EE33",
+          "bytes": "8b5d08",
+          "asm": "mov    ebx,DWORD PTR [ebp+0x8]"
+        },
+        {
+          "address": "00D7EE36",
+          "bytes": "8b03",
+          "asm": "mov    eax,DWORD PTR [ebx]"
+        },
+        {
+          "address": "00D7EE38",
+          "bytes": "8b500c",
+          "asm": "mov    edx,DWORD PTR [eax+0xc]"
+        },
+        {
+          "address": "00D7EE3B",
+          "bytes": "8bcb",
+          "asm": "mov    ecx,ebx"
+        },
+        {
+          "address": "00D7EE3D",
+          "bytes": "ffd2",
+          "asm": "call   edx"
+        },
+        {
+          "address": "00D7EE3F",
+          "bytes": "85c0",
+          "asm": "test   eax,eax"
+        },
+        {
+          "address": "00D7EE41",
+          "bytes": "740d",
+          "asm": "je     0xd7ee50"
+        },
+        {
+          "address": "00D7EE43",
+          "bytes": "50",
+          "asm": "push   eax"
+        },
+        {
+          "address": "00D7EE44",
+          "bytes": "68f0c80801",
+          "asm": "push   0x108c8f0"
+        },
+        {
+          "address": "00D7EE49",
+          "bytes": "8bcf",
+          "asm": "mov    ecx,edi"
+        },
+        {
+          "address": "00D7EE4B",
+          "bytes": "e8c0f1ffff",
+          "asm": "call   0xd7e010"
+        },
+        {
+          "address": "00D7EE50",
+          "bytes": "8b03",
+          "asm": "mov    eax,DWORD PTR [ebx]"
+        },
+        {
+          "address": "00D7EE52",
+          "bytes": "8b5004",
+          "asm": "mov    edx,DWORD PTR [eax+0x4]"
+        },
+        {
+          "address": "00D7EE55",
+          "bytes": "8bcb",
+          "asm": "mov    ecx,ebx"
+        },
+        {
+          "address": "00D7EE57",
+          "bytes": "ffd2",
+          "asm": "call   edx"
+        },
+        {
+          "address": "00D7EE59",
+          "bytes": "8b6d00",
+          "asm": "mov    ebp,DWORD PTR [ebp+0x0]"
+        },
+        {
+          "address": "00D7EE5C",
+          "bytes": "8d8600160000",
+          "asm": "lea    eax,[esi+0x1600]"
+        }
+      ]
+    }
+  ],
+  "D7E010_complete_Original_context": "direct-call-frontier.json",
+  "selected_original_data": [
+    {
+      "va": "0100FC64",
+      "bytes": 10,
+      "bytes_hex": "55494d616e6167657200",
+      "ascii": "UIManager",
+      "role": "Constructor input literal UIManager including NUL"
+    },
+    {
+      "va": "0108C8F0",
+      "bytes": 11,
+      "bytes_hex": "536372697074436f726500",
+      "ascii": "ScriptCore",
+      "role": "Consumer namespace argument ScriptCore including NUL"
+    },
+    {
+      "va": "0108C9A0",
+      "bytes": 8,
+      "bytes_hex": "2e63746f72282900",
+      "ascii": ".ctor()",
+      "role": "Method request suffix .ctor() including NUL"
+    },
+    {
+      "va": "0108C9A8",
+      "bytes": 9,
+      "bytes_hex": "3a2e63746f72282900",
+      "ascii": ":.ctor()",
+      "role": "Cache request suffix :.ctor() including NUL"
+    },
+    {
+      "va": "00F98F7C",
+      "bytes": 2,
+      "bytes_hex": "2e00",
+      "ascii": ".",
+      "role": "Dot separator including NUL"
+    },
+    {
+      "va": "0100FBBC",
+      "bytes": 20,
+      "bytes_hex": "303e7800503d5100c0404b0070fc600070417800",
+      "ascii": null,
+      "role": "Primary descriptor five words; exact getter slots"
+    }
+  ],
+  "managed_reference": "../../../../evidence/managed/ui-connector-selection/methods.json",
+  "managed_scope": "Previously published Original constructor metadata/CIL; name spelling does not prove the selected live token."
+}

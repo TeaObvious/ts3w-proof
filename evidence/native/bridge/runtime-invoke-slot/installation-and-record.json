@@ -1,0 +1,413 @@
+{
+  "schema": "ts3w-runtime-invoke-installation-record-v1",
+  "reference_id": "ts3w-pc-1.67",
+  "reference_identity": "../../../reference.json",
+  "historical_ownership_inventory": "../../../../inventory/native-owned-ranges.tsv",
+  "scope": "Faithful retained Original instruction evidence, independently GNU/LLVM reviewed; not fresh Ghidra ownership, canonical pair adoption or runtime execution.",
+  "initializer_callbacks": {
+    "function": "00E5A970",
+    "installs_in_original_call_order": [
+      {
+        "push": "00E5A9D2",
+        "call": "00E5A9D7",
+        "setter": "00EA0CD0",
+        "slot": "011F55C0",
+        "source_word": "00E53360",
+        "fallback_on_zero": null,
+        "initial_file_word": null,
+        "file_word_qualification": "Virtual zero-fill/BSS; no on-disk value assigned here"
+      },
+      {
+        "push": "00E5A9DC",
+        "call": "00E5A9E1",
+        "setter": "00EA1750",
+        "slot": "01196B60",
+        "source_word": "00E5A8F0",
+        "fallback_on_zero": "00EA1360",
+        "initial_file_word": "00EA1360"
+      },
+      {
+        "push": "00E5A9E6",
+        "call": "00E5A9EB",
+        "setter": "00EA0CB0",
+        "slot": "01196B58",
+        "source_word": "00E53BE0",
+        "fallback_on_zero": "00EA0C60",
+        "initial_file_word": "00EA0C60"
+      },
+      {
+        "push": "00E5A9F0",
+        "call": "00E5A9F5",
+        "setter": "00EA0C90",
+        "slot": "01196B54",
+        "source_word": "00E52290",
+        "fallback_on_zero": "00EA1F20",
+        "initial_file_word": "00EA1F20"
+      },
+      {
+        "push": "00E5A9FA",
+        "call": "00E5A9FF",
+        "setter": "00EA1BC0",
+        "slot": "01196B64",
+        "source_word": "00E53A30",
+        "fallback_on_zero": "00EA1B90",
+        "initial_file_word": "00EA1B90"
+      }
+    ],
+    "schema": "Individual callback setters, not a bulk export-name/table loader. These five callback source words are immediate addresses in original TS3W.text. Slot1196B5C between the four adjacent words is separately present in original data but is not installed by this five-call subset.",
+    "other_initializer_callback_calls_preserved_but_not_typed": [
+      {
+        "site": "00E5AA09",
+        "callee": "00E852C0",
+        "incoming_word": "00E52830"
+      },
+      {
+        "site": "00E5AA13",
+        "callee": "00E64E70",
+        "incoming_word": "00E53760"
+      }
+    ],
+    "initialization_success_not_equal_to_installation": true
+  },
+  "direct_installation_edges": {
+    "edges": [
+      {
+        "site": "00D7EA9C",
+        "target": "00E5A970",
+        "bytes": "e8cfbe0d00",
+        "owners": [
+          {
+            "function": "00d7e9f0",
+            "start": "00d7e9f0",
+            "stop_exclusive": "00d7ee9b",
+            "source_record": "legacy-body-metadata-1700.json#40"
+          }
+        ],
+        "status": "ORIGINAL_TWO_DECODER_START_CONFIRMED",
+        "evidence": "descriptor-request-connection.json"
+      },
+      {
+        "site": "00E5A9E1",
+        "target": "00EA1750",
+        "bytes": "e86a6d0400",
+        "owners": [
+          {
+            "function": "00e5a970",
+            "start": "00e5a970",
+            "stop_exclusive": "00e5aaa2",
+            "source_record": "full-body-metadata-35200.json#62"
+          }
+        ],
+        "status": "ORIGINAL_TWO_DECODER_START_CONFIRMED",
+        "evidence": "instruction-contexts.json"
+      }
+    ],
+    "each_search_unique_target_candidate": {
+      "00EA1750": 1,
+      "00E5A970": 1
+    },
+    "adapter_source_pointer_literal": "00E5A9DD is immediate operand of PUSH atE5A9DC, not an instruction start itself",
+    "no_global_or_indirect_caller_closure": true
+  },
+  "adapter_record": {
+    "context_entry": "00E5A8F0",
+    "context_scope": "No retained exact owner or current Info/C; exact115B CFG context throughRET only",
+    "temporary_bytes": "150",
+    "zeroing": "F7F298\u2192original MSVCR80!memset(record,0,150h)",
+    "stack_accounting": "S=entryESP. After SUB150 and three memset pushes, ESP=S-15C. Record=S-150. One record-pointer push forE5A2C0 gives ESP=S-160. FinalADD160 restoresS; plainRET leaves caller argument cleanup.",
+    "record_fields": [
+      {
+        "offset": "000",
+        "width": 4,
+        "value": "incoming word1",
+        "sites": [
+          "00E5A907",
+          "00E5A925"
+        ]
+      },
+      {
+        "offset": "004",
+        "width": 4,
+        "value": "incoming word2",
+        "sites": [
+          "00E5A90E",
+          "00E5A930"
+        ]
+      },
+      {
+        "offset": "008",
+        "width": 4,
+        "value": "incoming word3",
+        "sites": [
+          "00E5A929",
+          "00E5A94B"
+        ]
+      },
+      {
+        "offset": "010",
+        "width": 4,
+        "value": "incoming word4",
+        "sites": [
+          "00E5A934",
+          "00E5A94F"
+        ]
+      },
+      {
+        "offset": "140",
+        "width": 4,
+        "value": "FFFFFFFF",
+        "sites": [
+          "00E5A940"
+        ]
+      },
+      {
+        "offset": "14A",
+        "width": 1,
+        "value": "01",
+        "sites": [
+          "00E5A917"
+        ]
+      },
+      {
+        "offset": "14B",
+        "width": 1,
+        "value": "01",
+        "sites": [
+          "00E5A91E"
+        ]
+      },
+      {
+        "offset": "020",
+        "width": 4,
+        "value": "return word loaded after E5A2C0",
+        "sites": [
+          "00E5A958"
+        ]
+      }
+    ],
+    "processor_call": "00E5A953\u219200E5A2C0",
+    "processor_outputs": "Return word is record+20; input fourth word is stored at record+10, used by processor as conditional output destination. Semantic managed type/lifetime and general successful execution not inferred.",
+    "invocation_uses_current_slot_not_original_stub": true
+  },
+  "slot_accesses": {
+    "slot": "01196B60",
+    "exact_original_slot_operand_instructions": [
+      {
+        "function": "00EA1370",
+        "site": "00EA1370",
+        "access_kind": "tail-jump-read",
+        "bytes": "ff25606b1901",
+        "asm": "jmp    DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA1370",
+          "00EA1376"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA1680",
+        "site": "00EA168B",
+        "access_kind": "tail-jump-read",
+        "bytes": "ff25606b1901",
+        "asm": "jmp    DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA1680",
+          "00EA1691"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA16E0",
+        "site": "00EA1741",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA16E0",
+          "00EA174D"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA1750",
+        "site": "00EA1756",
+        "access_kind": "write",
+        "bytes": "a3606b1901",
+        "asm": "mov    ds:0x1196b60,eax",
+        "range": [
+          "00EA1750",
+          "00EA1768"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA1750",
+        "site": "00EA175D",
+        "access_kind": "write",
+        "bytes": "c705606b19016013ea00",
+        "asm": "mov    DWORD PTR ds:0x1196b60,0xea1360",
+        "range": [
+          "00EA1750",
+          "00EA1768"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA1CF0",
+        "site": "00EA1D70",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA1CF0",
+          "00EA1D7F"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA1F30",
+        "site": "00EA1FA1",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA1F30",
+          "00EA1FAD"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA30A0",
+        "site": "00EA314F",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA30A0",
+          "00EA3168"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA3520",
+        "site": "00EA3636",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA3520",
+          "00EA366D"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA3670",
+        "site": "00EA3848",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA3670",
+          "00EA39EA"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA3B80",
+        "site": "00EA3BAD",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA3B80",
+          "00EA3C8A"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA3B80",
+        "site": "00EA3C71",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA3B80",
+          "00EA3C8A"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA3EC0",
+        "site": "00EA419E",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA3F30",
+          "00EA41D3"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA3EC0",
+        "site": "00EA41C0",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA3F30",
+          "00EA41D3"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA4D30",
+        "site": "00EA4DD3",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA4D30",
+          "00EA4E37"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      },
+      {
+        "function": "00EA4D30",
+        "site": "00EA4E0F",
+        "access_kind": "call-read",
+        "bytes": "ff15606b1901",
+        "asm": "call   DWORD PTR ds:0x1196b60",
+        "range": [
+          "00EA4D30",
+          "00EA4E37"
+        ],
+        "instruction_start_and_operand_confirmed": true,
+        "scope": "Complete retained historical range, no fresh DB or runtime state"
+      }
+    ],
+    "access_counts": {
+      "writes": 2,
+      "tail_jump_reads": 2,
+      "call_reads": 12
+    },
+    "finite_scope": "All16literal DWORD occurrences of this slot address in mapped executable bytes resolve to the selected instruction operands. Computed-address aliases, external/runtime writes and indirect caller closure remain open.",
+    "initial_file_value_source": "ORIGINAL-DATA-AND-SWITCH.json",
+    "current_runtime_slot_value": null
+  }
+}
