@@ -40,15 +40,15 @@ int * __thiscall EnumFieldCache_FindInt8(void *this,int *param_1,undefined1 *par
   int *piVar6;
   undefined1 *puVar7;
   char *pcVar8;
-  void *this_00;
+  void *classCacheMap;
   uint uVar9;
   bool bVar10;
-  int *local_38;
+  int *matchedField;
   uint local_34;
-  byte *local_30;
-  uint local_2c;
-  int *local_28;
-  void *local_24;
+  byte *constantBlobCursor;
+  uint fieldCursor;
+  int *classCacheKey;
+  void *savedClassCacheMap;
   uint local_20 [3];
   undefined1 *local_14;
   undefined1 *local_10;
@@ -56,11 +56,11 @@ int * __thiscall EnumFieldCache_FindInt8(void *this,int *param_1,undefined1 *par
   char *local_8;
   
   piVar6 = param_1;
-  this_00 = (void *)((int)this + 0xb4c);
-  local_38 = (int *)0x0;
-  local_28 = param_1;
-  local_24 = this_00;
-  FUN_005325c0(this_00,local_20,(uint *)&local_28);
+  classCacheMap = (void *)((int)this + 0xb4c);
+  matchedField = (int *)0x0;
+  classCacheKey = param_1;
+  savedClassCacheMap = classCacheMap;
+  FUN_005325c0(classCacheMap,local_20,(uint *)&classCacheKey);
   if (local_20[0] != *(uint *)(*(int *)((int)this + 0xb50) + *(int *)((int)this + 0xb54) * 4)) {
     iVar3 = *(int *)(local_20[0] + 8);
     pcVar8 = (char *)(*(int *)(local_20[0] + 4) + iVar3);
@@ -79,9 +79,9 @@ int * __thiscall EnumFieldCache_FindInt8(void *this,int *param_1,undefined1 *par
   if (0 < (int)uVar9) {
     local_20[0] = uVar9;
     FUN_00d75320(&local_14,uVar9);
-    local_2c = 0;
+    fieldCursor = 0;
     local_34 = 0xffffffff;
-    fieldRecord = (int *)RuntimeClass_NextFieldRecord(piVar6,&local_2c);
+    fieldRecord = (int *)RuntimeClass_NextFieldRecord(piVar6,&fieldCursor);
     if (fieldRecord != (int *)0x0) {
       do {
         iVar3 = 8;
@@ -120,26 +120,26 @@ int * __thiscall EnumFieldCache_FindInt8(void *this,int *param_1,undefined1 *par
             puVar5 = MetadataBlobHeap_GetEntry(*piVar6,local_34);
             fieldRecord[4] = (int)puVar5;
           }
-          local_30 = (byte *)fieldRecord[4];
-          MetadataBlob_DecodeCompressedLength(local_30,&local_30);
-          param_1 = (int *)CONCAT31(param_1._1_3_,*local_30);
+          constantBlobCursor = (byte *)fieldRecord[4];
+          MetadataBlob_DecodeCompressedLength(constantBlobCursor,&constantBlobCursor);
+          param_1 = (int *)CONCAT31(param_1._1_3_,*constantBlobCursor);
           pcVar2 = FUN_00d79010(&local_14,(char *)&param_1);
           *(int **)pcVar2 = fieldRecord;
           if ((char)param_1 == (char)param_2) {
-            local_38 = fieldRecord;
+            matchedField = fieldRecord;
           }
         }
 LAB_00d7a882:
-        fieldRecord = (int *)RuntimeClass_NextFieldRecord(piVar6,&local_2c);
+        fieldRecord = (int *)RuntimeClass_NextFieldRecord(piVar6,&fieldCursor);
       } while (fieldRecord != (int *)0x0);
-      this_00 = local_24;
+      classCacheMap = savedClassCacheMap;
       uVar9 = local_20[0];
     }
     puVar1 = local_10;
     puVar5 = local_14;
     if (local_14 != local_10) {
       param_2 = (undefined1 *)((uint)param_2 & 0xffffff00);
-      FUN_00d73af0(this_00,local_20,(uint *)&local_28);
+      FUN_00d73af0(classCacheMap,local_20,(uint *)&classCacheKey);
       uVar4 = local_20[0];
       *(uint *)(local_20[0] + 4) = uVar9;
       piVar6 = FUN_004e6f20(DAT_011cc864,uVar9 * 4,0);
@@ -155,11 +155,11 @@ LAB_00d7a882:
         iVar3 = iVar3 + 1;
       } while (puVar7 != puVar1);
       if (puVar5 == (undefined1 *)0x0) {
-        return local_38;
+        return matchedField;
       }
       param_2 = puVar5;
       Memory_FreeIfNonNull(puVar5);
-      return local_38;
+      return matchedField;
     }
     if (local_14 != (undefined1 *)0x0) {
       Memory_FreeIfNonNull(local_14);

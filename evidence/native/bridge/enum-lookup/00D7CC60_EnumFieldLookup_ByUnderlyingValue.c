@@ -3,6 +3,11 @@
    ASM pair records the complete existing owned body; generated C is not a callable replacement.
    Function-local instruction notes explain the saved body/plate; generated statements are unchanged. */
 
+/* Instruction contract: Value arguments are scalar low/high stack words. The preserved pointer-looking value parameter is never dereferenced. */
+/* Instruction contract: The switch tag comes from [[arg1+4]+6], not a managed type token. Incoming ECX is overwritten before each typed call; RET 0C cleans three words. */
+
+
+
 /* Analyst PC1.67 contract: dispatch by unsigned byte [[stack arg1+4]+6]. Tags 3/7 use UInt16, 4
    Int8, 5 UInt8, 6 Int16, 8 Int32, 9 UInt32, 10 Int64, 11 UInt64; table at 00D7CD44 has nine
    DWORDs. Other tags return EAX=0. Value words are scalar stack storage; the preserved
@@ -15,11 +20,8 @@
 int * EnumFieldLookup_ByUnderlyingValue(int *param_1,undefined1 *param_2,uint param_3)
 
 {
-  /* Instruction contract: Value arguments are scalar low/high stack words. The preserved pointer-looking value parameter is never dereferenced. */
-  /* Instruction contract: The switch tag comes from [[arg1+4]+6], not a managed type token. Incoming ECX is overwritten before each typed call; RET 0C cleans three words. */
-
   int *piVar1;
-
+  
   switch(*(undefined1 *)(param_1[1] + 6)) {
   case 3:
     piVar1 = EnumFieldCache_FindUInt16(DAT_011ef514,param_1,(uint)param_2);
@@ -52,3 +54,4 @@ int * EnumFieldLookup_ByUnderlyingValue(int *param_1,undefined1 *param_2,uint pa
     return (int *)0x0;
   }
 }
+

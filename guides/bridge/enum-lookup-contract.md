@@ -70,6 +70,32 @@ paths, with pointer identity rather than an enum name as the supplied key. A ret
 | +08 | Packed value array, stride 1/2/4/8 according to the child. |
 | +0C | Parallel array of four-byte field pointers. |
 
+### Confirmed local roles in the byte children
+
+The [UInt8](../../evidence/native/bridge/enum-lookup/00D7A440_EnumFieldCache_FindUInt8.c)
+and [Int8](../../evidence/native/bridge/enum-lookup/00D7A6D0_EnumFieldCache_FindInt8.c)
+exports retain six confirmed whole-local names in each body, twelve bindings in total:
+
+| Local name | Bounded role in each byte child |
+| --- | --- |
+| `classCacheMap` | Address of the map at receiver+0B4C, used for lookup and insertion. |
+| `savedClassCacheMap` | Saved map address restored after field enumeration. |
+| `classCacheKey` | Saved incoming class-record pointer passed by address as the cache key. |
+| `fieldCursor` | Zero-initialized in/out word used by the field iterator; it is not a field ordinal. |
+| `constantBlobCursor` | Cursor obtained from field+10 and advanced by the blob-prefix decoder before the compared byte is read. |
+| `matchedField` | Initially null, overwritten by each exact cold-path match and used for the cold result. |
+
+These are local binding names, not type, ownership or lifetime guarantees for
+every physical EAX/ESI value. Two existing `fieldRecord` names are preserved;
+40 other inventory rows remain held or deferred, including mixed-role parameters,
+iterator-hint/container words and pending string/pair roles. Their names and
+types have not been completed by this update.
+
+The names do not establish blob bounds or cache-count parity. The published
+cold-cache count remains the original field-derived `N`, while the copy loop
+visits emitted temporary pairs. The duplicate/filter invariant below remains
+open; no runtime defect or global ABI completion follows from these names.
+
 The warm path calls a search helper, rejects its result if it equals the array
 end, then rejects `query < candidate` under the ordering above. Otherwise it
 returns the corresponding field pointer. Turning that local test into exact
