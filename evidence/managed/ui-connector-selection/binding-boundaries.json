@@ -1,0 +1,162 @@
+{
+  "schema": "ts3w-ui-connector-selection-binding-boundary-v1",
+  "reference": "../../reference.json",
+  "original_assembly_manifest": "../reference-inputs.json",
+  "existing_registration_evidence": "../registration-gaps/evidence.json",
+  "existing_registrations": "../../../indexes/native-registrations.tsv",
+  "original_PE_excerpts": [
+    {
+      "va": "0060FC70",
+      "rva": "0020FC70",
+      "file_offset": "0020FC70",
+      "bytes": 4,
+      "bytes_hex": "8b4144c3",
+      "role": "Type-name getter reads [ECX+44h]; actual pointed-to string and writer unresolved",
+      "no_live_activation_or_name_string_claim": true
+    },
+    {
+      "va": "00784170",
+      "rva": "00384170",
+      "file_offset": "00384170",
+      "bytes": 13,
+      "bytes_hex": "8b442404c700902d1601c20400",
+      "role": "One stack output pointer; writes01162D90 then RET4",
+      "no_live_activation_or_name_string_claim": true
+    },
+    {
+      "va": "0100FBBC",
+      "rva": "00C0FBBC",
+      "file_offset": "00C0FBBC",
+      "bytes": 20,
+      "bytes_hex": "303e7800503d5100c0404b0070fc600070417800",
+      "role": "Five historical descriptor words; slots+0C/+10 point to above getters",
+      "no_live_activation_or_name_string_claim": true
+    }
+  ],
+  "PE_excerpt_scope": "17 code bytes and 20 descriptor bytes, read from original PE and independently checked; no new definition, current Ghidra capture or canonical ASM/C adoption. Getter names/roles do not prove a live descriptor name value.",
+  "selected_registration_join": {
+    "registration_id": "descriptor-table:0x01162E10",
+    "record_va": "0x01162E10",
+    "record_file_offset": 14036496,
+    "record_bytes_hex": "9032780010000101",
+    "registration_name": "ScriptCore.UIManager::UIManager_GetCASThumbnailImageImpl",
+    "name_va": "0x01010010",
+    "name_file_offset": 12648464,
+    "name_byte_length_including_nul": 57,
+    "native_target_va": "0x00783290",
+    "exact_original_owner_name_candidate": "ScriptCore:06000DFD",
+    "foreign_owner_not_joined": "ScriptCore:06000EDE",
+    "not_a_native_alias_or_ABI_proof": true
+  },
+  "original_import_and_InternalCall_declarations": [
+    {
+      "assembly": "ScriptCore",
+      "method_token": "06000DFD",
+      "rva": 0,
+      "implementation": 128,
+      "attributes": 8337,
+      "name": "UIManager_GetCASThumbnailImageImpl",
+      "signature_hex": "0006091181550809091181D502",
+      "owner": "ScriptCore.UIManager",
+      "param_start": 6470,
+      "signature": {
+        "calling_header": "00",
+        "generic_count": null,
+        "return": "UInt32",
+        "parameters": [
+          "valuetype [SimIFace]Sims3.SimIFace.ResourceKey",
+          "Int32",
+          "UInt32",
+          "UInt32",
+          "valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize",
+          "Boolean"
+        ]
+      },
+      "import": {
+        "flags": 256,
+        "name": "UIManager_GetCASThumbnailImageImpl",
+        "module": "Sims3Common.dll"
+      }
+    },
+    {
+      "assembly": "ScriptCore",
+      "method_token": "06000EDE",
+      "rva": 0,
+      "implementation": 128,
+      "attributes": 8337,
+      "name": "UIManager_GetCASThumbnailImageImpl",
+      "signature_hex": "000609118155080909021181D5",
+      "owner": "ScriptCore.UTFConnectorUIManager",
+      "param_start": 6994,
+      "signature": {
+        "calling_header": "00",
+        "generic_count": null,
+        "return": "UInt32",
+        "parameters": [
+          "valuetype [SimIFace]Sims3.SimIFace.ResourceKey",
+          "Int32",
+          "UInt32",
+          "UInt32",
+          "Boolean",
+          "valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize"
+        ]
+      },
+      "import": {
+        "flags": 256,
+        "name": "UIManager_GetCASThumbnailImageImpl",
+        "module": "UTFConnector.dll"
+      }
+    },
+    {
+      "assembly": "mscorlib",
+      "method_token": "06000A8A",
+      "rva": 0,
+      "implementation": 4096,
+      "attributes": 145,
+      "name": "getCurDomain",
+      "signature_hex": "0000128340",
+      "owner": "System.AppDomain",
+      "param_start": 3528,
+      "signature": {
+        "calling_header": "00",
+        "generic_count": null,
+        "return": "class System.AppDomain",
+        "parameters": []
+      },
+      "import": null
+    }
+  ],
+  "published_wrappers": [
+    {
+      "method_id": "ScriptCore:06000E6E",
+      "CIL_bytes": 48,
+      "IL": "../registration-gaps/ScriptCore.UIManager.GetCASThumbnailImage.il.txt",
+      "annotated_CSharp": "../registration-gaps/ScriptCore.UIManager.GetCASThumbnailImage.cs",
+      "declared_call": {
+        "IL_offset": "IL_002A",
+        "target_method_id": "ScriptCore:06000DFD"
+      }
+    },
+    {
+      "method_id": "ScriptCore:06000F4F",
+      "CIL_bytes": 48,
+      "IL": "../registration-gaps/ScriptCore.UTFConnectorUIManager.GetCASThumbnailImage.il.txt",
+      "annotated_CSharp": "../registration-gaps/ScriptCore.UTFConnectorUIManager.GetCASThumbnailImage.cs",
+      "declared_call": {
+        "IL_offset": "IL_002A",
+        "target_method_id": "ScriptCore:06000EDE"
+      }
+    }
+  ],
+  "selected_explicit_MethodImpl_rows": [],
+  "missing": [
+    "Descriptor construction /field+44 writer and actual pointed-to type name.",
+    "Actual managed constructor activator, domain identity, order and current cached object.",
+    "InternalCall mapping for mscorlib GetData/SetData/getCurDomain.",
+    "Sims3Common.dll versus UTFConnector.dll module/export resolver and physical interop bridge.",
+    "Removal/rebinding, lifetime and all indirect/runtime ingress."
+  ],
+  "native_module_binding_closed": false,
+  "native_alias_or_physical_ABI_proven": false,
+  "canonical_pair_adoption": false
+}

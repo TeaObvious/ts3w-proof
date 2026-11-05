@@ -1,0 +1,15 @@
+.method /* 060011E8 */ public hidebysig specialname rtspecialname 
+	instance void .ctor () cil managed 
+{
+	// Method begins at RVA 0x63eeb
+	// Header size: 1
+	// Code size: 18 (0x12)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: call instance void [SimIFace]Sims3.SimIFace.Task::.ctor() /* 0A000293 */
+	IL_0006: ldc.i4.1
+	IL_0007: stsfld bool Sims3.UI.InitUIManagerTask::sIsRunningUTFDesigner /* 04001390 */
+	IL_000c: call void Sims3.UI.UIManager::ForceStaticConstructionForUTFDesigner() /* 0600124B */
+	IL_0011: ret
+} // end of method InitUIManagerTask::.ctor

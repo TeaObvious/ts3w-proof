@@ -1,0 +1,16 @@
+.method /* 06000F3C */ public hidebysig specialname rtspecialname 
+	instance void .ctor () cil managed 
+{
+	// Method begins at RVA 0x11f91
+	// Header size: 1
+	// Code size: 23 (0x17)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: call instance void [mscorlib]System.Object::.ctor() /* 0A000014 */
+	IL_0006: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain() /* 0A000015 */
+	IL_000b: ldstr "UIManager" /* 700008D6 */
+	IL_0010: ldarg.0
+	IL_0011: callvirt instance void [mscorlib]System.AppDomain::SetData(string, object) /* 0A000016 */
+	IL_0016: ret
+} // end of method UTFConnectorUIManager::.ctor

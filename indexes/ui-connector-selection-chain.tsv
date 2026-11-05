@@ -1,0 +1,16 @@
+source_method_id	IL_offset	relation	target_identity	qualification
+ScriptCore:06000E5B	IL_0011	callvirt	mscorlib:06000AB3	Exact original SetData(key=UIManager,this), not actual instantiation or shared-domain observation
+ScriptCore:06000F3C	IL_0011	callvirt	mscorlib:06000AB3	Exact original SetData(key=UIManager,this), different concrete class; same-domain/order unknown
+UI:0600124A	IL_00AB	callvirt	mscorlib:06000A97	Exact original GetData(UIManager) request
+UI:0600124A	IL_00B0	castclass	SimIFace:Sims3.SimIFace.IUIManager	Declared checked type; current runtime receiver not observed
+UI:0600124A	IL_00B5	stsfld	UI:040013A1	Stores GetData/cast result into gUIMgr; no native store implementation claim
+UI:06001274	IL_0000	ldsfld	UI:040013A1	Reads cached interface field, no GetData call in this24-byte method
+UI:06001274	IL_0006	callvirt	SimIFace:06000239	Declared interface method, not observed concrete runtime target
+SimIFace:06000239		declared-implementation-candidate	ScriptCore:06000E6E	Both explicitInterfaceImpl+matching full managed declaration; current receiver selection/dispatch unobserved
+SimIFace:06000239		declared-implementation-candidate	ScriptCore:06000F4F	Other explicitInterfaceImpl+matching declaration; no native alias inference
+ScriptCore:06000E6E	IL_002A	call	ScriptCore:06000DFD	Reused frozen original48-byte wrapper; declared moduleSims3Common.dll
+ScriptCore:06000F4F	IL_002A	call	ScriptCore:06000EDE	Reused frozen original48-byte wrapper; declared moduleUTFConnector.dll, lasttwoargsorder differs
+UI:060011E8	IL_0007	stsfld	UI:04001390	Writesconstanttrue to designerflag; no connector object construction in this18-byte method
+UI:060011E8	IL_000C	call	UI:0600124B	ForceStaticConstructionForUTFDesigner method body is oneRET; actual type-init order not observed
+UI:0600124A	IL_00BA	ldsfld	UI:04001390	Read occurs after key-read/cached-interface store; inspected conditional later skips hierarchy/user-tool/helper setup, not connector selection
+Sims3Metadata:060001DE	IL_000A	callvirt	mscorlib:06000A97	Another confirmed same-key GetData request per thismethod, not a gUIMgr field load

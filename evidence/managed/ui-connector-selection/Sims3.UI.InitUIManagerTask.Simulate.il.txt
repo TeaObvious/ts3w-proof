@@ -1,0 +1,13 @@
+.method /* 060011E9 */ public hidebysig virtual 
+	instance void Simulate () cil managed 
+{
+	// Method begins at RVA 0x63efe
+	// Header size: 1
+	// Code size: 12 (0xc)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Task::get_ObjectId() /* 0A000116 */
+	IL_0006: call void [SimIFace]Sims3.SimIFace.Simulator::DestroyObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid) /* 0A000117 */
+	IL_000b: ret
+} // end of method InitUIManagerTask::Simulate

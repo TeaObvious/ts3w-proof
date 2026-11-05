@@ -1,0 +1,131 @@
+.method /* 0600124A */ private hidebysig specialname rtspecialname static 
+	void .cctor () cil managed 
+{
+	// Method begins at RVA 0x64e98
+	// Header size: 12
+	// Code size: 481 (0x1e1)
+	.maxstack 8
+	.locals /* 1100000A */ init (
+		[0] bool
+	)
+
+	IL_0000: ldc.r4 50
+	IL_0005: stsfld float32 Sims3.UI.UIManager::kMouseDragDistanceSquared /* 0400139A */
+	IL_000a: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class Sims3.UI.WindowBase>::.ctor() /* 0A00045D */
+	IL_000f: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class Sims3.UI.WindowBase> Sims3.UI.UIManager::mCustomControlInstanceDict /* 0400139C */
+	IL_0014: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.UI.WindowBase, object>::.ctor() /* 0A00045E */
+	IL_0019: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.UI.WindowBase, object> Sims3.UI.UIManager::mTagRegistry /* 0400139D */
+	IL_001e: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.UI.WindowBase, class Sims3.UI.WindowBase/CreateTooltipCallback>::.ctor() /* 0A00045F */
+	IL_0023: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.UI.WindowBase, class Sims3.UI.WindowBase/CreateTooltipCallback> Sims3.UI.UIManager::mCreateTooltipCallbackRegistry /* 0400139E */
+	IL_0028: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class [mscorlib]System.Type>::.ctor() /* 0A000460 */
+	IL_002d: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class [mscorlib]System.Type> Sims3.UI.UIManager::mClassIDTypeMap /* 0400139F */
+	IL_0032: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<class [mscorlib]System.Type, class [System]System.Collections.Generic.Stack`1<class Sims3.UI.WindowBase>>::.ctor() /* 0A000461 */
+	IL_0037: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<class [mscorlib]System.Type, class [System]System.Collections.Generic.Stack`1<class Sims3.UI.WindowBase>> Sims3.UI.UIManager::mInstancePools /* 040013A0 */
+	IL_003c: ldnull
+	IL_003d: stsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_0042: ldnull
+	IL_0043: stsfld class Sims3.UI.DragDrop Sims3.UI.UIManager::sDragDrop /* 040013AB */
+	IL_0048: ldc.i4.0
+	IL_0049: stsfld bool Sims3.UI.UIManager::sbPreShutdown /* 040013AC */
+	IL_004e: ldnull
+	IL_004f: stsfld class Sims3.UI.Window Sims3.UI.UIManager::sDarkenBackground /* 040013AD */
+	IL_0054: ldc.i4.0
+	IL_0055: stsfld uint32 Sims3.UI.UIManager::sDarkenCount /* 040013AF */
+	IL_005a: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class Sims3.UI.UIManager/EventCreator>::.ctor() /* 0A000462 */
+	IL_005f: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class Sims3.UI.UIManager/EventCreator> Sims3.UI.UIManager::mEventArgsConstructors /* 040013B0 */
+	IL_0064: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<class [mscorlib]System.Type, class Sims3.UI.UIManager/WindowCreator>::.ctor() /* 0A000463 */
+	IL_0069: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<class [mscorlib]System.Type, class Sims3.UI.UIManager/WindowCreator> Sims3.UI.UIManager::mWindowConstructors /* 040013B1 */
+	IL_006e: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class [mscorlib]System.Reflection.ConstructorInfo>::.ctor() /* 0A000464 */
+	IL_0073: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class [mscorlib]System.Reflection.ConstructorInfo> Sims3.UI.UIManager::mCustomControlConstructorRegistry /* 040013B2 */
+	IL_0078: ldc.i4.0
+	IL_0079: stsfld bool Sims3.UI.UIManager::mRollbackRes /* 040013B6 */
+	IL_007e: ldc.i4.0
+	IL_007f: stsfld bool Sims3.UI.UIManager::mIsTogglingFullScreen /* 040013B7 */
+	IL_0084: ldc.i4.0
+	IL_0085: stsfld bool Sims3.UI.UIManager::mIsModal /* 040013C8 */
+	IL_008a: ldc.i4.0
+	IL_008b: stsfld uint32 Sims3.UI.UIManager::mTaskCount /* 040013C9 */
+	IL_0090: ldc.i4.8
+	IL_0091: newarr Sims3.UI.WindowBase /* 02000003 */
+	IL_0096: stsfld class Sims3.UI.WindowBase[] Sims3.UI.UIManager::mModalStack /* 040013CB */
+	IL_009b: ldc.i4.1
+	IL_009c: stsfld int32 Sims3.UI.UIManager::mModalStackPtr /* 040013CC */
+	IL_00a1: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain() /* 0A0003B7 */
+	IL_00a6: ldstr "UIManager" /* 70008870 */
+	IL_00ab: callvirt instance object [mscorlib]System.AppDomain::GetData(string) /* 0A0003B8 */
+	IL_00b0: castclass [SimIFace]Sims3.SimIFace.IUIManager /* 01000064 */
+	IL_00b5: stsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_00ba: ldsfld bool Sims3.UI.InitUIManagerTask::sIsRunningUTFDesigner /* 04001390 */
+	IL_00bf: ldc.i4.0
+	IL_00c0: ceq
+	IL_00c2: stloc.0
+	IL_00c3: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_00c8: ldnull
+	IL_00c9: ldftn void Sims3.UI.UIManager::Shutdown() /* 0600124C */
+	IL_00cf: newobj instance void [SimIFace]Sims3.SimIFace.UIShuttingDownCallback::.ctor(object, native int) /* 0A000465 */
+	IL_00d4: callvirt instance void [SimIFace]Sims3.SimIFace.IUIManager::RegisterShutdownCallback(class [SimIFace]Sims3.SimIFace.UIShuttingDownCallback) /* 0A000466 */
+	IL_00d9: ldnull
+	IL_00da: ldftn bool Sims3.UI.UIManager::ProcessEventCallback(uint32, uint32, uint32, uint32, int32, int32, int32, float32, float32, float32, float32, bool&, string) /* 06001242 */
+	IL_00e0: newobj instance void [SimIFace]Sims3.SimIFace.UIEventCallback::.ctor(object, native int) /* 0A000467 */
+	IL_00e5: stsfld class [SimIFace]Sims3.SimIFace.UIEventCallback Sims3.UI.UIManager::mUIEventCallbackDelegate /* 040013A2 */
+	IL_00ea: ldnull
+	IL_00eb: ldftn void Sims3.UI.UIManager::UILocaleChangedCallback() /* 06001244 */
+	IL_00f1: newobj instance void [SimIFace]Sims3.SimIFace.UILocaleChangedCallback::.ctor(object, native int) /* 0A000468 */
+	IL_00f6: stsfld class [SimIFace]Sims3.SimIFace.UILocaleChangedCallback Sims3.UI.UIManager::mUILocaleChangedCallbackDelegate /* 040013A3 */
+	IL_00fb: ldnull
+	IL_00fc: ldftn void Sims3.UI.UIManager::UIResolutionChangedCallback(uint32, uint32, uint32, bool, uint32, uint32, uint32, bool, uint32, uint32) /* 0600123B */
+	IL_0102: newobj instance void [SimIFace]Sims3.SimIFace.UIResolutionChangedCallback::.ctor(object, native int) /* 0A000469 */
+	IL_0107: stsfld class [SimIFace]Sims3.SimIFace.UIResolutionChangedCallback Sims3.UI.UIManager::mUIResolutionChangedCallbackDelegate /* 040013A4 */
+	IL_010c: ldnull
+	IL_010d: ldftn void Sims3.UI.UIManager::UIWindowShutdownCallback(uint32) /* 06001258 */
+	IL_0113: newobj instance void [SimIFace]Sims3.SimIFace.UIWindowShutdownCallback::.ctor(object, native int) /* 0A00046A */
+	IL_0118: stsfld class [SimIFace]Sims3.SimIFace.UIWindowShutdownCallback Sims3.UI.UIManager::mUIWindowShutdownCallbackDelegate /* 040013A5 */
+	IL_011d: ldnull
+	IL_011e: ldftn void Sims3.UI.UIManager::UINewContentInstalled(string) /* 06001245 */
+	IL_0124: newobj instance void [SimIFace]Sims3.SimIFace.UINewContentInstalledCallback::.ctor(object, native int) /* 0A00046B */
+	IL_0129: stsfld class [SimIFace]Sims3.SimIFace.UINewContentInstalledCallback Sims3.UI.UIManager::mUINewContentInstalledDelegate /* 040013A6 */
+	IL_012e: ldnull
+	IL_012f: ldftn void Sims3.UI.UIManager::UIInGameStoreMessageCallback(int32, string) /* 06001247 */
+	IL_0135: newobj instance void [SimIFace]Sims3.SimIFace.UIInGameStoreCallback::.ctor(object, native int) /* 0A00046C */
+	IL_013a: stsfld class [SimIFace]Sims3.SimIFace.UIInGameStoreCallback Sims3.UI.UIManager::mUIInGameStoreDelegate /* 040013A7 */
+	IL_013f: ldnull
+	IL_0140: ldftn void Sims3.UI.UIManager::UINewHotInstallData(string) /* 06001246 */
+	IL_0146: newobj instance void [SimIFace]Sims3.SimIFace.UINewHotInstallDataCallback::.ctor(object, native int) /* 0A00046D */
+	IL_014b: stsfld class [SimIFace]Sims3.SimIFace.UINewHotInstallDataCallback Sims3.UI.UIManager::mUINewHotInstallDataCallback /* 040013A8 */
+	IL_0150: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_0155: ldsfld class [SimIFace]Sims3.SimIFace.UIEventCallback Sims3.UI.UIManager::mUIEventCallbackDelegate /* 040013A2 */
+	IL_015a: ldsfld class [SimIFace]Sims3.SimIFace.UILocaleChangedCallback Sims3.UI.UIManager::mUILocaleChangedCallbackDelegate /* 040013A3 */
+	IL_015f: ldsfld class [SimIFace]Sims3.SimIFace.UIResolutionChangedCallback Sims3.UI.UIManager::mUIResolutionChangedCallbackDelegate /* 040013A4 */
+	IL_0164: ldsfld class [SimIFace]Sims3.SimIFace.UIWindowShutdownCallback Sims3.UI.UIManager::mUIWindowShutdownCallbackDelegate /* 040013A5 */
+	IL_0169: ldsfld class [SimIFace]Sims3.SimIFace.UINewContentInstalledCallback Sims3.UI.UIManager::mUINewContentInstalledDelegate /* 040013A6 */
+	IL_016e: ldsfld class [SimIFace]Sims3.SimIFace.UIInGameStoreCallback Sims3.UI.UIManager::mUIInGameStoreDelegate /* 040013A7 */
+	IL_0173: ldsfld class [SimIFace]Sims3.SimIFace.UINewHotInstallDataCallback Sims3.UI.UIManager::mUINewHotInstallDataCallback /* 040013A8 */
+	IL_0178: callvirt instance void [SimIFace]Sims3.SimIFace.IUIManager::SetUICallbacks(class [SimIFace]Sims3.SimIFace.UIEventCallback, class [SimIFace]Sims3.SimIFace.UILocaleChangedCallback, class [SimIFace]Sims3.SimIFace.UIResolutionChangedCallback, class [SimIFace]Sims3.SimIFace.UIWindowShutdownCallback, class [SimIFace]Sims3.SimIFace.UINewContentInstalledCallback, class [SimIFace]Sims3.SimIFace.UIInGameStoreCallback, class [SimIFace]Sims3.SimIFace.UINewHotInstallDataCallback) /* 0A00042E */
+	IL_017d: ldc.i4.s 100
+	IL_017f: newobj instance void class [SimIFace]Sims3.SimIFace.Cache`2<uint32, class Sims3.UI.WindowBase>::.ctor(int32) /* 0A00046E */
+	IL_0184: stsfld class [SimIFace]Sims3.SimIFace.Cache`2<uint32, class Sims3.UI.WindowBase> Sims3.UI.UIManager::mControlInstanceCache /* 0400139B */
+	IL_0189: ldsfld class [SimIFace]Sims3.SimIFace.Cache`2<uint32, class Sims3.UI.WindowBase> Sims3.UI.UIManager::mControlInstanceCache /* 0400139B */
+	IL_018e: ldnull
+	IL_018f: ldftn void Sims3.UI.UIManager::OnControlCacheEntryErased(uint32, class Sims3.UI.WindowBase) /* 0600125A */
+	IL_0195: newobj instance void class [SimIFace]Sims3.SimIFace.Cache`2/CacheEntryErasedHandler<uint32, class Sims3.UI.WindowBase>::.ctor(object, native int) /* 0A00046F */
+	IL_019a: callvirt instance void class [SimIFace]Sims3.SimIFace.Cache`2<uint32, class Sims3.UI.WindowBase>::add_CacheEntryErased(class [SimIFace]Sims3.SimIFace.Cache`2/CacheEntryErasedHandler<!0, !1>) /* 0A000470 */
+	IL_019f: call void Sims3.UI.UIManager::InitInstancePools() /* 0600125C */
+	IL_01a4: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class Sims3.UI.UIManager/WindowEventData>::.ctor() /* 0A000471 */
+	IL_01a9: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, class Sims3.UI.UIManager/WindowEventData> Sims3.UI.UIManager::mEventRegistry /* 040013B3 */
+	IL_01ae: call void Sims3.UI.UIManager::LoadCustomControls() /* 06001250 */
+	IL_01b3: ldloc.0
+	IL_01b4: brfalse.s IL_01e0
+
+	IL_01b6: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_01bb: callvirt instance void [SimIFace]Sims3.SimIFace.IUIManager::InitUIHierarchy() /* 0A000472 */
+	IL_01c0: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_01c5: callvirt instance void [SimIFace]Sims3.SimIFace.IUIManager::InitUserToolHelper() /* 0A000473 */
+	IL_01ca: newobj instance void Sims3.UI.TooltipManager::.ctor() /* 0600132B */
+	IL_01cf: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Simulator::AddObject(object) /* 0A0000AA */
+	IL_01d4: pop
+	IL_01d5: newobj instance void Sims3.UI.FeedbackBalloonManager::.ctor() /* 060018DE */
+	IL_01da: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Simulator::AddObject(object) /* 0A0000AA */
+	IL_01df: pop
+
+	IL_01e0: ret
+} // end of method UIManager::.cctor
