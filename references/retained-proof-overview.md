@@ -1,6 +1,6 @@
 # Retained original proof overview
 
-This overview and its linked research are retained from cf6f60a42fe8c5bd181495a32161217972cefebc. Paths now resolve into this repository; current maintained successors take priority where explicitly mapped. Old bodies, annotations, type projections and gaps are historical snapshots, not fresh exports. Read the [retained-snapshot scope](../guides/reference/retained-proof-snapshot.md) and the [current project entry](../README.md).
+The base proof overview from cf6f60a42fe8c5bd181495a32161217972cefebc includes the targeted retained update bd11af54646a7c0d4faaf984997015b144fe58d6. Paths resolve into this repository; maintained successors retain precedence. This import reuses the original published evidence and does not execute new Native tasks. See the [update scope](retained-proof-bd11-update.md) and [current project entry](../README.md).
 
 # Original PC 1.67 TS3W API proof
 
@@ -60,6 +60,10 @@ registration tables. A table may contain names with different prefixes. The
 [`evidence/managed/types/`](../evidence/managed/types/).
 
 ## System guides
+
+- [ColorInfo serialization and hair slots](../guides/appearance/color-info-serialization.md): original reader/writer IL, deduplicated footer keys and nonzero Boolean semantics.
+- [Extension omitted-field defaults](../guides/navigation/extension-footprint-omitted-fields.md): exact old-version defaults with explicitly bounded native evidence.
+- [Facial-blend admission](../guides/cas/facial-blend-resource-admission.md): complete named builder/consumer bodies and refreshed script adapter.
 
 | System | Reviewed path |
 | --- | --- |

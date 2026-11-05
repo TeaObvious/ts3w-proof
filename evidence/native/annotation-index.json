@@ -8761,14 +8761,18 @@
       "ghidraName": "ScriptCore.CASUtils::CASUtils_SimBuilderSetFacialBlendImpl",
       "ghidraParameterCount": 1,
       "evidenceTags": [
-        "registration"
+        "registration",
+        "reviewedOriginalContract",
+        "facialBlendResourceAdmission"
       ],
       "ghidraSignature": "uint __cdecl CASUtils_SimBuilderSetFacialBlendImpl(uint param_1)",
       "decompiledPath": "evidence/native/functions/005A68B0_ScriptCore_CASUtils_CASUtils_SimBuilderSetFacialBlendImpl.c",
-      "decompiledBytes": 1083,
+      "decompiledBytes": 1164,
       "retainedGhidraName": "ScriptCore.CASUtils::CASUtils_SimBuilderSetFacialBlendImpl",
       "observedCurrentGhidraName": "ScriptCore.CASUtils::CASUtils_SimBuilderSetFacialBlendImpl",
-      "annotationPersistenceNotNewlyVerified": true
+      "retainedSourceCommit": "bd11af54646a7c0d4faaf984997015b144fe58d6",
+      "retainedSourceDecompiledBytes": 1164,
+      "annotationPersistenceSource": "original_bd11_publication_readback_and_Save_receipt_reused; no_Native_replay"
     },
     {
       "address": "0x005a6920",
@@ -11132,6 +11136,40 @@
       "retainedGhidraName": "AnimationRig_SetCasFlagsAndDirtyState",
       "observedCurrentGhidraName": "AnimationRig_SetCasFlagsAndDirtyState",
       "annotationPersistenceNotNewlyVerified": true
+    },
+    {
+      "address": "0x005e3980",
+      "evidenceTags": [
+        "reviewedOriginalContract",
+        "facialBlendResourceAdmission"
+      ],
+      "ghidraName": "SimBuilder_SetFacialBlend",
+      "ghidraParameterCount": 3,
+      "ghidraSignature": "undefined4 __thiscall SimBuilder_SetFacialBlend(void * this, int * param_1, int param_2)",
+      "decompiledPath": "evidence/native/functions/005E3980_SimBuilder_SetFacialBlend.c",
+      "decompiledBytes": 3590,
+      "retainedGhidraName": "SimBuilder_SetFacialBlend",
+      "observedCurrentGhidraName": "SimBuilder_SetFacialBlend",
+      "retainedSourceCommit": "bd11af54646a7c0d4faaf984997015b144fe58d6",
+      "retainedSourceDecompiledBytes": 3590,
+      "annotationPersistenceSource": "original_bd11_publication_readback_and_Save_receipt_reused; no_Native_replay"
+    },
+    {
+      "address": "0x005e4e80",
+      "evidenceTags": [
+        "reviewedOriginalContract",
+        "facialBlendResourceAdmission"
+      ],
+      "ghidraName": "SimBuilder_ApplyOutfitAppearance",
+      "ghidraParameterCount": 2,
+      "ghidraSignature": "undefined __thiscall SimBuilder_ApplyOutfitAppearance(void * this, void * param_1)",
+      "decompiledPath": "evidence/native/functions/005E4E80_SimBuilder_ApplyOutfitAppearance.c",
+      "decompiledBytes": 5536,
+      "retainedGhidraName": "SimBuilder_ApplyOutfitAppearance",
+      "observedCurrentGhidraName": "SimBuilder_ApplyOutfitAppearance",
+      "retainedSourceCommit": "bd11af54646a7c0d4faaf984997015b144fe58d6",
+      "retainedSourceDecompiledBytes": 5536,
+      "annotationPersistenceSource": "original_bd11_publication_readback_and_Save_receipt_reused; no_Native_replay"
     },
     {
       "address": "0x005e6050",
@@ -73561,7 +73599,18 @@
     }
   ],
   "source": "Selected annotated Ghidra functions with paired original-byte and pseudocode exports",
-  "decompiledCount": 4914,
+  "decompiledCount": 4950,
   "retainedSnapshotSourceCommit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
-  "currentNameObservationSource": "20261105_/TS3W.exe_name_list; no_fresh_body_or_variable_read"
+  "currentNameObservationSource": "20261105_/TS3W.exe_name_list; no_fresh_body_or_variable_read",
+  "retainedSubsetUpdates": [
+    {
+      "source_commit": "bd11af54646a7c0d4faaf984997015b144fe58d6",
+      "addresses": [
+        "005A68B0",
+        "005E3980",
+        "005E4E80"
+      ],
+      "scope": "three original published owned Listing/C records; base annotation rows retain their historical meaning"
+    }
+  ]
 }

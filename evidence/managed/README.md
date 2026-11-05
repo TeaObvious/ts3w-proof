@@ -214,3 +214,5 @@ identities above apply; these are static calls, not an executed trace.
 [World object-lot callback IL](world-object-lot-update.il.json) pairs with the existing [World managed decompilation](../../guides/callbacks/managed/Sims3.SimIFace.World.cs); the [object guide](../../guides/objects/object-handling.md#location-room-state-and-event-order) identifies the original package, metadata, handler gate and native event17 relationship.
 
 The [CacheSignature type](types/ScriptCore.CacheSignature.cs) pairs Init with the existing callers.il.txt and its remaining methods with [signature wire/equality IL](cache-signature-wire.il.json). The existing [loading guide](../../guides/loading/README.md#gameplaydata-cache-verification-and-signature-ownership) identifies retail provenance and the original disabled-after-rebuild verification policy, separate from native store/checksum behavior.
+
+[ColorInfo serialization](../../guides/appearance/color-info-serialization.md) joins twelve selected IL/managed exports across Sims3Metadata, SimIFace, UI and mscorlib. These retain the actual reader, writer, consumers and support methods without distributing assemblies.

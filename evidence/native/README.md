@@ -7,7 +7,7 @@ verified; scheduler, C0-state writer, complete payload and runtime remain separa
 
 Every address refers to the original 32-bit PC 1.67 executable. Begin with an
 [API page](../../api/README.md) or the [address index](../../ADDRESS-INDEX.tsv).
-The 5,054 selected native addresses each have one pair:
+The 5,056 selected native addresses each have one pair:
 
 - `raw/0x<address>.asm.txt` contains original bytes and the disassembly syntax recorded in the code index. Most listings use Intel syntax; selected lot-stream bodies retain the reviewed AT&T listing with explicit nonowned gap bytes.
 - `pseudocode/0x<address>.c` contains the annotated Ghidra rendering.
@@ -58,7 +58,7 @@ and inferred prototypes can be incomplete. The function comments explain
 particular hazards, including stack accounting where indirect calls confuse
 the decompiler. Original instruction bytes govern those claims.
 
-[direct-calls.tsv](direct-calls.tsv) lists 28,542 selected direct call edges.
+[direct-calls.tsv](direct-calls.tsv) lists 28,558 selected direct call edges.
 `target_has_pseudocode` marks whether the target has a paired export here.
 Unresolved virtual/computed destinations are absent. Selected statically resolved
 vtable and import-table calls are included when Ghidra identifies a concrete
@@ -606,3 +606,5 @@ retain26 further complete bodies, including strict negative type tests, child
 AL forwarding,16-bit pattern IDs, FNV-1, pending refresh and vector expansion.
 Their Listings exclude15 nonowned gap bytes in three functions. Allocation,
 high-bit rebuilding, complete live publication and gameplay remain separate.
+
+[Facial-blend admission](../../guides/cas/facial-blend-resource-admission.md) adds two complete named bodies under `cas/facial-blends/` and refreshes the existing adapter pair. The code index is authoritative for paths; the ApplyOutfit owned Listing excludes a six-byte gap.

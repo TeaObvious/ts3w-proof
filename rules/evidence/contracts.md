@@ -42,7 +42,9 @@ Konkrete Adressen, Datenoffsets, Methodentokens und Beleglinks ermöglichen die
 Nachprüfung. Analyse-Namen und rekonstruierte Typen ausdrücklich kennzeichnen.
 Verträge, Funktionskopf und Belege verwenden dieselben bestätigten Namen.
 Geklärte Parameter-/Variablenrollen vollständig nach der verbindlichen
-[Benennungsregel](../naming/functions.md) in Ghidra und den Exporten führen.
+[Benennungsregel](../naming/functions.md) in Ghidra führen. Die rückwirkende
+C-Anpassung für Parameter-/Variablenmappings ist gemäß Nutzerpräzisierung vom
+05.11.2026 bis zum abschließenden Ghidra-Gesamtexport zurückgestellt.
 
 Widersprüche zum bisherigen Guide nicht still übergehen. Betroffene Aussage und
 Belege korrigieren; die lokale Forschung bewahrt die Herleitung. Öffentliche
