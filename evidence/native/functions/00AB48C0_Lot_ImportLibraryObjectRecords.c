@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export; current function identifiers verified against the retained f915 names.
+   Earlier body/ABI/variable qualifications remain; no runtime or whole-entry acceptance. */
+
 
 
 /* Analyst PC1.67 Library lot object import. Physical lot ECX; stack4 resource stream context,
@@ -21,18 +21,18 @@ Lot_ImportLibraryObjectRecords
 
 {
   ulonglong *puVar1;
-  void *this_00;
   void *pvVar2;
   bool bVar3;
   byte bVar4;
   byte bVar5;
   int iVar6;
-  char *this_01;
+  char *this_00;
   void *pvVar7;
   void *pvVar8;
   void *pvVar9;
   uint uVar10;
   undefined4 uVar11;
+  void *this_01;
   void *this_02;
   int *piVar12;
   ulonglong *puVar13;
@@ -156,20 +156,20 @@ Lot_ImportLibraryObjectRecords
       bVar5 = StreamContext_ReadResourceKeyVector(local_130,resourceContext);
       bVar5 = bVar4 & 1 & bVar5;
       StreamContext_SeekWithSignedAbsoluteGuard(resourceContext,iVar6,0);
-      this_01 = ObjectRegistry_GetGlobal();
-      local_184 = this_01;
-      Inventory_ImportObjectRecords(this_01,resourceContext,(int *)local_140,local_130,objectIds);
+      this_00 = ObjectRegistry_GetGlobal();
+      local_184 = this_00;
+      Inventory_ImportObjectRecords(this_00,resourceContext,(int *)local_140,local_130,objectIds);
       ResourceStreamContext_Close(resourceContext);
       if (bVar5 != 0) {
-        FUN_00ab1610(local_16c,(uint *)&local_50);
-        FUN_00ab1540(this_02,(uint *)&local_120);
+        Lot_BuildWorldToLocalPoseMatrix(local_16c,(uint *)&local_50);
+        Lot_BuildLocalToWorldPoseMatrix(this_01,(uint *)&local_120);
         local_178 = *(ulonglong **)objectIds;
         local_164 = *(ulonglong **)((int)objectIds + 4);
         if (local_178 != local_164) {
           do {
             puVar13 = local_178;
             bVar3 = true;
-            pvVar7 = ObjectRegistry_FindBorrowed(this_01,*local_178);
+            pvVar7 = ObjectRegistry_FindBorrowed(this_00,*local_178);
             if (pvVar7 == (void *)0x0) {
 LAB_00ab4e5a:
               local_178 = puVar13 + 1;
@@ -177,15 +177,18 @@ LAB_00ab4e5a:
             else {
               pvVar8 = Object_GetComponentByMask(pvVar7,DAT_011ea158);
               if ((pvVar8 != (void *)0x0) && ((*(uint *)((int)pvVar8 + 0x34) >> 4 & 1) == 0)) {
-                pvVar2 = *(void **)((int)pvVar8 + 0x30);
-                while (((this_00 = pvVar2, this_00 != (void *)0x0 &&
-                        (pvVar9 = Object_GetComponentByMask(this_00,DAT_011ea158),
-                        pvVar9 != (void *)0x0)) && ((*(uint *)((int)pvVar9 + 0x34) >> 4 & 1) == 0)))
-                {
-                  bVar3 = false;
-                  pvVar2 = *(void **)((int)pvVar9 + 0x30);
-                  pvVar7 = this_00;
-                  pvVar8 = pvVar9;
+                if (*(void **)((int)pvVar8 + 0x30) != (void *)0x0) {
+                  pvVar2 = *(void **)((int)pvVar8 + 0x30);
+                  do {
+                    this_02 = pvVar2;
+                    pvVar9 = Object_GetComponentByMask(this_02,DAT_011ea158);
+                    if (pvVar9 == (void *)0x0) break;
+                    if ((*(uint *)((int)pvVar9 + 0x34) >> 4 & 1) != 0) break;
+                    bVar3 = false;
+                    pvVar8 = pvVar9;
+                    pvVar2 = *(void **)((int)pvVar9 + 0x30);
+                    pvVar7 = this_02;
+                  } while (*(void **)((int)pvVar9 + 0x30) != (void *)0x0);
                 }
                 FUN_00955f10(pvVar8,'\x01');
                 piVar12 = (int *)((int)placement + 100);
@@ -222,36 +225,32 @@ LAB_00ab4e5a:
                                        fStack_78 * fStack_100 + fStack_74 * fStack_f0) +
                              fVar20 * (fStack_70 * local_120 + fStack_6c * fStack_110 +
                                        fStack_68 * fStack_100 + fStack_64 * fStack_f0) +
-                             FLOAT_00f998f8 *
                              (local_60 * local_120 + fStack_5c * fStack_110 + fStack_58 * fStack_100
-                             + fStack_54 * fStack_f0);
+                             + fStack_54 * fStack_f0) * 1.0;
                     fVar16 = fVar18 * (local_90 * fStack_11c + fStack_8c * fStack_10c +
                                        fStack_88 * fStack_fc + fStack_84 * fStack_ec) +
                              fVar19 * (fStack_80 * fStack_11c + fStack_7c * fStack_10c +
                                        fStack_78 * fStack_fc + fStack_74 * fStack_ec) +
                              fVar20 * (fStack_70 * fStack_11c + fStack_6c * fStack_10c +
                                        fStack_68 * fStack_fc + fStack_64 * fStack_ec) +
-                             FLOAT_00f998f8 *
                              (local_60 * fStack_11c + fStack_5c * fStack_10c + fStack_58 * fStack_fc
-                             + fStack_54 * fStack_ec);
+                             + fStack_54 * fStack_ec) * 1.0;
                     fVar17 = fVar18 * (local_90 * fStack_118 + fStack_8c * fStack_108 +
                                        fStack_88 * fStack_f8 + fStack_84 * fStack_e8) +
                              fVar19 * (fStack_80 * fStack_118 + fStack_7c * fStack_108 +
                                        fStack_78 * fStack_f8 + fStack_74 * fStack_e8) +
                              fVar20 * (fStack_70 * fStack_118 + fStack_6c * fStack_108 +
                                        fStack_68 * fStack_f8 + fStack_64 * fStack_e8) +
-                             FLOAT_00f998f8 *
                              (local_60 * fStack_118 + fStack_5c * fStack_108 + fStack_58 * fStack_f8
-                             + fStack_54 * fStack_e8);
+                             + fStack_54 * fStack_e8) * 1.0;
                     fVar18 = fVar18 * (local_90 * fStack_114 + fStack_8c * fStack_104 +
                                        fStack_88 * fStack_f4 + fStack_84 * fStack_e4) +
                              fVar19 * (fStack_80 * fStack_114 + fStack_7c * fStack_104 +
                                        fStack_78 * fStack_f4 + fStack_74 * fStack_e4) +
                              fVar20 * (fStack_70 * fStack_114 + fStack_6c * fStack_104 +
                                        fStack_68 * fStack_f4 + fStack_64 * fStack_e4) +
-                             FLOAT_00f998f8 *
                              (local_60 * fStack_114 + fStack_5c * fStack_104 + fStack_58 * fStack_f4
-                             + fStack_54 * fStack_e4);
+                             + fStack_54 * fStack_e4) * 1.0;
                     fStack_d0 = fVar16 * fStack_40 + fVar15 * local_50 + fVar17 * fStack_30 +
                                 fVar18 * fStack_20;
                     fStack_cc = fVar16 * fStack_3c + fVar15 * fStack_4c + fVar17 * fStack_2c +
@@ -282,7 +281,7 @@ LAB_00ab4e5a:
                 }
               }
               (**(code **)(*local_16c + 0x30))(pvVar7);
-              this_01 = local_184;
+              this_00 = local_184;
               puVar13 = local_178;
               if (bVar3) goto LAB_00ab4e5a;
             }
@@ -291,7 +290,7 @@ LAB_00ab4e5a:
       }
       puVar1 = *(ulonglong **)((int)objectIds + 4);
       for (puVar13 = *(ulonglong **)objectIds; puVar13 != puVar1; puVar13 = puVar13 + 1) {
-        pvVar7 = ObjectRegistry_FindBorrowed(this_01,*puVar13);
+        pvVar7 = ObjectRegistry_FindBorrowed(this_00,*puVar13);
         if ((pvVar7 != (void *)0x0) &&
            (pvVar7 = Object_GetComponentByMask(pvVar7,DAT_011ea158), pvVar7 != (void *)0x0)) {
           FUN_00955f10(pvVar7,'\0');

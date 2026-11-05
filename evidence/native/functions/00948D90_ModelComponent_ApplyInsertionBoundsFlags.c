@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export; current function identifiers verified against the retained f915 names.
+   Earlier body/ABI/variable qualifications remain; no runtime or whole-entry acceptance. */
+
 
 
 /* PC1.67 physicalECXModelcomponent PLUSoneunusedstackDWORD RET4, lowALalways1. Formerfastcall1
@@ -93,7 +93,7 @@ bool __thiscall ModelComponent_ApplyInsertionBoundsFlags(void *this,dword unused
     }
   }
   *(uint *)((int)this + 0x50) = *(uint *)((int)this + 0x50) | 0x800;
-  FUN_00948b00((int)this);
+  ModelComponent_PublishRenderFlagsOverride((int)this);
   return true;
 }
 

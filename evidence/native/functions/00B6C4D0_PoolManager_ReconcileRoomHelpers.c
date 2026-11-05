@@ -1,8 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export; current function identifiers verified against the retained f915 names.
+   Earlier body/ABI/variable qualifications remain; no runtime or whole-entry acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original instruction qualification: ECX PoolManager plus lowbyte flag, void RET4. Two owned ranges, three nonowned alignment bytes excluded. Actual mode2 rooms excludeUInt16 0/FFFF, firstshape location->ACF820/ACF8E0, oldhelper match by location/object/kind, retained refcount or create, AF8290 point times lottransform, B69280 map publication, footprint/slot resource changes and leftover destruction. Full geometry, pointproducer, virtual resource/error/reentry/thread lifetime not recovered. */
+
+
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 /* Analyst note (PC1.67 pool room/helper ownership comparison): Physical ECX manager plus one
@@ -213,7 +215,7 @@ void __thiscall PoolManager_ReconcileRoomHelpers(void *this,char param_1)
       piStack_168 = (int *)0x0;
     }
     else {
-      *piVar20 = (int)&PTR_FUN_01065f8c;
+      *piVar20 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
       LOCK();
       piVar20[1] = 0;
       UNLOCK();
@@ -376,7 +378,7 @@ void __thiscall PoolManager_ReconcileRoomHelpers(void *this,char param_1)
                 fStack_8c = fStack_6c;
                 fStack_88 = fStack_68;
                 fStack_84 = 1.0;
-                pfVar22 = (float *)FUN_00ab1540(*(void **)this,auStack_50);
+                pfVar22 = (float *)Lot_BuildLocalToWorldPoseMatrix(*(void **)this,auStack_50);
                 fVar4 = pfVar22[4];
                 fVar5 = pfVar22[5];
                 fVar41 = pfVar22[6];
@@ -657,3 +659,4 @@ LAB_00b6ce71:
   }
   return;
 }
+

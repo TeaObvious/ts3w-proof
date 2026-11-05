@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export; current function identifiers verified against the retained f915 names.
+   Earlier body/ABI/variable qualifications remain; no runtime or whole-entry acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst note (PC1.67 stair collision and renderer contract): ECX manager; RET18 six stack slots:
    UInt32 flight ID, descriptor pointer (unused physical slot), direction32, top/bottom LotXZLevel
    pointers, signed selected level. Allocates named Lot/ModularStairsGeometry/ShearedBoxShape (0x80
@@ -107,7 +109,7 @@ ModularStairs_CreateFlightCollisionShape
   undefined4 uStack_16c;
   undefined4 uStack_168;
   undefined4 uStack_164;
-  float local_160;
+  undefined4 local_160;
   undefined4 uStack_15c;
   undefined4 uStack_158;
   undefined4 uStack_154;
@@ -176,7 +178,7 @@ ModularStairs_CreateFlightCollisionShape
   fVar22 = (float)(~uVar17 & (uint)fVar22 | (uint)fVar23 & uVar17);
   uVar17 = (int)(local_218 - local_214) >> 0x1f;
   fVar23 = (float)(~uVar17 & (uint)local_214 | (uint)local_218 & uVar17);
-  local_200 = fVar23 + _DAT_0106bd44;
+  local_200 = fVar23 + 0.1875;
   local_208 = (void *)0x0;
   local_20c = 0.0;
   local_220 = 0.0;
@@ -194,6 +196,7 @@ ModularStairs_CreateFlightCollisionShape
     local_20c = local_204 - local_1f8;
     local_1fc = (int *)(bottom->z - top->z);
   }
+  local_1f0 = 1.0;
   fVar25 = (float10)fpatan(-(float10)(float)local_1fc,(float10)local_220);
   fVar24 = (float10)fsin((float10)(float)fVar25);
   local_150 = 0;
@@ -202,16 +205,12 @@ ModularStairs_CreateFlightCollisionShape
   uStack_144 = 0;
   local_180 = (float)fVar24;
   fVar24 = (float10)fcos((float10)(float)fVar25);
-  local_1f0 = FLOAT_00f998f8;
-  fStack_1ec = FLOAT_00f998f8;
-  fStack_1e8 = FLOAT_00f998f8;
-  fStack_1e4 = FLOAT_00f998f8;
   local_224 = (float)fVar24;
   local_1a0 = 0.0;
   uStack_19c = 0;
   uStack_198 = 0;
   uStack_194 = 0;
-  local_160 = 0.0;
+  local_160 = 0;
   uStack_15c = 0;
   uStack_158 = 0;
   uStack_154 = 0;
@@ -227,10 +226,6 @@ ModularStairs_CreateFlightCollisionShape
   uStack_1bc = 0;
   uStack_1b8 = 0;
   uStack_1b4 = 0;
-  local_190 = FLOAT_00f998f8;
-  fStack_18c = FLOAT_00f998f8;
-  fStack_188 = FLOAT_00f998f8;
-  fStack_184 = FLOAT_00f998f8;
   local_100 = 0.0 - local_180;
   fStack_fc = 0.0 - local_180;
   fStack_f8 = 0.0 - local_180;
@@ -238,15 +233,16 @@ ModularStairs_CreateFlightCollisionShape
   fStack_cc = 0.0;
   fStack_c4 = 0.0;
   local_c0 = 0.0;
-  fStack_bc = FLOAT_00f998f8;
   fStack_b8 = 0.0;
   fStack_b4 = 0.0;
   fStack_ac = 0.0;
   fStack_a4 = 0.0;
-  fStack_58 = (fVar22 + local_210) * _DAT_00f9b5b4;
-  fStack_5c = (local_214 + local_218) * _DAT_00f9b5b4;
-  local_60 = (local_204 + local_1f8) * _DAT_00f9b5b4;
-  fStack_54 = FLOAT_00f998f8;
+  fStack_58 = (fVar22 + local_210) * 0.5;
+  fStack_5c = (local_214 + local_218) * 0.5;
+  local_60 = (local_204 + local_1f8) * 0.5;
+  fStack_1ec = local_1f0;
+  fStack_1e8 = local_1f0;
+  fStack_1e4 = local_1f0;
   local_1e0 = local_224;
   fStack_1dc = local_224;
   fStack_1d8 = local_224;
@@ -255,14 +251,20 @@ ModularStairs_CreateFlightCollisionShape
   fStack_1cc = local_224;
   fStack_1c8 = local_224;
   fStack_1c4 = local_224;
+  local_190 = local_1f0;
+  fStack_18c = local_1f0;
+  fStack_188 = local_1f0;
+  fStack_184 = local_1f0;
   fStack_17c = local_180;
   fStack_178 = local_180;
   fStack_174 = local_180;
   local_d0 = local_224;
   fStack_c8 = local_100;
+  fStack_bc = local_1f0;
   local_b0 = local_180;
   fStack_a8 = local_224;
-  pfVar19 = (float *)FUN_00ab1540(*(void **)((int)this + 0x18),local_50);
+  fStack_54 = local_1f0;
+  pfVar19 = (float *)Lot_BuildLocalToWorldPoseMatrix(*(void **)((int)this + 0x18),local_50);
   fVar28 = pfVar19[4];
   fVar26 = pfVar19[5];
   fVar22 = pfVar19[6];
@@ -295,9 +297,9 @@ ModularStairs_CreateFlightCollisionShape
   fStack_10c = local_60 * fVar6 + fStack_5c * fVar26 + fStack_58 * fVar10 + fStack_54 * fVar14;
   fStack_108 = local_60 * fVar7 + fStack_5c * fVar22 + fStack_58 * fVar11 + fStack_54 * fVar15;
   fStack_104 = local_60 * fVar8 + fStack_5c * fVar4 + fStack_58 * fVar12 + fStack_54 * fVar16;
-  local_f0 = (float)local_208 * _DAT_00f9b5b4;
-  fStack_e8 = local_20c * _DAT_00f9b5b4;
-  fStack_ec = (local_200 - fVar23) * _DAT_00f9b5b4;
+  local_f0 = (float)local_208 * 0.5;
+  fStack_e8 = local_20c * 0.5;
+  fStack_ec = (local_200 - fVar23) * 0.5;
   local_e0[0] = (local_214 - local_218) / (float)local_208;
   local_e0[1] = 0.0;
   local_e0[2] = 0.0;
@@ -325,8 +327,8 @@ ModularStairs_CreateFlightCollisionShape
   fStack_1dc = fStack_1cc + fStack_118;
   fStack_1d8 = fStack_1c8 + fStack_118;
   fStack_1d4 = fStack_1c4 + fStack_118;
-  local_160 = DAT_010f4ccc;
-  if (local_180 <= DAT_010f4ccc) {
+  local_160 = 0;
+  if (local_180 <= 0.0) {
     local_1e0 = local_140;
     local_1a0 = fStack_12c;
     if (fStack_12c < local_140) {
@@ -338,12 +340,11 @@ ModularStairs_CreateFlightCollisionShape
         auVar30._8_4_ = (local_140 - (fStack_118 + fStack_12c)) + fStack_1e8;
         auVar30._12_4_ = (local_140 - (fStack_118 + fStack_12c)) + fStack_1e4;
         auVar30 = sqrtps(auVar30,auVar30);
-        auVar34._4_4_ = _DAT_00f9b5b4;
-        auVar34._0_4_ = _DAT_00f9b5b4;
-        auVar34._8_4_ = _DAT_00f9b5b4;
-        auVar34._12_4_ = _DAT_00f9b5b4;
+        auVar34._8_4_ = 0x3f000000;
+        auVar34._0_8_ = 0x3f0000003f000000;
+        auVar34._12_4_ = 0x3f000000;
         auVar34 = divps(auVar34,auVar30);
-        fVar26 = auVar30._0_4_ * _DAT_00f9b5b4;
+        fVar26 = auVar30._0_4_ * 0.5;
         fVar28 = (fStack_13c + local_130) * auVar34._4_4_;
         fVar22 = (fStack_138 + local_120) * auVar34._8_4_;
         fVar23 = (fStack_128 - fStack_11c) * auVar34._12_4_;
@@ -358,14 +359,13 @@ ModularStairs_CreateFlightCollisionShape
       auVar27._8_4_ = fStack_1e8 + (fStack_118 - fStack_1c8);
       auVar27._12_4_ = fStack_1e4 + (fStack_118 - fStack_1c4);
       auVar34 = sqrtps(ZEXT416((uint)fStack_12c),auVar27);
-      auVar33._4_4_ = _DAT_00f9b5b4;
-      auVar33._0_4_ = _DAT_00f9b5b4;
-      auVar33._8_4_ = _DAT_00f9b5b4;
-      auVar33._12_4_ = _DAT_00f9b5b4;
+      auVar33._8_4_ = 0x3f000000;
+      auVar33._0_8_ = 0x3f0000003f000000;
+      auVar33._12_4_ = 0x3f000000;
       auVar30 = divps(auVar33,auVar34);
       fVar26 = (fStack_138 + local_120) * auVar30._0_4_;
       fVar28 = (fStack_128 + fStack_11c) * auVar30._4_4_;
-      fVar22 = _DAT_00f9b5b4 * auVar34._8_4_;
+      fVar22 = auVar34._8_4_ * 0.5;
       fVar23 = (fStack_13c - local_130) * auVar30._12_4_;
     }
     else {
@@ -374,13 +374,12 @@ ModularStairs_CreateFlightCollisionShape
       auVar31._8_4_ = (fStack_12c - (fStack_118 + local_140)) + fStack_1e8;
       auVar31._12_4_ = (fStack_12c - (fStack_118 + local_140)) + fStack_1e4;
       auVar34 = sqrtps(ZEXT416((uint)fStack_12c),auVar31);
-      auVar32._4_4_ = _DAT_00f9b5b4;
-      auVar32._0_4_ = _DAT_00f9b5b4;
-      auVar32._8_4_ = _DAT_00f9b5b4;
-      auVar32._12_4_ = _DAT_00f9b5b4;
+      auVar32._8_4_ = 0x3f000000;
+      auVar32._0_8_ = 0x3f0000003f000000;
+      auVar32._12_4_ = 0x3f000000;
       auVar30 = divps(auVar32,auVar34);
       fVar26 = auVar30._0_4_ * (fStack_13c + local_130);
-      fVar28 = auVar34._4_4_ * _DAT_00f9b5b4;
+      fVar28 = auVar34._4_4_ * 0.5;
       fVar22 = (fStack_128 + fStack_11c) * auVar30._8_4_;
       fVar23 = (local_120 - fStack_138) * auVar30._12_4_;
     }
@@ -391,15 +390,14 @@ ModularStairs_CreateFlightCollisionShape
     auVar3._8_4_ = fStack_1d8 + fStack_1e8;
     auVar3._12_4_ = fStack_1d4 + fStack_1e4;
     auVar34 = sqrtps(ZEXT416((uint)local_180),auVar3);
-    auVar29._4_4_ = _DAT_00f9b5b4;
-    auVar29._0_4_ = _DAT_00f9b5b4;
-    auVar29._8_4_ = _DAT_00f9b5b4;
-    auVar29._12_4_ = _DAT_00f9b5b4;
+    auVar29._8_4_ = 0x3f000000;
+    auVar29._0_8_ = 0x3f0000003f000000;
+    auVar29._12_4_ = 0x3f000000;
     auVar30 = divps(auVar29,auVar34);
     fVar26 = (fStack_128 - fStack_11c) * auVar30._0_4_;
     fVar28 = (local_120 - fStack_138) * auVar30._4_4_;
     fVar22 = (fStack_13c - local_130) * auVar30._8_4_;
-    fVar23 = auVar34._12_4_ * _DAT_00f9b5b4;
+    fVar23 = auVar34._12_4_ * 0.5;
     local_1e0 = local_180;
   }
 LAB_00b1a200:

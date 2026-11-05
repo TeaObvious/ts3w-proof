@@ -1,3 +1,7 @@
+/* Genuine /TS3W.exe C export; current function identifiers verified against the retained f915 names.
+   Earlier body/ABI/variable qualifications remain; no runtime or whole-entry acceptance. */
+
+/* Retained historical annotation 1, previous C line 1; earlier snapshot context. */
 /* Retained genuine /TS3W.exe C export; current function identifiers checked against the November 5 name snapshot.
    Earlier body/ABI/variable qualifications remain; no runtime observation. */
 
@@ -388,7 +392,7 @@ ScriptCore.UIManager::UIManager_GetPickInfoImpl
                       fStack_16c = (fVar17 + fStack_1a4) - fStack_16c;
                       if ((fStack_178 < -0.001) || (0.15 <= fStack_178)) {
                         FUN_00adc7c0((void *)0x0,&fStack_160,&fStack_1c8,'\0');
-                        pfVar13 = (float *)FUN_00ab1540((void *)0x0,auStack_58);
+                        pfVar13 = (float *)Lot_BuildLocalToWorldPoseMatrix((void *)0x0,auStack_58);
                         fVar17 = fStack_1c8 * pfVar13[1];
                         fVar19 = fStack_1c8 * pfVar13[2];
                         fVar22 = fStack_1c8 * pfVar13[3];

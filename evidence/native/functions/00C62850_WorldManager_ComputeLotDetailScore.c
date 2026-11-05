@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export; current function identifiers verified against the retained f915 names.
+   Earlier body/ABI/variable qualifications remain; no runtime or whole-entry acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst: PC 1.67 map/lot detail contract. Writes unbiased distanceSquared and returns x87 ST0
    sorting score. Global011853f8=0 uses horizontal squared distance to lot AABB center, optionally
    transformed by moving-lot matrix; Y multiplier iszero. Nonzero transforms camera into lot
@@ -55,12 +57,12 @@ WorldManager_ComputeLotDetailScore(void *this,float *viewPosition,void *lot,floa
   
   this_00 = *(void **)((int)lot + 0x364);
   if (DAT_011853f8 == '\0') {
-    local_a0 = FLOAT_00f998f8;
+    local_a0 = 1.0;
     fStack_9c = 0.0;
-    fStack_98 = FLOAT_00f998f8;
-    fStack_94 = FLOAT_00f998f8;
-    fVar5 = (*(float *)((int)lot + 0x144) + *(float *)((int)lot + 0x134)) * _DAT_00f9b5b4;
-    fVar6 = (*(float *)((int)lot + 0x148) + *(float *)((int)lot + 0x138)) * _DAT_00f9b5b4;
+    fStack_98 = 1.0;
+    fStack_94 = 1.0;
+    fVar5 = (*(float *)((int)lot + 0x144) + *(float *)((int)lot + 0x134)) * 0.5;
+    fVar6 = (*(float *)((int)lot + 0x148) + *(float *)((int)lot + 0x138)) * 0.5;
     fStack_bc = 0.0;
     fVar4 = 0.0;
     fStack_ac = 0.0;
@@ -87,7 +89,7 @@ WorldManager_ComputeLotDetailScore(void *this,float *viewPosition,void *lot,floa
   }
   else {
     if (this_00 == (void *)0x0) {
-      pauVar2 = (undefined1 (*) [16])FUN_00ab1610(lot,local_50);
+      pauVar2 = (undefined1 (*) [16])Lot_BuildWorldToLocalPoseMatrix(lot,local_50);
     }
     else {
       pauVar2 = FUN_00ae0aa0(this_00,(undefined1 (*) [16])&local_90);
@@ -96,24 +98,23 @@ WorldManager_ComputeLotDetailScore(void *this,float *viewPosition,void *lot,floa
     fVar5 = viewPosition[1];
     fVar6 = viewPosition[2];
     local_c0 = fVar5 * *(float *)pauVar2[1] + fVar4 * *(float *)*pauVar2 +
-               fVar6 * *(float *)pauVar2[2] + FLOAT_00f998f8 * *(float *)pauVar2[3];
+               fVar6 * *(float *)pauVar2[2] + *(float *)pauVar2[3] * 1.0;
     fStack_bc = fVar5 * *(float *)(pauVar2[1] + 4) + fVar4 * *(float *)(*pauVar2 + 4) +
-                fVar6 * *(float *)(pauVar2[2] + 4) + FLOAT_00f998f8 * *(float *)(pauVar2[3] + 4);
+                fVar6 * *(float *)(pauVar2[2] + 4) + *(float *)(pauVar2[3] + 4) * 1.0;
     fStack_b8 = fVar5 * *(float *)(pauVar2[1] + 8) + fVar4 * *(float *)(*pauVar2 + 8) +
-                fVar6 * *(float *)(pauVar2[2] + 8) + FLOAT_00f998f8 * *(float *)(pauVar2[3] + 8);
+                fVar6 * *(float *)(pauVar2[2] + 8) + *(float *)(pauVar2[3] + 8) * 1.0;
     fStack_b4 = fVar5 * *(float *)(pauVar2[1] + 0xc) + fVar4 * *(float *)(*pauVar2 + 0xc) +
-                fVar6 * *(float *)(pauVar2[2] + 0xc) + FLOAT_00f998f8 * *(float *)(pauVar2[3] + 0xc)
-    ;
+                fVar6 * *(float *)(pauVar2[2] + 0xc) + *(float *)(pauVar2[3] + 0xc) * 1.0;
     fVar4 = 0.0;
     local_c8 = 0.0;
     if (local_c0 < 0.0) {
-      fVar4 = FLOAT_00f998f0 - local_c0;
+      fVar4 = -0.0 - local_c0;
       local_c8 = fVar4;
     }
     if (fStack_b8 < 0.0) {
-      local_c4 = FLOAT_00f998f0 - fStack_b8;
+      local_c4 = -0.0 - fStack_b8;
       pfVar3 = &local_c4;
-      if (FLOAT_00f998f0 - fStack_b8 <= fVar4) {
+      if (-0.0 - fStack_b8 <= fVar4) {
         pfVar3 = &local_c8;
       }
       fVar4 = *pfVar3;

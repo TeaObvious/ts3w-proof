@@ -1,14 +1,14 @@
 # Function evidence and open disposition join
 
-The [joined inventory](function-disposition.tsv) resolves every entry in the retained **40,854-definition census** against the **5,120 currently adopted evidence entries**, original registration targets, declared ownership ranges and selected resolved transfers. It also preserves the two qualified nondefinition windows and two original registered targets without an exact definition. This is an evidence lookup and a concrete open frontier, not a semantic coverage percentage or comprehensive acceptance.
+The [joined inventory](function-disposition.tsv) resolves every entry in the retained **40,854-definition census** against the **5,131 currently adopted evidence entries**, original registration targets, declared ownership ranges and selected resolved transfers. It also preserves the two qualified nondefinition windows and two original registered targets without an exact definition. This is an evidence lookup and a concrete open frontier, not a semantic coverage percentage or comprehensive acceptance.
 
-The inherited census, ownership, registration, transfer and executable-region inputs retain their [34315bfd snapshot](https://github.com/TeaObvious/ts3w-proof/tree/34315bfd1e3f0978b3595c576f954cf1f9d0495e). The current canonical join additionally includes three Resource3 pairs and recomputed canonical-index line anchors; it is not an unchanged 34315bfd canonical snapshot. The [source and schema record](function-disposition-source.json) names each table, its snapshot scope and exact counts. Reference identity and image base are defined in the [central reference](../references/pc-167.md). No target execution, Native request, annotation, save or new decompilation was performed to construct this join.
+The inherited census, ownership, registration and executable-region inputs retain their [34315bfd snapshot](https://github.com/TeaObvious/ts3w-proof/tree/34315bfd1e3f0978b3595c576f954cf1f9d0495e). The current canonical/transfer join additionally includes three Resource3 pairs and the eleven f915 retained pairs, with recomputed canonical and selected-transfer line anchors; it is not an unchanged 34315bfd canonical snapshot. The [source and schema record](function-disposition-source.json) names each table, its snapshot scope and exact counts. Reference identity and image base are defined in the [central reference](../references/pc-167.md). No target execution, Native request, annotation, save or new decompilation was performed to construct this join.
 
 | Identity or relationship | Exact inventory result |
 | --- | ---: |
 | Internal definitions in the retained census | 40,854 |
-| Definitions with an exact adopted ASM/C evidence entry | 5,118 |
-| Definitions without an exact pair in the selected canonical index | 35,736 |
+| Definitions with an exact adopted ASM/C evidence entry | 5,129 |
+| Definitions without an exact pair in the selected canonical index | 35,725 |
 | Additional qualified windows, not definitions | 2 |
 | Original registered targets without an exact definition or pair | 2 |
 | Joined image-entry rows | 40,858 |
@@ -27,7 +27,7 @@ ASM and C paths are adjacent in every paired row. `canonical_index_line` resolve
 
 Body metadata, captured bytes, C success/freshness, necessary data, bindings, bounded semantics, Ghidra annotations/persistence and runtime remain separate dimensions. `source_claims_only` and a source-guide link preserve useful earlier claims; this join does not upgrade or revoke them. `open` is the comprehensive entry-disposition scope. A guide's existence or a registration name does not certify whole-function semantics. Inspect the linked bounded claim before deciding what remains.
 
-The 28,558 [selected transfer rows](../evidence/native/direct-calls.tsv) have 3,237 source identities, including qualified window `0095F620`, and 7,444 distinct image destinations, all exact census entries. These are selected statically resolved transfers, not complete reachability or indirect-call closure. CALL/JMP/IAT kind, original instruction validation and historical `target_has_pseudocode` flags are not re-inferred by this join. Pair availability comes from the current canonical index.
+The 28,621 [selected transfer rows](../evidence/native/direct-calls.tsv) have 3,246 source identities, including qualified window `0095F620`, and 7,454 distinct image destinations, all exact census entries. These are selected statically resolved transfers, not complete reachability or indirect-call closure. CALL/JMP/IAT kind, original instruction validation and historical `target_has_pseudocode` flags are not re-inferred by this join. Pair availability comes from the current canonical index.
 
 ## External identities remain separate
 
@@ -42,3 +42,5 @@ Existing bounded assertions identify **118 necessary data bytes**, **1,690 instr
 The original [data assertions](remaining-region-dispositions.md), [instruction assertions](remaining-instruction-evidence.md) and [unowned context assertion](remaining-instruction-context-evidence.md) retain their own consumer, CFG, source and review limits. Existing overlapping declared owners and the cross-section `00519010` relationship remain separate concerns. The recorded export root `011CF378` lies outside the initial `.text` domain and stays an unresolved code/data/initialization question; its name alone is not an exclusion.
 
 The concrete next work is to reuse the linked original evidence, establish real body/data and dependency boundaries, and review a bounded contract for each required entry or region. A generated join, metadata partition, exported pair or repository commit does not meet the overall completion requirement while these questions remain open.
+
+The [f915 retained update](../references/retained-proof-f915-update.md) contributes eleven further owned pairs and the keyed selected-transfer delta. The [source record](function-disposition-source.json) gives current counts and scopes. Census names, definition/ownership boundaries and remaining-region assertion inventories are unchanged. Full entry disposition stays open.

@@ -1,5 +1,7 @@
 # Original native side: TS3W.exe
 
+[Placement options](../../guides/objects/placement-option-dispatch.md), [Sim model bounds](../../guides/objects/sim-model-bounds-lifetime.md), [import scene entry](../../guides/persistence/imported-object-scene-entry.md) and [lot pose matrices](../../guides/world/lot-pose-and-matrix-layout.md) retain eleven additional complete original owned Listings and qualified C projections. The 00949000 callback remains a verified byte window with no defined function or C body. See the [retained update scope](../../references/retained-proof-f915-update.md).
+
 [Steering Travelling clock](../../guides/routing/planner-and-results.md#steering-travelling-clock-and-callback-order)
 joins the interval writer, actual single-subtraction update and event4 sink.
 Strict equality behavior and Travelling-before-avoidance order are instruction
@@ -7,7 +9,7 @@ verified; scheduler, C0-state writer, complete payload and runtime remain separa
 
 Every address refers to the original 32-bit PC 1.67 executable. Begin with an
 [API page](../../api/README.md) or the [address index](../../ADDRESS-INDEX.tsv).
-The 5,056 selected native addresses each have one pair:
+The 5,067 selected native addresses each have one pair:
 
 - `raw/0x<address>.asm.txt` contains original bytes and the disassembly syntax recorded in the code index. Most listings use Intel syntax; selected lot-stream bodies retain the reviewed AT&T listing with explicit nonowned gap bytes.
 - `pseudocode/0x<address>.c` contains the annotated Ghidra rendering.
@@ -58,7 +60,7 @@ and inferred prototypes can be incomplete. The function comments explain
 particular hazards, including stack accounting where indirect calls confuse
 the decompiler. Original instruction bytes govern those claims.
 
-[direct-calls.tsv](direct-calls.tsv) lists 28,558 selected direct call edges.
+[direct-calls.tsv](direct-calls.tsv) lists 28,621 selected direct call edges.
 `target_has_pseudocode` marks whether the target has a paired export here.
 Unresolved virtual/computed destinations are absent. Selected statically resolved
 vtable and import-table calls are included when Ghidra identifies a concrete

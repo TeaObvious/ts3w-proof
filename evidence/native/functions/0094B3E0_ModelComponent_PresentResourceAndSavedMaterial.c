@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export; current function identifiers verified against the retained f915 names.
+   Earlier body/ABI/variable qualifications remain; no runtime or whole-entry acceptance. */
+
 
 
 /* Analyst PC1.67 original contract. ECX Model, key16, two descriptor pointers, UInt32
@@ -35,7 +35,7 @@ ModelComponent_PresentResourceAndSavedMaterial
   undefined4 uStack_a8;
   undefined4 uStack_a4;
   undefined4 uStack_a0;
-  float local_70;
+  undefined4 local_70;
   undefined4 local_6c;
   undefined4 local_68;
   undefined4 local_64;
@@ -73,7 +73,7 @@ ModelComponent_PresentResourceAndSavedMaterial
       }
     }
     local_6c = param_1[1];
-    local_70 = (float)*param_1;
+    local_70 = *param_1;
     local_64 = param_1[3];
     local_68 = 0x736884f1;
     local_d0 = 0.0;
@@ -155,7 +155,7 @@ ModelComponent_PresentResourceAndSavedMaterial
     }
   }
   FUN_0095eb70(*(void **)((int)this + 4));
-  FUN_00948b00((int)this);
+  ModelComponent_PublishRenderFlagsOverride((int)this);
   if ((*(byte *)((int)this + 0x81) & 2) == 0) {
     local_b8 = *(float *)(*(int *)((int)this + 4) + 8);
     local_b4 = *(undefined4 *)(*(int *)((int)this + 4) + 0xc);
@@ -176,8 +176,8 @@ ModelComponent_PresentResourceAndSavedMaterial
   if ((bVar3 & 0x10) == 0) {
     if ((bVar3 & 0x20) != 0) goto LAB_0094b7b7;
     local_d0 = *(float *)((int)this + 0x74) - *(float *)((int)this + 100);
-    local_70 = DAT_00fab214;
-    if (DAT_00fab214 <= local_d0) goto LAB_0094b7b7;
+    local_70 = 0x3e4ccccd;
+    if (0.2 <= local_d0) goto LAB_0094b7b7;
   }
   cVar2 = CachedGlobalMask8000_Query();
   uVar4 = CONCAT31(extraout_var,cVar2);

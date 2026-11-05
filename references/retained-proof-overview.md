@@ -1,6 +1,6 @@
 # Retained original proof overview
 
-The base proof overview from cf6f60a42fe8c5bd181495a32161217972cefebc includes the targeted retained update bd11af54646a7c0d4faaf984997015b144fe58d6. Paths resolve into this repository; maintained successors retain precedence. This import reuses the original published evidence and does not execute new Native tasks. See the [update scope](retained-proof-bd11-update.md) and [current project entry](../README.md).
+This source overview includes OpenTS3-Playtest commit f915701b90809e4479c11adc4f726c826c6e9941. Paths resolve to current Research successors; retained source counts describe their original selection, not whole-program completion. See the [update scope](retained-proof-f915-update.md) and [current Research entry](../README.md).
 
 # Original PC 1.67 TS3W API proof
 
@@ -60,6 +60,11 @@ registration tables. A table may contain names with different prefixes. The
 [`evidence/managed/types/`](../evidence/managed/types/).
 
 ## System guides
+
+- [Placement None and lot/world dispatch](../guides/objects/placement-option-dispatch.md): original option bits and context+2D.
+- [Sim model loading and bounds lifetime](../guides/objects/sim-model-bounds-lifetime.md): component versus SceneModel authority and explicit off-scene limits.
+- [Imported object scene entry](../guides/persistence/imported-object-scene-entry.md): event2, event0B, manager-independent commands and the unresolved C window.
+- [Lot pose and matrix layout](../guides/world/lot-pose-and-matrix-layout.md): inverse pose, exact field order and runtime mask initialization.
 
 - [ColorInfo serialization and hair slots](../guides/appearance/color-info-serialization.md): original reader/writer IL, deduplicated footer keys and nonzero Boolean semantics.
 - [Extension omitted-field defaults](../guides/navigation/extension-footprint-omitted-fields.md): exact old-version defaults with explicitly bounded native evidence.

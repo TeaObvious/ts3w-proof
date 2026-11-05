@@ -3713,8 +3713,8 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00623ec0	006240eb	007d7bc0	007d7bc0	false
 00623ec0	006240f9	007d7bc0	007d7bc0	false
 00623ec0	00624111	00c62810	00c62810	true
-00623ec0	00624129	00ab1610	00ab1610	false
-00623ec0	00624162	00ab1540	00ab1540	false
+00623ec0	00624129	00ab1610	Lot_BuildWorldToLocalPoseMatrix	true
+00623ec0	00624162	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 00623ec0	006241a8	005684b0	005684b0	true
 00623ec0	006241b8	004e4500	004e4500	false
 00623ec0	006241c6	00621200	00621200	false
@@ -8903,10 +8903,10 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 0076f570	0076f58e	00937f80	00937f80	true
 0076f570	0076f5ae	00934260	00934260	true
 0076f570	0076f5bd	00934260	00934260	true
-0076f570	0076f66a	0076c220	0076c220	false
+0076f570	0076f66a	0076c220	Matrix44_CopyNativeToScriptFields	true
 0076f570	0076f690	00950950	00950950	true
 0076f570	0076f6a6	00957a90	00957a90	true
-0076f570	0076f7f3	0076c220	0076c220	false
+0076f570	0076f7f3	0076c220	Matrix44_CopyNativeToScriptFields	true
 0076f990	0076f994	00769390	00769390	true
 0076f990	0076f999	00937570	00937570	true
 0076f990	0076f9aa	00937f80	00937f80	true
@@ -9704,7 +9704,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 0077da20	0077de60	00adc7c0	00adc7c0	false
 0077da20	0077defa	00adc860	00adc860	true
 0077da20	0077df2b	00adc7c0	00adc7c0	false
-0077da20	0077df3f	00ab1540	00ab1540	false
+0077da20	0077df3f	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 0077da20	0077dffb	00c687d0	00c687d0	true
 0077da20	0077e03d	00adc860	00adc860	true
 0077da20	0077e092	00c687d0	00c687d0	true
@@ -10369,9 +10369,9 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00786d90	00786da6	00c62810	00c62810	true
 00786d90	00786dc5	00a75b00	00a75b00	true
 00786e70	00786e8e	00c62810	00c62810	true
-00786e70	00786e9e	00ab1610	00ab1610	false
-00786e70	00786ea8	0076c220	0076c220	false
-00786e70	00786f53	0076c220	0076c220	false
+00786e70	00786e9e	00ab1610	Lot_BuildWorldToLocalPoseMatrix	true
+00786e70	00786ea8	0076c220	Matrix44_CopyNativeToScriptFields	true
+00786e70	00786f53	0076c220	Matrix44_CopyNativeToScriptFields	true
 00786f70	00786f84	00c62b10	00c62b10	true
 00786fd0	00787016	00c69f50	00c69f50	false
 00787070	00787079	00686e60	00686e60	true
@@ -10435,7 +10435,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00788750	0078875c	00828cf0	00828cf0	false
 00788750	0078876b	008295c0	008295c0	false
 00788750	00788794	00c62810	00c62810	true
-00788750	007887aa	00ab1610	00ab1610	false
+00788750	007887aa	00ab1610	Lot_BuildWorldToLocalPoseMatrix	true
 00788750	00788825	0063df40	0063df40	false
 00788750	0078882c	00abc1a0	00abc1a0	false
 00788890	007888b9	00c687d0	00c687d0	true
@@ -10555,8 +10555,8 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 0078ba20	0078bb57	004e44e0	004e44e0	true
 0078bbc0	0078bbe8	00c62810	00c62810	true
 0078bbc0	0078bbf7	00769390	00769390	true
-0078bbc0	0078bc57	00ab1360	00ab1360	false
-0078bbc0	0078bc66	00ab1440	00ab1440	false
+0078bbc0	0078bc57	00ab1360	Lot_GetLocalToWorldPose	true
+0078bbc0	0078bc66	00ab1440	Lot_GetWorldToLocalPose	true
 0078bbc0	0078bc8c	004e4500	004e4500	false
 0078bbc0	0078be0d	00b9a130	00b9a130	false
 0078bbc0	0078be8d	00af7730	FUN_00af7730	true
@@ -10739,7 +10739,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 0078e6c0	0078e6f4	008295c0	008295c0	false
 0078e6c0	0078e722	00c62810	00c62810	true
 0078e6c0	0078e761	00632200	00632200	false
-0078e6c0	0078e771	00ab1540	00ab1540	false
+0078e6c0	0078e771	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 0078e6c0	0078e7dd	0076bf70	0076bf70	false
 0078e7f0	0078e81b	00c687d0	00c687d0	true
 0078e7f0	0078e863	00ab71a0	00ab71a0	true
@@ -10809,7 +10809,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 0078f780	0078f7dc	00937f80	00937f80	true
 0078f780	0078f7ee	00934260	00934260	true
 0078f780	0078f7fe	00957a90	00957a90	true
-0078f780	0078f8de	0076c220	0076c220	false
+0078f780	0078f8de	0076c220	Matrix44_CopyNativeToScriptFields	true
 0078f780	0078f901	004f6020	004f6020	true
 0078f780	0078f929	004f64b0	004f64b0	false
 0078f780	0078f93e	004f5760	004f5760	false
@@ -10950,7 +10950,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00794b20	00794b9b	0068f130	0068f130	false
 00794b20	00794bc1	00affdb0	00affdb0	true
 00794b20	00794bde	0076c430	0076c430	false
-00794b20	00794bf0	00ab1610	00ab1610	false
+00794b20	00794bf0	00ab1610	Lot_BuildWorldToLocalPoseMatrix	true
 00794b20	00794d5e	00b06980	00b06980	false
 00794b20	00794d6f	00ab5dc0	00ab5dc0	true
 00794b20	00794da4	00793b80	00793b80	false
@@ -11028,7 +11028,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00797200	00797216	00937570	00937570	true
 00797200	00797225	00937f80	00937f80	true
 00797200	007972dd	00c783e0	00c783e0	false
-00797200	0079733f	00c79a80	00c79a80	false
+00797200	0079733f	00c79a80	WorldPlacement_TestPositionAndRotation	true
 00797200	00797352	00796590	00796590	false
 00797200	0079735b	007462e0	007462e0	false
 00797200	00797382	00c7ca80	00c7ca80	false
@@ -11044,7 +11044,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00797200	007974db	004e44e0	004e44e0	true
 00797200	007974ea	00796590	00796590	false
 00797200	007974f3	007462e0	007462e0	false
-00797200	00797550	00c79a80	00c79a80	false
+00797200	00797550	00c79a80	WorldPlacement_TestPositionAndRotation	true
 00797200	0079755e	007462e0	007462e0	false
 00797200	00797578	00c7ca80	00c7ca80	false
 00797200	00797586	007462e0	007462e0	false
@@ -13604,6 +13604,14 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00934cd0	00934d4b	00937610	00937610	true
 00934cd0	00934d76	00937420	00937420	false
 00934cd0	00934e09	00937610	00937610	true
+009352a0	009352ac	00937570	ObjectRegistry_GetGlobal	true
+009352a0	00935353	00934e50	00934e50	false
+009352a0	00935376	007d54c0	NativePropertyStream_ReadUInt32Array	true
+009352a0	009353ab	00934e50	00934e50	false
+009352a0	009353ea	00937530	ObjectRegistry_FindMaskByNameHash	true
+009352a0	00935493	009374c0	009374c0	false
+009352a0	009354ad	007d58c0	NativePropertyStream_OpenChild	true
+009352a0	0093550a	009356c0	ObjectEvents_Dispatch	true
 00935560	0093557e	004dd980	004dd980	true
 00935560	00935589	007d79f0	007d79f0	true
 00935560	0093559d	007d7a00	007d7a00	true
@@ -13719,7 +13727,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 009378f0	00937940	00939eb0	00939eb0	true
 009378f0	00937952	00937790	00937790	true
 009378f0	00937963	00934cd0	00934cd0	true
-009378f0	00937997	009352a0	009352a0	false
+009378f0	00937997	009352a0	Object_InitializeAndReadImportedComponents	true
 009378f0	009379a4	007462e0	007462e0	false
 009378f0	009379ad	00582cf0	00582cf0	false
 009378f0	00937a03	00582cf0	00582cf0	false
@@ -14337,9 +14345,15 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00947f20	00947f71	00693380	00693380	true
 00947f20	00947ff2	00693380	00693380	true
 00948800	0094884b	00693380	00693380	true
+00948970	009489bd	00693380	RenderCommand_EnqueueIfDispatcherExists	true
+00948970	00948a05	00693380	RenderCommand_EnqueueIfDispatcherExists	true
+00948970	00948a46	00693380	RenderCommand_EnqueueIfDispatcherExists	true
+00948970	00948a73	00948890	00948890	false
+00948b00	00948b42	00693380	RenderCommand_EnqueueIfDispatcherExists	true
+00948d80	00948d87	00948b00	ModelComponent_PublishRenderFlagsOverride	true
 00948d90	00948dae	00934260	00934260	true
 00948d90	00948dd2	005ebac0	005ebac0	false
-00948d90	00948eb5	00948b00	00948b00	false
+00948d90	00948eb5	00948b00	ModelComponent_PublishRenderFlagsOverride	true
 009490c0	009490ce	00934260	00934260	true
 009490c0	009490db	0095eff0	0095eff0	true
 009490f0	009490fe	00934260	00934260	true
@@ -14466,7 +14480,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 0094b3e0	0094b657	00934260	00934260	true
 0094b3e0	0094b68b	0095e670		false
 0094b3e0	0094b694	0095eb70		false
-0094b3e0	0094b69e	00948b00		false
+0094b3e0	0094b69e	00948b00	ModelComponent_PublishRenderFlagsOverride	true
 0094b3e0	0094b6d2	00693380	00693380	true
 0094b3e0	0094b759	00c88cd0	00c88cd0	true
 0094b3e0	0094b79c	00693380	00693380	true
@@ -14528,6 +14542,10 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 0094f200	0094f209	0095f210	0095f210	true
 0094f320	0094f32e	00934260	00934260	true
 0094f320	0094f33e	0094f200	0094f200	true
+0094f3e0	0094f49b	00693380	RenderCommand_EnqueueIfDispatcherExists	true
+0094f3e0	0094f4b1	00934260	Object_GetComponentByMask	true
+0094f3e0	0094f4c1	00948d80	ModelComponent_SetRenderFlagsOverride	true
+0094f3e0	0094f4ca	0095eb70	0095eb70	false
 0094f610	0094f680	00934260	00934260	true
 0094f610	0094f69c	0093eb00	0093eb00	true
 0094f610	0094f6df	0094f2e0	0094f2e0	false
@@ -17934,6 +17952,9 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00ab0b60	00ab0c36	004ef7f0	004ef7f0	true
 00ab0b60	00ab0c45	007d0250	007d0250	false
 00ab0ca0	00ab0ca8	00ab0b60	00ab0b60	true
+00ab1440	00ab144e	00ab1360	Lot_GetLocalToWorldPose	true
+00ab1540	00ab154d	00ab1360	Lot_GetLocalToWorldPose	true
+00ab1610	00ab161d	00ab1440	Lot_GetWorldToLocalPose	true
 00ab1a90	00ab1aa6	00c61090	00c61090	true
 00ab1b00	00ab1b2b	00937570	00937570	true
 00ab1b00	00ab1b40	00937f80	00937f80	true
@@ -17971,8 +17992,8 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00ab48c0	00ab49c5	00937570	00937570	true
 00ab48c0	00ab49e1	00939030	00939030	true
 00ab48c0	00ab49e8	007d7a70	007d7a70	true
-00ab48c0	00ab4a06	00ab1610		false
-00ab48c0	00ab4a15	00ab1540		false
+00ab48c0	00ab4a06	00ab1610	Lot_BuildWorldToLocalPoseMatrix	true
+00ab48c0	00ab4a15	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 00ab48c0	00ab4a3e	00937f80	00937f80	true
 00ab48c0	00ab4a55	00934260	00934260	true
 00ab48c0	00ab4a89	00934260	00934260	true
@@ -18060,7 +18081,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00abaab0	00abab62	00631f40	00631f40	true
 00abaab0	00abab8b	00cdb9a0	00cdb9a0	false
 00abaab0	00abab9e	00cdbae0	00cdbae0	false
-00abaab0	00abac1c	00ab1610	00ab1610	false
+00abaab0	00abac1c	00ab1610	Lot_BuildWorldToLocalPoseMatrix	true
 00abaab0	00abaf3a	004e4500	004e4500	false
 00abaab0	00abaf4e	00cdc230	00cdc230	false
 00abaab0	00abaf72	00cdc460	00cdc460	false
@@ -18096,9 +18117,9 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00abc1b0	00abc27f	00b97dd0	00b97dd0	false
 00abc1b0	00abc2c7	00b95b30	00b95b30	false
 00abc1b0	00abc354	004e44e0	004e44e0	true
-00abc1b0	00abc371	00ab1610	00ab1610	false
+00abc1b0	00abc371	00ab1610	Lot_BuildWorldToLocalPoseMatrix	true
 00abc1b0	00abc37c	0068dbb0	0068dbb0	true
-00abc1b0	00abc41d	00ab1540	00ab1540	false
+00abc1b0	00abc41d	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 00abc1b0	00abc42a	0068dbb0	0068dbb0	true
 00abc1b0	00abc448	00c61090	00c61090	true
 00abc1b0	00abc4cd	00ab1b00	00ab1b00	true
@@ -18868,7 +18889,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00acc2b0	00acc425	00c89680	00c89680	false
 00acc2b0	00acc42b	00b00520	00b00520	false
 00acc2b0	00acc43f	00934260	00934260	true
-00acc2b0	00acc454	00948d80	00948d80	false
+00acc2b0	00acc454	00948d80	ModelComponent_SetRenderFlagsOverride	true
 00acc2b0	00acc45a	00b005c0	00b005c0	false
 00acc2b0	00acc498	00c09650	00c09650	true
 00acc2b0	00acc571	00b0ec20	00b0ec20	true
@@ -20041,7 +20062,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00b18be0	00b18d86	00ab09f0	00ab09f0	false
 00b19990	00b199ae	00a8c690	00a8c690	true
 00b19990	00b199c4	00a8c690	00a8c690	true
-00b19990	00b19d8c	00ab1540	00ab1540	false
+00b19990	00b19d8c	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 00b19990	00b19f46	004e4520	004e4520	false
 00b19990	00b19f5a	00682c60	00682c60	false
 00b19990	00b19f77	00683640	00683640	false
@@ -21394,7 +21415,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00b65220	00b659a7	00b63e10	00b63e10	false
 00b65220	00b659bc	00934260	00934260	true
 00b65220	00b659d5	009583b0	009583b0	true
-00b65220	00b65ad5	00ab1540	00ab1540	false
+00b65220	00b65ad5	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 00b65220	00b65c29	00958760	00958760	true
 00b65220	00b65c39	00b64ce0	00b64ce0	true
 00b65220	00b65c40	0068f130	0068f130	false
@@ -21510,7 +21531,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00b6c4d0	00b6c931	00937f80	ObjectRegistry_FindBorrowed	true
 00b6c4d0	00b6c976	00934260	Object_GetComponentByMask	true
 00b6c4d0	00b6ca6e	00af8290	FUN_00af8290	false
-00b6c4d0	00b6cab5	00ab1540	FUN_00ab1540	false
+00b6c4d0	00b6cab5	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 00b6c4d0	00b6cbeb	00958760	TransformComponent_SetWorldMatrix	true
 00b6c4d0	00b6cbfc	00b69280	PoolRoomObjectMap_FindOrInsertSignedRoom	true
 00b6c4d0	00b6cc1e	00934260	Object_GetComponentByMask	true
@@ -21765,7 +21786,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00b96e00	00b96e4e	00682b20	00682b20	false
 00b96e00	00b96e6e	00682bb0	00682bb0	false
 00b96e00	00b96f1c	00684350	00684350	false
-00b96e00	00b96f4a	00ab1540	00ab1540	false
+00b96e00	00b96f4a	00ab1540	Lot_BuildLocalToWorldPoseMatrix	true
 00b96e00	00b9754d	00686e60	00686e60	true
 00b96e00	00b975a8	00687290	00687290	false
 00b96e00	00b975b8	00b96a40	00b96a40	false
@@ -22884,7 +22905,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00c626c0	00c62738	0059b350	0059b350	true
 00c62810	00c62820	00c60740	00c60740	true
 00c62850	00c6287f	00ae0aa0	00ae0aa0	false
-00c62850	00c62890	00ab1610	00ab1610	false
+00c62850	00c62890	00ab1610	Lot_BuildWorldToLocalPoseMatrix	true
 00c62850	00c62a4f	00adff20	00adff20	false
 00c62850	00c62ade	00aafef0	00aafef0	true
 00c62b10	00c62b3c	00c60740	00c60740	true
@@ -23103,7 +23124,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00c6ba00	00c6bae5	00c687d0	00c687d0	true
 00c6bb00	00c6bb48	00c63370	00c63370	true
 00c6bb00	00c6bb6f	00c684c0	00c684c0	true
-00c6bb00	00c6bbb7	00ab1360	00ab1360	false
+00c6bb00	00c6bbb7	00ab1360	Lot_GetLocalToWorldPose	true
 00c6bb00	00c6bbc1	00c2b990	00c2b990	false
 00c6bb00	00c6bbe8	00c29990	00c29990	false
 00c6bb00	00c6bbf9	00828cf0	00828cf0	false
@@ -23410,6 +23431,48 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00c71ab0	00c71bff	0095c620	FUN_0095c620	true
 00c71ab0	00c71c21	00be7d50	FUN_00be7d50	false
 00c71ab0	00c71c2b	004e44e0	Memory_FreeIfNonNull	true
+00c79a80	00c79ac6	00c687d0	LotSpatialIndex_FindContainingLotAtWorldXZ	true
+00c79a80	00c79b09	00adc920	Lot_WorldPositionToPortalLocalXZLevel	true
+00c79a80	00c79b2d	00a8c690	LotLevelHeight_SampleLocalPosition	true
+00c79a80	00c79d3a	00f7f7be	00f7f7be	false
+00c79a80	00c79e0e	00f7f7d0	floor	true
+00c79a80	00c79e68	00793b80	00793b80	false
+00c79a80	00c79f90	006288f0	006288f0	false
+00c79a80	00c79fad	00c8ebb0	ObjectCatalog_FindByTypedKey	true
+00c79a80	00c79fb4	00533990	00533990	false
+00c79a80	00c79fd6	00ad7740	00ad7740	false
+00c79a80	00c79feb	00b45930	00b45930	false
+00c79a80	00c7a002	007e51a0	007e51a0	false
+00c79a80	00c7a011	007e51a0	007e51a0	false
+00c79a80	00c7a033	00c72180	00c72180	false
+00c79a80	00c7a043	00c79990	00c79990	false
+00c79a80	00c7a049	004e1030	004e1030	false
+00c79a80	00c7a05a	007e51a0	007e51a0	false
+00c79a80	00c7a078	00a527c0	00a527c0	false
+00c79a80	00c7a08c	00a527c0	00a527c0	false
+00c79a80	00c7a0a0	00a527c0	00a527c0	false
+00c79a80	00c7a0b4	00a52780	00a52780	false
+00c79a80	00c7a0c5	00b45930	00b45930	false
+00c79a80	00c7a0e1	004e44e0	Memory_FreeIfNonNull	true
+00c79a80	00c7a0f5	004e44e0	Memory_FreeIfNonNull	true
+00c79a80	00c7a114	0073ebe0	0073ebe0	false
+00c79a80	00c7a13a	004e44e0	Memory_FreeIfNonNull	true
+00c79a80	00c7a151	00b010f0	00b010f0	false
+00c79a80	00c7a163	00c72d10	00c72d10	false
+00c79a80	00c7a197	00c721e0	00c721e0	false
+00c79a80	00c7a1b0	00c721e0	00c721e0	false
+00c79a80	00c7a1d0	00c73230	00c73230	false
+00c79a80	00c7a1f8	00c721e0	00c721e0	false
+00c79a80	00c7a208	00c79990	00c79990	false
+00c79a80	00c7a23e	0083e3e0	0083e3e0	false
+00c79a80	00c7a2e8	00c79990	00c79990	false
+00c79a80	00c7a330	00c79990	00c79990	false
+00c79a80	00c7a390	00c6bf00	00c6bf00	false
+00c79a80	00c7a396	00afd530	00afd530	false
+00c79a80	00c7a3ce	00c6bf00	00c6bf00	false
+00c79a80	00c7a3d4	00afd570	00afd570	false
+00c79a80	00c7a40c	00c6bf00	00c6bf00	false
+00c79a80	00c7a422	004e44e0	Memory_FreeIfNonNull	true
 00c806a0	00c80721	004e4500	004e4500	false
 00c806a0	00c8072f	0061a2a0	0061a2a0	true
 00c806a0	00c807b8	00c23220	00c23220	true
@@ -23430,7 +23493,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00c81790	00c81990	00c806a0	00c806a0	true
 00c81790	00c8199d	0044fd10	0044fd10	false
 00c81790	00c819e5	00c29850	00c29850	false
-00c81790	00c81a0f	00ab1360	00ab1360	false
+00c81790	00c81a0f	00ab1360	Lot_GetLocalToWorldPose	true
 00c81790	00c81a1e	00c2b990	00c2b990	false
 00c81790	00c81a36	00c29850	00c29850	false
 00c81790	00c81a58	004e44e0	004e44e0	true
@@ -26266,7 +26329,7 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00d03060	00d0352d	007cef40		false
 00d03060	00d0353f	00ab1f40	00ab1f40	true
 00d03060	00d035a0	007cf510		false
-00d03060	00d03606	00ab1440		false
+00d03060	00d03606	00ab1440	Lot_GetWorldToLocalPose	true
 00d03060	00d03683	00d269d0	00d269d0	true
 00d03060	00d03698	00cfa7a0		false
 00d03060	00d036dc	0040b880		false
@@ -26353,8 +26416,8 @@ source_function	instruction	destination	target_function	target_has_pseudocode
 00d05050	00d05163	007cef40	007cef40	false
 00d05050	00d05189	00adc750	00adc750	true
 00d05050	00d0519e	00adc750	00adc750	true
-00d05050	00d051d0	00ab1360	00ab1360	false
-00d05050	00d05251	00ab1360	00ab1360	false
+00d05050	00d051d0	00ab1360	Lot_GetLocalToWorldPose	true
+00d05050	00d05251	00ab1360	Lot_GetLocalToWorldPose	true
 00d05050	00d0532f	00ab71a0	00ab71a0	true
 00d05050	00d053e4	00cfa570	00cfa570	true
 00d05050	00d053fd	00934260	00934260	true
