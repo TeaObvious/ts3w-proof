@@ -17,3 +17,5 @@ The [native evidence index](../indexes/native-evidence.tsv) resolves the current
 
 - [Registered capture frontier](native-capture-frontier.md): 1,733 distinct native targets joined to 1,777 bindings, with qualified acquisition priorities and dependency edges.
 - [Bounded remaining-region data assertions](remaining-region-dispositions.md): four guarded dispatch-table intervals totaling 118 bytes; baseline regions and all unasserted pieces remain explicit.
+
+- [Preserve and reuse the historical native corpus](legacy-reuse.md): searchable 5,054-entry byte/union catalog, a bounded 90-entry name-freshness candidate set and an explicit adoption boundary. Existing canonical pairs remain authoritative successors; this catalog does not add 5,054 pairs.

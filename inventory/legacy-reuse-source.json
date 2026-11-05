@@ -1,0 +1,93 @@
+{
+  "reference": "../evidence/reference.json",
+  "scope": "Original-byte preservation, retained stored-union inclusion and a bounded historical symbol-freshness search. No corpus adoption or semantic/real-extent/runtime acceptance.",
+  "legacy_source": {
+    "repository": "JJCodes90/OpenTS3-Playtest",
+    "commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+    "proof_root": "tools/ts3w-proof",
+    "tree": "https://github.com/JJCodes90/OpenTS3-Playtest/tree/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof",
+    "entry_index": "evidence/native/code-index.tsv",
+    "call_index": "evidence/native/direct-calls.tsv",
+    "artifact_paths": "All legacy_asm and legacy_c cells are relative to proof_root at this commit. They are adjacent paired path references, not paths in the Research repository."
+  },
+  "retained_ownership_snapshot": {
+    "inventory": "native-owned-ranges.tsv",
+    "inventory_at_research_commit": "27699f4e4f37ec5103463a5f7e619ffe294f1f45",
+    "definition_census": "native-function-census.tsv",
+    "scope": "The published 20261104 stored-definition inventory; metadata ownership is not actual function extent.",
+    "range_convention": "Eight-digit uppercase VA; half-open [start,stop); disjoint union ranges separated by semicolon.",
+    "missing_union_field": "Empty means no exact stored definition. Numeric zero means every declared byte is present, not that the operation is complete."
+  },
+  "bounded_name_observation_set": {
+    "retained_actual_rename_and_matching_readback_targets": 113,
+    "type": "Reviewed finite actual successful analyst-name changes and exact-name readbacks; no fresh global DB name scan.",
+    "candidate_entries": 90,
+    "old_qualified_symbol_sequences": 163,
+    "stale_own_historical_index_names": 9,
+    "original_rel32_witnesses": 112,
+    "witness_source_entries": 65,
+    "limits": [
+      "The scanner excludes comments and literals; a hit may be a function definition or noncall use.",
+      "Names/types/parameters/locals/PLATE/EOL/projection freshness are separate axes.",
+      "No hit is not a freshness guarantee; a hit is not an automatic new Native-read requirement."
+    ]
+  },
+  "research_canonical_join": {
+    "repository": "TeaObvious/ts3w-proof",
+    "commit": "27699f4e4f37ec5103463a5f7e619ffe294f1f45",
+    "index": "../indexes/native-evidence.tsv",
+    "entries": 75,
+    "legacy_exact_entry_intersection": 17,
+    "intersection_entry_vas": [
+      "00777F30",
+      "007780A0",
+      "00778210",
+      "00778A00",
+      "0077D320",
+      "00AA3890",
+      "00AA4350",
+      "00AF6640",
+      "00AF6650",
+      "00AF6660",
+      "00AF67C0",
+      "00AF6C40",
+      "00AF7730",
+      "00AFED60",
+      "00AFF160",
+      "00D83020",
+      "00D835D0"
+    ],
+    "limits": "Snapshot paths/names for existing successors; presence does not close every historical operation, ABI or data dependency."
+  },
+  "historical_reviewed_join_preserved": {
+    "research_commit": "3d48bb5b368849133953c46812c4d40bbd8d7c78",
+    "research_entries": 69,
+    "legacy_exact_entry_intersection": 17,
+    "meaning": "Earlier reviewed snapshot, retained as history. The separate 75-entry join was recomputed and happens to preserve the same intersection."
+  },
+  "tables": {
+    "legacy_entries": "../indexes/legacy-native-reuse.tsv",
+    "name_candidates": "../indexes/legacy-name-freshness-candidates.tsv",
+    "relative_transfers": "../indexes/legacy-name-transfer-witnesses.tsv"
+  },
+  "measurements": {
+    "legacy_index_entries": 5054,
+    "saved_original_byte_positions_including_artifact_overlap": 1559292,
+    "PE_byte_mismatches": 0,
+    "entries_with_exact_stored_union": 5052,
+    "entries_missing_any_stored_union_byte": 0,
+    "singleton_metadata_entries_in_legacy_intersection": 1022,
+    "envelopes_with_absent_nonunion_bytes": 58,
+    "absent_nonunion_envelope_bytes": 410,
+    "no_exact_census_definition_entry_vas": [
+      "0095F620",
+      "00C99950"
+    ]
+  },
+  "not_claimed": [
+    "Semantic coverage or whole-game relevance disposition",
+    "Actual complete function extents from metadata, old windows, cap flags or terminal RET",
+    "Whole-corpus current naming, parameter/type/comment synchronization or indirect caller closure",
+    "Runtime behavior, database repair or automatic mass re-export"
+  ]
+}
