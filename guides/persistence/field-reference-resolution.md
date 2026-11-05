@@ -23,8 +23,8 @@ The original registration at `0x0108D658` contains bytes
 `ScriptCore.TaskControl::TaskControl_ResolveFieldReference` to `0x00D835D0`.
 Its existing Ghidra body is the union of inclusive ranges `D835D0..D836B9` and
 `D836C0..D837AD`: 472 owned bytes / 179 instructions, preserved in
-[ASM](../../evidence/native/persistence/field-reference/00D835D0.asm.txt)
-([annotated pseudocode](../../evidence/native/persistence/field-reference/00D835D0.c)).
+[ASM](../../evidence/native/persistence/field-reference/00D835D0_ScriptCore_TaskControl_TaskControl_ResolveFieldReference.asm)
+([annotated pseudocode](../../evidence/native/persistence/field-reference/00D835D0_ScriptCore_TaskControl_TaskControl_ResolveFieldReference.c)).
 
 The legacy 480-byte next-entry window already contained every one of those
 owned bytes, plus six skipped alignment bytes at `D836BA..D836BF` and two `CC`
@@ -33,15 +33,15 @@ qualification of that old window, not a claim that it omitted part of the body.
 No body merge, database reanalysis or byte patch was made.
 
 The operation's two direct helpers are newly captured at their existing bounds:
-[task-state lookup ASM](../../evidence/native/persistence/field-reference/00D760C0.asm.txt)
-([pseudocode](../../evidence/native/persistence/field-reference/00D760C0.c)),
+[task-state lookup ASM](../../evidence/native/persistence/field-reference/00D760C0_FindTaskStateWithOptionalCreation.asm)
+([pseudocode](../../evidence/native/persistence/field-reference/00D760C0_FindTaskStateWithOptionalCreation.c)),
 284 bytes / 101 instructions, and
-[method-body header ASM](../../evidence/native/persistence/field-reference/00E85670.asm.txt)
-([pseudocode](../../evidence/native/persistence/field-reference/00E85670.c)),
+[method-body header ASM](../../evidence/native/persistence/field-reference/00E85670_GetOrCreateMethodBodyHeader.asm)
+([pseudocode](../../evidence/native/persistence/field-reference/00E85670_GetOrCreateMethodBodyHeader.c)),
 330 bytes / 102 instructions. The inverse writer's shared slot locator has
 189 bytes / 77 instructions:
-[slot-locator ASM](../../evidence/native/persistence/field-reference/00D837B0.asm.txt)
-([pseudocode](../../evidence/native/persistence/field-reference/00D837B0.c)).
+[slot-locator ASM](../../evidence/native/persistence/field-reference/00D837B0_LocateTaskFieldSlotAndType.asm)
+([pseudocode](../../evidence/native/persistence/field-reference/00D837B0_LocateTaskFieldSlotAndType.c)).
 Helper names are analyst-assigned; the registered TaskControl name is original
 registration evidence, not a recovered native ABI declaration.
 

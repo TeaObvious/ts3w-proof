@@ -58,8 +58,8 @@ subscription IDs. It is not a live object snapshot. The physical slots matter:
 
 `ExchangeMessageDispatcher` reads the old pointer at `011B2378`, replaces it and
 returns the old pointer, without reference operations or locking:
-[ASM](../../evidence/native/messaging/dispatcher/0044C500.asm.txt)
-([C](../../evidence/native/messaging/dispatcher/0044C500.c)).
+[ASM](../../evidence/native/messaging/dispatcher/0044C500_ExchangeMessageDispatcher.asm)
+([C](../../evidence/native/messaging/dispatcher/0044C500_ExchangeMessageDispatcher.c)).
 The existing getter returns that same global:
 [ASM](https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/raw/0x0044c4f0.asm.txt)
 ([C](https://github.com/JJCodes90/OpenTS3-Playtest/blob/cf6f60a42fe8c5bd181495a32161217972cefebc/tools/ts3w-proof/evidence/native/pseudocode/0x0044c4f0.c)).
@@ -71,12 +71,12 @@ an instance built by this constructor.
 The [upper-quarter producer](floor-pattern-quarter-bit-rebuild.md) changes its
 stored support bit before allocating and preparing the message. It then invokes
 current dispatcher virtual `+1C` with `(0431BFC9,payload,0,0)`:
-[ASM](../../evidence/native/construction/floor-patterns/00A913D0.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00A913D0.c)).
+[ASM](../../evidence/native/construction/floor-patterns/00A913D0_RefreshFloorUpperQuarterFlags.asm)
+([C](../../evidence/native/construction/floor-patterns/00A913D0_RefreshFloorUpperQuarterFlags.c)).
 
 For the captured concrete dispatcher, that slot enters `QueueMessage`:
-[ASM](../../evidence/native/messaging/dispatcher/0044CF30.asm.txt)
-([C](../../evidence/native/messaging/dispatcher/0044CF30.c)).
+[ASM](../../evidence/native/messaging/dispatcher/0044CF30_QueueMessage.asm)
+([C](../../evidence/native/messaging/dispatcher/0044CF30_QueueMessage.c)).
 When option byte `+B4` is enabled, it retains nonnull payload through virtual
 `+4` before insertion. It constructs a 24-byte record containing ID, payload,
 optional target listener, signed priority and two zero callback fields. The
@@ -85,8 +85,8 @@ conditional on byte `+B0`.
 
 `InsertQueuedMessageByPriority` selects a position using signed priority at
 record `+0C`:
-[ASM](../../evidence/native/messaging/dispatcher/0044CC20.asm.txt)
-([C](../../evidence/native/messaging/dispatcher/0044CC20.c)).
+[ASM](../../evidence/native/messaging/dispatcher/0044CC20_InsertQueuedMessageByPriority.asm)
+([C](../../evidence/native/messaging/dispatcher/0044CC20_InsertQueuedMessageByPriority.c)).
 Its comparisons select a stable position within an equal-priority group;
 actual node insertion/copy and allocation are delegated to `44C970/44CB50`.
 The decompiler omits arguments that the original explicitly pushes. A
@@ -95,8 +95,8 @@ that projection.
 
 `PumpQueuedMessages` computes an unsigned64 frontier from the initial UInt32
 queue count plus the shared UInt64 processed counter at `+50/+54`:
-[ASM](../../evidence/native/messaging/dispatcher/0044D1C0.asm.txt)
-([C](../../evidence/native/messaging/dispatcher/0044D1C0.c)).
+[ASM](../../evidence/native/messaging/dispatcher/0044D1C0_PumpQueuedMessages.asm)
+([C](../../evidence/native/messaging/dispatcher/0044D1C0_PumpQueuedMessages.c)).
 Each iteration copies the head record to locals, unlinks and frees its
 32-byte node, increments the processed counter and releases the optional queue
 lock **before callbacks**. With target and callback both zero, it invokes
@@ -113,8 +113,8 @@ established.
 
 `InitializeMessageDispatcher` defaults option bytes `+B0..+B5` to1 and installs
 the concrete table:
-[ASM](../../evidence/native/messaging/dispatcher/0044CCC0.asm.txt)
-([C](../../evidence/native/messaging/dispatcher/0044CCC0.c)).
+[ASM](../../evidence/native/messaging/dispatcher/0044CCC0_InitializeMessageDispatcher.asm)
+([C](../../evidence/native/messaging/dispatcher/0044CCC0_InitializeMessageDispatcher.c)).
 Its queue and ID-map locks are distinct. Their presence does not prove global
 receiver, callback or object-state thread safety.
 
@@ -123,24 +123,24 @@ receiver, callback or object-state thread safety.
 `BindFloorMessageOwnerAndRegister` attaches its input renderer record at `+8`,
 saves the current dispatcher at `+30`, the same receiver pointer at `+34`, the
 ID table at `+38` and count18 at `+3C`:
-[ASM](../../evidence/native/construction/floor-patterns/00AA0640.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA0640.c)).
+[ASM](../../evidence/native/construction/floor-patterns/00AA0640_BindFloorMessageOwnerAndRegister.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA0640_BindFloorMessageOwnerAndRegister.c)).
 It registers each ID using `(this,ID,retainFlag0,priority0)`. The changed-support
 ID is index2 at `010649C0`. The constructor installs callback `AA4350` at the
 receiver's table `+4` and initially clears enabled byte `+70`, attached state
 and counter `+80`:
-[ASM](../../evidence/native/construction/floor-patterns/00AA3080.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA3080.c)).
+[ASM](../../evidence/native/construction/floor-patterns/00AA3080_InitializeFloorRenderManager.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA3080_InitializeFloorRenderManager.c)).
 Registration does not itself enable the receiver.
 
 The dispatcher registration wrapper stores the listener pointer; its optional
 reference operation is skipped for the supplied retainFlag0:
-[ASM](../../evidence/native/messaging/dispatcher/0044C640.asm.txt)
-([C](../../evidence/native/messaging/dispatcher/0044C640.c)).
+[ASM](../../evidence/native/messaging/dispatcher/0044C640_RegisterMessageListener.asm)
+([C](../../evidence/native/messaging/dispatcher/0044C640_RegisterMessageListener.c)).
 `InsertMessageListenerByPriority` resolves the exact UInt32 event-ID map at
 `+58` and selects a signed-priority insertion position:
-[ASM](../../evidence/native/messaging/dispatcher/0044D070.asm.txt)
-([C](../../evidence/native/messaging/dispatcher/0044D070.c)).
+[ASM](../../evidence/native/messaging/dispatcher/0044D070_InsertMessageListenerByPriority.asm)
+([C](../../evidence/native/messaging/dispatcher/0044D070_InsertMessageListenerByPriority.c)).
 Its equal-priority comparison selects a position **before** an existing equal
 listener; this differs from the queue-position comparison above. Map/list node
 allocation, actual insertion helpers, failure and unregister lifetime remain
@@ -162,8 +162,8 @@ native code is absent. No automatic function creation or body repair was made.
 `FloorRenderEvents_HandleOrQueue` first requires enabled byte `+70` and attached
 record `+8`. For `0431BFC9`, `AA4394/AA439B` branches to the pair comparison at
 `AA45EA`: message DWORDs `+8/+C` must equal attached record DWORDs `+10/+14`:
-[ASM](../../evidence/native/construction/floor-patterns/00AA4350.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA4350.c)).
+[ASM](../../evidence/native/construction/floor-patterns/00AA4350_FloorRenderEvents_HandleOrQueue.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA4350_FloorRenderEvents_HandleOrQueue.c)).
 Mismatch returns handled AL1 without application or queueing. The producer
 copied core-lot `+48/+4C`; the construction/equality of that core pair and the
 attached renderer pair is not established merely by equal field widths.
@@ -183,19 +183,19 @@ the handler can also be called through a synchronous delivery path.
 `InitializeRetainedMessageRecord` writes eight bytes and retains nonnull
 payload; it returns the caller-owned destination, not a newly allocated
 record:
-[ASM](../../evidence/native/messaging/records/00C1EC20.asm.txt)
-([C](../../evidence/native/messaging/records/00C1EC20.c)).
+[ASM](../../evidence/native/messaging/records/00C1EC20_InitializeRetainedMessageRecord.asm)
+([C](../../evidence/native/messaging/records/00C1EC20_InitializeRetainedMessageRecord.c)).
 `AppendRetainedMessageRecord` advances end by8, copies and retains when capacity
 is available, delegating growth to `A6BD10` otherwise:
-[ASM](../../evidence/native/messaging/records/00A6CA70.asm.txt)
-([C](../../evidence/native/messaging/records/00A6CA70.c)).
+[ASM](../../evidence/native/messaging/records/00A6CA70_AppendRetainedMessageRecord.asm)
+([C](../../evidence/native/messaging/records/00A6CA70_AppendRetainedMessageRecord.c)).
 `AA4350` then releases the local temporary. The spare-capacity path leaves one
 additional queued payload reference; complete growth/failure behavior is not
 inferred.
 
 `FlushDeferredFloorMessages` has **two passes**:
-[ASM](../../evidence/native/construction/floor-patterns/00AA42D0.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA42D0.c)).
+[ASM](../../evidence/native/construction/floor-patterns/00AA42D0_FlushDeferredFloorMessages.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA42D0_FlushDeferredFloorMessages.c)).
 First it applies the original begin/end snapshot in ascending eight-byte
 steps. It then reloads begin/end, releases nonnull payloads through virtual
 `+8`, and resets end to begin. Application and release are not interleaved per
@@ -211,18 +211,18 @@ The original message constructor installs table `01065F8C` and sets refcount
 Its virtual retain and release targets are now explicit:
 
 - `AddAtomicReference` performs `LOCK XADD +1` at object+4 and returns the new
-  value: [ASM](../../evidence/native/memory/references/00EC1C10.asm.txt)
-  ([C](../../evidence/native/memory/references/00EC1C10.c)).
+  value: [ASM](../../evidence/native/memory/references/00EC1C10_AddAtomicReference.asm)
+  ([C](../../evidence/native/memory/references/00EC1C10_AddAtomicReference.c)).
 - `ReleaseAtomicReference` performs `LOCK XADD -1`; new zero invokes current
   virtual0 with argument1. There is no underflow guard, and the pointer is
   dereferenced before its later null test:
-  [ASM](../../evidence/native/memory/references/0069EE30.asm.txt)
-  ([C](../../evidence/native/memory/references/0069EE30.c)).
+  [ASM](../../evidence/native/memory/references/0069EE30_ReleaseAtomicReference.asm)
+  ([C](../../evidence/native/memory/references/0069EE30_ReleaseAtomicReference.c)).
 - `DestroyPooledFloorMessage` resets the base table and conditionally returns
   storage through `ADF1A0` when mask01h is set; EAX is the old pointer, not a
   surviving ownership lease:
-  [ASM](../../evidence/native/construction/floor-patterns/00B94770.asm.txt)
-  ([C](../../evidence/native/construction/floor-patterns/00B94770.c)).
+  [ASM](../../evidence/native/construction/floor-patterns/00B94770_DestroyPooledFloorMessage.asm)
+  ([C](../../evidence/native/construction/floor-patterns/00B94770_DestroyPooledFloorMessage.c)).
 
 Under stable enabled dispatcher retention and successful spare-capacity local
 append, the message has a broker reference while queued, and a separate
@@ -233,22 +233,22 @@ recovery, safe option changes or the whole object's thread safety.
 `FloorRenderEvents_ApplyEvent` has another gate: `0431BFC9` requires attached
 byte `+1E` or `ADF640`. It then calls `UpdateFloorQuarterRoomIds` first, followed
 by `ApplyFloorQuarterInputs` with **17 stack words**, physical `RET44h`:
-[ASM](../../evidence/native/construction/floor-patterns/00AA3890.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA3890.c)).
+[ASM](../../evidence/native/construction/floor-patterns/00AA3890_FloorRenderEvents_ApplyEvent.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA3890_FloorRenderEvents_ApplyEvent.c)).
 The consumer does not enforce a single-quarter mask; that restriction comes
 from `A913D0` in this path.
 
 The conditional room updater changes selected UInt16 lanes in optional grid
 `+7C`; mask bit10h changes its level selection. Actual grid write and optional
 lot service notification occur only if a lane changed:
-[ASM](../../evidence/native/construction/floor-patterns/00AA36A0.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA36A0.c)).
+[ASM](../../evidence/native/construction/floor-patterns/00AA36A0_UpdateFloorQuarterRoomIds.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA36A0_UpdateFloorQuarterRoomIds.c)).
 
 The [field join](../../evidence/native/messaging/floor-message-field-join.tsv)
 records each producer origin and actual reader offset. Message support byte
 `+5B` reaches `AA1F70` parameter7:
-[ASM](../../evidence/native/construction/floor-patterns/00AA1F70.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA1F70.c)).
+[ASM](../../evidence/native/construction/floor-patterns/00AA1F70_ApplyFloorQuarterInputs.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA1F70_ApplyFloorQuarterInputs.c)).
 That function first chooses an admitted per-level renderer, performs a
 distinct first-key comparison, then uses `A8AE70` to test the complete key
 quad against the live null quad. `A8AE70` returns **inequality**, not

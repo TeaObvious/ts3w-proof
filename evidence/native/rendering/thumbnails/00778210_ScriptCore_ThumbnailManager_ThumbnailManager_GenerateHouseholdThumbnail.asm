@@ -1,0 +1,56 @@
+TS3W PC 1.67; original identity: evidence/reference.json.
+Saved Ghidra evidence; current name: ScriptCore.ThumbnailManager::ThumbnailManager_GenerateHouseholdThumbnail.
+Original instruction/byte blocks and ownership qualifications are unchanged.
+Generated types and signatures remain projections; consult the machine instructions.
+
+TS3W.exe PC 1.67 — original bytes and saved Ghidra Listing
+DB entry: 00778210
+Paired actual Ghidra pseudocode: 00778210_ScriptCore_ThumbnailManager_ThumbnailManager_GenerateHouseholdThumbnail.c
+Owned body inclusive: 00778210..00778210
+Qualified original-byte prefix (outside singleton DB body; not a complete owned function)
+Preserved interval: [00778210, 00778254)
+Originalbytes read from identified pristine PE; independently decoded by GNU objdump.
+Ghidra names/comments are analyst-assigned where stated; no runtime observed.
+
+ORIGINAL BYTES
+00778210: 83 ec 24 83 7c 24 3c 00 57 8b 3d 30 ec 1e 01 89
+00778220: 7c 24 04 75 2f 85 ff 0f 84 40 01 00 00 8b 44 24
+00778230: 3c 8b 4c 24 38 8b 54 24 34 6a 00 50 8b 44 24 38
+00778240: 51 8b 4c 24 38 52 50 51 8b cf e8 a1 92 5e 00 5f
+00778250: 83 c4 24 c3
+
+SAVED GHIDRA LISTING
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: ScriptCore.ThumbnailManager::ThumbnailManager_GenerateHouseholdThumbnail
+Entry Point: 00778210
+
+
+Total instructions: 0
+
+INDEPENDENT PE DISASSEMBLY
+00778210 <.text+0x377210>:
+  778210:	83 ec 24                                        	sub    esp,0x24
+  778213:	83 7c 24 3c 00                                  	cmp    DWORD PTR [esp+0x3c],0x0
+  778218:	57                                              	push   edi
+  778219:	8b 3d 30 ec 1e 01                               	mov    edi,DWORD PTR ds:0x11eec30
+  77821f:	89 7c 24 04                                     	mov    DWORD PTR [esp+0x4],edi
+  778223:	75 2f                                           	jne    0x778254
+  778225:	85 ff                                           	test   edi,edi
+  778227:	0f 84 40 01 00 00                               	je     0x77836d
+  77822d:	8b 44 24 3c                                     	mov    eax,DWORD PTR [esp+0x3c]
+  778231:	8b 4c 24 38                                     	mov    ecx,DWORD PTR [esp+0x38]
+  778235:	8b 54 24 34                                     	mov    edx,DWORD PTR [esp+0x34]
+  778239:	6a 00                                           	push   0x0
+  77823b:	50                                              	push   eax
+  77823c:	8b 44 24 38                                     	mov    eax,DWORD PTR [esp+0x38]
+  778240:	51                                              	push   ecx
+  778241:	8b 4c 24 38                                     	mov    ecx,DWORD PTR [esp+0x38]
+  778245:	52                                              	push   edx
+  778246:	50                                              	push   eax
+  778247:	51                                              	push   ecx
+  778248:	8b cf                                           	mov    ecx,edi
+  77824a:	e8 a1 92 5e 00                                  	call   0xd614f0
+  77824f:	5f                                              	pop    edi
+  778250:	83 c4 24                                        	add    esp,0x24
+  778253:	c3                                              	ret

@@ -22,14 +22,14 @@ Save reported success. No close/reopen persistence test was performed.
 
 | Entry | Role and physical boundary | Evidence |
 | --- | --- | --- |
-| `00AFF160` | Lot pointer and packed vertex pointer; cdecl, plain RET, AL boolean; 109 bytes | [ASM](../../evidence/native/construction/platforms/00AFF160.asm.txt) ([C](../../evidence/native/construction/platforms/00AFF160.c)) |
-| `00AFED60` | Lot pointer, packed cell pointer, low-byte allowPartial; cdecl, plain RET, AL boolean; 114 bytes | [ASM](../../evidence/native/construction/platforms/00AFED60.asm.txt) ([C](../../evidence/native/construction/platforms/00AFED60.c)) |
-| `00AF7730` | Input X/Z/Int32-level pointer and output pointer; cdecl, plain RET, void; 110 bytes | [ASM](../../evidence/native/grid/cell-coordinates/00AF7730.asm.txt) ([C](../../evidence/native/grid/cell-coordinates/00AF7730.c)) |
-| `00AF6C40` | ECX iterator plus packed vertex pointer; RET4; 50 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF6C40.asm.txt) ([C](../../evidence/native/grid/vertex-regions/00AF6C40.c)) |
-| `00AF6640` | ECX iterator; reset index, plain RET; 7 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF6640.asm.txt) ([C](../../evidence/native/grid/vertex-regions/00AF6640.c)) |
-| `00AF6660` | ECX iterator; borrowed current cell in EAX, plain RET; 46 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF6660.asm.txt) ([C](../../evidence/native/grid/vertex-regions/00AF6660.c)) |
-| `00AF6650` | ECX iterator; increment index, plain RET; 6 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF6650.asm.txt) ([C](../../evidence/native/grid/vertex-regions/00AF6650.c)) |
-| `00AF67C0` | ECX iterator; full EAX 0/1 for index==4, plain RET; 9 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF67C0.asm.txt) ([C](../../evidence/native/grid/vertex-regions/00AF67C0.c)) |
+| `00AFF160` | Lot pointer and packed vertex pointer; cdecl, plain RET, AL boolean; 109 bytes | [ASM](../../evidence/native/construction/platforms/00AFF160_TestPlatformVertex.asm) ([C](../../evidence/native/construction/platforms/00AFF160_TestPlatformVertex.c)) |
+| `00AFED60` | Lot pointer, packed cell pointer, low-byte allowPartial; cdecl, plain RET, AL boolean; 114 bytes | [ASM](../../evidence/native/construction/platforms/00AFED60_TestPlatformRegion.asm) ([C](../../evidence/native/construction/platforms/00AFED60_TestPlatformRegion.c)) |
+| `00AF7730` | Input X/Z/Int32-level pointer and output pointer; cdecl, plain RET, void; 110 bytes | [ASM](../../evidence/native/grid/cell-coordinates/00AF7730_EncodeCellCoordinates.asm) ([C](../../evidence/native/grid/cell-coordinates/00AF7730_EncodeCellCoordinates.c)) |
+| `00AF6C40` | ECX iterator plus packed vertex pointer; RET4; 50 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF6C40_InitializeVertexRegionIterator.asm) ([C](../../evidence/native/grid/vertex-regions/00AF6C40_InitializeVertexRegionIterator.c)) |
+| `00AF6640` | ECX iterator; reset index, plain RET; 7 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF6640_ResetVertexRegionIterator.asm) ([C](../../evidence/native/grid/vertex-regions/00AF6640_ResetVertexRegionIterator.c)) |
+| `00AF6660` | ECX iterator; borrowed current cell in EAX, plain RET; 46 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF6660_GetVertexRegionIteratorCell.asm) ([C](../../evidence/native/grid/vertex-regions/00AF6660_GetVertexRegionIteratorCell.c)) |
+| `00AF6650` | ECX iterator; increment index, plain RET; 6 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF6650_AdvanceVertexRegionIterator.asm) ([C](../../evidence/native/grid/vertex-regions/00AF6650_AdvanceVertexRegionIterator.c)) |
+| `00AF67C0` | ECX iterator; full EAX 0/1 for index==4, plain RET; 9 bytes | [ASM](../../evidence/native/grid/vertex-regions/00AF67C0_IsVertexRegionIteratorAtEnd.asm) ([C](../../evidence/native/grid/vertex-regions/00AF67C0_IsVertexRegionIteratorAtEnd.c)) |
 
 The inferred `__fastcall` display of the small iterator helpers establishes no
 second meaningful register argument. The constructor physically takes its one

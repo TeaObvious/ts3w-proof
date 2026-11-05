@@ -17,11 +17,11 @@ are centralized in [PC 1.67 references](../../references/pc-167.md) and the
 The registered entry is `0x00D83020`, record `0x0108D120`, original registration
 name `ScriptCore.PersistImports::Serializer_ReadFastFields`, managed MethodDef
 `0x06000CAE`. Its existing Ghidra ownership is `[D83020,D83037]` inclusive:
-[ASM](../../evidence/native/persistence/fast-fields/00D83020.asm.txt)
-([annotated pseudocode](../../evidence/native/persistence/fast-fields/00D83020.c)).
+[ASM](../../evidence/native/persistence/fast-fields/00D83020_ScriptCore_PersistImports_Serializer_ReadFastFields.asm)
+([annotated pseudocode](../../evidence/native/persistence/fast-fields/00D83020_ScriptCore_PersistImports_Serializer_ReadFastFields.c)).
 The successful `JNE` at `D83032` enters a separately defined continuation:
-[ASM](../../evidence/native/persistence/fast-fields/00D83038.asm.txt)
-([annotated pseudocode](../../evidence/native/persistence/fast-fields/00D83038.c)).
+[ASM](../../evidence/native/persistence/fast-fields/00D83038_ReadFastFieldsResolvedStreamContinuation.asm)
+([annotated pseudocode](../../evidence/native/persistence/fast-fields/00D83038_ReadFastFieldsResolvedStreamContinuation.c)).
 
 | Item | Exact coverage | Meaning |
 | --- | --- | --- |
@@ -102,8 +102,8 @@ read's low-byte success result. A failed read remains a failed aggregate, but
 there is no loop break. The nonnull path still copies the temporary to
 `object+offset` after failure. Short reads may leave partial or uninitialized
 stack payload bytes; no zero-default guarantee is present. The word-read helper
-updates the same aggregate internally: [word-read adapter ASM](../../evidence/native/io/stream-reader/0056D0E0.asm.txt)
-([annotated pseudocode](../../evidence/native/io/stream-reader/0056D0E0.c)).
+updates the same aggregate internally: [word-read adapter ASM](../../evidence/native/io/stream-reader/0056D0E0_ReadUInt16AndAccumulateStatus.asm)
+([annotated pseudocode](../../evidence/native/io/stream-reader/0056D0E0_ReadUInt16AndAccumulateStatus.c)).
 Its complete existing body is `56D0E0..56D103`, 36 bytes / 15 instructions.
 It uses `ECX` for the reader, one stack output pointer and `RET 4`; the other
 width paths call the status helper explicitly.

@@ -12,7 +12,7 @@ Names below are analyst descriptions, not recovered original symbols.
 
 ## Descriptor resolution and dispatch
 
-E71040 ([ASM](../../evidence/native/bridge/enum-lookup/00E71040.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00E71040.c))) reads the byte at
+E71040 ([ASM](../../evidence/native/bridge/enum-lookup/00E71040_RuntimeTypeDescriptor_ResolveClass.asm) ([C](../../evidence/native/bridge/enum-lookup/00E71040_RuntimeTypeDescriptor_ResolveClass.c))) reads the byte at
 `descriptor+6`. It subtracts one and checks the result unsigned against 29 before
 using thirty original DWORD entries at E71208. Tags 11h and 12h return the DWORD
 at `descriptor` directly. Primitive cases return that DWORD when nonzero,
@@ -28,7 +28,7 @@ nonfatal error path. The descriptor is dereferenced without a local null guard;
 plain `RET` leaves stack cleanup to the caller. Runtime global initialization,
 complex type construction and concurrent access remain separate contracts.
 
-D7CC60 ([ASM](../../evidence/native/bridge/enum-lookup/00D7CC60.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7CC60.c))) reads
+D7CC60 ([ASM](../../evidence/native/bridge/enum-lookup/00D7CC60_EnumFieldLookup_ByUnderlyingValue.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7CC60_EnumFieldLookup_ByUnderlyingValue.c))) reads
 `byte[[argument1+4]+6]`. Its nine DWORDs at D7CD44 admit tags 3..11; other tags
 return zero. Each admitted path loads 011EF514 into ECX for its typed child.
 The dispatcher does not use its incoming ECX value. All paths use `RET 0C`.
@@ -37,14 +37,14 @@ word. The children further restrict comparison to the widths below.
 
 | Descriptor tag | Child / original body pair | Read and comparison width | Warm guard ordering |
 | --- | --- | --- | --- |
-| 3, 7 | D7A960: [ASM](../../evidence/native/bridge/enum-lookup/00D7A960.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7A960.c)) | 16 bits | Unsigned WORD `CMP` / `JB`. |
-| 4 | D7A6D0: [ASM](../../evidence/native/bridge/enum-lookup/00D7A6D0.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7A6D0.c)) | 8 bits | Signed BYTE `CMP` / `JL`. |
-| 5 | D7A440: [ASM](../../evidence/native/bridge/enum-lookup/00D7A440.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7A440.c)) | 8 bits | Unsigned BYTE `CMP` / `JB`. |
-| 6 | D7ABF0: [ASM](../../evidence/native/bridge/enum-lookup/00D7ABF0.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7ABF0.c)) | 16 bits | Signed WORD `CMP` / `JL`. |
-| 8 | D7B100: [ASM](../../evidence/native/bridge/enum-lookup/00D7B100.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7B100.c)) | 32 bits | Signed DWORD `CMP` / `JL`. |
-| 9 | D7AE80: [ASM](../../evidence/native/bridge/enum-lookup/00D7AE80.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7AE80.c)) | 32 bits | Unsigned DWORD `CMP` / `JB`. |
-| 10 | D7B640: [ASM](../../evidence/native/bridge/enum-lookup/00D7B640.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7B640.c)) | 64 bits | Signed high DWORD (`JL`/`JG`), unsigned low DWORD (`JB`) when high words tie. |
-| 11 | D7B380: [ASM](../../evidence/native/bridge/enum-lookup/00D7B380.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D7B380.c)) | 64 bits | Unsigned high and low DWORD comparisons. |
+| 3, 7 | D7A960: [ASM](../../evidence/native/bridge/enum-lookup/00D7A960_EnumFieldCache_FindUInt16.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7A960_EnumFieldCache_FindUInt16.c)) | 16 bits | Unsigned WORD `CMP` / `JB`. |
+| 4 | D7A6D0: [ASM](../../evidence/native/bridge/enum-lookup/00D7A6D0_EnumFieldCache_FindInt8.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7A6D0_EnumFieldCache_FindInt8.c)) | 8 bits | Signed BYTE `CMP` / `JL`. |
+| 5 | D7A440: [ASM](../../evidence/native/bridge/enum-lookup/00D7A440_EnumFieldCache_FindUInt8.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7A440_EnumFieldCache_FindUInt8.c)) | 8 bits | Unsigned BYTE `CMP` / `JB`. |
+| 6 | D7ABF0: [ASM](../../evidence/native/bridge/enum-lookup/00D7ABF0_EnumFieldCache_FindInt16.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7ABF0_EnumFieldCache_FindInt16.c)) | 16 bits | Signed WORD `CMP` / `JL`. |
+| 8 | D7B100: [ASM](../../evidence/native/bridge/enum-lookup/00D7B100_EnumFieldCache_FindInt32.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7B100_EnumFieldCache_FindInt32.c)) | 32 bits | Signed DWORD `CMP` / `JL`. |
+| 9 | D7AE80: [ASM](../../evidence/native/bridge/enum-lookup/00D7AE80_EnumFieldCache_FindUInt32.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7AE80_EnumFieldCache_FindUInt32.c)) | 32 bits | Unsigned DWORD `CMP` / `JB`. |
+| 10 | D7B640: [ASM](../../evidence/native/bridge/enum-lookup/00D7B640_EnumFieldCache_FindInt64.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7B640_EnumFieldCache_FindInt64.c)) | 64 bits | Signed high DWORD (`JL`/`JG`), unsigned low DWORD (`JB`) when high words tie. |
+| 11 | D7B380: [ASM](../../evidence/native/bridge/enum-lookup/00D7B380_EnumFieldCache_FindUInt64.asm) ([C](../../evidence/native/bridge/enum-lookup/00D7B380_EnumFieldCache_FindUInt64.c)) | 64 bits | Unsigned high and low DWORD comparisons. |
 
 The value words occupy scalar stack storage. The pointer-looking value parameter
 in the preserved dispatcher and byte-child decompilations is not dereferenced;
@@ -109,8 +109,8 @@ Two temporary slot accessors are also fully captured:
 
 | Accessor / original body pair | Candidate test and returned field slot |
 | --- | --- |
-| D78F80: [ASM](../../evidence/native/bridge/enum-lookup/00D78F80.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D78F80.c)) | Calls D73430; an equal byte candidate returns `candidate+4` directly, without insertion. New-key handling delegates to D77470 or D77530. Temporary pair stride is 8. |
-| D792E0: [ASM](../../evidence/native/bridge/enum-lookup/00D792E0.asm.txt) ([C](../../evidence/native/bridge/enum-lookup/00D792E0.c)) | Calls A862D0; an equal UInt64 candidate returns `candidate+8` directly. New-key handling delegates to D78920. Temporary pair stride is 16. |
+| D78F80: [ASM](../../evidence/native/bridge/enum-lookup/00D78F80_UInt8FieldPairs_GetValueSlot.asm) ([C](../../evidence/native/bridge/enum-lookup/00D78F80_UInt8FieldPairs_GetValueSlot.c)) | Calls D73430; an equal byte candidate returns `candidate+4` directly, without insertion. New-key handling delegates to D77470 or D77530. Temporary pair stride is 8. |
+| D792E0: [ASM](../../evidence/native/bridge/enum-lookup/00D792E0_UInt64FieldPairs_GetValueSlot.asm) ([C](../../evidence/native/bridge/enum-lookup/00D792E0_UInt64FieldPairs_GetValueSlot.c)) | Calls A862D0; an equal UInt64 candidate returns `candidate+8` directly. New-key handling delegates to D78920. Temporary pair stride is 16. |
 
 Both pass an additional byte from `receiver+10h` to their search child; its
 meaning is unresolved. Both return a **slot pointer**, which their enum callers

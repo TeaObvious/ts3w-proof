@@ -1,0 +1,231 @@
+TS3W PC 1.67; original identity: evidence/reference.json.
+Saved Ghidra evidence; current name: EnumFieldCache_FindUInt16.
+Original instruction/byte blocks and ownership qualifications are unchanged.
+Generated types and signatures remain projections; machine instructions are authoritative.
+
+Original PC 1.67 TS3W.exe; final saved Ghidra Listing with original PE bytes.
+Entry: 0x00D7A960 (EnumFieldCache_FindUInt16)
+Paired annotated Ghidra pseudocode: 00D7A960_EnumFieldCache_FindUInt16.c
+Owned half-open range: [0x00D7A960,0x00D7ABEF)
+Owned bytes: 655; Listing instructions: 216
+Original identity: references/pc-167.md. GNU and LLVM independently agree on all instruction boundaries and bytes.
+Function ownership and generated ABI remain unchanged; semantic name/comment were read back.
+Analyst plate: Analyst PC1.67 UInt16 enum-field lookup. ECX receiver +0B4C locates the shared class-record-pointer-keyed cache; stored entry +4 is count, +8 packed 16-bit values, +0C parallel field pointers. Warm path calls 00D73290 then rejects end and query<candidate with unsigned ordering; only the low 16 value bits are read. Cold path enumerates E70470 fields, skips exact value__ and conditionally _Deleted under [field.type+4]&600h, lazily fills field+10/+18 through E6FAA0/E9CD80/E9B500/E9B3F0, then E9B5B0 supplies bytes read at width 16. Slot helper 00D790A0 returns the field-pointer location which is overwritten; each exact query match updates the cold result. Cache count is E6BA40(class)-1, not locally recomputed from copied pairs: duplicate/filter count invariants remain unresolved. Returns field pointer or zero; no flags composition, runtime behavior or alias/cache parity inferred.
+
+SAVED GHIDRA LISTING WITH ORIGINAL BYTES
+  00d7a960: 83 ec 38                                     SUB ESP, 0x38
+  00d7a963: 53                                           PUSH EBX
+  00d7a964: 8b 5c 24 40                                  MOV EBX, dword ptr [ESP + 0x40]
+  00d7a968: 55                                           PUSH EBP
+  00d7a969: 56                                           PUSH ESI
+  00d7a96a: 57                                           PUSH EDI
+  00d7a96b: 8d b1 4c 0b 00 00                            LEA ESI, [ECX + 0xb4c]
+  00d7a971: 8d 44 24 1c                                  LEA EAX, [ESP + 0x1c]
+  00d7a975: 50                                           PUSH EAX
+  00d7a976: 8d 4c 24 2c                                  LEA ECX, [ESP + 0x2c]
+  00d7a97a: 51                                           PUSH ECX
+  00d7a97b: 33 ed                                        XOR EBP, EBP
+  00d7a97d: 8b ce                                        MOV ECX, ESI
+  00d7a97f: 89 6c 24 18                                  MOV dword ptr [ESP + 0x18], EBP
+  00d7a983: 89 5c 24 24                                  MOV dword ptr [ESP + 0x24], EBX
+  00d7a987: 89 74 24 2c                                  MOV dword ptr [ESP + 0x2c], ESI
+  00d7a98b: e8 30 7c 7b ff                               CALL 0x005325c0
+  00d7a990: 8b 56 08                                     MOV EDX, dword ptr [ESI + 0x8]
+  00d7a993: 8b 46 04                                     MOV EAX, dword ptr [ESI + 0x4]
+  00d7a996: 8b 7c 24 28                                  MOV EDI, dword ptr [ESP + 0x28]
+  00d7a99a: 3b 3c 90                                     CMP EDI, dword ptr [EAX + EDX*0x4]
+  00d7a99d: 74 46                                        JZ 0x00d7a9e5
+  00d7a99f: 8b 77 08                                     MOV ESI, dword ptr [EDI + 0x8]
+  00d7a9a2: 8b 4f 04                                     MOV ECX, dword ptr [EDI + 0x4]
+  00d7a9a5: 8d 54 24 50                                  LEA EDX, [ESP + 0x50]
+  00d7a9a9: 52                                           PUSH EDX
+  00d7a9aa: 8d 1c 4e                                     LEA EBX, [ESI + ECX*0x2]
+  00d7a9ad: 53                                           PUSH EBX
+  00d7a9ae: 56                                           PUSH ESI
+  00d7a9af: e8 dc 88 ff ff                               CALL 0x00d73290
+  00d7a9b4: 83 c4 0c                                     ADD ESP, 0xc
+  00d7a9b7: 3b c3                                        CMP EAX, EBX
+  00d7a9b9: 0f 84 22 02 00 00                            JZ 0x00d7abe1
+  00d7a9bf: 66 8b 4c 24 50                               MOV CX, word ptr [ESP + 0x50]
+  00d7a9c4: 66 3b 08                                     CMP CX, word ptr [EAX]
+  00d7a9c7: 0f 82 14 02 00 00                            JC 0x00d7abe1
+  00d7a9cd: 8b 57 0c                                     MOV EDX, dword ptr [EDI + 0xc]
+  00d7a9d0: 2b c6                                        SUB EAX, ESI
+  00d7a9d2: 5f                                           POP EDI
+  00d7a9d3: 5e                                           POP ESI
+  00d7a9d4: d1 f8                                        SAR EAX, 0x1
+  00d7a9d6: 8b 04 82                                     MOV EAX, dword ptr [EDX + EAX*0x4]
+  00d7a9d9: 5d                                           POP EBP
+  00d7a9da: 89 44 24 04                                  MOV dword ptr [ESP + 0x4], EAX
+  00d7a9de: 5b                                           POP EBX
+  00d7a9df: 83 c4 38                                     ADD ESP, 0x38
+  00d7a9e2: c2 08 00                                     RET 0x8
+  00d7a9e5: 53                                           PUSH EBX
+  00d7a9e6: 89 6c 24 38                                  MOV dword ptr [ESP + 0x38], EBP
+  00d7a9ea: 89 6c 24 3c                                  MOV dword ptr [ESP + 0x3c], EBP
+  00d7a9ee: 89 6c 24 40                                  MOV dword ptr [ESP + 0x40], EBP
+  00d7a9f2: c7 44 24 44 ac c5 08 01                      MOV dword ptr [ESP + 0x44], 0x108c5ac
+  00d7a9fa: e8 41 10 0f 00                               CALL 0x00e6ba40
+  00d7a9ff: 8b f8                                        MOV EDI, EAX
+  00d7aa01: 83 ef 01                                     SUB EDI, 0x1
+  00d7aa04: 83 c4 04                                     ADD ESP, 0x4
+  00d7aa07: 3b fd                                        CMP EDI, EBP
+  00d7aa09: 89 7c 24 28                                  MOV dword ptr [ESP + 0x28], EDI
+  00d7aa0d: 0f 8e 37 01 00 00                            JLE 0x00d7ab4a
+  00d7aa13: 57                                           PUSH EDI
+  00d7aa14: 8d 4c 24 38                                  LEA ECX, [ESP + 0x38]
+  00d7aa18: e8 03 a9 ff ff                               CALL 0x00d75320
+  00d7aa1d: 8d 4c 24 18                                  LEA ECX, [ESP + 0x18]
+  00d7aa21: 51                                           PUSH ECX
+  00d7aa22: 53                                           PUSH EBX
+  00d7aa23: 89 6c 24 20                                  MOV dword ptr [ESP + 0x20], EBP
+  00d7aa27: c7 44 24 54 ff ff ff ff                      MOV dword ptr [ESP + 0x54], 0xffffffff
+  00d7aa2f: e8 3c 5a 0f 00                               CALL 0x00e70470
+  00d7aa34: 8b e8                                        MOV EBP, EAX
+  00d7aa36: 83 c4 08                                     ADD ESP, 0x8
+  00d7aa39: 85 ed                                        TEST EBP, EBP
+  00d7aa3b: 0f 84 f0 00 00 00                            JZ 0x00d7ab31
+  00d7aa41: 8b 45 0c                                     MOV EAX, dword ptr [EBP + 0xc]
+  00d7aa44: 8b f8                                        MOV EDI, EAX
+  00d7aa46: be a4 c5 08 01                               MOV ESI, 0x108c5a4
+  00d7aa4b: b9 08 00 00 00                               MOV ECX, 0x8
+  00d7aa50: 33 d2                                        XOR EDX, EDX
+  00d7aa52: f3 a6                                        CMPSB.REPE ES:EDI, ESI
+  00d7aa54: 0f 84 b7 00 00 00                            JZ 0x00d7ab11
+  00d7aa5a: 8b 4d 00                                     MOV ECX, dword ptr [EBP]
+  00d7aa5d: f7 41 04 00 06 00 00                         TEST dword ptr [ECX + 0x4], 0x600
+  00d7aa64: 74 16                                        JZ 0x00d7aa7c
+  00d7aa66: bf 98 c5 08 01                               MOV EDI, 0x108c598
+  00d7aa6b: 8b f0                                        MOV ESI, EAX
+  00d7aa6d: b9 09 00 00 00                               MOV ECX, 0x9
+  00d7aa72: 33 d2                                        XOR EDX, EDX
+  00d7aa74: f3 a6                                        CMPSB.REPE ES:EDI, ESI
+  00d7aa76: 0f 84 95 00 00 00                            JZ 0x00d7ab11
+  00d7aa7c: 83 7d 10 00                                  CMP dword ptr [EBP + 0x10], 0x0
+  00d7aa80: 75 54                                        JNZ 0x00d7aad6
+  00d7aa82: 8b 44 24 4c                                  MOV EAX, dword ptr [ESP + 0x4c]
+  00d7aa86: 83 c0 01                                     ADD EAX, 0x1
+  00d7aa89: 50                                           PUSH EAX
+  00d7aa8a: 55                                           PUSH EBP
+  00d7aa8b: e8 10 50 0f 00                               CALL 0x00e6faa0
+  00d7aa90: 8b 0b                                        MOV ECX, dword ptr [EBX]
+  00d7aa92: 83 c4 04                                     ADD ESP, 0x4
+  00d7aa95: 50                                           PUSH EAX
+  00d7aa96: 51                                           PUSH ECX
+  00d7aa97: e8 e4 22 12 00                               CALL 0x00e9cd80
+  00d7aa9c: 8b 13                                        MOV EDX, dword ptr [EBX]
+  00d7aa9e: 8d 70 ff                                     LEA ESI, [EAX + -0x1]
+  00d7aaa1: 6a 00                                        PUSH 0x0
+  00d7aaa3: 81 c2 e8 00 00 00                            ADD EDX, 0xe8
+  00d7aaa9: 56                                           PUSH ESI
+  00d7aaaa: 52                                           PUSH EDX
+  00d7aaab: e8 50 0a 12 00                               CALL 0x00e9b500
+  00d7aab0: 89 45 18                                     MOV dword ptr [EBP + 0x18], EAX
+  00d7aab3: 8b 03                                        MOV EAX, dword ptr [EBX]
+  00d7aab5: 6a 03                                        PUSH 0x3
+  00d7aab7: 05 e8 00 00 00                               ADD EAX, 0xe8
+  00d7aabc: 56                                           PUSH ESI
+  00d7aabd: 50                                           PUSH EAX
+  00d7aabe: e8 3d 0a 12 00                               CALL 0x00e9b500
+  00d7aac3: 8b 0b                                        MOV ECX, dword ptr [EBX]
+  00d7aac5: 50                                           PUSH EAX
+  00d7aac6: 51                                           PUSH ECX
+  00d7aac7: 89 44 24 78                                  MOV dword ptr [ESP + 0x78], EAX
+  00d7aacb: e8 20 09 12 00                               CALL 0x00e9b3f0
+  00d7aad0: 83 c4 2c                                     ADD ESP, 0x2c
+  00d7aad3: 89 45 10                                     MOV dword ptr [EBP + 0x10], EAX
+  00d7aad6: 8b 45 10                                     MOV EAX, dword ptr [EBP + 0x10]
+  00d7aad9: 8d 54 24 14                                  LEA EDX, [ESP + 0x14]
+  00d7aadd: 52                                           PUSH EDX
+  00d7aade: 50                                           PUSH EAX
+  00d7aadf: 89 44 24 1c                                  MOV dword ptr [ESP + 0x1c], EAX
+  00d7aae3: e8 c8 0a 12 00                               CALL 0x00e9b5b0
+  00d7aae8: 8b 44 24 1c                                  MOV EAX, dword ptr [ESP + 0x1c]
+  00d7aaec: 0f b7 30                                     MOVZX ESI, word ptr [EAX]
+  00d7aaef: 83 c4 08                                     ADD ESP, 0x8
+  00d7aaf2: 8d 4c 24 20                                  LEA ECX, [ESP + 0x20]
+  00d7aaf6: 51                                           PUSH ECX
+  00d7aaf7: 8d 4c 24 38                                  LEA ECX, [ESP + 0x38]
+  00d7aafb: 89 74 24 24                                  MOV dword ptr [ESP + 0x24], ESI
+  00d7aaff: e8 9c e5 ff ff                               CALL 0x00d790a0
+  00d7ab04: 66 3b 74 24 50                               CMP SI, word ptr [ESP + 0x50]
+  00d7ab09: 89 28                                        MOV dword ptr [EAX], EBP
+  00d7ab0b: 75 04                                        JNZ 0x00d7ab11
+  00d7ab0d: 89 6c 24 10                                  MOV dword ptr [ESP + 0x10], EBP
+  00d7ab11: 8d 54 24 18                                  LEA EDX, [ESP + 0x18]
+  00d7ab15: 52                                           PUSH EDX
+  00d7ab16: 53                                           PUSH EBX
+  00d7ab17: e8 54 59 0f 00                               CALL 0x00e70470
+  00d7ab1c: 8b e8                                        MOV EBP, EAX
+  00d7ab1e: 83 c4 08                                     ADD ESP, 0x8
+  00d7ab21: 85 ed                                        TEST EBP, EBP
+  00d7ab23: 0f 85 18 ff ff ff                            JNZ 0x00d7aa41
+  00d7ab29: 8b 74 24 24                                  MOV ESI, dword ptr [ESP + 0x24]
+  00d7ab2d: 8b 7c 24 28                                  MOV EDI, dword ptr [ESP + 0x28]
+  00d7ab31: 8b 6c 24 34                                  MOV EBP, dword ptr [ESP + 0x34]
+  00d7ab35: 8b 5c 24 38                                  MOV EBX, dword ptr [ESP + 0x38]
+  00d7ab39: 3b eb                                        CMP EBP, EBX
+  00d7ab3b: 75 19                                        JNZ 0x00d7ab56
+  00d7ab3d: 85 ed                                        TEST EBP, EBP
+  00d7ab3f: 74 09                                        JZ 0x00d7ab4a
+  00d7ab41: 55                                           PUSH EBP
+  00d7ab42: e8 99 99 76 ff                               CALL 0x004e44e0
+  00d7ab47: 83 c4 04                                     ADD ESP, 0x4
+  00d7ab4a: 5f                                           POP EDI
+  00d7ab4b: 5e                                           POP ESI
+  00d7ab4c: 5d                                           POP EBP
+  00d7ab4d: 33 c0                                        XOR EAX, EAX
+  00d7ab4f: 5b                                           POP EBX
+  00d7ab50: 83 c4 38                                     ADD ESP, 0x38
+  00d7ab53: c2 08 00                                     RET 0x8
+  00d7ab56: c6 44 24 50 00                               MOV byte ptr [ESP + 0x50], 0x0
+  00d7ab5b: 8b 44 24 50                                  MOV EAX, dword ptr [ESP + 0x50]
+  00d7ab5f: 50                                           PUSH EAX
+  00d7ab60: 8d 4c 24 20                                  LEA ECX, [ESP + 0x20]
+  00d7ab64: 51                                           PUSH ECX
+  00d7ab65: 8d 54 24 30                                  LEA EDX, [ESP + 0x30]
+  00d7ab69: 52                                           PUSH EDX
+  00d7ab6a: 8b ce                                        MOV ECX, ESI
+  00d7ab6c: e8 7f 8f ff ff                               CALL 0x00d73af0
+  00d7ab71: 8b 74 24 28                                  MOV ESI, dword ptr [ESP + 0x28]
+  00d7ab75: 6a 00                                        PUSH 0x0
+  00d7ab77: 8d 04 bd 00 00 00 00                         LEA EAX, [EDI*0x4 + 0x0]
+  00d7ab7e: 89 7e 04                                     MOV dword ptr [ESI + 0x4], EDI
+  00d7ab81: 8b 0d 64 c8 1c 01                            MOV ECX, dword ptr [0x011cc864]
+  00d7ab87: 50                                           PUSH EAX
+  00d7ab88: e8 93 c3 76 ff                               CALL 0x004e6f20
+  00d7ab8d: 6a 00                                        PUSH 0x0
+  00d7ab8f: 8d 0c 3f                                     LEA ECX, [EDI + EDI*0x1]
+  00d7ab92: 89 46 0c                                     MOV dword ptr [ESI + 0xc], EAX
+  00d7ab95: 51                                           PUSH ECX
+  00d7ab96: 8b 0d 64 c8 1c 01                            MOV ECX, dword ptr [0x011cc864]
+  00d7ab9c: e8 7f c3 76 ff                               CALL 0x004e6f20
+  00d7aba1: 89 46 08                                     MOV dword ptr [ESI + 0x8], EAX
+  00d7aba4: 33 d2                                        XOR EDX, EDX
+  00d7aba6: 8b c5                                        MOV EAX, EBP
+  00d7aba8: 33 c9                                        XOR ECX, ECX
+  00d7abaa: 8d 9b 00 00 00 00                            LEA EBX, [EBX]
+  00d7abb0: 66 8b 28                                     MOV BP, word ptr [EAX]
+  00d7abb3: 8b 7e 08                                     MOV EDI, dword ptr [ESI + 0x8]
+  00d7abb6: 66 89 2c 39                                  MOV word ptr [ECX + EDI*0x1], BP
+  00d7abba: 8b 68 04                                     MOV EBP, dword ptr [EAX + 0x4]
+  00d7abbd: 8b 7e 0c                                     MOV EDI, dword ptr [ESI + 0xc]
+  00d7abc0: 89 2c 3a                                     MOV dword ptr [EDX + EDI*0x1], EBP
+  00d7abc3: 83 c0 08                                     ADD EAX, 0x8
+  00d7abc6: 83 c1 02                                     ADD ECX, 0x2
+  00d7abc9: 83 c2 04                                     ADD EDX, 0x4
+  00d7abcc: 3b c3                                        CMP EAX, EBX
+  00d7abce: 75 e0                                        JNZ 0x00d7abb0
+  00d7abd0: 8b 44 24 34                                  MOV EAX, dword ptr [ESP + 0x34]
+  00d7abd4: 85 c0                                        TEST EAX, EAX
+  00d7abd6: 74 09                                        JZ 0x00d7abe1
+  00d7abd8: 50                                           PUSH EAX
+  00d7abd9: e8 02 99 76 ff                               CALL 0x004e44e0
+  00d7abde: 83 c4 04                                     ADD ESP, 0x4
+  00d7abe1: 8b 44 24 10                                  MOV EAX, dword ptr [ESP + 0x10]
+  00d7abe5: 5f                                           POP EDI
+  00d7abe6: 5e                                           POP ESI
+  00d7abe7: 5d                                           POP EBP
+  00d7abe8: 5b                                           POP EBX
+  00d7abe9: 83 c4 38                                     ADD ESP, 0x38
+  00d7abec: c2 08 00                                     RET 0x8

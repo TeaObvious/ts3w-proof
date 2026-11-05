@@ -1,0 +1,148 @@
+Original PC 1.67 TS3W.exe; final saved Ghidra Listing with original PE bytes.
+Entry: 0x00D83038 (ReadFastFieldsResolvedStreamContinuation)
+Paired annotated Ghidra pseudocode: 00D83038_ReadFastFieldsResolvedStreamContinuation.c
+Owned half-open ranges: [['0xd83038', '0xd8306a'], ['0xd83070', '0xd831ec']]
+Owned bytes: 430; Listing instructions: 136
+Original identity: references/pc-167.md. Every instruction independently decoded from PE.
+Function ownership and generated ABI remain unchanged; semantic annotations were read back.
+Requires resolved stream in EAX and predecessor's 0x2C-byte local frame; not cdecl13.
+D8306A..6F are skipped nonowned alignment bytes, excluded here.
+Referenced dispatch data is outside ownership: dispatch-tables.tsv (68 useful bytes).
+
+SAVED GHIDRA LISTING WITH ORIGINAL BYTES
+  00d83038: 53                                           PUSH EBX ; Continuation ingress: EAX is resolved stream and ESP still includes D83020's 0x2C local frame. Generated 13-parameter signature is a split-entry artifact, not a callable contract.
+  00d83039: 56                                           PUSH ESI
+  00d8303a: 57                                           PUSH EDI
+  00d8303b: 6a 01                                        PUSH 0x1
+  00d8303d: 50                                           PUSH EAX
+  00d8303e: 8d 4c 24 28                                  LEA ECX, [ESP + 0x28]
+  00d83042: e8 99 63 a5 ff                               CALL 0x007d93e0
+  00d83047: 8b 5c 24 3c                                  MOV EBX, dword ptr [ESP + 0x3c]
+  00d8304b: 85 db                                        TEST EBX, EBX
+  00d8304d: 8b 4c 24 40                                  MOV ECX, dword ptr [ESP + 0x40]
+  00d83051: 8b 41 08                                     MOV EAX, dword ptr [ECX + 0x8]
+  00d83054: 0f 84 e7 00 00 00                            JZ 0x00d83141
+  00d8305a: 85 c0                                        TEST EAX, EAX
+  00d8305c: 0f 8e 73 01 00 00                            JLE 0x00d831d5
+  00d83062: 55                                           PUSH EBP
+  00d83063: 8d 79 10                                     LEA EDI, [ECX + 0x10]
+  00d83066: 8b e8                                        MOV EBP, EAX
+  00d83068: eb 06                                        JMP 0x00d83070
+  00d83070: 8b 77 04                                     MOV ESI, dword ptr [EDI + 0x4]
+  00d83073: 85 f6                                        TEST ESI, ESI
+  00d83075: 0f 8c b4 00 00 00                            JL 0x00d8312f ; Signed field offset <0 skips this record without reading stream bytes or storing object data.
+  00d8307b: 8b 07                                        MOV EAX, dword ptr [EDI]
+  00d8307d: 83 c0 fe                                     ADD EAX, -0x2
+  00d83080: 83 f8 0d                                     CMP EAX, 0xd
+  00d83083: 0f 87 a6 00 00 00                            JA 0x00d8312f
+  00d83089: 0f b6 88 00 32 d8 00                         MOVZX ECX, byte ptr [EAX + 0xd83200]
+  00d83090: ff 24 8d ec 31 d8 00                         JMP dword ptr [ECX*0x4 + 0xd831ec] ; Type code minus2, unsigned<=13; byte map D83200 then 5 DWORD targets D831EC. Supported widths: codes2/3/11=1B,8/13=2B,9/12/14=4B,7/10/15=8B; all others skip.
+  00d83097: 8b 44 24 2c                                  MOV EAX, dword ptr [ESP + 0x2c]
+  00d8309b: 8d 54 24 13                                  LEA EDX, [ESP + 0x13]
+  00d8309f: 52                                           PUSH EDX
+  00d830a0: 50                                           PUSH EAX
+  00d830a1: e8 ea a7 75 ff                               CALL 0x004dd890
+  00d830a6: 83 c4 08                                     ADD ESP, 0x8
+  00d830a9: 8d 4c 24 24                                  LEA ECX, [ESP + 0x24]
+  00d830ad: 50                                           PUSH EAX
+  00d830ae: e8 3d 49 a5 ff                               CALL 0x007d79f0
+  00d830b3: 8a 4c 24 13                                  MOV CL, byte ptr [ESP + 0x13]
+  00d830b7: 88 0c 1e                                     MOV byte ptr [ESI + EBX*0x1], CL ; Raw payload store occurs even if immediately preceding read returned false; accumulated status does not guard the store or stop traversal. Short-read output may be partial/uninitialized.
+  00d830ba: eb 73                                        JMP 0x00d8312f
+  00d830bc: 8d 54 24 14                                  LEA EDX, [ESP + 0x14]
+  00d830c0: 52                                           PUSH EDX
+  00d830c1: 8d 4c 24 28                                  LEA ECX, [ESP + 0x28]
+  00d830c5: e8 16 a0 7e ff                               CALL 0x0056d0e0
+  00d830ca: 66 8b 44 24 14                               MOV AX, word ptr [ESP + 0x14]
+  00d830cf: 66 89 04 1e                                  MOV word ptr [ESI + EBX*0x1], AX
+  00d830d3: eb 5a                                        JMP 0x00d8312f
+  00d830d5: 8b 4c 24 34                                  MOV ECX, dword ptr [ESP + 0x34]
+  00d830d9: 8b 44 24 2c                                  MOV EAX, dword ptr [ESP + 0x2c]
+  00d830dd: 51                                           PUSH ECX
+  00d830de: 8d 54 24 1c                                  LEA EDX, [ESP + 0x1c]
+  00d830e2: 52                                           PUSH EDX
+  00d830e3: 50                                           PUSH EAX
+  00d830e4: e8 97 a8 75 ff                               CALL 0x004dd980
+  00d830e9: 83 c4 0c                                     ADD ESP, 0xc
+  00d830ec: 8d 4c 24 24                                  LEA ECX, [ESP + 0x24]
+  00d830f0: 50                                           PUSH EAX
+  00d830f1: e8 fa 48 a5 ff                               CALL 0x007d79f0
+  00d830f6: 8b 4c 24 18                                  MOV ECX, dword ptr [ESP + 0x18]
+  00d830fa: 89 0c 1e                                     MOV dword ptr [ESI + EBX*0x1], ECX
+  00d830fd: eb 30                                        JMP 0x00d8312f
+  00d830ff: 8b 54 24 34                                  MOV EDX, dword ptr [ESP + 0x34]
+  00d83103: 8b 4c 24 2c                                  MOV ECX, dword ptr [ESP + 0x2c]
+  00d83107: 52                                           PUSH EDX
+  00d83108: 8d 44 24 20                                  LEA EAX, [ESP + 0x20]
+  00d8310c: 50                                           PUSH EAX
+  00d8310d: 51                                           PUSH ECX
+  00d8310e: e8 9d a9 75 ff                               CALL 0x004ddab0
+  00d83113: 83 c4 0c                                     ADD ESP, 0xc
+  00d83116: 8d 4c 24 24                                  LEA ECX, [ESP + 0x24]
+  00d8311a: 50                                           PUSH EAX
+  00d8311b: e8 d0 48 a5 ff                               CALL 0x007d79f0
+  00d83120: 8b 54 24 1c                                  MOV EDX, dword ptr [ESP + 0x1c]
+  00d83124: 8b 44 24 20                                  MOV EAX, dword ptr [ESP + 0x20]
+  00d83128: 89 14 1e                                     MOV dword ptr [ESI + EBX*0x1], EDX
+  00d8312b: 89 44 1e 04                                  MOV dword ptr [ESI + EBX*0x1 + 0x4], EAX
+  00d8312f: 83 c7 08                                     ADD EDI, 0x8
+  00d83132: 83 ed 01                                     SUB EBP, 0x1
+  00d83135: 0f 85 35 ff ff ff                            JNZ 0x00d83070
+  00d8313b: 5d                                           POP EBP
+  00d8313c: e9 94 00 00 00                               JMP 0x00d831d5
+  00d83141: 85 c0                                        TEST EAX, EAX ; Null object still consumes supported nonnegative-offset fast fields in order; it omits all object stores. Negative offsets and unsupported codes still consume nothing.
+  00d83143: 0f 8e 8c 00 00 00                            JLE 0x00d831d5
+  00d83149: 8d 71 10                                     LEA ESI, [ECX + 0x10]
+  00d8314c: 8b f8                                        MOV EDI, EAX
+  00d8314e: 8b ff                                        MOV EDI, EDI
+  00d83150: 83 7e 04 00                                  CMP dword ptr [ESI + 0x4], 0x0
+  00d83154: 7c 73                                        JL 0x00d831c9
+  00d83156: 8b 06                                        MOV EAX, dword ptr [ESI]
+  00d83158: 83 c0 fe                                     ADD EAX, -0x2
+  00d8315b: 83 f8 0d                                     CMP EAX, 0xd
+  00d8315e: 77 69                                        JA 0x00d831c9
+  00d83160: 0f b6 88 24 32 d8 00                         MOVZX ECX, byte ptr [EAX + 0xd83224]
+  00d83167: ff 24 8d 10 32 d8 00                         JMP dword ptr [ECX*0x4 + 0xd83210] ; Null-object dispatch uses separate target table D83210 and identical 14-byte selector map D83224. These tables are referenced data outside function ownership.
+  00d8316e: 8b 44 24 28                                  MOV EAX, dword ptr [ESP + 0x28]
+  00d83172: 8d 54 24 0f                                  LEA EDX, [ESP + 0xf]
+  00d83176: 52                                           PUSH EDX
+  00d83177: 50                                           PUSH EAX
+  00d83178: e8 13 a7 75 ff                               CALL 0x004dd890
+  00d8317d: 83 c4 08                                     ADD ESP, 0x8
+  00d83180: eb 3d                                        JMP 0x00d831bf
+  00d83182: 8d 4c 24 10                                  LEA ECX, [ESP + 0x10]
+  00d83186: 51                                           PUSH ECX
+  00d83187: 8d 4c 24 24                                  LEA ECX, [ESP + 0x24]
+  00d8318b: e8 50 9f 7e ff                               CALL 0x0056d0e0
+  00d83190: eb 37                                        JMP 0x00d831c9
+  00d83192: 8b 54 24 30                                  MOV EDX, dword ptr [ESP + 0x30]
+  00d83196: 8b 4c 24 28                                  MOV ECX, dword ptr [ESP + 0x28]
+  00d8319a: 52                                           PUSH EDX
+  00d8319b: 8d 44 24 18                                  LEA EAX, [ESP + 0x18]
+  00d8319f: 50                                           PUSH EAX
+  00d831a0: 51                                           PUSH ECX
+  00d831a1: e8 da a7 75 ff                               CALL 0x004dd980
+  00d831a6: eb 14                                        JMP 0x00d831bc
+  00d831a8: 8b 54 24 30                                  MOV EDX, dword ptr [ESP + 0x30]
+  00d831ac: 8b 4c 24 28                                  MOV ECX, dword ptr [ESP + 0x28]
+  00d831b0: 52                                           PUSH EDX
+  00d831b1: 8d 44 24 1c                                  LEA EAX, [ESP + 0x1c]
+  00d831b5: 50                                           PUSH EAX
+  00d831b6: 51                                           PUSH ECX
+  00d831b7: e8 f4 a8 75 ff                               CALL 0x004ddab0
+  00d831bc: 83 c4 0c                                     ADD ESP, 0xc
+  00d831bf: 50                                           PUSH EAX
+  00d831c0: 8d 4c 24 24                                  LEA ECX, [ESP + 0x24]
+  00d831c4: e8 27 48 a5 ff                               CALL 0x007d79f0
+  00d831c9: 83 c6 08                                     ADD ESI, 0x8
+  00d831cc: 83 ef 01                                     SUB EDI, 0x1
+  00d831cf: 0f 85 7b ff ff ff                            JNZ 0x00d83150
+  00d831d5: 8a 5c 24 34                                  MOV BL, byte ptr [ESP + 0x34]
+  00d831d9: 8d 4c 24 20                                  LEA ECX, [ESP + 0x20]
+  00d831dd: e8 ae 47 a5 ff                               CALL 0x007d7990
+  00d831e2: 5f                                           POP EDI
+  00d831e3: 5e                                           POP ESI
+  00d831e4: 0f b6 c3                                     MOVZX EAX, BL ; Zero-extend accumulated reader status byte into EAX. Return cannot be negative; original managed LoadObject only treats <0 as abort, so native zero does not take that guard.
+  00d831e7: 5b                                           POP EBX
+  00d831e8: 83 c4 2c                                     ADD ESP, 0x2c
+  00d831eb: c3                                           RET

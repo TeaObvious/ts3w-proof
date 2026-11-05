@@ -1,0 +1,189 @@
+Original PC 1.67 TS3W.exe; final saved Ghidra Listing with original PE bytes.
+Entry: 0x00D835D0 (ScriptCore.TaskControl::TaskControl_ResolveFieldReference)
+Paired annotated pseudocode: 00D835D0_ScriptCore_TaskControl_TaskControl_ResolveFieldReference.c
+Owned half-open ranges: [['0xd835d0', '0xd836ba'], ['0xd836c0', '0xd837ae']]
+Owned bytes: 472; Listing instructions: 179
+Identity: references/pc-167.md. Original PE independently decoded by objdump.
+Body and stored ABI unchanged. Static evidence; no original runtime execution.
+Skipped nonowned alignment D836BA..BF excluded. Legacy480B already included complete472B ownership.
+
+SAVED GHIDRA LISTING WITH ORIGINAL BYTES
+  00d835d0: 83 ec 10                                     SUB ESP, 0x10
+  00d835d3: 56                                           PUSH ESI
+  00d835d4: 8b 74 24 20                                  MOV ESI, dword ptr [ESP + 0x20]
+  00d835d8: 83 3e 00                                     CMP dword ptr [ESI], 0x0 ; Frame index0 returns AL0 before host lookup. This is not a declaration that managed TaskFieldReference is globally one-based; other accessors and saved contexts use frame0.
+  00d835db: 75 07                                        JNZ 0x00d835e4
+  00d835dd: 32 c0                                        XOR AL, AL
+  00d835df: 5e                                           POP ESI
+  00d835e0: 83 c4 10                                     ADD ESP, 0x10
+  00d835e3: c3                                           RET
+  00d835e4: e8 a7 5d 9e ff                               CALL 0x00769390
+  00d835e9: 85 c0                                        TEST EAX, EAX
+  00d835eb: 74 05                                        JZ 0x00d835f2
+  00d835ed: 8d 48 f8                                     LEA ECX, [EAX + -0x8]
+  00d835f0: eb 02                                        JMP 0x00d835f4
+  00d835f2: 33 c9                                        XOR ECX, ECX
+  00d835f4: 8b 44 24 1c                                  MOV EAX, dword ptr [ESP + 0x1c]
+  00d835f8: 8b 54 24 18                                  MOV EDX, dword ptr [ESP + 0x18]
+  00d835fc: 55                                           PUSH EBP
+  00d835fd: 6a 00                                        PUSH 0x0
+  00d835ff: 50                                           PUSH EAX
+  00d83600: 52                                           PUSH EDX
+  00d83601: e8 ba 2a ff ff                               CALL 0x00d760c0
+  00d83606: 8b e8                                        MOV EBP, EAX
+  00d83608: 85 ed                                        TEST EBP, EBP
+  00d8360a: 74 0a                                        JZ 0x00d83616
+  00d8360c: 8b 06                                        MOV EAX, dword ptr [ESI]
+  00d8360e: 3b 85 40 01 00 00                            CMP EAX, dword ptr [EBP + 0x140] ; Unsigned CMP/JBE admits frame index <= task state+140 inclusive. Selected frame pointer must also be nonnull. Managed negative Int32 values are not handled as a separate signed-range check.
+  00d83614: 76 08                                        JBE 0x00d8361e
+  00d83616: 5d                                           POP EBP
+  00d83617: 32 c0                                        XOR AL, AL
+  00d83619: 5e                                           POP ESI
+  00d8361a: 83 c4 10                                     ADD ESP, 0x10
+  00d8361d: c3                                           RET
+  00d8361e: 57                                           PUSH EDI
+  00d8361f: 8b 7c 85 3c                                  MOV EDI, dword ptr [EBP + EAX*0x4 + 0x3c]
+  00d83623: 85 ff                                        TEST EDI, EDI
+  00d83625: 75 09                                        JNZ 0x00d83630
+  00d83627: 5f                                           POP EDI
+  00d83628: 5d                                           POP EBP
+  00d83629: 32 c0                                        XOR AL, AL
+  00d8362b: 5e                                           POP ESI
+  00d8362c: 83 c4 10                                     ADD ESP, 0x10
+  00d8362f: c3                                           RET
+  00d83630: 8b 37                                        MOV ESI, dword ptr [EDI]
+  00d83632: 53                                           PUSH EBX
+  00d83633: 8b 5e 08                                     MOV EBX, dword ptr [ESI + 0x8]
+  00d83636: 53                                           PUSH EBX
+  00d83637: e8 34 20 10 00                               CALL 0x00e85670
+  00d8363c: 8b 4c 24 30                                  MOV ECX, dword ptr [ESP + 0x30]
+  00d83640: 8b 51 04                                     MOV EDX, dword ptr [ECX + 0x4]
+  00d83643: 0f b6 4e 40                                  MOVZX ECX, byte ptr [ESI + 0x40]
+  00d83647: 83 c4 04                                     ADD ESP, 0x4
+  00d8364a: 3b d1                                        CMP EDX, ECX ; Field index is compared unsigned against an8-bit argument count at layout+40. Remaining indices select locals and compare with a16-bit count at method-body header+10.
+  00d8364c: 73 0f                                        JNC 0x00d8365d
+  00d8364e: 8b 46 1c                                     MOV EAX, dword ptr [ESI + 0x1c]
+  00d83651: 8b 0c 90                                     MOV ECX, dword ptr [EAX + EDX*0x4]
+  00d83654: 8b 43 0c                                     MOV EAX, dword ptr [EBX + 0xc]
+  00d83657: 8b 44 90 10                                  MOV EAX, dword ptr [EAX + EDX*0x4 + 0x10]
+  00d8365b: eb 2a                                        JMP 0x00d83687
+  00d8365d: 2b d1                                        SUB EDX, ECX
+  00d8365f: 0f b7 48 10                                  MOVZX ECX, word ptr [EAX + 0x10]
+  00d83663: 3b d1                                        CMP EDX, ECX
+  00d83665: 0f 83 01 01 00 00                            JNC 0x00d8376c
+  00d8366b: 0f b7 5e 3e                                  MOVZX EBX, word ptr [ESI + 0x3e]
+  00d8366f: 8b 4e 20                                     MOV ECX, dword ptr [ESI + 0x20]
+  00d83672: 8b 0c 91                                     MOV ECX, dword ptr [ECX + EDX*0x4]
+  00d83675: 8b 44 90 18                                  MOV EAX, dword ptr [EAX + EDX*0x4 + 0x18]
+  00d83679: 03 cb                                        ADD ECX, EBX
+  00d8367b: 0f b7 5e 36                                  MOVZX EBX, word ptr [ESI + 0x36]
+  00d8367f: 0f b7 76 34                                  MOVZX ESI, word ptr [ESI + 0x34]
+  00d83683: 03 cb                                        ADD ECX, EBX
+  00d83685: 03 ce                                        ADD ECX, ESI
+  00d83687: 03 4f 20                                     ADD ECX, dword ptr [EDI + 0x20]
+  00d8368a: f7 40 04 00 00 00 40                         TEST dword ptr [EAX + 0x4], 0x40000000 ; Only runtime field type flag40000000 admits byref normalization. The DWORD stored in its slot is the absolute referred address; non-byref types return false.
+  00d83691: 0f 84 d5 00 00 00                            JZ 0x00d8376c
+  00d83697: 8b 44 24 2c                                  MOV EAX, dword ptr [ESP + 0x2c]
+  00d8369b: 8b 00                                        MOV EAX, dword ptr [EAX]
+  00d8369d: 8b 11                                        MOV EDX, dword ptr [ECX]
+  00d8369f: 83 e8 01                                     SUB EAX, 0x1
+  00d836a2: 89 54 24 18                                  MOV dword ptr [ESP + 0x18], EDX
+  00d836a6: 89 44 24 10                                  MOV dword ptr [ESP + 0x10], EAX
+  00d836aa: 0f 88 bc 00 00 00                            JS 0x00d8376c ; Start at input frame-1 and stop when the decremented32-bit index has sign bit set. Null earlier frame pointers are skipped; this does not search the same or later frame.
+  00d836b0: 8d 6c 85 3c                                  LEA EBP, [EBP + EAX*0x4 + 0x3c]
+  00d836b4: 89 6c 24 14                                  MOV dword ptr [ESP + 0x14], EBP
+  00d836b8: eb 06                                        JMP 0x00d836c0
+  00d836c0: 8b 5d 00                                     MOV EBX, dword ptr [EBP]
+  00d836c3: 85 db                                        TEST EBX, EBX
+  00d836c5: 0f 84 87 00 00 00                            JZ 0x00d83752
+  00d836cb: 8b 33                                        MOV ESI, dword ptr [EBX]
+  00d836cd: 8b 7e 08                                     MOV EDI, dword ptr [ESI + 0x8]
+  00d836d0: 57                                           PUSH EDI
+  00d836d1: e8 9a 1f 10 00                               CALL 0x00e85670
+  00d836d6: 8b 4c 24 1c                                  MOV ECX, dword ptr [ESP + 0x1c]
+  00d836da: 0f b7 56 38                                  MOVZX EDX, word ptr [ESI + 0x38]
+  00d836de: 2b 4b 20                                     SUB ECX, dword ptr [EBX + 0x20]
+  00d836e1: 8b e8                                        MOV EBP, EAX
+  00d836e3: 8b 47 0c                                     MOV EAX, dword ptr [EDI + 0xc]
+  00d836e6: 83 c4 04                                     ADD ESP, 0x4
+  00d836e9: 3b ca                                        CMP ECX, EDX ; Subtract candidate frame base with32-bit wrapping arithmetic; unsigned relative offset must be below16-bit layout span+38 before any candidate-field search.
+  00d836eb: 89 44 24 1c                                  MOV dword ptr [ESP + 0x1c], EAX
+  00d836ef: 73 5d                                        JNC 0x00d8374e
+  00d836f1: 0f b7 7e 3e                                  MOVZX EDI, word ptr [ESI + 0x3e]
+  00d836f5: 3b cf                                        CMP ECX, EDI
+  00d836f7: 73 1b                                        JNC 0x00d83714
+  00d836f9: 0f b7 40 04                                  MOVZX EAX, word ptr [EAX + 0x4]
+  00d836fd: 33 d2                                        XOR EDX, EDX
+  00d836ff: 85 c0                                        TEST EAX, EAX
+  00d83701: 76 11                                        JBE 0x00d83714
+  00d83703: 8b 5e 1c                                     MOV EBX, dword ptr [ESI + 0x1c]
+  00d83706: 3b 0b                                        CMP ECX, dword ptr [EBX]
+  00d83708: 74 6c                                        JZ 0x00d83776
+  00d8370a: 83 c2 01                                     ADD EDX, 0x1
+  00d8370d: 83 c3 04                                     ADD EBX, 0x4
+  00d83710: 3b d0                                        CMP EDX, EAX
+  00d83712: 72 f2                                        JC 0x00d83706
+  00d83714: 0f b7 46 34                                  MOVZX EAX, word ptr [ESI + 0x34]
+  00d83718: 2b cf                                        SUB ECX, EDI
+  00d8371a: 3b c8                                        CMP ECX, EAX
+  00d8371c: 72 4e                                        JC 0x00d8376c ; A hit inside layout span+34 returns false for the whole operation, not merely this candidate. The analogous +36 region check atD83726 has the same terminating behavior.
+  00d8371e: 2b c8                                        SUB ECX, EAX
+  00d83720: 0f b7 46 36                                  MOVZX EAX, word ptr [ESI + 0x36]
+  00d83724: 3b c8                                        CMP ECX, EAX
+  00d83726: 72 44                                        JC 0x00d8376c
+  00d83728: 2b c8                                        SUB ECX, EAX
+  00d8372a: 0f b7 46 3c                                  MOVZX EAX, word ptr [ESI + 0x3c]
+  00d8372e: 3b c8                                        CMP ECX, EAX
+  00d83730: 73 1c                                        JNC 0x00d8374e
+  00d83732: 0f b7 45 10                                  MOVZX EAX, word ptr [EBP + 0x10]
+  00d83736: 33 d2                                        XOR EDX, EDX
+  00d83738: 85 c0                                        TEST EAX, EAX
+  00d8373a: 76 12                                        JBE 0x00d8374e
+  00d8373c: 8b 76 20                                     MOV ESI, dword ptr [ESI + 0x20]
+  00d8373f: 90                                           NOP
+  00d83740: 3b 0e                                        CMP ECX, dword ptr [ESI]
+  00d83742: 74 49                                        JZ 0x00d8378d
+  00d83744: 83 c2 01                                     ADD EDX, 0x1
+  00d83747: 83 c6 04                                     ADD ESI, 0x4
+  00d8374a: 3b d0                                        CMP EDX, EAX
+  00d8374c: 72 f2                                        JC 0x00d83740
+  00d8374e: 8b 44 24 10                                  MOV EAX, dword ptr [ESP + 0x10]
+  00d83752: 8b 6c 24 14                                  MOV EBP, dword ptr [ESP + 0x14]
+  00d83756: 83 e8 01                                     SUB EAX, 0x1
+  00d83759: 83 ed 04                                     SUB EBP, 0x4
+  00d8375c: 85 c0                                        TEST EAX, EAX
+  00d8375e: 89 44 24 10                                  MOV dword ptr [ESP + 0x10], EAX
+  00d83762: 89 6c 24 14                                  MOV dword ptr [ESP + 0x14], EBP
+  00d83766: 0f 8d 54 ff ff ff                            JGE 0x00d836c0
+  00d8376c: 5b                                           POP EBX
+  00d8376d: 5f                                           POP EDI
+  00d8376e: 5d                                           POP EBP
+  00d8376f: 32 c0                                        XOR AL, AL ; Failure sets AL only. Generated uint/undefined4 return projections preserve unrelated upper EAX bits; consume the original managed Boolean contract, not a full-register integer sentinel.
+  00d83771: 5e                                           POP ESI
+  00d83772: 83 c4 10                                     ADD ESP, 0x10
+  00d83775: c3                                           RET
+  00d83776: 8b 44 24 2c                                  MOV EAX, dword ptr [ESP + 0x2c]
+  00d8377a: 8b 4c 24 10                                  MOV ECX, dword ptr [ESP + 0x10]
+  00d8377e: 5b                                           POP EBX
+  00d8377f: 5f                                           POP EDI
+  00d83780: 5d                                           POP EBP
+  00d83781: 89 08                                        MOV dword ptr [EAX], ECX ; Exact argument-offset match: write earlier frame index and argument ordinal, then return AL1. Failure paths perform neither output-pair store.
+  00d83783: 89 50 04                                     MOV dword ptr [EAX + 0x4], EDX
+  00d83786: b0 01                                        MOV AL, 0x1
+  00d83788: 5e                                           POP ESI
+  00d83789: 83 c4 10                                     ADD ESP, 0x10
+  00d8378c: c3                                           RET
+  00d8378d: 8b 44 24 2c                                  MOV EAX, dword ptr [ESP + 0x2c]
+  00d83791: 8b 4c 24 10                                  MOV ECX, dword ptr [ESP + 0x10]
+  00d83795: 89 08                                        MOV dword ptr [EAX], ECX ; Exact local-offset match: write earlier frame index and local ordinal plus16-bit argument count from method signature+4; then return AL1.
+  00d83797: 8b 4c 24 1c                                  MOV ECX, dword ptr [ESP + 0x1c]
+  00d8379b: 0f b7 49 04                                  MOVZX ECX, word ptr [ECX + 0x4]
+  00d8379f: 5b                                           POP EBX
+  00d837a0: 5f                                           POP EDI
+  00d837a1: 03 ca                                        ADD ECX, EDX
+  00d837a3: 5d                                           POP EBP
+  00d837a4: 89 48 04                                     MOV dword ptr [EAX + 0x4], ECX
+  00d837a7: b0 01                                        MOV AL, 0x1
+  00d837a9: 5e                                           POP ESI
+  00d837aa: 83 c4 10                                     ADD ESP, 0x10
+  00d837ad: c3                                           RET

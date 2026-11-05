@@ -8,8 +8,8 @@ redraw scheduling or native object lifetime.
 
 ## Code, data and ownership
 
-The [original-byte CFG and current Ghidra Listing](../../evidence/native/ui/frame-drawable/0077D320.asm.txt)
-([actual annotated Ghidra C](../../evidence/native/ui/frame-drawable/0077D320.c))
+The [original-byte CFG and current Ghidra Listing](../../evidence/native/ui/frame-drawable/0077D320_ScriptCore_UIManager_UIManager_FrameDrawableGenericImpl.asm)
+([actual annotated Ghidra C](../../evidence/native/ui/frame-drawable/0077D320_ScriptCore_UIManager_UIManager_FrameDrawableGenericImpl.c))
 retain the exact limits. The code candidate 77D320..77D39B contains 124 bytes and
 40 independently decoded instructions, all reachable when the four targets in the
 [original jump table](../../evidence/native/ui/frame-drawable/dispatch-table.tsv)
@@ -79,8 +79,8 @@ require other producers/consumers.
 
 ## Concrete initializer and provider data
 
-[InitializeFrameDrawable ASM](../../evidence/native/ui/frame-drawable/00523830.asm.txt)
-([actual Ghidra C](../../evidence/native/ui/frame-drawable/00523830.c)) retains the
+[InitializeFrameDrawable ASM](../../evidence/native/ui/frame-drawable/00523830_InitializeFrameDrawable.asm)
+([actual Ghidra C](../../evidence/native/ui/frame-drawable/00523830_InitializeFrameDrawable.c)) retains the
 complete current owned body 523830..5238A6: 119 bytes / 29 instructions.
 `InitializeFrameDrawable` is an analyst-assigned role name. ECX is the writable
 receiver and EAX remains that pointer on return, although the C signature models

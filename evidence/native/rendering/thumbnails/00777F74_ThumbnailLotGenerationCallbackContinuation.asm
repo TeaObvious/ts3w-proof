@@ -1,0 +1,266 @@
+TS3W.exe PC 1.67 — original bytes and saved Ghidra Listing
+DB entry: 00777F74
+Paired actual Ghidra pseudocode: 00777F74_ThumbnailLotGenerationCallbackContinuation.c
+Owned body inclusive: 00777F74..00778091
+Complete current Ghidra body (contiguous)
+Preserved interval: [00777F74, 00778092)
+Originalbytes read from identified pristine PE; independently decoded by GNU objdump.
+Ghidra names/comments are analyst-assigned where stated; no runtime observed.
+
+ORIGINAL BYTES
+00777F74: 53 55 56 e8 14 14 ff ff 8b f0 8b 16 8b 82 18 01
+00777F84: 00 00 8b ce ff d0 85 ff 8b e8 8b da 0f 84 a8 00
+00777F94: 00 00 6a 00 6a 00 6a 00 6a 00 68 44 e2 00 01 6a
+00777FA4: 38 e8 56 c5 d6 ff 83 c4 18 85 c0 74 7c 8b 4c 24
+00777FB4: 4c 51 53 55 8b c8 e8 b1 fc ff ff 8b f8 85 ff 74
+00777FC4: 09 8b 17 8b 42 04 8b cf ff d0 8b 4c 24 48 8b 54
+00777FD4: 24 44 8b 44 24 40 57 51 8b 4c 24 44 52 8b 54 24
+00777FE4: 44 50 51 8b 4c 24 24 52 e8 0f 9b 5e 00 84 c0 74
+00777FF4: 3c 8b 4c 24 4c 8b 06 8b 90 20 01 00 00 6a 00 51
+00778004: 6a ff 53 55 8b ce ff d2 8b 06 8b 90 1c 01 00 00
+00778014: 8b ce ff d2 85 ff 74 6e 8b 07 8b 50 08 8b cf ff
+00778024: d2 5e 5d 5b 5f 83 c4 24 c3 33 ff eb 9d 85 ff 74
+00778034: 09 8b 07 8b 50 08 8b cf ff d2 8b 54 24 4c 6a 00
+00778044: 8d 4c 24 18 51 53 bf f4 a6 fb 00 89 7c 24 20 c6
+00778054: 44 24 30 00 66 c7 44 24 2a 01 00 66 c7 44 24 28
+00778064: 00 00 8b 06 8b 80 30 01 00 00 55 52 8b ce ff d0
+00778074: f6 44 24 1c 04 89 7c 24 14 74 0b 6a 00 8d 4c 24
+00778084: 18 e8 d6 d6 d7 ff 5e 5d 5b 5f 83 c4 24 c3
+
+SAVED GHIDRA LISTING
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: ThumbnailLotGenerationCallbackContinuation
+Entry Point: 00777f74
+
+00777f74: PUSH EBX ; Branch continuation from 00777F30: inherits its existing stack and EDI manager; standalone decompiler arguments are artifacts.
+00777f75: PUSH EBP
+00777f76: PUSH ESI
+00777f77: CALL 0x00769390
+00777f7c: MOV ESI, EAX
+00777f7e: MOV EDX, dword ptr [ESI]
+00777f80: MOV EAX, dword ptr [EDX + 0x118]
+00777f86: MOV ECX, ESI
+00777f88: CALL EAX
+00777f8a: TEST EDI, EDI
+00777f8c: MOV EBP, EAX
+00777f8e: MOV EBX, EDX
+00777f90: JZ 0x0077803e ; Captured manager absent: skip allocation/request and issue immediate host +130 callback below.
+00777f96: PUSH 0x0
+00777f98: PUSH 0x0
+00777f9a: PUSH 0x0
+00777f9c: PUSH 0x0
+00777f9e: PUSH 0x100e244
+00777fa3: PUSH 0x38
+00777fa5: CALL 0x004e4500
+00777faa: ADD ESP, 0x18
+00777fad: TEST EAX, EAX
+00777faf: JZ 0x0077802d
+00777fb1: MOV ECX, dword ptr [ESP + 0x4c]
+00777fb5: PUSH ECX
+00777fb6: PUSH EBX
+00777fb7: PUSH EBP
+00777fb8: MOV ECX, EAX
+00777fba: CALL 0x00777c70
+00777fbf: MOV EDI, EAX
+00777fc1: TEST EDI, EDI
+00777fc3: JZ 0x00777fce
+00777fc5: MOV EDX, dword ptr [EDI]
+00777fc7: MOV EAX, dword ptr [EDX + 0x4]
+00777fca: MOV ECX, EDI
+00777fcc: CALL EAX
+00777fce: MOV ECX, dword ptr [ESP + 0x48]
+00777fd2: MOV EDX, dword ptr [ESP + 0x44]
+00777fd6: MOV EAX, dword ptr [ESP + 0x40]
+00777fda: PUSH EDI
+00777fdb: PUSH ECX
+00777fdc: MOV ECX, dword ptr [ESP + 0x44]
+00777fe0: PUSH EDX
+00777fe1: MOV EDX, dword ptr [ESP + 0x44]
+00777fe5: PUSH EAX
+00777fe6: PUSH ECX
+00777fe7: MOV ECX, dword ptr [ESP + 0x24]
+00777feb: PUSH EDX
+00777fec: CALL 0x00d61b00
+00777ff1: TEST AL, AL ; Only AL selects admission branch; zero reaches immediate callback, nonzero reaches host +120 then +11C. No image-completion proof.
+00777ff3: JZ 0x00778031
+00777ff5: MOV ECX, dword ptr [ESP + 0x4c]
+00777ff9: MOV EAX, dword ptr [ESI]
+00777ffb: MOV EDX, dword ptr [EAX + 0x120]
+00778001: PUSH 0x0
+00778003: PUSH ECX
+00778004: PUSH -0x1
+00778006: PUSH EBX
+00778007: PUSH EBP
+00778008: MOV ECX, ESI
+0077800a: CALL EDX ; Host +120(token low/high, -1, delegate, 0), only after nonzero request AL; host scheduling semantics unresolved.
+0077800c: MOV EAX, dword ptr [ESI]
+0077800e: MOV EDX, dword ptr [EAX + 0x11c]
+00778014: MOV ECX, ESI
+00778016: CALL EDX ; Host +11C follows +120 before optional notifier +8; ownership/thread semantics require host proof.
+00778018: TEST EDI, EDI
+0077801a: JZ 0x0077808a
+0077801c: MOV EAX, dword ptr [EDI]
+0077801e: MOV EDX, dword ptr [EAX + 0x8]
+00778021: MOV ECX, EDI
+00778023: CALL EDX
+00778025: POP ESI
+00778026: POP EBP
+00778027: POP EBX
+00778028: POP EDI
+00778029: ADD ESP, 0x24
+0077802c: RET
+0077802d: XOR EDI, EDI
+0077802f: JMP 0x00777fce
+00778031: TEST EDI, EDI
+00778033: JZ 0x0077803e
+00778035: MOV EAX, dword ptr [EDI]
+00778037: MOV EDX, dword ptr [EAX + 0x8]
+0077803a: MOV ECX, EDI
+0077803c: CALL EDX
+0077803e: MOV EDX, dword ptr [ESP + 0x4c]
+00778042: PUSH 0x0
+00778044: LEA ECX, [ESP + 0x18]
+00778048: PUSH ECX
+00778049: PUSH EBX
+0077804a: MOV EDI, 0xfba6f4
+0077804f: MOV dword ptr [ESP + 0x20], EDI
+00778053: MOV byte ptr [ESP + 0x30], 0x0
+00778058: MOV word ptr [ESP + 0x2a], 0x1 ; First UInt16 temporary store: higher-address word = 1; separate zero payload byte was stored earlier.
+0077805f: MOV word ptr [ESP + 0x28], 0x0 ; Second UInt16 temporary store: lower-address word = 0 (physical order is 1 then 0). Variant semantics remain qualified.
+00778066: MOV EAX, dword ptr [ESI]
+00778068: MOV EAX, dword ptr [EAX + 0x130]
+0077806e: PUSH EBP
+0077806f: PUSH EDX
+00778070: MOV ECX, ESI
+00778072: CALL EAX ; Immediate host +130(delegate, token low/high, typed zero temporary, 0), reached on absent manager or zero request AL.
+00778074: TEST byte ptr [ESP + 0x1c], 0x4 ; Physical source is temporary stack flag BYTE & 0x04; conditionally call 4F5760 cleanup. Decompiler unaff_EBX is not the source.
+00778079: MOV dword ptr [ESP + 0x14], EDI
+0077807d: JZ 0x0077808a
+0077807f: PUSH 0x0
+00778081: LEA ECX, [ESP + 0x18]
+00778085: CALL 0x004f5760
+0077808a: POP ESI
+0077808b: POP EBP
+0077808c: POP EBX
+0077808d: POP EDI
+0077808e: ADD ESP, 0x24
+00778091: RET
+
+Total instructions: 113
+
+INDEPENDENT PE DISASSEMBLY
+00777f74 <.text+0x376f74>:
+  777f74:	53                                              	push   ebx
+  777f75:	55                                              	push   ebp
+  777f76:	56                                              	push   esi
+  777f77:	e8 14 14 ff ff                                  	call   0x769390
+  777f7c:	8b f0                                           	mov    esi,eax
+  777f7e:	8b 16                                           	mov    edx,DWORD PTR [esi]
+  777f80:	8b 82 18 01 00 00                               	mov    eax,DWORD PTR [edx+0x118]
+  777f86:	8b ce                                           	mov    ecx,esi
+  777f88:	ff d0                                           	call   eax
+  777f8a:	85 ff                                           	test   edi,edi
+  777f8c:	8b e8                                           	mov    ebp,eax
+  777f8e:	8b da                                           	mov    ebx,edx
+  777f90:	0f 84 a8 00 00 00                               	je     0x77803e
+  777f96:	6a 00                                           	push   0x0
+  777f98:	6a 00                                           	push   0x0
+  777f9a:	6a 00                                           	push   0x0
+  777f9c:	6a 00                                           	push   0x0
+  777f9e:	68 44 e2 00 01                                  	push   0x100e244
+  777fa3:	6a 38                                           	push   0x38
+  777fa5:	e8 56 c5 d6 ff                                  	call   0x4e4500
+  777faa:	83 c4 18                                        	add    esp,0x18
+  777fad:	85 c0                                           	test   eax,eax
+  777faf:	74 7c                                           	je     0x77802d
+  777fb1:	8b 4c 24 4c                                     	mov    ecx,DWORD PTR [esp+0x4c]
+  777fb5:	51                                              	push   ecx
+  777fb6:	53                                              	push   ebx
+  777fb7:	55                                              	push   ebp
+  777fb8:	8b c8                                           	mov    ecx,eax
+  777fba:	e8 b1 fc ff ff                                  	call   0x777c70
+  777fbf:	8b f8                                           	mov    edi,eax
+  777fc1:	85 ff                                           	test   edi,edi
+  777fc3:	74 09                                           	je     0x777fce
+  777fc5:	8b 17                                           	mov    edx,DWORD PTR [edi]
+  777fc7:	8b 42 04                                        	mov    eax,DWORD PTR [edx+0x4]
+  777fca:	8b cf                                           	mov    ecx,edi
+  777fcc:	ff d0                                           	call   eax
+  777fce:	8b 4c 24 48                                     	mov    ecx,DWORD PTR [esp+0x48]
+  777fd2:	8b 54 24 44                                     	mov    edx,DWORD PTR [esp+0x44]
+  777fd6:	8b 44 24 40                                     	mov    eax,DWORD PTR [esp+0x40]
+  777fda:	57                                              	push   edi
+  777fdb:	51                                              	push   ecx
+  777fdc:	8b 4c 24 44                                     	mov    ecx,DWORD PTR [esp+0x44]
+  777fe0:	52                                              	push   edx
+  777fe1:	8b 54 24 44                                     	mov    edx,DWORD PTR [esp+0x44]
+  777fe5:	50                                              	push   eax
+  777fe6:	51                                              	push   ecx
+  777fe7:	8b 4c 24 24                                     	mov    ecx,DWORD PTR [esp+0x24]
+  777feb:	52                                              	push   edx
+  777fec:	e8 0f 9b 5e 00                                  	call   0xd61b00
+  777ff1:	84 c0                                           	test   al,al
+  777ff3:	74 3c                                           	je     0x778031
+  777ff5:	8b 4c 24 4c                                     	mov    ecx,DWORD PTR [esp+0x4c]
+  777ff9:	8b 06                                           	mov    eax,DWORD PTR [esi]
+  777ffb:	8b 90 20 01 00 00                               	mov    edx,DWORD PTR [eax+0x120]
+  778001:	6a 00                                           	push   0x0
+  778003:	51                                              	push   ecx
+  778004:	6a ff                                           	push   0xffffffff
+  778006:	53                                              	push   ebx
+  778007:	55                                              	push   ebp
+  778008:	8b ce                                           	mov    ecx,esi
+  77800a:	ff d2                                           	call   edx
+  77800c:	8b 06                                           	mov    eax,DWORD PTR [esi]
+  77800e:	8b 90 1c 01 00 00                               	mov    edx,DWORD PTR [eax+0x11c]
+  778014:	8b ce                                           	mov    ecx,esi
+  778016:	ff d2                                           	call   edx
+  778018:	85 ff                                           	test   edi,edi
+  77801a:	74 6e                                           	je     0x77808a
+  77801c:	8b 07                                           	mov    eax,DWORD PTR [edi]
+  77801e:	8b 50 08                                        	mov    edx,DWORD PTR [eax+0x8]
+  778021:	8b cf                                           	mov    ecx,edi
+  778023:	ff d2                                           	call   edx
+  778025:	5e                                              	pop    esi
+  778026:	5d                                              	pop    ebp
+  778027:	5b                                              	pop    ebx
+  778028:	5f                                              	pop    edi
+  778029:	83 c4 24                                        	add    esp,0x24
+  77802c:	c3                                              	ret
+  77802d:	33 ff                                           	xor    edi,edi
+  77802f:	eb 9d                                           	jmp    0x777fce
+  778031:	85 ff                                           	test   edi,edi
+  778033:	74 09                                           	je     0x77803e
+  778035:	8b 07                                           	mov    eax,DWORD PTR [edi]
+  778037:	8b 50 08                                        	mov    edx,DWORD PTR [eax+0x8]
+  77803a:	8b cf                                           	mov    ecx,edi
+  77803c:	ff d2                                           	call   edx
+  77803e:	8b 54 24 4c                                     	mov    edx,DWORD PTR [esp+0x4c]
+  778042:	6a 00                                           	push   0x0
+  778044:	8d 4c 24 18                                     	lea    ecx,[esp+0x18]
+  778048:	51                                              	push   ecx
+  778049:	53                                              	push   ebx
+  77804a:	bf f4 a6 fb 00                                  	mov    edi,0xfba6f4
+  77804f:	89 7c 24 20                                     	mov    DWORD PTR [esp+0x20],edi
+  778053:	c6 44 24 30 00                                  	mov    BYTE PTR [esp+0x30],0x0
+  778058:	66 c7 44 24 2a 01 00                            	mov    WORD PTR [esp+0x2a],0x1
+  77805f:	66 c7 44 24 28 00 00                            	mov    WORD PTR [esp+0x28],0x0
+  778066:	8b 06                                           	mov    eax,DWORD PTR [esi]
+  778068:	8b 80 30 01 00 00                               	mov    eax,DWORD PTR [eax+0x130]
+  77806e:	55                                              	push   ebp
+  77806f:	52                                              	push   edx
+  778070:	8b ce                                           	mov    ecx,esi
+  778072:	ff d0                                           	call   eax
+  778074:	f6 44 24 1c 04                                  	test   BYTE PTR [esp+0x1c],0x4
+  778079:	89 7c 24 14                                     	mov    DWORD PTR [esp+0x14],edi
+  77807d:	74 0b                                           	je     0x77808a
+  77807f:	6a 00                                           	push   0x0
+  778081:	8d 4c 24 18                                     	lea    ecx,[esp+0x18]
+  778085:	e8 d6 d6 d7 ff                                  	call   0x4f5760
+  77808a:	5e                                              	pop    esi
+  77808b:	5d                                              	pop    ebp
+  77808c:	5b                                              	pop    ebx
+  77808d:	5f                                              	pop    edi
+  77808e:	83 c4 24                                        	add    esp,0x24
+  778091:	c3                                              	ret

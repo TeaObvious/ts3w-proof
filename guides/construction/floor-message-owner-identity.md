@@ -29,13 +29,13 @@ from the newly captured functions. Names are analyst-assigned.
 
 | Operation | Canonical evidence |
 | --- | --- |
-| Bind floor manager to core lot | `A8DD00`: [ASM](../../evidence/native/construction/owner-records/00A8DD00.asm.txt) ([C](../../evidence/native/construction/owner-records/00A8DD00.c)) |
-| Initialize selected lot state and owners | `ACDC90`: [ASM](../../evidence/native/construction/owner-records/00ACDC90.asm.txt) ([C](../../evidence/native/construction/owner-records/00ACDC90.c)) |
-| Create and bind a missing renderer | `AB3130`: [ASM](../../evidence/native/construction/owner-records/00AB3130.asm.txt) ([C](../../evidence/native/construction/owner-records/00AB3130.c)) |
-| Construct renderer defaults | `AE5360`: [ASM](../../evidence/native/construction/owner-records/00AE5360.asm.txt) ([C](../../evidence/native/construction/owner-records/00AE5360.c)) |
-| Copy the core owner and identity into renderer | `AE4790`: [ASM](../../evidence/native/construction/owner-records/00AE4790.asm.txt) ([C](../../evidence/native/construction/owner-records/00AE4790.c)) |
-| Update the renderer and admit staged initialization | `AE9700`: [ASM](../../evidence/native/construction/owner-records/00AE9700.asm.txt) ([C](../../evidence/native/construction/owner-records/00AE9700.c)) |
-| Advance staged detailed-view initialization | `AE8AA0`: [ASM](../../evidence/native/construction/owner-records/00AE8AA0.asm.txt) ([C](../../evidence/native/construction/owner-records/00AE8AA0.c)) |
+| Bind floor manager to core lot | `A8DD00`: [ASM](../../evidence/native/construction/owner-records/00A8DD00_BindFloorManagerToLot.asm) ([C](../../evidence/native/construction/owner-records/00A8DD00_BindFloorManagerToLot.c)) |
+| Initialize selected lot state and owners | `ACDC90`: [ASM](../../evidence/native/construction/owner-records/00ACDC90_InitializeLotStateAndOwners.asm) ([C](../../evidence/native/construction/owner-records/00ACDC90_InitializeLotStateAndOwners.c)) |
+| Create and bind a missing renderer | `AB3130`: [ASM](../../evidence/native/construction/owner-records/00AB3130_CreateLotRendererIfMissing.asm) ([C](../../evidence/native/construction/owner-records/00AB3130_CreateLotRendererIfMissing.c)) |
+| Construct renderer defaults | `AE5360`: [ASM](../../evidence/native/construction/owner-records/00AE5360_InitializeLotRenderer.asm) ([C](../../evidence/native/construction/owner-records/00AE5360_InitializeLotRenderer.c)) |
+| Copy the core owner and identity into renderer | `AE4790`: [ASM](../../evidence/native/construction/owner-records/00AE4790_BindLotRendererToLot.asm) ([C](../../evidence/native/construction/owner-records/00AE4790_BindLotRendererToLot.c)) |
+| Update the renderer and admit staged initialization | `AE9700`: [ASM](../../evidence/native/construction/owner-records/00AE9700_UpdateLotRenderer.asm) ([C](../../evidence/native/construction/owner-records/00AE9700_UpdateLotRenderer.c)) |
+| Advance staged detailed-view initialization | `AE8AA0`: [ASM](../../evidence/native/construction/owner-records/00AE8AA0_AdvanceLotRendererDetailInitialization.asm) ([C](../../evidence/native/construction/owner-records/00AE8AA0_AdvanceLotRendererDetailInitialization.c)) |
 
 The [binding data](../../evidence/native/construction/owner-records/owner-bindings.tsv)
 records original renderer-table cells, allocation labels, all 21 stage jump
@@ -99,8 +99,8 @@ allocation or a proof that all renderer fields are zero.
 
 `AB3130` invokes primary virtual `+8` before storing a new renderer. The
 installed table resolves that slot to the existing
-[atomic increment](../../evidence/native/memory/references/00EC1C10.asm.txt)
-([C](../../evidence/native/memory/references/00EC1C10.c)); renderer `+4` becomes
+[atomic increment](../../evidence/native/memory/references/00EC1C10_AddAtomicReference.asm)
+([C](../../evidence/native/memory/references/00EC1C10_AddAtomicReference.c)); renderer `+4` becomes
 one on that ordinary constructed path. Its generic old-pointer release is a
 separate virtual `+0C`. Complete teardown, failed construction and races remain
 outside this creation result.
@@ -143,11 +143,11 @@ those documented stage indices; the terminal stage21 is handled separately.
 
 At stage3/substate0, it allocates and constructs a floor receiver through the
 already canonical
-[constructor](../../evidence/native/construction/floor-patterns/00AA3080.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA3080.c)), stores `F`
+[constructor](../../evidence/native/construction/floor-patterns/00AA3080_InitializeFloorRenderManager.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA3080_InitializeFloorRenderManager.c)), stores `F`
 at `R+230`, then invokes the already canonical
-[binder](../../evidence/native/construction/floor-patterns/00AA0640.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA0640.c)) as
+[binder](../../evidence/native/construction/floor-patterns/00AA0640_BindFloorMessageOwnerAndRegister.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA0640_BindFloorMessageOwnerAndRegister.c)) as
 `AA0640(F,R)` at `AE8DC9`. That binder stores `R` at `F+8` and registers that
 exact `F` pointer for the listed 18 IDs, including `0431BFC9`; it does not set
 receiver enabled byte `+70`. Further staged calls retain their actual order
@@ -158,9 +158,9 @@ by field-name similarity.
 The existing [upper-quarter producer](floor-pattern-quarter-bit-rebuild.md)
 reads `L` from `M+4` and writes current `L+48/+4C` into payload `+8/+C` at
 `A91582/A91588`:
-[ASM](../../evidence/native/construction/floor-patterns/00A913D0.asm.txt) ([C](../../evidence/native/construction/floor-patterns/00A913D0.c)).
-The existing [receiver](../../evidence/native/construction/floor-patterns/00AA4350.asm.txt)
-([C](../../evidence/native/construction/floor-patterns/00AA4350.c)) compares
+[ASM](../../evidence/native/construction/floor-patterns/00A913D0_RefreshFloorUpperQuarterFlags.asm) ([C](../../evidence/native/construction/floor-patterns/00A913D0_RefreshFloorUpperQuarterFlags.c)).
+The existing [receiver](../../evidence/native/construction/floor-patterns/00AA4350_FloorRenderEvents_HandleOrQueue.asm)
+([C](../../evidence/native/construction/floor-patterns/00AA4350_FloorRenderEvents_HandleOrQueue.c)) compares
 those words with `F+8` renderer `+10/+14`. The new binder evidence establishes
 where the renderer words came from. It does not establish that they stay equal
 to later live core reads under an arbitrary identity update.
@@ -180,8 +180,10 @@ caller or prove successful original-game execution.
 The existing Ghidra session received seven analyst names, seven function plates
 and 20 instruction comments for this package. Final live readbacks matched all
 seven names, all comment texts, unchanged signature types and stored body
-unions. The 20 instruction comments are also transported into the paired C at
-the corresponding statements. Original PE/independent objdump checks matched
+unions. The C exporter omits instruction EOL comments, so the paired C retains
+their exact verified texts in separately addressed comment blocks. The actual
+decompiled bodies remain unchanged by that comment transport. Original
+PE/independent objdump checks matched
 all 6,246 owned bytes and 1,688 instruction starts; 52 selected original-data
 records retain another170 bytes, and the three nonowned alignment bytes are
 documented above.

@@ -20,12 +20,12 @@ messages. That caller confirms the shared predicate's floor-manager role.
 
 | Entry | Analyst role | Owned coverage | Evidence |
 | --- | --- | --- | --- |
-| `00A913D0` | RefreshFloorUpperQuarterFlags | 911 bytes / 288 instructions | [ASM](../../evidence/native/construction/floor-patterns/00A913D0.asm.txt) ([C](../../evidence/native/construction/floor-patterns/00A913D0.c)) |
-| `00AD2990` | TestFloorQuarterSupport | 908 bytes / 295 instructions | [ASM](../../evidence/native/construction/floor-patterns/00AD2990.asm.txt) ([C](../../evidence/native/construction/floor-patterns/00AD2990.c)) |
-| `00AD1920` | InsertUniqueCellLocation | 110 bytes / 49 instructions | [ASM](../../evidence/native/construction/floor-patterns/00AD1920.asm.txt) ([C](../../evidence/native/construction/floor-patterns/00AD1920.c)) |
-| `00ACFF30` | TestFloorCellCornerHeightAgreement | 266 bytes / 93 instructions | [ASM](../../evidence/native/construction/floor-patterns/00ACFF30.asm.txt) ([C](../../evidence/native/construction/floor-patterns/00ACFF30.c)) |
-| `00A8D430` | RebuildFloorUpperQuarterFlagsForLevel | 190 owned bytes / 70 instructions | [ASM](../../evidence/native/construction/floor-patterns/00A8D430.asm.txt) ([C](../../evidence/native/construction/floor-patterns/00A8D430.c)) |
-| `00A8ED70` | FindFloorCellPayload | 145 bytes / 60 instructions | [ASM](../../evidence/native/construction/floor-patterns/00A8ED70.asm.txt) ([C](../../evidence/native/construction/floor-patterns/00A8ED70.c)) |
+| `00A913D0` | RefreshFloorUpperQuarterFlags | 911 bytes / 288 instructions | [ASM](../../evidence/native/construction/floor-patterns/00A913D0_RefreshFloorUpperQuarterFlags.asm) ([C](../../evidence/native/construction/floor-patterns/00A913D0_RefreshFloorUpperQuarterFlags.c)) |
+| `00AD2990` | TestFloorQuarterSupport | 908 bytes / 295 instructions | [ASM](../../evidence/native/construction/floor-patterns/00AD2990_TestFloorQuarterSupport.asm) ([C](../../evidence/native/construction/floor-patterns/00AD2990_TestFloorQuarterSupport.c)) |
+| `00AD1920` | InsertUniqueCellLocation | 110 bytes / 49 instructions | [ASM](../../evidence/native/construction/floor-patterns/00AD1920_InsertUniqueCellLocation.asm) ([C](../../evidence/native/construction/floor-patterns/00AD1920_InsertUniqueCellLocation.c)) |
+| `00ACFF30` | TestFloorCellCornerHeightAgreement | 266 bytes / 93 instructions | [ASM](../../evidence/native/construction/floor-patterns/00ACFF30_TestFloorCellCornerHeightAgreement.asm) ([C](../../evidence/native/construction/floor-patterns/00ACFF30_TestFloorCellCornerHeightAgreement.c)) |
+| `00A8D430` | RebuildFloorUpperQuarterFlagsForLevel | 190 owned bytes / 70 instructions | [ASM](../../evidence/native/construction/floor-patterns/00A8D430_RebuildFloorUpperQuarterFlagsForLevel.asm) ([C](../../evidence/native/construction/floor-patterns/00A8D430_RebuildFloorUpperQuarterFlagsForLevel.c)) |
+| `00A8ED70` | FindFloorCellPayload | 145 bytes / 60 instructions | [ASM](../../evidence/native/construction/floor-patterns/00A8ED70_FindFloorCellPayload.asm) ([C](../../evidence/native/construction/floor-patterns/00A8ED70_FindFloorCellPayload.c)) |
 
 The [address/name index](../../indexes/floor-pattern-quarter-rebuild.tsv) resolves
 these new captures to one canonical pair per function.

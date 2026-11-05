@@ -38,11 +38,11 @@ The historical snapshot correctly recorded missing conditional destinations. Cur
 
 | Registered frontend | Captured separate continuation | Current operation guide |
 | --- | --- | --- |
-| `00777F30` | [ASM](../evidence/native/rendering/thumbnails/00777F74.asm.txt) ([pseudocode](../evidence/native/rendering/thumbnails/00777F74.c)) | [Thumbnail generation](../guides/rendering/thumbnail-generation-callbacks.md) |
-| `007780A0` | [ASM](../evidence/native/rendering/thumbnails/007780E9.asm.txt) ([pseudocode](../evidence/native/rendering/thumbnails/007780E9.c)) | [Thumbnail generation](../guides/rendering/thumbnail-generation-callbacks.md) |
-| `00778210` | [ASM](../evidence/native/rendering/thumbnails/00778254.asm.txt) ([pseudocode](../evidence/native/rendering/thumbnails/00778254.c)) | [Thumbnail generation](../guides/rendering/thumbnail-generation-callbacks.md) |
-| `00778A00` | [ASM](../evidence/native/rendering/thumbnails/00778A5D.asm.txt) ([pseudocode](../evidence/native/rendering/thumbnails/00778A5D.c)) | [Thumbnail generation](../guides/rendering/thumbnail-generation-callbacks.md) |
-| `00D83020` | [ASM](../evidence/native/persistence/fast-fields/00D83038.asm.txt) ([pseudocode](../evidence/native/persistence/fast-fields/00D83038.c)) | [Fast-field reading](../guides/persistence/fast-field-reading.md) |
+| `00777F30` | [ASM](../evidence/native/rendering/thumbnails/00777F74_ThumbnailLotGenerationCallbackContinuation.asm) ([pseudocode](../evidence/native/rendering/thumbnails/00777F74_ThumbnailLotGenerationCallbackContinuation.c)) | [Thumbnail generation](../guides/rendering/thumbnail-generation-callbacks.md) |
+| `007780A0` | [ASM](../evidence/native/rendering/thumbnails/007780E9_ThumbnailLotGroupGenerationCallbackContinuation.asm) ([pseudocode](../evidence/native/rendering/thumbnails/007780E9_ThumbnailLotGroupGenerationCallbackContinuation.c)) | [Thumbnail generation](../guides/rendering/thumbnail-generation-callbacks.md) |
+| `00778210` | [ASM](../evidence/native/rendering/thumbnails/00778254_ThumbnailHouseholdGenerationCallbackContinuation.asm) ([pseudocode](../evidence/native/rendering/thumbnails/00778254_ThumbnailHouseholdGenerationCallbackContinuation.c)) | [Thumbnail generation](../guides/rendering/thumbnail-generation-callbacks.md) |
+| `00778A00` | [ASM](../evidence/native/rendering/thumbnails/00778A5D_ThumbnailHouseholdSimGenerationCallbackContinuation.asm) ([pseudocode](../evidence/native/rendering/thumbnails/00778A5D_ThumbnailHouseholdSimGenerationCallbackContinuation.c)) | [Thumbnail generation](../guides/rendering/thumbnail-generation-callbacks.md) |
+| `00D83020` | [ASM](../evidence/native/persistence/fast-fields/00D83038_ReadFastFieldsResolvedStreamContinuation.asm) ([pseudocode](../evidence/native/persistence/fast-fields/00D83038_ReadFastFieldsResolvedStreamContinuation.c)) | [Fast-field reading](../guides/persistence/fast-field-reading.md) |
 
 The row's `body_range_status` still preserves singleton/contiguous metadata observations. A closed capture omission does not upgrade that independent dimension or erase qualified frontend Listings. Each continuation keeps its own original RVA, exact owner and canonical pair.
 
