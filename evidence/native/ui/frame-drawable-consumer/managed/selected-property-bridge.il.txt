@@ -1,0 +1,215 @@
+// Selected original PC1.67 UI/ScriptCore bridge excerpts, not a rebuilt assembly or replacement implementation.
+// Original assembly provenance: ../../frame-drawable/managed/provenance.json.
+// Each method excerpt below is retained exactly as independently verified ILSpy output.
+// C# diagnostics and unresolved references are preserved; original IL governs operands and tokens.
+// Interface call sites do not establish which implementation was selected at runtime.
+
+// ---- Sims3.UI.UIManager.GetRectProperty ----
+.method /* 06001295 */ assembly hidebysig static 
+	valuetype [SimIFace]Sims3.SimIFace.Rect GetRectProperty (
+		uint32 handle,
+		uint32 propID
+	) cil managed 
+{
+	// Method begins at RVA 0x661fc
+	// Header size: 1
+	// Code size: 13 (0xd)
+	.maxstack 8
+
+	IL_0000: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_0005: ldarg.0
+	IL_0006: ldarg.1
+	IL_0007: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Rect [SimIFace]Sims3.SimIFace.IUIManager::GetRectFloatProperty(uint32, uint32) /* 0A0004C9 */
+	IL_000c: ret
+} // end of method UIManager::GetRectProperty
+
+// ---- Sims3.UI.UIManager.SetRectProperty ----
+.method /* 06001294 */ assembly hidebysig static 
+	void SetRectProperty (
+		uint32 handle,
+		uint32 propID,
+		valuetype [SimIFace]Sims3.SimIFace.Rect 'value'
+	) cil managed 
+{
+	// Method begins at RVA 0x661ed
+	// Header size: 1
+	// Code size: 14 (0xe)
+	.maxstack 8
+
+	IL_0000: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_0005: ldarg.0
+	IL_0006: ldarg.1
+	IL_0007: ldarg.2
+	IL_0008: callvirt instance void [SimIFace]Sims3.SimIFace.IUIManager::SetRectFloatProperty(uint32, uint32, valuetype [SimIFace]Sims3.SimIFace.Rect) /* 0A0004C8 */
+	IL_000d: ret
+} // end of method UIManager::SetRectProperty
+
+// ---- Sims3.UI.UIManager.GetColorProperty ----
+.method /* 0600128F */ assembly hidebysig static 
+	valuetype [SimIFace]Sims3.SimIFace.Color GetColorProperty (
+		uint32 handle,
+		uint32 propID
+	) cil managed 
+{
+	// Method begins at RVA 0x661a0
+	// Header size: 1
+	// Code size: 18 (0x12)
+	.maxstack 8
+
+	IL_0000: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_0005: ldarg.0
+	IL_0006: ldarg.1
+	IL_0007: callvirt instance uint32 [SimIFace]Sims3.SimIFace.IUIManager::GetUInt32Property(uint32, uint32) /* 0A0004C4 */
+	IL_000c: newobj instance void [SimIFace]Sims3.SimIFace.Color::.ctor(uint32) /* 0A000035 */
+	IL_0011: ret
+} // end of method UIManager::GetColorProperty
+
+// ---- Sims3.UI.UIManager.SetColorProperty ----
+.method /* 0600128E */ assembly hidebysig static 
+	void SetColorProperty (
+		uint32 handle,
+		uint32 propID,
+		valuetype [SimIFace]Sims3.SimIFace.Color 'value'
+	) cil managed 
+{
+	// Method begins at RVA 0x6618b
+	// Header size: 1
+	// Code size: 20 (0x14)
+	.maxstack 8
+
+	IL_0000: ldsfld class [SimIFace]Sims3.SimIFace.IUIManager Sims3.UI.UIManager::gUIMgr /* 040013A1 */
+	IL_0005: ldarg.0
+	IL_0006: ldarg.1
+	IL_0007: ldarga.s 'value'
+	IL_0009: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB() /* 0A000034 */
+	IL_000e: callvirt instance void [SimIFace]Sims3.SimIFace.IUIManager::SetUInt32Property(uint32, uint32, uint32) /* 0A0004C5 */
+	IL_0013: ret
+} // end of method UIManager::SetColorProperty
+
+// ---- ScriptCore.UIManager.GetRectFloatProperty ----
+.method /* 06000E9E */ public final hidebysig newslot virtual 
+	instance valuetype [SimIFace]Sims3.SimIFace.Rect GetRectFloatProperty (
+		uint32 winHandle,
+		uint32 propID
+	) cil managed 
+{
+	// Method begins at RVA 0x11cc0
+	// Header size: 12
+	// Code size: 43 (0x2b)
+	.maxstack 6
+	.locals /* 110000C2 */ init (
+		[0] valuetype [SimIFace]Sims3.SimIFace.Rect
+	)
+
+	IL_0000: ldloca.s 0
+	IL_0002: ldc.r4 0.0
+	IL_0007: ldc.r4 0.0
+	IL_000c: ldc.r4 0.0
+	IL_0011: ldc.r4 0.0
+	IL_0016: newobj instance void [SimIFace]Sims3.SimIFace.Rect::.ctor(float32, float32, float32, float32) /* 0A000244 */
+	IL_001b: stobj [SimIFace]Sims3.SimIFace.Rect /* 010000BC */
+	IL_0020: ldarg.1
+	IL_0021: ldarg.2
+	IL_0022: ldloca.s 0
+	IL_0024: call void ScriptCore.UIManager::UIManager_GetRectFloatPropertyImpl(uint32, uint32, valuetype [SimIFace]Sims3.SimIFace.Rect&) /* 06000E2D */
+	IL_0029: ldloc.0
+	IL_002a: ret
+} // end of method UIManager::GetRectFloatProperty
+
+// ---- ScriptCore.UIManager.SetRectFloatProperty ----
+.method /* 06000E9D */ public final hidebysig newslot virtual 
+	instance void SetRectFloatProperty (
+		uint32 winHandle,
+		uint32 propID,
+		valuetype [SimIFace]Sims3.SimIFace.Rect 'value'
+	) cil managed 
+{
+	// Method begins at RVA 0x11cb4
+	// Header size: 1
+	// Code size: 10 (0xa)
+	.maxstack 8
+
+	IL_0000: ldarg.1
+	IL_0001: ldarg.2
+	IL_0002: ldarga.s 'value'
+	IL_0004: call void ScriptCore.UIManager::UIManager_SetRectFloatPropertyImpl(uint32, uint32, valuetype [SimIFace]Sims3.SimIFace.Rect&) /* 06000E2C */
+	IL_0009: ret
+} // end of method UIManager::SetRectFloatProperty
+
+// ---- ScriptCore.UIManager.GetUInt32Property ----
+.method /* 06000E9A */ public final hidebysig newslot virtual 
+	instance uint32 GetUInt32Property (
+		uint32 winHandle,
+		uint32 propID
+	) cil managed 
+{
+	// Method begins at RVA 0x11c98
+	// Header size: 1
+	// Code size: 8 (0x8)
+	.maxstack 8
+
+	IL_0000: ldarg.1
+	IL_0001: ldarg.2
+	IL_0002: call uint32 ScriptCore.UIManager::UIManager_GetUInt32PropertyImpl(uint32, uint32) /* 06000E29 */
+	IL_0007: ret
+} // end of method UIManager::GetUInt32Property
+
+// ---- ScriptCore.UIManager.SetUInt32Property ----
+.method /* 06000E99 */ public final hidebysig newslot virtual 
+	instance void SetUInt32Property (
+		uint32 winHandle,
+		uint32 propID,
+		uint32 'value'
+	) cil managed 
+{
+	// Method begins at RVA 0x11c8e
+	// Header size: 1
+	// Code size: 9 (0x9)
+	.maxstack 8
+
+	IL_0000: ldarg.1
+	IL_0001: ldarg.2
+	IL_0002: ldarg.3
+	IL_0003: call void ScriptCore.UIManager::UIManager_SetUInt32PropertyImpl(uint32, uint32, uint32) /* 06000E28 */
+	IL_0008: ret
+} // end of method UIManager::SetUInt32Property
+
+// ---- ScriptCore.UIManager.UIManager_GetRectFloatPropertyImpl ----
+.method /* 06000E2D */ private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+	void UIManager_GetRectFloatPropertyImpl (
+		uint32 winHandle,
+		uint32 propID,
+		valuetype [SimIFace]Sims3.SimIFace.Rect& outValue
+	) cil managed preservesig 
+{
+} // end of method UIManager::UIManager_GetRectFloatPropertyImpl
+
+// ---- ScriptCore.UIManager.UIManager_SetRectFloatPropertyImpl ----
+.method /* 06000E2C */ private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+	void UIManager_SetRectFloatPropertyImpl (
+		uint32 winHandle,
+		uint32 propID,
+		valuetype [SimIFace]Sims3.SimIFace.Rect& 'value'
+	) cil managed preservesig 
+{
+} // end of method UIManager::UIManager_SetRectFloatPropertyImpl
+
+// ---- ScriptCore.UIManager.UIManager_GetUInt32PropertyImpl ----
+.method /* 06000E29 */ private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+	uint32 UIManager_GetUInt32PropertyImpl (
+		uint32 winHandle,
+		uint32 propID
+	) cil managed preservesig 
+{
+} // end of method UIManager::UIManager_GetUInt32PropertyImpl
+
+// ---- ScriptCore.UIManager.UIManager_SetUInt32PropertyImpl ----
+.method /* 06000E28 */ private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+	void UIManager_SetUInt32PropertyImpl (
+		uint32 winHandle,
+		uint32 propID,
+		uint32 'value'
+	) cil managed preservesig 
+{
+} // end of method UIManager::UIManager_SetUInt32PropertyImpl
+

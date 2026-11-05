@@ -100,17 +100,13 @@ rows are stored data, not a proved inheritance or fallback rule.
 
 Four separate Float32 fields +4C/+50/+54/+58 receive raw 3F800000 (1.0) from
 the [F998F8 constant](../../evidence/native/ui/frame-drawable/initializer-constants.tsv);
-+5C receives raw FF000000. Their roles as particular UI properties are
-not established here. The state-8 arithmetic above reaches +4C/+50 in this
++5C receives raw FF000000. Their initializer stores alone do not establish property roles. The [bounded consumer/property follow-up](frame-drawable-consumer.md) joins BorderWidth to these four cells and OutlineColor to +5C through original IDs, descriptors and selected managed/native paths. The state-8 arithmetic above reaches +4C/+50 in this
 representation, so a cast to an undeclared state is not locally separated from
 these other fields by the frontend.
 
 The [four original primary-vtable slots](../../evidence/native/ui/frame-drawable/provider-vtable.tsv)
 include +0C = 522C10, a concrete query-provider dependency. This connects the
-initializer to a specific virtual dispatch table; it does not establish original
-runtime handle registration, every possible implementer or the pointer returned
-by that unexpanded query helper. Host registry lifetime, query forwarding,
-property consumers, rendering and persistence remain separate obligations.
+initializer to a specific virtual dispatch table. The [bounded follow-up](frame-drawable-consumer.md) records the concrete query context and selected property/drawing consumers. Original runtime handle registration, other implementers, host/interface lifetime, backend rendering and exhaustive persistence remain separate obligations.
 
 ## Original managed path
 
@@ -150,5 +146,5 @@ records pristine ScriptCore/UI S3SA identities; actual C# retains unresolved-ref
 diagnostics, so original IL is authoritative for the numeric/operand conclusions.
 
 The unresolved dependencies are the host handle registry, queried-interface
-producer and layout lifetime, row persistence/other writers, and the renderer's
-style/color consumers. No thread-safety or runtime pixel behavior is inferred.
+layout lifetime, exhaustive row persistence/other writers, and the renderer's
+concrete backend effects. The [bounded consumer/property follow-up](frame-drawable-consumer.md) supplies the selected query, field and drawing-dispatch joins without closing those wider obligations. No thread-safety or runtime pixel behavior is inferred.

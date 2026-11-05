@@ -1,0 +1,805 @@
+{
+  "reference": "../../../reference.json",
+  "scope": "Selected static Frame rows/descriptor/constant/provider evidence; no whole-data-section dump.",
+  "original_tables": {
+    "packed-state-table.tsv": [
+      {
+        "table_va": "00522CDC",
+        "low3_mode": "0",
+        "native_target": "00522C65",
+        "managed_unchecked_row_ordinal": "0",
+        "role": "Normal",
+        "original_bytes_hex": "652c5200"
+      },
+      {
+        "table_va": "00522CE0",
+        "low3_mode": "1",
+        "native_target": "00522C76",
+        "managed_unchecked_row_ordinal": "1",
+        "role": "Disabled",
+        "original_bytes_hex": "762c5200"
+      },
+      {
+        "table_va": "00522CE4",
+        "low3_mode": "2",
+        "native_target": "00522C90",
+        "managed_unchecked_row_ordinal": "2",
+        "role": "Highlighted",
+        "original_bytes_hex": "902c5200"
+      },
+      {
+        "table_va": "00522CE8",
+        "low3_mode": "3",
+        "native_target": "00522CB3",
+        "managed_unchecked_row_ordinal": "3",
+        "role": "Active",
+        "original_bytes_hex": "b32c5200"
+      }
+    ],
+    "border-style-table.tsv": [
+      {
+        "table_va": "005237D0",
+        "ordinal": "0",
+        "original_UI_BorderStyle": "Default",
+        "target": "00523123",
+        "original_bytes_hex": "23315200"
+      },
+      {
+        "table_va": "005237D4",
+        "ordinal": "1",
+        "original_UI_BorderStyle": "Hidden",
+        "target": "005237C4",
+        "original_bytes_hex": "c4375200"
+      },
+      {
+        "table_va": "005237D8",
+        "ordinal": "2",
+        "original_UI_BorderStyle": "Solid",
+        "target": "00523123",
+        "original_bytes_hex": "23315200"
+      },
+      {
+        "table_va": "005237DC",
+        "ordinal": "3",
+        "original_UI_BorderStyle": "Dotted",
+        "target": "005231E3",
+        "original_bytes_hex": "e3315200"
+      },
+      {
+        "table_va": "005237E0",
+        "ordinal": "4",
+        "original_UI_BorderStyle": "Dashed",
+        "target": "005231E3",
+        "original_bytes_hex": "e3315200"
+      },
+      {
+        "table_va": "005237E4",
+        "ordinal": "5",
+        "original_UI_BorderStyle": "Inset",
+        "target": "005234FD",
+        "original_bytes_hex": "fd345200"
+      },
+      {
+        "table_va": "005237E8",
+        "ordinal": "6",
+        "original_UI_BorderStyle": "Outset",
+        "target": "0052355A",
+        "original_bytes_hex": "5a355200"
+      },
+      {
+        "table_va": "005237EC",
+        "ordinal": "7",
+        "original_UI_BorderStyle": "Groove",
+        "target": "005236BA",
+        "original_bytes_hex": "ba365200"
+      },
+      {
+        "table_va": "005237F0",
+        "ordinal": "8",
+        "original_UI_BorderStyle": "Ridge",
+        "target": "005236BA",
+        "original_bytes_hex": "ba365200"
+      },
+      {
+        "table_va": "005237F4",
+        "ordinal": "9",
+        "original_UI_BorderStyle": "OutsetOutline",
+        "target": "00523637",
+        "original_bytes_hex": "37365200"
+      },
+      {
+        "table_va": "005237F8",
+        "ordinal": "10",
+        "original_UI_BorderStyle": "InsetOutline",
+        "target": "005235B7",
+        "original_bytes_hex": "b7355200"
+      }
+    ],
+    "literals.tsv": [
+      {
+        "va": "00FAB218",
+        "original_bytes_hex": "000080bf",
+        "Float32": "-1.0",
+        "usage": "F32 operand; exact x87/SSE instruction sequence remains authoritative"
+      },
+      {
+        "va": "00F998F0",
+        "original_bytes_hex": "00000080",
+        "Float32": "-0.0",
+        "usage": "F32 operand; exact x87/SSE instruction sequence remains authoritative"
+      },
+      {
+        "va": "00FAB214",
+        "original_bytes_hex": "cdcc4c3e",
+        "Float32": "0.20000000298023224",
+        "usage": "F32 operand; exact x87/SSE instruction sequence remains authoritative"
+      },
+      {
+        "va": "00F9E500",
+        "original_bytes_hex": "9a99193f",
+        "Float32": "0.6000000238418579",
+        "usage": "F32 operand; exact x87/SSE instruction sequence remains authoritative"
+      },
+      {
+        "va": "0103FD88",
+        "original_bytes_hex": "00000040",
+        "Float32": "2.0",
+        "usage": "F32 operand; exact x87/SSE instruction sequence remains authoritative"
+      },
+      {
+        "va": "00FA2B9C",
+        "original_bytes_hex": "00004040",
+        "Float32": "3.0",
+        "usage": "F32 operand; exact x87/SSE instruction sequence remains authoritative"
+      },
+      {
+        "va": "00F998F8",
+        "original_bytes_hex": "0000803f",
+        "Float32": "1.0",
+        "usage": "F32 operand; exact x87/SSE instruction sequence remains authoritative"
+      },
+      {
+        "va": "00F9B5B4",
+        "original_bytes_hex": "0000003f",
+        "Float32": "0.5",
+        "usage": "F32 operand; exact x87/SSE instruction sequence remains authoritative"
+      }
+    ],
+    "provider-slot.tsv": [
+      {
+        "va": "00FBD978",
+        "original_bytes_hex": "c02d5200",
+        "UInt32": "00522DC0",
+        "role": "FrameDrawable primary vtable+10 -> drawing dispatcher"
+      }
+    ],
+    "owned-ranges-and-gaps.tsv": [
+      {
+        "entry": "00522DC0",
+        "kind": "owned",
+        "start_va": "00522DC0",
+        "stop_va_exclusive": "0052325D",
+        "bytes": "1181",
+        "original_gap_hex": "",
+        "qualification": "Current Ghidra union; all starts reachable under call-return CFG model"
+      },
+      {
+        "entry": "00522DC0",
+        "kind": "owned",
+        "start_va": "00523260",
+        "stop_va_exclusive": "0052330D",
+        "bytes": "173",
+        "original_gap_hex": "",
+        "qualification": "Current Ghidra union; all starts reachable under call-return CFG model"
+      },
+      {
+        "entry": "00522DC0",
+        "kind": "owned",
+        "start_va": "00523310",
+        "stop_va_exclusive": "005233C6",
+        "bytes": "182",
+        "original_gap_hex": "",
+        "qualification": "Current Ghidra union; all starts reachable under call-return CFG model"
+      },
+      {
+        "entry": "00522DC0",
+        "kind": "owned",
+        "start_va": "005233D0",
+        "stop_va_exclusive": "005237CE",
+        "bytes": "1022",
+        "original_gap_hex": "",
+        "qualification": "Current Ghidra union; all starts reachable under call-return CFG model"
+      },
+      {
+        "entry": "00522DC0",
+        "kind": "unowned-gap",
+        "start_va": "0052325D",
+        "stop_va_exclusive": "00523260",
+        "bytes": "3",
+        "original_gap_hex": "8d4900",
+        "qualification": "Not added to body; no global disposition inferred"
+      },
+      {
+        "entry": "00522DC0",
+        "kind": "unowned-gap",
+        "start_va": "0052330D",
+        "stop_va_exclusive": "00523310",
+        "bytes": "3",
+        "original_gap_hex": "8d4900",
+        "qualification": "Not added to body; no global disposition inferred"
+      },
+      {
+        "entry": "00522DC0",
+        "kind": "unowned-gap",
+        "start_va": "005233C6",
+        "stop_va_exclusive": "005233D0",
+        "bytes": "10",
+        "original_gap_hex": "eb088da4240000000090",
+        "qualification": "Not added to body; no global disposition inferred"
+      },
+      {
+        "entry": "00522C50",
+        "kind": "owned",
+        "start_va": "00522C50",
+        "stop_va_exclusive": "00522CD9",
+        "bytes": "137",
+        "original_gap_hex": "",
+        "qualification": "Current contiguous Ghidra body; table is separate"
+      }
+    ]
+  },
+  "floor_import": {
+    "DLL": "MSVCR80.dll",
+    "symbol": "floor",
+    "IAT": "00F966AC",
+    "thunk": "00F7F7D0",
+    "thunk_bytes": "ff25ac66f900"
+  },
+  "descriptor_rows": [
+    {
+      "address": "00FBD8D4",
+      "group": "Frame class",
+      "ordinal": "0",
+      "raw_word0": "00000000",
+      "callback_table": "00FBC0AC",
+      "ID": "030D0000",
+      "raw_flags": "0014",
+      "tag_low12": "014",
+      "signed_offset": "76",
+      "offset_hex": "004C",
+      "count": "1"
+    },
+    {
+      "address": "00FBD8E8",
+      "group": "Frame class",
+      "ordinal": "1",
+      "raw_word0": "00000000",
+      "callback_table": "00FBD880",
+      "ID": "030D0001",
+      "raw_flags": "0014",
+      "tag_low12": "014",
+      "signed_offset": "12",
+      "offset_hex": "000C",
+      "count": "8"
+    },
+    {
+      "address": "00FBD8FC",
+      "group": "Frame class",
+      "ordinal": "2",
+      "raw_word0": "00000000",
+      "callback_table": "00000000",
+      "ID": "030D0002",
+      "raw_flags": "0009",
+      "tag_low12": "009",
+      "signed_offset": "92",
+      "offset_hex": "005C",
+      "count": "1"
+    },
+    {
+      "address": "00FBCD90",
+      "group": "BorderWidth Float32 cells",
+      "ordinal": "0",
+      "raw_word0": "00000000",
+      "callback_table": "00000000",
+      "ID": "00000001",
+      "raw_flags": "000B",
+      "tag_low12": "00B",
+      "signed_offset": "0",
+      "offset_hex": "0000",
+      "count": "1"
+    },
+    {
+      "address": "00FBCDA4",
+      "group": "BorderWidth Float32 cells",
+      "ordinal": "1",
+      "raw_word0": "00000000",
+      "callback_table": "00000000",
+      "ID": "00000002",
+      "raw_flags": "000B",
+      "tag_low12": "00B",
+      "signed_offset": "4",
+      "offset_hex": "0004",
+      "count": "1"
+    },
+    {
+      "address": "00FBCDB8",
+      "group": "BorderWidth Float32 cells",
+      "ordinal": "2",
+      "raw_word0": "00000000",
+      "callback_table": "00000000",
+      "ID": "00000003",
+      "raw_flags": "000B",
+      "tag_low12": "00B",
+      "signed_offset": "8",
+      "offset_hex": "0008",
+      "count": "1"
+    },
+    {
+      "address": "00FBCDCC",
+      "group": "BorderWidth Float32 cells",
+      "ordinal": "3",
+      "raw_word0": "00000000",
+      "callback_table": "00000000",
+      "ID": "00000004",
+      "raw_flags": "000B",
+      "tag_low12": "00B",
+      "signed_offset": "12",
+      "offset_hex": "000C",
+      "count": "1"
+    },
+    {
+      "address": "00FBD88C",
+      "group": "hidden style/color row",
+      "ordinal": "0",
+      "raw_word0": "00000000",
+      "callback_table": "00FBC0A0",
+      "ID": "00000001",
+      "raw_flags": "0005",
+      "tag_low12": "005",
+      "signed_offset": "0",
+      "offset_hex": "0000",
+      "count": "1"
+    },
+    {
+      "address": "00FBD8A0",
+      "group": "hidden style/color row",
+      "ordinal": "1",
+      "raw_word0": "00000000",
+      "callback_table": "00000000",
+      "ID": "00000002",
+      "raw_flags": "0009",
+      "tag_low12": "009",
+      "signed_offset": "4",
+      "offset_hex": "0004",
+      "count": "1"
+    }
+  ],
+  "type_metadata": [
+    {
+      "address": "00FBD910",
+      "bounded_role": "Frame class descriptor",
+      "raw_tag": "00000013",
+      "ID": "030D54B9",
+      "value_size": "96",
+      "row_pointer_if_struct_or_class": "00FBD8D4",
+      "row_count_if_struct_or_class": "3",
+      "original_hex": "13000000b9540d0360000000d4d8fb000300000070545300705453008054530070865100602d520000395200802d5200"
+    },
+    {
+      "address": "00FBCDE0",
+      "bounded_role": "BorderWidth nested fields",
+      "raw_tag": "00000014",
+      "ID": "8F45B09E",
+      "value_size": "16",
+      "row_pointer_if_struct_or_class": "00FBCD90",
+      "row_count_if_struct_or_class": "4",
+      "original_hex": "140000009eb0458f1000000090cdfb0004000000"
+    },
+    {
+      "address": "00FBD8B4",
+      "bounded_role": "hidden style/color nested fields",
+      "raw_tag": "00000014",
+      "ID": "030D5FC6",
+      "value_size": "8",
+      "row_pointer_if_struct_or_class": "00FBD88C",
+      "row_count_if_struct_or_class": "2",
+      "original_hex": "14000000c65f0d03080000008cd8fb0002000000"
+    },
+    {
+      "address": "00FBB920",
+      "bounded_role": "Float32 primitive",
+      "raw_tag": "0000000B",
+      "ID": "00000000",
+      "value_size": "4",
+      "row_pointer_if_struct_or_class": "",
+      "row_count_if_struct_or_class": "",
+      "original_hex": "0b0000000000000004000000"
+    },
+    {
+      "address": "00FBB960",
+      "bounded_role": "UInt32 primitive",
+      "raw_tag": "00000009",
+      "ID": "00000000",
+      "value_size": "4",
+      "row_pointer_if_struct_or_class": "",
+      "row_count_if_struct_or_class": "",
+      "original_hex": "090000000000000004000000"
+    }
+  ],
+  "pointer_links": [
+    {
+      "cell_address": "00FBC0AC",
+      "bounded_role": "write",
+      "target_or_zero": "00000000",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBC0B0",
+      "bounded_role": "read",
+      "target_or_zero": "00000000",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBC0B4",
+      "bounded_role": "address",
+      "target_or_zero": "0051A5A0",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD880",
+      "bounded_role": "write",
+      "target_or_zero": "00000000",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD884",
+      "bounded_role": "read",
+      "target_or_zero": "00000000",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD888",
+      "bounded_role": "address",
+      "target_or_zero": "00523800",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBC0A0",
+      "bounded_role": "write",
+      "target_or_zero": "005402E0",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBC0A4",
+      "bounded_role": "read",
+      "target_or_zero": "00540320",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBC0A8",
+      "bounded_role": "address",
+      "target_or_zero": "00000000",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD950",
+      "bounded_role": "retain_adjustor",
+      "target_or_zero": "00516410",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD954",
+      "bounded_role": "release_adjustor",
+      "target_or_zero": "00516400",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD958",
+      "bounded_role": "deleting_destructor_adjustor",
+      "target_or_zero": "005238B0",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD95C",
+      "bounded_role": "query_adjustor",
+      "target_or_zero": "005238C0",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD960",
+      "bounded_role": "property_context",
+      "target_or_zero": "00522D90",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD964",
+      "bounded_role": "class_ID",
+      "target_or_zero": "00522C40",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD924",
+      "bounded_role": "class_slot14",
+      "target_or_zero": "00535470",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD928",
+      "bounded_role": "class_slot18",
+      "target_or_zero": "00535470",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD92C",
+      "bounded_role": "notification_slot1C",
+      "target_or_zero": "00535480",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD930",
+      "bounded_role": "class_slot20",
+      "target_or_zero": "00518670",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD934",
+      "bounded_role": "class_slot24",
+      "target_or_zero": "00522D60",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD938",
+      "bounded_role": "factory_slot28",
+      "target_or_zero": "00523900",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "00FBD93C",
+      "bounded_role": "name_slot2C",
+      "target_or_zero": "00522D80",
+      "qualification": "actual target ownership/prototypes remain separately qualified"
+    },
+    {
+      "cell_address": "0114F51C",
+      "bounded_role": "type_lookup 09 UInt32",
+      "target_or_zero": "00FBB960",
+      "qualification": "only selected slots; no full type table claim"
+    },
+    {
+      "cell_address": "0114F524",
+      "bounded_role": "type_lookup 0B Float32",
+      "target_or_zero": "00FBB920",
+      "qualification": "only selected slots; no full type table claim"
+    }
+  ],
+  "original_raw_records": [
+    {
+      "address": "00FBC0AC",
+      "bytes": 12,
+      "original_PE_file_offset": "00BBC0AC",
+      "original_hex": "0000000000000000a0a55100"
+    },
+    {
+      "address": "00FBCDE0",
+      "bytes": 20,
+      "original_PE_file_offset": "00BBCDE0",
+      "original_hex": "140000009eb0458f1000000090cdfb0004000000"
+    },
+    {
+      "address": "00FBD880",
+      "bytes": 12,
+      "original_PE_file_offset": "00BBD880",
+      "original_hex": "000000000000000000385200"
+    },
+    {
+      "address": "00FBD8B4",
+      "bytes": 20,
+      "original_PE_file_offset": "00BBD8B4",
+      "original_hex": "14000000c65f0d03080000008cd8fb0002000000"
+    },
+    {
+      "address": "00FBD8D4",
+      "bytes": 60,
+      "original_PE_file_offset": "00BBD8D4",
+      "original_hex": "00000000acc0fb0000000d0314004c00010000000000000080d8fb0001000d0314000c0008000000000000000000000002000d0309005c0001000000"
+    },
+    {
+      "address": "00FBD910",
+      "bytes": 48,
+      "original_PE_file_offset": "00BBD910",
+      "original_hex": "13000000b9540d0360000000d4d8fb000300000070545300705453008054530070865100602d520000395200802d5200"
+    },
+    {
+      "address": "00FBD940",
+      "bytes": 14,
+      "original_PE_file_offset": "00BBD940",
+      "original_hex": "4672616d654472617761626c6500"
+    },
+    {
+      "address": "00FBD950",
+      "bytes": 24,
+      "original_PE_file_offset": "00BBD950",
+      "original_hex": "1064510000645100b0385200c0385200902d5200402c5200"
+    },
+    {
+      "address": "00FBD988",
+      "bytes": 44,
+      "original_PE_file_offset": "00BBD988",
+      "original_hex": "55492f55544657696e2f45413a3a55544657696e436f6e74726f6c733a3a4672616d654472617761626c6500"
+    },
+    {
+      "address": "0114F51C",
+      "bytes": 4,
+      "original_PE_file_offset": "00D4F51C",
+      "original_hex": "60b9fb00"
+    },
+    {
+      "address": "00FBB920",
+      "bytes": 12,
+      "original_PE_file_offset": "00BBB920",
+      "original_hex": "0b0000000000000004000000"
+    },
+    {
+      "address": "00FBB960",
+      "bytes": 12,
+      "original_PE_file_offset": "00BBB960",
+      "original_hex": "090000000000000004000000"
+    },
+    {
+      "address": "00FBCD90",
+      "bytes": 80,
+      "original_PE_file_offset": "00BBCD90",
+      "original_hex": "0000000000000000010000000b000000010000000000000000000000020000000b000400010000000000000000000000030000000b000800010000000000000000000000040000000b000c0001000000"
+    },
+    {
+      "address": "00FBD88C",
+      "bytes": 40,
+      "original_PE_file_offset": "00BBD88C",
+      "original_hex": "00000000a0c0fb000100000005000000010000000000000000000000020000000900040001000000"
+    },
+    {
+      "address": "0114F524",
+      "bytes": 4,
+      "original_PE_file_offset": "00D4F524",
+      "original_hex": "20b9fb00"
+    },
+    {
+      "address": "00FBC0A0",
+      "bytes": 12,
+      "original_PE_file_offset": "00BBC0A0",
+      "original_hex": "e00254002003540000000000"
+    },
+    {
+      "address": "00FBD968",
+      "bytes": 20,
+      "original_PE_file_offset": "00BBD968",
+      "original_hex": "00a34000c04b5000d0385200102c5200c02d5200"
+    }
+  ],
+  "registration_records": [
+    {
+      "address": "01162F70",
+      "name_pointer": "0101092C",
+      "name": "ScriptCore.UIManager::UIManager_GetUInt32PropertyImpl",
+      "target": "0077B670",
+      "bytes": "70b677002c090101"
+    },
+    {
+      "address": "01162F68",
+      "name_pointer": "010108F4",
+      "name": "ScriptCore.UIManager::UIManager_SetUInt32PropertyImpl",
+      "target": "0077D820",
+      "bytes": "20d87700f4080101"
+    },
+    {
+      "address": "01162F88",
+      "name_pointer": "010109D4",
+      "name": "ScriptCore.UIManager::UIManager_SetRectFloatPropertyImpl",
+      "target": "0077B950",
+      "bytes": "50b97700d4090101"
+    },
+    {
+      "address": "01162F90",
+      "name_pointer": "01010A10",
+      "name": "ScriptCore.UIManager::UIManager_GetRectFloatPropertyImpl",
+      "target": "0077BAC0",
+      "bytes": "c0ba7700100a0101"
+    }
+  ],
+  "qualified_original_code_contexts": [
+    {
+      "start": "00522C10",
+      "stop_exclusive": "00522C3F",
+      "original_PE_file_offset": "00122C10",
+      "original_hex": "8b4424043dac540d03741f3d8283c5ee740989442404e9a523feff85c974068d4104c2040033c0c204008bc1c20400",
+      "role": "Concrete Frame query route; 030D54AC returns complete ECX unchanged, EEC58382 returns secondary+4 conditional on nonnull receiver.",
+      "boundary_status": "Qualified original-byte context only, not Ghidra function ownership or an invented final function/C pair.",
+      "independent_original_instructions": [
+        "00522C10  8B442404          mov eax,[esp+0x4]",
+        "00522C14  3DAC540D03        cmp eax,0x30d54ac",
+        "00522C19  741F              jz 0x522c3a",
+        "00522C1B  3D8283C5EE        cmp eax,0xeec58382",
+        "00522C20  7409              jz 0x522c2b",
+        "00522C22  89442404          mov [esp+0x4],eax",
+        "00522C26  E9A523FEFF        jmp 0x504fd0",
+        "00522C2B  85C9              test ecx,ecx",
+        "00522C2D  7406              jz 0x522c35",
+        "00522C2F  8D4104            lea eax,[ecx+0x4]",
+        "00522C32  C20400            ret word 0x4",
+        "00522C35  33C0              xor eax,eax",
+        "00522C37  C20400            ret word 0x4",
+        "00522C3A  8BC1              mov eax,ecx",
+        "00522C3C  C20400            ret word 0x4"
+      ]
+    },
+    {
+      "start": "0051A5A0",
+      "stop_exclusive": "0051A5C7",
+      "original_PE_file_offset": "0011A5A0",
+      "original_hex": "8b4424048b4c240cc700e0cdfb000fbf510e568b74240c0356045e8950048b4910894808b001c3",
+      "role": "BorderWidth address adapter candidate; no Ghidra function definition, canonical C or ownership extent is inferred.",
+      "boundary_status": "Qualified original-byte context only, not Ghidra function ownership or an invented final function/C pair.",
+      "independent_original_instructions": [
+        "0051A5A0  8B442404          mov eax,[esp+0x4]",
+        "0051A5A4  8B4C240C          mov ecx,[esp+0xc]",
+        "0051A5A8  C700E0CDFB00      mov dword [eax],0xfbcde0",
+        "0051A5AE  0FBF510E          movsx edx,word [ecx+0xe]",
+        "0051A5B2  56                push esi",
+        "0051A5B3  8B74240C          mov esi,[esp+0xc]",
+        "0051A5B7  035604            add edx,[esi+0x4]",
+        "0051A5BA  5E                pop esi",
+        "0051A5BB  895004            mov [eax+0x4],edx",
+        "0051A5BE  8B4910            mov ecx,[ecx+0x10]",
+        "0051A5C1  894808            mov [eax+0x8],ecx",
+        "0051A5C4  B001              mov al,0x1",
+        "0051A5C6  C3                ret"
+      ]
+    },
+    {
+      "start": "00522C40",
+      "stop_exclusive": "00522C46",
+      "original_PE_file_offset": "00122C40",
+      "original_hex": "b8b9540d03c3",
+      "role": "Concrete secondary-vtable class-ID leaf candidate returning030D54B9; no function definition inferred.",
+      "boundary_status": "Qualified original-byte context only, not Ghidra function ownership or an invented final function/C pair.",
+      "independent_original_instructions": [
+        "00522C40  B8B9540D03        mov eax,0x30d54b9",
+        "00522C45  C3                ret"
+      ]
+    }
+  ],
+  "conditional_raw_state_aliases": [
+    {
+      "funcID": 1,
+      "state": 8,
+      "offset": "4C",
+      "consumer": "first horizontal Float32 extent"
+    },
+    {
+      "funcID": 1,
+      "state": 9,
+      "offset": "54",
+      "consumer": "opposite horizontal Float32 extent"
+    },
+    {
+      "funcID": 1,
+      "state": 10,
+      "offset": "5C",
+      "consumer": "outline prepass raw DWORD"
+    },
+    {
+      "funcID": 3,
+      "state": 8,
+      "offset": "50",
+      "consumer": "first vertical Float32 extent"
+    },
+    {
+      "funcID": 3,
+      "state": 9,
+      "offset": "58",
+      "consumer": "opposite vertical Float32 extent"
+    }
+  ],
+  "conditional_raw_state_alias_qualification": "Interface030D54AC returns ECX complete receiver unchanged, when this concrete primary Frame query provider is selected. No arbitrary handle/class binding, valid state, safety or runtime sequence is inferred.",
+  "ownership_and_types": "Metadata/dictionary labels are bounded analyst roles, not applied C struct types or complete callback/lifetime proof."
+}
