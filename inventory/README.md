@@ -19,3 +19,5 @@ The [native evidence index](../indexes/native-evidence.tsv) resolves the current
 - [Bounded remaining-region data assertions](remaining-region-dispositions.md): four guarded dispatch-table intervals totaling 118 bytes; baseline regions and all unasserted pieces remain explicit.
 
 - [Preserve and reuse the historical native corpus](legacy-reuse.md): searchable 5,054-entry byte/union catalog, a bounded 90-entry name-freshness candidate set and an explicit adoption boundary. Existing canonical pairs remain authoritative successors; this catalog does not add 5,054 pairs.
+
+- [Bounded required instruction evidence](remaining-instruction-evidence.md): four exact assertions totaling 1,690 complement bytes for two singleton-entry continuations, with 20 parent bytes still unresolved; metadata ownership and the existing data assertions remain unchanged.

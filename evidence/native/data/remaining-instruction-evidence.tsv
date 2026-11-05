@@ -1,0 +1,598 @@
+reference_id	inventory_version	associated_entry_va	instruction_start_va	instruction_stop_va_exclusive	original_bytes_hex	decoded_instruction	parent_region_id	parent_intersection_start_va	parent_intersection_stop_va_exclusive	parent_intersection_byte_count	instruction_relation	successors_call_return_model
+ts3w-pc-1.67	20261104	007619E0	007619E0	007619E6	8b0dc4501d01	mov    ecx,DWORD PTR ds:0x11d50c4	ts3w-pc-1.67:003619e1:00361e70:20261104	007619E1	007619E6	5	split-entry-instruction-anchor	fallthrough:007619E6
+ts3w-pc-1.67	20261104	007619E0	007619E6	007619EC	81ec58010000	sub    esp,0x158	ts3w-pc-1.67:003619e1:00361e70:20261104	007619E6	007619EC	6	complete-instruction-continuation	fallthrough:007619EC
+ts3w-pc-1.67	20261104	007619E0	007619EC	007619EE	85c9	test   ecx,ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	007619EC	007619EE	2	complete-instruction-continuation	fallthrough:007619EE
+ts3w-pc-1.67	20261104	007619E0	007619EE	007619EF	53	push   ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	007619EE	007619EF	1	complete-instruction-continuation	fallthrough:007619EF
+ts3w-pc-1.67	20261104	007619E0	007619EF	007619F0	55	push   ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	007619EF	007619F0	1	complete-instruction-continuation	fallthrough:007619F0
+ts3w-pc-1.67	20261104	007619E0	007619F0	007619F1	56	push   esi	ts3w-pc-1.67:003619e1:00361e70:20261104	007619F0	007619F1	1	complete-instruction-continuation	fallthrough:007619F1
+ts3w-pc-1.67	20261104	007619E0	007619F1	007619F2	57	push   edi	ts3w-pc-1.67:003619e1:00361e70:20261104	007619F1	007619F2	1	complete-instruction-continuation	fallthrough:007619F2
+ts3w-pc-1.67	20261104	007619E0	007619F2	007619F4	7438	je     0x761a2c	ts3w-pc-1.67:003619e1:00361e70:20261104	007619F2	007619F4	2	complete-instruction-continuation	conditional_taken:00761A2C;conditional_fallthrough:007619F4
+ts3w-pc-1.67	20261104	007619E0	007619F4	007619FB	8b84246c010000	mov    eax,DWORD PTR [esp+0x16c]	ts3w-pc-1.67:003619e1:00361e70:20261104	007619F4	007619FB	7	complete-instruction-continuation	fallthrough:007619FB
+ts3w-pc-1.67	20261104	007619E0	007619FB	007619FC	50	push   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	007619FB	007619FC	1	complete-instruction-continuation	fallthrough:007619FC
+ts3w-pc-1.67	20261104	007619E0	007619FC	00761A01	e8af9afeff	call   0x74b4b0	ts3w-pc-1.67:003619e1:00361e70:20261104	007619FC	00761A01	5	complete-instruction-continuation	call_assumed_return:00761A01
+ts3w-pc-1.67	20261104	007619E0	00761A01	00761A03	8be8	mov    ebp,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A01	00761A03	2	complete-instruction-continuation	fallthrough:00761A03
+ts3w-pc-1.67	20261104	007619E0	00761A03	00761A05	85ed	test   ebp,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A03	00761A05	2	complete-instruction-continuation	fallthrough:00761A05
+ts3w-pc-1.67	20261104	007619E0	00761A05	00761A09	896c242c	mov    DWORD PTR [esp+0x2c],ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A05	00761A09	4	complete-instruction-continuation	fallthrough:00761A09
+ts3w-pc-1.67	20261104	007619E0	00761A09	00761A0B	7421	je     0x761a2c	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A09	00761A0B	2	complete-instruction-continuation	conditional_taken:00761A2C;conditional_fallthrough:00761A0B
+ts3w-pc-1.67	20261104	007619E0	00761A0B	00761A0E	8b5500	mov    edx,DWORD PTR [ebp+0x0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A0B	00761A0E	3	complete-instruction-continuation	fallthrough:00761A0E
+ts3w-pc-1.67	20261104	007619E0	00761A0E	00761A11	8b4210	mov    eax,DWORD PTR [edx+0x10]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A0E	00761A11	3	complete-instruction-continuation	fallthrough:00761A11
+ts3w-pc-1.67	20261104	007619E0	00761A11	00761A13	8bcd	mov    ecx,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A11	00761A13	2	complete-instruction-continuation	fallthrough:00761A13
+ts3w-pc-1.67	20261104	007619E0	00761A13	00761A15	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A13	00761A15	2	complete-instruction-continuation	call_assumed_return:00761A15
+ts3w-pc-1.67	20261104	007619E0	00761A15	00761A1A	a1c4db1e01	mov    eax,ds:0x11edbc4	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A15	00761A1A	5	complete-instruction-continuation	fallthrough:00761A1A
+ts3w-pc-1.67	20261104	007619E0	00761A1A	00761A1C	85c0	test   eax,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A1A	00761A1C	2	complete-instruction-continuation	fallthrough:00761A1C
+ts3w-pc-1.67	20261104	007619E0	00761A1C	00761A20	89442434	mov    DWORD PTR [esp+0x34],eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A1C	00761A20	4	complete-instruction-continuation	fallthrough:00761A20
+ts3w-pc-1.67	20261104	007619E0	00761A20	00761A22	7515	jne    0x761a37	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A20	00761A22	2	complete-instruction-continuation	conditional_taken:00761A37;conditional_fallthrough:00761A22
+ts3w-pc-1.67	20261104	007619E0	00761A22	00761A25	8b5500	mov    edx,DWORD PTR [ebp+0x0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A22	00761A25	3	complete-instruction-continuation	fallthrough:00761A25
+ts3w-pc-1.67	20261104	007619E0	00761A25	00761A28	8b4214	mov    eax,DWORD PTR [edx+0x14]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A25	00761A28	3	complete-instruction-continuation	fallthrough:00761A28
+ts3w-pc-1.67	20261104	007619E0	00761A28	00761A2A	8bcd	mov    ecx,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A28	00761A2A	2	complete-instruction-continuation	fallthrough:00761A2A
+ts3w-pc-1.67	20261104	007619E0	00761A2A	00761A2C	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A2A	00761A2C	2	complete-instruction-continuation	call_assumed_return:00761A2C
+ts3w-pc-1.67	20261104	007619E0	00761A2C	00761A2D	5f	pop    edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A2C	00761A2D	1	complete-instruction-continuation	fallthrough:00761A2D
+ts3w-pc-1.67	20261104	007619E0	00761A2D	00761A2E	5e	pop    esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A2D	00761A2E	1	complete-instruction-continuation	fallthrough:00761A2E
+ts3w-pc-1.67	20261104	007619E0	00761A2E	00761A2F	5d	pop    ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A2E	00761A2F	1	complete-instruction-continuation	fallthrough:00761A2F
+ts3w-pc-1.67	20261104	007619E0	00761A2F	00761A30	5b	pop    ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A2F	00761A30	1	complete-instruction-continuation	fallthrough:00761A30
+ts3w-pc-1.67	20261104	007619E0	00761A30	00761A36	81c458010000	add    esp,0x158	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A30	00761A36	6	complete-instruction-continuation	fallthrough:00761A36
+ts3w-pc-1.67	20261104	007619E0	00761A36	00761A37	c3	ret	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A36	00761A37	1	complete-instruction-continuation	
+ts3w-pc-1.67	20261104	007619E0	00761A37	00761A3C	e8b4720c00	call   0x828cf0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A37	00761A3C	5	complete-instruction-continuation	call_assumed_return:00761A3C
+ts3w-pc-1.67	20261104	007619E0	00761A3C	00761A3E	8bf0	mov    esi,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A3C	00761A3E	2	complete-instruction-continuation	fallthrough:00761A3E
+ts3w-pc-1.67	20261104	007619E0	00761A3E	00761A40	85f6	test   esi,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A3E	00761A40	2	complete-instruction-continuation	fallthrough:00761A40
+ts3w-pc-1.67	20261104	007619E0	00761A40	00761A42	74e0	je     0x761a22	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A40	00761A42	2	complete-instruction-continuation	conditional_taken:00761A22;conditional_fallthrough:00761A42
+ts3w-pc-1.67	20261104	007619E0	00761A42	00761A44	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A42	00761A44	2	complete-instruction-continuation	fallthrough:00761A44
+ts3w-pc-1.67	20261104	007619E0	00761A44	00761A49	e8b77b0c00	call   0x829600	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A44	00761A49	5	complete-instruction-continuation	call_assumed_return:00761A49
+ts3w-pc-1.67	20261104	007619E0	00761A49	00761A4B	8bf8	mov    edi,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A49	00761A4B	2	complete-instruction-continuation	fallthrough:00761A4B
+ts3w-pc-1.67	20261104	007619E0	00761A4B	00761A4D	85ff	test   edi,edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A4B	00761A4D	2	complete-instruction-continuation	fallthrough:00761A4D
+ts3w-pc-1.67	20261104	007619E0	00761A4D	00761A51	897c2438	mov    DWORD PTR [esp+0x38],edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A4D	00761A51	4	complete-instruction-continuation	fallthrough:00761A51
+ts3w-pc-1.67	20261104	007619E0	00761A51	00761A53	74cf	je     0x761a22	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A51	00761A53	2	complete-instruction-continuation	conditional_taken:00761A22;conditional_fallthrough:00761A53
+ts3w-pc-1.67	20261104	007619E0	00761A53	00761A55	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A53	00761A55	2	complete-instruction-continuation	fallthrough:00761A55
+ts3w-pc-1.67	20261104	007619E0	00761A55	00761A5A	e8667b0c00	call   0x8295c0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A55	00761A5A	5	complete-instruction-continuation	call_assumed_return:00761A5A
+ts3w-pc-1.67	20261104	007619E0	00761A5A	00761A5C	8bf0	mov    esi,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A5A	00761A5C	2	complete-instruction-continuation	fallthrough:00761A5C
+ts3w-pc-1.67	20261104	007619E0	00761A5C	00761A5E	85f6	test   esi,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A5C	00761A5E	2	complete-instruction-continuation	fallthrough:00761A5E
+ts3w-pc-1.67	20261104	007619E0	00761A5E	00761A62	8974243c	mov    DWORD PTR [esp+0x3c],esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A5E	00761A62	4	complete-instruction-continuation	fallthrough:00761A62
+ts3w-pc-1.67	20261104	007619E0	00761A62	00761A64	74be	je     0x761a22	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A62	00761A64	2	complete-instruction-continuation	conditional_taken:00761A22;conditional_fallthrough:00761A64
+ts3w-pc-1.67	20261104	007619E0	00761A64	00761A66	33c0	xor    eax,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A64	00761A66	2	complete-instruction-continuation	fallthrough:00761A66
+ts3w-pc-1.67	20261104	007619E0	00761A66	00761A6A	8d4c2418	lea    ecx,[esp+0x18]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A66	00761A6A	4	complete-instruction-continuation	fallthrough:00761A6A
+ts3w-pc-1.67	20261104	007619E0	00761A6A	00761A70	8d9de0000000	lea    ebx,[ebp+0xe0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A6A	00761A70	6	complete-instruction-continuation	fallthrough:00761A70
+ts3w-pc-1.67	20261104	007619E0	00761A70	00761A74	89442430	mov    DWORD PTR [esp+0x30],eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A70	00761A74	4	complete-instruction-continuation	fallthrough:00761A74
+ts3w-pc-1.67	20261104	007619E0	00761A74	00761A78	89442418	mov    DWORD PTR [esp+0x18],eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A74	00761A78	4	complete-instruction-continuation	fallthrough:00761A78
+ts3w-pc-1.67	20261104	007619E0	00761A78	00761A7D	e873e4f2ff	call   0x68fef0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A78	00761A7D	5	complete-instruction-continuation	call_assumed_return:00761A7D
+ts3w-pc-1.67	20261104	007619E0	00761A7D	00761A7E	50	push   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A7D	00761A7E	1	complete-instruction-continuation	fallthrough:00761A7E
+ts3w-pc-1.67	20261104	007619E0	00761A7E	00761A82	8d4c2434	lea    ecx,[esp+0x34]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A7E	00761A82	4	complete-instruction-continuation	fallthrough:00761A82
+ts3w-pc-1.67	20261104	007619E0	00761A82	00761A87	e869e4f2ff	call   0x68fef0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A82	00761A87	5	complete-instruction-continuation	call_assumed_return:00761A87
+ts3w-pc-1.67	20261104	007619E0	00761A87	00761A88	50	push   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A87	00761A88	1	complete-instruction-continuation	fallthrough:00761A88
+ts3w-pc-1.67	20261104	007619E0	00761A88	00761A8A	8bcd	mov    ecx,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A88	00761A8A	2	complete-instruction-continuation	fallthrough:00761A8A
+ts3w-pc-1.67	20261104	007619E0	00761A8A	00761A8F	e89156ffff	call   0x757120	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A8A	00761A8F	5	complete-instruction-continuation	call_assumed_return:00761A8F
+ts3w-pc-1.67	20261104	007619E0	00761A8F	00761A95	8b8df0000000	mov    ecx,DWORD PTR [ebp+0xf0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A8F	00761A95	6	complete-instruction-continuation	fallthrough:00761A95
+ts3w-pc-1.67	20261104	007619E0	00761A95	00761A99	88442413	mov    BYTE PTR [esp+0x13],al	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A95	00761A99	4	complete-instruction-continuation	fallthrough:00761A99
+ts3w-pc-1.67	20261104	007619E0	00761A99	00761A9B	8b03	mov    eax,DWORD PTR [ebx]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A99	00761A9B	2	complete-instruction-continuation	fallthrough:00761A9B
+ts3w-pc-1.67	20261104	007619E0	00761A9B	00761A9D	3bc3	cmp    eax,ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A9B	00761A9D	2	complete-instruction-continuation	fallthrough:00761A9D
+ts3w-pc-1.67	20261104	007619E0	00761A9D	00761AA1	894c241c	mov    DWORD PTR [esp+0x1c],ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761A9D	00761AA1	4	complete-instruction-continuation	fallthrough:00761AA1
+ts3w-pc-1.67	20261104	007619E0	00761AA1	00761AA9	c744242800000000	mov    DWORD PTR [esp+0x28],0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AA1	00761AA9	8	complete-instruction-continuation	fallthrough:00761AA9
+ts3w-pc-1.67	20261104	007619E0	00761AA9	00761AAD	89442414	mov    DWORD PTR [esp+0x14],eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AA9	00761AAD	4	complete-instruction-continuation	fallthrough:00761AAD
+ts3w-pc-1.67	20261104	007619E0	00761AAD	00761AB3	0f844e020000	je     0x761d01	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AAD	00761AB3	6	complete-instruction-continuation	conditional_taken:00761D01;conditional_fallthrough:00761AB3
+ts3w-pc-1.67	20261104	007619E0	00761AB3	00761AB5	eb04	jmp    0x761ab9	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AB3	00761AB5	2	complete-instruction-continuation	direct_jump:00761AB9
+ts3w-pc-1.67	20261104	007619E0	00761AB5	00761AB9	8b442414	mov    eax,DWORD PTR [esp+0x14]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AB5	00761AB9	4	complete-instruction-continuation	fallthrough:00761AB9
+ts3w-pc-1.67	20261104	007619E0	00761AB9	00761ABC	8b7008	mov    esi,DWORD PTR [eax+0x8]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AB9	00761ABC	3	complete-instruction-continuation	fallthrough:00761ABC
+ts3w-pc-1.67	20261104	007619E0	00761ABC	00761ABE	85f6	test   esi,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761ABC	00761ABE	2	complete-instruction-continuation	fallthrough:00761ABE
+ts3w-pc-1.67	20261104	007619E0	00761ABE	00761AC2	89742424	mov    DWORD PTR [esp+0x24],esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761ABE	00761AC2	4	complete-instruction-continuation	fallthrough:00761AC2
+ts3w-pc-1.67	20261104	007619E0	00761AC2	00761AC4	740c	je     0x761ad0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AC2	00761AC4	2	complete-instruction-continuation	conditional_taken:00761AD0;conditional_fallthrough:00761AC4
+ts3w-pc-1.67	20261104	007619E0	00761AC4	00761AC7	8d5604	lea    edx,[esi+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AC4	00761AC7	3	complete-instruction-continuation	fallthrough:00761AC7
+ts3w-pc-1.67	20261104	007619E0	00761AC7	00761ACC	b801000000	mov    eax,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AC7	00761ACC	5	complete-instruction-continuation	fallthrough:00761ACC
+ts3w-pc-1.67	20261104	007619E0	00761ACC	00761AD0	f00fc102	lock xadd DWORD PTR [edx],eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761ACC	00761AD0	4	complete-instruction-continuation	fallthrough:00761AD0
+ts3w-pc-1.67	20261104	007619E0	00761AD0	00761AD2	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AD0	00761AD2	2	complete-instruction-continuation	fallthrough:00761AD2
+ts3w-pc-1.67	20261104	007619E0	00761AD2	00761AD5	8b427c	mov    eax,DWORD PTR [edx+0x7c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AD2	00761AD5	3	complete-instruction-continuation	fallthrough:00761AD5
+ts3w-pc-1.67	20261104	007619E0	00761AD5	00761AD7	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AD5	00761AD7	2	complete-instruction-continuation	fallthrough:00761AD7
+ts3w-pc-1.67	20261104	007619E0	00761AD7	00761AD9	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AD7	00761AD9	2	complete-instruction-continuation	call_assumed_return:00761AD9
+ts3w-pc-1.67	20261104	007619E0	00761AD9	00761ADB	8be8	mov    ebp,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AD9	00761ADB	2	complete-instruction-continuation	fallthrough:00761ADB
+ts3w-pc-1.67	20261104	007619E0	00761ADB	00761ADD	85ed	test   ebp,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761ADB	00761ADD	2	complete-instruction-continuation	fallthrough:00761ADD
+ts3w-pc-1.67	20261104	007619E0	00761ADD	00761ADF	740c	je     0x761aeb	ts3w-pc-1.67:003619e1:00361e70:20261104	00761ADD	00761ADF	2	complete-instruction-continuation	conditional_taken:00761AEB;conditional_fallthrough:00761ADF
+ts3w-pc-1.67	20261104	007619E0	00761ADF	00761AE2	8d4d04	lea    ecx,[ebp+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761ADF	00761AE2	3	complete-instruction-continuation	fallthrough:00761AE2
+ts3w-pc-1.67	20261104	007619E0	00761AE2	00761AE7	ba01000000	mov    edx,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AE2	00761AE7	5	complete-instruction-continuation	fallthrough:00761AE7
+ts3w-pc-1.67	20261104	007619E0	00761AE7	00761AEB	f00fc111	lock xadd DWORD PTR [ecx],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AE7	00761AEB	4	complete-instruction-continuation	fallthrough:00761AEB
+ts3w-pc-1.67	20261104	007619E0	00761AEB	00761AEF	8a542413	mov    dl,BYTE PTR [esp+0x13]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AEB	00761AEF	4	complete-instruction-continuation	fallthrough:00761AEF
+ts3w-pc-1.67	20261104	007619E0	00761AEF	00761AF1	84d2	test   dl,dl	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AEF	00761AF1	2	complete-instruction-continuation	fallthrough:00761AF1
+ts3w-pc-1.67	20261104	007619E0	00761AF1	00761AF5	8b442430	mov    eax,DWORD PTR [esp+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AF1	00761AF5	4	complete-instruction-continuation	fallthrough:00761AF5
+ts3w-pc-1.67	20261104	007619E0	00761AF5	00761AF9	8b7c2418	mov    edi,DWORD PTR [esp+0x18]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AF5	00761AF9	4	complete-instruction-continuation	fallthrough:00761AF9
+ts3w-pc-1.67	20261104	007619E0	00761AF9	00761AFB	740c	je     0x761b07	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AF9	00761AFB	2	complete-instruction-continuation	conditional_taken:00761B07;conditional_fallthrough:00761AFB
+ts3w-pc-1.67	20261104	007619E0	00761AFB	00761AFD	3bf0	cmp    esi,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AFB	00761AFD	2	complete-instruction-continuation	fallthrough:00761AFD
+ts3w-pc-1.67	20261104	007619E0	00761AFD	00761AFF	7404	je     0x761b03	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AFD	00761AFF	2	complete-instruction-continuation	conditional_taken:00761B03;conditional_fallthrough:00761AFF
+ts3w-pc-1.67	20261104	007619E0	00761AFF	00761B01	3bf7	cmp    esi,edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761AFF	00761B01	2	complete-instruction-continuation	fallthrough:00761B01
+ts3w-pc-1.67	20261104	007619E0	00761B01	00761B03	7504	jne    0x761b07	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B01	00761B03	2	complete-instruction-continuation	conditional_taken:00761B07;conditional_fallthrough:00761B03
+ts3w-pc-1.67	20261104	007619E0	00761B03	00761B05	b101	mov    cl,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B03	00761B05	2	complete-instruction-continuation	fallthrough:00761B05
+ts3w-pc-1.67	20261104	007619E0	00761B05	00761B07	eb02	jmp    0x761b09	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B05	00761B07	2	complete-instruction-continuation	direct_jump:00761B09
+ts3w-pc-1.67	20261104	007619E0	00761B07	00761B09	32c9	xor    cl,cl	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B07	00761B09	2	complete-instruction-continuation	fallthrough:00761B09
+ts3w-pc-1.67	20261104	007619E0	00761B09	00761B0B	84d2	test   dl,dl	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B09	00761B0B	2	complete-instruction-continuation	fallthrough:00761B0B
+ts3w-pc-1.67	20261104	007619E0	00761B0B	00761B0D	7410	je     0x761b1d	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B0B	00761B0D	2	complete-instruction-continuation	conditional_taken:00761B1D;conditional_fallthrough:00761B0D
+ts3w-pc-1.67	20261104	007619E0	00761B0D	00761B0F	85ed	test   ebp,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B0D	00761B0F	2	complete-instruction-continuation	fallthrough:00761B0F
+ts3w-pc-1.67	20261104	007619E0	00761B0F	00761B11	740c	je     0x761b1d	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B0F	00761B11	2	complete-instruction-continuation	conditional_taken:00761B1D;conditional_fallthrough:00761B11
+ts3w-pc-1.67	20261104	007619E0	00761B11	00761B13	3be8	cmp    ebp,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B11	00761B13	2	complete-instruction-continuation	fallthrough:00761B13
+ts3w-pc-1.67	20261104	007619E0	00761B13	00761B15	7404	je     0x761b19	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B13	00761B15	2	complete-instruction-continuation	conditional_taken:00761B19;conditional_fallthrough:00761B15
+ts3w-pc-1.67	20261104	007619E0	00761B15	00761B17	3bef	cmp    ebp,edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B15	00761B17	2	complete-instruction-continuation	fallthrough:00761B17
+ts3w-pc-1.67	20261104	007619E0	00761B17	00761B19	7504	jne    0x761b1d	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B17	00761B19	2	complete-instruction-continuation	conditional_taken:00761B1D;conditional_fallthrough:00761B19
+ts3w-pc-1.67	20261104	007619E0	00761B19	00761B1B	b001	mov    al,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B19	00761B1B	2	complete-instruction-continuation	fallthrough:00761B1B
+ts3w-pc-1.67	20261104	007619E0	00761B1B	00761B1D	eb02	jmp    0x761b1f	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B1B	00761B1D	2	complete-instruction-continuation	direct_jump:00761B1F
+ts3w-pc-1.67	20261104	007619E0	00761B1D	00761B1F	32c0	xor    al,al	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B1D	00761B1F	2	complete-instruction-continuation	fallthrough:00761B1F
+ts3w-pc-1.67	20261104	007619E0	00761B1F	00761B21	85ed	test   ebp,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B1F	00761B21	2	complete-instruction-continuation	fallthrough:00761B21
+ts3w-pc-1.67	20261104	007619E0	00761B21	00761B27	0f8441010000	je     0x761c68	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B21	00761B27	6	complete-instruction-continuation	conditional_taken:00761C68;conditional_fallthrough:00761B27
+ts3w-pc-1.67	20261104	007619E0	00761B27	00761B29	84d2	test   dl,dl	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B27	00761B29	2	complete-instruction-continuation	fallthrough:00761B29
+ts3w-pc-1.67	20261104	007619E0	00761B29	00761B2B	7408	je     0x761b33	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B29	00761B2B	2	complete-instruction-continuation	conditional_taken:00761B33;conditional_fallthrough:00761B2B
+ts3w-pc-1.67	20261104	007619E0	00761B2B	00761B2D	32c1	xor    al,cl	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B2B	00761B2D	2	complete-instruction-continuation	fallthrough:00761B2D
+ts3w-pc-1.67	20261104	007619E0	00761B2D	00761B33	0f8535010000	jne    0x761c68	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B2D	00761B33	6	complete-instruction-continuation	conditional_taken:00761C68;conditional_fallthrough:00761B33
+ts3w-pc-1.67	20261104	007619E0	00761B33	00761B35	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B33	00761B35	2	complete-instruction-continuation	fallthrough:00761B35
+ts3w-pc-1.67	20261104	007619E0	00761B35	00761B38	8b5030	mov    edx,DWORD PTR [eax+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B35	00761B38	3	complete-instruction-continuation	fallthrough:00761B38
+ts3w-pc-1.67	20261104	007619E0	00761B38	00761B3A	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B38	00761B3A	2	complete-instruction-continuation	fallthrough:00761B3A
+ts3w-pc-1.67	20261104	007619E0	00761B3A	00761B3C	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B3A	00761B3C	2	complete-instruction-continuation	call_assumed_return:00761B3C
+ts3w-pc-1.67	20261104	007619E0	00761B3C	00761B42	8138670b60c6	cmp    DWORD PTR [eax],0xc6600b67	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B3C	00761B42	6	complete-instruction-continuation	fallthrough:00761B42
+ts3w-pc-1.67	20261104	007619E0	00761B42	00761B44	7448	je     0x761b8c	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B42	00761B44	2	complete-instruction-continuation	conditional_taken:00761B8C;conditional_fallthrough:00761B44
+ts3w-pc-1.67	20261104	007619E0	00761B44	00761B46	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B44	00761B46	2	complete-instruction-continuation	fallthrough:00761B46
+ts3w-pc-1.67	20261104	007619E0	00761B46	00761B49	8b5030	mov    edx,DWORD PTR [eax+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B46	00761B49	3	complete-instruction-continuation	fallthrough:00761B49
+ts3w-pc-1.67	20261104	007619E0	00761B49	00761B4B	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B49	00761B4B	2	complete-instruction-continuation	fallthrough:00761B4B
+ts3w-pc-1.67	20261104	007619E0	00761B4B	00761B4D	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B4B	00761B4D	2	complete-instruction-continuation	call_assumed_return:00761B4D
+ts3w-pc-1.67	20261104	007619E0	00761B4D	00761B53	81384bf7695e	cmp    DWORD PTR [eax],0x5e69f74b	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B4D	00761B53	6	complete-instruction-continuation	fallthrough:00761B53
+ts3w-pc-1.67	20261104	007619E0	00761B53	00761B55	7437	je     0x761b8c	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B53	00761B55	2	complete-instruction-continuation	conditional_taken:00761B8C;conditional_fallthrough:00761B55
+ts3w-pc-1.67	20261104	007619E0	00761B55	00761B57	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B55	00761B57	2	complete-instruction-continuation	fallthrough:00761B57
+ts3w-pc-1.67	20261104	007619E0	00761B57	00761B5A	8b5030	mov    edx,DWORD PTR [eax+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B57	00761B5A	3	complete-instruction-continuation	fallthrough:00761B5A
+ts3w-pc-1.67	20261104	007619E0	00761B5A	00761B5C	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B5A	00761B5C	2	complete-instruction-continuation	fallthrough:00761B5C
+ts3w-pc-1.67	20261104	007619E0	00761B5C	00761B5E	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B5C	00761B5E	2	complete-instruction-continuation	call_assumed_return:00761B5E
+ts3w-pc-1.67	20261104	007619E0	00761B5E	00761B64	8138c5af5ce1	cmp    DWORD PTR [eax],0xe15cafc5	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B5E	00761B64	6	complete-instruction-continuation	fallthrough:00761B64
+ts3w-pc-1.67	20261104	007619E0	00761B64	00761B66	7426	je     0x761b8c	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B64	00761B66	2	complete-instruction-continuation	conditional_taken:00761B8C;conditional_fallthrough:00761B66
+ts3w-pc-1.67	20261104	007619E0	00761B66	00761B68	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B66	00761B68	2	complete-instruction-continuation	fallthrough:00761B68
+ts3w-pc-1.67	20261104	007619E0	00761B68	00761B6B	8b5030	mov    edx,DWORD PTR [eax+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B68	00761B6B	3	complete-instruction-continuation	fallthrough:00761B6B
+ts3w-pc-1.67	20261104	007619E0	00761B6B	00761B6D	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B6B	00761B6D	2	complete-instruction-continuation	fallthrough:00761B6D
+ts3w-pc-1.67	20261104	007619E0	00761B6D	00761B6F	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B6D	00761B6F	2	complete-instruction-continuation	call_assumed_return:00761B6F
+ts3w-pc-1.67	20261104	007619E0	00761B6F	00761B75	81380a95438d	cmp    DWORD PTR [eax],0x8d43950a	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B6F	00761B75	6	complete-instruction-continuation	fallthrough:00761B75
+ts3w-pc-1.67	20261104	007619E0	00761B75	00761B77	7415	je     0x761b8c	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B75	00761B77	2	complete-instruction-continuation	conditional_taken:00761B8C;conditional_fallthrough:00761B77
+ts3w-pc-1.67	20261104	007619E0	00761B77	00761B79	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B77	00761B79	2	complete-instruction-continuation	fallthrough:00761B79
+ts3w-pc-1.67	20261104	007619E0	00761B79	00761B7C	8b5030	mov    edx,DWORD PTR [eax+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B79	00761B7C	3	complete-instruction-continuation	fallthrough:00761B7C
+ts3w-pc-1.67	20261104	007619E0	00761B7C	00761B7E	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B7C	00761B7E	2	complete-instruction-continuation	fallthrough:00761B7E
+ts3w-pc-1.67	20261104	007619E0	00761B7E	00761B80	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B7E	00761B80	2	complete-instruction-continuation	call_assumed_return:00761B80
+ts3w-pc-1.67	20261104	007619E0	00761B80	00761B86	8138ccb7009a	cmp    DWORD PTR [eax],0x9a00b7cc	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B80	00761B86	6	complete-instruction-continuation	fallthrough:00761B86
+ts3w-pc-1.67	20261104	007619E0	00761B86	00761B8C	0f85d8000000	jne    0x761c64	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B86	00761B8C	6	complete-instruction-continuation	conditional_taken:00761C64;conditional_fallthrough:00761B8C
+ts3w-pc-1.67	20261104	007619E0	00761B8C	00761B8E	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B8C	00761B8E	2	complete-instruction-continuation	fallthrough:00761B8E
+ts3w-pc-1.67	20261104	007619E0	00761B8E	00761B91	8b5030	mov    edx,DWORD PTR [eax+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B8E	00761B91	3	complete-instruction-continuation	fallthrough:00761B91
+ts3w-pc-1.67	20261104	007619E0	00761B91	00761B93	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B91	00761B93	2	complete-instruction-continuation	fallthrough:00761B93
+ts3w-pc-1.67	20261104	007619E0	00761B93	00761B95	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B93	00761B95	2	complete-instruction-continuation	call_assumed_return:00761B95
+ts3w-pc-1.67	20261104	007619E0	00761B95	00761B97	8bf8	mov    edi,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B95	00761B97	2	complete-instruction-continuation	fallthrough:00761B97
+ts3w-pc-1.67	20261104	007619E0	00761B97	00761B9A	8b4500	mov    eax,DWORD PTR [ebp+0x0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B97	00761B9A	3	complete-instruction-continuation	fallthrough:00761B9A
+ts3w-pc-1.67	20261104	007619E0	00761B9A	00761B9D	8b5030	mov    edx,DWORD PTR [eax+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B9A	00761B9D	3	complete-instruction-continuation	fallthrough:00761B9D
+ts3w-pc-1.67	20261104	007619E0	00761B9D	00761B9F	8bcd	mov    ecx,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B9D	00761B9F	2	complete-instruction-continuation	fallthrough:00761B9F
+ts3w-pc-1.67	20261104	007619E0	00761B9F	00761BA1	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761B9F	00761BA1	2	complete-instruction-continuation	call_assumed_return:00761BA1
+ts3w-pc-1.67	20261104	007619E0	00761BA1	00761BA3	8b0f	mov    ecx,DWORD PTR [edi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BA1	00761BA3	2	complete-instruction-continuation	fallthrough:00761BA3
+ts3w-pc-1.67	20261104	007619E0	00761BA3	00761BA5	3b08	cmp    ecx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BA3	00761BA5	2	complete-instruction-continuation	fallthrough:00761BA5
+ts3w-pc-1.67	20261104	007619E0	00761BA5	00761BAB	0f85b9000000	jne    0x761c64	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BA5	00761BAB	6	complete-instruction-continuation	conditional_taken:00761C64;conditional_fallthrough:00761BAB
+ts3w-pc-1.67	20261104	007619E0	00761BAB	00761BB0	807c241300	cmp    BYTE PTR [esp+0x13],0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BAB	00761BB0	5	complete-instruction-continuation	fallthrough:00761BB0
+ts3w-pc-1.67	20261104	007619E0	00761BB0	00761BB2	7423	je     0x761bd5	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BB0	00761BB2	2	complete-instruction-continuation	conditional_taken:00761BD5;conditional_fallthrough:00761BB2
+ts3w-pc-1.67	20261104	007619E0	00761BB2	00761BB6	3b6c2418	cmp    ebp,DWORD PTR [esp+0x18]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BB2	00761BB6	4	complete-instruction-continuation	fallthrough:00761BB6
+ts3w-pc-1.67	20261104	007619E0	00761BB6	00761BB8	750e	jne    0x761bc6	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BB6	00761BB8	2	complete-instruction-continuation	conditional_taken:00761BC6;conditional_fallthrough:00761BB8
+ts3w-pc-1.67	20261104	007619E0	00761BB8	00761BBC	8d542424	lea    edx,[esp+0x24]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BB8	00761BBC	4	complete-instruction-continuation	fallthrough:00761BBC
+ts3w-pc-1.67	20261104	007619E0	00761BBC	00761BBD	52	push   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BBC	00761BBD	1	complete-instruction-continuation	fallthrough:00761BBD
+ts3w-pc-1.67	20261104	007619E0	00761BBD	00761BC1	8d4c241c	lea    ecx,[esp+0x1c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BBD	00761BC1	4	complete-instruction-continuation	fallthrough:00761BC1
+ts3w-pc-1.67	20261104	007619E0	00761BC1	00761BC6	e8fa371100	call   0x8753c0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BC1	00761BC6	5	complete-instruction-continuation	call_assumed_return:00761BC6
+ts3w-pc-1.67	20261104	007619E0	00761BC6	00761BCA	8b442428	mov    eax,DWORD PTR [esp+0x28]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BC6	00761BCA	4	complete-instruction-continuation	fallthrough:00761BCA
+ts3w-pc-1.67	20261104	007619E0	00761BCA	00761BCE	3b44241c	cmp    eax,DWORD PTR [esp+0x1c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BCA	00761BCE	4	complete-instruction-continuation	fallthrough:00761BCE
+ts3w-pc-1.67	20261104	007619E0	00761BCE	00761BD0	7d05	jge    0x761bd5	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BCE	00761BD0	2	complete-instruction-continuation	conditional_taken:00761BD5;conditional_fallthrough:00761BD0
+ts3w-pc-1.67	20261104	007619E0	00761BD0	00761BD5	836c241c01	sub    DWORD PTR [esp+0x1c],0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BD0	00761BD5	5	complete-instruction-continuation	fallthrough:00761BD5
+ts3w-pc-1.67	20261104	007619E0	00761BD5	00761BD7	8b3e	mov    edi,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BD5	00761BD7	2	complete-instruction-continuation	fallthrough:00761BD7
+ts3w-pc-1.67	20261104	007619E0	00761BD7	00761BDA	8b577c	mov    edx,DWORD PTR [edi+0x7c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BD7	00761BDA	3	complete-instruction-continuation	fallthrough:00761BDA
+ts3w-pc-1.67	20261104	007619E0	00761BDA	00761BDC	6a01	push   0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BDA	00761BDC	2	complete-instruction-continuation	fallthrough:00761BDC
+ts3w-pc-1.67	20261104	007619E0	00761BDC	00761BDE	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BDC	00761BDE	2	complete-instruction-continuation	fallthrough:00761BDE
+ts3w-pc-1.67	20261104	007619E0	00761BDE	00761BE0	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BDE	00761BE0	2	complete-instruction-continuation	call_assumed_return:00761BE0
+ts3w-pc-1.67	20261104	007619E0	00761BE0	00761BE1	50	push   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BE0	00761BE1	1	complete-instruction-continuation	fallthrough:00761BE1
+ts3w-pc-1.67	20261104	007619E0	00761BE1	00761BE7	8b87f8000000	mov    eax,DWORD PTR [edi+0xf8]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BE1	00761BE7	6	complete-instruction-continuation	fallthrough:00761BE7
+ts3w-pc-1.67	20261104	007619E0	00761BE7	00761BE9	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BE7	00761BE9	2	complete-instruction-continuation	fallthrough:00761BE9
+ts3w-pc-1.67	20261104	007619E0	00761BE9	00761BEB	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BE9	00761BEB	2	complete-instruction-continuation	call_assumed_return:00761BEB
+ts3w-pc-1.67	20261104	007619E0	00761BEB	00761BED	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BEB	00761BED	2	complete-instruction-continuation	fallthrough:00761BED
+ts3w-pc-1.67	20261104	007619E0	00761BED	00761BF0	8b427c	mov    eax,DWORD PTR [edx+0x7c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BED	00761BF0	3	complete-instruction-continuation	fallthrough:00761BF0
+ts3w-pc-1.67	20261104	007619E0	00761BF0	00761BF2	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BF0	00761BF2	2	complete-instruction-continuation	fallthrough:00761BF2
+ts3w-pc-1.67	20261104	007619E0	00761BF2	00761BF4	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BF2	00761BF4	2	complete-instruction-continuation	call_assumed_return:00761BF4
+ts3w-pc-1.67	20261104	007619E0	00761BF4	00761BF6	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BF4	00761BF6	2	complete-instruction-continuation	fallthrough:00761BF6
+ts3w-pc-1.67	20261104	007619E0	00761BF6	00761BF8	8bc8	mov    ecx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BF6	00761BF8	2	complete-instruction-continuation	fallthrough:00761BF8
+ts3w-pc-1.67	20261104	007619E0	00761BF8	00761BFB	8b427c	mov    eax,DWORD PTR [edx+0x7c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BF8	00761BFB	3	complete-instruction-continuation	fallthrough:00761BFB
+ts3w-pc-1.67	20261104	007619E0	00761BFB	00761BFD	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BFB	00761BFD	2	complete-instruction-continuation	call_assumed_return:00761BFD
+ts3w-pc-1.67	20261104	007619E0	00761BFD	00761BFF	85c0	test   eax,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BFD	00761BFF	2	complete-instruction-continuation	fallthrough:00761BFF
+ts3w-pc-1.67	20261104	007619E0	00761BFF	00761C01	741f	je     0x761c20	ts3w-pc-1.67:003619e1:00361e70:20261104	00761BFF	00761C01	2	complete-instruction-continuation	conditional_taken:00761C20;conditional_fallthrough:00761C01
+ts3w-pc-1.67	20261104	007619E0	00761C01	00761C03	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C01	00761C03	2	complete-instruction-continuation	fallthrough:00761C03
+ts3w-pc-1.67	20261104	007619E0	00761C03	00761C06	8b427c	mov    eax,DWORD PTR [edx+0x7c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C03	00761C06	3	complete-instruction-continuation	fallthrough:00761C06
+ts3w-pc-1.67	20261104	007619E0	00761C06	00761C08	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C06	00761C08	2	complete-instruction-continuation	fallthrough:00761C08
+ts3w-pc-1.67	20261104	007619E0	00761C08	00761C0A	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C08	00761C0A	2	complete-instruction-continuation	call_assumed_return:00761C0A
+ts3w-pc-1.67	20261104	007619E0	00761C0A	00761C0C	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C0A	00761C0C	2	complete-instruction-continuation	fallthrough:00761C0C
+ts3w-pc-1.67	20261104	007619E0	00761C0C	00761C0E	8bc8	mov    ecx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C0C	00761C0E	2	complete-instruction-continuation	fallthrough:00761C0E
+ts3w-pc-1.67	20261104	007619E0	00761C0E	00761C11	8b427c	mov    eax,DWORD PTR [edx+0x7c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C0E	00761C11	3	complete-instruction-continuation	fallthrough:00761C11
+ts3w-pc-1.67	20261104	007619E0	00761C11	00761C13	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C11	00761C13	2	complete-instruction-continuation	call_assumed_return:00761C13
+ts3w-pc-1.67	20261104	007619E0	00761C13	00761C15	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C13	00761C15	2	complete-instruction-continuation	fallthrough:00761C15
+ts3w-pc-1.67	20261104	007619E0	00761C15	00761C17	8bc8	mov    ecx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C15	00761C17	2	complete-instruction-continuation	fallthrough:00761C17
+ts3w-pc-1.67	20261104	007619E0	00761C17	00761C1D	8b8280000000	mov    eax,DWORD PTR [edx+0x80]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C17	00761C1D	6	complete-instruction-continuation	fallthrough:00761C1D
+ts3w-pc-1.67	20261104	007619E0	00761C1D	00761C1E	56	push   esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C1D	00761C1E	1	complete-instruction-continuation	fallthrough:00761C1E
+ts3w-pc-1.67	20261104	007619E0	00761C1E	00761C20	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C1E	00761C20	2	complete-instruction-continuation	call_assumed_return:00761C20
+ts3w-pc-1.67	20261104	007619E0	00761C20	00761C22	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C20	00761C22	2	complete-instruction-continuation	fallthrough:00761C22
+ts3w-pc-1.67	20261104	007619E0	00761C22	00761C25	8b427c	mov    eax,DWORD PTR [edx+0x7c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C22	00761C25	3	complete-instruction-continuation	fallthrough:00761C25
+ts3w-pc-1.67	20261104	007619E0	00761C25	00761C27	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C25	00761C27	2	complete-instruction-continuation	fallthrough:00761C27
+ts3w-pc-1.67	20261104	007619E0	00761C27	00761C29	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C27	00761C29	2	complete-instruction-continuation	call_assumed_return:00761C29
+ts3w-pc-1.67	20261104	007619E0	00761C29	00761C2B	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C29	00761C2B	2	complete-instruction-continuation	fallthrough:00761C2B
+ts3w-pc-1.67	20261104	007619E0	00761C2B	00761C2D	8b3e	mov    edi,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C2B	00761C2D	2	complete-instruction-continuation	fallthrough:00761C2D
+ts3w-pc-1.67	20261104	007619E0	00761C2D	00761C2F	8bc8	mov    ecx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C2D	00761C2F	2	complete-instruction-continuation	fallthrough:00761C2F
+ts3w-pc-1.67	20261104	007619E0	00761C2F	00761C32	8b427c	mov    eax,DWORD PTR [edx+0x7c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C2F	00761C32	3	complete-instruction-continuation	fallthrough:00761C32
+ts3w-pc-1.67	20261104	007619E0	00761C32	00761C35	83c778	add    edi,0x78	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C32	00761C35	3	complete-instruction-continuation	fallthrough:00761C35
+ts3w-pc-1.67	20261104	007619E0	00761C35	00761C37	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C35	00761C37	2	complete-instruction-continuation	call_assumed_return:00761C37
+ts3w-pc-1.67	20261104	007619E0	00761C37	00761C39	8b17	mov    edx,DWORD PTR [edi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C37	00761C39	2	complete-instruction-continuation	fallthrough:00761C39
+ts3w-pc-1.67	20261104	007619E0	00761C39	00761C3A	50	push   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C39	00761C3A	1	complete-instruction-continuation	fallthrough:00761C3A
+ts3w-pc-1.67	20261104	007619E0	00761C3A	00761C3C	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C3A	00761C3C	2	complete-instruction-continuation	fallthrough:00761C3C
+ts3w-pc-1.67	20261104	007619E0	00761C3C	00761C3E	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C3C	00761C3E	2	complete-instruction-continuation	call_assumed_return:00761C3E
+ts3w-pc-1.67	20261104	007619E0	00761C3E	00761C3F	51	push   ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C3E	00761C3F	1	complete-instruction-continuation	fallthrough:00761C3F
+ts3w-pc-1.67	20261104	007619E0	00761C3F	00761C43	8b4c2418	mov    ecx,DWORD PTR [esp+0x18]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C3F	00761C43	4	complete-instruction-continuation	fallthrough:00761C43
+ts3w-pc-1.67	20261104	007619E0	00761C43	00761C45	8b11	mov    edx,DWORD PTR [ecx]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C43	00761C45	2	complete-instruction-continuation	fallthrough:00761C45
+ts3w-pc-1.67	20261104	007619E0	00761C45	00761C47	8bc4	mov    eax,esp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C45	00761C47	2	complete-instruction-continuation	fallthrough:00761C47
+ts3w-pc-1.67	20261104	007619E0	00761C47	00761C49	8910	mov    DWORD PTR [eax],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C47	00761C49	2	complete-instruction-continuation	fallthrough:00761C49
+ts3w-pc-1.67	20261104	007619E0	00761C49	00761C4D	8d442424	lea    eax,[esp+0x24]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C49	00761C4D	4	complete-instruction-continuation	fallthrough:00761C4D
+ts3w-pc-1.67	20261104	007619E0	00761C4D	00761C4E	50	push   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C4D	00761C4E	1	complete-instruction-continuation	fallthrough:00761C4E
+ts3w-pc-1.67	20261104	007619E0	00761C4E	00761C50	8bcb	mov    ecx,ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C4E	00761C50	2	complete-instruction-continuation	fallthrough:00761C50
+ts3w-pc-1.67	20261104	007619E0	00761C50	00761C55	e8eb77ffff	call   0x759440	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C50	00761C55	5	complete-instruction-continuation	call_assumed_return:00761C55
+ts3w-pc-1.67	20261104	007619E0	00761C55	00761C57	8b08	mov    ecx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C55	00761C57	2	complete-instruction-continuation	fallthrough:00761C57
+ts3w-pc-1.67	20261104	007619E0	00761C57	00761C5A	8b5104	mov    edx,DWORD PTR [ecx+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C57	00761C5A	3	complete-instruction-continuation	fallthrough:00761C5A
+ts3w-pc-1.67	20261104	007619E0	00761C5A	00761C5E	89542414	mov    DWORD PTR [esp+0x14],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C5A	00761C5E	4	complete-instruction-continuation	fallthrough:00761C5E
+ts3w-pc-1.67	20261104	007619E0	00761C5E	00761C62	8a542413	mov    dl,BYTE PTR [esp+0x13]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C5E	00761C62	4	complete-instruction-continuation	fallthrough:00761C62
+ts3w-pc-1.67	20261104	007619E0	00761C62	00761C64	eb0e	jmp    0x761c72	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C62	00761C64	2	complete-instruction-continuation	direct_jump:00761C72
+ts3w-pc-1.67	20261104	007619E0	00761C64	00761C68	8a542413	mov    dl,BYTE PTR [esp+0x13]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C64	00761C68	4	complete-instruction-continuation	fallthrough:00761C68
+ts3w-pc-1.67	20261104	007619E0	00761C68	00761C6C	8b442414	mov    eax,DWORD PTR [esp+0x14]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C68	00761C6C	4	complete-instruction-continuation	fallthrough:00761C6C
+ts3w-pc-1.67	20261104	007619E0	00761C6C	00761C6E	8b08	mov    ecx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C6C	00761C6E	2	complete-instruction-continuation	fallthrough:00761C6E
+ts3w-pc-1.67	20261104	007619E0	00761C6E	00761C72	894c2414	mov    DWORD PTR [esp+0x14],ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C6E	00761C72	4	complete-instruction-continuation	fallthrough:00761C72
+ts3w-pc-1.67	20261104	007619E0	00761C72	00761C74	84d2	test   dl,dl	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C72	00761C74	2	complete-instruction-continuation	fallthrough:00761C74
+ts3w-pc-1.67	20261104	007619E0	00761C74	00761C78	8b7c242c	mov    edi,DWORD PTR [esp+0x2c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C74	00761C78	4	complete-instruction-continuation	fallthrough:00761C78
+ts3w-pc-1.67	20261104	007619E0	00761C78	00761C7A	7420	je     0x761c9a	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C78	00761C7A	2	complete-instruction-continuation	conditional_taken:00761C9A;conditional_fallthrough:00761C7A
+ts3w-pc-1.67	20261104	007619E0	00761C7A	00761C7E	8b44241c	mov    eax,DWORD PTR [esp+0x1c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C7A	00761C7E	4	complete-instruction-continuation	fallthrough:00761C7E
+ts3w-pc-1.67	20261104	007619E0	00761C7E	00761C84	3b87f0000000	cmp    eax,DWORD PTR [edi+0xf0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C7E	00761C84	6	complete-instruction-continuation	fallthrough:00761C84
+ts3w-pc-1.67	20261104	007619E0	00761C84	00761C86	740d	je     0x761c93	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C84	00761C86	2	complete-instruction-continuation	conditional_taken:00761C93;conditional_fallthrough:00761C86
+ts3w-pc-1.67	20261104	007619E0	00761C86	00761C88	8bcf	mov    ecx,edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C86	00761C88	2	complete-instruction-continuation	fallthrough:00761C88
+ts3w-pc-1.67	20261104	007619E0	00761C88	00761C8E	8987f0000000	mov    DWORD PTR [edi+0xf0],eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C88	00761C8E	6	complete-instruction-continuation	fallthrough:00761C8E
+ts3w-pc-1.67	20261104	007619E0	00761C8E	00761C93	e8ed56ffff	call   0x757380	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C8E	00761C93	5	complete-instruction-continuation	call_assumed_return:00761C93
+ts3w-pc-1.67	20261104	007619E0	00761C93	00761C95	8bcf	mov    ecx,edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C93	00761C95	2	complete-instruction-continuation	fallthrough:00761C95
+ts3w-pc-1.67	20261104	007619E0	00761C95	00761C9A	e8e656ffff	call   0x757380	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C95	00761C9A	5	complete-instruction-continuation	call_assumed_return:00761C9A
+ts3w-pc-1.67	20261104	007619E0	00761C9A	00761C9C	8bcf	mov    ecx,edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C9A	00761C9C	2	complete-instruction-continuation	fallthrough:00761C9C
+ts3w-pc-1.67	20261104	007619E0	00761C9C	00761CA1	e8cf4cffff	call   0x756970	ts3w-pc-1.67:003619e1:00361e70:20261104	00761C9C	00761CA1	5	complete-instruction-continuation	call_assumed_return:00761CA1
+ts3w-pc-1.67	20261104	007619E0	00761CA1	00761CA3	85ed	test   ebp,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CA1	00761CA3	2	complete-instruction-continuation	fallthrough:00761CA3
+ts3w-pc-1.67	20261104	007619E0	00761CA3	00761CA5	7421	je     0x761cc6	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CA3	00761CA5	2	complete-instruction-continuation	conditional_taken:00761CC6;conditional_fallthrough:00761CA5
+ts3w-pc-1.67	20261104	007619E0	00761CA5	00761CA8	8d4504	lea    eax,[ebp+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CA5	00761CA8	3	complete-instruction-continuation	fallthrough:00761CA8
+ts3w-pc-1.67	20261104	007619E0	00761CA8	00761CAA	8bd0	mov    edx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CA8	00761CAA	2	complete-instruction-continuation	fallthrough:00761CAA
+ts3w-pc-1.67	20261104	007619E0	00761CAA	00761CAD	83c9ff	or     ecx,0xffffffff	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CAA	00761CAD	3	complete-instruction-continuation	fallthrough:00761CAD
+ts3w-pc-1.67	20261104	007619E0	00761CAD	00761CB1	f00fc10a	lock xadd DWORD PTR [edx],ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CAD	00761CB1	4	complete-instruction-continuation	fallthrough:00761CB1
+ts3w-pc-1.67	20261104	007619E0	00761CB1	00761CB2	49	dec    ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CB1	00761CB2	1	complete-instruction-continuation	fallthrough:00761CB2
+ts3w-pc-1.67	20261104	007619E0	00761CB2	00761CB4	7512	jne    0x761cc6	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CB2	00761CB4	2	complete-instruction-continuation	conditional_taken:00761CC6;conditional_fallthrough:00761CB4
+ts3w-pc-1.67	20261104	007619E0	00761CB4	00761CB9	ba01000000	mov    edx,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CB4	00761CB9	5	complete-instruction-continuation	fallthrough:00761CB9
+ts3w-pc-1.67	20261104	007619E0	00761CB9	00761CBB	8710	xchg   DWORD PTR [eax],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CB9	00761CBB	2	complete-instruction-continuation	fallthrough:00761CBB
+ts3w-pc-1.67	20261104	007619E0	00761CBB	00761CBE	8b4500	mov    eax,DWORD PTR [ebp+0x0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CBB	00761CBE	3	complete-instruction-continuation	fallthrough:00761CBE
+ts3w-pc-1.67	20261104	007619E0	00761CBE	00761CC0	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CBE	00761CC0	2	complete-instruction-continuation	fallthrough:00761CC0
+ts3w-pc-1.67	20261104	007619E0	00761CC0	00761CC2	6a01	push   0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CC0	00761CC2	2	complete-instruction-continuation	fallthrough:00761CC2
+ts3w-pc-1.67	20261104	007619E0	00761CC2	00761CC4	8bcd	mov    ecx,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CC2	00761CC4	2	complete-instruction-continuation	fallthrough:00761CC4
+ts3w-pc-1.67	20261104	007619E0	00761CC4	00761CC6	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CC4	00761CC6	2	complete-instruction-continuation	call_assumed_return:00761CC6
+ts3w-pc-1.67	20261104	007619E0	00761CC6	00761CC9	8d4604	lea    eax,[esi+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CC6	00761CC9	3	complete-instruction-continuation	fallthrough:00761CC9
+ts3w-pc-1.67	20261104	007619E0	00761CC9	00761CCB	8bc8	mov    ecx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CC9	00761CCB	2	complete-instruction-continuation	fallthrough:00761CCB
+ts3w-pc-1.67	20261104	007619E0	00761CCB	00761CCE	83caff	or     edx,0xffffffff	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CCB	00761CCE	3	complete-instruction-continuation	fallthrough:00761CCE
+ts3w-pc-1.67	20261104	007619E0	00761CCE	00761CD2	f00fc111	lock xadd DWORD PTR [ecx],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CCE	00761CD2	4	complete-instruction-continuation	fallthrough:00761CD2
+ts3w-pc-1.67	20261104	007619E0	00761CD2	00761CD3	4a	dec    edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CD2	00761CD3	1	complete-instruction-continuation	fallthrough:00761CD3
+ts3w-pc-1.67	20261104	007619E0	00761CD3	00761CD5	7511	jne    0x761ce6	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CD3	00761CD5	2	complete-instruction-continuation	conditional_taken:00761CE6;conditional_fallthrough:00761CD5
+ts3w-pc-1.67	20261104	007619E0	00761CD5	00761CDA	b901000000	mov    ecx,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CD5	00761CDA	5	complete-instruction-continuation	fallthrough:00761CDA
+ts3w-pc-1.67	20261104	007619E0	00761CDA	00761CDC	8708	xchg   DWORD PTR [eax],ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CDA	00761CDC	2	complete-instruction-continuation	fallthrough:00761CDC
+ts3w-pc-1.67	20261104	007619E0	00761CDC	00761CDE	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CDC	00761CDE	2	complete-instruction-continuation	fallthrough:00761CDE
+ts3w-pc-1.67	20261104	007619E0	00761CDE	00761CE0	8b02	mov    eax,DWORD PTR [edx]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CDE	00761CE0	2	complete-instruction-continuation	fallthrough:00761CE0
+ts3w-pc-1.67	20261104	007619E0	00761CE0	00761CE2	6a01	push   0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CE0	00761CE2	2	complete-instruction-continuation	fallthrough:00761CE2
+ts3w-pc-1.67	20261104	007619E0	00761CE2	00761CE4	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CE2	00761CE4	2	complete-instruction-continuation	fallthrough:00761CE4
+ts3w-pc-1.67	20261104	007619E0	00761CE4	00761CE6	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CE4	00761CE6	2	complete-instruction-continuation	call_assumed_return:00761CE6
+ts3w-pc-1.67	20261104	007619E0	00761CE6	00761CEB	8344242801	add    DWORD PTR [esp+0x28],0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CE6	00761CEB	5	complete-instruction-continuation	fallthrough:00761CEB
+ts3w-pc-1.67	20261104	007619E0	00761CEB	00761CEF	395c2414	cmp    DWORD PTR [esp+0x14],ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CEB	00761CEF	4	complete-instruction-continuation	fallthrough:00761CEF
+ts3w-pc-1.67	20261104	007619E0	00761CEF	00761CF5	0f85c0fdffff	jne    0x761ab5	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CEF	00761CF5	6	complete-instruction-continuation	conditional_taken:00761AB5;conditional_fallthrough:00761CF5
+ts3w-pc-1.67	20261104	007619E0	00761CF5	00761CF9	8b7c2438	mov    edi,DWORD PTR [esp+0x38]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CF5	00761CF9	4	complete-instruction-continuation	fallthrough:00761CF9
+ts3w-pc-1.67	20261104	007619E0	00761CF9	00761CFD	8b74243c	mov    esi,DWORD PTR [esp+0x3c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CF9	00761CFD	4	complete-instruction-continuation	fallthrough:00761CFD
+ts3w-pc-1.67	20261104	007619E0	00761CFD	00761D01	8b6c242c	mov    ebp,DWORD PTR [esp+0x2c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761CFD	00761D01	4	complete-instruction-continuation	fallthrough:00761D01
+ts3w-pc-1.67	20261104	007619E0	00761D01	00761D03	6a00	push   0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D01	00761D03	2	complete-instruction-continuation	fallthrough:00761D03
+ts3w-pc-1.67	20261104	007619E0	00761D03	00761D05	6a00	push   0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D03	00761D05	2	complete-instruction-continuation	fallthrough:00761D05
+ts3w-pc-1.67	20261104	007619E0	00761D05	00761D0A	6804080000	push   0x804	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D05	00761D0A	5	complete-instruction-continuation	fallthrough:00761D0A
+ts3w-pc-1.67	20261104	007619E0	00761D0A	00761D0C	6a00	push   0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D0A	00761D0C	2	complete-instruction-continuation	fallthrough:00761D0C
+ts3w-pc-1.67	20261104	007619E0	00761D0C	00761D13	8d8c24f8000000	lea    ecx,[esp+0xf8]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D0C	00761D13	7	complete-instruction-continuation	fallthrough:00761D13
+ts3w-pc-1.67	20261104	007619E0	00761D13	00761D18	e898aa0b00	call   0x81c7b0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D13	00761D18	5	complete-instruction-continuation	call_assumed_return:00761D18
+ts3w-pc-1.67	20261104	007619E0	00761D18	00761D1B	8b553c	mov    edx,DWORD PTR [ebp+0x3c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D18	00761D1B	3	complete-instruction-continuation	fallthrough:00761D1B
+ts3w-pc-1.67	20261104	007619E0	00761D1B	00761D1E	8b4540	mov    eax,DWORD PTR [ebp+0x40]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D1B	00761D1E	3	complete-instruction-continuation	fallthrough:00761D1E
+ts3w-pc-1.67	20261104	007619E0	00761D1E	00761D22	89542440	mov    DWORD PTR [esp+0x40],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D1E	00761D22	4	complete-instruction-continuation	fallthrough:00761D22
+ts3w-pc-1.67	20261104	007619E0	00761D22	00761D26	8d542440	lea    edx,[esp+0x40]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D22	00761D26	4	complete-instruction-continuation	fallthrough:00761D26
+ts3w-pc-1.67	20261104	007619E0	00761D26	00761D27	52	push   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D26	00761D27	1	complete-instruction-continuation	fallthrough:00761D27
+ts3w-pc-1.67	20261104	007619E0	00761D27	00761D2E	8d8c24ec000000	lea    ecx,[esp+0xec]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D27	00761D2E	7	complete-instruction-continuation	fallthrough:00761D2E
+ts3w-pc-1.67	20261104	007619E0	00761D2E	00761D32	894c246c	mov    DWORD PTR [esp+0x6c],ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D2E	00761D32	4	complete-instruction-continuation	fallthrough:00761D32
+ts3w-pc-1.67	20261104	007619E0	00761D32	00761D35	8b4d44	mov    ecx,DWORD PTR [ebp+0x44]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D32	00761D35	3	complete-instruction-continuation	fallthrough:00761D35
+ts3w-pc-1.67	20261104	007619E0	00761D35	00761D36	57	push   edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D35	00761D36	1	complete-instruction-continuation	fallthrough:00761D36
+ts3w-pc-1.67	20261104	007619E0	00761D36	00761D3A	89442450	mov    DWORD PTR [esp+0x50],eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D36	00761D3A	4	complete-instruction-continuation	fallthrough:00761D3A
+ts3w-pc-1.67	20261104	007619E0	00761D3A	00761D3E	8b44243c	mov    eax,DWORD PTR [esp+0x3c]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D3A	00761D3E	4	complete-instruction-continuation	fallthrough:00761D3E
+ts3w-pc-1.67	20261104	007619E0	00761D3E	00761D3F	56	push   esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D3E	00761D3F	1	complete-instruction-continuation	fallthrough:00761D3F
+ts3w-pc-1.67	20261104	007619E0	00761D3F	00761D43	894c2458	mov    DWORD PTR [esp+0x58],ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D3F	00761D43	4	complete-instruction-continuation	fallthrough:00761D43
+ts3w-pc-1.67	20261104	007619E0	00761D43	00761D44	50	push   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D43	00761D44	1	complete-instruction-continuation	fallthrough:00761D44
+ts3w-pc-1.67	20261104	007619E0	00761D44	00761D4B	8d8c2480000000	lea    ecx,[esp+0x80]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D44	00761D4B	7	complete-instruction-continuation	fallthrough:00761D4B
+ts3w-pc-1.67	20261104	007619E0	00761D4B	00761D53	c744247000000000	mov    DWORD PTR [esp+0x70],0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D4B	00761D53	8	complete-instruction-continuation	fallthrough:00761D53
+ts3w-pc-1.67	20261104	007619E0	00761D53	00761D58	c644247401	mov    BYTE PTR [esp+0x74],0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D53	00761D58	5	complete-instruction-continuation	fallthrough:00761D58
+ts3w-pc-1.67	20261104	007619E0	00761D58	00761D5D	c644247500	mov    BYTE PTR [esp+0x75],0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D58	00761D5D	5	complete-instruction-continuation	fallthrough:00761D5D
+ts3w-pc-1.67	20261104	007619E0	00761D5D	00761D62	e87e25eeff	call   0x6442e0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D5D	00761D62	5	complete-instruction-continuation	call_assumed_return:00761D62
+ts3w-pc-1.67	20261104	007619E0	00761D62	00761D64	6a00	push   0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D62	00761D64	2	complete-instruction-continuation	fallthrough:00761D64
+ts3w-pc-1.67	20261104	007619E0	00761D64	00761D65	53	push   ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D64	00761D65	1	complete-instruction-continuation	fallthrough:00761D65
+ts3w-pc-1.67	20261104	007619E0	00761D65	00761D69	8d4c2478	lea    ecx,[esp+0x78]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D65	00761D69	4	complete-instruction-continuation	fallthrough:00761D69
+ts3w-pc-1.67	20261104	007619E0	00761D69	00761D6E	e8e24deeff	call   0x646b50	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D69	00761D6E	5	complete-instruction-continuation	call_assumed_return:00761D6E
+ts3w-pc-1.67	20261104	007619E0	00761D6E	00761D6F	53	push   ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D6E	00761D6F	1	complete-instruction-continuation	fallthrough:00761D6F
+ts3w-pc-1.67	20261104	007619E0	00761D6F	00761D71	8bcb	mov    ecx,ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D6F	00761D71	2	complete-instruction-continuation	fallthrough:00761D71
+ts3w-pc-1.67	20261104	007619E0	00761D71	00761D76	e89ae0ffff	call   0x75fe10	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D71	00761D76	5	complete-instruction-continuation	call_assumed_return:00761D76
+ts3w-pc-1.67	20261104	007619E0	00761D76	00761D78	8b3b	mov    edi,DWORD PTR [ebx]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D76	00761D78	2	complete-instruction-continuation	fallthrough:00761D78
+ts3w-pc-1.67	20261104	007619E0	00761D78	00761D7A	3bfb	cmp    edi,ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D78	00761D7A	2	complete-instruction-continuation	fallthrough:00761D7A
+ts3w-pc-1.67	20261104	007619E0	00761D7A	00761D7C	7448	je     0x761dc4	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D7A	00761D7C	2	complete-instruction-continuation	conditional_taken:00761DC4;conditional_fallthrough:00761D7C
+ts3w-pc-1.67	20261104	007619E0	00761D7C	00761D80	8d642400	lea    esp,[esp+0x0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D7C	00761D80	4	complete-instruction-continuation	fallthrough:00761D80
+ts3w-pc-1.67	20261104	007619E0	00761D80	00761D83	8b7708	mov    esi,DWORD PTR [edi+0x8]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D80	00761D83	3	complete-instruction-continuation	fallthrough:00761D83
+ts3w-pc-1.67	20261104	007619E0	00761D83	00761D85	85f6	test   esi,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D83	00761D85	2	complete-instruction-continuation	fallthrough:00761D85
+ts3w-pc-1.67	20261104	007619E0	00761D85	00761D87	740c	je     0x761d93	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D85	00761D87	2	complete-instruction-continuation	conditional_taken:00761D93;conditional_fallthrough:00761D87
+ts3w-pc-1.67	20261104	007619E0	00761D87	00761D8A	8d4e04	lea    ecx,[esi+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D87	00761D8A	3	complete-instruction-continuation	fallthrough:00761D8A
+ts3w-pc-1.67	20261104	007619E0	00761D8A	00761D8F	ba01000000	mov    edx,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D8A	00761D8F	5	complete-instruction-continuation	fallthrough:00761D8F
+ts3w-pc-1.67	20261104	007619E0	00761D8F	00761D93	f00fc111	lock xadd DWORD PTR [ecx],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D8F	00761D93	4	complete-instruction-continuation	fallthrough:00761D93
+ts3w-pc-1.67	20261104	007619E0	00761D93	00761D95	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D93	00761D95	2	complete-instruction-continuation	fallthrough:00761D95
+ts3w-pc-1.67	20261104	007619E0	00761D95	00761D98	8b5044	mov    edx,DWORD PTR [eax+0x44]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D95	00761D98	3	complete-instruction-continuation	fallthrough:00761D98
+ts3w-pc-1.67	20261104	007619E0	00761D98	00761D9A	6a00	push   0x0	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D98	00761D9A	2	complete-instruction-continuation	fallthrough:00761D9A
+ts3w-pc-1.67	20261104	007619E0	00761D9A	00761D9C	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D9A	00761D9C	2	complete-instruction-continuation	fallthrough:00761D9C
+ts3w-pc-1.67	20261104	007619E0	00761D9C	00761D9E	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D9C	00761D9E	2	complete-instruction-continuation	call_assumed_return:00761D9E
+ts3w-pc-1.67	20261104	007619E0	00761D9E	00761DA1	8d4604	lea    eax,[esi+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761D9E	00761DA1	3	complete-instruction-continuation	fallthrough:00761DA1
+ts3w-pc-1.67	20261104	007619E0	00761DA1	00761DA3	8bc8	mov    ecx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DA1	00761DA3	2	complete-instruction-continuation	fallthrough:00761DA3
+ts3w-pc-1.67	20261104	007619E0	00761DA3	00761DA6	83caff	or     edx,0xffffffff	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DA3	00761DA6	3	complete-instruction-continuation	fallthrough:00761DA6
+ts3w-pc-1.67	20261104	007619E0	00761DA6	00761DAA	f00fc111	lock xadd DWORD PTR [ecx],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DA6	00761DAA	4	complete-instruction-continuation	fallthrough:00761DAA
+ts3w-pc-1.67	20261104	007619E0	00761DAA	00761DAB	4a	dec    edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DAA	00761DAB	1	complete-instruction-continuation	fallthrough:00761DAB
+ts3w-pc-1.67	20261104	007619E0	00761DAB	00761DAD	7511	jne    0x761dbe	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DAB	00761DAD	2	complete-instruction-continuation	conditional_taken:00761DBE;conditional_fallthrough:00761DAD
+ts3w-pc-1.67	20261104	007619E0	00761DAD	00761DB2	b901000000	mov    ecx,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DAD	00761DB2	5	complete-instruction-continuation	fallthrough:00761DB2
+ts3w-pc-1.67	20261104	007619E0	00761DB2	00761DB4	8708	xchg   DWORD PTR [eax],ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DB2	00761DB4	2	complete-instruction-continuation	fallthrough:00761DB4
+ts3w-pc-1.67	20261104	007619E0	00761DB4	00761DB6	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DB4	00761DB6	2	complete-instruction-continuation	fallthrough:00761DB6
+ts3w-pc-1.67	20261104	007619E0	00761DB6	00761DB8	8b02	mov    eax,DWORD PTR [edx]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DB6	00761DB8	2	complete-instruction-continuation	fallthrough:00761DB8
+ts3w-pc-1.67	20261104	007619E0	00761DB8	00761DBA	6a01	push   0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DB8	00761DBA	2	complete-instruction-continuation	fallthrough:00761DBA
+ts3w-pc-1.67	20261104	007619E0	00761DBA	00761DBC	8bce	mov    ecx,esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DBA	00761DBC	2	complete-instruction-continuation	fallthrough:00761DBC
+ts3w-pc-1.67	20261104	007619E0	00761DBC	00761DBE	ffd0	call   eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DBC	00761DBE	2	complete-instruction-continuation	call_assumed_return:00761DBE
+ts3w-pc-1.67	20261104	007619E0	00761DBE	00761DC0	8b3f	mov    edi,DWORD PTR [edi]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DBE	00761DC0	2	complete-instruction-continuation	fallthrough:00761DC0
+ts3w-pc-1.67	20261104	007619E0	00761DC0	00761DC2	3bfb	cmp    edi,ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DC0	00761DC2	2	complete-instruction-continuation	fallthrough:00761DC2
+ts3w-pc-1.67	20261104	007619E0	00761DC2	00761DC4	75bc	jne    0x761d80	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DC2	00761DC4	2	complete-instruction-continuation	conditional_taken:00761D80;conditional_fallthrough:00761DC4
+ts3w-pc-1.67	20261104	007619E0	00761DC4	00761DC8	8d4c2470	lea    ecx,[esp+0x70]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DC4	00761DC8	4	complete-instruction-continuation	fallthrough:00761DC8
+ts3w-pc-1.67	20261104	007619E0	00761DC8	00761DCD	e83320eeff	call   0x643e00	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DC8	00761DCD	5	complete-instruction-continuation	call_assumed_return:00761DCD
+ts3w-pc-1.67	20261104	007619E0	00761DCD	00761DD1	8b4c2460	mov    ecx,DWORD PTR [esp+0x60]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DCD	00761DD1	4	complete-instruction-continuation	fallthrough:00761DD1
+ts3w-pc-1.67	20261104	007619E0	00761DD1	00761DD3	85c9	test   ecx,ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DD1	00761DD3	2	complete-instruction-continuation	fallthrough:00761DD3
+ts3w-pc-1.67	20261104	007619E0	00761DD3	00761DD5	7422	je     0x761df7	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DD3	00761DD5	2	complete-instruction-continuation	conditional_taken:00761DF7;conditional_fallthrough:00761DD5
+ts3w-pc-1.67	20261104	007619E0	00761DD5	00761DD8	8d4104	lea    eax,[ecx+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DD5	00761DD8	3	complete-instruction-continuation	fallthrough:00761DD8
+ts3w-pc-1.67	20261104	007619E0	00761DD8	00761DDA	8bd0	mov    edx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DD8	00761DDA	2	complete-instruction-continuation	fallthrough:00761DDA
+ts3w-pc-1.67	20261104	007619E0	00761DDA	00761DDD	83ceff	or     esi,0xffffffff	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DDA	00761DDD	3	complete-instruction-continuation	fallthrough:00761DDD
+ts3w-pc-1.67	20261104	007619E0	00761DDD	00761DE1	f00fc132	lock xadd DWORD PTR [edx],esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DDD	00761DE1	4	complete-instruction-continuation	fallthrough:00761DE1
+ts3w-pc-1.67	20261104	007619E0	00761DE1	00761DE2	4e	dec    esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DE1	00761DE2	1	complete-instruction-continuation	fallthrough:00761DE2
+ts3w-pc-1.67	20261104	007619E0	00761DE2	00761DE4	7513	jne    0x761df7	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DE2	00761DE4	2	complete-instruction-continuation	conditional_taken:00761DF7;conditional_fallthrough:00761DE4
+ts3w-pc-1.67	20261104	007619E0	00761DE4	00761DE9	ba01000000	mov    edx,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DE4	00761DE9	5	complete-instruction-continuation	fallthrough:00761DE9
+ts3w-pc-1.67	20261104	007619E0	00761DE9	00761DEB	8710	xchg   DWORD PTR [eax],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DE9	00761DEB	2	complete-instruction-continuation	fallthrough:00761DEB
+ts3w-pc-1.67	20261104	007619E0	00761DEB	00761DED	85c9	test   ecx,ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DEB	00761DED	2	complete-instruction-continuation	fallthrough:00761DED
+ts3w-pc-1.67	20261104	007619E0	00761DED	00761DEF	7408	je     0x761df7	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DED	00761DEF	2	complete-instruction-continuation	conditional_taken:00761DF7;conditional_fallthrough:00761DEF
+ts3w-pc-1.67	20261104	007619E0	00761DEF	00761DF1	8b01	mov    eax,DWORD PTR [ecx]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DEF	00761DF1	2	complete-instruction-continuation	fallthrough:00761DF1
+ts3w-pc-1.67	20261104	007619E0	00761DF1	00761DF3	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DF1	00761DF3	2	complete-instruction-continuation	fallthrough:00761DF3
+ts3w-pc-1.67	20261104	007619E0	00761DF3	00761DF5	6a01	push   0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DF3	00761DF5	2	complete-instruction-continuation	fallthrough:00761DF5
+ts3w-pc-1.67	20261104	007619E0	00761DF5	00761DF7	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DF5	00761DF7	2	complete-instruction-continuation	call_assumed_return:00761DF7
+ts3w-pc-1.67	20261104	007619E0	00761DF7	00761DFE	8d8c24e8000000	lea    ecx,[esp+0xe8]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DF7	00761DFE	7	complete-instruction-continuation	fallthrough:00761DFE
+ts3w-pc-1.67	20261104	007619E0	00761DFE	00761E03	e82daa0b00	call   0x81c830	ts3w-pc-1.67:003619e1:00361e70:20261104	00761DFE	00761E03	5	complete-instruction-continuation	call_assumed_return:00761E03
+ts3w-pc-1.67	20261104	007619E0	00761E03	00761E07	8b4c2418	mov    ecx,DWORD PTR [esp+0x18]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E03	00761E07	4	complete-instruction-continuation	fallthrough:00761E07
+ts3w-pc-1.67	20261104	007619E0	00761E07	00761E09	85c9	test   ecx,ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E07	00761E09	2	complete-instruction-continuation	fallthrough:00761E09
+ts3w-pc-1.67	20261104	007619E0	00761E09	00761E0B	7422	je     0x761e2d	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E09	00761E0B	2	complete-instruction-continuation	conditional_taken:00761E2D;conditional_fallthrough:00761E0B
+ts3w-pc-1.67	20261104	007619E0	00761E0B	00761E0E	8d4104	lea    eax,[ecx+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E0B	00761E0E	3	complete-instruction-continuation	fallthrough:00761E0E
+ts3w-pc-1.67	20261104	007619E0	00761E0E	00761E10	8bd0	mov    edx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E0E	00761E10	2	complete-instruction-continuation	fallthrough:00761E10
+ts3w-pc-1.67	20261104	007619E0	00761E10	00761E13	83ceff	or     esi,0xffffffff	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E10	00761E13	3	complete-instruction-continuation	fallthrough:00761E13
+ts3w-pc-1.67	20261104	007619E0	00761E13	00761E17	f00fc132	lock xadd DWORD PTR [edx],esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E13	00761E17	4	complete-instruction-continuation	fallthrough:00761E17
+ts3w-pc-1.67	20261104	007619E0	00761E17	00761E18	4e	dec    esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E17	00761E18	1	complete-instruction-continuation	fallthrough:00761E18
+ts3w-pc-1.67	20261104	007619E0	00761E18	00761E1A	7513	jne    0x761e2d	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E18	00761E1A	2	complete-instruction-continuation	conditional_taken:00761E2D;conditional_fallthrough:00761E1A
+ts3w-pc-1.67	20261104	007619E0	00761E1A	00761E1F	ba01000000	mov    edx,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E1A	00761E1F	5	complete-instruction-continuation	fallthrough:00761E1F
+ts3w-pc-1.67	20261104	007619E0	00761E1F	00761E21	8710	xchg   DWORD PTR [eax],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E1F	00761E21	2	complete-instruction-continuation	fallthrough:00761E21
+ts3w-pc-1.67	20261104	007619E0	00761E21	00761E23	85c9	test   ecx,ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E21	00761E23	2	complete-instruction-continuation	fallthrough:00761E23
+ts3w-pc-1.67	20261104	007619E0	00761E23	00761E25	7408	je     0x761e2d	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E23	00761E25	2	complete-instruction-continuation	conditional_taken:00761E2D;conditional_fallthrough:00761E25
+ts3w-pc-1.67	20261104	007619E0	00761E25	00761E27	8b01	mov    eax,DWORD PTR [ecx]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E25	00761E27	2	complete-instruction-continuation	fallthrough:00761E27
+ts3w-pc-1.67	20261104	007619E0	00761E27	00761E29	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E27	00761E29	2	complete-instruction-continuation	fallthrough:00761E29
+ts3w-pc-1.67	20261104	007619E0	00761E29	00761E2B	6a01	push   0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E29	00761E2B	2	complete-instruction-continuation	fallthrough:00761E2B
+ts3w-pc-1.67	20261104	007619E0	00761E2B	00761E2D	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E2B	00761E2D	2	complete-instruction-continuation	call_assumed_return:00761E2D
+ts3w-pc-1.67	20261104	007619E0	00761E2D	00761E31	8b4c2430	mov    ecx,DWORD PTR [esp+0x30]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E2D	00761E31	4	complete-instruction-continuation	fallthrough:00761E31
+ts3w-pc-1.67	20261104	007619E0	00761E31	00761E33	85c9	test   ecx,ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E31	00761E33	2	complete-instruction-continuation	fallthrough:00761E33
+ts3w-pc-1.67	20261104	007619E0	00761E33	00761E35	7422	je     0x761e57	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E33	00761E35	2	complete-instruction-continuation	conditional_taken:00761E57;conditional_fallthrough:00761E35
+ts3w-pc-1.67	20261104	007619E0	00761E35	00761E38	8d4104	lea    eax,[ecx+0x4]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E35	00761E38	3	complete-instruction-continuation	fallthrough:00761E38
+ts3w-pc-1.67	20261104	007619E0	00761E38	00761E3A	8bd0	mov    edx,eax	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E38	00761E3A	2	complete-instruction-continuation	fallthrough:00761E3A
+ts3w-pc-1.67	20261104	007619E0	00761E3A	00761E3D	83ceff	or     esi,0xffffffff	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E3A	00761E3D	3	complete-instruction-continuation	fallthrough:00761E3D
+ts3w-pc-1.67	20261104	007619E0	00761E3D	00761E41	f00fc132	lock xadd DWORD PTR [edx],esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E3D	00761E41	4	complete-instruction-continuation	fallthrough:00761E41
+ts3w-pc-1.67	20261104	007619E0	00761E41	00761E42	4e	dec    esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E41	00761E42	1	complete-instruction-continuation	fallthrough:00761E42
+ts3w-pc-1.67	20261104	007619E0	00761E42	00761E44	7513	jne    0x761e57	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E42	00761E44	2	complete-instruction-continuation	conditional_taken:00761E57;conditional_fallthrough:00761E44
+ts3w-pc-1.67	20261104	007619E0	00761E44	00761E49	ba01000000	mov    edx,0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E44	00761E49	5	complete-instruction-continuation	fallthrough:00761E49
+ts3w-pc-1.67	20261104	007619E0	00761E49	00761E4B	8710	xchg   DWORD PTR [eax],edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E49	00761E4B	2	complete-instruction-continuation	fallthrough:00761E4B
+ts3w-pc-1.67	20261104	007619E0	00761E4B	00761E4D	85c9	test   ecx,ecx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E4B	00761E4D	2	complete-instruction-continuation	fallthrough:00761E4D
+ts3w-pc-1.67	20261104	007619E0	00761E4D	00761E4F	7408	je     0x761e57	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E4D	00761E4F	2	complete-instruction-continuation	conditional_taken:00761E57;conditional_fallthrough:00761E4F
+ts3w-pc-1.67	20261104	007619E0	00761E4F	00761E51	8b01	mov    eax,DWORD PTR [ecx]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E4F	00761E51	2	complete-instruction-continuation	fallthrough:00761E51
+ts3w-pc-1.67	20261104	007619E0	00761E51	00761E53	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E51	00761E53	2	complete-instruction-continuation	fallthrough:00761E53
+ts3w-pc-1.67	20261104	007619E0	00761E53	00761E55	6a01	push   0x1	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E53	00761E55	2	complete-instruction-continuation	fallthrough:00761E55
+ts3w-pc-1.67	20261104	007619E0	00761E55	00761E57	ffd2	call   edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E55	00761E57	2	complete-instruction-continuation	call_assumed_return:00761E57
+ts3w-pc-1.67	20261104	007619E0	00761E57	00761E5A	8b4500	mov    eax,DWORD PTR [ebp+0x0]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E57	00761E5A	3	complete-instruction-continuation	fallthrough:00761E5A
+ts3w-pc-1.67	20261104	007619E0	00761E5A	00761E5D	8b5014	mov    edx,DWORD PTR [eax+0x14]	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E5A	00761E5D	3	complete-instruction-continuation	fallthrough:00761E5D
+ts3w-pc-1.67	20261104	007619E0	00761E5D	00761E5E	5f	pop    edi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E5D	00761E5E	1	complete-instruction-continuation	fallthrough:00761E5E
+ts3w-pc-1.67	20261104	007619E0	00761E5E	00761E5F	5e	pop    esi	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E5E	00761E5F	1	complete-instruction-continuation	fallthrough:00761E5F
+ts3w-pc-1.67	20261104	007619E0	00761E5F	00761E61	8bcd	mov    ecx,ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E5F	00761E61	2	complete-instruction-continuation	fallthrough:00761E61
+ts3w-pc-1.67	20261104	007619E0	00761E61	00761E62	5d	pop    ebp	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E61	00761E62	1	complete-instruction-continuation	fallthrough:00761E62
+ts3w-pc-1.67	20261104	007619E0	00761E62	00761E63	5b	pop    ebx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E62	00761E63	1	complete-instruction-continuation	fallthrough:00761E63
+ts3w-pc-1.67	20261104	007619E0	00761E63	00761E69	81c458010000	add    esp,0x158	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E63	00761E69	6	complete-instruction-continuation	fallthrough:00761E69
+ts3w-pc-1.67	20261104	007619E0	00761E69	00761E6B	ffe2	jmp    edx	ts3w-pc-1.67:003619e1:00361e70:20261104	00761E69	00761E6B	2	complete-instruction-continuation	
+ts3w-pc-1.67	20261104	0078DCF0	0078DCF0	0078DCF5	e89bb6fdff	call   0x769390	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DCF1	0078DCF5	4	split-entry-instruction-anchor	call_assumed_return:0078DCF5
+ts3w-pc-1.67	20261104	0078DCF0	0078DCF5	0078DCF9	8b4c2404	mov    ecx,DWORD PTR [esp+0x4]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DCF5	0078DCF9	4	complete-instruction-continuation	fallthrough:0078DCF9
+ts3w-pc-1.67	20261104	0078DCF0	0078DCF9	0078DCFB	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DCF9	0078DCFB	2	complete-instruction-continuation	fallthrough:0078DCFB
+ts3w-pc-1.67	20261104	0078DCF0	0078DCFB	0078DD01	8b92cc000000	mov    edx,DWORD PTR [edx+0xcc]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DCFB	0078DD01	6	complete-instruction-continuation	fallthrough:0078DD01
+ts3w-pc-1.67	20261104	0078DCF0	0078DD01	0078DD02	51	push   ecx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD01	0078DD02	1	complete-instruction-continuation	fallthrough:0078DD02
+ts3w-pc-1.67	20261104	0078DCF0	0078DD02	0078DD04	8bc8	mov    ecx,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD02	0078DD04	2	complete-instruction-continuation	fallthrough:0078DD04
+ts3w-pc-1.67	20261104	0078DCF0	0078DD04	0078DD06	ffd2	call   edx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD04	0078DD06	2	complete-instruction-continuation	call_assumed_return:0078DD06
+ts3w-pc-1.67	20261104	0078DCF0	0078DD06	0078DD08	85c0	test   eax,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD06	0078DD08	2	complete-instruction-continuation	fallthrough:0078DD08
+ts3w-pc-1.67	20261104	0078DCF0	0078DD08	0078DD0E	0f84f2010000	je     0x78df00	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD08	0078DD0E	6	complete-instruction-continuation	conditional_taken:0078DF00;conditional_fallthrough:0078DD0E
+ts3w-pc-1.67	20261104	0078DCF0	0078DD0E	0078DD10	8b10	mov    edx,DWORD PTR [eax]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD0E	0078DD10	2	complete-instruction-continuation	fallthrough:0078DD10
+ts3w-pc-1.67	20261104	0078DCF0	0078DD10	0078DD11	57	push   edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD10	0078DD11	1	complete-instruction-continuation	fallthrough:0078DD11
+ts3w-pc-1.67	20261104	0078DCF0	0078DD11	0078DD13	8bc8	mov    ecx,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD11	0078DD13	2	complete-instruction-continuation	fallthrough:0078DD13
+ts3w-pc-1.67	20261104	0078DCF0	0078DD13	0078DD16	8b420c	mov    eax,DWORD PTR [edx+0xc]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD13	0078DD16	3	complete-instruction-continuation	fallthrough:0078DD16
+ts3w-pc-1.67	20261104	0078DCF0	0078DD16	0078DD1B	681882eeee	push   0xeeee8218	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD16	0078DD1B	5	complete-instruction-continuation	fallthrough:0078DD1B
+ts3w-pc-1.67	20261104	0078DCF0	0078DD1B	0078DD1D	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD1B	0078DD1D	2	complete-instruction-continuation	call_assumed_return:0078DD1D
+ts3w-pc-1.67	20261104	0078DCF0	0078DD1D	0078DD1F	8bf8	mov    edi,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD1D	0078DD1F	2	complete-instruction-continuation	fallthrough:0078DD1F
+ts3w-pc-1.67	20261104	0078DCF0	0078DD1F	0078DD21	85ff	test   edi,edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD1F	0078DD21	2	complete-instruction-continuation	fallthrough:0078DD21
+ts3w-pc-1.67	20261104	0078DCF0	0078DD21	0078DD27	0f84d8010000	je     0x78deff	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD21	0078DD27	6	complete-instruction-continuation	conditional_taken:0078DEFF;conditional_fallthrough:0078DD27
+ts3w-pc-1.67	20261104	0078DCF0	0078DD27	0078DD2C	807c242c00	cmp    BYTE PTR [esp+0x2c],0x0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD27	0078DD2C	5	complete-instruction-continuation	fallthrough:0078DD2C
+ts3w-pc-1.67	20261104	0078DCF0	0078DD2C	0078DD2D	56	push   esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD2C	0078DD2D	1	complete-instruction-continuation	fallthrough:0078DD2D
+ts3w-pc-1.67	20261104	0078DCF0	0078DD2D	0078DD2F	6a00	push   0x0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD2D	0078DD2F	2	complete-instruction-continuation	fallthrough:0078DD2F
+ts3w-pc-1.67	20261104	0078DCF0	0078DD2F	0078DD35	0f8422010000	je     0x78de57	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD2F	0078DD35	6	complete-instruction-continuation	conditional_taken:0078DE57;conditional_fallthrough:0078DD35
+ts3w-pc-1.67	20261104	0078DCF0	0078DD35	0078DD37	8b17	mov    edx,DWORD PTR [edi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD35	0078DD37	2	complete-instruction-continuation	fallthrough:0078DD37
+ts3w-pc-1.67	20261104	0078DCF0	0078DD37	0078DD3D	8b8210010000	mov    eax,DWORD PTR [edx+0x110]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD37	0078DD3D	6	complete-instruction-continuation	fallthrough:0078DD3D
+ts3w-pc-1.67	20261104	0078DCF0	0078DD3D	0078DD3F	8bcf	mov    ecx,edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD3D	0078DD3F	2	complete-instruction-continuation	fallthrough:0078DD3F
+ts3w-pc-1.67	20261104	0078DCF0	0078DD3F	0078DD41	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD3F	0078DD41	2	complete-instruction-continuation	call_assumed_return:0078DD41
+ts3w-pc-1.67	20261104	0078DCF0	0078DD41	0078DD43	8bf0	mov    esi,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD41	0078DD43	2	complete-instruction-continuation	fallthrough:0078DD43
+ts3w-pc-1.67	20261104	0078DCF0	0078DD43	0078DD45	85f6	test   esi,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD43	0078DD45	2	complete-instruction-continuation	fallthrough:0078DD45
+ts3w-pc-1.67	20261104	0078DCF0	0078DD45	0078DD47	7440	je     0x78dd87	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD45	0078DD47	2	complete-instruction-continuation	conditional_taken:0078DD87;conditional_fallthrough:0078DD47
+ts3w-pc-1.67	20261104	0078DCF0	0078DD47	0078DD48	53	push   ebx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD47	0078DD48	1	complete-instruction-continuation	fallthrough:0078DD48
+ts3w-pc-1.67	20261104	0078DCF0	0078DD48	0078DD4A	33db	xor    ebx,ebx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD48	0078DD4A	2	complete-instruction-continuation	fallthrough:0078DD4A
+ts3w-pc-1.67	20261104	0078DCF0	0078DD4A	0078DD4C	85f6	test   esi,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD4A	0078DD4C	2	complete-instruction-continuation	fallthrough:0078DD4C
+ts3w-pc-1.67	20261104	0078DCF0	0078DD4C	0078DD4E	7414	je     0x78dd62	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD4C	0078DD4E	2	complete-instruction-continuation	conditional_taken:0078DD62;conditional_fallthrough:0078DD4E
+ts3w-pc-1.67	20261104	0078DCF0	0078DD4E	0078DD50	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD4E	0078DD50	2	complete-instruction-continuation	fallthrough:0078DD50
+ts3w-pc-1.67	20261104	0078DCF0	0078DD50	0078DD53	8b420c	mov    eax,DWORD PTR [edx+0xc]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD50	0078DD53	3	complete-instruction-continuation	fallthrough:0078DD53
+ts3w-pc-1.67	20261104	0078DCF0	0078DD53	0078DD58	686a528604	push   0x486526a	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD53	0078DD58	5	complete-instruction-continuation	fallthrough:0078DD58
+ts3w-pc-1.67	20261104	0078DCF0	0078DD58	0078DD5A	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD58	0078DD5A	2	complete-instruction-continuation	fallthrough:0078DD5A
+ts3w-pc-1.67	20261104	0078DCF0	0078DD5A	0078DD5C	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD5A	0078DD5C	2	complete-instruction-continuation	call_assumed_return:0078DD5C
+ts3w-pc-1.67	20261104	0078DCF0	0078DD5C	0078DD5E	85c0	test   eax,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD5C	0078DD5E	2	complete-instruction-continuation	fallthrough:0078DD5E
+ts3w-pc-1.67	20261104	0078DCF0	0078DD5E	0078DD60	7402	je     0x78dd62	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD5E	0078DD60	2	complete-instruction-continuation	conditional_taken:0078DD62;conditional_fallthrough:0078DD60
+ts3w-pc-1.67	20261104	0078DCF0	0078DD60	0078DD62	8bde	mov    ebx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD60	0078DD62	2	complete-instruction-continuation	fallthrough:0078DD62
+ts3w-pc-1.67	20261104	0078DCF0	0078DD62	0078DD64	8b17	mov    edx,DWORD PTR [edi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD62	0078DD64	2	complete-instruction-continuation	fallthrough:0078DD64
+ts3w-pc-1.67	20261104	0078DCF0	0078DD64	0078DD6A	8b8210010000	mov    eax,DWORD PTR [edx+0x110]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD64	0078DD6A	6	complete-instruction-continuation	fallthrough:0078DD6A
+ts3w-pc-1.67	20261104	0078DCF0	0078DD6A	0078DD6B	56	push   esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD6A	0078DD6B	1	complete-instruction-continuation	fallthrough:0078DD6B
+ts3w-pc-1.67	20261104	0078DCF0	0078DD6B	0078DD6D	8bcf	mov    ecx,edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD6B	0078DD6D	2	complete-instruction-continuation	fallthrough:0078DD6D
+ts3w-pc-1.67	20261104	0078DCF0	0078DD6D	0078DD6F	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD6D	0078DD6F	2	complete-instruction-continuation	call_assumed_return:0078DD6F
+ts3w-pc-1.67	20261104	0078DCF0	0078DD6F	0078DD71	85db	test   ebx,ebx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD6F	0078DD71	2	complete-instruction-continuation	fallthrough:0078DD71
+ts3w-pc-1.67	20261104	0078DCF0	0078DD71	0078DD73	8bf0	mov    esi,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD71	0078DD73	2	complete-instruction-continuation	fallthrough:0078DD73
+ts3w-pc-1.67	20261104	0078DCF0	0078DD73	0078DD75	740d	je     0x78dd82	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD73	0078DD75	2	complete-instruction-continuation	conditional_taken:0078DD82;conditional_fallthrough:0078DD75
+ts3w-pc-1.67	20261104	0078DCF0	0078DD75	0078DD77	8b17	mov    edx,DWORD PTR [edi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD75	0078DD77	2	complete-instruction-continuation	fallthrough:0078DD77
+ts3w-pc-1.67	20261104	0078DCF0	0078DD77	0078DD7D	8b820c010000	mov    eax,DWORD PTR [edx+0x10c]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD77	0078DD7D	6	complete-instruction-continuation	fallthrough:0078DD7D
+ts3w-pc-1.67	20261104	0078DCF0	0078DD7D	0078DD7E	53	push   ebx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD7D	0078DD7E	1	complete-instruction-continuation	fallthrough:0078DD7E
+ts3w-pc-1.67	20261104	0078DCF0	0078DD7E	0078DD80	8bcf	mov    ecx,edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD7E	0078DD80	2	complete-instruction-continuation	fallthrough:0078DD80
+ts3w-pc-1.67	20261104	0078DCF0	0078DD80	0078DD82	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD80	0078DD82	2	complete-instruction-continuation	call_assumed_return:0078DD82
+ts3w-pc-1.67	20261104	0078DCF0	0078DD82	0078DD84	85f6	test   esi,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD82	0078DD84	2	complete-instruction-continuation	fallthrough:0078DD84
+ts3w-pc-1.67	20261104	0078DCF0	0078DD84	0078DD86	75c2	jne    0x78dd48	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD84	0078DD86	2	complete-instruction-continuation	conditional_taken:0078DD48;conditional_fallthrough:0078DD86
+ts3w-pc-1.67	20261104	0078DCF0	0078DD86	0078DD87	5b	pop    ebx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD86	0078DD87	1	complete-instruction-continuation	fallthrough:0078DD87
+ts3w-pc-1.67	20261104	0078DCF0	0078DD87	0078DD89	6a00	push   0x0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD87	0078DD89	2	complete-instruction-continuation	fallthrough:0078DD89
+ts3w-pc-1.67	20261104	0078DCF0	0078DD89	0078DD8E	68f8190101	push   0x10119f8	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD89	0078DD8E	5	complete-instruction-continuation	fallthrough:0078DD8E
+ts3w-pc-1.67	20261104	0078DCF0	0078DD8E	0078DD90	6a10	push   0x10	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD8E	0078DD90	2	complete-instruction-continuation	fallthrough:0078DD90
+ts3w-pc-1.67	20261104	0078DCF0	0078DD90	0078DD95	68a0000000	push   0xa0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD90	0078DD95	5	complete-instruction-continuation	fallthrough:0078DD95
+ts3w-pc-1.67	20261104	0078DCF0	0078DD95	0078DD9A	e81673d7ff	call   0x5050b0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD95	0078DD9A	5	complete-instruction-continuation	call_assumed_return:0078DD9A
+ts3w-pc-1.67	20261104	0078DCF0	0078DD9A	0078DD9D	83c410	add    esp,0x10	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD9A	0078DD9D	3	complete-instruction-continuation	fallthrough:0078DD9D
+ts3w-pc-1.67	20261104	0078DCF0	0078DD9D	0078DD9F	85c0	test   eax,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD9D	0078DD9F	2	complete-instruction-continuation	fallthrough:0078DD9F
+ts3w-pc-1.67	20261104	0078DCF0	0078DD9F	0078DDA5	0f84ab000000	je     0x78de50	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DD9F	0078DDA5	6	complete-instruction-continuation	conditional_taken:0078DE50;conditional_fallthrough:0078DDA5
+ts3w-pc-1.67	20261104	0078DCF0	0078DDA5	0078DDA7	8bc8	mov    ecx,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDA5	0078DDA7	2	complete-instruction-continuation	fallthrough:0078DDA7
+ts3w-pc-1.67	20261104	0078DCF0	0078DDA7	0078DDAC	e874ea0400	call   0x7dc820	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDA7	0078DDAC	5	complete-instruction-continuation	call_assumed_return:0078DDAC
+ts3w-pc-1.67	20261104	0078DCF0	0078DDAC	0078DDAE	8bf0	mov    esi,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDAC	0078DDAE	2	complete-instruction-continuation	fallthrough:0078DDAE
+ts3w-pc-1.67	20261104	0078DCF0	0078DDAE	0078DDB0	85f6	test   esi,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDAE	0078DDB0	2	complete-instruction-continuation	fallthrough:0078DDB0
+ts3w-pc-1.67	20261104	0078DCF0	0078DDB0	0078DDB2	7408	je     0x78ddba	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDB0	0078DDB2	2	complete-instruction-continuation	conditional_taken:0078DDBA;conditional_fallthrough:0078DDB2
+ts3w-pc-1.67	20261104	0078DCF0	0078DDB2	0078DDB4	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDB2	0078DDB4	2	complete-instruction-continuation	fallthrough:0078DDB4
+ts3w-pc-1.67	20261104	0078DCF0	0078DDB4	0078DDB6	8b02	mov    eax,DWORD PTR [edx]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDB4	0078DDB6	2	complete-instruction-continuation	fallthrough:0078DDB6
+ts3w-pc-1.67	20261104	0078DCF0	0078DDB6	0078DDB8	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDB6	0078DDB8	2	complete-instruction-continuation	fallthrough:0078DDB8
+ts3w-pc-1.67	20261104	0078DCF0	0078DDB8	0078DDBA	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDB8	0078DDBA	2	complete-instruction-continuation	call_assumed_return:0078DDBA
+ts3w-pc-1.67	20261104	0078DCF0	0078DDBA	0078DDBE	8b442414	mov    eax,DWORD PTR [esp+0x14]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDBA	0078DDBE	4	complete-instruction-continuation	fallthrough:0078DDBE
+ts3w-pc-1.67	20261104	0078DCF0	0078DDBE	0078DDC2	8b4c2410	mov    ecx,DWORD PTR [esp+0x10]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDBE	0078DDC2	4	complete-instruction-continuation	fallthrough:0078DDC2
+ts3w-pc-1.67	20261104	0078DCF0	0078DDC2	0078DDC4	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDC2	0078DDC4	2	complete-instruction-continuation	fallthrough:0078DDC4
+ts3w-pc-1.67	20261104	0078DCF0	0078DDC4	0078DDCA	8b929c000000	mov    edx,DWORD PTR [edx+0x9c]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDC4	0078DDCA	6	complete-instruction-continuation	fallthrough:0078DDCA
+ts3w-pc-1.67	20261104	0078DCF0	0078DDCA	0078DDCB	50	push   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDCA	0078DDCB	1	complete-instruction-continuation	fallthrough:0078DDCB
+ts3w-pc-1.67	20261104	0078DCF0	0078DDCB	0078DDCC	51	push   ecx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDCB	0078DDCC	1	complete-instruction-continuation	fallthrough:0078DDCC
+ts3w-pc-1.67	20261104	0078DCF0	0078DDCC	0078DDCE	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDCC	0078DDCE	2	complete-instruction-continuation	fallthrough:0078DDCE
+ts3w-pc-1.67	20261104	0078DCF0	0078DDCE	0078DDD0	ffd2	call   edx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDCE	0078DDD0	2	complete-instruction-continuation	call_assumed_return:0078DDD0
+ts3w-pc-1.67	20261104	0078DCF0	0078DDD0	0078DDD4	d9442420	fld    DWORD PTR [esp+0x20]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDD0	0078DDD4	4	complete-instruction-continuation	fallthrough:0078DDD4
+ts3w-pc-1.67	20261104	0078DCF0	0078DDD4	0078DDD6	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDD4	0078DDD6	2	complete-instruction-continuation	fallthrough:0078DDD6
+ts3w-pc-1.67	20261104	0078DCF0	0078DDD6	0078DDDC	8b90a4000000	mov    edx,DWORD PTR [eax+0xa4]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDD6	0078DDDC	6	complete-instruction-continuation	fallthrough:0078DDDC
+ts3w-pc-1.67	20261104	0078DCF0	0078DDDC	0078DDDF	83ec0c	sub    esp,0xc	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDDC	0078DDDF	3	complete-instruction-continuation	fallthrough:0078DDDF
+ts3w-pc-1.67	20261104	0078DCF0	0078DDDF	0078DDE3	d95c2408	fstp   DWORD PTR [esp+0x8]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDDF	0078DDE3	4	complete-instruction-continuation	fallthrough:0078DDE3
+ts3w-pc-1.67	20261104	0078DCF0	0078DDE3	0078DDE5	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDE3	0078DDE5	2	complete-instruction-continuation	fallthrough:0078DDE5
+ts3w-pc-1.67	20261104	0078DCF0	0078DDE5	0078DDE9	d9442428	fld    DWORD PTR [esp+0x28]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDE5	0078DDE9	4	complete-instruction-continuation	fallthrough:0078DDE9
+ts3w-pc-1.67	20261104	0078DCF0	0078DDE9	0078DDED	d95c2404	fstp   DWORD PTR [esp+0x4]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDE9	0078DDED	4	complete-instruction-continuation	fallthrough:0078DDED
+ts3w-pc-1.67	20261104	0078DCF0	0078DDED	0078DDF1	d9442424	fld    DWORD PTR [esp+0x24]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDED	0078DDF1	4	complete-instruction-continuation	fallthrough:0078DDF1
+ts3w-pc-1.67	20261104	0078DCF0	0078DDF1	0078DDF4	d91c24	fstp   DWORD PTR [esp]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDF1	0078DDF4	3	complete-instruction-continuation	fallthrough:0078DDF4
+ts3w-pc-1.67	20261104	0078DCF0	0078DDF4	0078DDF6	ffd2	call   edx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDF4	0078DDF6	2	complete-instruction-continuation	call_assumed_return:0078DDF6
+ts3w-pc-1.67	20261104	0078DCF0	0078DDF6	0078DDFA	d9442428	fld    DWORD PTR [esp+0x28]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDF6	0078DDFA	4	complete-instruction-continuation	fallthrough:0078DDFA
+ts3w-pc-1.67	20261104	0078DCF0	0078DDFA	0078DDFC	8b06	mov    eax,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDFA	0078DDFC	2	complete-instruction-continuation	fallthrough:0078DDFC
+ts3w-pc-1.67	20261104	0078DCF0	0078DDFC	0078DE02	8b90a8000000	mov    edx,DWORD PTR [eax+0xa8]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DDFC	0078DE02	6	complete-instruction-continuation	fallthrough:0078DE02
+ts3w-pc-1.67	20261104	0078DCF0	0078DE02	0078DE05	83ec08	sub    esp,0x8	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE02	0078DE05	3	complete-instruction-continuation	fallthrough:0078DE05
+ts3w-pc-1.67	20261104	0078DCF0	0078DE05	0078DE09	d95c2404	fstp   DWORD PTR [esp+0x4]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE05	0078DE09	4	complete-instruction-continuation	fallthrough:0078DE09
+ts3w-pc-1.67	20261104	0078DCF0	0078DE09	0078DE0B	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE09	0078DE0B	2	complete-instruction-continuation	fallthrough:0078DE0B
+ts3w-pc-1.67	20261104	0078DCF0	0078DE0B	0078DE0F	d944242c	fld    DWORD PTR [esp+0x2c]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE0B	0078DE0F	4	complete-instruction-continuation	fallthrough:0078DE0F
+ts3w-pc-1.67	20261104	0078DCF0	0078DE0F	0078DE12	d91c24	fstp   DWORD PTR [esp]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE0F	0078DE12	3	complete-instruction-continuation	fallthrough:0078DE12
+ts3w-pc-1.67	20261104	0078DCF0	0078DE12	0078DE14	ffd2	call   edx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE12	0078DE14	2	complete-instruction-continuation	call_assumed_return:0078DE14
+ts3w-pc-1.67	20261104	0078DCF0	0078DE14	0078DE18	8b44242c	mov    eax,DWORD PTR [esp+0x2c]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE14	0078DE18	4	complete-instruction-continuation	fallthrough:0078DE18
+ts3w-pc-1.67	20261104	0078DCF0	0078DE18	0078DE19	50	push   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE18	0078DE19	1	complete-instruction-continuation	fallthrough:0078DE19
+ts3w-pc-1.67	20261104	0078DCF0	0078DE19	0078DE1B	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE19	0078DE1B	2	complete-instruction-continuation	fallthrough:0078DE1B
+ts3w-pc-1.67	20261104	0078DCF0	0078DE1B	0078DE20	e870e20400	call   0x7dc090	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE1B	0078DE20	5	complete-instruction-continuation	call_assumed_return:0078DE20
+ts3w-pc-1.67	20261104	0078DCF0	0078DE20	0078DE24	8b4c2434	mov    ecx,DWORD PTR [esp+0x34]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE20	0078DE24	4	complete-instruction-continuation	fallthrough:0078DE24
+ts3w-pc-1.67	20261104	0078DCF0	0078DE24	0078DE26	6a00	push   0x0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE24	0078DE26	2	complete-instruction-continuation	fallthrough:0078DE26
+ts3w-pc-1.67	20261104	0078DCF0	0078DE26	0078DE27	51	push   ecx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE26	0078DE27	1	complete-instruction-continuation	fallthrough:0078DE27
+ts3w-pc-1.67	20261104	0078DCF0	0078DE27	0078DE29	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE27	0078DE29	2	complete-instruction-continuation	fallthrough:0078DE29
+ts3w-pc-1.67	20261104	0078DCF0	0078DE29	0078DE2E	e8b2e20400	call   0x7dc0e0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE29	0078DE2E	5	complete-instruction-continuation	call_assumed_return:0078DE2E
+ts3w-pc-1.67	20261104	0078DCF0	0078DE2E	0078DE30	8b17	mov    edx,DWORD PTR [edi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE2E	0078DE30	2	complete-instruction-continuation	fallthrough:0078DE30
+ts3w-pc-1.67	20261104	0078DCF0	0078DE30	0078DE36	8b8208010000	mov    eax,DWORD PTR [edx+0x108]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE30	0078DE36	6	complete-instruction-continuation	fallthrough:0078DE36
+ts3w-pc-1.67	20261104	0078DCF0	0078DE36	0078DE37	56	push   esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE36	0078DE37	1	complete-instruction-continuation	fallthrough:0078DE37
+ts3w-pc-1.67	20261104	0078DCF0	0078DE37	0078DE39	8bcf	mov    ecx,edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE37	0078DE39	2	complete-instruction-continuation	fallthrough:0078DE39
+ts3w-pc-1.67	20261104	0078DCF0	0078DE39	0078DE3B	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE39	0078DE3B	2	complete-instruction-continuation	call_assumed_return:0078DE3B
+ts3w-pc-1.67	20261104	0078DCF0	0078DE3B	0078DE3D	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE3B	0078DE3D	2	complete-instruction-continuation	fallthrough:0078DE3D
+ts3w-pc-1.67	20261104	0078DCF0	0078DE3D	0078DE40	8b4260	mov    eax,DWORD PTR [edx+0x60]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE3D	0078DE40	3	complete-instruction-continuation	fallthrough:0078DE40
+ts3w-pc-1.67	20261104	0078DCF0	0078DE40	0078DE41	57	push   edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE40	0078DE41	1	complete-instruction-continuation	fallthrough:0078DE41
+ts3w-pc-1.67	20261104	0078DCF0	0078DE41	0078DE43	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE41	0078DE43	2	complete-instruction-continuation	fallthrough:0078DE43
+ts3w-pc-1.67	20261104	0078DCF0	0078DE43	0078DE45	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE43	0078DE45	2	complete-instruction-continuation	call_assumed_return:0078DE45
+ts3w-pc-1.67	20261104	0078DCF0	0078DE45	0078DE47	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE45	0078DE47	2	complete-instruction-continuation	fallthrough:0078DE47
+ts3w-pc-1.67	20261104	0078DCF0	0078DE47	0078DE4A	8b4204	mov    eax,DWORD PTR [edx+0x4]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE47	0078DE4A	3	complete-instruction-continuation	fallthrough:0078DE4A
+ts3w-pc-1.67	20261104	0078DCF0	0078DE4A	0078DE4C	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE4A	0078DE4C	2	complete-instruction-continuation	fallthrough:0078DE4C
+ts3w-pc-1.67	20261104	0078DCF0	0078DE4C	0078DE4D	5e	pop    esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE4C	0078DE4D	1	complete-instruction-continuation	fallthrough:0078DE4D
+ts3w-pc-1.67	20261104	0078DCF0	0078DE4D	0078DE4E	5f	pop    edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE4D	0078DE4E	1	complete-instruction-continuation	fallthrough:0078DE4E
+ts3w-pc-1.67	20261104	0078DCF0	0078DE4E	0078DE50	ffe0	jmp    eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE4E	0078DE50	2	complete-instruction-continuation	
+ts3w-pc-1.67	20261104	0078DCF0	0078DE50	0078DE52	33f6	xor    esi,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE50	0078DE52	2	complete-instruction-continuation	fallthrough:0078DE52
+ts3w-pc-1.67	20261104	0078DCF0	0078DE52	0078DE57	e963ffffff	jmp    0x78ddba	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE52	0078DE57	5	complete-instruction-continuation	direct_jump:0078DDBA
+ts3w-pc-1.67	20261104	0078DCF0	0078DE57	0078DE5C	68e0190101	push   0x10119e0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE57	0078DE5C	5	complete-instruction-continuation	fallthrough:0078DE5C
+ts3w-pc-1.67	20261104	0078DCF0	0078DE5C	0078DE5E	6a10	push   0x10	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE5C	0078DE5E	2	complete-instruction-continuation	fallthrough:0078DE5E
+ts3w-pc-1.67	20261104	0078DCF0	0078DE5E	0078DE60	6a60	push   0x60	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE5E	0078DE60	2	complete-instruction-continuation	fallthrough:0078DE60
+ts3w-pc-1.67	20261104	0078DCF0	0078DE60	0078DE65	e84b72d7ff	call   0x5050b0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE60	0078DE65	5	complete-instruction-continuation	call_assumed_return:0078DE65
+ts3w-pc-1.67	20261104	0078DCF0	0078DE65	0078DE68	83c410	add    esp,0x10	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE65	0078DE68	3	complete-instruction-continuation	fallthrough:0078DE68
+ts3w-pc-1.67	20261104	0078DCF0	0078DE68	0078DE6A	85c0	test   eax,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE68	0078DE6A	2	complete-instruction-continuation	fallthrough:0078DE6A
+ts3w-pc-1.67	20261104	0078DCF0	0078DE6A	0078DE70	0f848b000000	je     0x78defb	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE6A	0078DE70	6	complete-instruction-continuation	conditional_taken:0078DEFB;conditional_fallthrough:0078DE70
+ts3w-pc-1.67	20261104	0078DCF0	0078DE70	0078DE72	8bc8	mov    ecx,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE70	0078DE72	2	complete-instruction-continuation	fallthrough:0078DE72
+ts3w-pc-1.67	20261104	0078DCF0	0078DE72	0078DE77	e809ec0400	call   0x7dca80	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE72	0078DE77	5	complete-instruction-continuation	call_assumed_return:0078DE77
+ts3w-pc-1.67	20261104	0078DCF0	0078DE77	0078DE79	8bf0	mov    esi,eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE77	0078DE79	2	complete-instruction-continuation	fallthrough:0078DE79
+ts3w-pc-1.67	20261104	0078DCF0	0078DE79	0078DE7B	85f6	test   esi,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE79	0078DE7B	2	complete-instruction-continuation	fallthrough:0078DE7B
+ts3w-pc-1.67	20261104	0078DCF0	0078DE7B	0078DE7D	7408	je     0x78de85	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE7B	0078DE7D	2	complete-instruction-continuation	conditional_taken:0078DE85;conditional_fallthrough:0078DE7D
+ts3w-pc-1.67	20261104	0078DCF0	0078DE7D	0078DE7F	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE7D	0078DE7F	2	complete-instruction-continuation	fallthrough:0078DE7F
+ts3w-pc-1.67	20261104	0078DCF0	0078DE7F	0078DE81	8b02	mov    eax,DWORD PTR [edx]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE7F	0078DE81	2	complete-instruction-continuation	fallthrough:0078DE81
+ts3w-pc-1.67	20261104	0078DCF0	0078DE81	0078DE83	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE81	0078DE83	2	complete-instruction-continuation	fallthrough:0078DE83
+ts3w-pc-1.67	20261104	0078DCF0	0078DE83	0078DE85	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE83	0078DE85	2	complete-instruction-continuation	call_assumed_return:0078DE85
+ts3w-pc-1.67	20261104	0078DCF0	0078DE85	0078DE89	8b4c2414	mov    ecx,DWORD PTR [esp+0x14]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE85	0078DE89	4	complete-instruction-continuation	fallthrough:0078DE89
+ts3w-pc-1.67	20261104	0078DCF0	0078DE89	0078DE8D	8b542410	mov    edx,DWORD PTR [esp+0x10]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE89	0078DE8D	4	complete-instruction-continuation	fallthrough:0078DE8D
+ts3w-pc-1.67	20261104	0078DCF0	0078DE8D	0078DE8E	51	push   ecx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE8D	0078DE8E	1	complete-instruction-continuation	fallthrough:0078DE8E
+ts3w-pc-1.67	20261104	0078DCF0	0078DE8E	0078DE8F	52	push   edx	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE8E	0078DE8F	1	complete-instruction-continuation	fallthrough:0078DE8F
+ts3w-pc-1.67	20261104	0078DCF0	0078DE8F	0078DE91	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE8F	0078DE91	2	complete-instruction-continuation	fallthrough:0078DE91
+ts3w-pc-1.67	20261104	0078DCF0	0078DE91	0078DE96	e8daea0400	call   0x7dc970	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE91	0078DE96	5	complete-instruction-continuation	call_assumed_return:0078DE96
+ts3w-pc-1.67	20261104	0078DCF0	0078DE96	0078DE9A	d9442420	fld    DWORD PTR [esp+0x20]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE96	0078DE9A	4	complete-instruction-continuation	fallthrough:0078DE9A
+ts3w-pc-1.67	20261104	0078DCF0	0078DE9A	0078DE9D	83ec0c	sub    esp,0xc	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE9A	0078DE9D	3	complete-instruction-continuation	fallthrough:0078DE9D
+ts3w-pc-1.67	20261104	0078DCF0	0078DE9D	0078DEA1	d95c2408	fstp   DWORD PTR [esp+0x8]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DE9D	0078DEA1	4	complete-instruction-continuation	fallthrough:0078DEA1
+ts3w-pc-1.67	20261104	0078DCF0	0078DEA1	0078DEA3	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEA1	0078DEA3	2	complete-instruction-continuation	fallthrough:0078DEA3
+ts3w-pc-1.67	20261104	0078DCF0	0078DEA3	0078DEA7	d9442428	fld    DWORD PTR [esp+0x28]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEA3	0078DEA7	4	complete-instruction-continuation	fallthrough:0078DEA7
+ts3w-pc-1.67	20261104	0078DCF0	0078DEA7	0078DEAB	d95c2404	fstp   DWORD PTR [esp+0x4]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEA7	0078DEAB	4	complete-instruction-continuation	fallthrough:0078DEAB
+ts3w-pc-1.67	20261104	0078DCF0	0078DEAB	0078DEAF	d9442424	fld    DWORD PTR [esp+0x24]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEAB	0078DEAF	4	complete-instruction-continuation	fallthrough:0078DEAF
+ts3w-pc-1.67	20261104	0078DCF0	0078DEAF	0078DEB2	d91c24	fstp   DWORD PTR [esp]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEAF	0078DEB2	3	complete-instruction-continuation	fallthrough:0078DEB2
+ts3w-pc-1.67	20261104	0078DCF0	0078DEB2	0078DEB7	e819eb0400	call   0x7dc9d0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEB2	0078DEB7	5	complete-instruction-continuation	call_assumed_return:0078DEB7
+ts3w-pc-1.67	20261104	0078DCF0	0078DEB7	0078DEBB	d9442428	fld    DWORD PTR [esp+0x28]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEB7	0078DEBB	4	complete-instruction-continuation	fallthrough:0078DEBB
+ts3w-pc-1.67	20261104	0078DCF0	0078DEBB	0078DEBE	83ec08	sub    esp,0x8	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEBB	0078DEBE	3	complete-instruction-continuation	fallthrough:0078DEBE
+ts3w-pc-1.67	20261104	0078DCF0	0078DEBE	0078DEC2	d95c2404	fstp   DWORD PTR [esp+0x4]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEBE	0078DEC2	4	complete-instruction-continuation	fallthrough:0078DEC2
+ts3w-pc-1.67	20261104	0078DCF0	0078DEC2	0078DEC4	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEC2	0078DEC4	2	complete-instruction-continuation	fallthrough:0078DEC4
+ts3w-pc-1.67	20261104	0078DCF0	0078DEC4	0078DEC8	d944242c	fld    DWORD PTR [esp+0x2c]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEC4	0078DEC8	4	complete-instruction-continuation	fallthrough:0078DEC8
+ts3w-pc-1.67	20261104	0078DCF0	0078DEC8	0078DECB	d91c24	fstp   DWORD PTR [esp]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEC8	0078DECB	3	complete-instruction-continuation	fallthrough:0078DECB
+ts3w-pc-1.67	20261104	0078DCF0	0078DECB	0078DED0	e860eb0400	call   0x7dca30	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DECB	0078DED0	5	complete-instruction-continuation	call_assumed_return:0078DED0
+ts3w-pc-1.67	20261104	0078DCF0	0078DED0	0078DED4	8b44242c	mov    eax,DWORD PTR [esp+0x2c]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DED0	0078DED4	4	complete-instruction-continuation	fallthrough:0078DED4
+ts3w-pc-1.67	20261104	0078DCF0	0078DED4	0078DED5	50	push   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DED4	0078DED5	1	complete-instruction-continuation	fallthrough:0078DED5
+ts3w-pc-1.67	20261104	0078DCF0	0078DED5	0078DED7	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DED5	0078DED7	2	complete-instruction-continuation	fallthrough:0078DED7
+ts3w-pc-1.67	20261104	0078DCF0	0078DED7	0078DEDC	e8d4ea0400	call   0x7dc9b0	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DED7	0078DEDC	5	complete-instruction-continuation	call_assumed_return:0078DEDC
+ts3w-pc-1.67	20261104	0078DCF0	0078DEDC	0078DEE0	8a4c2434	mov    cl,BYTE PTR [esp+0x34]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEDC	0078DEE0	4	complete-instruction-continuation	fallthrough:0078DEE0
+ts3w-pc-1.67	20261104	0078DCF0	0078DEE0	0078DEE3	884e33	mov    BYTE PTR [esi+0x33],cl	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEE0	0078DEE3	3	complete-instruction-continuation	fallthrough:0078DEE3
+ts3w-pc-1.67	20261104	0078DCF0	0078DEE3	0078DEE5	8b17	mov    edx,DWORD PTR [edi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEE3	0078DEE5	2	complete-instruction-continuation	fallthrough:0078DEE5
+ts3w-pc-1.67	20261104	0078DCF0	0078DEE5	0078DEEB	8b8288000000	mov    eax,DWORD PTR [edx+0x88]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEE5	0078DEEB	6	complete-instruction-continuation	fallthrough:0078DEEB
+ts3w-pc-1.67	20261104	0078DCF0	0078DEEB	0078DEEC	56	push   esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEEB	0078DEEC	1	complete-instruction-continuation	fallthrough:0078DEEC
+ts3w-pc-1.67	20261104	0078DCF0	0078DEEC	0078DEEE	8bcf	mov    ecx,edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEEC	0078DEEE	2	complete-instruction-continuation	fallthrough:0078DEEE
+ts3w-pc-1.67	20261104	0078DCF0	0078DEEE	0078DEF0	ffd0	call   eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEEE	0078DEF0	2	complete-instruction-continuation	call_assumed_return:0078DEF0
+ts3w-pc-1.67	20261104	0078DCF0	0078DEF0	0078DEF2	8b16	mov    edx,DWORD PTR [esi]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEF0	0078DEF2	2	complete-instruction-continuation	fallthrough:0078DEF2
+ts3w-pc-1.67	20261104	0078DCF0	0078DEF2	0078DEF5	8b4204	mov    eax,DWORD PTR [edx+0x4]	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEF2	0078DEF5	3	complete-instruction-continuation	fallthrough:0078DEF5
+ts3w-pc-1.67	20261104	0078DCF0	0078DEF5	0078DEF7	8bce	mov    ecx,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEF5	0078DEF7	2	complete-instruction-continuation	fallthrough:0078DEF7
+ts3w-pc-1.67	20261104	0078DCF0	0078DEF7	0078DEF8	5e	pop    esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEF7	0078DEF8	1	complete-instruction-continuation	fallthrough:0078DEF8
+ts3w-pc-1.67	20261104	0078DCF0	0078DEF8	0078DEF9	5f	pop    edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEF8	0078DEF9	1	complete-instruction-continuation	fallthrough:0078DEF9
+ts3w-pc-1.67	20261104	0078DCF0	0078DEF9	0078DEFB	ffe0	jmp    eax	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEF9	0078DEFB	2	complete-instruction-continuation	
+ts3w-pc-1.67	20261104	0078DCF0	0078DEFB	0078DEFD	33f6	xor    esi,esi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEFB	0078DEFD	2	complete-instruction-continuation	fallthrough:0078DEFD
+ts3w-pc-1.67	20261104	0078DCF0	0078DEFD	0078DEFF	eb86	jmp    0x78de85	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEFD	0078DEFF	2	complete-instruction-continuation	direct_jump:0078DE85
+ts3w-pc-1.67	20261104	0078DCF0	0078DEFF	0078DF00	5f	pop    edi	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DEFF	0078DF00	1	complete-instruction-continuation	fallthrough:0078DF00
+ts3w-pc-1.67	20261104	0078DCF0	0078DF00	0078DF01	c3	ret	ts3w-pc-1.67:0038dcf1:0038df10:20261104	0078DF00	0078DF01	1	complete-instruction-continuation	
