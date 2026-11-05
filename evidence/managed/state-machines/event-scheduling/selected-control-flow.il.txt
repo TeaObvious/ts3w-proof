@@ -1,0 +1,1378 @@
+; Original selected ScriptCore/SimIFace method bodies.
+; Reference: evidence/managed/reference-inputs.json. No rebuilt source or runtime execution.
+; IL offsets, exact bytes, metadata tokens and EH regions retained.
+
+; ScriptCore MethodDef 0x060005F1 ScriptCore.EventQueue::OnNativeEvent
+; SignatureBlob 2004010909090E; RVA 000080AC; MaxStack 4; LocalSignature 07011280D8
+; Physical header 133004005f00000053000011
+{
+  IL_0000: ldarg.1 ; bytes 03
+  IL_0001: ldarg.2 ; bytes 04
+  IL_0002: ldarg.3 ; bytes 05
+  IL_0003: ldarg.s 4 ; bytes 0E04
+  IL_0005: call 0x060005F0 ; bytes 28F0050006
+  IL_000A: stloc.0 ; bytes 0A
+  IL_000B: ldarg.0 ; bytes 02
+  IL_000C: ldfld 0x0400007B ; bytes 7B7B000004
+  IL_0011: brfalse.s 31 ; bytes 2C0C
+  IL_0013: ldarg.0 ; bytes 02
+  IL_0014: ldfld 0x0400007B ; bytes 7B7B000004
+  IL_0019: ldloc.0 ; bytes 06
+  IL_001A: callvirt 0x0A000110 ; bytes 6F1001000A
+  IL_001F: ldarg.0 ; bytes 02
+  IL_0020: ldfld 0x0400007A ; bytes 7B7A000004
+  IL_0025: brfalse.s 52 ; bytes 2C0D
+  IL_0027: ldarg.0 ; bytes 02
+  IL_0028: ldfld 0x0400007A ; bytes 7B7A000004
+  IL_002D: ldloc.0 ; bytes 06
+  IL_002E: callvirt 0x0A000110 ; bytes 6F1001000A
+  IL_0033: ret ; bytes 2A
+  IL_0034: ldarg.0 ; bytes 02
+  IL_0035: ldfld 0x0400007C ; bytes 7B7C000004
+  IL_003A: ldloc.0 ; bytes 06
+  IL_003B: callvirt 0x0A000111 ; bytes 6F1101000A
+  IL_0040: ldarg.0 ; bytes 02
+  IL_0041: ldfld 0x0400007D ; bytes 7B7D000004
+  IL_0046: ldsfld 0x0A0000A1 ; bytes 7EA100000A
+  IL_004B: call 0x0A0000AD ; bytes 28AD00000A
+  IL_0050: brfalse.s 94 ; bytes 2C0C
+  IL_0052: ldarg.0 ; bytes 02
+  IL_0053: ldfld 0x0400007D ; bytes 7B7D000004
+  IL_0058: ldc.i4.0 ; bytes 16
+  IL_0059: call 0x0A000112 ; bytes 281201000A
+  IL_005E: ret ; bytes 2A
+}
+; Referenced metadata operands:
+; 0x0400007A ScriptCore.EventQueue::mOnEvent sig=0612828D attributes=Private
+; 0x0400007B ScriptCore.EventQueue::mPermissiveOnEvent sig=0612828D attributes=Private
+; 0x0400007C ScriptCore.EventQueue::mEvents sig=0615128291011280D8 attributes=Private
+; 0x0400007D ScriptCore.EventQueue::mSleepingTask sig=06118141 attributes=Private
+; 0x060005F0 ScriptCore.EventQueue::CreateEvent sig=00041280D80909090E
+; 0x0A0000A1 Sims3.SimIFace.ObjectGuid::InvalidObjectGuid sig=06118141
+; 0x0A0000AD Sims3.SimIFace.ObjectGuid::op_Inequality sig=000202118141118141
+; 0x0A000110 Sims3.SimIFace.OnEventDelegate::Invoke sig=200101128095
+; 0x0A000111 TypeSpec:15128291011280D8::Enqueue sig=2001011300
+; 0x0A000112 Sims3.SimIFace.Simulator::Wake sig=00020111814102
+
+; ScriptCore MethodDef 0x060005F2 ScriptCore.EventQueue::.ctor
+; SignatureBlob 200001; RVA 00008118; MaxStack 4; LocalSignature None
+; Physical header 033004004500000000000000
+{
+  IL_0000: ldarg.0 ; bytes 02
+  IL_0001: newobj 0x0A000113 ; bytes 731301000A
+  IL_0006: stfld 0x0400007C ; bytes 7D7C000004
+  IL_000B: ldarg.0 ; bytes 02
+  IL_000C: ldsfld 0x0A0000A1 ; bytes 7EA100000A
+  IL_0011: stfld 0x0400007D ; bytes 7D7D000004
+  IL_0016: ldarg.0 ; bytes 02
+  IL_0017: call 0x0A000014 ; bytes 281400000A
+  IL_001C: ldarg.0 ; bytes 02
+  IL_001D: ldarg.0 ; bytes 02
+  IL_001E: ldftn 0x060005F1 ; bytes FE06F1050006
+  IL_0024: newobj 0x060005FA ; bytes 73FA050006
+  IL_0029: stfld 0x04000079 ; bytes 7D79000004
+  IL_002E: ldarg.0 ; bytes 02
+  IL_002F: ldarg.0 ; bytes 02
+  IL_0030: ldfld 0x04000079 ; bytes 7B79000004
+  IL_0035: call 0x060005EE ; bytes 28EE050006
+  IL_003A: newobj 0x060005EC ; bytes 73EC050006
+  IL_003F: stfld 0x04000078 ; bytes 7D78000004
+  IL_0044: ret ; bytes 2A
+}
+; Referenced metadata operands:
+; 0x04000078 ScriptCore.EventQueue::mHandle sig=061280DC attributes=Private
+; 0x04000079 ScriptCore.EventQueue::mOnNativeEvent sig=061280E4 attributes=Private
+; 0x0400007C ScriptCore.EventQueue::mEvents sig=0615128291011280D8 attributes=Private
+; 0x0400007D ScriptCore.EventQueue::mSleepingTask sig=06118141 attributes=Private
+; 0x060005EC ScriptCore.EventQueueHandle::.ctor sig=20010109
+; 0x060005EE ScriptCore.EventQueue::EventQueue_CreateEventQueueImpl sig=0001091281A1
+; 0x060005F1 ScriptCore.EventQueue::OnNativeEvent sig=2004010909090E
+; 0x060005FA ScriptCore.EventQueue/OnNativeEventDelegate::.ctor sig=2002011C18
+; 0x0A000014 System.Object::.ctor sig=200001
+; 0x0A0000A1 Sims3.SimIFace.ObjectGuid::InvalidObjectGuid sig=06118141
+; 0x0A000113 TypeSpec:15128291011280D8::.ctor sig=200001
+
+; ScriptCore MethodDef 0x060005F5 ScriptCore.EventQueue::Dispose
+; SignatureBlob 20010102; RVA 000081A8; MaxStack 2; LocalSignature 07011280B1
+; Physical header 133002005600000054000011
+{
+  IL_0000: ldarg.0 ; bytes 02
+  IL_0001: ldfld 0x0400007D ; bytes 7B7D000004
+  IL_0006: ldsfld 0x0A0000A1 ; bytes 7EA100000A
+  IL_000B: call 0x0A0000AD ; bytes 28AD00000A
+  IL_0010: brfalse.s 50 ; bytes 2C20
+  IL_0012: ldarg.0 ; bytes 02
+  IL_0013: ldfld 0x0400007D ; bytes 7B7D000004
+  IL_0018: call 0x0A000114 ; bytes 281401000A
+  IL_001D: stloc.0 ; bytes 0A
+  IL_001E: ldloc.0 ; bytes 06
+  IL_001F: brfalse.s 39 ; bytes 2C06
+  IL_0021: ldloc.0 ; bytes 06
+  IL_0022: callvirt 0x0A000115 ; bytes 6F1501000A
+  IL_0027: ldarg.0 ; bytes 02
+  IL_0028: ldsfld 0x0A0000A1 ; bytes 7EA100000A
+  IL_002D: stfld 0x0400007D ; bytes 7D7D000004
+  IL_0032: ldarg.0 ; bytes 02
+  IL_0033: ldfld 0x04000078 ; bytes 7B78000004
+  IL_0038: brfalse.s 76 ; bytes 2C12
+  IL_003A: ldarg.0 ; bytes 02
+  IL_003B: ldfld 0x04000078 ; bytes 7B78000004
+  IL_0040: callvirt 0x0600052B ; bytes 6F2B050006
+  IL_0045: ldarg.0 ; bytes 02
+  IL_0046: ldnull ; bytes 14
+  IL_0047: stfld 0x04000078 ; bytes 7D78000004
+  IL_004C: ldarg.1 ; bytes 03
+  IL_004D: brtrue.s 85 ; bytes 2D06
+  IL_004F: ldarg.0 ; bytes 02
+  IL_0050: call 0x0A000045 ; bytes 284500000A
+  IL_0055: ret ; bytes 2A
+}
+; Referenced metadata operands:
+; 0x04000078 ScriptCore.EventQueue::mHandle sig=061280DC attributes=Private
+; 0x0400007D ScriptCore.EventQueue::mSleepingTask sig=06118141 attributes=Private
+; 0x0600052B ScriptCore.NativeHandleWrapper::Dispose sig=200001
+; 0x0A000045 System.GC::SuppressFinalize sig=0001011C
+; 0x0A0000A1 Sims3.SimIFace.ObjectGuid::InvalidObjectGuid sig=06118141
+; 0x0A0000AD Sims3.SimIFace.ObjectGuid::op_Inequality sig=000202118141118141
+; 0x0A000114 Sims3.SimIFace.Simulator::GetProxy sig=00011280B1118141
+; 0x0A000115 Sims3.SimIFace.IScriptProxy::SetObjectToReset sig=200001
+
+; ScriptCore MethodDef 0x060005F6 ScriptCore.EventQueue::GetNextEvent
+; SignatureBlob 2002020210128095; RVA 0000820C; MaxStack 3; LocalSignature None
+; Physical header 0b3003006400000000000000
+{
+  IL_0000: ldarg.0 ; bytes 02
+  IL_0001: ldfld 0x0400007C ; bytes 7B7C000004
+  IL_0006: callvirt 0x0A000116 ; bytes 6F1601000A
+  IL_000B: ldc.i4.0 ; bytes 16
+  IL_000C: ble.s 29 ; bytes 310F
+  IL_000E: ldarg.2 ; bytes 04
+  IL_000F: ldarg.0 ; bytes 02
+  IL_0010: ldfld 0x0400007C ; bytes 7B7C000004
+  IL_0015: callvirt 0x0A000117 ; bytes 6F1701000A
+  IL_001A: stind.ref ; bytes 51
+  IL_001B: ldc.i4.1 ; bytes 17
+  IL_001C: ret ; bytes 2A
+  IL_001D: ldarg.1 ; bytes 03
+  IL_001E: brfalse.s 95 ; bytes 2C3F
+  IL_0020: ldarg.0 ; bytes 02
+  IL_0021: ldfld 0x0400007D ; bytes 7B7D000004
+  IL_0026: ldsfld 0x0A0000A1 ; bytes 7EA100000A
+  IL_002B: call 0x0A0000AD ; bytes 28AD00000A
+  IL_0030: brfalse.s 55 ; bytes 2C05
+  IL_0032: ldarg.2 ; bytes 04
+  IL_0033: ldnull ; bytes 14
+  IL_0034: stind.ref ; bytes 51
+  IL_0035: ldc.i4.0 ; bytes 16
+  IL_0036: ret ; bytes 2A
+  IL_0037: ldarg.0 ; bytes 02
+  IL_0038: call 0x0A000054 ; bytes 285400000A
+  IL_003D: stfld 0x0400007D ; bytes 7D7D000004
+  IL_0042: ldc.i4.m1 ; bytes 15
+  IL_0043: call 0x0A000082 ; bytes 288200000A
+  IL_0048: leave.s 86 ; bytes DE0C
+  IL_004A: ldarg.0 ; bytes 02
+  IL_004B: ldsfld 0x0A0000A1 ; bytes 7EA100000A
+  IL_0050: stfld 0x0400007D ; bytes 7D7D000004
+  IL_0055: endfinally ; bytes DC
+  IL_0056: ldarg.0 ; bytes 02
+  IL_0057: ldc.i4.0 ; bytes 16
+  IL_0058: ldarg.2 ; bytes 04
+  IL_0059: call 0x060005F6 ; bytes 28F6050006
+  IL_005E: ret ; bytes 2A
+  IL_005F: ldarg.2 ; bytes 04
+  IL_0060: ldnull ; bytes 14
+  IL_0061: stind.ref ; bytes 51
+  IL_0062: ldc.i4.1 ; bytes 17
+  IL_0063: ret ; bytes 2A
+; EH {"kind":"Finally","TryOffset":66,"TryLength":8,"HandlerOffset":74,"HandlerLength":12,"catchType":null,"FilterOffset":-1}
+}
+; Referenced metadata operands:
+; 0x0400007C ScriptCore.EventQueue::mEvents sig=0615128291011280D8 attributes=Private
+; 0x0400007D ScriptCore.EventQueue::mSleepingTask sig=06118141 attributes=Private
+; 0x060005F6 ScriptCore.EventQueue::GetNextEvent sig=2002020210128095
+; 0x0A000054 Sims3.SimIFace.Simulator::get_CurrentTask sig=0000118141
+; 0x0A000082 Sims3.SimIFace.Simulator::Sleep sig=00010109
+; 0x0A0000A1 Sims3.SimIFace.ObjectGuid::InvalidObjectGuid sig=06118141
+; 0x0A0000AD Sims3.SimIFace.ObjectGuid::op_Inequality sig=000202118141118141
+; 0x0A000116 TypeSpec:15128291011280D8::get_Count sig=200008
+; 0x0A000117 TypeSpec:15128291011280D8::Dequeue sig=20001300
+
+; ScriptCore MethodDef 0x060005F8 ScriptCore.EventQueue::set_OnEvent
+; SignatureBlob 20010112828D; RVA 0000829C; MaxStack 2; LocalSignature 0701128095
+; Physical header 133002003800000055000011
+{
+  IL_0000: ldarg.0 ; bytes 02
+  IL_0001: ldarg.1 ; bytes 03
+  IL_0002: stfld 0x0400007A ; bytes 7D7A000004
+  IL_0007: ldarg.0 ; bytes 02
+  IL_0008: ldfld 0x0400007A ; bytes 7B7A000004
+  IL_000D: brfalse.s 55 ; bytes 2C28
+  IL_000F: br.s 41 ; bytes 2B18
+  IL_0011: ldarg.0 ; bytes 02
+  IL_0012: ldfld 0x0400007C ; bytes 7B7C000004
+  IL_0017: callvirt 0x0A000117 ; bytes 6F1701000A
+  IL_001C: stloc.0 ; bytes 0A
+  IL_001D: ldarg.0 ; bytes 02
+  IL_001E: ldfld 0x0400007A ; bytes 7B7A000004
+  IL_0023: ldloc.0 ; bytes 06
+  IL_0024: callvirt 0x0A000110 ; bytes 6F1001000A
+  IL_0029: ldarg.0 ; bytes 02
+  IL_002A: ldfld 0x0400007C ; bytes 7B7C000004
+  IL_002F: callvirt 0x0A000116 ; bytes 6F1601000A
+  IL_0034: ldc.i4.0 ; bytes 16
+  IL_0035: bgt.s 17 ; bytes 30DA
+  IL_0037: ret ; bytes 2A
+}
+; Referenced metadata operands:
+; 0x0400007A ScriptCore.EventQueue::mOnEvent sig=0612828D attributes=Private
+; 0x0400007C ScriptCore.EventQueue::mEvents sig=0615128291011280D8 attributes=Private
+; 0x0A000110 Sims3.SimIFace.OnEventDelegate::Invoke sig=200101128095
+; 0x0A000116 TypeSpec:15128291011280D8::get_Count sig=200008
+; 0x0A000117 TypeSpec:15128291011280D8::Dequeue sig=20001300
+
+; ScriptCore MethodDef 0x06000D81 ScriptCore.SACS::SetEventQueue
+; SignatureBlob 2002010909; RVA 00010E84; MaxStack 8; LocalSignature None
+; Physical header 22
+{
+  IL_0000: ldarg.1 ; bytes 03
+  IL_0001: ldarg.2 ; bytes 04
+  IL_0002: call 0x06000D5F ; bytes 285F0D0006
+  IL_0007: ret ; bytes 2A
+}
+; Referenced metadata operands:
+; 0x06000D5F ScriptCore.SACS::SACS_SetEventQueueImpl sig=0002010909
+
+; ScriptCore MethodDef 0x06000D8E ScriptCore.SACS::RequestState
+; SignatureBlob 20091183C5020909091183C90C090909; RVA 00010F08; MaxStack 7; LocalSignature 07021183C51C
+; Physical header 133007002a000000b5000011
+{
+  IL_0000: ldarg.2 ; bytes 04
+  IL_0001: ldarg.3 ; bytes 05
+  IL_0002: ldarg.s 4 ; bytes 0E04
+  IL_0004: ldarg.s 5 ; bytes 0E05
+  IL_0006: ldarg.s 7 ; bytes 0E07
+  IL_0008: ldarg.s 8 ; bytes 0E08
+  IL_000A: ldarg.s 9 ; bytes 0E09
+  IL_000C: call 0x06000D6C ; bytes 286C0D0006
+  IL_0011: stloc.0 ; bytes 0A
+  IL_0012: ldarg.1 ; bytes 03
+  IL_0013: brfalse.s 40 ; bytes 2C13
+  IL_0015: ldarg.0 ; bytes 02
+  IL_0016: call 0x0600015F ; bytes 285F010006
+  IL_001B: stloc.1 ; bytes 0B
+  IL_001C: ldloc.1 ; bytes 07
+  IL_001D: brtrue.s 33 ; bytes 2D02
+  IL_001F: ldc.i4.m1 ; bytes 15
+  IL_0020: ret ; bytes 2A
+  IL_0021: ldloc.1 ; bytes 07
+  IL_0022: unbox.any 0x010000F1 ; bytes A5F1000001
+  IL_0027: ret ; bytes 2A
+  IL_0028: ldloc.0 ; bytes 06
+  IL_0029: ret ; bytes 2A
+}
+; Referenced metadata operands:
+; 0x010000F1 Sims3.SimIFace.SACS.ResultCodes
+; 0x0600015F ScriptCore.CallbackObject::GetCallbackResult sig=20001C
+; 0x06000D6C ScriptCore.SACS::SACS_RequestStateImpl sig=00071183C50909091183C9090909
+
+; ScriptCore MethodDef 0x06000D93 ScriptCore.SACS::UpdateEventFilter
+; SignatureBlob 200501090909091183D1; RVA 00010F65; MaxStack 8; LocalSignature None
+; Physical header 36
+{
+  IL_0000: ldarg.1 ; bytes 03
+  IL_0001: ldarg.2 ; bytes 04
+  IL_0002: ldarg.3 ; bytes 05
+  IL_0003: ldarg.s 4 ; bytes 0E04
+  IL_0005: ldarg.s 5 ; bytes 0E05
+  IL_0007: call 0x06000D70 ; bytes 28700D0006
+  IL_000C: ret ; bytes 2A
+}
+; Referenced metadata operands:
+; 0x06000D70 ScriptCore.SACS::SACS_UpdateEventFilterImpl sig=0005010909090909
+
+; SimIFace MethodDef 0x06000A7E Sims3.SimIFace.StateMachineClient::RequestState
+; SignatureBlob 200801020E0E118274081286300E128620; RVA 00010470; MaxStack 10; LocalSignature 071509090909128624020E118264020202021286A411820C090902090902118264
+; Physical header 1b300a00ff07000085000011
+{
+  IL_0000: ldarg.0 ; bytes 02
+  IL_0001: call 0x06000A5A ; bytes 285A0A0006
+  IL_0006: ldarg.s 4 ; bytes 0E04
+  IL_0008: ldc.i4 1024 ; bytes 2000040000
+  IL_000D: and ; bytes 5F
+  IL_000E: brtrue.s 23 ; bytes 2D07
+  IL_0010: ldarg.s 4 ; bytes 0E04
+  IL_0012: ldc.i4.s 64 ; bytes 1F40
+  IL_0014: or ; bytes 60
+  IL_0015: starg.s 4 ; bytes 1004
+  IL_0017: ldarg.0 ; bytes 02
+  IL_0018: ldc.r4 -1 ; bytes 22000080BF
+  IL_001D: stfld 0x04000B16 ; bytes 7D160B0004
+  IL_0022: ldarg.0 ; bytes 02
+  IL_0023: ldc.r4 -1 ; bytes 22000080BF
+  IL_0028: stfld 0x04000B17 ; bytes 7D170B0004
+  IL_002D: ldarg.s 5 ; bytes 0E05
+  IL_002F: ldc.i4.0 ; bytes 16
+  IL_0030: ble.s 74 ; bytes 3118
+  IL_0032: ldarg.0 ; bytes 02
+  IL_0033: ldc.i4.s 60 ; bytes 1F3C
+  IL_0035: ldarg.s 5 ; bytes 0E05
+  IL_0037: mul ; bytes 5A
+  IL_0038: conv.r4 ; bytes 6B
+  IL_0039: ldc.r4 1.6 ; bytes 22CDCCCC3F
+  IL_003E: div ; bytes 5B
+  IL_003F: stfld 0x04000B17 ; bytes 7D170B0004
+  IL_0044: ldarg.0 ; bytes 02
+  IL_0045: call 0x06000A7F ; bytes 287F0A0006
+  IL_004A: ldarg.0 ; bytes 02
+  IL_004B: call 0x06000A50 ; bytes 28500A0006
+  IL_0050: pop ; bytes 26
+  IL_0051: ldarg.1 ; bytes 03
+  IL_0052: brfalse.s 89 ; bytes 2C05
+  IL_0054: call 0x06001244 ; bytes 2844120006
+  IL_0059: ldarg.2 ; bytes 04
+  IL_005A: brfalse.s 101 ; bytes 2C09
+  IL_005C: ldarg.0 ; bytes 02
+  IL_005D: ldarg.2 ; bytes 04
+  IL_005E: call 0x06000A4A ; bytes 284A0A0006
+  IL_0063: br.s 102 ; bytes 2B01
+  IL_0065: ldc.i4.0 ; bytes 16
+  IL_0066: stloc.0 ; bytes 0A
+  IL_0067: ldarg.3 ; bytes 05
+  IL_0068: brfalse.s 115 ; bytes 2C09
+  IL_006A: ldarg.0 ; bytes 02
+  IL_006B: ldarg.3 ; bytes 05
+  IL_006C: call 0x06000A4A ; bytes 284A0A0006
+  IL_0071: br.s 116 ; bytes 2B01
+  IL_0073: ldc.i4.0 ; bytes 16
+  IL_0074: stloc.1 ; bytes 0B
+  IL_0075: ldarg.s 7 ; bytes 0E07
+  IL_0077: brfalse.s 131 ; bytes 2C0A
+  IL_0079: ldarg.0 ; bytes 02
+  IL_007A: ldarg.s 7 ; bytes 0E07
+  IL_007C: call 0x06000A4A ; bytes 284A0A0006
+  IL_0081: br.s 132 ; bytes 2B01
+  IL_0083: ldc.i4.0 ; bytes 16
+  IL_0084: stloc.2 ; bytes 0C
+  IL_0085: ldarg.s 6 ; bytes 0E06
+  IL_0087: brfalse.s 151 ; bytes 2C0E
+  IL_0089: ldarg.s 6 ; bytes 0E06
+  IL_008B: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0090: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0095: br.s 152 ; bytes 2B01
+  IL_0097: ldc.i4.0 ; bytes 16
+  IL_0098: stloc.3 ; bytes 0D
+  IL_0099: ldarg.s 6 ; bytes 0E06
+  IL_009B: brtrue.s 240 ; bytes 2D53
+  IL_009D: ldarg.2 ; bytes 04
+  IL_009E: brfalse.s 240 ; bytes 2C50
+  IL_00A0: ldarg.0 ; bytes 02
+  IL_00A1: call 0x06000A4C ; bytes 284C0A0006
+  IL_00A6: brfalse.s 240 ; bytes 2C48
+  IL_00A8: ldnull ; bytes 14
+  IL_00A9: stloc.s 4 ; bytes 1304
+  IL_00AB: ldsfld 0x04000F83 ; bytes 7E830F0004
+  IL_00B0: pop ; bytes 26
+  IL_00B1: ldarg.0 ; bytes 02
+  IL_00B2: ldfld 0x04000B1C ; bytes 7B1C0B0004
+  IL_00B7: ldarg.2 ; bytes 04
+  IL_00B8: callvirt 0x0A00012B ; bytes 6F2B01000A
+  IL_00BD: brfalse.s 240 ; bytes 2C31
+  IL_00BF: ldarg.s 8 ; bytes 0E08
+  IL_00C1: brtrue.s 240 ; bytes 2D2D
+  IL_00C3: ldarg.0 ; bytes 02
+  IL_00C4: ldfld 0x04000B1C ; bytes 7B1C0B0004
+  IL_00C9: ldarg.2 ; bytes 04
+  IL_00CA: callvirt 0x0A00012C ; bytes 6F2C01000A
+  IL_00CF: stloc.s 4 ; bytes 1304
+  IL_00D1: ldloc.s 4 ; bytes 1104
+  IL_00D3: brfalse.s 240 ; bytes 2C1B
+  IL_00D5: ldloc.s 4 ; bytes 1104
+  IL_00D7: callvirt 0x06000A39 ; bytes 6F390A0006
+  IL_00DC: dup ; bytes 25
+  IL_00DD: starg.s 8 ; bytes 1008
+  IL_00DF: brfalse.s 240 ; bytes 2C0F
+  IL_00E1: ldarg.0 ; bytes 02
+  IL_00E2: call 0x06000A50 ; bytes 28500A0006
+  IL_00E7: pop ; bytes 26
+  IL_00E8: ldloc.s 4 ; bytes 1104
+  IL_00EA: ldnull ; bytes 14
+  IL_00EB: callvirt 0x06000A3A ; bytes 6F3A0A0006
+  IL_00F0: ldarg.s 8 ; bytes 0E08
+  IL_00F2: brfalse.s 296 ; bytes 2C34
+  IL_00F4: ldarg.s 8 ; bytes 0E08
+  IL_00F6: ldarg.0 ; bytes 02
+  IL_00F7: callvirt 0x06000A36 ; bytes 6F360A0006
+  IL_00FC: brfalse.s 285 ; bytes 2C1F
+  IL_00FE: ldarg.0 ; bytes 02
+  IL_00FF: call 0x06000A50 ; bytes 28500A0006
+  IL_0104: pop ; bytes 26
+  IL_0105: ldarg.s 4 ; bytes 0E04
+  IL_0107: ldc.i4.s 32 ; bytes 1F20
+  IL_0109: or ; bytes 60
+  IL_010A: starg.s 4 ; bytes 1004
+  IL_010C: ldarg.s 8 ; bytes 0E08
+  IL_010E: callvirt 0x06000A26 ; bytes 6F260A0006
+  IL_0113: brfalse.s 296 ; bytes 2C13
+  IL_0115: ldarg.s 4 ; bytes 0E04
+  IL_0117: ldc.i4.2 ; bytes 18
+  IL_0118: or ; bytes 60
+  IL_0119: starg.s 4 ; bytes 1004
+  IL_011B: br.s 296 ; bytes 2B0B
+  IL_011D: ldarg.s 8 ; bytes 0E08
+  IL_011F: callvirt 0x06000A31 ; bytes 6F310A0006
+  IL_0124: ldc.i4.0 ; bytes 16
+  IL_0125: stloc.3 ; bytes 0D
+  IL_0126: ldc.i4.0 ; bytes 16
+  IL_0127: stloc.2 ; bytes 0C
+  IL_0128: ldarg.0 ; bytes 02
+  IL_0129: call 0x06000AAE ; bytes 28AE0A0006
+  IL_012E: stloc.s 5 ; bytes 1305
+  IL_0130: ldarg.1 ; bytes 03
+  IL_0131: brtrue.s 313 ; bytes 2D06
+  IL_0133: ldarg.s 4 ; bytes 0E04
+  IL_0135: ldc.i4.3 ; bytes 19
+  IL_0136: and ; bytes 5F
+  IL_0137: brfalse.s 394 ; bytes 2C51
+  IL_0139: ldloc.s 5 ; bytes 1105
+  IL_013B: brtrue.s 384 ; bytes 2D43
+  IL_013D: call 0x06001240 ; bytes 2840120006
+  IL_0142: ldsfld 0x04000F83 ; bytes 7E830F0004
+  IL_0147: call 0x060011FA ; bytes 28FA110006
+  IL_014C: brfalse.s 379 ; bytes 2C2D
+  IL_014E: ldstr 0x700000E3 ; bytes 72E3000070
+  IL_0153: stloc.s 6 ; bytes 1306
+  IL_0155: ldarg.0 ; bytes 02
+  IL_0156: ldstr 0x70000673 ; bytes 7273060070
+  IL_015B: ldloc.s 6 ; bytes 1106
+  IL_015D: call 0x0A00004F ; bytes 284F00000A
+  IL_0162: newobj 0x06000AC7 ; bytes 73C70A0006
+  IL_0167: stfld 0x04000B15 ; bytes 7D150B0004
+  IL_016C: ldarg.0 ; bytes 02
+  IL_016D: ldc.i4.1 ; bytes 17
+  IL_016E: call 0x06000A53 ; bytes 28530A0006
+  IL_0173: ldloc.s 6 ; bytes 1106
+  IL_0175: newobj 0x06000AC7 ; bytes 73C70A0006
+  IL_017A: throw ; bytes 7A
+  IL_017B: ldc.i4.0 ; bytes 16
+  IL_017C: starg.s 1 ; bytes 1001
+  IL_017E: br.s 394 ; bytes 2B0A
+  IL_0180: ldarg.1 ; bytes 03
+  IL_0181: brfalse.s 394 ; bytes 2C07
+  IL_0183: ldarg.0 ; bytes 02
+  IL_0184: ldc.i4.0 ; bytes 16
+  IL_0185: call 0x06000AAF ; bytes 28AF0A0006
+  IL_018A: ldc.i4.m1 ; bytes 15
+  IL_018B: stloc.s 7 ; bytes 1307
+  IL_018D: ldarg.s 4 ; bytes 0E04
+  IL_018F: ldc.i4.s -17 ; bytes 1FEF
+  IL_0191: and ; bytes 5F
+  IL_0192: starg.s 4 ; bytes 1004
+  IL_0194: ldarg.1 ; bytes 03
+  IL_0195: brfalse 642 ; bytes 39E8000000
+  IL_019A: call 0x06000A1F ; bytes 281F0A0006
+  IL_019F: ldarg.0 ; bytes 02
+  IL_01A0: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_01A5: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_01AA: ldc.i4.0 ; bytes 16
+  IL_01AB: ldc.i4.s 11 ; bytes 1F0B
+  IL_01AD: ldc.i4.0 ; bytes 16
+  IL_01AE: ldc.i4.1 ; bytes 17
+  IL_01AF: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_01B4: call 0x06000A1F ; bytes 281F0A0006
+  IL_01B9: ldarg.0 ; bytes 02
+  IL_01BA: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_01BF: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_01C4: ldc.i4.0 ; bytes 16
+  IL_01C5: ldc.i4.s 10 ; bytes 1F0A
+  IL_01C7: ldc.i4.0 ; bytes 16
+  IL_01C8: ldc.i4.1 ; bytes 17
+  IL_01C9: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_01CE: call 0x06000A1F ; bytes 281F0A0006
+  IL_01D3: ldarg.0 ; bytes 02
+  IL_01D4: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_01D9: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_01DE: ldc.i4.0 ; bytes 16
+  IL_01DF: ldc.i4.1 ; bytes 17
+  IL_01E0: ldc.i4.0 ; bytes 16
+  IL_01E1: ldc.i4.1 ; bytes 17
+  IL_01E2: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_01E7: call 0x06000A1F ; bytes 281F0A0006
+  IL_01EC: ldarg.0 ; bytes 02
+  IL_01ED: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_01F2: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_01F7: ldc.i4.0 ; bytes 16
+  IL_01F8: ldc.i4.4 ; bytes 1A
+  IL_01F9: ldc.i4.0 ; bytes 16
+  IL_01FA: ldc.i4.1 ; bytes 17
+  IL_01FB: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0200: call 0x06000A1F ; bytes 281F0A0006
+  IL_0205: ldarg.0 ; bytes 02
+  IL_0206: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_020B: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0210: ldc.i4.0 ; bytes 16
+  IL_0211: ldc.i4.5 ; bytes 1B
+  IL_0212: ldloc.0 ; bytes 06
+  IL_0213: ldc.i4.1 ; bytes 17
+  IL_0214: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0219: call 0x06000A1F ; bytes 281F0A0006
+  IL_021E: ldarg.0 ; bytes 02
+  IL_021F: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0224: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0229: ldc.i4.0 ; bytes 16
+  IL_022A: ldc.i4.5 ; bytes 1B
+  IL_022B: ldc.i4 1109422689 ; bytes 2061722042
+  IL_0230: ldc.i4.1 ; bytes 17
+  IL_0231: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0236: call 0x06000A1F ; bytes 281F0A0006
+  IL_023B: ldarg.0 ; bytes 02
+  IL_023C: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0241: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0246: ldc.i4.0 ; bytes 16
+  IL_0247: ldc.i4.3 ; bytes 19
+  IL_0248: ldc.i4.0 ; bytes 16
+  IL_0249: ldc.i4.1 ; bytes 17
+  IL_024A: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_024F: call 0x06000A1F ; bytes 281F0A0006
+  IL_0254: ldarg.0 ; bytes 02
+  IL_0255: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_025A: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_025F: ldc.i4.0 ; bytes 16
+  IL_0260: ldc.i4.8 ; bytes 1E
+  IL_0261: ldloc.1 ; bytes 07
+  IL_0262: ldc.i4.0 ; bytes 16
+  IL_0263: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0268: call 0x06000A1F ; bytes 281F0A0006
+  IL_026D: ldarg.0 ; bytes 02
+  IL_026E: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0273: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0278: ldc.i4.0 ; bytes 16
+  IL_0279: ldc.i4.s 9 ; bytes 1F09
+  IL_027B: ldc.i4.0 ; bytes 16
+  IL_027C: ldc.i4.0 ; bytes 16
+  IL_027D: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0282: ldarg.0 ; bytes 02
+  IL_0283: call 0x06000A49 ; bytes 28490A0006
+  IL_0288: ldc.i4.0 ; bytes 16
+  IL_0289: ldarg.0 ; bytes 02
+  IL_028A: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_028F: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0294: ldloc.0 ; bytes 06
+  IL_0295: ldloc.1 ; bytes 07
+  IL_0296: ldarg.s 4 ; bytes 0E04
+  IL_0298: ldc.r4 0 ; bytes 2200000000
+  IL_029D: ldc.i4.0 ; bytes 16
+  IL_029E: ldloc.3 ; bytes 09
+  IL_029F: ldloc.2 ; bytes 08
+  IL_02A0: callvirt 0x06000A11 ; bytes 6F110A0006
+  IL_02A5: stloc.s 7 ; bytes 1307
+  IL_02A7: ldloc.s 7 ; bytes 1107
+  IL_02A9: ldc.i4.0 ; bytes 16
+  IL_02AA: bge.s 721 ; bytes 2F25
+  IL_02AC: ldarg.0 ; bytes 02
+  IL_02AD: call 0x06000AAA ; bytes 28AA0A0006
+  IL_02B2: ldarg.0 ; bytes 02
+  IL_02B3: ldfld 0x04000B15 ; bytes 7B150B0004
+  IL_02B8: brtrue 1680 ; bytes 3AD3030000
+  IL_02BD: ldarg.0 ; bytes 02
+  IL_02BE: ldloc.s 7 ; bytes 1107
+  IL_02C0: ldarg.2 ; bytes 04
+  IL_02C1: ldarg.3 ; bytes 05
+  IL_02C2: newobj 0x06000AC9 ; bytes 73C90A0006
+  IL_02C7: stfld 0x04000B15 ; bytes 7D150B0004
+  IL_02CC: br 1680 ; bytes 38BF030000
+  IL_02D1: ldarg.s 8 ; bytes 0E08
+  IL_02D3: brfalse.s 750 ; bytes 2C19
+  IL_02D5: ldarg.s 8 ; bytes 0E08
+  IL_02D7: ldarg.0 ; bytes 02
+  IL_02D8: callvirt 0x06000A36 ; bytes 6F360A0006
+  IL_02DD: brfalse.s 750 ; bytes 2C0F
+  IL_02DF: ldarg.s 8 ; bytes 0E08
+  IL_02E1: ldarg.0 ; bytes 02
+  IL_02E2: ldarg.2 ; bytes 04
+  IL_02E3: ldc.i4.0 ; bytes 16
+  IL_02E4: newarr 0x01000054 ; bytes 8D54000001
+  IL_02E9: callvirt 0x06000A30 ; bytes 6F300A0006
+  IL_02EE: ldarg.1 ; bytes 03
+  IL_02EF: brfalse 1680 ; bytes 399C030000
+  IL_02F4: ldc.i4.0 ; bytes 16
+  IL_02F5: ldarg.s 4 ; bytes 0E04
+  IL_02F7: ldc.i4.s 64 ; bytes 1F40
+  IL_02F9: and ; bytes 5F
+  IL_02FA: ceq ; bytes FE01
+  IL_02FC: ldc.i4.0 ; bytes 16
+  IL_02FD: ceq ; bytes FE01
+  IL_02FF: stloc.s 8 ; bytes 1308
+  IL_0301: ldc.i4.0 ; bytes 16
+  IL_0302: stloc.s 9 ; bytes 1309
+  IL_0304: ldc.i4.0 ; bytes 16
+  IL_0305: stloc.s 10 ; bytes 130A
+  IL_0307: ldloc.1 ; bytes 07
+  IL_0308: ldc.i4.0 ; bytes 16
+  IL_0309: ceq ; bytes FE01
+  IL_030B: stloc.s 11 ; bytes 130B
+  IL_030D: ldarg.0 ; bytes 02
+  IL_030E: call 0x06000A50 ; bytes 28500A0006
+  IL_0313: brfalse 1667 ; bytes 396B030000
+  IL_0318: br 1667 ; bytes 3866030000
+  IL_031D: ldloc.s 12 ; bytes 110C
+  IL_031F: brtrue.s 812 ; bytes 2D0B
+  IL_0321: ldc.i4.0 ; bytes 16
+  IL_0322: call 0x06001253 ; bytes 2853120006
+  IL_0327: br 1667 ; bytes 3857030000
+  IL_032C: ldloc.s 12 ; bytes 110C
+  IL_032E: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_0333: ldc.i4.1 ; bytes 17
+  IL_0334: bne.un.s 836 ; bytes 330E
+  IL_0336: ldloc.s 12 ; bytes 110C
+  IL_0338: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_033D: stloc.s 7 ; bytes 1307
+  IL_033F: br 1680 ; bytes 384C030000
+  IL_0344: ldloc.s 12 ; bytes 110C
+  IL_0346: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_034B: ldc.i4.2 ; bytes 18
+  IL_034C: bne.un.s 874 ; bytes 331C
+  IL_034E: ldloc.s 12 ; bytes 110C
+  IL_0350: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_0355: stloc.s 13 ; bytes 130D
+  IL_0357: ldloc.s 13 ; bytes 110D
+  IL_0359: box 0x02000083 ; bytes 8C83000002
+  IL_035E: callvirt 0x0A000018 ; bytes 6F1800000A
+  IL_0363: ldc.i4.1 ; bytes 17
+  IL_0364: callvirt 0x0A00012D ; bytes 6F2D01000A
+  IL_0369: pop ; bytes 26
+  IL_036A: ldloc.s 12 ; bytes 110C
+  IL_036C: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_0371: ldc.i4.s 10 ; bytes 1F0A
+  IL_0373: bne.un.s 985 ; bytes 3364
+  IL_0375: ldloc.s 12 ; bytes 110C
+  IL_0377: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_037C: stloc.s 14 ; bytes 130E
+  IL_037E: ldarg.0 ; bytes 02
+  IL_037F: ldc.i4.0 ; bytes 16
+  IL_0380: ldloca.s 12 ; bytes 120C
+  IL_0382: call 0x06000AA7 ; bytes 28A70A0006
+  IL_0387: pop ; bytes 26
+  IL_0388: ldloc.s 12 ; bytes 110C
+  IL_038A: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_038F: stloc.s 15 ; bytes 130F
+  IL_0391: ldloc.0 ; bytes 06
+  IL_0392: brfalse.s 932 ; bytes 2C10
+  IL_0394: ldloc.s 14 ; bytes 110E
+  IL_0396: ldloc.0 ; bytes 06
+  IL_0397: beq.s 932 ; bytes 2E0B
+  IL_0399: ldloc.s 14 ; bytes 110E
+  IL_039B: ldc.i4 1109422689 ; bytes 2061722042
+  IL_03A0: ceq ; bytes FE01
+  IL_03A2: br.s 933 ; bytes 2B01
+  IL_03A4: ldc.i4.1 ; bytes 17
+  IL_03A5: stloc.s 16 ; bytes 1310
+  IL_03A7: ldloc.s 16 ; bytes 1110
+  IL_03A9: brfalse.s 985 ; bytes 2C2E
+  IL_03AB: ldloc.s 15 ; bytes 110F
+  IL_03AD: ldloc.1 ; bytes 07
+  IL_03AE: beq.s 985 ; bytes 2E29
+  IL_03B0: ldarg.0 ; bytes 02
+  IL_03B1: ldstr 0x700006C7 ; bytes 72C7060070
+  IL_03B6: ldarg.3 ; bytes 05
+  IL_03B7: ldstr 0x700006E1 ; bytes 72E1060070
+  IL_03BC: ldloc.s 15 ; bytes 110F
+  IL_03BE: call 0x06000E98 ; bytes 28980E0006
+  IL_03C3: call 0x0A00012E ; bytes 282E01000A
+  IL_03C8: newobj 0x06000AC7 ; bytes 73C70A0006
+  IL_03CD: stfld 0x04000B15 ; bytes 7D150B0004
+  IL_03D2: ldarg.0 ; bytes 02
+  IL_03D3: ldc.i4.1 ; bytes 17
+  IL_03D4: call 0x06000A53 ; bytes 28530A0006
+  IL_03D9: ldloc.s 12 ; bytes 110C
+  IL_03DB: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_03E0: ldc.i4.s 11 ; bytes 1F0B
+  IL_03E2: bne.un 1202 ; bytes 40CB000000
+  IL_03E7: ldloc.s 12 ; bytes 110C
+  IL_03E9: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_03EE: stloc.s 17 ; bytes 1311
+  IL_03F0: ldarg.0 ; bytes 02
+  IL_03F1: ldc.i4.0 ; bytes 16
+  IL_03F2: ldloca.s 12 ; bytes 120C
+  IL_03F4: call 0x06000AA7 ; bytes 28A70A0006
+  IL_03F9: pop ; bytes 26
+  IL_03FA: ldloc.s 12 ; bytes 110C
+  IL_03FC: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_0401: stloc.s 18 ; bytes 1312
+  IL_0403: ldloc.0 ; bytes 06
+  IL_0404: brfalse.s 1046 ; bytes 2C10
+  IL_0406: ldloc.s 17 ; bytes 1111
+  IL_0408: ldloc.0 ; bytes 06
+  IL_0409: beq.s 1046 ; bytes 2E0B
+  IL_040B: ldloc.s 17 ; bytes 1111
+  IL_040D: ldc.i4 1109422689 ; bytes 2061722042
+  IL_0412: ceq ; bytes FE01
+  IL_0414: br.s 1047 ; bytes 2B01
+  IL_0416: ldc.i4.1 ; bytes 17
+  IL_0417: stloc.s 19 ; bytes 1313
+  IL_0419: ldloc.s 19 ; bytes 1113
+  IL_041B: brfalse 1202 ; bytes 3992000000
+  IL_0420: ldloc.s 18 ; bytes 1112
+  IL_0422: ldloc.1 ; bytes 07
+  IL_0423: bne.un.s 1161 ; bytes 3364
+  IL_0425: ldc.i4.1 ; bytes 17
+  IL_0426: stloc.s 9 ; bytes 1309
+  IL_0428: ldc.i4.1 ; bytes 17
+  IL_0429: stloc.s 10 ; bytes 130A
+  IL_042B: call 0x06000A1F ; bytes 281F0A0006
+  IL_0430: ldarg.0 ; bytes 02
+  IL_0431: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0436: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_043B: ldc.i4.0 ; bytes 16
+  IL_043C: ldc.i4.5 ; bytes 1B
+  IL_043D: ldloc.0 ; bytes 06
+  IL_043E: ldc.i4.3 ; bytes 19
+  IL_043F: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0444: call 0x06000A1F ; bytes 281F0A0006
+  IL_0449: ldarg.0 ; bytes 02
+  IL_044A: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_044F: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0454: ldc.i4.0 ; bytes 16
+  IL_0455: ldc.i4.5 ; bytes 1B
+  IL_0456: ldc.i4 1109422689 ; bytes 2061722042
+  IL_045B: ldc.i4.3 ; bytes 19
+  IL_045C: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0461: ldarg.0 ; bytes 02
+  IL_0462: call 0x06000A50 ; bytes 28500A0006
+  IL_0467: brfalse.s 1152 ; bytes 2C17
+  IL_0469: ldstr 0x7000075F ; bytes 725F070070
+  IL_046E: ldarg.3 ; bytes 05
+  IL_046F: call 0x0A00004F ; bytes 284F00000A
+  IL_0474: ldc.i4.0 ; bytes 16
+  IL_0475: newarr 0x01000003 ; bytes 8D03000001
+  IL_047A: call 0x0A00012F ; bytes 282F01000A
+  IL_047F: pop ; bytes 26
+  IL_0480: ldloc.s 8 ; bytes 1108
+  IL_0482: brtrue.s 1202 ; bytes 2D2E
+  IL_0484: br 1680 ; bytes 3807020000
+  IL_0489: ldarg.0 ; bytes 02
+  IL_048A: ldstr 0x7000079D ; bytes 729D070070
+  IL_048F: ldarg.3 ; bytes 05
+  IL_0490: ldstr 0x700007CB ; bytes 72CB070070
+  IL_0495: ldloc.s 18 ; bytes 1112
+  IL_0497: call 0x06000E98 ; bytes 28980E0006
+  IL_049C: call 0x0A00012E ; bytes 282E01000A
+  IL_04A1: newobj 0x06000AC7 ; bytes 73C70A0006
+  IL_04A6: stfld 0x04000B15 ; bytes 7D150B0004
+  IL_04AB: ldarg.0 ; bytes 02
+  IL_04AC: ldc.i4.1 ; bytes 17
+  IL_04AD: call 0x06000A53 ; bytes 28530A0006
+  IL_04B2: ldarg.0 ; bytes 02
+  IL_04B3: call 0x06000A52 ; bytes 28520A0006
+  IL_04B8: brfalse.s 1218 ; bytes 2C08
+  IL_04BA: ldc.i4.1 ; bytes 17
+  IL_04BB: stloc.s 7 ; bytes 1307
+  IL_04BD: br 1680 ; bytes 38CE010000
+  IL_04C2: ldloc.s 12 ; bytes 110C
+  IL_04C4: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_04C9: ldc.i4.4 ; bytes 1A
+  IL_04CA: bne.un.s 1289 ; bytes 333D
+  IL_04CC: ldloc.s 12 ; bytes 110C
+  IL_04CE: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_04D3: pop ; bytes 26
+  IL_04D4: ldarg.0 ; bytes 02
+  IL_04D5: ldc.i4.0 ; bytes 16
+  IL_04D6: ldloca.s 12 ; bytes 120C
+  IL_04D8: call 0x06000AA7 ; bytes 28A70A0006
+  IL_04DD: pop ; bytes 26
+  IL_04DE: ldloc.s 12 ; bytes 110C
+  IL_04E0: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_04E5: pop ; bytes 26
+  IL_04E6: ldarg.0 ; bytes 02
+  IL_04E7: ldfld 0x04000B16 ; bytes 7B160B0004
+  IL_04EC: ldc.r4 0 ; bytes 2200000000
+  IL_04F1: ble.un.s 1289 ; bytes 3616
+  IL_04F3: call 0x0600123A ; bytes 283A120006
+  IL_04F8: conv.r4 ; bytes 6B
+  IL_04F9: ldarg.0 ; bytes 02
+  IL_04FA: ldfld 0x04000B16 ; bytes 7B160B0004
+  IL_04FF: ble.un.s 1289 ; bytes 3608
+  IL_0501: ldc.i4.2 ; bytes 18
+  IL_0502: stloc.s 7 ; bytes 1307
+  IL_0504: br 1680 ; bytes 3887010000
+  IL_0509: ldloc.s 11 ; bytes 110B
+  IL_050B: brtrue.s 1354 ; bytes 2D3D
+  IL_050D: ldloc.s 12 ; bytes 110C
+  IL_050F: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_0514: ldc.i4.3 ; bytes 19
+  IL_0515: bne.un.s 1354 ; bytes 3333
+  IL_0517: ldloc.s 12 ; bytes 110C
+  IL_0519: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_051E: ldloc.1 ; bytes 07
+  IL_051F: bne.un.s 1354 ; bytes 3329
+  IL_0521: ldc.i4.1 ; bytes 17
+  IL_0522: stloc.s 9 ; bytes 1309
+  IL_0524: ldarg.0 ; bytes 02
+  IL_0525: call 0x06000A50 ; bytes 28500A0006
+  IL_052A: brfalse.s 1347 ; bytes 2C17
+  IL_052C: ldstr 0x7000075F ; bytes 725F070070
+  IL_0531: ldarg.3 ; bytes 05
+  IL_0532: call 0x0A00004F ; bytes 284F00000A
+  IL_0537: ldc.i4.0 ; bytes 16
+  IL_0538: newarr 0x01000003 ; bytes 8D03000001
+  IL_053D: call 0x0A00012F ; bytes 282F01000A
+  IL_0542: pop ; bytes 26
+  IL_0543: ldloc.s 8 ; bytes 1108
+  IL_0545: brfalse 1680 ; bytes 3946010000
+  IL_054A: ldloc.s 8 ; bytes 1108
+  IL_054C: brfalse.s 1436 ; bytes 2C4E
+  IL_054E: ldloc.s 12 ; bytes 110C
+  IL_0550: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_0555: ldc.i4.5 ; bytes 1B
+  IL_0556: bne.un.s 1436 ; bytes 3344
+  IL_0558: ldloc.s 9 ; bytes 1109
+  IL_055A: stloc.s 10 ; bytes 130A
+  IL_055C: ldloc.s 10 ; bytes 110A
+  IL_055E: brfalse.s 1430 ; bytes 2C36
+  IL_0560: call 0x06000A1F ; bytes 281F0A0006
+  IL_0565: ldarg.0 ; bytes 02
+  IL_0566: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_056B: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0570: ldc.i4.0 ; bytes 16
+  IL_0571: ldc.i4.5 ; bytes 1B
+  IL_0572: ldloc.0 ; bytes 06
+  IL_0573: ldc.i4.3 ; bytes 19
+  IL_0574: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0579: call 0x06000A1F ; bytes 281F0A0006
+  IL_057E: ldarg.0 ; bytes 02
+  IL_057F: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0584: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0589: ldc.i4.0 ; bytes 16
+  IL_058A: ldc.i4.5 ; bytes 1B
+  IL_058B: ldc.i4 1109422689 ; bytes 2061722042
+  IL_0590: ldc.i4.3 ; bytes 19
+  IL_0591: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0596: ldarg.0 ; bytes 02
+  IL_0597: call 0x06000A7F ; bytes 287F0A0006
+  IL_059C: ldloc.s 12 ; bytes 110C
+  IL_059E: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_05A3: ldc.i4.8 ; bytes 1E
+  IL_05A4: bne.un.s 1544 ; bytes 3362
+  IL_05A6: ldloc.s 12 ; bytes 110C
+  IL_05A8: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_05AD: ldloc.1 ; bytes 07
+  IL_05AE: bne.un.s 1544 ; bytes 3358
+  IL_05B0: ldc.i4.1 ; bytes 17
+  IL_05B1: stloc.s 11 ; bytes 130B
+  IL_05B3: call 0x06000A1F ; bytes 281F0A0006
+  IL_05B8: ldarg.0 ; bytes 02
+  IL_05B9: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_05BE: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_05C3: ldc.i4.0 ; bytes 16
+  IL_05C4: ldc.i4.5 ; bytes 1B
+  IL_05C5: ldloc.0 ; bytes 06
+  IL_05C6: ldc.i4.3 ; bytes 19
+  IL_05C7: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_05CC: call 0x06000A1F ; bytes 281F0A0006
+  IL_05D1: ldarg.0 ; bytes 02
+  IL_05D2: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_05D7: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_05DC: ldc.i4.0 ; bytes 16
+  IL_05DD: ldc.i4.5 ; bytes 1B
+  IL_05DE: ldc.i4 1109422689 ; bytes 2061722042
+  IL_05E3: ldc.i4.3 ; bytes 19
+  IL_05E4: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_05E9: ldarg.0 ; bytes 02
+  IL_05EA: call 0x06000A50 ; bytes 28500A0006
+  IL_05EF: brfalse.s 1544 ; bytes 2C17
+  IL_05F1: ldstr 0x7000085E ; bytes 725E080070
+  IL_05F6: ldarg.3 ; bytes 05
+  IL_05F7: call 0x0A00004F ; bytes 284F00000A
+  IL_05FC: ldc.i4.0 ; bytes 16
+  IL_05FD: newarr 0x01000003 ; bytes 8D03000001
+  IL_0602: call 0x0A00012F ; bytes 282F01000A
+  IL_0607: pop ; bytes 26
+  IL_0608: ldloc.s 11 ; bytes 110B
+  IL_060A: brfalse.s 1655 ; bytes 2C6B
+  IL_060C: ldloc.s 12 ; bytes 110C
+  IL_060E: callvirt 0x06000BBF ; bytes 6FBF0B0006
+  IL_0613: ldc.i4.s 9 ; bytes 1F09
+  IL_0615: bne.un.s 1655 ; bytes 3360
+  IL_0617: ldloc.s 12 ; bytes 110C
+  IL_0619: callvirt 0x06000BC0 ; bytes 6FC00B0006
+  IL_061E: stloc.1 ; bytes 0B
+  IL_061F: call 0x06000A1F ; bytes 281F0A0006
+  IL_0624: ldarg.0 ; bytes 02
+  IL_0625: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_062A: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_062F: ldc.i4.0 ; bytes 16
+  IL_0630: ldc.i4.5 ; bytes 1B
+  IL_0631: ldloc.0 ; bytes 06
+  IL_0632: ldc.i4.1 ; bytes 17
+  IL_0633: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0638: call 0x06000A1F ; bytes 281F0A0006
+  IL_063D: ldarg.0 ; bytes 02
+  IL_063E: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0643: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0648: ldc.i4.0 ; bytes 16
+  IL_0649: ldc.i4.5 ; bytes 1B
+  IL_064A: ldc.i4 1109422689 ; bytes 2061722042
+  IL_064F: ldc.i4.1 ; bytes 17
+  IL_0650: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0655: ldc.i4.0 ; bytes 16
+  IL_0656: stloc.s 11 ; bytes 130B
+  IL_0658: ldarg.0 ; bytes 02
+  IL_0659: call 0x06000A50 ; bytes 28500A0006
+  IL_065E: brfalse.s 1655 ; bytes 2C17
+  IL_0660: ldstr 0x700008A2 ; bytes 72A2080070
+  IL_0665: ldarg.3 ; bytes 05
+  IL_0666: call 0x0A00004F ; bytes 284F00000A
+  IL_066B: ldc.i4.0 ; bytes 16
+  IL_066C: newarr 0x01000003 ; bytes 8D03000001
+  IL_0671: call 0x0A00012F ; bytes 282F01000A
+  IL_0676: pop ; bytes 26
+  IL_0677: ldloc.s 8 ; bytes 1108
+  IL_0679: brfalse.s 1667 ; bytes 2C08
+  IL_067B: ldloc.s 9 ; bytes 1109
+  IL_067D: brfalse.s 1667 ; bytes 2C04
+  IL_067F: ldloc.s 10 ; bytes 110A
+  IL_0681: brtrue.s 1680 ; bytes 2D0D
+  IL_0683: ldarg.0 ; bytes 02
+  IL_0684: ldloca.s 12 ; bytes 120C
+  IL_0686: call 0x06000AA9 ; bytes 28A90A0006
+  IL_068B: brtrue 797 ; bytes 3A8DFCFFFF
+  IL_0690: leave.s 1696 ; bytes DE0E
+  IL_0692: pop ; bytes 26
+  IL_0693: rethrow ; bytes FE1A
+  IL_0695: pop ; bytes 26
+  IL_0696: ldarg.0 ; bytes 02
+  IL_0697: ldloc.s 5 ; bytes 1105
+  IL_0699: call 0x06000AAF ; bytes 28AF0A0006
+  IL_069E: rethrow ; bytes FE1A
+  IL_06A0: leave 1959 ; bytes DD02010000
+  IL_06A5: call 0x06000A1F ; bytes 281F0A0006
+  IL_06AA: ldarg.0 ; bytes 02
+  IL_06AB: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_06B0: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_06B5: ldc.i4.0 ; bytes 16
+  IL_06B6: ldc.i4.s 11 ; bytes 1F0B
+  IL_06B8: ldc.i4.0 ; bytes 16
+  IL_06B9: ldc.i4.3 ; bytes 19
+  IL_06BA: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_06BF: call 0x06000A1F ; bytes 281F0A0006
+  IL_06C4: ldarg.0 ; bytes 02
+  IL_06C5: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_06CA: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_06CF: ldc.i4.0 ; bytes 16
+  IL_06D0: ldc.i4.s 10 ; bytes 1F0A
+  IL_06D2: ldc.i4.0 ; bytes 16
+  IL_06D3: ldc.i4.3 ; bytes 19
+  IL_06D4: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_06D9: call 0x06000A1F ; bytes 281F0A0006
+  IL_06DE: ldarg.0 ; bytes 02
+  IL_06DF: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_06E4: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_06E9: ldc.i4.0 ; bytes 16
+  IL_06EA: ldc.i4.1 ; bytes 17
+  IL_06EB: ldc.i4.0 ; bytes 16
+  IL_06EC: ldc.i4.3 ; bytes 19
+  IL_06ED: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_06F2: call 0x06000A1F ; bytes 281F0A0006
+  IL_06F7: ldarg.0 ; bytes 02
+  IL_06F8: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_06FD: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0702: ldc.i4.0 ; bytes 16
+  IL_0703: ldc.i4.4 ; bytes 1A
+  IL_0704: ldc.i4.0 ; bytes 16
+  IL_0705: ldc.i4.3 ; bytes 19
+  IL_0706: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_070B: call 0x06000A1F ; bytes 281F0A0006
+  IL_0710: ldarg.0 ; bytes 02
+  IL_0711: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0716: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_071B: ldc.i4.0 ; bytes 16
+  IL_071C: ldc.i4.5 ; bytes 1B
+  IL_071D: ldc.i4.0 ; bytes 16
+  IL_071E: ldc.i4.3 ; bytes 19
+  IL_071F: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0724: call 0x06000A1F ; bytes 281F0A0006
+  IL_0729: ldarg.0 ; bytes 02
+  IL_072A: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_072F: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0734: ldc.i4.0 ; bytes 16
+  IL_0735: ldc.i4.5 ; bytes 1B
+  IL_0736: ldloc.0 ; bytes 06
+  IL_0737: ldc.i4.3 ; bytes 19
+  IL_0738: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_073D: call 0x06000A1F ; bytes 281F0A0006
+  IL_0742: ldarg.0 ; bytes 02
+  IL_0743: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0748: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_074D: ldc.i4.0 ; bytes 16
+  IL_074E: ldc.i4.5 ; bytes 1B
+  IL_074F: ldc.i4 1109422689 ; bytes 2061722042
+  IL_0754: ldc.i4.3 ; bytes 19
+  IL_0755: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_075A: call 0x06000A1F ; bytes 281F0A0006
+  IL_075F: ldarg.0 ; bytes 02
+  IL_0760: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0765: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_076A: ldc.i4.0 ; bytes 16
+  IL_076B: ldc.i4.3 ; bytes 19
+  IL_076C: ldc.i4.0 ; bytes 16
+  IL_076D: ldc.i4.3 ; bytes 19
+  IL_076E: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0773: call 0x06000A1F ; bytes 281F0A0006
+  IL_0778: ldarg.0 ; bytes 02
+  IL_0779: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_077E: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0783: ldc.i4.0 ; bytes 16
+  IL_0784: ldc.i4.8 ; bytes 1E
+  IL_0785: ldloc.1 ; bytes 07
+  IL_0786: ldc.i4.2 ; bytes 18
+  IL_0787: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_078C: call 0x06000A1F ; bytes 281F0A0006
+  IL_0791: ldarg.0 ; bytes 02
+  IL_0792: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0797: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_079C: ldc.i4.0 ; bytes 16
+  IL_079D: ldc.i4.s 9 ; bytes 1F09
+  IL_079F: ldc.i4.0 ; bytes 16
+  IL_07A0: ldc.i4.2 ; bytes 18
+  IL_07A1: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_07A6: endfinally ; bytes DC
+  IL_07A7: ldarg.0 ; bytes 02
+  IL_07A8: ldloc.s 5 ; bytes 1105
+  IL_07AA: call 0x06000AAF ; bytes 28AF0A0006
+  IL_07AF: ldarg.0 ; bytes 02
+  IL_07B0: call 0x06000A5A ; bytes 285A0A0006
+  IL_07B5: ldloc.s 7 ; bytes 1107
+  IL_07B7: ldc.i4.s -2 ; bytes 1FFE
+  IL_07B9: bne.un.s 1995 ; bytes 3310
+  IL_07BB: ldarg.0 ; bytes 02
+  IL_07BC: ldfld 0x04000B19 ; bytes 7B190B0004
+  IL_07C1: call 0x06001695 ; bytes 2895160006
+  IL_07C6: brtrue.s 1995 ; bytes 2D03
+  IL_07C8: ldc.i4.0 ; bytes 16
+  IL_07C9: stloc.s 7 ; bytes 1307
+  IL_07CB: ldloc.s 7 ; bytes 1107
+  IL_07CD: stloc.s 20 ; bytes 1314
+  IL_07CF: ldloc.s 20 ; bytes 1114
+  IL_07D1: switch [2020, 2029, 2021] ; bytes 4503000000020000000B00000003000000
+  IL_07E2: br.s 2037 ; bytes 2B11
+  IL_07E4: ret ; bytes 2A
+  IL_07E5: ldarg.2 ; bytes 04
+  IL_07E6: ldarg.3 ; bytes 05
+  IL_07E7: newobj 0x06000ACB ; bytes 73CB0A0006
+  IL_07EC: throw ; bytes 7A
+  IL_07ED: ldarg.2 ; bytes 04
+  IL_07EE: ldarg.3 ; bytes 05
+  IL_07EF: newobj 0x06000ACC ; bytes 73CC0A0006
+  IL_07F4: throw ; bytes 7A
+  IL_07F5: ldloc.s 7 ; bytes 1107
+  IL_07F7: ldarg.2 ; bytes 04
+  IL_07F8: ldarg.3 ; bytes 05
+  IL_07F9: newobj 0x06000AC9 ; bytes 73C90A0006
+  IL_07FE: throw ; bytes 7A
+; EH {"kind":"Catch","TryOffset":397,"TryLength":1285,"HandlerOffset":1682,"HandlerLength":3,"catchType":"Sims3.SimIFace.ResetException","FilterOffset":-1}
+; EH {"kind":"Catch","TryOffset":397,"TryLength":1285,"HandlerOffset":1685,"HandlerLength":11,"catchType":"System.Exception","FilterOffset":-1}
+; EH {"kind":"Finally","TryOffset":397,"TryLength":1304,"HandlerOffset":1701,"HandlerLength":258,"catchType":null,"FilterOffset":-1}
+}
+; Referenced metadata operands:
+; 0x01000003 System.Object
+; 0x01000054 System.String
+; 0x02000083 Sims3.SimIFace.LogLevel
+; 0x04000B15 Sims3.SimIFace.StateMachineClient::mPendingException sig=06124D attributes=Private
+; 0x04000B16 Sims3.SimIFace.StateMachineClient::mTimeoutTime sig=060C attributes=Private
+; 0x04000B17 Sims3.SimIFace.StateMachineClient::mTimeoutIntervalInTicks sig=060C attributes=Private
+; 0x04000B18 Sims3.SimIFace.StateMachineClient::mDriver sig=06118638 attributes=Private
+; 0x04000B19 Sims3.SimIFace.StateMachineClient::mScriptHandle sig=0611899C attributes=Private
+; 0x04000B1C Sims3.SimIFace.StateMachineClient::mActors sig=06151271020E128624 attributes=Private
+; 0x04000B25 Sims3.SimIFace.StateMachineClient/DriverHandleWrapper::mHandle sig=0609 attributes=Public
+; 0x04000F83 Sims3.SimIFace.ObjectGuid::InvalidObjectGuid sig=0611899C attributes=Public, Static, InitOnly
+; 0x06000A11 Sims3.SimIFace.ISacsProxy::RequestState sig=2009118264020909091182740C090909
+; 0x06000A16 Sims3.SimIFace.ISacsProxy::UpdateEventFilter sig=20050109090909118278
+; 0x06000A1F Sims3.SimIFace.SacsProxy::get_Instance sig=0000128618
+; 0x06000A26 Sims3.SimIFace.BridgeOrigin::get_UseInterrupt sig=200002
+; 0x06000A30 Sims3.SimIFace.BridgeOrigin::BridgeTo sig=2003011286300E1D0E
+; 0x06000A31 Sims3.SimIFace.BridgeOrigin::MakeRequest sig=200001
+; 0x06000A36 Sims3.SimIFace.BridgeOrigin::ShouldBridgeTo sig=200102128630
+; 0x06000A39 Sims3.SimIFace.IHasBridgeOrigin::get_BridgeOrigin sig=2000128620
+; 0x06000A3A Sims3.SimIFace.IHasBridgeOrigin::set_BridgeOrigin sig=200101128620
+; 0x06000A49 Sims3.SimIFace.StateMachineClient::get_Proxy sig=2000128618
+; 0x06000A4A Sims3.SimIFace.StateMachineClient::Hash32 sig=2001090E
+; 0x06000A4C Sims3.SimIFace.StateMachineClient::get_UseActorBridgeOrigins sig=200002
+; 0x06000A50 Sims3.SimIFace.StateMachineClient::get_TraceEvents sig=200002
+; 0x06000A52 Sims3.SimIFace.StateMachineClient::get_AbortRequested sig=200002
+; 0x06000A53 Sims3.SimIFace.StateMachineClient::set_AbortRequested sig=20010102
+; 0x06000A5A Sims3.SimIFace.StateMachineClient::CheckForException sig=200001
+; 0x06000A7F Sims3.SimIFace.StateMachineClient::UpdateTimeoutTime sig=200001
+; 0x06000AA7 Sims3.SimIFace.StateMachineClient::GetNextEvent sig=20020202101286A4
+; 0x06000AA9 Sims3.SimIFace.StateMachineClient::WaitNextEvent sig=200102101286A4
+; 0x06000AAA Sims3.SimIFace.StateMachineClient::FlushEventQueue sig=200001
+; 0x06000AAE Sims3.SimIFace.StateMachineClient::get_HandleEventsAsynchronously sig=200002
+; 0x06000AAF Sims3.SimIFace.StateMachineClient::set_HandleEventsAsynchronously sig=20010102
+; 0x06000AC7 Sims3.SimIFace.SacsErrorException::.ctor sig=2001010E
+; 0x06000AC9 Sims3.SimIFace.SacsErrorException::.ctor sig=2003011182640E0E
+; 0x06000ACB Sims3.SimIFace.SacsTimeoutException::.ctor sig=2002010E0E
+; 0x06000ACC Sims3.SimIFace.SacsAbortException::.ctor sig=2002010E0E
+; 0x06000BBF Sims3.SimIFace.IEvent::get_EventSubType sig=200009
+; 0x06000BC0 Sims3.SimIFace.IEvent::get_EventId sig=200009
+; 0x06000E98 Sims3.SimIFace.ResourceUtils::UnHash sig=00010E09
+; 0x060011FA Sims3.SimIFace.ObjectGuid::op_Inequality sig=00020211899C11899C
+; 0x0600123A Sims3.SimIFace.Simulator::TicksElapsed sig=00000A
+; 0x06001240 Sims3.SimIFace.Simulator::get_CurrentTask sig=000011899C
+; 0x06001244 Sims3.SimIFace.Simulator::CheckYieldingContext sig=000001
+; 0x06001253 Sims3.SimIFace.Simulator::Sleep sig=00010109
+; 0x06001695 Sims3.SimIFace.Objects::IsValid sig=00010211899C
+; 0x0A000018 System.Object::ToString sig=20000E
+; 0x0A00004F System.String::Concat sig=00020E0E0E
+; 0x0A00012B TypeSpec:151271020E128624::ContainsKey sig=2001021300
+; 0x0A00012C TypeSpec:151271020E128624::get_Item sig=200113011300
+; 0x0A00012D System.String::Substring sig=20010E08
+; 0x0A00012E System.String::Concat sig=00040E0E0E0E0E
+; 0x0A00012F System.String::Format sig=00020E0E1D1C
+; 0x700000E3 
+; 0x70000673 Another thread interrupted this request: 
+; 0x700006C7 Request for 
+; 0x700006E1  interrupted by another request with a different destination: 
+; 0x7000075F Request: Reached destination: 
+; 0x7000079D Durring a request for 
+; 0x700007CB  the state machine became idle in a state other than the one requested: 
+; 0x7000085E Request: Processing as one shot: 
+; 0x700008A2 Request: Returning from one shot: 
+
+; SimIFace MethodDef 0x06000AB5 Sims3.SimIFace.StateMachineClient::PersistPostLoad
+; SignatureBlob 200001; RVA 0001179C; MaxStack 6; LocalSignature 070A02020811864811864411827808118648118644118278
+; Physical header 133006004302000093000011
+{
+  IL_0000: ldarg.0 ; bytes 02
+  IL_0001: ldfld 0x04000B1A ; bytes 7B1A0B0004
+  IL_0006: brfalse.s 40 ; bytes 2C20
+  IL_0008: call 0x06000A1F ; bytes 281F0A0006
+  IL_000D: ldarg.0 ; bytes 02
+  IL_000E: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0013: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0018: ldarg.0 ; bytes 02
+  IL_0019: ldfld 0x04000B1A ; bytes 7B1A0B0004
+  IL_001E: callvirt 0x06000BC6 ; bytes 6FC60B0006
+  IL_0023: callvirt 0x06000A04 ; bytes 6F040A0006
+  IL_0028: ldarg.0 ; bytes 02
+  IL_0029: call 0x06000AAE ; bytes 28AE0A0006
+  IL_002E: stloc.0 ; bytes 0A
+  IL_002F: ldarg.0 ; bytes 02
+  IL_0030: ldc.i4.0 ; bytes 16
+  IL_0031: stfld 0x04000B23 ; bytes 7D230B0004
+  IL_0036: ldarg.0 ; bytes 02
+  IL_0037: ldloc.0 ; bytes 06
+  IL_0038: call 0x06000AAF ; bytes 28AF0A0006
+  IL_003D: ldarg.0 ; bytes 02
+  IL_003E: call 0x06000A4E ; bytes 284E0A0006
+  IL_0043: stloc.1 ; bytes 0B
+  IL_0044: ldarg.0 ; bytes 02
+  IL_0045: ldc.i4.0 ; bytes 16
+  IL_0046: stfld 0x04000B14 ; bytes 7D140B0004
+  IL_004B: ldarg.0 ; bytes 02
+  IL_004C: ldloc.1 ; bytes 07
+  IL_004D: call 0x06000A4F ; bytes 284F0A0006
+  IL_0052: call 0x06000A1F ; bytes 281F0A0006
+  IL_0057: ldarg.0 ; bytes 02
+  IL_0058: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_005D: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0062: ldc.i4.0 ; bytes 16
+  IL_0063: ldc.i4.2 ; bytes 18
+  IL_0064: ldc.i4.0 ; bytes 16
+  IL_0065: ldc.i4.1 ; bytes 17
+  IL_0066: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_006B: ldloc.0 ; bytes 06
+  IL_006C: brtrue 316 ; bytes 3ACB000000
+  IL_0071: call 0x06000A1F ; bytes 281F0A0006
+  IL_0076: ldarg.0 ; bytes 02
+  IL_0077: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_007C: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0081: ldc.i4.0 ; bytes 16
+  IL_0082: ldc.i4.s 11 ; bytes 1F0B
+  IL_0084: ldc.i4.0 ; bytes 16
+  IL_0085: ldc.i4.1 ; bytes 17
+  IL_0086: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_008B: call 0x06000A1F ; bytes 281F0A0006
+  IL_0090: ldarg.0 ; bytes 02
+  IL_0091: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0096: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_009B: ldc.i4.0 ; bytes 16
+  IL_009C: ldc.i4.s 10 ; bytes 1F0A
+  IL_009E: ldc.i4.0 ; bytes 16
+  IL_009F: ldc.i4.1 ; bytes 17
+  IL_00A0: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_00A5: call 0x06000A1F ; bytes 281F0A0006
+  IL_00AA: ldarg.0 ; bytes 02
+  IL_00AB: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_00B0: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_00B5: ldc.i4.0 ; bytes 16
+  IL_00B6: ldc.i4.1 ; bytes 17
+  IL_00B7: ldc.i4.0 ; bytes 16
+  IL_00B8: ldc.i4.1 ; bytes 17
+  IL_00B9: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_00BE: call 0x06000A1F ; bytes 281F0A0006
+  IL_00C3: ldarg.0 ; bytes 02
+  IL_00C4: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_00C9: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_00CE: ldc.i4.0 ; bytes 16
+  IL_00CF: ldc.i4.4 ; bytes 1A
+  IL_00D0: ldc.i4.0 ; bytes 16
+  IL_00D1: ldc.i4.1 ; bytes 17
+  IL_00D2: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_00D7: call 0x06000A1F ; bytes 281F0A0006
+  IL_00DC: ldarg.0 ; bytes 02
+  IL_00DD: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_00E2: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_00E7: ldc.i4.0 ; bytes 16
+  IL_00E8: ldc.i4.5 ; bytes 1B
+  IL_00E9: ldc.i4.0 ; bytes 16
+  IL_00EA: ldc.i4.1 ; bytes 17
+  IL_00EB: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_00F0: call 0x06000A1F ; bytes 281F0A0006
+  IL_00F5: ldarg.0 ; bytes 02
+  IL_00F6: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_00FB: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0100: ldc.i4.0 ; bytes 16
+  IL_0101: ldc.i4.3 ; bytes 19
+  IL_0102: ldc.i4.0 ; bytes 16
+  IL_0103: ldc.i4.1 ; bytes 17
+  IL_0104: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0109: call 0x06000A1F ; bytes 281F0A0006
+  IL_010E: ldarg.0 ; bytes 02
+  IL_010F: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0114: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0119: ldc.i4.0 ; bytes 16
+  IL_011A: ldc.i4.8 ; bytes 1E
+  IL_011B: ldc.i4.0 ; bytes 16
+  IL_011C: ldc.i4.0 ; bytes 16
+  IL_011D: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0122: call 0x06000A1F ; bytes 281F0A0006
+  IL_0127: ldarg.0 ; bytes 02
+  IL_0128: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_012D: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_0132: ldc.i4.0 ; bytes 16
+  IL_0133: ldc.i4.s 9 ; bytes 1F09
+  IL_0135: ldc.i4.0 ; bytes 16
+  IL_0136: ldc.i4.0 ; bytes 16
+  IL_0137: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_013C: ldarg.0 ; bytes 02
+  IL_013D: ldfld 0x04000B20 ; bytes 7B200B0004
+  IL_0142: brfalse.s 427 ; bytes 2C67
+  IL_0144: ldc.i4.0 ; bytes 16
+  IL_0145: stloc.2 ; bytes 0C
+  IL_0146: br.s 413 ; bytes 2B55
+  IL_0148: ldarg.0 ; bytes 02
+  IL_0149: ldfld 0x04000B20 ; bytes 7B200B0004
+  IL_014E: ldloc.2 ; bytes 08
+  IL_014F: callvirt 0x0A000137 ; bytes 6F3701000A
+  IL_0154: stloc.3 ; bytes 0D
+  IL_0155: ldloca.s 3 ; bytes 1203
+  IL_0157: ldfld 0x04000B2F ; bytes 7B2F0B0004
+  IL_015C: stloc.s 4 ; bytes 1304
+  IL_015E: ldloca.s 3 ; bytes 1203
+  IL_0160: ldfld 0x04000B31 ; bytes 7B310B0004
+  IL_0165: brtrue.s 362 ; bytes 2D03
+  IL_0167: ldc.i4.1 ; bytes 17
+  IL_0168: br.s 363 ; bytes 2B01
+  IL_016A: ldc.i4.0 ; bytes 16
+  IL_016B: stloc.s 5 ; bytes 1305
+  IL_016D: call 0x06000A1F ; bytes 281F0A0006
+  IL_0172: ldarg.0 ; bytes 02
+  IL_0173: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_0178: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_017D: ldloca.s 4 ; bytes 1204
+  IL_017F: ldfld 0x04000B2C ; bytes 7B2C0B0004
+  IL_0184: ldloca.s 4 ; bytes 1204
+  IL_0186: ldfld 0x04000B2D ; bytes 7B2D0B0004
+  IL_018B: ldloca.s 4 ; bytes 1204
+  IL_018D: ldfld 0x04000B2E ; bytes 7B2E0B0004
+  IL_0192: ldloc.s 5 ; bytes 1105
+  IL_0194: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_0199: ldloc.2 ; bytes 08
+  IL_019A: ldc.i4.1 ; bytes 17
+  IL_019B: add ; bytes 58
+  IL_019C: stloc.2 ; bytes 0C
+  IL_019D: ldloc.2 ; bytes 08
+  IL_019E: ldarg.0 ; bytes 02
+  IL_019F: ldfld 0x04000B20 ; bytes 7B200B0004
+  IL_01A4: callvirt 0x0A000139 ; bytes 6F3901000A
+  IL_01A9: blt.s 328 ; bytes 329D
+  IL_01AB: ldarg.0 ; bytes 02
+  IL_01AC: ldfld 0x04000B21 ; bytes 7B210B0004
+  IL_01B1: brfalse.s 544 ; bytes 2C6D
+  IL_01B3: ldc.i4.0 ; bytes 16
+  IL_01B4: stloc.s 6 ; bytes 1306
+  IL_01B6: br.s 529 ; bytes 2B59
+  IL_01B8: ldarg.0 ; bytes 02
+  IL_01B9: ldfld 0x04000B21 ; bytes 7B210B0004
+  IL_01BE: ldloc.s 6 ; bytes 1106
+  IL_01C0: callvirt 0x0A000137 ; bytes 6F3701000A
+  IL_01C5: stloc.s 7 ; bytes 1307
+  IL_01C7: ldloca.s 7 ; bytes 1207
+  IL_01C9: ldfld 0x04000B2F ; bytes 7B2F0B0004
+  IL_01CE: stloc.s 8 ; bytes 1308
+  IL_01D0: ldloca.s 7 ; bytes 1207
+  IL_01D2: ldfld 0x04000B31 ; bytes 7B310B0004
+  IL_01D7: brtrue.s 476 ; bytes 2D03
+  IL_01D9: ldc.i4.1 ; bytes 17
+  IL_01DA: br.s 477 ; bytes 2B01
+  IL_01DC: ldc.i4.0 ; bytes 16
+  IL_01DD: stloc.s 9 ; bytes 1309
+  IL_01DF: call 0x06000A1F ; bytes 281F0A0006
+  IL_01E4: ldarg.0 ; bytes 02
+  IL_01E5: ldflda 0x04000B18 ; bytes 7C180B0004
+  IL_01EA: ldfld 0x04000B25 ; bytes 7B250B0004
+  IL_01EF: ldloca.s 8 ; bytes 1208
+  IL_01F1: ldfld 0x04000B2C ; bytes 7B2C0B0004
+  IL_01F6: ldloca.s 8 ; bytes 1208
+  IL_01F8: ldfld 0x04000B2D ; bytes 7B2D0B0004
+  IL_01FD: ldloca.s 8 ; bytes 1208
+  IL_01FF: ldfld 0x04000B2E ; bytes 7B2E0B0004
+  IL_0204: ldloc.s 9 ; bytes 1109
+  IL_0206: callvirt 0x06000A16 ; bytes 6F160A0006
+  IL_020B: ldloc.s 6 ; bytes 1106
+  IL_020D: ldc.i4.1 ; bytes 17
+  IL_020E: add ; bytes 58
+  IL_020F: stloc.s 6 ; bytes 1306
+  IL_0211: ldloc.s 6 ; bytes 1106
+  IL_0213: ldarg.0 ; bytes 02
+  IL_0214: ldfld 0x04000B21 ; bytes 7B210B0004
+  IL_0219: callvirt 0x0A000139 ; bytes 6F3901000A
+  IL_021E: blt.s 440 ; bytes 3298
+  IL_0220: ldsfld 0x04000B0F ; bytes 7E0F0B0004
+  IL_0225: brtrue.s 561 ; bytes 2D0A
+  IL_0227: newobj 0x0A00014A ; bytes 734A01000A
+  IL_022C: stsfld 0x04000B0F ; bytes 800F0B0004
+  IL_0231: ldsfld 0x04000B0F ; bytes 7E0F0B0004
+  IL_0236: ldarg.0 ; bytes 02
+  IL_0237: callvirt 0x0A00014B ; bytes 6F4B01000A
+  IL_023C: ldarg.0 ; bytes 02
+  IL_023D: call 0x06000A7F ; bytes 287F0A0006
+  IL_0242: ret ; bytes 2A
+}
+; Referenced metadata operands:
+; 0x04000B0F Sims3.SimIFace.StateMachineClient::sStateMachineClientsForVFXFixUp sig=0615126501128630 attributes=Private, Static
+; 0x04000B14 Sims3.SimIFace.StateMachineClient::mEnableSynchronousEventSupport sig=0602 attributes=Private
+; 0x04000B18 Sims3.SimIFace.StateMachineClient::mDriver sig=06118638 attributes=Private
+; 0x04000B1A Sims3.SimIFace.StateMachineClient::mEventQueue sig=061286AC attributes=Private
+; 0x04000B20 Sims3.SimIFace.StateMachineClient::mEventHandlers sig=0615126501118648 attributes=Private
+; 0x04000B21 Sims3.SimIFace.StateMachineClient::mSynchronousEventHandlers sig=0615126501118648 attributes=Private
+; 0x04000B23 Sims3.SimIFace.StateMachineClient::mHandleEventsAsynchronously sig=0602 attributes=Private
+; 0x04000B25 Sims3.SimIFace.StateMachineClient/DriverHandleWrapper::mHandle sig=0609 attributes=Public
+; 0x04000B2C Sims3.SimIFace.StateMachineClient/HandlerKey::type sig=0609 attributes=Assembly
+; 0x04000B2D Sims3.SimIFace.StateMachineClient/HandlerKey::subtype sig=0609 attributes=Assembly
+; 0x04000B2E Sims3.SimIFace.StateMachineClient/HandlerKey::id sig=0609 attributes=Assembly
+; 0x04000B2F Sims3.SimIFace.StateMachineClient/HandlerRecord::key sig=06118644 attributes=Assembly
+; 0x04000B31 Sims3.SimIFace.StateMachineClient/HandlerRecord::oneShot sig=0602 attributes=Assembly
+; 0x06000A04 Sims3.SimIFace.ISacsProxy::SetEventQueue sig=2002010909
+; 0x06000A16 Sims3.SimIFace.ISacsProxy::UpdateEventFilter sig=20050109090909118278
+; 0x06000A1F Sims3.SimIFace.SacsProxy::get_Instance sig=0000128618
+; 0x06000A4E Sims3.SimIFace.StateMachineClient::get_EnableSynchronousEventSupport sig=200002
+; 0x06000A4F Sims3.SimIFace.StateMachineClient::set_EnableSynchronousEventSupport sig=20010102
+; 0x06000A7F Sims3.SimIFace.StateMachineClient::UpdateTimeoutTime sig=200001
+; 0x06000AAE Sims3.SimIFace.StateMachineClient::get_HandleEventsAsynchronously sig=200002
+; 0x06000AAF Sims3.SimIFace.StateMachineClient::set_HandleEventsAsynchronously sig=20010102
+; 0x06000BC6 Sims3.SimIFace.IEventQueue::get_Handle sig=200009
+; 0x0A000137 TypeSpec:15126501118648::get_Item sig=2001130008
+; 0x0A000139 TypeSpec:15126501118648::get_Count sig=200008
+; 0x0A00014A TypeSpec:15126501128630::.ctor sig=200001
+; 0x0A00014B TypeSpec:15126501128630::Add sig=2001011300
+

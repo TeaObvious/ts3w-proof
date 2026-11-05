@@ -1,0 +1,2618 @@
+Original PC 1.67 finite instruction views: SACS event scheduling
+Reference: evidence/reference.json. Address/bytes/opcode, not maintained canonical ASM/C pairs.
+Historical stored unions, singleton metadata and separate contexts have distinct labels.
+Linear context includes trailing CC: an instruction row does not imply entry reachability or padding disposition.
+GNU and LLVM independently checked; four finite F0+XADD presentation fragments documented in JSON.
+
+ENTRY 0094D580  | no_exact_baseline_definition_context
+RANGE [0094D580,0094D5B0) 48 bytes | separate_original_context_not_owned_union
+0094D580  6800000080                     push   0x80000000
+0094D585  68f0d29400                     push   0x94d2f0
+0094D58A  6a08                           push   0x8
+0094D58C  e85f80feff                     call   0x9355f0
+0094D591  6a01                           push   0x1
+0094D593  68c0d49400                     push   0x94d4c0
+0094D598  6a06                           push   0x6
+0094D59A  e85180feff                     call   0x9355f0
+0094D59F  83c418                         add    esp,0x18
+0094D5A2  c3                             ret
+0094D5A3  cc                             int3
+0094D5A4  cc                             int3
+0094D5A5  cc                             int3
+0094D5A6  cc                             int3
+0094D5A7  cc                             int3
+0094D5A8  cc                             int3
+0094D5A9  cc                             int3
+0094D5AA  cc                             int3
+0094D5AB  cc                             int3
+0094D5AC  cc                             int3
+0094D5AD  cc                             int3
+0094D5AE  cc                             int3
+0094D5AF  cc                             int3
+
+ENTRY 00766F90 ScriptCore_SACS__SACS_SetEventQueueImpl | singleton_metadata_plus_separate_context
+RANGE [00766F90,00766F91) 1 bytes | singleton_metadata_only_not_function_listing
+Metadata byte only: 56; no singleton Ghidra Listing row admitted here; the separate context decodes this byte as PUSH.
+RANGE [00766F90,00766FCC) 60 bytes | separate_original_context_not_owned_union
+00766F90  56                             push   esi
+00766F91  57                             push   edi
+00766F92  e8f9230000                     call   0x769390
+00766F97  8b4c240c                       mov    ecx,DWORD PTR [esp+0xc]
+00766F9B  8bf0                           mov    esi,eax
+00766F9D  8b06                           mov    eax,DWORD PTR [esi]
+00766F9F  8b90cc000000                   mov    edx,DWORD PTR [eax+0xcc]
+00766FA5  51                             push   ecx
+00766FA6  8bce                           mov    ecx,esi
+00766FA8  ffd2                           call   edx
+00766FAA  8b4c2410                       mov    ecx,DWORD PTR [esp+0x10]
+00766FAE  8bf8                           mov    edi,eax
+00766FB0  8b06                           mov    eax,DWORD PTR [esi]
+00766FB2  8b90cc000000                   mov    edx,DWORD PTR [eax+0xcc]
+00766FB8  51                             push   ecx
+00766FB9  8bce                           mov    ecx,esi
+00766FBB  ffd2                           call   edx
+00766FBD  85ff                           test   edi,edi
+00766FBF  7408                           je     0x766fc9
+00766FC1  50                             push   eax
+00766FC2  8bcf                           mov    ecx,edi
+00766FC4  e8d78f0900                     call   0x7fffa0
+00766FC9  5f                             pop    edi
+00766FCA  5e                             pop    esi
+00766FCB  c3                             ret
+
+ENTRY 00767160 ScriptCore_SACS__SACS_UpdateEventFilterImpl | historical_complete_stored_union
+RANGE [00767160,007671CD) 109 bytes | stored_owned_union
+00767160  51                             push   ecx
+00767161  e82a220000                     call   0x769390
+00767166  8b4c2408                       mov    ecx,DWORD PTR [esp+0x8]
+0076716A  8b10                           mov    edx,DWORD PTR [eax]
+0076716C  8b92cc000000                   mov    edx,DWORD PTR [edx+0xcc]
+00767172  51                             push   ecx
+00767173  8bc8                           mov    ecx,eax
+00767175  ffd2                           call   edx
+00767177  8bc8                           mov    ecx,eax
+00767179  85c9                           test   ecx,ecx
+0076717B  744e                           je     0x7671cb
+0076717D  8b442418                       mov    eax,DWORD PTR [esp+0x18]
+00767181  83f803                         cmp    eax,0x3
+00767184  c6042400                       mov    BYTE PTR [esp],0x0
+00767188  7741                           ja     0x7671cb
+0076718A  ff2485d0717600                 jmp    DWORD PTR [eax*4+0x7671d0]
+00767191  c6042401                       mov    BYTE PTR [esp],0x1
+00767195  8b0424                         mov    eax,DWORD PTR [esp]
+00767198  8b542414                       mov    edx,DWORD PTR [esp+0x14]
+0076719C  50                             push   eax
+0076719D  8b442414                       mov    eax,DWORD PTR [esp+0x14]
+007671A1  52                             push   edx
+007671A2  8b542414                       mov    edx,DWORD PTR [esp+0x14]
+007671A6  50                             push   eax
+007671A7  52                             push   edx
+007671A8  e883ae0900                     call   0x802030
+007671AD  59                             pop    ecx
+007671AE  c3                             ret
+007671AF  c6042401                       mov    BYTE PTR [esp],0x1
+007671B3  8b0424                         mov    eax,DWORD PTR [esp]
+007671B6  8b542414                       mov    edx,DWORD PTR [esp+0x14]
+007671BA  50                             push   eax
+007671BB  8b442414                       mov    eax,DWORD PTR [esp+0x14]
+007671BF  52                             push   edx
+007671C0  8b542414                       mov    edx,DWORD PTR [esp+0x14]
+007671C4  50                             push   eax
+007671C5  52                             push   edx
+007671C6  e8a5a60900                     call   0x801870
+007671CB  59                             pop    ecx
+007671CC  c3                             ret
+
+ENTRY 00803B00 SacsDriver_CreateDefinedActorWalker | historical_complete_stored_union
+RANGE [00803B00,00803BF9) 249 bytes | stored_owned_union
+00803B00  83ec08                         sub    esp,0x8
+00803B03  53                             push   ebx
+00803B04  55                             push   ebp
+00803B05  56                             push   esi
+00803B06  57                             push   edi
+00803B07  33f6                           xor    esi,esi
+00803B09  56                             push   esi
+00803B0A  56                             push   esi
+00803B0B  56                             push   esi
+00803B0C  56                             push   esi
+00803B0D  68ac120201                     push   0x10212ac
+00803B12  6a28                           push   0x28
+00803B14  8bd9                           mov    ebx,ecx
+00803B16  e8e509ceff                     call   0x4e4500
+00803B1B  83c418                         add    esp,0x18
+00803B1E  3bc6                           cmp    eax,esi
+00803B20  7444                           je     0x803b66
+00803B22  c700784aff00                   mov    DWORD PTR [eax],0xff4a78
+00803B28  33c9                           xor    ecx,ecx
+00803B2A  8d5004                         lea    edx,[eax+0x4]
+00803B2D  870a                           xchg   DWORD PTR [edx],ecx
+00803B2F  8b4c241c                       mov    ecx,DWORD PTR [esp+0x1c]
+00803B33  c740088c2bfa00                 mov    DWORD PTR [eax+0x8],0xfa2b8c
+00803B3A  c7400c01000040                 mov    DWORD PTR [eax+0xc],0x40000001
+00803B41  897010                         mov    DWORD PTR [eax+0x10],esi
+00803B44  897014                         mov    DWORD PTR [eax+0x14],esi
+00803B47  897018                         mov    DWORD PTR [eax+0x18],esi
+00803B4A  c70034100201                   mov    DWORD PTR [eax],0x1021034
+00803B50  c7400824100201                 mov    DWORD PTR [eax+0x8],0x1021024
+00803B57  894820                         mov    DWORD PTR [eax+0x20],ecx
+00803B5A  c6402400                       mov    BYTE PTR [eax+0x24],0x0
+00803B5E  c6402500                       mov    BYTE PTR [eax+0x25],0x0
+00803B62  8bf8                           mov    edi,eax
+00803B64  eb02                           jmp    0x803b68
+00803B66  33ff                           xor    edi,edi
+00803B68  56                             push   esi
+00803B69  56                             push   esi
+00803B6A  56                             push   esi
+00803B6B  56                             push   esi
+00803B6C  688c120201                     push   0x102128c
+00803B71  68b8000000                     push   0xb8
+00803B76  e88509ceff                     call   0x4e4500
+00803B7B  83c418                         add    esp,0x18
+00803B7E  3bc6                           cmp    eax,esi
+00803B80  740a                           je     0x803b8c
+00803B82  53                             push   ebx
+00803B83  8bc8                           mov    ecx,eax
+00803B85  e856feffff                     call   0x8039e0
+00803B8A  8bf0                           mov    esi,eax
+00803B8C  8b6e08                         mov    ebp,DWORD PTR [esi+0x8]
+00803B8F  3bfd                           cmp    edi,ebp
+00803B91  741e                           je     0x803bb1
+00803B93  85ff                           test   edi,edi
+00803B95  7409                           je     0x803ba0
+00803B97  8b17                           mov    edx,DWORD PTR [edi]
+00803B99  8b4204                         mov    eax,DWORD PTR [edx+0x4]
+00803B9C  8bcf                           mov    ecx,edi
+00803B9E  ffd0                           call   eax
+00803BA0  85ed                           test   ebp,ebp
+00803BA2  897e08                         mov    DWORD PTR [esi+0x8],edi
+00803BA5  740a                           je     0x803bb1
+00803BA7  8b5500                         mov    edx,DWORD PTR [ebp+0x0]
+00803BAA  8b4208                         mov    eax,DWORD PTR [edx+0x8]
+00803BAD  8bcd                           mov    ecx,ebp
+00803BAF  ffd0                           call   eax
+00803BB1  8b4c241c                       mov    ecx,DWORD PTR [esp+0x1c]
+00803BB5  8b512c                         mov    edx,DWORD PTR [ecx+0x2c]
+00803BB8  8b4314                         mov    eax,DWORD PTR [ebx+0x14]
+00803BBB  3b4318                         cmp    eax,DWORD PTR [ebx+0x18]
+00803BBE  8d4b10                         lea    ecx,[ebx+0x10]
+00803BC1  89542410                       mov    DWORD PTR [esp+0x10],edx
+00803BC5  89742414                       mov    DWORD PTR [esp+0x14],esi
+00803BC9  7319                           jae    0x803be4
+00803BCB  85c0                           test   eax,eax
+00803BCD  8d7808                         lea    edi,[eax+0x8]
+00803BD0  897904                         mov    DWORD PTR [ecx+0x4],edi
+00803BD3  741a                           je     0x803bef
+00803BD5  5f                             pop    edi
+00803BD6  897004                         mov    DWORD PTR [eax+0x4],esi
+00803BD9  5e                             pop    esi
+00803BDA  5d                             pop    ebp
+00803BDB  8910                           mov    DWORD PTR [eax],edx
+00803BDD  5b                             pop    ebx
+00803BDE  83c408                         add    esp,0x8
+00803BE1  c20400                         ret    0x4
+00803BE4  8d542410                       lea    edx,[esp+0x10]
+00803BE8  52                             push   edx
+00803BE9  50                             push   eax
+00803BEA  e85189c0ff                     call   0x40c540
+00803BEF  5f                             pop    edi
+00803BF0  5e                             pop    esi
+00803BF1  5d                             pop    ebp
+00803BF2  5b                             pop    ebx
+00803BF3  83c408                         add    esp,0x8
+00803BF6  c20400                         ret    0x4
+
+ENTRY 00805850 SacsListener_DestroyRegistrations | historical_complete_stored_union
+RANGE [00805850,008058A9) 89 bytes | stored_owned_union
+00805850  53                             push   ebx
+00805851  55                             push   ebp
+00805852  56                             push   esi
+00805853  57                             push   edi
+00805854  8bf9                           mov    edi,ecx
+00805856  8b7704                         mov    esi,DWORD PTR [edi+0x4]
+00805859  8b6f08                         mov    ebp,DWORD PTR [edi+0x8]
+0080585C  3bf5                           cmp    esi,ebp
+0080585E  8d5f04                         lea    ebx,[edi+0x4]
+00805861  c70780130201                   mov    DWORD PTR [edi],0x1021380
+00805867  741e                           je     0x805887
+00805869  8da42400000000                 lea    esp,[esp+0x0]
+00805870  8b4614                         mov    eax,DWORD PTR [esi+0x14]
+00805873  85c0                           test   eax,eax
+00805875  7409                           je     0x805880
+00805877  57                             push   edi
+00805878  8d480c                         lea    ecx,[eax+0xc]
+0080587B  e81011d6ff                     call   0x566990
+00805880  83c618                         add    esi,0x18
+00805883  3bf5                           cmp    esi,ebp
+00805885  75e9                           jne    0x805870
+00805887  8b4304                         mov    eax,DWORD PTR [ebx+0x4]
+0080588A  8b0b                           mov    ecx,DWORD PTR [ebx]
+0080588C  50                             push   eax
+0080588D  51                             push   ecx
+0080588E  8bcb                           mov    ecx,ebx
+00805890  e8abfcffff                     call   0x805540
+00805895  8b1b                           mov    ebx,DWORD PTR [ebx]
+00805897  85db                           test   ebx,ebx
+00805899  7409                           je     0x8058a4
+0080589B  53                             push   ebx
+0080589C  e83feccdff                     call   0x4e44e0
+008058A1  83c404                         add    esp,0x4
+008058A4  5f                             pop    edi
+008058A5  5e                             pop    esi
+008058A6  5d                             pop    ebp
+008058A7  5b                             pop    ebx
+008058A8  c3                             ret
+
+ENTRY 008010B0 SacsDriver_PropagateSynchronizedWalker | historical_complete_stored_union
+RANGE [008010B0,00801141) 145 bytes | stored_owned_union
+008010B0  51                             push   ecx
+008010B1  53                             push   ebx
+008010B2  8b5c240c                       mov    ebx,DWORD PTR [esp+0xc]
+008010B6  8b4328                         mov    eax,DWORD PTR [ebx+0x28]
+008010B9  55                             push   ebp
+008010BA  8be9                           mov    ebp,ecx
+008010BC  8b4b10                         mov    ecx,DWORD PTR [ebx+0x10]
+008010BF  57                             push   edi
+008010C0  8b7d10                         mov    edi,DWORD PTR [ebp+0x10]
+008010C3  3b7d14                         cmp    edi,DWORD PTR [ebp+0x14]
+008010C6  894c2414                       mov    DWORD PTR [esp+0x14],ecx
+008010CA  8944240c                       mov    DWORD PTR [esp+0xc],eax
+008010CE  746a                           je     0x80113a
+008010D0  56                             push   esi
+008010D1  eb04                           jmp    0x8010d7
+008010D3  8b4c2418                       mov    ecx,DWORD PTR [esp+0x18]
+008010D7  8b7704                         mov    esi,DWORD PTR [edi+0x4]
+008010DA  3bf3                           cmp    esi,ebx
+008010DC  7453                           je     0x801131
+008010DE  8b4610                         mov    eax,DWORD PTR [esi+0x10]
+008010E1  85c0                           test   eax,eax
+008010E3  7505                           jne    0x8010ea
+008010E5  39461c                         cmp    DWORD PTR [esi+0x1c],eax
+008010E8  7447                           je     0x801131
+008010EA  3bc8                           cmp    ecx,eax
+008010EC  740a                           je     0x8010f8
+008010EE  894e10                         mov    DWORD PTR [esi+0x10],ecx
+008010F1  8bce                           mov    ecx,esi
+008010F3  e848f5ffff                     call   0x800640
+008010F8  8b4624                         mov    eax,DWORD PTR [esi+0x24]
+008010FB  85c0                           test   eax,eax
+008010FD  8b4c2410                       mov    ecx,DWORD PTR [esp+0x10]
+00801101  894e28                         mov    DWORD PTR [esi+0x28],ecx
+00801104  7405                           je     0x80110b
+00801106  394324                         cmp    DWORD PTR [ebx+0x24],eax
+00801109  7526                           jne    0x801131
+0080110B  837e1c00                       cmp    DWORD PTR [esi+0x1c],0x0
+0080110F  7410                           je     0x801121
+00801111  6a00                           push   0x0
+00801113  8bce                           mov    ecx,esi
+00801115  c7461c00000000                 mov    DWORD PTR [esi+0x1c],0x0
+0080111C  e86fecffff                     call   0x7ffd90
+00801121  6a00                           push   0x0
+00801123  8bce                           mov    ecx,esi
+00801125  c7461800000000                 mov    DWORD PTR [esi+0x18],0x0
+0080112C  e85fecffff                     call   0x7ffd90
+00801131  83c708                         add    edi,0x8
+00801134  3b7d14                         cmp    edi,DWORD PTR [ebp+0x14]
+00801137  759a                           jne    0x8010d3
+00801139  5e                             pop    esi
+0080113A  5f                             pop    edi
+0080113B  5d                             pop    ebp
+0080113C  5b                             pop    ebx
+0080113D  59                             pop    ecx
+0080113E  c20400                         ret    0x4
+
+ENTRY 007674D0 SACS_RequestStateImpl | historical_complete_stored_union
+RANGE [007674D0,00767585) 181 bytes | stored_owned_union
+007674D0  53                             push   ebx
+007674D1  56                             push   esi
+007674D2  e8b91e0000                     call   0x769390
+007674D7  8b4c240c                       mov    ecx,DWORD PTR [esp+0xc]
+007674DB  8bf0                           mov    esi,eax
+007674DD  8b06                           mov    eax,DWORD PTR [esi]
+007674DF  8b90cc000000                   mov    edx,DWORD PTR [eax+0xcc]
+007674E5  51                             push   ecx
+007674E6  8bce                           mov    ecx,esi
+007674E8  ffd2                           call   edx
+007674EA  8bd8                           mov    ebx,eax
+007674EC  85db                           test   ebx,ebx
+007674EE  7506                           jne    0x7674f6
+007674F0  5e                             pop    esi
+007674F1  8d43fe                         lea    eax,[ebx-0x2]
+007674F4  5b                             pop    ebx
+007674F5  c3                             ret
+007674F6  8b442420                       mov    eax,DWORD PTR [esp+0x20]
+007674FA  57                             push   edi
+007674FB  33ff                           xor    edi,edi
+007674FD  85c0                           test   eax,eax
+007674FF  740f                           je     0x767510
+00767501  8b16                           mov    edx,DWORD PTR [esi]
+00767503  50                             push   eax
+00767504  8b82cc000000                   mov    eax,DWORD PTR [edx+0xcc]
+0076750A  8bce                           mov    ecx,esi
+0076750C  ffd0                           call   eax
+0076750E  8bf8                           mov    edi,eax
+00767510  8b74241c                       mov    esi,DWORD PTR [esp+0x1c]
+00767514  33c0                           xor    eax,eax
+00767516  85ff                           test   edi,edi
+00767518  55                             push   ebp
+00767519  8b6c241c                       mov    ebp,DWORD PTR [esp+0x1c]
+0076751D  7436                           je     0x767555
+0076751F  6a28                           push   0x28
+00767521  e8fa380000                     call   0x76ae20
+00767526  83c404                         add    esp,0x4
+00767529  85c0                           test   eax,eax
+0076752B  7426                           je     0x767553
+0076752D  8b4c242c                       mov    ecx,DWORD PTR [esp+0x2c]
+00767531  d9ee                           fldz
+00767533  8b542424                       mov    edx,DWORD PTR [esp+0x24]
+00767537  51                             push   ecx
+00767538  57                             push   edi
+00767539  52                             push   edx
+0076753A  51                             push   ecx
+0076753B  8b4c2428                       mov    ecx,DWORD PTR [esp+0x28]
+0076753F  d91c24                         fstp   DWORD PTR [esp]
+00767542  56                             push   esi
+00767543  55                             push   ebp
+00767544  51                             push   ecx
+00767545  53                             push   ebx
+00767546  6a00                           push   0x0
+00767548  6a00                           push   0x0
+0076754A  8bc8                           mov    ecx,eax
+0076754C  e8cffcffff                     call   0x767220
+00767551  eb02                           jmp    0x767555
+00767553  33c0                           xor    eax,eax
+00767555  8b542418                       mov    edx,DWORD PTR [esp+0x18]
+00767559  6a00                           push   0x0
+0076755B  50                             push   eax
+0076755C  56                             push   esi
+0076755D  55                             push   ebp
+0076755E  52                             push   edx
+0076755F  8bcb                           mov    ecx,ebx
+00767561  e8bac80900                     call   0x803e20
+00767566  f7c600020000                   test   esi,0x200
+0076756C  8bf8                           mov    edi,eax
+0076756E  5d                             pop    ebp
+0076756F  740e                           je     0x76757f
+00767571  8b0d409d1d01                   mov    ecx,DWORD PTR ds:0x11d9d40
+00767577  6a01                           push   0x1
+00767579  53                             push   ebx
+0076757A  e8815a0900                     call   0x7fd000
+0076757F  8bc7                           mov    eax,edi
+00767581  5f                             pop    edi
+00767582  5e                             pop    esi
+00767583  5b                             pop    ebx
+00767584  c3                             ret
+
+ENTRY 00767410 ScriptCore.SACS::SACS_ReleaseDriverImpl | singleton_metadata_plus_separate_context
+RANGE [00767410,00767411) 1 bytes | singleton_metadata_only_not_function_listing
+Metadata byte only: 57; no singleton Ghidra Listing row admitted here; the separate context decodes this byte as PUSH.
+RANGE [00767410,00767480) 112 bytes | separate_original_context_not_owned_union
+00767410  57                             push   edi
+00767411  e87a1f0000                     call   0x769390
+00767416  8b4c2408                       mov    ecx,DWORD PTR [esp+0x8]
+0076741A  8b10                           mov    edx,DWORD PTR [eax]
+0076741C  8b92d8000000                   mov    edx,DWORD PTR [edx+0xd8]
+00767422  51                             push   ecx
+00767423  8bc8                           mov    ecx,eax
+00767425  ffd2                           call   edx
+00767427  8bf8                           mov    edi,eax
+00767429  85ff                           test   edi,edi
+0076742B  744f                           je     0x76747c
+0076742D  56                             push   esi
+0076742E  68675d0c05                     push   0x50c5d67
+00767433  8bcf                           mov    ecx,edi
+00767435  33f6                           xor    esi,esi
+00767437  e8a48b0900                     call   0x7fffe0
+0076743C  85c0                           test   eax,eax
+0076743E  7423                           je     0x767463
+00767440  8b4008                         mov    eax,DWORD PTR [eax+0x8]
+00767443  56                             push   esi
+00767444  8bc8                           mov    ecx,eax
+00767446  e825a4e1ff                     call   0x581870
+0076744B  85c0                           test   eax,eax
+0076744D  7412                           je     0x767461
+0076744F  8b0df0a01e01                   mov    ecx,DWORD PTR ds:0x11ea0f0
+00767455  51                             push   ecx
+00767456  8bc8                           mov    ecx,eax
+00767458  e803ce1c00                     call   0x934260
+0076745D  8bf0                           mov    esi,eax
+0076745F  eb02                           jmp    0x767463
+00767461  33f6                           xor    esi,esi
+00767463  8b5708                         mov    edx,DWORD PTR [edi+0x8]
+00767466  8b4204                         mov    eax,DWORD PTR [edx+0x4]
+00767469  8d4f08                         lea    ecx,[edi+0x8]
+0076746C  ffd0                           call   eax
+0076746E  85f6                           test   esi,esi
+00767470  7409                           je     0x76747b
+00767472  8bce                           mov    ecx,esi
+00767474  5e                             pop    esi
+00767475  5f                             pop    edi
+00767476  e9155f1e00                     jmp    0x94d390
+0076747B  5e                             pop    esi
+0076747C  5f                             pop    edi
+0076747D  c3                             ret
+0076747E  cc                             int3
+0076747F  cc                             int3
+
+ENTRY 00767BB0 ScriptCore_SACS__SACS_StopAllAnimationImpl | singleton_metadata_plus_separate_context
+RANGE [00767BB0,00767BB1) 1 bytes | singleton_metadata_only_not_function_listing
+Metadata byte only: 51; no singleton Ghidra Listing row admitted here; the separate context decodes this byte as PUSH.
+RANGE [00767BB0,00767C63) 179 bytes | separate_original_context_not_owned_union
+00767BB0  51                             push   ecx
+00767BB1  56                             push   esi
+00767BB2  e8b9f91c00                     call   0x937570
+00767BB7  8b4c2410                       mov    ecx,DWORD PTR [esp+0x10]
+00767BBB  8b54240c                       mov    edx,DWORD PTR [esp+0xc]
+00767BBF  51                             push   ecx
+00767BC0  52                             push   edx
+00767BC1  8bc8                           mov    ecx,eax
+00767BC3  e8b8031d00                     call   0x937f80
+00767BC8  8bf0                           mov    esi,eax
+00767BCA  85f6                           test   esi,esi
+00767BCC  745f                           je     0x767c2d
+00767BCE  57                             push   edi
+00767BCF  8d7e04                         lea    edi,[esi+0x4]
+00767BD2  8bc7                           mov    eax,edi
+00767BD4  b901000000                     mov    ecx,0x1
+00767BD9  f00fc108                       lock xadd DWORD PTR [eax],ecx
+00767BDD  8b15f0a01e01                   mov    edx,DWORD PTR ds:0x11ea0f0
+00767BE3  52                             push   edx
+00767BE4  8bce                           mov    ecx,esi
+00767BE6  e875c61c00                     call   0x934260
+00767BEB  85c0                           test   eax,eax
+00767BED  7407                           je     0x767bf6
+00767BEF  8bc8                           mov    ecx,eax
+00767BF1  e89a581e00                     call   0x94d490
+00767BF6  a184d41d01                     mov    eax,ds:0x11dd484
+00767BFB  50                             push   eax
+00767BFC  8bce                           mov    ecx,esi
+00767BFE  e85dc61c00                     call   0x934260
+00767C03  85c0                           test   eax,eax
+00767C05  752e                           jne    0x767c35
+00767C07  8bcf                           mov    ecx,edi
+00767C09  83caff                         or     edx,0xffffffff
+00767C0C  f00fc111                       lock xadd DWORD PTR [ecx],edx
+00767C10  4a                             dec    edx
+00767C11  7511                           jne    0x767c24
+00767C13  b801000000                     mov    eax,0x1
+00767C18  8707                           xchg   DWORD PTR [edi],eax
+00767C1A  8b16                           mov    edx,DWORD PTR [esi]
+00767C1C  8b02                           mov    eax,DWORD PTR [edx]
+00767C1E  6a01                           push   0x1
+00767C20  8bce                           mov    ecx,esi
+00767C22  ffd0                           call   eax
+00767C24  5f                             pop    edi
+00767C25  b8f8ffffff                     mov    eax,0xfffffff8
+00767C2A  5e                             pop    esi
+00767C2B  59                             pop    ecx
+00767C2C  c3                             ret
+00767C2D  b8f7ffffff                     mov    eax,0xfffffff7
+00767C32  5e                             pop    esi
+00767C33  59                             pop    ecx
+00767C34  c3                             ret
+00767C35  8b5008                         mov    edx,DWORD PTR [eax+0x8]
+00767C38  8d4808                         lea    ecx,[eax+0x8]
+00767C3B  8b4218                         mov    eax,DWORD PTR [edx+0x18]
+00767C3E  ffd0                           call   eax
+00767C40  8bcf                           mov    ecx,edi
+00767C42  83caff                         or     edx,0xffffffff
+00767C45  f00fc111                       lock xadd DWORD PTR [ecx],edx
+00767C49  4a                             dec    edx
+00767C4A  7511                           jne    0x767c5d
+00767C4C  b801000000                     mov    eax,0x1
+00767C51  8707                           xchg   DWORD PTR [edi],eax
+00767C53  8b16                           mov    edx,DWORD PTR [esi]
+00767C55  8b02                           mov    eax,DWORD PTR [edx]
+00767C57  6a01                           push   0x1
+00767C59  8bce                           mov    ecx,esi
+00767C5B  ffd0                           call   eax
+00767C5D  5f                             pop    edi
+00767C5E  33c0                           xor    eax,eax
+00767C60  5e                             pop    esi
+00767C61  59                             pop    ecx
+00767C62  c3                             ret
+
+ENTRY 00803500 SACS_StepWalker_803500 | historical_complete_stored_union
+RANGE [00803500,008039D1) 1233 bytes | stored_owned_union
+00803500  83ec24                         sub    esp,0x24
+00803503  53                             push   ebx
+00803504  56                             push   esi
+00803505  8b742430                       mov    esi,DWORD PTR [esp+0x30]
+00803509  8bd9                           mov    ebx,ecx
+0080350B  8b4e64                         mov    ecx,DWORD PTR [esi+0x64]
+0080350E  895c240c                       mov    DWORD PTR [esp+0xc],ebx
+00803512  e849260000                     call   0x805b60
+00803517  84c0                           test   al,al
+00803519  756b                           jne    0x803586
+0080351B  6a24                           push   0x24
+0080351D  e88ef2f3ff                     call   0x7427b0
+00803522  83c404                         add    esp,0x4
+00803525  85c0                           test   eax,eax
+00803527  744b                           je     0x803574
+00803529  c7400400000000                 mov    DWORD PTR [eax+0x4],0x0
+00803530  c70018100201                   mov    DWORD PTR [eax],0x1021018
+00803536  c7400850000000                 mov    DWORD PTR [eax+0x8],0x50
+0080353D  c7400c01000000                 mov    DWORD PTR [eax+0xc],0x1
+00803544  c74010f9ffffff                 mov    DWORD PTR [eax+0x10],0xfffffff9
+0080354B  c7402074230001                 mov    DWORD PTR [eax+0x20],0x1002374
+00803552  b9548e1c01                     mov    ecx,0x11c8e54
+00803557  894814                         mov    DWORD PTR [eax+0x14],ecx
+0080355A  894818                         mov    DWORD PTR [eax+0x18],ecx
+0080355D  50                             push   eax
+0080355E  8bcb                           mov    ecx,ebx
+00803560  c7401c558e1c01                 mov    DWORD PTR [eax+0x1c],0x11c8e55
+00803567  e874e3ffff                     call   0x8018e0
+0080356C  5e                             pop    esi
+0080356D  5b                             pop    ebx
+0080356E  83c424                         add    esp,0x24
+00803571  c20400                         ret    0x4
+00803574  33c0                           xor    eax,eax
+00803576  50                             push   eax
+00803577  8bcb                           mov    ecx,ebx
+00803579  e862e3ffff                     call   0x8018e0
+0080357E  5e                             pop    esi
+0080357F  5b                             pop    ebx
+00803580  83c424                         add    esp,0x24
+00803583  c20400                         ret    0x4
+00803586  8b466c                         mov    eax,DWORD PTR [esi+0x6c]
+00803589  83f801                         cmp    eax,0x1
+0080358C  7413                           je     0x8035a1
+0080358E  8b4e6c                         mov    ecx,DWORD PTR [esi+0x6c]
+00803591  83f902                         cmp    ecx,0x2
+00803594  740b                           je     0x8035a1
+00803596  8b566c                         mov    edx,DWORD PTR [esi+0x6c]
+00803599  83fa03                         cmp    edx,0x3
+0080359C  7403                           je     0x8035a1
+0080359E  8b466c                         mov    eax,DWORD PTR [esi+0x6c]
+008035A1  56                             push   esi
+008035A2  8bcb                           mov    ecx,ebx
+008035A4  e887e8ffff                     call   0x801e30
+008035A9  84c0                           test   al,al
+008035AB  0f8418040000                   je     0x8039c9
+008035B1  57                             push   edi
+008035B2  33ff                           xor    edi,edi
+008035B4  f6462002                       test   BYTE PTR [esi+0x20],0x2
+008035B8  743e                           je     0x8035f8
+008035BA  807b3c00                       cmp    BYTE PTR [ebx+0x3c],0x0
+008035BE  742d                           je     0x8035ed
+008035C0  8b4310                         mov    eax,DWORD PTR [ebx+0x10]
+008035C3  8b5314                         mov    edx,DWORD PTR [ebx+0x14]
+008035C6  3bc2                           cmp    eax,edx
+008035C8  742a                           je     0x8035f4
+008035CA  8d9b00000000                   lea    ebx,[ebx+0x0]
+008035D0  8b4804                         mov    ecx,DWORD PTR [eax+0x4]
+008035D3  397910                         cmp    DWORD PTR [ecx+0x10],edi
+008035D6  7505                           jne    0x8035dd
+008035D8  39791c                         cmp    DWORD PTR [ecx+0x1c],edi
+008035DB  7407                           je     0x8035e4
+008035DD  8b4908                         mov    ecx,DWORD PTR [ecx+0x8]
+008035E0  c6412401                       mov    BYTE PTR [ecx+0x24],0x1
+008035E4  83c008                         add    eax,0x8
+008035E7  3bc2                           cmp    eax,edx
+008035E9  75e5                           jne    0x8035d0
+008035EB  eb07                           jmp    0x8035f4
+008035ED  8b5608                         mov    edx,DWORD PTR [esi+0x8]
+008035F0  c6422401                       mov    BYTE PTR [edx+0x24],0x1
+008035F4  836620fd                       and    DWORD PTR [esi+0x20],0xfffffffd
+008035F8  8b461c                         mov    eax,DWORD PTR [esi+0x1c]
+008035FB  3bc7                           cmp    eax,edi
+008035FD  c6460c00                       mov    BYTE PTR [esi+0xc],0x0
+00803601  7423                           je     0x803626
+00803603  3b4610                         cmp    eax,DWORD PTR [esi+0x10]
+00803606  740a                           je     0x803612
+00803608  8bce                           mov    ecx,esi
+0080360A  894610                         mov    DWORD PTR [esi+0x10],eax
+0080360D  e82ed0ffff                     call   0x800640
+00803612  397e1c                         cmp    DWORD PTR [esi+0x1c],edi
+00803615  740b                           je     0x803622
+00803617  57                             push   edi
+00803618  8bce                           mov    ecx,esi
+0080361A  897e1c                         mov    DWORD PTR [esi+0x1c],edi
+0080361D  e86ec7ffff                     call   0x7ffd90
+00803622  c6466801                       mov    BYTE PTR [esi+0x68],0x1
+00803626  8b4e10                         mov    ecx,DWORD PTR [esi+0x10]
+00803629  3bcf                           cmp    ecx,edi
+0080362B  0f8497030000                   je     0x8039c8
+00803631  8b4624                         mov    eax,DWORD PTR [esi+0x24]
+00803634  3bc7                           cmp    eax,edi
+00803636  8b5618                         mov    edx,DWORD PTR [esi+0x18]
+00803639  c6467200                       mov    BYTE PTR [esi+0x72],0x0
+0080363D  89542414                       mov    DWORD PTR [esp+0x14],edx
+00803641  7452                           je     0x803695
+00803643  3bd7                           cmp    edx,edi
+00803645  744e                           je     0x803695
+00803647  3bd0                           cmp    edx,eax
+00803649  744a                           je     0x803695
+0080364B  c6467201                       mov    BYTE PTR [esi+0x72],0x1
+0080364F  80795000                       cmp    BYTE PTR [ecx+0x50],0x0
+00803653  7540                           jne    0x803695
+00803655  8b430c                         mov    eax,DWORD PTR [ebx+0xc]
+00803658  50                             push   eax
+00803659  8d4c2424                       lea    ecx,[esp+0x24]
+0080365D  e8cec6ffff                     call   0x7ffd30
+00803662  8b4624                         mov    eax,DWORD PTR [esi+0x24]
+00803665  8b4e10                         mov    ecx,DWORD PTR [esi+0x10]
+00803668  6a01                           push   0x1
+0080366A  8d542418                       lea    edx,[esp+0x18]
+0080366E  52                             push   edx
+0080366F  6a01                           push   0x1
+00803671  6a01                           push   0x1
+00803673  50                             push   eax
+00803674  51                             push   ecx
+00803675  8d4c2438                       lea    ecx,[esp+0x38]
+00803679  e8a291ffff                     call   0x7fc820
+0080367E  85c0                           test   eax,eax
+00803680  740f                           je     0x803691
+00803682  57                             push   edi
+00803683  8bce                           mov    ecx,esi
+00803685  897e18                         mov    DWORD PTR [esi+0x18],edi
+00803688  e803c7ffff                     call   0x7ffd90
+0080368D  c6467200                       mov    BYTE PTR [esi+0x72],0x0
+00803691  8b542414                       mov    edx,DWORD PTR [esp+0x14]
+00803695  807e6800                       cmp    BYTE PTR [esi+0x68],0x0
+00803699  55                             push   ebp
+0080369A  c644241200                     mov    BYTE PTR [esp+0x12],0x0
+0080369F  0f84ad010000                   je     0x803852
+008036A5  8b4610                         mov    eax,DWORD PTR [esi+0x10]
+008036A8  c6466800                       mov    BYTE PTR [esi+0x68],0x0
+008036AC  80785000                       cmp    BYTE PTR [eax+0x50],0x0
+008036B0  7408                           je     0x8036ba
+008036B2  3bc2                           cmp    eax,edx
+008036B4  7404                           je     0x8036ba
+008036B6  c6467301                       mov    BYTE PTR [esi+0x73],0x1
+008036BA  3b4624                         cmp    eax,DWORD PTR [esi+0x24]
+008036BD  0f85d6000000                   jne    0x803799
+008036C3  8beb                           mov    ebp,ebx
+008036C5  807d3c00                       cmp    BYTE PTR [ebp+0x3c],0x0
+008036C9  740b                           je     0x8036d6
+008036CB  80784c00                       cmp    BYTE PTR [eax+0x4c],0x0
+008036CF  c644243801                     mov    BYTE PTR [esp+0x38],0x1
+008036D4  7505                           jne    0x8036db
+008036D6  c644243800                     mov    BYTE PTR [esp+0x38],0x0
+008036DB  8a5853                         mov    bl,BYTE PTR [eax+0x53]
+008036DE  8bce                           mov    ecx,esi
+008036E0  885c2413                       mov    BYTE PTR [esp+0x13],bl
+008036E4  e887f1ffff                     call   0x802870
+008036E9  397e24                         cmp    DWORD PTR [esi+0x24],edi
+008036EC  7505                           jne    0x8036f3
+008036EE  c644241201                     mov    BYTE PTR [esp+0x12],0x1
+008036F3  84db                           test   bl,bl
+008036F5  744e                           je     0x803745
+008036F7  8b4628                         mov    eax,DWORD PTR [esi+0x28]
+008036FA  85c0                           test   eax,eax
+008036FC  7436                           je     0x803734
+008036FE  8b7828                         mov    edi,DWORD PTR [eax+0x28]
+00803701  6a24                           push   0x24
+00803703  e8a8f0f3ff                     call   0x7427b0
+00803708  83c404                         add    esp,0x4
+0080370B  85c0                           test   eax,eax
+0080370D  741b                           je     0x80372a
+0080370F  8b8ea8000000                   mov    ecx,DWORD PTR [esi+0xa8]
+00803715  57                             push   edi
+00803716  51                             push   ecx
+00803717  6820120201                     push   0x1021220
+0080371C  57                             push   edi
+0080371D  6a09                           push   0x9
+0080371F  50                             push   eax
+00803720  e87be9ffff                     call   0x8020a0
+00803725  83c418                         add    esp,0x18
+00803728  eb02                           jmp    0x80372c
+0080372A  33c0                           xor    eax,eax
+0080372C  50                             push   eax
+0080372D  8bcd                           mov    ecx,ebp
+0080372F  e8ace1ffff                     call   0x8018e0
+00803734  8b4e28                         mov    ecx,DWORD PTR [esi+0x28]
+00803737  51                             push   ecx
+00803738  b840000000                     mov    eax,0x40
+0080373D  50                             push   eax
+0080373E  8bce                           mov    ecx,esi
+00803740  e89bf1ffff                     call   0x8028e0
+00803745  807c243800                     cmp    BYTE PTR [esp+0x38],0x0
+0080374A  744d                           je     0x803799
+0080374C  8bc5                           mov    eax,ebp
+0080374E  8b6810                         mov    ebp,DWORD PTR [eax+0x10]
+00803751  8b5814                         mov    ebx,DWORD PTR [eax+0x14]
+00803754  3beb                           cmp    ebp,ebx
+00803756  7441                           je     0x803799
+00803758  8b7d04                         mov    edi,DWORD PTR [ebp+0x4]
+0080375B  3bfe                           cmp    edi,esi
+0080375D  7433                           je     0x803792
+0080375F  837f1000                       cmp    DWORD PTR [edi+0x10],0x0
+00803763  7506                           jne    0x80376b
+00803765  837f1c00                       cmp    DWORD PTR [edi+0x1c],0x0
+00803769  7427                           je     0x803792
+0080376B  8b4724                         mov    eax,DWORD PTR [edi+0x24]
+0080376E  3b4610                         cmp    eax,DWORD PTR [esi+0x10]
+00803771  751f                           jne    0x803792
+00803773  8bcf                           mov    ecx,edi
+00803775  e8f6f0ffff                     call   0x802870
+0080377A  807c241300                     cmp    BYTE PTR [esp+0x13],0x0
+0080377F  7411                           je     0x803792
+00803781  8b4f28                         mov    ecx,DWORD PTR [edi+0x28]
+00803784  51                             push   ecx
+00803785  b840000000                     mov    eax,0x40
+0080378A  50                             push   eax
+0080378B  8bcf                           mov    ecx,edi
+0080378D  e84ef1ffff                     call   0x8028e0
+00803792  83c508                         add    ebp,0x8
+00803795  3beb                           cmp    ebp,ebx
+00803797  75bf                           jne    0x803758
+00803799  8b4610                         mov    eax,DWORD PTR [esi+0x10]
+0080379C  80785000                       cmp    BYTE PTR [eax+0x50],0x0
+008037A0  7437                           je     0x8037d9
+008037A2  837e2400                       cmp    DWORD PTR [esi+0x24],0x0
+008037A6  751d                           jne    0x8037c5
+008037A8  85c0                           test   eax,eax
+008037AA  0f95c1                         setne  cl
+008037AD  894618                         mov    DWORD PTR [esi+0x18],eax
+008037B0  51                             push   ecx
+008037B1  8bce                           mov    ecx,esi
+008037B3  e8d8c5ffff                     call   0x7ffd90
+008037B8  8b542414                       mov    edx,DWORD PTR [esp+0x14]
+008037BC  c6824701000001                 mov    BYTE PTR [edx+0x147],0x1
+008037C3  eb14                           jmp    0x8037d9
+008037C5  6a00                           push   0x0
+008037C7  8bce                           mov    ecx,esi
+008037C9  c7461800000000                 mov    DWORD PTR [esi+0x18],0x0
+008037D0  e8bbc5ffff                     call   0x7ffd90
+008037D5  c6467201                       mov    BYTE PTR [esi+0x72],0x1
+008037D9  8b7e10                         mov    edi,DWORD PTR [esi+0x10]
+008037DC  85ff                           test   edi,edi
+008037DE  8b6e28                         mov    ebp,DWORD PTR [esi+0x28]
+008037E1  7437                           je     0x80381a
+008037E3  807f4f00                       cmp    BYTE PTR [edi+0x4f],0x0
+008037E7  7431                           je     0x80381a
+008037E9  3bfd                           cmp    edi,ebp
+008037EB  742d                           je     0x80381a
+008037ED  8b5c2414                       mov    ebx,DWORD PTR [esp+0x14]
+008037F1  8b430c                         mov    eax,DWORD PTR [ebx+0xc]
+008037F4  50                             push   eax
+008037F5  8d4c2430                       lea    ecx,[esp+0x30]
+008037F9  e832c5ffff                     call   0x7ffd30
+008037FE  6a00                           push   0x0
+00803800  6a00                           push   0x0
+00803802  6a01                           push   0x1
+00803804  6a40                           push   0x40
+00803806  55                             push   ebp
+00803807  57                             push   edi
+00803808  8d4c2444                       lea    ecx,[esp+0x44]
+0080380C  e83f91ffff                     call   0x7fc950
+00803811  85c0                           test   eax,eax
+00803813  7509                           jne    0x80381e
+00803815  897e28                         mov    DWORD PTR [esi+0x28],edi
+00803818  eb04                           jmp    0x80381e
+0080381A  8b5c2414                       mov    ebx,DWORD PTR [esp+0x14]
+0080381E  8b13                           mov    edx,DWORD PTR [ebx]
+00803820  8b4204                         mov    eax,DWORD PTR [edx+0x4]
+00803823  56                             push   esi
+00803824  8bcb                           mov    ecx,ebx
+00803826  ffd0                           call   eax
+00803828  807c241200                     cmp    BYTE PTR [esp+0x12],0x0
+0080382D  7408                           je     0x803837
+0080382F  8d4b44                         lea    ecx,[ebx+0x44]
+00803832  e8c90cffff                     call   0x7f4500
+00803837  807e7300                       cmp    BYTE PTR [esi+0x73],0x0
+0080383B  7415                           je     0x803852
+0080383D  8bce                           mov    ecx,esi
+0080383F  e8fcc6ffff                     call   0x7fff40
+00803844  84c0                           test   al,al
+00803846  7506                           jne    0x80384e
+00803848  837e1800                       cmp    DWORD PTR [esi+0x18],0x0
+0080384C  7504                           jne    0x803852
+0080384E  c6467300                       mov    BYTE PTR [esi+0x73],0x0
+00803852  837e1c00                       cmp    DWORD PTR [esi+0x1c],0x0
+00803856  0f8594000000                   jne    0x8038f0
+0080385C  8b4618                         mov    eax,DWORD PTR [esi+0x18]
+0080385F  85c0                           test   eax,eax
+00803861  8b6e24                         mov    ebp,DWORD PTR [esi+0x24]
+00803864  740b                           je     0x803871
+00803866  85ed                           test   ebp,ebp
+00803868  7405                           je     0x80386f
+0080386A  394610                         cmp    DWORD PTR [esi+0x10],eax
+0080386D  7402                           je     0x803871
+0080386F  8be8                           mov    ebp,eax
+00803871  85ed                           test   ebp,ebp
+00803873  747b                           je     0x8038f0
+00803875  8b4610                         mov    eax,DWORD PTR [esi+0x10]
+00803878  80785000                       cmp    BYTE PTR [eax+0x50],0x0
+0080387C  7514                           jne    0x803892
+0080387E  3bc5                           cmp    eax,ebp
+00803880  7510                           jne    0x803892
+00803882  f7462080010000                 test   DWORD PTR [esi+0x20],0x180
+00803889  7507                           jne    0x803892
+0080388B  8bce                           mov    ecx,esi
+0080388D  e8deefffff                     call   0x802870
+00803892  8b5c2414                       mov    ebx,DWORD PTR [esp+0x14]
+00803896  8b7b0c                         mov    edi,DWORD PTR [ebx+0xc]
+00803899  6aff                           push   0xffffffff
+0080389B  8d4c2424                       lea    ecx,[esp+0x24]
+0080389F  e84c71cfff                     call   0x4fa9f0
+008038A4  837e1800                       cmp    DWORD PTR [esi+0x18],0x0
+008038A8  897c241c                       mov    DWORD PTR [esp+0x1c],edi
+008038AC  b801000000                     mov    eax,0x1
+008038B1  7405                           je     0x8038b8
+008038B3  b802000000                     mov    eax,0x2
+008038B8  8b4e20                         mov    ecx,DWORD PTR [esi+0x20]
+008038BB  8b5610                         mov    edx,DWORD PTR [esi+0x10]
+008038BE  6a00                           push   0x0
+008038C0  6a00                           push   0x0
+008038C2  50                             push   eax
+008038C3  51                             push   ecx
+008038C4  55                             push   ebp
+008038C5  52                             push   edx
+008038C6  8d4c2434                       lea    ecx,[esp+0x34]
+008038CA  e88190ffff                     call   0x7fc950
+008038CF  85c0                           test   eax,eax
+008038D1  8bcb                           mov    ecx,ebx
+008038D3  7409                           je     0x8038de
+008038D5  50                             push   eax
+008038D6  56                             push   esi
+008038D7  e814c9ffff                     call   0x8001f0
+008038DC  eb16                           jmp    0x8038f4
+008038DE  e84dc8ffff                     call   0x800130
+008038E3  84c0                           test   al,al
+008038E5  740d                           je     0x8038f4
+008038E7  8bce                           mov    ecx,esi
+008038E9  e882efffff                     call   0x802870
+008038EE  eb04                           jmp    0x8038f4
+008038F0  8b5c2414                       mov    ebx,DWORD PTR [esp+0x14]
+008038F4  807b3c00                       cmp    BYTE PTR [ebx+0x3c],0x0
+008038F8  5d                             pop    ebp
+008038F9  7408                           je     0x803903
+008038FB  56                             push   esi
+008038FC  8bcb                           mov    ecx,ebx
+008038FE  e8add7ffff                     call   0x8010b0
+00803903  8b8b1c010000                   mov    ecx,DWORD PTR [ebx+0x11c]
+00803909  3b8b20010000                   cmp    ecx,DWORD PTR [ebx+0x120]
+0080390F  0f85b3000000                   jne    0x8039c8
+00803915  8d4b44                         lea    ecx,[ebx+0x44]
+00803918  e87306ffff                     call   0x7f3f90
+0080391D  84c0                           test   al,al
+0080391F  0f84a3000000                   je     0x8039c8
+00803925  837e2400                       cmp    DWORD PTR [esi+0x24],0x0
+00803929  0f8599000000                   jne    0x8039c8
+0080392F  837e1800                       cmp    DWORD PTR [esi+0x18],0x0
+00803933  0f858f000000                   jne    0x8039c8
+00803939  8bce                           mov    ecx,esi
+0080393B  e800c6ffff                     call   0x7fff40
+00803940  84c0                           test   al,al
+00803942  0f8580000000                   jne    0x8039c8
+00803948  8b5608                         mov    edx,DWORD PTR [esi+0x8]
+0080394B  884224                         mov    BYTE PTR [edx+0x24],al
+0080394E  38433c                         cmp    BYTE PTR [ebx+0x3c],al
+00803951  7407                           je     0x80395a
+00803953  bf61722042                     mov    edi,0x42207261
+00803958  eb09                           jmp    0x803963
+0080395A  8b4608                         mov    eax,DWORD PTR [esi+0x8]
+0080395D  8b4820                         mov    ecx,DWORD PTR [eax+0x20]
+00803960  8b792c                         mov    edi,DWORD PTR [ecx+0x2c]
+00803963  6a24                           push   0x24
+00803965  e846eef3ff                     call   0x7427b0
+0080396A  83c404                         add    esp,0x4
+0080396D  85c0                           test   eax,eax
+0080396F  740c                           je     0x80397d
+00803971  57                             push   edi
+00803972  6a0b                           push   0xb
+00803974  8bc8                           mov    ecx,eax
+00803976  e845cbffff                     call   0x8004c0
+0080397B  eb02                           jmp    0x80397f
+0080397D  33c0                           xor    eax,eax
+0080397F  50                             push   eax
+00803980  8bcb                           mov    ecx,ebx
+00803982  e859dfffff                     call   0x8018e0
+00803987  8b7610                         mov    esi,DWORD PTR [esi+0x10]
+0080398A  85f6                           test   esi,esi
+0080398C  7405                           je     0x803993
+0080398E  8b7628                         mov    esi,DWORD PTR [esi+0x28]
+00803991  eb02                           jmp    0x803995
+00803993  33f6                           xor    esi,esi
+00803995  6a24                           push   0x24
+00803997  e814eef3ff                     call   0x7427b0
+0080399C  83c404                         add    esp,0x4
+0080399F  85c0                           test   eax,eax
+008039A1  741b                           je     0x8039be
+008039A3  56                             push   esi
+008039A4  6a0b                           push   0xb
+008039A6  8bc8                           mov    ecx,eax
+008039A8  e813cbffff                     call   0x8004c0
+008039AD  50                             push   eax
+008039AE  8bcb                           mov    ecx,ebx
+008039B0  e82bdfffff                     call   0x8018e0
+008039B5  5f                             pop    edi
+008039B6  5e                             pop    esi
+008039B7  5b                             pop    ebx
+008039B8  83c424                         add    esp,0x24
+008039BB  c20400                         ret    0x4
+008039BE  33c0                           xor    eax,eax
+008039C0  50                             push   eax
+008039C1  8bcb                           mov    ecx,ebx
+008039C3  e818dfffff                     call   0x8018e0
+008039C8  5f                             pop    edi
+008039C9  5e                             pop    esi
+008039CA  5b                             pop    ebx
+008039CB  83c424                         add    esp,0x24
+008039CE  c20400                         ret    0x4
+
+ENTRY 008040D0 SACS_AdvanceDirtyWalkers | historical_complete_stored_union
+RANGE [008040D0,00804324) 596 bytes | stored_owned_union
+008040D0  51                             push   ecx
+008040D1  56                             push   esi
+008040D2  8bf1                           mov    esi,ecx
+008040D4  80be4701000000                 cmp    BYTE PTR [esi+0x147],0x0
+008040DB  7423                           je     0x804100
+008040DD  c6864701000000                 mov    BYTE PTR [esi+0x147],0x0
+008040E4  c6864601000001                 mov    BYTE PTR [esi+0x146],0x1
+008040EB  8b0d409d1d01                   mov    ecx,DWORD PTR ds:0x11d9d40
+008040F1  85c9                           test   ecx,ecx
+008040F3  7408                           je     0x8040fd
+008040F5  6a01                           push   0x1
+008040F7  56                             push   esi
+008040F8  e8838effff                     call   0x7fcf80
+008040FD  5e                             pop    esi
+008040FE  59                             pop    ecx
+008040FF  c3                             ret
+00804100  8b861c010000                   mov    eax,DWORD PTR [esi+0x11c]
+00804106  3b8620010000                   cmp    eax,DWORD PTR [esi+0x120]
+0080410C  53                             push   ebx
+0080410D  55                             push   ebp
+0080410E  57                             push   edi
+0080410F  0f8581010000                   jne    0x804296
+00804115  8d4e44                         lea    ecx,[esi+0x44]
+00804118  e873fefeff                     call   0x7f3f90
+0080411D  84c0                           test   al,al
+0080411F  0f8471010000                   je     0x804296
+00804125  8a463c                         mov    al,BYTE PTR [esi+0x3c]
+00804128  33ff                           xor    edi,edi
+0080412A  84c0                           test   al,al
+0080412C  897c2410                       mov    DWORD PTR [esp+0x10],edi
+00804130  0f8498000000                   je     0x8041ce
+00804136  8b4640                         mov    eax,DWORD PTR [esi+0x40]
+00804139  80780c00                       cmp    BYTE PTR [eax+0xc],0x0
+0080413D  89442410                       mov    DWORD PTR [esp+0x10],eax
+00804141  740a                           je     0x80414d
+00804143  50                             push   eax
+00804144  8bce                           mov    ecx,esi
+00804146  e8b5f3ffff                     call   0x803500
+0080414B  eb71                           jmp    0x8041be
+0080414D  397810                         cmp    DWORD PTR [eax+0x10],edi
+00804150  7505                           jne    0x804157
+00804152  39781c                         cmp    DWORD PTR [eax+0x1c],edi
+00804155  7467                           je     0x8041be
+00804157  6a24                           push   0x24
+00804159  e852e6f3ff                     call   0x7427b0
+0080415E  83c404                         add    esp,0x4
+00804161  3bc7                           cmp    eax,edi
+00804163  7410                           je     0x804175
+00804165  6861722042                     push   0x42207261
+0080416A  6a04                           push   0x4
+0080416C  8bc8                           mov    ecx,eax
+0080416E  e84dc3ffff                     call   0x8004c0
+00804173  eb02                           jmp    0x804177
+00804175  33c0                           xor    eax,eax
+00804177  50                             push   eax
+00804178  8bce                           mov    ecx,esi
+0080417A  e861d7ffff                     call   0x8018e0
+0080417F  6a24                           push   0x24
+00804181  e82ae6f3ff                     call   0x7427b0
+00804186  83c404                         add    esp,0x4
+00804189  3bc7                           cmp    eax,edi
+0080418B  7427                           je     0x8041b4
+0080418D  8b4e40                         mov    ecx,DWORD PTR [esi+0x40]
+00804190  8b5110                         mov    edx,DWORD PTR [ecx+0x10]
+00804193  3bd7                           cmp    edx,edi
+00804195  740f                           je     0x8041a6
+00804197  8b5228                         mov    edx,DWORD PTR [edx+0x28]
+0080419A  52                             push   edx
+0080419B  6a04                           push   0x4
+0080419D  8bc8                           mov    ecx,eax
+0080419F  e81cc3ffff                     call   0x8004c0
+008041A4  eb10                           jmp    0x8041b6
+008041A6  33d2                           xor    edx,edx
+008041A8  52                             push   edx
+008041A9  6a04                           push   0x4
+008041AB  8bc8                           mov    ecx,eax
+008041AD  e80ec3ffff                     call   0x8004c0
+008041B2  eb02                           jmp    0x8041b6
+008041B4  33c0                           xor    eax,eax
+008041B6  50                             push   eax
+008041B7  8bce                           mov    ecx,esi
+008041B9  e822d7ffff                     call   0x8018e0
+008041BE  8a463c                         mov    al,BYTE PTR [esi+0x3c]
+008041C1  84c0                           test   al,al
+008041C3  7409                           je     0x8041ce
+008041C5  897c2410                       mov    DWORD PTR [esp+0x10],edi
+008041C9  e9e1000000                     jmp    0x8042af
+008041CE  397c2410                       cmp    DWORD PTR [esp+0x10],edi
+008041D2  740f                           je     0x8041e3
+008041D4  8bce                           mov    ecx,esi
+008041D6  e855bfffff                     call   0x800130
+008041DB  84c0                           test   al,al
+008041DD  0f84cc000000                   je     0x8042af
+008041E3  8b5e10                         mov    ebx,DWORD PTR [esi+0x10]
+008041E6  8b6e14                         mov    ebp,DWORD PTR [esi+0x14]
+008041E9  3bdd                           cmp    ebx,ebp
+008041EB  0f84be000000                   je     0x8042af
+008041F1  8b7b04                         mov    edi,DWORD PTR [ebx+0x4]
+008041F4  3b7c2410                       cmp    edi,DWORD PTR [esp+0x10]
+008041F8  0f848b000000                   je     0x804289
+008041FE  807f0c00                       cmp    BYTE PTR [edi+0xc],0x0
+00804202  740a                           je     0x80420e
+00804204  57                             push   edi
+00804205  8bce                           mov    ecx,esi
+00804207  e8f4f2ffff                     call   0x803500
+0080420C  eb75                           jmp    0x804283
+0080420E  837f1000                       cmp    DWORD PTR [edi+0x10],0x0
+00804212  7506                           jne    0x80421a
+00804214  837f1c00                       cmp    DWORD PTR [edi+0x1c],0x0
+00804218  7469                           je     0x804283
+0080421A  6a24                           push   0x24
+0080421C  e88fe5f3ff                     call   0x7427b0
+00804221  83c404                         add    esp,0x4
+00804224  85c0                           test   eax,eax
+00804226  7415                           je     0x80423d
+00804228  8b4f08                         mov    ecx,DWORD PTR [edi+0x8]
+0080422B  8b5120                         mov    edx,DWORD PTR [ecx+0x20]
+0080422E  8b4a2c                         mov    ecx,DWORD PTR [edx+0x2c]
+00804231  51                             push   ecx
+00804232  6a04                           push   0x4
+00804234  8bc8                           mov    ecx,eax
+00804236  e885c2ffff                     call   0x8004c0
+0080423B  eb02                           jmp    0x80423f
+0080423D  33c0                           xor    eax,eax
+0080423F  50                             push   eax
+00804240  8bce                           mov    ecx,esi
+00804242  e899d6ffff                     call   0x8018e0
+00804247  6a24                           push   0x24
+00804249  e862e5f3ff                     call   0x7427b0
+0080424E  83c404                         add    esp,0x4
+00804251  85c0                           test   eax,eax
+00804253  7424                           je     0x804279
+00804255  8b7f10                         mov    edi,DWORD PTR [edi+0x10]
+00804258  85ff                           test   edi,edi
+0080425A  740f                           je     0x80426b
+0080425C  8b4f28                         mov    ecx,DWORD PTR [edi+0x28]
+0080425F  51                             push   ecx
+00804260  6a04                           push   0x4
+00804262  8bc8                           mov    ecx,eax
+00804264  e857c2ffff                     call   0x8004c0
+00804269  eb10                           jmp    0x80427b
+0080426B  33c9                           xor    ecx,ecx
+0080426D  51                             push   ecx
+0080426E  6a04                           push   0x4
+00804270  8bc8                           mov    ecx,eax
+00804272  e849c2ffff                     call   0x8004c0
+00804277  eb02                           jmp    0x80427b
+00804279  33c0                           xor    eax,eax
+0080427B  50                             push   eax
+0080427C  8bce                           mov    ecx,esi
+0080427E  e85dd6ffff                     call   0x8018e0
+00804283  807e3c00                       cmp    BYTE PTR [esi+0x3c],0x0
+00804287  7526                           jne    0x8042af
+00804289  83c308                         add    ebx,0x8
+0080428C  3bdd                           cmp    ebx,ebp
+0080428E  0f855dffffff                   jne    0x8041f1
+00804294  eb19                           jmp    0x8042af
+00804296  c6864601000001                 mov    BYTE PTR [esi+0x146],0x1
+0080429D  8b0d409d1d01                   mov    ecx,DWORD PTR ds:0x11d9d40
+008042A3  85c9                           test   ecx,ecx
+008042A5  7408                           je     0x8042af
+008042A7  6a01                           push   0x1
+008042A9  56                             push   esi
+008042AA  e8d18cffff                     call   0x7fcf80
+008042AF  8b8640010000                   mov    eax,DWORD PTR [esi+0x140]
+008042B5  83f8ff                         cmp    eax,0xffffffff
+008042B8  5f                             pop    edi
+008042B9  5d                             pop    ebp
+008042BA  5b                             pop    ebx
+008042BB  743a                           je     0x8042f7
+008042BD  83c0ff                         add    eax,0xffffffff
+008042C0  898640010000                   mov    DWORD PTR [esi+0x140],eax
+008042C6  752f                           jne    0x8042f7
+008042C8  6a24                           push   0x24
+008042CA  e8e1e4f3ff                     call   0x7427b0
+008042CF  83c404                         add    esp,0x4
+008042D2  85c0                           test   eax,eax
+008042D4  740d                           je     0x8042e3
+008042D6  6a00                           push   0x0
+008042D8  6a04                           push   0x4
+008042DA  8bc8                           mov    ecx,eax
+008042DC  e8dfc1ffff                     call   0x8004c0
+008042E1  eb02                           jmp    0x8042e5
+008042E3  33c0                           xor    eax,eax
+008042E5  50                             push   eax
+008042E6  8bce                           mov    ecx,esi
+008042E8  e8f3d5ffff                     call   0x8018e0
+008042ED  c78640010000ffffffff           mov    DWORD PTR [esi+0x140],0xffffffff
+008042F7  8b861c010000                   mov    eax,DWORD PTR [esi+0x11c]
+008042FD  3b8620010000                   cmp    eax,DWORD PTR [esi+0x120]
+00804303  0f84f4fdffff                   je     0x8040fd
+00804309  8d4e44                         lea    ecx,[esi+0x44]
+0080430C  e87ffcfeff                     call   0x7f3f90
+00804311  84c0                           test   al,al
+00804313  0f84e4fdffff                   je     0x8040fd
+00804319  8bce                           mov    ecx,esi
+0080431B  5e                             pop    esi
+0080431C  83c404                         add    esp,0x4
+0080431F  e90ce2ffff                     jmp    0x802530
+
+ENTRY 00800640 SACS_PumpWalkerCallbacks_800640 | historical_complete_stored_union
+RANGE [00800640,0080069E) 94 bytes | stored_owned_union
+00800640  53                             push   ebx
+00800641  55                             push   ebp
+00800642  8be9                           mov    ebp,ecx
+00800644  8d5d58                         lea    ebx,[ebp+0x58]
+00800647  57                             push   edi
+00800648  8b3b                           mov    edi,DWORD PTR [ebx]
+0080064A  3bfb                           cmp    edi,ebx
+0080064C  744c                           je     0x80069a
+0080064E  56                             push   esi
+0080064F  90                             nop
+00800650  8b7708                         mov    esi,DWORD PTR [edi+0x8]
+00800653  85f6                           test   esi,esi
+00800655  743e                           je     0x800695
+00800657  8b06                           mov    eax,DWORD PTR [esi]
+00800659  8b5010                         mov    edx,DWORD PTR [eax+0x10]
+0080065C  55                             push   ebp
+0080065D  56                             push   esi
+0080065E  8bce                           mov    ecx,esi
+00800660  ffd2                           call   edx
+00800662  ffd0                           call   eax
+00800664  83c408                         add    esp,0x8
+00800667  84c0                           test   al,al
+00800669  7428                           je     0x800693
+0080066B  8b06                           mov    eax,DWORD PTR [esi]
+0080066D  8b5008                         mov    edx,DWORD PTR [eax+0x8]
+00800670  8bce                           mov    ecx,esi
+00800672  ffd2                           call   edx
+00800674  8b3f                           mov    edi,DWORD PTR [edi]
+00800676  8b4704                         mov    eax,DWORD PTR [edi+0x4]
+00800679  8b4804                         mov    ecx,DWORD PTR [eax+0x4]
+0080067C  8b10                           mov    edx,DWORD PTR [eax]
+0080067E  8911                           mov    DWORD PTR [ecx],edx
+00800680  8b08                           mov    ecx,DWORD PTR [eax]
+00800682  8b5004                         mov    edx,DWORD PTR [eax+0x4]
+00800685  50                             push   eax
+00800686  895104                         mov    DWORD PTR [ecx+0x4],edx
+00800689  e8523eceff                     call   0x4e44e0
+0080068E  83c404                         add    esp,0x4
+00800691  eb02                           jmp    0x800695
+00800693  8b3f                           mov    edi,DWORD PTR [edi]
+00800695  3bfb                           cmp    edi,ebx
+00800697  75b7                           jne    0x800650
+00800699  5e                             pop    esi
+0080069A  5f                             pop    edi
+0080069B  5d                             pop    ebp
+0080069C  5b                             pop    ebx
+0080069D  c3                             ret
+
+ENTRY 00742900 SACS_DeliverAdmittedEvent | historical_complete_stored_union
+RANGE [00742900,00742AF3) 499 bytes | stored_owned_union
+00742900  81ecc8000000                   sub    esp,0xc8
+00742906  55                             push   ebp
+00742907  8bac24d0000000                 mov    ebp,DWORD PTR [esp+0xd0]
+0074290E  56                             push   esi
+0074290F  57                             push   edi
+00742910  33f6                           xor    esi,esi
+00742912  3bee                           cmp    ebp,esi
+00742914  8bf9                           mov    edi,ecx
+00742916  897c2430                       mov    DWORD PTR [esp+0x30],edi
+0074291A  0f84c7010000                   je     0x742ae7
+00742920  8b4500                         mov    eax,DWORD PTR [ebp+0x0]
+00742923  8b10                           mov    edx,DWORD PTR [eax]
+00742925  8bcd                           mov    ecx,ebp
+00742927  ffd2                           call   edx
+00742929  397708                         cmp    DWORD PTR [edi+0x8],esi
+0074292C  0f84ab010000                   je     0x742add
+00742932  8b4508                         mov    eax,DWORD PTR [ebp+0x8]
+00742935  53                             push   ebx
+00742936  8d4c2410                       lea    ecx,[esp+0x10]
+0074293A  bff4a6fb00                     mov    edi,0xfba6f4
+0074293F  51                             push   ecx
+00742940  8d4c2418                       lea    ecx,[esp+0x18]
+00742944  897c243c                       mov    DWORD PTR [esp+0x3c],edi
+00742948  6689742444                     mov    WORD PTR [esp+0x44],si
+0074294D  6689742446                     mov    WORD PTR [esp+0x46],si
+00742952  89442414                       mov    DWORD PTR [esp+0x14],eax
+00742956  897c2418                       mov    DWORD PTR [esp+0x18],edi
+0074295A  6689742420                     mov    WORD PTR [esp+0x20],si
+0074295F  6689742422                     mov    WORD PTR [esp+0x22],si
+00742964  e8b735dbff                     call   0x4f5f20
+00742969  8d542414                       lea    edx,[esp+0x14]
+0074296D  52                             push   edx
+0074296E  8d4c245c                       lea    ecx,[esp+0x5c]
+00742972  897c245c                       mov    DWORD PTR [esp+0x5c],edi
+00742976  6689742464                     mov    WORD PTR [esp+0x64],si
+0074297B  6689742466                     mov    WORD PTR [esp+0x66],si
+00742980  e82b3bdbff                     call   0x4f64b0
+00742985  bb04000000                     mov    ebx,0x4
+0074298A  845c241c                       test   BYTE PTR [esp+0x1c],bl
+0074298E  897c2414                       mov    DWORD PTR [esp+0x14],edi
+00742992  740a                           je     0x74299e
+00742994  56                             push   esi
+00742995  8d4c2418                       lea    ecx,[esp+0x18]
+00742999  e8c22ddbff                     call   0x4f5760
+0074299E  8b450c                         mov    eax,DWORD PTR [ebp+0xc]
+007429A1  8d4c2410                       lea    ecx,[esp+0x10]
+007429A5  51                             push   ecx
+007429A6  8d4c2418                       lea    ecx,[esp+0x18]
+007429AA  89442414                       mov    DWORD PTR [esp+0x14],eax
+007429AE  897c2418                       mov    DWORD PTR [esp+0x18],edi
+007429B2  6689742420                     mov    WORD PTR [esp+0x20],si
+007429B7  6689742422                     mov    WORD PTR [esp+0x22],si
+007429BC  e85f35dbff                     call   0x4f5f20
+007429C1  8d542414                       lea    edx,[esp+0x14]
+007429C5  52                             push   edx
+007429C6  8d4c247c                       lea    ecx,[esp+0x7c]
+007429CA  897c247c                       mov    DWORD PTR [esp+0x7c],edi
+007429CE  6689b42484000000               mov    WORD PTR [esp+0x84],si
+007429D6  6689b42486000000               mov    WORD PTR [esp+0x86],si
+007429DE  e8cd3adbff                     call   0x4f64b0
+007429E3  845c241c                       test   BYTE PTR [esp+0x1c],bl
+007429E7  897c2414                       mov    DWORD PTR [esp+0x14],edi
+007429EB  740a                           je     0x7429f7
+007429ED  56                             push   esi
+007429EE  8d4c2418                       lea    ecx,[esp+0x18]
+007429F2  e8692ddbff                     call   0x4f5760
+007429F7  8b4510                         mov    eax,DWORD PTR [ebp+0x10]
+007429FA  8d4c2410                       lea    ecx,[esp+0x10]
+007429FE  51                             push   ecx
+007429FF  8d4c2418                       lea    ecx,[esp+0x18]
+00742A03  89442414                       mov    DWORD PTR [esp+0x14],eax
+00742A07  897c2418                       mov    DWORD PTR [esp+0x18],edi
+00742A0B  6689742420                     mov    WORD PTR [esp+0x20],si
+00742A10  6689742422                     mov    WORD PTR [esp+0x22],si
+00742A15  e80635dbff                     call   0x4f5f20
+00742A1A  8d542414                       lea    edx,[esp+0x14]
+00742A1E  52                             push   edx
+00742A1F  8d8c249c000000                 lea    ecx,[esp+0x9c]
+00742A26  89bc249c000000                 mov    DWORD PTR [esp+0x9c],edi
+00742A2D  6689b424a4000000               mov    WORD PTR [esp+0xa4],si
+00742A35  6689b424a6000000               mov    WORD PTR [esp+0xa6],si
+00742A3D  e86e3adbff                     call   0x4f64b0
+00742A42  845c241c                       test   BYTE PTR [esp+0x1c],bl
+00742A46  897c2414                       mov    DWORD PTR [esp+0x14],edi
+00742A4A  740a                           je     0x742a56
+00742A4C  56                             push   esi
+00742A4D  8d4c2418                       lea    ecx,[esp+0x18]
+00742A51  e80a2ddbff                     call   0x4f5760
+00742A56  8d442438                       lea    eax,[esp+0x38]
+00742A5A  50                             push   eax
+00742A5B  8d8c24bc000000                 lea    ecx,[esp+0xbc]
+00742A62  89bc24bc000000                 mov    DWORD PTR [esp+0xbc],edi
+00742A69  6689b424c4000000               mov    WORD PTR [esp+0xc4],si
+00742A71  6689b424c6000000               mov    WORD PTR [esp+0xc6],si
+00742A79  e8323adbff                     call   0x4f64b0
+00742A7E  e80d690200                     call   0x769390
+00742A83  8b10                           mov    edx,DWORD PTR [eax]
+00742A85  8b9234010000                   mov    edx,DWORD PTR [edx+0x134]
+00742A8B  53                             push   ebx
+00742A8C  8d4c245c                       lea    ecx,[esp+0x5c]
+00742A90  51                             push   ecx
+00742A91  8b4c243c                       mov    ecx,DWORD PTR [esp+0x3c]
+00742A95  8b4908                         mov    ecx,DWORD PTR [ecx+0x8]
+00742A98  51                             push   ecx
+00742A99  8d4c2420                       lea    ecx,[esp+0x20]
+00742A9D  51                             push   ecx
+00742A9E  8bc8                           mov    ecx,eax
+00742AA0  ffd2                           call   edx
+00742AA2  845c241c                       test   BYTE PTR [esp+0x1c],bl
+00742AA6  897c2414                       mov    DWORD PTR [esp+0x14],edi
+00742AAA  740a                           je     0x742ab6
+00742AAC  56                             push   esi
+00742AAD  8d4c2418                       lea    ecx,[esp+0x18]
+00742AB1  e8aa2cdbff                     call   0x4f5760
+00742AB6  6820584f00                     push   0x4f5820
+00742ABB  53                             push   ebx
+00742ABC  6a20                           push   0x20
+00742ABE  8d442464                       lea    eax,[esp+0x64]
+00742AC2  50                             push   eax
+00742AC3  e8183cd0ff                     call   0x4466e0
+00742AC8  845c2440                       test   BYTE PTR [esp+0x40],bl
+00742ACC  897c2438                       mov    DWORD PTR [esp+0x38],edi
+00742AD0  5b                             pop    ebx
+00742AD1  740a                           je     0x742add
+00742AD3  56                             push   esi
+00742AD4  8d4c2438                       lea    ecx,[esp+0x38]
+00742AD8  e8832cdbff                     call   0x4f5760
+00742ADD  8b5500                         mov    edx,DWORD PTR [ebp+0x0]
+00742AE0  8b4204                         mov    eax,DWORD PTR [edx+0x4]
+00742AE3  8bcd                           mov    ecx,ebp
+00742AE5  ffd0                           call   eax
+00742AE7  5f                             pop    edi
+00742AE8  5e                             pop    esi
+00742AE9  5d                             pop    ebp
+00742AEA  81c4c8000000                   add    esp,0xc8
+00742AF0  c20400                         ret    0x4
+
+ENTRY 00801870 SacsEventFilters_RemoveFirstExact | historical_complete_stored_union
+RANGE [00801870,008018D1) 97 bytes | stored_owned_union
+00801870  56                             push   esi
+00801871  8bf1                           mov    esi,ecx
+00801873  8b8630010000                   mov    eax,DWORD PTR [esi+0x130]
+00801879  8b8e34010000                   mov    ecx,DWORD PTR [esi+0x134]
+0080187F  3bc1                           cmp    eax,ecx
+00801881  744a                           je     0x8018cd
+00801883  8b542410                       mov    edx,DWORD PTR [esp+0x10]
+00801887  53                             push   ebx
+00801888  8b5c240c                       mov    ebx,DWORD PTR [esp+0xc]
+0080188C  57                             push   edi
+0080188D  8b7c2414                       mov    edi,DWORD PTR [esp+0x14]
+00801891  3918                           cmp    DWORD PTR [eax],ebx
+00801893  750a                           jne    0x80189f
+00801895  397804                         cmp    DWORD PTR [eax+0x4],edi
+00801898  7505                           jne    0x80189f
+0080189A  395008                         cmp    DWORD PTR [eax+0x8],edx
+0080189D  740d                           je     0x8018ac
+0080189F  83c010                         add    eax,0x10
+008018A2  3bc1                           cmp    eax,ecx
+008018A4  75eb                           jne    0x801891
+008018A6  5f                             pop    edi
+008018A7  5b                             pop    ebx
+008018A8  5e                             pop    esi
+008018A9  c21000                         ret    0x10
+008018AC  8b9634010000                   mov    edx,DWORD PTR [esi+0x134]
+008018B2  8d4810                         lea    ecx,[eax+0x10]
+008018B5  3bca                           cmp    ecx,edx
+008018B7  730b                           jae    0x8018c4
+008018B9  50                             push   eax
+008018BA  52                             push   edx
+008018BB  51                             push   ecx
+008018BC  e83fe6ffff                     call   0x7fff00
+008018C1  83c40c                         add    esp,0xc
+008018C4  838634010000f0                 add    DWORD PTR [esi+0x134],0xfffffff0
+008018CB  5f                             pop    edi
+008018CC  5b                             pop    ebx
+008018CD  5e                             pop    esi
+008018CE  c21000                         ret    0x10
+
+ENTRY 00802030 SacsEventFilters_AppendRow | historical_complete_stored_union
+RANGE [00802030,00802099) 105 bytes | stored_owned_union
+00802030  83ec10                         sub    esp,0x10
+00802033  8a442420                       mov    al,BYTE PTR [esp+0x20]
+00802037  8b542414                       mov    edx,DWORD PTR [esp+0x14]
+0080203B  56                             push   esi
+0080203C  8b74241c                       mov    esi,DWORD PTR [esp+0x1c]
+00802040  81c130010000                   add    ecx,0x130
+00802046  88442410                       mov    BYTE PTR [esp+0x10],al
+0080204A  8b4104                         mov    eax,DWORD PTR [ecx+0x4]
+0080204D  3b4108                         cmp    eax,DWORD PTR [ecx+0x8]
+00802050  57                             push   edi
+00802051  8b7c2424                       mov    edi,DWORD PTR [esp+0x24]
+00802055  89542408                       mov    DWORD PTR [esp+0x8],edx
+00802059  8974240c                       mov    DWORD PTR [esp+0xc],esi
+0080205D  897c2410                       mov    DWORD PTR [esp+0x10],edi
+00802061  7323                           jae    0x802086
+00802063  85c0                           test   eax,eax
+00802065  53                             push   ebx
+00802066  8d5810                         lea    ebx,[eax+0x10]
+00802069  895904                         mov    DWORD PTR [ecx+0x4],ebx
+0080206C  5b                             pop    ebx
+0080206D  7422                           je     0x802091
+0080206F  8b4c2414                       mov    ecx,DWORD PTR [esp+0x14]
+00802073  8910                           mov    DWORD PTR [eax],edx
+00802075  897004                         mov    DWORD PTR [eax+0x4],esi
+00802078  897808                         mov    DWORD PTR [eax+0x8],edi
+0080207B  5f                             pop    edi
+0080207C  89480c                         mov    DWORD PTR [eax+0xc],ecx
+0080207F  5e                             pop    esi
+00802080  83c410                         add    esp,0x10
+00802083  c21000                         ret    0x10
+00802086  8d542408                       lea    edx,[esp+0x8]
+0080208A  52                             push   edx
+0080208B  50                             push   eax
+0080208C  e81f804c00                     call   0xcca0b0
+00802091  5f                             pop    edi
+00802092  5e                             pop    esi
+00802093  83c410                         add    esp,0x10
+00802096  c21000                         ret    0x10
+
+ENTRY 008018E0 SACS_AdmitFilteredEvent | historical_complete_stored_union
+RANGE [008018E0,008019BC) 220 bytes | stored_owned_union
+008018E0  83ec0c                         sub    esp,0xc
+008018E3  53                             push   ebx
+008018E4  8b5c2414                       mov    ebx,DWORD PTR [esp+0x14]
+008018E8  85db                           test   ebx,ebx
+008018EA  57                             push   edi
+008018EB  8bf9                           mov    edi,ecx
+008018ED  7408                           je     0x8018f7
+008018EF  8b03                           mov    eax,DWORD PTR [ebx]
+008018F1  8b10                           mov    edx,DWORD PTR [eax]
+008018F3  8bcb                           mov    ecx,ebx
+008018F5  ffd2                           call   edx
+008018F7  83bf2c01000000                 cmp    DWORD PTR [edi+0x12c],0x0
+008018FE  0f84a3000000                   je     0x8019a7
+00801904  8b4b0c                         mov    ecx,DWORD PTR [ebx+0xc]
+00801907  8b4308                         mov    eax,DWORD PTR [ebx+0x8]
+0080190A  8b5310                         mov    edx,DWORD PTR [ebx+0x10]
+0080190D  56                             push   esi
+0080190E  8bb730010000                   mov    esi,DWORD PTR [edi+0x130]
+00801914  894c2410                       mov    DWORD PTR [esp+0x10],ecx
+00801918  8b8f34010000                   mov    ecx,DWORD PTR [edi+0x134]
+0080191E  3bf1                           cmp    esi,ecx
+00801920  c644241c00                     mov    BYTE PTR [esp+0x1c],0x0
+00801925  8944240c                       mov    DWORD PTR [esp+0xc],eax
+00801929  89542414                       mov    DWORD PTR [esp+0x14],edx
+0080192D  7477                           je     0x8019a6
+0080192F  55                             push   ebp
+00801930  8d6e10                         lea    ebp,[esi+0x10]
+00801933  8b06                           mov    eax,DWORD PTR [esi]
+00801935  85c0                           test   eax,eax
+00801937  7406                           je     0x80193f
+00801939  3b442410                       cmp    eax,DWORD PTR [esp+0x10]
+0080193D  7549                           jne    0x801988
+0080193F  8b4604                         mov    eax,DWORD PTR [esi+0x4]
+00801942  85c0                           test   eax,eax
+00801944  7406                           je     0x80194c
+00801946  3b442414                       cmp    eax,DWORD PTR [esp+0x14]
+0080194A  753c                           jne    0x801988
+0080194C  8b4608                         mov    eax,DWORD PTR [esi+0x8]
+0080194F  85c0                           test   eax,eax
+00801951  7406                           je     0x801959
+00801953  3b442418                       cmp    eax,DWORD PTR [esp+0x18]
+00801957  752f                           jne    0x801988
+00801959  807e0c00                       cmp    BYTE PTR [esi+0xc],0x0
+0080195D  c644242001                     mov    BYTE PTR [esp+0x20],0x1
+00801962  7424                           je     0x801988
+00801964  8b8734010000                   mov    eax,DWORD PTR [edi+0x134]
+0080196A  3be8                           cmp    ebp,eax
+0080196C  730b                           jae    0x801979
+0080196E  56                             push   esi
+0080196F  50                             push   eax
+00801970  55                             push   ebp
+00801971  e88ae5ffff                     call   0x7fff00
+00801976  83c40c                         add    esp,0xc
+00801979  838734010000f0                 add    DWORD PTR [edi+0x134],0xfffffff0
+00801980  8b8f34010000                   mov    ecx,DWORD PTR [edi+0x134]
+00801986  eb06                           jmp    0x80198e
+00801988  83c610                         add    esi,0x10
+0080198B  83c510                         add    ebp,0x10
+0080198E  3bf1                           cmp    esi,ecx
+00801990  75a1                           jne    0x801933
+00801992  807c242000                     cmp    BYTE PTR [esp+0x20],0x0
+00801997  5d                             pop    ebp
+00801998  740c                           je     0x8019a6
+0080199A  8b8f2c010000                   mov    ecx,DWORD PTR [edi+0x12c]
+008019A0  53                             push   ebx
+008019A1  e85a0ff4ff                     call   0x742900
+008019A6  5e                             pop    esi
+008019A7  85db                           test   ebx,ebx
+008019A9  7409                           je     0x8019b4
+008019AB  8b03                           mov    eax,DWORD PTR [ebx]
+008019AD  8b5004                         mov    edx,DWORD PTR [eax+0x4]
+008019B0  8bcb                           mov    ecx,ebx
+008019B2  ffd2                           call   edx
+008019B4  5f                             pop    edi
+008019B5  5b                             pop    ebx
+008019B6  83c40c                         add    esp,0xc
+008019B9  c20400                         ret    0x4
+
+ENTRY 007FFFA0 SacsDriver_SetRetainedEventQueue | historical_complete_stored_union
+RANGE [007FFFA0,007FFFD8) 56 bytes | stored_owned_union
+007FFFA0  53                             push   ebx
+007FFFA1  56                             push   esi
+007FFFA2  8b74240c                       mov    esi,DWORD PTR [esp+0xc]
+007FFFA6  8bd9                           mov    ebx,ecx
+007FFFA8  57                             push   edi
+007FFFA9  8bbb2c010000                   mov    edi,DWORD PTR [ebx+0x12c]
+007FFFAF  3bf7                           cmp    esi,edi
+007FFFB1  741f                           je     0x7fffd2
+007FFFB3  85f6                           test   esi,esi
+007FFFB5  7408                           je     0x7fffbf
+007FFFB7  8b06                           mov    eax,DWORD PTR [esi]
+007FFFB9  8b10                           mov    edx,DWORD PTR [eax]
+007FFFBB  8bce                           mov    ecx,esi
+007FFFBD  ffd2                           call   edx
+007FFFBF  85ff                           test   edi,edi
+007FFFC1  89b32c010000                   mov    DWORD PTR [ebx+0x12c],esi
+007FFFC7  7409                           je     0x7fffd2
+007FFFC9  8b07                           mov    eax,DWORD PTR [edi]
+007FFFCB  8b5004                         mov    edx,DWORD PTR [eax+0x4]
+007FFFCE  8bcf                           mov    ecx,edi
+007FFFD0  ffd2                           call   edx
+007FFFD2  5f                             pop    edi
+007FFFD3  5e                             pop    esi
+007FFFD4  5b                             pop    ebx
+007FFFD5  c20400                         ret    0x4
+
+ENTRY 007FCF80 SACS_QueueOrRevisitDriver_7FCF80 | historical_complete_stored_union
+RANGE [007FCF80,007FCFF9) 121 bytes | stored_owned_union
+007FCF80  56                             push   esi
+007FCF81  8bf1                           mov    esi,ecx
+007FCF83  807e1900                       cmp    BYTE PTR [esi+0x19],0x0
+007FCF87  57                             push   edi
+007FCF88  8b7c240c                       mov    edi,DWORD PTR [esp+0xc]
+007FCF8C  7415                           je     0x7fcfa3
+007FCF8E  3b7e14                         cmp    edi,DWORD PTR [esi+0x14]
+007FCF91  7510                           jne    0x7fcfa3
+007FCF93  807c241000                     cmp    BYTE PTR [esp+0x10],0x0
+007FCF98  7410                           je     0x7fcfaa
+007FCF9A  8bcf                           mov    ecx,edi
+007FCF9C  e86f2e0000                     call   0x7ffe10
+007FCFA1  eb07                           jmp    0x7fcfaa
+007FCFA3  807c241000                     cmp    BYTE PTR [esp+0x10],0x0
+007FCFA8  750e                           jne    0x7fcfb8
+007FCFAA  3b7e14                         cmp    edi,DWORD PTR [esi+0x14]
+007FCFAD  7509                           jne    0x7fcfb8
+007FCFAF  5f                             pop    edi
+007FCFB0  c6461801                       mov    BYTE PTR [esi+0x18],0x1
+007FCFB4  5e                             pop    esi
+007FCFB5  c20800                         ret    0x8
+007FCFB8  8b461c                         mov    eax,DWORD PTR [esi+0x1c]
+007FCFBB  8d4e1c                         lea    ecx,[esi+0x1c]
+007FCFBE  8b7620                         mov    esi,DWORD PTR [esi+0x20]
+007FCFC1  3bc6                           cmp    eax,esi
+007FCFC3  740b                           je     0x7fcfd0
+007FCFC5  3938                           cmp    DWORD PTR [eax],edi
+007FCFC7  742b                           je     0x7fcff4
+007FCFC9  83c004                         add    eax,0x4
+007FCFCC  3bc6                           cmp    eax,esi
+007FCFCE  75f5                           jne    0x7fcfc5
+007FCFD0  8b4104                         mov    eax,DWORD PTR [ecx+0x4]
+007FCFD3  3b4108                         cmp    eax,DWORD PTR [ecx+0x8]
+007FCFD6  7311                           jae    0x7fcfe9
+007FCFD8  85c0                           test   eax,eax
+007FCFDA  8d5004                         lea    edx,[eax+0x4]
+007FCFDD  895104                         mov    DWORD PTR [ecx+0x4],edx
+007FCFE0  7412                           je     0x7fcff4
+007FCFE2  8938                           mov    DWORD PTR [eax],edi
+007FCFE4  5f                             pop    edi
+007FCFE5  5e                             pop    esi
+007FCFE6  c20800                         ret    0x8
+007FCFE9  8d54240c                       lea    edx,[esp+0xc]
+007FCFED  52                             push   edx
+007FCFEE  50                             push   eax
+007FCFEF  e82c541800                     call   0x982420
+007FCFF4  5f                             pop    edi
+007FCFF5  5e                             pop    esi
+007FCFF6  c20800                         ret    0x8
+
+ENTRY 007FD000 SACS_ScheduleDriverImmediate | historical_complete_stored_union
+RANGE [007FD000,007FD0B4) 180 bytes | stored_owned_union
+007FD000  53                             push   ebx
+007FD001  56                             push   esi
+007FD002  57                             push   edi
+007FD003  8b7c2410                       mov    edi,DWORD PTR [esp+0x10]
+007FD007  33db                           xor    ebx,ebx
+007FD009  3bfb                           cmp    edi,ebx
+007FD00B  8bf1                           mov    esi,ecx
+007FD00D  0f849b000000                   je     0x7fd0ae
+007FD013  395e14                         cmp    DWORD PTR [esi+0x14],ebx
+007FD016  0f8592000000                   jne    0x7fd0ae
+007FD01C  8a442414                       mov    al,BYTE PTR [esp+0x14]
+007FD020  55                             push   ebp
+007FD021  8d6b0a                         lea    ebp,[ebx+0xa]
+007FD024  897e14                         mov    DWORD PTR [esi+0x14],edi
+007FD027  884619                         mov    BYTE PTR [esi+0x19],al
+007FD02A  8d9b00000000                   lea    ebx,[ebx+0x0]
+007FD030  8b4e14                         mov    ecx,DWORD PTR [esi+0x14]
+007FD033  885e18                         mov    BYTE PTR [esi+0x18],bl
+007FD036  e895700000                     call   0x8040d0
+007FD03B  83ed01                         sub    ebp,0x1
+007FD03E  7410                           je     0x7fd050
+007FD040  385e18                         cmp    BYTE PTR [esi+0x18],bl
+007FD043  740e                           je     0x7fd053
+007FD045  395e14                         cmp    DWORD PTR [esi+0x14],ebx
+007FD048  7406                           je     0x7fd050
+007FD04A  837f0401                       cmp    DWORD PTR [edi+0x4],0x1
+007FD04E  77e0                           ja     0x7fd030
+007FD050  385e18                         cmp    BYTE PTR [esi+0x18],bl
+007FD053  5d                             pop    ebp
+007FD054  7452                           je     0x7fd0a8
+007FD056  395e14                         cmp    DWORD PTR [esi+0x14],ebx
+007FD059  744d                           je     0x7fd0a8
+007FD05B  8b461c                         mov    eax,DWORD PTR [esi+0x1c]
+007FD05E  8d4e1c                         lea    ecx,[esi+0x1c]
+007FD061  895e14                         mov    DWORD PTR [esi+0x14],ebx
+007FD064  885e19                         mov    BYTE PTR [esi+0x19],bl
+007FD067  8b7620                         mov    esi,DWORD PTR [esi+0x20]
+007FD06A  3bc6                           cmp    eax,esi
+007FD06C  897c2414                       mov    DWORD PTR [esp+0x14],edi
+007FD070  740b                           je     0x7fd07d
+007FD072  3938                           cmp    DWORD PTR [eax],edi
+007FD074  7438                           je     0x7fd0ae
+007FD076  83c004                         add    eax,0x4
+007FD079  3bc6                           cmp    eax,esi
+007FD07B  75f5                           jne    0x7fd072
+007FD07D  8b4104                         mov    eax,DWORD PTR [ecx+0x4]
+007FD080  3b4108                         cmp    eax,DWORD PTR [ecx+0x8]
+007FD083  7312                           jae    0x7fd097
+007FD085  3bc3                           cmp    eax,ebx
+007FD087  8d5004                         lea    edx,[eax+0x4]
+007FD08A  895104                         mov    DWORD PTR [ecx+0x4],edx
+007FD08D  741f                           je     0x7fd0ae
+007FD08F  8938                           mov    DWORD PTR [eax],edi
+007FD091  5f                             pop    edi
+007FD092  5e                             pop    esi
+007FD093  5b                             pop    ebx
+007FD094  c20800                         ret    0x8
+007FD097  8d542414                       lea    edx,[esp+0x14]
+007FD09B  52                             push   edx
+007FD09C  50                             push   eax
+007FD09D  e87e531800                     call   0x982420
+007FD0A2  5f                             pop    edi
+007FD0A3  5e                             pop    esi
+007FD0A4  5b                             pop    ebx
+007FD0A5  c20800                         ret    0x8
+007FD0A8  895e14                         mov    DWORD PTR [esi+0x14],ebx
+007FD0AB  885e19                         mov    BYTE PTR [esi+0x19],bl
+007FD0AE  5f                             pop    edi
+007FD0AF  5e                             pop    esi
+007FD0B0  5b                             pop    ebx
+007FD0B1  c20800                         ret    0x8
+
+ENTRY 007FD0C0 SACS_ManagerProcessComponentAndScheduledDrivers_7FD0C0 | historical_complete_stored_union
+RANGE [007FD0C0,007FD134) 116 bytes | stored_owned_union
+007FD0C0  53                             push   ebx
+007FD0C1  55                             push   ebp
+007FD0C2  56                             push   esi
+007FD0C3  8bf1                           mov    esi,ecx
+007FD0C5  8b4e04                         mov    ecx,DWORD PTR [esi+0x4]
+007FD0C8  8b4610                         mov    eax,DWORD PTR [esi+0x10]
+007FD0CB  3bc1                           cmp    eax,ecx
+007FD0CD  57                             push   edi
+007FD0CE  741f                           je     0x7fd0ef
+007FD0D0  8b38                           mov    edi,DWORD PTR [eax]
+007FD0D2  83c004                         add    eax,0x4
+007FD0D5  3bc1                           cmp    eax,ecx
+007FD0D7  894610                         mov    DWORD PTR [esi+0x10],eax
+007FD0DA  7505                           jne    0x7fd0e1
+007FD0DC  8b06                           mov    eax,DWORD PTR [esi]
+007FD0DE  894610                         mov    DWORD PTR [esi+0x10],eax
+007FD0E1  8bcf                           mov    ecx,edi
+007FD0E3  e828031500                     call   0x94d410
+007FD0E8  8bcf                           mov    ecx,edi
+007FD0EA  e8a1021500                     call   0x94d390
+007FD0EF  8d7e1c                         lea    edi,[esi+0x1c]
+007FD0F2  8d6e2c                         lea    ebp,[esi+0x2c]
+007FD0F5  57                             push   edi
+007FD0F6  8bcd                           mov    ecx,ebp
+007FD0F8  e88365ddff                     call   0x5d3680
+007FD0FD  8b0f                           mov    ecx,DWORD PTR [edi]
+007FD0FF  894f04                         mov    DWORD PTR [edi+0x4],ecx
+007FD102  8b7d00                         mov    edi,DWORD PTR [ebp+0x0]
+007FD105  8b5e30                         mov    ebx,DWORD PTR [esi+0x30]
+007FD108  3bfb                           cmp    edi,ebx
+007FD10A  741b                           je     0x7fd127
+007FD10C  8d642400                       lea    esp,[esp+0x0]
+007FD110  8b07                           mov    eax,DWORD PTR [edi]
+007FD112  85c0                           test   eax,eax
+007FD114  740a                           je     0x7fd120
+007FD116  6a00                           push   0x0
+007FD118  50                             push   eax
+007FD119  8bce                           mov    ecx,esi
+007FD11B  e8e0feffff                     call   0x7fd000
+007FD120  83c704                         add    edi,0x4
+007FD123  3bfb                           cmp    edi,ebx
+007FD125  75e9                           jne    0x7fd110
+007FD127  8b5500                         mov    edx,DWORD PTR [ebp+0x0]
+007FD12A  5f                             pop    edi
+007FD12B  5e                             pop    esi
+007FD12C  895504                         mov    DWORD PTR [ebp+0x4],edx
+007FD12F  5d                             pop    ebp
+007FD130  5b                             pop    ebx
+007FD131  c20400                         ret    0x4
+
+ENTRY 0094D4F0 SACS_ComponentConstruct_94D4F0 | historical_complete_stored_union
+RANGE [0094D4F0,0094D528) 56 bytes | stored_owned_union
+0094D4F0  56                             push   esi
+0094D4F1  8b742408                       mov    esi,DWORD PTR [esp+0x8]
+0094D4F5  33c0                           xor    eax,eax
+0094D4F7  3bf0                           cmp    esi,eax
+0094D4F9  742b                           je     0x94d526
+0094D4FB  8b4c240c                       mov    ecx,DWORD PTR [esp+0xc]
+0094D4FF  894e04                         mov    DWORD PTR [esi+0x4],ecx
+0094D502  c706dc4e0401                   mov    DWORD PTR [esi],0x1044edc
+0094D508  894608                         mov    DWORD PTR [esi+0x8],eax
+0094D50B  89460c                         mov    DWORD PTR [esi+0xc],eax
+0094D50E  894610                         mov    DWORD PTR [esi+0x10],eax
+0094D511  c74614bc4e0401                 mov    DWORD PTR [esi+0x14],0x1044ebc
+0094D518  8b0d409d1d01                   mov    ecx,DWORD PTR ds:0x11d9d40
+0094D51E  56                             push   esi
+0094D51F  e80cfaeaff                     call   0x7fcf30
+0094D524  8bc6                           mov    eax,esi
+0094D526  5e                             pop    esi
+0094D527  c3                             ret
+
+ENTRY 0094D5B0 SACS_ComponentRetainAndStoreDriver_94D5B0 | historical_complete_stored_union
+RANGE [0094D5B0,0094D608) 88 bytes | stored_owned_union
+0094D5B0  56                             push   esi
+0094D5B1  57                             push   edi
+0094D5B2  8b7c240c                       mov    edi,DWORD PTR [esp+0xc]
+0094D5B6  85ff                           test   edi,edi
+0094D5B8  8bf1                           mov    esi,ecx
+0094D5BA  7447                           je     0x94d603
+0094D5BC  8b4708                         mov    eax,DWORD PTR [edi+0x8]
+0094D5BF  8b10                           mov    edx,DWORD PTR [eax]
+0094D5C1  8d4f08                         lea    ecx,[edi+0x8]
+0094D5C4  ffd2                           call   edx
+0094D5C6  8b4608                         mov    eax,DWORD PTR [esi+0x8]
+0094D5C9  8b560c                         mov    edx,DWORD PTR [esi+0xc]
+0094D5CC  3bc2                           cmp    eax,edx
+0094D5CE  8d4e08                         lea    ecx,[esi+0x8]
+0094D5D1  740c                           je     0x94d5df
+0094D5D3  833800                         cmp    DWORD PTR [eax],0x0
+0094D5D6  7419                           je     0x94d5f1
+0094D5D8  83c004                         add    eax,0x4
+0094D5DB  3bc2                           cmp    eax,edx
+0094D5DD  75f4                           jne    0x94d5d3
+0094D5DF  8b4104                         mov    eax,DWORD PTR [ecx+0x4]
+0094D5E2  3b4108                         cmp    eax,DWORD PTR [ecx+0x8]
+0094D5E5  7311                           jae    0x94d5f8
+0094D5E7  85c0                           test   eax,eax
+0094D5E9  8d5004                         lea    edx,[eax+0x4]
+0094D5EC  895104                         mov    DWORD PTR [ecx+0x4],edx
+0094D5EF  7412                           je     0x94d603
+0094D5F1  8938                           mov    DWORD PTR [eax],edi
+0094D5F3  5f                             pop    edi
+0094D5F4  5e                             pop    esi
+0094D5F5  c20400                         ret    0x4
+0094D5F8  8d54240c                       lea    edx,[esp+0xc]
+0094D5FC  52                             push   edx
+0094D5FD  50                             push   eax
+0094D5FE  e81d4e0300                     call   0x982420
+0094D603  5f                             pop    edi
+0094D604  5e                             pop    esi
+0094D605  c20400                         ret    0x4
+
+ENTRY 0094D410 SACS_ComponentAdvanceAndCollectDrivers_94D410 | historical_complete_stored_union
+RANGE [0094D410,0094D48D) 125 bytes | stored_owned_union
+0094D410  56                             push   esi
+0094D411  8bf1                           mov    esi,ecx
+0094D413  8b4e04                         mov    ecx,DWORD PTR [esi+0x4]
+0094D416  85c9                           test   ecx,ecx
+0094D418  7471                           je     0x94d48b
+0094D41A  a184d41d01                     mov    eax,ds:0x11dd484
+0094D41F  50                             push   eax
+0094D420  e83b6efeff                     call   0x934260
+0094D425  85c0                           test   eax,eax
+0094D427  7462                           je     0x94d48b
+0094D429  8b5008                         mov    edx,DWORD PTR [eax+0x8]
+0094D42C  8d4808                         lea    ecx,[eax+0x8]
+0094D42F  8b4220                         mov    eax,DWORD PTR [edx+0x20]
+0094D432  ffd0                           call   eax
+0094D434  85c0                           test   eax,eax
+0094D436  7453                           je     0x94d48b
+0094D438  53                             push   ebx
+0094D439  8b5e08                         mov    ebx,DWORD PTR [esi+0x8]
+0094D43C  55                             push   ebp
+0094D43D  8b6e0c                         mov    ebp,DWORD PTR [esi+0xc]
+0094D440  3bdd                           cmp    ebx,ebp
+0094D442  7445                           je     0x94d489
+0094D444  57                             push   edi
+0094D445  8b3b                           mov    edi,DWORD PTR [ebx]
+0094D447  85ff                           test   edi,edi
+0094D449  7436                           je     0x94d481
+0094D44B  8bcf                           mov    ecx,edi
+0094D44D  e87e6cebff                     call   0x8040d0
+0094D452  8b4f04                         mov    ecx,DWORD PTR [edi+0x4]
+0094D455  83f901                         cmp    ecx,0x1
+0094D458  7527                           jne    0x94d481
+0094D45A  8bcf                           mov    ecx,edi
+0094D45C  e8ff2debff                     call   0x800260
+0094D461  84c0                           test   al,al
+0094D463  741c                           je     0x94d481
+0094D465  8b560c                         mov    edx,DWORD PTR [esi+0xc]
+0094D468  8b42fc                         mov    eax,DWORD PTR [edx-0x4]
+0094D46B  8903                           mov    DWORD PTR [ebx],eax
+0094D46D  83460cfc                       add    DWORD PTR [esi+0xc],0xfffffffc
+0094D471  8b5708                         mov    edx,DWORD PTR [edi+0x8]
+0094D474  8b4204                         mov    eax,DWORD PTR [edx+0x4]
+0094D477  8b6e0c                         mov    ebp,DWORD PTR [esi+0xc]
+0094D47A  8d4f08                         lea    ecx,[edi+0x8]
+0094D47D  ffd0                           call   eax
+0094D47F  eb03                           jmp    0x94d484
+0094D481  83c304                         add    ebx,0x4
+0094D484  3bdd                           cmp    ebx,ebp
+0094D486  75bd                           jne    0x94d445
+0094D488  5f                             pop    edi
+0094D489  5d                             pop    ebp
+0094D48A  5b                             pop    ebx
+0094D48B  5e                             pop    esi
+0094D48C  c3                             ret
+
+ENTRY 00767370 SACS_CreateDriverForComponent_767370 | historical_complete_stored_union
+RANGE [00767370,0076740E) 158 bytes | stored_owned_union
+00767370  56                             push   esi
+00767371  57                             push   edi
+00767372  6a00                           push   0x0
+00767374  6a00                           push   0x0
+00767376  6a00                           push   0x0
+00767378  6a00                           push   0x0
+0076737A  68547e0001                     push   0x1007e54
+0076737F  684c010000                     push   0x14c
+00767384  e877d1d7ff                     call   0x4e4500
+00767389  8b7c2428                       mov    edi,DWORD PTR [esp+0x28]
+0076738D  83c418                         add    esp,0x18
+00767390  85c0                           test   eax,eax
+00767392  7476                           je     0x76740a
+00767394  6a01                           push   0x1
+00767396  57                             push   edi
+00767397  8bc8                           mov    ecx,eax
+00767399  e862d70900                     call   0x804b00
+0076739E  8bf0                           mov    esi,eax
+007673A0  85f6                           test   esi,esi
+007673A2  740a                           je     0x7673ae
+007673A4  8b4608                         mov    eax,DWORD PTR [esi+0x8]
+007673A7  8b10                           mov    edx,DWORD PTR [eax]
+007673A9  8d4e08                         lea    ecx,[esi+0x8]
+007673AC  ffd2                           call   edx
+007673AE  807c241800                     cmp    BYTE PTR [esp+0x18],0x0
+007673B3  7409                           je     0x7673be
+007673B5  8b07                           mov    eax,DWORD PTR [edi]
+007673B7  8b5004                         mov    edx,DWORD PTR [eax+0x4]
+007673BA  8bcf                           mov    ecx,edi
+007673BC  ffd2                           call   edx
+007673BE  8b442414                       mov    eax,DWORD PTR [esp+0x14]
+007673C2  85c0                           test   eax,eax
+007673C4  7c03                           jl     0x7673c9
+007673C6  894638                         mov    DWORD PTR [esi+0x38],eax
+007673C9  8b4c240c                       mov    ecx,DWORD PTR [esp+0xc]
+007673CD  56                             push   esi
+007673CE  e8dd611e00                     call   0x94d5b0
+007673D3  8b4608                         mov    eax,DWORD PTR [esi+0x8]
+007673D6  8b10                           mov    edx,DWORD PTR [eax]
+007673D8  8d7e08                         lea    edi,[esi+0x8]
+007673DB  8bcf                           mov    ecx,edi
+007673DD  ffd2                           call   edx
+007673DF  8bce                           mov    ecx,esi
+007673E1  e88ab90900                     call   0x802d70
+007673E6  e8a51f0000                     call   0x769390
+007673EB  8b10                           mov    edx,DWORD PTR [eax]
+007673ED  6a20                           push   0x20
+007673EF  8bc8                           mov    ecx,eax
+007673F1  8b82c8000000                   mov    eax,DWORD PTR [edx+0xc8]
+007673F7  56                             push   esi
+007673F8  ffd0                           call   eax
+007673FA  8b17                           mov    edx,DWORD PTR [edi]
+007673FC  8bf0                           mov    esi,eax
+007673FE  8b4204                         mov    eax,DWORD PTR [edx+0x4]
+00767401  8bcf                           mov    ecx,edi
+00767403  ffd0                           call   eax
+00767405  5f                             pop    edi
+00767406  8bc6                           mov    eax,esi
+00767408  5e                             pop    esi
+00767409  c3                             ret
+0076740A  33f6                           xor    esi,esi
+0076740C  eba0                           jmp    0x7673ae
+
+ENTRY 00804B00 SACS_DriverConstruct_804B00 | historical_complete_stored_union
+RANGE [00804B00,00804BF4) 244 bytes | stored_owned_union
+00804B00  53                             push   ebx
+00804B01  56                             push   esi
+00804B02  8bf1                           mov    esi,ecx
+00804B04  c706a4bb0201                   mov    DWORD PTR [esi],0x102bba4
+00804B0A  33c0                           xor    eax,eax
+00804B0C  8d4e04                         lea    ecx,[esi+0x4]
+00804B0F  8701                           xchg   DWORD PTR [ecx],eax
+00804B11  c7460894b30301                 mov    DWORD PTR [esi+0x8],0x103b394
+00804B18  c70648110201                   mov    DWORD PTR [esi],0x1021148
+00804B1E  c746082c110201                 mov    DWORD PTR [esi+0x8],0x102112c
+00804B25  33db                           xor    ebx,ebx
+00804B27  895e0c                         mov    DWORD PTR [esi+0xc],ebx
+00804B2A  895e10                         mov    DWORD PTR [esi+0x10],ebx
+00804B2D  895e14                         mov    DWORD PTR [esi+0x14],ebx
+00804B30  895e18                         mov    DWORD PTR [esi+0x18],ebx
+00804B33  c7461c08110201                 mov    DWORD PTR [esi+0x1c],0x1021108
+00804B3A  895e20                         mov    DWORD PTR [esi+0x20],ebx
+00804B3D  895e24                         mov    DWORD PTR [esi+0x24],ebx
+00804B40  895e28                         mov    DWORD PTR [esi+0x28],ebx
+00804B43  6aff                           push   0xffffffff
+00804B45  8d4e34                         lea    ecx,[esi+0x34]
+00804B48  c7462ce4100201                 mov    DWORD PTR [esi+0x2c],0x10210e4
+00804B4F  e89c5ecfff                     call   0x4fa9f0
+00804B54  895e30                         mov    DWORD PTR [esi+0x30],ebx
+00804B57  56                             push   esi
+00804B58  8d4e44                         lea    ecx,[esi+0x44]
+00804B5B  c74638feffffff                 mov    DWORD PTR [esi+0x38],0xfffffffe
+00804B62  885e3c                         mov    BYTE PTR [esi+0x3c],bl
+00804B65  895e40                         mov    DWORD PTR [esi+0x40],ebx
+00804B68  e8230bffff                     call   0x7f5690
+00804B6D  8a542410                       mov    dl,BYTE PTR [esp+0x10]
+00804B71  899e1c010000                   mov    DWORD PTR [esi+0x11c],ebx
+00804B77  899e20010000                   mov    DWORD PTR [esi+0x120],ebx
+00804B7D  899e24010000                   mov    DWORD PTR [esi+0x124],ebx
+00804B83  c78628010000a0100201           mov    DWORD PTR [esi+0x128],0x10210a0
+00804B8D  899e2c010000                   mov    DWORD PTR [esi+0x12c],ebx
+00804B93  899e30010000                   mov    DWORD PTR [esi+0x130],ebx
+00804B99  899e34010000                   mov    DWORD PTR [esi+0x134],ebx
+00804B9F  899e38010000                   mov    DWORD PTR [esi+0x138],ebx
+00804BA5  8d8e30010000                   lea    ecx,[esi+0x130]
+00804BAB  c7410c74100201                 mov    DWORD PTR [ecx+0xc],0x1021074
+00804BB2  6a0c                           push   0xc
+00804BB4  c78640010000ffffffff           mov    DWORD PTR [esi+0x140],0xffffffff
+00804BBE  889644010000                   mov    BYTE PTR [esi+0x144],dl
+00804BC4  889e45010000                   mov    BYTE PTR [esi+0x145],bl
+00804BCA  889e46010000                   mov    BYTE PTR [esi+0x146],bl
+00804BD0  889e47010000                   mov    BYTE PTR [esi+0x147],bl
+00804BD6  889e48010000                   mov    BYTE PTR [esi+0x148],bl
+00804BDC  e89f075700                     call   0xd75380
+00804BE1  8b44240c                       mov    eax,DWORD PTR [esp+0xc]
+00804BE5  50                             push   eax
+00804BE6  8bce                           mov    ecx,esi
+00804BE8  e843f7ffff                     call   0x804330
+00804BED  8bc6                           mov    eax,esi
+00804BEF  5e                             pop    esi
+00804BF0  5b                             pop    ebx
+00804BF1  c20800                         ret    0x8
+
+ENTRY 008004C0 FUN_008004c0 | historical_complete_stored_union
+RANGE [008004C0,00800500) 64 bytes | stored_owned_union
+008004C0  8b542408                       mov    edx,DWORD PTR [esp+0x8]
+008004C4  8bc1                           mov    eax,ecx
+008004C6  8b4c2404                       mov    ecx,DWORD PTR [esp+0x4]
+008004CA  89480c                         mov    DWORD PTR [eax+0xc],ecx
+008004CD  c7400400000000                 mov    DWORD PTR [eax+0x4],0x0
+008004D4  c70018100201                   mov    DWORD PTR [eax],0x1021018
+008004DA  c7400850000000                 mov    DWORD PTR [eax+0x8],0x50
+008004E1  895010                         mov    DWORD PTR [eax+0x10],edx
+008004E4  c7402074230001                 mov    DWORD PTR [eax+0x20],0x1002374
+008004EB  b9548e1c01                     mov    ecx,0x11c8e54
+008004F0  894814                         mov    DWORD PTR [eax+0x14],ecx
+008004F3  894818                         mov    DWORD PTR [eax+0x18],ecx
+008004F6  c7401c558e1c01                 mov    DWORD PTR [eax+0x1c],0x11c8e55
+008004FD  c20800                         ret    0x8
+
+ENTRY 00805540 FUN_00805540 | historical_complete_stored_union
+RANGE [00805540,008055A7) 103 bytes | stored_owned_union
+00805540  53                             push   ebx
+00805541  8b5c240c                       mov    ebx,DWORD PTR [esp+0xc]
+00805545  56                             push   esi
+00805546  8b74240c                       mov    esi,DWORD PTR [esp+0xc]
+0080554A  3bf3                           cmp    esi,ebx
+0080554C  7354                           jae    0x8055a2
+0080554E  55                             push   ebp
+0080554F  90                             nop
+00805550  8b4e14                         mov    ecx,DWORD PTR [esi+0x14]
+00805553  85c9                           test   ecx,ecx
+00805555  741a                           je     0x805571
+00805557  8b4104                         mov    eax,DWORD PTR [ecx+0x4]
+0080555A  83c0ff                         add    eax,0xffffffff
+0080555D  894104                         mov    DWORD PTR [ecx+0x4],eax
+00805560  750f                           jne    0x805571
+00805562  c7410401000000                 mov    DWORD PTR [ecx+0x4],0x1
+00805569  8b01                           mov    eax,DWORD PTR [ecx]
+0080556B  8b10                           mov    edx,DWORD PTR [eax]
+0080556D  6a01                           push   0x1
+0080556F  ffd2                           call   edx
+00805571  8b4e10                         mov    ecx,DWORD PTR [esi+0x10]
+00805574  85c9                           test   ecx,ecx
+00805576  7422                           je     0x80559a
+00805578  8d4104                         lea    eax,[ecx+0x4]
+0080557B  8bd0                           mov    edx,eax
+0080557D  83cdff                         or     ebp,0xffffffff
+00805580  f00fc12a                       lock xadd DWORD PTR [edx],ebp
+00805584  4d                             dec    ebp
+00805585  7513                           jne    0x80559a
+00805587  ba01000000                     mov    edx,0x1
+0080558C  8710                           xchg   DWORD PTR [eax],edx
+0080558E  85c9                           test   ecx,ecx
+00805590  7408                           je     0x80559a
+00805592  8b01                           mov    eax,DWORD PTR [ecx]
+00805594  8b10                           mov    edx,DWORD PTR [eax]
+00805596  6a01                           push   0x1
+00805598  ffd2                           call   edx
+0080559A  83c618                         add    esi,0x18
+0080559D  3bf3                           cmp    esi,ebx
+0080559F  72af                           jb     0x805550
+008055A1  5d                             pop    ebp
+008055A2  5e                             pop    esi
+008055A3  5b                             pop    ebx
+008055A4  c20800                         ret    0x8
+
+ENTRY 00932A30 ObjectRegistry_RegisterDefaultComponents | historical_complete_stored_union
+RANGE [00932A30,00932B56) 294 bytes | stored_owned_union
+00932A30  56                             push   esi
+00932A31  e83a4b0000                     call   0x937570
+00932A36  8bf0                           mov    esi,eax
+00932A38  85f6                           test   esi,esi
+00932A3A  0f8412010000                   je     0x932b52
+00932A40  e87b340200                     call   0x955ec0
+00932A45  50                             push   eax
+00932A46  8bce                           mov    ecx,esi
+00932A48  e8e3490000                     call   0x937430
+00932A4D  a358a11e01                     mov    ds:0x11ea158,eax
+00932A52  e8b95b0100                     call   0x948610
+00932A57  50                             push   eax
+00932A58  8bce                           mov    ecx,esi
+00932A5A  e8d1490000                     call   0x937430
+00932A5F  a3c49f1e01                     mov    ds:0x11e9fc4,eax
+00932A64  e8879e0000                     call   0x93c8f0
+00932A69  50                             push   eax
+00932A6A  8bce                           mov    ecx,esi
+00932A6C  e8bf490000                     call   0x937430
+00932A71  a384d41d01                     mov    ds:0x11dd484,eax
+00932A76  e8b5ad0100                     call   0x94d830
+00932A7B  50                             push   eax
+00932A7C  8bce                           mov    ecx,esi
+00932A7E  e8ad490000                     call   0x937430
+00932A83  a3f8a01e01                     mov    ds:0x11ea0f8,eax
+00932A88  e893990100                     call   0x94c420
+00932A8D  50                             push   eax
+00932A8E  8bce                           mov    ecx,esi
+00932A90  e89b490000                     call   0x937430
+00932A95  a3c89f1e01                     mov    ds:0x11e9fc8,eax
+00932A9A  e8910b0100                     call   0x943630
+00932A9F  50                             push   eax
+00932AA0  8bce                           mov    ecx,esi
+00932AA2  e889490000                     call   0x937430
+00932AA7  a3909e1e01                     mov    ds:0x11e9e90,eax
+00932AAC  e89f760200                     call   0x95a150
+00932AB1  50                             push   eax
+00932AB2  8bce                           mov    ecx,esi
+00932AB4  e877490000                     call   0x937430
+00932AB9  a390a21e01                     mov    ds:0x11ea290,eax
+00932ABE  e80dc40100                     call   0x94eed0
+00932AC3  50                             push   eax
+00932AC4  8bce                           mov    ecx,esi
+00932AC6  e865490000                     call   0x937430
+00932ACB  a3fca01e01                     mov    ds:0x11ea0fc,eax
+00932AD0  e82bf50100                     call   0x952000
+00932AD5  50                             push   eax
+00932AD6  8bce                           mov    ecx,esi
+00932AD8  e853490000                     call   0x937430
+00932ADD  a338a11e01                     mov    ds:0x11ea138,eax
+00932AE2  e819a60100                     call   0x94d100
+00932AE7  50                             push   eax
+00932AE8  8bce                           mov    ecx,esi
+00932AEA  e841490000                     call   0x937430
+00932AEF  a3f0a01e01                     mov    ds:0x11ea0f0,eax
+00932AF4  e807d30100                     call   0x94fe00
+00932AF9  50                             push   eax
+00932AFA  8bce                           mov    ecx,esi
+00932AFC  e82f490000                     call   0x937430
+00932B01  a314a11e01                     mov    ds:0x11ea114,eax
+00932B06  e875500100                     call   0x947b80
+00932B0B  50                             push   eax
+00932B0C  8bce                           mov    ecx,esi
+00932B0E  e81d490000                     call   0x937430
+00932B13  a3c09f1e01                     mov    ds:0x11e9fc0,eax
+00932B18  e843b00200                     call   0x95db60
+00932B1D  50                             push   eax
+00932B1E  8bce                           mov    ecx,esi
+00932B20  e80b490000                     call   0x937430
+00932B25  a3a8a21e01                     mov    ds:0x11ea2a8,eax
+00932B2A  e8011e0100                     call   0x944930
+00932B2F  50                             push   eax
+00932B30  8bce                           mov    ecx,esi
+00932B32  e8f9480000                     call   0x937430
+00932B37  a3a89f1e01                     mov    ds:0x11e9fa8,eax
+00932B3C  e86ff30000                     call   0x941eb0
+00932B41  50                             push   eax
+00932B42  8bce                           mov    ecx,esi
+00932B44  e8e7480000                     call   0x937430
+00932B49  a3709e1e01                     mov    ds:0x11e9e70,eax
+00932B4E  b001                           mov    al,0x1
+00932B50  5e                             pop    esi
+00932B51  c3                             ret
+00932B52  32c0                           xor    al,al
+00932B54  5e                             pop    esi
+00932B55  c3                             ret
+
+ENTRY 00937430 ObjectRegistry_RegisterComponentType | historical_complete_stored_union
+RANGE [00937430,00937499) 105 bytes | stored_owned_union
+00937430  53                             push   ebx
+00937431  56                             push   esi
+00937432  57                             push   edi
+00937433  8b7c2410                       mov    edi,DWORD PTR [esp+0x10]
+00937437  8b07                           mov    eax,DWORD PTR [edi]
+00937439  8bf1                           mov    esi,ecx
+0093743B  8b9ec4110000                   mov    ebx,DWORD PTR [esi+0x11c4]
+00937441  50                             push   eax
+00937442  e8a98ce9ff                     call   0x7d00f0
+00937447  8b8ec8110000                   mov    ecx,DWORD PTR [esi+0x11c8]
+0093744D  89bc8e44100000                 mov    DWORD PTR [esi+ecx*4+0x1044],edi
+00937454  8b96c8110000                   mov    edx,DWORD PTR [esi+0x11c8]
+0093745A  8b8ec4110000                   mov    ecx,DWORD PTR [esi+0x11c4]
+00937460  898c9644110000                 mov    DWORD PTR [esi+edx*4+0x1144],ecx
+00937467  8b96c8110000                   mov    edx,DWORD PTR [esi+0x11c8]
+0093746D  898496c4100000                 mov    DWORD PTR [esi+edx*4+0x10c4],eax
+00937474  d1a6c4110000                   shl    DWORD PTR [esi+0x11c4],1
+0093747A  8386c811000001                 add    DWORD PTR [esi+0x11c8],0x1
+00937481  8b7f04                         mov    edi,DWORD PTR [edi+0x4]
+00937484  83c404                         add    esp,0x4
+00937487  85ff                           test   edi,edi
+00937489  7406                           je     0x937491
+0093748B  53                             push   ebx
+0093748C  ffd7                           call   edi
+0093748E  83c404                         add    esp,0x4
+00937491  5f                             pop    edi
+00937492  5e                             pop    esi
+00937493  8bc3                           mov    eax,ebx
+00937495  5b                             pop    ebx
+00937496  c20400                         ret    0x4
+
+ENTRY 009355F0 ObjectEvents_RegisterListener | historical_complete_stored_union
+RANGE [009355F0,00935664) 116 bytes | stored_owned_union
+009355F0  e87b1f0000                     call   0x937570
+009355F5  85c0                           test   eax,eax
+009355F7  7468                           je     0x935661
+009355F9  8bc8                           mov    ecx,eax
+009355FB  e8201e0000                     call   0x937420
+00935600  85c0                           test   eax,eax
+00935602  745d                           je     0x935661
+00935604  8b10                           mov    edx,DWORD PTR [eax]
+00935606  56                             push   esi
+00935607  57                             push   edi
+00935608  6a01                           push   0x1
+0093560A  688c3d0401                     push   0x1043d8c
+0093560F  8bc8                           mov    ecx,eax
+00935611  8b4208                         mov    eax,DWORD PTR [edx+0x8]
+00935614  6a0c                           push   0xc
+00935616  ffd0                           call   eax
+00935618  8b4c2410                       mov    ecx,DWORD PTR [esp+0x10]
+0093561C  8b742414                       mov    esi,DWORD PTR [esp+0x14]
+00935620  8b7c240c                       mov    edi,DWORD PTR [esp+0xc]
+00935624  8930                           mov    DWORD PTR [eax],esi
+00935626  894804                         mov    DWORD PTR [eax+0x4],ecx
+00935629  8b0cbda8d21d01                 mov    ecx,DWORD PTR [edi*4+0x11dd2a8]
+00935630  33d2                           xor    edx,edx
+00935632  85c9                           test   ecx,ecx
+00935634  741c                           je     0x935652
+00935636  3931                           cmp    DWORD PTR [ecx],esi
+00935638  7c09                           jl     0x935643
+0093563A  8bd1                           mov    edx,ecx
+0093563C  8b4908                         mov    ecx,DWORD PTR [ecx+0x8]
+0093563F  85c9                           test   ecx,ecx
+00935641  75f3                           jne    0x935636
+00935643  85d2                           test   edx,edx
+00935645  740b                           je     0x935652
+00935647  894208                         mov    DWORD PTR [edx+0x8],eax
+0093564A  5f                             pop    edi
+0093564B  894808                         mov    DWORD PTR [eax+0x8],ecx
+0093564E  b001                           mov    al,0x1
+00935650  5e                             pop    esi
+00935651  c3                             ret
+00935652  8904bda8d21d01                 mov    DWORD PTR [edi*4+0x11dd2a8],eax
+00935659  5f                             pop    edi
+0093565A  894808                         mov    DWORD PTR [eax+0x8],ecx
+0093565D  b001                           mov    al,0x1
+0093565F  5e                             pop    esi
+00935660  c3                             ret
+00935661  32c0                           xor    al,al
+00935663  c3                             ret
+
+ENTRY 0094D2F0  | no_exact_baseline_definition_context
+RANGE [0094D2F0,0094D320) 48 bytes | separate_original_context_not_owned_union
+0094D2F0  8b4c2404                       mov    ecx,DWORD PTR [esp+0x4]
+0094D2F4  85c9                           test   ecx,ecx
+0094D2F6  741c                           je     0x94d314
+0094D2F8  a1f0a01e01                     mov    eax,ds:0x11ea0f0
+0094D2FD  50                             push   eax
+0094D2FE  e85d6ffeff                     call   0x934260
+0094D303  85c0                           test   eax,eax
+0094D305  740d                           je     0x94d314
+0094D307  8b4c2408                       mov    ecx,DWORD PTR [esp+0x8]
+0094D30B  51                             push   ecx
+0094D30C  8bc8                           mov    ecx,eax
+0094D30E  e85dfeffff                     call   0x94d170
+0094D313  c3                             ret
+0094D314  b001                           mov    al,0x1
+0094D316  c3                             ret
+0094D317  cc                             int3
+0094D318  cc                             int3
+0094D319  cc                             int3
+0094D31A  cc                             int3
+0094D31B  cc                             int3
+0094D31C  cc                             int3
+0094D31D  cc                             int3
+0094D31E  cc                             int3
+0094D31F  cc                             int3
+
+ENTRY 0094D4C0  | no_exact_baseline_definition_context
+RANGE [0094D4C0,0094D4F0) 48 bytes | separate_original_context_not_owned_union
+0094D4C0  8b4c2404                       mov    ecx,DWORD PTR [esp+0x4]
+0094D4C4  85c9                           test   ecx,ecx
+0094D4C6  741c                           je     0x94d4e4
+0094D4C8  a1f0a01e01                     mov    eax,ds:0x11ea0f0
+0094D4CD  50                             push   eax
+0094D4CE  e88d6dfeff                     call   0x934260
+0094D4D3  85c0                           test   eax,eax
+0094D4D5  740d                           je     0x94d4e4
+0094D4D7  8b4c2408                       mov    ecx,DWORD PTR [esp+0x8]
+0094D4DB  51                             push   ecx
+0094D4DC  8bc8                           mov    ecx,eax
+0094D4DE  e83dfeffff                     call   0x94d320
+0094D4E3  c3                             ret
+0094D4E4  b001                           mov    al,0x1
+0094D4E6  c3                             ret
+0094D4E7  cc                             int3
+0094D4E8  cc                             int3
+0094D4E9  cc                             int3
+0094D4EA  cc                             int3
+0094D4EB  cc                             int3
+0094D4EC  cc                             int3
+0094D4ED  cc                             int3
+0094D4EE  cc                             int3
+0094D4EF  cc                             int3
+
+ENTRY 007FCF30 FUN_007fcf30 | historical_complete_stored_union
+RANGE [007FCF30,007FCF7B) 75 bytes | stored_owned_union
+007FCF30  56                             push   esi
+007FCF31  8bf1                           mov    esi,ecx
+007FCF33  8b4604                         mov    eax,DWORD PTR [esi+0x4]
+007FCF36  57                             push   edi
+007FCF37  8b7e10                         mov    edi,DWORD PTR [esi+0x10]
+007FCF3A  2b3e                           sub    edi,DWORD PTR [esi]
+007FCF3C  c1ff02                         sar    edi,0x2
+007FCF3F  3b4608                         cmp    eax,DWORD PTR [esi+0x8]
+007FCF42  731d                           jae    0x7fcf61
+007FCF44  85c0                           test   eax,eax
+007FCF46  8d4804                         lea    ecx,[eax+0x4]
+007FCF49  894e04                         mov    DWORD PTR [esi+0x4],ecx
+007FCF4C  7420                           je     0x7fcf6e
+007FCF4E  8b54240c                       mov    edx,DWORD PTR [esp+0xc]
+007FCF52  8910                           mov    DWORD PTR [eax],edx
+007FCF54  8b16                           mov    edx,DWORD PTR [esi]
+007FCF56  8d04ba                         lea    eax,[edx+edi*4]
+007FCF59  5f                             pop    edi
+007FCF5A  894610                         mov    DWORD PTR [esi+0x10],eax
+007FCF5D  5e                             pop    esi
+007FCF5E  c20400                         ret    0x4
+007FCF61  8d4c240c                       lea    ecx,[esp+0xc]
+007FCF65  51                             push   ecx
+007FCF66  50                             push   eax
+007FCF67  8bce                           mov    ecx,esi
+007FCF69  e8b2541800                     call   0x982420
+007FCF6E  8b16                           mov    edx,DWORD PTR [esi]
+007FCF70  8d04ba                         lea    eax,[edx+edi*4]
+007FCF73  5f                             pop    edi
+007FCF74  894610                         mov    DWORD PTR [esi+0x10],eax
+007FCF77  5e                             pop    esi
+007FCF78  c20400                         ret    0x4
+
+ENTRY 007FFD90 SacsWalker_PropagateDirtyState | historical_complete_stored_union
+RANGE [007FFD90,007FFDE2) 82 bytes | stored_owned_union
+007FFD90  80790c00                       cmp    BYTE PTR [ecx+0xc],0x0
+007FFD94  750b                           jne    0x7ffda1
+007FFD96  807c240400                     cmp    BYTE PTR [esp+0x4],0x0
+007FFD9B  7504                           jne    0x7ffda1
+007FFD9D  33c0                           xor    eax,eax
+007FFD9F  eb05                           jmp    0x7ffda6
+007FFDA1  b801000000                     mov    eax,0x1
+007FFDA6  88410c                         mov    BYTE PTR [ecx+0xc],al
+007FFDA9  8b4904                         mov    ecx,DWORD PTR [ecx+0x4]
+007FFDAC  80b94601000000                 cmp    BYTE PTR [ecx+0x146],0x0
+007FFDB3  7508                           jne    0x7ffdbd
+007FFDB5  84c0                           test   al,al
+007FFDB7  7504                           jne    0x7ffdbd
+007FFDB9  33c0                           xor    eax,eax
+007FFDBB  eb05                           jmp    0x7ffdc2
+007FFDBD  b801000000                     mov    eax,0x1
+007FFDC2  84c0                           test   al,al
+007FFDC4  888146010000                   mov    BYTE PTR [ecx+0x146],al
+007FFDCA  7413                           je     0x7ffddf
+007FFDCC  a1409d1d01                     mov    eax,ds:0x11d9d40
+007FFDD1  85c0                           test   eax,eax
+007FFDD3  740a                           je     0x7ffddf
+007FFDD5  6a00                           push   0x0
+007FFDD7  51                             push   ecx
+007FFDD8  8bc8                           mov    ecx,eax
+007FFDDA  e8a1d1ffff                     call   0x7fcf80
+007FFDDF  c20400                         ret    0x4
+
+ENTRY 004F5F20 Variant_AssignUInt32 | historical_complete_stored_union
+RANGE [004F5F20,004F5F94) 116 bytes | stored_owned_union
+004F5F20  56                             push   esi
+004F5F21  8bf1                           mov    esi,ecx
+004F5F23  f6460804                       test   BYTE PTR [esi+0x8],0x4
+004F5F27  7426                           je     0x4f5f4f
+004F5F29  6a00                           push   0x0
+004F5F2B  6a00                           push   0x0
+004F5F2D  6a00                           push   0x0
+004F5F2F  6a00                           push   0x0
+004F5F31  56                             push   esi
+004F5F32  6a01                           push   0x1
+004F5F34  ff150cda1401                   call   DWORD PTR ds:0x114da0c
+004F5F3A  83c418                         add    esp,0x18
+004F5F3D  f6460802                       test   BYTE PTR [esi+0x8],0x2
+004F5F41  750c                           jne    0x4f5f4f
+004F5F43  66c7460a0000                   mov    WORD PTR [esi+0xa],0x0
+004F5F49  66c746080000                   mov    WORD PTR [esi+0x8],0x0
+004F5F4F  668b4608                       mov    ax,WORD PTR [esi+0x8]
+004F5F53  66250200                       and    ax,0x2
+004F5F57  b90a000000                     mov    ecx,0xa
+004F5F5C  741f                           je     0x4f5f7d
+004F5F5E  66394e0a                       cmp    WORD PTR [esi+0xa],cx
+004F5F62  7419                           je     0x4f5f7d
+004F5F64  8b442408                       mov    eax,DWORD PTR [esp+0x8]
+004F5F68  6a01                           push   0x1
+004F5F6A  6a04                           push   0x4
+004F5F6C  50                             push   eax
+004F5F6D  6a00                           push   0x0
+004F5F6F  51                             push   ecx
+004F5F70  8bce                           mov    ecx,esi
+004F5F72  e849faffff                     call   0x4f59c0
+004F5F77  8bc6                           mov    eax,esi
+004F5F79  5e                             pop    esi
+004F5F7A  c20400                         ret    0x4
+004F5F7D  8b542408                       mov    edx,DWORD PTR [esp+0x8]
+004F5F81  8b12                           mov    edx,DWORD PTR [edx]
+004F5F83  66894608                       mov    WORD PTR [esi+0x8],ax
+004F5F87  895610                         mov    DWORD PTR [esi+0x10],edx
+004F5F8A  66894e0a                       mov    WORD PTR [esi+0xa],cx
+004F5F8E  8bc6                           mov    eax,esi
+004F5F90  5e                             pop    esi
+004F5F91  c20400                         ret    0x4
+
+ENTRY 004F64B0 FUN_004f64b0 | historical_complete_stored_union
+RANGE [004F64B0,004F6559) 169 bytes | stored_owned_union
+004F64B0  56                             push   esi
+004F64B1  8bf1                           mov    esi,ecx
+004F64B3  f6460804                       test   BYTE PTR [esi+0x8],0x4
+004F64B7  57                             push   edi
+004F64B8  7420                           je     0x4f64da
+004F64BA  33ff                           xor    edi,edi
+004F64BC  57                             push   edi
+004F64BD  57                             push   edi
+004F64BE  57                             push   edi
+004F64BF  57                             push   edi
+004F64C0  56                             push   esi
+004F64C1  6a01                           push   0x1
+004F64C3  ff150cda1401                   call   DWORD PTR ds:0x114da0c
+004F64C9  83c418                         add    esp,0x18
+004F64CC  f6460802                       test   BYTE PTR [esi+0x8],0x2
+004F64D0  7508                           jne    0x4f64da
+004F64D2  66897e0a                       mov    WORD PTR [esi+0xa],di
+004F64D6  66897e08                       mov    WORD PTR [esi+0x8],di
+004F64DA  8b44240c                       mov    eax,DWORD PTR [esp+0xc]
+004F64DE  0fb75008                       movzx  edx,WORD PTR [eax+0x8]
+004F64E2  f6c208                         test   dl,0x8
+004F64E5  7544                           jne    0x4f652b
+004F64E7  668b4e08                       mov    cx,WORD PTR [esi+0x8]
+004F64EB  6683e102                       and    cx,0x2
+004F64EF  740a                           je     0x4f64fb
+004F64F1  668b7e0a                       mov    di,WORD PTR [esi+0xa]
+004F64F5  663b780a                       cmp    di,WORD PTR [eax+0xa]
+004F64F9  7530                           jne    0x4f652b
+004F64FB  8b5010                         mov    edx,DWORD PTR [eax+0x10]
+004F64FE  895610                         mov    DWORD PTR [esi+0x10],edx
+004F6501  8b5014                         mov    edx,DWORD PTR [eax+0x14]
+004F6504  895614                         mov    DWORD PTR [esi+0x14],edx
+004F6507  8b5018                         mov    edx,DWORD PTR [eax+0x18]
+004F650A  895618                         mov    DWORD PTR [esi+0x18],edx
+004F650D  668b500a                       mov    dx,WORD PTR [eax+0xa]
+004F6511  6689560a                       mov    WORD PTR [esi+0xa],dx
+004F6515  668b4008                       mov    ax,WORD PTR [eax+0x8]
+004F6519  6625fdff                       and    ax,0xfffd
+004F651D  660bc1                         or     ax,cx
+004F6520  66894608                       mov    WORD PTR [esi+0x8],ax
+004F6524  5f                             pop    edi
+004F6525  8bc6                           mov    eax,esi
+004F6527  5e                             pop    esi
+004F6528  c20400                         ret    0x4
+004F652B  f6c230                         test   dl,0x30
+004F652E  740d                           je     0x4f653d
+004F6530  8b4818                         mov    ecx,DWORD PTR [eax+0x18]
+004F6533  51                             push   ecx
+004F6534  8b4814                         mov    ecx,DWORD PTR [eax+0x14]
+004F6537  51                             push   ecx
+004F6538  8b4810                         mov    ecx,DWORD PTR [eax+0x10]
+004F653B  eb07                           jmp    0x4f6544
+004F653D  6a01                           push   0x1
+004F653F  6a0c                           push   0xc
+004F6541  8d4810                         lea    ecx,[eax+0x10]
+004F6544  51                             push   ecx
+004F6545  52                             push   edx
+004F6546  0fb7500a                       movzx  edx,WORD PTR [eax+0xa]
+004F654A  52                             push   edx
+004F654B  8bce                           mov    ecx,esi
+004F654D  e86ef4ffff                     call   0x4f59c0
+004F6552  5f                             pop    edi
+004F6553  8bc6                           mov    eax,esi
+004F6555  5e                             pop    esi
+004F6556  c20400                         ret    0x4
+
+ENTRY 0094D100 FUN_0094d100 | historical_complete_stored_union
+RANGE [0094D100,0094D106) 6 bytes | stored_owned_union
+0094D100  b814ca1701                     mov    eax,0x117ca14
+0094D105  c3                             ret
+
+ENTRY 0094D170 FUN_0094d170 | historical_complete_stored_union
+RANGE [0094D170,0094D1A4) 52 bytes | stored_owned_union
+0094D170  56                             push   esi
+0094D171  8b7108                         mov    esi,DWORD PTR [ecx+0x8]
+0094D174  57                             push   edi
+0094D175  8b790c                         mov    edi,DWORD PTR [ecx+0xc]
+0094D178  3bf7                           cmp    esi,edi
+0094D17A  741a                           je     0x94d196
+0094D17C  8d642400                       lea    esp,[esp+0x0]
+0094D180  8b0e                           mov    ecx,DWORD PTR [esi]
+0094D182  85c9                           test   ecx,ecx
+0094D184  7417                           je     0x94d19d
+0094D186  e82531ebff                     call   0x8002b0
+0094D18B  84c0                           test   al,al
+0094D18D  740e                           je     0x94d19d
+0094D18F  83c604                         add    esi,0x4
+0094D192  3bf7                           cmp    esi,edi
+0094D194  75ea                           jne    0x94d180
+0094D196  5f                             pop    edi
+0094D197  b001                           mov    al,0x1
+0094D199  5e                             pop    esi
+0094D19A  c20400                         ret    0x4
+0094D19D  5f                             pop    edi
+0094D19E  32c0                           xor    al,al
+0094D1A0  5e                             pop    esi
+0094D1A1  c20400                         ret    0x4
+
+ENTRY 0094D320 SACS_ComponentReleaseDriverRows_94D320 | historical_complete_stored_union
+RANGE [0094D320,0094D38D) 109 bytes | stored_owned_union
+0094D320  51                             push   ecx
+0094D321  55                             push   ebp
+0094D322  8b690c                         mov    ebp,DWORD PTR [ecx+0xc]
+0094D325  57                             push   edi
+0094D326  8b7908                         mov    edi,DWORD PTR [ecx+0x8]
+0094D329  3bfd                           cmp    edi,ebp
+0094D32B  894c2408                       mov    DWORD PTR [esp+0x8],ecx
+0094D32F  744e                           je     0x94d37f
+0094D331  53                             push   ebx
+0094D332  56                             push   esi
+0094D333  8b37                           mov    esi,DWORD PTR [edi]
+0094D335  85f6                           test   esi,esi
+0094D337  7439                           je     0x94d372
+0094D339  8bce                           mov    ecx,esi
+0094D33B  e8302cebff                     call   0x7fff70
+0094D340  8b4608                         mov    eax,DWORD PTR [esi+0x8]
+0094D343  8b5004                         mov    edx,DWORD PTR [eax+0x4]
+0094D346  8d5e08                         lea    ebx,[esi+0x8]
+0094D349  8bcb                           mov    ecx,ebx
+0094D34B  ffd2                           call   edx
+0094D34D  85c0                           test   eax,eax
+0094D34F  7421                           je     0x94d372
+0094D351  e83ac0e1ff                     call   0x769390
+0094D356  8b10                           mov    edx,DWORD PTR [eax]
+0094D358  6a20                           push   0x20
+0094D35A  8bc8                           mov    ecx,eax
+0094D35C  8b82d4000000                   mov    eax,DWORD PTR [edx+0xd4]
+0094D362  56                             push   esi
+0094D363  ffd0                           call   eax
+0094D365  84c0                           test   al,al
+0094D367  7409                           je     0x94d372
+0094D369  8b13                           mov    edx,DWORD PTR [ebx]
+0094D36B  8b4204                         mov    eax,DWORD PTR [edx+0x4]
+0094D36E  8bcb                           mov    ecx,ebx
+0094D370  ffd0                           call   eax
+0094D372  83c704                         add    edi,0x4
+0094D375  3bfd                           cmp    edi,ebp
+0094D377  75ba                           jne    0x94d333
+0094D379  8b4c2410                       mov    ecx,DWORD PTR [esp+0x10]
+0094D37D  5e                             pop    esi
+0094D37E  5b                             pop    ebx
+0094D37F  8b5108                         mov    edx,DWORD PTR [ecx+0x8]
+0094D382  5f                             pop    edi
+0094D383  89510c                         mov    DWORD PTR [ecx+0xc],edx
+0094D386  b001                           mov    al,0x1
+0094D388  5d                             pop    ebp
+0094D389  59                             pop    ecx
+0094D38A  c20400                         ret    0x4
+
+ENTRY 00767220 SACS_BridgeWatchConstructor_767220 | historical_complete_stored_union
+RANGE [00767220,00767281) 97 bytes | stored_owned_union
+00767220  56                             push   esi
+00767221  8bf1                           mov    esi,ecx
+00767223  c7061cc90601                   mov    DWORD PTR [esi],0x106c91c
+00767229  33c0                           xor    eax,eax
+0076722B  8d4e04                         lea    ecx,[esi+0x4]
+0076722E  8701                           xchg   DWORD PTR [ecx],eax
+00767230  8b44240c                       mov    eax,DWORD PTR [esp+0xc]
+00767234  8b542408                       mov    edx,DWORD PTR [esp+0x8]
+00767238  8b4c2418                       mov    ecx,DWORD PTR [esp+0x18]
+0076723C  89460c                         mov    DWORD PTR [esi+0xc],eax
+0076723F  8b442428                       mov    eax,DWORD PTR [esp+0x28]
+00767243  85c0                           test   eax,eax
+00767245  895608                         mov    DWORD PTR [esi+0x8],edx
+00767248  c7461020937600                 mov    DWORD PTR [esi+0x10],0x769320
+0076724F  c706fc7d0001                   mov    DWORD PTR [esi],0x1007dfc
+00767255  894e18                         mov    DWORD PTR [esi+0x18],ecx
+00767258  89461c                         mov    DWORD PTR [esi+0x1c],eax
+0076725B  7417                           je     0x767274
+0076725D  8b5008                         mov    edx,DWORD PTR [eax+0x8]
+00767260  8d4808                         lea    ecx,[eax+0x8]
+00767263  8b02                           mov    eax,DWORD PTR [edx]
+00767265  ffd0                           call   eax
+00767267  8b4c242c                       mov    ecx,DWORD PTR [esp+0x2c]
+0076726B  894e20                         mov    DWORD PTR [esi+0x20],ecx
+0076726E  8bc6                           mov    eax,esi
+00767270  5e                             pop    esi
+00767271  c22800                         ret    0x28
+00767274  8b54242c                       mov    edx,DWORD PTR [esp+0x2c]
+00767278  895620                         mov    DWORD PTR [esi+0x20],edx
+0076727B  8bc6                           mov    eax,esi
+0076727D  5e                             pop    esi
+0076727E  c22800                         ret    0x28
+
+ENTRY 007691E0 SACS_BridgeDestinationRelease_7691e0 | historical_complete_stored_union
+RANGE [007691E0,0076921B) 59 bytes | stored_owned_union
+007691E0  8bc1                           mov    eax,ecx
+007691E2  8b481c                         mov    ecx,DWORD PTR [eax+0x1c]
+007691E5  85c9                           test   ecx,ecx
+007691E7  742f                           je     0x769218
+007691E9  8b4020                         mov    eax,DWORD PTR [eax+0x20]
+007691EC  85c0                           test   eax,eax
+007691EE  7428                           je     0x769218
+007691F0  56                             push   esi
+007691F1  50                             push   eax
+007691F2  e809aa0900                     call   0x803c00
+007691F7  8bf0                           mov    esi,eax
+007691F9  85f6                           test   esi,esi
+007691FB  741a                           je     0x769217
+007691FD  57                             push   edi
+007691FE  8b7c240c                       mov    edi,DWORD PTR [esp+0xc]
+00769202  8b4f10                         mov    ecx,DWORD PTR [edi+0x10]
+00769205  85c9                           test   ecx,ecx
+00769207  7405                           je     0x76920e
+00769209  e842420900                     call   0x7fd450
+0076920E  57                             push   edi
+0076920F  8bce                           mov    ecx,esi
+00769211  e8ba890900                     call   0x801bd0
+00769216  5f                             pop    edi
+00769217  5e                             pop    esi
+00769218  c20800                         ret    0x8
+
+ENTRY 00769320 SACS_BridgeWatchCallback_769320 | historical_complete_stored_union
+RANGE [00769320,00769373) 83 bytes | stored_owned_union
+00769320  8b4c2404                       mov    ecx,DWORD PTR [esp+0x4]
+00769324  85c9                           test   ecx,ecx
+00769326  7448                           je     0x769370
+00769328  8b442408                       mov    eax,DWORD PTR [esp+0x8]
+0076932C  85c0                           test   eax,eax
+0076932E  7440                           je     0x769370
+00769330  80787100                       cmp    BYTE PTR [eax+0x71],0x0
+00769334  740b                           je     0x769341
+00769336  6a00                           push   0x0
+00769338  50                             push   eax
+00769339  e8a2feffff                     call   0x7691e0
+0076933E  32c0                           xor    al,al
+00769340  c3                             ret
+00769341  8b5010                         mov    edx,DWORD PTR [eax+0x10]
+00769344  85d2                           test   edx,edx
+00769346  74f6                           je     0x76933e
+00769348  56                             push   esi
+00769349  8b7228                         mov    esi,DWORD PTR [edx+0x28]
+0076934C  3b7118                         cmp    esi,DWORD PTR [ecx+0x18]
+0076934F  5e                             pop    esi
+00769350  75ec                           jne    0x76933e
+00769352  807a5300                       cmp    BYTE PTR [edx+0x53],0x0
+00769356  7410                           je     0x769368
+00769358  8b5028                         mov    edx,DWORD PTR [eax+0x28]
+0076935B  85d2                           test   edx,edx
+0076935D  7409                           je     0x769368
+0076935F  8b4228                         mov    eax,DWORD PTR [edx+0x28]
+00769362  894118                         mov    DWORD PTR [ecx+0x18],eax
+00769365  32c0                           xor    al,al
+00769367  c3                             ret
+00769368  6a01                           push   0x1
+0076936A  50                             push   eax
+0076936B  e870feffff                     call   0x7691e0
+00769370  b001                           mov    al,0x1
+00769372  c3                             ret
+
+ENTRY 008002B0 FUN_008002b0 | historical_complete_stored_union
+RANGE [008002B0,008002E0) 48 bytes | stored_owned_union
+008002B0  56                             push   esi
+008002B1  8b7110                         mov    esi,DWORD PTR [ecx+0x10]
+008002B4  57                             push   edi
+008002B5  8b7914                         mov    edi,DWORD PTR [ecx+0x14]
+008002B8  3bf7                           cmp    esi,edi
+008002BA  741a                           je     0x8002d6
+008002BC  8d642400                       lea    esp,[esp+0x0]
+008002C0  8b4604                         mov    eax,DWORD PTR [esi+0x4]
+008002C3  8b4864                         mov    ecx,DWORD PTR [eax+0x64]
+008002C6  e895580000                     call   0x805b60
+008002CB  84c0                           test   al,al
+008002CD  740c                           je     0x8002db
+008002CF  83c608                         add    esi,0x8
+008002D2  3bf7                           cmp    esi,edi
+008002D4  75ea                           jne    0x8002c0
+008002D6  5f                             pop    edi
+008002D7  b001                           mov    al,0x1
+008002D9  5e                             pop    esi
+008002DA  c3                             ret
+008002DB  5f                             pop    edi
+008002DC  32c0                           xor    al,al
+008002DE  5e                             pop    esi
+008002DF  c3                             ret
+
+ENTRY 009DE7F0 FUN_009de7f0 | historical_complete_stored_union
+RANGE [009DE7F0,009DE7F4) 4 bytes | stored_owned_union
+009DE7F0  8b4110                         mov    eax,DWORD PTR [ecx+0x10]
+009DE7F3  c3                             ret
+
