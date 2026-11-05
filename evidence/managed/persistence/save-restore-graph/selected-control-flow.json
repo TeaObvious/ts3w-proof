@@ -1,0 +1,555 @@
+{
+  "reference_id": "ts3w-pc-1.67",
+  "managed_reference": "../../reference-inputs.json",
+  "assembly": "ScriptCore",
+  "original_resource": "scripts.package S3SA 073FAA07:00000000:78CF6CF5304D0C4F",
+  "scope": "Four original MethodDefs,219 CIL bytes plus physical headers/extra sections; no reconstructed/rebuilt source authority",
+  "total_CIL_bytes": 219,
+  "methods": [
+    {
+      "token": "0x060001FB",
+      "owner": "ScriptCore.LoadSaveManager",
+      "name": "SaveWorld",
+      "rva": 16808,
+      "signature": "200002",
+      "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+      "IL": "730E1200060A286100000A06178D4D0100010B077D4501000406FE060F120006731D02000628D5010006067B4501000416902A",
+      "ILBytes": 51,
+      "maxStack": 3,
+      "localSig": "070212822C1D02",
+      "instructions": [
+        {
+          "offset": 0,
+          "opcode": "newobj",
+          "operand": "0x0600120E",
+          "bytes": "730E120006"
+        },
+        {
+          "offset": 5,
+          "opcode": "stloc.0",
+          "operand": null,
+          "bytes": "0A"
+        },
+        {
+          "offset": 6,
+          "opcode": "call",
+          "operand": "0x0A000061",
+          "bytes": "286100000A"
+        },
+        {
+          "offset": 11,
+          "opcode": "ldloc.0",
+          "operand": null,
+          "bytes": "06"
+        },
+        {
+          "offset": 12,
+          "opcode": "ldc.i4.1",
+          "operand": null,
+          "bytes": "17"
+        },
+        {
+          "offset": 13,
+          "opcode": "newarr",
+          "operand": "0x0100014D",
+          "bytes": "8D4D010001"
+        },
+        {
+          "offset": 18,
+          "opcode": "stloc.1",
+          "operand": null,
+          "bytes": "0B"
+        },
+        {
+          "offset": 19,
+          "opcode": "ldloc.1",
+          "operand": null,
+          "bytes": "07"
+        },
+        {
+          "offset": 20,
+          "opcode": "stfld",
+          "operand": "0x04000145",
+          "bytes": "7D45010004"
+        },
+        {
+          "offset": 25,
+          "opcode": "ldloc.0",
+          "operand": null,
+          "bytes": "06"
+        },
+        {
+          "offset": 26,
+          "opcode": "ldftn",
+          "operand": "0x0600120F",
+          "bytes": "FE060F120006"
+        },
+        {
+          "offset": 32,
+          "opcode": "newobj",
+          "operand": "0x0600021D",
+          "bytes": "731D020006"
+        },
+        {
+          "offset": 37,
+          "opcode": "call",
+          "operand": "0x060001D5",
+          "bytes": "28D5010006"
+        },
+        {
+          "offset": 42,
+          "opcode": "ldloc.0",
+          "operand": null,
+          "bytes": "06"
+        },
+        {
+          "offset": 43,
+          "opcode": "ldfld",
+          "operand": "0x04000145",
+          "bytes": "7B45010004"
+        },
+        {
+          "offset": 48,
+          "opcode": "ldc.i4.0",
+          "operand": null,
+          "bytes": "16"
+        },
+        {
+          "offset": 49,
+          "opcode": "ldelem.i1",
+          "operand": null,
+          "bytes": "90"
+        },
+        {
+          "offset": 50,
+          "opcode": "ret",
+          "operand": null,
+          "bytes": "2A"
+        }
+      ],
+      "referenced": {
+        "0x0100014D": "System.Boolean",
+        "0x04000145": "ScriptCore.LoadSaveManager/<>c__DisplayClass1::success sig=061D02 attributes=Public",
+        "0x060001D5": "ScriptCore.LoadSaveManager::LoadSaveManager_SaveWorld sig=0001011278",
+        "0x0600021D": "ScriptCore.LoadSaveManager/SaveWorldDelegate::.ctor sig=2002011C18",
+        "0x0600120E": "ScriptCore.LoadSaveManager/<>c__DisplayClass1::.ctor sig=200001",
+        "0x0600120F": "ScriptCore.LoadSaveManager/<>c__DisplayClass1::<SaveWorld>b__0 sig=20010102",
+        "0x0A000061": "Sims3.SimIFace.Simulator::CheckYieldingContext sig=000001"
+      },
+      "EH": [],
+      "physical_method_header_hex": "133003003300000024000011",
+      "physical_extra_sections_hex": []
+    },
+    {
+      "token": "0x0600120F",
+      "owner": "ScriptCore.LoadSaveManager/<>c__DisplayClass1",
+      "name": "<SaveWorld>b__0",
+      "rva": 16797,
+      "signature": "20010102",
+      "attributes": "Public, HideBySig",
+      "IL": "027B4501000416039C2A",
+      "ILBytes": 10,
+      "maxStack": 8,
+      "localSig": null,
+      "instructions": [
+        {
+          "offset": 0,
+          "opcode": "ldarg.0",
+          "operand": null,
+          "bytes": "02"
+        },
+        {
+          "offset": 1,
+          "opcode": "ldfld",
+          "operand": "0x04000145",
+          "bytes": "7B45010004"
+        },
+        {
+          "offset": 6,
+          "opcode": "ldc.i4.0",
+          "operand": null,
+          "bytes": "16"
+        },
+        {
+          "offset": 7,
+          "opcode": "ldarg.1",
+          "operand": null,
+          "bytes": "03"
+        },
+        {
+          "offset": 8,
+          "opcode": "stelem.i1",
+          "operand": null,
+          "bytes": "9C"
+        },
+        {
+          "offset": 9,
+          "opcode": "ret",
+          "operand": null,
+          "bytes": "2A"
+        }
+      ],
+      "referenced": {
+        "0x04000145": "ScriptCore.LoadSaveManager/<>c__DisplayClass1::success sig=061D02 attributes=Public"
+      },
+      "EH": [],
+      "physical_method_header_hex": "2a",
+      "physical_extra_sections_hex": []
+    },
+    {
+      "token": "0x06000209",
+      "owner": "ScriptCore.LoadSaveManager",
+      "name": "BeginLoadObjects",
+      "rva": 17148,
+      "signature": "0002010909",
+      "attributes": "Private, Static, HideBySig",
+      "IL": "03732F050006803600000473340D0006804200000402736D00000A0A7E4200000406146F240D0006DE0A062C06066F4D00000ADC7E42000004D043000002284600000A6F260D000674430000020B072C060780440000042A",
+      "ILBytes": 88,
+      "maxStack": 3,
+      "localSig": "070212825D12810C",
+      "instructions": [
+        {
+          "offset": 0,
+          "opcode": "ldarg.1",
+          "operand": null,
+          "bytes": "03"
+        },
+        {
+          "offset": 1,
+          "opcode": "newobj",
+          "operand": "0x0600052F",
+          "bytes": "732F050006"
+        },
+        {
+          "offset": 6,
+          "opcode": "stsfld",
+          "operand": "0x04000036",
+          "bytes": "8036000004"
+        },
+        {
+          "offset": 11,
+          "opcode": "newobj",
+          "operand": "0x06000D34",
+          "bytes": "73340D0006"
+        },
+        {
+          "offset": 16,
+          "opcode": "stsfld",
+          "operand": "0x04000042",
+          "bytes": "8042000004"
+        },
+        {
+          "offset": 21,
+          "opcode": "ldarg.0",
+          "operand": null,
+          "bytes": "02"
+        },
+        {
+          "offset": 22,
+          "opcode": "newobj",
+          "operand": "0x0A00006D",
+          "bytes": "736D00000A"
+        },
+        {
+          "offset": 27,
+          "opcode": "stloc.0",
+          "operand": null,
+          "bytes": "0A"
+        },
+        {
+          "offset": 28,
+          "opcode": "ldsfld",
+          "operand": "0x04000042",
+          "bytes": "7E42000004"
+        },
+        {
+          "offset": 33,
+          "opcode": "ldloc.0",
+          "operand": null,
+          "bytes": "06"
+        },
+        {
+          "offset": 34,
+          "opcode": "ldnull",
+          "operand": null,
+          "bytes": "14"
+        },
+        {
+          "offset": 35,
+          "opcode": "callvirt",
+          "operand": "0x06000D24",
+          "bytes": "6F240D0006"
+        },
+        {
+          "offset": 40,
+          "opcode": "leave.s",
+          "operand": 52,
+          "bytes": "DE0A"
+        },
+        {
+          "offset": 42,
+          "opcode": "ldloc.0",
+          "operand": null,
+          "bytes": "06"
+        },
+        {
+          "offset": 43,
+          "opcode": "brfalse.s",
+          "operand": 51,
+          "bytes": "2C06"
+        },
+        {
+          "offset": 45,
+          "opcode": "ldloc.0",
+          "operand": null,
+          "bytes": "06"
+        },
+        {
+          "offset": 46,
+          "opcode": "callvirt",
+          "operand": "0x0A00004D",
+          "bytes": "6F4D00000A"
+        },
+        {
+          "offset": 51,
+          "opcode": "endfinally",
+          "operand": null,
+          "bytes": "DC"
+        },
+        {
+          "offset": 52,
+          "opcode": "ldsfld",
+          "operand": "0x04000042",
+          "bytes": "7E42000004"
+        },
+        {
+          "offset": 57,
+          "opcode": "ldtoken",
+          "operand": "0x02000043",
+          "bytes": "D043000002"
+        },
+        {
+          "offset": 62,
+          "opcode": "call",
+          "operand": "0x0A000046",
+          "bytes": "284600000A"
+        },
+        {
+          "offset": 67,
+          "opcode": "callvirt",
+          "operand": "0x06000D26",
+          "bytes": "6F260D0006"
+        },
+        {
+          "offset": 72,
+          "opcode": "castclass",
+          "operand": "0x02000043",
+          "bytes": "7443000002"
+        },
+        {
+          "offset": 77,
+          "opcode": "stloc.1",
+          "operand": null,
+          "bytes": "0B"
+        },
+        {
+          "offset": 78,
+          "opcode": "ldloc.1",
+          "operand": null,
+          "bytes": "07"
+        },
+        {
+          "offset": 79,
+          "opcode": "brfalse.s",
+          "operand": 87,
+          "bytes": "2C06"
+        },
+        {
+          "offset": 81,
+          "opcode": "ldloc.1",
+          "operand": null,
+          "bytes": "07"
+        },
+        {
+          "offset": 82,
+          "opcode": "stsfld",
+          "operand": "0x04000044",
+          "bytes": "8044000004"
+        },
+        {
+          "offset": 87,
+          "opcode": "ret",
+          "operand": null,
+          "bytes": "2A"
+        }
+      ],
+      "referenced": {
+        "0x02000043": "ScriptCore.TaskStateCollection",
+        "0x04000036": "ScriptCore.LoadSaveManager::sNativeReader sig=061280BC attributes=Private, Static",
+        "0x04000042": "ScriptCore.LoadSaveManager::mObjectGroupReader sig=061281C0 attributes=Private, Static",
+        "0x04000044": "ScriptCore.LoadSaveManager::sTaskStates sig=0612810C attributes=Private, Static",
+        "0x0600052F": "ScriptCore.NativePersistReader::.ctor sig=20010109",
+        "0x06000D24": "ScriptCore.PersistReader::Load sig=20020112825D1C",
+        "0x06000D26": "ScriptCore.PersistReader::GetObjectByType sig=20011C128259",
+        "0x06000D34": "ScriptCore.PersistReader::.ctor sig=200001",
+        "0x0A000046": "System.Type::GetTypeFromHandle sig=00011282591181AD",
+        "0x0A00004D": "System.IDisposable::Dispose sig=200001",
+        "0x0A00006D": "Sims3.SimIFace.FastStreamReader::.ctor sig=20010109"
+      },
+      "EH": [
+        {
+          "kind": "Finally",
+          "TryOffset": 28,
+          "TryLength": 14,
+          "HandlerOffset": 42,
+          "HandlerLength": 10,
+          "catchType": null,
+          "FilterOffset": -1
+        }
+      ],
+      "physical_method_header_hex": "1b3003005800000027000011",
+      "physical_extra_sections_hex": [
+        "0110000002001c000e2a000a00000000"
+      ]
+    },
+    {
+      "token": "0x06000216",
+      "owner": "ScriptCore.LoadSaveManager",
+      "name": "EndLoadObjects",
+      "rva": 17984,
+      "signature": "000001",
+      "attributes": "Private, Static, HideBySig",
+      "IL": "7E420000042C0A7E420000046F250D00067E440000042C107E440000046FAB0600061480440000047E420000042C107E420000046F330D00061480420000041480360000042A",
+      "ILBytes": 70,
+      "maxStack": 1,
+      "localSig": null,
+      "instructions": [
+        {
+          "offset": 0,
+          "opcode": "ldsfld",
+          "operand": "0x04000042",
+          "bytes": "7E42000004"
+        },
+        {
+          "offset": 5,
+          "opcode": "brfalse.s",
+          "operand": 17,
+          "bytes": "2C0A"
+        },
+        {
+          "offset": 7,
+          "opcode": "ldsfld",
+          "operand": "0x04000042",
+          "bytes": "7E42000004"
+        },
+        {
+          "offset": 12,
+          "opcode": "callvirt",
+          "operand": "0x06000D25",
+          "bytes": "6F250D0006"
+        },
+        {
+          "offset": 17,
+          "opcode": "ldsfld",
+          "operand": "0x04000044",
+          "bytes": "7E44000004"
+        },
+        {
+          "offset": 22,
+          "opcode": "brfalse.s",
+          "operand": 40,
+          "bytes": "2C10"
+        },
+        {
+          "offset": 24,
+          "opcode": "ldsfld",
+          "operand": "0x04000044",
+          "bytes": "7E44000004"
+        },
+        {
+          "offset": 29,
+          "opcode": "callvirt",
+          "operand": "0x060006AB",
+          "bytes": "6FAB060006"
+        },
+        {
+          "offset": 34,
+          "opcode": "ldnull",
+          "operand": null,
+          "bytes": "14"
+        },
+        {
+          "offset": 35,
+          "opcode": "stsfld",
+          "operand": "0x04000044",
+          "bytes": "8044000004"
+        },
+        {
+          "offset": 40,
+          "opcode": "ldsfld",
+          "operand": "0x04000042",
+          "bytes": "7E42000004"
+        },
+        {
+          "offset": 45,
+          "opcode": "brfalse.s",
+          "operand": 63,
+          "bytes": "2C10"
+        },
+        {
+          "offset": 47,
+          "opcode": "ldsfld",
+          "operand": "0x04000042",
+          "bytes": "7E42000004"
+        },
+        {
+          "offset": 52,
+          "opcode": "callvirt",
+          "operand": "0x06000D33",
+          "bytes": "6F330D0006"
+        },
+        {
+          "offset": 57,
+          "opcode": "ldnull",
+          "operand": null,
+          "bytes": "14"
+        },
+        {
+          "offset": 58,
+          "opcode": "stsfld",
+          "operand": "0x04000042",
+          "bytes": "8042000004"
+        },
+        {
+          "offset": 63,
+          "opcode": "ldnull",
+          "operand": null,
+          "bytes": "14"
+        },
+        {
+          "offset": 64,
+          "opcode": "stsfld",
+          "operand": "0x04000036",
+          "bytes": "8036000004"
+        },
+        {
+          "offset": 69,
+          "opcode": "ret",
+          "operand": null,
+          "bytes": "2A"
+        }
+      ],
+      "referenced": {
+        "0x04000036": "ScriptCore.LoadSaveManager::sNativeReader sig=061280BC attributes=Private, Static",
+        "0x04000042": "ScriptCore.LoadSaveManager::mObjectGroupReader sig=061281C0 attributes=Private, Static",
+        "0x04000044": "ScriptCore.LoadSaveManager::sTaskStates sig=0612810C attributes=Private, Static",
+        "0x060006AB": "ScriptCore.TaskStateCollection::Dispose sig=200001",
+        "0x06000D25": "ScriptCore.PersistReader::ExecutePostLoads sig=200001",
+        "0x06000D33": "ScriptCore.PersistReader::Dispose sig=200001"
+      },
+      "EH": [],
+      "physical_method_header_hex": "033001004600000000000000",
+      "physical_extra_sections_hex": []
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+; Original ScriptCore metadata/CIL transcription, not rebuilt code or current runtime execution.
+; Identity: evidence/managed/reference-inputs.json; scripts.package S3SA 073FAA07:00000000:78CF6CF5304D0C4F.
+; Field/method tokens resolve within the identified original assembly; EH ranges are byte offsets.
+
+; MethodDef 0x060001FB ScriptCore.LoadSaveManager::SaveWorld
+; SignatureBlob 200002; RVA 000041A8; CILBytes 51; MaxStack 3; LocalSignature 070212822C1D02
+; Method header: 133003003300000024000011
+{
+  IL_0000: newobj 0x0600120E ; bytes 730E120006
+  IL_0005: stloc.0 ; bytes 0A
+  IL_0006: call 0x0A000061 ; bytes 286100000A
+  IL_000B: ldloc.0 ; bytes 06
+  IL_000C: ldc.i4.1 ; bytes 17
+  IL_000D: newarr 0x0100014D ; bytes 8D4D010001
+  IL_0012: stloc.1 ; bytes 0B
+  IL_0013: ldloc.1 ; bytes 07
+  IL_0014: stfld 0x04000145 ; bytes 7D45010004
+  IL_0019: ldloc.0 ; bytes 06
+  IL_001A: ldftn 0x0600120F ; bytes FE060F120006
+  IL_0020: newobj 0x0600021D ; bytes 731D020006
+  IL_0025: call 0x060001D5 ; bytes 28D5010006
+  IL_002A: ldloc.0 ; bytes 06
+  IL_002B: ldfld 0x04000145 ; bytes 7B45010004
+  IL_0030: ldc.i4.0 ; bytes 16
+  IL_0031: ldelem.i1 ; bytes 90
+  IL_0032: ret ; bytes 2A
+}
+; Referenced tokens:
+; 0x0100014D System.Boolean
+; 0x04000145 ScriptCore.LoadSaveManager/<>c__DisplayClass1::success sig=061D02 attributes=Public
+; 0x060001D5 ScriptCore.LoadSaveManager::LoadSaveManager_SaveWorld sig=0001011278
+; 0x0600021D ScriptCore.LoadSaveManager/SaveWorldDelegate::.ctor sig=2002011C18
+; 0x0600120E ScriptCore.LoadSaveManager/<>c__DisplayClass1::.ctor sig=200001
+; 0x0600120F ScriptCore.LoadSaveManager/<>c__DisplayClass1::<SaveWorld>b__0 sig=20010102
+; 0x0A000061 Sims3.SimIFace.Simulator::CheckYieldingContext sig=000001
+
+; MethodDef 0x0600120F ScriptCore.LoadSaveManager/<>c__DisplayClass1::<SaveWorld>b__0
+; SignatureBlob 20010102; RVA 0000419D; CILBytes 10; MaxStack 8; LocalSignature None
+; Method header: 2a
+{
+  IL_0000: ldarg.0 ; bytes 02
+  IL_0001: ldfld 0x04000145 ; bytes 7B45010004
+  IL_0006: ldc.i4.0 ; bytes 16
+  IL_0007: ldarg.1 ; bytes 03
+  IL_0008: stelem.i1 ; bytes 9C
+  IL_0009: ret ; bytes 2A
+}
+; Referenced tokens:
+; 0x04000145 ScriptCore.LoadSaveManager/<>c__DisplayClass1::success sig=061D02 attributes=Public
+
+; MethodDef 0x06000209 ScriptCore.LoadSaveManager::BeginLoadObjects
+; SignatureBlob 0002010909; RVA 000042FC; CILBytes 88; MaxStack 3; LocalSignature 070212825D12810C
+; Method header: 1b3003005800000027000011
+{
+  IL_0000: ldarg.1 ; bytes 03
+  IL_0001: newobj 0x0600052F ; bytes 732F050006
+  IL_0006: stsfld 0x04000036 ; bytes 8036000004
+  IL_000B: newobj 0x06000D34 ; bytes 73340D0006
+  IL_0010: stsfld 0x04000042 ; bytes 8042000004
+  IL_0015: ldarg.0 ; bytes 02
+  IL_0016: newobj 0x0A00006D ; bytes 736D00000A
+  IL_001B: stloc.0 ; bytes 0A
+  IL_001C: ldsfld 0x04000042 ; bytes 7E42000004
+  IL_0021: ldloc.0 ; bytes 06
+  IL_0022: ldnull ; bytes 14
+  IL_0023: callvirt 0x06000D24 ; bytes 6F240D0006
+  IL_0028: leave.s 52 ; bytes DE0A
+  IL_002A: ldloc.0 ; bytes 06
+  IL_002B: brfalse.s 51 ; bytes 2C06
+  IL_002D: ldloc.0 ; bytes 06
+  IL_002E: callvirt 0x0A00004D ; bytes 6F4D00000A
+  IL_0033: endfinally ; bytes DC
+  IL_0034: ldsfld 0x04000042 ; bytes 7E42000004
+  IL_0039: ldtoken 0x02000043 ; bytes D043000002
+  IL_003E: call 0x0A000046 ; bytes 284600000A
+  IL_0043: callvirt 0x06000D26 ; bytes 6F260D0006
+  IL_0048: castclass 0x02000043 ; bytes 7443000002
+  IL_004D: stloc.1 ; bytes 0B
+  IL_004E: ldloc.1 ; bytes 07
+  IL_004F: brfalse.s 87 ; bytes 2C06
+  IL_0051: ldloc.1 ; bytes 07
+  IL_0052: stsfld 0x04000044 ; bytes 8044000004
+  IL_0057: ret ; bytes 2A
+; EH {"kind":"Finally","TryOffset":28,"TryLength":14,"HandlerOffset":42,"HandlerLength":10,"catchType":null,"FilterOffset":-1}
+}
+; Referenced tokens:
+; 0x02000043 ScriptCore.TaskStateCollection
+; 0x04000036 ScriptCore.LoadSaveManager::sNativeReader sig=061280BC attributes=Private, Static
+; 0x04000042 ScriptCore.LoadSaveManager::mObjectGroupReader sig=061281C0 attributes=Private, Static
+; 0x04000044 ScriptCore.LoadSaveManager::sTaskStates sig=0612810C attributes=Private, Static
+; 0x0600052F ScriptCore.NativePersistReader::.ctor sig=20010109
+; 0x06000D24 ScriptCore.PersistReader::Load sig=20020112825D1C
+; 0x06000D26 ScriptCore.PersistReader::GetObjectByType sig=20011C128259
+; 0x06000D34 ScriptCore.PersistReader::.ctor sig=200001
+; 0x0A000046 System.Type::GetTypeFromHandle sig=00011282591181AD
+; 0x0A00004D System.IDisposable::Dispose sig=200001
+; 0x0A00006D Sims3.SimIFace.FastStreamReader::.ctor sig=20010109
+
+; MethodDef 0x06000216 ScriptCore.LoadSaveManager::EndLoadObjects
+; SignatureBlob 000001; RVA 00004640; CILBytes 70; MaxStack 1; LocalSignature None
+; Method header: 033001004600000000000000
+{
+  IL_0000: ldsfld 0x04000042 ; bytes 7E42000004
+  IL_0005: brfalse.s 17 ; bytes 2C0A
+  IL_0007: ldsfld 0x04000042 ; bytes 7E42000004
+  IL_000C: callvirt 0x06000D25 ; bytes 6F250D0006
+  IL_0011: ldsfld 0x04000044 ; bytes 7E44000004
+  IL_0016: brfalse.s 40 ; bytes 2C10
+  IL_0018: ldsfld 0x04000044 ; bytes 7E44000004
+  IL_001D: callvirt 0x060006AB ; bytes 6FAB060006
+  IL_0022: ldnull ; bytes 14
+  IL_0023: stsfld 0x04000044 ; bytes 8044000004
+  IL_0028: ldsfld 0x04000042 ; bytes 7E42000004
+  IL_002D: brfalse.s 63 ; bytes 2C10
+  IL_002F: ldsfld 0x04000042 ; bytes 7E42000004
+  IL_0034: callvirt 0x06000D33 ; bytes 6F330D0006
+  IL_0039: ldnull ; bytes 14
+  IL_003A: stsfld 0x04000042 ; bytes 8042000004
+  IL_003F: ldnull ; bytes 14
+  IL_0040: stsfld 0x04000036 ; bytes 8036000004
+  IL_0045: ret ; bytes 2A
+}
+; Referenced tokens:
+; 0x04000036 ScriptCore.LoadSaveManager::sNativeReader sig=061280BC attributes=Private, Static
+; 0x04000042 ScriptCore.LoadSaveManager::mObjectGroupReader sig=061281C0 attributes=Private, Static
+; 0x04000044 ScriptCore.LoadSaveManager::sTaskStates sig=0612810C attributes=Private, Static
+; 0x060006AB ScriptCore.TaskStateCollection::Dispose sig=200001
+; 0x06000D25 ScriptCore.PersistReader::ExecutePostLoads sig=200001
+; 0x06000D33 ScriptCore.PersistReader::Dispose sig=200001
+

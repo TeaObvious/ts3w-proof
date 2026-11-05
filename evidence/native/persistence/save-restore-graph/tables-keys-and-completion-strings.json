@@ -1,0 +1,149 @@
+{
+  "reference_id": "ts3w-pc-1.67",
+  "scope": "Selected original data with concrete consumers; no table extent, selector-domain or runtime guarantee",
+  "table_and_key_bytes": 80,
+  "table_and_key_rows": [
+    {
+      "va": "0101B26C",
+      "bytes": 24,
+      "hex": "703c7d00803c7d00b03c7d00503d7d00103e7d00603f7d00",
+      "words": [
+        "007D3C70",
+        "007D3C80",
+        "007D3CB0",
+        "007D3D50",
+        "007D3E10",
+        "007D3F60"
+      ],
+      "role": "six selected reader slots; exact constructor-installed table, no general subtype claim"
+    },
+    {
+      "va": "0101B290",
+      "bytes": 16,
+      "hex": "60477d0060437d0090447d00803b7d00",
+      "words": [
+        "007D4760",
+        "007D4360",
+        "007D4490",
+        "007D3B80"
+      ],
+      "role": "four constructor-installed writer slots"
+    },
+    {
+      "va": "010023C0",
+      "bytes": 12,
+      "hex": "4030740030307400102e7400",
+      "words": [
+        "00743040",
+        "00743030",
+        "00742E10"
+      ],
+      "role": "three concrete process embedded-interface slots"
+    },
+    {
+      "va": "010023D0",
+      "bytes": 12,
+      "hex": "202e7400101cec0080a47000",
+      "words": [
+        "00742E20",
+        "00EC1C10",
+        "0070A480"
+      ],
+      "role": "three concrete process primary-interface slots"
+    },
+    {
+      "va": "01183E20",
+      "bytes": 16,
+      "hex": "0100000000000000dc0ce80301000000",
+      "words": [
+        "00000001",
+        "00000000",
+        "03E80CDC",
+        "00000001"
+      ],
+      "role": "package header resource key"
+    }
+  ],
+  "completion_strings_bytes": 534,
+  "completion_strings": [
+    {
+      "va": "01002600",
+      "encoding": "utf-16le",
+      "text": "World/LoadSave/SaveWorldSuccess:Text",
+      "bytes": 74,
+      "hex": "57006f0072006c0064002f004c006f006100640053006100760065002f00530061007600650057006f0072006c00640053007500630063006500730073003a0054006500780074000000"
+    },
+    {
+      "va": "010025A8",
+      "encoding": "utf-16le",
+      "text": "World/LoadSave/SaveWorldSuccessCaption:Text",
+      "bytes": 88,
+      "hex": "57006f0072006c0064002f004c006f006100640053006100760065002f00530061007600650057006f0072006c0064005300750063006300650073007300430061007000740069006f006e003a0054006500780074000000"
+    },
+    {
+      "va": "01002560",
+      "encoding": "utf-16le",
+      "text": "World/LoadSave/SaveWorldWarn:Text",
+      "bytes": 68,
+      "hex": "57006f0072006c0064002f004c006f006100640053006100760065002f00530061007600650057006f0072006c0064005700610072006e003a0054006500780074000000"
+    },
+    {
+      "va": "01002518",
+      "encoding": "utf-16le",
+      "text": "World/LoadSave/SaveWorldError:Text",
+      "bytes": 70,
+      "hex": "57006f0072006c0064002f004c006f006100640053006100760065002f00530061007600650057006f0072006c0064004500720072006f0072003a0054006500780074000000"
+    },
+    {
+      "va": "010024C0",
+      "encoding": "utf-16le",
+      "text": "World/LoadSave/SaveWorldWarnCaption:Text",
+      "bytes": 82,
+      "hex": "57006f0072006c0064002f004c006f006100640053006100760065002f00530061007600650057006f0072006c0064005700610072006e00430061007000740069006f006e003a0054006500780074000000"
+    },
+    {
+      "va": "01002468",
+      "encoding": "utf-16le",
+      "text": "World/LoadSave/SaveWorldErrorCaption:Text",
+      "bytes": 84,
+      "hex": "57006f0072006c0064002f004c006f006100640053006100760065002f00530061007600650057006f0072006c0064004500720072006f007200430061007000740069006f006e003a0054006500780074000000"
+    },
+    {
+      "va": "01002440",
+      "encoding": "ascii",
+      "text": "UserTool/UserToolManager/savelog",
+      "bytes": 33,
+      "hex": "55736572546f6f6c2f55736572546f6f6c4d616e616765722f736176656c6f6700"
+    },
+    {
+      "va": "0100241C",
+      "encoding": "ascii",
+      "text": "UserTool/UserToolManager/locString",
+      "bytes": 35,
+      "hex": "55736572546f6f6c2f55736572546f6f6c4d616e616765722f6c6f63537472696e6700"
+    }
+  ],
+  "stack_key_table_by_selector": {
+    "text": [
+      "01002600",
+      "01002600",
+      "01002560",
+      "01002518"
+    ],
+    "caption": [
+      "010025A8",
+      "010025A8",
+      "010024C0",
+      "01002468"
+    ]
+  },
+  "selector_domain_not_validated": true,
+  "completion_import": [
+    {
+      "iat_slot": "00F96800",
+      "dll": "USER32.dll",
+      "name": "MessageBoxW",
+      "original_ilt_word": "00D44D64"
+    }
+  ]
+}
