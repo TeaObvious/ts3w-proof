@@ -1,0 +1,183 @@
+{
+  "reference_id": "ts3w-pc-1.67",
+  "inventory_version": "20261104",
+  "assertion_id": "eventqueue-slot8-unowned-entry-context",
+  "scope": "Selected original table prefixes and physical caller/creator instructions; no installed runtime state or canonical pair",
+  "target_context_va": [
+    "0051A720",
+    "0051A73F"
+  ],
+  "target_definition_observation": {
+    "state": "retained_NoFunction",
+    "program_name": "/TS3W.exe",
+    "result": "Function not found: 0x0051A720",
+    "meaning": "Captured negative query observation, not a global definition-absence claim or permission to define code"
+  },
+  "selected_table_views": [
+    {
+      "address": "010022D0",
+      "bytes": "9017b3009071ec0020a75100",
+      "slots": [
+        {
+          "offset": 0,
+          "target": "00B31790"
+        },
+        {
+          "offset": 4,
+          "target": "00EC7190"
+        },
+        {
+          "offset": 8,
+          "target": "0051A720"
+        }
+      ]
+    },
+    {
+      "address": "00FA2B80",
+      "bytes": "8cf2f7008cf2f70020a75100",
+      "slots": [
+        {
+          "offset": 0,
+          "target": "00F7F28C"
+        },
+        {
+          "offset": 4,
+          "target": "00F7F28C"
+        },
+        {
+          "offset": 8,
+          "target": "0051A720"
+        }
+      ]
+    }
+  ],
+  "conditional_ingress": [
+    {
+      "caller_entry_va": "00EC7190",
+      "table_base_va": "010022D0",
+      "selected_slot_offset_hex": "08",
+      "slot_va": "010022D8",
+      "original_slot_bytes_hex": "20a75100",
+      "target_va": "0051A720",
+      "table_load_site_va": "00EC71A2",
+      "slot_load_site_va": "00EC71A4",
+      "argument_push_site_va": "00EC71A7",
+      "indirect_call_site_va": "00EC71A9",
+      "argument_word_hex": "00000001",
+      "condition": "Decrement result is zero and the receiver table equals this selected original table; installed runtime table not observed",
+      "scope": "One original DWORD slot per selected table; no whole-table extent or runtime dispatch assertion"
+    },
+    {
+      "caller_entry_va": "00EC7190",
+      "table_base_va": "00FA2B80",
+      "selected_slot_offset_hex": "08",
+      "slot_va": "00FA2B88",
+      "original_slot_bytes_hex": "20a75100",
+      "target_va": "0051A720",
+      "table_load_site_va": "00EC71A2",
+      "slot_load_site_va": "00EC71A4",
+      "argument_push_site_va": "00EC71A7",
+      "indirect_call_site_va": "00EC71A9",
+      "argument_word_hex": "00000001",
+      "condition": "Decrement result is zero and the receiver table equals this selected original table; installed runtime table not observed",
+      "scope": "One original DWORD slot per selected table; no whole-table extent or runtime dispatch assertion"
+    }
+  ],
+  "caller_original_context": {
+    "entry_va": "00EC7190",
+    "stop_va_exclusive": "00EC71AE",
+    "byte_count": 30,
+    "instructions": [
+      {
+        "address": "00EC7190",
+        "bytes": "8b4104",
+        "asm": "mov    eax,DWORD PTR [ecx+0x4]"
+      },
+      {
+        "address": "00EC7193",
+        "bytes": "83c0ff",
+        "asm": "add    eax,0xffffffff"
+      },
+      {
+        "address": "00EC7196",
+        "bytes": "894104",
+        "asm": "mov    DWORD PTR [ecx+0x4],eax"
+      },
+      {
+        "address": "00EC7199",
+        "bytes": "7512",
+        "asm": "jne    0xec71ad"
+      },
+      {
+        "address": "00EC719B",
+        "bytes": "c7410401000000",
+        "asm": "mov    DWORD PTR [ecx+0x4],0x1"
+      },
+      {
+        "address": "00EC71A2",
+        "bytes": "8b01",
+        "asm": "mov    eax,DWORD PTR [ecx]"
+      },
+      {
+        "address": "00EC71A4",
+        "bytes": "8b5008",
+        "asm": "mov    edx,DWORD PTR [eax+0x8]"
+      },
+      {
+        "address": "00EC71A7",
+        "bytes": "6a01",
+        "asm": "push   0x1"
+      },
+      {
+        "address": "00EC71A9",
+        "bytes": "ffd2",
+        "asm": "call   edx"
+      },
+      {
+        "address": "00EC71AB",
+        "bytes": "33c0",
+        "asm": "xor    eax,eax"
+      },
+      {
+        "address": "00EC71AD",
+        "bytes": "c3",
+        "asm": "ret"
+      }
+    ],
+    "scope": "Existing caller instructions supporting the selected slot load/PUSH1/call; no target C or newly adopted canonical function pair"
+  },
+  "creator_initialization": {
+    "entry_va": "00742890",
+    "scope": "Three selected original stores from a retained 96-byte legacy window, not a full body claim",
+    "instructions": [
+      {
+        "address": "007428C2",
+        "bytes": "897004",
+        "meaning": "zero wrapper+4"
+      },
+      {
+        "address": "007428C5",
+        "bytes": "c700d0220001",
+        "meaning": "install original selected table 010022D0"
+      },
+      {
+        "address": "007428CB",
+        "bytes": "894808",
+        "meaning": "store incoming opaque callback word at wrapper+8"
+      }
+    ]
+  },
+  "normal_return_relation": {
+    "physical_argument_word": "00000001",
+    "target_RET4_va": "0051A73C",
+    "caller_zero_result_va": "00EC71AB",
+    "limits": "Normal-return path only; caller discards receiver word; no successful reclamation, liveness, callback delivery/cancellation or full source-language ABI"
+  },
+  "external_call": {
+    "site_va": "0051A731",
+    "original_bytes_hex": "e8aa9dfcff",
+    "target_va": "004E44E0",
+    "local_successor_va": "0051A736",
+    "model": "Call assumed to return normally; helper CFG/effects not included in the local continuation graph"
+  }
+}

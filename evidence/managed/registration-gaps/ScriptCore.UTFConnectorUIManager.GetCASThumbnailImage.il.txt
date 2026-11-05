@@ -1,0 +1,28 @@
+// Original PC1.67 S3SA ScriptCore; MethodDef0x06000F4F. complete48-byte CIL wrapper.
+// Identity and binding: evidence.json; central assembly provenance: ../reference-inputs.json.
+// Original metadata/CIL view; the C# companion is a renderer projection.
+.method /* 06000F4F */ public final hidebysig newslot virtual 
+	instance uint32 GetCASThumbnailImage (
+		valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey key
+	) cil managed 
+{
+	// Method begins at RVA 0x12140
+	// Header size: 1
+	// Code size: 48 (0x30)
+	.maxstack 8
+
+	IL_0000: ldarga.s key
+	IL_0002: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.ThumbnailKey::mDescKey /* 0A000059 */
+	IL_0007: ldarga.s key
+	IL_0009: ldfld int32 [SimIFace]Sims3.SimIFace.ThumbnailKey::mIndex /* 0A00005B */
+	IL_000e: ldarga.s key
+	IL_0010: ldfld uint32 [SimIFace]Sims3.SimIFace.ThumbnailKey::mBodyType /* 0A000241 */
+	IL_0015: ldarga.s key
+	IL_0017: ldfld uint32 [SimIFace]Sims3.SimIFace.ThumbnailKey::mAgeGender /* 0A00023D */
+	IL_001c: ldarga.s key
+	IL_001e: ldfld bool [SimIFace]Sims3.SimIFace.ThumbnailKey::mLiveUpdate /* 0A00023E */
+	IL_0023: ldarga.s key
+	IL_0025: ldfld valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize [SimIFace]Sims3.SimIFace.ThumbnailKey::mSize /* 0A00005C */
+	IL_002a: call uint32 ScriptCore.UTFConnectorUIManager::UIManager_GetCASThumbnailImageImpl(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, int32, uint32, uint32, bool, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize) /* 06000EDE */
+	IL_002f: ret
+} // end of method UTFConnectorUIManager::GetCASThumbnailImage

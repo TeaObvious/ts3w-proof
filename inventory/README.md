@@ -21,3 +21,5 @@ The [native evidence index](../indexes/native-evidence.tsv) resolves the current
 - [Preserve and reuse the historical native corpus](legacy-reuse.md): searchable 5,054-entry byte/union catalog, a bounded 90-entry name-freshness candidate set and an explicit adoption boundary. Existing canonical pairs remain authoritative successors; this catalog does not add 5,054 pairs.
 
 - [Bounded required instruction evidence](remaining-instruction-evidence.md): four exact assertions totaling 1,690 complement bytes for two singleton-entry continuations, with 20 parent bytes still unresolved; metadata ownership and the existing data assertions remain unchanged.
+
+- [Unowned indirect-target instruction evidence](remaining-instruction-context-evidence.md): a separate typed 31-byte/eleven-start context assertion for a conditional slot+8 target, with retained NoFunction and 66 parent bytes unresolved; no canonical function pair is added.

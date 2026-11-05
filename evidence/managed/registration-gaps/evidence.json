@@ -1,0 +1,204 @@
+{
+  "schema": "ts3w-managed-registration-gap-addendum-v1",
+  "reference": "../../reference.json",
+  "original_assembly_manifest": "../reference-inputs.json",
+  "original_assembly_name": "ScriptCore",
+  "source_indexes": {
+    "native_declarations": "../native-methods.jsonl",
+    "interop": "../interop-metadata.jsonl",
+    "direct_callers": "../direct-callers.tsv",
+    "registrations": "../../../indexes/native-registrations.tsv",
+    "existing_resolution_boundaries": "../../../indexes/registration-resolution-boundaries.tsv",
+    "frozen_capture_frontier": "../../../inventory/native-capture-frontier.tsv",
+    "current_canonical_evidence": "../../../indexes/native-evidence.tsv"
+  },
+  "addendum_indexes": {
+    "unjoined_native_flag_methods": "../../../indexes/managed-registration-gaps.tsv",
+    "shared_targets": "../../../indexes/native-registration-shared-targets.tsv"
+  },
+  "counts": {
+    "root_declarations": 4722,
+    "runtime_delegate_records_separate": 2456,
+    "native_flag_declarations": 2266,
+    "registration_records": 1777,
+    "registered_targets": 1733,
+    "registration_join_statuses": {
+      "unique-name-candidate": 1771,
+      "ambiguous-name-overloads": 1,
+      "no-exact-name-candidate": 5
+    },
+    "distinct_exact_candidate_ids": 1773,
+    "unjoined_native_flag_declarations": 493,
+    "gap_families": {
+      "corelib-internal-call-no-selected-registration": 329,
+      "no-exact-owner-or-import-suffix-registration": 15,
+      "same-import-suffix-different-declaring-owner": 149
+    },
+    "unjoined_by_assembly": {
+      "mscorlib": 329,
+      "ScriptCore": 159,
+      "UI": 5
+    },
+    "foreign_suffix_subcounts": {
+      "same_managed_signature_primary_candidates": 146,
+      "different_managed_signature_primary_candidates": 1,
+      "no_exact_primary_candidate": 2
+    },
+    "existing_boundary_related_unjoined_method_ids": 6,
+    "new_no_suffix_methods_outside_existing_boundary": 11,
+    "shared_target_groups": 20,
+    "records_in_shared_target_groups": 64,
+    "registration_frontier_bindings_consistent": true,
+    "existing_six_boundary_rows_preserved": true,
+    "zero_indexed_call_sites_in_unjoined": 76,
+    "not_unused_proof": true
+  },
+  "snapshot_boundary": {
+    "canonical_index_observation_commit": "533593fa2698c54cfabf79256ceddb930b9adcce",
+    "historical_frontier_input_commit": "2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944",
+    "historical_canonical_input_pairs": 25,
+    "historical_registered_targets_with_current_pair": 5,
+    "observed_canonical_pairs": 75,
+    "observed_registered_targets_with_current_pair": 7,
+    "new_current_registered_targets_relative_to_frozen_pair_presence": [
+      "0077D320",
+      "00D835D0"
+    ],
+    "frozen_frontier_not_recomputed": true,
+    "runtime_and_semantic_coverage_not_inferred": true
+  },
+  "selected_methods": [
+    {
+      "method_id": "ScriptCore:06000DFD",
+      "role": "PInvoke declaration",
+      "IL": "ScriptCore.UIManager.UIManager_GetCASThumbnailImageImpl.il.txt",
+      "CSharp": "ScriptCore.UIManager.UIManager_GetCASThumbnailImageImpl.cs",
+      "body_CIL_bytes": 0,
+      "direct_declared_call": null
+    },
+    {
+      "method_id": "ScriptCore:06000EDE",
+      "role": "PInvoke declaration",
+      "IL": "ScriptCore.UTFConnectorUIManager.UIManager_GetCASThumbnailImageImpl.il.txt",
+      "CSharp": "ScriptCore.UTFConnectorUIManager.UIManager_GetCASThumbnailImageImpl.cs",
+      "body_CIL_bytes": 0,
+      "direct_declared_call": null
+    },
+    {
+      "method_id": "ScriptCore:06000E6E",
+      "role": "complete48-byte CIL wrapper",
+      "IL": "ScriptCore.UIManager.GetCASThumbnailImage.il.txt",
+      "CSharp": "ScriptCore.UIManager.GetCASThumbnailImage.cs",
+      "body_CIL_bytes": 48,
+      "direct_declared_call": {
+        "IL_offset": "IL_002A",
+        "target_method_id": "ScriptCore:06000DFD"
+      }
+    },
+    {
+      "method_id": "ScriptCore:06000F4F",
+      "role": "complete48-byte CIL wrapper",
+      "IL": "ScriptCore.UTFConnectorUIManager.GetCASThumbnailImage.il.txt",
+      "CSharp": "ScriptCore.UTFConnectorUIManager.GetCASThumbnailImage.cs",
+      "body_CIL_bytes": 48,
+      "direct_declared_call": {
+        "IL_offset": "IL_002A",
+        "target_method_id": "ScriptCore:06000EDE"
+      }
+    }
+  ],
+  "selected_registration_join": {
+    "registration_id": "descriptor-table:0x01162E10",
+    "record_va": "0x01162E10",
+    "record_file_offset": 14036496,
+    "record_bytes_hex": "9032780010000101",
+    "registration_name": "ScriptCore.UIManager::UIManager_GetCASThumbnailImageImpl",
+    "name_va": "0x01010010",
+    "name_file_offset": 12648464,
+    "name_byte_length_including_nul": 57,
+    "native_target_va": "0x00783290",
+    "exact_original_owner_name_candidate": "ScriptCore:06000DFD",
+    "foreign_owner_not_joined": "ScriptCore:06000EDE",
+    "not_a_native_alias_or_ABI_proof": true
+  },
+  "followup_questions": [
+    {
+      "id": "thumbnail-owner-module-and-order",
+      "priority": 1,
+      "method_ids": [
+        "ScriptCore:06000DFD",
+        "ScriptCore:06000EDE"
+      ],
+      "missing": "Original connector selection and module/export/internal-call resolver, followed by physical argument/marshaling bridge for the selected declaration. Different declared last-two-argument order does not prove a shared native binding or a defect."
+    },
+    {
+      "id": "foreign-owner-module-binding",
+      "priority": 2,
+      "gap_family": "same-import-suffix-different-declaring-owner",
+      "missing": "Actual connector/owner selection, module/export/name-alias path and physical ABI as appropriate; decoded managed-signature equality is insufficient."
+    },
+    {
+      "id": "profiler-import-resolution",
+      "priority": 3,
+      "method_ids": [
+        "ScriptCore:06000031",
+        "ScriptCore:06000032"
+      ],
+      "missing": "Concrete native import/module resolution and reachability/scope evidence; differently named GameUtils load-event registrations are not proved aliases. Zero indexed direct sites are not unused proof."
+    },
+    {
+      "id": "telemetry-scope-and-import-resolution",
+      "priority": 3,
+      "method_ids": [
+        "ScriptCore:06000058",
+        "ScriptCore:06000059",
+        "ScriptCore:0600005A"
+      ],
+      "missing": "Original reachability/scope and concrete resolver/registration evidence before exclusion or mapping; names and zero selected direct sites are insufficient."
+    },
+    {
+      "id": "social-import-resolution-and-scope",
+      "priority": 3,
+      "method_ids": [
+        "ScriptCore:06000A76",
+        "ScriptCore:06000A7B",
+        "ScriptCore:06000AB7",
+        "ScriptCore:06000AB8",
+        "ScriptCore:06000AB9"
+      ],
+      "missing": "Exact module/export or resolver mapping, or a justified original scope boundary. Other rank-description/image registrations are not aliases by similarity."
+    },
+    {
+      "id": "external-variantclear-boundary",
+      "priority": 3,
+      "method_ids": [
+        "UI:06003027"
+      ],
+      "missing": "Review original marshaler caller UI:0600302B@IL_0017 and external oleaut32.dll boundary; no new TS3W-address registration is inferred."
+    },
+    {
+      "id": "corelib-runtime-binding",
+      "priority": 4,
+      "gap_family": "corelib-internal-call-no-selected-registration",
+      "missing": "Actual runtime InternalCall registration/map and implementation owner or independently justified runtime/shared-helper scope boundary; not329missing game registrations."
+    },
+    {
+      "id": "existing-six-boundary-relations",
+      "priority": 5,
+      "missing": "Retain existing five unmatched names/one overload as unresolved native binding/ABI questions; original differently named imports or facade aliases do not establish native aliases.",
+      "existing_index": "../../../indexes/registration-resolution-boundaries.tsv"
+    },
+    {
+      "id": "shared-address-contract-boundary",
+      "priority": 5,
+      "missing": "Per-operation input/output/error/side-effect proof and actual bridge before semantic/ABI equivalence of the20shared-target groups."
+    }
+  ],
+  "limits": [
+    "Static metadata/CIL and original table bytes; no target execution or installed runtime binding observation.",
+    "Method IDs join to exact original assembly identity; no MethodDef-token-to-native-VA inference.",
+    "Same suffix, decoded managed signature or native address does not establish common import resolution, ABI or behavior.",
+    "Zero direct selected call sites do not establish unused/excluded code; Runtime delegates and unresolved reference/callback/dispatch indexes remain separate.",
+    "No native body, function definition, canonical pair, signature, name or existing index row is changed by this additive evidence."
+  ]
+}
