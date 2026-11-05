@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst note, original PC1.67 static. TextEdit physical ECX complete object, no stack inputs,
    plain RET returns complete receiver in EAX. Calls516090 then installs primaryFC1038,
    IWindowFC0F10 at+4 and editor interfaceFC0E00 at+250. Property producer state flags+258=154hex;
@@ -23,7 +25,7 @@ void * __thiscall UiTextEdit_InitializeFields(void *this)
   UINT UVar4;
   int iVar5;
   
-  FUN_00516090(this);
+  Window_InitializeNativeFields(this);
   *(undefined ***)((int)this + 0x250) = &PTR_LAB_00fc0cd8;
   *(undefined ***)this = &PTR_thunk_FUN_007e4140_00fc1038;
   *(undefined ***)((int)this + 4) = &PTR_LAB_00fc0f10;
@@ -32,10 +34,10 @@ void * __thiscall UiTextEdit_InitializeFields(void *this)
   *(undefined1 *)((int)this + 0x254) = 0;
   *(undefined4 *)((int)this + 0x25c) = 0;
   *(undefined4 *)((int)this + 0x260) = 0;
-  *(undefined4 *)((int)this + 0x264) = DAT_00fc0c24;
-  *(undefined4 *)((int)this + 0x268) = DAT_00fc0c24;
-  *(undefined4 *)((int)this + 0x26c) = DAT_00fc0c24;
-  *(undefined4 *)((int)this + 0x270) = DAT_00fc0c24;
+  *(undefined4 *)((int)this + 0x264) = 0x40800000;
+  *(undefined4 *)((int)this + 0x268) = 0x40800000;
+  *(undefined4 *)((int)this + 0x26c) = 0x40800000;
+  *(undefined4 *)((int)this + 0x270) = 0x40800000;
   *(undefined4 *)((int)this + 0x274) = 0;
   *(undefined4 *)((int)this + 0x278) = 0;
   *(undefined4 *)((int)this + 0x27c) = 0;
@@ -57,7 +59,7 @@ void * __thiscall UiTextEdit_InitializeFields(void *this)
   *(undefined4 *)((int)this + 0x2dc) = 0;
   *(undefined4 *)((int)this + 0x2e0) = 0;
   *(char **)((int)this + 0x2e4) = "UI/UTFWin/WinTextEdit";
-  FUN_0045efe0((undefined2 *)((int)this + 0x2e8));
+  TextStyle_Initialize((undefined2 *)((int)this + 0x2e8));
   *(undefined4 *)((int)this + 0x560) = 0;
   *(undefined4 *)((int)this + 0x564) = 0;
   *(undefined4 *)((int)this + 0x568) = 0;
@@ -104,7 +106,7 @@ void * __thiscall UiTextEdit_InitializeFields(void *this)
   *(undefined4 *)((int)this + 0x610) = 0;
   *(undefined4 *)((int)this + 0x614) = 0;
   ElapsedClock_ConstructAndOptionallyStart((void *)((int)this + 0x618),5,'\0');
-  *(undefined4 *)((int)this + 0x630) = DAT_00fc0c28;
+  *(undefined4 *)((int)this + 0x630) = 0x3e800000;
   ElapsedClock_ConstructAndOptionallyStart((void *)((int)this + 0x638),5,'\0');
   *(undefined4 *)((int)this + 0x650) = 0;
   *(undefined4 *)((int)this + 0x654) = 0;
@@ -112,7 +114,7 @@ void * __thiscall UiTextEdit_InitializeFields(void *this)
   *(undefined4 *)((int)this + 0x65c) = 0;
   *(undefined1 *)((int)this + 0x660) = 1;
   ElapsedClock_ConstructAndOptionallyStart((void *)((int)this + 0x668),5,'\0');
-  *(undefined4 *)((int)this + 0x680) = _DAT_00f9b5b4;
+  *(undefined4 *)((int)this + 0x680) = 0x3f000000;
   *(undefined4 *)((int)this + 0x2a0) = 0xff000000;
   *(undefined4 *)((int)this + 0x2a4) = 0xffffffff;
   *(undefined4 *)((int)this + 0x2a8) = 0xff808080;
@@ -148,9 +150,9 @@ void * __thiscall UiTextEdit_InitializeFields(void *this)
   UVar4 = GetDoubleClickTime();
   fVar2 = (float)(int)UVar4;
   if ((int)UVar4 < 0) {
-    fVar2 = fVar2 + FLOAT_00f99948;
+    fVar2 = fVar2 + 4.2949673e+09;
   }
-  *(float *)((int)this + 0x680) = fVar2 * FLOAT_00fb35b4;
+  *(float *)((int)this + 0x680) = fVar2 * 0.001;
   return this;
 }
 

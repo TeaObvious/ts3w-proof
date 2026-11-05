@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. ECX service, five DWORD slots/RET14hex; last two controls
@@ -66,7 +66,7 @@ UiWindowService_DispatchEvent
     *(undefined4 *)((int)this + 0x6a8) = uVar1;
     return SUB41(uVar4,0);
   }
-  cVar2 = FUN_0050b890(this,piVar6,(int)&local_1c,'\0');
+  cVar2 = UiWindowService_DispatchToProcedures(this,piVar6,(int)&local_1c,'\0');
   if (cVar2 != '\0') {
     if (*(int **)((int)this + 0xd8) != (int *)0x0) {
       if (piVar6 == (int *)0x0) {

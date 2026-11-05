@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst role, original PC1.67 native Window initializer. Physical receiver ECX, EAX receiver
@@ -75,7 +75,7 @@ undefined4 * __fastcall Window_InitializeNativeFields(undefined4 *param_1)
   param_1[0x8a] = &DAT_0114d900;
   param_1[0x8c] = 0;
   param_1[0x8f] = 0;
-  FUN_00511f20(puVar1);
+  UiTransform_SetIdentity(puVar1);
   param_1[0x40] = *puVar1;
   param_1[0x41] = param_1[0x2d];
   param_1[0x42] = param_1[0x2e];

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. Actual TextEdit descriptorFC0C30 identifies class6F42B4F0,
@@ -16,8 +16,9 @@ void * UiTextEdit_CreateWindow(uint opaqueUnused,uint allocationContext)
   uint *this;
   void *pvVar1;
   
-  this = FUN_005050b0(0x690,0x10,"UI/UTFWin/EA::UTFWinControls::WinTextEdit",
-                      (int *)allocationContext);
+  this = AllocateWithAllocatorHeader
+                   (0x690,0x10,"UI/UTFWin/EA::UTFWinControls::WinTextEdit",(int *)allocationContext)
+  ;
   if (this != (uint *)0x0) {
     pvVar1 = UiTextEdit_InitializeFields(this);
     if (pvVar1 != (void *)0x0) {

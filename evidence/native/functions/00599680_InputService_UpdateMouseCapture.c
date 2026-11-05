@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst-assigned name. capture(enableCapture,keepCurrentAnchor). True keepCurrentAnchor retains
    current logical mouse position and converts it to an integer warp anchor; false uses the
    client-area center and remembers the old position. Capture sets cursor policy 05AED300 for MMB,
@@ -41,12 +43,12 @@ InputService_UpdateMouseCapture(void *this,char enableCapture,char keepCurrentAn
   float fStack_24;
   tagRECT tStack_20;
   RECT RStack_10;
-
+  
   owner_00 = (int *)FUN_0050af90();
   if (((owner_00 != (int *)0x0) &&
       (this_00 = (void *)FUN_00505920(), owner = DAT_011cebd0, this_00 != (void *)0x0)) &&
      (DAT_011cebd0 != (int *)0x0)) {
-    iVar2 = FUN_0060e910();
+    iVar2 = Graphics_GetManagerSingleton();
     uVar3 = FUN_0060ee50(iVar2);
     bVar7 = (char)uVar3 != '\0';
     if (enableCapture == '\0') {
@@ -67,8 +69,8 @@ InputService_UpdateMouseCapture(void *this,char enableCapture,char keepCurrentAn
       lpRect = &tStack_20;
       pHVar5 = (HWND)(**(code **)(*owner + 0x9c))();
       GetClientRect(pHVar5,lpRect);
-      fStack_40 = (float)(tStack_20.right + tStack_20.left) * _DAT_00f9b5b4;
-      fStack_3c = (float)(tStack_20.bottom + tStack_20.top) * _DAT_00f9b5b4;
+      fStack_40 = (float)(tStack_20.right + tStack_20.left) * 0.5;
+      fStack_3c = (float)(tStack_20.bottom + tStack_20.top) * 0.5;
       if (bVar7) {
         (**(code **)(*owner + 0x40))(owner,&local_38);
         RStack_10.top = local_34;

@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -17,7 +16,7 @@ undefined4 * __fastcall WinScrollbar_Construct(undefined4 *param_1)
 {
   code *pcVar1;
   
-  FUN_00516090(param_1);
+  Window_InitializeNativeFields(param_1);
   param_1[0x94] = &PTR_LAB_00fc0758;
   param_1[0x9c] = 1;
   param_1[0x9d] = 1;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 character UV stream contract. Name grounded in original debug literal
@@ -30,7 +30,7 @@ bool __thiscall CasModelBuilder_FillDrawable(void *this,byte *workRecord)
   int iVar9;
   int *piVar10;
   uint uVar11;
-  uint local_34;
+  undefined4 local_34;
   uint local_30;
   void *local_2c;
   int local_28;
@@ -74,7 +74,7 @@ bool __thiscall CasModelBuilder_FillDrawable(void *this,byte *workRecord)
   if (iVar9 != local_28) {
     do {
       if (pbVar1[0x42] != 0) {
-        FUN_005d3680(&local_10,(int *)(pbVar1 + 8));
+        DwordVector_CopyAssign_5D3680(&local_10,(int *)(pbVar1 + 8));
         if ((*(uint *)(iVar9 + 0x10) & 3) == 0) {
           pvVar7 = *(void **)(iVar9 + 0x10);
         }
@@ -122,7 +122,8 @@ bool __thiscall CasModelBuilder_FillDrawable(void *this,byte *workRecord)
         uVar11 = local_30;
         if (DAT_011d4c84 != (int *)0x0) {
           (**(code **)(*DAT_011d4c84 + 0x38))
-                    (&stack0xffffffb0,local_1c,&LAB_005e56d0,&LAB_00d4b3a0,1,0,0);
+                    (local_24 + -0x2c,local_1c,&LAB_005e56d0,ResourceCallback_InvokeVirtual04,1,0,0)
+          ;
         }
         FUN_005cd970(this,(int)pbVar1,piVar10,uVar11,uVar5);
         piVar3 = (int *)*piVar3;

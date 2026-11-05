@@ -1,12 +1,14 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Analyst instruction notes; original PC1.67 TS3W.exe.
  * Ordered layer composition. ECX owns linked sentinel at+24; stack4 evaluation context and stack8 output pose, RET8. Child pointer at list node+C invokes virtual+8 once per visited nonnull child. Scratch pose+3C null sets a stop latch in either flag2 branch; loop exits after that child regardless of its numerical weight. This does not establish producer ordering, complete mask/blend arithmetic, allocation failure or all resource references. Actual helper and COMISS/x87 instructions govern nonfinite/FP behavior; no CLR full-kernel equality inferred.
  * Actual Ghidra C follows unchanged. Stored names/prototypes were NOT edited.
  * Complete original Listing: 00554CA0_FUN_00554ca0.asm
  */
+
+
 
 void __thiscall FUN_00554ca0(void *this,int param_1,void *param_2)
 
@@ -91,7 +93,7 @@ void __thiscall FUN_00554ca0(void *this,int param_1,void *param_2)
           if (iVar10 != 0) {
             fVar14 = FUN_0054c2a0(piStack_30[3]);
             fStack_34 = (float)fVar14;
-            fStack_28 = FLOAT_00f998f8;
+            fStack_28 = 1.0;
             if (pfVar5 != (float *)0x0) {
               fStack_28 = pfVar5[300];
               fStack_34 = fStack_28 * fStack_34;
@@ -99,7 +101,7 @@ void __thiscall FUN_00554ca0(void *this,int param_1,void *param_2)
             if (pfVar3 != (float *)0x0) {
               fStack_34 = pfVar3[300] * fStack_34;
             }
-            if (DAT_010f4ccc < fStack_34) {
+            if (0.0 < fStack_34) {
               FUN_0057d040((int)local_2c,(int)param_2,fStack_34);
               pfVar5[300] = fStack_28 - fStack_34;
             }
@@ -122,7 +124,7 @@ void __thiscall FUN_00554ca0(void *this,int param_1,void *param_2)
                 if (pfVar3 != (float *)0x0) {
                   fStack_34 = *(float *)(((int)pfVar3 - (int)pfVar5) + (int)pfVar12) * fStack_34;
                 }
-                if (DAT_010f4ccc < fStack_34) {
+                if (0.0 < fStack_34) {
                   *pfVar12 = fVar2 - fStack_34;
                   FUN_00554be0(pfVar13,(float *)((iVar7 - (int)pfVar5) + (int)pfVar12),
                                (float *)((iVar9 - (int)pfVar6) + (int)pfVar13),fStack_34);
@@ -142,7 +144,7 @@ void __thiscall FUN_00554ca0(void *this,int param_1,void *param_2)
     if ((*(byte *)(param_1 + 0x54) & 2) != 0) {
       FUN_0057d150((int)param_2);
     }
-    FUN_005742e0((int)param_2);
+    ClearDwordAtECXPlus3C((int)param_2);
     if ((local_2c != (undefined4 *)0x0) &&
        (iVar7 = local_2c[1], local_2c[1] = iVar7 + -1, iVar7 + -1 == 0)) {
       local_2c[1] = 1;

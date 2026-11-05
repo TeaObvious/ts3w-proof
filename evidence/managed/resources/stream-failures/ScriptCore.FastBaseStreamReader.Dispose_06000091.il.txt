@@ -1,0 +1,21 @@
+.method /* 06000091 */ public final hidebysig newslot virtual 
+	instance void Dispose () cil managed 
+{
+	// Method begins at RVA 0x2997
+	// Header size: 1
+	// Code size: 27 (0x1b)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: ldfld uint32 ScriptCore.FastBaseStreamReader::mHandle /* 04000005 */
+	IL_0006: brfalse.s IL_001a
+
+	IL_0008: ldarg.0
+	IL_0009: ldfld uint32 ScriptCore.FastBaseStreamReader::mHandle /* 04000005 */
+	IL_000e: call void ScriptCore.StreamHost::StreamHost_Close(uint32) /* 06001039 */
+	IL_0013: ldarg.0
+	IL_0014: ldc.i4.0
+	IL_0015: stfld uint32 ScriptCore.FastBaseStreamReader::mHandle /* 04000005 */
+
+	IL_001a: ret
+} // end of method FastBaseStreamReader::Dispose

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -47,9 +47,9 @@ void __thiscall AnimationClipController_BindResource(void *this,int *param_1)
       FUN_00569fd0(this_00,iVar3);
     }
     iVar3 = (**(code **)(**(int **)((int)this + 0x1c) + 0x24))();
-    FUN_00577be0(this_00,DAT_011ce7dc,iVar3);
+    ClipIkInfo_BindNamespaceEntity(this_00,DAT_011ce7dc,iVar3);
     FUN_00577ec0((int)this_00);
-    FUN_005695a0((int)this);
+    ClipController_ResolveIkTargetActors((int)this);
   }
   return;
 }

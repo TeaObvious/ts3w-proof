@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01156298 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01156298 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.CASUtils::CASUtils_SimBuilderSetHairBaseColorImpl [assembly=ScriptCore
    token=0x06000382; handle: System.UInt32, color: Sims3.SimIFace.Vector3; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -21,7 +22,7 @@ ScriptCore.CASUtils::CASUtils_SimBuilderSetHairBaseColorImpl
   float fStack_24;
   undefined4 uStack_20;
   undefined4 uStack_1c;
-  undefined4 uStack_18;
+  float fStack_18;
   
   piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
   if ((piVar1 != (int *)0x0) && ((param_1 & 0xff000000) == 0x35000000)) {
@@ -30,8 +31,8 @@ ScriptCore.CASUtils::CASUtils_SimBuilderSetHairBaseColorImpl
       fStack_24 = param_2;
       uStack_20 = param_3;
       uStack_1c = param_4;
-      uStack_18 = DAT_00f998f8;
-      FUN_0060d360(&uStack_28,&fStack_24);
+      fStack_18 = 1.0;
+      PackedArgb_StoreFloat4(&uStack_28,&fStack_24);
       *(uint *)(iVar2 + 0x1c) = *(uint *)(iVar2 + 0x1c) | 0x104;
       *(undefined4 *)(iVar2 + 0x44) = uStack_28;
     }

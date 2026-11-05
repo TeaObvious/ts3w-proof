@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, PC1.67 static; role label, not recovered symbol. Primary Slider vtableFBFF88
@@ -13,13 +13,13 @@
 bool __thiscall UiSlider_DrawComponents(void *this,void *drawContext)
 
 {
-  if (*(int *)((int)this + 0x204) != 0) {
-    (**(code **)(*(int *)this + 0xa4))(drawContext,0);
-    (**(code **)(*(int *)this + 0xa4))(drawContext,2);
-    (**(code **)(*(int *)this + 0xa4))(drawContext,1);
+  if (*(int *)((int)this + 0x204) == 0) {
+    UiWindow_DrawSelf(this,drawContext);
     return true;
   }
-  FUN_00514640(this,drawContext);
+  (**(code **)(*(int *)this + 0xa4))(drawContext,0);
+  (**(code **)(*(int *)this + 0xa4))(drawContext,2);
+  (**(code **)(*(int *)this + 0xa4))(drawContext,1);
   return true;
 }
 

@@ -1,0 +1,25 @@
+.method /* 0600005F */ assembly hidebysig specialname rtspecialname 
+	instance void .ctor (
+		uint32 handle
+	) cil managed 
+{
+	// Method begins at RVA 0x228c
+	// Header size: 1
+	// Code size: 29 (0x1d)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: call instance void [mscorlib]System.Object::.ctor() /* 0A000014 */
+	IL_0006: ldarg.1
+	IL_0007: brfalse.s IL_0011
+
+	IL_0009: ldarg.0
+	IL_000a: ldarg.1
+	IL_000b: stfld uint32 ScriptCore.FastBaseStreamWriter::mHandle /* 04000004 */
+	IL_0010: ret
+
+	IL_0011: ldarg.0
+	IL_0012: call uint32 ScriptCore.StreamHost::StreamHost_Create() /* 06001037 */
+	IL_0017: stfld uint32 ScriptCore.FastBaseStreamWriter::mHandle /* 04000004 */
+	IL_001c: ret
+} // end of method FastBaseStreamWriter::.ctor

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011564f8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011564f8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.CASUtils::CASUtils_RemoveObjectFromBabyMakerSceneWindowImpl [assembly=ScriptCore
    token=0x0600033C; winHandle: System.UInt32, scriptHandle: System.UInt64, callback:
    System.Delegate; return=System.Void]
@@ -16,17 +17,20 @@ void ScriptCore_CASUtils__CASUtils_RemoveObjectFromBabyMakerSceneWindowImpl(uint
 {
   int *piVar1;
   int iVar2;
-  undefined4 *puVar3;
+  void *this;
+  undefined4 *object;
+  undefined4 in_stack_00000008;
+  undefined4 in_stack_0000000c;
   
   if ((param_1 & 0xff000000) == 0x30000000) {
-    iVar2 = FUN_00937570();
-    puVar3 = (undefined4 *)FUN_00937f80(iVar2);
-    if (puVar3 != (undefined4 *)0x0) {
-      piVar1 = puVar3 + 1;
+    this = ObjectRegistry_GetGlobal();
+    object = ObjectRegistry_FindBorrowed(this,CONCAT44(in_stack_0000000c,in_stack_00000008));
+    if (object != (undefined4 *)0x0) {
+      piVar1 = object + 1;
       LOCK();
       *piVar1 = *piVar1 + 1;
       UNLOCK();
-      FUN_009356c0(0xc,puVar3,0);
+      ObjectEvents_Dispatch(0xc,object,(void *)0x0);
       LOCK();
       iVar2 = *piVar1;
       *piVar1 = *piVar1 + -1;
@@ -35,7 +39,7 @@ void ScriptCore_CASUtils__CASUtils_RemoveObjectFromBabyMakerSceneWindowImpl(uint
         LOCK();
         *piVar1 = 1;
         UNLOCK();
-        (**(code **)*puVar3)(1);
+        (**(code **)*object)(1);
       }
     }
   }

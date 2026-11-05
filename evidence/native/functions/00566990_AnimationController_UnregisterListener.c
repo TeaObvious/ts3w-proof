@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC 1.67 original instruction review. Analyst-assigned name. Searches first node with matching
@@ -10,28 +10,28 @@
 bool __thiscall AnimationController_UnregisterListener(void *this,int *listener)
 
 {
+  int *allocation;
   int *piVar1;
-  int *piVar2;
-  int iVar3;
+  int iVar2;
   
-  piVar1 = *(int **)((int)this + 4);
+  allocation = *(int **)((int)this + 4);
   while( true ) {
-    if (piVar1 == (int *)((int)this + 4)) {
+    if (allocation == (int *)((int)this + 4)) {
       return false;
     }
-    if ((piVar1 != (int *)0x0) && ((int *)piVar1[2] == listener)) break;
-    piVar1 = (int *)*piVar1;
+    if ((allocation != (int *)0x0) && ((int *)allocation[2] == listener)) break;
+    allocation = (int *)*allocation;
   }
   if (*(int *)((int)this + 0xc) == 0) {
-    piVar2 = (int *)piVar1[1];
-    iVar3 = *piVar1;
-    *piVar2 = iVar3;
-    *(int **)(iVar3 + 4) = piVar2;
-    FUN_004e44e0((int)piVar1);
+    piVar1 = (int *)allocation[1];
+    iVar2 = *allocation;
+    *piVar1 = iVar2;
+    *(int **)(iVar2 + 4) = piVar1;
+    Memory_FreeIfNonNull(allocation);
     return true;
   }
-  piVar1[2] = 0;
-  piVar1[3] = 0;
+  allocation[2] = 0;
+  allocation[3] = 0;
   return true;
 }
 

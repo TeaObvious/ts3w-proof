@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. ECX actual loader,3 stackwords/RET0C, AL success.
@@ -17,12 +17,13 @@ LayoutXml_ParseAuthoredScalar(void *this,void *outPayload,uint authoredType,usho
 {
   long lVar1;
   ulong uVar2;
-  undefined4 uVar3;
+  ushort *puVar3;
   int iVar4;
   bool bVar5;
   longlong lVar6;
-  double dVar7;
-  wchar_t *pwVar8;
+  ulonglong uVar7;
+  double dVar8;
+  wchar_t *pwVar9;
   
   switch(authoredType) {
   case 2:
@@ -58,37 +59,37 @@ LayoutXml_ParseAuthoredScalar(void *this,void *outPayload,uint authoredType,usho
     *(ulong *)outPayload = uVar2;
     return true;
   case 10:
-    lVar6 = FUN_004fef40(text,(int *)0x0,0);
-    *(longlong *)outPayload = lVar6;
+    uVar7 = NumericText_ParseUnsigned64(text,(ushort **)0x0,0);
+    *(ulonglong *)outPayload = uVar7;
     return true;
   case 0xb:
-    dVar7 = wcstod((wchar_t *)text,(wchar_t **)0x0);
-    *(float *)outPayload = (float)dVar7;
+    dVar8 = wcstod((wchar_t *)text,(wchar_t **)0x0);
+    *(float *)outPayload = (float)dVar8;
     return true;
   case 0xc:
-    dVar7 = wcstod((wchar_t *)text,(wchar_t **)0x0);
-    *(double *)outPayload = dVar7;
+    dVar8 = wcstod((wchar_t *)text,(wchar_t **)0x0);
+    *(double *)outPayload = dVar8;
     return true;
   case 0xd:
     goto switchD_0054afa3_caseD_d;
   case 0xe:
-    pwVar8 = L"%d,%d,%d,%d";
+    pwVar9 = L"%d,%d,%d,%d";
     break;
   case 0xf:
-    pwVar8 = L"%d,%d";
+    pwVar9 = L"%d,%d";
     goto LAB_0054b184;
   case 0x10:
-    pwVar8 = L"%g,%g,%g,%g";
+    pwVar9 = L"%g,%g,%g,%g";
     break;
   case 0x11:
-    pwVar8 = L"%g,%g";
+    pwVar9 = L"%g,%g";
 LAB_0054b184:
-    iVar4 = swscanf((wchar_t *)text,pwVar8,outPayload,(int)outPayload + 4);
+    iVar4 = swscanf((wchar_t *)text,pwVar9,outPayload,(int)outPayload + 4);
     bVar5 = iVar4 == 2;
     goto LAB_0054b13b;
   case 0x12:
-    uVar3 = FUN_0054af20(this,(short *)text);
-    *(undefined4 *)outPayload = uVar3;
+    puVar3 = LayoutXml_CopyUtf16IntoArena(this,text);
+    *(ushort **)outPayload = puVar3;
     return true;
   case 0x13:
   case 0x14:
@@ -96,7 +97,7 @@ LAB_0054b184:
   default:
     return false;
   }
-  iVar4 = swscanf((wchar_t *)text,pwVar8,outPayload,(int)outPayload + 4,(int)outPayload + 8,
+  iVar4 = swscanf((wchar_t *)text,pwVar9,outPayload,(int)outPayload + 4,(int)outPayload + 8,
                   (int)outPayload + 0xc);
   bVar5 = iVar4 == 4;
 LAB_0054b13b:

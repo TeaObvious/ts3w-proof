@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC 1.67 original instruction review. Analyst-assigned name. Decrements listener-interface
@@ -24,7 +24,7 @@ void __fastcall AnimationController_FinishListenerDispatch(int param_1)
         piVar3 = (int *)*piVar1;
         *piVar2 = (int)piVar3;
         piVar3[1] = (int)piVar2;
-        FUN_004e44e0((int)piVar1);
+        Memory_FreeIfNonNull(piVar1);
         piVar1 = piVar3;
       }
       else {

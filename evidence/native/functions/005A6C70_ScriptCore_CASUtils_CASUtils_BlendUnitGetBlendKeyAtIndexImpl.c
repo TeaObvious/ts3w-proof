@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011565d8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011565d8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.CASUtils::CASUtils_BlendUnitGetBlendKeyAtIndexImpl [assembly=ScriptCore
    token=0x06000355; handle: System.UInt32, index: System.UInt32; return=Sims3.SimIFace.ResourceKey]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -26,7 +27,7 @@ ScriptCore.CASUtils::CASUtils_BlendUnitGetBlendKeyAtIndexImpl
     piVar4 = (int *)GetGlobalInterfacePointer_11D5BBC();
     this = (void *)(**(code **)(*piVar4 + 0xcc))(param_2);
     if (this != (void *)0x0) {
-      puVar5 = (undefined4 *)FUN_005a3d60(this,param_3);
+      puVar5 = (undefined4 *)CasBlendUnit_SelectFixedKeySlot(this,param_3);
       uVar1 = puVar5[3];
       uVar2 = *puVar5;
       uVar3 = puVar5[1];

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011564b8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011564b8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.CASUtils::CASUtils_SetModelInGameObjectDelayedImpl [assembly=ScriptCore
    token=0x06000334; modelHandle: System.UInt32, scriptHandle: System.UInt64, finishedCallback:
    System.Delegate; return=System.Void]
@@ -19,7 +20,7 @@ ScriptCore.CASUtils::CASUtils_SetModelInGameObjectDelayedImpl
   int *piVar1;
   int *piVar2;
   undefined4 *puVar3;
-  undefined4 uStack_64;
+  byte abStack_64 [4];
   undefined **ppuStack_60;
   int iStack_5c;
   int iStack_58;
@@ -30,7 +31,10 @@ ScriptCore.CASUtils::CASUtils_SetModelInGameObjectDelayedImpl
   if (param_1 != 0) {
     piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
     puVar3 = (undefined4 *)(**(code **)(*piVar2 + 0xcc))(param_1);
-    uStack_64 = 0x85bbe375;
+    abStack_64[0] = 0x75;
+    abStack_64[1] = 0xe3;
+    abStack_64[2] = 0xbb;
+    abStack_64[3] = 0x85;
     iStack_5c = param_2;
     iStack_58 = param_3;
     ppuStack_60 = &PTR_PTR_0115686c;
@@ -51,12 +55,12 @@ ScriptCore.CASUtils::CASUtils_SetModelInGameObjectDelayedImpl
       piVar2 = (int *)0x0;
     }
     else {
-      *piVar2 = (int)&PTR_FUN_00fdf874;
+      *piVar2 = (int)&PTR_AddAtomicReference_00fdf874;
       LOCK();
       piVar2[1] = 0;
       UNLOCK();
       piVar2[2] = param_4;
-      *piVar2 = (int)&PTR_FUN_00fdf8a0;
+      *piVar2 = (int)&PTR_AddAtomicReference_00fdf8a0;
       piVar2[4] = param_2;
       piVar2[5] = param_3;
       (**(code **)*piVar2)();
@@ -71,7 +75,7 @@ ScriptCore.CASUtils::CASUtils_SetModelInGameObjectDelayedImpl
         (**(code **)(*piVar1 + 4))();
       }
     }
-    FUN_00693380(&uStack_64);
+    RenderCommand_EnqueueIfDispatcherExists(abStack_64);
     if (piVar2 != (int *)0x0) {
       (**(code **)(*piVar2 + 4))();
     }

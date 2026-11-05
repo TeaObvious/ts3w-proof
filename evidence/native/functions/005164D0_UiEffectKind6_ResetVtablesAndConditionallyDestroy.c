@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -22,7 +21,7 @@ void * __thiscall UiEffectKind6_ResetVtablesAndConditionallyDestroy(void *this,b
   *(undefined ***)((int)this + 4) = &PTR_LAB_00fa2b80;
   *(undefined ***)this = &PTR_LAB_00fa2b80;
   if ((param_1 & 1) != 0) {
-    FUN_00505080((int)this);
+    FreeWithAllocatorHeader((int)this);
   }
   return this;
 }

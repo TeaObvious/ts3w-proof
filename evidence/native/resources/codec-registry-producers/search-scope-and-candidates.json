@@ -1,0 +1,3397 @@
+{
+  "schema": "ts3w-bounded-raw-search/codec-registry-v1",
+  "reference_id": "ts3w-pc-1.67",
+  "reference_identity": "../../../reference.json",
+  "slot68_load_call_search": {
+    "file_scope_halfopen": [
+      4096,
+      12145489
+    ],
+    "VA_scope_halfopen": [
+      "00401000",
+      "00F95351"
+    ],
+    "algorithm": "Raw 8B base-register+disp68 withoutSIB, followed within32B by FF D(register), optionally rawpush1 withinprior24B orloadtocall. No wholeindirectclosure/absenceclaim; bytepatterns mayspan instructions.",
+    "all_load_call_candidates": [
+      {
+        "load_site": "0040F183",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "0040F192",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ce899ed0000000c74624ffffffff899e4c010000ffd08b16",
+        "load_through_candidate_call_hex": "8b426868f0b1f90068e4b1f9008bceffd0",
+        "owner_rows": [
+          {
+            "function": "0040f080",
+            "start": "0040f080",
+            "stop_exclusive": "0040f198"
+          }
+        ]
+      },
+      {
+        "load_site": "004109D2",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "004109D5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "cccccccccccc83ec10568bf1807e0c000f85820000008b06",
+        "load_through_candidate_call_hex": "8b5068ffd2",
+        "owner_rows": [
+          {
+            "function": "004109c0",
+            "start": "004109c0",
+            "stop_exclusive": "00410a57"
+          }
+        ]
+      },
+      {
+        "load_site": "00410A6E",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00410A71",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "c3cccccccccccccccccc83ec10568bf1807e0c00753d8b06",
+        "load_through_candidate_call_hex": "8b5068ffd2",
+        "owner_rows": [
+          {
+            "function": "00410a60",
+            "start": "00410a60",
+            "stop_exclusive": "00410aae"
+          }
+        ]
+      },
+      {
+        "load_site": "00457897",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0045789D",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ced95c2404d98500020000d91c24ffd08b168b8514020000",
+        "load_through_candidate_call_hex": "8b5268508bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "00457964",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "0045796A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ceffd28b068b50648bceffd285c075108b8dac5100008b06",
+        "load_through_candidate_call_hex": "8b5068518bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "004A3AFF",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "004A3B0D",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "00cccccccccccccccc8b54240481ec10040000568bf18b06",
+        "load_through_candidate_call_hex": "8b40688d8c240c02000051528bceffd0",
+        "owner_rows": []
+      },
+      {
+        "load_site": "004A6740",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004A674E",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0085c00f84a60200008b4e1823c83bc80f85990200008b16",
+        "load_through_candidate_call_hex": "8b52688d84242002000050558bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "004AF0FB",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "004AF106",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "068b500c8bceffd23d9284723475358b068b942410020000",
+        "load_through_candidate_call_hex": "8b40688d4c240451528bceffd0",
+        "owner_rows": [
+          {
+            "function": "004af0d0",
+            "start": "004af0d0",
+            "stop_exclusive": "004af131"
+          }
+        ]
+      },
+      {
+        "load_site": "004BDE91",
+        "raw_load_hex": "8b4568",
+        "candidate_call_site": "004BDEA3",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ffff83c4048d8da0010000e8c7c6ffff8b74241c85f67436",
+        "load_through_candidate_call_hex": "8b456885c08bfe740e8b0e8b118b4d045251ffd0",
+        "owner_rows": [
+          {
+            "function": "004bd990",
+            "start": "004bd990",
+            "stop_exclusive": "004be558"
+          }
+        ]
+      },
+      {
+        "load_site": "004BE087",
+        "raw_load_hex": "8b4568",
+        "candidate_call_site": "004BE09A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "54245c8b442458528bf5e8d2bfffff83c404837f2c00743e",
+        "load_through_candidate_call_hex": "8b456885c08b772c740e8b0e8b118b4d045251ffd0",
+        "owner_rows": [
+          {
+            "function": "004bd990",
+            "start": "004bd990",
+            "stop_exclusive": "004be558"
+          }
+        ]
+      },
+      {
+        "load_site": "004D61DD",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "004D61E6",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8bb8c40000008b421868bc89fb00ffd08b8e100500008b11",
+        "load_through_candidate_call_hex": "8b4268680002000057ffd0",
+        "owner_rows": [
+          {
+            "function": "004d6160",
+            "start": "004d6160",
+            "stop_exclusive": "004d624e"
+          }
+        ]
+      },
+      {
+        "load_site": "004F0EDA",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004F0EE8",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "44243868fca1fb0050e870d9f1ff8b4424508b4c24548b16",
+        "load_through_candidate_call_hex": "8b52682bc883c424d1f951508bceffd2",
+        "owner_rows": [
+          {
+            "function": "004f0dd0",
+            "start": "004f0dd0",
+            "stop_exclusive": "004f131e"
+          }
+        ]
+      },
+      {
+        "load_site": "004F0EF4",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004F0EFF",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "682bc883c424d1f951508bceffd28b44241c8b4c24208b16",
+        "load_through_candidate_call_hex": "8b52682bc8d1f951508bceffd2",
+        "owner_rows": [
+          {
+            "function": "004f0dd0",
+            "start": "004f0dd0",
+            "stop_exclusive": "004f131e"
+          }
+        ]
+      },
+      {
+        "load_site": "004F10A9",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004F10B4",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "6818a2fb0050e8a4d7f1ff83c40c8b44242c8b4c24308b16",
+        "load_through_candidate_call_hex": "8b52682bc8d1f951508bceffd2",
+        "owner_rows": [
+          {
+            "function": "004f0dd0",
+            "start": "004f0dd0",
+            "stop_exclusive": "004f131e"
+          }
+        ]
+      },
+      {
+        "load_site": "004F10E5",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004F10F3",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "44243468eca1fb0050e865d7f1ff8b44243c8b4c24408b16",
+        "load_through_candidate_call_hex": "8b52682bc883c410d1f951508bceffd2",
+        "owner_rows": [
+          {
+            "function": "004f0dd0",
+            "start": "004f0dd0",
+            "stop_exclusive": "004f131e"
+          }
+        ]
+      },
+      {
+        "load_site": "004F1123",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004F1131",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "54242868fca1fb0052e827d7f1ff8b4424308b4c24348b16",
+        "load_through_candidate_call_hex": "8b52682bc883c414d1f951508bceffd2",
+        "owner_rows": [
+          {
+            "function": "004f0dd0",
+            "start": "004f0dd0",
+            "stop_exclusive": "004f131e"
+          }
+        ]
+      },
+      {
+        "load_site": "004F1309",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004F1317",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "44242868fca1fb0050e841d5f1ff8b4424308b4c24348b16",
+        "load_through_candidate_call_hex": "8b52682bc883c414d1f951508bceffd2",
+        "owner_rows": [
+          {
+            "function": "004f0dd0",
+            "start": "004f0dd0",
+            "stop_exclusive": "004f131e"
+          }
+        ]
+      },
+      {
+        "load_site": "004F14A8",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004F14B6",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "54242868fca1fb0052e8a2d3f1ff8b4424308b4c24348b16",
+        "load_through_candidate_call_hex": "8b52682bc883c414d1f951508bceffd2",
+        "owner_rows": [
+          {
+            "function": "004f0dd0",
+            "start": "004f1320",
+            "stop_exclusive": "004f16b4"
+          }
+        ]
+      },
+      {
+        "load_site": "004F15CE",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "004F15DC",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "44242868fca1fb0050e87cd2f1ff8b4424308b4c24348b16",
+        "load_through_candidate_call_hex": "8b52682bc883c414d1f951508bceffd2",
+        "owner_rows": [
+          {
+            "function": "004f0dd0",
+            "start": "004f1320",
+            "stop_exclusive": "004f16b4"
+          }
+        ]
+      },
+      {
+        "load_site": "005049F2",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "005049F5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b46188b4e0c8b178b526450518bcfffd25f5ec204008b07",
+        "load_through_candidate_call_hex": "8b5068ffd2",
+        "owner_rows": [
+          {
+            "function": "00504810",
+            "start": "00504810",
+            "stop_exclusive": "00504b03"
+          }
+        ]
+      },
+      {
+        "load_site": "00504EB4",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "00504EB8",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "929400000056508b44241050ffd25ec208008b018b542408",
+        "load_through_candidate_call_hex": "8b406852ffd0",
+        "owner_rows": [
+          {
+            "function": "00504be0",
+            "start": "00504be0",
+            "stop_exclusive": "00504f26"
+          }
+        ]
+      },
+      {
+        "load_site": "0050CC2E",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "0050CC3A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ffffff8b363bf575e733f68dabb4060000397d0475108b03",
+        "load_through_candidate_call_hex": "8b50686a008d4f0451568bcbffd2",
+        "owner_rows": [
+          {
+            "function": "0050cbc0",
+            "start": "0050cbc0",
+            "stop_exclusive": "0050ce2e"
+          }
+        ]
+      },
+      {
+        "load_site": "00518344",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0051834F",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "00518320",
+            "start": "00518320",
+            "stop_exclusive": "00518388"
+          }
+        ]
+      },
+      {
+        "load_site": "0051B844",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0051B84F",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "0051b820",
+            "start": "0051b820",
+            "stop_exclusive": "0051b8c4"
+          }
+        ]
+      },
+      {
+        "load_site": "0051C952",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0051C95A",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "4204ffd0f646340474188b8edcfdffff8b86ac0000008b11",
+        "load_through_candidate_call_hex": "8b52686a01506a01ffd2",
+        "owner_rows": [
+          {
+            "function": "0051c8d0",
+            "start": "0051c8d0",
+            "stop_exclusive": "0051ca98"
+          }
+        ]
+      },
+      {
+        "load_site": "0051D514",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "0051D52B",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "00d95c2404d987dc020000d91c24ffd2d90588fd03018b06",
+        "load_through_candidate_call_hex": "8b506883ec10d954240c8bced9542408d9542404d91c24ffd2",
+        "owner_rows": [
+          {
+            "function": "0051d300",
+            "start": "0051d300",
+            "stop_exclusive": "0051dab0"
+          }
+        ]
+      },
+      {
+        "load_site": "0051F994",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0051F99F",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "0051f970",
+            "start": "0051f970",
+            "stop_exclusive": "0051f9c0"
+          }
+        ]
+      },
+      {
+        "load_site": "005363E4",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "005363EF",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "005363c0",
+            "start": "005363c0",
+            "stop_exclusive": "0053647e"
+          }
+        ]
+      },
+      {
+        "load_site": "005393C4",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "005393CF",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "005393a0",
+            "start": "005393a0",
+            "stop_exclusive": "00539411"
+          }
+        ]
+      },
+      {
+        "load_site": "0053B844",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0053B84F",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "0053b820",
+            "start": "0053b820",
+            "stop_exclusive": "0053b89c"
+          }
+        ]
+      },
+      {
+        "load_site": "0053F6D7",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "0053F6DC",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "8bceffd284c074178b068b50148bceffd28b106a00568bc8",
+        "load_through_candidate_call_hex": "8b42686a01ffd0",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0058F541",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0058F54F",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44241468cc71fb0050e8873bf6ff8b0d882d15018b17",
+        "load_through_candidate_call_hex": "8b526883c40c8d44241050518bcfffd2",
+        "owner_rows": [
+          {
+            "function": "0058f4d0",
+            "start": "0058f4d0",
+            "stop_exclusive": "0058f56f"
+          }
+        ]
+      },
+      {
+        "load_site": "0058F5CF",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0058F5DD",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44243c68cc71fb0050e8f93af6ff8b0d882d15018b16",
+        "load_through_candidate_call_hex": "8b526883c40c8d44243850518bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0058F737",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0058F745",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44240c68cc71fb0050e89139f6ff8b0d882d15018b17",
+        "load_through_candidate_call_hex": "8b526883c40c8d44240850518bcfffd2",
+        "owner_rows": [
+          {
+            "function": "0058f6f0",
+            "start": "0058f6f0",
+            "stop_exclusive": "0058f78e"
+          }
+        ]
+      },
+      {
+        "load_site": "0058F7E7",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0058F7F5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44240c68cc71fb0050e8e138f6ff8b0d882d15018b17",
+        "load_through_candidate_call_hex": "8b526883c40c8d44240850518bcfffd2",
+        "owner_rows": [
+          {
+            "function": "0058f7a0",
+            "start": "0058f7a0",
+            "stop_exclusive": "0058f823"
+          }
+        ]
+      },
+      {
+        "load_site": "0058FF7B",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0058FF85",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b4e0c80792c00b820b2f9007505b81cb2f9008b4e048b11",
+        "load_through_candidate_call_hex": "8b526850a1a82d150150ffd2",
+        "owner_rows": [
+          {
+            "function": "0058feb0",
+            "start": "0058feb0",
+            "stop_exclusive": "00590021"
+          }
+        ]
+      },
+      {
+        "load_site": "0058FF9F",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0058FFA9",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b460c80782d00b820b2f9007505b81cb2f9008b4e048b11",
+        "load_through_candidate_call_hex": "8b526850a1b02d150150ffd2",
+        "owner_rows": [
+          {
+            "function": "0058feb0",
+            "start": "0058feb0",
+            "stop_exclusive": "00590021"
+          }
+        ]
+      },
+      {
+        "load_site": "0058FFB6",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0058FFBB",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "118b526850a1b02d150150ffd28b4e048b018b15a42d1501",
+        "load_through_candidate_call_hex": "8b40685752ffd0",
+        "owner_rows": [
+          {
+            "function": "0058feb0",
+            "start": "0058feb0",
+            "stop_exclusive": "00590021"
+          }
+        ]
+      },
+      {
+        "load_site": "0058FFF5",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00590003",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d4c241468cc71fb0051e8d330f6ff8b0d882d15018b17",
+        "load_through_candidate_call_hex": "8b526883c40c8d44241050518bcfffd2",
+        "owner_rows": [
+          {
+            "function": "0058feb0",
+            "start": "0058feb0",
+            "stop_exclusive": "00590021"
+          }
+        ]
+      },
+      {
+        "load_site": "0059008D",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0059009B",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44241c68cc71fb0050e83b30f6ff8b0d882d15018b16",
+        "load_through_candidate_call_hex": "8b526883c40c8d44241850518bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590030",
+            "start": "00590030",
+            "stop_exclusive": "00590185"
+          }
+        ]
+      },
+      {
+        "load_site": "00590165",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0059016A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "c203c6505683c140e8b657e7ff8b4f048b018b15a02d1501",
+        "load_through_candidate_call_hex": "8b40685652ffd0",
+        "owner_rows": [
+          {
+            "function": "00590030",
+            "start": "00590030",
+            "stop_exclusive": "00590185"
+          }
+        ]
+      },
+      {
+        "load_site": "00590899",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "005908A5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d2e879f9ffff807f7400b820b2f9007505b81cb2f9008b16",
+        "load_through_candidate_call_hex": "8b526850a1b82d1501508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "005908B9",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "005908C5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "01508bceffd2807f2c00b820b2f9007505b81cb2f9008b16",
+        "load_through_candidate_call_hex": "8b526850a1a82d1501508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "005908D9",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "005908E5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "01508bceffd2807f2d00b820b2f9007505b81cb2f9008b16",
+        "load_through_candidate_call_hex": "8b526850a1b02d1501508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "005908F2",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "005908F9",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "526850a1b02d1501508bceffd28b4f508b068b15a42d1501",
+        "load_through_candidate_call_hex": "8b406851528bceffd0",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "00590906",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0059090D",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "a42d15018b406851528bceffd08b47408b0da02d15018b16",
+        "load_through_candidate_call_hex": "8b526850518bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "00590911",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00590920",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ffd08b47408b0da02d15018b168b526850518bceffd28b06",
+        "load_through_candidate_call_hex": "8b5068681cb2f9006810e0fc008bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "00590924",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00590933",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ceffd28b068b5068681cb2f9006810e0fc008bceffd28b06",
+        "load_through_candidate_call_hex": "8b5068681cb2f9006800e0fc008bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "0059096A",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00590974",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "00eb1368e01ffb00eb0c68dc1ffb00eb0568d81ffb008b06",
+        "load_through_candidate_call_hex": "8b50686810e0fc008bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "005909AB",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "005909B5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "00eb1368e01ffb00eb0c68dc1ffb00eb0568d81ffb008b06",
+        "load_through_candidate_call_hex": "8b50686800e0fc008bceffd2",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "00590A30",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "00590A3E",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "01ffffffffc70000000000e89826f6ff8b068b15882d1501",
+        "load_through_candidate_call_hex": "8b406883c40c8d4c244051528bceffd0",
+        "owner_rows": [
+          {
+            "function": "00590810",
+            "start": "00590810",
+            "stop_exclusive": "00590a8a"
+          }
+        ]
+      },
+      {
+        "load_site": "00591728",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00591736",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44241068cc71fb0050e8a019f6ff8b0d882d15018b17",
+        "load_through_candidate_call_hex": "8b526883c40c8d44240c50518bcfffd2",
+        "owner_rows": [
+          {
+            "function": "005916e0",
+            "start": "005916e0",
+            "stop_exclusive": "005917f1"
+          }
+        ]
+      },
+      {
+        "load_site": "00591848",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00591856",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44241068cc71fb0050e88018f6ff8b0d882d15018b17",
+        "load_through_candidate_call_hex": "8b526883c40c8d44240c50518bcfffd2",
+        "owner_rows": [
+          {
+            "function": "00591800",
+            "start": "00591800",
+            "stop_exclusive": "005918f3"
+          }
+        ]
+      },
+      {
+        "load_site": "0059217E",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0059218C",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44244c68cc71fb0050e84a0ff6ff8b0d882d15018b16",
+        "load_through_candidate_call_hex": "8b526883c40c8d44244850518bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "005921E7",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "005921F5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "cc71fb00528988b4000000e8e10ef6ff8b068b15882d1501",
+        "load_through_candidate_call_hex": "8b406883c40c8d4c244c51528bceffd0",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0059306A",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00593078",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008d44242068cc71fb0050e85e00f6ff8b0d882d15018b17",
+        "load_through_candidate_call_hex": "8b526883c40c8d44241c50518bcfffd2",
+        "owner_rows": [
+          {
+            "function": "00593020",
+            "start": "00593020",
+            "stop_exclusive": "0059316c"
+          }
+        ]
+      },
+      {
+        "load_site": "005A85EC",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "005A85FA",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d085c07423d944240c8b1083ec0cd95c24088bc8d9442414",
+        "load_through_candidate_call_hex": "8b4268d95c2404d9442410d91c24ffd0",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0061A8DF",
+        "raw_load_hex": "8b4768",
+        "candidate_call_site": "0061A8E2",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ba0802000053578b386a008d5e1453516a00528b56185250",
+        "load_through_candidate_call_hex": "8b4768ffd0",
+        "owner_rows": [
+          {
+            "function": "0061a8a0",
+            "start": "0061a8a0",
+            "stop_exclusive": "0061a8fe"
+          }
+        ]
+      },
+      {
+        "load_site": "0061A9B9",
+        "raw_load_hex": "8b5768",
+        "candidate_call_site": "0061A9BE",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "33c9ba0802000053578b386a008d5e0c53518b4e106a0052",
+        "load_through_candidate_call_hex": "8b57685150ffd2",
+        "owner_rows": [
+          {
+            "function": "0061a980",
+            "start": "0061a980",
+            "stop_exclusive": "0061a9c9"
+          }
+        ]
+      },
+      {
+        "load_site": "00624284",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00624287",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0000837c24340273148b8f840000008b118d87e000000050",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": [
+          {
+            "function": "00623ec0",
+            "start": "00623ec0",
+            "stop_exclusive": "006248ae"
+          }
+        ]
+      },
+      {
+        "load_site": "0062D5BC",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "0062D5C8",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d284c00f95442413837c242c0273178b8c24a80000008b06",
+        "load_through_candidate_call_hex": "8b506881c1a0000000518bceffd2",
+        "owner_rows": [
+          {
+            "function": "0062d190",
+            "start": "0062d2f0",
+            "stop_exclusive": "0062d70b"
+          }
+        ]
+      },
+      {
+        "load_site": "00666096",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "006660A2",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "10000400008b078b505c8bcfffd284c075148b4c241c8b07",
+        "load_through_candidate_call_hex": "8b506881c1a0000000518bcfffd2",
+        "owner_rows": [
+          {
+            "function": "00665ef0",
+            "start": "00665ef0",
+            "stop_exclusive": "0066623d"
+          }
+        ]
+      },
+      {
+        "load_site": "006E3ED9",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "006E3EDF",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "568b3785f674198bcee8a1bdf2ff85c5740e8b4c24188b06",
+        "load_through_candidate_call_hex": "8b5068518bceffd2",
+        "owner_rows": [
+          {
+            "function": "006e3eb0",
+            "start": "006e3eb0",
+            "stop_exclusive": "006e3eef"
+          }
+        ]
+      },
+      {
+        "load_site": "006F720E",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "006F7215",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "8bce8986a0020000e8ed370000f7464400200000740b8b16",
+        "load_through_candidate_call_hex": "8b42686a018bceffd0",
+        "owner_rows": [
+          {
+            "function": "006f7160",
+            "start": "006f7160",
+            "stop_exclusive": "006f726f"
+          }
+        ]
+      },
+      {
+        "load_site": "006FFE23",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "006FFE2A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "54241c528d8e10020000e836d1fdff807c242000740b8b06",
+        "load_through_candidate_call_hex": "8b50686a008bceffd2",
+        "owner_rows": [
+          {
+            "function": "006ffda0",
+            "start": "006ffda0",
+            "stop_exclusive": "006ffe33"
+          }
+        ]
+      },
+      {
+        "load_site": "0071BDDE",
+        "raw_load_hex": "8b5668",
+        "candidate_call_site": "0071BDF7",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0f848f000000807e71000f8585000000e8051efeff8b4e6c",
+        "load_through_candidate_call_hex": "8b566851528bc8e83623feff8bf085f674178b068b50748bceffd2",
+        "owner_rows": [
+          {
+            "function": "0071bdb0",
+            "start": "0071bdb0",
+            "stop_exclusive": "0071be6a"
+          }
+        ]
+      },
+      {
+        "load_site": "0071DE52",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "0071DE59",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0c8b481085c90f8442050000837808000f85380500008b11",
+        "load_through_candidate_call_hex": "8b42686a006a09ffd0",
+        "owner_rows": [
+          {
+            "function": "0071d990",
+            "start": "0071d990",
+            "stop_exclusive": "0071e393"
+          }
+        ]
+      },
+      {
+        "load_site": "00720FD9",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00720FDC",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "c0741a8b44241485c0740583c018eb0233c08b4d008b1150",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": [
+          {
+            "function": "00720c10",
+            "start": "00720c10",
+            "stop_exclusive": "007210cd"
+          }
+        ]
+      },
+      {
+        "load_site": "0073B46B",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "0073B471",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "4c2410518b8c24a80000008bd88d54242452897c24288b03",
+        "load_through_candidate_call_hex": "8b5068518bcbffd2",
+        "owner_rows": [
+          {
+            "function": "0073b3f0",
+            "start": "0073b3f0",
+            "stop_exclusive": "0073b7d6"
+          }
+        ]
+      },
+      {
+        "load_site": "00748F00",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00748F17",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "53e1ff8b742414568d4c241ce8b7c01200e8920402008b10",
+        "load_through_candidate_call_hex": "8b52688d4c2460518d4c2428518b8c2400090000518bc8ffd2",
+        "owner_rows": [
+          {
+            "function": "00748c10",
+            "start": "00748c10",
+            "stop_exclusive": "0074912a"
+          }
+        ]
+      },
+      {
+        "load_site": "0074D3AE",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0074D3C2",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d0c744240800000000c744240400000000e8e4bf01008b10",
+        "load_through_candidate_call_hex": "8b52688d4c2404518d4c240c518b4c241c518bc8ffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "00750D14",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00750D22",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b178b42148bcfffd05f5e8be55dc38b068b504cffd28b16",
+        "load_through_candidate_call_hex": "8b52688d4c24205183c0ff508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00750ba0",
+            "start": "00750ba0",
+            "stop_exclusive": "00750d40"
+          }
+        ]
+      },
+      {
+        "load_site": "0075389E",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "007538A9",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0fc1118b068b90280100008bceffd284c074608b068b5508",
+        "load_through_candidate_call_hex": "8b40688d4c241051528bceffd0",
+        "owner_rows": [
+          {
+            "function": "00753840",
+            "start": "00753840",
+            "stop_exclusive": "00753920"
+          }
+        ]
+      },
+      {
+        "load_site": "00753F14",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00753F1A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "4c2414518b4c244c8d54242052894424248944241c8b4500",
+        "load_through_candidate_call_hex": "8b5068518bcdffd2",
+        "owner_rows": [
+          {
+            "function": "00753e20",
+            "start": "00753e20",
+            "stop_exclusive": "00753f91"
+          }
+        ]
+      },
+      {
+        "load_site": "00755908",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00755918",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "5b8be55dc38b451033c93bc1894c2418894c241c74148b16",
+        "load_through_candidate_call_hex": "8b52688d4c241c518d4c241c51508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00755840",
+            "start": "00755840",
+            "stop_exclusive": "00755c3c"
+          }
+        ]
+      },
+      {
+        "load_site": "00756146",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00756150",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "173b5704747285db741a8d442430508bcbe8ccb435008b16",
+        "load_through_candidate_call_hex": "8b52688d442430508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00755fd0",
+            "start": "00755fd0",
+            "stop_exclusive": "007561d4"
+          }
+        ]
+      },
+      {
+        "load_site": "00757688",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "0075768E",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "4c2414518b4c24448d54242052894424248944241c8b4500",
+        "load_through_candidate_call_hex": "8b5068518bcdffd2",
+        "owner_rows": [
+          {
+            "function": "00757590",
+            "start": "00757590",
+            "stop_exclusive": "00757764"
+          }
+        ]
+      },
+      {
+        "load_site": "00764A11",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00764A17",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "2424895c2428895c242c89442430895c241c895c24208b06",
+        "load_through_candidate_call_hex": "8b5068518bceffd2",
+        "owner_rows": [
+          {
+            "function": "007649a0",
+            "start": "007649a0",
+            "stop_exclusive": "00764b66"
+          }
+        ]
+      },
+      {
+        "load_site": "00764B10",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00764B17",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "24448d442418508b450c8d4c2418895c2418895c241c8b16",
+        "load_through_candidate_call_hex": "8b526851508bceffd2",
+        "owner_rows": [
+          {
+            "function": "007649a0",
+            "start": "007649a0",
+            "stop_exclusive": "00764b66"
+          }
+        ]
+      },
+      {
+        "load_site": "007667E5",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "007667F6",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "59c18bcb0f298424c0000000ffd285c00f86390400008b13",
+        "load_through_candidate_call_hex": "8b52688d8c24400300005183c0ff508bcbffd2",
+        "owner_rows": [
+          {
+            "function": "00765760",
+            "start": "00765e50",
+            "stop_exclusive": "00766db0"
+          }
+        ]
+      },
+      {
+        "load_site": "0077B04A",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0077B053",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "681882eeeeffd08bf085f67416e84cffd8ff8b4c24088b10",
+        "load_through_candidate_call_hex": "8b52686a0056518bc8ffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0078B2B6",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0078B2C6",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "008b7c24543bfb895c240c895c24687419e8dce0fdff8b10",
+        "load_through_candidate_call_hex": "8b52688d4c2468518d4c241051578bc8ffd2",
+        "owner_rows": [
+          {
+            "function": "0078b210",
+            "start": "0078b210",
+            "stop_exclusive": "0078b43c"
+          }
+        ]
+      },
+      {
+        "load_site": "0078B4C3",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0078B4D3",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "44247000000000c744240c000000007419e8cfdefdff8b10",
+        "load_through_candidate_call_hex": "8b52688d4c2470518d4c241051578bc8ffd2",
+        "owner_rows": [
+          {
+            "function": "0078b440",
+            "start": "0078b440",
+            "stop_exclusive": "0078b6c8"
+          }
+        ]
+      },
+      {
+        "load_site": "0078B8E3",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0078B8F3",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "24300f284424300f29442440895c2420895c241c74148b17",
+        "load_through_candidate_call_hex": "8b52688d4c241c518d4c242451508bcfffd2",
+        "owner_rows": [
+          {
+            "function": "0078b840",
+            "start": "0078b840",
+            "stop_exclusive": "0078ba1f"
+          }
+        ]
+      },
+      {
+        "load_site": "00797294",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "007972A4",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "24200f284424200f29442470894c24188954241c741c8b16",
+        "load_through_candidate_call_hex": "8b52688d4c241c518d4c241c51508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00797200",
+            "start": "00797200",
+            "stop_exclusive": "007976a3"
+          }
+        ]
+      },
+      {
+        "load_site": "00797730",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00797748",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "897c2420897c2424897c2428c744242cbc1c010174558b16",
+        "load_through_candidate_call_hex": "8b52688d4c2410518d4c241851508bce897c2420897c241cffd2",
+        "owner_rows": [
+          {
+            "function": "007976e0",
+            "start": "007976e0",
+            "stop_exclusive": "00797884"
+          }
+        ]
+      },
+      {
+        "load_site": "00798205",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0079820B",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "1c508b45148d4c241889742418897424208b13895c241451",
+        "load_through_candidate_call_hex": "8b5268508bcbffd2",
+        "owner_rows": [
+          {
+            "function": "00797fd0",
+            "start": "00797fd0",
+            "stop_exclusive": "0079824b"
+          }
+        ]
+      },
+      {
+        "load_site": "007E5DC2",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "007E5DD4",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0f11542440f30f11442444ffd2eb1dd90588fd03018b4604",
+        "load_through_candidate_call_hex": "8b506883c60483ec08d95424048bced91c24ffd2",
+        "owner_rows": [
+          {
+            "function": "007e5bb0",
+            "start": "007e5bb0",
+            "stop_exclusive": "007e5f0f"
+          }
+        ]
+      },
+      {
+        "load_site": "007E6365",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "007E636A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d95c2404eb0dd90560bffe0083ec08d95424048b17d91c24",
+        "load_through_candidate_call_hex": "8b42688bcfffd0",
+        "owner_rows": [
+          {
+            "function": "007e6290",
+            "start": "007e6290",
+            "stop_exclusive": "007e65dd"
+          }
+        ]
+      },
+      {
+        "load_site": "007E7450",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "007E7456",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "c150020000ffd0d905783ffb008b1083ec088bc8d9542404",
+        "load_through_candidate_call_hex": "8b4268d91c24ffd0",
+        "owner_rows": []
+      },
+      {
+        "load_site": "007ED056",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "007ED05B",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "5347038bceffd08b168b424c5568855347038bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "007ecfa0",
+            "start": "007ecfa0",
+            "stop_exclusive": "007ed065"
+          }
+        ]
+      },
+      {
+        "load_site": "007F0612",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "007F0617",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "8b7c240cc64649008b078b50148bcfffd28b106a00578bc8",
+        "load_through_candidate_call_hex": "8b42686a01ffd0",
+        "owner_rows": [
+          {
+            "function": "007f05f0",
+            "start": "007f05f0",
+            "stop_exclusive": "007f065a"
+          }
+        ]
+      },
+      {
+        "load_site": "007F280C",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "007F2829",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b82dc000000ffd08b86500200008b78048b48088b008b11",
+        "load_through_candidate_call_hex": "8b5268f7df83ec08f30f2ac7f30f11442404f7d8f30f2ac0f30f110424ffd2",
+        "owner_rows": [
+          {
+            "function": "007f27b0",
+            "start": "007f27b0",
+            "stop_exclusive": "007f2874"
+          }
+        ]
+      },
+      {
+        "load_site": "007F2850",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "007F286D",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d25f5ec2040085c0742d8b480885c974268b70048b008b11",
+        "load_through_candidate_call_hex": "8b5268f7de83ec08f30f2ac6f30f11442404f7d8f30f2ac0f30f110424ffd2",
+        "owner_rows": [
+          {
+            "function": "007f27b0",
+            "start": "007f27b0",
+            "stop_exclusive": "007f2874"
+          }
+        ]
+      },
+      {
+        "load_site": "007FEF6A",
+        "raw_load_hex": "8b4568",
+        "candidate_call_site": "007FEF86",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "3785f6751383c7043937750a8bff83c704833f0074f88b37",
+        "load_through_candidate_call_hex": "8b45688b4d648b1c813bf374278b4e048b118b4204c7412800000000ffd0",
+        "owner_rows": [
+          {
+            "function": "007fee70",
+            "start": "007fee70",
+            "stop_exclusive": "007ff1ed"
+          }
+        ]
+      },
+      {
+        "load_site": "008609D5",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008609DA",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "47038bceffd28b068b504c6a0068a05347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00860940",
+            "start": "00860940",
+            "stop_exclusive": "00860a29"
+          }
+        ]
+      },
+      {
+        "load_site": "00860B35",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00860B3A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "47038bceffd28b068b504c6a0068a05347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "008624B2",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008624B7",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "a3ad8bceffd28b068b50505355685fd8ef398bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00862400",
+            "start": "00862400",
+            "stop_exclusive": "00862512"
+          }
+        ]
+      },
+      {
+        "load_site": "008624E7",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008624EC",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "90e68bceffd28b068b50505355685fd8ef398bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00862400",
+            "start": "00862400",
+            "stop_exclusive": "00862512"
+          }
+        ]
+      },
+      {
+        "load_site": "00862807",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "0086280C",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "90e68bcfffd28b078b50505355685fd8ef398bcfffd28b07",
+        "load_through_candidate_call_hex": "8b50688bcfffd2",
+        "owner_rows": [
+          {
+            "function": "00862670",
+            "start": "00862670",
+            "stop_exclusive": "00862829"
+          }
+        ]
+      },
+      {
+        "load_site": "00862F0F",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00862F14",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ceffd28b4c24088b068b504c5168855347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0086316F",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00863174",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "5347038bceffd28b068b504c5768855347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0086324F",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00863254",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b525c68080200008d44241450682e37a99f8bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0086330F",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00863314",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "5347038bceffd28b068b504c5768855347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0086339C",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008633A1",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0c320a8bceffd28b068b504c5768855347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "00863402",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00863407",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d94424108b068b504851d91c2468a45347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0086372F",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00863734",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b424851f30f2ac3f30f11042468d178ff398bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "00863460",
+            "start": "00863460",
+            "stop_exclusive": "0086374a"
+          }
+        ]
+      },
+      {
+        "load_site": "008641AA",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008641B8",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8f0201e8f673baff8b078d4c2414518b4c245c8d54241452",
+        "load_through_candidate_call_hex": "8b5068518bcf895c241c895c2420ffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0086428A",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "0086428D",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0d3bc3740950e86302c8ff83c4045f5e5d33c05b83c43cc3",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0086437E",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "0086438C",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8f0201e82272baff8b078d4c2414518b4c24388d54241452",
+        "load_through_candidate_call_hex": "8b5068518bcf896c241c896c2420ffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "008643F0",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "008643F3",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0d3bc5740950e8fd00c8ff83c4045f5e5d32c05b83c418c3",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": []
+      },
+      {
+        "load_site": "00864BBD",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00864BC2",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ceffd28b4c24148b068b504c5168f5da3ac68bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00864b60",
+            "start": "00864b60",
+            "stop_exclusive": "00864bc8"
+          }
+        ]
+      },
+      {
+        "load_site": "00865065",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "0086506A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b424851f30f2ac7f30f11042468aa5347038bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "00864e00",
+            "start": "00864e00",
+            "stop_exclusive": "00865216"
+          }
+        ]
+      },
+      {
+        "load_site": "008650CD",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008650D2",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b504851f30f2ac7f30f11042468aa5347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00864e00",
+            "start": "00864e00",
+            "stop_exclusive": "00865216"
+          }
+        ]
+      },
+      {
+        "load_site": "0086538F",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00865394",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8bceffd08b470c8b168b524c5068492036048bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00865340",
+            "start": "00865340",
+            "stop_exclusive": "0086542d"
+          }
+        ]
+      },
+      {
+        "load_site": "00865CC5",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00865CCA",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "2a4424288b424851f30f11042468d178ff398bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "00865af0",
+            "start": "00865af0",
+            "stop_exclusive": "008660dc"
+          }
+        ]
+      },
+      {
+        "load_site": "00865F08",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00865F0D",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "2a4424108b424851f30f11042468d178ff398bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "00865af0",
+            "start": "00865af0",
+            "stop_exclusive": "008660dc"
+          }
+        ]
+      },
+      {
+        "load_site": "00868431",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00868436",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "b0884804ffd28b068b504c6a0168a05347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00868410",
+            "start": "00868410",
+            "stop_exclusive": "00868447"
+          }
+        ]
+      },
+      {
+        "load_site": "008A080F",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008A0818",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "f30f108ef8030000f30f59c8f30f114c24108b06d9442410",
+        "load_through_candidate_call_hex": "8b506851d91c248bceffd2",
+        "owner_rows": [
+          {
+            "function": "008a0440",
+            "start": "008a0440",
+            "stop_exclusive": "008a082f"
+          }
+        ]
+      },
+      {
+        "load_site": "008A0E61",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008A0E74",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "cc030000eb10f30f1086f8030000f30f5986cc0300008b06",
+        "load_through_candidate_call_hex": "8b5068f30f11442414d9442414518bced91c24ffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "008AFEF2",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008AFEF7",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "020000e8ceecfeff8b068b5044686db235048bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "008afe80",
+            "start": "008afe80",
+            "stop_exclusive": "008aff6b"
+          }
+        ]
+      },
+      {
+        "load_site": "008B0834",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008B0839",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "4c24100f2fc877da0f2fc1772b84db74d1803f0074cc8b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "008b07a0",
+            "start": "008b07a0",
+            "stop_exclusive": "008b085a"
+          }
+        ]
+      },
+      {
+        "load_site": "008B12E6",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008B12EB",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d2d947408b068b504851d91c2468985347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "008b11a0",
+            "start": "008b11a0",
+            "stop_exclusive": "008b15ca"
+          }
+        ]
+      },
+      {
+        "load_site": "008B1369",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008B136E",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d2d947108b068b504851d91c2468a45347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "008b11a0",
+            "start": "008b11a0",
+            "stop_exclusive": "008b15ca"
+          }
+        ]
+      },
+      {
+        "load_site": "008B13E0",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008B13E5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d2d947208b068b504851d91c2468985347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "008b11a0",
+            "start": "008b11a0",
+            "stop_exclusive": "008b15ca"
+          }
+        ]
+      },
+      {
+        "load_site": "008B14C0",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "008B14C5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b4f208b57188b068b405c515268b05347038bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "008b11a0",
+            "start": "008b11a0",
+            "stop_exclusive": "008b15ca"
+          }
+        ]
+      },
+      {
+        "load_site": "008B1547",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008B154C",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "d2d947108b068b504851d91c2468aa5347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "008b11a0",
+            "start": "008b11a0",
+            "stop_exclusive": "008b15ca"
+          }
+        ]
+      },
+      {
+        "load_site": "008B15BC",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "008B15C1",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8bceffd28b4f205168b35347038b068b504c8bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "008b11a0",
+            "start": "008b11a0",
+            "stop_exclusive": "008b15ca"
+          }
+        ]
+      },
+      {
+        "load_site": "008B23C9",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "008B23CE",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "afab038bceffd08b168b42645768fc419e038bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "008b2320",
+            "start": "008b2320",
+            "stop_exclusive": "008b23d7"
+          }
+        ]
+      },
+      {
+        "load_site": "008B3A38",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "008B3A3D",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8bcf83c348ffd28b0351d91c2468aa5347038bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "008b3970",
+            "start": "008b3970",
+            "stop_exclusive": "008b3b54"
+          }
+        ]
+      },
+      {
+        "load_site": "008B7790",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "008B7795",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b50188bcf83c34cffd2508b0368855347038bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "008b76e0",
+            "start": "008b76e0",
+            "stop_exclusive": "008b77f0"
+          }
+        ]
+      },
+      {
+        "load_site": "008B77DE",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "008B77E3",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8bcf83c348ffd28b0351d91c2468aa5347038bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "008b76e0",
+            "start": "008b76e0",
+            "stop_exclusive": "008b77f0"
+          }
+        ]
+      },
+      {
+        "load_site": "008C6A42",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "008C6A45",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "cccccccccccc568bf18b4c24088b018b5024ffd28b108bc8",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": [
+          {
+            "function": "008c6a30",
+            "start": "008c6a30",
+            "stop_exclusive": "008c6a4e"
+          }
+        ]
+      },
+      {
+        "load_site": "008C9429",
+        "raw_load_hex": "8b4168",
+        "candidate_call_site": "008C9444",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "24208d44241c77048d442418d90066015e1ad95e288b4e10",
+        "load_through_candidate_call_hex": "8b41688b496c8bd023d183faff74398b1751508b828c0000008bcfffd0",
+        "owner_rows": [
+          {
+            "function": "008c91c0",
+            "start": "008c91c0",
+            "stop_exclusive": "008c948e"
+          }
+        ]
+      },
+      {
+        "load_site": "00921654",
+        "raw_load_hex": "8b5668",
+        "candidate_call_site": "00921666",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ff8b4e7c88018b563889563c8b465889465c8b4e48894e4c",
+        "load_through_candidate_call_hex": "8b566889566c8b4e048b018b908400000056ffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "0094235E",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00942363",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "47038bceffd08b168b424c6a0068a05347038bceffd08b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "009422f0",
+            "start": "009422f0",
+            "stop_exclusive": "00942381"
+          }
+        ]
+      },
+      {
+        "load_site": "009432DE",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "009432E3",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "f30f11042468d178ff398bceffd08b5c24208b7c24188b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "00942d20",
+            "start": "00942d20",
+            "stop_exclusive": "00943396"
+          }
+        ]
+      },
+      {
+        "load_site": "00955D12",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00955D23",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "e4000000f30f5845080f2fc1f30f1186e400000076158b17",
+        "load_through_candidate_call_hex": "8b4268f30f5cc18bcff30f1186e4000000ffd0",
+        "owner_rows": [
+          {
+            "function": "00955c40",
+            "start": "00955c40",
+            "stop_exclusive": "00955e94"
+          }
+        ]
+      },
+      {
+        "load_site": "00983B2D",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00983B32",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ffd284c074488b44242c3bc5740583c018eb0233c08b1750",
+        "load_through_candidate_call_hex": "8b42688bcfffd0",
+        "owner_rows": [
+          {
+            "function": "00983a80",
+            "start": "00983a80",
+            "stop_exclusive": "00983ba8"
+          }
+        ]
+      },
+      {
+        "load_site": "009979D7",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "009979E9",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "4c2450e8f9f4abff5e5d5b83c458c3cccc518b4c24088b01",
+        "load_through_candidate_call_hex": "8b40688d542408528d542404528b54241452ffd0",
+        "owner_rows": [
+          {
+            "function": "009979d0",
+            "start": "009979d0",
+            "stop_exclusive": "00997a0d"
+          }
+        ]
+      },
+      {
+        "load_site": "00997A77",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00997A8B",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8d44240c508d4c2440c744241014a30401e88b1ae4ff8b16",
+        "load_through_candidate_call_hex": "8b52688d44240c508b44245c8d4c241451508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00997a10",
+            "start": "00997a10",
+            "stop_exclusive": "00997b8c"
+          }
+        ]
+      },
+      {
+        "load_site": "009989EB",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00998A02",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8d44240c508d4c2454c7442410489f0401e8170be4ff8b13",
+        "load_through_candidate_call_hex": "8b52688d44240c508b8424340100008d4c242c51508bcbffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "00999063",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0099907A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8d442404508d4c243cc7442408489f0401e89f04e4ff8b17",
+        "load_through_candidate_call_hex": "8b52688d442404508b8424f00000008d4c240c51508bcfffd2",
+        "owner_rows": []
+      },
+      {
+        "load_site": "009D9084",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "009D9089",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0557048bceffd28b068b50585768c70657048bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "009d8fa0",
+            "start": "009d8fa0",
+            "stop_exclusive": "009d9095"
+          }
+        ]
+      },
+      {
+        "load_site": "009D919B",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "009D91A0",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0557048bcfffd28b078b50585668c70657048bcfffd28b07",
+        "load_through_candidate_call_hex": "8b50688bcfffd2",
+        "owner_rows": [
+          {
+            "function": "009d90a0",
+            "start": "009d90a0",
+            "stop_exclusive": "009d93b1"
+          }
+        ]
+      },
+      {
+        "load_site": "009D9292",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "009D9297",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "cfffd08b178b424c688716ccf168441150048bcfffd08b17",
+        "load_through_candidate_call_hex": "8b42688bcfffd0",
+        "owner_rows": [
+          {
+            "function": "009d90a0",
+            "start": "009d90a0",
+            "stop_exclusive": "009d93b1"
+          }
+        ]
+      },
+      {
+        "load_site": "009EA5A7",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "009EA5AC",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "eb0233db8b47048b50148d77048bceffd28b106a00538bc8",
+        "load_through_candidate_call_hex": "8b42686a01ffd0",
+        "owner_rows": [
+          {
+            "function": "009ea580",
+            "start": "009ea580",
+            "stop_exclusive": "009ea692"
+          }
+        ]
+      },
+      {
+        "load_site": "009EE5D9",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "009EE5E2",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0c578bf8f30f114018b907000000f3a58b0085c0740d8b10",
+        "load_through_candidate_call_hex": "8b52688d4b0c518bc8ffd2",
+        "owner_rows": [
+          {
+            "function": "009ee570",
+            "start": "009ee570",
+            "stop_exclusive": "009ee5ec"
+          }
+        ]
+      },
+      {
+        "load_site": "00A474FF",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00A47504",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b442414503ac30f94c0897c241c8b3e5053535351528b17",
+        "load_through_candidate_call_hex": "8b42688bcfffd0",
+        "owner_rows": [
+          {
+            "function": "00a47400",
+            "start": "00a47400",
+            "stop_exclusive": "00a475c5"
+          }
+        ]
+      },
+      {
+        "load_site": "00B06E3A",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00B06E3F",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "750885f68b4d107443518d542464528bcee86803fbff8b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00b06980",
+            "start": "00b06980",
+            "stop_exclusive": "00b06e8d"
+          }
+        ]
+      },
+      {
+        "load_site": "00B08967",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00B0896A",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0e0f57c00f5cc20f28d00f295424208b4d0885c9742b8b11",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": [
+          {
+            "function": "00b08820",
+            "start": "00b08820",
+            "stop_exclusive": "00b0899e"
+          }
+        ]
+      },
+      {
+        "load_site": "00B08B15",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00B08B18",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "85c98b75100f29742440f30f10442440f30f1106740b8b01",
+        "load_through_candidate_call_hex": "8b5068ffd2",
+        "owner_rows": [
+          {
+            "function": "00b089a0",
+            "start": "00b089a0",
+            "stop_exclusive": "00b08b25"
+          }
+        ]
+      },
+      {
+        "load_site": "00B0CCA8",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00B0CCB7",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0f1044241cf30f1107b0015f5e5b8be55dc3db4424188b16",
+        "load_through_candidate_call_hex": "8b42688bced80dd4451801d95c2414ffd0",
+        "owner_rows": [
+          {
+            "function": "00b0c930",
+            "start": "00b0c930",
+            "stop_exclusive": "00b0ccdd"
+          }
+        ]
+      },
+      {
+        "load_site": "00B3E8E6",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00B3E8E9",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "74258b108bc88b420c680e6b5690ffd085c074138b108bc8",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": [
+          {
+            "function": "00b3e750",
+            "start": "00b3e750",
+            "stop_exclusive": "00b3e907"
+          }
+        ]
+      },
+      {
+        "load_site": "00B96647",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00B96652",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "060083c40484c074208d442438508d4c2414885c243c8b16",
+        "load_through_candidate_call_hex": "8b5268518d44241c508bceffd2",
+        "owner_rows": [
+          {
+            "function": "00b96510",
+            "start": "00b96510",
+            "stop_exclusive": "00b968b7"
+          }
+        ]
+      },
+      {
+        "load_site": "00B9F02D",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00B9F032",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "00741c685e6549038d8810020000e8d8e3b3ff8b4e308b01",
+        "load_through_candidate_call_hex": "8b50686a00ffd2",
+        "owner_rows": [
+          {
+            "function": "00b9eeb0",
+            "start": "00b9eeb0",
+            "stop_exclusive": "00b9f043"
+          }
+        ]
+      },
+      {
+        "load_site": "00C1F30D",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00C1F31F",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "078b4968890aeb168b41683bc774098bc88b40683bc775f7",
+        "load_through_candidate_call_hex": "8b50688951688b4f6085c974078b018b5004ffd2",
+        "owner_rows": [
+          {
+            "function": "00c1f2c0",
+            "start": "00c1f2c0",
+            "stop_exclusive": "00c1f336"
+          }
+        ]
+      },
+      {
+        "load_site": "00C25764",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00C2576D",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8400000089842488000000c784248c000000147607018b16",
+        "load_through_candidate_call_hex": "8b4268518bced91c24ffd0",
+        "owner_rows": [
+          {
+            "function": "00c25280",
+            "start": "00c256e0",
+            "stop_exclusive": "00c257a6"
+          }
+        ]
+      },
+      {
+        "load_site": "00C6F580",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00C6F585",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "8b178b52648d442430508bcfffd2508bcee81286b6ff8b07",
+        "load_through_candidate_call_hex": "8b50688bcfffd2",
+        "owner_rows": [
+          {
+            "function": "00c6f340",
+            "start": "00c6f410",
+            "stop_exclusive": "00c6f972"
+          }
+        ]
+      },
+      {
+        "load_site": "00C70523",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00C70528",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "0f288c24e00100000fc2c1000f50c083e0073c07751b8b13",
+        "load_through_candidate_call_hex": "8b42688bcbffd0",
+        "owner_rows": [
+          {
+            "function": "00c70140",
+            "start": "00c70140",
+            "stop_exclusive": "00c71122"
+          }
+        ]
+      },
+      {
+        "load_site": "00C7861E",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00C78623",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "58ca0f28d00fc6d0aa0f2840200f59d00f58ca0f290a8b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00c78470",
+            "start": "00c78470",
+            "stop_exclusive": "00c7865d"
+          }
+        ]
+      },
+      {
+        "load_site": "00C79534",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00C79539",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "58ca0f28d00fc6d0aa0f2840200f59d00f58ca0f29098b16",
+        "load_through_candidate_call_hex": "8b42688bceffd0",
+        "owner_rows": [
+          {
+            "function": "00c78db0",
+            "start": "00c78db0",
+            "stop_exclusive": "00c795b2"
+          }
+        ]
+      },
+      {
+        "load_site": "00C79E4E",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00C79E57",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "5c05f898f900f30f1144241cd944241cd80d28af07018b17",
+        "load_through_candidate_call_hex": "8b42688bcfd95c241cffd0",
+        "owner_rows": [
+          {
+            "function": "00c79a80",
+            "start": "00c79a80",
+            "stop_exclusive": "00c7a435"
+          }
+        ]
+      },
+      {
+        "load_site": "00CBECA9",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00CBECC5",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "518d542414528844241c8844241d88442418884424198b03",
+        "load_through_candidate_call_hex": "8b50688d4c241c518bcb8d7b10c644242200c644241e00c644243300ffd2",
+        "owner_rows": [
+          {
+            "function": "00cbec30",
+            "start": "00cbec30",
+            "stop_exclusive": "00cbef1d"
+          }
+        ]
+      },
+      {
+        "load_site": "00CCC487",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00CCC495",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "5c2418f30f104c24180fc6c9000fc6c1050f284c24308b16",
+        "load_through_candidate_call_hex": "8b42680fc6c1e28bce0f29442430ffd0",
+        "owner_rows": [
+          {
+            "function": "00ccbae0",
+            "start": "00ccbae0",
+            "stop_exclusive": "00ccc519"
+          }
+        ]
+      },
+      {
+        "load_site": "00CEB685",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00CEB699",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "cccccc83ec18568b35c89a1d0185f67479e80ddda7ff8b10",
+        "load_through_candidate_call_hex": "8b52688d4c2404518d4c240c518b4c2428518bc8ffd2",
+        "owner_rows": [
+          {
+            "function": "00ceb670",
+            "start": "00ceb670",
+            "stop_exclusive": "00ceb6fc"
+          }
+        ]
+      },
+      {
+        "load_site": "00CEDA79",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00CEDA7E",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "cbffd2c64334005f5e5b8be55dc21000807b3400750d8b03",
+        "load_through_candidate_call_hex": "8b50688bcbffd2",
+        "owner_rows": [
+          {
+            "function": "00ced880",
+            "start": "00ced880",
+            "stop_exclusive": "00cedab4"
+          }
+        ]
+      },
+      {
+        "load_site": "00CFE048",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00CFE04B",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "ffeb0233c0d9450c518bc8d91c24e80dbff8ff8b4f0c8b11",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": [
+          {
+            "function": "00cfe010",
+            "start": "00cfe010",
+            "stop_exclusive": "00cfe143"
+          }
+        ]
+      },
+      {
+        "load_site": "00CFE194",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00CFE197",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "e85fdddfffd954241c8bcfd91c24e8c1bdf8ff8b4b0c8b11",
+        "load_through_candidate_call_hex": "8b4268ffd0",
+        "owner_rows": [
+          {
+            "function": "00cfe150",
+            "start": "00cfe150",
+            "stop_exclusive": "00cfe292"
+          }
+        ]
+      },
+      {
+        "load_site": "00D01444",
+        "raw_load_hex": "8b5668",
+        "candidate_call_site": "00D0145F",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "c1e91ef6c101741b8b4e683bcf7414e8d094010084c0740b",
+        "load_through_candidate_call_hex": "8b5668528bcde8b19d010080bed00100000074148b038b50208bcbffd2",
+        "owner_rows": [
+          {
+            "function": "00d012c0",
+            "start": "00d012c0",
+            "stop_exclusive": "00d016c6"
+          }
+        ]
+      },
+      {
+        "load_site": "00D27550",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "00D2755E",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "5c2418f30f104c24180fc6c9000fc6c1050f284c24208b13",
+        "load_through_candidate_call_hex": "8b42680fc6c1e28bcb0f29442420ffd0",
+        "owner_rows": [
+          {
+            "function": "00d26bb0",
+            "start": "00d26bb0",
+            "stop_exclusive": "00d27792"
+          }
+        ]
+      },
+      {
+        "load_site": "00F1CE85",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "00F1CE91",
+        "has_raw_push1_in_previous24_or_load_to_call": false,
+        "preceding24_hex": "dcd112018bcb8be8e8864d5cff8b4f086a00896c24288b11",
+        "load_through_candidate_call_hex": "8b526883c748578d44242c50ffd2",
+        "owner_rows": [
+          {
+            "function": "00f1cda0",
+            "start": "00f1ce40",
+            "stop_exclusive": "00f1d165"
+          }
+        ]
+      }
+    ],
+    "push1_reduced_candidates": [
+      {
+        "load_site": "00518344",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0051834F",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "00518320",
+            "start": "00518320",
+            "stop_exclusive": "00518388"
+          }
+        ]
+      },
+      {
+        "load_site": "0051B844",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0051B84F",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "0051b820",
+            "start": "0051b820",
+            "stop_exclusive": "0051b8c4"
+          }
+        ]
+      },
+      {
+        "load_site": "0051C952",
+        "raw_load_hex": "8b5268",
+        "candidate_call_site": "0051C95A",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "4204ffd0f646340474188b8edcfdffff8b86ac0000008b11",
+        "load_through_candidate_call_hex": "8b52686a01506a01ffd2",
+        "owner_rows": [
+          {
+            "function": "0051c8d0",
+            "start": "0051c8d0",
+            "stop_exclusive": "0051ca98"
+          }
+        ]
+      },
+      {
+        "load_site": "0051F994",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0051F99F",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "0051f970",
+            "start": "0051f970",
+            "stop_exclusive": "0051f9c0"
+          }
+        ]
+      },
+      {
+        "load_site": "005363E4",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "005363EF",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "005363c0",
+            "start": "005363c0",
+            "stop_exclusive": "0053647e"
+          }
+        ]
+      },
+      {
+        "load_site": "005393C4",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "005393CF",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "005393a0",
+            "start": "005393a0",
+            "stop_exclusive": "00539411"
+          }
+        ]
+      },
+      {
+        "load_site": "0053B844",
+        "raw_load_hex": "8b4068",
+        "candidate_call_site": "0053B84F",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "0233ff8b4e308b018b50606a01ffd23bc775128b4e308b01",
+        "load_through_candidate_call_hex": "8b40686a008d5604526a01ffd0",
+        "owner_rows": [
+          {
+            "function": "0053b820",
+            "start": "0053b820",
+            "stop_exclusive": "0053b89c"
+          }
+        ]
+      },
+      {
+        "load_site": "0053F6D7",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "0053F6DC",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "8bceffd284c074178b068b50148bceffd28b106a00568bc8",
+        "load_through_candidate_call_hex": "8b42686a01ffd0",
+        "owner_rows": []
+      },
+      {
+        "load_site": "006F720E",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "006F7215",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "8bce8986a0020000e8ed370000f7464400200000740b8b16",
+        "load_through_candidate_call_hex": "8b42686a018bceffd0",
+        "owner_rows": [
+          {
+            "function": "006f7160",
+            "start": "006f7160",
+            "stop_exclusive": "006f726f"
+          }
+        ]
+      },
+      {
+        "load_site": "007F0612",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "007F0617",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "8b7c240cc64649008b078b50148bcfffd28b106a00578bc8",
+        "load_through_candidate_call_hex": "8b42686a01ffd0",
+        "owner_rows": [
+          {
+            "function": "007f05f0",
+            "start": "007f05f0",
+            "stop_exclusive": "007f065a"
+          }
+        ]
+      },
+      {
+        "load_site": "00868431",
+        "raw_load_hex": "8b5068",
+        "candidate_call_site": "00868436",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "b0884804ffd28b068b504c6a0168a05347038bceffd28b06",
+        "load_through_candidate_call_hex": "8b50688bceffd2",
+        "owner_rows": [
+          {
+            "function": "00868410",
+            "start": "00868410",
+            "stop_exclusive": "00868447"
+          }
+        ]
+      },
+      {
+        "load_site": "009EA5A7",
+        "raw_load_hex": "8b4268",
+        "candidate_call_site": "009EA5AC",
+        "has_raw_push1_in_previous24_or_load_to_call": true,
+        "preceding24_hex": "eb0233db8b47048b50148d77048bceffd28b106a00538bc8",
+        "load_through_candidate_call_hex": "8b42686a01ffd0",
+        "owner_rows": [
+          {
+            "function": "009ea580",
+            "start": "009ea580",
+            "stop_exclusive": "009ea692"
+          }
+        ]
+      }
+    ]
+  },
+  "manager_neighborhood_FF68": {
+    "scope_VA_halfopen": [
+      "00733BE0",
+      "00738800"
+    ],
+    "raw_pattern_scope": "FF /2 base-register + displacement68 only, excludes SIB and other opcode forms; candidates not absence/closureproof",
+    "candidates": [
+      {
+        "site": "00737B7F",
+        "bytes": "ff5768",
+        "owners": [
+          "00737980"
+        ]
+      },
+      {
+        "site": "0073850F",
+        "bytes": "ff5768",
+        "owners": [
+          "00738230"
+        ]
+      }
+    ]
+  },
+  "manager_neighborhood_load68": {
+    "scope_VA_halfopen": [
+      "00733BE0",
+      "00738800"
+    ],
+    "raw_pattern_scope": "8B base-register + displacement68 only, SIB/otheropcodesexcluded; candidate reads not proved vtable accesses",
+    "rows": []
+  },
+  "rejected_non_instruction_starts": {
+    "rows": [
+      {
+        "raw_candidate": {
+          "site": "00737B7F",
+          "bytes": "ff5768",
+          "owners": [
+            "00737980"
+          ]
+        },
+        "status": "REJECTED_NOT_INSTRUCTION_START",
+        "actual_containing_instruction": {
+          "address": "00737B7B",
+          "bytes": "e82030daff",
+          "asm": "call   0x4daba0"
+        }
+      },
+      {
+        "raw_candidate": {
+          "site": "0073850F",
+          "bytes": "ff5768",
+          "owners": [
+            "00738230"
+          ]
+        },
+        "status": "REJECTED_NOT_INSTRUCTION_START",
+        "actual_containing_instruction": {
+          "address": "0073850E",
+          "bytes": "03ff",
+          "asm": "add    edi,edi"
+        }
+      }
+    ],
+    "rule": "Original bytes and whole exact stored-range GNU/LLVM starts are authoritative; no function or indirect-call inference from these raw sequences."
+  },
+  "literal_pointer_and_relative_candidates": [
+    {
+      "search": "RAW-CANDIDATES",
+      "rows": {
+        "literal_pointer_candidates": [
+          {
+            "matched_word": "00FB3DB0",
+            "file_offset": 733836,
+            "VA": "004B328C",
+            "section": ".text",
+            "section_executable": true,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "004b3280",
+                "start": "004b3280",
+                "stop_exclusive": "004b33c5",
+                "source": "full-body-metadata-02500.json#45"
+              }
+            ],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "00FB3DB0",
+            "file_offset": 734606,
+            "VA": "004B358E",
+            "section": ".text",
+            "section_executable": true,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "004b3580",
+                "start": "004b3580",
+                "stop_exclusive": "004b3767",
+                "source": "full-body-metadata-02500.json#47"
+              }
+            ],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "00FB3610",
+            "file_offset": 690021,
+            "VA": "004A8765",
+            "section": ".text",
+            "section_executable": true,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "004a8760",
+                "start": "004a8760",
+                "stop_exclusive": "004a87ff",
+                "source": "full-body-metadata-02300.json#21"
+              }
+            ],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "00FB3610",
+            "file_offset": 692922,
+            "VA": "004A92BA",
+            "section": ".text",
+            "section_executable": true,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "004a9290",
+                "start": "004a9290",
+                "stop_exclusive": "004a946a",
+                "source": "full-body-metadata-02300.json#33"
+              }
+            ],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "004AFF30",
+            "file_offset": 12271128,
+            "VA": "00FB3E18",
+            "section": ".rdata",
+            "section_executable": false,
+            "existing_owner_rows_at_match": [],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "004AFF30",
+            "file_offset": 12579624,
+            "VA": "00FFF328",
+            "section": ".rdata",
+            "section_executable": false,
+            "existing_owner_rows_at_match": [],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "004AFFE0",
+            "file_offset": 12271132,
+            "VA": "00FB3E1C",
+            "section": ".rdata",
+            "section_executable": false,
+            "existing_owner_rows_at_match": [],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "004AFFE0",
+            "file_offset": 12579628,
+            "VA": "00FFF32C",
+            "section": ".rdata",
+            "section_executable": false,
+            "existing_owner_rows_at_match": [],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "004A6DD0",
+            "file_offset": 12269144,
+            "VA": "00FB3658",
+            "section": ".rdata",
+            "section_executable": false,
+            "existing_owner_rows_at_match": [],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "004A6DD0",
+            "file_offset": 12885488,
+            "VA": "01049DF0",
+            "section": ".rdata",
+            "section_executable": false,
+            "existing_owner_rows_at_match": [],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          }
+        ],
+        "relative_transfer_candidates": [
+          {
+            "site": "00736C99",
+            "target": "004B2ED0",
+            "opcode": "E8",
+            "file_offset": 3370137,
+            "existing_owner_rows_at_match": [],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          }
+        ]
+      }
+    },
+    {
+      "search": "CONSTRUCTOR-CANDIDATES",
+      "rows": {
+        "literal_pointer_candidates": [
+          {
+            "matched_word": "00FFF2C0",
+            "file_offset": 3367904,
+            "VA": "007363E0",
+            "section": ".text",
+            "section_executable": true,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "007363d0",
+                "start": "007363d0",
+                "stop_exclusive": "007365ad",
+                "source": "full-body-metadata-12700.json#17"
+              }
+            ],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "00FFF2C0",
+            "file_offset": 3370506,
+            "VA": "00736E0A",
+            "section": ".text",
+            "section_executable": true,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00736de0",
+                "start": "00736de0",
+                "stop_exclusive": "0073706a",
+                "source": "full-body-metadata-12700.json#24"
+              }
+            ],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "01049DA8",
+            "file_offset": 5852773,
+            "VA": "00994E65",
+            "section": ".text",
+            "section_executable": true,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00994e60",
+                "start": "00994e60",
+                "stop_exclusive": "00994ead",
+                "source": "full-body-metadata-20500.json#83"
+              }
+            ],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          },
+          {
+            "matched_word": "01049DA8",
+            "file_offset": 5852877,
+            "VA": "00994ECD",
+            "section": ".text",
+            "section_executable": true,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00994eb0",
+                "start": "00994eb0",
+                "stop_exclusive": "00994f3e",
+                "source": "full-body-metadata-20500.json#84"
+              }
+            ],
+            "meaning": "raw literal/pointer candidate only, not yet decoded instruction or actual table ingress"
+          }
+        ],
+        "relative_transfer_candidates": [
+          {
+            "site": "004B3773",
+            "target": "004B3280",
+            "opcode": "E8",
+            "file_offset": 735091,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "004b3770",
+                "start": "004b3770",
+                "stop_exclusive": "004b378e",
+                "source": "full-body-metadata-02500.json#48"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "007365A8",
+            "target": "004B3280",
+            "opcode": "E9",
+            "file_offset": 3368360,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "007363d0",
+                "start": "007363d0",
+                "stop_exclusive": "007365ad",
+                "source": "full-body-metadata-12700.json#17"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "00736DF3",
+            "target": "004B3580",
+            "opcode": "E8",
+            "file_offset": 3370483,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00736de0",
+                "start": "00736de0",
+                "stop_exclusive": "0073706a",
+                "source": "full-body-metadata-12700.json#24"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          }
+        ]
+      }
+    },
+    {
+      "search": "CONCRETE-CONSTRUCTOR-CALL-CANDIDATES",
+      "rows": {
+        "literal_pointer_candidates": [],
+        "relative_transfer_candidates": [
+          {
+            "site": "00739180",
+            "target": "00736DE0",
+            "opcode": "E8",
+            "file_offset": 3379584,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00739150",
+                "start": "00739150",
+                "stop_exclusive": "007391b4",
+                "source": "full-body-metadata-12700.json#38"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "00880950",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 4720976,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "008807a0",
+                "start": "008807a0",
+                "stop_exclusive": "00880cb0",
+                "source": "full-body-metadata-17000.json#24"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "00983998",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5781912,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "009838a0",
+                "start": "009838a0",
+                "stop_exclusive": "00983a7c",
+                "source": "full-body-metadata-20300.json#30"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "00985DBE",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5791166,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00985d10",
+                "start": "00985d10",
+                "stop_exclusive": "00985e64",
+                "source": "full-body-metadata-20300.json#87"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "00988D25",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5803301,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00988b80",
+                "start": "00988b80",
+                "stop_exclusive": "00988ea2",
+                "source": "full-body-metadata-20400.json#52"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "0098B8F8",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5814520,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "0098b800",
+                "start": "0098b800",
+                "stop_exclusive": "0098ba56",
+                "source": "full-body-metadata-20400.json#84"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "0098BB3D",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5815101,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "0098ba60",
+                "start": "0098ba60",
+                "stop_exclusive": "0098be4b",
+                "source": "full-body-metadata-20400.json#85"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "0098DCF6",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5823734,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "0098db60",
+                "start": "0098db60",
+                "stop_exclusive": "0098de9a",
+                "source": "full-body-metadata-20500.json#5"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "0099AEF6",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5877494,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "0099ae60",
+                "start": "0099ae60",
+                "stop_exclusive": "0099afcf",
+                "source": "full-body-metadata-20600.json#42"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "0099B129",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5878057,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "0099b0a0",
+                "start": "0099b0a0",
+                "stop_exclusive": "0099b1f8",
+                "source": "full-body-metadata-20600.json#44"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "0099C18B",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5882251,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "0099bf80",
+                "start": "0099bf80",
+                "stop_exclusive": "0099c629",
+                "source": "full-body-metadata-20600.json#67"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "0099C350",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5882704,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "0099bf80",
+                "start": "0099bf80",
+                "stop_exclusive": "0099c629",
+                "source": "full-body-metadata-20600.json#67"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "0099D441",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5887041,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "0099d1f0",
+                "start": "0099d2b0",
+                "stop_exclusive": "0099d56d",
+                "source": "full-body-metadata-20600.json#78"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "009AB5D0",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 5944784,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "009ab250",
+                "start": "009ab250",
+                "stop_exclusive": "009abd3a",
+                "source": "full-body-metadata-20800.json#50"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "009C8018",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 6062104,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "009c7ee0",
+                "start": "009c7ee0",
+                "stop_exclusive": "009c82f9",
+                "source": "full-body-metadata-21100.json#54"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "00AABEB3",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 6995635,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00aabd30",
+                "start": "00aabd30",
+                "stop_exclusive": "00aabfb3",
+                "source": "full-body-metadata-24500.json#23"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          },
+          {
+            "site": "00C630E0",
+            "target": "00994EB0",
+            "opcode": "E8",
+            "file_offset": 8794336,
+            "existing_owner_rows_at_match": [
+              {
+                "function": "00c63030",
+                "start": "00c63030",
+                "stop_exclusive": "00c631f7",
+                "source": "full-body-metadata-29300.json#78"
+              }
+            ],
+            "meaning": "raw relative-transfer candidate, boundary and reachable ownership unproved"
+          }
+        ]
+      }
+    }
+  ],
+  "exact_5A42_search_scope": {
+    "PE_bytes": 14514496,
+    "image_base": "00400000",
+    "historical_original_search_rule": {
+      "section_filter": "Characteristics & 0x20000000 (IMAGE_SCN_MEM_EXECUTE)",
+      "within_section_range": "[PointerToRawData, PointerToRawData + min(VirtualSize, SizeOfRawData))",
+      "advance_after_match": "one byte, overlapping matches allowed",
+      "patterns": [
+        "425a0000",
+        "68425a0000"
+      ]
+    },
+    "section_headers": [
+      {
+        "name": ".text",
+        "rva": 4096,
+        "virtual_size": 12141393,
+        "raw_offset": 4096,
+        "raw_size": 12144640,
+        "search_length_min_virtual_raw": 12141393,
+        "characteristics": "60000020",
+        "IMAGE_SCN_MEM_EXECUTE": true
+      },
+      {
+        "name": ".rdata",
+        "rva": 12148736,
+        "virtual_size": 1770633,
+        "raw_offset": 12148736,
+        "raw_size": 1773568,
+        "search_length_min_virtual_raw": 1770633,
+        "characteristics": "40000040",
+        "IMAGE_SCN_MEM_EXECUTE": false
+      },
+      {
+        "name": ".data",
+        "rva": 13922304,
+        "virtual_size": 975748,
+        "raw_offset": 13922304,
+        "raw_size": 434176,
+        "search_length_min_virtual_raw": 434176,
+        "characteristics": "C0000040",
+        "IMAGE_SCN_MEM_EXECUTE": false
+      },
+      {
+        "name": ".tls",
+        "rva": 14901248,
+        "virtual_size": 9,
+        "raw_offset": 14356480,
+        "raw_size": 4096,
+        "search_length_min_virtual_raw": 9,
+        "characteristics": "C0000040",
+        "IMAGE_SCN_MEM_EXECUTE": false
+      },
+      {
+        "name": ".rsrc",
+        "rva": 14905344,
+        "virtual_size": 144488,
+        "raw_offset": 14360576,
+        "raw_size": 147456,
+        "search_length_min_virtual_raw": 144488,
+        "characteristics": "40000040",
+        "IMAGE_SCN_MEM_EXECUTE": false
+      }
+    ],
+    "reproduced_original_executable_search": [
+      {
+        "pattern_hex": "425a0000",
+        "executable_sections": [
+          {
+            "section": ".text",
+            "file_offset_halfopen": [
+              4096,
+              12145489
+            ],
+            "VA_halfopen": [
+              "00401000",
+              "00F95351"
+            ],
+            "matches": [],
+            "count": 0
+          }
+        ],
+        "count": 0
+      },
+      {
+        "pattern_hex": "68425a0000",
+        "executable_sections": [
+          {
+            "section": ".text",
+            "file_offset_halfopen": [
+              4096,
+              12145489
+            ],
+            "VA_halfopen": [
+              "00401000",
+              "00F95351"
+            ],
+            "matches": [],
+            "count": 0
+          }
+        ],
+        "count": 0
+      }
+    ],
+    "additional_full_raw_executable_section_check": [
+      {
+        "section": ".text",
+        "file_offset_halfopen": [
+          4096,
+          12148736
+        ],
+        "counts": {
+          "425a0000": 0,
+          "68425a0000": 0
+        }
+      }
+    ],
+    "new_explicit_whole_PE_comparison": [
+      {
+        "pattern_hex": "425a0000",
+        "matches": [
+          {
+            "file_offset": 13572755,
+            "file_offset_hex": "00CF1A93",
+            "section": ".rdata",
+            "section_executable": false,
+            "mapped_VA": "010F1A93",
+            "raw_match_hex": "425a0000",
+            "classification": "uninterpreted original data bytes; not an instruction boundary, code root, configured decoder ID or registration"
+          }
+        ],
+        "count": 1
+      },
+      {
+        "pattern_hex": "68425a0000",
+        "matches": [],
+        "count": 0
+      }
+    ],
+    "scope_correction": "Only executable sections were searched originally, exactly .text here. Whole-PE425a0000 has one .rdata hit at fileOffsetCF1A93. No code/registration inference follows from either result.",
+    "nonexecutable_match_Original_context": {
+      "file_start": "00CF1A83",
+      "VA_start": "010F1A83",
+      "hex": "00000000656e2d434200000000656e2d425a00000000656e2d545400000000656e2d5a57",
+      "meaning": "Selected Original rdata context containing en-CB/en-BZ/en-TT/en-ZW strings; BZ plus NUL/padding forms the raw425a0000 hit, not a codec declaration."
+    }
+  },
+  "managed_name_filter": {
+    "rows": 4722,
+    "predicate": "case-insensitive substring codec/compress/resourcemanager in declaring_type or method name",
+    "matches": [
+      {
+        "id": "ScriptCore:06000324",
+        "assembly": "ScriptCore",
+        "method_token": "0x06000324",
+        "declaring_type": "[ScriptCore]ScriptCore.CASUtils",
+        "name": "CASUtils_SimBuilderGetUseCompressionImpl",
+        "signature": "header=0x00;generic=0;required=1;ret=Boolean;params=(UInt32)",
+        "signature_blob": "00010209",
+        "method_attributes": "0x2091",
+        "method_attribute_names": "Private, Static, HideBySig, PinvokeImpl",
+        "implementation_attributes": "0x0080",
+        "implementation_attribute_names": "PreserveSig",
+        "rva": "0x00000000",
+        "root_reasons": [
+          "pinvoke"
+        ],
+        "runtime_delegate_shape": false,
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "name": "CASUtils_SimBuilderGetUseCompressionImpl",
+          "attributes": "0x0100"
+        }
+      },
+      {
+        "id": "ScriptCore:06000325",
+        "assembly": "ScriptCore",
+        "method_token": "0x06000325",
+        "declaring_type": "[ScriptCore]ScriptCore.CASUtils",
+        "name": "CASUtils_SimBuilderSetUseCompressionImpl",
+        "signature": "header=0x00;generic=0;required=2;ret=Void;params=(UInt32,Boolean)",
+        "signature_blob": "0002010902",
+        "method_attributes": "0x2091",
+        "method_attribute_names": "Private, Static, HideBySig, PinvokeImpl",
+        "implementation_attributes": "0x0080",
+        "implementation_attribute_names": "PreserveSig",
+        "rva": "0x00000000",
+        "root_reasons": [
+          "pinvoke"
+        ],
+        "runtime_delegate_shape": false,
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "name": "CASUtils_SimBuilderSetUseCompressionImpl",
+          "attributes": "0x0100"
+        }
+      }
+    ],
+    "limit": "Names do not exhaust nonliteral/indirect/reflection/native callbacks; CAS compression toggle names do not prove codec registry installers."
+  },
+  "limits": "All raw byte-pattern rows are candidates only. Twelve PUSH1-filtered cases are not twelve codec callers; two have decoded UI instruction evidence but no ResourceManager receiver join, ten remain raw. Filtered-out/omitted forms are not disposed. The single whole-file425A0000 hit is non-executable rdata in en-BZ, not a configured codec."
+}

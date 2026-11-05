@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01156520 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01156520 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.CASUtils::CASUtils_FrameBoundImpl [assembly=ScriptCore token=0x06000341; winHandle:
    System.UInt32, min: Sims3.SimIFace.Vector3, max: Sims3.SimIFace.Vector3, callback:
    System.Delegate; return=System.Void]
@@ -36,7 +37,7 @@ ScriptCore.CASUtils::CASUtils_FrameBoundImpl
     if (piVar1 != (int *)0x0) {
       puVar2 = (undefined4 *)(**(code **)(*piVar1 + 0xc))(0x39a436f);
       if (puVar2 != (undefined4 *)0x0) {
-        piVar1 = (int *)FUN_0044c4f0();
+        piVar1 = (int *)MessageDispatch_GetCurrent();
         uStack_28 = param_2;
         uStack_24 = param_3;
         uStack_20 = param_4;

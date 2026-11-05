@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. Original window-event bridge. Mousemove case7 normalizes physical
@@ -15,9 +15,10 @@ void __cdecl InputService_DispatchMouseEvent(int param_1,int param_2)
 {
   char cVar1;
   int iVar2;
-  byte bVar3;
-  int iVar4;
-  int *piVar5;
+  int iVar3;
+  byte bVar4;
+  void *pvVar5;
+  int *piVar6;
   undefined3 extraout_var;
   undefined3 extraout_var_00;
   undefined3 extraout_var_01;
@@ -31,46 +32,46 @@ void __cdecl InputService_DispatchMouseEvent(int param_1,int param_2)
   float local_c;
   undefined4 local_8;
   undefined4 local_4;
-
-  iVar4 = FUN_006e8170();
+  
+  pvVar5 = LoadPump_ReadFrameServiceGlobal();
   this = (void *)0x0;
-  if (iVar4 != 0) {
-    this = *(void **)(iVar4 + 0x38);
+  if (pvVar5 != (void *)0x0) {
+    this = *(void **)((int)pvVar5 + 0x38);
   }
-  piVar5 = (int *)FUN_0050af90();
-  if (piVar5 == (int *)0x0) {
+  piVar6 = (int *)FUN_0050af90();
+  if (piVar6 == (int *)0x0) {
     return;
   }
   switch(*(undefined4 *)(param_1 + 8)) {
   case 1:
     local_10 = 0.0;
     local_14 = (float)(2 - (uint)(*(char *)(param_1 + 0x11) != '\0'));
-    bVar3 = FUN_00598ea0();
-    local_8 = CONCAT31(extraout_var_02,bVar3);
+    bVar4 = FUN_00598ea0();
+    local_8 = CONCAT31(extraout_var_02,bVar4);
 LAB_0059959d:
     local_c = *(float *)(param_1 + 0xc);
     goto LAB_005995a4;
   case 2:
     local_14 = 7.00649e-45;
     local_10 = 0.0;
-    bVar3 = FUN_00598ea0();
-    local_8 = CONCAT31(extraout_var_03,bVar3);
+    bVar4 = FUN_00598ea0();
+    local_8 = CONCAT31(extraout_var_03,bVar4);
     if (DAT_011cf2c4 == '\0') goto LAB_0059959d;
     local_c = *(float *)(param_1 + 0xc);
     if (0x7f < (uint)local_c) {
       local_c = 4.48416e-44;
     }
 LAB_005995a4:
-    (**(code **)(*piVar5 + 0x38))(local_1c);
+    (**(code **)(*piVar6 + 0x38))(local_1c);
     break;
   case 5:
     local_4 = *(undefined4 *)(param_1 + 0xc);
     local_14 = (float)(7 - (uint)(*(char *)(param_1 + 0x10) != '\0'));
     InputService_PixelsToLogical
               (&local_10,&local_c,*(int *)(param_1 + 0x14),*(int *)(param_1 + 0x18));
-    bVar3 = FUN_00598ea0();
-    local_8 = CONCAT31(extraout_var_00,bVar3);
-    (**(code **)(*piVar5 + 0x38))(local_1c);
+    bVar4 = FUN_00598ea0();
+    local_8 = CONCAT31(extraout_var_00,bVar4);
+    (**(code **)(*piVar6 + 0x38))(local_1c);
     if (this != (void *)0x0) {
       FUN_006ded10(this,(int)local_14,(int)local_10);
       return;
@@ -81,9 +82,9 @@ LAB_005995a4:
     InputService_PixelsToLogical
               (&local_10,&local_c,*(int *)(param_1 + 0x14),*(int *)(param_1 + 0x18));
     local_4 = *(undefined4 *)(param_1 + 0xc);
-    bVar3 = FUN_00598ea0();
-    local_8 = CONCAT31(extraout_var_01,bVar3);
-    (**(code **)(*piVar5 + 0x38))(local_1c);
+    bVar4 = FUN_00598ea0();
+    local_8 = CONCAT31(extraout_var_01,bVar4);
+    (**(code **)(*piVar6 + 0x38))(local_1c);
     if (this != (void *)0x0) {
       FUN_006ded10(this,(int)local_14,(int)local_10);
       return;
@@ -93,27 +94,27 @@ LAB_005995a4:
     local_14 = 1.12104e-44;
     InputService_PixelsToLogical
               (&local_10,&local_c,*(int *)(param_1 + 0xc),*(int *)(param_1 + 0x10));
-    bVar3 = FUN_00598ea0();
-    local_8 = CONCAT31(extraout_var,bVar3);
+    bVar4 = FUN_00598ea0();
+    local_8 = CONCAT31(extraout_var,bVar4);
     FUN_004e1c00((LPCRITICAL_SECTION)(param_2 + 0x18),(uint *)&DAT_00fda6dc);
-    iVar4 = *(int *)(param_2 + 0x50);
+    iVar2 = *(int *)(param_2 + 0x50);
     cVar1 = *(char *)(param_2 + 0x60);
-    iVar2 = *(int *)(param_2 + 0x54);
+    iVar3 = *(int *)(param_2 + 0x54);
     uStack_2c = (void *)CONCAT13(cVar1,(undefined3)uStack_2c);
     FUN_004e1cc0((LPCRITICAL_SECTION)(param_2 + 0x18));
                     /* Capture path: suppress exact-anchor synthetic event; otherwise dispatch
                        physical movement through input vtable+38 before returning pointer to integer
                        captured anchor via window vtable+84. */
     if (cVar1 == '\0') {
-      (**(code **)(*piVar5 + 0x38))(local_1c);
+      (**(code **)(*piVar6 + 0x38))(local_1c);
       if (uStack_2c != (void *)0x0) {
         FUN_006ded10(uStack_2c,(int)local_14,(int)local_10);
         return;
       }
     }
-    else if (((iVar4 != *(int *)(param_1 + 0xc)) || (iVar2 != *(int *)(param_1 + 0x10))) &&
-            ((**(code **)(*piVar5 + 0x38))(local_1c), DAT_011cebd0 != (int *)0x0)) {
-      (**(code **)(*DAT_011cebd0 + 0x84))(iVar4,iVar2);
+    else if (((iVar2 != *(int *)(param_1 + 0xc)) || (iVar3 != *(int *)(param_1 + 0x10))) &&
+            ((**(code **)(*piVar6 + 0x38))(local_1c), DAT_011cebd0 != (int *)0x0)) {
+      (**(code **)(*DAT_011cebd0 + 0x84))(iVar2,iVar3);
       return;
     }
   }

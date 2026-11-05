@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 load-pump leaf. ECX clock24bytes, UInt32mode+lowbytestart stackargs, RET8,
@@ -14,17 +14,15 @@ ElapsedClock_ConstructAndOptionallyStart(void *this,uint clockMode,uchar startIm
 
 {
   undefined8 uVar1;
-  float fVar2;
   LARGE_INTEGER local_8;
   
-  fVar2 = FLOAT_00f998f8;
   *(undefined4 *)this = 0;
   *(undefined4 *)((int)this + 4) = 0;
   *(undefined4 *)((int)this + 8) = 0;
   *(undefined4 *)((int)this + 0xc) = 0;
   *(undefined4 *)((int)this + 0x10) = 0;
-  *(float *)((int)this + 0x14) = fVar2;
-  FUN_004f34e0(this,clockMode);
+  *(float *)((int)this + 0x14) = 1.0;
+  ElapsedClock_SelectCounterScale(this,clockMode);
   if ((startImmediately != '\0') && (*(int *)this == 0 && *(int *)((int)this + 4) == 0)) {
     if (*(int *)((int)this + 0x10) == 1) {
       uVar1 = rdtsc();

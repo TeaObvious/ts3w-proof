@@ -1,0 +1,47 @@
+.method /* 06001041 */ public hidebysig static 
+	void RaiseException (
+		int32 errorCode
+	) cil managed 
+{
+	// Method begins at RVA 0x12aac
+	// Header size: 12
+	// Code size: 102 (0x66)
+	.maxstack 2
+	.locals /* 11000001 */ init (
+		[0] int32
+	)
+
+	IL_0000: ldarg.0
+	IL_0001: stloc.0
+	IL_0002: ldloc.0
+	IL_0003: ldc.i4.s -7
+	IL_0005: sub
+	IL_0006: switch (IL_0060, IL_005a, IL_0054, IL_0049, IL_003e, IL_0033, IL_0028)
+
+	IL_0027: ret
+
+	IL_0028: ldstr "Attempted to read beyond the end of the stream." /* 70000918 */
+	IL_002d: newobj instance void [mscorlib]System.IO.EndOfStreamException::.ctor(string) /* 0A000253 */
+	IL_0032: throw
+
+	IL_0033: ldstr "The stream has already been closed." /* 70000978 */
+	IL_0038: newobj instance void [mscorlib]System.ObjectDisposedException::.ctor(string) /* 0A000254 */
+	IL_003d: throw
+
+	IL_003e: ldstr "An unknown I/O error occurred." /* 700009C0 */
+	IL_0043: newobj instance void [mscorlib]System.IO.IOException::.ctor(string) /* 0A000255 */
+	IL_0048: throw
+
+	IL_0049: ldstr "Invalid data was detected in the stream." /* 700009FE */
+	IL_004e: newobj instance void [mscorlib]System.Exception::.ctor(string) /* 0A0000E3 */
+	IL_0053: throw
+
+	IL_0054: newobj instance void [mscorlib]System.OutOfMemoryException::.ctor() /* 0A00001D */
+	IL_0059: throw
+
+	IL_005a: newobj instance void [mscorlib]System.NullReferenceException::.ctor() /* 0A000256 */
+	IL_005f: throw
+
+	IL_0060: newobj instance void [mscorlib]System.ArgumentOutOfRangeException::.ctor() /* 0A000257 */
+	IL_0065: throw
+} // end of method StreamHost::RaiseException

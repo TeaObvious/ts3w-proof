@@ -1,0 +1,143 @@
+{
+  "schema": "ts3w-static-producer-graph/codec-registry-v1",
+  "reference_id": "ts3w-pc-1.67",
+  "reference_identity": "../../../reference.json",
+  "status": "bounded static graph; configurednonFFFFproducerstillOPEN",
+  "nodes": [
+    {
+      "id": "wrapper",
+      "entry": "00739150",
+      "scope": "existing100B/31starts",
+      "role": "construct wrapper in existing ECX storage; embedded manager ECX+18; returnsreceiverRET0C; no local allocation/global publication"
+    },
+    {
+      "id": "derived",
+      "entry": "00736DE0",
+      "scope": "existing650B/135starts",
+      "role": "base4B3580 atreceiver+8; manager interface tableFFF2C0; outertableFFF360; no direct decoder registration proved in selectedbody"
+    },
+    {
+      "id": "base",
+      "entry": "004B3580",
+      "scope": "existing487B/104starts",
+      "role": "installFB3DB0 and zero8decoderpointer slots+B8/8IDWORDS+D8"
+    },
+    {
+      "id": "attach-derived",
+      "entry": "00736AA0",
+      "scope": "qualified572B/181starts; no stored exact function row; tableFFF2C0+34",
+      "role": "manager registration wrapper; eventually forwards three originalwords with same interfaceECX to4B2ED0; its other collections/callbacks remain qualified"
+    },
+    {
+      "id": "attach-base",
+      "entry": "004B2ED0",
+      "scope": "existingbody reusedV1",
+      "role": "provider registration; selected callbackprovider+48(1or0,manager,1)"
+    },
+    {
+      "id": "provider-callback",
+      "entry": "004A6DD0",
+      "scope": "qualified166Bcontext reusedV1; currentRootInfoFunctionNotFound",
+      "role": "provider+390stores/clearsmanagerpointer for thirdflag; no codecID storedthere"
+    },
+    {
+      "id": "codec-register",
+      "entry": "004AFF30",
+      "scope": "qualified164Bcontext reusedV1; currentRootInfoFunctionNotFound",
+      "role": "manager+68dispatch; atmost7nonnullpointers+low16ID store into+B8/D8; actualnonFFFFproducerunproved"
+    },
+    {
+      "id": "codec-lookup",
+      "entry": "004AFFE0",
+      "scope": "qualified70Bcontext reusedV1; currentRootInfoFunctionNotFound",
+      "role": "manager+6Cdispatch; firstequal low16ID beforeempty pointer; no retain/lifetimeproof"
+    },
+    {
+      "id": "decode",
+      "entry": "004A7730",
+      "scope": "existingbody reusedV1",
+      "role": "nonFFFFreadsprovider+390andcallsmanager+6C; FFFFconstructslocalwrapper4EC520 separately"
+    },
+    {
+      "id": "provider-derived",
+      "entry": "00994EB0",
+      "scope": "existing142B/50starts",
+      "role": "callbase4A9290 withphysicalword2andword3,install1049DA8and1049D94; selectedprimary+48reuses4A6DD0; basezeros+390"
+    },
+    {
+      "id": "configured-codec",
+      "entry": null,
+      "scope": "OPEN",
+      "role": "concretenonFFFFID,decoderconstructor/table,registrationcaller andactualreachability/lifetimemissing"
+    }
+  ],
+  "edges": [
+    {
+      "from": "wrapper",
+      "to": "derived",
+      "evidence": "E8@00739180 afterECX=receiver+18",
+      "status": "original instruction start/bytes verified"
+    },
+    {
+      "from": "derived",
+      "to": "base",
+      "evidence": "E8@00736DF3 afterECX=derivedreceiver+8",
+      "status": "originalverified"
+    },
+    {
+      "from": "derived",
+      "to": "attach-derived",
+      "evidence": "storeFFF2C0@00736E08; originaltable+34=00736AA0",
+      "status": "conditional vtable ingress, not runtime execution"
+    },
+    {
+      "from": "derived",
+      "to": "codec-register",
+      "evidence": "originalFFF2C0+68=004AFF30, sameasFB3DB0",
+      "status": "tablejoin only"
+    },
+    {
+      "from": "derived",
+      "to": "codec-lookup",
+      "evidence": "originalFFF2C0+6C=004AFFE0, sameasFB3DB0",
+      "status": "tablejoin only"
+    },
+    {
+      "from": "attach-derived",
+      "to": "attach-base",
+      "evidence": "E8@00736C99 sameECXmanagerinterface/threewords; allbranches reach selectedcall onlyunder their preconditions",
+      "status": "originalcall verified, unrelated callback sideeffects open"
+    },
+    {
+      "from": "attach-base",
+      "to": "provider-callback",
+      "evidence": "4B2FB3..4B2FBF and4B300F..4B301B provider+48 dispatch(1or0,manager,1)",
+      "status": "V1original proof explicitlyreused, selectedprovider-tableconditional"
+    },
+    {
+      "from": "provider-derived",
+      "to": "provider-callback",
+      "evidence": "1049DA8+48=4A6DD0 afterstore@994ECB",
+      "status": "selectedtablejoin verified, not actual instance/lifetime claim"
+    },
+    {
+      "from": "provider-callback",
+      "to": "decode",
+      "evidence": "provider+390writer/reader relation",
+      "status": "fieldoffset identity; actualsameinstance/timeunobserved"
+    },
+    {
+      "from": "decode",
+      "to": "codec-lookup",
+      "evidence": "4A7779..4A7785 readsprovider+390thenvirtual+6C(firstword)",
+      "status": "V1originalreuse, nonFFFFbranch"
+    },
+    {
+      "from": "configured-codec",
+      "to": "codec-register",
+      "evidence": null,
+      "status": "OPEN; no invented installer/ID/codecpointer orzlib mapping"
+    }
+  ],
+  "no_runtime_alias_or_codeclifetime_claim": true
+}

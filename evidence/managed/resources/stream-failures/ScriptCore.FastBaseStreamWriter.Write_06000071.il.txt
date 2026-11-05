@@ -1,0 +1,31 @@
+.method /* 06000071 */ public final hidebysig newslot virtual 
+	instance void Write (
+		uint8[] data
+	) cil managed 
+{
+	// Method begins at RVA 0x2514
+	// Header size: 12
+	// Code size: 28 (0x1c)
+	.maxstack 4
+	.locals /* 11000001 */ init (
+		[0] int32
+	)
+
+	IL_0000: ldarg.0
+	IL_0001: ldfld uint32 ScriptCore.FastBaseStreamWriter::mHandle /* 04000004 */
+	IL_0006: ldarg.1
+	IL_0007: ldc.i4.0
+	IL_0008: ldarg.1
+	IL_0009: ldlen
+	IL_000a: conv.i4
+	IL_000b: call int32 ScriptCore.StreamHost::StreamHost_WriteByteArray(uint32, uint8[], int32, int32) /* 0600102A */
+	IL_0010: stloc.0
+	IL_0011: ldloc.0
+	IL_0012: ldc.i4.0
+	IL_0013: bge.s IL_001b
+
+	IL_0015: ldloc.0
+	IL_0016: call void ScriptCore.StreamHost::RaiseException(int32) /* 06001041 */
+
+	IL_001b: ret
+} // end of method FastBaseStreamWriter::Write

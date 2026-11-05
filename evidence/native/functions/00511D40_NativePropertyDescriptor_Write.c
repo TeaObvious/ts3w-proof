@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. ECX descriptor row,3words/RET0C, AL success only; prior
@@ -38,81 +38,81 @@ NativePropertyDescriptor_Write(void *this,void *context,void *inputValue,void *a
   if ((short)*(ushort *)((int)this + 0xc) < 0) {
     return false;
   }
-  if (*(uint *)((int)inputValue + 8) == *(uint *)((int)this + 0x10)) {
-    if ((piVar5 == (int *)0x0) || ((code *)piVar5[2] == (code *)0x0)) {
-      local_14 = (int *)((int)*(short *)((int)this + 0xe) + *(int *)((int)context + 4));
-      local_18 = *(int *)(&DAT_0114f4f8 + (*(ushort *)((int)this + 0xc) & 0xfff) * 4);
-      local_10 = *(uint *)((int)inputValue + 8);
-    }
-    else {
-      (*(code *)piVar5[2])(&local_18,context,this,allocator);
-    }
-    piVar5 = *(int **)((int)inputValue + 4);
-    if (local_14 != piVar5) {
-      iVar1 = *(int *)(local_18 + 8);
-      switch(*(ushort *)((int)this + 0xc) & 0xfff) {
-      case 2:
-      case 3:
-      case 4:
-      case 5:
-      case 6:
-      case 7:
-      case 8:
-      case 9:
-      case 10:
-      case 0xb:
-      case 0xc:
-      case 0xd:
-      case 0xe:
-      case 0xf:
-      case 0x10:
-      case 0x11:
-      case 0x13:
-        memcpy(local_14,piVar5,iVar1 * local_10);
-        break;
-      case 0x12:
-        uVar6 = 0;
-        this_00 = local_14;
-        if (local_10 != 0) {
-          do {
-            psVar2 = (short *)*piVar5;
-            if (psVar2 == (short *)0x0) {
-              FUN_0040a460(this_00);
-            }
-            else if (psVar2 != (short *)*this_00) {
-              FUN_00408f50(this_00,psVar2);
-            }
-            uVar6 = uVar6 + 1;
-            piVar5 = piVar5 + 1;
-            this_00 = this_00 + 4;
-          } while (uVar6 < local_10);
-          return true;
-        }
-        break;
-      case 0x14:
-        uStack_c = *(undefined4 *)inputValue;
-        uStack_4 = *(undefined4 *)((int)inputValue + 8);
-        uVar6 = 0;
-        piStack_8 = piVar5;
-        if (local_10 != 0) {
-          do {
-            uVar4 = FUN_00511a10(&local_18,(int)&uStack_c,allocator);
-            if ((char)uVar4 == '\0') {
-              return false;
-            }
-            piStack_8 = (int *)((int)piStack_8 + iVar1);
-            local_14 = (int *)((int)local_14 + iVar1);
-            uVar6 = uVar6 + 1;
-          } while (uVar6 < local_10);
-          return true;
-        }
-        break;
-      default:
-        return false;
-      }
-    }
-    return true;
+  if (*(uint *)((int)inputValue + 8) != *(uint *)((int)this + 0x10)) {
+    return false;
   }
-  return false;
+  if ((piVar5 == (int *)0x0) || ((code *)piVar5[2] == (code *)0x0)) {
+    local_14 = (int *)((int)*(short *)((int)this + 0xe) + *(int *)((int)context + 4));
+    local_18 = *(int *)(&DAT_0114f4f8 + (*(ushort *)((int)this + 0xc) & 0xfff) * 4);
+    local_10 = *(uint *)((int)inputValue + 8);
+  }
+  else {
+    (*(code *)piVar5[2])(&local_18,context,this,allocator);
+  }
+  piVar5 = *(int **)((int)inputValue + 4);
+  if (local_14 != piVar5) {
+    iVar1 = *(int *)(local_18 + 8);
+    switch(*(ushort *)((int)this + 0xc) & 0xfff) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 0xb:
+    case 0xc:
+    case 0xd:
+    case 0xe:
+    case 0xf:
+    case 0x10:
+    case 0x11:
+    case 0x13:
+      memcpy(local_14,piVar5,iVar1 * local_10);
+      break;
+    case 0x12:
+      uVar6 = 0;
+      this_00 = local_14;
+      if (local_10 != 0) {
+        do {
+          psVar2 = (short *)*piVar5;
+          if (psVar2 == (short *)0x0) {
+            NativeUtf16String_Clear(this_00);
+          }
+          else if (psVar2 != (short *)*this_00) {
+            FUN_00408f50(this_00,psVar2);
+          }
+          uVar6 = uVar6 + 1;
+          piVar5 = piVar5 + 1;
+          this_00 = this_00 + 4;
+        } while (uVar6 < local_10);
+        return true;
+      }
+      break;
+    case 0x14:
+      uStack_c = *(undefined4 *)inputValue;
+      uStack_4 = *(undefined4 *)((int)inputValue + 8);
+      uVar6 = 0;
+      piStack_8 = piVar5;
+      if (local_10 != 0) {
+        do {
+          uVar4 = NativeStructProperty_WriteFields(&local_18,(int)&uStack_c,allocator);
+          if ((char)uVar4 == '\0') {
+            return false;
+          }
+          piStack_8 = (int *)((int)piStack_8 + iVar1);
+          local_14 = (int *)((int)local_14 + iVar1);
+          uVar6 = uVar6 + 1;
+        } while (uVar6 < local_10);
+        return true;
+      }
+      break;
+    default:
+      return false;
+    }
+  }
+  return true;
 }
 

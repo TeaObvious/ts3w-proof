@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst note, PC1.67 static; analyst-assigned name. Physical thiscall ECX drawable plus three
    stack arguments render context,bounds,state descriptor; RET0C. Both color image and mask arrays
    use53DC40(state word,array). Scale-type dispatch+54 uses1 direct,2 asymmetric borders510A70,3
@@ -29,6 +31,8 @@ void __thiscall UiStdDrawable_Draw(void *this,void *renderContext,float *bounds,
   bool bVar6;
   float fVar7;
   float fVar8;
+  undefined1 auStack_2e [2];
+  float fStack_2c;
   float fStack_28;
   float fStack_24;
   undefined4 uStack_20;
@@ -39,16 +43,16 @@ void __thiscall UiStdDrawable_Draw(void *this,void *renderContext,float *bounds,
   float fStack_c;
   float fStack_8;
   
-  piVar3 = (int *)FUN_0050ec40(renderContext,0,0);
+  piVar3 = (int *)UiDrawContext_SelectRenderer(renderContext,0,0);
   (**(code **)(*piVar3 + 4))(0xffffffff);
   fVar7 = *bounds;
   pppppuVar4 = UiStdDrawable_SelectStateImage((uint)fVar7,(void **)((int)this + 0x10));
   pvVar5 = UiStdDrawable_SelectStateImage((uint)fVar7,(void **)((int)this + 0x30));
   fStack_24 = *(float *)((int)this + 0x58);
   uStack_20 = *(undefined4 *)((int)this + 0x5c);
-  fStack_28 = FLOAT_00f998f8;
-  fStack_1c = FLOAT_00f998f8 - *(float *)((int)this + 0x60);
-  fStack_18 = FLOAT_00f998f8 - *(float *)((int)this + 100);
+  fStack_28 = 1.0;
+  fStack_1c = 1.0 - *(float *)((int)this + 0x60);
+  fStack_18 = 1.0 - *(float *)((int)this + 100);
   if (pppppuVar4 == (undefined4 *****)0x0) {
     FUN_00511640(piVar3,renderContext,(uint)bounds[2],(uint)fVar7 & 0xf);
     if (((uint)*bounds & 0x10) != 0) {
@@ -62,20 +66,20 @@ void __thiscall UiStdDrawable_Draw(void *this,void *renderContext,float *bounds,
         (**(code **)(*piVar3 + 0x50))(renderContext,pppppuVar4);
       }
       else {
-        (**(code **)(*piVar3 + 0x5c))(renderContext,pppppuVar4,pvVar5,&stack0xffffffcc);
+        (**(code **)(*piVar3 + 0x5c))(renderContext,pppppuVar4,pvVar5,auStack_2e + -6);
       }
       break;
     case 2:
       UiDrawable_DrawBorderSlices
-                (piVar3,renderContext,&stack0xffffffcc,pppppuVar4,&fStack_24,
+                (piVar3,renderContext,auStack_2e + -6,pppppuVar4,&fStack_24,
                  *(float *)((int)this + 0x68),*(float *)((int)this + 0x6c),(int)pvVar5);
       break;
     case 3:
-      FUN_0050fcf0(piVar3,renderContext,(float *)&stack0xffffffcc,(int)pppppuVar4,
+      FUN_0050fcf0(piVar3,renderContext,(float *)(auStack_2e + -6),(int)pppppuVar4,
                    *(float *)((int)this + 0x68),*(float *)((int)this + 0x6c),0.0,0.0);
       break;
     case 4:
-      FUN_00510140(piVar3,renderContext,&stack0xffffffcc,pppppuVar4,&fStack_24,
+      FUN_00510140(piVar3,renderContext,auStack_2e + -6,pppppuVar4,&fStack_24,
                    *(float *)((int)this + 0x68),*(float *)((int)this + 0x6c),(int)pvVar5);
     }
   }
@@ -117,13 +121,12 @@ LAB_0053dfa1:
   }
   if (bVar2 != 0) {
 switchD_0053df54_caseD_1:
-    fStack_14 = (*(float *)renderContext + *(float *)((int)renderContext + 8)) * _DAT_00f9b5b4;
+    fStack_14 = (*(float *)renderContext + *(float *)((int)renderContext + 8)) * 0.5;
     fVar7 = (*(float *)((int)renderContext + 8) - *(float *)renderContext) *
-            *(float *)((int)this + 0x70) * _DAT_00f9b5b4;
-    fStack_10 = (*(float *)((int)renderContext + 4) + *(float *)((int)renderContext + 0xc)) *
-                _DAT_00f9b5b4;
+            *(float *)((int)this + 0x70) * 0.5;
+    fStack_10 = (*(float *)((int)renderContext + 4) + *(float *)((int)renderContext + 0xc)) * 0.5;
     fVar8 = (*(float *)((int)renderContext + 0xc) - *(float *)((int)renderContext + 4)) *
-            *(float *)((int)this + 0x74) * _DAT_00f9b5b4;
+            *(float *)((int)this + 0x74) * 0.5;
     fStack_8 = fVar8 + fStack_10;
     fStack_c = fVar7 + fStack_14;
     fStack_10 = fStack_10 - fVar8;
@@ -131,19 +134,19 @@ switchD_0053df54_caseD_1:
     (**(code **)(*piVar3 + 4))(*(undefined4 *)((int)this + 0x84));
     switch(*(undefined4 *)((int)this + 0x54)) {
     case 1:
-      (**(code **)(*piVar3 + 0x50))(&fStack_18,*(undefined4 *)((int)this + 0x50),&stack0xffffffc8);
+      (**(code **)(*piVar3 + 0x50))(&fStack_18,*(undefined4 *)((int)this + 0x50),auStack_2e + -10);
       return;
     case 2:
       UiDrawable_DrawBorderSlices
-                (piVar3,&fStack_18,&stack0xffffffc8,*(undefined4 ****)((int)this + 0x50),&fStack_28,
+                (piVar3,&fStack_18,auStack_2e + -10,*(undefined4 ****)((int)this + 0x50),&fStack_28,
                  *(float *)((int)this + 0x68),*(float *)((int)this + 0x6c),0);
       return;
     case 3:
-      FUN_0050fcf0(piVar3,&fStack_18,(float *)&stack0xffffffc8,*(int *)((int)this + 0x50),
+      FUN_0050fcf0(piVar3,&fStack_18,(float *)(auStack_2e + -10),*(int *)((int)this + 0x50),
                    *(float *)((int)this + 0x68),*(float *)((int)this + 0x6c),0.0,0.0);
       return;
     case 4:
-      FUN_00510140(piVar3,&fStack_18,&stack0xffffffc8,*(undefined4 ******)((int)this + 0x50),
+      FUN_00510140(piVar3,&fStack_18,auStack_2e + -10,*(undefined4 ******)((int)this + 0x50),
                    &fStack_28,*(float *)((int)this + 0x68),*(float *)((int)this + 0x6c),0);
     }
   }

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. ECX Grid interface complete+250, six stack DWORDs/RET18hex,
@@ -48,8 +48,9 @@ UiGrid_SetCellWindow
   if (unaff_ESI == (int *)0x7fffffff) {
     if (unaff_EBP != (int *)0x7fffffff) {
 LAB_00531801:
-      uVar2 = FUN_00528da0((void *)((int)this + 0x130),unaff_EBP,(undefined4 *)&stack0xfffffff8,
-                           (int *)&stack0xfffffff4);
+      uVar2 = FUN_00528da0((void *)((int)this + 0x130),unaff_EBP,
+                           (undefined4 *)((int)register0x00000010 + -8),
+                           (int *)((int)register0x00000010 + -0xc));
       if ((char)uVar2 == '\0') {
         column_00 = (int *)0x0;
       }
@@ -58,14 +59,16 @@ LAB_00531801:
       }
       goto LAB_00531826;
     }
-    column_00 = (int *)FUN_00527310((void *)((int)this + 0x130),(int *)&stack0xfffffff4);
+    column_00 = (int *)FUN_00527310((void *)((int)this + 0x130),
+                                    (int *)((int)register0x00000010 + -0xc));
     if (column_00 == (int *)0x80000000) {
       column_00 = (int *)0x0;
     }
     else if (column_00 == (int *)0x7fffffff) goto LAB_00531801;
 LAB_0053182e:
-    uVar3 = FUN_00527190((void *)((int)this + 0x130),(int)column_00,(int *)&stack0xfffffff8,
-                         (int *)&stack0xfffffff4);
+    uVar3 = FUN_00527190((void *)((int)this + 0x130),(int)column_00,
+                         (int *)((int)register0x00000010 + -8),
+                         (int *)((int)register0x00000010 + -0xc));
     if ((char)uVar3 == '\0') {
       row_00 = (int *)0x0;
     }
@@ -131,7 +134,7 @@ LAB_00531911:
       }
       FUN_0052b580((void *)((int)this + 0x130),(int)column_00,(int)row_00,&puStack_14,
                    (undefined4 *)0x0);
-      FUN_0052a340((void *)((int)this + -0x250),column_00,row_00,unaff_ESI);
+      UiGrid_AdmitAndPlaceCellWindow((void *)((int)this + -0x250),column_00,row_00,unaff_ESI);
     }
   }
   if (*(char *)((int)this + 8) == '\0') {

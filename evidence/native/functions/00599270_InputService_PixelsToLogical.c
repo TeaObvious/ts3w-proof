@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. Converts physical integer pointer coordinates to renderer logical
@@ -21,9 +21,9 @@ void __cdecl InputService_PixelsToLogical(float *outX,float *outY,int pixelX,int
   int windowTop;
   int windowRight;
   int windowBottom;
-
+  
   window = DAT_011cebd0;
-  this = (void *)FUN_0060e910();
+  this = (void *)Graphics_GetManagerSingleton();
   Renderer_GetLogicalDimensions(this,&logicalWidth,&logicalHeight,&local_14);
   (**(code **)(*window + 0x40))(window,&windowLeft);
   *outX = (float)(logicalWidth * pixelX) / (float)(windowRight - windowLeft);

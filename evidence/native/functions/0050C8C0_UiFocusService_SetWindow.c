@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. Focus service virtual58: physical ECX service, first stack
@@ -23,76 +23,76 @@ bool __thiscall UiFocusService_SetWindow(void *this,uint inputContext,void *wind
   bool bVar2;
   uint uVar3;
   int iVar4;
-  void *this_00;
-  int *piVar5;
+  void *pvVar5;
   int *piVar6;
+  int *piVar7;
   int aiStack_1c [6];
   int *piStack_4;
   
   if (windowInterface == (void *)0x0) {
-    this_00 = (void *)0x0;
+    pvVar5 = (void *)0x0;
   }
   else {
-    this_00 = (void *)((int)windowInterface + -4);
+    pvVar5 = (void *)((int)windowInterface + -4);
   }
   piVar1 = (int *)(inputContext * 0x2c + 0x6b0 + (int)this);
-  if ((this_00 != (void *)0x0) &&
-     ((uVar3 = (**(code **)(*(int *)((int)this_00 + 4) + 0x28))(), (uVar3 & 1) == 0 ||
+  if ((pvVar5 != (void *)0x0) &&
+     ((uVar3 = (**(code **)(*(int *)((int)pvVar5 + 4) + 0x28))(), (uVar3 & 1) == 0 ||
       ((((uVar3 & 2) == 0 && (inputContext != 1)) ||
-       (bVar2 = FUN_00513bc0(this_00,inputContext == 1), !bVar2)))))) {
+       (bVar2 = FUN_00513bc0(pvVar5,inputContext == 1), !bVar2)))))) {
     return false;
   }
   if ((piVar1[2] != 0) && (((char)piVar1[3] == '\0' || (inputContext != 1)))) {
-    piVar1[1] = (int)this_00;
+    piVar1[1] = (int)pvVar5;
     return true;
   }
-  if (this_00 != (void *)*piVar1) {
+  if (pvVar5 != (void *)*piVar1) {
     if (piVar1[6] != 0) {
-      piVar5 = piVar1 + 4;
-      piVar6 = aiStack_1c;
+      piVar6 = piVar1 + 4;
+      piVar7 = aiStack_1c;
       for (iVar4 = 7; iVar4 != 0; iVar4 = iVar4 + -1) {
-        *piVar6 = *piVar5;
-        piVar5 = piVar5 + 1;
+        *piVar7 = *piVar6;
         piVar6 = piVar6 + 1;
+        piVar7 = piVar7 + 1;
       }
       piVar1[6] = 0;
       FUN_0050c250(this,aiStack_1c,'\0');
     }
     aiStack_1c[3] = inputContext;
-    if (this_00 == (void *)0x0) {
+    if (pvVar5 == (void *)0x0) {
       piStack_4 = (int *)0x0;
     }
     else {
-      piStack_4 = (int *)((int)this_00 + 4);
+      piStack_4 = (int *)((int)pvVar5 + 4);
     }
-    piVar5 = (int *)*piVar1;
-    *piVar1 = (int)this_00;
-    piVar1[1] = (int)this_00;
-    if (piVar5 != (int *)0x0) {
-      (**(code **)*piVar5)();
-      piVar6 = piVar5 + 1;
+    piVar6 = (int *)*piVar1;
+    *piVar1 = (int)pvVar5;
+    piVar1[1] = (int)pvVar5;
+    if (piVar6 != (int *)0x0) {
+      (**(code **)*piVar6)();
+      piVar7 = piVar6 + 1;
       aiStack_1c[2] = 10;
-      FUN_0050c110(this,0,(int)piVar6,aiStack_1c,'\0','\0');
-      if (piVar5[0xc] != 0) {
+      UiWindowService_DispatchEvent(this,(void *)0x0,piVar7,aiStack_1c,0,0);
+      if (piVar6[0xc] != 0) {
         aiStack_1c[2] = 0x1b;
-        piStack_4 = piVar6;
-        FUN_0050c110(this,(int)piVar6,(int)piVar6,aiStack_1c,'\x01','\0');
+        piStack_4 = piVar7;
+        UiWindowService_DispatchEvent(this,piVar7,piVar7,aiStack_1c,1,0);
       }
-      (**(code **)(*piVar5 + 4))();
-      if ((void *)*piVar1 != this_00) {
+      (**(code **)(*piVar6 + 4))();
+      if ((void *)*piVar1 != pvVar5) {
         return true;
       }
     }
-    *piVar1 = (int)this_00;
-    piVar1[1] = (int)this_00;
+    *piVar1 = (int)pvVar5;
+    piVar1[1] = (int)pvVar5;
     FUN_0050b0f0((int)this);
-    if (this_00 != (void *)0x0) {
-      iVar4 = (int)this_00 + 4;
+    if (pvVar5 != (void *)0x0) {
+      pvVar5 = (void *)((int)pvVar5 + 4);
       aiStack_1c[2] = 10;
-      piStack_4 = (int *)iVar4;
-      FUN_0050c110(this,0,iVar4,aiStack_1c,'\0','\0');
+      piStack_4 = pvVar5;
+      UiWindowService_DispatchEvent(this,(void *)0x0,pvVar5,aiStack_1c,0,0);
       aiStack_1c[2] = 0x1a;
-      FUN_0050c110(this,iVar4,iVar4,aiStack_1c,'\x01','\0');
+      UiWindowService_DispatchEvent(this,pvVar5,pvVar5,aiStack_1c,1,0);
     }
   }
   return true;
