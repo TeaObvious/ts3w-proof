@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): Section callback reads Position/View/Up as three
@@ -21,9 +21,9 @@ ThumbnailCameras_ReadIniSection(ushort *param_1,undefined4 param_2,undefined4 *p
   int iVar4;
   uint uVar5;
   void *this;
-  wchar_t *extraout_EAX;
+  ushort *extraout_EAX;
   undefined1 **ppuVar6;
-  wchar_t *apwStack_e0 [2];
+  ushort *apuStack_e0 [2];
   float local_d8;
   float local_d4;
   float fStack_d0;
@@ -105,7 +105,7 @@ ThumbnailCameras_ReadIniSection(ushort *param_1,undefined4 param_2,undefined4 *p
     fStack_20 = local_d8;
   }
   iVar4 = (**(code **)(*piVar1 + 0x34))(piVar1,param_1,L"ScaleModifier",&DAT_00fa2610,&local_d8);
-  if ((iVar4 == 1) && (local_d8 != DAT_010f4ccc)) {
+  if ((iVar4 == 1) && (local_d8 != 0.0)) {
     fStack_1c = local_d8;
   }
   iVar4 = (**(code **)(*piVar1 + 0x34))
@@ -161,8 +161,8 @@ ThumbnailCameras_ReadIniSection(ushort *param_1,undefined4 param_2,undefined4 *p
       bVar2 = true;
     }
   }
-  if (uStack_44 == DAT_010f4ccc) {
-    uStack_44 = DAT_00fcc6f0;
+  if (uStack_44 == 0.0) {
+    uStack_44 = 25.0;
   }
   if (bVar2) {
     uVar5 = FUN_004fa830(param_1,0x811c9dc5,1);
@@ -174,29 +174,33 @@ ThumbnailCameras_ReadIniSection(ushort *param_1,undefined4 param_2,undefined4 *p
   uStack_37 = 0;
   iVar4 = (**(code **)(*piVar1 + 0x2c))(param_1,L"PreviewBound",&local_d4);
   if (0 < iVar4) {
-    FUN_004ec9e0(apwStack_e0);
-    iVar4 = FUN_004fd860(apwStack_e0[0],L"(%f, %f, %f) (%f, %f, %f)");
+    FUN_004ec9e0(apuStack_e0);
+    iVar4 = Utf16Scan_ConvertFormattedFields
+                      (apuStack_e0[0],(ushort *)L"(%f, %f, %f) (%f, %f, %f)",&fStack_d0,&fStack_cc,
+                       &pvStack_c8,&fStack_c4,&fStack_c0,&pvStack_bc);
     if ((iVar4 == 6) ||
-       (iVar4 = FUN_004fd860(apwStack_e0[0],L"(%f, %f, %f, %f, %f, %f)"), iVar4 == 6)) {
+       (iVar4 = Utf16Scan_ConvertFormattedFields
+                          (apuStack_e0[0],(ushort *)L"(%f, %f, %f, %f, %f, %f)",&fStack_d0,
+                           &fStack_cc,&pvStack_c8,&fStack_c4,&fStack_c0,&pvStack_bc), iVar4 == 6)) {
       uStack_44._0_2_ = CONCAT11(1,(undefined1)uStack_44);
-      fStack_60 = fStack_c4;
-      fStack_54 = fStack_c4;
       fStack_70 = fStack_d0;
       fStack_6c = fStack_cc;
       pvStack_68 = pvStack_c8;
       fStack_64 = fStack_d0;
+      fStack_60 = fStack_c4;
       fStack_5c = fStack_c0;
       pvStack_58 = pvStack_bc;
+      fStack_54 = fStack_c4;
     }
   }
   ppuVar6 = &puStack_b0;
   this = (void *)FUN_00d51d20(local_b4,&uStack_b8);
   FUN_00d4b510(this,ppuVar6);
-  if ((2 < (int)((int)local_d8 - (int)apwStack_e0[0] & 0xfffffffeU)) &&
-     (apwStack_e0[0] != (wchar_t *)0x0)) {
-    Memory_FreeIfNonNull(apwStack_e0[0]);
-    apwStack_e0[0] = extraout_EAX;
+  if ((2 < (int)((int)local_d8 - (int)apuStack_e0[0] & 0xfffffffeU)) &&
+     (apuStack_e0[0] != (ushort *)0x0)) {
+    Memory_FreeIfNonNull(apuStack_e0[0]);
+    apuStack_e0[0] = extraout_EAX;
   }
-  return CONCAT31((int3)((uint)apwStack_e0[0] >> 8),1);
+  return CONCAT31((int3)((uint)apuStack_e0[0] >> 8),1);
 }
 

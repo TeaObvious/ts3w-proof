@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC1.67 tomb/diving contract. Find full64GUID in typed seed map; absent AX0xffff.
@@ -13,19 +13,19 @@ LotRoomSeeds_RemoveGuidAndReturnRoom(void *this,uint markerType,ulonglong object
 {
   void *this_00;
   short sVar1;
-  uint uVar2;
+  uint allocation;
   
   this_00 = (void *)((int)this + markerType * 0x1c + 0x7c);
   LotRoomSeedTree_FindGuidNode(this_00,&markerType,&objectGuid);
-  uVar2 = markerType;
-  if ((int *)markerType != (int *)((int)this_00 + 4)) {
-    sVar1 = *(short *)(markerType + 0x24);
-    *(int *)((int)this_00 + 0x14) = *(int *)((int)this_00 + 0x14) + -1;
-    FUN_004e1030((int *)markerType);
-    FUN_004e1330((int *)uVar2,(int *)((int)this_00 + 4));
-    FUN_004e44e0(uVar2);
-    return sVar1;
+  allocation = markerType;
+  if ((int *)markerType == (int *)((int)this_00 + 4)) {
+    return -1;
   }
-  return -1;
+  sVar1 = *(short *)(markerType + 0x24);
+  *(int *)((int)this_00 + 0x14) = *(int *)((int)this_00 + 0x14) + -1;
+  FUN_004e1030((int *)markerType);
+  FUN_004e1330((int *)allocation,(int *)((int)this_00 + 4));
+  Memory_FreeIfNonNull((void *)allocation);
+  return sVar1;
 }
 

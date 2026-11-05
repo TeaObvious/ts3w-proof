@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Type propagation algorithm not settling */
@@ -25,10 +25,9 @@ byte __thiscall LotRouting_ReadLotRecordHeader(void *this,void *stream,void *rou
   int *piVar7;
   undefined4 uVar8;
   int **ppiVar9;
-  int *piVar10;
-  int iVar11;
+  int iVar10;
   void *this_01;
-  uint uVar12;
+  uint uVar11;
   int *local_d4;
   int *piStack_d0;
   int *local_cc;
@@ -125,9 +124,10 @@ byte __thiscall LotRouting_ReadLotRecordHeader(void *this,void *stream,void *rou
         *(undefined1 *)((int)routingOwner + 0x10e) = 1;
       }
       if (local_d4 < (int *)0x2) {
-        local_cc = FUN_00c62810(DAT_011edbc4,*(int *)this,*(int *)((int)this + 4),(int *)0x0);
+        local_cc = WorldObjects_FindLotByGuid
+                             (DAT_011edbc4,*(uint *)this,*(uint *)((int)this + 4),(uint *)0x0);
         if (local_cc == (int *)0x0) goto LAB_00624898;
-        puVar6 = (undefined4 *)FUN_00ab1610(local_cc,local_80);
+        puVar6 = (undefined4 *)Lot_BuildWorldToLocalPoseMatrix(local_cc,local_80);
         uVar8 = puVar6[1];
         uVar1 = puVar6[2];
         uVar2 = puVar6[3];
@@ -156,7 +156,7 @@ byte __thiscall LotRouting_ReadLotRecordHeader(void *this,void *stream,void *rou
         *(undefined4 *)((int)this + 0xd4) = uVar8;
         *(undefined4 *)((int)this + 0xd8) = uVar1;
         *(undefined4 *)((int)this + 0xdc) = uVar2;
-        puVar6 = (undefined4 *)FUN_00ab1540(local_cc,local_80);
+        puVar6 = (undefined4 *)Lot_BuildLocalToWorldPoseMatrix(local_cc,local_80);
         uVar8 = puVar6[1];
         uVar1 = puVar6[2];
         uVar2 = puVar6[3];
@@ -305,15 +305,17 @@ LAB_00624461:
         if (pvStack_5c != (void *)0x0) {
           Memory_FreeIfNonNull(pvStack_5c);
         }
-        FUN_00626e50(aiStack_6c);
+        FUN_00626e50((int *)((int)local_80 + 0x14));
         FUN_00626e50((int *)((int)local_80 + 4));
         piStack_d0 = (int *)((int)piStack_d0 + 1);
       } while (bVar3);
       if (local_d4 < (int *)0x3) {
-        iVar11 = thunk_FUN_00835d40();
-        piVar7 = this;
-        if ((iVar11 != 0) && (this_01 = (void *)FUN_00829600(iVar11), this_01 != (void *)0x0)) {
-          FUN_00656880(this_01,*(uint *)this,*(uint *)((int)this + 4));
+        iVar10 = thunk_FUN_00835d40();
+        if (iVar10 != 0) {
+          this_01 = (void *)FUN_00829600(iVar10);
+          if (this_01 != (void *)0x0) {
+            FUN_00656880(this_01,*(uint *)this,*(uint *)((int)this + 4));
+          }
         }
       }
       else {
@@ -324,7 +326,6 @@ LAB_00624461:
                                   *(uint *)((int)stream + 0x10));
         StreamReader_AccumulateStatus(stream,bVar4);
         piStack_c4 = (int *)0x0;
-        piVar7 = local_c0;
         if (local_cc != (int *)0x0) {
           do {
             piStack_d0 = (int *)0x0;
@@ -348,16 +349,18 @@ LAB_00624461:
             }
             *(byte *)(piVar7 + 1) = bStack_c5;
             piStack_c4 = (int *)((int)piStack_c4 + 1);
-            piVar7 = local_c0;
           } while (piStack_c4 < local_cc);
         }
+        this = local_c0;
       }
-      FUN_0073ebe0(piVar7[0x51],piVar7[0x52]);
-      piVar7[0x53] = 0;
+      FUN_0073ebe0(*(int *)((int)this + 0x144),*(uint *)((int)this + 0x148));
+      *(int *)((int)this + 0x14c) = 0;
       if (local_d4 < &DAT_00000004) {
-        if ((uint)*(ushort *)(piVar7 + 0x5b) < (uint)((piVar7[0x25] - piVar7[0x24]) / 0x44)) {
-          *(undefined1 *)(piVar7[0x24] + (uint)*(ushort *)(piVar7 + 0x5b) * 0x44) = 0;
-          *(undefined1 *)(piVar7 + 0x23) = 0;
+        if ((uint)*(ushort *)((int)this + 0x16c) <
+            (uint)((*(int *)((int)this + 0x94) - *(int *)((int)this + 0x90)) / 0x44)) {
+          *(undefined1 *)(*(int *)((int)this + 0x90) + (uint)*(ushort *)((int)this + 0x16c) * 0x44)
+               = 0;
+          *(undefined1 *)((int)this + 0x8c) = 0;
         }
       }
       else {
@@ -376,56 +379,58 @@ LAB_00624461:
             bVar4 = Stream_ReadUInt32(*(void **)((int)stream + 8),(uint *)&piStack_c4,
                                       *(uint *)((int)stream + 0x10));
             StreamReader_AccumulateStatus(stream,bVar4);
-            uVar12 = piVar7[0x52];
-            puStack_ac = (undefined4 *)(piVar7[0x51] + ((uint)piStack_d0 % uVar12) * 4);
-            for (piVar10 = (int *)*puStack_ac; piVar10 != (int *)0x0; piVar10 = (int *)piVar10[2]) {
-              if (piStack_d0 == (int *)*piVar10) {
-                piStack_24 = piVar10;
+            uVar11 = *(uint *)((int)this + 0x148);
+            puStack_ac = (undefined4 *)
+                         (*(int *)((int)this + 0x144) + ((uint)piStack_d0 % uVar11) * 4);
+            for (piVar7 = (int *)*puStack_ac; piVar7 != (int *)0x0; piVar7 = (int *)piVar7[2]) {
+              if (piStack_d0 == (int *)*piVar7) {
+                piStack_24 = piVar7;
                 ppiVar9 = &piStack_24;
                 puStack_20 = puStack_ac;
                 goto LAB_006246d7;
               }
             }
-            iStack_88 = piVar7[0x51] + uVar12 * 4;
-            piStack_8c = *(int **)(piVar7[0x51] + uVar12 * 4);
+            iStack_88 = *(int *)((int)this + 0x144) + uVar11 * 4;
+            piStack_8c = *(int **)(*(int *)((int)this + 0x144) + uVar11 * 4);
             ppiVar9 = &piStack_8c;
 LAB_006246d7:
-            piVar10 = *ppiVar9;
-            if (*ppiVar9 == *(int **)(piVar7[0x51] + uVar12 * 4)) {
+            piVar7 = *ppiVar9;
+            if (*ppiVar9 == *(int **)(*(int *)((int)this + 0x144) + uVar11 * 4)) {
               piStack_9c = (int *)((uint)piStack_9c & 0xffffff00);
               piStack_a4 = piStack_d0;
               uStack_a0 = 0;
               UInt32PairMap_InsertUnique
-                        (piVar7 + 0x50,apiStack_1c,(uint *)&piStack_a4,(uint)piStack_9c);
-              piVar10 = apiStack_1c[0];
+                        ((int *)((int)this + 0x140),apiStack_1c,(uint *)&piStack_a4,(uint)piStack_9c
+                        );
+              piVar7 = apiStack_1c[0];
             }
-            piVar10[1] = (int)piStack_c4;
+            piVar7[1] = (int)piStack_c4;
             local_cc = (int *)((int)local_cc + 1);
           } while (local_cc < local_c0);
         }
       }
-      if ((4 < local_b4) || (uVar12 = FUN_00621660(piVar7), (char)uVar12 != '\0')) {
+      if ((4 < local_b4) || (uVar11 = FUN_00621660(this), (char)uVar11 != '\0')) {
         if (local_d4 < (int *)0x8) {
-          piVar7[0x58] = 0;
+          *(int *)((int)this + 0x160) = 0;
         }
         else {
-          bVar4 = Stream_ReadUInt32(*(void **)((int)stream + 8),(uint *)(piVar7 + 0x58),
+          bVar4 = Stream_ReadUInt32(*(void **)((int)stream + 8),(uint *)((int)this + 0x160),
                                     *(uint *)((int)stream + 0x10));
           StreamReader_AccumulateStatus(stream,bVar4);
         }
         if (local_d4 < (int *)0x9) {
-          piVar7[0x59] = 0;
+          *(int *)((int)this + 0x164) = 0;
         }
         else {
-          bVar4 = Stream_ReadUInt32(*(void **)((int)stream + 8),(uint *)(piVar7 + 0x59),
+          bVar4 = Stream_ReadUInt32(*(void **)((int)stream + 8),(uint *)((int)this + 0x164),
                                     *(uint *)((int)stream + 0x10));
           StreamReader_AccumulateStatus(stream,bVar4);
         }
         if (local_d4 < (int *)0xa) {
-          piVar7[0x5a] = 0;
+          *(int *)((int)this + 0x168) = 0;
         }
         else {
-          bVar4 = Stream_ReadUInt32(*(void **)((int)stream + 8),(uint *)(piVar7 + 0x5a),
+          bVar4 = Stream_ReadUInt32(*(void **)((int)stream + 8),(uint *)((int)this + 0x168),
                                     *(uint *)((int)stream + 0x10));
           StreamReader_AccumulateStatus(stream,bVar4);
         }

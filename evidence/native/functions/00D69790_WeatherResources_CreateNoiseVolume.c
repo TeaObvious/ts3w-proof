@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -43,8 +42,8 @@ void __fastcall WeatherResources_CreateNoiseVolume(int param_1)
   if ((char)uVar4 != '\0') {
     if (DAT_0119327c != '\0') {
       DAT_0119327c = '\0';
-      FUN_004fa9f0(&iStack_4,-1);
-      FUN_004fa9f0(&iStack_4,0x11b7a);
+      TreeVariation_Reseed(&iStack_4,-1);
+      TreeVariation_Reseed(&iStack_4,0x11b7a);
       puVar7 = &DAT_011ef300;
       do {
         iVar5 = 8;

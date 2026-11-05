@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 original static instructions. cdecl1objectpointer/plainRET void. Requires object,
@@ -70,12 +70,11 @@ void __cdecl ObjectPlacement_RegisterFloorCutout(void *param_1)
           iVar4 = (**(code **)(*piVar3 + 0xc))(0x90566b0e);
           if ((iVar4 != 0) && ((*(uint *)((int)pvVar2 + 0x2c) >> 0xb & 1) == 0)) {
             fStack_a8 = -1.0;
-            fStack_a4 = -1.0;
             iStack_a0 = 0;
-            FUN_00c894e0(pvVar2,&fStack_a8,&fStack_a4,&iStack_a0);
+            fStack_a4 = fStack_a8;
+            ObjectLocation_CopyXZLevel(pvVar2,&fStack_a8,&fStack_a4,&iStack_a0);
             fStack_90 = PlacementLocation_ReadYawWithRefresh(pvVar2);
             pvVar2 = *(void **)(iVar4 + 0x290);
-            fStack_98 = 1.0;
             fStack_9c = 1.0;
             iStack_94 = 0;
             fStack_ac = 0.0;
@@ -84,6 +83,7 @@ void __cdecl ObjectPlacement_RegisterFloorCutout(void *param_1)
             aiStack_54[1] = 0;
             aiStack_54[2] = 0;
             aiStack_54[3] = 0;
+            fStack_98 = fStack_9c;
             ObjectProduct_CopyFloorPlacementFields
                       (this,&iStack_94,&fStack_98,&fStack_9c,&fStack_ac,&fStack_b0,aiStack_54);
             fStack_8c = fStack_a8;

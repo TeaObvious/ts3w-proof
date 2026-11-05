@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011630b8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011630b8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.UIManager::UIManager_GetSaveGameMetadataImpl [assembly=ScriptCore token=0x06000E52;
    saveFile: System.String, householdThumbnail: System.UInt32&, lotThumbnail: System.UInt32&;
    return=System.String]
@@ -26,7 +27,7 @@ ScriptCore.UIManager::UIManager_GetSaveGameMetadataImpl
   void *pvVar8;
   int *piVar9;
   int *piStack_45c;
-  int iStack_458;
+  void *pvStack_458;
   int iStack_454;
   int iStack_450;
   char *pcStack_44c;
@@ -72,18 +73,18 @@ ScriptCore.UIManager::UIManager_GetSaveGameMetadataImpl
   piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
   if (piVar2 != (int *)0x0) {
     psVar3 = (short *)(**(code **)(*piVar2 + 0x58))(param_1);
-    iStack_458 = 0;
+    pvStack_458 = (void *)0x0;
     iStack_454 = 0;
     iStack_450 = 0;
     pcStack_44c = "UI/SaveGameMetadata";
-    FUN_0040b590(&iStack_458,psVar3);
-    if (iStack_454 - iStack_458 >> 1 != 0) {
+    FUN_0040b590(&pvStack_458,psVar3);
+    if (iStack_454 - (int)pvStack_458 >> 1 != 0) {
       piStack_45c = (int *)0x0;
       iVar4 = FUN_00aa9c70();
       if (((iVar4 != 0) &&
           (pvVar8 = (void *)(iVar4 + -0x14), pvStack_434 = pvVar8, pvVar8 != (void *)0x0)) &&
-         (uVar5 = FUN_00aab460(&iStack_458,&puStack_43c), piVar7 = piStack_45c, (char)uVar5 != '\0')
-         ) {
+         (uVar5 = FUN_00aab460(&pvStack_458,&puStack_43c), piVar7 = piStack_45c, (char)uVar5 != '\0'
+         )) {
         if (piStack_45c != (int *)0x0) {
           piStack_45c = (int *)0x0;
           (**(code **)(*piVar7 + 4))();
@@ -102,15 +103,16 @@ ScriptCore.UIManager::UIManager_GetSaveGameMetadataImpl
             uStack_40c = 0;
             uStack_408 = 0;
             uStack_404 = 0;
-            FUN_00d53ef0((int)&iStack_3f8,(undefined8 *)&uStack_410,&iStack_458);
-            FUN_00779200(aiStack_2f8,uStack_410,uStack_40c,uStack_408,uStack_404,0,0,0,2,0,0,0,0,
-                         0xe1c27cd7,0,0);
+            FUN_00d53ef0((int)&iStack_3f8,(undefined8 *)&uStack_410,&pvStack_458);
+            UIThumbnail_InitializeRequestDescriptor
+                      (aiStack_2f8,uStack_410,uStack_40c,uStack_408,uStack_404,0,0,0,2,0,0,0,0,
+                       0xe1c27cd7,0,0);
             bVar1 = FUN_00d4e5d0(pvVar8,aiStack_2f8);
             if (bVar1 != 0) {
               piVar9 = (int *)0x0;
               piStack_448 = (int *)0x0;
               piVar7 = FUN_0074efa0((int *)&piStack_448);
-              FUN_00d5c970(pvVar8,aiStack_2f8,piVar7,piVar9);
+              UIThumbnail_AllocateImageAndPublishCommand(pvVar8,aiStack_2f8,piVar7,piVar9);
               piVar7 = piStack_448;
               if (piStack_448 != (int *)0x0) {
                 piStack_448 = (int *)0x0;
@@ -129,15 +131,16 @@ ScriptCore.UIManager::UIManager_GetSaveGameMetadataImpl
             uStack_41c = 0;
             uStack_418 = 0;
             uStack_414 = 0;
-            FUN_00d53ef0((int)&iStack_3e8,(undefined8 *)&uStack_420,&iStack_458);
-            FUN_00779200(aiStack_1d0,uStack_420,uStack_41c,uStack_418,uStack_414,0,0,0,2,0,0,0,0,
-                         0xe1c27cd7,0,0);
+            FUN_00d53ef0((int)&iStack_3e8,(undefined8 *)&uStack_420,&pvStack_458);
+            UIThumbnail_InitializeRequestDescriptor
+                      (aiStack_1d0,uStack_420,uStack_41c,uStack_418,uStack_414,0,0,0,2,0,0,0,0,
+                       0xe1c27cd7,0,0);
             bVar1 = FUN_00d4e5d0(pvVar8,aiStack_1d0);
             if (bVar1 != 0) {
               piVar9 = (int *)0x0;
               piStack_448 = (int *)0x0;
               piVar7 = FUN_0074efa0((int *)&piStack_448);
-              FUN_00d5c970(pvVar8,aiStack_1d0,piVar7,piVar9);
+              UIThumbnail_AllocateImageAndPublishCommand(pvVar8,aiStack_1d0,piVar7,piVar9);
               piVar7 = piStack_448;
               if (piStack_448 != (int *)0x0) {
                 piStack_448 = (int *)0x0;
@@ -160,34 +163,34 @@ ScriptCore.UIManager::UIManager_GetSaveGameMetadataImpl
           uStack_42c = uStack_438 << 8 | uStack_42c;
           uStack_444 = (((uStack_428 >> 0x18) << 8 | uStack_438 >> 0x18) << 8 | uStack_42c >> 0x18)
                        << 8 | (uStack_42c << 8 | uStack_430) >> 0x18;
-          FUN_00408f50(&iStack_458,(short *)piStack_45c[0x10]);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,(short *)piStack_45c[0x18]);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,(short *)piStack_45c[0x1c]);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,asStack_398);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,asStack_a8);
+          FUN_00408f50(&pvStack_458,(short *)piStack_45c[0x10]);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,(short *)piStack_45c[0x18]);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,(short *)piStack_45c[0x1c]);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,asStack_398);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,asStack_a8);
           FUN_004f3100((int)asStack_398,(ushort *)L"%I64d");
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,asStack_398);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,(short *)piStack_45c[0x20]);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,(short *)piStack_45c[0x24]);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,(short *)piStack_45c[0x28]);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,(short *)piStack_45c[0x2c]);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,asStack_398);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,(short *)piStack_45c[0x20]);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,(short *)piStack_45c[0x24]);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,(short *)piStack_45c[0x28]);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,(short *)piStack_45c[0x2c]);
           FUN_009aecb0(aiStack_3a8,(LPCWSTR)piStack_45c[0x2c]);
           FUN_00779580(aiStack_3a8);
           FUN_004f3100((int)asStack_398,(ushort *)&DAT_00fc056c);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,asStack_398);
-          FUN_004e3950(&iStack_458,&DAT_0100fbb0);
-          FUN_004e3950(&iStack_458,(short *)piStack_45c[0x14]);
-          pvVar8 = FUN_004f6630(&iStack_3e8,&iStack_458);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,asStack_398);
+          FUN_004e3950(&pvStack_458,&DAT_0100fbb0);
+          FUN_004e3950(&pvStack_458,(short *)piStack_45c[0x14]);
+          pvVar8 = FUN_004f6630(&iStack_3e8,&pvStack_458);
           appuStack_3c8[0] = &PTR_FUN_00fba6f4;
           uStack_3c0 = 0;
           uStack_3be = 0;
@@ -205,8 +208,8 @@ ScriptCore.UIManager::UIManager_GetSaveGameMetadataImpl
         (**(code **)(*piStack_45c + 4))();
       }
     }
-    if ((2 < (int)(iStack_450 - iStack_458 & 0xfffffffeU)) && (iStack_458 != 0)) {
-      FUN_004e44e0(iStack_458);
+    if ((2 < (int)(iStack_450 - (int)pvStack_458 & 0xfffffffeU)) && (pvStack_458 != (void *)0x0)) {
+      Memory_FreeIfNonNull(pvStack_458);
     }
   }
   return local_440;

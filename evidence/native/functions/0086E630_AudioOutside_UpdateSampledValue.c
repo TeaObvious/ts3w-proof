@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -29,14 +28,14 @@ AudioOutside_UpdateSampledValue(void *this,uint unusedStackWord0,uint unusedStac
   int iVar2;
   float fVar3;
   float fVar4;
-  float *pfVar5;
-  short sVar6;
+  short sVar5;
+  int *piVar6;
   float *pfVar7;
   undefined4 uVar8;
-  int *piVar9;
+  uint *visitCounter;
+  float *pfVar9;
   undefined4 *puVar10;
-  float *pfVar11;
-  undefined8 uVar12;
+  undefined8 uVar11;
   int iStack_184;
   float fStack_180;
   float fStack_17c;
@@ -83,17 +82,18 @@ AudioOutside_UpdateSampledValue(void *this,uint unusedStackWord0,uint unusedStac
   pvVar1 = DAT_011edbc4;
                     /* Signed IDIV by receiver+28 after DWORD increment; no local zero-divisor
                        guard. Scheduling and valid property domain need producer review. */
-  piVar9 = (int *)(*(int *)((int)this + 0x24) % *(int *)((int)this + 0x28));
-  if ((piVar9 == (int *)0x0) && (DAT_011edbc4 != (void *)0x0)) {
+  visitCounter = (uint *)(*(int *)((int)this + 0x24) % *(int *)((int)this + 0x28));
+  if ((visitCounter == (uint *)0x0) && (DAT_011edbc4 != (void *)0x0)) {
     local_16c = this;
-    uVar12 = FUN_00c5f560((int)DAT_011edbc4);
-    piVar9 = FUN_00c62810(pvVar1,(int)uVar12,(int)((ulonglong)uVar12 >> 0x20),piVar9);
-    if ((piVar9 != (int *)0x0) && (piVar9[0xe7] < 0)) {
+    uVar11 = FUN_00c5f560((int)DAT_011edbc4);
+    piVar6 = WorldObjects_FindLotByGuid
+                       (pvVar1,(uint)uVar11,(uint)((ulonglong)uVar11 >> 0x20),visitCounter);
+    if ((piVar6 != (int *)0x0) && (piVar6[0xe7] < 0)) {
       (**(code **)(*(int *)this + 0x38))(this,0.0);
       return;
     }
-    piVar9 = (int *)FUN_008afe00();
-    pfVar7 = (**(code **)(*piVar9 + 0x18))(piVar9,2);
+    piVar6 = (int *)FUN_008afe00();
+    pfVar7 = (**(code **)(*piVar6 + 0x18))(piVar6,2);
     fStack_178 = pfVar7[2];
     fStack_180 = *pfVar7;
     fStack_17c = pfVar7[1];
@@ -102,7 +102,7 @@ AudioOutside_UpdateSampledValue(void *this,uint unusedStackWord0,uint unusedStac
     fStack_14c = fStack_17c;
     fStack_148 = fStack_178;
     fStack_144 = fStack_180;
-    pfVar7 = (**(code **)(*piVar9 + 0x18))(piVar9,1);
+    pfVar7 = (**(code **)(*piVar6 + 0x18))(piVar6,1);
     fStack_180 = (fStack_148 - pfVar7[2]) * (fStack_148 - pfVar7[2]) +
                  (fStack_14c - pfVar7[1]) * (fStack_14c - pfVar7[1]) +
                  (fStack_150 - *pfVar7) * (fStack_150 - *pfVar7);
@@ -123,73 +123,72 @@ AudioOutside_UpdateSampledValue(void *this,uint unusedStackWord0,uint unusedStac
     fStack_178 = fStack_148;
     pfStack_ec = pfStack_f0;
     AudioOutside_AppendThirteenSamplePoints(&fStack_150,fStack_174,&pfStack_f0);
-    piVar9 = (int *)FUN_00c687a0(pvVar1,'\0');
+    piVar6 = (int *)FUN_00c687a0(pvVar1,'\0');
     fStack_164 = -1.0;
     fStack_160 = -1.0;
     iStack_15c = 0;
-    puVar10 = (undefined4 *)*piVar9;
-    puStack_154 = (undefined4 *)piVar9[1];
+    puStack_168 = (undefined4 *)*piVar6;
+    puStack_154 = (undefined4 *)piVar6[1];
     iStack_184 = 0;
     pfVar7 = pfStack_ec;
-    pfVar11 = pfStack_ec;
-    puStack_168 = puVar10;
-    if (puVar10 != puStack_154) {
+    if (puStack_168 != puStack_154) {
       do {
-        pvVar1 = (void *)*puVar10;
+        puVar10 = puStack_168;
+        pvVar1 = (void *)*puStack_168;
         pvStack_158 = *(void **)((int)pvVar1 + 0x298);
-        pfVar7 = pfVar11;
         if (pvStack_158 != (void *)0x0) {
-          puStack_168 = puVar10;
-          FUN_0069d730(&fStack_150,(float *)((int)pvVar1 + 0x230));
+          Bounds_WriteCenterAndHalfDiagonalRadius(&fStack_150,(float *)((int)pvVar1 + 0x230));
           uVar8 = FUN_0086e0e0(&fStack_180,&fStack_150);
-          pfVar5 = pfStack_f0;
           if ((char)uVar8 != '\0') {
-            for (; puVar10 = puStack_168, pfVar5 != pfVar11; pfVar5 = pfVar5 + 4) {
-              puStack_168 = puVar10;
-              Lot_WorldPositionToLocalVector(pvVar1,pfVar5,&fStack_140);
-              fStack_120 = fStack_140;
-              uStack_11c = uStack_13c;
-              fStack_118 = fStack_138;
-              uStack_114 = uStack_134;
-              fStack_100 = fStack_140;
-              uStack_fc = uStack_13c;
-              fStack_f8 = fStack_138;
-              uStack_f4 = uStack_134;
-              if ((((0.0 <= fStack_140) && (fStack_140 <= (float)*(int *)((int)pvVar1 + 0x174))) &&
-                  (0.0 <= fStack_138)) && (fStack_138 <= (float)*(int *)((int)pvVar1 + 0x178))) {
-                iStack_15c = Lot_SelectFloorLevelBelowHeight(pvVar1,&fStack_140,'\0');
+            pfVar9 = pfStack_f0;
+            if (pfStack_f0 != pfVar7) {
+              do {
+                Lot_WorldPositionToLocalVector(pvVar1,pfVar9,&fStack_140);
+                fStack_120 = fStack_140;
+                uStack_11c = uStack_13c;
+                fStack_118 = fStack_138;
+                uStack_114 = uStack_134;
+                fStack_100 = fStack_140;
+                uStack_fc = uStack_13c;
+                fStack_f8 = fStack_138;
+                uStack_f4 = uStack_134;
+                if ((((0.0 <= fStack_140) && (fStack_140 <= (float)*(int *)((int)pvVar1 + 0x174)))
+                    && (0.0 <= fStack_138)) && (fStack_138 <= (float)*(int *)((int)pvVar1 + 0x178)))
+                {
+                  iStack_15c = Lot_SelectFloorLevelBelowHeight(pvVar1,&fStack_140,'\0');
                     /* Signed floor<0 counts hit directly. Nonnegative floor requires nonzero16-bit
                        AX room result; this is not simply the project's displayed-floor InRoom
                        predicate. */
-                fStack_130 = fStack_140;
-                uStack_12c = uStack_13c;
-                fStack_128 = fStack_138;
-                uStack_124 = uStack_134;
-                fStack_110 = fStack_140;
-                uStack_10c = uStack_13c;
-                fStack_108 = fStack_138;
-                uStack_104 = uStack_134;
-                fStack_164 = fStack_140;
-                fStack_160 = fStack_138;
-                if ((iStack_15c < 0) ||
-                   (sVar6 = LotRoom_ResolveForLocalLocation(pvStack_158,&fStack_164,0,0), sVar6 != 0
-                   )) {
-                  iStack_184 = iStack_184 + 1;
+                  fStack_130 = fStack_140;
+                  uStack_12c = uStack_13c;
+                  fStack_128 = fStack_138;
+                  uStack_124 = uStack_134;
+                  fStack_110 = fStack_140;
+                  uStack_10c = uStack_13c;
+                  fStack_108 = fStack_138;
+                  uStack_104 = uStack_134;
+                  fStack_164 = fStack_140;
+                  fStack_160 = fStack_138;
+                  if ((iStack_15c < 0) ||
+                     (sVar5 = LotRoom_ResolveForLocalLocation(pvStack_158,&fStack_164,0,0),
+                     sVar5 != 0)) {
+                    iStack_184 = iStack_184 + 1;
+                  }
                 }
-              }
+                pfVar9 = pfVar9 + 4;
+              } while (pfVar9 != pfVar7);
               pfVar7 = pfStack_ec;
             }
+            puVar10 = puStack_168;
           }
         }
-        puVar10 = puVar10 + 1;
-        pfVar11 = pfVar7;
-        puStack_168 = puVar10;
-      } while (puVar10 != puStack_154);
+        puStack_168 = puVar10 + 1;
+      } while (puStack_168 != puStack_154);
     }
                     /* UInt32 hitcount/pointcount converted by signed FILD plus2^32 correction,
                        divide/subtract remain x87 until one final FSTPfloat argument. No binary32
                        intermediate fraction store. */
-    piVar9 = local_16c;
+    piVar6 = local_16c;
     fVar3 = (float)iStack_184;
     iVar2 = *local_16c;
     if (iStack_184 < 0) {
@@ -200,7 +199,7 @@ AudioOutside_UpdateSampledValue(void *this,uint unusedStackWord0,uint unusedStac
     if ((int)local_16c < 0) {
       fVar4 = fVar4 + 4.2949673e+09;
     }
-    (**(code **)(iVar2 + 0x38))(piVar9,1.0 - fVar3 / fVar4);
+    (**(code **)(iVar2 + 0x38))(piVar6,1.0 - fVar3 / fVar4);
   }
   return;
 }

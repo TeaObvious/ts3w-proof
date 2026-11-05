@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. Falling-leaf effect tick: fall-set active; loss magnitude
@@ -52,7 +52,7 @@ void __thiscall Seasons_UpdateFallingLeafEffects(void *this)
   float local_20;
   
   if ((DAT_011edbc4 != 0) && (*(void **)(DAT_011edbc4 + 0x74) != (void *)0x0)) {
-    local_a0.precipitationStrength = FLOAT_00f998f8;
+    local_a0.precipitationStrength = 1.0;
     local_a0.precipitationType = 0;
     local_a0.frostAmount = 0.0;
     local_a0.currentSeason = 0;
@@ -65,7 +65,7 @@ void __thiscall Seasons_UpdateFallingLeafEffects(void *this)
     local_a0.treeLeafLoss = 0.0;
     local_a0.useFallSet = 1;
     local_a0.treeFallColor = 0.0;
-    local_a0.heatShimmerDistance = FLOAT_00fab218;
+    local_a0.heatShimmerDistance = -1.0;
     local_a0.precipitationFog = 0.0;
     local_a0.pondFreeze = 0.0;
     local_a0.worldLeaves = 0.0;
@@ -74,10 +74,10 @@ void __thiscall Seasons_UpdateFallingLeafEffects(void *this)
     local_a0.normalFog = 0.0;
     WeatherSettings_CopyPending(*(void **)(DAT_011edbc4 + 0x74),&local_a0);
     if (local_a0.useFallSet != 0) {
-      auVar12._0_4_ = FLOAT_00fab218 * local_a0.treeLeafLoss;
-      auVar12._4_4_ = FLOAT_00fab218 * local_a0.treeLeafLoss;
-      auVar12._8_4_ = FLOAT_00fab218 * local_a0.treeLeafLoss;
-      auVar12._12_4_ = FLOAT_00fab218 * local_a0.treeLeafLoss;
+      auVar12._0_4_ = local_a0.treeLeafLoss * -1.0;
+      auVar12._4_4_ = local_a0.treeLeafLoss * -1.0;
+      auVar12._8_4_ = local_a0.treeLeafLoss * -1.0;
+      auVar12._12_4_ = local_a0.treeLeafLoss * -1.0;
       auVar13._4_4_ = local_a0.treeLeafLoss;
       auVar13._0_4_ = local_a0.treeLeafLoss;
       auVar13._8_4_ = local_a0.treeLeafLoss;
@@ -85,26 +85,26 @@ void __thiscall Seasons_UpdateFallingLeafEffects(void *this)
       auVar13 = maxps(auVar12,auVar13);
                     /* CMPLEPS inclusiveepsilon; NaN mask0 is NOT allF, therefore proceeds. No
                        lower/upper0..1 bound. */
-      auVar14._4_4_ = -(uint)(auVar13._4_4_ <= FLOAT_0108b1a0);
-      auVar14._0_4_ = -(uint)(auVar13._0_4_ <= FLOAT_0108b1a0);
-      auVar14._8_4_ = -(uint)(auVar13._8_4_ <= FLOAT_0108b1a0);
-      auVar14._12_4_ = -(uint)(auVar13._12_4_ <= FLOAT_0108b1a0);
+      auVar14._4_4_ = -(uint)(auVar13._4_4_ <= 1.1920929e-07);
+      auVar14._0_4_ = -(uint)(auVar13._0_4_ <= 1.1920929e-07);
+      auVar14._8_4_ = -(uint)(auVar13._8_4_ <= 1.1920929e-07);
+      auVar14._12_4_ = -(uint)(auVar13._12_4_ <= 1.1920929e-07);
       iVar5 = movmskps(extraout_ECX,auVar14);
       if (iVar5 != 0xf) {
-        fVar11 = local_a0.treeLeafLoss - FLOAT_00f998f8;
-        auVar9._0_4_ = FLOAT_00fab218 * fVar11;
-        auVar9._4_4_ = FLOAT_00fab218 * fVar11;
-        auVar9._8_4_ = FLOAT_00fab218 * fVar11;
-        auVar9._12_4_ = FLOAT_00fab218 * fVar11;
+        fVar11 = local_a0.treeLeafLoss - 1.0;
+        auVar9._0_4_ = fVar11 * -1.0;
+        auVar9._4_4_ = fVar11 * -1.0;
+        auVar9._8_4_ = fVar11 * -1.0;
+        auVar9._12_4_ = fVar11 * -1.0;
         auVar2._4_4_ = fVar11;
         auVar2._0_4_ = fVar11;
         auVar2._8_4_ = fVar11;
         auVar2._12_4_ = fVar11;
         auVar13 = maxps(auVar9,auVar2);
-        auVar10._4_4_ = -(uint)(auVar13._4_4_ <= FLOAT_0108b18c);
-        auVar10._0_4_ = -(uint)(auVar13._0_4_ <= FLOAT_0108b18c);
-        auVar10._8_4_ = -(uint)(auVar13._8_4_ <= FLOAT_0108b18c);
-        auVar10._12_4_ = -(uint)(auVar13._12_4_ <= FLOAT_0108b18c);
+        auVar10._4_4_ = -(uint)(auVar13._4_4_ <= 1.5258789e-05);
+        auVar10._0_4_ = -(uint)(auVar13._0_4_ <= 1.5258789e-05);
+        auVar10._8_4_ = -(uint)(auVar13._8_4_ <= 1.5258789e-05);
+        auVar10._12_4_ = -(uint)(auVar13._12_4_ <= 1.5258789e-05);
         iVar5 = movmskps(extraout_EDX,auVar10);
         if ((iVar5 != 0xf) && (*(float *)((int)this + 8) + FLOAT_01192d70 <= DAT_011ceda8)) {
           *(float *)((int)this + 8) = DAT_011ceda8;
@@ -114,7 +114,7 @@ void __thiscall Seasons_UpdateFallingLeafEffects(void *this)
             fStack_3c = *(float *)(iVar5 + 100);
             fStack_38 = *(float *)(iVar5 + 0x68);
             uStack_34 = *(undefined4 *)(iVar5 + 0x6c);
-            pvVar3 = (void *)FUN_00686e60();
+            pvVar3 = (void *)CollisionService_GetGlobal();
             local_b4 = (void *)0x0;
             local_b0 = 0;
             local_ac = 0;
@@ -131,7 +131,7 @@ void __thiscall Seasons_UpdateFallingLeafEffects(void *this)
                                                       *(undefined4 *)((int)local_b4 + local_c0 * 8))
                                    );
                 if (((pvVar3 != (void *)0x0) && (iVar5 = FUN_00789260(pvVar3), iVar5 != 0)) &&
-                   (uVar4 = FUN_0095a880(iVar5), (char)uVar4 != '\0')) {
+                   (uVar4 = TreeComponent_HasLeafDropPoints(iVar5), (char)uVar4 != '\0')) {
                   pfVar1 = *(float **)(*(int *)(iVar5 + 8) + 0xc);
                   for (pfVar7 = *(float **)(*(int *)(iVar5 + 8) + 8); pfVar7 != pfVar1;
                       pfVar7 = pfVar7 + 0x14) {
@@ -140,7 +140,7 @@ void __thiscall Seasons_UpdateFallingLeafEffects(void *this)
                                (*pfVar7 - local_40) * (*pfVar7 - local_40);
                     local_20 = FLOAT_01192d30 * FLOAT_01192d30;
                     if ((local_30 <= local_20) &&
-                       (fVar8 = FUN_004faa60((int *)((int)this + 0xc)),
+                       (fVar8 = TreeVariation_DrawUniform((int *)((int)this + 0xc)),
                        fVar8 <= (float10)FLOAT_01192d74)) {
                       FUN_00d68cf0(this,iVar5,pfVar7);
                     }

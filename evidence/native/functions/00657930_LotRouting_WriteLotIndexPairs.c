@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 LotLocation contract): Analyst name. ECX secondary routing owner; three
@@ -34,7 +34,8 @@ byte __thiscall LotRouting_WriteLotIndexPairs(void *this,void *stream,uint lotLo
     *(undefined1 *)((int)stream + 0x14) = 0;
     return 0;
   }
-  local_10 = (byte *)FUN_00c62810(*(void **)((int)this + 0xc),lotLow,lotHigh,(int *)0x0);
+  local_10 = (byte *)WorldObjects_FindLotByGuid
+                               (*(void **)((int)this + 0xc),lotLow,lotHigh,(uint *)0x0);
   if (((local_10 != (byte *)0x0) && (this_00 = (void *)thunk_FUN_00835d40(), this_00 != (void *)0x0)
       ) && (((bVar4 = FUN_00656dc0(this,lotLow,lotHigh), bVar4 &&
              ((uVar5 = FUN_00632280(*(void **)((int)this + 8),lotLow,lotHigh), (char)uVar5 == '\0'

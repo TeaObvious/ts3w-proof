@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161570 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161570 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.OnlineFeatures::OnlineFeaturesHost_StartLauncher [assembly=ScriptCore
    token=0x0600062C; authToken: System.Boolean; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -23,7 +24,7 @@ void __cdecl ScriptCore.OnlineFeatures::OnlineFeaturesHost_StartLauncher(char pa
   HWND hWnd;
   void *this;
   undefined *puVar6;
-  undefined1 *puVar7;
+  undefined1 *allocation;
   undefined1 *puStack_30;
   undefined1 *puStack_2c;
   undefined *puStack_28;
@@ -32,7 +33,7 @@ void __cdecl ScriptCore.OnlineFeatures::OnlineFeaturesHost_StartLauncher(char pa
   undefined1 *local_1c;
   undefined2 *local_18;
   char *local_14;
-  int aiStack_10 [2];
+  void *apvStack_10 [2];
   int iStack_8;
   
   hHandle = CreateMutexA((LPSECURITY_ATTRIBUTES)0x0,1,
@@ -79,27 +80,27 @@ void __cdecl ScriptCore.OnlineFeatures::OnlineFeaturesHost_StartLauncher(char pa
         puStack_30 = &DAT_011c8e54;
         puStack_2c = &DAT_011c8e54;
         puStack_28 = &DAT_011c8e55;
-        ppuVar5 = FUN_004f3df0(aiStack_10,&local_20);
+        ppuVar5 = FUN_004f3df0(apvStack_10,&local_20);
         puVar6 = &DAT_011c8e55;
-        puVar7 = &DAT_011c8e54;
+        allocation = &DAT_011c8e54;
         if (ppuVar5 != &puStack_30) {
           FUN_00405910(&puStack_30,*ppuVar5,ppuVar5[1]);
           puVar6 = puStack_28;
-          puVar7 = puStack_30;
+          allocation = puStack_30;
         }
-        if ((1 < iStack_8 - aiStack_10[0]) && (aiStack_10[0] != 0)) {
-          FUN_004e44e0(aiStack_10[0]);
+        if ((1 < iStack_8 - (int)apvStack_10[0]) && (apvStack_10[0] != (void *)0x0)) {
+          Memory_FreeIfNonNull(apvStack_10[0]);
         }
         pFVar3 = GetProcAddress(hModule,"TGSwitchFocusToExecutable");
         if (pFVar3 != (FARPROC)0x0) {
-          (*pFVar3)(puVar7);
+          (*pFVar3)(allocation);
         }
-        if ((1 < (int)puVar6 - (int)puVar7) && (puVar7 != (undefined1 *)0x0)) {
-          FUN_004e44e0((int)puVar7);
+        if ((1 < (int)puVar6 - (int)allocation) && (allocation != (undefined1 *)0x0)) {
+          Memory_FreeIfNonNull(allocation);
         }
         if ((2 < (int)((int)local_18 - (int)local_20 & 0xfffffffeU)) && (local_20 != (LPCWSTR)0x0))
         {
-          FUN_004e44e0((int)local_20);
+          Memory_FreeIfNonNull(local_20);
           FUN_004e1cc0((LPCRITICAL_SECTION)&DAT_011d5028);
           return;
         }

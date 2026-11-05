@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 static instructions/callers: thiscall ECX tool plus lot and float X/Z/signed-DWORD level
@@ -42,9 +42,9 @@ bool __thiscall BasementTool_BeginAtLotPick(void *this,void *param_1,float *para
         fVar5 = BasementTool_SelectBottomHeight(this,(float *)pLVar1);
         *(float *)((int)this + 0x88) = (float)fVar5;
         if (bVar3) {
-          uVar4 = LotLevels_ExpandBounds
-                            (*(void **)((int)this + 0xc),*(int *)((int)this + 0x6c) + -1);
-          if (((char)uVar4 != '\0') && (*(void **)((int)this + 0x90) != (void *)0x0)) {
+          bVar3 = LotLevels_ExpandBounds
+                            (*(undefined **)((int)this + 0xc),*(int *)((int)this + 0x6c) + -1);
+          if ((bVar3) && (*(void **)((int)this + 0x90) != (void *)0x0)) {
             FUN_00cd2aa0(*(void **)((int)this + 0x90));
           }
         }
@@ -58,19 +58,20 @@ bool __thiscall BasementTool_BeginAtLotPick(void *this,void *param_1,float *para
         *(undefined4 *)((int)this + 0x78) = *(undefined4 *)((int)this + 0x6c);
         *(undefined1 *)((int)this + 0x8d) = 0;
         *(undefined1 *)((int)this + 0x8e) = 0;
-        FUN_00adc750((int)param_1,param_2,local_e0);
+        LotPoint_ResolveLevelPosition(param_1,(LotPaintPoint *)param_2,local_e0);
         FUN_00cdc380(*(undefined4 *)((int)this + 0xc),DAT_011ee544,local_e0,1.0,(byte *)0x0);
-        FUN_00cd04a0(DAT_011ec0b8);
+        BuildBuy_PlayKeyedSound(DAT_011ec0b8);
         uVar4 = FUN_00cd0460((int)this);
-        if ((char)uVar4 != '\0') {
-          FUN_00cede10(this,"deckDrawCreateActive");
+        if ((char)uVar4 == '\0') {
+          FUN_00cede10(this,"deckDrawDemolishActive");
           return true;
         }
-        FUN_00cede10(this,"deckDrawDemolishActive");
+        FUN_00cede10(this,"deckDrawCreateActive");
         return true;
       }
       FUN_00ad7740((int)local_90);
-      FUN_00ad6720(local_d0,0xea,*(int *)((int)this + 0xc),param_2,0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_d0,0xea,*(undefined **)((int)this + 0xc),(LotPaintPoint *)param_2,0,0);
       FUN_00ad8570(local_90,local_d0);
       FUN_00cd3890(local_90,1,'\x01');
       FUN_00ad70d0((int)local_d0);

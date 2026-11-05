@@ -1,8 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-Decompiled function Seasons_WrapAndFilterGroundSplashes:
 
 
 /* Analyst-assigned name. Wraps existing ground splash positions into camera-centered20m square.
@@ -22,11 +20,10 @@ void __fastcall Seasons_WrapAndFilterGroundSplashes(int param_1)
   float fVar7;
   bool bVar8;
   undefined4 uVar9;
-  void *pvVar10;
+  void *this;
+  float *pfVar10;
   float *pfVar11;
-  float *this;
-  float *pfVar12;
-  double dVar13;
+  double dVar12;
   char local_79;
   int local_78;
   float *local_74;
@@ -53,17 +50,17 @@ void __fastcall Seasons_WrapAndFilterGroundSplashes(int param_1)
   float fStack_1c;
   float fStack_18;
   float fStack_14;
-
-  this = *(float **)(param_1 + 0xc);
+  
+  pfVar10 = *(float **)(param_1 + 0xc);
   local_70 = *(float **)(param_1 + 0x10);
   local_78 = param_1;
-  local_74 = this;
-  if (this != local_70) {
+  local_74 = pfVar10;
+  if (pfVar10 != local_70) {
     do {
-      local_60 = *this;
-      fStack_5c = this[1];
-      fStack_58 = this[2];
-      fStack_54 = this[3];
+      local_60 = *pfVar10;
+      fStack_5c = pfVar10[1];
+      fStack_58 = pfVar10[2];
+      fStack_54 = pfVar10[3];
       local_6c = *(float *)(param_1 + 0x1c);
       bVar8 = false;
       local_50 = local_60;
@@ -77,8 +74,8 @@ void __fastcall Seasons_WrapAndFilterGroundSplashes(int param_1)
         fStack_2c = fStack_5c;
         fStack_28 = fStack_58;
         fStack_24 = fStack_54;
-        dVar13 = floor((double)((local_60 - local_6c) * 0.05));
-        local_60 = local_50 - (float)dVar13 * 20.0;
+        dVar12 = floor((double)((local_60 - local_6c) * 0.05));
+        local_60 = local_50 - (float)dVar12 * 20.0;
         fStack_5c = fStack_2c;
         fStack_58 = fStack_28;
         fStack_54 = fStack_24;
@@ -95,28 +92,31 @@ void __fastcall Seasons_WrapAndFilterGroundSplashes(int param_1)
         fStack_1c = fStack_5c;
         fStack_18 = fStack_58;
         fStack_14 = fStack_54;
-        dVar13 = floor((double)((fStack_58 - local_68) * 0.05));
-        fStack_58 = fStack_38 - (float)dVar13 * 20.0;
+        dVar12 = floor((double)((fStack_58 - local_68) * 0.05));
+        fStack_58 = fStack_38 - (float)dVar12 * 20.0;
         local_60 = local_20;
         fStack_5c = fStack_1c;
         fStack_54 = fStack_14;
         fStack_18 = fStack_58;
 LAB_00d6872e:
         uVar9 = FUN_00d67af0(&local_60,&local_79);
-        if ((((char)uVar9 != '\0') && (uVar9 = FUN_00d67bf0(&local_60), (char)uVar9 != '\0')) &&
-           ((*(char *)((int)this + 0x15) == '\0' || (local_79 == '\0')))) {
-          FUN_00d67ca0(this,&local_60);
-          goto LAB_00d6876c;
-        }
-        if (this[4] != 0.0) {
-          pvVar10 = (void *)FUN_00937570();
-          if (pvVar10 != (void *)0x0) {
-            FUN_00937e40(pvVar10);
+        if ((char)uVar9 != '\0') {
+          uVar9 = FUN_00d67bf0(&local_60);
+          if (((char)uVar9 != '\0') &&
+             ((*(char *)((int)pfVar10 + 0x15) == '\0' || (local_79 == '\0')))) {
+            FUN_00d67ca0(pfVar10,&local_60);
+            goto LAB_00d6876c;
           }
-          puVar3 = (undefined4 *)this[4];
+        }
+        if (pfVar10[4] != 0.0) {
+          this = ObjectRegistry_GetGlobal();
+          if (this != (void *)0x0) {
+            ObjectRegistry_RemoveGuid(this,*(ulonglong *)((int)pfVar10[4] + 8));
+          }
+          puVar3 = (undefined4 *)pfVar10[4];
           if (puVar3 != (undefined4 *)0x0) {
             piVar1 = puVar3 + 1;
-            this[4] = 0.0;
+            pfVar10[4] = 0.0;
             LOCK();
             iVar2 = *piVar1;
             *piVar1 = *piVar1 + -1;
@@ -130,26 +130,26 @@ LAB_00d6872e:
           }
         }
         local_70 = *(float **)(param_1 + 0x10);
-        pfVar12 = this + 8;
-        if (pfVar12 < local_70) {
-          pfVar11 = this + 4;
+        pfVar11 = pfVar10 + 8;
+        if (pfVar11 < local_70) {
+          pfVar10 = pfVar10 + 4;
           do {
-            fVar5 = pfVar12[1];
-            fVar6 = pfVar12[2];
-            fVar7 = pfVar12[3];
-            pfVar11[-4] = *pfVar12;
-            pfVar11[-3] = fVar5;
-            pfVar11[-2] = fVar6;
-            pfVar11[-1] = fVar7;
-            puVar3 = (undefined4 *)pfVar11[8];
-            puVar4 = (undefined4 *)*pfVar11;
+            fVar5 = pfVar11[1];
+            fVar6 = pfVar11[2];
+            fVar7 = pfVar11[3];
+            pfVar10[-4] = *pfVar11;
+            pfVar10[-3] = fVar5;
+            pfVar10[-2] = fVar6;
+            pfVar10[-1] = fVar7;
+            puVar3 = (undefined4 *)pfVar10[8];
+            puVar4 = (undefined4 *)*pfVar10;
             if (puVar3 != puVar4) {
               if (puVar3 != (undefined4 *)0x0) {
                 LOCK();
                 puVar3[1] = puVar3[1] + 1;
                 UNLOCK();
               }
-              *pfVar11 = (float)puVar3;
+              *pfVar10 = (float)puVar3;
               if (puVar4 != (undefined4 *)0x0) {
                 piVar1 = puVar4 + 1;
                 LOCK();
@@ -164,13 +164,13 @@ LAB_00d6872e:
                 }
               }
             }
-            *(undefined1 *)(pfVar11 + 1) = *(undefined1 *)(pfVar11 + 9);
-            *(undefined1 *)((int)pfVar11 + 5) = *(undefined1 *)((int)pfVar11 + 0x25);
-            pfVar12 = pfVar12 + 8;
+            *(undefined1 *)(pfVar10 + 1) = *(undefined1 *)(pfVar10 + 9);
+            *(undefined1 *)((int)pfVar10 + 5) = *(undefined1 *)((int)pfVar10 + 0x25);
             pfVar11 = pfVar11 + 8;
-            this = local_74;
-            param_1 = local_78;
-          } while (pfVar12 != local_70);
+            pfVar10 = pfVar10 + 8;
+          } while (pfVar11 != local_70);
+          pfVar10 = local_74;
+          param_1 = local_78;
         }
         *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + -0x20;
         puVar3 = *(undefined4 **)(*(int *)(param_1 + 0x10) + 0x10);
@@ -194,12 +194,11 @@ LAB_00d6872e:
       else {
         if (bVar8) goto LAB_00d6872e;
 LAB_00d6876c:
-        this = this + 8;
-        local_74 = this;
+        pfVar10 = pfVar10 + 8;
+        local_74 = pfVar10;
       }
-    } while (this != local_70);
+    } while (pfVar10 != local_70);
   }
   return;
 }
-
 

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 object Lighting instruction contract. ECX Lighting component; reader/context TWO
@@ -32,7 +32,7 @@ LightingComponent_ReadSavedResourceAndControls(void *this,void *reader,void *con
     bVar2 = Stream_ReadUInt16(*(void **)((int)reader + 8),(ushort *)&reader,
                               *(uint *)((int)reader + 0x10));
     StreamReader_AccumulateStatus(this_01,bVar2);
-    FUN_007d7190(this_00,(ushort *)&reader,(undefined4 *)((int)this + 8));
+    ResourceReferences_ResolveNarrowHandle(this_00,(ushort *)&reader,(undefined4 *)((int)this + 8));
   }
                     /* Unsigned WORD component-version gate2; older versions preserve existing
                        dimmer/RGB fields. */

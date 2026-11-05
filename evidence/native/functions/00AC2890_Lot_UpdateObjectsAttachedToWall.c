@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. ECX lot, six signed locator bytes (two
@@ -59,7 +59,7 @@ Lot_UpdateObjectsAttachedToWall(void *this,char *wallLocator6,byte firstUp,byte 
   local_3b = -1;
   local_3a = '\0';
   local_39 = 0xff;
-  FUN_00c45f20(wallLocator6,(undefined2 *)&local_3c);
+  WallLocator_QueryFirstAdjacentTile(wallLocator6,(undefined2 *)&local_3c);
   bVar2 = Lot_IsSignedTileInBounds(this,&local_3c);
   if (!bVar2) {
     return;
@@ -103,9 +103,8 @@ LAB_00ac28f8:
       local_24 = uVar3;
       local_20 = uVar12;
       puVar6 = (uint *)FUN_00627330((int)local_14,(int)local_10,&local_24);
-      if ((puVar6 == local_10) ||
-         ((puVar10 = local_10, uVar12 <= puVar6[1] && ((uVar12 < puVar6[1] || (uVar3 < *puVar6))))))
-      {
+      if (puVar6 == local_10) {
+LAB_00ac29e3:
         if ((local_10 == local_c) || (puVar6 != local_10)) {
           FUN_00572360(&local_14,puVar6,&local_24);
           puVar10 = local_10;
@@ -117,6 +116,10 @@ LAB_00ac28f8:
             local_10[1] = uVar12;
           }
         }
+      }
+      else {
+        puVar10 = local_10;
+        if ((uVar12 <= puVar6[1]) && ((uVar12 < puVar6[1] || (uVar3 < *puVar6)))) goto LAB_00ac29e3;
       }
                     /* Primary GUID loop still processes after set insertion attempt. Do not infer
                        global once-per-object deduplication. */
@@ -134,7 +137,7 @@ LAB_00ac28f8:
     local_37 = -1;
     local_36 = '\0';
     local_35 = -1;
-    FUN_00c45fb0((undefined2 *)wallLocator6,(undefined2 *)&local_38);
+    WallLocator_QueryOtherAdjacentTile((undefined2 *)wallLocator6,(undefined2 *)&local_38);
     local_28 = 0;
     do {
       uVar3 = local_28;
@@ -145,78 +148,78 @@ LAB_00ac28f8:
       FUN_00af74d0(&local_3c,local_28,&local_40);
       if ((((local_40 != local_38) || (local_3f != local_37)) || (local_3e != local_36)) ||
          (local_3d != local_35)) {
-        if ((((-1 < local_40) && ((int)local_40 < *(int *)((int)this + 0x174))) &&
-            ((-1 < local_3f &&
-             (((int)local_3f < *(int *)((int)this + 0x178) &&
-              (*(int *)((int)this + 0x17c) <= (int)local_3e)))))) &&
-           ((int)local_3e <= *(int *)((int)this + 0x180))) {
-          if (firstUp != secondUp) {
-            uVar8 = FUN_00af7b70(wallLocator6,&local_40);
-            if ((char)uVar8 == '\0') {
-              local_34 = CONCAT31(local_34._1_3_,secondUp);
-            }
-            else {
-              local_34 = CONCAT31(local_34._1_3_,firstUp);
-            }
-          }
-          local_24 = FUN_00ab4800(this,&local_40);
-          local_30 = 0;
-          if (0 < (int)local_24) {
-            do {
-              puVar6 = local_10;
-              iVar11 = *(int *)((int)this + 0x2d0);
-              iVar9 = (((int)local_3e - *(int *)((int)this + 0x17c)) * *(int *)(iVar11 + 0x20) +
-                      ((int)local_40 >> 2)) * *(int *)(iVar11 + 0x24) + ((int)local_3f >> 2);
-              uVar1 = *(ushort *)(*(int *)(iVar11 + 0x48) + iVar9 * 2);
-              if ((uVar1 & 0x8000) == 0) {
-                piVar5 = (int *)((((int)local_3f & 3U) +
-                                 (((int)local_40 & 3U) + (uint)uVar1 * 4) * 4) * 0x10 +
-                                *(int *)(iVar11 + 0x28));
+        if (((-1 < local_40) && ((int)local_40 < *(int *)((int)this + 0x174))) &&
+           ((-1 < local_3f && ((int)local_3f < *(int *)((int)this + 0x178))))) {
+          if ((*(int *)((int)this + 0x17c) <= (int)local_3e) &&
+             ((int)local_3e <= *(int *)((int)this + 0x180))) {
+            if (firstUp != secondUp) {
+              uVar8 = FUN_00af7b70(wallLocator6,&local_40);
+              if ((char)uVar8 == '\0') {
+                local_34 = CONCAT31(local_34._1_3_,secondUp);
               }
               else {
-                piVar5 = (int *)(iVar9 * 0x10 + *(int *)(iVar11 + 0x38));
+                local_34 = CONCAT31(local_34._1_3_,firstUp);
               }
-              if ((local_30 < 0) || (iVar11 = *piVar5, piVar5[1] - iVar11 >> 3 <= local_30)) {
-                uVar3 = 0;
-                uVar12 = 0;
-              }
-              else {
-                uVar3 = *(uint *)(iVar11 + local_30 * 8);
-                uVar12 = *(uint *)(iVar11 + 4 + local_30 * 8);
-              }
-              local_1c = uVar3;
-              local_18 = uVar12;
-              puVar10 = (uint *)FUN_00627330((int)local_14,(int)local_10,&local_1c);
-              if (puVar10 == puVar6) {
-LAB_00ac2c59:
-                if ((puVar6 == local_c) || (puVar10 != puVar6)) {
-                  FUN_00572360(&local_14,puVar10,&local_1c);
+            }
+            local_24 = FUN_00ab4800(this,&local_40);
+            local_30 = 0;
+            if (0 < (int)local_24) {
+              do {
+                puVar6 = local_10;
+                iVar11 = *(int *)((int)this + 0x2d0);
+                iVar9 = (((int)local_3e - *(int *)((int)this + 0x17c)) * *(int *)(iVar11 + 0x20) +
+                        ((int)local_40 >> 2)) * *(int *)(iVar11 + 0x24) + ((int)local_3f >> 2);
+                uVar1 = *(ushort *)(*(int *)(iVar11 + 0x48) + iVar9 * 2);
+                if ((uVar1 & 0x8000) == 0) {
+                  piVar5 = (int *)((((int)local_3f & 3U) +
+                                   (((int)local_40 & 3U) + (uint)uVar1 * 4) * 4) * 0x10 +
+                                  *(int *)(iVar11 + 0x28));
                 }
                 else {
-                  local_10 = puVar6 + 2;
-                  if (puVar6 != (uint *)0x0) {
-                    *puVar6 = uVar3;
-                    puVar6[1] = uVar12;
+                  piVar5 = (int *)(iVar9 * 0x10 + *(int *)(iVar11 + 0x38));
+                }
+                if ((local_30 < 0) || (iVar11 = *piVar5, piVar5[1] - iVar11 >> 3 <= local_30)) {
+                  uVar3 = 0;
+                  uVar12 = 0;
+                }
+                else {
+                  uVar3 = *(uint *)(iVar11 + local_30 * 8);
+                  uVar12 = *(uint *)(iVar11 + 4 + local_30 * 8);
+                }
+                local_1c = uVar3;
+                local_18 = uVar12;
+                puVar10 = (uint *)FUN_00627330((int)local_14,(int)local_10,&local_1c);
+                if (puVar10 == puVar6) {
+LAB_00ac2c59:
+                  if ((puVar6 == local_c) || (puVar10 != puVar6)) {
+                    FUN_00572360(&local_14,puVar10,&local_1c);
+                  }
+                  else {
+                    local_10 = puVar6 + 2;
+                    if (puVar6 != (uint *)0x0) {
+                      *puVar6 = uVar3;
+                      puVar6[1] = uVar12;
+                    }
+                  }
+LAB_00ac2c86:
+                  pvVar7 = ObjectRegistry_FindBorrowed(local_2c,CONCAT44(local_18,local_1c));
+                  if (pvVar7 != (void *)0x0) {
+                    Lot_UpdateWallMountedObjectVisibility
+                              (this,pvVar7,wallLocator6,&local_3c,local_34,firstUp,secondUp);
                   }
                 }
-LAB_00ac2c86:
-                pvVar7 = ObjectRegistry_FindBorrowed(local_2c,CONCAT44(local_18,local_1c));
-                if (pvVar7 != (void *)0x0) {
-                  Lot_UpdateWallMountedObjectVisibility
-                            (this,pvVar7,wallLocator6,&local_3c,local_34,firstUp,secondUp);
+                else if ((uVar12 < puVar10[1]) ||
+                        (((uVar12 <= puVar10[1] && (uVar3 < *puVar10)) || (puVar10 == puVar10 + 2)))
+                        ) {
+                  if ((puVar10 == puVar6) ||
+                     ((uVar12 <= puVar10[1] && ((uVar12 < puVar10[1] || (uVar3 < *puVar10))))))
+                  goto LAB_00ac2c59;
+                  goto LAB_00ac2c86;
                 }
-              }
-              else if ((uVar12 < puVar10[1]) ||
-                      (((uVar12 <= puVar10[1] && (uVar3 < *puVar10)) || (puVar10 == puVar10 + 2))))
-              {
-                if ((puVar10 == puVar6) ||
-                   ((uVar12 <= puVar10[1] && ((uVar12 < puVar10[1] || (uVar3 < *puVar10))))))
-                goto LAB_00ac2c59;
-                goto LAB_00ac2c86;
-              }
-              local_30 = local_30 + 1;
+                local_30 = local_30 + 1;
+              } while (local_30 < (int)local_24);
               uVar3 = local_28;
-            } while (local_30 < (int)local_24);
+            }
           }
         }
       }

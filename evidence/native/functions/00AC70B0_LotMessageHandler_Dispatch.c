@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. Receiver is lot's message subobject;
@@ -16,7 +16,7 @@ bool __thiscall LotMessageHandler_Dispatch(void *this,uint messageId,char *messa
   char cVar1;
   char *pcVar2;
   int *message_00;
-  char *pcVar3;
+  char *location;
   
   if (messageId < 0x5e77e1e) {
     if (messageId == 0x5e77e1d) {
@@ -56,7 +56,7 @@ bool __thiscall LotMessageHandler_Dispatch(void *this,uint messageId,char *messa
         if ((*(int *)(message + 8) == *(int *)((int)this + -0x58)) &&
            (*(int *)(message + 0xc) == *(int *)((int)this + -0x54))) {
           FUN_00ab46b0((void *)((int)this + -0xa0));
-          FUN_00abaab0((void *)((int)this + -0xa0));
+          LotMainEntrance_UpdateDisplayEffects((void *)((int)this + -0xa0));
           return true;
         }
       }
@@ -109,16 +109,16 @@ bool __thiscall LotMessageHandler_Dispatch(void *this,uint messageId,char *messa
       else {
         FUN_00ab3260(*(void **)((int)this + 0x248),*(int *)((int)this + 0xe0));
       }
-      message_00 = FUN_00adf150();
+      message_00 = FloorMessagePool_AcquireStorage();
       if (message_00 == (int *)0x0) {
         message_00 = (int *)0x0;
       }
       else {
-        *message_00 = (int)&PTR_FUN_01065f8c;
+        *message_00 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
         LOCK();
         message_00[1] = 0;
         UNLOCK();
-        *message_00 = (int)&PTR_FUN_01065f8c;
+        *message_00 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
         (**(code **)(*message_00 + 4))();
       }
       message_00[2] = *(int *)((int)this + -0x58);
@@ -144,13 +144,13 @@ bool __thiscall LotMessageHandler_Dispatch(void *this,uint messageId,char *messa
     }
     if ((*(int *)(message + 8) == *(int *)((int)this + -0x58)) &&
        (*(int *)(message + 0xc) == *(int *)((int)this + -0x54))) {
-      pcVar3 = *(char **)(message + 0x10);
+      location = *(char **)(message + 0x10);
       pcVar2 = *(char **)(message + 0x14);
-      if (pcVar3 != pcVar2) {
+      if (location != pcVar2) {
         do {
-          FUN_00abb5f0((void *)((int)this + -0xa0),pcVar3,8,'\0',0xffff);
-          pcVar3 = pcVar3 + 3;
-        } while (pcVar3 != pcVar2);
+          LotFloorFeatures_SetTile((void *)((int)this + -0xa0),location,8,0,0xffff);
+          location = location + 3;
+        } while (location != pcVar2);
         return true;
       }
     }

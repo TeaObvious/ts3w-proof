@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): Native versioned B1422971 reader, paired
@@ -81,7 +81,7 @@ WallSidePatterns_ReadResource
         else if (2 < param_4) {
           ResourceReferences_ReadContextKey(param_2,this_01,&local_20);
         }
-        uVar3 = FUN_00b4ba40((void *)((int)this + 0x38),&local_20);
+        uVar3 = WallPatternMap_AddReference((void *)((int)this + 0x38),&local_20);
         local_28 = CONCAT22(local_28._2_2_,(short)uVar3);
         bVar1 = Stream_ReadUInt16(*(void **)((int)this_01 + 8),local_24,
                                   *(uint *)((int)this_01 + 0x10));

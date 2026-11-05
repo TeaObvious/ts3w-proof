@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -49,7 +48,7 @@ LotRouting_GetMainEntranceWorldPosition(void *this,int *param_1,uint param_2,und
       local_24 = "Routing/PortalList";
       objectId = PackTypedObjectIdentifier(2,0x12,uVar3,0);
       outVector = &local_30;
-      lot = FUN_00c62810(this_00,(int)param_1,param_2,(int *)0x0);
+      lot = WorldObjects_FindLotByGuid(this_00,(uint)param_1,param_2,(uint *)0x0);
       LotRouteGraph_CollectObjectPortals(this,lot,objectId,outVector);
       if (local_30 != local_2c) {
         puVar5 = (undefined4 *)

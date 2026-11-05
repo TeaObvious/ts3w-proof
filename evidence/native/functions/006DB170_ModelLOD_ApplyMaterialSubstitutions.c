@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original PC1.67 material substitution over paired source/destination submodels using the
@@ -28,13 +28,13 @@ ModelLOD_ApplyMaterialSubstitutions(void *this,int param_1,int *param_2,undefine
   uint local_3c;
   void *local_38;
   uint local_34;
-  undefined4 ***local_30;
+  undefined4 ****local_30;
   uint local_2c;
   uint local_28;
   int local_24 [2];
   undefined1 local_1c [4];
-  undefined4 ***local_18;
-  undefined4 ***local_14;
+  undefined4 ****local_18;
+  undefined4 ****local_14;
   undefined4 *local_10;
   undefined4 local_c;
   undefined4 local_8;
@@ -58,11 +58,11 @@ ModelLOD_ApplyMaterialSubstitutions(void *this,int param_1,int *param_2,undefine
       if ((this_00 != (void *)0x0) && (this_01 != (void *)0x0)) {
         iVar2 = FUN_00c2ed00((int)this_00);
         if (iVar2 == 0) {
-          FUN_00691510(this_00,piVar1[2]);
+          Drawable_SelectMaterialSetByHash(this_00,piVar1[2],param_3);
         }
         iVar2 = FUN_00c2ed00((int)this_01);
         if (iVar2 == 0) {
-          FUN_00691510(this_01,piVar1[2]);
+          Drawable_SelectMaterialSetByHash(this_01,piVar1[2],param_3);
         }
         iVar2 = FUN_00c2ed00((int)this_01);
         param_2 = (int *)0x0;
@@ -73,7 +73,7 @@ ModelLOD_ApplyMaterialSubstitutions(void *this,int param_1,int *param_2,undefine
             local_34 = uVar4;
             if ((uVar4 == 0) ||
                (FUN_005ca6f0(local_1c,(int *)&local_30,&local_34),
-               (undefined4 ****)local_30 == &local_18)) {
+               (undefined4 *****)local_30 == &local_18)) {
               local_40 = (int *)0x0;
               MaterialDef_CreateSubstituted
                         (*(void **)(iVar2 + 0x54),(byte *)*piVar1,piVar1[1],
@@ -101,13 +101,12 @@ ModelLOD_ApplyMaterialSubstitutions(void *this,int param_1,int *param_2,undefine
             else {
               StatePointerSlots_AssignVirtualLifetime(&param_2,(int *)(local_30 + 5));
             }
-            FUN_00691400(this_01,param_2,'\0',param_3);
+            Drawable_RebindEffectiveMaterial(this_01,param_2,'\0',param_3);
             FUN_0068fe00(this_01,0);
-            uVar4 = local_3c;
             if (param_2 != (int *)0x0) {
               (**(code **)(*param_2 + 4))();
-              uVar4 = local_3c;
             }
+            uVar4 = local_3c;
           }
           else if (param_2 != (int *)0x0) {
             (**(code **)(*param_2 + 4))();

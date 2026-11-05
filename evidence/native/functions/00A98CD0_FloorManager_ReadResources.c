@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 complete FloorManager read dispatcher. First resource group0093D6A5/typeB125533A is byte
@@ -231,7 +231,7 @@ FloorManager_ReadResources(void *this,char *param_1,void *param_2,uint param_3,u
         uVar6 = 0;
       }
       else {
-        uVar6 = FUN_00aa5030(iVar8);
+        uVar6 = FloorPatternMap_Initialize(iVar8);
       }
       *(undefined4 *)((int)this + 0xd8) = uVar6;
       uVar4 = Lot_GetSourceFormatVersion(*(int *)((int)this + 4));

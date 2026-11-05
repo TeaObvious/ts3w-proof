@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: original PC 1.67 shader-library package loader. Opens the configured precompiled file,
@@ -33,7 +33,7 @@ uint __thiscall ShaderLibrary_LoadPrecompiledPackage(void *this,char param_1)
   uint local_288;
   undefined4 local_284 [6];
   undefined4 local_26c [3];
-  int local_260 [14];
+  undefined4 local_260 [14];
   int local_228 [138];
   
   cVar3 = ShaderLibrary_ChooseCapabilityMode();
@@ -48,12 +48,12 @@ uint __thiscall ShaderLibrary_LoadPrecompiledPackage(void *this,char param_1)
   else {
     *(uint *)((int)this + 0x40) = uVar8;
   }
-  FUN_004dbb40(local_228,*(wchar_t **)((int)this + 0x20));
+  FileReadStream_Construct(local_228,*(void **)((int)this + 0x20));
   FUN_004db550((int)local_228);
   bVar4 = FUN_004db690(local_228,1,6,1,0);
   if (bVar4) {
     FUN_004deb20(local_260,0x10000,0x10000,local_228,0);
-    FUN_007d93e0(local_284,local_260,1);
+    StreamReader_Construct(local_284,local_260,1);
     puVar5 = (undefined4 *)FUN_004e4500(0x2c,"Shader/ShaderPackage",0);
     if (puVar5 == (undefined4 *)0x0) {
       local_298 = (int *)0x0;
@@ -100,7 +100,7 @@ uint __thiscall ShaderLibrary_LoadPrecompiledPackage(void *this,char param_1)
             local_290 = FUN_0079c020(*(void **)((int)this + 0x4c),uVar10);
             local_294 = *(uint *)(local_290 + 8);
             local_288 = local_288 & 0xffffff00;
-            FUN_007f4270((void *)((int)this + 0x70),local_26c,&local_294);
+            UInt32PairMap_InsertUnique((void *)((int)this + 0x70),local_26c,&local_294,local_288);
             uVar10 = uVar10 + 1;
           } while (uVar10 < uVar8);
         }
@@ -136,9 +136,9 @@ uint __thiscall ShaderLibrary_LoadPrecompiledPackage(void *this,char param_1)
         }
         if (local_298 != (int *)0x0) {
           FUN_0079c080(local_298);
-          FUN_004e44e0((int)local_298);
+          Memory_FreeIfNonNull(local_298);
         }
-        FUN_007d7990((int)local_284);
+        StreamReader_ReleaseAuxiliary(local_284);
         FUN_004deb90(local_260);
         uVar6 = FUN_004dbba0(local_228);
         return CONCAT31((int3)((uint)uVar6 >> 8),1);
@@ -146,9 +146,9 @@ uint __thiscall ShaderLibrary_LoadPrecompiledPackage(void *this,char param_1)
     }
     if (local_298 != (int *)0x0) {
       FUN_0079c080(local_298);
-      FUN_004e44e0((int)local_298);
+      Memory_FreeIfNonNull(local_298);
     }
-    FUN_007d7990((int)local_284);
+    StreamReader_ReleaseAuxiliary(local_284);
     FUN_004deb90(local_260);
     uVar8 = FUN_004dbba0(local_228);
     return uVar8 & 0xffffff00;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst role, original PC1.67. Legacy instance1 reader admits versions1..7, v6+ relative pool
@@ -15,12 +15,13 @@ uint SimService_ReadLegacyOutfitCache(undefined1 *param_1,void *param_2)
 {
   undefined1 *this;
   bool bVar1;
+  byte bVar2;
   uint extraout_EAX;
-  void *pvVar2;
-  undefined4 uVar3;
+  void *pvVar3;
   void *offset;
-  uint uVar4;
-  undefined4 *puVar5;
+  undefined4 uVar4;
+  uint uVar5;
+  undefined4 *puVar6;
   uint local_38 [2];
   undefined4 local_30 [12];
   
@@ -31,44 +32,48 @@ uint SimService_ReadLegacyOutfitCache(undefined1 *param_1,void *param_2)
   if (&DAT_00000006 < param_1 + -1) {
     return (uint)param_1 & 0xffffff00;
   }
-  pvVar2 = param_2;
-  if (&DAT_00000006 <= param_1) {
+  if (param_1 < &DAT_00000006) {
+    pvVar3 = param_2;
+  }
+  else {
     bVar1 = Stream_ReadUInt32(*(void **)(this + 8),local_38,*(uint *)(this + 0x10));
     StreamReader_AccumulateStatus(this,bVar1);
     if (this[0x14] == '\0') {
       return extraout_EAX & 0xffffff00;
     }
-    pvVar2 = (void *)StreamContext_GetPositionAndMarkNegative(this);
-    StreamContext_SeekWithSignedAbsoluteGuard(this,(int)pvVar2 + local_38[0],0);
+    pvVar3 = (void *)StreamContext_GetPositionAndMarkNegative(this);
+    StreamContext_SeekWithSignedAbsoluteGuard(this,(int)pvVar3 + local_38[0],0);
   }
   FUN_00602c10(local_30);
-  puVar5 = (undefined4 *)0x0;
-  offset = param_2;
-  if (&DAT_00000005 <= param_1) {
+  puVar6 = (undefined4 *)0x0;
+  if (param_1 < &DAT_00000005) {
+    offset = param_2;
+  }
+  else {
     StreamContext_GetPositionAndMarkNegative(this);
-    uVar3 = FUN_00607340(local_30,this,(uint)param_2);
-    if (((char)uVar3 == '\0') || (this[0x14] == '\0')) goto LAB_005efb3a;
+    bVar2 = SavedModelSharedSteps_Read(local_30,this,param_2);
+    if ((bVar2 == 0) || (this[0x14] == '\0')) goto LAB_005efb3a;
     offset = (void *)StreamContext_GetPositionAndMarkNegative(this);
-    puVar5 = local_30;
+    puVar6 = local_30;
     if (&DAT_00000005 < param_1) {
-      StreamContext_SeekWithSignedAbsoluteGuard(this,(int)pvVar2,0);
+      StreamContext_SeekWithSignedAbsoluteGuard(this,(int)pvVar3,0);
     }
   }
-  pvVar2 = param_2;
-  uVar3 = FUN_005ef870(this,(uint)param_2,(int)puVar5,(uint)param_1);
-  if ((char)uVar3 != '\0') {
+  pvVar3 = param_2;
+  uVar4 = FUN_005ef870(this,(uint)param_2,(int)puVar6,(uint)param_1);
+  if ((char)uVar4 != '\0') {
     if (&DAT_00000005 < param_1) {
       StreamContext_SeekWithSignedAbsoluteGuard(this,(int)offset,0);
     }
     StreamContext_GetPositionAndMarkNegative(this);
-    uVar3 = SimService_ReadCachedOutfitRecords(this,pvVar2,(uint)param_1);
-    if ((char)uVar3 != '\0') {
-      uVar3 = FUN_00607d00(local_30);
-      return CONCAT31((int3)((uint)uVar3 >> 8),1);
+    uVar4 = SimService_ReadCachedOutfitRecords(this,pvVar3,(uint)param_1);
+    if ((char)uVar4 != '\0') {
+      uVar4 = FUN_00607d00(local_30);
+      return CONCAT31((int3)((uint)uVar4 >> 8),1);
     }
   }
 LAB_005efb3a:
-  uVar4 = FUN_00607d00(local_30);
-  return uVar4 & 0xffffff00;
+  uVar5 = FUN_00607d00(local_30);
+  return uVar5 & 0xffffff00;
 }
 

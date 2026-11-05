@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC 1.67 map/lot detail contract. Allocates original Services/RemoteMethodCall record,
@@ -22,7 +22,7 @@ RemoteMethodCall_SubmitTwoFlagMethod
     this = (int *)0x0;
   }
   else {
-    *this = (int)&PTR_FUN_00fe5800;
+    *this = (int)&PTR_AddAtomicReference_00fe5800;
     LOCK();
     this[1] = 0;
     UNLOCK();
@@ -30,11 +30,11 @@ RemoteMethodCall_SubmitTwoFlagMethod
     this[5] = (int)userData;
     this[4] = (int)method;
     *(uchar *)((int)this + 0x19) = flag1;
-    *this = (int)&PTR_FUN_010660fc;
+    *this = (int)&PTR_AddAtomicReference_010660fc;
     *(uchar *)(this + 6) = flag0;
     (**(code **)*this)();
   }
-  uVar1 = FUN_007d9b10(this,dispatchMode);
+  uVar1 = RemoteMethodCall_DispatchOrQueueJob(this,dispatchMode);
   if (this != (int *)0x0) {
     (**(code **)(*this + 4))();
   }

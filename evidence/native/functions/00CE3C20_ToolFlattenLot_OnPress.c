@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 ECXflatten-lot tool plus one forwarded press DWORD RET4, AL success. Flag1C sets unit
@@ -49,12 +49,12 @@ bool __thiscall ToolFlattenLot_OnPress(void *this,uint pressWord)
       }
       fVar6 = FUN_00ce3b30(this,(float)pressWord);
       uVar5 = FUN_00cd2e10((float)fVar6);
-      if ((char)uVar5 != '\0') {
-        FUN_00ce3990(this,(float)pressWord);
-        FUN_00cd04a0(DAT_011ebfe8);
+      if ((char)uVar5 == '\0') {
+        (**(code **)(*(int *)this + 0x4c))(1);
         return true;
       }
-      (**(code **)(*(int *)this + 0x4c))(1);
+      FUN_00ce3990(this,(float)pressWord);
+      BuildBuy_PlayKeyedSound(DAT_011ebfe8);
       return true;
     }
   }

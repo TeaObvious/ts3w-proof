@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. cdecl(object,locator6), bool result AL.
@@ -21,22 +21,22 @@ bool __cdecl Object_RequiresWallLocator(void *object,char *wallLocator6)
   char local_3d;
   char cStack_3c;
   undefined1 local_38 [4];
-  int *****local_34;
-  int *****local_30;
+  int ******local_34;
+  int ******local_30;
   undefined4 *local_2c;
   undefined4 local_28;
   undefined4 local_24;
   char *pcStack_20;
   undefined1 local_1c [4];
-  undefined4 *****local_18;
-  undefined4 *****local_14;
+  undefined4 ******local_18;
+  undefined4 ******local_14;
   undefined4 *local_10;
   undefined4 local_c;
   undefined4 local_8;
   char *local_4;
   
-  FUN_00c8ebb0(DAT_011ee034,(uint *)((int)object + 0x18));
-  local_34 = (int *****)&local_34;
+  ObjectCatalog_FindByTypedKey(DAT_011ee034,(uint *)((int)object + 0x18));
+  local_34 = (int ******)&local_34;
   local_18 = &local_18;
   pcStack_20 = "World/Lot/RequiresWallOrFence/wallsRequired";
   local_2c = (undefined4 *)0x0;
@@ -48,10 +48,9 @@ bool __cdecl Object_RequiresWallLocator(void *object,char *wallLocator6)
   local_8 = 0;
   local_30 = local_34;
   local_14 = local_18;
-  uVar3 = FUN_00b40410(object,local_38,local_1c);
+  uVar3 = Placement_CollectCurrentObjectWallEdges(object,local_38,local_1c);
   puVar2 = local_10;
-  if (((char)uVar3 != '\0') &&
-     (ppppppiVar4 = (int ******)local_30, (int ******)local_30 != &local_34)) {
+  if (((char)uVar3 != '\0') && (ppppppiVar4 = local_30, (int *******)local_30 != &local_34)) {
     do {
       puVar2 = local_10;
       if (((*(char *)((int)ppppppiVar4 + 0x12) == wallLocator6[2]) &&
@@ -68,23 +67,24 @@ bool __cdecl Object_RequiresWallLocator(void *object,char *wallLocator6)
             ((local_3d = (char)*(undefined2 *)(ppppppiVar4 + 4), local_3d == wallLocator6[3] &&
              (cStack_3c = (char)((ushort)*(undefined2 *)(ppppppiVar4 + 4) >> 8),
              cStack_3c == wallLocator6[4])))))))))) {
-        while (puVar1 = local_2c, puVar2 != (undefined4 *)0x0) {
+        while (puVar2 != (undefined4 *)0x0) {
           FUN_008b19b0((undefined4 *)*puVar2);
           puVar1 = (undefined4 *)puVar2[1];
           Memory_FreeIfNonNull(puVar2);
           puVar2 = puVar1;
         }
-        while (puVar1 != (undefined4 *)0x0) {
-          FUN_008b19b0((undefined4 *)*puVar1);
-          puVar2 = (undefined4 *)puVar1[1];
-          Memory_FreeIfNonNull(puVar1);
-          puVar1 = puVar2;
+        puVar2 = local_2c;
+        while (puVar2 != (undefined4 *)0x0) {
+          FUN_008b19b0((undefined4 *)*puVar2);
+          puVar1 = (undefined4 *)puVar2[1];
+          Memory_FreeIfNonNull(puVar2);
+          puVar2 = puVar1;
         }
         return true;
       }
       ppppppiVar4 = (int ******)FUN_004e1030((int *)ppppppiVar4);
       puVar2 = local_10;
-    } while (ppppppiVar4 != &local_34);
+    } while ((int *******)ppppppiVar4 != &local_34);
   }
   while (puVar1 = local_2c, puVar2 != (undefined4 *)0x0) {
     FUN_008b19b0((undefined4 *)*puVar2);

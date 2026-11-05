@@ -1,11 +1,13 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; reference identity is in guides/water/README.md.
    Read-only Ghidra export, 2026-10-12. Decompiled names and ABI are inferred;
    read the paired original-byte disassembly and guides/water/README.md.
    This internal helper is not a managed registration identity. */
+
+
 
 void __thiscall
 FUN_00b611b0(void *this,float param_1,float param_2,undefined4 param_3,undefined4 param_4,
@@ -40,13 +42,13 @@ FUN_00b611b0(void *this,float param_1,float param_2,undefined4 param_3,undefined
   *(undefined4 *)((int)this + 0xb0) = param_4;
   fVar6 = (*(float *)((int)this + 0xac) - *(float *)((int)this + 0xa4)) / (float)param_5;
   uVar1 = (int)(fVar6 - 1.0) >> 0x1f;
-  local_30 = (int)(longlong)ROUND((float)(~uVar1 & (uint)fVar6 | uVar1 & 0x3f800000));
+  local_30 = (int)(longlong)ROUND((float)(~uVar1 & (uint)fVar6 | uVar1 & (uint)1.0));
   iVar3 = local_30;
   *(int *)((int)this + 8) = local_30;
   fVar6 = (*(float *)((int)this + 0xb0) - *(float *)((int)this + 0xa8)) / (float)param_6;
   uVar1 = (int)(fVar6 - 1.0) >> 0x1f;
   bVar5 = local_30 < 0;
-  local_30 = (int)(longlong)ROUND((float)(~uVar1 & (uint)fVar6 | uVar1 & 0x3f800000));
+  local_30 = (int)(longlong)ROUND((float)(~uVar1 & (uint)fVar6 | uVar1 & (uint)1.0));
   *(int *)((int)this + 0xc) = local_30;
   fVar6 = (float)iVar3;
   if (bVar5) {
@@ -116,7 +118,8 @@ FUN_00b611b0(void *this,float param_1,float param_2,undefined4 param_3,undefined
       } while (uVar4 < *(uint *)((int)this + 8));
     }
     if (*(char *)((int)this + 0xb4) == '\0') {
-      FUN_0061a6f0((void *)((int)this + 0x18),&DAT_0106eac8,2);
+      VertexDeclaration_CreateFromElements
+                ((void *)((int)this + 0x18),(NativeVertexElement8 *)&DAT_0106eac8,2);
       *(undefined1 *)((int)this + 0xb4) = 1;
     }
   }

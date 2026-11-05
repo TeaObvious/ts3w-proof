@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PhysicalthiscallECXnoargs/plainRETvoid. BaseheightstateswapD213B0 first;
@@ -25,33 +25,35 @@ void __thiscall TerrainSculptUndoable_SwapHeightAndPondState(void *this)
   byte *pbVar9;
   
   if (*(int *)((int)this + 0xb0) != 0) {
-    FUN_00d213b0((int)this);
+    FloorElevationUndoable_SwapCapturedState(this);
     piVar7 = *(int **)((int)this + 0xbc);
     iVar8 = *piVar7;
     if (iVar8 == 0) {
       piVar7 = piVar7 + 1;
-      iVar8 = *piVar7;
-      while (iVar8 == 0) {
-        piVar7 = piVar7 + 1;
-        iVar8 = *piVar7;
+      if (*piVar7 == 0) {
+        do {
+          piVar7 = piVar7 + 1;
+        } while (*piVar7 == 0);
       }
       iVar8 = *piVar7;
     }
     iVar5 = *(int *)(*(int *)((int)this + 0xbc) + *(int *)((int)this + 0xc0) * 4);
-    while (iVar8 != iVar5) {
-      if (*(float *)(iVar8 + 0xc) != *(float *)(iVar8 + 0x10)) {
-        FUN_00aee970(*(void **)((int)this + 0xb4),*(uint *)(iVar8 + 4),*(int *)(iVar8 + 8),
-                     *(float *)(iVar8 + 0xc));
-        uVar2 = *(undefined4 *)(iVar8 + 0xc);
-        *(undefined4 *)(iVar8 + 0xc) = *(undefined4 *)(iVar8 + 0x10);
-        *(undefined4 *)(iVar8 + 0x10) = uVar2;
-      }
-      iVar8 = *(int *)(iVar8 + 0x18);
-      while (iVar8 == 0) {
-        piVar1 = piVar7 + 1;
-        piVar7 = piVar7 + 1;
-        iVar8 = *piVar1;
-      }
+    if (iVar8 != iVar5) {
+      do {
+        if (*(float *)(iVar8 + 0xc) != *(float *)(iVar8 + 0x10)) {
+          FUN_00aee970(*(void **)((int)this + 0xb4),*(uint *)(iVar8 + 4),*(int *)(iVar8 + 8),
+                       *(float *)(iVar8 + 0xc));
+          uVar2 = *(undefined4 *)(iVar8 + 0xc);
+          *(undefined4 *)(iVar8 + 0xc) = *(undefined4 *)(iVar8 + 0x10);
+          *(undefined4 *)(iVar8 + 0x10) = uVar2;
+        }
+        iVar8 = *(int *)(iVar8 + 0x18);
+        while (iVar8 == 0) {
+          piVar1 = piVar7 + 1;
+          piVar7 = piVar7 + 1;
+          iVar8 = *piVar1;
+        }
+      } while (iVar8 != iVar5);
     }
     piVar7 = *(int **)((int)this + 0xdc);
     puVar4 = (ushort *)*piVar7;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 object IO context instruction contract. ECX context array owner, TWO physical
@@ -80,12 +80,14 @@ byte __thiscall ObjectIoContexts_ReadOrInitialize(void *this,void *ownerArgument
           uVar4 = ObjectRegistry_FindMaskByNameHash(local_8,local_4);
           if (uVar4 != 0) {
             local_14 = local_14 | uVar4;
-            iVar5 = FUN_005af890(uVar4);
-            pvVar7 = this_00;
+            iVar5 = CountTrailingZeroBits32(uVar4);
                     /* sizeDWORD==0 sends NULL to this registered context's virtual+8; seen bit was
                        already set. Nonzero size sends reader pointer. */
             if (local_c == 0) {
               pvVar7 = (void *)0x0;
+            }
+            else {
+              pvVar7 = this_00;
             }
             cVar1 = (**(code **)(**(int **)(*(int *)((int)this + 8) + iVar5 * 4) + 8))
                               (ownerArgument,pvVar7);

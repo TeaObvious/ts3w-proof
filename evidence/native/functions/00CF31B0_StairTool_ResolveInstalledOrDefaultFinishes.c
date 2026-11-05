@@ -1,6 +1,13 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+/* Retained historical annotation 1, previous C line 177; earlier snapshot context. */
+/* Combined authored+kind5 count gates default/related finish setup. */
+
+/* Retained historical annotation 2, previous C line 184; earlier snapshot context. */
+/* No installed finish and requestedID0: retain exact first-authored-ID default,
+                       no later-row search. */
+
 
 
 /* Original PC1.67 existing1304-owned-byte/350instruction body, ranges CF31B0..CF3379
@@ -174,20 +181,18 @@ StairTool_ResolveInstalledOrDefaultFinishes
   }
   pvVar7 = DAT_011ee034;
   pvVar5 = (void *)FUN_00c8e7d0(DAT_011ee034,(uint *)((int)this + 0x58),'\x01');
-                    /* Combined authored+kind5 count gates default/related finish setup. */
   uVar3 = StairProduct_CountAuthoredAndInstalledPresets(pvVar5);
   if (uVar3 != 0) {
     uVar3 = StairProduct_FirstAuthoredPresetId(pvVar5);
     uVar3 = StairProduct_ResolveFullPresetIdToOrdinal(pvVar5,uVar3);
     if (bVar1) {
       if (requestedPresetId == 0) {
-                    /* No installed finish and requestedID0: retain exact first-authored-ID default,
-                       no later-row search. */
         requestedPresetId = StairProduct_FirstAuthoredPresetId(pvVar5);
       }
       uVar3 = StairProduct_ResolveFullPresetIdToOrdinal(pvVar5,requestedPresetId);
-      FUN_00a63b40(*(int *)((int)this + 0xc),(uint *)((int)this + 0x58),requestedPresetId,
-                   (void *)((int)this + 0x2d8));
+      StairCatalogPreset_CompileFromProductKey
+                (*(int *)((int)this + 0xc),(uint *)((int)this + 0x58),requestedPresetId,
+                 (void *)((int)this + 0x2d8));
       FUN_00b46d10((void *)((int)this + 0x68),(undefined4 *)((int)this + 0x300),
                    (undefined4 *)((int)this + 0x310),(undefined4 *)((int)this + 0x2f0));
     }
@@ -213,7 +218,7 @@ StairTool_ResolveInstalledOrDefaultFinishes
       uVar3 = FenceProduct_FirstAuthoredPresetId(pvVar5);
     }
     else {
-      uVar3 = FUN_00c94830(pvVar5,uVar3);
+      uVar3 = FenceProduct_GetPresetIdentifier(pvVar5,uVar3);
     }
     FencePreset_BuildForProductKey
               (*(int *)((int)this + 0xc),(uint *)((int)pvVar5 + 8),uVar3,(void *)((int)this + 0x368)

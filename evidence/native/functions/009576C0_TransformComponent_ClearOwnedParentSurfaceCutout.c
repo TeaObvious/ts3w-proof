@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst original PC1.67 instruction contract. ECX child Transform plus one physical word, RET4.
@@ -30,7 +30,7 @@ void __thiscall TransformComponent_ClearOwnedParentSurfaceCutout(void *this,void
       local_70[1] = 0;
       local_70[2] = 0;
       local_70[3] = 0;
-      uVar3 = FUN_0093a1b0((uint *)(iVar1 + 0x18),local_70);
+      uVar3 = ObjectCatalog_TryGetSurfaceCutoutKey((uint *)(iVar1 + 0x18),local_70);
       if ((char)uVar3 != '\0') {
         local_58 = *(undefined4 *)(*(int *)((int)this + 4) + 8);
         local_54 = *(undefined4 *)(*(int *)((int)this + 4) + 0xc);

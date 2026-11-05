@@ -1,7 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; analyst display name FootprintSet_InsertRetainedNode.
    Original Ghidra database symbol: FUN_00627400; database unchanged.
    Names in this reviewed rendering are analyst aliases, not recovered EA symbols.
@@ -9,10 +9,16 @@
    Owned ranges (exclusive ends): [00627400,00627487); 0 envelope gap bytes are not owned instructions.
 */
 
+/* Retained historical annotation 2, previous C line 12; earlier snapshot context. */
 /* Unique insertion reaches this helper only after pointer-key admission in 628CA0. 627451..65 stores the footprint pointer at new-node+10 and calls virtual+90 for a nonnull key. 627477 increments set+14 exactly once after tree linking. Generic allocation failure/exception guarantees are not established. */
 
+/* Retained historical annotation 3, previous C line 38; earlier snapshot context. */
+/* 00627477: count increments only on new retained-node insertion. */
+
+
+
 void __thiscall
-FootprintSet_InsertRetainedNode(void *this,undefined4 *param_1,undefined4 *param_2,uint *param_3,char param_4)
+FUN_00627400(void *this,undefined4 *param_1,undefined4 *param_2,uint *param_3,char param_4)
 
 {
   int *piVar1;
@@ -35,8 +41,8 @@ FootprintSet_InsertRetainedNode(void *this,undefined4 *param_1,undefined4 *param
     }
   }
   FUN_004e1150(piVar2,param_2,(undefined4 *)((int)this + 4),iVar3);
-  /* 00627477: count increments only on new retained-node insertion. */
   *(int *)((int)this + 0x14) = *(int *)((int)this + 0x14) + 1;
   *param_1 = piVar2;
   return;
 }
+

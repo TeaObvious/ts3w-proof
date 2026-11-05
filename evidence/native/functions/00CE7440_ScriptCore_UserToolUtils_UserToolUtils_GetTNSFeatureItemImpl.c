@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01189e78 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01189e78 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.UserToolUtils::UserToolUtils_GetTNSFeatureItemImpl [assembly=ScriptCore
    token=0x06000C03; ; return=System.UInt64[]]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -19,7 +20,7 @@ undefined4 ScriptCore.UserToolUtils::UserToolUtils_GetTNSFeatureItemImpl(void)
   uint uVar3;
   undefined4 local_38;
   int *local_34;
-  int local_30;
+  void *local_30;
   int local_2c;
   undefined4 local_28;
   char *local_24;
@@ -34,19 +35,19 @@ undefined4 ScriptCore.UserToolUtils::UserToolUtils_GetTNSFeatureItemImpl(void)
   local_38 = 0;
   local_34 = (int *)GetGlobalInterfacePointer_11D5BBC();
   if (local_34 != (int *)0x0) {
-    local_30 = 0;
+    local_30 = (void *)0x0;
     local_2c = 0;
     local_28 = 0;
     local_24 = "Scratch/UserToolHost/FeaturedItems";
     FUN_00c90c60(this,&local_30);
-    uVar3 = local_2c - local_30 >> 3;
+    uVar3 = local_2c - (int)local_30 >> 3;
     piVar1 = FUN_004e6f20(DAT_011cc864,uVar3 * 8,0);
     if (piVar1 != (int *)0x0) {
       uVar2 = 0;
       if (uVar3 != 0) {
         do {
-          piVar1[uVar2 * 2] = *(int *)(local_30 + uVar2 * 8);
-          piVar1[uVar2 * 2 + 1] = *(int *)(local_30 + 4 + uVar2 * 8);
+          piVar1[uVar2 * 2] = *(int *)((int)local_30 + uVar2 * 8);
+          piVar1[uVar2 * 2 + 1] = *(int *)((int)local_30 + uVar2 * 8 + 4);
           uVar2 = uVar2 + 1;
         } while (uVar2 < uVar3);
       }
@@ -68,8 +69,8 @@ undefined4 ScriptCore.UserToolUtils::UserToolUtils_GetTNSFeatureItemImpl(void)
         FUN_004f5760(local_20,'\0');
       }
     }
-    if (local_30 != 0) {
-      FUN_004e44e0(local_30);
+    if (local_30 != (void *)0x0) {
+      Memory_FreeIfNonNull(local_30);
     }
   }
   return local_38;

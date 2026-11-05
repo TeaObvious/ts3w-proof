@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01197140 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01197140 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.GameUtils::GameUtils_InitSceneWindowImpl [assembly=ScriptCore token=0x06000238; ;
    return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -38,8 +39,8 @@ void ScriptCore.GameUtils::GameUtils_InitSceneWindowImpl(void)
   if (piVar3 != (int *)0x0) {
     (**(code **)(*piVar2 + 0xdc))(piVar3);
     (**(code **)(*piVar2 + 0xf0))(piVar3);
-    this = (void *)FUN_0060e910();
-    FUN_0060ed00(this,&uStack_34,&uStack_30,&uStack_2c);
+    this = (void *)Graphics_GetManagerSingleton();
+    Renderer_GetLogicalDimensions(this,&uStack_34,&uStack_30,&uStack_2c);
     uStack_28 = 0;
     (**(code **)(*piVar3 + 100))(&uStack_28);
     (**(code **)(*piVar3 + 0x54))(0x34b248b);

@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -21,7 +20,7 @@ CeilingRenderManager_BindOwnerAndRegisterMessages(void *this,undefined4 param_1)
   iVar1 = *(int *)(*(int *)((int)this + 0x18) + 0x18);
   FUN_00a4de50(this,(uint *)(*(int *)(iVar1 + 0x2b0) + 0x20));
   FUN_00608c10((void *)((int)this + 100),(int *)(*(int *)(iVar1 + 0x290) + 0x34));
-  piVar2 = (int *)FUN_0044c4f0();
+  piVar2 = (int *)MessageDispatch_GetCurrent();
   *(int **)((int)this + 4) = piVar2;
   *(void **)((int)this + 8) = this;
   *(undefined4 **)((int)this + 0xc) = &DAT_01060c10;

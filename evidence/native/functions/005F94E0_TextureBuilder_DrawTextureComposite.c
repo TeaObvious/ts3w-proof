@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -21,6 +20,7 @@ undefined4 __thiscall TextureBuilder_DrawTextureComposite(void *this,void *param
 {
   void *pvVar1;
   undefined4 *puVar2;
+  Ts3SkinPostDefinition *self;
   uint uVar3;
   uint uVar4;
   uint uVar5;
@@ -43,7 +43,7 @@ undefined4 __thiscall TextureBuilder_DrawTextureComposite(void *this,void *param
   
   iVar8 = *(int *)((int)this + 0x40);
   if (iVar8 != 0) {
-    FUN_0060e910();
+    Graphics_GetManagerSingleton();
     pvVar1 = (void *)FUN_00617780();
     if (iVar8 == 0x21e9cd3) {
       uVar3 = *(uint *)((int)param_1 + 0x14);
@@ -71,12 +71,12 @@ LAB_005f9526:
   if (*(int *)((int)this + 0x3c) == 0) {
     return 1;
   }
-  pvVar1 = (void *)ShaderLibrary_FindByName(DAT_011d853c,"tbops",0,'\0');
-  if (pvVar1 == (void *)0x0) {
+  self = (Ts3SkinPostDefinition *)ShaderLibrary_FindByName(DAT_011d853c,"tbops",0,'\0');
+  if (self == (Ts3SkinPostDefinition *)0x0) {
     return 1;
   }
   uVar3 = (**(code **)(*(int *)this + 0x50))();
-  FUN_0079a6a0(pvVar1,uVar3);
+  ShaderDefinition_SelectTechniqueOrdinal(self,uVar3);
   pvVar7 = DAT_011d8530;
   pvVar1 = DAT_011cfcc8;
   uVar3 = ShaderParameterRegistry_RegisterNamedRow(DAT_011d8530,"DiffuseMap",1,5);
@@ -161,7 +161,7 @@ LAB_005f9749:
     *(undefined2 *)(piVar10 + 1) = *(undefined2 *)((int)pvVar7 + 0x12);
     piVar10[3] = iVar8;
   }
-  FUN_0060e910();
+  Graphics_GetManagerSingleton();
   pvVar7 = (void *)FUN_00617780();
   piVar10 = SurfaceRegistry_FindValueByTag(pvVar7,*(uint *)((int)param_1 + 0x14));
   iVar8 = 0;
@@ -169,7 +169,7 @@ LAB_005f9749:
     iVar8 = *piVar10;
   }
   if (*(int *)((int)this + 0x3c) != iVar8) {
-    FUN_0060e910();
+    Graphics_GetManagerSingleton();
     pvVar7 = (void *)FUN_00617780();
     piVar10 = SurfaceRegistry_FindValueByTag(pvVar7,*(uint *)((int)param_1 + 0x18));
     iVar8 = 0;

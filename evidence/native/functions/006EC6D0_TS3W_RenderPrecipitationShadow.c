@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Function: __alloca_probe replaced with injection: alloca_probe */
@@ -30,7 +30,7 @@ void __fastcall TS3W_RenderPrecipitationShadow(void *renderOwner)
   float local_4950;
   float fStack_494c;
   float fStack_4948;
-  int iStack_4944;
+  float fStack_4944;
   int *local_4934;
   int local_4930;
   undefined4 *local_492c;
@@ -69,22 +69,23 @@ void __fastcall TS3W_RenderPrecipitationShadow(void *renderOwner)
   undefined1 auStack_4840 [1056];
   uint auStack_4420 [4355];
   undefined4 uStack_14;
-
+  
   uStack_14 = 0x6ec6e0;
-  pvVar10 = (void *)FUN_0060e910();
+  pvVar10 = (void *)Graphics_GetManagerSingleton();
   pvVar9 = DAT_011d8530;
   if (*(char *)((int)pvVar10 + 0x8d) != '\0') {
     return;
   }
   local_4924 = pvVar10;
-  FUN_0079a080(DAT_011d8530,*(uint *)((int)renderOwner + 0x22c),*(int *)(DAT_011d2530 + 300));
-  uVar11 = FUN_00531f70((int)pvVar10);
+  ShaderParameterRegistry_SetTexturePayload
+            (DAT_011d8530,*(uint *)((int)renderOwner + 0x22c),*(int *)(DAT_011d2530 + 300));
+  uVar11 = ReadDwordOffset18_531F70((int)pvVar10);
   *(undefined4 *)((int)renderOwner + 0x368) = uVar11;
   if (*(char *)((int)renderOwner + 0x29c) == '\0') goto LAB_006ecf0a;
   pvVar10 = (void *)FUN_00617780();
-  local_4920 = (int *)FUN_00617c50(pvVar10);
-  local_492c = (undefined4 *)FUN_00617c50(pvVar10);
-  local_4934 = (int *)FUN_00617c90((int)pvVar10);
+  local_4920 = RenderTargets_FindTarget(pvVar10,0xd54b783);
+  local_492c = RenderTargets_FindTarget(pvVar10,0xd54ac6f);
+  local_4934 = SurfaceRegistry_FindValueByTag(pvVar10,0xd536718);
   pvVar10 = local_4924;
   local_4930 = DAT_0115c3e0;
   if ((DAT_011d2b90 & 1) == 0) {
@@ -95,7 +96,7 @@ void __fastcall TS3W_RenderPrecipitationShadow(void *renderOwner)
     local_4950 = local_4950 + 4.2949673e+09;
   }
   fStack_494c = 1.0 / local_4950;
-  iStack_4944 = 0;
+  fStack_4944 = 0.0;
   fStack_4948 = fStack_494c * 2.0;
   uRam011d2b8c = 0;
   _DAT_011d2b80 = local_4950;
@@ -188,22 +189,22 @@ LAB_006ec94d:
   uStack_4918 = 8;
   uStack_490c = 0;
   uStack_4910 = uStack_4914;
-  FUN_006e8ec0(renderOwner,(int)&puStack_491c);
-  FUN_0060eeb0(pvVar10,0xae,1);
+  SceneRenderer_ApplyDrawContextRasterDefaults(renderOwner,(int)&puStack_491c);
+  RenderDevice_SetBaselineState(pvVar10,0xae,1);
   if ((DAT_0115c3cc != '\0') || (DAT_0115c3cd != '\0')) {
-    FUN_0060eeb0(pvVar10,0xc3,*(int *)((int)renderOwner + 0x1b4));
-    FUN_0060eeb0(pvVar10,0xaf,*(int *)((int)renderOwner + 0x1b0));
+    RenderDevice_SetBaselineState(pvVar10,0xc3,*(uint *)((int)renderOwner + 0x1b4));
+    RenderDevice_SetBaselineState(pvVar10,0xaf,*(uint *)((int)renderOwner + 0x1b0));
   }
   FUN_0060fda0(pvVar10,0);
   local_4950 = 0.0;
   fStack_494c = 0.0;
   fStack_4948 = (float)local_4930;
-  iStack_4944 = local_4930;
+  fStack_4944 = (float)local_4930;
   FUN_0060f490(pvVar10,&local_4950);
   local_4950 = 0.0;
   fStack_494c = 0.0;
   fStack_4948 = (float)local_4930;
-  iStack_4944 = local_4930;
+  fStack_4944 = (float)local_4930;
   FUN_00610630(pvVar10,(int *)&local_4950,0,0x3f800000);
   if (DAT_0115c3cd == '\0') {
     uVar11 = 6;
@@ -215,23 +216,24 @@ LAB_006ec94d:
   local_4950 = 1.4013e-45;
   fStack_494c = 1.4013e-45;
   fStack_4948 = (float)(local_4930 + -1);
-  iStack_4944 = (int)fStack_4948;
+  fStack_4944 = fStack_4948;
   FUN_0060f490(pvVar10,&local_4950);
   iVar13 = *(int *)((int)renderOwner + 0x20);
   local_4934 = (int *)(iVar13 + 0x150);
   local_492c = (undefined4 *)(iVar13 + 0x120);
   FUN_006ea7e0(iVar13,*(int *)((int)renderOwner + 0x34));
   if ((local_4934[1] - *local_4934 & 0xfffffff8U) != 0) {
-    FUN_006ea9a0(renderOwner,*(int *)((int)renderOwner + 0x20),local_4934,&puStack_491c);
+    SceneShadow_DrawQueuedCasters
+              (renderOwner,*(int *)((int)renderOwner + 0x20),local_4934,&puStack_491c);
   }
-  piVar12 = (int *)FUN_00712be0();
+  piVar12 = (int *)FloraRenderer_GetService();
   if (piVar12 != (int *)0x0) {
     (**(code **)(*piVar12 + 8))(local_492c,&puStack_491c);
   }
   FUN_006fa900(auStack_4420);
   FUN_00610330((int)pvVar10);
   FUN_0060ea60(pvVar10,(int)local_4870);
-  iStack_4944 = 0x3f800000;
+  fStack_4944 = 1.0;
   fStack_4948 = 0.0;
   fStack_494c = 0.5;
   local_4950 = 0.5;
@@ -345,7 +347,7 @@ LAB_006ec94d:
   }
   FUN_006183f0(local_48e8);
 LAB_006ecf0a:
-  iVar13 = FUN_00531f70((int)pvVar10);
+  iVar13 = ReadDwordOffset18_531F70((int)pvVar10);
   *(int *)((int)renderOwner + 0x368) = iVar13 - *(int *)((int)renderOwner + 0x368);
   return;
 }

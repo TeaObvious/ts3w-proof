@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: shader-definition body reader. Reads flags; conditionally reads linked definition/set
@@ -10,49 +10,53 @@
 void __thiscall ShaderDefinition_ReadBody(void *this,void *param_1,void *param_2)
 
 {
-  uint *puVar1;
+  uint *outUInt32;
   void *this_00;
-  uint uVar2;
-  undefined4 uVar3;
+  bool bVar1;
+  undefined4 uVar2;
+  uint uVar3;
   int iVar4;
   
   this_00 = param_1;
-  puVar1 = (uint *)((int)this + 0x18);
-  uVar2 = FUN_004dd980(*(int **)((int)param_1 + 8),puVar1);
-  FUN_007d79f0(this_00,(byte)uVar2);
-  if ((*puVar1 & 0x400) != 0) {
-    uVar2 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)((int)this + 0x20));
-    FUN_007d79f0(this_00,(byte)uVar2);
+  outUInt32 = (uint *)((int)this + 0x18);
+  bVar1 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),outUInt32,*(uint *)((int)param_1 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar1);
+  if ((*outUInt32 & 0x400) != 0) {
+    bVar1 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)((int)this + 0x20),
+                              *(uint *)((int)this_00 + 0x10));
+    StreamReader_AccumulateStatus(this_00,bVar1);
   }
-  if ((*puVar1 & 0x800) != 0) {
-    uVar2 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)((int)this + 0x24));
-    FUN_007d79f0(this_00,(byte)uVar2);
+  if ((*outUInt32 & 0x800) != 0) {
+    bVar1 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)((int)this + 0x24),
+                              *(uint *)((int)this_00 + 0x10));
+    StreamReader_AccumulateStatus(this_00,bVar1);
   }
-  uVar2 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)&param_1);
-  FUN_007d79f0(this_00,(byte)uVar2);
+  bVar1 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)&param_1,
+                            *(uint *)((int)this_00 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar1);
   if (*(char *)((int)this_00 + 0x14) != '\0') {
-    uVar3 = FUN_007d7a00(this_00,*(uint *)((int)this + 0xc),4);
-    if ((char)uVar3 != '\0') {
-      uVar3 = ShaderDefinition_ResizeStageSlots(this,(int)param_1);
-      if ((char)uVar3 == '\0') {
-        FUN_007d79f0(this_00,0);
+    bVar1 = StreamReader_CheckArrayBytes(this_00,*(uint *)((int)this + 0xc),4);
+    if (bVar1) {
+      uVar2 = ShaderDefinition_ResizeStageSlots(this,(int)param_1);
+      if ((char)uVar2 == '\0') {
+        StreamReader_AccumulateStatus(this_00,0);
         *(undefined1 *)((int)this_00 + 0x14) = 0;
         return;
       }
-      uVar2 = 0;
+      uVar3 = 0;
       if (*(int *)((int)this + 0xc) != 0) {
         iVar4 = 0;
         while( true ) {
-          uVar3 = ShaderTechnique_ReadTECH
+          uVar2 = ShaderTechnique_ReadTECH
                             ((void *)(*(int *)((int)this + 8) + iVar4),this_00,param_2);
-          if ((char)uVar3 == '\0') break;
-          uVar2 = uVar2 + 1;
+          if ((char)uVar2 == '\0') break;
+          uVar3 = uVar3 + 1;
           iVar4 = iVar4 + 0x10;
-          if (*(uint *)((int)this + 0xc) <= uVar2) {
+          if (*(uint *)((int)this + 0xc) <= uVar3) {
             return;
           }
         }
-        FUN_007d79f0(this_00,0);
+        StreamReader_AccumulateStatus(this_00,0);
         *(undefined1 *)((int)this_00 + 0x14) = 0;
       }
     }

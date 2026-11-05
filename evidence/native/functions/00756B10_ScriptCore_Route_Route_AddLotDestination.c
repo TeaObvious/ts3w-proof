@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161920 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161920 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Route::Route_AddLotDestination [assembly=ScriptCore token=0x060010F8; handle:
    System.UInt32, nTag: System.UInt32, fWeight: System.Single, scoreFunctionWeights:
    System.Single[], lot: System.UInt64; return=System.Boolean]
@@ -18,20 +19,20 @@ ScriptCore_Route__Route_AddLotDestination
 
 {
   uint in_EAX;
-  int *piVar1;
+  int *host;
   int *this;
   undefined4 *this_00;
-  int *piVar2;
-  undefined4 uVar3;
+  int *piVar1;
+  undefined4 uVar2;
   uint uStack_8;
   uint uStack_4;
   
   if (DAT_011d50c4 != (void *)0x0) {
-    piVar1 = (int *)FUN_0074b4b0(DAT_011d50c4,param_1);
+    host = (int *)RouteRegistry_ResolveTypedHandle(DAT_011d50c4,param_1);
     in_EAX = 0;
-    if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x10))();
-      this = (int *)FUN_00752300((int)piVar1);
+    if (host != (int *)0x0) {
+      (**(code **)(*host + 0x10))();
+      this = RouteHost_GetOrCreateGoal(host);
       if (this != (int *)0x0) {
         (**(code **)*this)();
         this_00 = (undefined4 *)FUN_004e4500(0x38,"Routing/LotDestination",0);
@@ -51,20 +52,20 @@ ScriptCore_Route__Route_AddLotDestination
           this_00[10] = param_2;
           this_00[0xb] = param_3;
           if (param_4 != 0) {
-            piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
+            piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
             uStack_4 = 0;
             uStack_8 = 0;
-            (**(code **)(*piVar2 + 0x78))(param_4,&uStack_4,&uStack_8);
-            FUN_0074bd40(this_00,uStack_4,uStack_8);
+            (**(code **)(*piVar1 + 0x78))(param_4,&uStack_4,&uStack_8);
+            RouteDestination_CopyScoreWeights(this_00,uStack_4,uStack_8);
           }
-          FUN_0074f100(this,(int)this_00);
+          RouteGoal_AppendDestination(this,(int)this_00);
           (**(code **)(*this + 4))();
-          uVar3 = (**(code **)(*piVar1 + 0x14))();
-          return CONCAT31((int3)((uint)uVar3 >> 8),1);
+          uVar2 = (**(code **)(*host + 0x14))();
+          return CONCAT31((int3)((uint)uVar2 >> 8),1);
         }
         (**(code **)(*this + 4))();
       }
-      in_EAX = (**(code **)(*piVar1 + 0x14))();
+      in_EAX = (**(code **)(*host + 0x14))();
     }
   }
   return in_EAX & 0xffffff00;

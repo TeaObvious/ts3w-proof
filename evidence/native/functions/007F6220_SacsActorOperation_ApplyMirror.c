@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): PC1.67 ECX actor-operation node, four stack dwords
@@ -19,7 +19,7 @@ SacsActorOperation_ApplyMirror(void *this,int param_1,void *param_2,undefined4 p
   int *piVar3;
   int *piVar4;
   
-  uVar2 = FUN_007f3da0(param_2,param_1,*(int *)((int)this + 0x50));
+  uVar2 = SacsContext_AdmitActorNode(param_2,param_1,*(int *)((int)this + 0x50));
   if ((char)uVar2 != '\0') {
     piVar3 = (int *)*param_4;
     if (piVar3 == (int *)0x0) {

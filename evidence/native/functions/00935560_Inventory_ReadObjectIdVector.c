@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): ECX vector plus one stream-context stack word,
@@ -12,7 +12,6 @@ undefined1 __thiscall Inventory_ReadObjectIdVector(void *this,void *param_1)
 
 {
   bool bVar1;
-  undefined4 uVar2;
   uint local_4;
   
   local_4 = 0;
@@ -23,8 +22,10 @@ undefined1 __thiscall Inventory_ReadObjectIdVector(void *this,void *param_1)
     if (bVar1) {
       if (local_4 != 0) {
         FUN_0059f220(this,local_4);
-        uVar2 = FUN_004dda50(*(int **)((int)param_1 + 8),*(uint **)this,local_4);
-        StreamReader_AccumulateStatus(param_1,(byte)uVar2);
+        bVar1 = Stream_ReadUInt64ArrayByByteOrder
+                          (*(undefined **)((int)param_1 + 8),*(undefined **)this,local_4,
+                           *(uint *)((int)param_1 + 0x10));
+        StreamReader_AccumulateStatus(param_1,bVar1);
       }
       return *(undefined1 *)((int)param_1 + 0x14);
     }

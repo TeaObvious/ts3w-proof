@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). cdecl AL. Builds
@@ -59,29 +59,29 @@ ObjectIntersection_InvokeHandToolAllowCallback
     pvVar1 = ObjectRegistry_FindBorrowed(pvVar1,CONCAT44(param_3,param_2));
     if ((pvVar1 == (void *)0x0) ||
        (pvVar1 = Object_GetComponentByMask(pvVar1,DAT_011ea158), pvVar1 == (void *)0x0)) {
-      fStack_154 = DAT_00f998f8;
+      fStack_154 = 1.0;
       uStack_158 = 0;
       uStack_15c = 0;
       local_160 = (undefined **)0x0;
       local_c0 = 0.0;
       fStack_bc = 0.0;
       fStack_b8 = 0.0;
-      local_f0 = DAT_00f998f8;
+      fStack_b4 = 1.0;
+      local_f0 = 1.0;
       fStack_ec = 0.0;
       fStack_e8 = 0.0;
       fStack_e4 = 0.0;
       local_e0 = 0.0;
-      fStack_dc = DAT_00f998f8;
+      fStack_dc = 1.0;
       fStack_d8 = 0.0;
       fStack_d4 = 0.0;
       local_d0 = 0.0;
       fStack_cc = 0.0;
-      fStack_c8 = DAT_00f998f8;
+      fStack_c8 = 1.0;
       fStack_c4 = 0.0;
-      fStack_b4 = DAT_00f998f8;
     }
     else {
-      pfVar2 = (float *)FUN_00957a90(pvVar1,(uint *)&local_160);
+      pfVar2 = TransformComponent_GetWorldMatrix(pvVar1,(float *)&local_160);
       local_f0 = *pfVar2;
       fStack_ec = pfVar2[1];
       fStack_e8 = pfVar2[2];
@@ -104,10 +104,10 @@ ObjectIntersection_InvokeHandToolAllowCallback
     FUN_00adc7c0(param_1,param_6,(float *)&local_160,'\0');
     FUN_00b05b90(param_1,param_7,(float *)&local_160,&local_f0);
   }
-  FUN_0076c220(local_50,&local_f0);
+  Matrix44_CopyNativeToScriptFields(local_50,&local_f0);
   local_160 = &PTR_FUN_00fba6f4;
   uStack_158 = 0;
-  FUN_004f6020(&local_160,&param_2);
+  Variant_AssignUInt64(&local_160,(ulonglong *)&param_2);
   local_b0[0] = &PTR_FUN_00fba6f4;
   local_a8 = 0;
   local_a6 = 0;
@@ -118,7 +118,7 @@ ObjectIntersection_InvokeHandToolAllowCallback
   }
   local_160 = &PTR_FUN_00fba6f4;
   uStack_158 = 0;
-  FUN_004f6020(&local_160,&param_4);
+  Variant_AssignUInt64(&local_160,(ulonglong *)&param_4);
   local_90[0] = &PTR_FUN_00fba6f4;
   local_88 = 0;
   local_86 = 0;

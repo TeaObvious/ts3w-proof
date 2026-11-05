@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC1.67 tomb/diving contract. Signed integer requested level clamped to lot minimum+0x17c
@@ -76,22 +76,22 @@ Lot_SetDisplayLevel(void *this,int level,bool force,bool checkUpper,bool suppres
         }
         FUN_00ab3260(*(void **)((int)this + 0x2e8),iVar3);
       }
-      piVar4 = FUN_00adf150();
+      piVar4 = FloorMessagePool_AcquireStorage();
       if (piVar4 == (int *)0x0) {
         piVar4 = (int *)0x0;
       }
       else {
-        *piVar4 = (int)&PTR_FUN_01065f8c;
+        *piVar4 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
         LOCK();
         piVar4[1] = 0;
         UNLOCK();
-        *piVar4 = (int)&PTR_FUN_01065f8c;
+        *piVar4 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
         (**(code **)(*piVar4 + 4))();
       }
       piVar4[2] = *(int *)((int)this + 0x39c);
       *(bool *)(piVar4 + 3) = force;
       if (((*(char *)((int)this + 0xc9) == '\0') && (*(int *)((int)this + 0x364) != 0)) &&
-         (piVar8 = (int *)FUN_0044c4f0(), piVar8 != (int *)0x0)) {
+         (piVar8 = (int *)MessageDispatch_GetCurrent(), piVar8 != (int *)0x0)) {
         (**(code **)(*piVar8 + 0x1c))(0x41f76bb,piVar4,0,*(undefined4 *)((int)this + 0x364));
       }
       FUN_00792460();

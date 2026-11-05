@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): PC1.67 ECX evaluation context,one stack dword
@@ -33,7 +33,8 @@ void __thiscall SacsNamespaces_AppendDriverActors(void *this,void *param_1)
   }
   piVar2 = *(int **)(*(int *)(iVar4 + 0x44) + *(int *)(iVar4 + 0x48) * 4);
   while (piVar5 != piVar2) {
-    if (((*piVar5 != 0) && (iVar4 = FUN_007fffe0(*(void **)this,*piVar5), iVar4 != 0)) &&
+    if (((*piVar5 != 0) &&
+        (iVar4 = SacsDriver_FindExistingActorWalker(*(void **)this,*piVar5), iVar4 != 0)) &&
        (piVar3 = *(int **)(iVar4 + 8), piVar3 != (int *)0x0)) {
       AnimationNamespaces_InsertFirstBinding(param_1,*(int *)(piVar3[8] + 0x2c),piVar3);
     }

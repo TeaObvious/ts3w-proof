@@ -1,10 +1,13 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-/* Verified PC 1.67 registration table at 0x01161c50 (original PC 1.67 TS3W.exe).
+
+
+
+/* Verified PC 1.67 registration table at 0x01161c50 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.RouteManager::RouteManager_CalculateMinimumDistanceForLocomotionAnimSpec
    [assembly=ScriptCore token=0x06001055; simObjID: System.UInt64, animSpec:
    Sims3.SimIFace.RouteAnimationSpec; return=System.Single]
@@ -18,14 +21,14 @@ float10 ScriptCore_RouteManager__RouteManager_CalculateMinimumDistanceForLocomot
 
 {
   char cVar1;
-  int iVar2;
-  void *pvVar3;
-  uint uVar4;
-  float *pfVar5;
+  void *pvVar2;
+  uint uVar3;
+  float *pfVar4;
+  int iVar5;
   int iVar6;
   float10 fVar7;
   float fStack_1d8;
-  int iStack_1d4;
+  void *pvStack_1d4;
   float fStack_1d0;
   float fStack_1cc;
   float fStack_1c8;
@@ -52,89 +55,92 @@ float10 ScriptCore_RouteManager__RouteManager_CalculateMinimumDistanceForLocomot
   int *piStack_54;
   int *piStack_50;
   
-  iVar2 = FUN_00937570();
-  if (iVar2 != 0) {
-    pvVar3 = (void *)FUN_00937f80(iVar2);
-    if (pvVar3 == (void *)0x0) {
-      iStack_1d4 = 0;
+  pvVar2 = ObjectRegistry_GetGlobal();
+  if (pvVar2 != (void *)0x0) {
+    pvVar2 = ObjectRegistry_FindBorrowed(pvVar2,CONCAT44(param_2,param_1));
+    if (pvVar2 == (void *)0x0) {
+      pvStack_1d4 = (void *)0x0;
     }
     else {
-      iStack_1d4 = FUN_00934260(pvVar3,DAT_011dd484);
+      pvStack_1d4 = Object_GetComponentByMask(pvVar2,DAT_011dd484);
     }
-    pvVar3 = DAT_011da140;
+    pvVar2 = DAT_011da140;
     fStack_1d0 = DAT_01150628;
     FUN_007515c0(&iStack_1b4);
-    cVar1 = FUN_008443f0(pvVar3,param_3,param_4,param_5,param_6,&iStack_1b4);
-    if ((cVar1 != '\0') && (iStack_1d4 != 0)) {
+    cVar1 = ResolveLocomotionStyleForAttributes(pvVar2,param_3,param_4,param_5,param_6,&iStack_1b4);
+    if ((cVar1 != '\0') && (pvStack_1d4 != (void *)0x0)) {
       piStack_138 = aiStack_124;
       piStack_130 = aiStack_7c;
       pcStack_12c = "EASTL fixed_vector";
       piStack_134 = piStack_138;
       piStack_128 = piStack_138;
-      uVar4 = FUN_00844140(pvVar3,param_3,param_4 | param_6,(uint *)&piStack_138);
+      uVar3 = FindOrBuildLocomotionVariantSequence
+                        (pvVar2,param_3,param_4 | param_6,(uint *)&piStack_138);
       if (cStack_14f != '\0') {
-        fStack_1d0 = _DAT_00fb35b4;
+        fStack_1d0 = 0.001;
       }
       fStack_1c0 = 0.0;
       fStack_1bc = 0.0;
       fStack_1c4 = 0.0;
       fStack_1d8 = 0.0;
       fStack_1cc = 0.0;
-      if (0 < (int)uVar4) {
-        iVar2 = (int)piStack_134 - (int)piStack_138 >> 0x1f;
-        iVar6 = ((int)piStack_134 - (int)piStack_138) / 0x1c + iVar2;
-        if ((iVar6 != iVar2) && ((int)uVar4 < iVar6 - iVar2)) {
-          FUN_00843eb0(pvVar3,piStack_138[6],uStack_160,uStack_15c,iStack_158,iStack_154,&iStack_1b4
-                       ,'\x01');
+      if (0 < (int)uVar3) {
+        iVar6 = (int)piStack_134 - (int)piStack_138 >> 0x1f;
+        iVar5 = ((int)piStack_134 - (int)piStack_138) / 0x1c + iVar6;
+        if ((iVar5 != iVar6) && ((int)uVar3 < iVar5 - iVar6)) {
+          ResolveLocomotionStyleRecordWithFallback
+                    (pvVar2,piStack_138[6],uStack_160,uStack_15c,iStack_158,iStack_154,&iStack_1b4,
+                     '\x01');
           FUN_007515c0(aiStack_7c);
-          if (0 < (int)uVar4) {
-            iVar2 = 0x1c;
+          if (0 < (int)uVar3) {
+            iVar6 = 0x1c;
             do {
-              cVar1 = FUN_00843eb0(pvVar3,*(uint *)(iVar2 + 0x18 + (int)piStack_138),uStack_160,
-                                   uStack_15c,iStack_158,iStack_154,aiStack_7c,'\x01');
+              cVar1 = ResolveLocomotionStyleRecordWithFallback
+                                (pvVar2,*(uint *)(iVar6 + 0x18 + (int)piStack_138),uStack_160,
+                                 uStack_15c,iStack_158,iStack_154,aiStack_7c,'\x01');
               if (cVar1 != '\0') {
                 if ((piStack_54 != (int *)0x0) &&
                    (cVar1 = (**(code **)(*piStack_54 + 0x10))(), cVar1 == '\0')) {
-                  fVar7 = FUN_0084a990(iStack_1d4 + 8,piStack_54,&fStack_1b8,'\0');
+                  fVar7 = FUN_0084a990((int)pvStack_1d4 + 8,piStack_54,&fStack_1b8,'\0');
                   fStack_1c4 = (float)(fVar7 + (float10)fStack_1c4);
                 }
                 if ((piStack_50 != (int *)0x0) &&
                    (cVar1 = (**(code **)(*piStack_50 + 0x10))(), cVar1 == '\0')) {
-                  fVar7 = FUN_0084a990(iStack_1d4 + 8,piStack_50,&fStack_1c8,'\0');
+                  fVar7 = FUN_0084a990((int)pvStack_1d4 + 8,piStack_50,&fStack_1c8,'\0');
                   fStack_1d8 = (float)(fVar7 + (float10)fStack_1d8);
                 }
               }
-              iVar2 = iVar2 + 0x1c;
-              uVar4 = uVar4 - 1;
-            } while (uVar4 != 0);
+              iVar6 = iVar6 + 0x1c;
+              uVar3 = uVar3 - 1;
+            } while (uVar3 != 0);
           }
           FUN_00754230(aiStack_7c);
         }
       }
       if (piStack_1b0 != (int *)0x0) {
-        fVar7 = FUN_0084a990(iStack_1d4 + 8,piStack_1b0,&fStack_1c8,'\0');
+        fVar7 = FUN_0084a990((int)pvStack_1d4 + 8,piStack_1b0,&fStack_1c8,'\0');
         fStack_1c0 = (float)fVar7;
       }
       if (piStack_1a8 != (int *)0x0) {
-        fVar7 = FUN_0084a990(iStack_1d4 + 8,piStack_1a8,&fStack_1c8,'\0');
+        fVar7 = FUN_0084a990((int)pvStack_1d4 + 8,piStack_1a8,&fStack_1c8,'\0');
         fStack_1bc = (float)fVar7;
       }
       if (piStack_19c != (int *)0x0) {
-        fVar7 = FUN_0084a990(iStack_1d4 + 8,piStack_19c,&fStack_1c8,'\0');
+        fVar7 = FUN_0084a990((int)pvStack_1d4 + 8,piStack_19c,&fStack_1c8,'\0');
         fStack_1cc = (float)fVar7;
-        if (fVar7 == (float10)DAT_01005198) {
+        if (fVar7 == (float10)3.4028235e+38) {
           fStack_1cc = 0.0;
         }
       }
       fStack_1d0 = (fStack_1d8 + fStack_1c4 + fStack_1bc + fStack_1c0) * fStack_1d0;
-      pfVar5 = &fStack_1cc;
+      pfVar4 = &fStack_1cc;
       if (fStack_1cc <= fStack_1d0) {
-        pfVar5 = &fStack_1d0;
+        pfVar4 = &fStack_1d0;
       }
-      fStack_1d0 = *pfVar5;
+      fStack_1d0 = *pfVar4;
       FUN_007594a0(piStack_138,piStack_134);
       if ((piStack_138 != (int *)0x0) && (piStack_138 != piStack_128)) {
-        FUN_004e44e0((int)piStack_138);
+        Memory_FreeIfNonNull(piStack_138);
       }
       FUN_00754230(&iStack_1b4);
       return (float10)fStack_1d0;

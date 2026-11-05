@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original PC1.67 modular-stairs scene-model preparation. Reuses the selected cached scene model or
@@ -169,7 +169,7 @@ ModularStairsRenderer_PrepareComponentSceneModel
       piVar16 = piVar12;
     }
     (**(code **)(*this_00 + 0x80))(piVar16,&DAT_00ffaf14);
-    FUN_006dcc00(this_00 + 0x84);
+    ModelBinding_ApplyMaterialToAvailableLod(this_00 + 0x84);
     if (piVar16 != (int *)0x0) {
       (**(code **)(*piVar16 + 4))();
     }

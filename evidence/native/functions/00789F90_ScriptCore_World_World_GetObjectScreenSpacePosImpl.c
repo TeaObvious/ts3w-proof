@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011632b8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011632b8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_GetObjectScreenSpacePosImpl [assembly=ScriptCore token=0x06000754;
    scriptHandle: System.UInt64, x: System.Single, y: System.Single, z: System.Single, outPos:
    Sims3.SimIFace.Vector2&; return=System.Boolean]
@@ -38,10 +39,10 @@ ScriptCore.World::World_GetObjectScreenSpacePosImpl
   if (iVar2 != 0) {
     iVar2 = FUN_00513de0(iVar2);
     pvVar1 = *(void **)(iVar2 + 0xc);
-    iVar2 = FUN_00937570();
-    pvVar3 = (void *)FUN_00937f80(iVar2);
+    pvVar3 = ObjectRegistry_GetGlobal();
+    pvVar3 = ObjectRegistry_FindBorrowed(pvVar3,CONCAT44(param_2,param_1));
     if (pvVar3 != (void *)0x0) {
-      pvVar3 = (void *)FUN_00934260(pvVar3,DAT_011ea158);
+      pvVar3 = Object_GetComponentByMask(pvVar3,DAT_011ea158);
       if (pvVar3 != (void *)0x0) {
         FUN_00958070(pvVar3,&local_30);
         local_30 = param_3 + local_30;

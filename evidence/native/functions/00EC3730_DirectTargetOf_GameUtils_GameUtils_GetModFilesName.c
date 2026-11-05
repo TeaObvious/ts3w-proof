@@ -1,18 +1,24 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
+/* Verified PC 1.67 direct x86 E9 jump target: ScriptCore.GameUtils::GameUtils_GetModFilesName at
+   0x00ec39a0, bytes e98bfdffff. This is a static control-flow link from the registered entry; the
+   target may have other callers and its side effects require separate analysis. original PC 1.67 TS3W.exe. */
+
 
 
 /* Verified PC 1.67 direct x86 E9 jump target: ScriptCore.GameUtils::GameUtils_GetModFilesName at
    0x00ec39a0, bytes e98bfdffff. This is a static control-flow link from the registered entry; the
-   target may have other callers and its side effects require separate analysis. original PC 1.67 TS3W.exe. */
+   target may have other callers and its side effects require separate analysis. TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3. */
 
 undefined4 __cdecl DirectTargetOf_GameUtils_GameUtils_GetModFilesName(uint param_1)
 
 {
   int *piVar1;
   undefined4 uVar2;
-  int unaff_ESI;
+  void *unaff_ESI;
   undefined4 unaff_EDI;
   undefined4 local_44;
   undefined1 *local_40;
@@ -49,15 +55,15 @@ undefined4 __cdecl DirectTargetOf_GameUtils_GameUtils_GetModFilesName(uint param
   }
   local_44 = 0;
   (**(code **)(*piVar1 + 0x50))(local_20,&local_44);
-  if ((2 < (int)((int)local_40 - unaff_ESI & 0xfffffffeU)) && (unaff_ESI != 0)) {
-    FUN_004e44e0(unaff_ESI);
+  if ((2 < (int)((int)local_40 - (int)unaff_ESI & 0xfffffffeU)) && (unaff_ESI != (void *)0x0)) {
+    Memory_FreeIfNonNull(unaff_ESI);
   }
   local_28 = &PTR_FUN_00fba6f4;
   if (((uint)local_20[0] & 4) != 0) {
     FUN_004f5760(&local_28,'\0');
   }
   if ((2 < (int)((int)local_30 - (int)local_38 & 0xfffffffeU)) && (local_38 != (undefined2 *)0x0)) {
-    FUN_004e44e0((int)local_38);
+    Memory_FreeIfNonNull(local_38);
   }
   return unaff_EDI;
 }

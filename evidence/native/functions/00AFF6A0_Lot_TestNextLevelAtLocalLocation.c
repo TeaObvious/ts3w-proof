@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: checks a next-level location condition at LotXZLevel {float x;float z;int level}.
@@ -30,7 +30,8 @@ uint __cdecl Lot_TestNextLevelAtLocalLocation(void *param_1,LotXZLevel *param_2,
       LotLocation_EncodeCellAndQuadrant(&param_2->x,(char *)&param_1);
       cVar1 = param_1._2_1_ + '\x01';
       param_1._0_3_ = CONCAT12(cVar1,param_1._0_2_);
-      uVar3 = FUN_00ad0d00(pvVar2,(char *)&param_1,param_3,1,(undefined1 *)0x0);
+      uVar3 = Lot_TestCellRegionAndCollectionAdmission
+                        (pvVar2,(char *)&param_1,param_3,1,(undefined1 *)0x0);
       return uVar3;
     }
   }

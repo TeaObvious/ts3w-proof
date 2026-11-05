@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163ac0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163ac0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_GetRainPuddlesOnLotImpl [assembly=ScriptCore token=0x060008A9; lotId:
    System.UInt64, posArray: System.Single[]&; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -22,6 +23,8 @@ ScriptCore.World::World_GetRainPuddlesOnLotImpl(int param_1,int param_2,undefine
   undefined3 extraout_var;
   uint uVar5;
   undefined4 uVar6;
+  undefined4 extraout_EAX;
+  int *extraout_EAX_00;
   float *pfVar7;
   float *pfVar8;
   int iVar9;
@@ -60,9 +63,9 @@ ScriptCore.World::World_GetRainPuddlesOnLotImpl(int param_1,int param_2,undefine
   
   pvVar1 = DAT_011edbc4;
   if ((((DAT_011edbc4 != (void *)0x0) &&
-       (piVar4 = FUN_00c62810(DAT_011edbc4,param_1,param_2,(int *)0x0), in_EAX = piVar4,
-       piVar4 != (int *)0x0)) && (local_58 = *(int *)((int)pvVar1 + 0x74), local_58 != 0)) &&
-     (piVar4[0xa6] != 0)) {
+       (piVar4 = WorldObjects_FindLotByGuid(DAT_011edbc4,param_1,param_2,(uint *)0x0),
+       in_EAX = piVar4, piVar4 != (int *)0x0)) &&
+      (local_58 = *(int *)((int)pvVar1 + 0x74), local_58 != 0)) && (piVar4[0xa6] != 0)) {
     local_54 = piVar4;
     cVar3 = FUN_00d69ae0();
     in_EAX = (int *)CONCAT31(extraout_var,cVar3);
@@ -89,14 +92,14 @@ ScriptCore.World::World_GetRainPuddlesOnLotImpl(int param_1,int param_2,undefine
         do {
           pvVar1 = (void *)(local_88 + local_78[0]);
           local_68 = pvVar1;
-          FUN_0093ad70(pvVar1,(int *)&local_84);
+          PickCandidateMap_Begin(pvVar1,&local_84);
           if (local_84 != *(char **)(*(int *)((int)pvVar1 + 4) + *(int *)((int)pvVar1 + 8) * 4)) {
             do {
               piVar4 = local_54;
               pcVar2 = local_84;
               FUN_00af8290((int)local_54,local_84,&local_50);
-              FUN_00ab7040(piVar4,&local_50,&local_50);
-              uVar6 = FUN_00d6dff0(&local_50,piVar4,'\0','\0');
+              Lot_LocalPositionToWorldVector(piVar4,&local_50,&local_50);
+              uVar6 = Seasons_HasRainPuddleAtPoint(&local_50,piVar4,'\0','\0');
               pfVar7 = local_94;
               if ((char)uVar6 != '\0') {
                 local_30 = local_50;
@@ -169,7 +172,8 @@ ScriptCore.World::World_GetRainPuddlesOnLotImpl(int param_1,int param_2,undefine
           (**(code **)(*piVar4 + 0xa8))(param_3,pfVar7,0,iVar9);
           uVar6 = FUN_007976b0((uint *)&local_90);
           if (pfVar7 != (float *)0x0) {
-            uVar6 = FUN_004e44e0((int)pfVar7);
+            Memory_FreeIfNonNull(pfVar7);
+            uVar6 = extraout_EAX;
           }
           return CONCAT31((int3)((uint)uVar6 >> 8),1);
         }
@@ -177,7 +181,8 @@ ScriptCore.World::World_GetRainPuddlesOnLotImpl(int param_1,int param_2,undefine
       local_7c = iVar9;
       in_EAX = (int *)FUN_007976b0(local_78);
       if (pfVar7 != (float *)0x0) {
-        in_EAX = (int *)FUN_004e44e0((int)pfVar7);
+        Memory_FreeIfNonNull(pfVar7);
+        in_EAX = extraout_EAX_00;
       }
     }
   }

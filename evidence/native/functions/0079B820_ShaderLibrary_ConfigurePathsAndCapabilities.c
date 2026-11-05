@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: initializes shader-library paths and capability flags. The binary filename is assembled
@@ -27,6 +27,7 @@ ShaderLibrary_ConfigurePathsAndCapabilities(void *this,short *param_1,undefined1
   short *psVar10;
   void *this_01;
   undefined4 uVar11;
+  short *extraout_EAX;
   short *local_54 [2];
   int local_4c;
   short *local_44;
@@ -157,7 +158,8 @@ ShaderLibrary_ConfigurePathsAndCapabilities(void *this,short *param_1,undefined1
   }
   if (((2 < (int)(local_4c - (int)local_54[0] & 0xfffffffeU)) && (local_54[0] != (short *)0x0)) &&
      (local_54[0] != local_44)) {
-    local_54[0] = (short *)FUN_004e44e0((int)local_54[0]);
+    Memory_FreeIfNonNull(local_54[0]);
+    local_54[0] = extraout_EAX;
   }
   return CONCAT31((int3)((uint)local_54[0] >> 8),1);
 }

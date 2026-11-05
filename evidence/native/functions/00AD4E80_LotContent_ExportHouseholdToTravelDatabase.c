@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original instruction review: takes full 64-bit content ID and stream adapter pointer. Obtains
@@ -27,11 +27,11 @@ LotContent_ExportHouseholdToTravelDatabase(uint param_1,undefined4 param_2,undef
     if (iVar3 != 0) {
       FUN_00ad46c0(param_3,(char *)local_18,param_1,param_2);
       uVar1 = *(undefined1 *)(param_3 + 5);
-      FUN_007d7990((int)local_18);
+      StreamReader_ReleaseAuxiliary(local_18);
       return uVar1;
     }
   }
-  FUN_007d7990((int)local_18);
+  StreamReader_ReleaseAuxiliary(local_18);
   return 0;
 }
 

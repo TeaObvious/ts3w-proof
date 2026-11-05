@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst note (PC1.67 fence resource/renderer and resolved virtual contract): ECX renderer; RET1C
    seven physical slots: model key pointer, product key pointer, six signed-byte WallLocator
    pointer, design/compositor words pointer, float height offset, byte flag6,byte flag7. Signed
@@ -97,8 +99,8 @@ FenceRenderer_AddRailSceneModel
       if (local_190 == *(float *)(*(int *)((int)pvVar5 + 4) + *(int *)((int)pvVar5 + 8) * 4)) {
         local_1a4 = (void *)0x0;
         local_16c = 0.0;
-        local_18c = ((float)(int)wallLocator6[1] + (float)(int)wallLocator6[4]) * _DAT_00f9b5b4;
-        local_190 = ((float)(int)*wallLocator6 + (float)(int)wallLocator6[3]) * _DAT_00f9b5b4;
+        local_18c = ((float)(int)wallLocator6[1] + (float)(int)wallLocator6[4]) * 0.5;
+        local_190 = ((float)(int)*wallLocator6 + (float)(int)wallLocator6[3]) * 0.5;
         FUN_00a68f00(*(void **)((int)this + 4),local_190,local_18c,(float *)&local_1a4,&local_16c);
         uVar11 = FUN_00afc840(local_1a4,local_16c,(byte)local_164,0);
         local_18c = (float)(uVar11 >> 0x20);
@@ -134,18 +136,18 @@ FenceRenderer_AddRailSceneModel
             piVar7 = (int *)0x0;
           }
           else {
-            piVar7 = (int *)FUN_006fe070(pvVar5,designWords,(undefined4 *)((int)designWords + 0x10))
-            ;
+            piVar7 = (int *)TexCompFixupLOD_Initialize
+                                      (pvVar5,designWords,(undefined4 *)((int)designWords + 0x10));
           }
           FUN_008c8d00(&local_19c,piVar7);
           piVar7 = local_19c;
           (**(code **)(*piVar6 + 0x80))();
-          FUN_006dcc00(piVar6 + 0x84);
+          ModelBinding_ApplyMaterialToAvailableLod(piVar6 + 0x84);
           if (piVar7 != (int *)0x0) {
             (**(code **)(*piVar7 + 4))();
           }
         }
-        FUN_00a67e40(&stack0xfffffe48,flag6,piVar6);
+        FUN_00a67e40(auStack_218 + 0x18,flag6,piVar6);
         psVar9 = local_d8;
         puVar8 = auStack_218;
         for (iVar3 = 0x18; iVar3 != 0; iVar3 = iVar3 + -1) {
@@ -163,13 +165,12 @@ FenceRenderer_AddRailSceneModel
         if (piStack_18 != (int *)0x0) {
           (**(code **)(*piStack_18 + 4))();
         }
-        this = local_170;
         if (flag7 != 0) {
           piVar6 = local_1a0 + 0x84;
           FUN_006dd400(piVar6,0x7bfef7db);
           FUN_006db630(piVar6,'\0');
-          this = local_170;
         }
+        this = local_170;
       }
       else {
         StatePointerSlots_AssignVirtualLifetime(&local_1a0,(int *)((int)local_190 + 0x60));

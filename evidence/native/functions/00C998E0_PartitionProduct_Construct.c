@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static; analyst-assigned name. Physical thiscall ECX receiver, no
@@ -12,7 +12,7 @@
 void * __thiscall PartitionProduct_Construct(void *this)
 
 {
-  FUN_00c93020(this);
+  CatalogProduct_ConstructCommonDefaults(this);
   *(undefined4 *)((int)this + 0x88) = 0;
   *(undefined4 *)((int)this + 0x9c) = 0;
   *(undefined4 *)((int)this + 0xa4) = 0;

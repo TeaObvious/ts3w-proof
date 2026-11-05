@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Original PC1.67 terrain load owner for the forwarded mode byte. Stores mode at receiver+1C and
    clears+1F; nonzero mode may select the terrain provider and inspect the original archive version.
    Passes mode unchanged to C2C770 and refuses when its returned AL is zero. Zero mode requires
@@ -40,10 +42,10 @@ uint __thiscall TerrainData_LoadForMode(void *this,int *param_1,uint param_2,cha
   int iStack_6c;
   undefined4 uStack_68;
   undefined4 uStack_64;
-  float fStack_60;
+  undefined4 uStack_60;
   float fStack_5c;
-  float fStack_58;
-  float fStack_54;
+  undefined4 uStack_58;
+  undefined4 uStack_54;
   undefined4 uStack_48;
   undefined4 uStack_44;
   undefined4 uStack_40;
@@ -51,8 +53,8 @@ uint __thiscall TerrainData_LoadForMode(void *this,int *param_1,uint param_2,cha
   undefined1 auStack_38 [24];
   float fStack_20;
   float fStack_1c;
-  float fStack_18;
-  float fStack_14;
+  undefined4 uStack_18;
+  undefined4 uStack_14;
   
   puVar1 = *(undefined4 **)((int)this + 8);
   *(char *)((int)this + 0x1c) = param_3;
@@ -89,7 +91,7 @@ uint __thiscall TerrainData_LoadForMode(void *this,int *param_1,uint param_2,cha
       if (cVar2 != '\0') {
         auStack_90[0] = 0xffff;
         auStack_90[1] = 0;
-        FUN_0056d0e0(auStack_38,auStack_90);
+        ReadUInt16AndAccumulateStatus(auStack_38,auStack_90);
         ResourceStreamContext_Close(auStack_38);
         if (auStack_90[0] < 0xb) {
           bVar3 = true;
@@ -137,16 +139,16 @@ uint __thiscall TerrainData_LoadForMode(void *this,int *param_1,uint param_2,cha
           piVar7 = (int *)(**(code **)(*local_9c + 0xc))(0x33b2b66);
           if (piVar7 != (int *)0x0) {
             fStack_8c = (float)*(int *)((int)this + 0x34);
-            fStack_54 = DAT_010f4ccc;
-            fStack_58 = DAT_010f4ccc;
+            uStack_54 = 0;
+            uStack_58 = 0;
             if (*(int *)((int)this + 0x34) < 0) {
-              fStack_8c = fStack_8c + FLOAT_00f99948;
+              fStack_8c = fStack_8c + 4.2949673e+09;
             }
-            fStack_8c = fStack_8c * _DAT_00f9b5b4;
-            fStack_60 = DAT_010f4ccc;
-            fStack_20 = DAT_010f4ccc;
-            fStack_18 = DAT_010f4ccc;
-            fStack_14 = DAT_010f4ccc;
+            fStack_8c = fStack_8c * 0.5;
+            uStack_60 = 0;
+            fStack_20 = 0.0;
+            uStack_18 = 0;
+            uStack_14 = 0;
             fStack_5c = fStack_8c;
             fStack_1c = fStack_8c;
             FUN_00c29350(this,*piVar4,piVar4[1],piVar7,(int *)0x0,&fStack_20);

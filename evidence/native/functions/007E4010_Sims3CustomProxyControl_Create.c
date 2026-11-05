@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. Actual factory has two stack DWORDs and RET8, returns
@@ -16,7 +16,7 @@ void * Sims3CustomProxyControl_Create(uint typeIdentity,void *allocationContext)
   uint *this;
   void *pvVar1;
   
-  this = FUN_005050b0(0x2b0,0x10,"UI/Sims3CustomProxyControl",allocationContext);
+  this = AllocateWithAllocatorHeader(0x2b0,0x10,"UI/Sims3CustomProxyControl",allocationContext);
   if (this != (uint *)0x0) {
     pvVar1 = Sims3CustomProxyControl_Construct(this,typeIdentity);
     if (pvVar1 != (void *)0x0) {

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011620e0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011620e0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Slots::Slots_DetachFromParentImpl [assembly=ScriptCore token=0x06000D3F; objectId:
    System.UInt64; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -14,30 +15,30 @@ uint ScriptCore.Slots::Slots_DetachFromParentImpl(void)
 
 {
   char cVar1;
-  int iVar2;
-  void *pvVar3;
+  void *pvVar2;
   undefined3 extraout_var;
-  undefined4 uVar5;
-  undefined4 extraout_EDX;
+  uint uVar3;
+  undefined4 extraout_EAX;
+  undefined4 in_stack_00000004;
+  undefined4 in_stack_00000008;
   float local_30 [11];
-  uint uVar4;
   
-  iVar2 = FUN_00937570();
-  pvVar3 = (void *)FUN_00937f80(iVar2);
-  uVar4 = 0;
-  if (pvVar3 != (void *)0x0) {
-    pvVar3 = (void *)FUN_00934260(pvVar3,DAT_011ea158);
-    uVar4 = 0;
-    if (pvVar3 != (void *)0x0) {
-      FUN_00957910(pvVar3,local_30);
-      cVar1 = FUN_009595b0(pvVar3);
-      uVar4 = CONCAT31(extraout_var,cVar1);
+  pvVar2 = ObjectRegistry_GetGlobal();
+  pvVar2 = ObjectRegistry_FindBorrowed(pvVar2,CONCAT44(in_stack_00000008,in_stack_00000004));
+  uVar3 = 0;
+  if (pvVar2 != (void *)0x0) {
+    pvVar2 = Object_GetComponentByMask(pvVar2,DAT_011ea158);
+    uVar3 = 0;
+    if (pvVar2 != (void *)0x0) {
+      TransformComponent_GetWorldQuaternionTranslation(pvVar2,local_30);
+      cVar1 = FUN_009595b0(pvVar2);
+      uVar3 = CONCAT31(extraout_var,cVar1);
       if (cVar1 != '\0') {
-        uVar5 = FUN_00958150(pvVar3,extraout_EDX,local_30);
-        return CONCAT31((int3)((uint)uVar5 >> 8),1);
+        TransformComponent_SetWorldPose(pvVar2,local_30);
+        return CONCAT31((int3)((uint)extraout_EAX >> 8),1);
       }
     }
   }
-  return uVar4 & 0xffffff00;
+  return uVar3 & 0xffffff00;
 }
 

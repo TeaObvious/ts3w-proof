@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01162d98 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01162d98 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.UIManager::UIManager_InitUserToolHelperImpl [assembly=ScriptCore token=0x06000DEE; ;
    return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -18,11 +19,12 @@ void ScriptCore.UIManager::UIManager_InitUserToolHelperImpl(void)
   uint *puVar3;
   int *piVar4;
   int iVar5;
+  undefined1 auStack_e [14];
   
   piVar2 = (int *)FUN_0050af90();
   piVar2 = (int *)(**(code **)(*piVar2 + 4))();
   if (piVar2 != (int *)0x0) {
-    puVar3 = FUN_005050b0(0x260,0x10,"Scripting/UIHost/UITopLevelWindow",(int *)0x0);
+    puVar3 = AllocateWithAllocatorHeader(0x260,0x10,"Scripting/UIHost/UITopLevelWindow",(int *)0x0);
     if (puVar3 == (uint *)0x0) {
       piVar4 = (int *)0x0;
     }
@@ -35,7 +37,7 @@ void ScriptCore.UIManager::UIManager_InitUserToolHelperImpl(void)
     piVar1 = piVar4 + 1;
     (**(code **)(piVar4[1] + 0xb0))(0);
     (**(code **)(*piVar2 + 0x38))();
-    (**(code **)(*piVar1 + 100))(&stack0xffffffec);
+    (**(code **)(*piVar1 + 100))(auStack_e + -6);
     (**(code **)(piVar4[0x94] + 0x18))(0x397b562);
     (**(code **)(*piVar1 + 0x54))(0x397b562);
     (**(code **)(*piVar1 + 0x74))(0x10,1);

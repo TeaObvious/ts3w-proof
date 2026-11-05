@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x01181790 (TS3W.exe).
@@ -33,7 +33,7 @@ ScriptCore.DownloadContent::DownloadContent_ImportHouseholdContentsFromTravelBin
   }
   FUN_007d7920(local_18,local_1c,1);
   uVar2 = LotContent_ImportTravelHouseholdAndRemapId(local_18);
-  FUN_007d7990((int)local_18);
+  StreamReader_ReleaseAuxiliary(local_18);
   if (local_1c != (void *)0x0) {
     (**(code **)(*(int *)((int)local_1c + 4) + 4))();
   }

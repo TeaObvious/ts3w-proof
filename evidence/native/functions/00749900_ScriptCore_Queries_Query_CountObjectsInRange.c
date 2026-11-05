@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161700 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161700 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Queries::Query_CountObjectsInRange [assembly=ScriptCore token=0x06000512; type:
    System.Type, center: Sims3.SimIFace.Vector3, radius: System.Single; return=System.UInt32]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -17,35 +18,37 @@ undefined4 __cdecl ScriptCore.Queries::Query_CountObjectsInRange(undefined4 para
   float *pfVar1;
   int *piVar2;
   ulonglong uVar3;
+  undefined1 uStack00000008;
   float in_stack_00000014;
   undefined4 uVar4;
-  int iStack_3c;
-  int local_30;
+  void **ppvVar5;
+  void *pvStack_3c;
+  void *local_30;
   int local_2c;
   undefined4 local_28;
   char *local_24;
   undefined4 local_20 [7];
   
-  this = (void *)FUN_00686e60();
-  piVar2 = &local_30;
+  this = (void *)CollisionService_GetGlobal();
+  ppvVar5 = &local_30;
   uVar4 = 0xc;
-  local_30 = 0;
+  local_30 = (void *)0x0;
   local_2c = 0;
   local_28 = 0;
   local_24 = "Physics/RangeResult";
-  pfVar1 = (float *)FUN_0076c050(&stack0x00000008,local_20);
-  uVar3 = FUN_00686fe0(this,pfVar1,in_stack_00000014,uVar4,piVar2);
-  if ((char)uVar3 != '\0') {
-    piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
-    uVar4 = (**(code **)(*piVar2 + 0xc4))(param_1,local_30,local_2c - local_30 >> 3);
-    if (iStack_3c != 0) {
-      FUN_004e44e0(iStack_3c);
+  pfVar1 = RouteVector_ExpandXYZWithXLane(&uStack00000008,local_20);
+  uVar3 = FUN_00686fe0(this,pfVar1,in_stack_00000014,uVar4,(int *)ppvVar5);
+  if ((char)uVar3 == '\0') {
+    if (local_30 != (void *)0x0) {
+      Memory_FreeIfNonNull(local_30);
     }
-    return uVar4;
+    return 0;
   }
-  if (local_30 != 0) {
-    FUN_004e44e0(local_30);
+  piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
+  uVar4 = (**(code **)(*piVar2 + 0xc4))(param_1,local_30,local_2c - (int)local_30 >> 3);
+  if (pvStack_3c != (void *)0x0) {
+    Memory_FreeIfNonNull(pvStack_3c);
   }
-  return 0;
+  return uVar4;
 }
 

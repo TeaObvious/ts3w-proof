@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x0115eb18 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x0115eb18 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Animation::Animation_SetBonePosition [assembly=ScriptCore token=0x06000DB6; objId:
    System.UInt64, boneId: System.UInt32, pos: Sims3.SimIFace.Vector3, interpTime: System.Single;
    return=System.Void]
@@ -18,40 +19,40 @@ ScriptCore.Animation::Animation_SetBonePosition
 
 {
   int *piVar1;
-  int iVar2;
+  void *pvVar2;
   undefined4 *this;
-  void *pvVar3;
+  int iVar3;
   undefined4 uStack_20;
   undefined4 uStack_1c;
   undefined4 uStack_18;
   undefined4 uStack_14;
   
-  iVar2 = FUN_00937570();
-  this = (undefined4 *)FUN_00937f80(iVar2);
+  pvVar2 = ObjectRegistry_GetGlobal();
+  this = ObjectRegistry_FindBorrowed(pvVar2,CONCAT44(param_2,param_1));
   if (this != (undefined4 *)0x0) {
     piVar1 = this + 1;
     LOCK();
     *piVar1 = *piVar1 + 1;
     UNLOCK();
-    pvVar3 = (void *)FUN_00934260(this,DAT_011dd484);
-    if (pvVar3 != (void *)0x0) {
-      iVar2 = FUN_0093cba0(pvVar3,15000);
-      if (iVar2 != 0) {
-        pvVar3 = (void *)(**(code **)(*(int *)(iVar2 + 8) + 4))(0x664ed68);
-        if (pvVar3 != (void *)0x0) {
+    pvVar2 = Object_GetComponentByMask(this,DAT_011dd484);
+    if (pvVar2 != (void *)0x0) {
+      iVar3 = FUN_0093cba0(pvVar2,15000);
+      if (iVar3 != 0) {
+        pvVar2 = (void *)(**(code **)(*(int *)(iVar3 + 8) + 4))(0x664ed68);
+        if (pvVar2 != (void *)0x0) {
           uStack_20 = param_4;
           uStack_1c = param_5;
           uStack_18 = param_6;
           uStack_14 = param_4;
-          FUN_0056bda0(pvVar3,param_3,&uStack_20,param_7);
+          FUN_0056bda0(pvVar2,param_3,&uStack_20,param_7);
         }
       }
     }
     LOCK();
-    iVar2 = *piVar1;
+    iVar3 = *piVar1;
     *piVar1 = *piVar1 + -1;
     UNLOCK();
-    if (iVar2 == 1) {
+    if (iVar3 == 1) {
       LOCK();
       *piVar1 = 1;
       UNLOCK();

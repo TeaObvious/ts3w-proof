@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 original static instructions. ECXgrid +4stackDWORDs ownerBytepointer/x/z/relativelevel
@@ -26,7 +26,7 @@ FloorOwnerGrid_WriteTileOwnerId(void *this,char *param_1,uint param_2,uint param
       return;
     }
     iVar2 = *(int *)((int)this + 0x2c) - *(int *)((int)this + 0x28);
-    FUN_00412e20((int *)((int)this + 0x28),iVar2 + 0x10);
+    ByteVector_ResizeZeroed((int *)((int)this + 0x28),iVar2 + 0x10);
     _Dst = (void *)(*(int *)((int)this + 0x28) + iVar2);
     memset(_Dst,(uint)*(byte *)(*(int *)((int)this + 0x38) + iVar3),
            *(int *)((int)this + 0x2c) - (int)_Dst);

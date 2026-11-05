@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x011636e8 (TS3W.exe).
@@ -37,14 +37,13 @@ ScriptCore.World::World_ObjectFootprintContainsPoints
   int iVar6;
   int *unaff_EBX;
   int *piVar7;
-  int iVar8;
+  float fVar8;
   float fVar9;
   float fVar10;
   float fVar11;
   float fVar12;
-  float fVar13;
   undefined1 in_XMM4 [16];
-  undefined1 auVar14 [16];
+  undefined1 auVar13 [16];
   bool local_133;
   char local_132;
   char local_131;
@@ -52,7 +51,7 @@ ScriptCore.World::World_ObjectFootprintContainsPoints
   int local_12c;
   int iStack_128;
   int local_124;
-  int local_120;
+  void *local_120;
   int iStack_11c;
   undefined4 uStack_118;
   char *pcStack_114;
@@ -130,44 +129,44 @@ ScriptCore.World::World_ObjectFootprintContainsPoints
       FootprintComponent_CollectNamedPolygons(this,footprintNameHash,&local_110,&local_132);
       local_131 = (-(*(int *)((int)pvVar4 + 0x18) != 0x7fffffff) &
                   (byte)*(int *)((int)pvVar4 + 0x18)) + local_132;
-      local_f4.x = DAT_00fab218;
-      local_f4.z = DAT_00fab218;
+      local_f4.x = -1.0;
+      local_f4.z = -1.0;
       local_f4.level = 0;
       local_fc = DAT_011edbc4;
       if (DAT_011edbc4 != (void *)0x0) {
         local_100 = local_10c;
         TransformComponent_GetWorldQuaternionTranslation(this_00,&local_50);
-        fVar9 = fStack_44 * fStack_44 + fStack_4c * fStack_4c +
+        fVar8 = fStack_44 * fStack_44 + fStack_4c * fStack_4c +
                 fStack_48 * fStack_48 + local_50 * local_50;
-        auVar14._4_4_ = fVar9;
-        auVar14._0_4_ = fVar9;
-        auVar14._8_4_ = fVar9;
-        auVar14._12_4_ = fVar9;
-        auVar14 = rcpps(in_XMM4,auVar14);
-        fVar10 = (DAT_0103fd88 - auVar14._0_4_ * fVar9) * auVar14._0_4_;
-        fVar11 = (DAT_0103fd88 - auVar14._4_4_ * fVar9) * auVar14._4_4_;
-        fVar12 = (DAT_0103fd88 - auVar14._8_4_ * fVar9) * auVar14._8_4_;
-        fVar13 = (DAT_0103fd88 - auVar14._12_4_ * fVar9) * auVar14._12_4_;
+        auVar13._4_4_ = fVar8;
+        auVar13._0_4_ = fVar8;
+        auVar13._8_4_ = fVar8;
+        auVar13._12_4_ = fVar8;
+        auVar13 = rcpps(in_XMM4,auVar13);
+        fVar9 = (2.0 - auVar13._0_4_ * fVar8) * auVar13._0_4_;
+        fVar10 = (2.0 - auVar13._4_4_ * fVar8) * auVar13._4_4_;
+        fVar11 = (2.0 - auVar13._8_4_ * fVar8) * auVar13._8_4_;
+        fVar12 = (2.0 - auVar13._12_4_ * fVar8) * auVar13._12_4_;
         pcStack_114 = (char *)0x0;
         local_130 = (int *)0x80000000;
         uStack_118 = 0x80000000;
         iStack_11c = 0x80000000;
-        local_120 = -0x80000000;
-        fStack_8c = (DAT_0103fd88 - fVar10 * fVar9) * fVar10 * -local_50;
-        fStack_88 = (DAT_0103fd88 - fVar11 * fVar9) * fVar11 * -fStack_4c;
-        local_90 = (DAT_0103fd88 - fVar12 * fVar9) * fVar12 * -fStack_48;
-        local_60 = (DAT_0103fd88 - fVar13 * fVar9) * fVar13 * fStack_44;
-        fVar9 = (fStack_38 * fStack_88 - fStack_3c * local_90) + local_60 * local_40;
-        fVar10 = (local_40 * local_90 - fStack_38 * fStack_8c) + local_60 * fStack_3c;
-        fVar11 = (fStack_3c * fStack_8c - local_40 * fStack_88) + local_60 * fStack_38;
-        local_20 = 0.0 - ((fVar11 * fStack_88 - fVar10 * local_90) * DAT_0103fd88 + local_40);
-        fStack_1c = 0.0 - ((fVar9 * local_90 - fVar11 * fStack_8c) * DAT_0103fd88 + fStack_3c);
-        fStack_18 = 0.0 - ((fVar10 * fStack_8c - fVar9 * fStack_88) * DAT_0103fd88 + fStack_38);
-        fStack_14 = 0.0 - ((fVar9 * fStack_8c - fVar9 * fStack_8c) * DAT_0103fd88 + fStack_34);
-        local_c0 = DAT_0103fd88;
-        fStack_bc = DAT_0103fd88;
-        fStack_b8 = DAT_0103fd88;
-        fStack_b4 = DAT_0103fd88;
+        local_120 = (void *)0x80000000;
+        fStack_8c = (2.0 - fVar9 * fVar8) * fVar9 * -local_50;
+        fStack_88 = (2.0 - fVar10 * fVar8) * fVar10 * -fStack_4c;
+        local_90 = (2.0 - fVar11 * fVar8) * fVar11 * -fStack_48;
+        local_60 = (2.0 - fVar12 * fVar8) * fVar12 * fStack_44;
+        fVar8 = (fStack_38 * fStack_88 - fStack_3c * local_90) + local_60 * local_40;
+        fVar9 = (local_40 * local_90 - fStack_38 * fStack_8c) + local_60 * fStack_3c;
+        fVar10 = (fStack_3c * fStack_8c - local_40 * fStack_88) + local_60 * fStack_38;
+        local_20 = 0.0 - ((fVar10 * fStack_88 - fVar9 * local_90) * 2.0 + local_40);
+        fStack_1c = 0.0 - ((fVar8 * local_90 - fVar10 * fStack_8c) * 2.0 + fStack_3c);
+        fStack_18 = 0.0 - ((fVar9 * fStack_8c - fVar8 * fStack_88) * 2.0 + fStack_38);
+        fStack_14 = 0.0 - ((fVar8 * fStack_8c - fVar8 * fStack_8c) * 2.0 + fStack_34);
+        local_c0 = 2.0;
+        fStack_bc = 2.0;
+        fStack_b8 = 2.0;
+        fStack_b4 = 2.0;
         fStack_84 = fStack_8c;
         local_70 = fStack_88;
         fStack_6c = local_90;
@@ -185,14 +184,14 @@ ScriptCore.World::World_ObjectFootprintContainsPoints
           FootprintPolygonVector_Destroy((uint *)&local_110);
           return false;
         }
-        local_120 = 0;
+        local_120 = (void *)0x0;
         iStack_11c = 0;
         uStack_118 = 0;
         pcStack_114 = "World/Footprint";
         iStack_128 = 0;
         if (0 < local_124) {
           do {
-            iVar8 = iStack_128;
+            iVar6 = iStack_128;
             pvVar4 = ObjectRegistry_FindBorrowed
                                (local_f8,CONCAT44(*(undefined4 *)(local_12c + 4 + iStack_128 * 8),
                                                   *(undefined4 *)(local_12c + iStack_128 * 8)));
@@ -211,15 +210,15 @@ ScriptCore.World::World_ObjectFootprintContainsPoints
                (Lot_WorldPositionToLocalLocation(pvVar4,&fStack_e0,&local_f4),
                local_131 == local_f4.level)) {
               piVar2 = local_100;
-              fVar9 = (fStack_d8 * local_70 - fStack_dc * local_90) + local_60 * fStack_e0;
-              fVar10 = (fStack_e0 * fStack_6c - fStack_d8 * fStack_8c) + fStack_5c * fStack_dc;
-              fVar11 = (fStack_dc * fStack_68 - fStack_e0 * fStack_88) + fStack_58 * fStack_d8;
-              fStack_e8 = (fVar11 * local_70 - fVar10 * local_90) * local_c0 + fStack_e0 + local_20;
-              fStack_9c = (fVar9 * fStack_6c - fVar11 * fStack_8c) * fStack_bc + fStack_dc +
+              fVar8 = (fStack_d8 * local_70 - fStack_dc * local_90) + local_60 * fStack_e0;
+              fVar9 = (fStack_e0 * fStack_6c - fStack_d8 * fStack_8c) + fStack_5c * fStack_dc;
+              fVar10 = (fStack_dc * fStack_68 - fStack_e0 * fStack_88) + fStack_58 * fStack_d8;
+              fStack_e8 = (fVar10 * local_70 - fVar9 * local_90) * local_c0 + fStack_e0 + local_20;
+              fStack_9c = (fVar8 * fStack_6c - fVar10 * fStack_8c) * fStack_bc + fStack_dc +
                           fStack_1c;
-              fStack_e4 = (fVar10 * fStack_68 - fVar9 * fStack_88) * fStack_b8 + fStack_d8 +
+              fStack_e4 = (fVar9 * fStack_68 - fVar8 * fStack_88) * fStack_b8 + fStack_d8 +
                           fStack_18;
-              fStack_94 = (fVar9 * fStack_64 - fVar9 * fStack_84) * fStack_b4 + fStack_d4 +
+              fStack_94 = (fVar8 * fStack_64 - fVar8 * fStack_84) * fStack_b4 + fStack_d4 +
                           fStack_14;
               fStack_a0 = fStack_e8;
               fStack_98 = fStack_e4;
@@ -236,23 +235,23 @@ ScriptCore.World::World_ObjectFootprintContainsPoints
                     Int32Vector_AppendValue(&local_120,&iStack_128);
                   }
                   piVar1 = piVar7 + 4;
-                  iVar8 = iStack_128;
                   piVar7 = piVar7 + 0x10;
                 } while (piVar1 != piVar2);
+                iVar6 = iStack_128;
               }
             }
-            iStack_128 = iVar8 + 1;
+            iStack_128 = iVar6 + 1;
           } while (iStack_128 < local_124);
         }
-        iVar8 = local_120;
-        iVar6 = iStack_11c - local_120 >> 2;
+        pvVar4 = local_120;
+        iVar6 = iStack_11c - (int)local_120 >> 2;
         local_133 = 0 < iVar6;
         if (local_133) {
           (**(code **)(*piVar5 + 0x8c))(resultsSafeArrayRef,iVar6);
-          (**(code **)(*unaff_EBX + 0xa4))(resultsSafeArrayRef,iVar8,0,iVar6);
+          (**(code **)(*unaff_EBX + 0xa4))(resultsSafeArrayRef,pvVar4,0,iVar6);
         }
-        if (iVar8 != 0) {
-          FUN_004e44e0(iVar8);
+        if (pvVar4 != (void *)0x0) {
+          Memory_FreeIfNonNull(pvVar4);
         }
       }
       FootprintPolygonVector_Destroy((uint *)&local_110);

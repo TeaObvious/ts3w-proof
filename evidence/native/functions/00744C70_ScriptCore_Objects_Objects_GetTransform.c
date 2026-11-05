@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x01161408 (TS3W.exe).
@@ -18,7 +18,7 @@ float * __cdecl ScriptCore.Objects::Objects_GetTransform(float *outMatrix,ulongl
 
 {
   void *pvVar1;
-  uint local_50 [4];
+  float local_50 [4];
   undefined4 local_40 [4];
   undefined4 local_30 [4];
   undefined4 local_20 [7];
@@ -28,7 +28,7 @@ float * __cdecl ScriptCore.Objects::Objects_GetTransform(float *outMatrix,ulongl
   if (pvVar1 != (void *)0x0) {
     pvVar1 = Object_GetComponentByMask(pvVar1,DAT_011ea158);
     if (pvVar1 != (void *)0x0) {
-      FUN_00957a90(pvVar1,local_50);
+      TransformComponent_GetWorldMatrix(pvVar1,local_50);
       FUN_00adf9e0(outMatrix,local_50);
       FUN_00adf9e0(outMatrix + 4,local_40);
       FUN_00adf9e0(outMatrix + 8,local_30);

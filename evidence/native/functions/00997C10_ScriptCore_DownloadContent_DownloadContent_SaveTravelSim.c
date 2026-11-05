@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original PC 1.67 registered ScriptCore.DownloadContent::DownloadContent_SaveTravelSim;
@@ -36,8 +36,8 @@ ScriptCore.DownloadContent::DownloadContent_SaveTravelSim
   if ((char)*puVar2 == '\0') {
     return false;
   }
-  FUN_0076c0e0(&outfitKey,(undefined4 *)&local_30);
-  FUN_0076c0e0(exportKey,(undefined4 *)&local_40);
+  UIResourceKey_CopyManagedToNative(&outfitKey,(undefined4 *)&local_30);
+  UIResourceKey_CopyManagedToNative(exportKey,(undefined4 *)&local_40);
   bVar1 = SimStorage_SaveTravelSim(this,simContent,&local_30,&local_40);
   if (bVar1) {
     puVar3 = (uint *)FUN_0076bfd0(&local_10,(undefined4 *)&local_40);

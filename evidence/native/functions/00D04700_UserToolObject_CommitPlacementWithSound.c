@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Physical ECX tool; plain RET and low-byte status consumed. Complete placement work and callbacks
@@ -34,8 +34,7 @@ uint __fastcall UserToolObject_CommitPlacementWithSound(int *param_1)
   float local_80;
   int local_7c;
   float fStack_78;
-  int iStack_74;
-  int iStack_70;
+  undefined8 uStack_74;
   int iStack_6c;
   int *piStack_68;
   float fStack_64;
@@ -66,8 +65,8 @@ uint __fastcall UserToolObject_CommitPlacementWithSound(int *param_1)
     this = Object_GetComponentByMask(pvVar11,DAT_011edf08);
     uVar5 = 0;
     if (this == (void *)0x0) goto LAB_00d0475c;
-    local_84 = FLOAT_00fab218;
-    local_80 = FLOAT_00fab218;
+    local_84 = -1.0;
+    local_80 = -1.0;
     local_7c = 0;
     uVar5 = ObjectLocation_CopyXZLevel(this,&local_84,&local_80,&local_7c);
     if (local_7c == 0x7fffffff) goto LAB_00d0475c;
@@ -76,10 +75,10 @@ uint __fastcall UserToolObject_CommitPlacementWithSound(int *param_1)
        (cVar3 = (**(code **)(*param_1 + 0x7c))(param_1[3],&local_84), cVar3 != '\0')) {
       thunk_FUN_00792320();
       fVar12 = (float10)(**(code **)(*param_1 + 0x94))();
-      bVar4 = (byte)(*(uint *)((int)this + 0x2c) >> 5);
-      piStack_88 = (int *)(CONCAT31(piStack_88._1_3_,bVar4) & 0xffffff01);
-      bVar4 = FUN_00ccba00(pvVar11,DAT_011ee7b8,*(undefined1 *)((int)param_1 + 0x1de),bVar4 & 1,
-                           (void *)0x0);
+      piStack_88 = (int *)(CONCAT31(piStack_88._1_3_,(char)(*(uint *)((int)this + 0x2c) >> 5)) &
+                          0xffffff01);
+      bVar4 = FUN_00ccba00(pvVar11,DAT_011ee7b8,*(undefined1 *)((int)param_1 + 0x1de),
+                           (char)piStack_88,(void *)0x0);
       if (bVar4 != 0) {
         if ((char)param_1[7] == '\0') {
           uVar7 = FUN_00cd2e10((float)fVar12);
@@ -128,7 +127,7 @@ uint __fastcall UserToolObject_CommitPlacementWithSound(int *param_1)
         pvVar10 = (void *)FUN_00cfb880((int)param_1);
         FUN_00ccc8d0((void *)param_1[3],pvVar10,pfVar14,pvVar9);
         iVar6 = FUN_00cfb880((int)param_1);
-        uVar5 = FUN_00b04980(iVar6);
+        uVar5 = ObjectCatalog_HasBuildableShellFlag(iVar6);
         if ((((char)uVar5 != '\0') && (param_1[3] != 0)) &&
            (pvVar9 = *(void **)(param_1[3] + 0x290), pvVar9 != (void *)0x0)) {
           FUN_00a91ae0(pvVar9);
@@ -151,23 +150,23 @@ uint __fastcall UserToolObject_CommitPlacementWithSound(int *param_1)
             dVar13 = floor((double)fStack_60);
             fStack_78 = (float)(int)ROUND((float)dVar13);
             dVar13 = floor((double)fStack_64);
-            iStack_74 = (int)ROUND((float)dVar13);
-            iStack_70 = (int)fStack_78;
+            uStack_74._0_4_ = (int)ROUND((float)dVar13);
+            uStack_74._4_4_ = (int)fStack_78;
             piStack_68 = piStack_88;
             iStack_6c = (int)fVar1;
-            FUN_00cfbe80(param_1,(void *)param_1[3],(undefined1 *)&iStack_74,&local_84,
+            FUN_00cfbe80(param_1,(void *)param_1[3],(undefined1 *)&uStack_74,&local_84,
                          (char)local_7c + '\x01','\0');
           }
         }
         FUN_00d00700((int)param_1);
         (**(code **)(*param_1 + 0x88))();
         if ((*(uint *)((int)pvVar11 + 0x2c) & DAT_011ea0f8) != 0) {
-          iStack_74 = *(int *)((int)pvVar11 + 8);
-          iStack_70 = *(undefined4 *)((int)pvVar11 + 0xc);
-          Variant_ConstructUInt64(auStack_40,(ulonglong *)&iStack_74);
-          iStack_74 = *(int *)((int)this + 8);
-          iStack_70 = *(int *)((int)this + 0xc);
-          Variant_ConstructUInt64(auStack_20,(ulonglong *)&iStack_74);
+          uStack_74._0_4_ = *(int *)((int)pvVar11 + 8);
+          uStack_74._4_4_ = *(undefined4 *)((int)pvVar11 + 0xc);
+          Variant_ConstructUInt64(auStack_40,&uStack_74);
+          uStack_74._0_4_ = *(int *)((int)this + 8);
+          uStack_74._4_4_ = *(int *)((int)this + 0xc);
+          Variant_ConstructUInt64(auStack_20,&uStack_74);
           World_DispatchRegisteredEventCallback(&fStack_64,0x12,auStack_40,2);
           FUN_004f5820(&fStack_64);
           FUN_004466e0(auStack_40,0x20,2,FUN_004f5820);

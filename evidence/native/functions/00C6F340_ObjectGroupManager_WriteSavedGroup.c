@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 object-group writer. Physical manager ECX, Stack4 resource writer, Stack8 opaque
@@ -181,20 +181,23 @@ ObjectGroupManager_WriteSavedGroup(void *this,void *param_1,undefined4 param_2,v
     bVar4 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),0,*(uint *)((int)param_1 + 0x10));
     StreamReader_AccumulateStatus(param_1,bVar4);
     arg0 = *(undefined4 **)((int)this + 0x18);
+    puVar13 = *(undefined4 **)((int)this + 0x14);
     uVar7 = CONCAT13(1,(int3)uVar6);
-    for (puVar13 = *(undefined4 **)((int)this + 0x14); puVar13 != arg0; puVar13 = puVar13 + 1) {
-      pvVar2 = (void *)*puVar13;
-      uStack_100 = (**(code **)(*piVar10 + 0x24))(0);
-      bVar4 = FUN_004de0c0(*(int **)((int)param_1 + 8),*(undefined8 *)((int)pvVar2 + 8),
-                           *(int *)((int)param_1 + 0x10));
-      StreamReader_AccumulateStatus(param_1,bVar4);
-      this = pvStack_fc;
-      if (*(char *)((int)param_1 + 0x14) == '\0') break;
-      bVar4 = ObjectRegistry_WriteSavedObjectRecord(pvStack_f8,pvVar2,param_1,param_3);
-      if (bVar4 == 0) {
-        (**(code **)(*piVar10 + 0x28))(uStack_100,0);
-        uVar7 = uVar7 & 0xffffff;
-      }
+    if (puVar13 != arg0) {
+      do {
+        pvVar2 = (void *)*puVar13;
+        uStack_100 = (**(code **)(*piVar10 + 0x24))(0);
+        bVar4 = FUN_004de0c0(*(int **)((int)param_1 + 8),*(undefined8 *)((int)pvVar2 + 8),
+                             *(int *)((int)param_1 + 0x10));
+        StreamReader_AccumulateStatus(param_1,bVar4);
+        if (*(char *)((int)param_1 + 0x14) == '\0') break;
+        bVar4 = ObjectRegistry_WriteSavedObjectRecord(pvStack_f8,pvVar2,param_1,param_3);
+        if (bVar4 == 0) {
+          (**(code **)(*piVar10 + 0x28))(uStack_100,0);
+          uVar7 = uVar7 & 0xffffff;
+        }
+        puVar13 = puVar13 + 1;
+      } while (puVar13 != arg0);
       this = pvStack_fc;
     }
     iVar11 = (**(code **)(**(int **)((int)param_1 + 8) + 0x24))(0);
@@ -230,7 +233,7 @@ LAB_00c6f8d4:
         uVar7 = StreamContext_GetPositionAndMarkNegative(param_1);
         Stream_BackpatchUInt32(param_1,local_120,uVar7);
         pvVar2 = *(void **)((int)param_3 + 0x14);
-        FUN_007d4810(pvVar2,param_1);
+        NativeObjectTable_WriteRecords(pvVar2,param_1);
         FUN_007d4040((int)pvVar2);
         iVar11 = StreamContext_GetPositionAndMarkNegative(param_1);
         uVar7 = iVar11 - uVar7;
@@ -241,10 +244,10 @@ LAB_00c6f8d4:
       }
       Stream_BackpatchUInt32(param_1,(uint)arg0,uVar7);
       ResourceStreamContext_Close(param_1);
-      if (((char)((uint)unaff_EDI >> 0x18) != '\0') && (*(char *)((int)param_1 + 0x14) != '\0')) {
-        return 1;
+      if (((char)((uint)unaff_EDI >> 0x18) == '\0') || (*(char *)((int)param_1 + 0x14) == '\0')) {
+        return 0;
       }
-      return 0;
+      return 1;
     }
   }
   StreamReader_AccumulateStatus(param_1,0);

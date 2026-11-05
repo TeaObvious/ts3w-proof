@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static; analyst-assigned name. Physical ECX product receiver plus
@@ -23,9 +23,9 @@ bool __thiscall StairsProduct_ReadCatalog(void *this,void *reader)
   bool bVar1;
   char cVar2;
   byte bVar3;
-  undefined4 *puVar4;
-  int *this_00;
-  uint uVar5;
+  void *this_00;
+  int *this_01;
+  uint uVar4;
   undefined *_Src;
   undefined *arg0;
   char acStack_98 [8];
@@ -57,10 +57,7 @@ bool __thiscall StairsProduct_ReadCatalog(void *this,void *reader)
   undefined1 *puStack_1c;
   undefined2 *puStack_18;
   char *pcStack_14;
-  undefined4 uStack_10;
-  undefined4 uStack_c;
-  undefined4 uStack_8;
-  undefined4 uStack_4;
+  int aiStack_10 [4];
   
   pvStack_44 = this;
   StreamReader_Construct(acStack_98,reader,1);
@@ -100,16 +97,16 @@ bool __thiscall StairsProduct_ReadCatalog(void *this,void *reader)
         abStack_7e[1] = 0;
         bVar1 = Stream_ReadBoolean(pvStack_90,abStack_7e + 1);
         StreamReader_AccumulateStatus(acStack_98,bVar1);
-        puVar4 = (undefined4 *)FUN_004e4500(0x60,"World/Catalog/FencePreset",0);
-        if ((puVar4 == (undefined4 *)0x0) ||
-           (this_00 = (int *)FUN_005bfac0(puVar4), this_00 == (int *)0x0)) {
+        this_00 = (void *)FUN_004e4500(0x60,"World/Catalog/FencePreset",0);
+        if ((this_00 == (void *)0x0) ||
+           (this_01 = (int *)DesignPreset_InitializeEmpty(this_00), this_01 == (int *)0x0)) {
 LAB_00c97444:
           if (arg0 != (undefined *)0x0) {
             Memory_FreeIfNonNull(arg0);
           }
           goto LAB_00c97703;
         }
-        (**(code **)*this_00)();
+        (**(code **)*this_01)();
         bVar1 = Stream_ReadUInt32(pvStack_90,&uStack_60,uStack_88);
         StreamReader_AccumulateStatus(acStack_98,bVar1);
         if ((uint)((int)_Src - (int)arg0) < uStack_60) {
@@ -126,24 +123,24 @@ LAB_00c97444:
         _Src = puStack_3c;
         bVar1 = Stream_ReadExactBytes(pvStack_90,arg0,uStack_60);
         StreamReader_AccumulateStatus(acStack_98,bVar1);
-        bVar3 = Preset_ReadBinaryOrTextBuffer(this_00,arg0,uStack_60,1);
+        bVar3 = Preset_ReadBinaryOrTextBuffer(this_01,arg0,uStack_60,1);
         if (bVar3 == 0) {
-          (**(code **)(*this_00 + 4))();
+          (**(code **)(*this_01 + 4))();
           goto LAB_00c97444;
         }
         bVar1 = Stream_ReadUInt32(pvStack_90,(uint *)(pcStack_6c + 4),uStack_88);
         StreamReader_AccumulateStatus(acStack_98,bVar1);
-        *(int **)pcStack_6c = this_00;
-        iStack_5c = iStack_5c + this_00[8];
+        *(int **)pcStack_6c = this_01;
+        iStack_5c = iStack_5c + this_01[8];
         uStack_58 = uStack_58 + 1;
       } while (uStack_58 < uStack_68);
     }
   }
   CatalogProduct_ReadCommonFields(this,reader);
-  uStack_10 = 0;
-  uStack_c = 0;
-  uStack_8 = 0;
-  uStack_4 = 0;
+  aiStack_10[0] = 0;
+  aiStack_10[1] = 0;
+  aiStack_10[2] = 0;
+  aiStack_10[3] = 0;
   uStack_30 = 0;
   uStack_2c = 0;
   uStack_28 = 0;
@@ -153,7 +150,7 @@ LAB_00c97444:
   iStack_4c = 0;
   iStack_48 = 0;
   if (uStack_64 < 2) {
-    bVar1 = Stream_ReadResourceKeyTGI(pvStack_90,&uStack_10,uStack_88);
+    bVar1 = Stream_ReadResourceKeyTGI(pvStack_90,aiStack_10,uStack_88);
     StreamReader_AccumulateStatus(acStack_98,bVar1);
     bVar1 = Stream_ReadResourceKeyTGI(pvStack_90,&uStack_30,uStack_88);
     StreamReader_AccumulateStatus(acStack_98,bVar1);
@@ -161,14 +158,14 @@ LAB_00c97444:
     StreamReader_AccumulateStatus(acStack_98,bVar1);
   }
   else {
-    uVar5 = ReferenceTable_ReadKeyByOrdinal(acStack_98,(int *)apvStack_7c,&uStack_10);
-    if ((((char)uVar5 == '\0') ||
-        (uVar5 = ReferenceTable_ReadKeyByOrdinal(acStack_98,(int *)apvStack_7c,&uStack_30),
-        (char)uVar5 == '\0')) ||
-       (uVar5 = ReferenceTable_ReadKeyByOrdinal(acStack_98,(int *)apvStack_7c,&iStack_54),
-       (char)uVar5 == '\0')) goto LAB_00c976f0;
+    uVar4 = ReferenceTable_ReadKeyByOrdinal(acStack_98,(int *)apvStack_7c,aiStack_10);
+    if ((((char)uVar4 == '\0') ||
+        (uVar4 = ReferenceTable_ReadKeyByOrdinal(acStack_98,(int *)apvStack_7c,&uStack_30),
+        (char)uVar4 == '\0')) ||
+       (uVar4 = ReferenceTable_ReadKeyByOrdinal(acStack_98,(int *)apvStack_7c,&iStack_54),
+       (char)uVar4 == '\0')) goto LAB_00c976f0;
   }
-  bVar1 = VisualProxy_ResolveTypedResource(&uStack_10,0x1661233,(void *)((int)this + 0x88));
+  bVar1 = VisualProxy_ResolveTypedResource(aiStack_10,0x1661233,(void *)((int)this + 0x88));
   if ((bVar1) &&
      (bVar1 = VisualProxy_ResolveTypedResource(&uStack_30,0x1661233,(void *)((int)this + 0x98)),
      bVar1)) {
@@ -205,18 +202,18 @@ LAB_00c97611:
       StreamReader_ReleaseAuxiliary(acStack_98);
       return (bool)uStack_84;
     }
-    uVar5 = ReferenceTable_ReadKeyByOrdinal
+    uVar4 = ReferenceTable_ReadKeyByOrdinal
                       (acStack_98,(int *)apvStack_7c,(undefined4 *)((int)this + 0xb8));
-    if ((char)uVar5 != '\0') {
-      uVar5 = ReferenceTable_ReadKeyByOrdinal
+    if ((char)uVar4 != '\0') {
+      uVar4 = ReferenceTable_ReadKeyByOrdinal
                         (acStack_98,(int *)apvStack_7c,(undefined4 *)((int)this + 0xd8));
-      if ((((char)uVar5 != '\0') &&
-          (uVar5 = ReferenceTable_ReadKeyByOrdinal
+      if ((((char)uVar4 != '\0') &&
+          (uVar4 = ReferenceTable_ReadKeyByOrdinal
                              (acStack_98,(int *)apvStack_7c,(undefined4 *)((int)this + 200)),
-          (char)uVar5 != '\0')) &&
-         (uVar5 = ReferenceTable_ReadKeyByOrdinal
+          (char)uVar4 != '\0')) &&
+         (uVar4 = ReferenceTable_ReadKeyByOrdinal
                             (acStack_98,(int *)apvStack_7c,(undefined4 *)((int)this + 0xe8)),
-         (char)uVar5 != '\0')) goto LAB_00c97611;
+         (char)uVar4 != '\0')) goto LAB_00c97611;
       FUN_004ef8f0((int *)&puStack_20);
     }
   }

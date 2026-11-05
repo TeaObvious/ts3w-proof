@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 cdecl context/optionalfeedback, plainRET lowALBoolean. Null object or absent Footprint
@@ -28,8 +28,11 @@ bool __cdecl Placement_ValidateEnabledFootprintAreas(int *param_1,void *param_2)
   float local_50 [19];
   
   local_79 = true;
-  if (((void *)*param_1 == (void *)0x0) ||
-     (this = Object_GetComponentByMask((void *)*param_1,DAT_011e9fa8), this == (void *)0x0)) {
+  if ((void *)*param_1 == (void *)0x0) {
+    return true;
+  }
+  this = Object_GetComponentByMask((void *)*param_1,DAT_011e9fa8);
+  if (this == (void *)0x0) {
     return true;
   }
   piVar1 = param_1 + 0x27;
@@ -54,10 +57,13 @@ bool __cdecl Placement_ValidateEnabledFootprintAreas(int *param_1,void *param_2)
   bVar2 = FootprintComponent_NextPolygonByRuntimeFlags(this,&local_78,5,piVar1,'\x01');
   if (bVar2) {
     do {
-      if (((*(int *)(*piVar1 + 0x30) != *(int *)(*piVar1 + 0x34)) &&
-          (bVar2 = Placement_ValidateTransformedFootprintCoverage(param_1,local_74,param_2), !bVar2)
-          ) && (local_79 = bVar2, param_2 == (void *)0x0)) {
-        return false;
+      if ((*(int *)(*piVar1 + 0x30) != *(int *)(*piVar1 + 0x34)) &&
+         (bVar2 = Placement_ValidateTransformedFootprintCoverage(param_1,local_74,param_2), !bVar2))
+      {
+        if (param_2 == (void *)0x0) {
+          return false;
+        }
+        local_79 = bVar2;
       }
       bVar2 = FootprintComponent_NextPolygonByRuntimeFlags(this,&local_78,5,piVar1,'\x01');
     } while (bVar2);
@@ -73,7 +79,8 @@ bool __cdecl Placement_ValidateEnabledFootprintAreas(int *param_1,void *param_2)
       if (param_2 == (void *)0x0) {
         return false;
       }
-      FUN_00ad6720(local_50,0xbe,param_1[1],(float *)(param_1 + 2),0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_50,0xbe,(undefined *)param_1[1],(LotPaintPoint *)(param_1 + 2),0,0);
       FUN_00ad8570(param_2,local_50);
       FUN_00ad70d0((int)local_50);
       return false;

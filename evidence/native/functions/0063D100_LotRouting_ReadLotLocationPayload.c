@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 LotLocation contract): Analyst name. ECX routing owner; four stack slots
@@ -55,8 +55,8 @@ LAB_0063d2d6:
         local_c = 0;
         StreamReader_ReadUInt32Into(this_00,&local_c);
         loadContextValue = local_c;
-        cVar5 = FUN_0062d190(this,this_00,(int *)&loadContextValue,'\x01',(int)stream,local_4);
-        if (cVar5 != '\0') {
+        bVar6 = RoutingFootprintTable_Read(this,this_00,(int *)&loadContextValue,1,stream,local_4);
+        if (bVar6 != 0) {
           StreamReader_ReadUInt32Into(this_00,&local_c);
           lotLow = local_c;
           local_8 = 0;

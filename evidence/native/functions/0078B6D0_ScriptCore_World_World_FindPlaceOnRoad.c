@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011634e8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011634e8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_FindPlaceOnRoad [assembly=ScriptCore token=0x060007A1; objId:
    System.UInt64, pos: Sims3.SimIFace.Vector3&, option: System.UInt32, outPos:
    Sims3.SimIFace.Vector3&, outOrient: Sims3.SimIFace.Quaternion&; return=System.Boolean]
@@ -18,9 +19,9 @@ ScriptCore.World::World_FindPlaceOnRoad
 
 {
   float fVar1;
-  int iVar2;
-  undefined4 *puVar3;
-  undefined4 uVar4;
+  void *this;
+  undefined4 *puVar2;
+  undefined4 uVar3;
   undefined4 *local_54;
   float local_50;
   float fStack_4c;
@@ -39,20 +40,20 @@ ScriptCore.World::World_FindPlaceOnRoad
   float fStack_18;
   float fStack_14;
   
-  iVar2 = FUN_00937570();
-  puVar3 = (undefined4 *)FUN_00937f80(iVar2);
-  if (puVar3 != (undefined4 *)0x0) {
+  this = ObjectRegistry_GetGlobal();
+  puVar2 = ObjectRegistry_FindBorrowed(this,CONCAT44(param_2,param_1));
+  if (puVar2 != (undefined4 *)0x0) {
     LOCK();
-    puVar3[1] = puVar3[1] + 1;
+    puVar2[1] = puVar2[1] + 1;
     UNLOCK();
   }
-  local_54 = puVar3;
+  local_54 = puVar2;
   if ((param_3 != (float *)0x0) && (DAT_011edbc4 != (void *)0x0)) {
     fStack_48 = param_3[2];
     local_50 = *param_3;
     fStack_4c = param_3[1];
     fStack_44 = local_50;
-    param_3 = (float *)FUN_00c7a440(DAT_011edbc4,puVar3,&local_50,param_4,&local_40,&local_20);
+    param_3 = (float *)FUN_00c7a440(DAT_011edbc4,puVar2,&local_50,param_4,&local_40,&local_20);
     if ((char)param_3 != '\0') {
       if (param_5 != (float *)0x0) {
         *param_5 = local_40;
@@ -73,12 +74,12 @@ ScriptCore.World::World_FindPlaceOnRoad
         param_6[2] = fStack_18;
         param_6[3] = fStack_14;
       }
-      uVar4 = FUN_007462e0((int *)&local_54);
-      return CONCAT31((int3)((uint)uVar4 >> 8),1);
+      uVar3 = FUN_007462e0((int *)&local_54);
+      return CONCAT31((int3)((uint)uVar3 >> 8),1);
     }
   }
-  if (puVar3 != (undefined4 *)0x0) {
-    param_3 = (float *)(puVar3 + 1);
+  if (puVar2 != (undefined4 *)0x0) {
+    param_3 = (float *)(puVar2 + 1);
     LOCK();
     fVar1 = *param_3;
     *param_3 = (float)((int)*param_3 + -1);
@@ -87,7 +88,7 @@ ScriptCore.World::World_FindPlaceOnRoad
       LOCK();
       *param_3 = 1.4013e-45;
       UNLOCK();
-      param_3 = (float *)(**(code **)*puVar3)(1);
+      param_3 = (float *)(**(code **)*puVar2)(1);
     }
   }
   return (uint)param_3 & 0xffffff00;

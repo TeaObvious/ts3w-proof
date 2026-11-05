@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC 1.67 REFS instruction review. ECX context, RET 8: reader and low-byte regenerate flag;
@@ -25,8 +25,8 @@ bool __thiscall ReferenceStore_ReadPayload(void *this,void *reader,byte regenera
 {
   int *piVar1;
   ushort uVar2;
-  int iVar3;
-  uint *puVar4;
+  uint *puVar3;
+  int iVar4;
   undefined4 *puVar5;
   void *this_00;
   bool bVar6;
@@ -131,10 +131,10 @@ bool __thiscall ReferenceStore_ReadPayload(void *this,void *reader,byte regenera
     puVar10 = (ushort *)*local_40;
     if (puVar10 == (ushort *)0x0) {
       local_40 = local_40 + 1;
-      iVar3 = *local_40;
-      while (iVar3 == 0) {
-        local_40 = local_40 + 1;
-        iVar3 = *local_40;
+      if (*local_40 == 0) {
+        do {
+          local_40 = local_40 + 1;
+        } while (*local_40 == 0);
       }
       puVar10 = (ushort *)*local_40;
     }
@@ -144,10 +144,10 @@ bool __thiscall ReferenceStore_ReadPayload(void *this,void *reader,byte regenera
         _regenerateLocalKeys =
              (undefined4 *)
              (*(int *)((int)this + 0x24) + ((uint)*puVar10 % *(uint *)((int)this + 0x28)) * 4);
-        for (puVar4 = (uint *)*_regenerateLocalKeys; puVar4 != (uint *)0x0;
-            puVar4 = (uint *)puVar4[6]) {
-          if ((uint)*puVar10 == *puVar4) {
-            local_4c = puVar4;
+        for (puVar3 = (uint *)*_regenerateLocalKeys; puVar3 != (uint *)0x0;
+            puVar3 = (uint *)puVar3[6]) {
+          if ((uint)*puVar10 == *puVar3) {
+            local_4c = puVar3;
             local_48 = _regenerateLocalKeys;
             ppuVar7 = &local_4c;
             goto LAB_007d6f10;
@@ -157,9 +157,9 @@ bool __thiscall ReferenceStore_ReadPayload(void *this,void *reader,byte regenera
         local_54 = (uint *)*local_50;
         ppuVar7 = &local_54;
 LAB_007d6f10:
-        puVar4 = *ppuVar7;
-        if (puVar4 != *(uint **)(*(int *)((int)this + 0x24) + *(int *)((int)this + 0x28) * 4)) {
-          puVar8 = puVar4 + 2;
+        puVar3 = *ppuVar7;
+        if (puVar3 != *(uint **)(*(int *)((int)this + 0x24) + *(int *)((int)this + 0x28) * 4)) {
+          puVar8 = puVar3 + 2;
           DownloadContent_GenerateSimRecordKey(&local_18,puVar8);
           local_3c = local_3c & 0xffffff00;
           FUN_007d6690((void *)((int)this + 0x60),&local_28,puVar8);
@@ -168,15 +168,16 @@ LAB_007d6f10:
           *(uint *)(local_28 + 0x18) = local_10;
           *(uint *)(local_28 + 0x1c) = local_c;
           *puVar8 = local_18;
-          puVar4[3] = local_14;
-          puVar4[4] = local_10;
-          puVar4[5] = local_c;
+          puVar3[3] = local_14;
+          puVar3[4] = local_10;
+          puVar3[5] = local_c;
         }
         puVar10 = *(ushort **)(puVar10 + 2);
-        while (puVar10 == (ushort *)0x0) {
-          piVar1 = local_40 + 1;
-          local_40 = local_40 + 1;
-          puVar10 = (ushort *)*piVar1;
+        if (puVar10 == (ushort *)0x0) {
+          do {
+            puVar10 = (ushort *)local_40[1];
+            local_40 = local_40 + 1;
+          } while (puVar10 == (ushort *)0x0);
         }
       } while (puVar10 != local_34[0]);
     }
@@ -185,10 +186,10 @@ LAB_007d6f10:
   puVar9 = (undefined4 *)*local_38;
   if (puVar9 == (undefined4 *)0x0) {
     local_38 = local_38 + 1;
-    iVar3 = *local_38;
-    while (iVar3 == 0) {
+    iVar4 = *local_38;
+    while (iVar4 == 0) {
       local_38 = local_38 + 1;
-      iVar3 = *local_38;
+      iVar4 = *local_38;
     }
     puVar9 = (undefined4 *)*local_38;
   }
@@ -200,7 +201,7 @@ LAB_007d6f10:
     local_10 = puVar9[4];
     local_c = puVar9[5];
     _regenerateLocalKeys = (undefined4 *)((uint)_regenerateLocalKeys & 0xffffff00);
-    FUN_00700890(this,&local_28,&local_18);
+    ResourceKeyMap_InsertUnique(this,&local_28,&local_18);
     puVar9 = (undefined4 *)puVar9[6];
     while (puVar9 == (undefined4 *)0x0) {
       piVar1 = local_38 + 1;

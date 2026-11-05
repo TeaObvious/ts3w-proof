@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x0108d650 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x0108d650 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.TaskControl::TaskControl_SetTaskContext [assembly=ScriptCore token=0x06000125; taskId:
    System.UInt64, context: ScriptCore.TaskContext&; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -28,6 +29,9 @@ uint ScriptCore_TaskControl__TaskControl_SetTaskContext(uint param_1,int param_2
   size_t _Size;
   undefined4 *puVar13;
   undefined4 uVar14;
+  undefined4 *extraout_EAX;
+  undefined4 *extraout_EAX_00;
+  undefined4 *extraout_EAX_01;
   uint uVar15;
   uint uVar16;
   longlong lVar17;
@@ -69,7 +73,7 @@ uint ScriptCore_TaskControl__TaskControl_SetTaskContext(uint param_1,int param_2
     if (piStack_c8 == (int *)0x0) goto LAB_00d84e48;
   }
   piVar5 = piStack_c8;
-  puVar6 = (undefined4 *)FUN_00d760c0(pvVar9,param_1,param_2,1);
+  puVar6 = (undefined4 *)FindTaskStateWithOptionalCreation(pvVar9,param_1,param_2,1);
   puStack_bc = puVar6;
   if (puVar6 != (undefined4 *)0x0) {
     uStack_a8 = FUN_00e75550();
@@ -137,13 +141,15 @@ LAB_00d849e4:
         puVar6 = puStack_bc;
         if (iStack_b8 == puStack_bc[0x50]) {
           puVar6 = (undefined4 *)0x0;
-          if ((*param_3 == 0) ||
-             (puVar6 = (undefined4 *)FUN_00d84040((int)&uStack_98,*param_3), puVar13 = puStack_94,
-             (char)puVar6 != '\0')) goto LAB_00d84a1f;
+          if (*param_3 == 0) goto LAB_00d84a1f;
+          puVar6 = (undefined4 *)FUN_00d84040((int)&uStack_98,*param_3);
+          puVar13 = puStack_94;
+          if ((char)puVar6 != '\0') goto LAB_00d84a1f;
 joined_r0x00d84d94:
           puVar6 = puVar13;
           if ((puStack_94 != (undefined4 *)0x0) && (puStack_94 != auStack_80)) {
-            puVar6 = (undefined4 *)FUN_004e44e0((int)puStack_94);
+            Memory_FreeIfNonNull(puStack_94);
+            puVar6 = extraout_EAX_00;
           }
           if (piStack_c8 != (int *)0x0) {
             uVar7 = (**(code **)(*piStack_c8 + 4))();
@@ -155,7 +161,8 @@ LAB_00d84a1f:
         uStack_c4 = (int)puStack_90 - (int)puStack_94 >> 3;
         if (uStack_c4 != puVar8[3]) {
           if ((puStack_94 != (undefined4 *)0x0) && (puStack_94 != auStack_80)) {
-            puVar6 = (undefined4 *)FUN_004e44e0((int)puStack_94);
+            Memory_FreeIfNonNull(puStack_94);
+            puVar6 = extraout_EAX;
           }
           if (piStack_c8 != (int *)0x0) {
             uVar7 = (**(code **)(*piStack_c8 + 4))();
@@ -259,7 +266,8 @@ LAB_00d84bf5:
               break;
             default:
               if ((puStack_94 != (undefined4 *)0x0) && (puStack_94 != auStack_80)) {
-                puVar6 = (undefined4 *)FUN_004e44e0((int)puStack_94);
+                Memory_FreeIfNonNull(puStack_94);
+                puVar6 = extraout_EAX_01;
               }
               if (piStack_c8 != (int *)0x0) {
                 puVar6 = (undefined4 *)(**(code **)(*piStack_c8 + 4))();
@@ -276,14 +284,14 @@ LAB_00d84bf5:
         }
 LAB_00d84c0e:
         if ((puStack_94 != (undefined4 *)0x0) && (puStack_94 != auStack_80)) {
-          FUN_004e44e0((int)puStack_94);
+          Memory_FreeIfNonNull(puStack_94);
         }
         piStack_ac = piStack_ac + 1;
         iStack_b0 = iStack_b0 + 0x28;
         iStack_b8 = iStack_b8 + 1;
-        pvVar9 = pvStack_b4;
-        puVar6 = puStack_bc;
       } while (iStack_b8 <= (int)puStack_bc[0x50]);
+      pvVar9 = pvStack_b4;
+      puVar6 = puStack_bc;
     }
     if ((int)puVar6[0x50] < (int)puVar6[0x51]) {
       do {
@@ -301,7 +309,7 @@ LAB_00d84c0e:
     *(undefined1 *)((int)puVar6 + 0x14a) = 0;
     iVar4 = FUN_00e85330((ushort *)puVar1[1]);
     puVar6[9] = iVar4;
-    piVar5 = FUN_00e71040(*(int **)(iVar4 + 0xc));
+    piVar5 = RuntimeTypeDescriptor_ResolveClass(*(int **)(iVar4 + 0xc));
     puVar6[10] = piVar5;
     puVar6[6] = 0;
     puVar6[7] = 0;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): ECX terrain. Iterate until end; usage
@@ -33,7 +33,7 @@ void __fastcall LotTerrain_RemoveUnusedPaintLayers(void *param_1)
   }
   if ((*(int *)((int)param_1 + 0x30) == *(int *)((int)param_1 + 0x34)) &&
      (*(int *)((int)param_1 + 0x74) * *(int *)((int)param_1 + 0x70) != 0)) {
-    FUN_00aee740((void *)((int)param_1 + 0x70),0,0);
+    ByteBlockGrid_SetDimensions((void *)((int)param_1 + 0x70),0,0);
   }
   return;
 }

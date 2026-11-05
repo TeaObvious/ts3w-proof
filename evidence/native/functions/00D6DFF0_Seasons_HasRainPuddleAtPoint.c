@@ -1,8 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-Decompiled function Seasons_HasRainPuddleAtPoint:
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -23,37 +21,35 @@ undefined4 Seasons_HasRainPuddleAtPoint(float *param_1,void *param_2,char param_
   float fVar4;
   float local_38;
   void *local_34;
-  float local_30;
-  float fStack_2c;
-  float fStack_28;
+  TS3WPortalXZLevel local_30;
   float fStack_24;
   float local_20;
   float fStack_1c;
   float fStack_18;
   float fStack_14;
-
-  cVar1 = FUN_00c88cd0();
+  
+  cVar1 = CachedGlobalMask8000_Query();
   puVar2 = (undefined4 *)CONCAT31(extraout_var,cVar1);
   if (cVar1 == '\0') goto LAB_00d6e195;
   if (param_2 == (void *)0x0) {
 LAB_00d6e09c:
     if (DAT_011edbc4 != (void *)0x0) {
-      fVar3 = FUN_00c61090((int)DAT_011edbc4);
+      fVar3 = WorldWater_GetSeaLevel((int)DAT_011edbc4);
       local_38 = (float)fVar3;
       local_20 = param_1[1];
       puVar2 = extraout_EAX;
-      local_30 = local_38;
+      local_30.x = local_38;
       if (local_20 < local_38) goto LAB_00d6e195;
     }
   }
   else {
     if (param_3 != '\0') {
-      local_30 = -1.0;
-      fStack_2c = -1.0;
-      fStack_28 = 0.0;
-      FUN_00adc920(param_2,param_1,&local_30);
+      local_30.x = -1.0;
+      local_30.z = -1.0;
+      local_30.level = 0;
+      Lot_WorldPositionToPortalLocalXZLevel(param_2,param_1,&local_30);
       local_38 = -1.714704e+38;
-      FUN_00af7db0(&local_30,(char *)&local_38);
+      LotLocation_EncodeCellAndQuadrant(&local_30.x,(char *)&local_38);
       puVar2 = (undefined4 *)FUN_00ab0250(param_2,(char *)&local_38);
       if ((char)puVar2 == '\0') goto LAB_00d6e195;
     }
@@ -62,8 +58,10 @@ LAB_00d6e09c:
   }
   fVar3 = FUN_00d6df30(local_34,param_1);
   local_34 = (void *)(float)fVar3;
-  fVar4 = _DAT_011ef140;
-  if (param_4 != '\0') {
+  if (param_4 == '\0') {
+    fVar4 = _DAT_011ef140;
+  }
+  else {
     fVar4 = 1.0;
   }
   puVar2 = extraout_EAX_00;
@@ -71,15 +69,15 @@ LAB_00d6e09c:
     if (param_2 != (void *)0x0) {
       return CONCAT31((int3)((uint)extraout_EAX_00 >> 8),1);
     }
-    local_30 = *param_1;
-    fStack_2c = param_1[1];
-    fStack_28 = param_1[2];
+    local_30.x = *param_1;
+    local_30.z = param_1[1];
+    local_30.level = (int)param_1[2];
     fStack_24 = param_1[3];
-    local_20 = local_30;
-    fStack_1c = fStack_2c;
-    fStack_18 = fStack_28;
+    local_20 = local_30.x;
+    fStack_1c = local_30.z;
+    fStack_18 = (float)local_30.level;
     fStack_14 = fStack_24;
-    puVar2 = FUN_00c6a9d0(DAT_011edbc4,&local_20,local_30,fStack_28);
+    puVar2 = FUN_00c6a9d0(DAT_011edbc4,&local_20,local_30.x,(float)local_30.level);
     if (0.98 <= fStack_1c) {
       return CONCAT31((int3)((uint)puVar2 >> 8),1);
     }
@@ -87,5 +85,4 @@ LAB_00d6e09c:
 LAB_00d6e195:
   return (uint)puVar2 & 0xffffff00;
 }
-
 

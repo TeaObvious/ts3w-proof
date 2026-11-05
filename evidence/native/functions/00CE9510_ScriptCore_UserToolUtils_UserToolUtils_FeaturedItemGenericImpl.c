@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01189df8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01189df8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.UserToolUtils::UserToolUtils_FeaturedItemGenericImpl [assembly=ScriptCore
    token=0x06000BE8; productHandle: System.UInt64, funcID: System.UInt32, arg0: System.UInt32,
    retUint32: System.UInt32&, instance: System.UInt64&, group: System.UInt32&, type: System.UInt32&,
@@ -23,7 +24,7 @@ ScriptCore.UserToolUtils::UserToolUtils_FeaturedItemGenericImpl
   undefined4 uVar2;
   uint uVar3;
   int iVar4;
-  int unaff_EBX;
+  void *unaff_EBX;
   undefined4 unaff_ESI;
   bool bVar5;
   undefined1 local_44 [4];
@@ -57,7 +58,6 @@ ScriptCore.UserToolUtils::UserToolUtils_FeaturedItemGenericImpl
     break;
   case 3:
     uVar3 = *(uint *)((int)this + 0x4c);
-    param_6 = param_5;
     goto LAB_00ce97ae;
   case 4:
     uVar3 = FUN_00ce5f60((int)this);
@@ -84,7 +84,6 @@ ScriptCore.UserToolUtils::UserToolUtils_FeaturedItemGenericImpl
     break;
   case 10:
     uVar3 = (uint)(*(char *)((int)this + 0x8c) != '\0');
-    param_6 = param_5;
     goto LAB_00ce97ae;
   case 0xb:
     uVar2 = FUN_009cfbf0((int)this);
@@ -123,6 +122,7 @@ ScriptCore.UserToolUtils::UserToolUtils_FeaturedItemGenericImpl
     *param_7 = *(undefined4 *)((int)this + 0x108);
     uVar3 = *(uint *)((int)this + 0x100);
     param_6[1] = *(uint *)((int)this + 0x104);
+    param_5 = param_6;
     goto LAB_00ce97ae;
   case 0x12:
     bVar5 = *(int *)((int)this + 0x10c) == 5;
@@ -134,9 +134,8 @@ ScriptCore.UserToolUtils::UserToolUtils_FeaturedItemGenericImpl
     bVar5 = *(int *)((int)this + 0x10c) == 6;
 LAB_00ce97a7:
     uVar3 = (uint)bVar5;
-    param_6 = param_5;
 LAB_00ce97ae:
-    *param_6 = uVar3;
+    *param_5 = uVar3;
     break;
   case 0x15:
     FUN_00408d60(local_40,*(void **)((int)this + 0x38),*(undefined2 **)((int)this + 0x3c));
@@ -151,8 +150,8 @@ switchD_00ce956d_default:
   if (((uint)local_20[0] & 4) != 0) {
     FUN_004f5760(&local_28,'\0');
   }
-  if ((2 < (int)(local_40[0] - unaff_EBX & 0xfffffffeU)) && (unaff_EBX != 0)) {
-    FUN_004e44e0(unaff_EBX);
+  if ((2 < (int)(local_40[0] - (int)unaff_EBX & 0xfffffffeU)) && (unaff_EBX != (void *)0x0)) {
+    Memory_FreeIfNonNull(unaff_EBX);
   }
   return unaff_ESI;
 }

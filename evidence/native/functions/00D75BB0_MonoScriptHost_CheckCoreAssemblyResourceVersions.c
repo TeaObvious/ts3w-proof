@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC 1.67 original instruction review. Analyst-assigned name. No stack arguments, boolean AL
@@ -16,18 +16,17 @@ bool MonoScriptHost_CheckCoreAssemblyResourceVersions(void)
 {
   ushort uVar1;
   char cVar2;
-  void *_Dst;
-  ushort **ppuVar3;
-  int *piVar4;
-  ushort *puVar5;
-  int iVar6;
-  ushort *puVar7;
-  int *piVar8;
-  int iVar9;
+  void *pvVar3;
+  ushort **ppuVar4;
+  int *piVar5;
+  ushort *puVar6;
+  int iVar7;
+  ushort *puVar8;
+  int *piVar9;
   bool bVar10;
   int *local_58;
   int *local_54;
-  int local_50 [2];
+  void *local_50 [2];
   int local_48;
   void *local_40;
   undefined1 *local_3c;
@@ -41,14 +40,14 @@ bool MonoScriptHost_CheckCoreAssemblyResourceVersions(void)
   int *local_1c;
   uint local_18;
   undefined4 local_14;
-  undefined4 local_10;
+  float local_10;
   undefined4 local_c;
   undefined4 local_8;
   char *local_4;
   
   local_58 = (int *)((uint)local_58 & 0xffffff00);
-  local_10 = DAT_00f998f8;
-  local_c = DAT_0103fd88;
+  local_10 = 1.0;
+  local_c = 0x40000000;
   local_4 = "Scratch/MonoscriptHost/SignedAssemblyKeyHashSet";
   local_18 = 1;
   local_1c = &DAT_0114d900;
@@ -117,41 +116,41 @@ bool MonoScriptHost_CheckCoreAssemblyResourceVersions(void)
   local_3c = (undefined1 *)0x0;
   local_38 = 0;
   local_34 = "Scratch/MonoscriptHost/LoadImage/BuildStr8";
-  _Dst = (void *)FUN_004e4500(10,"Scratch/MonoscriptHost/LoadImage/BuildStr8",0);
-  local_38 = (int)_Dst + 10;
-  local_40 = _Dst;
-  local_3c = _Dst;
-  memmove(_Dst,&DAT_00fcd770,9);
-  local_3c = (undefined1 *)((int)_Dst + 9);
+  pvVar3 = (void *)FUN_004e4500(10,"Scratch/MonoscriptHost/LoadImage/BuildStr8",0);
+  local_38 = (int)pvVar3 + 10;
+  local_40 = pvVar3;
+  local_3c = pvVar3;
+  memmove(pvVar3,&DAT_00fcd770,9);
+  local_3c = (undefined1 *)((int)pvVar3 + 9);
   *local_3c = 0;
   local_30 = (ushort *)&DAT_011c8e54;
   local_2c = &DAT_011c8e54;
   local_24 = "Scratch/MonoscriptHost/LoadImage/BuildStr16";
   local_28 = &DAT_011c8e56;
-  ppuVar3 = FUN_004f3c90(local_50,&local_40);
-  if (ppuVar3 != &local_30) {
-    FUN_00408d60(&local_30,*ppuVar3,ppuVar3[1]);
+  ppuVar4 = FUN_004f3c90(local_50,&local_40);
+  if (ppuVar4 != &local_30) {
+    FUN_00408d60(&local_30,*ppuVar4,ppuVar4[1]);
   }
-  if ((2 < (int)(local_48 - local_50[0] & 0xfffffffeU)) && (local_50[0] != 0)) {
-    FUN_004e44e0(local_50[0]);
+  if ((2 < (int)(local_48 - (int)local_50[0] & 0xfffffffeU)) && (local_50[0] != (void *)0x0)) {
+    Memory_FreeIfNonNull(local_50[0]);
   }
   local_54 = (int *)FUN_004afe80();
-  iVar9 = *local_1c;
-  piVar8 = local_1c;
-  if (iVar9 == 0) {
-    piVar8 = local_1c + 1;
-    iVar9 = local_1c[1];
-    while (iVar9 == 0) {
-      piVar8 = piVar8 + 1;
-      iVar9 = *piVar8;
+  pvVar3 = (void *)*local_1c;
+  piVar9 = local_1c;
+  if (pvVar3 == (void *)0x0) {
+    piVar9 = local_1c + 1;
+    iVar7 = local_1c[1];
+    while (iVar7 == 0) {
+      piVar9 = piVar9 + 1;
+      iVar7 = *piVar9;
     }
-    iVar9 = *piVar8;
+    pvVar3 = (void *)*piVar9;
   }
-  local_50[0] = local_1c[local_18];
-  if (iVar9 != local_50[0]) {
+  local_50[0] = (void *)local_1c[local_18];
+  if (pvVar3 != local_50[0]) {
     do {
       local_58 = (int *)0x0;
-      cVar2 = (**(code **)(*local_54 + 0x18))(iVar9,&local_58,0,0,0,0);
+      cVar2 = (**(code **)(*local_54 + 0x18))(pvVar3,&local_58,0,0,0,0);
       if (cVar2 == '\0') {
 LAB_00d75ff8:
         if (local_58 != (int *)0x0) {
@@ -159,74 +158,74 @@ LAB_00d75ff8:
         }
       }
       else if (local_58 != (int *)0x0) {
-        piVar4 = (int *)(**(code **)(*local_58 + 0xc))(0xaac61b8d);
-        if (piVar4 != (int *)0x0) {
-          (**(code **)*piVar4)();
-          puVar5 = (ushort *)piVar4[0xd];
-          if (puVar5 == (ushort *)piVar4[0xe]) {
-            puVar5 = (ushort *)0x0;
+        piVar5 = (int *)(**(code **)(*local_58 + 0xc))(0xaac61b8d);
+        if (piVar5 != (int *)0x0) {
+          (**(code **)*piVar5)();
+          puVar6 = (ushort *)piVar5[0xd];
+          if (puVar6 == (ushort *)piVar5[0xe]) {
+            puVar6 = (ushort *)0x0;
           }
-          puVar7 = local_30;
-          if (puVar5 == (ushort *)0x0) {
+          if (puVar6 == (ushort *)0x0) {
 LAB_00d7602d:
-            (**(code **)(*piVar4 + 4))();
+            (**(code **)(*piVar5 + 4))();
             if (local_58 != (int *)0x0) {
               (**(code **)(*local_58 + 4))();
             }
             if ((2 < (int)((int)local_28 - (int)local_30 & 0xfffffffeU)) &&
                (local_30 != (ushort *)0x0)) {
-              FUN_004e44e0((int)local_30);
+              Memory_FreeIfNonNull(local_30);
             }
             if ((1 < local_38 - (int)local_40) && (local_40 != (void *)0x0)) {
-              FUN_004e44e0((int)local_40);
+              Memory_FreeIfNonNull(local_40);
             }
             FUN_00b305a0((int)local_1c,local_18);
             local_14 = 0;
             if (1 < local_18) {
-              FUN_004e44e0((int)local_1c);
+              Memory_FreeIfNonNull(local_1c);
             }
             return false;
           }
+          puVar8 = local_30;
           do {
-            uVar1 = *puVar5;
-            bVar10 = uVar1 < *puVar7;
-            if (uVar1 != *puVar7) {
+            uVar1 = *puVar6;
+            bVar10 = uVar1 < *puVar8;
+            if (uVar1 != *puVar8) {
 LAB_00d75fe6:
-              iVar6 = (1 - (uint)bVar10) - (uint)(bVar10 != 0);
+              iVar7 = (1 - (uint)bVar10) - (uint)(bVar10 != 0);
               goto LAB_00d75feb;
             }
             if (uVar1 == 0) break;
-            uVar1 = puVar5[1];
-            bVar10 = uVar1 < puVar7[1];
-            if (uVar1 != puVar7[1]) goto LAB_00d75fe6;
-            puVar5 = puVar5 + 2;
-            puVar7 = puVar7 + 2;
+            uVar1 = puVar6[1];
+            bVar10 = uVar1 < puVar8[1];
+            if (uVar1 != puVar8[1]) goto LAB_00d75fe6;
+            puVar6 = puVar6 + 2;
+            puVar8 = puVar8 + 2;
           } while (uVar1 != 0);
-          iVar6 = 0;
+          iVar7 = 0;
 LAB_00d75feb:
-          if (iVar6 != 0) goto LAB_00d7602d;
-          (**(code **)(*piVar4 + 4))();
+          if (iVar7 != 0) goto LAB_00d7602d;
+          (**(code **)(*piVar5 + 4))();
         }
         goto LAB_00d75ff8;
       }
-      iVar9 = *(int *)(iVar9 + 0x10);
-      while (iVar9 == 0) {
-        piVar4 = piVar8 + 1;
-        piVar8 = piVar8 + 1;
-        iVar9 = *piVar4;
+      pvVar3 = *(void **)((int)pvVar3 + 0x10);
+      while (pvVar3 == (void *)0x0) {
+        piVar5 = piVar9 + 1;
+        piVar9 = piVar9 + 1;
+        pvVar3 = (void *)*piVar5;
       }
-    } while (iVar9 != local_50[0]);
+    } while (pvVar3 != local_50[0]);
   }
   if ((2 < (int)((int)local_28 - (int)local_30 & 0xfffffffeU)) && (local_30 != (ushort *)0x0)) {
-    FUN_004e44e0((int)local_30);
+    Memory_FreeIfNonNull(local_30);
   }
   if ((1 < local_38 - (int)local_40) && (local_40 != (void *)0x0)) {
-    FUN_004e44e0((int)local_40);
+    Memory_FreeIfNonNull(local_40);
   }
   FUN_00b305a0((int)local_1c,local_18);
   local_14 = 0;
   if (1 < local_18) {
-    FUN_004e44e0((int)local_1c);
+    Memory_FreeIfNonNull(local_1c);
   }
   return true;
 }

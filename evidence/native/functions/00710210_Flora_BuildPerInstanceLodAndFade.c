@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst PC1.67 original contract. ECX cluster; camera vector, primary batch, optional secondary
    batch, low-byte context flags in two slots, RET14. Clears category submissions and derives
    distance/size LOD fractions, clamps for ordinary finite inputs, invokes7B98D0 then7B8BE0 to write
@@ -86,34 +88,36 @@ Flora_BuildPerInstanceLodAndFade
   if (param_3 != (int *)0x0) {
     FUN_0070eb10(this_00,(int)param_3);
   }
-  local_20 = FLOAT_00f998f8;
-  fStack_94 = FLOAT_00f998f8;
-  fStack_98 = FLOAT_00f998f8;
-  local_a0 = FLOAT_00f998f8;
+  local_a0 = 1.0;
   fStack_9c = 0.0;
   *(undefined1 *)((int)param_2 + 0x55) = 0;
   *(undefined1 *)((int)param_2 + 0x56) = 0;
-  local_30 = *param_1 * local_20;
+  local_30 = *param_1 * 1.0;
   fStack_2c = param_1[1] * 0.0;
-  fStack_28 = param_1[2] * local_20;
-  fStack_24 = param_1[3] * local_20;
+  fStack_28 = param_1[2] * 1.0;
+  fStack_24 = param_1[3] * 1.0;
   fStack_1c = 0.0;
-  fStack_18 = local_20;
-  fStack_14 = local_20;
+  fStack_98 = local_a0;
+  fStack_94 = local_a0;
+  local_20 = local_a0;
+  fStack_18 = local_a0;
+  fStack_14 = local_a0;
   local_c4 = FUN_006de190();
+  local_e4 = 1.0;
   local_8c = *(int *)(*(int *)((int)this + 0x4b0) + 0x17c);
-  local_e4 = FLOAT_00f998f8;
-  local_dc = FLOAT_00f998f8;
   local_84 = *(float *)(local_c4 + 0x2c);
   if (local_8c == 0) {
     local_e4 = *(float *)(local_c4 + 0x20);
     local_dc = *(float *)(local_c4 + 0x1c);
   }
-  else if (local_8c == 1) {
-    local_e4 = *(float *)(local_c4 + 0x28);
-    local_dc = *(float *)(local_c4 + 0x24);
+  else {
+    local_dc = local_e4;
+    if (local_8c == 1) {
+      local_e4 = *(float *)(local_c4 + 0x28);
+      local_dc = *(float *)(local_c4 + 0x24);
+    }
   }
-  puVar3 = (undefined4 *)FUN_00713100(PTR_DAT_0115c488,local_8c);
+  puVar3 = (undefined4 *)Flora_GetTreeTypeLodDistanceRecord(PTR_DAT_0115c488,local_8c);
   local_74 = *puVar3;
   local_70 = (float)puVar3[1];
   local_6c = (float)puVar3[2];
@@ -138,25 +142,25 @@ Flora_BuildPerInstanceLodAndFade
   if (local_ec != local_a8) {
     do {
       local_f0 = *local_ec;
+      local_cc = 1.0;
       pfVar6 = (float *)(local_f0 * 0x80 + *(int *)((int)this + 0x210));
-      local_cc = FLOAT_00f998f8;
       if (bVar2) {
-        fVar7 = FLOAT_00f998f8;
+        fVar7 = local_cc;
 LAB_0071045b:
         *(byte *)((int)pfVar6 + 0x7e) = *(byte *)((int)pfVar6 + 0x7e) | 1;
         SpeedTree_SetLodFraction(*(void **)(*(int *)((int)this + 0x4b0) + 0x34),fVar7);
         SpeedTree_ComputeLodIndicesAndAlpha
-                  (*(void **)(*(int *)((int)this + 0x4b0) + 0x34),pfVar6 + 0x13,FLOAT_00fab218,
-                   (uchar)local_d8);
+                  (*(void **)(*(int *)((int)this + 0x4b0) + 0x34),pfVar6 + 0x13,-1.0,(uchar)local_d8
+                  );
         if (0.0 < pfVar6[0x1b]) {
           *(undefined1 *)((int)param_2 + 0x55) = 1;
-          if (pfVar6[0x1b] == FLOAT_00f998f8) goto LAB_00710835;
+          if (pfVar6[0x1b] == 1.0) goto LAB_00710835;
         }
         local_e8 = param_2;
         if ((param_3 != (int *)0x0) || (param_4 != '\0')) {
           if (((local_8c != 0) && (local_8c != 1)) ||
              (((local_c4[0x3c] != '\x01' || (local_c4[0x3d] != '\0')) || (bVar2)))) {
-            pfVar6[0x1d] = FLOAT_00f998f8;
+            pfVar6[0x1d] = 1.0;
           }
           else {
             fVar7 = *pfVar6 * local_20 - local_30;
@@ -168,25 +172,24 @@ LAB_0071045b:
             auVar8._12_4_ = auVar8._0_4_;
             local_40 = sqrtps(auVar8,auVar8);
             fStack_44 = pfVar6[8];
-            local_50 = fStack_44 * DAT_0103fd88;
-            fStack_4c = fStack_44 * DAT_0103fd88;
-            fStack_48 = fStack_44 * DAT_0103fd88;
-            fStack_44 = fStack_44 * DAT_0103fd88;
+            local_50 = fStack_44 * 2.0;
+            fStack_4c = fStack_44 * 2.0;
+            fStack_48 = fStack_44 * 2.0;
+            fStack_44 = fStack_44 * 2.0;
             local_78 = ((float)local_40._0_4_ - local_50 * local_dc) * local_e4;
-            local_7c = FLOAT_00f998f0 - local_78;
+            local_7c = -0.0 - local_78;
             local_b4 = (float)((uint)local_78 & (int)local_7c >> 0x1f);
             local_bc = 0;
-            local_d4 = FLOAT_00f998f8 - local_b4;
-            local_88 = FLOAT_00f998f8;
+            local_d4 = 1.0 - local_b4;
+            local_88 = 1.0;
             local_a4 = (float)(~((int)local_d4 >> 0x1f) & (uint)local_b4 |
-                              (uint)FLOAT_00f998f8 & (int)local_d4 >> 0x1f);
+                              (int)local_d4 >> 0x1f & (uint)1.0);
             local_ac = local_b4;
-            if ((local_a4 < DAT_00ffc4bc) ||
-               (pfVar6[0x1d] <= DAT_00ffc4bc && DAT_00ffc4bc != pfVar6[0x1d])) {
+            if ((local_a4 < 0.999) || (pfVar6[0x1d] <= 0.999 && pfVar6[0x1d] != 0.999)) {
               if (local_a4 < pfVar6[0x1d]) {
                 pfVar6[0x1d] = local_a4;
               }
-              if (local_a4 < _DAT_00fc24fc) {
+              if (local_a4 < 0.005) {
                 pfVar6[0x1d] = 0.0;
                 *(undefined2 *)(pfVar6 + 0x1f) = 0;
                 goto LAB_00710835;
@@ -206,14 +209,14 @@ LAB_0071045b:
                 *(undefined2 *)(pfVar6 + 0x1f) = (undefined2)local_d0;
               }
               *(undefined1 *)((int)this + 0x538) = 1;
-              if ((param_4 == '\0') || (fStack_54 <= DAT_00f9e504)) {
+              if ((param_4 == '\0') || (fStack_54 <= 0.3)) {
                 local_e8 = param_3;
               }
               else {
               }
             }
             else {
-              pfVar6[0x1d] = FLOAT_00f998f8;
+              pfVar6[0x1d] = 1.0;
             }
           }
         }
@@ -229,7 +232,7 @@ LAB_0071045b:
           fVar10 = pfVar6[0x17];
           local_c0 = pfVar6[0x19];
           local_b0 = pfVar6[0x1a];
-          if ((-1 < (int)fVar7) && (pfVar6[0x14] <= DAT_00fa4134 && DAT_00fa4134 != pfVar6[0x14])) {
+          if ((-1 < (int)fVar7) && (pfVar6[0x14] <= 255.0 && pfVar6[0x14] != 255.0)) {
             pvVar5 = (void *)((int)fVar7 * 0x10 + local_e8[4]);
             piVar1 = *(int **)((int)pvVar5 + 4);
             if (piVar1 < *(int **)((int)pvVar5 + 8)) {
@@ -242,7 +245,7 @@ LAB_0071045b:
               FUN_00982420(pvVar5,piVar1,&local_f0);
             }
           }
-          if ((-1 < (int)fVar9) && (local_c8 < DAT_00fa4134)) {
+          if ((-1 < (int)fVar9) && (local_c8 < 255.0)) {
             pvVar5 = (void *)((int)fVar9 * 0x10 + local_e8[8]);
             piVar1 = *(int **)((int)pvVar5 + 4);
             if (piVar1 < *(int **)((int)pvVar5 + 8)) {
@@ -255,7 +258,7 @@ LAB_0071045b:
               FUN_00982420(pvVar5,piVar1,&local_f0);
             }
           }
-          if ((-1 < (int)fVar10) && (local_c0 < DAT_00fa4134)) {
+          if ((-1 < (int)fVar10) && (local_c0 < 255.0)) {
             pvVar5 = (void *)((int)fVar10 * 0x10 + local_e8[0xc]);
             piVar1 = *(int **)((int)pvVar5 + 4);
             if (piVar1 < *(int **)((int)pvVar5 + 8)) {
@@ -269,7 +272,7 @@ LAB_0071045b:
             }
           }
           this = local_e0;
-          if ((-1 < (int)local_b8) && (local_b0 < DAT_00fa4134)) {
+          if ((-1 < (int)local_b8) && (local_b0 < 255.0)) {
             pvVar5 = (void *)((int)local_b8 * 0x10 + local_e8[0xc]);
             piVar1 = *(int **)((int)pvVar5 + 4);
             if (piVar1 < *(int **)((int)pvVar5 + 8)) {

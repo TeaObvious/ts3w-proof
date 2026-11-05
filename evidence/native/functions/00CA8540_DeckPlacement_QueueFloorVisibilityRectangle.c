@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -47,15 +46,15 @@ DeckPlacement_QueueFloorVisibilityRectangle
     param_3 = (undefined2 *)CONCAT22(CONCAT11(param_3._3_1_,*(undefined1 *)(param_3 + 1)),*param_3);
     param_2 = (uint)CONCAT12(param_4[2],CONCAT11(param_4[1] + -1,*param_4 + -1));
     FUN_00af6450(auStack_c,(undefined2 *)&param_3,(undefined2 *)&param_2);
-    bVar2 = FUN_00af6490((int)auStack_c);
+    bVar2 = TilePartRectangleIterator_IsDone((int)auStack_c);
     if (!bVar2) {
       bVar2 = param_5 == '\0';
       do {
-        puVar5 = (undefined3 *)FUN_00af64e0((int)auStack_c);
+        puVar5 = (undefined3 *)TilePartRectangleIterator_Current((int)auStack_c);
         param_4 = (char *)CONCAT13(0xf,*puVar5);
         FloorVisibility_ApplyMaskedStateAndAppendRecords(this,(undefined3 *)&param_4,bVar2);
         FUN_00af6610(auStack_c);
-        bVar3 = FUN_00af6490((int)auStack_c);
+        bVar3 = TilePartRectangleIterator_IsDone((int)auStack_c);
       } while (!bVar3);
     }
   }

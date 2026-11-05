@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). Finds matching hash
@@ -112,7 +112,7 @@ LAB_00945daf:
   if (bVar5) {
     if (this_00 != (void *)0x0) {
       if (((*(byte *)((int)this + 0x40) & 1) == 0) ||
-         (uVar8 = FUN_00944be0(*(void **)((int)this + 4)), (char)uVar8 != '\0')) {
+         (uVar8 = Object_HasSimTransformAncestor(*(void **)((int)this + 4)), (char)uVar8 != '\0')) {
         cVar6 = '\0';
       }
       else {

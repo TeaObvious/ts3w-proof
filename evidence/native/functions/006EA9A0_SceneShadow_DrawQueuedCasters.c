@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 queued scene-shadow consumer. Physical thiscall ECX scene renderer and three stack
@@ -34,22 +34,24 @@ SceneShadow_DrawQueuedCasters(void *this,int param_1,int *param_2,undefined4 par
   param_1 = -1;
   param_2 = (int *)0x0;
   local_10 = 0;
-  while (iVar5 != 0) {
-    puVar2 = (undefined4 *)*piVar4;
-    iVar5 = iVar5 + -1;
-    piVar4 = piVar4 + 2;
-    if (((param_1 != puVar2[9]) ||
-        (*(int **)(*(int *)((int)this + 0x1d4) * 0x10 + *(int *)((int)pvVar3 + 4)) != param_2)) ||
-       (*(int *)(*(int *)((int)this + 0x1d8) * 0x10 + *(int *)((int)pvVar3 + 4)) != local_10)) {
-      param_1 = puVar2[9];
-      iVar6 = param_1 * 0x80 + iVar1;
-      FUN_0079a040(pvVar3,*(uint *)((int)this + 0x1d4),iVar6);
-      FUN_0079a040(pvVar3,*(uint *)((int)this + 0x1d8),iVar6 + 0x40);
-      param_2 = *(int **)(*(int *)((int)this + 0x1d4) * 0x10 + *(int *)((int)pvVar3 + 4));
-      local_10 = *(int *)(*(int *)((int)this + 0x1d8) * 0x10 + *(int *)((int)pvVar3 + 4));
-      FUN_006ea610(this,(int *)*puVar2);
-    }
-    (**(code **)(*(int *)*puVar2 + 0x18))(puVar2[1],param_3);
+  if (iVar5 != 0) {
+    do {
+      puVar2 = (undefined4 *)*piVar4;
+      iVar5 = iVar5 + -1;
+      piVar4 = piVar4 + 2;
+      if (((param_1 != puVar2[9]) ||
+          (*(int **)(*(int *)((int)this + 0x1d4) * 0x10 + *(int *)((int)pvVar3 + 4)) != param_2)) ||
+         (*(int *)(*(int *)((int)this + 0x1d8) * 0x10 + *(int *)((int)pvVar3 + 4)) != local_10)) {
+        param_1 = puVar2[9];
+        iVar6 = param_1 * 0x80 + iVar1;
+        FUN_0079a040(pvVar3,*(uint *)((int)this + 0x1d4),iVar6);
+        FUN_0079a040(pvVar3,*(uint *)((int)this + 0x1d8),iVar6 + 0x40);
+        param_2 = *(int **)(*(int *)((int)this + 0x1d4) * 0x10 + *(int *)((int)pvVar3 + 4));
+        local_10 = *(int *)(*(int *)((int)this + 0x1d8) * 0x10 + *(int *)((int)pvVar3 + 4));
+        SceneShadow_UpdateItemMatrixPayloads(this,(int *)*puVar2);
+      }
+      (**(code **)(*(int *)*puVar2 + 0x18))(puVar2[1],param_3);
+    } while (iVar5 != 0);
   }
   FUN_0079a040(pvVar3,*(uint *)((int)this + 0x1d4),0);
   FUN_0079a040(pvVar3,*(uint *)((int)this + 0x1d8),0);

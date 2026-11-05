@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static; analyst-assigned name describes bounded
@@ -77,13 +77,14 @@ FencePostDesign_SelectTallestAdjacentProduct(void *this,float *param_1,undefined
   local_9c = DAT_011ec8cc;
   FUN_00afbba0(local_88);
   if ((*(void **)((int)this + 100) != (void *)0x0) &&
-     (iVar1 = FUN_00c41860(*(void **)((int)this + 100),param_1), iVar1 != 0)) {
+     (iVar1 = WallGraph_FindVertexForCompactLocation(*(void **)((int)this + 100),param_1),
+     iVar1 != 0)) {
     pbVar5 = *(byte **)(iVar1 + 8);
-    local_ac = FLOAT_00fab218;
+    local_ac = -1.0;
     local_94 = pbVar5;
     local_58 = pbVar5;
     do {
-      iVar1 = FUN_00c36010(local_94);
+      iVar1 = WallHalfEdge_ReadOppositeVertex(local_94);
       local_44 = (int)*(char *)(iVar1 + 6);
       local_4c = (float)(int)*(char *)(iVar1 + 4);
       local_48 = (float)(int)*(char *)(iVar1 + 5);
@@ -95,7 +96,7 @@ FencePostDesign_SelectTallestAdjacentProduct(void *this,float *param_1,undefined
       local_b2 = *(undefined1 *)(param_1 + 2);
       local_b3 = (undefined1)local_90;
       FUN_00784da0(local_b1,&local_4c);
-      iVar1 = FUN_00c418d0(*(void **)((int)this + 100),&local_b4);
+      iVar1 = WallGraph_FindWallForPackedLocator(*(void **)((int)this + 100),&local_b4);
       if (iVar1 == 0) {
         productKey = &DAT_011ec8c0;
       }
@@ -142,11 +143,12 @@ FencePostDesign_SelectTallestAdjacentProduct(void *this,float *param_1,undefined
           puVar3 = (undefined4 *)FUN_00b4a0a0(this,&local_b4);
           if (puVar3 != (undefined4 *)0x0) {
             puVar6 = local_40;
-            for (iVar1 = 0x10; pbVar5 = local_58, iVar1 != 0; iVar1 = iVar1 + -1) {
+            for (iVar1 = 0x10; iVar1 != 0; iVar1 = iVar1 + -1) {
               *puVar6 = *puVar3;
               puVar3 = puVar3 + 1;
               puVar6 = puVar6 + 1;
             }
+            pbVar5 = local_58;
           }
           local_a8 = *productKey;
           local_a4 = productKey[1];

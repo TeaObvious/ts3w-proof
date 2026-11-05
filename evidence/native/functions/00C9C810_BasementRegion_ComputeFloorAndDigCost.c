@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 static instructions/callers: cdecl six words, ST0 result. Quarter iteration selects
@@ -107,7 +107,7 @@ BasementRegion_ComputeFloorAndDigCost
     local_74 = *pcVar7 + -1;
     local_72 = param_5[2];
     local_73 = *pcVar9 + -1;
-    auStack_77[2] = (char)*pcVar8 >> 7;
+    auStack_77[2] = *pcVar8 >> 7;
     _local_78 = CONCAT31(CONCAT12(auStack_77[2],CONCAT11(param_4[2],*pcVar6)),*pcVar8);
     TilePartRectangleIterator_Construct(&local_68,(undefined2 *)&local_78,(undefined2 *)&local_74);
     bVar3 = TilePartRectangleIterator_IsDone((int)&local_68);
@@ -119,7 +119,7 @@ BasementRegion_ComputeFloorAndDigCost
         if (bVar3 != (bool)param_3) {
           if (param_3 == '\0') {
             FUN_00afba70(local_40);
-            FUN_00a8fa90(pvVar2,pcVar8,local_40);
+            FloorManager_CopyPatternKeysAtCellPart(pvVar2,pcVar8,local_40);
             fVar10 = FUN_00cb0e60(local_40,'\0');
             local_7c = (float)((float10)local_7c -
                               (fVar10 + (float10)local_70) * (float10)local_6c * (float10)0.25);
@@ -143,7 +143,7 @@ BasementRegion_ComputeFloorAndDigCost
       if (bVar3 != (bool)param_3) {
         if (param_3 == '\0') {
           FUN_00afba70(local_40);
-          FUN_00a8fa90(pvVar2,pcVar8,local_40);
+          FloorManager_CopyPatternKeysAtCellPart(pvVar2,pcVar8,local_40);
           fVar10 = FUN_00cb0e60(local_40,'\0');
           local_7c = (float)((float10)local_7c -
                             (fVar10 + (float10)local_70) * (float10)local_6c * (float10)0.25);

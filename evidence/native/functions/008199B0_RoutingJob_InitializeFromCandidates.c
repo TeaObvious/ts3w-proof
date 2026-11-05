@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst static routing contract: Initializes stack RoutingJob. Output path list+0xc,
@@ -33,7 +33,7 @@ RoutingJob_InitializeFromCandidates
   *(undefined4 *)((int)this + 0xc0) = param_3;
   *(undefined4 *)((int)this + 200) = param_9;
   *(undefined4 *)((int)this + 0xcc) = param_10;
-  FUN_004fa9f0((void *)((int)this + 0xd0),-1);
+  TreeVariation_Reseed((void *)((int)this + 0xd0),-1);
   FUN_00758890((void *)((int)this + 0x18),param_4);
   FUN_00758890((undefined4 *)((int)this + 0x28),param_5);
   if (param_6 != 0) {

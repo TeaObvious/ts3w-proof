@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Type propagation algorithm not settling */
+
+
+
 /* PC1.67 thiscall point/RET4 void, generic brushECX differs by-28 from outer clickECX. Requires
    active8C/lot34/brushD8; Float timer nextEC vs elapsed, updates next=now+50 after raster;
    timer/reentrancy/feedback remain controller responsibilities. Ground is raw DWORDlevel==0, NOT
@@ -62,7 +64,7 @@ void __thiscall LotPaintTool_ApplyTimedStamp(void *this,LotPaintPoint *point)
           fVar6 = pLVar2->x * 0.25;
         }
         *(float *)((int)this + 0xe8) = fVar6;
-        FUN_00d195c0(this,&point->x,(int *)((int)this + 0x94));
+        TerrainBrush_ApplyEpisodeStamp(this,point,(BrushRasterSample *)((int)this + 0x94));
         *(float *)((int)this + 0xec) = (float)local_5c.level + 50.0;
         FUN_00cee0f0((int)this);
         if (*(char *)((int)this + 0xf0) == '\0') {
@@ -83,7 +85,8 @@ void __thiscall LotPaintTool_ApplyTimedStamp(void *this,LotPaintPoint *point)
         return;
       }
       FUN_00cee6e0(this,'\x01');
-      FUN_00ad6720(local_50,0xd7,*(int *)((int)this + 0x34),&point->x,0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_50,0xd7,*(undefined **)((int)this + 0x34),point,0,0);
       FUN_00ad8570(this_00,local_50);
       FUN_00cd3890(this_00,1,'\x01');
       FUN_00ad70d0((int)local_50);

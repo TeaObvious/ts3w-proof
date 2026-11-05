@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* PC 1.67 original: Eleven stack words, plain RET and caller cleanup; truth is AL, with unrelated
    high EAX unspecified. Rejects sampling step below binary32 0.1. World upper-region and
    bridge/component paths can bypass or replace ordinary sampling. Ordinary path performs ground
@@ -73,7 +75,7 @@ NeighborhoodVisibility_TestWorldSegment
   float fStack_18;
   float fStack_14;
   
-  if (param_9 < _DAT_0104487c) goto LAB_00658e6d;
+  if (param_9 < 0.1) goto LAB_00658e6d;
   if (param_2 == (void *)0x0) {
 LAB_00658f1a:
     bVar3 = false;
@@ -142,36 +144,36 @@ LAB_00658f1a:
       iVar12 = 1;
       local_74 = ABS(param_7 - param_5);
       local_80 = ABS(param_8 - (float)param_6);
-      local_30 = FLOAT_00fab218;
-      fStack_2c = FLOAT_00fab218;
-      fStack_28 = FLOAT_00fab218;
-      fStack_24 = FLOAT_00fab218;
-      local_20 = DAT_00fee18c;
-      piStack_1c = (int *)DAT_00fee18c;
-      fStack_18 = DAT_00fee18c;
-      fStack_14 = DAT_00fee18c;
-      auVar18._0_4_ = FLOAT_00fab218 * local_74;
-      auVar18._4_4_ = FLOAT_00fab218 * local_74;
-      auVar18._8_4_ = FLOAT_00fab218 * local_74;
-      auVar18._12_4_ = FLOAT_00fab218 * local_74;
+      local_30 = -1.0;
+      fStack_2c = -1.0;
+      fStack_28 = -1.0;
+      fStack_24 = -1.0;
+      local_20 = 1.5258789e-05;
+      piStack_1c = (int *)0x37800000;
+      fStack_18 = 1.5258789e-05;
+      fStack_14 = 1.5258789e-05;
+      auVar18._0_4_ = local_74 * -1.0;
+      auVar18._4_4_ = local_74 * -1.0;
+      auVar18._8_4_ = local_74 * -1.0;
+      auVar18._12_4_ = local_74 * -1.0;
       auVar19._4_4_ = local_74;
       auVar19._0_4_ = local_74;
       auVar19._8_4_ = local_74;
       auVar19._12_4_ = local_74;
       auVar19 = maxps(auVar18,auVar19);
-      auVar20._4_4_ = -(uint)(auVar19._4_4_ <= DAT_00fee18c);
-      auVar20._0_4_ = -(uint)(auVar19._0_4_ <= DAT_00fee18c);
-      auVar20._8_4_ = -(uint)(auVar19._8_4_ <= DAT_00fee18c);
-      auVar20._12_4_ = -(uint)(auVar19._12_4_ <= DAT_00fee18c);
+      auVar20._4_4_ = -(uint)(auVar19._4_4_ <= 1.5258789e-05);
+      auVar20._0_4_ = -(uint)(auVar19._0_4_ <= 1.5258789e-05);
+      auVar20._8_4_ = -(uint)(auVar19._8_4_ <= 1.5258789e-05);
+      auVar20._12_4_ = -(uint)(auVar19._12_4_ <= 1.5258789e-05);
       iVar10 = movmskps(iVar10,auVar20);
       local_6c = (int *)local_74;
       if (iVar10 == 0xf) {
         local_70 = (int *)0x0;
-        local_84 = DAT_00fee17c;
+        local_84 = (int *)0x47c35000;
       }
       else {
         if (param_7 <= param_5) {
-          local_70 = (int *)FLOAT_00fab218;
+          local_70 = (int *)-1.0;
           dVar21 = floor((double)param_5);
           local_7c = (int *)(float)dVar21;
           local_84 = (int *)((param_5 - (float)local_7c) * local_80);
@@ -180,10 +182,10 @@ LAB_00658f1a:
           iVar12 = (int)(float)local_7c - in_EAX;
         }
         else {
-          local_70 = (int *)FLOAT_00f998f8;
+          local_70 = (int *)0x3f800000;
           dVar21 = floor((double)param_5);
           local_7c = (int *)(float)dVar21;
-          local_84 = (int *)((((float)dVar21 - param_5) + FLOAT_00f998f8) * local_80);
+          local_84 = (int *)((((float)local_7c - param_5) + 1.0) * local_80);
           dVar21 = floor((double)param_7);
           in_EAX = Compiler_TruncateX87ToLowInt32((float10)dVar21);
           iVar12 = in_EAX - (int)(float)local_7c;
@@ -206,10 +208,10 @@ LAB_00658f1a:
       iVar10 = movmskps(in_EAX,auVar16);
       if (iVar10 == 0xf) {
         local_78 = (int *)0x0;
-        local_84 = DAT_00fee430;
+        local_84 = (int *)0xc7c35000;
       }
       else if (param_8 <= (float)param_6) {
-        local_78 = (int *)FLOAT_00fab218;
+        local_78 = (int *)0xbf800000;
         dVar21 = floor((double)(float)param_6);
         local_7c = (int *)(float)dVar21;
         local_84 = (int *)(((float)param_6 - (float)local_7c) * local_74);
@@ -218,11 +220,10 @@ LAB_00658f1a:
         iVar12 = iVar12 + ((int)(float)local_7c - iVar10);
       }
       else {
-        local_78 = (int *)FLOAT_00f998f8;
+        local_78 = (int *)0x3f800000;
         dVar21 = floor((double)(float)param_6);
         local_7c = (int *)(float)dVar21;
-        local_84 = (int *)((float)local_84 -
-                          (((float)dVar21 - (float)param_6) + FLOAT_00f998f8) * local_74);
+        local_84 = (int *)((float)local_84 - (((float)local_7c - (float)param_6) + 1.0) * local_74);
         dVar21 = floor((double)param_8);
         iVar10 = Compiler_TruncateX87ToLowInt32((float10)dVar21);
         iVar12 = iVar12 + (iVar10 - (int)(float)local_7c);
@@ -245,7 +246,7 @@ LAB_00658f6c:
                              (float)local_7c);
         in_EAX = FUN_0066e120(*(void **)((int)param_4 + 0x14),(uint)local_85,uVar7,uVar6,'\0');
         if ((char)in_EAX == '\0') break;
-        if ((float)local_84 <= DAT_010f4ccc) {
+        if ((float)local_84 <= 0.0) {
           local_6c = (int *)((float)local_6c + (float)local_70);
           local_84 = (int *)((float)local_84 + local_80);
         }
@@ -271,9 +272,8 @@ LAB_00658f6c:
   if ((param_1 & 0x10) != 0) {
     in_EAX = NeighborhoodVisibility_TestRecursiveMidpoints
                        (0x10,param_2,param_3,param_4,param_5,(float)param_6,
-                        (param_5 + param_7) * _DAT_00f9b5b4,
-                        ((float)param_6 + param_8) * _DAT_00f9b5b4,param_7,param_8,
-                        (float)local_40._0_4_ * _DAT_00f9b5b4,1.0,param_10);
+                        (param_5 + param_7) * 0.5,((float)param_6 + param_8) * 0.5,param_7,param_8,
+                        (float)local_40._0_4_ * 0.5,1.0,param_10);
     if ((char)in_EAX == '\0') goto LAB_00658e6d;
     param_1 = param_1 & 0xffffffef;
   }
@@ -296,12 +296,12 @@ LAB_00658f6c:
         if ((char)in_EAX != '\0') goto LAB_00658e6d;
       }
       local_6c = *(int **)((int)param_4 + 0x10);
-      local_78 = (int *)(int)(param_5 * DAT_00fa2bb0);
+      local_78 = (int *)(int)(param_5 * 0.03125);
       local_5c = param_7;
       local_58 = param_8;
-      local_70 = (int *)(int)(param_7 * DAT_00fa2bb0);
-      local_84 = (int *)(int)(param_8 * DAT_00fa2bb0);
-      piVar13 = (int *)(int)((float)param_6 * DAT_00fa2bb0);
+      local_70 = (int *)(int)(param_7 * 0.03125);
+      local_84 = (int *)(int)(param_8 * 0.03125);
+      piVar13 = (int *)(int)((float)param_6 * 0.03125);
       local_54 = param_5;
       local_50 = param_6;
       local_7c = piVar13;
@@ -358,14 +358,15 @@ LAB_00658f6c:
                       if (uVar6 != 0) {
                         do {
                           pfVar1 = (float *)(*local_70 + uVar7 * 8);
-                          in_EAX = FUN_007cdca0(&local_64,pfVar1,&local_54,&local_5c,(float *)0x0,
-                                                _DAT_0106e6ec);
+                          in_EAX = TryIntersectSegments2D
+                                             (&local_64,pfVar1,&local_54,&local_5c,(float *)0x0,0.01
+                                             );
                           if ((char)in_EAX != '\0') goto LAB_00658e6d;
                           local_64 = *pfVar1;
                           uVar7 = uVar7 + 1;
                           local_60 = pfVar1[1];
-                          piVar13 = local_84;
                         } while (uVar7 < uVar6);
+                        piVar13 = local_84;
                       }
                     }
                     local_70 = local_70 + 4;
@@ -398,8 +399,8 @@ LAB_00658e6d:
   }
   uVar5 = NeighborhoodVisibility_TestRecursiveMidpoints
                     (param_1,param_2,param_3,param_4,param_5,(float)param_6,
-                     (param_5 + param_7) * _DAT_00f9b5b4,((float)param_6 + param_8) * _DAT_00f9b5b4,
-                     param_7,param_8,(float)local_40._0_4_ * _DAT_00f9b5b4,param_9,param_10);
+                     (param_5 + param_7) * 0.5,((float)param_6 + param_8) * 0.5,param_7,param_8,
+                     (float)local_40._0_4_ * 0.5,param_9,param_10);
   return uVar5;
 }
 

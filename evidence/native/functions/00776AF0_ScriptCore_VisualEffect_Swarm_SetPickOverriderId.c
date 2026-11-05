@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01162a38 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01162a38 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.VisualEffect::Swarm_SetPickOverriderId [assembly=ScriptCore token=0x060004CB;
    effectHandle: System.UInt64, pickId: System.UInt64; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -15,17 +16,16 @@ ScriptCore_VisualEffect__Swarm_SetPickOverriderId
           (undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
 
 {
-  int iVar1;
-  void *pvVar2;
-  undefined4 uVar3;
+  void *pvVar1;
+  undefined4 uVar2;
   
-  iVar1 = FUN_00937570();
-  pvVar2 = (void *)FUN_00937f80(iVar1);
-  if (pvVar2 != (void *)0x0) {
-    pvVar2 = (void *)FUN_00934260(pvVar2,DAT_011e9e90);
-    if (pvVar2 != (void *)0x0) {
-      uVar3 = FUN_00943790(pvVar2,param_3,param_4);
-      return CONCAT31((int3)((uint)uVar3 >> 8),1);
+  pvVar1 = ObjectRegistry_GetGlobal();
+  pvVar1 = ObjectRegistry_FindBorrowed(pvVar1,CONCAT44(param_2,param_1));
+  if (pvVar1 != (void *)0x0) {
+    pvVar1 = Object_GetComponentByMask(pvVar1,DAT_011e9e90);
+    if (pvVar1 != (void *)0x0) {
+      uVar2 = FUN_00943790(pvVar1,param_3,param_4);
+      return CONCAT31((int3)((uint)uVar2 >> 8),1);
     }
   }
   return 0;

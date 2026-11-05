@@ -1,34 +1,37 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01189ec8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01189ec8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.UserToolUtils::UserToolUtils_GetWallPatternProductListByTypeImpl [assembly=ScriptCore
    token=0x06000BF0; subsortType: System.UInt32; return=System.UInt32[]]
    The table establishes entry identity only. Parameter types/names come from pristine managed
    metadata; calling convention, argument stack use, returns and side effects require
    instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
 
-undefined4 ScriptCore_UserToolUtils__UserToolUtils_GetWallPatternProductListByTypeImpl(uint param_1)
+uint ScriptCore_UserToolUtils__UserToolUtils_GetWallPatternProductListByTypeImpl(uint param_1)
 
 {
-  undefined4 uVar1;
-  int aiStack_10 [3];
+  uint uVar1;
+  void *pvStack_10;
+  undefined4 uStack_c;
+  undefined4 uStack_8;
   char *pcStack_4;
   
-  if (DAT_011ee034 != (void *)0x0) {
-    aiStack_10[0] = 0;
-    aiStack_10[1] = 0;
-    aiStack_10[2] = 0;
-    pcStack_4 = "World/Catalog/ProductVector";
-    FUN_00c8fe50(DAT_011ee034,param_1,aiStack_10);
-    uVar1 = FUN_00cea820(aiStack_10,0,0);
-    if (aiStack_10[0] != 0) {
-      FUN_004e44e0(aiStack_10[0]);
-    }
-    return uVar1;
+  if (DAT_011ee034 == (void *)0x0) {
+    return 0;
   }
-  return 0;
+  pvStack_10 = (void *)0x0;
+  uStack_c = 0;
+  uStack_8 = 0;
+  pcStack_4 = "World/Catalog/ProductVector";
+  PatternCatalog_CollectWallByMask(DAT_011ee034,param_1,&pvStack_10);
+  uVar1 = ProductVector_SortAndExportHandles(&pvStack_10,0,(void *)0x0);
+  if (pvStack_10 != (void *)0x0) {
+    Memory_FreeIfNonNull(pvStack_10);
+  }
+  return uVar1;
 }
 

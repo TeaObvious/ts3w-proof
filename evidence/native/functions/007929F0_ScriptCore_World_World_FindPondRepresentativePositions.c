@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -41,7 +40,7 @@ ScriptCore_World__World_FindPondRepresentativePositions(int param_1,int param_2,
   if (DAT_011edbc4 != (void *)0x0) {
     in_EAX = param_1;
     if (param_1 != 0 || param_2 != 0) {
-      piVar1 = FUN_00c62810(DAT_011edbc4,param_1,param_2,(int *)0x0);
+      piVar1 = WorldObjects_FindLotByGuid(DAT_011edbc4,param_1,param_2,(uint *)0x0);
       in_EAX = 0;
       if (piVar1 != (int *)0x0) {
         pvStack_10 = (void *)0x0;

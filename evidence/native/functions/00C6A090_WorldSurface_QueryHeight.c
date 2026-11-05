@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -43,7 +42,6 @@ WorldSurface_QueryHeight
   float local_18;
   undefined4 *local_14 [4];
   
-  puVar12 = (undefined4 *)0xc2c80000;
   local_1d = 0;
   local_1e = 0;
   local_1c = (undefined4 *)0xc2c80000;
@@ -51,80 +49,87 @@ WorldSurface_QueryHeight
       || (*(float *)((int)param_1 + 0xbc) <= param_2)) ||
      (*(float *)((int)param_1 + 0xc4) + *(float *)((int)param_1 + 0xc0) <= param_3))
   goto LAB_00c6a353;
+  puVar12 = (undefined4 *)0xc2c80000;
   if (param_5 != '\0') {
     pfVar2 = (float *)LotSpatialIndex_FindBucketAtWorldXZ(param_1,param_2,param_3);
     in_EAX = (undefined4 *)0x0;
+    puVar12 = local_1c;
     if (pfVar2 != (float *)0x0) {
       puVar4 = (undefined4 *)*pfVar2;
       in_EAX = (undefined4 *)pfVar2[1];
       local_14[0] = in_EAX;
       if (puVar4 != in_EAX) {
-        puVar12 = (undefined4 *)0xc2c80000;
         do {
           this = (void *)*puVar4;
-          if ((this != (void *)0x0) &&
-             ((param_9 == '\0' ||
-              ((*(char *)((int)this + 0x4bc) == '\0' &&
-               ((param_10 == '\0' ||
-                (in_EAX = (undefined4 *)FUN_007893e0(this,param_2,param_3), puVar12 = local_1c,
-                (char)in_EAX != '\0')))))))) {
-            fVar5 = FUN_00ab77e0(this,param_2,param_3,param_4);
-            local_1c = (undefined4 *)(float)fVar5;
-            in_EAX = (undefined4 *)FUN_00b051d0(this,param_2,param_3,param_4);
-            if ((char)in_EAX != '\0') {
-              local_1c = (undefined4 *)((float)local_1c + 0.1875);
+          if (this != (void *)0x0) {
+            if (param_9 == '\0') {
+LAB_00c6a184:
+              fVar5 = Lot_SampleLevelWorldHeightWithEdgeAllowance(this,param_2,param_3,param_4);
+              local_1c = (undefined4 *)(float)fVar5;
+              in_EAX = (undefined4 *)Lot_TestPlatformAtWorldXZLevel(this,param_2,param_3,param_4);
+              if ((char)in_EAX != '\0') {
+                local_1c = (undefined4 *)((float)local_1c + 0.1875);
+              }
+              fVar11 = (float)local_1c - -100.0;
+              auVar6._0_4_ = fVar11 * -1.0;
+              auVar6._4_4_ = fVar11 * -1.0;
+              auVar6._8_4_ = fVar11 * -1.0;
+              auVar6._12_4_ = fVar11 * -1.0;
+              auVar7._4_4_ = fVar11;
+              auVar7._0_4_ = fVar11;
+              auVar7._8_4_ = fVar11;
+              auVar7._12_4_ = fVar11;
+              auVar7 = maxps(auVar6,auVar7);
+              auVar8._4_4_ = -(uint)(auVar7._4_4_ <= 1.5258789e-05);
+              auVar8._0_4_ = -(uint)(auVar7._0_4_ <= 1.5258789e-05);
+              auVar8._8_4_ = -(uint)(auVar7._8_4_ <= 1.5258789e-05);
+              auVar8._12_4_ = -(uint)(auVar7._12_4_ <= 1.5258789e-05);
+              iVar3 = movmskps(extraout_EDX,auVar8);
+              puVar12 = local_1c;
+              if (iVar3 != 0xf) {
+                local_1d = 1;
+                goto LAB_00c6a2f9;
+              }
             }
-            fVar11 = (float)local_1c - -100.0;
-            auVar6._0_4_ = fVar11 * -1.0;
-            auVar6._4_4_ = fVar11 * -1.0;
-            auVar6._8_4_ = fVar11 * -1.0;
-            auVar6._12_4_ = fVar11 * -1.0;
-            auVar7._4_4_ = fVar11;
-            auVar7._0_4_ = fVar11;
-            auVar7._8_4_ = fVar11;
-            auVar7._12_4_ = fVar11;
-            auVar7 = maxps(auVar6,auVar7);
-            auVar8._4_4_ = -(uint)(auVar7._4_4_ <= 1.5258789e-05);
-            auVar8._0_4_ = -(uint)(auVar7._0_4_ <= 1.5258789e-05);
-            auVar8._8_4_ = -(uint)(auVar7._8_4_ <= 1.5258789e-05);
-            auVar8._12_4_ = -(uint)(auVar7._12_4_ <= 1.5258789e-05);
-            iVar3 = movmskps(extraout_EDX,auVar8);
-            puVar12 = local_1c;
-            if (iVar3 != 0xf) {
-              local_1d = 1;
-              goto LAB_00c6a2f9;
+            else if (*(char *)((int)this + 0x4bc) == '\0') {
+              if ((param_10 == '\0') ||
+                 (in_EAX = (undefined4 *)FUN_007893e0(this,param_2,param_3), (char)in_EAX != '\0'))
+              goto LAB_00c6a184;
+              puVar12 = local_1c;
             }
           }
           puVar4 = puVar4 + 1;
         } while (puVar4 != local_14[0]);
-        goto LAB_00c6a236;
       }
     }
-    puVar12 = (undefined4 *)0xc2c80000;
   }
-LAB_00c6a236:
   if (param_6 != '\0') {
-    local_14[0] = (undefined4 *)0x0;
     local_18 = -1.0;
-    if ((*(void **)((int)param_1 + 0x5c) != (void *)0x0) &&
-       (in_EAX = (undefined4 *)
-                 FUN_00b77f60(*(void **)((int)param_1 + 0x5c),param_2,param_3,'\x01','\0',local_14,
-                              &local_18,'\0'), puVar12 = local_1c, (char)in_EAX != '\0')) {
-      fVar5 = FUN_00b73130(local_14[0],param_2,param_3);
-      puVar12 = (undefined4 *)(float)fVar5;
-      local_1e = 1;
-      in_EAX = extraout_EAX;
-      local_1c = puVar12;
-      if (*(void **)((int)param_1 + 0x54) != (void *)0x0) {
-        fVar5 = FUN_00c29080(*(void **)((int)param_1 + 0x54),param_2,param_3);
-        local_14[0] = (undefined4 *)(float)fVar5;
-        in_EAX = extraout_EAX_00;
-        if ((float10)(float)puVar12 < fVar5) {
-          local_1e = 0;
-          puVar12 = local_14[0];
-          local_1c = local_14[0];
+    local_14[0] = (undefined4 *)0x0;
+    if (*(void **)((int)param_1 + 0x5c) != (void *)0x0) {
+      in_EAX = (undefined4 *)
+               FUN_00b77f60(*(void **)((int)param_1 + 0x5c),param_2,param_3,'\x01','\0',local_14,
+                            &local_18,'\0');
+      puVar12 = local_1c;
+      if ((char)in_EAX != '\0') {
+        fVar5 = FUN_00b73130(local_14[0],param_2,param_3);
+        puVar12 = (undefined4 *)(float)fVar5;
+        local_1e = 1;
+        in_EAX = extraout_EAX;
+        if (*(void **)((int)param_1 + 0x54) != (void *)0x0) {
+          fVar5 = FUN_00c29080(*(void **)((int)param_1 + 0x54),param_2,param_3);
+          local_1c = (undefined4 *)(float)fVar5;
+          in_EAX = extraout_EAX_00;
+          local_14[0] = local_1c;
+          if ((float10)(float)puVar12 < fVar5) {
+            local_1e = 0;
+            puVar12 = local_1c;
+            goto LAB_00c6a2f9;
+          }
         }
       }
+      local_1c = puVar12;
+      puVar12 = local_1c;
     }
   }
 LAB_00c6a2f9:

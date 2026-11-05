@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -73,7 +72,7 @@ FloorRenderer_InitializeLotLevelAndMaterials(void *this,int param_1,int param_2,
              *(char *)((int)this + 0x18),this);
   FUN_00a9f600((void *)((int)this + 0xe0),*(int *)((int)this + 0xe4),*(uint *)((int)this + 0xe8));
   *(undefined4 *)((int)this + 0xec) = 0;
-  piVar4 = (int *)FUN_0044c4f0();
+  piVar4 = (int *)MessageDispatch_GetCurrent();
   *(int **)((int)this + 0x38) = piVar4;
   *(void **)((int)this + 0x3c) = this;
   *(undefined **)((int)this + 0x40) = &DAT_01064868;
@@ -106,7 +105,7 @@ FloorRenderer_InitializeLotLevelAndMaterials(void *this,int param_1,int param_2,
                 (auStack_20,0xb3d7a7,puVar9,0,0,ResourceCallback_InvokeVirtual04,0,1);
     }
   }
-  cVar2 = FUN_00c88d00();
+  cVar2 = GameProducts_TestCachedMask40000();
   iVar8 = CONCAT31(extraout_var,cVar2);
   uStack_10 = CONCAT44(uStack_10._4_4_,(undefined4)uStack_10);
   if (cVar2 != '\0') {
@@ -137,14 +136,14 @@ FloorRenderer_InitializeLotLevelAndMaterials(void *this,int param_1,int param_2,
   }
   cVar2 = CachedGlobalMask8000_Query();
   if (cVar2 == '\0') {
-    cVar2 = FUN_00c88d00();
+    cVar2 = GameProducts_TestCachedMask40000();
     if (cVar2 != '\0') goto LAB_00aa00c1;
   }
   else {
 LAB_00aa00c1:
     DAT_01183ba8 = ShaderParameterRegistry_RegisterNamedRow(this_00,"LotWeatherDataMapScale",2,1);
   }
-  cVar2 = FUN_00c88d00();
+  cVar2 = GameProducts_TestCachedMask40000();
   iVar8 = CONCAT31(extraout_var_00,cVar2);
   if (cVar2 != '\0') {
     iVar8 = ShaderParameterRegistry_RegisterNamedRow(this_00,"DivingCausticsMap",1,5);

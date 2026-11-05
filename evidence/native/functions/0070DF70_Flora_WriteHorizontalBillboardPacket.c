@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst PC1.67 original contract. cdecl five stack words, RET, returns output advanced144 bytes;
    absent horizontal authored geometry returns original output. Four36-byte vertices: SHORT4
    transformed world corner at0, SHORT4 tree translation at8, SHORT4 authored UV/quarter-scaled
@@ -17,16 +19,20 @@ Flora_WriteHorizontalBillboardPacket
           (int param_1,int param_2,float *param_3,float *param_4,undefined4 param_5)
 
 {
-  char cVar1;
-  float *pfVar2;
-  undefined4 *puVar3;
-  uint uVar4;
-  int iVar5;
-  float10 fVar6;
-  float fVar7;
-  float fVar8;
-  float fVar9;
-  float fVar10;
+  float fVar1;
+  float fVar2;
+  float fVar3;
+  float fVar4;
+  char cVar5;
+  float *pfVar6;
+  undefined4 *puVar7;
+  uint uVar8;
+  int iVar9;
+  float10 fVar10;
+  float fVar11;
+  float fVar12;
+  float fVar13;
+  float fVar14;
   undefined4 local_90;
   undefined4 local_8c;
   undefined4 local_88;
@@ -52,8 +58,8 @@ Flora_WriteHorizontalBillboardPacket
   undefined4 uStack_18;
   undefined4 uStack_14;
   
-  cVar1 = FUN_007b8850(param_2);
-  if (cVar1 == '\0') {
+  cVar5 = FUN_007b8850(param_2);
+  if (cVar5 == '\0') {
     return param_1;
   }
   local_40 = param_3[0xc];
@@ -61,19 +67,16 @@ Flora_WriteHorizontalBillboardPacket
   fStack_38 = param_3[0xe];
   fStack_34 = param_3[0xf];
   Flora_PackHomogeneousShort4((undefined1 (*) [16])&local_40,(undefined2 *)&local_90);
-  fVar6 = (float10)fpatan((float10)(FLOAT_00f998f0 -
-                                   (FLOAT_00f998f8 * param_3[2] + param_3[1] * 0.0 + *param_3 * 0.0)
-                                   ),
-                          (float10)(param_3[2] * 0.0 + param_3[1] * 0.0 + FLOAT_00f998f8 * *param_3)
-                         );
-  fVar7 = (float)fVar6;
-  if (fVar7 < 0.0) {
-    fVar7 = fVar7 + _DAT_00ffc4e0;
+  fVar10 = (float10)fpatan((float10)(-0.0 - (param_3[2] * 1.0 + param_3[1] * 0.0 + *param_3 * 0.0)),
+                           (float10)(param_3[2] * 0.0 + param_3[1] * 0.0 + *param_3 * 1.0));
+  fVar11 = (float)fVar10;
+  if (fVar11 < 0.0) {
+    fVar11 = fVar11 + 6.2831855;
   }
-  fVar6 = (float10)fsin((float10)fVar7);
-  local_60 = (float)fVar6;
-  fVar6 = (float10)fcos((float10)fVar7);
-  fStack_5c = (float)fVar6;
+  fVar10 = (float10)fsin((float10)fVar11);
+  local_60 = (float)fVar10;
+  fVar10 = (float10)fcos((float10)fVar11);
+  fStack_5c = (float)fVar10;
   uStack_18 = 0;
   uStack_14 = 0;
   fStack_54 = 0.0 - local_60;
@@ -81,51 +84,53 @@ Flora_WriteHorizontalBillboardPacket
   local_20 = local_60;
   fStack_1c = fStack_5c;
   Flora_PackHomogeneousShort4((undefined1 (*) [16])&local_60,(undefined2 *)&local_88);
-  pfVar2 = (float *)FUN_007b8860(param_2);
-  puVar3 = (undefined4 *)FUN_007b8870(param_2);
-  local_80[0] = puVar3[4];
-  local_80[1] = puVar3[1];
-  local_80[2] = puVar3[6];
-  local_80[3] = puVar3[3];
-  local_80[4] = *puVar3;
-  local_80[5] = puVar3[5];
-  local_80[6] = puVar3[2];
-  uVar4 = (int)(ABS(*pfVar2 - pfVar2[3]) - ABS(pfVar2[5] - pfVar2[8])) >> 0x1f;
-  fVar7 = *param_4 *
-          (float)(~uVar4 & (uint)ABS(*pfVar2 - pfVar2[3]) | (uint)ABS(pfVar2[5] - pfVar2[8]) & uVar4
-                 ) * DAT_00ffc4c0 * DAT_0106f8c8;
-  local_80[7] = puVar3[7];
-  iVar5 = 0;
-  puVar3 = (undefined4 *)(param_1 + 8);
-  pfVar2 = pfVar2 + 1;
+  pfVar6 = (float *)SpeedTree_GetHorizontalBillboardCorners(param_2);
+  puVar7 = (undefined4 *)SpeedTree_GetHorizontalBillboardTextureRow(param_2);
+  fVar1 = pfVar6[5];
+  fVar2 = pfVar6[8];
+  local_80[0] = puVar7[4];
+  local_80[1] = puVar7[1];
+  fVar3 = *pfVar6;
+  fVar4 = pfVar6[3];
+  local_80[2] = puVar7[6];
+  local_80[3] = puVar7[3];
+  local_80[4] = *puVar7;
+  local_80[5] = puVar7[5];
+  local_80[6] = puVar7[2];
+  uVar8 = (int)(ABS(fVar3 - fVar4) - ABS(fVar1 - fVar2)) >> 0x1f;
+  fVar11 = *param_4;
+  local_80[7] = puVar7[7];
+  iVar9 = 0;
+  puVar7 = (undefined4 *)(param_1 + 8);
+  pfVar6 = pfVar6 + 1;
   do {
-    fVar8 = *param_4 * DAT_00ffc4c0;
-    local_50._4_4_ = local_80[iVar5 * 2 + 1];
-    fVar9 = pfVar2[-1] * fVar8;
-    fVar10 = *pfVar2 * fVar8;
-    fVar8 = pfVar2[1] * fVar8;
-    local_50._0_4_ = local_80[iVar5 * 2];
-    local_30 = fVar9 * *param_3 + fVar10 * param_3[4] + fVar8 * param_3[8] +
-               FLOAT_00f998f8 * param_3[0xc];
-    fStack_2c = fVar9 * param_3[1] + fVar10 * param_3[5] + fVar8 * param_3[9] +
-                FLOAT_00f998f8 * param_3[0xd];
-    fStack_28 = fVar9 * param_3[2] + fVar10 * param_3[6] + fVar8 * param_3[10] +
-                FLOAT_00f998f8 * param_3[0xe];
-    fStack_24 = fVar9 * param_3[3] + fVar10 * param_3[7] + fVar8 * param_3[0xb] +
-                FLOAT_00f998f8 * param_3[0xf];
-    fStack_48 = fVar7;
+    fVar12 = *param_4 * 0.3048;
+    local_50._4_4_ = local_80[iVar9 * 2 + 1];
+    fVar13 = pfVar6[-1] * fVar12;
+    fVar14 = *pfVar6 * fVar12;
+    fVar12 = pfVar6[1] * fVar12;
+    local_50._0_4_ = local_80[iVar9 * 2];
+    local_30 = fVar13 * *param_3 + fVar14 * param_3[4] + fVar12 * param_3[8] + param_3[0xc] * 1.0;
+    fStack_2c = fVar13 * param_3[1] + fVar14 * param_3[5] + fVar12 * param_3[9] + param_3[0xd] * 1.0
+    ;
+    fStack_28 = fVar13 * param_3[2] + fVar14 * param_3[6] + fVar12 * param_3[10] +
+                param_3[0xe] * 1.0;
+    fStack_24 = fVar13 * param_3[3] + fVar14 * param_3[7] + fVar12 * param_3[0xb] +
+                param_3[0xf] * 1.0;
+    fStack_48 = fVar11 * (float)(~uVar8 & (uint)ABS(fVar3 - fVar4) |
+                                (uint)ABS(fVar1 - fVar2) & uVar8) * 0.3048 * 0.25;
     uStack_44 = local_50._0_4_;
-    Flora_PackHomogeneousShort4((undefined1 (*) [16])&local_30,(undefined2 *)(puVar3 + -2));
-    Flora_PackHomogeneousShort4((undefined1 (*) [16])local_50,(undefined2 *)(puVar3 + 2));
-    *puVar3 = local_90;
-    puVar3[1] = local_8c;
-    puVar3[4] = local_88;
-    puVar3[5] = local_84;
-    puVar3[6] = param_5;
-    iVar5 = iVar5 + 1;
-    pfVar2 = pfVar2 + 3;
-    puVar3 = puVar3 + 9;
-  } while (iVar5 < 4);
+    Flora_PackHomogeneousShort4((undefined1 (*) [16])&local_30,(undefined2 *)(puVar7 + -2));
+    Flora_PackHomogeneousShort4((undefined1 (*) [16])local_50,(undefined2 *)(puVar7 + 2));
+    *puVar7 = local_90;
+    puVar7[1] = local_8c;
+    puVar7[4] = local_88;
+    puVar7[5] = local_84;
+    puVar7[6] = param_5;
+    iVar9 = iVar9 + 1;
+    pfVar6 = pfVar6 + 3;
+    puVar7 = puVar7 + 9;
+  } while (iVar9 < 4);
   return param_1 + 0x90;
 }
 

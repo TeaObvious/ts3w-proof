@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x01189e00 (original PC1.67 TS3W.exe).
@@ -95,7 +95,7 @@ ScriptCore_UserToolUtils__UserToolUtils_ProductGenericImpl
     (**(code **)(*piVar5 + 4))();
     break;
   case 5:
-    fVar10 = CatalogProduct_ComputeDisplayPrice(piVar5);
+    fVar10 = CatalogProduct_ComputeDisplayPrice((undefined *)piVar5);
     *param_7 = (float)fVar10;
     break;
   case 6:
@@ -162,22 +162,22 @@ LAB_00ce9b31:
     *param_3 = 0;
     pvVar6 = (void *)FUN_007ddb20(piVar5);
     if (pvVar6 == (void *)0x0) {
-      iVar8 = FUN_00ce5e80(piVar5);
-      if (iVar8 == 0) {
-        iVar8 = FUN_00b30580(piVar5);
-        if (iVar8 == 0) {
+      pvVar6 = (void *)FUN_00ce5e80(piVar5);
+      if (pvVar6 == (void *)0x0) {
+        pvVar6 = (void *)FUN_00b30580(piVar5);
+        if (pvVar6 == (void *)0x0) {
           iVar8 = FUN_00ce5ea0(piVar5);
           if (iVar8 == 0) {
-            iVar8 = FUN_00ce5ec0(piVar5);
-            if (iVar8 == 0) {
+            pvVar6 = (void *)FUN_00ce5ec0(piVar5);
+            if (pvVar6 == (void *)0x0) {
               iVar8 = FUN_00ce5ee0(piVar5);
               if (iVar8 != 0) {
-                uVar16 = FUN_00c93e00(iVar8);
+                uVar16 = FoundationProduct_CountAuthoredAndInstalledPresets(iVar8);
                 *param_3 = uVar16;
               }
             }
             else {
-              uVar16 = FUN_00c96fa0(iVar8);
+              uVar16 = StairProduct_CountAuthoredAndInstalledPresets(pvVar6);
               *param_3 = uVar16;
             }
           }
@@ -187,12 +187,12 @@ LAB_00ce9b31:
           }
         }
         else {
-          uVar16 = FUN_00c94ac0(iVar8);
+          uVar16 = FenceProduct_CountPresetRows(pvVar6);
           *param_3 = uVar16;
         }
       }
       else {
-        uVar16 = FUN_00c9a0b0(iVar8);
+        uVar16 = PatternProduct_CountAuthoredAndInstalledPresets(pvVar6);
         *param_3 = uVar16;
       }
     }
@@ -265,12 +265,12 @@ LAB_00ce9b31:
             if (pvVar6 == (void *)0x0) {
               pvVar6 = (void *)FUN_00ce5ee0(piVar5);
               if (pvVar6 != (void *)0x0) {
-                uVar16 = FUN_00c93b30(pvVar6,uVar16);
+                uVar16 = FoundationProduct_ResolveFullPresetIdToOrdinal(pvVar6,uVar16);
                 *param_3 = uVar16;
               }
             }
             else {
-              uVar16 = FUN_00c96cc0(pvVar6,uVar16);
+              uVar16 = StairProduct_ResolveFullPresetIdToOrdinal(pvVar6,uVar16);
               *param_3 = uVar16;
             }
           }
@@ -280,12 +280,12 @@ LAB_00ce9b31:
           }
         }
         else {
-          uVar16 = FUN_00c94780(pvVar6,uVar16);
+          uVar16 = FenceProduct_ResolvePresetId(pvVar6,uVar16);
           *param_3 = uVar16;
         }
       }
       else {
-        uVar16 = FUN_00c99dd0(pvVar6,uVar16);
+        uVar16 = PatternProduct_ResolveFullPresetIdToOrdinal(pvVar6,uVar16);
         *param_3 = uVar16;
       }
     }
@@ -309,12 +309,12 @@ LAB_00ce9b31:
             if (pvVar6 == (void *)0x0) {
               pvVar6 = (void *)FUN_00ce5ee0(piVar5);
               if (pvVar6 != (void *)0x0) {
-                uVar16 = FUN_00c93be0(pvVar6,uVar16);
+                uVar16 = FoundationProduct_GetPresetIdentifier(pvVar6,uVar16);
                 *param_3 = uVar16;
               }
             }
             else {
-              uVar16 = FUN_00c96d70(pvVar6,uVar16);
+              uVar16 = StairProduct_GetPresetIdentifier(pvVar6,uVar16);
               *param_3 = uVar16;
             }
           }
@@ -324,12 +324,12 @@ LAB_00ce9b31:
           }
         }
         else {
-          uVar16 = FUN_00c94830(pvVar6,uVar16);
+          uVar16 = FenceProduct_GetPresetIdentifier(pvVar6,uVar16);
           *param_3 = uVar16;
         }
       }
       else {
-        uVar16 = FUN_00c99e90(pvVar6,uVar16);
+        uVar16 = PatternProduct_GetPresetIdentifier(pvVar6,uVar16);
         *param_3 = uVar16;
       }
     }
@@ -389,7 +389,7 @@ LAB_00ce9b31:
     if (iVar8 == 0) {
       pvVar6 = (void *)FUN_00ce5e80(piVar5);
       if (pvVar6 != (void *)0x0) {
-        uVar16 = FUN_00c99bd0(pvVar6,uVar16);
+        uVar16 = PatternProduct_GetPresetSubsortMask(pvVar6,uVar16);
         *param_3 = uVar16;
       }
     }
@@ -420,7 +420,7 @@ LAB_00ce9b31:
         uVar12 = FUN_0092f9c0();
         FUN_00939a40(aiStack_30,uVar12);
         ObjectParams_AppendDirectAndResourceExpansion(piStack_60,aiStack_30);
-        puVar14 = &uStack_78;
+        puVar14 = (uint *)(aiStack_88 + 4);
         uVar16 = 0xa6e5f629;
         this = ParameterBuilder_FinalizeBorrowedTable(aiStack_30,auStack_3c);
         bVar2 = ParameterTable_CopyResourceKey16(this,uVar16,puVar14);

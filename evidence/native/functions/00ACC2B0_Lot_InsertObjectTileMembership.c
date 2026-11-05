@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 original static instructions. ECXlot+1object/RET4 lowAL result. Requires Location,
@@ -49,7 +49,7 @@ LAB_00acc2d4:
   local_28 = Object_GetComponentByMask(param_1,DAT_011edf08);
   in_EAX = (undefined4 *)0x0;
   if (local_28 == (void *)0x0) goto LAB_00acc2d4;
-  uVar4 = FUN_00b04980((int)param_1);
+  uVar4 = ObjectCatalog_HasBuildableShellFlag((int)param_1);
   if ((((char)uVar4 != '\0') &&
       (in_EAX = *(undefined4 **)((int)this + 0x2e8), in_EAX != (undefined4 *)0x0)) &&
      (in_EAX != param_1)) goto LAB_00acc2d4;
@@ -69,25 +69,27 @@ LAB_00acc2d4:
         iVar10 = (int)local_24 - *(int *)((int)this + 0x17c);
         if (-1 < iVar10) {
           bVar2 = true;
-          pvVar13 = local_10;
           uVar11 = local_c;
           do {
-            pvVar5 = (void *)FUN_00acbe70(*(void **)((int)this + 0x2d0),(uint)pvVar13,uVar11,iVar10)
-            ;
-            pfVar1 = *(float **)((int)pvVar5 + 4);
-            if (pfVar1 < *(float **)((int)pvVar5 + 8)) {
-              *(float **)((int)pvVar5 + 4) = pfVar1 + 2;
-              if (pfVar1 != (float *)0x0) {
-                *pfVar1 = local_1c;
-                pfVar1[1] = local_18;
+            pvVar13 = local_10;
+            do {
+              pvVar5 = (void *)FUN_00acbe70(*(void **)((int)this + 0x2d0),(uint)pvVar13,uVar11,
+                                            iVar10);
+              pfVar1 = *(float **)((int)pvVar5 + 4);
+              if (pfVar1 < *(float **)((int)pvVar5 + 8)) {
+                *(float **)((int)pvVar5 + 4) = pfVar1 + 2;
+                if (pfVar1 != (float *)0x0) {
+                  *pfVar1 = local_1c;
+                  pfVar1[1] = local_18;
+                }
               }
-            }
-            else {
-              FUN_00abec50(pvVar5,pfVar1,&local_1c);
-            }
-            pvVar13 = (void *)((int)pvVar13 + 1);
-          } while (((int)pvVar13 < local_8) ||
-                  (uVar11 = uVar11 + 1, pvVar13 = local_10, (int)uVar11 < (int)local_4));
+              else {
+                FUN_00abec50(pvVar5,pfVar1,&local_1c);
+              }
+              pvVar13 = (void *)((int)pvVar13 + 1);
+            } while ((int)pvVar13 < local_8);
+            uVar11 = uVar11 + 1;
+          } while ((int)uVar11 < (int)local_4);
         }
         local_24 = (float)((int)local_24 + 1);
       } while ((int)local_24 <= (int)local_2c);
@@ -100,7 +102,7 @@ LAB_00acc2d4:
   uVar6 = FUN_00b00520((int)param_1);
   if (((char)uVar6 != '\0') &&
      (pvVar5 = Object_GetComponentByMask(param_1,DAT_011e9fc4), pvVar5 != (void *)0x0)) {
-    FUN_00948d80(pvVar5,*(uint *)((int)pvVar5 + 0x50) | 0x20000);
+    ModelComponent_SetRenderFlagsOverride(pvVar5,*(uint *)((int)pvVar5 + 0x50) | 0x20000);
   }
   uVar6 = FUN_00b005c0((int)param_1);
   if ((char)uVar6 != '\0') {
@@ -158,23 +160,24 @@ LAB_00acc2d4:
              (*(void **)(iVar10 + 0x1c) != (void *)0x0)))) &&
            (pvVar13 = (void *)FUN_0074bb80(*(void **)(iVar10 + 0x1c)), pvVar13 != (void *)0x0)) {
           *(undefined1 *)((int)this + 0x2fc) = 1;
-          FUN_00c894e0(pvVar13,(int *)((int)this + 0x300),(undefined4 *)((int)this + 0x304),
-                       (undefined4 *)((int)this + 0x308));
+          ObjectLocation_CopyXZLevel
+                    (pvVar13,(int *)((int)this + 0x300),(undefined4 *)((int)this + 0x304),
+                     (undefined4 *)((int)this + 0x308));
         }
         if (local_10 != (void *)0x0) {
           Memory_FreeIfNonNull(local_10);
         }
       }
-      piVar7 = FUN_00adf150();
+      piVar7 = FloorMessagePool_AcquireStorage();
       if (piVar7 == (int *)0x0) {
         piVar7 = (int *)0x0;
       }
       else {
-        *piVar7 = (int)&PTR_FUN_01065f8c;
+        *piVar7 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
         LOCK();
         piVar7[1] = 0;
         UNLOCK();
-        *piVar7 = (int)&PTR_FUN_01065f8c;
+        *piVar7 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
         piVar7[10] = (int)-1.0;
         piVar7[0xb] = (int)-1.0;
         piVar7[0xc] = 0;
@@ -193,7 +196,7 @@ LAB_00acc2d4:
       piVar7[0xb] = *(int *)((int)this + 0x304);
       piVar7[0xc] = *(int *)((int)this + 0x308);
       if (((*(char *)((int)this + 0xc9) == '\0') && (*(int *)((int)this + 0x364) != 0)) &&
-         (piVar8 = (int *)FUN_0044c4f0(), piVar8 != (int *)0x0)) {
+         (piVar8 = (int *)MessageDispatch_GetCurrent(), piVar8 != (int *)0x0)) {
         (**(code **)(*piVar8 + 0x1c))(0xa80b189,piVar7,0,*(undefined4 *)((int)this + 0x364));
       }
       (**(code **)(*piVar7 + 8))();
@@ -285,10 +288,12 @@ LAB_00acc7d5:
 LAB_00acc820:
   if (bVar2) {
     uVar4 = *(uint *)((int)this + 0xc);
-    pvVar13 = local_28;
     if ((*(int *)(uVar4 + 0x154) == 200) &&
        (uVar4 = FUN_00b00850((int)param_1), pvVar13 = local_28, (char)uVar4 != '\0')) {
       uVar4 = FUN_00c89960(local_28,1);
+    }
+    else {
+      pvVar13 = local_28;
     }
     if ((*(uint *)((int)pvVar13 + 0x2c) >> 1 & 1) != 0) {
       LocationComponent_PostReachingConfiguration(pvVar13);

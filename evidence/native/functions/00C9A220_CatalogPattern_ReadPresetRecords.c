@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): Original VTable0107D288 points to this entry. Full
@@ -38,11 +38,11 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
   bool bVar4;
   char cVar5;
   byte bVar6;
-  undefined4 *puVar7;
+  void *this_00;
+  int *piVar7;
   int *piVar8;
-  int *piVar9;
   undefined *_Src;
-  undefined4 *puVar10;
+  undefined4 *puVar9;
   char cStack_a1;
   char acStack_a0 [8];
   void *pvStack_98;
@@ -112,25 +112,25 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
   if (pcStack_80 != (char *)0x0) {
     iStack_68 = 0;
     do {
-      piVar8 = (int *)0x0;
-      puVar10 = (undefined4 *)(*(int *)((int)this + 0xc0) + iStack_68);
+      piVar7 = (int *)0x0;
+      puVar9 = (undefined4 *)(*(int *)((int)this + 0xc0) + iStack_68);
       cStack_a1 = '\0';
       if (10 < uStack_7c) {
         bVar4 = Stream_ReadBoolean(pvStack_98,&cStack_a1);
         StreamReader_AccumulateStatus(acStack_a0,bVar4);
       }
-      puVar7 = (undefined4 *)FUN_004e4500(0x60,"Debug",0);
-      if ((puVar7 != (undefined4 *)0x0) &&
-         (piVar8 = (int *)FUN_005bfac0(puVar7), piVar8 != (int *)0x0)) {
-        (**(code **)*piVar8)();
+      this_00 = (void *)FUN_004e4500(0x60,"Debug",0);
+      if ((this_00 != (void *)0x0) &&
+         (piVar7 = (int *)DesignPreset_InitializeEmpty(this_00), piVar7 != (int *)0x0)) {
+        (**(code **)*piVar7)();
       }
       if (cStack_a1 == '\0') {
         StreamContext_ReadUtf16String(acStack_a0,&puStack_78);
         bVar6 = Preset_ReadBinaryOrTextBuffer
-                          (piVar8,puStack_78,((int)puStack_74 - (int)puStack_78 >> 1) * 2,1);
+                          (piVar7,puStack_78,((int)puStack_74 - (int)puStack_78 >> 1) * 2,1);
         if (bVar6 == 0) {
-          if (piVar8 != (int *)0x0) {
-            (**(code **)(*piVar8 + 4))();
+          if (piVar7 != (int *)0x0) {
+            (**(code **)(*piVar7 + 4))();
           }
           if ((2 < (int)((int)puStack_70 - (int)puStack_78 & 0xfffffffeU)) &&
              (puStack_78 != (undefined1 *)0x0)) {
@@ -139,7 +139,8 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
           if (puStack_5c != (undefined *)0x0) {
             Memory_FreeIfNonNull(puStack_5c);
           }
-          goto joined_r0x00c9a6fb;
+          if (pvStack_44 != (void *)0x0) goto LAB_00c9a92a;
+          goto LAB_00c9a932;
         }
       }
       else {
@@ -158,10 +159,10 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
         _Src = puStack_58;
         bVar4 = Stream_ReadExactBytes(pvStack_98,puStack_5c,uStack_64);
         StreamReader_AccumulateStatus(acStack_a0,bVar4);
-        bVar6 = Preset_ReadBinaryOrTextBuffer(piVar8,puStack_5c,uStack_64,1);
+        bVar6 = Preset_ReadBinaryOrTextBuffer(piVar7,puStack_5c,uStack_64,1);
         if (bVar6 == 0) {
-          if (piVar8 != (int *)0x0) {
-            (**(code **)(*piVar8 + 4))();
+          if (piVar7 != (int *)0x0) {
+            (**(code **)(*piVar7 + 4))();
           }
           if ((2 < (int)((int)puStack_70 - (int)puStack_78 & 0xfffffffeU)) &&
              (puStack_78 != (undefined1 *)0x0)) {
@@ -170,26 +171,27 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
           if (puStack_5c != (undefined *)0x0) {
             Memory_FreeIfNonNull(puStack_5c);
           }
-          goto joined_r0x00c9a6fb;
+          if (pvStack_44 != (void *)0x0) goto LAB_00c9a92a;
+          goto LAB_00c9a932;
         }
       }
-      bVar4 = Stream_ReadUInt32(pvStack_98,puVar10 + 1,uStack_90);
+      bVar4 = Stream_ReadUInt32(pvStack_98,puVar9 + 1,uStack_90);
       StreamReader_AccumulateStatus(acStack_a0,bVar4);
       if (9 < uStack_7c) {
-        bVar4 = Stream_ReadUInt32(pvStack_98,puVar10 + 2,uStack_90);
+        bVar4 = Stream_ReadUInt32(pvStack_98,puVar9 + 2,uStack_90);
         StreamReader_AccumulateStatus(acStack_a0,bVar4);
-        FUN_008a5930(piVar8,puVar10[2]);
+        FUN_008a5930(piVar7,puVar9[2]);
         this = pvStack_48;
       }
       if (0xb < uStack_7c) {
-        bVar4 = Stream_ReadUInt32(pvStack_98,puVar10 + 3,uStack_90);
+        bVar4 = Stream_ReadUInt32(pvStack_98,puVar9 + 3,uStack_90);
         StreamReader_AccumulateStatus(acStack_a0,bVar4);
-        bVar4 = Stream_ReadUInt32(pvStack_98,puVar10 + 4,uStack_90);
+        bVar4 = Stream_ReadUInt32(pvStack_98,puVar9 + 4,uStack_90);
         StreamReader_AccumulateStatus(acStack_a0,bVar4);
       }
       iStack_68 = iStack_68 + 0x14;
-      *puVar10 = piVar8;
-      iStack_60 = iStack_60 + piVar8[8];
+      *puVar9 = piVar7;
+      iStack_60 = iStack_60 + piVar7[8];
       pcStack_88 = pcStack_88 + 1;
     } while (pcStack_88 < pcStack_80);
   }
@@ -205,11 +207,11 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
   bVar4 = Stream_ReadUInt32(pvStack_98,&uStack_4c,uStack_90);
   StreamReader_AccumulateStatus(acStack_a0,bVar4);
   if (uStack_4c < (uint)(iStack_40 - (int)pvStack_44 >> 4)) {
-    puVar10 = (undefined4 *)(uStack_4c * 0x10 + (int)pvStack_44);
-    uStack_34 = *puVar10;
-    uStack_30 = puVar10[1];
-    uStack_2c = puVar10[2];
-    uStack_28 = puVar10[3];
+    puVar9 = (undefined4 *)(uStack_4c * 0x10 + (int)pvStack_44);
+    uStack_34 = *puVar9;
+    uStack_30 = puVar9[1];
+    uStack_2c = puVar9[2];
+    uStack_28 = puVar9[3];
     bVar4 = VisualProxy_ResolveTypedResource(&uStack_34,0x1d0e75d,(void *)((int)this + 0x90));
     if (bVar4) {
       bVar4 = Stream_ReadUInt32(pvStack_98,(uint *)((int)this + 0xa0),uStack_90);
@@ -219,16 +221,16 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
       pcStack_14 = "Lot/CTCatalog/ProductPattern/SurfaceStr";
       puStack_18 = &DAT_011c8e56;
       FUN_007d7aa0(acStack_a0,(int *)&puStack_20);
-      piVar9 = FUN_004f3df0(apvStack_10,&puStack_20);
-      piVar8 = (int *)((int)this + 0xa4);
-      if (piVar9 != piVar8) {
-        FUN_00405910(piVar8,(void *)*piVar9,(undefined1 *)piVar9[1]);
+      piVar8 = FUN_004f3df0(apvStack_10,&puStack_20);
+      piVar7 = (int *)((int)this + 0xa4);
+      if (piVar8 != piVar7) {
+        FUN_00405910(piVar7,(void *)*piVar8,(undefined1 *)piVar8[1]);
       }
       if ((1 < iStack_8 - (int)apvStack_10[0]) && (apvStack_10[0] != (void *)0x0)) {
         Memory_FreeIfNonNull(apvStack_10[0]);
       }
       iVar2 = *(int *)((int)this + 0xa8);
-      iVar3 = *piVar8;
+      iVar3 = *piVar7;
       iVar1 = iStack_60 + 1;
       if (uStack_7c < 0xd) {
         bVar4 = Stream_ReadUInt32(pvStack_98,(uint *)&pcStack_88,uStack_90);
@@ -268,6 +270,7 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
     if (puStack_5c != (undefined *)0x0) {
       Memory_FreeIfNonNull(puStack_5c);
     }
+    if (pvStack_44 == (void *)0x0) goto LAB_00c9a932;
   }
   else {
     if ((2 < (int)((int)puStack_70 - (int)puStack_78 & 0xfffffffeU)) &&
@@ -277,11 +280,11 @@ undefined1 __thiscall CatalogPattern_ReadPresetRecords(void *this,void *reader)
     if (puStack_5c != (undefined *)0x0) {
       Memory_FreeIfNonNull(puStack_5c);
     }
+    if (pvStack_44 == (void *)0x0) goto LAB_00c9a932;
   }
-joined_r0x00c9a6fb:
-  if (pvStack_44 != (void *)0x0) {
-    Memory_FreeIfNonNull(pvStack_44);
-  }
+LAB_00c9a92a:
+  Memory_FreeIfNonNull(pvStack_44);
+LAB_00c9a932:
   StreamReader_ReleaseAuxiliary(acStack_a0);
   return 0;
 }

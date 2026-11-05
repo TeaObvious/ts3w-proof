@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): ECX grid. Read06DC847E
@@ -43,12 +43,14 @@ ByteBlockGrid_ReadResourceHeader
   StreamReader_AccumulateStatus(this_00,bVar1);
   bVar1 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&param_2,*(uint *)((int)this_00 + 0x10));
   StreamReader_AccumulateStatus(this_00,bVar1);
-  FUN_00aee740(this,(int)param_1,param_2);
+  ByteBlockGrid_SetDimensions(this,(int)param_1,param_2);
   bVar1 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&param_3,*(uint *)((int)this_00 + 0x10));
   StreamReader_AccumulateStatus(this_00,bVar1);
-  FUN_00412e20((void *)((int)this + 0x20),param_3);
-  uVar2 = FUN_004dd920(*(int **)((int)this_00 + 8),*(ushort **)((int)this + 0x30),
-                       *(int *)((int)this + 0x34) - (int)*(ushort **)((int)this + 0x30) >> 1);
+  ByteVector_ResizeZeroed((void *)((int)this + 0x20),param_3);
+  uVar2 = Stream_ReadUtf16UnitsEndian
+                    (*(int **)((int)this_00 + 8),*(ushort **)((int)this + 0x30),
+                     *(int *)((int)this + 0x34) - (int)*(ushort **)((int)this + 0x30) >> 1,
+                     *(uint *)((int)this_00 + 0x10));
   StreamReader_AccumulateStatus(this_00,(byte)uVar2);
   uVar3 = extraout_var_00;
   if (*(char *)((int)this_00 + 0x14) == '\0') {

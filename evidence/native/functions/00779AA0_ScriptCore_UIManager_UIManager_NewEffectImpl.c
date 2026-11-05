@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -32,49 +31,49 @@ undefined4 ScriptCore_UIManager__UIManager_NewEffectImpl(undefined4 param_1)
   
   switch(param_1) {
   case 0:
-    puVar1 = FUN_005050b0(0x78,4,"Scripting/UIHost/FadeEffect",(int *)0x0);
+    puVar1 = AllocateWithAllocatorHeader(0x78,4,"Scripting/UIHost/FadeEffect",(int *)0x0);
     if (puVar1 == (uint *)0x0) {
       return 0;
     }
     puVar2 = FUN_00522a00(puVar1);
     break;
   case 1:
-    puVar1 = FUN_005050b0(0x80,4,"Scripting/UIHost/GlideEffect",(int *)0x0);
+    puVar1 = AllocateWithAllocatorHeader(0x80,4,"Scripting/UIHost/GlideEffect",(int *)0x0);
     if (puVar1 == (uint *)0x0) {
       return 0;
     }
     puVar2 = FUN_00523b50(puVar1);
     break;
   case 2:
-    puVar1 = FUN_005050b0(0xcc,4,"Scripting/UIHost/InflateEffect",(int *)0x0);
+    puVar1 = AllocateWithAllocatorHeader(0xcc,4,"Scripting/UIHost/InflateEffect",(int *)0x0);
     if (puVar1 == (uint *)0x0) {
       return 0;
     }
     puVar2 = FUN_00532f30(puVar1);
     break;
   case 3:
-    puVar1 = FUN_005050b0(0x7c,4,"Scripting/UIHost/ModulateEffect",(int *)0x0);
+    puVar1 = AllocateWithAllocatorHeader(0x7c,4,"Scripting/UIHost/ModulateEffect",(int *)0x0);
     if (puVar1 == (uint *)0x0) {
       return 0;
     }
     puVar2 = FUN_00534cd0(puVar1);
     break;
   case 4:
-    puVar1 = FUN_005050b0(0xa0,0x10,"Scripting/UIHost/RotateEffect",(int *)0x0);
+    puVar1 = AllocateWithAllocatorHeader(0xa0,0x10,"Scripting/UIHost/RotateEffect",(int *)0x0);
     if (puVar1 == (uint *)0x0) {
       return 0;
     }
     puVar2 = FUN_00535e30(puVar1);
     break;
   case 5:
-    puVar1 = FUN_005050b0(0x88,4,"Scripting/UIHost/GrowEffect",(int *)0x0);
+    puVar1 = AllocateWithAllocatorHeader(0x88,4,"Scripting/UIHost/GrowEffect",(int *)0x0);
     if (puVar1 == (uint *)0x0) {
       return 0;
     }
     puVar2 = FUN_007e4660(puVar1);
     break;
   case 6:
-    puVar1 = FUN_005050b0(0x28,4,"Scripting/UIHost/ControllerEffect",(int *)0x0);
+    puVar1 = AllocateWithAllocatorHeader(0x28,4,"Scripting/UIHost/ControllerEffect",(int *)0x0);
     if (puVar1 == (uint *)0x0) {
       return 0;
     }

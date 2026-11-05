@@ -1,6 +1,14 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
+/* Verified PC 1.67 registration path: Walks the host descriptor list at +0x1600. For each
+   descriptor, calls vtable +0x10 to obtain a table, then iterates eight-byte (function pointer,
+   managed-name pointer) records until a null function pointer. The pair reaches
+   0x00E82820(name,function). The observed order is source code addresses 0x00D7EB1A and
+   0x00D7EB31..6B; this is static PC 1.67 instruction evidence, not a runtime registration trace.
+   Source: evidence/bindings/consumer-trace.md. */
+
 
 
 /* Verified PC 1.67 registration path: Walks the host descriptor list at +0x1600. For each
@@ -8,7 +16,8 @@
    managed-name pointer) records until a null function pointer. The pair reaches
    0x00E82820(name,function). The observed order is source code addresses 0x00D7EB1A and
    0x00D7EB31..6B; this is static PC 1.67 instruction evidence, not a runtime registration trace.
-   Source: evidence/bindings/consumer-trace.md. */
+   Source: the canonical ASM/C pair for this function; TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3. */
 
 undefined4 __fastcall RegisterAllNativeMethodTables(int *param_1)
 
@@ -21,7 +30,9 @@ undefined4 __fastcall RegisterAllNativeMethodTables(int *param_1)
   ushort *puVar6;
   int *piVar7;
   char *pcVar8;
-  int iVar9;
+  uint uVar9;
+  uint uVar10;
+  int iVar11;
   int *piStack_4;
   
   piStack_4 = param_1;
@@ -71,13 +82,13 @@ undefined4 __fastcall RegisterAllNativeMethodTables(int *param_1)
   if (piVar2 != param_1 + 0x580) {
     do {
       (**(code **)(*(int *)piVar2[2] + 0x10))(&piStack_4);
-      iVar9 = 0;
+      iVar11 = 0;
       iVar4 = *piStack_4;
       piVar7 = piStack_4;
       while (iVar4 != 0) {
         BindManagedNameToNativeAddress((char *)piVar7[1],*piVar7);
-        iVar9 = iVar9 + 1;
-        piVar7 = piStack_4 + iVar9 * 2;
+        iVar11 = iVar11 + 1;
+        piVar7 = piStack_4 + iVar11 * 2;
         iVar4 = *piVar7;
       }
       piVar2 = (int *)*piVar2;
@@ -129,8 +140,8 @@ undefined4 __fastcall RegisterAllNativeMethodTables(int *param_1)
     puVar5 = FUN_00ea2dd0((LPCRITICAL_SECTION)param_1[0x2b1],(int)piVar7);
     iVar4 = FUN_00e6fa10(piVar7,(byte *)"sSimTickCnt");
     if ((iVar4 != 0) && (puVar5 != (undefined4 *)0x0)) {
-      iVar9 = FUN_00e9e030((int)puVar5);
-      param_1[0x308] = iVar9 + *(int *)(iVar4 + 8);
+      iVar11 = FUN_00e9e030((int)puVar5);
+      param_1[0x308] = iVar11 + *(int *)(iVar4 + 8);
     }
   }
   piVar7 = (int *)FUN_00d7a090(piVar2,"Sims3.Gameplay.Utilities","SimClock");
@@ -138,8 +149,8 @@ undefined4 __fastcall RegisterAllNativeMethodTables(int *param_1)
     puVar5 = FUN_00ea2dd0((LPCRITICAL_SECTION)param_1[0x2b1],(int)piVar7);
     iVar4 = FUN_00e6fa10(piVar7,(byte *)"sSimTickCnt");
     if ((iVar4 != 0) && (puVar5 != (undefined4 *)0x0)) {
-      iVar9 = FUN_00e9e030((int)puVar5);
-      param_1[0x309] = iVar9 + *(int *)(iVar4 + 8);
+      iVar11 = FUN_00e9e030((int)puVar5);
+      param_1[0x309] = iVar11 + *(int *)(iVar4 + 8);
     }
   }
   piVar7 = (int *)param_1[0x580];
@@ -154,13 +165,13 @@ undefined4 __fastcall RegisterAllNativeMethodTables(int *param_1)
       piVar7 = (int *)*piVar7;
     } while (piVar7 != param_1 + 0x580);
   }
-  iVar4 = FUN_007d9c20();
-  iVar9 = FUN_007d9c40();
-  if (iVar4 != iVar9) {
-    piVar2 = (int *)FUN_00599b20();
-    iVar9 = (**(code **)(*piVar2 + 0x14))(0x80000004,0,0xffffffff);
-    param_1[0x2b0] = iVar9;
+  uVar9 = ThreadIdentity_ReadRegisteredPumpThreadId();
+  uVar10 = ThreadIdentity_ReadRemoteDispatchThreadId();
+  if (uVar9 != uVar10) {
+    piVar2 = JobManager_GetInterface();
+    uVar10 = (**(code **)(*piVar2 + 0x14))(0x80000004,0,0xffffffff);
+    param_1[0x2b0] = uVar10;
   }
-  return CONCAT31((int3)((uint)iVar9 >> 8),1);
+  return CONCAT31((int3)(uVar10 >> 8),1);
 }
 

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified original PC1.67 hand-tool ownership/physical ABI closure. Existing-object attach obtains
@@ -25,9 +25,7 @@ undefined4 __thiscall ObjectTool_AttachExistingObject(void *this,undefined4 *par
   float fVar12;
   float fVar13;
   float fVar14;
-  float fVar15;
-  float fVar16;
-  int *piVar17;
+  int *piVar15;
   void *pvStack_120;
   char *pcStack_11c;
   int iStack_118;
@@ -102,7 +100,7 @@ undefined4 __thiscall ObjectTool_AttachExistingObject(void *this,undefined4 *par
   else {
     pvVar6 = *(void **)((int)this + 0x60);
   }
-  in_EAX = FUN_00d269d0(pvVar6,param_1);
+  in_EAX = ObjectUndoable_SetHeldObject(pvVar6,param_1);
   if ((char)in_EAX == '\0') goto LAB_00d036f8;
   *(undefined1 *)((int)this + 0x104) = 0;
   if (*(char *)((int)this + 0x2f7) == '\0') {
@@ -132,8 +130,8 @@ LAB_00d03176:
   ObjectLocation_CopyXZLevel
             (pvVar6,(undefined4 *)((int)this + 0xb8),(undefined4 *)((int)this + 0xbc),
              (undefined4 *)((int)this + 0xc0));
-  fVar16 = PlacementLocation_ReadYawWithRefresh(pvVar6);
-  *(float *)((int)this + 0xe0) = fVar16;
+  fVar14 = PlacementLocation_ReadYawWithRefresh(pvVar6);
+  *(float *)((int)this + 0xe0) = fVar14;
   if (iStack_ec != 0) {
     uVar8 = FUN_00b032e0(param_1,(int)pvStack_120);
     if ((char)uVar8 != '\0') {
@@ -196,7 +194,7 @@ LAB_00d03279:
       }
     }
     else {
-      uVar8 = FUN_00d269d0(*(void **)((int)this + 100),(undefined4 *)pcStack_11c);
+      uVar8 = ObjectUndoable_SetHeldObject(*(void **)((int)this + 100),(undefined4 *)pcStack_11c);
       if ((char)uVar8 == '\0') {
         *puVar1 = DAT_011ec8d0;
         *(undefined4 *)((int)this + 0x13c) = DAT_011ec8d4;
@@ -276,18 +274,14 @@ LAB_00d03505:
         fStack_e0 = *(float *)(pcStack_11c + 0x284) - fStack_110;
         fStack_dc = *(float *)(pcStack_11c + 0x288) - fStack_10c;
         fStack_d8 = *(float *)(pcStack_11c + 0x28c) - fStack_108;
-        FUN_00ab1440(*(void **)((int)this + 0xc),&fStack_54);
-        fVar16 = (fStack_dc * fStack_50 - fStack_e0 * fStack_4c) + fStack_48 * fStack_e4;
+        Lot_GetWorldToLocalPose(*(void **)((int)this + 0xc),&fStack_54);
+        fVar14 = (fStack_dc * fStack_50 - fStack_e0 * fStack_4c) + fStack_48 * fStack_e4;
         fVar12 = (fStack_e4 * fStack_4c - fStack_dc * fStack_54) + fStack_48 * fStack_e0;
         fVar13 = (fStack_e0 * fStack_54 - fStack_e4 * fStack_50) + fStack_48 * fStack_dc;
-        fVar14 = (fVar16 * fStack_4c - fVar13 * fStack_54) * DAT_0103fd88;
-        fVar15 = (fVar12 * fStack_54 - fVar16 * fStack_50) * DAT_0103fd88;
-        fVar16 = (fVar16 * fStack_54 - fVar16 * fStack_54) * DAT_0103fd88;
-        *(float *)((int)this + 0xd0) =
-             (fVar13 * fStack_50 - fVar12 * fStack_4c) * DAT_0103fd88 + fStack_e4;
-        *(float *)((int)this + 0xd4) = fVar14 + fStack_e0;
-        *(float *)((int)this + 0xd8) = fVar15 + fStack_dc;
-        *(float *)((int)this + 0xdc) = fVar16 + fStack_d8;
+        *(float *)((int)this + 0xd0) = (fVar13 * fStack_50 - fVar12 * fStack_4c) * 2.0 + fStack_e4;
+        *(float *)((int)this + 0xd4) = (fVar14 * fStack_4c - fVar13 * fStack_54) * 2.0 + fStack_e0;
+        *(float *)((int)this + 0xd8) = (fVar12 * fStack_54 - fVar14 * fStack_50) * 2.0 + fStack_dc;
+        *(float *)((int)this + 0xdc) = (fVar14 * fStack_54 - fVar14 * fStack_54) * 2.0 + fStack_d8;
       }
       goto LAB_00d03743;
     }
@@ -365,18 +359,18 @@ LAB_00d03743:
     iStack_118 = 0;
     if (*(char *)((int)this + 0x2f7) == '\0') {
       FUN_00854d50(&pvStack_120,(int *)((int)this + 0x5c));
-      piVar17 = (int *)((int)this + 0x60);
+      piVar15 = (int *)((int)this + 0x60);
     }
     else {
       FUN_00854d50(&pvStack_120,(int *)((int)this + 0x60));
-      piVar17 = (int *)((int)this + 0x5c);
+      piVar15 = (int *)((int)this + 0x5c);
     }
-    FUN_00854d50(&iStack_118,piVar17);
-    piVar17 = (int *)((int)this + 0x26c);
+    FUN_00854d50(&iStack_118,piVar15);
+    piVar15 = (int *)((int)this + 0x26c);
     FUN_00d1b190(pvStack_120,*(undefined4 **)((int)this + 0x26c));
-    puVar9 = (undefined4 *)*piVar17;
+    puVar9 = (undefined4 *)*piVar15;
     if (puVar9 != (undefined4 *)0x0) {
-      *piVar17 = 0;
+      *piVar15 = 0;
       iVar10 = puVar9[1];
       puVar9[1] = iVar10 + -1;
       if (iVar10 + -1 == 0) {
@@ -392,9 +386,9 @@ LAB_00d03743:
     else {
       puVar9 = FUN_00d23be0(puVar9);
     }
-    FUN_00566590(piVar17,puVar9);
-    (**(code **)(*(int *)*piVar17 + 4))();
-    FUN_00d22a90((void *)*piVar17,*(undefined4 *)((int)this + 0xc));
+    FUN_00566590(piVar15,puVar9);
+    (**(code **)(*(int *)*piVar15 + 4))();
+    FUN_00d22a90((void *)*piVar15,*(undefined4 *)((int)this + 0xc));
     FUN_00cfe4f0(this);
     FUN_00565d20(&iStack_118);
     FUN_00565d20((int *)&pvStack_120);

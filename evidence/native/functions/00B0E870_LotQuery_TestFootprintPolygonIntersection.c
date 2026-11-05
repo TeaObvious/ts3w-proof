@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. Tests transformed enabled footprint areas against a candidate tile
@@ -20,69 +20,71 @@ LotQuery_TestFootprintPolygonIntersection
 
 {
   void *this;
-  uint uVar1;
-  byte bVar2;
-  bool bVar3;
+  bool bVar1;
+  undefined *component;
   void *this_00;
-  void *this_01;
-  float10 fVar4;
+  uint uVar2;
+  float fVar3;
+  float fVar4;
   float fVar5;
-  float fVar6;
-  float *pfVar7;
+  float *pfVar6;
   uint local_54;
   float local_50;
   float local_4c;
   int local_48;
-  int local_44 [3];
+  void *local_44;
+  undefined4 local_40;
+  undefined4 local_3c;
   char *local_38;
   float local_34 [4];
   float local_24 [9];
   
   this = owner;
   if (owner != (void *)0x0) {
-    this_00 = Object_GetComponentByMask(owner,DAT_011e9fa8);
-    this_01 = Object_GetComponentByMask(this,DAT_011edf08);
-    if (((this_00 != (void *)0x0) && (this_01 != (void *)0x0)) &&
-       (bVar2 = FootprintComponent_IsRegisteredBit((int)this_00), bVar2 != 0)) {
-      local_50 = DAT_00fab218;
-      local_4c = DAT_00fab218;
+    component = Object_GetComponentByMask(owner,DAT_011e9fa8);
+    this_00 = Object_GetComponentByMask(this,DAT_011edf08);
+    if (((component != (undefined *)0x0) && (this_00 != (void *)0x0)) &&
+       (uVar2 = FootprintComponent_IsRegisteredBit(component), (char)uVar2 != '\0')) {
+      local_50 = -1.0;
+      local_4c = -1.0;
       local_48 = 0;
-      FUN_00c894e0(this_01,&local_50,&local_4c,&local_48);
-      pfVar7 = local_24;
+      ObjectLocation_CopyXZLevel(this_00,&local_50,&local_4c,&local_48);
+      pfVar6 = local_24;
       local_54 = 0;
       owner = (void *)0x0;
-      fVar5 = local_50;
-      fVar6 = local_4c;
-      fVar4 = FUN_00c89940((float)this_01);
-      Footprint_BuildOwnerToLotXZMatrix(this,(float)fVar4,fVar5,fVar6,pfVar7);
-      uVar1 = areaMask;
-      local_44[0] = 0;
-      local_44[1] = 0;
-      local_44[2] = 0;
+      fVar4 = local_50;
+      fVar5 = local_4c;
+      fVar3 = PlacementLocation_ReadYawWithRefresh(this_00);
+      Footprint_BuildOwnerToLotXZMatrix(this,fVar3,fVar4,fVar5,pfVar6);
+      uVar2 = areaMask;
+      local_44 = (void *)0x0;
+      local_40 = 0;
+      local_3c = 0;
       local_38 = "World/Lot/ObjectFootprintIntersectsPolygon/footprintPolyVerts";
-      bVar3 = FootprintComponent_NextPolygonByRuntimeFlags
-                        (this_00,&local_54,areaMask,(int *)&owner,'\x01');
-      pfVar7 = param_4;
-      if (bVar3) {
+      bVar1 = FootprintComponent_NextPolygonByRuntimeFlags
+                        (component,&local_54,areaMask,(int *)&owner,'\x01');
+      pfVar6 = param_4;
+      if (bVar1) {
         do {
           if ((*(int *)((int)owner + 0x30) != *(int *)((int)owner + 0x34)) &&
              (*(char *)((int)owner + 5) + local_48 == tileLevel)) {
-            Geometry_TransformPolygonXZByMatrix3((int *)((int)owner + 0x30),local_24,local_44);
-            Geometry_GetPolygonXZBounds(local_44,local_34);
-            bVar3 = Geometry_PolygonsIntersectWithBounds(param_3,pfVar7,local_44,local_34);
-            if (bVar3) {
-              if (local_44[0] != 0) {
-                FUN_004e44e0(local_44[0]);
+            Geometry_TransformPolygonXZByMatrix3
+                      ((int *)((int)owner + 0x30),local_24,(int *)&local_44);
+            Geometry_GetPolygonXZBounds((int *)&local_44,local_34);
+            bVar1 = Geometry_PolygonsIntersectWithBounds(param_3,pfVar6,&local_44,local_34);
+            if (bVar1) {
+              if (local_44 != (void *)0x0) {
+                Memory_FreeIfNonNull(local_44);
               }
               return true;
             }
           }
-          bVar3 = FootprintComponent_NextPolygonByRuntimeFlags
-                            (this_00,&local_54,uVar1,(int *)&owner,'\x01');
-        } while (bVar3);
+          bVar1 = FootprintComponent_NextPolygonByRuntimeFlags
+                            (component,&local_54,uVar2,(int *)&owner,'\x01');
+        } while (bVar1);
       }
-      if (local_44[0] != 0) {
-        FUN_004e44e0(local_44[0]);
+      if (local_44 != (void *)0x0) {
+        Memory_FreeIfNonNull(local_44);
       }
     }
   }

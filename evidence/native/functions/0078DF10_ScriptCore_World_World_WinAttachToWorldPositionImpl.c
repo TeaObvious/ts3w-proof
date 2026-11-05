@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163928 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163928 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_WinAttachToWorldPositionImpl [assembly=ScriptCore token=0x06000829;
    winHandle: System.UInt32, pos: Sims3.SimIFace.Vector3, effect2DOffset: Sims3.SimIFace.Vector2,
    mapTag: System.Boolean, simThread: System.Boolean, stickToScreenBounds: System.Boolean, round:
@@ -34,7 +35,7 @@ void ScriptCore_World__World_WinAttachToWorldPositionImpl
     piVar1 = (int *)(**(code **)(*piVar1 + 0xc))(0xeeee8218);
     if (piVar1 != (int *)0x0) {
       if (param_6 == '\0') {
-        puVar4 = FUN_005050b0(0x60,0x10,"UI/BillboardRenderer",(int *)0x0);
+        puVar4 = AllocateWithAllocatorHeader(0x60,0x10,"UI/BillboardRenderer",(int *)0x0);
         if (puVar4 == (uint *)0x0) {
           piVar2 = (int *)0x0;
         }
@@ -68,7 +69,7 @@ void ScriptCore_World__World_WinAttachToWorldPositionImpl
           (**(code **)(*piVar1 + 0x10c))(piVar5);
         }
       }
-      puVar4 = FUN_005050b0(0xa0,0x10,"UI/BillboardEffect",(int *)0x0);
+      puVar4 = AllocateWithAllocatorHeader(0xa0,0x10,"UI/BillboardEffect",(int *)0x0);
       if (puVar4 == (uint *)0x0) {
         piVar2 = (int *)0x0;
       }

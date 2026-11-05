@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* ECX filter context, stack path and dot threshold; RET8. Null or at most3 nodes produces no work.
    Saves context+70/+71, temporarily writes1/0, then restores them. Node constraint/floor/flag gates
    precede normalized incoming/outgoing dot comparison. Candidate segment intersections require
@@ -81,11 +83,11 @@ void __thiscall NeighborhoodPath_ProjectEligibleSharpTurns(void *this,int param_
           local_38 = (int *)pfVar1[-0xe];
           local_54 = (float)local_48 - local_44;
           local_4c = local_44 - (float)local_38;
-          if (((DAT_00fede88 < local_58) ||
-              (((local_58 < FLOAT_00fae548 || (DAT_00fede88 < local_54)) ||
-               (local_54 < FLOAT_00fae548)))) &&
-             (((DAT_00fede88 < local_50 || (local_50 < FLOAT_00fae548)) ||
-              ((DAT_00fede88 < local_4c || (local_4c < FLOAT_00fae548)))))) {
+          if (((1.1920929e-07 < local_58) ||
+              (((local_58 < -1.1920929e-07 || (1.1920929e-07 < local_54)) ||
+               (local_54 < -1.1920929e-07)))) &&
+             (((1.1920929e-07 < local_50 || (local_50 < -1.1920929e-07)) ||
+              ((1.1920929e-07 < local_4c || (local_4c < -1.1920929e-07)))))) {
             FUN_00642650(&local_58,&local_58);
             FUN_00642650(&local_50,&local_50);
             if (local_4c * local_54 + local_50 * local_58 < param_2) {
@@ -100,10 +102,10 @@ void __thiscall NeighborhoodPath_ProjectEligibleSharpTurns(void *this,int param_
               if (1 < local_84) {
                 local_14 = *(float *)(iVar6 + -0x78 + *(int *)(param_1 + 8));
                 local_18 = *(float *)(iVar6 + -0x80 + *(int *)(param_1 + 8));
-                local_28 = ((float)local_34 - local_18) * DAT_00f998f4 + (float)local_34;
-                local_24 = ((float)local_38 - local_14) * DAT_00f998f4 + (float)local_38;
-                uVar4 = FUN_007cdca0(&local_18,&local_28,&local_40,(float *)&local_80,&local_64,
-                                     _DAT_0106e6ec);
+                local_28 = ((float)local_34 - local_18) * 10.0 + (float)local_34;
+                local_24 = ((float)local_38 - local_14) * 10.0 + (float)local_38;
+                uVar4 = TryIntersectSegments2D
+                                  (&local_18,&local_28,&local_40,(float *)&local_80,&local_64,0.01);
                 if (((char)uVar4 != '\0') &&
                    (uVar5 = PathFilter_TestSegmentVisibility
                                       (this,local_74,local_70,(int)*(short *)(pfVar1 + 3),local_64,
@@ -117,10 +119,10 @@ void __thiscall NeighborhoodPath_ProjectEligibleSharpTurns(void *this,int param_
               if (local_84 <= local_5c + -3) {
                 local_1c = *(float *)(iVar6 + 0x88 + *(int *)(param_1 + 8));
                 local_20 = *(float *)(iVar6 + 0x80 + *(int *)(param_1 + 8));
-                local_10 = ((float)local_80 - local_20) * DAT_00f998f4 + (float)local_80;
-                local_c = ((float)local_7c - local_1c) * DAT_00f998f4 + (float)local_7c;
-                uVar4 = FUN_007cdca0((float *)&local_74,&local_40,&local_10,&local_20,&local_6c,
-                                     _DAT_0106e6ec);
+                local_10 = ((float)local_80 - local_20) * 10.0 + (float)local_80;
+                local_c = ((float)local_7c - local_1c) * 10.0 + (float)local_7c;
+                uVar4 = TryIntersectSegments2D
+                                  ((float *)&local_74,&local_40,&local_10,&local_20,&local_6c,0.01);
                 fVar7 = local_78;
                 if (((char)uVar4 != '\0') &&
                    (uVar5 = PathFilter_TestSegmentVisibility

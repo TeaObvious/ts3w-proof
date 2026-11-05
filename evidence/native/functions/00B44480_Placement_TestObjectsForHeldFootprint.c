@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 held footprint gate. cdecl candidateContext/optionalFailures, Boolean AL only,
@@ -40,6 +40,7 @@ bool __cdecl Placement_TestObjectsForHeldFootprint(void *candidateContext,void *
   char cVar8;
   int *piVar9;
   uint uVar10;
+  undefined4 uVar11;
   void *pvVar12;
   void *pvVar13;
   undefined4 extraout_EAX;
@@ -104,7 +105,6 @@ bool __cdecl Placement_TestObjectsForHeldFootprint(void *candidateContext,void *
   float local_d0 [16];
   float local_90 [16];
   float local_50 [19];
-  undefined4 uVar11;
   
   uVar1 = *(uint *)(*(int *)((int)candidateContext + 0x9c) + 0x18);
   if ((uVar1 & 4) == 0) {
@@ -144,7 +144,7 @@ bool __cdecl Placement_TestObjectsForHeldFootprint(void *candidateContext,void *
       uStack_dc = *(undefined4 *)((int)candidateContext + 0x74);
       uStack_d8 = *(undefined4 *)((int)candidateContext + 0x78);
       uStack_d4 = *(undefined4 *)((int)candidateContext + 0x7c);
-      FUN_0068dbb0(&local_f0,local_50);
+      Bounds_TransformHomogeneousCorners(&local_f0,local_50);
       if (*(void **)((int)candidateContext + 0x1c) == (void *)0x0) {
         local_158 = 0;
       }
@@ -165,7 +165,7 @@ bool __cdecl Placement_TestObjectsForHeldFootprint(void *candidateContext,void *
             if ((*piVar9 == local_130) &&
                (uVar10 = FUN_00b071c0(*(uint *)(iVar14 + 8),*(uint *)(iVar14 + 0xc),object),
                (char)uVar10 == '\0')) {
-              bVar7 = FUN_00afc7c0((int)object);
+              bVar7 = Object_HasSimComponent((int)object);
               if (bVar7) {
                 uVar11 = FUN_00b41ee0(candidateContext,local_110,object,optionalFailures);
                 cVar8 = (char)uVar11;
@@ -185,57 +185,57 @@ LAB_00b447d8:
                        remaining footprint polygon test. */
                         if ((*(uint *)((int)pvVar12 + 0xd0) & 0x40000) == 0) goto LAB_00b449cb;
                         pvVar12 = (void *)FUN_0074bb80(object);
-                        local_168 = FLOAT_00fab218;
-                        local_164 = FLOAT_00fab218;
+                        local_168 = -1.0;
+                        local_164 = -1.0;
                         local_160 = 0;
-                        FUN_00c894e0(pvVar12,&local_168,&local_164,&local_160);
+                        ObjectLocation_CopyXZLevel(pvVar12,&local_168,&local_164,&local_160);
                         fVar17 = PlacementLocation_ReadYawWithRefresh(pvVar12);
                         fVar17 = fVar17 - *(float *)((int)candidateContext + 0x14);
-                        auVar25._0_4_ = fVar17 * FLOAT_00fab218;
-                        auVar25._4_4_ = fVar17 * FLOAT_00fab218;
-                        auVar25._8_4_ = fVar17 * FLOAT_00fab218;
-                        auVar25._12_4_ = fVar17 * FLOAT_00fab218;
+                        auVar25._0_4_ = fVar17 * -1.0;
+                        auVar25._4_4_ = fVar17 * -1.0;
+                        auVar25._8_4_ = fVar17 * -1.0;
+                        auVar25._12_4_ = fVar17 * -1.0;
                         auVar4._4_4_ = fVar17;
                         auVar4._0_4_ = fVar17;
                         auVar4._8_4_ = fVar17;
                         auVar4._12_4_ = fVar17;
                         auVar19 = maxps(auVar25,auVar4);
-                        auVar26._4_4_ = -(uint)(auVar19._4_4_ <= DAT_0106d764);
-                        auVar26._0_4_ = -(uint)(auVar19._0_4_ <= DAT_0106d764);
-                        auVar26._8_4_ = -(uint)(auVar19._8_4_ <= DAT_0106d764);
-                        auVar26._12_4_ = -(uint)(auVar19._12_4_ <= DAT_0106d764);
+                        auVar26._4_4_ = -(uint)(auVar19._4_4_ <= 1.5258789e-05);
+                        auVar26._0_4_ = -(uint)(auVar19._0_4_ <= 1.5258789e-05);
+                        auVar26._8_4_ = -(uint)(auVar19._8_4_ <= 1.5258789e-05);
+                        auVar26._12_4_ = -(uint)(auVar19._12_4_ <= 1.5258789e-05);
                         iVar14 = movmskps(extraout_ECX_00,auVar26);
                         if (iVar14 == 0xf) {
                           fVar17 = local_168 - *(float *)((int)candidateContext + 8);
-                          auVar27._0_4_ = fVar17 * FLOAT_00fab218;
-                          auVar27._4_4_ = fVar17 * FLOAT_00fab218;
-                          auVar27._8_4_ = fVar17 * FLOAT_00fab218;
-                          auVar27._12_4_ = fVar17 * FLOAT_00fab218;
+                          auVar27._0_4_ = fVar17 * -1.0;
+                          auVar27._4_4_ = fVar17 * -1.0;
+                          auVar27._8_4_ = fVar17 * -1.0;
+                          auVar27._12_4_ = fVar17 * -1.0;
                           auVar5._4_4_ = fVar17;
                           auVar5._0_4_ = fVar17;
                           auVar5._8_4_ = fVar17;
                           auVar5._12_4_ = fVar17;
                           auVar19 = maxps(auVar27,auVar5);
-                          auVar28._4_4_ = -(uint)(auVar19._4_4_ <= DAT_0106d764);
-                          auVar28._0_4_ = -(uint)(auVar19._0_4_ <= DAT_0106d764);
-                          auVar28._8_4_ = -(uint)(auVar19._8_4_ <= DAT_0106d764);
-                          auVar28._12_4_ = -(uint)(auVar19._12_4_ <= DAT_0106d764);
+                          auVar28._4_4_ = -(uint)(auVar19._4_4_ <= 1.5258789e-05);
+                          auVar28._0_4_ = -(uint)(auVar19._0_4_ <= 1.5258789e-05);
+                          auVar28._8_4_ = -(uint)(auVar19._8_4_ <= 1.5258789e-05);
+                          auVar28._12_4_ = -(uint)(auVar19._12_4_ <= 1.5258789e-05);
                           iVar14 = movmskps(extraout_EDX_00,auVar28);
                           if (iVar14 == 0xf) {
                             fVar17 = local_164 - *(float *)((int)candidateContext + 0xc);
-                            auVar29._0_4_ = fVar17 * FLOAT_00fab218;
-                            auVar29._4_4_ = fVar17 * FLOAT_00fab218;
-                            auVar29._8_4_ = fVar17 * FLOAT_00fab218;
-                            auVar29._12_4_ = fVar17 * FLOAT_00fab218;
+                            auVar29._0_4_ = fVar17 * -1.0;
+                            auVar29._4_4_ = fVar17 * -1.0;
+                            auVar29._8_4_ = fVar17 * -1.0;
+                            auVar29._12_4_ = fVar17 * -1.0;
                             auVar6._4_4_ = fVar17;
                             auVar6._0_4_ = fVar17;
                             auVar6._8_4_ = fVar17;
                             auVar6._12_4_ = fVar17;
                             auVar19 = maxps(auVar29,auVar6);
-                            auVar30._4_4_ = -(uint)(auVar19._4_4_ <= DAT_0106d764);
-                            auVar30._0_4_ = -(uint)(auVar19._0_4_ <= DAT_0106d764);
-                            auVar30._8_4_ = -(uint)(auVar19._8_4_ <= DAT_0106d764);
-                            auVar30._12_4_ = -(uint)(auVar19._12_4_ <= DAT_0106d764);
+                            auVar30._4_4_ = -(uint)(auVar19._4_4_ <= 1.5258789e-05);
+                            auVar30._0_4_ = -(uint)(auVar19._0_4_ <= 1.5258789e-05);
+                            auVar30._8_4_ = -(uint)(auVar19._8_4_ <= 1.5258789e-05);
+                            auVar30._12_4_ = -(uint)(auVar19._12_4_ <= 1.5258789e-05);
                             iVar14 = movmskps(extraout_EAX_00,auVar30);
                     /* Near yaw/X/Z must also have OTHER integer level != candidate level to
                        skip40000 same-type case. */
@@ -251,18 +251,18 @@ LAB_00b447d8:
                       }
                       else {
                         pvVar13 = (void *)FUN_0074bb80(object);
-                        local_180 = FLOAT_00fab218;
-                        fStack_17c = FLOAT_00fab218;
+                        local_180 = -1.0;
+                        fStack_17c = -1.0;
                         uStack_178 = 0;
-                        FUN_00c894e0(pvVar13,&local_180,&fStack_17c,&uStack_178);
+                        ObjectLocation_CopyXZLevel(pvVar13,&local_180,&fStack_17c,&uStack_178);
                         local_14c = PlacementLocation_ReadYawWithRefresh(pvVar13);
                     /* Native stored yaw value minus candidate yaw uses x87 FSUB and FLOAT32 store
                        before SSE absolute/tolerance comparison. Not Atan2 here. */
                         local_14c = local_14c - *(float *)((int)candidateContext + 0x14);
-                        auVar18._0_4_ = local_14c * FLOAT_00fab218;
-                        auVar18._4_4_ = local_14c * FLOAT_00fab218;
-                        auVar18._8_4_ = local_14c * FLOAT_00fab218;
-                        auVar18._12_4_ = local_14c * FLOAT_00fab218;
+                        auVar18._0_4_ = local_14c * -1.0;
+                        auVar18._4_4_ = local_14c * -1.0;
+                        auVar18._8_4_ = local_14c * -1.0;
+                        auVar18._12_4_ = local_14c * -1.0;
                         auVar19._4_4_ = local_14c;
                         auVar19._0_4_ = local_14c;
                         auVar19._8_4_ = local_14c;
@@ -270,42 +270,42 @@ LAB_00b447d8:
                     /* MAXPS(-d,d), ordered CMPLEPS against exact FLOAT32 2^-16; require all4 mask
                        bits. NaN does not pass. */
                         auVar19 = maxps(auVar18,auVar19);
-                        auVar20._4_4_ = -(uint)(auVar19._4_4_ <= DAT_0106d764);
-                        auVar20._0_4_ = -(uint)(auVar19._0_4_ <= DAT_0106d764);
-                        auVar20._8_4_ = -(uint)(auVar19._8_4_ <= DAT_0106d764);
-                        auVar20._12_4_ = -(uint)(auVar19._12_4_ <= DAT_0106d764);
+                        auVar20._4_4_ = -(uint)(auVar19._4_4_ <= 1.5258789e-05);
+                        auVar20._0_4_ = -(uint)(auVar19._0_4_ <= 1.5258789e-05);
+                        auVar20._8_4_ = -(uint)(auVar19._8_4_ <= 1.5258789e-05);
+                        auVar20._12_4_ = -(uint)(auVar19._12_4_ <= 1.5258789e-05);
                         iVar14 = movmskps(extraout_ECX,auVar20);
                         if (iVar14 == 0xf) {
                           fVar17 = local_180 - *(float *)((int)candidateContext + 8);
-                          auVar21._0_4_ = fVar17 * FLOAT_00fab218;
-                          auVar21._4_4_ = fVar17 * FLOAT_00fab218;
-                          auVar21._8_4_ = fVar17 * FLOAT_00fab218;
-                          auVar21._12_4_ = fVar17 * FLOAT_00fab218;
+                          auVar21._0_4_ = fVar17 * -1.0;
+                          auVar21._4_4_ = fVar17 * -1.0;
+                          auVar21._8_4_ = fVar17 * -1.0;
+                          auVar21._12_4_ = fVar17 * -1.0;
                           auVar2._4_4_ = fVar17;
                           auVar2._0_4_ = fVar17;
                           auVar2._8_4_ = fVar17;
                           auVar2._12_4_ = fVar17;
                           auVar19 = maxps(auVar21,auVar2);
-                          auVar22._4_4_ = -(uint)(auVar19._4_4_ <= DAT_0106d764);
-                          auVar22._0_4_ = -(uint)(auVar19._0_4_ <= DAT_0106d764);
-                          auVar22._8_4_ = -(uint)(auVar19._8_4_ <= DAT_0106d764);
-                          auVar22._12_4_ = -(uint)(auVar19._12_4_ <= DAT_0106d764);
+                          auVar22._4_4_ = -(uint)(auVar19._4_4_ <= 1.5258789e-05);
+                          auVar22._0_4_ = -(uint)(auVar19._0_4_ <= 1.5258789e-05);
+                          auVar22._8_4_ = -(uint)(auVar19._8_4_ <= 1.5258789e-05);
+                          auVar22._12_4_ = -(uint)(auVar19._12_4_ <= 1.5258789e-05);
                           iVar14 = movmskps(extraout_EDX,auVar22);
                           if (iVar14 == 0xf) {
                             fVar17 = fStack_17c - *(float *)((int)candidateContext + 0xc);
-                            auVar23._0_4_ = fVar17 * FLOAT_00fab218;
-                            auVar23._4_4_ = fVar17 * FLOAT_00fab218;
-                            auVar23._8_4_ = fVar17 * FLOAT_00fab218;
-                            auVar23._12_4_ = fVar17 * FLOAT_00fab218;
+                            auVar23._0_4_ = fVar17 * -1.0;
+                            auVar23._4_4_ = fVar17 * -1.0;
+                            auVar23._8_4_ = fVar17 * -1.0;
+                            auVar23._12_4_ = fVar17 * -1.0;
                             auVar3._4_4_ = fVar17;
                             auVar3._0_4_ = fVar17;
                             auVar3._8_4_ = fVar17;
                             auVar3._12_4_ = fVar17;
                             auVar19 = maxps(auVar23,auVar3);
-                            auVar24._4_4_ = -(uint)(auVar19._4_4_ <= DAT_0106d764);
-                            auVar24._0_4_ = -(uint)(auVar19._0_4_ <= DAT_0106d764);
-                            auVar24._8_4_ = -(uint)(auVar19._8_4_ <= DAT_0106d764);
-                            auVar24._12_4_ = -(uint)(auVar19._12_4_ <= DAT_0106d764);
+                            auVar24._4_4_ = -(uint)(auVar19._4_4_ <= 1.5258789e-05);
+                            auVar24._0_4_ = -(uint)(auVar19._0_4_ <= 1.5258789e-05);
+                            auVar24._8_4_ = -(uint)(auVar19._8_4_ <= 1.5258789e-05);
+                            auVar24._12_4_ = -(uint)(auVar19._12_4_ <= 1.5258789e-05);
                             iVar14 = movmskps(extraout_EAX,auVar24);
                             if (iVar14 == 0xf) goto LAB_00b447d8;
                           }

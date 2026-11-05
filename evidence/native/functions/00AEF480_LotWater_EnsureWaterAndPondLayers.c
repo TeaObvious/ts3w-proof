@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -25,10 +24,10 @@ void __fastcall LotWater_EnsureWaterAndPondLayers(int param_1)
   undefined4 *puVar6;
   int iVar7;
   uint uVar8;
-  uint uVar9;
-  byte *pbVar10;
-  int iVar11;
-  bool bVar12;
+  uint elementCount;
+  byte *pbVar9;
+  int iVar10;
+  bool bVar11;
   int local_8;
   
   if (*(int *)(param_1 + 8) != 0) {
@@ -47,11 +46,11 @@ void __fastcall LotWater_EnsureWaterAndPondLayers(int param_1)
         puVar6[6] = "Lot/LotTerrain/WaterElevationLayer";
       }
       iVar7 = *(int *)(param_1 + 0xc) + 1;
-      iVar11 = *(int *)(param_1 + 0x10) + 1;
+      iVar10 = *(int *)(param_1 + 0x10) + 1;
       *(undefined4 **)(param_1 + 200) = puVar6;
-      FUN_0056ddd0(puVar6 + 3,iVar7 * iVar11);
+      Word32Vector_Resize(puVar6 + 3,iVar7 * iVar10);
       puVar6[1] = iVar7;
-      puVar6[2] = iVar11;
+      puVar6[2] = iVar10;
       LotWater_ResetHeightsBelowFloor(param_1);
     }
     if (*(int *)(param_1 + 0xcc) == 0) {
@@ -76,22 +75,22 @@ void __fastcall LotWater_EnsureWaterAndPondLayers(int param_1)
           iVar7 = 0;
           if (-1 < *(int *)(param_1 + 0x10)) {
             do {
-              iVar11 = *(int *)(param_1 + 8);
-              iVar3 = *(int *)(iVar11 + 0x24);
+              iVar10 = *(int *)(param_1 + 8);
+              iVar3 = *(int *)(iVar10 + 0x24);
               fVar2 = *(float *)(*(int *)(*(int *)(param_1 + 200) + 0xc) +
                                 (*(int *)(*(int *)(param_1 + 200) + 8) * local_8 + iVar7) * 4);
               pfVar1 = (float *)(*(int *)(iVar3 + 0x10) +
-                                (((*(int *)(iVar11 + 0x18) - *(int *)(iVar11 + 0x10)) *
+                                (((*(int *)(iVar10 + 0x18) - *(int *)(iVar10 + 0x10)) *
                                   *(int *)(iVar3 + 4) + local_8) * *(int *)(iVar3 + 8) + iVar7) * 4)
               ;
-              iVar11 = *(int *)(*(int *)(param_1 + 0xcc) + 8) * local_8 + iVar7;
-              bVar5 = '\x01' << ((byte)iVar11 & 7);
-              pbVar10 = (byte *)((iVar11 >> 3) + *(int *)(*(int *)(param_1 + 0xcc) + 0xc));
+              iVar10 = *(int *)(*(int *)(param_1 + 0xcc) + 8) * local_8 + iVar7;
+              bVar5 = '\x01' << ((byte)iVar10 & 7);
+              pbVar9 = (byte *)((iVar10 >> 3) + *(int *)(*(int *)(param_1 + 0xcc) + 0xc));
               if (fVar2 < *pfVar1 || fVar2 == *pfVar1) {
-                *pbVar10 = *pbVar10 & ~bVar5;
+                *pbVar9 = *pbVar9 & ~bVar5;
               }
               else {
-                *pbVar10 = *pbVar10 | bVar5;
+                *pbVar9 = *pbVar9 | bVar5;
               }
               iVar7 = iVar7 + 1;
             } while (iVar7 <= *(int *)(param_1 + 0x10));
@@ -115,21 +114,21 @@ void __fastcall LotWater_EnsureWaterAndPondLayers(int param_1)
         puVar6[6] = "Lot/LotTerrain/VisitedFlagLayer";
       }
       iVar7 = *(int *)(param_1 + 0xc) + 1;
-      iVar11 = *(int *)(param_1 + 0x10) + 1;
+      iVar10 = *(int *)(param_1 + 0x10) + 1;
       *(undefined4 **)(param_1 + 0xd0) = puVar6;
       puVar6[1] = iVar7;
-      uVar8 = iVar7 * iVar11;
-      puVar6[2] = iVar11;
-      uVar9 = (int)(uVar8 + ((int)uVar8 >> 0x1f & 7U)) >> 3;
+      uVar8 = iVar7 * iVar10;
+      puVar6[2] = iVar10;
+      elementCount = (int)(uVar8 + ((int)uVar8 >> 0x1f & 7U)) >> 3;
       uVar8 = uVar8 & 0x80000007;
-      bVar12 = uVar8 == 0;
+      bVar11 = uVar8 == 0;
       if ((int)uVar8 < 0) {
-        bVar12 = (uVar8 - 1 | 0xfffffff8) == 0xffffffff;
+        bVar11 = (uVar8 - 1 | 0xfffffff8) == 0xffffffff;
       }
-      if (!bVar12) {
-        uVar9 = uVar9 + 1;
+      if (!bVar11) {
+        elementCount = elementCount + 1;
       }
-      FUN_00412e20(puVar6 + 3,uVar9);
+      ByteVector_ResizeZeroed(puVar6 + 3,elementCount);
       pvVar4 = *(void **)(*(int *)(param_1 + 0xd0) + 0xc);
       memset(pvVar4,0,*(int *)(*(int *)(param_1 + 0xd0) + 0x10) - (int)pvVar4);
     }
@@ -148,11 +147,11 @@ void __fastcall LotWater_EnsureWaterAndPondLayers(int param_1)
         puVar6[6] = "Lot/LotTerrain/FaceFlagLayer";
       }
       iVar7 = *(int *)(param_1 + 0xc);
-      iVar11 = *(int *)(param_1 + 0x10) * 4;
+      iVar10 = *(int *)(param_1 + 0x10) * 4;
       *(undefined4 **)(param_1 + 0xe4) = puVar6;
-      FUN_00412e20(puVar6 + 3,iVar7 * iVar11);
+      ByteVector_ResizeZeroed(puVar6 + 3,iVar7 * iVar10);
       puVar6[1] = iVar7;
-      puVar6[2] = iVar11;
+      puVar6[2] = iVar10;
       pvVar4 = *(void **)(*(int *)(param_1 + 0xe4) + 0xc);
       memset(pvVar4,0,*(int *)(*(int *)(param_1 + 0xe4) + 0x10) - (int)pvVar4);
     }

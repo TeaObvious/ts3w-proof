@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -29,7 +28,7 @@ void __thiscall FourWordGrid_ImportLevelXZCells(void *this,int *param_1)
   uVar6 = *(int *)((int)this + 0x24) * *(int *)((int)this + 0x20) * *(int *)((int)this + 0xc);
   local_20 = 0;
   if (*(int *)((int)this + 0x4c) - *(int *)((int)this + 0x48) >> 1 != uVar6) {
-    FUN_0067f5e0((void *)((int)this + 0x48),uVar6);
+    UInt16Vector_ResizeZeroed((void *)((int)this + 0x48),uVar6);
     FUN_00ac08b0((void *)((int)this + 0x38),uVar6);
   }
   piVar1 = (int *)((int)this + 0x28);

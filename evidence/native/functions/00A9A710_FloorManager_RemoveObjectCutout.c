@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 original static instructions. PhysicalECXFloorManager+TWOstackDWORDs ownerGUIDlo/high RET8
@@ -65,8 +65,8 @@ bool __thiscall FloorManager_RemoveObjectCutout(void *this,dword ownerGuidLow,dw
                   (this,&DAT_011ec8d0,local_10,0,(int *)&local_18,puVar7,0,'\x01');
       }
       puVar7 = puVar7 + 1;
-      iVar6 = local_20;
     } while (puVar7 != local_28);
+    iVar6 = local_20;
   }
   pbVar3 = *(byte **)((int)this + 500);
   pbVar8 = (byte *)(local_10[2] + 8);
@@ -81,7 +81,7 @@ bool __thiscall FloorManager_RemoveObjectCutout(void *this,dword ownerGuidLow,dw
   }
   FUN_00a90200((void *)((int)this + 0x17c),local_10 + 2,iVar6,local_1c);
   FUN_00a8d780((void *)((int)this + 0x1bc),pbVar8);
-  FUN_00c7cd80(local_24,&ownerGuidLow);
+  ErasePairValueMapKeyRun(local_24,&ownerGuidLow);
   return true;
 }
 

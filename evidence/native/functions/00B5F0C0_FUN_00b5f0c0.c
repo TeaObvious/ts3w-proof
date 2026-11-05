@@ -1,11 +1,13 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; reference identity is in guides/water/README.md.
    Read-only Ghidra export, 2026-10-12. Decompiled names and ABI are inferred;
    read the paired original-byte disassembly and guides/water/README.md.
    This internal helper is not a managed registration identity. */
+
+
 
 void __thiscall FUN_00b5f0c0(void *this,void *param_1,float param_2,float param_3)
 
@@ -65,8 +67,9 @@ void __thiscall FUN_00b5f0c0(void *this,void *param_1,float param_2,float param_
   fStack_38 = fStack_38 - (float)(-(uint)(fVar6 < fStack_38) & 0x3f800000);
   fStack_34 = fStack_34 - (float)(-(uint)(fVar7 < fStack_34) & 0x3f800000);
   local_4c = CONCAT22((short)(int)(local_40 * 4.0),(short)(int)(local_30 * 4.0));
-  fVar3 = FUN_00c6a090(*(void **)((int)this + 0x8c),local_30,local_40,0,'\x01','\0',
-                       (undefined1 *)0x0,(undefined1 *)0x0,'\x01','\0');
+  fVar3 = WorldSurface_QueryHeight
+                    (*(void **)((int)this + 0x8c),local_30,local_40,0,'\x01','\0',(undefined1 *)0x0,
+                     (undefined1 *)0x0,'\x01','\0');
   fVar4 = (*(float *)((int)this + 0x90) - (float)fVar3) * 1000.0;
   uVar2 = (int)(-32700.0 - fVar4) >> 0x1f;
   fVar4 = (float)(~uVar2 & 0xc6ff7800 | (uint)fVar4 & uVar2);

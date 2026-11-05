@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Function: __alloca_probe replaced with injection: alloca_probe */
@@ -77,7 +77,7 @@ void __fastcall SceneRenderer_RenderShadowMap(void *param_1)
   undefined4 uStack_14;
   
   uStack_14 = 0x6ebf60;
-  this = (void *)FUN_0060e910();
+  this = (void *)Graphics_GetManagerSingleton();
   pvVar9 = DAT_011d8530;
   if (*(char *)((int)this + 0x8d) != '\0') {
     return;
@@ -95,8 +95,8 @@ void __fastcall SceneRenderer_RenderShadowMap(void *param_1)
   *(undefined4 *)((int)param_1 + 0x360) = uVar11;
   if (*(char *)((int)param_1 + 0x28e) == '\0') goto LAB_006ec6b4;
   local_4930 = (void *)FUN_00617780();
-  local_4920 = (int *)FUN_00617c50(local_4930);
-  local_4928 = (int *)FUN_00617c50(local_4930);
+  local_4920 = RenderTargets_FindTarget(local_4930,0x277ded8e);
+  local_4928 = RenderTargets_FindTarget(local_4930,0x840cb293);
   local_492c = SurfaceRegistry_FindValueByTag(local_4930,0x633e72e2);
   local_4930 = (void *)DAT_0115c3c8;
   if ((_DAT_011d2af0 & 1) == 0) {
@@ -104,11 +104,11 @@ void __fastcall SceneRenderer_RenderShadowMap(void *param_1)
   }
   local_4940 = (float)DAT_0115c3c8;
   if (DAT_0115c3c8 < 0) {
-    local_4940 = local_4940 + FLOAT_00f99948;
+    local_4940 = local_4940 + 4.2949673e+09;
   }
-  fStack_493c = FLOAT_00f998f8 / local_4940;
+  fStack_493c = 1.0 / local_4940;
   fStack_4934 = 0.0;
-  fStack_4938 = fStack_493c * DAT_0103fd88;
+  fStack_4938 = fStack_493c * 2.0;
   uRam011d2aec = 0;
   _DAT_011d2ae0 = local_4940;
   fRam011d2ae4 = fStack_493c;
@@ -182,7 +182,7 @@ LAB_006ec18a:
   uStack_4918 = 8;
   uStack_490c = 1;
   uStack_4910 = uStack_4914;
-  FUN_006e8ec0(param_1,(int)&puStack_491c);
+  SceneRenderer_ApplyDrawContextRasterDefaults(param_1,(int)&puStack_491c);
   RenderDevice_SetBaselineState(this,0xae,1);
   if ((DAT_0115c3cc != '\0') || (DAT_0115c3cd != '\0')) {
     RenderDevice_SetBaselineState(this,0xc3,*(uint *)((int)param_1 + 0x1b4));
@@ -230,9 +230,9 @@ LAB_006ec18a:
   FUN_006fa900(auStack_4420);
   FUN_00610330((int)this);
   FUN_0060ea60(this,(int)local_4870);
-  fStack_4934 = FLOAT_00f998f8;
-  fStack_493c = _DAT_00f9b5b4;
-  local_4940 = _DAT_00f9b5b4;
+  fStack_4934 = 1.0;
+  fStack_493c = 0.5;
+  local_4940 = 0.5;
   fVar1 = *(float *)((int)param_1 + 0x80);
   fVar2 = *(float *)((int)param_1 + 0x84);
   fVar3 = *(float *)((int)param_1 + 0x88);
@@ -242,30 +242,30 @@ LAB_006ec18a:
   fVar7 = *(float *)((int)param_1 + 0x98);
   fVar8 = *(float *)((int)param_1 + 0x9c);
   fStack_4938 = 0.0;
-  _DAT_011d28f0 = fVar2 * 0.0 + fVar1 * _DAT_00f9b5b4 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fRam011d28f4 = fVar2 * DAT_00f9b600 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fRam011d28f8 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * FLOAT_00f998f8 + fVar4 * 0.0;
-  fRam011d28fc = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * FLOAT_00f998f8;
+  _DAT_011d28f0 = fVar2 * 0.0 + fVar1 * 0.5 + fVar3 * 0.0 + fVar4 * 0.5;
+  fRam011d28f4 = fVar2 * -0.5 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 0.5;
+  fRam011d28f8 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 1.0 + fVar4 * 0.0;
+  fRam011d28fc = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 1.0;
   fVar1 = *(float *)((int)param_1 + 0xa0);
   fVar2 = *(float *)((int)param_1 + 0xa4);
   fVar3 = *(float *)((int)param_1 + 0xa8);
   fVar4 = *(float *)((int)param_1 + 0xac);
-  _DAT_011d2900 = fVar6 * 0.0 + fVar5 * _DAT_00f9b5b4 + fVar7 * 0.0 + fVar8 * _DAT_00f9b5b4;
-  fRam011d2904 = fVar6 * DAT_00f9b600 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * _DAT_00f9b5b4;
-  fRam011d2908 = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * FLOAT_00f998f8 + fVar8 * 0.0;
-  fRam011d290c = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * FLOAT_00f998f8;
-  fStack_48a0 = fVar2 * 0.0 + fVar1 * _DAT_00f9b5b4 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fStack_489c = fVar2 * DAT_00f9b600 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fStack_4898 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * FLOAT_00f998f8 + fVar4 * 0.0;
-  fStack_4894 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * FLOAT_00f998f8;
+  _DAT_011d2900 = fVar6 * 0.0 + fVar5 * 0.5 + fVar7 * 0.0 + fVar8 * 0.5;
+  fRam011d2904 = fVar6 * -0.5 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * 0.5;
+  fRam011d2908 = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 1.0 + fVar8 * 0.0;
+  fRam011d290c = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * 1.0;
+  fStack_48a0 = fVar2 * 0.0 + fVar1 * 0.5 + fVar3 * 0.0 + fVar4 * 0.5;
+  fStack_489c = fVar2 * -0.5 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 0.5;
+  fStack_4898 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 1.0 + fVar4 * 0.0;
+  fStack_4894 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 1.0;
   fVar1 = *(float *)((int)param_1 + 0xb0);
   fVar2 = *(float *)((int)param_1 + 0xb4);
   fVar3 = *(float *)((int)param_1 + 0xb8);
   fVar4 = *(float *)((int)param_1 + 0xbc);
-  _DAT_011d2920 = fVar2 * 0.0 + fVar1 * _DAT_00f9b5b4 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fRam011d2924 = fVar2 * DAT_00f9b600 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fRam011d2928 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * FLOAT_00f998f8 + fVar4 * 0.0;
-  fRam011d292c = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * FLOAT_00f998f8;
+  _DAT_011d2920 = fVar2 * 0.0 + fVar1 * 0.5 + fVar3 * 0.0 + fVar4 * 0.5;
+  fRam011d2924 = fVar2 * -0.5 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 0.5;
+  fRam011d2928 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 1.0 + fVar4 * 0.0;
+  fRam011d292c = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 1.0;
   fVar1 = *(float *)((int)param_1 + 0x40);
   fVar2 = *(float *)((int)param_1 + 0x44);
   fVar3 = *(float *)((int)param_1 + 0x48);
@@ -274,30 +274,30 @@ LAB_006ec18a:
   fVar6 = *(float *)((int)param_1 + 0x54);
   fVar7 = *(float *)((int)param_1 + 0x58);
   fVar8 = *(float *)((int)param_1 + 0x5c);
-  _DAT_011d28b0 = fVar2 * 0.0 + fVar1 * _DAT_00f9b5b4 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fRam011d28b4 = fVar2 * DAT_00f9b600 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fRam011d28b8 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * FLOAT_00f998f8 + fVar4 * 0.0;
-  fRam011d28bc = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * FLOAT_00f998f8;
+  _DAT_011d28b0 = fVar2 * 0.0 + fVar1 * 0.5 + fVar3 * 0.0 + fVar4 * 0.5;
+  fRam011d28b4 = fVar2 * -0.5 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 0.5;
+  fRam011d28b8 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 1.0 + fVar4 * 0.0;
+  fRam011d28bc = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 1.0;
   fVar1 = *(float *)((int)param_1 + 0x60);
   fVar2 = *(float *)((int)param_1 + 100);
   fVar3 = *(float *)((int)param_1 + 0x68);
   fVar4 = *(float *)((int)param_1 + 0x6c);
-  fStack_48b0 = fVar6 * 0.0 + fVar5 * _DAT_00f9b5b4 + fVar7 * 0.0 + fVar8 * _DAT_00f9b5b4;
-  fStack_48ac = fVar6 * DAT_00f9b600 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * _DAT_00f9b5b4;
-  fStack_48a8 = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * FLOAT_00f998f8 + fVar8 * 0.0;
-  fStack_48a4 = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * FLOAT_00f998f8;
+  fStack_48b0 = fVar6 * 0.0 + fVar5 * 0.5 + fVar7 * 0.0 + fVar8 * 0.5;
+  fStack_48ac = fVar6 * -0.5 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * 0.5;
+  fStack_48a8 = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 1.0 + fVar8 * 0.0;
+  fStack_48a4 = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * 1.0;
   fVar5 = *(float *)((int)param_1 + 0x70);
   fVar6 = *(float *)((int)param_1 + 0x74);
   fVar7 = *(float *)((int)param_1 + 0x78);
   fVar8 = *(float *)((int)param_1 + 0x7c);
-  _DAT_011d28d0 = fVar2 * 0.0 + fVar1 * _DAT_00f9b5b4 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fRam011d28d4 = fVar2 * DAT_00f9b600 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * _DAT_00f9b5b4;
-  fRam011d28d8 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * FLOAT_00f998f8 + fVar4 * 0.0;
-  fRam011d28dc = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * FLOAT_00f998f8;
-  _DAT_011d28e0 = fVar6 * 0.0 + fVar5 * _DAT_00f9b5b4 + fVar7 * 0.0 + fVar8 * _DAT_00f9b5b4;
-  fRam011d28e4 = fVar6 * DAT_00f9b600 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * _DAT_00f9b5b4;
-  fRam011d28e8 = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * FLOAT_00f998f8 + fVar8 * 0.0;
-  fRam011d28ec = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * FLOAT_00f998f8;
+  _DAT_011d28d0 = fVar2 * 0.0 + fVar1 * 0.5 + fVar3 * 0.0 + fVar4 * 0.5;
+  fRam011d28d4 = fVar2 * -0.5 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 0.5;
+  fRam011d28d8 = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 1.0 + fVar4 * 0.0;
+  fRam011d28dc = fVar2 * 0.0 + fVar1 * 0.0 + fVar3 * 0.0 + fVar4 * 1.0;
+  _DAT_011d28e0 = fVar6 * 0.0 + fVar5 * 0.5 + fVar7 * 0.0 + fVar8 * 0.5;
+  fRam011d28e4 = fVar6 * -0.5 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * 0.5;
+  fRam011d28e8 = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 1.0 + fVar8 * 0.0;
+  fRam011d28ec = fVar6 * 0.0 + fVar5 * 0.0 + fVar7 * 0.0 + fVar8 * 1.0;
   _DAT_011d28c0 = fStack_48b0;
   fRam011d28c4 = fStack_48ac;
   fRam011d28c8 = fStack_48a8;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 DDS instruction contract. cdecl texture,stream,options,swapPayload; AL Boolean. If
@@ -20,10 +20,10 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
   int iVar3;
   uint uVar4;
   undefined4 *puVar5;
-  uint *puVar6;
-  uint **ppuVar7;
+  PC167_SurfaceMapping *pPVar6;
+  PC167_SurfaceMapping *pPVar7;
   int *local_12c;
-  uint local_120 [10];
+  PC167_SurfaceMapping local_120;
   undefined4 local_f8 [10];
   undefined4 local_d0 [10];
   undefined1 local_a6;
@@ -57,19 +57,18 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
   uint local_3c;
   uint local_38;
   int local_34;
-  uint *local_30;
-  int local_2c;
+  PC167_SurfaceMapping local_30;
   uint *local_8;
   
   local_4c = (void *)0x0;
   local_50 = (int *)0x0;
   local_48 = FUN_00f21ff0((int)texture);
-  local_44 = FUN_00531f70((int)texture);
+  local_44 = ReadDwordOffset18_531F70((int)texture);
   local_58 = FUN_005361d0((int)texture);
   iVar3 = FUN_00c2ed00((int)texture);
   local_38 = (-(uint)(iVar3 != 1) & 0xfffffffb) + 6;
   local_40 = FUN_00516de0((int)texture);
-  local_3c = FUN_0056c070((int)texture);
+  local_3c = AnimationRenderState_GetWorldMatrices((int)texture);
   local_54 = (uint *)TextureFormat_FindDescriptor(local_3c);
   uVar4 = FUN_00739aa0((int)texture);
   piVar1 = local_50;
@@ -96,10 +95,9 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
                       (local_50,local_38,local_58,local_48,local_44,local_40,local_3c,0x100);
     if (!bVar2) {
       local_a5 = 0;
-      if (local_50 == (int *)0x0) {
-        return false;
+      if (local_50 != (int *)0x0) {
+        (**(code **)(*local_50 + 8))();
       }
-      (**(code **)(*local_50 + 8))();
       return (bool)local_a5;
     }
   }
@@ -126,7 +124,7 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
     if (local_38 <= local_5c) {
       if (local_4c != (void *)0x0) {
         local_a0 = local_50;
-        local_9c = FUN_0060e910();
+        local_9c = Graphics_GetManagerSingleton();
         FUN_0060f260((int)local_a0,(int)local_4c);
       }
       if (local_50 != (int *)0x0) {
@@ -145,10 +143,9 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
       local_70 = iVar3 * local_6c;
       if ((uint)(local_34 - (int)local_8) < local_70) {
         local_a6 = 0;
-        if (local_50 == (int *)0x0) {
-          return false;
+        if (local_50 != (int *)0x0) {
+          (**(code **)(*local_50 + 8))();
         }
-        (**(code **)(*local_50 + 8))();
         return (bool)local_a6;
       }
       if ((swapPayload) && ((8 < *local_54 || ((char)local_54[6] != '\0')))) {
@@ -158,40 +155,40 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
           local_88 = local_8;
           if (local_58 < 2) {
             if (local_38 < 2) {
-              puVar6 = FUN_00619530(local_50,local_120,local_60,0);
-              ppuVar7 = &local_30;
+              pPVar6 = Surface_MapTextureLevel(local_50,&local_120,local_60,0);
+              pPVar7 = &local_30;
               for (iVar3 = 10; iVar3 != 0; iVar3 = iVar3 + -1) {
-                *ppuVar7 = (uint *)*puVar6;
-                puVar6 = puVar6 + 1;
-                ppuVar7 = ppuVar7 + 1;
+                pPVar7->bits = pPVar6->bits;
+                pPVar6 = (PC167_SurfaceMapping *)&pPVar6->rowPitchBytes;
+                pPVar7 = (PC167_SurfaceMapping *)&pPVar7->rowPitchBytes;
               }
             }
             else {
               puVar5 = FUN_006196f0(local_50,local_f8,local_5c,local_60,0);
-              ppuVar7 = &local_30;
+              pPVar6 = &local_30;
               for (iVar3 = 10; iVar3 != 0; iVar3 = iVar3 + -1) {
-                *ppuVar7 = (uint *)*puVar5;
+                pPVar6->bits = (void *)*puVar5;
                 puVar5 = puVar5 + 1;
-                ppuVar7 = ppuVar7 + 1;
+                pPVar6 = (PC167_SurfaceMapping *)&pPVar6->rowPitchBytes;
               }
             }
           }
           else {
             puVar5 = FUN_006197b0(local_50,local_d0,local_84,local_60,0);
-            ppuVar7 = &local_30;
+            pPVar6 = &local_30;
             for (iVar3 = 10; iVar3 != 0; iVar3 = iVar3 + -1) {
-              *ppuVar7 = (uint *)*puVar5;
+              pPVar6->bits = (void *)*puVar5;
               puVar5 = puVar5 + 1;
-              ppuVar7 = ppuVar7 + 1;
+              pPVar6 = (PC167_SurfaceMapping *)&pPVar6->rowPitchBytes;
             }
           }
-          if (local_30 == (uint *)0x0) {
+          if (local_30.bits == (uint *)0x0) {
             if (local_50 != (int *)0x0) {
               (**(code **)(*local_50 + 8))();
             }
             return false;
           }
-          local_8c = local_30;
+          local_8c = local_30.bits;
           if ((char)local_54[6] == '\0') {
             switch(*local_54) {
             case 0x10:
@@ -199,7 +196,7 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
               for (local_94 = 0; local_94 < local_7c; local_94 = local_94 + 1) {
                 TextureBytes_SwapWords((undefined2 *)local_8c,(undefined2 *)local_88,local_78);
                 local_88 = (uint *)((int)local_88 + local_78);
-                local_8c = (uint *)((int)local_8c + local_2c);
+                local_8c = (uint *)((int)local_8c + local_30.rowPitchBytes);
               }
               break;
             case 0x20:
@@ -207,7 +204,7 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
               for (local_98 = 0; local_98 < local_7c; local_98 = local_98 + 1) {
                 TextureBytes_SwapDwords(local_8c,local_88,local_78);
                 local_88 = (uint *)((int)local_88 + local_78);
-                local_8c = (uint *)((int)local_8c + local_2c);
+                local_8c = (uint *)((int)local_8c + local_30.rowPitchBytes);
               }
             }
           }
@@ -215,10 +212,10 @@ bool __cdecl DdsTexture_CopyPayload(void *texture,void *stream,void *options,boo
             for (local_90 = 0; local_90 < local_7c; local_90 = local_90 + 1) {
               TextureBytes_SwapWords((undefined2 *)local_8c,(undefined2 *)local_88,local_78);
               local_88 = (uint *)((int)local_88 + local_78);
-              local_8c = (uint *)((int)local_8c + local_2c);
+              local_8c = (uint *)((int)local_8c + local_30.rowPitchBytes);
             }
           }
-          FUN_006198a0(local_50,(int *)&local_30);
+          Surface_UnmapIfMapped(local_50,&local_30);
           local_8 = (uint *)((int)local_8 + local_6c);
         }
       }

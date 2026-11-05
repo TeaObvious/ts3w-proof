@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 Room wire gate: complete117owned bytes/47instructions across C05E40..C05E98 and
@@ -18,28 +18,28 @@ void __thiscall RoomGrid_ResizeStorage(void *this,int param_1,int param_2,int pa
   int *this_00;
   undefined2 *puVar1;
   int iVar2;
-  uint uVar3;
-  undefined2 *puVar4;
-  int iVar5;
+  uint elementCount;
+  undefined2 *puVar3;
+  int iVar4;
   
   *(int *)((int)this + 4) = param_1;
   iVar2 = param_2 + 3 >> 2;
-  iVar5 = param_1 + 3 >> 2;
+  iVar4 = param_1 + 3 >> 2;
   *(int *)((int)this + 0x24) = iVar2;
-  uVar3 = iVar2 * iVar5 * param_3;
+  elementCount = iVar2 * iVar4 * param_3;
   *(int *)((int)this + 0xc) = param_3;
-  *(int *)((int)this + 0x20) = iVar5;
+  *(int *)((int)this + 0x20) = iVar4;
   this_00 = (int *)((int)this + 0x48);
   *(int *)((int)this + 8) = param_2;
   iVar2 = *(int *)((int)this + 0x4c) - *this_00 >> 1;
-  FUN_0067f5e0(this_00,uVar3);
-  if (uVar3 - iVar2 != 0 && iVar2 <= (int)uVar3) {
+  UInt16Vector_ResizeZeroed(this_00,elementCount);
+  if (iVar2 < (int)elementCount) {
     puVar1 = *(undefined2 **)((int)this + 0x4c);
-    for (puVar4 = (undefined2 *)(*this_00 + iVar2 * 2); puVar4 != puVar1; puVar4 = puVar4 + 1) {
-      *puVar4 = 0x8000;
+    for (puVar3 = (undefined2 *)(*this_00 + iVar2 * 2); puVar3 != puVar1; puVar3 = puVar3 + 1) {
+      *puVar3 = 0x8000;
     }
   }
-  FUN_00af9f10((void *)((int)this + 0x38),uVar3);
+  FUN_00af9f10((void *)((int)this + 0x38),elementCount);
   return;
 }
 

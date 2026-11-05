@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name, original PC 1.67 TS3W.exe. Commits frame eye,target,up/orientation into
@@ -79,7 +79,7 @@ GameplayCamera_CommitFramePose(void *this,float param_1,float *param_2,float par
   float fStack_3c;
   float local_30 [4];
   float local_20 [7];
-
+  
   this_00 = *(void **)((int)this + 0xc);
   local_80 = *(float *)((int)this_00 + 0x30);
   fStack_7c = *(float *)((int)this_00 + 0x34);
@@ -176,13 +176,13 @@ GameplayCamera_CommitFramePose(void *this,float param_1,float *param_2,float par
   pfVar7 = *(float **)((int)this + 0x9b4);
   if (pfVar7 != (float *)0x0) {
     if (*pfVar7 < pfVar7[1] || *pfVar7 == pfVar7[1]) {
-      if (pfVar7[6] != 0.0) {
-        FUN_004e44e0((int)pfVar7[6]);
+      if ((void *)pfVar7[6] != (void *)0x0) {
+        Memory_FreeIfNonNull((void *)pfVar7[6]);
       }
-      if (pfVar7[2] != 0.0) {
-        FUN_004e44e0((int)pfVar7[2]);
+      if ((void *)pfVar7[2] != (void *)0x0) {
+        Memory_FreeIfNonNull((void *)pfVar7[2]);
       }
-      FUN_004e44e0((int)pfVar7);
+      Memory_FreeIfNonNull(pfVar7);
       *(undefined4 *)((int)this + 0x9b4) = 0;
       local_a0 = 0;
       uStack_9c = 0;

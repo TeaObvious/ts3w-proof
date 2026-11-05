@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst contract (original PC1.67; instruction-checked selected branches): Shared native render
@@ -158,12 +158,13 @@ undefined4 __thiscall FloorFeatureGeometry_RebuildDrawGroups(void *this,int para
             local_128 = 3;
             do {
               if ((-1 < (int)local_19c) && (local_19c < 0x100)) {
-                uVar14 = iVar16 - 1;
+                local_130 = iVar16 - 1;
                 local_138 = 3;
                 do {
+                  uVar14 = local_130;
                   piVar12 = local_1a8;
-                  if ((-1 < (int)uVar14) && (uVar14 < 0x100)) {
-                    local_d0 = local_1a0 + uVar14;
+                  if ((-1 < (int)local_130) && (local_130 < 0x100)) {
+                    local_d0 = local_1a0 + local_130;
                     puVar17 = (uint *)local_178[local_174];
                     for (puVar1 = (uint *)local_178[local_d0 % local_174]; puVar1 != (uint *)0x0;
                         puVar1 = (uint *)puVar1[1]) {
@@ -182,14 +183,13 @@ LAB_00a7fd88:
                     if (*ppuVar7 == puVar17) {
                       iVar16 = local_1a8[0xa7];
                       local_1ac[0] = (char)local_19c;
-                      local_1ac[1] = (char)uVar14;
+                      local_1ac[1] = (char)local_130;
                       local_1aa = param_2;
                       if ((((-1 < (char)local_19c) &&
                            ((int)(char)local_19c < *(int *)(iVar16 + 0x60))) && (-1 < local_1ac[1]))
                          && ((((int)local_1ac[1] < *(int *)(iVar16 + 100) &&
                               (*(int *)(iVar16 + 0x68) <= (int)param_2)) &&
                              ((int)param_2 <= *(int *)(iVar16 + 0x6c))))) {
-                        local_130 = uVar14;
                         uVar15 = LotLevelSurface_TestCellMask
                                            (*(void **)(*(int *)(iVar16 + 0x18) + 0x290),local_1ac,
                                             0xf,1);
@@ -201,7 +201,7 @@ LAB_00a7fd88:
                             local_198._4_4_ = 0;
                             local_198 = 0;
                             if (local_c4 != (void *)0x0) {
-                              piVar9 = (int *)FUN_00a8ed70(local_c4,local_1ac);
+                              piVar9 = (int *)FindFloorCellPayload(local_c4,local_1ac);
                               if (piVar9 != (int *)0x0) {
                                 local_198 = FUN_00a7c520(piVar9,(float *)(piVar9 + 4),
                                                          (float)piVar9[6],(float)piVar9[0xc],
@@ -263,13 +263,12 @@ LAB_00a7fd88:
                       }
                     }
                   }
-                  uVar14 = uVar14 + 1;
+                  local_130 = uVar14 + 1;
                   local_138 = local_138 + -1;
                 } while (local_138 != 0);
                 local_138 = 0;
                 this = local_1a8;
                 iVar16 = local_13c;
-                local_130 = uVar14;
               }
               local_1a0 = local_1a0 + 0x100;
               local_19c = local_19c + 1;

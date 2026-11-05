@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 tree texture instruction contract. ECX resource, one stack stream, RET4, AL.
@@ -35,7 +35,7 @@ bool __thiscall TreeTemplate_LoadSptStream(void *this,void *stream)
       piVar6 = (int *)0x0;
     }
     else {
-      piVar6 = FUN_007bb980(puVar5);
+      piVar6 = SpeedTree_ConstructDefaultWrapper(puVar5);
     }
     piVar1 = *(int **)((int)this + 0x34);
     if (piVar6 != piVar1) {
@@ -45,7 +45,7 @@ bool __thiscall TreeTemplate_LoadSptStream(void *this,void *stream)
       }
       *(int **)((int)this + 0x34) = piVar6;
     }
-    FUN_007b8ad0(1);
+    SpeedTree_SetGlobalTextureVInversion(1);
     if (*(int *)((int)stream + 4) == 0) {
       sourceWord0 = 0;
     }

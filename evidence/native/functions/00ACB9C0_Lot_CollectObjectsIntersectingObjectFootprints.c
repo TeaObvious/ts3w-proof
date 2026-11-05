@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). thiscall lot.
@@ -22,9 +22,9 @@ Lot_CollectObjectsIntersectingObjectFootprints(void *this,void *param_1,int *par
   undefined4 *puVar1;
   uint *puVar2;
   undefined4 *puVar3;
-  byte bVar4;
-  bool bVar5;
+  bool bVar4;
   void *this_00;
+  uint uVar5;
   undefined4 *puVar6;
   int iVar7;
   uint *puVar8;
@@ -33,7 +33,7 @@ Lot_CollectObjectsIntersectingObjectFootprints(void *this,void *param_1,int *par
   float fVar11;
   float *pfVar12;
   int local_94;
-  void *local_90;
+  undefined *local_90;
   float local_8c;
   float local_88;
   int local_84;
@@ -68,13 +68,13 @@ Lot_CollectObjectsIntersectingObjectFootprints(void *this,void *param_1,int *par
     local_48[0] = this;
     local_90 = Object_GetComponentByMask(param_1,DAT_011e9fa8);
     this_00 = Object_GetComponentByMask(param_1,DAT_011edf08);
-    if ((local_90 != (void *)0x0) &&
+    if ((local_90 != (undefined *)0x0) &&
        ((this_00 != (void *)0x0 &&
-        (bVar4 = FootprintComponent_IsRegisteredBit((int)local_90), bVar4 != 0)))) {
+        (uVar5 = FootprintComponent_IsRegisteredBit(local_90), (char)uVar5 != '\0')))) {
       local_8c = -1.0;
       local_88 = -1.0;
       local_84 = 0;
-      FUN_00c894e0(this_00,&local_8c,&local_88,&local_84);
+      ObjectLocation_CopyXZLevel(this_00,&local_8c,&local_88,&local_84);
       pfVar12 = local_24;
       local_80 = 0;
       local_94 = 0;
@@ -86,8 +86,8 @@ Lot_CollectObjectsIntersectingObjectFootprints(void *this,void *param_1,int *par
       local_54 = 0;
       local_50 = 0;
       local_4c = "World/Lot/ObjectFootprintIntersectsPolygon/footprintPolyVerts";
-      bVar5 = FootprintComponent_NextPolygonByRuntimeFlags(local_90,&local_80,5,&local_94,'\x01');
-      if (bVar5) {
+      bVar4 = FootprintComponent_NextPolygonByRuntimeFlags(local_90,&local_80,5,&local_94,'\x01');
+      if (bVar4) {
         do {
           if (*(int *)(local_94 + 0x30) != *(int *)(local_94 + 0x34)) {
             iVar7 = *(char *)(local_94 + 5) + local_84;
@@ -102,9 +102,9 @@ Lot_CollectObjectsIntersectingObjectFootprints(void *this,void *param_1,int *par
               FUN_006b5bc0(local_78,local_40,puVar8);
             }
           }
-          bVar5 = FootprintComponent_NextPolygonByRuntimeFlags
+          bVar4 = FootprintComponent_NextPolygonByRuntimeFlags
                             (local_90,&local_80,5,&local_94,'\x01');
-        } while (bVar5);
+        } while (bVar4);
       }
       if (local_58 != (void *)0x0) {
         Memory_FreeIfNonNull(local_58);

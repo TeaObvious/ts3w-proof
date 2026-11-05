@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -42,7 +41,7 @@ void RenderCopy_TransferRectangleByUnsignedDivisor(undefined4 *param_1)
   int *piStack_8;
   uint uStack_4;
   
-  this = (void *)FUN_0060e910();
+  this = (void *)Graphics_GetManagerSingleton();
   puVar2 = param_1;
   if (param_1 != (undefined4 *)0x0) {
     FUN_00618720(local_28);
@@ -51,7 +50,7 @@ void RenderCopy_TransferRectangleByUnsignedDivisor(undefined4 *param_1)
     param_1 = (undefined4 *)0x0;
     iVar3 = (**(code **)(*piVar1 + 0x98))(piVar1,0,&param_1);
     if (-1 < iVar3) {
-      FUN_00610600(this,(int *)&stack0xffffff9c);
+      FUN_00610600(this,(int *)(auStack_44 + -0x20));
       iStack_54 = puVar2[1];
       iStack_50 = puVar2[2];
       iStack_4c = (uint)(puVar2[3] - iStack_54) / uStack_4 + iStack_54;

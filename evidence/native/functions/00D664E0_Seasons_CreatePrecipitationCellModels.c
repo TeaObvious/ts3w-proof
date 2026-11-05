@@ -1,8 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-Decompiled function Seasons_CreatePrecipitationCellModels:
 
 
 /* Analyst-assigned name. Constructs precipitation models for a cell instance. Type1 rain46C1BA,2
@@ -26,83 +24,82 @@ Seasons_CreatePrecipitationCellModels
   undefined4 local_c;
   undefined4 local_8;
   undefined4 local_4;
-
+  
   *(int **)((int)this + 0x1c) = param_1;
   *(int *)((int)this + 0x20) = param_2;
   *(int *)((int)this + 0x40) = param_5;
-  if (param_2 != 0) {
-    local_18 = 0;
-    switch(param_2) {
-    case 1:
-      local_18 = 0x46c1ba;
-      break;
-    case 2:
-      local_18 = 0xf4ca97;
-      break;
-    case 3:
-    case 4:
-      local_18 = 0xb863fb;
-      break;
-    case 5:
-      local_18 = 0x886989;
-      break;
-    case 6:
-      local_18 = 0xbe8014;
-    }
+  if (param_2 == 0) {
+    FUN_00d65990((int)this);
     FUN_00d4d2a0((uint *)((int)this + 8));
-    local_20 = 0;
-    iVar3 = (uint)(*(int *)((int)this + 0x20) == 4) * 4 + 1;
-    param_2 = iVar3;
-    if (iVar3 != 0) {
-      do {
-        local_10 = local_18;
-        param_1 = (int *)0x0;
-        local_c = 0;
-        local_8 = 0x1661233;
-        local_4 = param_3;
-        this_00 = (void *)FUN_004e4520(0x2d0,0x10,0,"Renderer/Weather/Precipitation",0);
-        this_01 = (int *)0x0;
-        if (this_00 != (void *)0x0) {
-          uVar1 = iVar3 * param_5;
-          piVar2 = FUN_006f59a0(this_00,uVar1 + local_20 + 0xe79159f0,
-                                ((int)uVar1 >> 0x1f) + ((int)local_20 >> 0x1f) +
-                                (uint)CARRY4(uVar1,local_20) + 0x3dbb0044 +
-                                (uint)(0x186ea60f < uVar1 + local_20));
-          iVar3 = param_2;
-          if (piVar2 != (int *)0x0) {
-            (**(code **)*piVar2)();
-            this_01 = piVar2;
-            iVar3 = param_2;
-            param_1 = piVar2;
-          }
-        }
-        FUN_006f46f0(this_01,&local_10,0,0,0);
-        (**(code **)(*this_01 + 0x50))(param_4);
-        (**(code **)(*this_01 + 0x34))(0x2000088,0x2000080);
-        FUN_006fab20(this_01,0x25,'\x01');
-        piVar2 = *(int **)((int)this + 0xc);
-        if (piVar2 < *(int **)((int)this + 0x10)) {
-          *(int **)((int)this + 0xc) = piVar2 + 1;
-          if (piVar2 != (int *)0x0) {
-            *piVar2 = (int)this_01;
-            (**(code **)*this_01)();
-          }
-        }
-        else {
-          FUN_00c65ad0((uint *)((int)this + 8),piVar2,(int *)&param_1);
-          this_01 = param_1;
-        }
-        if (this_01 != (int *)0x0) {
-          (**(code **)(*this_01 + 4))();
-        }
-        local_20 = local_20 + 1;
-      } while ((int)local_20 < iVar3);
-    }
     return;
   }
-  FUN_00d65990((int)this);
+  local_18 = 0;
+  switch(param_2) {
+  case 1:
+    local_18 = 0x46c1ba;
+    break;
+  case 2:
+    local_18 = 0xf4ca97;
+    break;
+  case 3:
+  case 4:
+    local_18 = 0xb863fb;
+    break;
+  case 5:
+    local_18 = 0x886989;
+    break;
+  case 6:
+    local_18 = 0xbe8014;
+  }
   FUN_00d4d2a0((uint *)((int)this + 8));
+  local_20 = 0;
+  iVar3 = (uint)(*(int *)((int)this + 0x20) == 4) * 4 + 1;
+  param_2 = iVar3;
+  if (iVar3 != 0) {
+    do {
+      local_10 = local_18;
+      this_01 = (int *)0x0;
+      param_1 = (int *)0x0;
+      local_c = 0;
+      local_8 = 0x1661233;
+      local_4 = param_3;
+      this_00 = (void *)FUN_004e4520(0x2d0,0x10,0,"Renderer/Weather/Precipitation",0);
+      if (this_00 != (void *)0x0) {
+        uVar1 = iVar3 * param_5;
+        piVar2 = RenderComponent_InitializeSceneModel
+                           (this_00,uVar1 + local_20 + 0xe79159f0,
+                            ((int)uVar1 >> 0x1f) + ((int)local_20 >> 0x1f) +
+                            (uint)CARRY4(uVar1,local_20) + 0x3dbb0044 +
+                            (uint)(0x186ea60f < uVar1 + local_20));
+        if (piVar2 != (int *)0x0) {
+          (**(code **)*piVar2)();
+          this_01 = piVar2;
+          param_1 = piVar2;
+        }
+        iVar3 = param_2;
+      }
+      FUN_006f46f0(this_01,&local_10,0,0,0);
+      (**(code **)(*this_01 + 0x50))(param_4);
+      (**(code **)(*this_01 + 0x34))(0x2000088,0x2000080);
+      FUN_006fab20(this_01,0x25,'\x01');
+      piVar2 = *(int **)((int)this + 0xc);
+      if (piVar2 < *(int **)((int)this + 0x10)) {
+        *(int **)((int)this + 0xc) = piVar2 + 1;
+        if (piVar2 != (int *)0x0) {
+          *piVar2 = (int)this_01;
+          (**(code **)*this_01)();
+        }
+      }
+      else {
+        FUN_00c65ad0((uint *)((int)this + 8),piVar2,(int *)&param_1);
+        this_01 = param_1;
+      }
+      if (this_01 != (int *)0x0) {
+        (**(code **)(*this_01 + 4))();
+      }
+      local_20 = local_20 + 1;
+    } while ((int)local_20 < iVar3);
+  }
   return;
 }
-
 

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01162a00 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01162a00 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.VisualEffect::Swarm_SetAutoDestroy [assembly=ScriptCore token=0x060004C4;
    effectHandle: System.UInt64, destroy: System.Boolean; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -14,22 +15,21 @@ void ScriptCore_VisualEffect__Swarm_SetAutoDestroy
                (undefined4 param_1,undefined4 param_2,char param_3)
 
 {
-  int iVar1;
+  void *pvVar1;
   void *this;
-  void *this_00;
   uint uStack_4;
   
-  iVar1 = FUN_00937570();
-  this = (void *)FUN_00937f80(iVar1);
-  if (this != (void *)0x0) {
-    this_00 = (void *)FUN_00934260(this,DAT_011e9e90);
-    if (this_00 != (void *)0x0) {
+  pvVar1 = ObjectRegistry_GetGlobal();
+  pvVar1 = ObjectRegistry_FindBorrowed(pvVar1,CONCAT44(param_2,param_1));
+  if (pvVar1 != (void *)0x0) {
+    this = Object_GetComponentByMask(pvVar1,DAT_011e9e90);
+    if (this != (void *)0x0) {
       uStack_4 = (uint)(param_3 != '\0');
-      FUN_009445a0(this_00,5,(int *)&uStack_4,1);
+      FUN_009445a0(this,5,(int *)&uStack_4,1);
     }
-    iVar1 = FUN_00934260(this,DAT_011ea158);
-    if (iVar1 != 0) {
-      FUN_00955f30(iVar1);
+    pvVar1 = Object_GetComponentByMask(pvVar1,DAT_011ea158);
+    if (pvVar1 != (void *)0x0) {
+      FUN_00955f30((int)pvVar1);
       return;
     }
   }

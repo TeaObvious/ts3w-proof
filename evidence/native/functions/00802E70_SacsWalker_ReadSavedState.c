@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): ECX walker; RET0C consumes three physical words
@@ -23,6 +23,7 @@ void __thiscall SacsWalker_ReadSavedState(void *this,void *param_1)
   int *piVar8;
   uint unaff_EBX;
   int iVar9;
+  undefined1 uStack00000000;
   byte bVar10;
   byte bStack_34;
   byte bStack_33;
@@ -58,11 +59,11 @@ void __thiscall SacsWalker_ReadSavedState(void *this,void *param_1)
   if (bVar10 != 0) {
     bVar3 = Stream_ReadByte(*(void **)((int)param_1 + 8),&bStack_33);
     StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar3 = Stream_ReadByte(*(void **)((int)param_1 + 8),&stack0x00000000);
+    bVar3 = Stream_ReadByte(*(void **)((int)param_1 + 8),&uStack00000000);
     StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar3 = Stream_ReadByte(*(void **)((int)param_1 + 8),&stack0x00000000);
+    bVar3 = Stream_ReadByte(*(void **)((int)param_1 + 8),&uStack00000000);
     StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar3 = Stream_ReadByte(*(void **)((int)param_1 + 8),&stack0x00000000);
+    bVar3 = Stream_ReadByte(*(void **)((int)param_1 + 8),&uStack00000000);
     StreamReader_AccumulateStatus(param_1,bVar3);
   }
   iVar9 = 1;
@@ -213,7 +214,7 @@ void __thiscall SacsWalker_ReadSavedState(void *this,void *param_1)
             if (*(char *)(iVar2 + 0x51) != '\0') {
               if (iVar2 != *(int *)((int)this + 0x1c)) {
                 *(int *)((int)this + 0x1c) = iVar2;
-                FUN_007ffd90(this,iVar2 != 0);
+                SacsWalker_PropagateDirtyState(this,iVar2 != 0);
               }
               LOCK();
               *(undefined4 *)((int)this + 0x6c) = 0xfffffffe;
@@ -234,12 +235,12 @@ void __thiscall SacsWalker_ReadSavedState(void *this,void *param_1)
         }
         else if (iVar9 != *(int *)((int)this + 0x1c)) {
           *(int *)((int)this + 0x1c) = iVar9;
-          FUN_007ffd90(this,iVar9 != 0);
+          SacsWalker_PropagateDirtyState(this,iVar9 != 0);
         }
       }
       else if (iVar9 != *(int *)((int)this + 0x1c)) {
         *(int *)((int)this + 0x1c) = iVar9;
-        FUN_007ffd90(this,iVar9 != 0);
+        SacsWalker_PropagateDirtyState(this,iVar9 != 0);
       }
     }
     else if (iVar9 != *(int *)((int)this + 0x1c)) {

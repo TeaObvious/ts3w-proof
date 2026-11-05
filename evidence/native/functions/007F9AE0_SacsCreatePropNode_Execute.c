@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): PC1.67 ECX node,four stack dwords RET10. Requires
@@ -43,7 +43,7 @@ SacsCreatePropNode_Execute(void *this,int param_1,void *param_2,undefined4 param
   uint auStack_1c [6];
   
   if ((param_1 != 0) && (*(int *)(param_1 + 8) != 0)) {
-    uVar2 = FUN_007f3da0(param_2,param_1,*(int *)((int)this + 0x50));
+    uVar2 = SacsContext_AdmitActorNode(param_2,param_1,*(int *)((int)this + 0x50));
     if ((char)uVar2 != '\0') {
       pvVar3 = (void *)SacsContext_FindDefinitionActor(param_2,*(int *)((int)this + 0x50));
       if ((pvVar3 != (void *)0x0) && (((byte)*(undefined4 *)((int)pvVar3 + 0xc) & 1) == 1)) {

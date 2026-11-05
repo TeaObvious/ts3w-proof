@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -31,7 +30,7 @@ void __fastcall LotDataLayers_CreateMissingOwners(int *param_1)
       puVar2 = FUN_00a92c90(puVar2);
     }
     param_1[0xa4] = (int)puVar2;
-    FUN_00a8dd00(puVar2,(int)param_1);
+    BindFloorManagerToLot(puVar2,(int)param_1);
   }
   FUN_00a97a50((void *)param_1[0xa4]);
   if (param_1[0xa9] == 0) {
@@ -63,7 +62,7 @@ void __fastcall LotDataLayers_CreateMissingOwners(int *param_1)
     if (iVar5 < 0) {
       iVar5 = 0;
     }
-    FUN_00a95850(pvVar3,param_1[0x5d],param_1[0x5e],iVar5);
+    ByteTileGrid_SetDimensions(pvVar3,param_1[0x5d],param_1[0x5e],iVar5);
     if (0 < iVar5) {
       local_11 = 0;
       FUN_00a94e90((void *)param_1[0xaa],&local_11);
@@ -75,10 +74,10 @@ void __fastcall LotDataLayers_CreateMissingOwners(int *param_1)
       puVar2 = (undefined1 *)0x0;
     }
     else {
-      puVar2 = FUN_00aebf10(puVar2);
+      puVar2 = LotTerrain_Construct(puVar2);
     }
     param_1[0xa5] = (int)puVar2;
-    FUN_00ae9bf0(puVar2,(int)param_1);
+    LotTerrain_BindLot(puVar2,(int)param_1);
     FUN_00aeff00(param_1[0xa5]);
   }
   if (param_1[0xa6] == 0) {
@@ -99,7 +98,7 @@ void __fastcall LotDataLayers_CreateMissingOwners(int *param_1)
       puVar4 = (undefined4 *)0x0;
     }
     else {
-      puVar4 = FUN_00b99330(puVar4);
+      puVar4 = RoofManager_Construct(puVar4);
     }
     param_1[0xab] = (int)puVar4;
     FUN_00b9ab30(puVar4,param_1);
@@ -121,7 +120,7 @@ void __fastcall LotDataLayers_CreateMissingOwners(int *param_1)
       pvVar3 = (void *)0x0;
     }
     else {
-      pvVar3 = (void *)FUN_00b1d850(puVar4);
+      pvVar3 = (void *)ModularStairs_ConstructManager(puVar4);
     }
     param_1[0xad] = (int)pvVar3;
     FUN_00b150b0(pvVar3,param_1);
@@ -187,7 +186,7 @@ void __fastcall LotDataLayers_CreateMissingOwners(int *param_1)
       pvVar3 = (void *)0x0;
     }
     else {
-      pvVar3 = (void *)FUN_00a76280(puVar4);
+      pvVar3 = (void *)FireplaceGroups_Construct(puVar4);
     }
     param_1[0xb3] = (int)pvVar3;
     FUN_00ed7c40(pvVar3,param_1);

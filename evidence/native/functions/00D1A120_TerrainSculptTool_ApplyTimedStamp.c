@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Physicalthiscall onepointpointerRET4void. Pointlevel is rawSIGNEDInt32 at8,notfloat.
@@ -33,7 +33,8 @@ void __thiscall TerrainSculptTool_ApplyTimedStamp(void *this,LotPaintPoint *poin
   FUN_00ad77d0((int)this_00);
   if (point->level != 0) {
     FUN_00d19fa0(this,'\x01');
-    FUN_00ad6720(local_50,0xd7,*(int *)((int)this + 0x34),&point->x,0,0);
+    BuildEditErrorRecord_InitializeAtLotPoint
+              (local_50,0xd7,*(undefined **)((int)this + 0x34),point,0,0);
     FUN_00ad8570(this_00,local_50);
     FUN_00cd3890(this_00,1,'\x01');
     FUN_00ad70d0((int)local_50);

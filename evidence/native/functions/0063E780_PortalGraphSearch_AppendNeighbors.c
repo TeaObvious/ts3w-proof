@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: original PC 1.67 portal contract. Packed key high16 room/low16portal; specialfffe
@@ -38,7 +38,7 @@ PortalGraphSearch_AppendNeighbors
   iVar3 = *(int *)outNodes;
   uVar11 = nodeKey >> 0x10;
   uVar17 = (ushort)(nodeKey >> 0x10);
-  FUN_0063db10(this,lotGraph,uVar17);
+  LotRouting_EnsureComponentPortalAdjacency(this,lotGraph,uVar17);
   if (uVar11 < (uint)((*(int *)((int)pvVar15 + 0x94) - *(int *)((int)pvVar15 + 0x90)) / 0x44)) {
     sVar10 = (short)nodeKey;
     iVar1 = *(int *)((int)pvVar15 + 0x90) + uVar11 * 0x44;
@@ -114,7 +114,6 @@ PortalGraphSearch_AppendNeighbors
           piVar14 = (int *)((uint)uVar13 * 0x10 + *(int *)(iVar1 + 0x34));
           local_14 = 0;
           uVar12 = piVar14[1] - *piVar14 >> 3;
-          pvVar15 = lotGraph;
           if (uVar12 != 0) {
             do {
               uVar13 = *(ushort *)(*piVar14 + local_14 * 8);
@@ -136,9 +135,9 @@ PortalGraphSearch_AppendNeighbors
                 }
               }
               local_14 = local_14 + 1;
-              pvVar15 = lotGraph;
             } while (local_14 < uVar12);
           }
+          pvVar15 = lotGraph;
         }
         uVar13 = *(ushort *)(iVar5 + 0x48);
         if (uVar13 == uVar17) {

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): ECX evaluation context,two stack words RET8,AL
@@ -18,7 +18,7 @@ uint __thiscall SacsContext_AdmitActorNode(void *this,int param_1,int param_2)
        ((byte)*(undefined4 *)(*(int *)((int)this_00 + 0xc) + 0x3c) & 1) != 1)) &&
       (*(char *)((int)this_00 + 0x3c) == '\0')) &&
      (*(int *)(*(int *)(param_1 + 8) + 0x20) != param_2)) {
-    param_2 = FUN_007fffe0(this_00,*(int *)(param_2 + 0x2c));
+    param_2 = SacsDriver_FindExistingActorWalker(this_00,*(int *)(param_2 + 0x2c));
     if ((param_2 != 0) && ((*(int *)(param_2 + 0x10) != 0 || (*(int *)(param_2 + 0x1c) != 0)))) {
       return param_2 & 0xffffff00;
     }

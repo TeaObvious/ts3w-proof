@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC 1.67 map/lot detail contract. Requires lot+364 and object component mask011edf08.
@@ -64,8 +64,13 @@ Lot_ApplyObjectDisplayDetail(void *this,void *object,uchar includeSpecial,uchar 
         pvVar4 = local_8;
         if ((local_c == '\0') && (((char)uVar5 == '\0' || ((int)uVar6 < 0)))) {
           uVar5 = *(uint *)((int)local_8 + 0x39c);
-          if (((int)uVar5 < (int)uVar7) && (uVar7 = uVar6, (int)uVar6 <= (int)uVar5)) {
-            uVar7 = uVar5;
+          if ((int)uVar5 < (int)uVar7) {
+            if ((int)uVar5 < (int)uVar6) {
+              uVar7 = uVar6;
+            }
+            else {
+              uVar7 = uVar5;
+            }
           }
         }
         else {
@@ -75,7 +80,7 @@ Lot_ApplyObjectDisplayDetail(void *this,void *object,uchar includeSpecial,uchar 
           local_4 = *(undefined4 *)((int)object + 0xc);
           puVar1 = (undefined4 *)((int)local_8 + 0x2dc);
           local_8 = *(void **)((int)object + 8);
-          FUN_00c7cd80((void *)*puVar1,(uint *)&local_8);
+          ErasePairValueMapKeyRun((void *)*puVar1,(uint *)&local_8);
           FUN_00aafdc0(*(void **)((int)pvVar4 + 0x364),object,local_c,uVar7);
           return;
         }

@@ -1,10 +1,13 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-/* Verified PC 1.67 registration table at 0x01161b38 (original PC 1.67 TS3W.exe).
+
+
+
+/* Verified PC 1.67 registration table at 0x01161b38 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Route::Route_Replace [assembly=ScriptCore token=0x0600113E; routeHandle:
    System.UInt32, segmentId: System.UInt32, routeHandleOther: System.UInt32; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -50,11 +53,11 @@ void __cdecl ScriptCore.Route::Route_Replace(uint param_1,int param_2,uint param
   float fStack_18;
   float fStack_14;
   
-  piVar11 = (int *)FUN_0074b4b0(DAT_011d50c4,param_1);
+  piVar11 = (int *)RouteRegistry_ResolveTypedHandle(DAT_011d50c4,param_1);
   if (piVar11 != (int *)0x0) {
     (**(code **)(*piVar11 + 0x10))();
   }
-  piVar12 = (int *)FUN_0074b4b0(DAT_011d50c4,param_3);
+  piVar12 = (int *)RouteRegistry_ResolveTypedHandle(DAT_011d50c4,param_3);
   if (piVar12 != (int *)0x0) {
     (**(code **)(*piVar12 + 0x10))();
   }
@@ -137,73 +140,69 @@ LAB_007550f7:
         fVar10 = (float)piVar12[0x4a];
         if ((char)piVar12[0x50] != '\0') {
           fStack_70 = fVar6 + fVar2 + fVar10;
-          if (fStack_70 <= DAT_010f4ccc) {
+          if (fStack_70 <= 0.0) {
             if ((fVar2 <= fVar6) || (fVar2 <= fVar10)) {
               if (fVar6 <= fVar10) {
-                auVar19._0_4_ = DAT_00f998f8 + (fVar10 - (fVar6 + fVar2));
-                auVar19._4_4_ = DAT_00f998f8 + (fVar10 - (fVar6 + fVar2));
-                auVar19._8_4_ = DAT_00f998f8 + (fVar10 - (fVar6 + fVar2));
-                auVar19._12_4_ = DAT_00f998f8 + (fVar10 - (fVar6 + fVar2));
+                auVar19._0_4_ = (fVar10 - (fVar6 + fVar2)) + 1.0;
+                auVar19._4_4_ = (fVar10 - (fVar6 + fVar2)) + 1.0;
+                auVar19._8_4_ = (fVar10 - (fVar6 + fVar2)) + 1.0;
+                auVar19._12_4_ = (fVar10 - (fVar6 + fVar2)) + 1.0;
                 auVar21 = sqrtps(auVar19,auVar19);
-                auVar23._4_4_ = _DAT_00f9b5b4;
-                auVar23._0_4_ = _DAT_00f9b5b4;
-                auVar23._8_4_ = _DAT_00f9b5b4;
-                auVar23._12_4_ = _DAT_00f9b5b4;
+                auVar23._8_4_ = 0x3f000000;
+                auVar23._0_8_ = 0x3f0000003f000000;
+                auVar23._12_4_ = 0x3f000000;
                 auVar24 = divps(auVar23,auVar21);
                 fStack_80 = (fVar8 + fVar4) * auVar24._0_4_;
                 fStack_7c = (fVar7 + fVar9) * auVar24._4_4_;
-                fStack_78 = auVar21._8_4_ * _DAT_00f9b5b4;
+                fStack_78 = auVar21._8_4_ * 0.5;
                 fStack_74 = (fVar3 - fVar5) * auVar24._12_4_;
               }
               else {
-                auVar18._0_4_ = DAT_00f998f8 + (fVar6 - (fVar10 + fVar2));
-                auVar18._4_4_ = DAT_00f998f8 + (fVar6 - (fVar10 + fVar2));
-                auVar18._8_4_ = DAT_00f998f8 + (fVar6 - (fVar10 + fVar2));
-                auVar18._12_4_ = DAT_00f998f8 + (fVar6 - (fVar10 + fVar2));
+                auVar18._0_4_ = (fVar6 - (fVar10 + fVar2)) + 1.0;
+                auVar18._4_4_ = (fVar6 - (fVar10 + fVar2)) + 1.0;
+                auVar18._8_4_ = (fVar6 - (fVar10 + fVar2)) + 1.0;
+                auVar18._12_4_ = (fVar6 - (fVar10 + fVar2)) + 1.0;
                 auVar24 = sqrtps(ZEXT416((uint)fVar6),auVar18);
-                auVar22._4_4_ = _DAT_00f9b5b4;
-                auVar22._0_4_ = _DAT_00f9b5b4;
-                auVar22._8_4_ = _DAT_00f9b5b4;
-                auVar22._12_4_ = _DAT_00f9b5b4;
+                auVar22._8_4_ = 0x3f000000;
+                auVar22._0_8_ = 0x3f0000003f000000;
+                auVar22._12_4_ = 0x3f000000;
                 auVar21 = divps(auVar22,auVar24);
                 fStack_80 = (fVar5 + fVar3) * auVar21._0_4_;
-                fStack_7c = auVar24._4_4_ * _DAT_00f9b5b4;
+                fStack_7c = auVar24._4_4_ * 0.5;
                 fStack_78 = (fVar7 + fVar9) * auVar21._8_4_;
                 fStack_74 = (fVar8 - fVar4) * auVar21._12_4_;
               }
             }
             else {
-              auVar21._0_4_ = DAT_00f998f8 + (fVar2 - (fVar10 + fVar6));
-              auVar21._4_4_ = DAT_00f998f8 + (fVar2 - (fVar10 + fVar6));
-              auVar21._8_4_ = DAT_00f998f8 + (fVar2 - (fVar10 + fVar6));
-              auVar21._12_4_ = DAT_00f998f8 + (fVar2 - (fVar10 + fVar6));
+              auVar21._0_4_ = (fVar2 - (fVar10 + fVar6)) + 1.0;
+              auVar21._4_4_ = (fVar2 - (fVar10 + fVar6)) + 1.0;
+              auVar21._8_4_ = (fVar2 - (fVar10 + fVar6)) + 1.0;
+              auVar21._12_4_ = (fVar2 - (fVar10 + fVar6)) + 1.0;
               auVar21 = sqrtps(auVar21,auVar21);
-              auVar24._4_4_ = _DAT_00f9b5b4;
-              auVar24._0_4_ = _DAT_00f9b5b4;
-              auVar24._8_4_ = _DAT_00f9b5b4;
-              auVar24._12_4_ = _DAT_00f9b5b4;
+              auVar24._8_4_ = 0x3f000000;
+              auVar24._0_8_ = 0x3f0000003f000000;
+              auVar24._12_4_ = 0x3f000000;
               auVar24 = divps(auVar24,auVar21);
-              fStack_80 = auVar21._0_4_ * _DAT_00f9b5b4;
+              fStack_80 = auVar21._0_4_ * 0.5;
               fStack_78 = (fVar8 + fVar4) * auVar24._8_4_;
               fStack_7c = (fVar5 + fVar3) * auVar24._4_4_;
               fStack_74 = (fVar7 - fVar9) * auVar24._12_4_;
             }
           }
           else {
-            auVar17._0_4_ = DAT_00f998f8 + fStack_70;
-            auVar17._4_4_ = DAT_00f998f8 + fVar6 + fVar2 + fVar10;
-            auVar17._8_4_ = DAT_00f998f8 + fVar6 + fVar2 + fVar10;
-            auVar17._12_4_ = DAT_00f998f8 + fVar6 + fVar2 + fVar10;
+            auVar17._0_4_ = fStack_70 + 1.0;
+            auVar17._4_4_ = fVar6 + fVar2 + fVar10 + 1.0;
+            auVar17._8_4_ = fVar6 + fVar2 + fVar10 + 1.0;
+            auVar17._12_4_ = fVar6 + fVar2 + fVar10 + 1.0;
             auVar24 = sqrtps(ZEXT416((uint)fStack_70),auVar17);
-            auVar20._4_4_ = _DAT_00f9b5b4;
-            auVar20._0_4_ = _DAT_00f9b5b4;
-            auVar20._8_4_ = _DAT_00f9b5b4;
-            auVar20._12_4_ = _DAT_00f9b5b4;
+            auVar20._8_4_ = 0x3f000000;
+            auVar20._0_8_ = 0x3f0000003f000000;
+            auVar20._12_4_ = 0x3f000000;
             auVar21 = divps(auVar20,auVar24);
             fStack_80 = (fVar7 - fVar9) * auVar21._0_4_;
             fStack_7c = (fVar8 - fVar4) * auVar21._4_4_;
             fStack_78 = (fVar3 - fVar5) * auVar21._8_4_;
-            fStack_74 = auVar24._12_4_ * _DAT_00f9b5b4;
+            fStack_74 = auVar24._12_4_ * 0.5;
           }
           (**(code **)(*piVar15 + 0x144))(&fStack_80);
         }

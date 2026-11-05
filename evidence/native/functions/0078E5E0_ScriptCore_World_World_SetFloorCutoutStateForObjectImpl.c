@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163be8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163be8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_SetFloorCutoutStateForObjectImpl [assembly=ScriptCore token=0x0600087F;
    objId: System.UInt64, bEnable: System.Boolean; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -14,21 +15,20 @@ void ScriptCore_World__World_SetFloorCutoutStateForObjectImpl
                (undefined4 param_1,undefined4 param_2,char param_3)
 
 {
-  int iVar1;
+  void *pvVar1;
   void *this;
-  void *this_00;
   
-  iVar1 = FUN_00937570();
-  this = (void *)FUN_00937f80(iVar1);
-  if (this != (void *)0x0) {
-    this_00 = (void *)FUN_00934260(this,DAT_011edf08);
-    if (this_00 != (void *)0x0) {
-      FUN_00c89550(this_00,param_3 == '\0');
+  pvVar1 = ObjectRegistry_GetGlobal();
+  pvVar1 = ObjectRegistry_FindBorrowed(pvVar1,CONCAT44(param_2,param_1));
+  if (pvVar1 != (void *)0x0) {
+    this = Object_GetComponentByMask(pvVar1,DAT_011edf08);
+    if (this != (void *)0x0) {
+      FUN_00c89550(this,param_3 == '\0');
       if (param_3 != '\0') {
-        FUN_00b08180(this);
+        ObjectPlacement_RegisterFloorCutout(pvVar1);
         return;
       }
-      FUN_00b01a20(this);
+      FUN_00b01a20(pvVar1);
     }
   }
   return;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 domain-owner static comparison. ECXSpeedTreeData; unsignedindex/output two words,
@@ -78,7 +78,7 @@ undefined4 __thiscall TreeData_CopySelectedPrimitive(void *this,uint param_1,int
     *(undefined4 *)(param_2 + 0x34) = uVar6;
     *(undefined4 *)(param_2 + 0x38) = uVar3;
     *(undefined4 *)(param_2 + 0x3c) = uVar4;
-    uVar6 = FUN_0068dbb0((undefined4 *)(param_2 + 0x20),&local_e0);
+    uVar6 = Bounds_TransformHomogeneousCorners((undefined4 *)(param_2 + 0x20),&local_e0);
     return CONCAT31((int3)((uint)uVar6 >> 8),1);
   }
   return uVar2 & 0xffffff00;

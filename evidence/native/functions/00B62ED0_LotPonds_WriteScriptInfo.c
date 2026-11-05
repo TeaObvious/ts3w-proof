@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -79,8 +78,9 @@ void __thiscall LotPonds_WriteScriptInfo(void *this,undefined4 *param_1,void *pa
   fStack_dc = afStack_114[2];
   fStack_d8 = fStack_f4;
   do {
-    FUN_00ab7040(*(void **)((int)this + 4),(float *)((int)afStack_114 + uVar2),
-                 (float *)((int)afStack_54 + uVar2));
+    Lot_LocalPositionToWorldVector
+              (*(void **)((int)this + 4),(float *)((int)afStack_114 + uVar2),
+               (float *)((int)afStack_54 + uVar2));
     uVar2 = uVar2 + 0x10;
   } while (uVar2 < 0x40);
   afStack_94[0] = ((float)(int)param_1[0xe] - 1.0) + 0.1;
@@ -100,8 +100,9 @@ void __thiscall LotPonds_WriteScriptInfo(void *this,undefined4 *param_1,void *pa
   fStack_5c = afStack_94[2];
   fStack_58 = fStack_74;
   do {
-    FUN_00ab7040(*(void **)((int)this + 4),(float *)((int)afStack_94 + uVar2),
-                 (float *)((int)afStack_d4 + uVar2));
+    Lot_LocalPositionToWorldVector
+              (*(void **)((int)this + 4),(float *)((int)afStack_94 + uVar2),
+               (float *)((int)afStack_d4 + uVar2));
     uVar2 = uVar2 + 0x10;
   } while (uVar2 < 0x40);
   FUN_0076c100(param_2,param_1);

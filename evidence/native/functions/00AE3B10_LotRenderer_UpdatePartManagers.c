@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -18,7 +17,7 @@ void __thiscall LotRenderer_UpdatePartManagers(void *this,float param_1)
     FUN_00afb980(*(void **)((int)this + 0x234),param_1);
   }
   if (*(void **)((int)this + 0x238) != (void *)0x0) {
-    FUN_00c59ab0(*(void **)((int)this + 0x238));
+    WallRender_AdvanceQueuedStateAndMaterialReadiness(*(void **)((int)this + 0x238));
   }
   if (*(int *)((int)this + 0x248) != 0) {
     FUN_00a6a190(*(int *)((int)this + 0x248));

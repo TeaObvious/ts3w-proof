@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC1.67 tomb/diving contract. Collects markerType0seed rooms, compares cached signedshort
@@ -13,10 +13,10 @@ void __thiscall LotPartition_RefreshFoggedRoomList(void *this,bool force)
 {
   int iVar1;
   undefined4 uVar2;
+  int *message;
   int *piVar3;
-  int *piVar4;
-  undefined4 *puVar5;
-  int *piVar6;
+  undefined4 *puVar4;
+  int *piVar5;
   undefined2 *local_14;
   undefined2 *local_10;
   undefined4 local_c;
@@ -34,53 +34,53 @@ void __thiscall LotPartition_RefreshFoggedRoomList(void *this,bool force)
     if ((char)uVar2 != '\0') goto LAB_00b52dc1;
   }
   FUN_005d33b0((void *)((int)this + 0xd0),(int *)&local_14);
-  piVar3 = FUN_00adf150();
-  if (piVar3 == (int *)0x0) {
-    piVar3 = (int *)0x0;
+  message = FloorMessagePool_AcquireStorage();
+  if (message == (int *)0x0) {
+    message = (int *)0x0;
   }
   else {
-    *piVar3 = (int)&PTR_FUN_01065f8c;
+    *message = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
     LOCK();
-    piVar3[1] = 0;
+    message[1] = 0;
     UNLOCK();
-    *piVar3 = (int)&PTR_FUN_0106ddf0;
-    piVar3[4] = 0;
-    piVar3[5] = 0;
-    piVar3[6] = 0;
-    piVar3[7] = (int)"Lot/tRoomSetChangedMsgData";
-    (**(code **)(*piVar3 + 4))();
+    *message = (int)&PTR_FUN_0106ddf0;
+    message[4] = 0;
+    message[5] = 0;
+    message[6] = 0;
+    message[7] = (int)"Lot/tRoomSetChangedMsgData";
+    (**(code **)(*message + 4))();
   }
   iVar1 = *(int *)((int)this + 0xc);
-  piVar3[2] = *(int *)(iVar1 + 0x48);
-  piVar3[3] = *(int *)(iVar1 + 0x4c);
-  FUN_005d3480(piVar3 + 4,(int)local_10 - (int)local_14 >> 1);
-  FUN_00b4f310((undefined4 *)&force,local_14,local_10,piVar3 + 4);
-  piVar4 = (int *)FUN_007693a0();
-  if (piVar4 != (int *)0x0) {
-    (**(code **)(*piVar4 + 0x1c))(0x86b0c27,piVar3,0,0);
+  message[2] = *(int *)(iVar1 + 0x48);
+  message[3] = *(int *)(iVar1 + 0x4c);
+  FUN_005d3480(message + 4,(int)local_10 - (int)local_14 >> 1);
+  FUN_00b4f310((undefined4 *)&force,local_14,local_10,message + 4);
+  piVar3 = (int *)FUN_007693a0();
+  if (piVar3 != (int *)0x0) {
+    (**(code **)(*piVar3 + 0x1c))(0x86b0c27,message,0,0);
   }
-  FUN_00ab32d0(*(void **)((int)this + 0xc),0x86b0c27,piVar3);
-  piVar4 = (int *)FUN_0044c4f0();
-  puVar5 = FUN_00adf150();
-  if (puVar5 == (undefined4 *)0x0) {
-    piVar6 = (int *)0x0;
+  Lot_SendManagerMessage(*(void **)((int)this + 0xc),0x86b0c27,message);
+  piVar3 = (int *)MessageDispatch_GetCurrent();
+  puVar4 = FloorMessagePool_AcquireStorage();
+  if (puVar4 == (undefined4 *)0x0) {
+    piVar5 = (int *)0x0;
   }
   else {
-    piVar6 = (int *)FUN_00b4a450(puVar5);
-    if (piVar6 != (int *)0x0) {
-      (**(code **)(*piVar6 + 4))();
+    piVar5 = (int *)FUN_00b4a450(puVar4);
+    if (piVar5 != (int *)0x0) {
+      (**(code **)(*piVar5 + 4))();
     }
   }
   iVar1 = *(int *)((int)this + 0xc);
-  piVar6[2] = *(int *)(iVar1 + 0x48);
-  piVar6[3] = *(int *)(iVar1 + 0x4c);
-  FUN_00b4c8c0(this,piVar6 + 4,piVar6 + 0xc,piVar6 + 0x14);
-  (**(code **)(*piVar4 + 0x1c))(0x8a283fb,piVar6,0,0);
-  (**(code **)(*piVar6 + 8))();
-  (**(code **)(*piVar3 + 8))();
+  piVar5[2] = *(int *)(iVar1 + 0x48);
+  piVar5[3] = *(int *)(iVar1 + 0x4c);
+  FUN_00b4c8c0(this,piVar5 + 4,piVar5 + 0xc,piVar5 + 0x14);
+  (**(code **)(*piVar3 + 0x1c))(0x8a283fb,piVar5,0,0);
+  (**(code **)(*piVar5 + 8))();
+  (**(code **)(*message + 8))();
 LAB_00b52dc1:
   if (local_14 != (undefined2 *)0x0) {
-    FUN_004e44e0((int)local_14);
+    Memory_FreeIfNonNull(local_14);
   }
   return;
 }

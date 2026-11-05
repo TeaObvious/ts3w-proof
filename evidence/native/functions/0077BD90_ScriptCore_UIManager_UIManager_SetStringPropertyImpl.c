@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x01162fa8 (TS3W.exe SHA256
@@ -31,7 +31,8 @@ ScriptCore.UIManager::UIManager_SetStringPropertyImpl(uint param_1,undefined4 pa
   undefined4 uVar4;
   void *this;
   undefined4 unaff_retaddr;
-  undefined4 auStack_50 [2];
+  undefined1 auStack_50 [2];
+  undefined1 auStack_4e [6];
   int iStack_48;
   undefined4 uStack_44;
   undefined1 auStack_40 [8];
@@ -60,10 +61,10 @@ ScriptCore.UIManager::UIManager_SetStringPropertyImpl(uint param_1,undefined4 pa
       ppuStack_30 = &PTR_LAB_0100eea8;
       FUN_004e8cb0(auStack_2c,0,0xffffffff,(undefined1 *)0x0,(undefined *)0x0,0);
       (**(code **)(*piVar2 + 0x10))(auStack_40);
-      this = (void *)FUN_00511ca0(&uStack_44,auStack_50,param_1,&ppuStack_34);
+      this = NativePropertyContext_FindDescriptor(&uStack_44,auStack_50,param_1,&ppuStack_34);
       if (this != (void *)0x0) {
         uStack_c = (**(code **)(*piVar1 + 0x58))(unaff_retaddr);
-        FUN_00511d40(this,(int)&stack0xffffffac,(undefined4 *)&stack0xffffffa0,auStack_38);
+        NativePropertyDescriptor_Write(this,auStack_50 + -4,auStack_50 + -0x10,auStack_38);
         (**(code **)(iStack_48 + 0x1c))(uStack_44);
       }
       ppuStack_34 = &PTR_LAB_0100eea8;

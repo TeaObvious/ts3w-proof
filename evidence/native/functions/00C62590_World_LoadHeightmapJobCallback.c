@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC 1.67 heightmap lifecycle. cdecl callback returns trueAL; event4 acquires serialized
@@ -46,7 +46,7 @@ LAB_00c62627:
           FUN_007d7920(local_18,*(undefined4 *)(iVar1 + 0x80),
                        (uint)(*(char *)(iVar1 + 0x43) == '\0'));
           FUN_00c28740(this,local_18);
-          FUN_007d7990((int)local_18);
+          StreamReader_ReleaseAuxiliary(local_18);
         }
         pvVar2 = *(void **)(*(int *)(iVar1 + 0x58) + 0x68);
         TerrainOptimizerOwner_BuildVerticesFromHeightMap(pvVar2);

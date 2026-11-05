@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -30,7 +30,7 @@ void __thiscall RenderMode_BindControlsAndDraw(void *this,undefined4 param_1)
   float fVar11;
   undefined1 auVar12 [16];
   undefined1 auVar13 [16];
-  uint uVar14;
+  uint techniqueOrdinal;
   float local_60;
   float fStack_5c;
   float fStack_58;
@@ -82,29 +82,29 @@ void __thiscall RenderMode_BindControlsAndDraw(void *this,undefined4 param_1)
   iVar10 = *piVar7;
   fVar11 = (float)*(int *)(iVar10 + 0x14);
   if (*(int *)(iVar10 + 0x14) < 0) {
-    fVar11 = fVar11 + FLOAT_00f99948;
-  }
-  fVar4 = (float)*(int *)(iVar10 + 0x18);
-  if (*(int *)(iVar10 + 0x18) < 0) {
-    fVar4 = fVar4 + FLOAT_00f99948;
-  }
-  iVar10 = *piVar8;
-  fVar3 = (float)*(int *)(iVar10 + 0x14);
-  if (*(int *)(iVar10 + 0x14) < 0) {
-    fVar3 = fVar3 + FLOAT_00f99948;
+    fVar11 = fVar11 + 4.2949673e+09;
   }
   fVar5 = (float)*(int *)(iVar10 + 0x18);
   if (*(int *)(iVar10 + 0x18) < 0) {
-    fVar5 = fVar5 + FLOAT_00f99948;
+    fVar5 = fVar5 + 4.2949673e+09;
   }
-  fStack_54 = (1.0 / fVar4) * _DAT_00fe4c28;
-  fStack_58 = (1.0 / fVar11) * _DAT_00fe4c28;
-  fStack_5c = (1.0 / fVar4) * _DAT_00f9b5b4;
-  local_60 = (1.0 / fVar11) * _DAT_00f9b5b4;
-  fStack_44 = (1.0 / fVar5) * _DAT_00fe4c28;
-  fStack_48 = (1.0 / fVar3) * _DAT_00fe4c28;
-  fStack_4c = (1.0 / fVar5) * _DAT_00f9b5b4;
-  local_50 = _DAT_00f9b5b4 * (1.0 / fVar3);
+  iVar10 = *piVar8;
+  fVar4 = (float)*(int *)(iVar10 + 0x14);
+  if (*(int *)(iVar10 + 0x14) < 0) {
+    fVar4 = fVar4 + 4.2949673e+09;
+  }
+  fVar3 = (float)*(int *)(iVar10 + 0x18);
+  if (*(int *)(iVar10 + 0x18) < 0) {
+    fVar3 = fVar3 + 4.2949673e+09;
+  }
+  fStack_54 = (1.0 / fVar5) * 2.5;
+  fStack_58 = (1.0 / fVar11) * 2.5;
+  fStack_5c = (1.0 / fVar5) * 0.5;
+  local_60 = (1.0 / fVar11) * 0.5;
+  fStack_44 = (1.0 / fVar3) * 2.5;
+  fStack_48 = (1.0 / fVar4) * 2.5;
+  fStack_4c = (1.0 / fVar3) * 0.5;
+  local_50 = (1.0 / fVar4) * 0.5;
   if (DAT_011d2bf0 < *(uint *)((int)this_00 + 8)) {
     piVar7 = (int *)(DAT_011d2bf0 * 0x10 + *(int *)((int)this_00 + 4));
     *piVar7 = *piVar7 + 1;
@@ -124,22 +124,24 @@ void __thiscall RenderMode_BindControlsAndDraw(void *this,undefined4 param_1)
   switch(param_1) {
   case 0:
     FUN_006edc90();
-    FUN_0079a6a0(*(void **)((int)this + 0x300),*(uint *)((int)this + 0x53c));
+    ShaderDefinition_SelectTechniqueOrdinal
+              (*(Ts3SkinPostDefinition **)((int)this + 0x300),*(uint *)((int)this + 0x53c));
     FUN_0068ed60(this_00,DAT_011d2be8,0x11d18d0);
     break;
   case 1:
     FUN_006edc90();
-    FUN_0079a6a0(*(void **)((int)this + 0x300),*(uint *)((int)this + 0x540));
+    ShaderDefinition_SelectTechniqueOrdinal
+              (*(Ts3SkinPostDefinition **)((int)this + 0x300),*(uint *)((int)this + 0x540));
     iVar10 = *(int *)((int)this + 0x24);
-    fVar11 = FLOAT_00f998f0 - *(float *)((int)this + 0x2ac);
+    fVar11 = -0.0 - *(float *)((int)this + 0x2ac);
     local_30 = *(float *)(iVar10 + 0x80) * 0.0 + *(float *)(iVar10 + 0x70) * 0.0 +
-               fVar11 * *(float *)(iVar10 + 0x90) + FLOAT_00f998f8 * *(float *)(iVar10 + 0xa0);
+               fVar11 * *(float *)(iVar10 + 0x90) + *(float *)(iVar10 + 0xa0) * 1.0;
     fStack_2c = *(float *)(iVar10 + 0x84) * 0.0 + *(float *)(iVar10 + 0x74) * 0.0 +
-                fVar11 * *(float *)(iVar10 + 0x94) + FLOAT_00f998f8 * *(float *)(iVar10 + 0xa4);
+                fVar11 * *(float *)(iVar10 + 0x94) + *(float *)(iVar10 + 0xa4) * 1.0;
     fStack_28 = *(float *)(iVar10 + 0x88) * 0.0 + *(float *)(iVar10 + 0x78) * 0.0 +
-                fVar11 * *(float *)(iVar10 + 0x98) + FLOAT_00f998f8 * *(float *)(iVar10 + 0xa8);
+                fVar11 * *(float *)(iVar10 + 0x98) + *(float *)(iVar10 + 0xa8) * 1.0;
     fStack_24 = *(float *)(iVar10 + 0x8c) * 0.0 + *(float *)(iVar10 + 0x7c) * 0.0 +
-                fVar11 * *(float *)(iVar10 + 0x9c) + FLOAT_00f998f8 * *(float *)(iVar10 + 0xac);
+                fVar11 * *(float *)(iVar10 + 0x9c) + *(float *)(iVar10 + 0xac) * 1.0;
     auVar12._4_4_ = fStack_28;
     auVar12._0_4_ = fStack_28;
     auVar12._8_4_ = fStack_28;
@@ -153,10 +155,11 @@ void __thiscall RenderMode_BindControlsAndDraw(void *this,undefined4 param_1)
       _DAT_011d2bf4 = _DAT_011d2bf4 | 0x20;
     }
     uVar9 = FUN_00595050((LPCRITICAL_SECTION)&DAT_011ced48);
-    if (((char)uVar9 != '\0') ||
-       (bVar6 = FUN_00594ed0((LPCRITICAL_SECTION)&DAT_011ced48), fRam011d2bd4 = FLOAT_00f998f8,
-       bVar6)) {
+    if (((char)uVar9 != '\0') || (bVar6 = FUN_00594ed0((LPCRITICAL_SECTION)&DAT_011ced48), bVar6)) {
       fRam011d2bd4 = 0.0;
+    }
+    else {
+      fRam011d2bd4 = 1.0;
     }
     _DAT_011d2bd0 = local_40._0_4_;
     uRam011d2bd8 = 0;
@@ -174,42 +177,39 @@ void __thiscall RenderMode_BindControlsAndDraw(void *this,undefined4 param_1)
     if (DAT_011d288c == '\0') {
       FUN_005f78c0(this_00,DAT_011d2880,0);
       FUN_005f78c0(this_00,DAT_011d2884,0);
-      uVar14 = *(uint *)((int)this + 0x538);
+      techniqueOrdinal = *(uint *)((int)this + 0x538);
     }
     else {
       iVar10 = FUN_00722ed0(DAT_011d286c);
       FUN_005f78c0(this_00,DAT_011d2880,iVar10);
       iVar10 = FUN_00722ed0(DAT_011d2870);
       FUN_005f78c0(this_00,DAT_011d2884,iVar10);
-      uVar14 = *(uint *)((int)this + 0x538);
+      techniqueOrdinal = *(uint *)((int)this + 0x538);
     }
     goto LAB_006ee2ee;
   case 3:
-    uVar14 = DAT_011d2bb4;
     if ((_DAT_011d2bf4 & 0x80) == 0) {
       _DAT_011d2bf4 = _DAT_011d2bf4 | 0x80;
       DAT_011d2bb4 = FUN_0079a920(*(void **)((int)this + 0x300),"ShadowDebug");
-      uVar14 = DAT_011d2bb4;
     }
+    techniqueOrdinal = DAT_011d2bb4;
 LAB_006ee2ee:
-    FUN_0079a6a0(*(void **)((int)this + 0x300),uVar14);
+    ShaderDefinition_SelectTechniqueOrdinal
+              (*(Ts3SkinPostDefinition **)((int)this + 0x300),techniqueOrdinal);
     break;
   case 4:
     FUN_006edc90();
-    FUN_0079a6a0(*(void **)((int)this + 0x300),*(uint *)((int)this + 0x544));
+    ShaderDefinition_SelectTechniqueOrdinal
+              (*(Ts3SkinPostDefinition **)((int)this + 0x300),*(uint *)((int)this + 0x544));
     iVar10 = *(int *)((int)this + 0x24);
     local_20 = *(float *)(iVar10 + 0x80) * 0.0 + *(float *)(iVar10 + 0x70) * 0.0 +
-               FLOAT_00fab218 * *(float *)(iVar10 + 0x90) +
-               FLOAT_00f998f8 * *(float *)(iVar10 + 0xa0);
+               *(float *)(iVar10 + 0x90) * -1.0 + *(float *)(iVar10 + 0xa0) * 1.0;
     fStack_1c = *(float *)(iVar10 + 0x84) * 0.0 + *(float *)(iVar10 + 0x74) * 0.0 +
-                FLOAT_00fab218 * *(float *)(iVar10 + 0x94) +
-                FLOAT_00f998f8 * *(float *)(iVar10 + 0xa4);
+                *(float *)(iVar10 + 0x94) * -1.0 + *(float *)(iVar10 + 0xa4) * 1.0;
     fStack_18 = *(float *)(iVar10 + 0x88) * 0.0 + *(float *)(iVar10 + 0x78) * 0.0 +
-                FLOAT_00fab218 * *(float *)(iVar10 + 0x98) +
-                FLOAT_00f998f8 * *(float *)(iVar10 + 0xa8);
+                *(float *)(iVar10 + 0x98) * -1.0 + *(float *)(iVar10 + 0xa8) * 1.0;
     fStack_14 = *(float *)(iVar10 + 0x8c) * 0.0 + *(float *)(iVar10 + 0x7c) * 0.0 +
-                FLOAT_00fab218 * *(float *)(iVar10 + 0x9c) +
-                FLOAT_00f998f8 * *(float *)(iVar10 + 0xac);
+                *(float *)(iVar10 + 0x9c) * -1.0 + *(float *)(iVar10 + 0xac) * 1.0;
     auVar13._4_4_ = fStack_18;
     auVar13._0_4_ = fStack_18;
     auVar13._8_4_ = fStack_18;
@@ -236,7 +236,9 @@ LAB_006ee2ee:
     }
   }
   FUN_0060ffe0(this_01,2);
-  ShaderDefinition_DrawSelectedTechnique(*(void **)((int)this + 0x300),(undefined *)0x0,0);
+  ShaderDefinition_DrawSelectedTechnique
+            (*(Ts3SkinPostDefinition **)((int)this + 0x300),(Ts3SkinPostDrawCallback *)0x0,
+             (void *)0x0);
   if (DAT_011d2bf0 < *(uint *)((int)this_00 + 8)) {
     piVar7 = (int *)(DAT_011d2bf0 * 0x10 + *(int *)((int)this_00 + 4));
     *piVar7 = *piVar7 + 1;

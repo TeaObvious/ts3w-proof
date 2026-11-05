@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PASS reader. Requires PASS tag; reads pass key/flags, stage-selection words, two PARM
@@ -105,7 +105,7 @@ undefined1 __thiscall ShaderPass_ReadPASS(void *this,void *param_1,void *param_2
           bVar1 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&local_30,
                                     *(uint *)((int)this_00 + 0x10));
           StreamReader_AccumulateStatus(this_00,bVar1);
-          FUN_0079d410(&local_1c,local_28,local_2c,local_30,local_34);
+          ShaderParameter_DecodePackedBinding(&local_1c,local_28,local_2c,local_30,local_34);
           puVar7 = *(undefined4 **)((int)this + 0x16c);
           if (puVar7 < *(undefined4 **)((int)this + 0x170)) {
             *(undefined4 **)((int)this + 0x16c) = puVar7 + 7;
@@ -158,7 +158,7 @@ undefined1 __thiscall ShaderPass_ReadPASS(void *this,void *param_1,void *param_2
             bVar1 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&local_28,
                                       *(uint *)((int)this_00 + 0x10));
             StreamReader_AccumulateStatus(this_00,bVar1);
-            FUN_0079d410(&local_1c,local_30,local_2c,local_28,(int)param_2);
+            ShaderParameter_DecodePackedBinding(&local_1c,local_30,local_2c,local_28,(int)param_2);
             puVar7 = *(undefined4 **)((int)this + 0x17c);
             if (puVar7 < *(undefined4 **)((int)this + 0x180)) {
               *(undefined4 **)((int)this + 0x17c) = puVar7 + 7;

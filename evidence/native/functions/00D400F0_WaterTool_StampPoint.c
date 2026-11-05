@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 complete491-byte thiscall one LotPaintPoint pointer RET4void. Requires active86,bound
@@ -64,7 +64,8 @@ void __thiscall WaterTool_StampPoint(void *this,LotPaintPoint *point)
         return;
       }
       FUN_00d3ff30(this,'\x01');
-      FUN_00ad6720(local_90,0xd8,*(int *)((int)this + 0x34),&point->x,0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_90,0xd8,*(undefined **)((int)this + 0x34),point,0,0);
       FUN_00ad8570(this_00,local_90);
       FUN_00cd3890(this_00,1,'\x01');
       FUN_00ad70d0((int)local_90);

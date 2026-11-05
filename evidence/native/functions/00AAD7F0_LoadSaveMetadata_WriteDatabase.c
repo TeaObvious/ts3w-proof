@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Function: __alloca_probe replaced with injection: alloca_probe */
@@ -51,7 +51,7 @@ LoadSaveMetadata_WriteDatabase(void *this,int param_1,int param_2,char param_3)
     pvVar5 = (void *)0x0;
   }
   else {
-    pvVar5 = FUN_004a9290(puVar4,(short *)0x0,0);
+    pvVar5 = PackedFile_InitializeProvider(puVar4,(short *)0x0,0);
   }
   pvVar1 = *(void **)((int)this + 0x2c);
   if (pvVar5 != pvVar1) {

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x01162fb0 (TS3W.exe SHA256
@@ -28,24 +28,27 @@
 undefined4 ScriptCore_UIManager__UIManager_GetStringPropertyImpl(uint param_1)
 
 {
-  char cVar1;
+  bool bVar1;
   int *piVar2;
   int *piVar3;
   void *pvVar4;
+  undefined1 auStack_bc [4];
+  undefined1 auStack_a6 [2];
+  undefined4 auStack_a4 [5];
   undefined1 auStack_90 [4];
   undefined **ppuStack_8c;
   undefined **ppuStack_88;
   undefined1 auStack_84 [32];
   void *apvStack_64 [2];
   int iStack_5c;
-  undefined4 uStack_54;
+  undefined1 auStack_54 [4];
   undefined4 *puStack_50;
-  undefined4 auStack_48 [3];
+  undefined1 auStack_48 [12];
   undefined **appuStack_3c [2];
   byte bStack_34;
   undefined1 auStack_1c [4];
   undefined1 auStack_18 [20];
-  int iStack_4;
+  uint uStack_4;
   
   piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
   if ((((param_1 & 0xff000000) == 0x30000000) &&
@@ -54,12 +57,12 @@ undefined4 ScriptCore_UIManager__UIManager_GetStringPropertyImpl(uint param_1)
     ppuStack_88 = &PTR_LAB_0100eea8;
     FUN_004e8cb0(auStack_84,0,0xffffffff,(undefined1 *)0x0,(undefined *)0x0,0);
     (**(code **)(*piVar3 + 0x10))(auStack_18);
-    pvVar4 = (void *)FUN_00511ca0(auStack_1c,auStack_48,iStack_4,&ppuStack_8c);
+    pvVar4 = NativePropertyContext_FindDescriptor(auStack_1c,auStack_48,uStack_4,&ppuStack_8c);
     if ((pvVar4 != (void *)0x0) &&
-       (cVar1 = FUN_00511aa0(pvVar4,&uStack_54,(int)auStack_48,&ppuStack_8c), cVar1 != '\0')) {
-      pvVar4 = FUN_0040b880(apvStack_64,(short *)*puStack_50,(undefined4 *)&stack0xffffff50);
+       (bVar1 = NativePropertyDescriptor_Read(pvVar4,auStack_54,auStack_48,&ppuStack_8c), bVar1)) {
+      pvVar4 = FUN_0040b880(apvStack_64,(short *)*puStack_50,(undefined4 *)(auStack_bc + 0xc));
       pvVar4 = FUN_004f6630(appuStack_3c,pvVar4);
-      FUN_004f64b0(&stack0xffffff54,(int)pvVar4);
+      FUN_004f64b0(auStack_a6 + -6,(int)pvVar4);
       appuStack_3c[0] = &PTR_FUN_00fba6f4;
       if ((bStack_34 & 4) != 0) {
         FUN_004f5760(appuStack_3c,'\0');
@@ -68,8 +71,8 @@ undefined4 ScriptCore_UIManager__UIManager_GetStringPropertyImpl(uint param_1)
          (apvStack_64[0] != (void *)0x0)) {
         Memory_FreeIfNonNull(apvStack_64[0]);
       }
-      (**(code **)(*piVar2 + 0x50))(&stack0xffffff54,&stack0xffffff4c);
-      FUN_004f5760(&stack0xffffff4c,'\0');
+      (**(code **)(*piVar2 + 0x50))(auStack_a6 + -6,auStack_bc + 8);
+      FUN_004f5760(auStack_bc + 8,'\0');
       FUN_004e8da0(auStack_90);
       return 0xeec58382;
     }

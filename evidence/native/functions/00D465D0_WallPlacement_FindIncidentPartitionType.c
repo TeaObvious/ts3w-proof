@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 ECX context plus partition type/local XZ signed level/output six-byte locator, RET0C,
@@ -36,12 +36,12 @@ WallPlacement_FindIncidentPartitionType(void *this,int param_1,float *param_2,un
   else {
     this_01 = *(void **)((int)this_00 + 100);
   }
-  iVar4 = FUN_00c41860(this_01,param_2);
+  iVar4 = WallGraph_FindVertexForCompactLocation(this_01,param_2);
   if (iVar4 != 0) {
     pbVar1 = *(byte **)(iVar4 + 8);
     pbVar6 = pbVar1;
     do {
-      iVar4 = FUN_00c36010(pbVar6);
+      iVar4 = WallHalfEdge_ReadOppositeVertex(pbVar6);
       uVar3 = local_14;
       local_4 = (int)*(char *)(iVar4 + 6);
       local_c = (float)(int)*(char *)(iVar4 + 4);

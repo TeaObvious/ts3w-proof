@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -23,16 +22,16 @@ void __fastcall LotRoomGraph_SubmitQueuedRoomMessages(int param_1)
     if (uVar4 != 0) {
       do {
         puVar1 = (undefined4 *)(*(int *)(param_1 + 0x4c) + uVar5 * 8);
-        piVar3 = FUN_00adf150();
+        piVar3 = FloorMessagePool_AcquireStorage();
         if (piVar3 == (int *)0x0) {
           piVar3 = (int *)0x0;
         }
         else {
-          *piVar3 = (int)&PTR_FUN_01065f8c;
+          *piVar3 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
           LOCK();
           piVar3[1] = 0;
           UNLOCK();
-          *piVar3 = (int)&PTR_FUN_01065f8c;
+          *piVar3 = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
         }
         iVar2 = *(int *)(param_1 + 8);
         piVar3[2] = *(int *)(iVar2 + 0x48);

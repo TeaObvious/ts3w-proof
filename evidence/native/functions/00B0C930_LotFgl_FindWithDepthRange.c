@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 FindGoodLocation boundary contract. cdecl19physical stackwords, AL success.
@@ -29,16 +29,14 @@ LotFgl_FindWithDepthRange
 {
   float fVar1;
   bool bVar2;
-  int *this;
+  int *lot;
   int iVar3;
   byte bVar4;
   float10 fVar5;
-  float10 extraout_ST0;
+  float fVar6;
   int local_e8;
   float local_e4;
-  float local_e0;
-  float fStack_dc;
-  float fStack_d8;
+  LotPaintPoint local_e0;
   float fStack_d4;
   LotXZLevel local_cc;
   void *local_c0;
@@ -97,22 +95,22 @@ LotFgl_FindWithDepthRange
   float fStack_24;
   float local_20 [7];
   
-  this = LotSpatialIndex_FindContainingLotAtWorldXZ(DAT_011edbc4,startX,startZ);
-  if (this == (int *)0x0) {
+  lot = LotSpatialIndex_FindContainingLotAtWorldXZ(DAT_011edbc4,startX,startZ);
+  if (lot == (int *)0x0) {
     return false;
   }
-  fStack_d8 = startZ;
+  local_e0.level = (int)startZ;
   fStack_d4 = startX;
-  local_e0 = startX;
-  fStack_dc = startY;
+  local_e0.x = startX;
+  local_e0.z = startY;
   local_30 = startX;
   fStack_2c = startY;
   fStack_28 = startZ;
   fStack_24 = startX;
-  local_cc.x = FLOAT_00fab218;
-  local_cc.z = FLOAT_00fab218;
+  local_cc.x = -1.0;
+  local_cc.z = -1.0;
   local_cc.level = 0;
-  Lot_WorldPositionToLocalLocation(this,&local_30,&local_cc);
+  Lot_WorldPositionToLocalLocation(lot,&local_30,&local_cc);
   FUN_00afd980(&local_c0);
   local_b4 = local_cc.z;
   local_a8 = initialSearchDirection;
@@ -135,10 +133,10 @@ LotFgl_FindWithDepthRange
   local_90 = (byte)(booleanConstraints >> 4) & 1;
   local_8f = (byte)(booleanConstraints >> 5) & 1;
   local_8e = (byte)(booleanConstraints >> 6) & 1;
-  local_bc = this;
+  local_bc = lot;
   if ((((object == (void *)0x0) ||
-       (iVar3 = FUN_00c8ebb0(DAT_011ee034,(uint *)((int)object + 0x18)), iVar3 == 0)) ||
-      ((*(uint *)(iVar3 + 0xa4) >> 0xe & 1) == 0)) || ((*(byte *)(iVar3 + 0x9b) & 1) == 0)) {
+       (iVar3 = ObjectCatalog_FindByTypedKey(DAT_011ee034,(uint *)((int)object + 0x18)), iVar3 == 0)
+       ) || ((*(uint *)(iVar3 + 0xa4) >> 0xe & 1) == 0)) || ((*(byte *)(iVar3 + 0x9b) & 1) == 0)) {
     local_8b = 0;
   }
   else {
@@ -164,19 +162,19 @@ LotFgl_FindWithDepthRange
   local_64 = radiusOrigin[2];
   local_80 = minDepth;
   local_7c = maxDepth;
-  local_e0 = FLOAT_00fab218;
-  fStack_dc = FLOAT_00fab218;
+  local_e0.x = -1.0;
+  local_e0.z = -1.0;
   local_82 = bVar4 >> 1 & 1;
-  fStack_d8 = 0.0;
+  local_e0.level = 0;
   local_e4 = 0.0;
-  bVar2 = LotFgl_SearchCandidates((int *)&local_c0,&local_e0,&local_e8,&local_e4);
+  bVar2 = LotFgl_SearchCandidates((int *)&local_c0,&local_e0.x,&local_e8,&local_e4);
   if (!bVar2) {
     return false;
   }
   if (outPositionHandle != (void *)0x0) {
-    FUN_00adc750((int)this,&local_e0,local_20);
-    FUN_00ab7040(this,local_20,&local_50);
-    fVar5 = FUN_00b0c5e0(object,this,(undefined1 (*) [12])&local_e0);
+    LotPoint_ResolveLevelPosition((undefined *)lot,&local_e0,local_20);
+    Lot_LocalPositionToWorldVector(lot,local_20,&local_50);
+    fVar5 = FUN_00b0c5e0(object,lot,(undefined1 (*) [12])&local_e0);
     fStack_54 = (float)fVar5;
     local_60 = fStack_4c + fStack_54;
     fStack_5c = fStack_4c + fStack_54;
@@ -196,8 +194,8 @@ LotFgl_FindWithDepthRange
     fVar1 = (float)local_e8 * DAT_011845d4;
                     /* ECXlot, zero stackargs; original return in x87 ST0, not EAX. Directionproduct
                        already rounded to FLOAT32 before addition. */
-    (**(code **)(*this + 0x68))(this);
-    *outYaw = (float)(extraout_ST0 + (float10)fVar1);
+    fVar6 = (**(code **)(*lot + 0x68))(lot);
+    *outYaw = fVar6 + fVar1;
   }
   return true;
 }

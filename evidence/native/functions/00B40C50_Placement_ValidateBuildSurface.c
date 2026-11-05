@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Type propagation algorithm not settling */
+
+
+
 /* PC1.67 fullbody retained; selected floor-cutout caller closure only. cdecl2stackwords placement
    context/optionalfeedback plainRET lowALacceptance. Actual cutout call A90870 passes
    transformedcentre,halfextents,yaw,fullobjectGUID and maps true to feedback11hex. Positive
@@ -14,13 +16,13 @@
 bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
 
 {
+  undefined *lot;
   void *pvVar1;
-  void *this;
   undefined1 auVar2 [16];
   undefined1 auVar3 [16];
   bool bVar4;
-  char cVar5;
-  bool bVar6;
+  bool bVar5;
+  char cVar6;
   short sVar7;
   uint uVar8;
   int *piVar9;
@@ -41,7 +43,7 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
   undefined1 auVar21 [16];
   undefined1 auVar22 [16];
   undefined1 auVar23 [16];
-  int *******local_7e4;
+  int ****local_7e4;
   undefined1 local_7e0 [8];
   float fStack_7d8;
   float fStack_7d4;
@@ -56,8 +58,8 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
   float fStack_7a8;
   float fStack_7a4;
   undefined1 local_794 [4];
-  int *******local_790;
-  int *******local_78c;
+  int ****local_790;
+  int ****local_78c;
   undefined4 *local_788;
   undefined4 local_784;
   undefined4 local_780;
@@ -66,8 +68,8 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
   float local_774;
   int local_770;
   undefined1 local_76c [4];
-  undefined4 *******local_768;
-  undefined4 *******local_764;
+  undefined4 ****local_768;
+  undefined4 ****local_764;
   undefined4 *local_760;
   undefined4 local_75c;
   undefined4 local_758;
@@ -185,8 +187,8 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
   float local_90 [16];
   float local_50 [19];
   
-  pvVar1 = (void *)param_1[1];
-  bVar6 = true;
+  lot = (undefined *)param_1[1];
+  bVar5 = true;
   if (((param_1[7] != 0) && ((*(uint *)(param_1[7] + 0x9c) >> 5 & 1) != 0)) &&
      (uVar8 = FUN_00afc790(param_1[8]), (char)uVar8 == '\0')) {
     if (param_2 == (void *)0x0) {
@@ -195,23 +197,25 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
     iVar11 = param_1[7];
     if (((*(uint *)(iVar11 + 0xa4) >> 0xe & 1) == 0) &&
        (*(int *)(iVar11 + 0xd4) == *(int *)(iVar11 + 0xd8))) {
-      FUN_00ad6720(local_210,0x1b,(int)pvVar1,(float *)(param_1 + 2),0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_210,0x1b,lot,(LotPaintPoint *)(param_1 + 2),0,0);
       FUN_00ad8570(param_2,local_210);
       pfVar13 = local_210;
     }
     else {
-      FUN_00ad6720(local_510,0x65,(int)pvVar1,(float *)(param_1 + 2),0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_510,0x65,lot,(LotPaintPoint *)(param_1 + 2),0,0);
       FUN_00ad8570(param_2,local_510);
       pfVar13 = local_510;
     }
     FUN_00ad70d0((int)pfVar13);
-    bVar6 = false;
+    bVar5 = false;
   }
   if ((param_1[7] != 0) && ((*(uint *)(param_1[7] + 0x98) >> 10 & 1) != 0)) {
     local_750 = (float)param_1[2];
     local_748 = param_1[4];
     local_74c = (float)param_1[3];
-    this = *(void **)(param_1[1] + 0x298);
+    pvVar1 = *(void **)(param_1[1] + 0x298);
     uVar8 = FUN_00afc790(param_1[8]);
     if (((char)uVar8 == '\0') &&
        (uVar8 = FUN_00affce0((void *)*param_1,param_1[7]), (char)uVar8 != '\0')) {
@@ -263,7 +267,7 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
       fStack_7d4 = fStack_5c4;
       local_74c = fStack_5c8 + local_74c;
     }
-    sVar7 = LotRoom_ResolveForLocalLocation(this,&local_750,0,0);
+    sVar7 = LotRoom_ResolveForLocalLocation(pvVar1,&local_750,0,0);
     if (sVar7 == 0) {
       local_7c4[2] = '\0';
       local_7c4[0] = -1;
@@ -271,16 +275,17 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
       _local_7c1 = CONCAT31(uStack_7c0,0xff);
       LotLocation_EncodeCellAndQuadrant(&local_750,local_7c4);
       local_7c4[2] = local_7c4[2] + '\x01';
-      bVar4 = Lot_IsSignedTileInBounds(pvVar1,local_7c4);
+      bVar4 = Lot_IsSignedTileInBounds(lot,local_7c4);
       if ((!bVar4) ||
-         (cVar5 = FUN_00a8e090(*(void **)((int)pvVar1 + 0x290),local_7c4,(byte)_local_7c1,'\x01'),
-         cVar5 == '\0')) {
+         (bVar4 = FloorManager_AllPatternParts
+                            (*(void **)(lot + 0x290),local_7c4,(byte)_local_7c1,true), !bVar4)) {
         if (param_2 == (void *)0x0) {
           return false;
         }
-        FUN_00ad6720(local_290,0x32,(int)pvVar1,(float *)(param_1 + 2),0,0);
+        BuildEditErrorRecord_InitializeAtLotPoint
+                  (local_290,0x32,lot,(LotPaintPoint *)(param_1 + 2),0,0);
         FUN_00ad8570(param_2,local_290);
-        bVar6 = false;
+        bVar5 = false;
         FUN_00ad70d0((int)local_290);
       }
     }
@@ -289,7 +294,7 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
   if ((iVar11 != 0) &&
      (iVar12 = *(int *)(iVar11 + 0xd8) - *(int *)(iVar11 + 0xd4), iVar11 = iVar12 >> 0x1f,
      iVar12 / 0x28 + iVar11 != iVar11)) {
-    local_790 = (int *******)&local_790;
+    local_790 = (int ****)&local_790;
     local_768 = &local_768;
     local_788 = (undefined4 *)0x0;
     local_784 = 0;
@@ -304,7 +309,7 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
     local_764 = local_768;
     uVar8 = Placement_CollectWallFlagEdgeSets
                       ((void *)*param_1,(float *)(param_1 + 2),param_1[8],local_794,local_76c);
-    if (((char)uVar8 != '\0') && (local_7e4 = local_78c, (int ********)local_78c != &local_790)) {
+    if (((char)uVar8 != '\0') && (local_7e4 = local_78c, (int *****)local_78c != &local_790)) {
       do {
         piVar9 = FUN_00b47df0(pvVar1,(char *)(local_7e4 + 4),'\0');
         uVar10 = FUN_00c5b9b0(piVar9,'\0');
@@ -319,7 +324,8 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
               return false;
             }
             FUN_00ad77d0((int)param_2);
-            FUN_00ad6720(local_410,0x71,param_1[1],(float *)(param_1 + 2),0,0);
+            BuildEditErrorRecord_InitializeAtLotPoint
+                      (local_410,0x71,(undefined *)param_1[1],(LotPaintPoint *)(param_1 + 2),0,0);
             FUN_00ad8570(param_2,local_410);
             pfVar13 = local_410;
           }
@@ -330,12 +336,13 @@ bool __cdecl Placement_ValidateBuildSurface(int *param_1,void *param_2)
               return false;
             }
             FUN_00ad77d0((int)param_2);
-            FUN_00ad6720(local_90,0x36,param_1[1],(float *)(param_1 + 2),0,0);
+            BuildEditErrorRecord_InitializeAtLotPoint
+                      (local_90,0x36,(undefined *)param_1[1],(LotPaintPoint *)(param_1 + 2),0,0);
             FUN_00ad8570(param_2,local_90);
             pfVar13 = local_90;
           }
 LAB_00b41207:
-          bVar6 = false;
+          bVar5 = false;
           FUN_00ad70d0((int)pfVar13);
         }
         else if ((*(uint *)(param_1[7] + 0xd0) >> 2 & 1) == 0) {
@@ -345,14 +352,15 @@ LAB_00b41207:
             return false;
           }
           FUN_00ad77d0((int)param_2);
-          FUN_00ad6720(local_490,0x35,param_1[1],(float *)(param_1 + 2),0,0);
+          BuildEditErrorRecord_InitializeAtLotPoint
+                    (local_490,0x35,(undefined *)param_1[1],(LotPaintPoint *)(param_1 + 2),0,0);
           FUN_00ad8570(param_2,local_490);
           pfVar13 = local_490;
           goto LAB_00b41207;
         }
 LAB_00b4120e:
-        local_7e4 = (int *******)FUN_004e1030((int *)local_7e4);
-      } while ((int ********)local_7e4 != &local_790);
+        local_7e4 = (int ****)FUN_004e1030((int *)local_7e4);
+      } while ((int *****)local_7e4 != &local_790);
     }
     FUN_008b19b0(local_760);
     FUN_008b19b0(local_788);
@@ -367,14 +375,14 @@ LAB_00b4120e:
       if (param_2 == (void *)0x0) {
         return false;
       }
-      bVar6 = FUN_00ad6f10((int)param_2);
-      if (bVar6) {
+      bVar5 = FUN_00ad6f10((int)param_2);
+      if (bVar5) {
         return false;
       }
       FUN_00ad77d0((int)param_2);
       FUN_00ad6fb0(local_590,0x2f,(void *)*param_1);
       FUN_00ad8570(param_2,local_590);
-      bVar6 = false;
+      bVar5 = false;
       FUN_00ad70d0((int)local_590);
     }
   }
@@ -385,7 +393,7 @@ LAB_00b4120e:
     }
     FUN_00ad6fb0(local_390,0x66,(void *)*param_1);
     FUN_00ad8570(param_2,local_390);
-    bVar6 = false;
+    bVar5 = false;
     FUN_00ad70d0((int)local_390);
   }
   if (((*(uint *)(param_1[7] + 0xd0) & 0x4020) != 0) &&
@@ -402,7 +410,7 @@ LAB_00b4120e:
     local_7e0._4_4_ = fStack_68c;
     FUN_00b05f70((void *)*param_1,param_1[7],(void *)param_1[1],(float)param_1[5],&local_690,
                  local_50);
-    FUN_0068dbb0(local_5b0,local_50);
+    Bounds_TransformHomogeneousCorners(local_5b0,local_50);
     local_740._4_4_ = (float)uStack_63c;
     local_740._0_4_ = local_640;
     fStack_738 = fStack_638;
@@ -438,7 +446,7 @@ LAB_00b4120e:
       }
       FUN_00ad6fb0(local_110,2,(void *)*param_1);
       FUN_00ad8570(param_2,local_110);
-      bVar6 = false;
+      bVar5 = false;
       FUN_00ad70d0((int)local_110);
     }
   }
@@ -449,12 +457,12 @@ LAB_00b4120e:
     }
     FUN_00ad6fb0(local_310,3,(void *)*param_1);
     FUN_00ad8570(param_2,local_310);
-    bVar6 = false;
+    bVar5 = false;
     FUN_00ad70d0((int)local_310);
   }
   if ((*(uint *)(param_1[7] + 0x98) >> 0x19 & 1) != 0) {
     local_720 = ZEXT816(0);
-    local_7e4 = (int *******)0x0;
+    local_7e4 = (int ****)0x0;
     local_744 = 0.0;
     local_728[0] = 0.0;
     local_7bc = 0.0;
@@ -497,8 +505,8 @@ LAB_00b4120e:
         fStack_5f8 = fStack_5f4 * 1.0;
         fStack_5f4 = fStack_5f4 * 1.0;
         fVar18 = (float)fVar14;
-        _local_7e0 = ZEXT812(0);
         fStack_7d4 = local_7bc;
+        _local_7e0 = ZEXT812(0);
         local_7e0._0_4_ = local_7bc;
         fStack_7d8 = local_7b4;
         fVar24 = (local_7b4 * fStack_5fc - fStack_5d8 * 0.0) + fVar18 * local_7bc;
@@ -527,7 +535,7 @@ LAB_00b4120e:
         }
         FUN_00ad6fb0(local_190,0x11,(void *)*param_1);
         FUN_00ad8570(param_2,local_190);
-        bVar6 = false;
+        bVar5 = false;
         FUN_00ad70d0((int)local_190);
       }
     }
@@ -538,7 +546,7 @@ LAB_00b4120e:
         }
         FUN_00ad6fb0(local_550,3,(void *)*param_1);
         FUN_00ad8570(param_2,local_550);
-        bVar6 = false;
+        bVar5 = false;
         FUN_00ad70d0((int)local_550);
       }
       local_6dc.x = (float)param_1[2];
@@ -572,7 +580,7 @@ LAB_00b4120e:
         }
         FUN_00ad6fb0(local_4d0,0xed,(void *)*param_1);
         FUN_00ad8570(param_2,local_4d0);
-        bVar6 = false;
+        bVar5 = false;
         FUN_00ad70d0((int)local_4d0);
       }
     }
@@ -591,7 +599,7 @@ LAB_00b4120e:
       }
       FUN_00ad6fb0(local_450,0x11,(void *)*param_1);
       FUN_00ad8570(param_2,local_450);
-      bVar6 = false;
+      bVar5 = false;
       FUN_00ad70d0((int)local_450);
     }
   }
@@ -608,27 +616,27 @@ LAB_00b4120e:
         }
         FUN_00ad6fb0(local_3d0,0x41,(void *)*param_1);
         FUN_00ad8570(param_2,local_3d0);
-        bVar6 = false;
+        bVar5 = false;
         FUN_00ad70d0((int)local_3d0);
       }
     }
     if (((param_1[4] == 0) && (*(int *)(param_1[1] + 0x2e8) != 0)) &&
-       (cVar5 = FUN_00a8cfa0(*(void **)(param_1[1] + 0x290),(float *)(param_1 + 2)), cVar5 != '\0'))
+       (cVar6 = FUN_00a8cfa0(*(void **)(param_1[1] + 0x290),(float *)(param_1 + 2)), cVar6 != '\0'))
     {
       if (param_2 == (void *)0x0) {
         return false;
       }
       FUN_00ad6fb0(local_350,0xed,(void *)*param_1);
       FUN_00ad8570(param_2,local_350);
-      bVar6 = false;
+      bVar5 = false;
       FUN_00ad70d0((int)local_350);
     }
     if (((*(uint *)(param_1[7] + 0xd0) & 0x20000) != 0) &&
-       (cVar5 = FUN_00a646e0((void *)param_1[1],param_1 + 0x34,param_2), cVar5 != '\0')) {
+       (cVar6 = FUN_00a646e0((void *)param_1[1],param_1 + 0x34,param_2), cVar6 != '\0')) {
       if (param_2 == (void *)0x0) {
         return false;
       }
-      bVar6 = false;
+      bVar5 = false;
     }
     if ((*(uint *)(param_1[7] + 0xd0) & 0x20000) != 0) {
       local_700 = (float)param_1[2];
@@ -641,7 +649,7 @@ LAB_00b4120e:
         }
         FUN_00ad6fb0(local_2d0,0x58,(void *)*param_1);
         FUN_00ad8570(param_2,local_2d0);
-        bVar6 = false;
+        bVar5 = false;
         FUN_00ad70d0((int)local_2d0);
       }
     }
@@ -654,18 +662,18 @@ LAB_00b4120e:
     }
     FUN_00ad6fb0(local_250,6,(void *)*param_1);
     FUN_00ad8570(param_2,local_250);
-    bVar6 = false;
+    bVar5 = false;
     FUN_00ad70d0((int)local_250);
   }
   if ((*(char *)((int)param_1 + 0x2a) == '\0') &&
-     (cVar5 = FUN_00a64100((float *)(param_1 + 2),(float)param_1[5],(void *)param_1[1],
-                           (void *)*param_1,param_2), cVar5 != '\0')) {
+     (cVar6 = FUN_00a64100((float *)(param_1 + 2),(float)param_1[5],(void *)param_1[1],
+                           (void *)*param_1,param_2), cVar6 != '\0')) {
     if (param_2 == (void *)0x0) {
       return false;
     }
-    bVar6 = false;
+    bVar5 = false;
   }
-  uVar10 = FUN_00b04ea0((void *)param_1[1],(float *)(param_1 + 2));
+  uVar10 = Lot_TestPlatformAtLocalXZLevel((void *)param_1[1],(float *)(param_1 + 2));
   if ((char)uVar10 != '\0') {
     if (((*(uint *)(param_1[7] + 0xd0) >> 2 & 1) == 0) &&
        ((*(uint *)(param_1[7] + 0xa4) >> 0xe & 1) != 0)) {
@@ -677,7 +685,7 @@ LAB_00b4120e:
         }
         FUN_00ad6fb0(local_1d0,0xf9,(void *)*param_1);
         FUN_00ad8570(param_2,local_1d0);
-        bVar6 = false;
+        bVar5 = false;
         FUN_00ad70d0((int)local_1d0);
       }
     }
@@ -691,7 +699,7 @@ LAB_00b4120e:
       }
       FUN_00ad6fb0(local_150,0xf2,(void *)*param_1);
       FUN_00ad8570(param_2,local_150);
-      bVar6 = false;
+      bVar5 = false;
       FUN_00ad70d0((int)local_150);
     }
   }
@@ -706,10 +714,10 @@ LAB_00b4120e:
       }
       FUN_00ad6fb0(local_d0,0xfc,(void *)*param_1);
       FUN_00ad8570(param_2,local_d0);
-      bVar6 = false;
+      bVar5 = false;
       FUN_00ad70d0((int)local_d0);
     }
   }
-  return bVar6;
+  return bVar5;
 }
 

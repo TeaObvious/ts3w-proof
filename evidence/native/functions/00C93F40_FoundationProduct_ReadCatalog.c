@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static; analyst-assigned name. Physical thiscall ECX product plus
@@ -24,9 +24,9 @@ bool __thiscall FoundationProduct_ReadCatalog(void *this,void *reader)
   bool bVar2;
   char cVar3;
   byte bVar4;
-  undefined4 *puVar5;
-  int *this_00;
-  uint uVar6;
+  void *this_00;
+  int *this_01;
+  uint uVar5;
   undefined1 local_49;
   uint local_48;
   uint local_44;
@@ -69,30 +69,30 @@ bool __thiscall FoundationProduct_ReadCatalog(void *this,void *reader)
       bVar2 = Stream_ReadUInt32(local_10,&local_40,local_8);
       StreamReader_AccumulateStatus(local_18,bVar2);
       FUN_00af9f10((void *)((int)this + 0xec),local_40);
-      uVar6 = 0;
+      uVar5 = 0;
       if (local_40 != 0) {
         do {
-          puVar1 = (undefined4 *)(*(int *)((int)this + 0xec) + uVar6 * 8);
+          puVar1 = (undefined4 *)(*(int *)((int)this + 0xec) + uVar5 * 8);
           local_49 = 0;
           bVar2 = Stream_ReadBoolean(local_10,&local_49);
           StreamReader_AccumulateStatus(local_18,bVar2);
-          puVar5 = (undefined4 *)FUN_004e4500(0x60,"World/Catalog/StiltedFoundationPreset",0);
-          if ((puVar5 == (undefined4 *)0x0) ||
-             (this_00 = (int *)FUN_005bfac0(puVar5), this_00 == (int *)0x0)) {
+          this_00 = (void *)FUN_004e4500(0x60,"World/Catalog/StiltedFoundationPreset",0);
+          if ((this_00 == (void *)0x0) ||
+             (this_01 = (int *)DesignPreset_InitializeEmpty(this_00), this_01 == (int *)0x0)) {
             if (local_28 != (undefined *)0x0) {
               Memory_FreeIfNonNull(local_28);
             }
             goto LAB_00c94434;
           }
-          (**(code **)*this_00)();
+          (**(code **)*this_01)();
           bVar2 = Stream_ReadUInt32(local_10,(uint *)&local_3c,local_8);
           StreamReader_AccumulateStatus(local_18,bVar2);
-          FUN_00412e20(&local_28,(uint)local_3c);
+          ByteVector_ResizeZeroed(&local_28,(uint)local_3c);
           bVar2 = Stream_ReadExactBytes(local_10,local_28,(uint)local_3c);
           StreamReader_AccumulateStatus(local_18,bVar2);
-          bVar4 = Preset_ReadBinaryOrTextBuffer(this_00,local_28,(uint)local_3c,1);
+          bVar4 = Preset_ReadBinaryOrTextBuffer(this_01,local_28,(uint)local_3c,1);
           if (bVar4 == 0) {
-            (**(code **)(*this_00 + 4))();
+            (**(code **)(*this_01 + 4))();
             if (local_28 != (undefined *)0x0) {
               Memory_FreeIfNonNull(local_28);
             }
@@ -100,9 +100,9 @@ bool __thiscall FoundationProduct_ReadCatalog(void *this,void *reader)
           }
           bVar2 = Stream_ReadUInt32(local_10,puVar1 + 1,local_8);
           StreamReader_AccumulateStatus(local_18,bVar2);
-          *puVar1 = this_00;
-          uVar6 = uVar6 + 1;
-        } while (uVar6 < local_40);
+          *puVar1 = this_01;
+          uVar5 = uVar5 + 1;
+        } while (uVar5 < local_40);
       }
       if (local_28 != (undefined *)0x0) {
         Memory_FreeIfNonNull(local_28);
@@ -115,61 +115,60 @@ bool __thiscall FoundationProduct_ReadCatalog(void *this,void *reader)
     StreamReader_AccumulateStatus(local_18,bVar2);
     *(uint *)((int)this + 0x88) = local_44;
   }
-  if (1 < local_48) {
-    uVar6 = ReferenceTable_ReadKeyByOrdinal
-                      (local_18,(int *)local_38,(undefined4 *)((int)this + 0x90));
-    if (((char)uVar6 != '\0') &&
-       (uVar6 = ReferenceTable_ReadKeyByOrdinal
-                          (local_18,(int *)local_38,(undefined4 *)((int)this + 0xa0)),
-       (char)uVar6 != '\0')) {
-      if (2 < local_48) {
-        local_28 = (undefined *)0x0;
-        local_24 = 0;
-        local_20 = 0;
-        local_1c = (char *)0x0;
-        uVar6 = ReferenceTable_ReadKeyByOrdinal(local_18,(int *)local_38,&local_28);
-        if (((char)uVar6 == '\0') ||
-           ((local_20 != 0 &&
-            (bVar2 = VisualProxy_ResolveTypedResource
-                               (&local_28,0x1661233,(void *)((int)this + 0xb0)), !bVar2))))
-        goto LAB_00c94434;
-      }
-      uVar6 = ReferenceTable_ReadKeyByOrdinal
-                        (local_18,(int *)local_38,(undefined4 *)((int)this + 0xc0));
-      if (((char)uVar6 != '\0') &&
-         (uVar6 = ReferenceTable_ReadKeyByOrdinal
-                            (local_18,(int *)local_38,(undefined4 *)((int)this + 0xd0)),
-         (char)uVar6 != '\0')) goto LAB_00c942a1;
-    }
-LAB_00c94434:
+  if (local_48 < 2) {
+    bVar2 = Stream_ReadResourceKeyTGI(local_10,(void *)((int)this + 0x90),local_8);
+    StreamReader_AccumulateStatus(local_18,bVar2);
+    bVar2 = Stream_ReadResourceKeyTGI(local_10,(void *)((int)this + 0xa0),local_8);
+    StreamReader_AccumulateStatus(local_18,bVar2);
+    bVar2 = Stream_ReadResourceKeyTGI(local_10,(void *)((int)this + 0xc0),local_8);
+    StreamReader_AccumulateStatus(local_18,bVar2);
+    bVar2 = Stream_ReadResourceKeyTGI(local_10,(void *)((int)this + 0xd0),local_8);
+    StreamReader_AccumulateStatus(local_18,bVar2);
+LAB_00c942a1:
+    bVar2 = Stream_ReadUInt32(local_10,(uint *)((int)this + 0xe0),local_8);
+    StreamReader_AccumulateStatus(local_18,bVar2);
+    bVar2 = Stream_ReadUInt32(local_10,(uint *)((int)this + 0xe4),local_8);
+    StreamReader_AccumulateStatus(local_18,bVar2);
+    bVar2 = Stream_ReadUInt32(local_10,&local_44,local_8);
+    StreamReader_AccumulateStatus(local_18,bVar2);
+    *(uint *)((int)this + 0xe8) = local_44;
+    FUN_00731be0(this,*(int *)((int)this + 0x20) +
+                      (*(int *)((int)this + 0xf0) - *(int *)((int)this + 0xec) >> 3) * 8);
     if (local_38[0] != (void *)0x0) {
       Memory_FreeIfNonNull(local_38[0]);
     }
     StreamReader_ReleaseAuxiliary(local_18);
-    return false;
+    return (bool)uStack_4;
   }
-  bVar2 = Stream_ReadResourceKeyTGI(local_10,(void *)((int)this + 0x90),local_8);
-  StreamReader_AccumulateStatus(local_18,bVar2);
-  bVar2 = Stream_ReadResourceKeyTGI(local_10,(void *)((int)this + 0xa0),local_8);
-  StreamReader_AccumulateStatus(local_18,bVar2);
-  bVar2 = Stream_ReadResourceKeyTGI(local_10,(void *)((int)this + 0xc0),local_8);
-  StreamReader_AccumulateStatus(local_18,bVar2);
-  bVar2 = Stream_ReadResourceKeyTGI(local_10,(void *)((int)this + 0xd0),local_8);
-  StreamReader_AccumulateStatus(local_18,bVar2);
-LAB_00c942a1:
-  bVar2 = Stream_ReadUInt32(local_10,(uint *)((int)this + 0xe0),local_8);
-  StreamReader_AccumulateStatus(local_18,bVar2);
-  bVar2 = Stream_ReadUInt32(local_10,(uint *)((int)this + 0xe4),local_8);
-  StreamReader_AccumulateStatus(local_18,bVar2);
-  bVar2 = Stream_ReadUInt32(local_10,&local_44,local_8);
-  StreamReader_AccumulateStatus(local_18,bVar2);
-  *(uint *)((int)this + 0xe8) = local_44;
-  FUN_00731be0(this,*(int *)((int)this + 0x20) +
-                    (*(int *)((int)this + 0xf0) - *(int *)((int)this + 0xec) >> 3) * 8);
+  uVar5 = ReferenceTable_ReadKeyByOrdinal(local_18,(int *)local_38,(undefined4 *)((int)this + 0x90))
+  ;
+  if (((char)uVar5 != '\0') &&
+     (uVar5 = ReferenceTable_ReadKeyByOrdinal
+                        (local_18,(int *)local_38,(undefined4 *)((int)this + 0xa0)),
+     (char)uVar5 != '\0')) {
+    if (2 < local_48) {
+      local_28 = (undefined *)0x0;
+      local_24 = 0;
+      local_20 = 0;
+      local_1c = (char *)0x0;
+      uVar5 = ReferenceTable_ReadKeyByOrdinal(local_18,(int *)local_38,&local_28);
+      if (((char)uVar5 == '\0') ||
+         ((local_20 != 0 &&
+          (bVar2 = VisualProxy_ResolveTypedResource(&local_28,0x1661233,(void *)((int)this + 0xb0)),
+          !bVar2)))) goto LAB_00c94434;
+    }
+    uVar5 = ReferenceTable_ReadKeyByOrdinal
+                      (local_18,(int *)local_38,(undefined4 *)((int)this + 0xc0));
+    if (((char)uVar5 != '\0') &&
+       (uVar5 = ReferenceTable_ReadKeyByOrdinal
+                          (local_18,(int *)local_38,(undefined4 *)((int)this + 0xd0)),
+       (char)uVar5 != '\0')) goto LAB_00c942a1;
+  }
+LAB_00c94434:
   if (local_38[0] != (void *)0x0) {
     Memory_FreeIfNonNull(local_38[0]);
   }
   StreamReader_ReleaseAuxiliary(local_18);
-  return (bool)uStack_4;
+  return false;
 }
 

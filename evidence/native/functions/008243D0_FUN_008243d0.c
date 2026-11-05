@@ -1,7 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; analyst display name SocialPlacement_HasCollectedWallBetweenPositions.
    Original Ghidra database symbol: FUN_008243d0; database unchanged.
    Names in this reviewed rendering are analyst aliases, not recovered EA symbols.
@@ -9,11 +9,20 @@
    Owned ranges (exclusive ends): [008243d0,00824697); 0 envelope gap bytes are not owned instructions.
 */
 
+/* Retained historical annotation 2, previous C line 12; earlier snapshot context. */
 /* 82452C..67 initializes an empty footprint pointer set, including count+14=0. At 82457C..A9 the local queryRecord+40 and +44 are zeroed and +54 selects the first lot. Thus 632640 passes NULL filtering context. The same set is reused for a different second lot only when the first AL is zero (8245B5..F0); a nonempty first set containing only non-walls suppresses fallback. Only after gathering does virtual+0C kind0C/17 yield true. Pervasive pointer-star types, local_b0 float typing and type-propagation warning are decompiler artifacts; physical offsets and the paired Listing govern. Caller cleanup releases set references on ordinary return, not an established exception guarantee. */
+
+/* Retained historical annotation 3, previous C line 123; earlier snapshot context. */
+/* 008245B5..F0: only first gather AL0 permits different-lot fallback. */
+
+/* Retained historical annotation 4, previous C line 136; earlier snapshot context. */
+/* 00824600..21: final kind test is later than pointer-set gathering. */
+
+
 
 /* WARNING: Type propagation algorithm not settling */
 
-undefined1 __cdecl SocialPlacement_HasCollectedWallBetweenPositions(float *param_1,float *param_2)
+undefined1 __cdecl FUN_008243d0(float *param_1,float *param_2)
 
 {
   int ******ppppppiVar1;
@@ -118,9 +127,8 @@ undefined1 __cdecl SocialPlacement_HasCollectedWallBetweenPositions(float *param
   local_2c = 0;
   local_30 = 0;
   local_1c = pvVar4;
-  uVar6 = LotRouting_GatherSegmentFootprints(local_d4,(uint)local_70,&local_90,&local_d0,0.01,(int)&local_b0,'\x01');
+  uVar6 = FUN_00632640(local_d4,(uint)local_70,&local_90,&local_d0,0.01,(int)&local_b0,'\x01');
   cVar2 = (char)uVar6;
-  /* 008245B5..F0: only first gather AL0 permits different-lot fallback. */
   if (pvVar4 == pvVar5) {
 LAB_008245ee:
     if (cVar2 == '\0') goto LAB_0082463d;
@@ -128,12 +136,11 @@ LAB_008245ee:
   else {
     local_1c = pvVar5;
     if (cVar2 == '\0') {
-      uVar6 = LotRouting_GatherSegmentFootprints(local_d4,(uint)local_70,&local_90,&local_d0,0.01,(int)&local_b0,'\x01');
+      uVar6 = FUN_00632640(local_d4,(uint)local_70,&local_90,&local_d0,0.01,(int)&local_b0,'\x01');
       cVar2 = (char)uVar6;
       goto LAB_008245ee;
     }
   }
-  /* 00824600..21: final kind test is later than pointer-set gathering. */
   if ((int ********)pppppppiStack_a8 != &pppppppiStack_ac) {
     pppppppiVar7 = pppppppiStack_a8;
     do {
@@ -153,6 +160,7 @@ LAB_0082463d:
   if (1 < local_4c) {
     Memory_FreeIfNonNull(local_50);
   }
-  FootprintSet_ReleaseSubtree(puStack_a4);
+  FUN_00628c50(puStack_a4);
   return local_d5;
 }
+

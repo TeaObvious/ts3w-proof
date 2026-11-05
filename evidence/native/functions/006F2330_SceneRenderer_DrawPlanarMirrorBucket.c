@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Function: __alloca_probe replaced with injection: alloca_probe */
@@ -76,7 +76,7 @@ SceneRenderer_DrawPlanarMirrorBucket
   undefined4 uStack_1864;
   float fStack_1860;
   int local_185c;
-  float fStack_1858;
+  undefined4 uStack_1858;
   float fStack_1854;
   undefined4 uStack_1850;
   float fStack_184c;
@@ -88,7 +88,7 @@ SceneRenderer_DrawPlanarMirrorBucket
   undefined4 uStack_1834;
   float fStack_1830;
   undefined4 uStack_182c;
-  float fStack_1828;
+  undefined4 uStack_1828;
   undefined4 uStack_1824;
   undefined4 uStack_1820;
   undefined4 uStack_181c;
@@ -97,14 +97,14 @@ SceneRenderer_DrawPlanarMirrorBucket
   float fStack_1810;
   undefined4 uStack_180c;
   undefined4 uStack_1808;
-  float fStack_1804;
+  undefined4 uStack_1804;
   undefined4 uStack_1800;
   undefined4 uStack_17fc;
   float fStack_17f8;
   undefined4 uStack_17f4;
   undefined4 uStack_17f0;
   undefined4 uStack_17ec;
-  float fStack_17e8;
+  undefined4 uStack_17e8;
   undefined4 uStack_17e4;
   undefined4 uStack_17e0;
   float fStack_17dc;
@@ -115,7 +115,7 @@ SceneRenderer_DrawPlanarMirrorBucket
   float fStack_17c8;
   float fStack_17c4;
   undefined4 uStack_17c0;
-  float fStack_17bc;
+  undefined4 uStack_17bc;
   undefined4 *puStack_17b8;
   undefined4 *puStack_17b4;
   float fStack_17b0;
@@ -164,7 +164,7 @@ SceneRenderer_DrawPlanarMirrorBucket
   float fStack_16f8;
   float fStack_16f4;
   undefined4 uStack_16f0;
-  float fStack_16ec;
+  undefined4 uStack_16ec;
   undefined4 uStack_16e8;
   undefined4 uStack_16e4;
   undefined4 uStack_16e0;
@@ -246,10 +246,13 @@ SceneRenderer_DrawPlanarMirrorBucket
   float fStack_1550;
   float fStack_154c;
   undefined4 uStack_1548;
-  float fStack_1544;
+  undefined4 uStack_1544;
   undefined4 uStack_1540;
   undefined4 uStack_153c;
-  float afStack_1538 [4];
+  undefined4 uStack_1538;
+  undefined4 uStack_1534;
+  undefined4 uStack_1530;
+  float fStack_152c;
   float fStack_1528;
   undefined4 uStack_1524;
   undefined4 uStack_1520;
@@ -258,7 +261,7 @@ SceneRenderer_DrawPlanarMirrorBucket
   float fStack_1514;
   undefined4 uStack_1510;
   float fStack_150c;
-  float fStack_1508;
+  undefined4 uStack_1508;
   float fStack_14f8;
   float fStack_14f4;
   float fStack_14f0;
@@ -285,7 +288,10 @@ SceneRenderer_DrawPlanarMirrorBucket
   undefined4 uStack_1494;
   undefined4 uStack_1490;
   undefined4 uStack_148c;
-  float afStack_1488 [4];
+  undefined4 uStack_1488;
+  undefined4 uStack_1484;
+  undefined4 uStack_1480;
+  undefined4 uStack_147c;
   float fStack_1478;
   float fStack_1474;
   float fStack_1470;
@@ -443,12 +449,12 @@ SceneRenderer_DrawPlanarMirrorBucket
   pvVar8 = local_187c;
   if (param_4 == '\0') {
     uStack_1884 = 0;
-    fStack_1888 = FLOAT_00f998f8;
-    fStack_188c = FLOAT_00f998f8;
+    fStack_1888 = 1.0;
+    fStack_188c = 1.0;
     local_1890 = 0.0;
     _DAT_011d2c30 = 0.0;
-    fRam011d2c34 = FLOAT_00f998f8;
-    fRam011d2c38 = FLOAT_00f998f8;
+    fRam011d2c34 = 1.0;
+    fRam011d2c38 = 1.0;
     uRam011d2c3c = 0;
     if (*(uint *)((int)this + 0x1e4) < (uint)puVar12[2]) {
       piVar2 = (int *)(*(uint *)((int)this + 0x1e4) * 0x10 + puVar12[1]);
@@ -483,12 +489,12 @@ SceneRenderer_DrawPlanarMirrorBucket
     FUN_00610600(this_00,local_1790);
     local_1898 = (undefined4 *)*param_1;
     uStack_1884 = 0;
-    fStack_1888 = FLOAT_00f998f8;
-    fStack_188c = FLOAT_00f998f8;
+    fStack_1888 = 1.0;
+    fStack_188c = 1.0;
     local_1890 = 0.0;
     _DAT_011d2c30 = 0.0;
-    fRam011d2c34 = FLOAT_00f998f8;
-    fRam011d2c38 = FLOAT_00f998f8;
+    fRam011d2c34 = 1.0;
+    fRam011d2c38 = 1.0;
     uRam011d2c3c = 0;
     local_189c = (undefined4 *)(param_1[1] - (int)local_1898 >> 3);
     if (*(uint *)((int)pvVar8 + 0x1e4) < (uint)local_1894[2]) {
@@ -527,13 +533,11 @@ SceneRenderer_DrawPlanarMirrorBucket
     fStack_1678 = *(float *)(iStack_1870 + 0x68);
     fStack_1674 = *(float *)(iStack_1870 + 0x6c);
     uStack_1884 = 0;
-    fStack_1888 = FLOAT_00f998f8;
-    fStack_188c = FLOAT_00f998f8;
-    local_1890 = FLOAT_00f998f8;
-    fStack_1720 = FLOAT_00f998f8 * fStack_1680;
-    fStack_171c = FLOAT_00f998f8 * fStack_167c;
+    local_1890 = 1.0;
+    fStack_1720 = fStack_1680 * 1.0;
+    fStack_171c = fStack_167c * 1.0;
     auStack_1718._4_4_ = fStack_1674 * 0.0;
-    auStack_1718._0_4_ = FLOAT_00f998f8 * fStack_1678;
+    auStack_1718._0_4_ = fStack_1678 * 1.0;
     fStack_1430 = *(float *)(iStack_1870 + 0xf0);
     fStack_142c = *(float *)(iStack_1870 + 0xf4);
     fStack_1428 = *(float *)(iStack_1870 + 0xf8);
@@ -550,6 +554,8 @@ SceneRenderer_DrawPlanarMirrorBucket
     fStack_13fc = *(float *)(iStack_1870 + 0x124);
     uStack_13f8 = *(undefined4 *)(iStack_1870 + 0x128);
     uStack_13f4 = *(undefined4 *)(iStack_1870 + 300);
+    fStack_188c = local_1890;
+    fStack_1888 = local_1890;
     if (puVar12 != (undefined4 *)0x0) {
       fStack_17d0 = 0.0;
       fStack_17cc = 0.0;
@@ -635,14 +641,14 @@ SceneRenderer_DrawPlanarMirrorBucket
           fStack_14d4 = (fVar16 * DAT_0115c1d0 - (float)auStack_16a0._0_4_) + DAT_0115c1cc;
           fVar16 = fStack_14e0 / DAT_0115c1cc;
           if (0.0 < fVar16) {
-            fStack_1868 = FLOAT_00f998f0 - fVar16;
+            fStack_1868 = -0.0 - fVar16;
+            uStack_1858 = 0x3f800000;
             uStack_1864 = 0;
             fStack_1874 = (float)((uint)fVar16 & (int)fStack_1868 >> 0x1f);
-            fStack_1860 = FLOAT_00f998f8 - fStack_1874;
-            fStack_1858 = FLOAT_00f998f8;
+            fStack_1860 = 1.0 - fStack_1874;
             local_1898 = (undefined4 *)
                          (~((int)fStack_1860 >> 0x1f) & (uint)fStack_1874 |
-                         (uint)FLOAT_00f998f8 & (int)fStack_1860 >> 0x1f);
+                         (int)fStack_1860 >> 0x1f & 0x3f800000U);
             fStack_1854 = fVar16;
             RenderDevice_SetStencilCompareReferenceMask(this_00,2,(int)local_18a4,0x3f);
             RenderDevice_SetStencilWriteMask(this_00,0);
@@ -659,27 +665,28 @@ SceneRenderer_DrawPlanarMirrorBucket
                      *(float *)(iStack_1878 + 0x34) * fStack_1734 +
                      *(float *)(iStack_1878 + 0x38) * fStack_1730 +
                      *(float *)(iStack_1878 + 0x30) * fStack_1738;
-            fStack_16c8 = *(float *)(iStack_1878 + 0x30) - fVar16 * DAT_0103fd88 * fStack_1738;
-            fStack_16c4 = *(float *)(iStack_1878 + 0x34) - fVar16 * DAT_0103fd88 * fStack_1734;
-            fStack_16c0 = *(float *)(iStack_1878 + 0x38) - fVar16 * DAT_0103fd88 * fStack_1730;
+            fStack_1788 = 2.0;
+            fStack_16c8 = *(float *)(iStack_1878 + 0x30) - fVar16 * 2.0 * fStack_1738;
+            fStack_16c4 = *(float *)(iStack_1878 + 0x34) - fVar16 * 2.0 * fStack_1734;
+            fStack_16c0 = *(float *)(iStack_1878 + 0x38) - fVar16 * 2.0 * fStack_1730;
             uStack_16bc = 0;
             uStack_13ac = 0;
             fVar16 = fStack_172c * *(float *)(iStack_1878 + 0x4c) +
                      fStack_1734 * *(float *)(iStack_1878 + 0x44) +
                      fStack_1730 * *(float *)(iStack_1878 + 0x48) +
                      fStack_1738 * *(float *)(iStack_1878 + 0x40);
-            fStack_1648 = *(float *)(iStack_1878 + 0x40) - fVar16 * DAT_0103fd88 * fStack_1738;
-            fStack_1644 = *(float *)(iStack_1878 + 0x44) - fVar16 * DAT_0103fd88 * fStack_1734;
-            fStack_1640 = *(float *)(iStack_1878 + 0x48) - fVar16 * DAT_0103fd88 * fStack_1730;
+            fStack_1648 = *(float *)(iStack_1878 + 0x40) - fVar16 * 2.0 * fStack_1738;
+            fStack_1644 = *(float *)(iStack_1878 + 0x44) - fVar16 * 2.0 * fStack_1734;
+            fStack_1640 = *(float *)(iStack_1878 + 0x48) - fVar16 * 2.0 * fStack_1730;
             uStack_163c = 0;
             uStack_139c = 0;
             fVar16 = fStack_172c * *(float *)(iStack_1878 + 0x5c) +
                      fStack_1734 * *(float *)(iStack_1878 + 0x54) +
                      fStack_1730 * *(float *)(iStack_1878 + 0x58) +
                      fStack_1738 * *(float *)(iStack_1878 + 0x50);
-            fStack_16d8 = *(float *)(iStack_1878 + 0x50) - fVar16 * DAT_0103fd88 * fStack_1738;
-            fStack_16d4 = *(float *)(iStack_1878 + 0x54) - fVar16 * DAT_0103fd88 * fStack_1734;
-            fStack_16d0 = *(float *)(iStack_1878 + 0x58) - fVar16 * DAT_0103fd88 * fStack_1730;
+            fStack_16d8 = *(float *)(iStack_1878 + 0x50) - fVar16 * 2.0 * fStack_1738;
+            fStack_16d4 = *(float *)(iStack_1878 + 0x54) - fVar16 * 2.0 * fStack_1734;
+            fStack_16d0 = *(float *)(iStack_1878 + 0x58) - fVar16 * 2.0 * fStack_1730;
             uStack_16cc = 0;
             fStack_16b8 = fStack_1738;
             fStack_16b4 = fStack_1734;
@@ -691,15 +698,14 @@ SceneRenderer_DrawPlanarMirrorBucket
             fVar28 = *(float *)(iStack_1878 + 0x6c) - fStack_171c;
             fVar16 = fVar28 * fStack_172c + fVar26 * fStack_1734 +
                      fVar27 * fStack_1730 + fVar25 * fStack_1738;
-            fStack_1788 = DAT_0103fd88;
-            fStack_1784 = DAT_0103fd88;
-            fStack_1780 = DAT_0103fd88;
-            fStack_177c = DAT_0103fd88;
             uStack_16ac = 0;
-            fStack_1388 = (fVar25 - fVar16 * DAT_0103fd88 * fStack_1738) + fStack_1728;
-            fStack_1384 = (fVar26 - fVar16 * DAT_0103fd88 * fStack_1734) + fStack_1724;
-            fStack_1380 = (fVar27 - fVar16 * DAT_0103fd88 * fStack_1730) + fStack_1720;
-            fStack_137c = (fVar28 - fVar16 * DAT_0103fd88 * 0.0) + fStack_171c;
+            fStack_1388 = (fVar25 - fVar16 * 2.0 * fStack_1738) + fStack_1728;
+            fStack_1384 = (fVar26 - fVar16 * 2.0 * fStack_1734) + fStack_1724;
+            fStack_1380 = (fVar27 - fVar16 * 2.0 * fStack_1730) + fStack_1720;
+            fStack_137c = (fVar28 - fVar16 * 2.0 * 0.0) + fStack_171c;
+            fStack_1784 = fStack_1788;
+            fStack_1780 = fStack_1788;
+            fStack_177c = fStack_1788;
             fStack_13b8 = fStack_16c8;
             fStack_13b4 = fStack_16c4;
             fStack_13b0 = fStack_16c0;
@@ -836,13 +842,13 @@ SceneRenderer_DrawPlanarMirrorBucket
               fStack_14bc = fStack_17cc - fStack_16f8;
               uStack_17e0 = 0;
               uStack_17e4 = 0;
-              fStack_17e8 = FLOAT_00f998f8;
-              afStack_1538[0] = FLOAT_00f998f8;
-              afStack_1538[1] = 0.0;
-              afStack_1538[2] = 0.0;
-              afStack_1538[3] = fStack_17dc;
+              uStack_17e8 = 0x3f800000;
+              uStack_1534 = 0;
+              uStack_1530 = 0;
+              uStack_1538 = uStack_17e8;
+              fStack_152c = fStack_17dc;
               fStack_14c8 = fStack_17dc;
-              FUN_0060f4d0(pvVar4,2,afStack_1538);
+              FUN_0060f4d0(pvVar4,2,&uStack_1538);
               uStack_14a8 = uStack_16e8;
               uStack_14a4 = uStack_16e4;
               uStack_14a0 = uStack_16e0;
@@ -850,37 +856,37 @@ SceneRenderer_DrawPlanarMirrorBucket
               uStack_181c = uStack_16e8;
               uStack_1820 = 0;
               uStack_1824 = 0;
-              fStack_1828 = FLOAT_00fab218;
-              afStack_1488[0] = FLOAT_00fab218;
-              afStack_1488[1] = 0.0;
-              afStack_1488[2] = 0.0;
-              afStack_1488[3] = (float)uStack_16e8;
-              FUN_0060f4d0(pvVar4,3,afStack_1488);
+              uStack_1828 = 0xbf800000;
+              uStack_1484 = 0;
+              uStack_1480 = 0;
+              uStack_147c = uStack_16e8;
+              uStack_1488 = uStack_1828;
+              FUN_0060f4d0(pvVar4,3,&uStack_1488);
               fStack_184c = fStack_17d8 - fStack_16f4;
               fStack_1564 = fStack_17d4 - fStack_16f4;
               fStack_1560 = fStack_17d0 - fStack_16f4;
               fStack_155c = fStack_17cc - fStack_16f4;
+              fStack_1854 = 1.0;
               uStack_1850 = 0;
-              fStack_1854 = FLOAT_00f998f8;
-              fStack_1858 = 0.0;
+              uStack_1858 = 0;
               uStack_1518 = 0;
-              fStack_1514 = FLOAT_00f998f8;
               uStack_1510 = 0;
               fStack_1568 = fStack_184c;
+              fStack_1514 = fStack_1854;
               fStack_150c = fStack_184c;
               FUN_0060f4d0(pvVar4,4,&uStack_1518);
+              uStack_1804 = 0xbf800000;
               uStack_1498 = uStack_16e8;
               uStack_1494 = uStack_16e4;
               uStack_1490 = uStack_16e0;
               uStack_148c = uStack_16dc;
               uStack_17fc = uStack_16e4;
               uStack_1800 = 0;
-              fStack_1804 = FLOAT_00fab218;
               uStack_1808 = 0;
               uStack_1548 = 0;
-              fStack_1544 = FLOAT_00fab218;
               uStack_1540 = 0;
               uStack_153c = uStack_16e4;
+              uStack_1544 = uStack_1804;
               FUN_0060f4d0(pvVar4,5,&uStack_1548);
               FUN_0060f510(pvVar4,DAT_0115c1c4 | 2);
             }
@@ -895,9 +901,11 @@ SceneRenderer_DrawPlanarMirrorBucket
             FUN_0060fda0(this_00,0xf);
             iVar9 = FUN_006fb130((void *)*piVar2,0);
             bVar14 = true;
-            fStack_1874 = _DAT_00f9b634;
-            if ((iVar9 != 0) && (bVar14 = *(int *)(iVar9 + 0x1d4) != 2, !bVar14)) {
-              fStack_1874 = DAT_010f6bf4;
+            if ((iVar9 == 0) || (bVar14 = *(int *)(iVar9 + 0x1d4) != 2, bVar14)) {
+              fStack_1874 = 15.0;
+            }
+            else {
+              fStack_1874 = 100.0;
             }
             fStack_1874 = fStack_16a8 + fStack_1874;
             if (bVar14) {
@@ -907,7 +915,7 @@ SceneRenderer_DrawPlanarMirrorBucket
               uStack_18b0 = DAT_0115c1bc;
             }
             FUN_006df280(auStack_1298,param_2[2]);
-            fStack_17bc = FLOAT_00f998f8;
+            uStack_17bc = 0x3f800000;
             uStack_17c0 = 0;
             fStack_17c4 = 0.0;
             fStack_17c8 = 0.0;
@@ -915,8 +923,7 @@ SceneRenderer_DrawPlanarMirrorBucket
             fStack_1664 = fStack_1734;
             fStack_1660 = fStack_1730;
             uStack_165c = 0;
-            fVar16 = fStack_172c * FLOAT_00f998f8 + fStack_1734 * 0.0 +
-                     fStack_1730 * 0.0 + fStack_1738 * 0.0;
+            fVar16 = fStack_172c * 1.0 + fStack_1734 * 0.0 + fStack_1730 * 0.0 + fStack_1738 * 0.0;
             fStack_14b8 = (float)piVar2[4];
             iStack_14b4 = piVar2[5];
             iStack_14b0 = piVar2[6];
@@ -924,15 +931,15 @@ SceneRenderer_DrawPlanarMirrorBucket
             fStack_14f8 = (0.0 - fVar16 * fStack_1788 * fStack_1738) + fStack_1688;
             fStack_14f4 = (0.0 - fVar16 * fStack_1784 * fStack_1734) + fStack_1684;
             fStack_14f0 = (0.0 - fVar16 * fStack_1780 * fStack_1730) + fStack_1680;
-            fStack_14ec = (FLOAT_00f998f8 - fVar16 * fStack_177c * 0.0) + fStack_167c;
+            fStack_14ec = (1.0 - fVar16 * fStack_177c * 0.0) + fStack_167c;
             fStack_16f8 = 0.0;
             fStack_16f4 = 0.0;
             uStack_16f0 = 0;
-            fStack_16ec = FLOAT_00f998f8;
             fStack_1528 = fStack_1088;
             uStack_1524 = uStack_1084;
             uStack_1520 = uStack_1080;
             uStack_151c = uStack_107c;
+            uStack_16ec = uStack_17bc;
             FUN_00961e90(auStack_1298,&fStack_14f8,&fStack_1528,&fStack_14b8);
             FUN_00535ac0(auStack_1298,fStack_1874);
             fVar15 = Camera_GetZoomDistance((int)auStack_1298);
@@ -969,15 +976,12 @@ SceneRenderer_DrawPlanarMirrorBucket
                           fStack_1740 * fStack_11c0 + fStack_173c * fStack_11b0;
             fStack_143c = fStack_1744 * fStack_11cc + fStack_1748 * fStack_11dc +
                           fStack_1740 * fStack_11bc + fStack_173c * fStack_11ac;
-            FUN_0068c440((void *)(piVar2[1] * 0x40 + *(int *)(piVar2[2] + 0x160)),afStack_1318);
-            uStack_179c = _DAT_0106e6ec;
-            uStack_17a0 = _DAT_0106e6ec;
-            uStack_17a4 = _DAT_0106e6ec;
-            uStack_17a8 = _DAT_0106e6ec;
-            auStack_1588._4_4_ = _DAT_0106e6ec;
-            auStack_1588._0_4_ = _DAT_0106e6ec;
-            auStack_1588._8_4_ = _DAT_0106e6ec;
-            auStack_1588._12_4_ = _DAT_0106e6ec;
+            Bounds_WriteEightComponentCorners
+                      ((void *)(piVar2[1] * 0x40 + *(int *)(piVar2[2] + 0x160)),afStack_1318);
+            uStack_17a8 = 0x3c23d70a;
+            auStack_1588._8_4_ = 0x3c23d70a;
+            auStack_1588._0_8_ = 0x3c23d70a3c23d70a;
+            auStack_1588._12_4_ = 0x3c23d70a;
             iVar9 = 0;
             pfVar3 = afStack_1318;
             do {
@@ -996,12 +1000,15 @@ SceneRenderer_DrawPlanarMirrorBucket
               auVar19._4_4_ = fStack_17d4 - fStack_1670;
               auVar19._8_4_ = fStack_17d0 - fStack_1670;
               auVar19._12_4_ = fStack_17cc - fStack_1670;
-              fStack_1508 = _DAT_00ffa248;
+              uStack_1508 = 0x3f866666;
               auStack_1718._0_4_ = auVar19._0_4_;
-              if (auVar19._0_4_ < _DAT_00ffa248) {
+              uStack_17a4 = uStack_17a8;
+              uStack_17a0 = uStack_17a8;
+              uStack_179c = uStack_17a8;
+              if (auVar19._0_4_ < 1.05) {
                 FUN_00960ef0(auStack_1298,1.0);
                 fVar25 = (float)piVar2[7];
-                fStack_14cc = FLOAT_00f998f8 / (float)local_1880;
+                fStack_14cc = 1.0 / (float)local_1880;
                 fVar16 = fVar25 * DAT_0115c1b8 * fStack_14cc;
                 fStack_14d4 = fVar25 * DAT_0115c1b8 * fStack_14cc;
                 fStack_14d0 = fVar25 * DAT_0115c1b8 * fStack_14cc;
@@ -1009,7 +1016,7 @@ SceneRenderer_DrawPlanarMirrorBucket
                 fStack_14d8 = fVar16;
                 goto LAB_006f359b;
               }
-              auVar23 = rcpps(ZEXT416((uint)_DAT_00ffa248),auVar19);
+              auVar23 = rcpps(ZEXT416(0x3f866666),auVar19);
               auVar20._0_4_ =
                    (fStack_1788 - auVar23._0_4_ * auVar19._0_4_) * auVar23._0_4_ * fStack_1678;
               auVar20._4_4_ =
@@ -1084,6 +1091,7 @@ LAB_006f359b:
             RenderDevice_SetDepthCompareIndex(this_00,1);
             RenderDevice_SetDepthEnabled(this_00,'\x01');
             RenderDevice_SetDepthWriteByte(this_00,0);
+            fStack_1844 = 1.0;
             uStack_17ec = 0;
             uStack_17f0 = 0;
             uStack_17f4 = 0;
@@ -1093,25 +1101,24 @@ LAB_006f359b:
             uStack_182c = 0;
             uStack_1834 = 0;
             uStack_1838 = 0;
-            fStack_17f8 = FLOAT_00f998f8;
-            fStack_1830 = FLOAT_00f998f8;
-            fStack_1844 = FLOAT_00f998f8;
-            fStack_1638 = FLOAT_00f998f8;
             fStack_1634 = 0.0;
             local_1630 = 0.0;
             fStack_162c = 0.0;
             fStack_1618 = 0.0;
             fStack_1614 = 0.0;
-            fStack_1610 = FLOAT_00f998f8;
             fStack_160c = 0.0;
             fStack_1628 = 0.0;
-            fStack_1624 = FLOAT_00f998f8;
             fStack_1620 = 0.0;
             fStack_161c = 0.0;
             fStack_1608 = fStack_16f8;
             fStack_1604 = fStack_16f4;
             fStack_1600 = (float)uStack_16f0;
-            fStack_15fc = fStack_16ec;
+            fStack_15fc = (float)uStack_16ec;
+            fStack_1830 = fStack_1844;
+            fStack_17f8 = fStack_1844;
+            fStack_1638 = fStack_1844;
+            fStack_1624 = fStack_1844;
+            fStack_1610 = fStack_1844;
             FUN_006ea320(pvVar8,&fStack_1638);
             local_1880 = DAT_011d8530;
             FUN_0079a040(DAT_011d8530,*(uint *)((int)pvVar8 + 0x1dc),0);
@@ -1121,8 +1128,8 @@ LAB_006f359b:
             FUN_006c8a40((void *)((int)pvVar8 + 0x344),(undefined4 *)((int)pvVar8 + 0x328));
             FUN_006e14e0(DAT_011d2530,param_2[3]);
             uStack_180c = 0;
-            fStack_1810 = FLOAT_00f998f8 - uStack_18a0;
-            fStack_1814 = FLOAT_00f998f8 - (float)auStack_16a0._8_4_;
+            fStack_1810 = 1.0 - uStack_18a0;
+            fStack_1814 = 1.0 - (float)auStack_16a0._8_4_;
             fStack_1818 = (float)auStack_16a0._8_4_;
             _DAT_011d2c30 = (float)auStack_16a0._8_4_;
             uRam011d2c3c = 0;
@@ -1171,13 +1178,11 @@ LAB_006f359b:
     FUN_00610330((int)this_00);
     iVar9 = FUN_00969bd0();
     pvVar8 = (void *)FUN_00f21ff0(iVar9);
-    puVar12 = local_1894;
-    this = local_187c;
     if (pvVar8 != (void *)0x0) {
       FUN_0096d0f0(pvVar8,&DAT_011d2c40);
-      puVar12 = local_1894;
-      this = local_187c;
     }
+    puVar12 = local_1894;
+    this = local_187c;
   }
   if (*(uint *)((int)this + 0x1e4) < (uint)puVar12[2]) {
     piVar2 = (int *)(*(uint *)((int)this + 0x1e4) * 0x10 + puVar12[1]);

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: original PC 1.67 portal contract. Marshals six typed arguments into registered managed
@@ -69,7 +69,7 @@ World_InvokePortalLockedCallback
   local_108[0] = &PTR_FUN_0100886c;
   local_fe = 0xc;
   local_100 = 2;
-  FUN_004f6020(local_108,(undefined4 *)&lotId);
+  Variant_AssignUInt64(local_108,&lotId);
   FUN_004f64b0(local_c0,(int)local_108);
   local_108[0] = &PTR_FUN_00fba6f4;
   if ((local_100 & 4) != 0) {
@@ -78,7 +78,7 @@ World_InvokePortalLockedCallback
   local_108[0] = &PTR_FUN_0100886c;
   local_fe = 0xc;
   local_100 = 2;
-  FUN_004f6020(local_108,(undefined4 *)&followerId);
+  Variant_AssignUInt64(local_108,&followerId);
   FUN_004f64b0(local_a0,(int)local_108);
   local_108[0] = &PTR_FUN_00fba6f4;
   if ((local_100 & 4) != 0) {
@@ -87,7 +87,7 @@ World_InvokePortalLockedCallback
   local_108[0] = &PTR_FUN_0100886c;
   local_fe = 0xc;
   local_100 = 2;
-  FUN_004f6020(local_108,(undefined4 *)&portalObjectId);
+  Variant_AssignUInt64(local_108,&portalObjectId);
   FUN_004f64b0(local_80,(int)local_108);
   local_108[0] = &PTR_FUN_00fba6f4;
   if ((local_100 & 4) != 0) {

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 COMPLETE136-byte thiscall TWOstackwords RET8void. ECXcomponent savedESI. Firstargument
@@ -45,7 +45,7 @@ LAB_0094608e:
   }
   if (this_00 != (void *)0x0) {
     if (((*(byte *)((int)this + 0x40) & 1) == 0) ||
-       (uVar3 = FUN_00944be0(*(void **)((int)this + 4)), (char)uVar3 != '\0')) {
+       (uVar3 = Object_HasSimTransformAncestor(*(void **)((int)this + 4)), (char)uVar3 != '\0')) {
       cVar2 = '\0';
     }
     else {

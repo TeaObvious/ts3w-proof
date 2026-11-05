@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst PC1.67 SPT section instruction contract. ECXtreewrapper+two32bitstackinputs RET8,
    ALsuccess. Inputsforwardedto7BBDA0sourcecursorconstructor
    (exactinputmeaning/copyadmissionunexpanded);7BFC10headerreaderALgatesbody.
@@ -72,7 +74,7 @@ bool __thiscall SptTree_LoadAndDispatchSections(void *this,uint sourceWord0,uint
               }
               else {
                 if (uVar5 != 10000) goto LAB_007bcf41;
-                FUN_007ba820(this,&local_14);
+                SptTree_ReadEmbeddedTextureCoordinates(this,&local_14);
               }
             }
             else if (uVar5 == 12000) {
@@ -211,10 +213,9 @@ LAB_007bcf41:
     *(undefined4 *)((int)this + 0x4c) = *(undefined4 *)(*(int *)this + 0xec);
     pvVar6 = HeightMap_GetSamplePayload(*(void **)((int)this + 0x60));
     *(void **)((int)this + 0x40) = pvVar6;
-    uVar4 = _DAT_00f9b5b4;
     if (*(int *)((int)this + 0x1c) == 2) {
       *(undefined4 *)((int)this + 0x1c) = 1;
-      *(undefined4 *)((int)this + 0x2c) = uVar4;
+      *(undefined4 *)((int)this + 0x2c) = 0x3f000000;
     }
     FUN_005657f0(*(void **)((int)this + 0x14),0,(uint)DAT_011d9648);
     if (!bVar2) {

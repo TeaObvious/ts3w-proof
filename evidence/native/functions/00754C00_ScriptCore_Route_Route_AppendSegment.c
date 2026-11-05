@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161b30 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161b30 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Route::Route_AppendSegment [assembly=ScriptCore token=0x0600113D; routeHandle:
    System.UInt32, endSegment: Sims3.SimIFace.Vector3; return=System.UInt32]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -25,7 +26,7 @@ ScriptCore.Route::Route_AppendSegment
   undefined4 uStack_18;
   undefined4 uStack_14;
   
-  piVar3 = (int *)FUN_0074b4b0(DAT_011d50c4,param_1);
+  piVar3 = (int *)RouteRegistry_ResolveTypedHandle(DAT_011d50c4,param_1);
   if (piVar3 == (int *)0x0) {
     return 0;
   }

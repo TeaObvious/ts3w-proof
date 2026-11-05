@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01189fa8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01189fa8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.UserToolUtils::UserToolUtils_GetMoodletIconInfoImpl [assembly=ScriptCore
    token=0x06000C1B; typeID: System.UInt32, instanceID: System.UInt64, groupID: System.UInt32,
    iconId: System.UInt32&, iconDegree: System.UInt32&; return=System.Boolean]
@@ -29,7 +30,7 @@ uint ScriptCore_UserToolUtils__UserToolUtils_GetMoodletIconInfoImpl
     uStack_8 = param_1;
     uStack_c = param_3;
     uStack_4 = param_4;
-    iVar2 = FUN_00c8ebb0(DAT_011ee034,&uStack_10);
+    iVar2 = ObjectCatalog_FindByTypedKey(DAT_011ee034,&uStack_10);
     in_EAX = 0;
     if (iVar2 != 0) {
       *param_5 = *(undefined4 *)(iVar2 + 0x228);

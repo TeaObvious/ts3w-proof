@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x0115eb60 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x0115eb60 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Animation::Animation_StopRandomClipController [assembly=ScriptCore token=0x06000DBF;
    objId: System.UInt64, track: System.UInt32, id: System.UInt32; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -15,27 +16,27 @@ void ScriptCore_Animation__Animation_StopRandomClipController
 
 {
   int *piVar1;
-  int iVar2;
+  void *pvVar2;
   undefined4 *this;
-  void *this_00;
+  int iVar3;
   
-  iVar2 = FUN_00937570();
-  this = (undefined4 *)FUN_00937f80(iVar2);
+  pvVar2 = ObjectRegistry_GetGlobal();
+  this = ObjectRegistry_FindBorrowed(pvVar2,CONCAT44(param_2,param_1));
   if (this != (undefined4 *)0x0) {
     piVar1 = this + 1;
     LOCK();
     *piVar1 = *piVar1 + 1;
     UNLOCK();
-    this_00 = (void *)FUN_00934260(this,DAT_011dd484);
-    if (((this_00 != (void *)0x0) && (iVar2 = FUN_0093c9c0(this_00,param_3,param_4), iVar2 != 0)) &&
-       (iVar2 = (**(code **)(*(int *)(iVar2 + 8) + 4))(0x6c12d61), iVar2 != 0)) {
-      FUN_0056d190(iVar2);
+    pvVar2 = Object_GetComponentByMask(this,DAT_011dd484);
+    if (((pvVar2 != (void *)0x0) && (iVar3 = FUN_0093c9c0(pvVar2,param_3,param_4), iVar3 != 0)) &&
+       (iVar3 = (**(code **)(*(int *)(iVar3 + 8) + 4))(0x6c12d61), iVar3 != 0)) {
+      FUN_0056d190(iVar3);
     }
     LOCK();
-    iVar2 = *piVar1;
+    iVar3 = *piVar1;
     *piVar1 = *piVar1 + -1;
     UNLOCK();
-    if (iVar2 == 1) {
+    if (iVar3 == 1) {
       LOCK();
       *piVar1 = 1;
       UNLOCK();

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. Selects the serialized water-query root by
@@ -14,41 +14,33 @@ undefined8 __thiscall WaterGeometry_SelectQueryRoot(void *this,float *param_1)
 {
   int *piVar1;
   int iVar2;
-  undefined4 extraout_ECX;
-  undefined4 extraout_ECX_00;
   int iVar3;
-  undefined4 extraout_EDX;
-  undefined4 extraout_EDX_00;
+  int extraout_EDX;
   int iVar4;
-  ulonglong uVar5;
-
+  double dVar5;
+  
                     /* Floor-based X lookup ownership determines which root owns a shared root edge.
                         */
-  floor((double)((*param_1 - *(float *)((int)this + 0xa4)) * (1.0 / *(float *)((int)this + 0x10))));
-  uVar5 = FUN_00f7f620(extraout_ECX,extraout_EDX);
-  iVar4 = (int)uVar5;
-  floor((double)((param_1[1] - *(float *)((int)this + 0xa8)) * (1.0 / *(float *)((int)this + 0x14)))
-       );
-  uVar5 = FUN_00f7f620(extraout_ECX_00,extraout_EDX_00);
-  iVar3 = (int)uVar5;
-  if (((-1 < iVar4) && (-1 < iVar3)) &&
-     (iVar4 < *(int *)((int)this + 0x70) - *(int *)((int)this + 0x6c) >> 4)) {
-    piVar1 = (int *)(iVar4 * 0x10 + *(int *)((int)this + 0x6c));
+  dVar5 = floor((double)((*param_1 - *(float *)((int)this + 0xa4)) *
+                        (1.0 / *(float *)((int)this + 0x10))));
+  iVar2 = Compiler_TruncateX87ToLowInt32((float10)dVar5);
+  dVar5 = floor((double)((param_1[1] - *(float *)((int)this + 0xa8)) *
+                        (1.0 / *(float *)((int)this + 0x14))));
+  iVar3 = Compiler_TruncateX87ToLowInt32((float10)dVar5);
+  iVar4 = extraout_EDX;
+  if (((-1 < iVar2) && (-1 < iVar3)) &&
+     (iVar2 < *(int *)((int)this + 0x70) - *(int *)((int)this + 0x6c) >> 4)) {
+    piVar1 = (int *)(iVar2 * 0x10 + *(int *)((int)this + 0x6c));
     iVar4 = piVar1[1] - *piVar1 >> 2;
-    uVar5 = CONCAT44(iVar4,iVar3);
-    if ((iVar3 < iVar4) &&
-       (iVar2 = *(int *)(*piVar1 + iVar3 * 4), uVar5 = CONCAT44(iVar4,iVar3), -1 < iVar2)) {
-      iVar3 = *(int *)((int)this + 0x60) - *(int *)((int)this + 0x5c);
-      iVar4 = iVar3 >> 0x1f;
-      iVar3 = iVar3 / 0x28 + iVar4;
-      iVar4 = iVar3 - iVar4;
-      uVar5 = CONCAT44(iVar3,iVar4);
-      if (iVar2 <= iVar4) {
-        return CONCAT44(iVar3,iVar2);
+    if ((iVar3 < iVar4) && (iVar2 = *(int *)(*piVar1 + iVar3 * 4), -1 < iVar2)) {
+      iVar4 = *(int *)((int)this + 0x60) - *(int *)((int)this + 0x5c);
+      iVar3 = iVar4 >> 0x1f;
+      iVar4 = iVar4 / 0x28 + iVar3;
+      if (iVar2 <= iVar4 - iVar3) {
+        return CONCAT44(iVar4,iVar2);
       }
     }
   }
-  return CONCAT44((int)(uVar5 >> 0x20),0xffffffff);
+  return CONCAT44(iVar4,0xffffffff);
 }
-
 

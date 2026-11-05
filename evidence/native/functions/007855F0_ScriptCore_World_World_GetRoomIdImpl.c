@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original PC1.67 World_GetRoomIdImpl; cdecl uint64 lotID,12-byte managed LotLocation, int32
@@ -22,7 +22,7 @@ ScriptCore_World__World_GetRoomIdImpl
   int local_4;
   
   if (DAT_011edbc4 != (void *)0x0) {
-    piVar2 = FUN_00c62810(DAT_011edbc4,(int)lotId,lotId._4_4_,(int *)0x0);
+    piVar2 = WorldObjects_FindLotByGuid(DAT_011edbc4,(uint)lotId,lotId._4_4_,(uint *)0x0);
     if ((piVar2 != (int *)0x0) && ((void *)piVar2[0xa6] != (void *)0x0)) {
       local_4 = (int)location.mLevel;
       local_c = (float)location.mX;

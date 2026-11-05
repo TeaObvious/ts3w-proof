@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 complete406-byte thiscall lotpointer+LotPaintPointpointer RET8ALBoolean. Physical receiver
@@ -52,14 +52,14 @@ bool __thiscall WaterTool_OnLotClick(void *this,undefined *lot,LotPaintPoint *po
         }
         FUN_00d3fe20((int)this + -0x28);
         (**(code **)(*(int *)this + 0x74))(lot,point,0);
-        uVar4 = FUN_00cedf20(DAT_011ebf90);
+        uVar4 = UserTool_StartKeyedSound(DAT_011ebf90);
         *(undefined4 *)((int)this + 0x164) = uVar4;
         return true;
       }
     }
     pvVar2 = (void *)((int)this + 0xe4);
     FUN_00ad77d0((int)pvVar2);
-    FUN_00ad6720(local_50,0xd8,(int)lot,&point->x,0,0);
+    BuildEditErrorRecord_InitializeAtLotPoint(local_50,0xd8,lot,point,0,0);
     FUN_00ad8570(pvVar2,local_50);
     FUN_00cd3890(pvVar2,1,'\x01');
     FUN_00ad70d0((int)local_50);

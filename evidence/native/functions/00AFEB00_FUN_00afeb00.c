@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Analyst role: Deck-foundation vertex admission; descriptive label, not recovered original symbol.
    cdecl lot/packedvertex, plain RET, AL boolean. Reuses four-cell iterator, strict AB67D0 per valid cell, excludes resolved kinds3/6/5. A non-FFFFFFFF ID whose product lookup fails passes the negative type tests and can return true. No iterator reset beyond constructor needed. */
+
+
 
 int __cdecl FUN_00afeb00(void *param_1,undefined2 *param_2)
 
@@ -18,14 +20,14 @@ int __cdecl FUN_00afeb00(void *param_1,undefined2 *param_2)
   uint3 extraout_var_00;
   int local_c [3];
   
-  FUN_00af6c40(local_c,param_2);
-  bVar2 = FUN_00af67c0(local_c);
+  InitializeVertexRegionIterator(local_c,param_2);
+  bVar2 = IsVertexRegionIteratorAtEnd(local_c);
   uVar1 = extraout_var;
   do {
     if (bVar2) {
       return (uint)uVar1 << 8;
     }
-    pcVar3 = FUN_00af6660(local_c);
+    pcVar3 = GetVertexRegionIteratorCell(local_c);
     if ((((((-1 < *pcVar3) && ((int)*pcVar3 < *(int *)((int)param_1 + 0x174))) && (-1 < pcVar3[1]))
          && (((int)pcVar3[1] < *(int *)((int)param_1 + 0x178) &&
              (*(int *)((int)param_1 + 0x17c) <= (int)pcVar3[2])))) &&
@@ -40,8 +42,9 @@ int __cdecl FUN_00afeb00(void *param_1,undefined2 *param_2)
         return CONCAT31(uVar6,1);
       }
     }
-    FUN_00af6650(local_c);
-    bVar2 = FUN_00af67c0(local_c);
+    AdvanceVertexRegionIterator(local_c);
+    bVar2 = IsVertexRegionIteratorAtEnd(local_c);
     uVar1 = extraout_var_00;
   } while( true );
 }
+

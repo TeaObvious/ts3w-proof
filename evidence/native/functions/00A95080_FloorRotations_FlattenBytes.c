@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): ECX compressed rotation grid/output byte
@@ -25,8 +25,8 @@ void __thiscall FloorRotations_FlattenBytes(void *this,int *param_1)
   int local_4;
   
   uVar2 = *(int *)((int)this + 8) * *(int *)((int)this + 4) * *(int *)((int)this + 0xc);
-  if (uVar2 - (param_1[1] - *param_1) != 0) {
-    FUN_00412e20(param_1,uVar2);
+  if (uVar2 != param_1[1] - *param_1) {
+    ByteVector_ResizeZeroed(param_1,uVar2);
   }
   iVar6 = 0;
   local_4 = 0;

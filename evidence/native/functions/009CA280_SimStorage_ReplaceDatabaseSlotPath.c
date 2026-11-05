@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original instruction review: this in ECX, slotdescriptor,pathobject,name arguments. Existing
@@ -12,24 +12,24 @@ void SimStorage_ReplaceDatabaseSlotPath(undefined4 *param_1,undefined4 *param_2,
 
 {
   short sVar1;
-  short *psVar2;
-  int *piVar3;
-  uint uVar4;
-  short *psVar5;
-  int iVar6;
-  short *psVar7;
-  undefined4 *puVar8;
+  short *allocation;
+  int *piVar2;
+  uint uVar3;
+  short *psVar4;
+  int iVar5;
+  short *psVar6;
+  undefined4 *puVar7;
   short *psStack_428;
   undefined4 uStack_424;
   undefined4 uStack_420;
   char *pcStack_41c;
   undefined4 auStack_418 [261];
   
-  iVar6 = param_1[0xc];
-  if (iVar6 != 0) {
-    piVar3 = (int *)FUN_004afe80();
-    if ((iVar6 != 0) && (piVar3 != (int *)0x0)) {
-      (**(code **)(*piVar3 + 0x34))(0,iVar6,0);
+  iVar5 = param_1[0xc];
+  if (iVar5 != 0) {
+    piVar2 = (int *)FUN_004afe80();
+    if ((iVar5 != 0) && (piVar2 != (int *)0x0)) {
+      (**(code **)(*piVar2 + 0x34))(0,iVar5,0);
     }
     (**(code **)(*(int *)param_1[0xc] + 8))();
     (**(code **)(*(int *)(param_1[0xc] + 4) + 4))();
@@ -51,46 +51,46 @@ void SimStorage_ReplaceDatabaseSlotPath(undefined4 *param_1,undefined4 *param_2,
     }
   }
   else {
-    puVar8 = auStack_418;
-    for (iVar6 = 0x104; iVar6 != 0; iVar6 = iVar6 + -1) {
-      *puVar8 = *param_2;
+    puVar7 = auStack_418;
+    for (iVar5 = 0x104; iVar5 != 0; iVar5 = iVar5 + -1) {
+      *puVar7 = *param_2;
       param_2 = param_2 + 1;
-      puVar8 = puVar8 + 1;
+      puVar7 = puVar7 + 1;
     }
     FUN_004ee400(auStack_418,param_3,0);
-    uVar4 = FUN_004edef0(auStack_418,(void *)0x0,0);
-    if (uVar4 != 0) {
+    uVar3 = FUN_004edef0(auStack_418,(void *)0x0,0);
+    if (uVar3 != 0) {
       psStack_428 = (short *)0x0;
       uStack_424 = 0;
       uStack_420 = 0;
       pcStack_41c = "ResourceSystem/DownloadContent/SimStorageManager/tempString";
-      FUN_0067f5e0(&psStack_428,uVar4 + 2);
-      psVar2 = psStack_428;
-      FUN_004edef0(auStack_418,psStack_428,uVar4 + 1);
-      psVar5 = (short *)FUN_007e51a0(auStack_418);
-      sVar1 = *psVar5;
-      psVar7 = psVar5;
+      UInt16Vector_ResizeZeroed(&psStack_428,uVar3 + 2);
+      allocation = psStack_428;
+      FUN_004edef0(auStack_418,psStack_428,uVar3 + 1);
+      psVar4 = (short *)FUN_007e51a0(auStack_418);
+      sVar1 = *psVar4;
+      psVar6 = psVar4;
       while (sVar1 != 0) {
-        psVar7 = psVar7 + 1;
-        sVar1 = *psVar7;
+        psVar6 = psVar6 + 1;
+        sVar1 = *psVar6;
       }
-      FUN_00408d60(param_1 + 4,psVar5,psVar5 + ((int)psVar7 - (int)psVar5 >> 1));
-      sVar1 = *psVar2;
-      psVar7 = psVar2;
+      FUN_00408d60(param_1 + 4,psVar4,psVar4 + ((int)psVar6 - (int)psVar4 >> 1));
+      sVar1 = *allocation;
+      psVar6 = allocation;
       while (sVar1 != 0) {
-        psVar7 = psVar7 + 1;
-        sVar1 = *psVar7;
+        psVar6 = psVar6 + 1;
+        sVar1 = *psVar6;
       }
-      FUN_00408d60(param_1,psVar2,psVar2 + ((int)psVar7 - (int)psVar2 >> 1));
+      FUN_00408d60(param_1,allocation,allocation + ((int)psVar6 - (int)allocation >> 1));
       sVar1 = *param_3;
-      psVar7 = param_3;
+      psVar6 = param_3;
       while (sVar1 != 0) {
-        psVar7 = psVar7 + 1;
-        sVar1 = *psVar7;
+        psVar6 = psVar6 + 1;
+        sVar1 = *psVar6;
       }
-      FUN_00408d60(param_1 + 8,param_3,param_3 + ((int)psVar7 - (int)param_3 >> 1));
+      FUN_00408d60(param_1 + 8,param_3,param_3 + ((int)psVar6 - (int)param_3 >> 1));
       FUN_009c8ef0((int)param_1);
-      FUN_004e44e0((int)psVar2);
+      Memory_FreeIfNonNull(allocation);
     }
   }
   return;

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161c80 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161c80 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.RouteManager::RouteManager_RemoveDiscourageFootprint [assembly=ScriptCore
    token=0x06001066; scriptHandle: System.UInt64; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -14,46 +15,49 @@ uint ScriptCore_RouteManager__RouteManager_RemoveDiscourageFootprint(void)
 
 {
   int iVar1;
+  void *this;
   undefined4 *puVar2;
-  int *this;
+  int *this_00;
   undefined4 uVar3;
   undefined4 uVar4;
+  undefined4 in_stack_00000004;
+  undefined4 in_stack_00000008;
   undefined4 *puStack_4;
   
   iVar1 = GetGlobalInterfacePointer_11D5BBC();
-  this = (int *)0x0;
+  this_00 = (int *)0x0;
   if (iVar1 != 0) {
-    iVar1 = FUN_00937570();
-    this = (int *)0x0;
-    if (iVar1 != 0) {
-      puVar2 = (undefined4 *)FUN_00937f80(iVar1);
+    this = ObjectRegistry_GetGlobal();
+    this_00 = (int *)0x0;
+    if (this != (void *)0x0) {
+      puVar2 = ObjectRegistry_FindBorrowed(this,CONCAT44(in_stack_00000008,in_stack_00000004));
       if (puVar2 != (undefined4 *)0x0) {
         LOCK();
         puVar2[1] = puVar2[1] + 1;
         UNLOCK();
       }
       puStack_4 = puVar2;
-      this = (int *)thunk_FUN_00835d40();
+      this_00 = (int *)thunk_FUN_00835d40();
       if (puVar2 != (undefined4 *)0x0) {
-        if (this != (int *)0x0) {
-          uVar3 = FUN_008343a0(this,puVar2);
+        if (this_00 != (int *)0x0) {
+          uVar3 = FUN_008343a0(this_00,puVar2);
           uVar4 = FUN_007462e0((int *)&puStack_4);
           return CONCAT31((int3)((uint)uVar4 >> 8),(char)uVar3);
         }
-        this = puVar2 + 1;
+        this_00 = puVar2 + 1;
         LOCK();
-        iVar1 = *this;
-        *this = *this + -1;
+        iVar1 = *this_00;
+        *this_00 = *this_00 + -1;
         UNLOCK();
         if (iVar1 == 1) {
           LOCK();
-          *this = 1;
+          *this_00 = 1;
           UNLOCK();
-          this = (int *)(**(code **)*puVar2)(1);
+          this_00 = (int *)(**(code **)*puVar2)(1);
         }
       }
     }
   }
-  return (uint)this & 0xffffff00;
+  return (uint)this_00 & 0xffffff00;
 }
 

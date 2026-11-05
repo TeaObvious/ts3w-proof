@@ -1,20 +1,23 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67: Pass key0 means no hook and AL0. Otherwise invokes7a-library hook and returns
-   AL1; draw callback is skipped for this pass regardless of hook return. */
+   AL1; draw callback is skipped for this pass regardless of hook return.
+   
+   Skin-comparison refinement: ECX pass, one ignored DWORD stack argument RET4; only AL is defined.
+   Key zero returns false; nonzero invokes post geometry and returns true regardless of whether its
+   global vertex buffer exists. Previous fastcall prototype hid stack cleanup. Analyst partial
+   types/names; unknown fields remain opaque. */
 
-undefined4 __fastcall ShaderPass_InvokeOptionalHook(int *param_1)
+bool __thiscall ShaderPass_InvokeOptionalHook(Ts3SkinPostPass *self,void *unusedRenderDevice)
 
 {
-  undefined4 uVar1;
-  
-  if (*param_1 == 0) {
-    return 0;
+  if (self->geometryHookKey == 0) {
+    return false;
   }
-  uVar1 = FUN_0079b120(*param_1);
-  return CONCAT31((int3)((uint)uVar1 >> 8),1);
+  ShaderHook_DrawPostGeometry(self->geometryHookKey);
+  return true;
 }
 

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -35,7 +35,7 @@ DownloadContent_GenerateUnusedResourceKey(uint *param_1,uint *param_2,undefined4
   }
   if ((_DAT_011ea6a0 & 1) == 0) {
     _DAT_011ea6a0 = _DAT_011ea6a0 | 1;
-    FUN_004fa9f0(&DAT_011ea69c,-1);
+    TreeVariation_Reseed(&DAT_011ea69c,-1);
   }
   FUN_004afe80();
   local_4 = param_2[3];

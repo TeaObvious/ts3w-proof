@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC 1.67 map/lot detail contract. If requested byte differs from lot+c1 and lot+c9
@@ -25,16 +25,16 @@ void __thiscall Lot_SetDetailRequested(void *this,uchar requested)
       RemoteMethodCall_SubmitTwoFlagMethod
                 ('\x01',this,Lot_ApplyDetailRequestToObjects,(void *)0x0,'\0','\0');
     }
-    message = FUN_00adf150();
+    message = FloorMessagePool_AcquireStorage();
     if (message == (int *)0x0) {
       message = (int *)0x0;
     }
     else {
-      *message = (int)&PTR_FUN_01065f8c;
+      *message = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
       LOCK();
       message[1] = 0;
       UNLOCK();
-      *message = (int)&PTR_FUN_01065f8c;
+      *message = (int)&PTR_DestroyPooledFloorMessage_01065f8c;
       (**(code **)(*message + 4))();
     }
     *(uchar *)(message + 2) = requested;

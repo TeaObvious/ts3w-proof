@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original PC 1.67: Read live core-owner rooms/levels, construct response
@@ -35,12 +35,12 @@ void __fastcall CeilingManager_ProduceRoomDataMessage(void *param_1)
   char *local_8;
   
   local_1c = *(void **)(*(int *)((int)param_1 + 0x18) + 0x298);
-  local_24 = FUN_00adf150();
+  local_24 = FloorMessagePool_AcquireStorage();
   if (local_24 == (undefined4 *)0x0) {
     local_24 = (undefined4 *)0x0;
   }
   else {
-    *local_24 = &PTR_FUN_01065f8c;
+    *local_24 = &PTR_DestroyPooledFloorMessage_01065f8c;
     LOCK();
     local_24[1] = 0;
     UNLOCK();
@@ -90,7 +90,7 @@ LAB_00a498c3:
   }
   puVar3 = local_24;
   CeilingManager_CollectExteriorPartsByElevation(param_1,(int)local_24);
-  piVar6 = (int *)FUN_0044c4f0();
+  piVar6 = (int *)MessageDispatch_GetCurrent();
   (**(code **)(*piVar6 + 0x1c))(0x47e6f04,puVar3,0,0);
   return;
 }

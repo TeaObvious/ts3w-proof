@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. ECX complete object and one full typeIdentity DWORD, RET4;
@@ -13,83 +13,81 @@
 void * __thiscall Sims3CustomProxyControl_Construct(void *this,uint typeIdentity)
 
 {
-  int *piVar1;
-  ushort uVar2;
-  undefined4 uVar3;
-  longlong lVar4;
-  float fVar5;
-  undefined4 *puVar6;
-  undefined4 *puVar7;
-  int iVar8;
+  ushort uVar1;
+  undefined4 uVar2;
+  longlong lVar3;
+  undefined4 *puVar4;
+  undefined4 *puVar5;
+  int iVar6;
   int *local_18;
   uint local_8;
   
-  FUN_00516090(this);
-  fVar5 = FLOAT_00f998f8;
+  Window_InitializeNativeFields(this);
   *(uint *)((int)this + 0x250) = typeIdentity;
   *(undefined ***)this = &PTR_thunk_FUN_007e4140_0101c7e8;
   *(undefined ***)((int)this + 4) = &PTR_LAB_0101c6c0;
   *(undefined1 *)((int)this + 0x254) = 0;
-  *(float *)((int)this + 0x268) = fVar5;
-  *(undefined4 *)((int)this + 0x26c) = DAT_0103fd88;
+  *(float *)((int)this + 0x268) = 1.0;
+  *(undefined4 *)((int)this + 0x26c) = 0x40000000;
   *(char **)((int)this + 0x274) = "UI/Sims3CustomProxyControlDelegateMap";
   *(undefined4 **)((int)this + 0x25c) = &DAT_0114d900;
   *(undefined4 *)((int)this + 0x264) = 0;
   *(undefined4 *)((int)this + 0x270) = 0;
-  iVar8 = (int)this + 0x278;
+  iVar6 = (int)this + 0x278;
   *(undefined4 *)((int)this + 0x260) = 1;
   *(char **)((int)this + 0x280) = "UI/Sims3CustomProxyControlReadCache";
-  *(int *)iVar8 = iVar8;
-  *(int *)((int)this + 0x27c) = iVar8;
+  *(int *)iVar6 = iVar6;
+  *(int *)((int)this + 0x27c) = iVar6;
   *(undefined4 *)((int)this + 0x284) = 1;
   FUN_007e2c80(this,0x36997e5);
-  lVar4 = (ulonglong)(*(int *)((int)this + 0x264) + 2) * 0x14;
-  puVar6 = (undefined4 *)
-           FUN_004e4500(-(uint)((int)((ulonglong)lVar4 >> 0x20) != 0) | (uint)lVar4,
+  lVar3 = (ulonglong)(*(int *)((int)this + 0x264) + 2) * 0x14;
+  puVar4 = (undefined4 *)
+           FUN_004e4500(-(uint)((int)((ulonglong)lVar3 >> 0x20) != 0) | (uint)lVar3,
                         "UI/Sims3ProxyControlSerPropertyInfo",0);
-  *(undefined4 **)((int)this + 0x2a8) = puVar6;
-  *puVar6 = 0;
-  puVar6[1] = &DAT_00fbc0b8;
-  puVar6[2] = 0;
-  puVar6[3] = 1;
-  puVar6[4] = 0;
-  iVar8 = *(int *)((int)this + 0x2a8);
-  *(undefined4 *)(iVar8 + 0x14) = 0;
-  *(undefined4 *)(iVar8 + 0x18) = 0;
-  *(undefined4 *)(iVar8 + 0x1c) = 0x3aa2001;
-  *(undefined4 *)(iVar8 + 0x20) = 0x2840009;
-  *(undefined4 *)(iVar8 + 0x24) = 1;
+  *(undefined4 **)((int)this + 0x2a8) = puVar4;
+  *puVar4 = 0;
+  puVar4[1] = &DAT_00fbc0b8;
+  puVar4[2] = 0;
+  puVar4[3] = 1;
+  puVar4[4] = 0;
+  iVar6 = *(int *)((int)this + 0x2a8);
+  *(undefined4 *)(iVar6 + 0x14) = 0;
+  *(undefined4 *)(iVar6 + 0x18) = 0;
+  *(undefined4 *)(iVar6 + 0x1c) = 0x3aa2001;
+  *(undefined4 *)(iVar6 + 0x20) = 0x2840009;
+  *(undefined4 *)(iVar6 + 0x24) = 1;
   local_18 = *(int **)((int)this + 0x25c);
-  puVar6 = (undefined4 *)*local_18;
-  if (puVar6 == (undefined4 *)0x0) {
+  puVar4 = (undefined4 *)*local_18;
+  if (puVar4 == (undefined4 *)0x0) {
     local_18 = local_18 + 1;
-    iVar8 = *local_18;
-    while (iVar8 == 0) {
+    iVar6 = *local_18;
+    while (iVar6 == 0) {
       local_18 = local_18 + 1;
-      iVar8 = *local_18;
+      iVar6 = *local_18;
     }
-    puVar6 = (undefined4 *)*local_18;
+    puVar4 = (undefined4 *)*local_18;
   }
-  if (puVar6 != *(undefined4 **)(*(int *)((int)this + 0x25c) + *(int *)((int)this + 0x260) * 4)) {
-    iVar8 = 0x28;
+  if (puVar4 != *(undefined4 **)(*(int *)((int)this + 0x25c) + *(int *)((int)this + 0x260) * 4)) {
+    iVar6 = 0x28;
     do {
-      uVar3 = *puVar6;
-      uVar2 = *(ushort *)(puVar6 + 1);
-      puVar7 = (undefined4 *)(*(int *)((int)this + 0x2a8) + iVar8);
-      *puVar7 = 0;
-      puVar7[1] = &PTR_LAB_0101c630;
-      puVar7[2] = uVar3;
-      local_8 = (uint)uVar2;
-      puVar7[3] = local_8;
-      puVar7[4] = 1;
-      iVar8 = iVar8 + 0x14;
-      puVar6 = (undefined4 *)puVar6[4];
-      while (puVar6 == (undefined4 *)0x0) {
-        piVar1 = local_18 + 1;
-        local_18 = local_18 + 1;
-        puVar6 = (undefined4 *)*piVar1;
+      uVar2 = *puVar4;
+      uVar1 = *(ushort *)(puVar4 + 1);
+      puVar5 = (undefined4 *)(*(int *)((int)this + 0x2a8) + iVar6);
+      *puVar5 = 0;
+      puVar5[1] = &PTR_LAB_0101c630;
+      puVar5[2] = uVar2;
+      local_8 = (uint)uVar1;
+      puVar5[3] = local_8;
+      puVar5[4] = 1;
+      puVar4 = (undefined4 *)puVar4[4];
+      iVar6 = iVar6 + 0x14;
+      if (puVar4 == (undefined4 *)0x0) {
+        do {
+          puVar4 = (undefined4 *)local_18[1];
+          local_18 = local_18 + 1;
+        } while (puVar4 == (undefined4 *)0x0);
       }
-    } while (puVar6 != *(undefined4 **)
+    } while (puVar4 != *(undefined4 **)
                         (*(int *)((int)this + 0x25c) + *(int *)((int)this + 0x260) * 4));
   }
   *(undefined4 *)((int)this + 0x28c) = *(undefined4 *)((int)this + 0x250);

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 domain-owner static comparison. ECX fixup; four physical stack words, RET10, AL
@@ -137,7 +137,7 @@ CounterCutout_BindMaterialParameters
   local_104 = 1;
   local_144 = (int *)0x0;
   if (*(char *)((int)param_1 + 0x72) == '\0') {
-    uVar1 = FUN_006db3d0(param_1,&local_144,(int *)&local_114,param_4);
+    uVar1 = ModelLOD_CloneWithMaterialSubstitutions(param_1,&local_144,(int *)&local_114,param_4);
     if ((char)uVar1 == '\0') {
       if (local_144 != (int *)0x0) {
         (**(code **)(*local_144 + 4))();
@@ -154,7 +154,7 @@ CounterCutout_BindMaterialParameters
   else {
     (**(code **)*param_1)();
     local_144 = param_1;
-    FUN_006db170(param_1,(int)param_1,(int *)&local_114,param_4);
+    ModelLOD_ApplyMaterialSubstitutions(param_1,(int)param_1,(int *)&local_114,param_4);
   }
   *param_2 = local_144;
   (**(code **)*local_144)();

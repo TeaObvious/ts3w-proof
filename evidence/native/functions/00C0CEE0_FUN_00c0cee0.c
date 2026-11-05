@@ -1,12 +1,14 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; reference identity is in guides/water/README.md.
    Ghidra export refreshed on 2026-10-12 after WaterGeometry annotations.
    RE_ symbols and comments are analyst annotations, not original names.
    Read the paired original bytes and guides/water/README.md.
    Native ABI details not established by instructions remain inferred. */
+
+
 
 undefined4 __thiscall FUN_00c0cee0(void *this,int *param_1,uint param_2)
 
@@ -26,7 +28,7 @@ undefined4 __thiscall FUN_00c0cee0(void *this,int *param_1,uint param_2)
   FUN_004de060(param_1,*(uint *)((int)this + 0x244),param_2);
   FUN_004de060(param_1,*(uint *)((int)this + 0x248),param_2);
   FUN_004de060(param_1,*(uint *)((int)this + 0x24c),param_2);
-  FUN_004dde00(param_1,*(char *)((int)this + 0x250));
+  Stream_WriteBoolean(param_1,*(byte *)((int)this + 0x250));
   local_20[0] = 0.0;
   local_20[1] = 0.0;
   local_20[2] = 0.0;

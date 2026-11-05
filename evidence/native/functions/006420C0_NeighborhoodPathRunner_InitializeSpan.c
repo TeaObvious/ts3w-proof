@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* ECX runner and five stack words; RET0x14. Stores node index, XZ, sign-extended 16-bit floor,
@@ -38,7 +38,7 @@ NeighborhoodPathRunner_InitializeSpan
   *(void **)((int)this + 0x10) = param_5;
   *(undefined4 *)((int)this + 0x18) = 0;
   if ((puVar2[0xe] != 0) && (param_5 != (void *)0x0)) {
-    uVar1 = FUN_00ab0590((int)param_5);
+    uVar1 = Lot_IsCommercialDivingLot((int)param_5);
     *(uint *)((int)this + 0xc) = CONCAT31(extraout_var,uVar1);
   }
   if (*(int *)this == (*(int *)(param_2 + 0xc) - *(int *)(param_2 + 8) >> 6) + -1) {
@@ -51,13 +51,13 @@ NeighborhoodPathRunner_InitializeSpan
     fVar8 = pfVar5[2] - *(float *)((int)this + 8);
     fVar6 = *pfVar5 - *(float *)((int)this + 4);
     auVar7._0_4_ = fVar6 * fVar6 + fVar8 * fVar8;
-    if (DAT_00fcc6f0 < auVar7._0_4_) {
+    if (25.0 < auVar7._0_4_) {
       auVar7._4_4_ = auVar7._0_4_;
       auVar7._8_4_ = auVar7._0_4_;
       auVar7._12_4_ = auVar7._0_4_;
       auVar7 = sqrtps(auVar7,auVar7);
       local_20 = auVar7._0_4_;
-      dVar9 = ceil((double)(local_20 * DAT_00fab214));
+      dVar9 = ceil((double)(local_20 * 0.2));
       iVar4 = Compiler_TruncateX87ToLowInt32((float10)dVar9);
       *(int *)((int)this + 0x1c) = iVar4;
       *(float *)((int)this + 0x20) = (*pfVar5 - *(float *)((int)this + 4)) / (float)iVar4;

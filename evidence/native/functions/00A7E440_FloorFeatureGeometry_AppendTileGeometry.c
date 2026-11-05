@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst contract (original PC1.67; instruction-checked selected branches): Tile geometry producer
@@ -17,11 +17,11 @@ FloorFeatureGeometry_AppendTileGeometry(void *this,int param_1,uint3 *param_2,in
   int *piVar1;
   ushort uVar2;
   int iVar3;
-  uint *puVar4;
-  undefined4 *puVar5;
-  undefined1 uVar6;
-  undefined4 uVar7;
-  uint uVar8;
+  undefined4 *puVar4;
+  undefined1 uVar5;
+  undefined4 uVar6;
+  uint uVar7;
+  uint *puVar8;
   uint **ppuVar9;
   undefined2 *puVar10;
   void *pvVar11;
@@ -35,7 +35,7 @@ FloorFeatureGeometry_AppendTileGeometry(void *this,int param_1,uint3 *param_2,in
   undefined4 local_ec;
   int *local_e8;
   char local_e1;
-  float local_e0;
+  void *local_e0;
   void *local_dc;
   uint *local_d8;
   int local_d4;
@@ -95,7 +95,7 @@ FloorFeatureGeometry_AppendTileGeometry(void *this,int param_1,uint3 *param_2,in
   local_94 = 0;
   local_90 = 0;
   local_8c = "LotRenderer/FloorFeatureGeometry/Geometry";
-  FUN_0067f5e0(&local_98,4);
+  UInt16Vector_ResizeZeroed(&local_98,4);
   pvVar15 = *(void **)(param_1 + 0x18);
   pvVar11 = *(void **)(*(int *)((int)this + 0x29c) + 0x230);
   local_e1 = '\0';
@@ -104,9 +104,9 @@ LAB_00a7e502:
     local_ed = '\0';
   }
   else {
-    uVar7 = FloorElevation_SelectCellDiagonal(pvVar11,(char *)param_2);
+    uVar6 = FloorElevation_SelectCellDiagonal(pvVar11,(char *)param_2);
     local_ed = '\x01';
-    if ((char)uVar7 == '\0') goto LAB_00a7e502;
+    if ((char)uVar6 == '\0') goto LAB_00a7e502;
   }
   if (pvVar15 != (void *)0x0) {
     local_ec = (void *)(uint)*param_2;
@@ -120,7 +120,7 @@ LAB_00a7e502:
       fStack_ac = (float)local_40 + 1.0;
       pvStack_a8 = (void *)((float)local_40 + 1.0);
       fStack_a4 = (float)local_40 + 1.0;
-      local_e0 = (float)pvStack_38 + 1.0;
+      local_e0 = (void *)((float)pvStack_38 + 1.0);
       fStack_bc = (float)pvStack_38 + 1.0;
       pvStack_b8 = (void *)((float)pvStack_38 + 1.0);
       fStack_b4 = (float)pvStack_38 + 1.0;
@@ -129,39 +129,39 @@ LAB_00a7e502:
       fStack_68 = 1.0;
       fStack_64 = 1.0;
       local_d8 = (uint *)(CONCAT31(local_d8._1_3_,(char)((uint)local_c4 >> 2)) & 0xffffff01);
-      local_c0 = (void *)local_e0;
+      local_c0 = local_e0;
       local_b0 = local_dc;
       uVar16 = MixTwoWordsAndForwardHash((int)local_dc,(int)local_e0);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
       local_dc = (void *)FloorFeatureGeometry_GetOrAddVertex
                                    (this,param_3,(float)local_b0,(float)local_c0,
-                                    (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       local_d0 = (void *)((float)local_b0 - 1.0);
-      local_e0 = (float)local_c0;
+      local_e0 = local_c0;
       local_cc = local_d0;
       uVar16 = MixTwoWordsAndForwardHash((int)local_d0,(int)local_c0);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
       local_d0 = (void *)FloorFeatureGeometry_GetOrAddVertex
                                    (this,param_3,(float)local_cc,(float)local_c0,
-                                    (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
-      local_e0 = (float)local_c0 - 0.5;
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
+      local_e0 = (void *)((float)local_c0 - 0.5);
       local_f4 = (void *)((float)local_cc + 0.5);
       local_cc = local_f4;
-      local_c8 = (void *)local_e0;
+      local_c8 = local_e0;
       uVar16 = MixTwoWordsAndForwardHash((int)local_f4,(int)local_e0);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
-      local_e0 = (float)FloorFeatureGeometry_GetOrAddVertex
-                                  (this,param_3,(float)local_cc,(float)local_c8,
-                                   (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+      local_e0 = (void *)FloorFeatureGeometry_GetOrAddVertex
+                                   (this,param_3,(float)local_cc,(float)local_c8,
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       if (local_ed == '\0') {
         local_f4 = (void *)((uint)local_e0 & 0xffff);
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
@@ -174,11 +174,11 @@ LAB_00a7e502:
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
         local_f4 = (void *)((uint)local_d0 & 0xffff);
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
-        uVar2 = local_e0._0_2_;
+        uVar2 = (ushort)local_e0;
       }
       local_f4 = (void *)(uint)uVar2;
       FUN_005d3500(local_e8,(undefined2 *)&local_f4);
-      uVar6 = local_ec._3_1_;
+      uVar5 = local_ec._3_1_;
       local_b0 = local_40;
       fStack_ac = (float)uStack_3c;
       pvStack_a8 = pvStack_38;
@@ -189,38 +189,38 @@ LAB_00a7e502:
       fStack_b4 = (float)uStack_34;
       local_f4 = pvStack_38;
       local_ec = local_40;
-      local_d8 = (uint *)(CONCAT31(local_d8._1_3_,uVar6) & 0xffffff01);
+      local_d8 = (uint *)(CONCAT31(local_d8._1_3_,uVar5) & 0xffffff01);
       uVar16 = MixTwoWordsAndForwardHash((int)local_40,(int)pvStack_38);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
       local_dc = (void *)FloorFeatureGeometry_GetOrAddVertex
                                    (this,param_3,(float)local_b0,(float)pvStack_b8,
-                                    (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       local_ec = (void *)((float)local_b0 + 1.0);
       local_f4 = pvStack_b8;
       local_cc = local_ec;
       uVar16 = MixTwoWordsAndForwardHash((int)local_ec,(int)pvStack_b8);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
       local_d0 = (void *)FloorFeatureGeometry_GetOrAddVertex
                                    (this,param_3,(float)local_cc,(float)pvStack_b8,
-                                    (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       local_f4 = (void *)((float)pvStack_b8 + 0.5);
       local_ec = (void *)((float)local_cc - 0.5);
       local_cc = local_ec;
       local_c8 = local_f4;
       uVar16 = MixTwoWordsAndForwardHash((int)local_ec,(int)local_f4);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
-      local_e0 = (float)FloorFeatureGeometry_GetOrAddVertex
-                                  (this,param_3,(float)local_cc,(float)local_c8,
-                                   (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+      local_e0 = (void *)FloorFeatureGeometry_GetOrAddVertex
+                                   (this,param_3,(float)local_cc,(float)local_c8,
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       if (local_ed == '\0') {
         local_f4 = (void *)((uint)local_e0 & 0xffff);
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
@@ -233,7 +233,7 @@ LAB_00a7e502:
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
         local_f4 = (void *)((uint)local_d0 & 0xffff);
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
-        uVar2 = local_e0._0_2_;
+        uVar2 = (ushort)local_e0;
       }
       local_f4 = (void *)(uint)uVar2;
       FUN_005d3500(local_e8,(undefined2 *)&local_f4);
@@ -249,36 +249,36 @@ LAB_00a7e502:
       local_d8 = (uint *)(CONCAT31(local_d8._1_3_,(char)((uint)local_c4 >> 1)) & 0xffffff01);
       local_c0 = local_ec;
       uVar16 = MixTwoWordsAndForwardHash((int)local_ec,(int)pvStack_38);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
       local_dc = (void *)FloorFeatureGeometry_GetOrAddVertex
                                    (this,param_3,(float)local_c0,(float)pvStack_a8,
-                                    (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       local_f4 = (void *)((float)pvStack_a8 + 1.0);
       local_ec = local_c0;
       local_c8 = local_f4;
       uVar16 = MixTwoWordsAndForwardHash((int)local_c0,(int)local_f4);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
       local_d0 = (void *)FloorFeatureGeometry_GetOrAddVertex
                                    (this,param_3,(float)local_c0,(float)local_c8,
-                                    (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       local_f4 = (void *)((float)local_c8 - 0.5);
       local_ec = (void *)((float)local_c0 - 0.5);
       local_cc = local_ec;
       local_c8 = local_f4;
       uVar16 = MixTwoWordsAndForwardHash((int)local_ec,(int)local_f4);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
-      local_e0 = (float)FloorFeatureGeometry_GetOrAddVertex
-                                  (this,param_3,(float)local_cc,(float)local_c8,
-                                   (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+      local_e0 = (void *)FloorFeatureGeometry_GetOrAddVertex
+                                   (this,param_3,(float)local_cc,(float)local_c8,
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       if (local_ed == '\0') {
         local_f4 = (void *)((uint)local_e0 & 0xffff);
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
@@ -291,7 +291,7 @@ LAB_00a7e502:
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
         local_f4 = (void *)((uint)local_d0 & 0xffff);
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
-        uVar2 = local_e0._0_2_;
+        uVar2 = (ushort)local_e0;
       }
       local_f4 = (void *)(uint)uVar2;
       FUN_005d3500(local_e8,(undefined2 *)&local_f4);
@@ -308,39 +308,39 @@ LAB_00a7e502:
       local_d8 = (uint *)(CONCAT31(local_d8._1_3_,(char)((uint)pvVar15 >> 3)) & 0xffffff01);
       local_b0 = local_f4;
       uVar16 = MixTwoWordsAndForwardHash((int)local_40,(int)local_f4);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
       local_dc = (void *)FloorFeatureGeometry_GetOrAddVertex
                                    (this,param_3,(float)local_c0,(float)local_b0,
-                                    (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       local_f4 = (void *)((float)local_b0 - 1.0);
       local_c4 = local_c0;
       local_c8 = local_f4;
       uVar16 = MixTwoWordsAndForwardHash((int)local_c0,(int)local_f4);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
       local_d0 = (void *)FloorFeatureGeometry_GetOrAddVertex
                                    (this,param_3,(float)local_c0,(float)local_c8,
-                                    (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+                                    (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       local_f4 = (void *)((float)local_c8 + 0.5);
       local_cc = (void *)((float)local_c0 + 0.5);
       local_c8 = local_f4;
       local_c4 = local_cc;
       uVar16 = MixTwoWordsAndForwardHash((int)local_cc,(int)local_f4);
-      uVar8 = (uint)uVar16;
+      uVar7 = (uint)uVar16;
       if ((char)local_d8 != '\0') {
-        uVar8 = ~uVar8;
+        uVar7 = ~uVar7;
       }
-      uVar8 = FloorFeatureGeometry_GetOrAddVertex
+      uVar7 = FloorFeatureGeometry_GetOrAddVertex
                         (this,param_3,(float)local_cc,(float)local_c8,
-                         (int)*(char *)((int)param_2 + 2),uVar8,(char)local_d8);
+                         (int)*(char *)((int)param_2 + 2),uVar7,(char)local_d8);
       piVar1 = local_e8;
       if (local_ed == '\0') {
-        local_f4 = (void *)(uVar8 & 0xffff);
+        local_f4 = (void *)(uVar7 & 0xffff);
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
         local_f4 = (void *)((uint)local_d0 & 0xffff);
         FUN_005d3500(piVar1,(undefined2 *)&local_f4);
@@ -352,7 +352,7 @@ LAB_00a7e502:
         FUN_005d3500(local_e8,(undefined2 *)&local_f4);
         local_f4 = (void *)((uint)local_d0 & 0xffff);
         FUN_005d3500(piVar1,(undefined2 *)&local_f4);
-        local_f4 = (void *)(uVar8 & 0xffff);
+        local_f4 = (void *)(uVar7 & 0xffff);
         FUN_005d3500(piVar1,(undefined2 *)&local_f4);
       }
       goto LAB_00a7f312;
@@ -376,15 +376,16 @@ LAB_00a7e502:
       }
       else {
         pvVar14 = (void *)(float)(int)local_dc;
-        local_f4 = pvVar14;
         if ((int)local_dc < 0) {
           pvVar14 = (void *)((float)pvVar14 + 4.2949673e+09);
-          local_f4 = pvVar14;
         }
+        local_f4 = pvVar14;
       }
-      if ((local_ec != (void *)0x1) &&
-         (pvVar15 = (void *)(float)(int)local_ec, local_f4 = pvVar15, (int)local_ec < 0)) {
-        pvVar15 = (void *)((float)pvVar15 + 4.2949673e+09);
+      if (local_ec != (void *)0x1) {
+        pvVar15 = (void *)(float)(int)local_ec;
+        if ((int)local_ec < 0) {
+          pvVar15 = (void *)((float)pvVar15 + 4.2949673e+09);
+        }
         local_f4 = pvVar15;
       }
       local_c8 = (void *)((float)local_40 + (float)pvVar14);
@@ -398,28 +399,31 @@ LAB_00a7e502:
       local_50 = (float)local_cc;
       local_30 = local_c8;
       uVar16 = MixTwoWordsAndForwardHash((int)local_c8,(int)local_cc);
-      local_e0 = (float)uVar16;
+      local_e0 = (void *)uVar16;
       if (local_e1 != '\0') {
-        local_e0 = (float)~(uint)local_e0;
+        local_e0 = (void *)~(uint)local_e0;
       }
-      uVar8 = param_3[10];
+      uVar7 = param_3[10];
       iVar3 = param_3[9];
-      for (puVar4 = *(uint **)(iVar3 + ((uint)local_e0 % uVar8) * 4); puVar4 != (uint *)0x0;
-          puVar4 = (uint *)puVar4[2]) {
-        pvVar11 = local_dc;
-        if (local_e0 == (float)*puVar4) {
-          local_d8 = puVar4;
-          local_d4 = iVar3 + ((uint)local_e0 % uVar8) * 4;
-          ppuVar9 = &local_d8;
-          goto LAB_00a7ee6a;
-        }
+      puVar8 = *(uint **)(iVar3 + ((uint)local_e0 % uVar7) * 4);
+      if (puVar8 != (uint *)0x0) {
+        do {
+          pvVar11 = local_dc;
+          if (local_e0 == (void *)*puVar8) {
+            local_d8 = puVar8;
+            local_d4 = iVar3 + ((uint)local_e0 % uVar7) * 4;
+            ppuVar9 = &local_d8;
+            goto LAB_00a7ee6a;
+          }
+          puVar8 = (uint *)puVar8[2];
+        } while (puVar8 != (uint *)0x0);
       }
-      local_5c = iVar3 + uVar8 * 4;
-      local_60 = *(uint **)(iVar3 + uVar8 * 4);
+      local_5c = iVar3 + uVar7 * 4;
+      local_60 = *(uint **)(iVar3 + uVar7 * 4);
       ppuVar9 = &local_60;
 LAB_00a7ee6a:
       if (*ppuVar9 == *(uint **)(iVar3 + param_3[10] * 4)) {
-        uVar8 = param_3[1] - *param_3 >> 4;
+        uVar7 = param_3[1] - *param_3 >> 4;
         local_7c = (float)(int)pvVar11;
         local_74 = local_80;
         if ((int)pvVar11 < 0) {
@@ -433,18 +437,18 @@ LAB_00a7ee6a:
         local_78 = local_78 + local_84;
         local_f4 = pvVar11;
         LotLocation_CopyXZAndSampleElevation(*(void **)((int)local_d0 + 0x29c),&local_7c,&local_20);
-        puVar5 = (undefined4 *)param_3[1];
+        puVar4 = (undefined4 *)param_3[1];
         local_70 = (float)local_c4 + fStack_1c + 0.01;
         fStack_6c = (float)local_c4 + fStack_1c + 0.01;
         fStack_68 = (float)local_c4 + fStack_1c + 0.01;
         fStack_64 = (float)local_c4 + fStack_1c + 0.01;
-        if (puVar5 < (undefined4 *)param_3[2]) {
-          param_3[1] = (int)(puVar5 + 4);
-          if (puVar5 != (undefined4 *)0x0) {
-            *puVar5 = 0;
-            puVar5[1] = 0;
-            puVar5[2] = 0;
-            puVar5[3] = 0;
+        if (puVar4 < (undefined4 *)param_3[2]) {
+          param_3[1] = (int)(puVar4 + 4);
+          if (puVar4 != (undefined4 *)0x0) {
+            *puVar4 = 0;
+            puVar4[1] = 0;
+            puVar4[2] = 0;
+            puVar4[3] = 0;
           }
         }
         else {
@@ -452,7 +456,7 @@ LAB_00a7ee6a:
           fStack_ac = 0.0;
           pvStack_a8 = (void *)0x0;
           fStack_a4 = 0.0;
-          FUN_00cca0b0(param_3,puVar5,&local_b0);
+          FUN_00cca0b0(param_3,puVar4,&local_b0);
         }
         iVar3 = param_3[1];
         *(void **)(iVar3 + -0x10) = local_30;
@@ -469,18 +473,18 @@ LAB_00a7ee6a:
         }
         local_e8 = (int *)((uint)local_e8 & 0xffffff00);
         local_58 = (uint)local_e0;
-        local_54 = uVar8;
+        local_54 = uVar7;
         UInt32PairMap_InsertUnique(param_3 + 8,&local_c0,&local_58,(uint)local_e8);
         FUN_0068bee0(param_3 + 0x10,local_30,local_70,local_50);
         FUN_0068bee0(param_3 + 0x10,local_30,local_70 + 0.01,local_50);
       }
       else {
-        uVar8 = (*ppuVar9)[1];
+        uVar7 = (*ppuVar9)[1];
         local_dc = pvVar11;
       }
       pvVar15 = (void *)((int)local_dc + (int)local_ec * 2);
       local_dc = (void *)((int)local_dc + 1);
-      local_98[(int)pvVar15] = (short)uVar8;
+      local_98[(int)pvVar15] = (short)uVar7;
     } while (local_dc < (void *)0x2);
     local_ec = (void *)((int)local_ec + 1);
   } while (local_ec < 2);

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01162b30 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01162b30 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.ThumbnailManager::ThumbnailManager_GenerateSculpture [assembly=ScriptCore
    token=0x06000185; outfitKey: Sims3.SimIFace.ResourceKey, callback: System.Delegate;
    return=System.Boolean]
@@ -20,6 +21,7 @@ void ScriptCore.ThumbnailManager::ThumbnailManager_GenerateSculpture(void)
   undefined4 *puVar3;
   uint uVar4;
   undefined8 uVar5;
+  undefined1 uStack00000004;
   undefined4 in_stack_00000014;
   int *piVar6;
   undefined **ppuStack_34;
@@ -45,7 +47,7 @@ void ScriptCore.ThumbnailManager::ThumbnailManager_GenerateSculpture(void)
       }
     }
     piVar6 = piVar2;
-    puVar3 = (undefined4 *)FUN_0076c0e0(&stack0x00000004,&uStack_30);
+    puVar3 = UIResourceKey_CopyManagedToNative(&uStack00000004,&uStack_30);
     uVar4 = FUN_00d5e670(puVar3,piVar6);
     if ((char)uVar4 != '\0') {
       (**(code **)(*piVar1 + 0x120))(uVar5,0xffffffff,in_stack_00000014,0);

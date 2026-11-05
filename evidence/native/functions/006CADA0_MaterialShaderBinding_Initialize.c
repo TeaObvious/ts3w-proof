@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: material binding initializer. Reads a material shader key, locates the precompiled
@@ -45,14 +45,14 @@ undefined4 __thiscall MaterialShaderBinding_Initialize(void *this,int *param_1,u
   uVar4 = param_2;
   uVar3 = FUN_00542290((int)piVar1);
   pvVar5 = (void *)FUN_0068f130((int)piVar1);
-  uVar4 = FUN_006ca560(this,pvVar5,uVar3,cVar6,uVar4);
-  if ((char)uVar4 != '\0') {
-    uVar4 = FUN_0056c070((int)piVar1);
-    *(undefined4 *)((int)this + 0x34) = uVar4;
-    *(int **)((int)this + 0x54) = piVar1;
-    uVar4 = (**(code **)*piVar1)();
-    return CONCAT31((int3)((uint)uVar4 >> 8),1);
+  uVar4 = MaterialShaderBinding_CopyMaterialPayload(this,pvVar5,uVar3,cVar6,uVar4);
+  if ((char)uVar4 == '\0') {
+    return uVar4;
   }
-  return uVar4;
+  uVar4 = AnimationRenderState_GetWorldMatrices((int)piVar1);
+  *(undefined4 *)((int)this + 0x34) = uVar4;
+  *(int **)((int)this + 0x54) = piVar1;
+  uVar4 = (**(code **)*piVar1)();
+  return CONCAT31((int3)((uint)uVar4 >> 8),1);
 }
 

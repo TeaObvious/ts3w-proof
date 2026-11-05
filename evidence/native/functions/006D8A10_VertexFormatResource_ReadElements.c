@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 model-resource instruction contract. thiscall
@@ -45,7 +45,7 @@ VertexFormatResource_ReadElements
     return false;
   }
   if ((char)swapWordFlag != '\0') {
-    FUN_007d3070(puVar9,uVar6 >> 2);
+    ResourceBytes_SwapDwordsInPlace(puVar9,uVar6 >> 2);
   }
   uVar1 = puVar9[3];
   if (0xffff < uVar1) {

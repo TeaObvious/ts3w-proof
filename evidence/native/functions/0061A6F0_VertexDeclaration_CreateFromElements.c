@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Function: __alloca_probe_16 replaced with injection: alloca_probe */
@@ -30,7 +30,10 @@ VertexDeclaration_CreateFromElements(void *this,NativeVertexElement8 *elements,i
   ushort *puVar6;
   undefined1 *puVar7;
   uint uVar8;
-  undefined1 *puVar9;
+  int iVar9;
+  undefined1 *puVar10;
+  int aiStackY_22c [128];
+  undefined2 uStack_6;
   
   uVar8 = 0;
   iVar3 = 0;
@@ -52,12 +55,11 @@ VertexDeclaration_CreateFromElements(void *this,NativeVertexElement8 *elements,i
     *(void **)((int)this + 0x20) = _Dst;
     memset(_Dst,0,(uVar8 + 1) * 4);
     iVar3 = -(_Size + 8);
-    puVar9 = &stack0xffffffec + iVar3;
     if (0 < signedCount) {
-      puVar7 = &stack0xfffffff0 + iVar3;
+      puVar7 = (undefined1 *)((int)aiStackY_22c + iVar3 + 0x21c);
       elements = (NativeVertexElement8 *)signedCount;
       do {
-        iVar5 = *(int *)((int)this + 0x18) + (-4 - (int)(&stack0xffffffec + iVar3));
+        iVar5 = *(int *)((int)this + 0x18) + (-4 - ((int)aiStackY_22c + iVar3 + 0x218));
         puVar6 = (ushort *)(puVar7 + iVar5);
         *(undefined2 *)(puVar7 + -4) = *(undefined2 *)(puVar7 + iVar5);
         *(ushort *)(puVar7 + -2) = puVar6[1];
@@ -74,44 +76,46 @@ VertexDeclaration_CreateFromElements(void *this,NativeVertexElement8 *elements,i
         elements = (NativeVertexElement8 *)&elements[-1].usageIndex;
       } while (elements != (NativeVertexElement8 *)0x0);
     }
-    puVar7 = &stack0xffffffec + iVar3;
-    *(undefined4 *)(puVar7 + _Size) = 0;
-    *(undefined4 *)(puVar7 + _Size + 4) = 0;
-    *(undefined2 *)(puVar7 + _Size) = 0xff;
-    puVar7[_Size + 4] = 0x11;
-    *(undefined4 *)(&stack0xffffffe8 + iVar3) = 0x61a827;
-    iVar5 = FUN_0060e910();
+    iVar9 = (int)aiStackY_22c + iVar3 + 0x218;
+    *(undefined4 *)(_Size + iVar9) = 0;
+    *(undefined4 *)(_Size + 4 + iVar9) = 0;
+    *(undefined2 *)(_Size + iVar9) = 0xff;
+    *(undefined1 *)(_Size + 4 + iVar9) = 0x11;
+    *(undefined4 *)((int)aiStackY_22c + iVar3 + 0x214) = 0x61a827;
+    iVar5 = Graphics_GetManagerSingleton();
     piVar1 = *(int **)(iVar5 + 0xc);
     pcVar2 = *(code **)(*piVar1 + 0x158);
     piVar4 = (int *)((int)this + 0x14);
-    *(int **)(&stack0xffffffe8 + iVar3) = piVar4;
-    *(undefined1 **)(&stack0xffffffe4 + iVar3) = puVar7;
-    *(int **)(&stack0xffffffe0 + iVar3) = piVar1;
-    *(undefined4 *)(&stack0xffffffdc + iVar3) = 0x61a83a;
-    iVar5 = (*pcVar2)(*(void **)(&stack0xffffffe0 + iVar3),*(void **)(&stack0xffffffe4 + iVar3),
-                      *(void **)(&stack0xffffffe8 + iVar3));
+    *(int **)((int)aiStackY_22c + iVar3 + 0x214) = piVar4;
+    *(int *)((int)aiStackY_22c + iVar3 + 0x210) = iVar9;
+    *(int **)((int)aiStackY_22c + iVar3 + 0x20c) = piVar1;
+    *(undefined4 *)((int)aiStackY_22c + iVar3 + 0x208) = 0x61a83a;
+    iVar5 = (*pcVar2)(*(void **)((int)aiStackY_22c + iVar3 + 0x20c),
+                      *(void **)((int)aiStackY_22c + iVar3 + 0x210),
+                      *(void **)((int)aiStackY_22c + iVar3 + 0x214));
     if (-1 < iVar5) {
-      *(undefined4 *)(&stack0xffffffe8 + iVar3) = 0x61a890;
+      *(undefined4 *)((int)aiStackY_22c + iVar3 + 0x214) = 0x61a890;
       FUN_006146e0((int)this + 8);
       return true;
     }
-    *(undefined4 *)(&stack0xffffffe8 + iVar3) = 0x61a846;
+    *(undefined4 *)((int)aiStackY_22c + iVar3 + 0x214) = 0x61a846;
     FUN_00614700((int)this + 8);
+    puVar10 = (undefined1 *)((int)aiStackY_22c + iVar3 + 0x218);
     if (*piVar4 != 0) {
-      *(void **)(&stack0xffffffe8 + iVar3) = this;
-      *(undefined4 *)(&stack0xffffffe4 + iVar3) = 0x61a858;
-      FUN_0060f620(DAT_011cfcc8,*(int *)(&stack0xffffffe8 + iVar3));
+      *(void **)((int)aiStackY_22c + iVar3 + 0x214) = this;
+      *(undefined4 *)((int)aiStackY_22c + iVar3 + 0x210) = 0x61a858;
+      FUN_0060f620(DAT_011cfcc8,*(int *)((int)aiStackY_22c + iVar3 + 0x214));
       pcVar2 = *(code **)(*(int *)*piVar4 + 8);
-      *(int **)(&stack0xffffffe8 + iVar3) = (int *)*piVar4;
-      puVar9 = &stack0xffffffe4 + iVar3;
-      *(undefined4 *)(&stack0xffffffe4 + iVar3) = 0x61a862;
+      *(int **)((int)aiStackY_22c + iVar3 + 0x214) = (int *)*piVar4;
+      puVar10 = (undefined1 *)((int)aiStackY_22c + iVar3 + 0x210);
+      *(undefined4 *)((int)aiStackY_22c + iVar3 + 0x210) = 0x61a862;
       (*pcVar2)();
       *piVar4 = 0;
     }
     if (*(int *)((int)this + 0x18) != 0) {
-      *(int *)(puVar9 + -4) = *(int *)((int)this + 0x18);
-      *(undefined4 *)(puVar9 + -8) = 0x61a877;
-      FUN_004e5e70(DAT_011cc864,*(int *)(puVar9 + -4));
+      *(int *)(puVar10 + -4) = *(int *)((int)this + 0x18);
+      *(undefined4 *)(puVar10 + -8) = 0x61a877;
+      FUN_004e5e70(DAT_011cc864,*(int *)(puVar10 + -4));
       *(undefined4 *)((int)this + 0x18) = 0;
       *(undefined4 *)((int)this + 0x20) = 0;
     }

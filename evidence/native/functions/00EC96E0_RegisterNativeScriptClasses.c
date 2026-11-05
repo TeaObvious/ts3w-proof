@@ -1,12 +1,19 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
+/* Verified PC 1.67 registration path: General startup path calls class registrars including SACS;
+   class descriptor getters expose statically verified native registration tables. This is
+   instruction-level reachability; runtime activation was not observed in this static pass. Source:
+   evidence/bindings/consumer-trace.md. */
+
 
 
 /* Verified PC 1.67 registration path: General startup path calls class registrars including SACS;
    class descriptor getters expose statically verified native registration tables. This is
    instruction-level reachability; runtime activation was not observed in this static pass. Source:
-   evidence/bindings/consumer-trace.md. */
+   the canonical ASM/C pair for this function; TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3. */
 
 void __cdecl RegisterNativeScriptClasses(int *param_1)
 
@@ -40,7 +47,7 @@ void __cdecl RegisterNativeScriptClasses(int *param_1)
   FUN_00771130(param_1);
   FUN_00740630(param_1);
   FUN_007454e0(param_1);
-  FUN_0073a290(param_1);
+  AnimationScriptFunctions_Construct(param_1);
   FUN_00749830(param_1);
   FUN_0073c740(param_1);
   FUN_00777c30(param_1);

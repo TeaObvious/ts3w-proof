@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163440 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163440 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_CanSeeSkyFromPosImpl [assembly=ScriptCore token=0x0600078F; pos:
    Sims3.SimIFace.Vector3; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -26,11 +27,11 @@ ScriptCore.World::World_CanSeeSkyFromPosImpl(float param_1,float param_2,undefin
   float fStack_54;
   float local_50 [19];
   
-  iVar1 = FUN_00686e60();
+  iVar1 = CollisionService_GetGlobal();
   if (iVar1 == 0) {
     return false;
   }
-  fStack_6c = param_2 + DAT_00fbc934;
+  fStack_6c = param_2 + 30.0;
   local_60 = param_1;
   fStack_5c = param_2;
   uStack_58 = param_3;
@@ -38,7 +39,7 @@ ScriptCore.World::World_CanSeeSkyFromPosImpl(float param_1,float param_2,undefin
   local_70 = param_1;
   uStack_68 = param_3;
   fStack_64 = param_1;
-  uVar2 = FUN_00687390(&local_60,&local_70,0x10,local_50,'\x01');
+  uVar2 = CollisionService_QuerySegment(&local_60,&local_70,0x10,local_50,'\x01');
   return (bool)('\x01' - ((char)uVar2 != '\0'));
 }
 

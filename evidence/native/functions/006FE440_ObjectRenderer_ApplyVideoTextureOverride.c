@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -18,6 +17,7 @@ undefined4 __thiscall ObjectRenderer_ApplyVideoTextureOverride(void *this,uint p
   int *piVar1;
   void *this_00;
   int *piVar2;
+  undefined4 extraout_EAX;
   undefined4 uVar3;
   uint uVar4;
   int *piVar5;
@@ -43,7 +43,8 @@ undefined4 __thiscall ObjectRenderer_ApplyVideoTextureOverride(void *this,uint p
         }
       }
       (**(code **)(*piVar1 + 0x80))(piVar5,&DAT_00ffaf2c);
-      uVar3 = FUN_006dcc00(piVar1 + 0x84);
+      ModelBinding_ApplyMaterialToAvailableLod(piVar1 + 0x84);
+      uVar3 = extraout_EAX;
       if (piVar5 != (int *)0x0) {
         uVar3 = (**(code **)(*piVar5 + 4))();
       }

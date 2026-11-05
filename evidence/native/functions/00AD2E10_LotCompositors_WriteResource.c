@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original lot compositor writer: resource type 0x0563919E, group 0, decimal version 5, offset
@@ -21,14 +21,14 @@ LotCompositors_WriteResource
 
 {
   void *this_00;
-  int *piVar1;
+  uint *puVar1;
   int iVar2;
-  uint *puVar3;
-  bool bVar4;
-  byte bVar5;
-  char cVar6;
+  bool bVar3;
+  byte bVar4;
+  char cVar5;
   uint offset;
-  uint uVar7;
+  uint uVar6;
+  uint *puVar7;
   int *piVar8;
   uint *puVar9;
   uint local_10;
@@ -42,81 +42,84 @@ LotCompositors_WriteResource
   local_10 = arg2;
   local_8 = 0x563919e;
   local_4 = 0;
-  bVar4 = ResourceStreamContext_OpenWrite(arg0,&local_10,1);
-  if (!bVar4) {
+  bVar3 = ResourceStreamContext_OpenWrite(arg0,&local_10,1);
+  if (!bVar3) {
     return 1;
   }
-  bVar5 = Stream_WriteUInt32(*(void **)(arg0 + 8),5,*(uint *)(arg0 + 0x10));
-  StreamReader_AccumulateStatus(arg0,bVar5);
+  bVar4 = Stream_WriteUInt32(*(void **)(arg0 + 8),5,*(uint *)(arg0 + 0x10));
+  StreamReader_AccumulateStatus(arg0,bVar4);
   offset = (**(code **)(**(int **)(arg0 + 8) + 0x24))((undefined *)*(int **)(arg0 + 8),0);
-  bVar5 = Stream_WriteUInt32(*(void **)(arg0 + 8),0,*(uint *)(arg0 + 0x10));
-  StreamReader_AccumulateStatus(arg0,bVar5);
-  bVar5 = Stream_WriteUInt32(*(void **)(arg0 + 8),*(uint *)((int)this + 0xc),*(uint *)(arg0 + 0x10))
+  bVar4 = Stream_WriteUInt32(*(void **)(arg0 + 8),0,*(uint *)(arg0 + 0x10));
+  StreamReader_AccumulateStatus(arg0,bVar4);
+  bVar4 = Stream_WriteUInt32(*(void **)(arg0 + 8),*(uint *)((int)this + 0xc),*(uint *)(arg0 + 0x10))
   ;
-  StreamReader_AccumulateStatus(arg0,bVar5);
-  piVar1 = *(int **)((int)this + 4);
-  puVar9 = (uint *)*piVar1;
-  piVar8 = piVar1;
+  StreamReader_AccumulateStatus(arg0,bVar4);
+  puVar1 = *(uint **)((int)this + 4);
+  puVar9 = (uint *)*puVar1;
+  puVar7 = puVar1;
   if (puVar9 == (uint *)0x0) {
-    piVar8 = piVar1 + 1;
-    iVar2 = piVar1[1];
-    while (iVar2 == 0) {
-      piVar8 = piVar8 + 1;
-      iVar2 = *piVar8;
+    puVar7 = puVar1 + 1;
+    uVar6 = puVar1[1];
+    while (uVar6 == 0) {
+      puVar7 = puVar7 + 1;
+      uVar6 = *puVar7;
     }
-    puVar9 = (uint *)*piVar8;
+    puVar9 = (uint *)*puVar7;
   }
-  puVar3 = (uint *)piVar1[*(int *)((int)this + 8)];
-  while (puVar9 != puVar3) {
-    uVar7 = thunk_FUN_007d7070(arg1,puVar9,1);
-    bVar5 = Stream_WriteUInt16(*(void **)(arg0 + 8),(ushort)uVar7,*(uint *)(arg0 + 0x10));
-    StreamReader_AccumulateStatus(arg0,bVar5);
-    uVar7 = TextureCompositor_WriteObjectEnvelope
-                      (*(int **)(arg0 + 8),(void *)puVar9[5],this_00,(int)arg1);
-    if ((char)uVar7 == '\0') goto LAB_00ad2ff5;
-    for (puVar9 = (uint *)puVar9[6]; puVar9 == (uint *)0x0; puVar9 = (uint *)*puVar9) {
-      puVar9 = (uint *)(piVar8 + 1);
-      piVar8 = piVar8 + 1;
-    }
+  puVar1 = (uint *)puVar1[*(int *)((int)this + 8)];
+  if (puVar9 != puVar1) {
+    do {
+      uVar6 = ResourceReferences_RegisterKey(arg1,puVar9,1);
+      bVar4 = Stream_WriteUInt16(*(void **)(arg0 + 8),(ushort)uVar6,*(uint *)(arg0 + 0x10));
+      StreamReader_AccumulateStatus(arg0,bVar4);
+      uVar6 = TextureCompositor_WriteObjectEnvelope
+                        (*(int **)(arg0 + 8),(void *)puVar9[5],this_00,(int)arg1);
+      if ((char)uVar6 == '\0') goto LAB_00ad2ff5;
+      for (puVar9 = (uint *)puVar9[6]; puVar9 == (uint *)0x0; puVar9 = (uint *)*puVar9) {
+        puVar9 = puVar7 + 1;
+        puVar7 = puVar7 + 1;
+      }
+    } while (puVar9 != puVar1);
   }
-  bVar5 = Stream_WriteUInt32(*(void **)(arg0 + 8),*(uint *)((int)this + 0x2c),*(uint *)(arg0 + 0x10)
+  bVar4 = Stream_WriteUInt32(*(void **)(arg0 + 8),*(uint *)((int)this + 0x2c),*(uint *)(arg0 + 0x10)
                             );
-  StreamReader_AccumulateStatus(arg0,bVar5);
+  StreamReader_AccumulateStatus(arg0,bVar4);
   piVar8 = *(int **)((int)this + 0x24);
-  puVar9 = (uint *)*piVar8;
-  if (puVar9 == (uint *)0x0) {
+  puVar7 = (uint *)*piVar8;
+  if (puVar7 == (uint *)0x0) {
     piVar8 = piVar8 + 1;
     iVar2 = *piVar8;
     while (iVar2 == 0) {
       piVar8 = piVar8 + 1;
       iVar2 = *piVar8;
     }
-    puVar9 = (uint *)*piVar8;
+    puVar7 = (uint *)*piVar8;
   }
-  puVar3 = *(uint **)(*(int *)((int)this + 0x24) + *(int *)((int)this + 0x28) * 4);
-  while (puVar9 != puVar3) {
-    uVar7 = thunk_FUN_007d7070(arg1,puVar9,1);
-    bVar5 = Stream_WriteUInt16(*(void **)(arg0 + 8),(ushort)uVar7,*(uint *)(arg0 + 0x10));
-    StreamReader_AccumulateStatus(arg0,bVar5);
-    cVar6 = Preset_WriteContextEnvelope(arg0,(void *)puVar9[5],arg1);
-    if (cVar6 == '\0') goto LAB_00ad2ff5;
-    for (puVar9 = (uint *)puVar9[6]; puVar9 == (uint *)0x0; puVar9 = (uint *)*puVar9) {
-      puVar9 = (uint *)(piVar8 + 1);
+  puVar9 = *(uint **)(*(int *)((int)this + 0x24) + *(int *)((int)this + 0x28) * 4);
+  while (puVar7 != puVar9) {
+    uVar6 = ResourceReferences_RegisterKey(arg1,puVar7,1);
+    bVar4 = Stream_WriteUInt16(*(void **)(arg0 + 8),(ushort)uVar6,*(uint *)(arg0 + 0x10));
+    StreamReader_AccumulateStatus(arg0,bVar4);
+    cVar5 = Preset_WriteContextEnvelope(arg0,(void *)puVar7[5],arg1);
+    if (cVar5 == '\0') goto LAB_00ad2ff5;
+    for (puVar7 = (uint *)puVar7[6]; puVar7 == (uint *)0x0; puVar7 = (uint *)*puVar7) {
+      puVar7 = (uint *)(piVar8 + 1);
       piVar8 = piVar8 + 1;
     }
   }
-  uVar7 = (**(code **)(**(int **)(arg0 + 8) + 0x24))((undefined *)*(int **)(arg0 + 8),0);
-  if ((uVar7 != 0xffffffff) &&
-     (bVar5 = (**(code **)(**(int **)(arg0 + 8) + 0x28))((undefined *)*(int **)(arg0 + 8),offset,0),
-     bVar5 != 0)) {
-    bVar5 = Stream_WriteUInt32(*(void **)(arg0 + 8),uVar7,*(uint *)(arg0 + 0x10));
-    StreamReader_AccumulateStatus(arg0,bVar5);
-    bVar5 = (**(code **)(**(int **)(arg0 + 8) + 0x28))((undefined *)*(int **)(arg0 + 8),uVar7,0);
-    if (bVar5 != 0) goto LAB_00ad3062;
+  uVar6 = (**(code **)(**(int **)(arg0 + 8) + 0x24))((undefined *)*(int **)(arg0 + 8),0);
+  if ((uVar6 != 0xffffffff) &&
+     (bVar4 = (**(code **)(**(int **)(arg0 + 8) + 0x28))((undefined *)*(int **)(arg0 + 8),offset,0),
+     bVar4 != 0)) {
+    bVar4 = Stream_WriteUInt32(*(void **)(arg0 + 8),uVar6,*(uint *)(arg0 + 0x10));
+    StreamReader_AccumulateStatus(arg0,bVar4);
+    bVar4 = (**(code **)(**(int **)(arg0 + 8) + 0x28))((undefined *)*(int **)(arg0 + 8),uVar6,0);
+    if (bVar4 != 0) goto LAB_00ad3062;
   }
   arg0[0x14] = 0;
 LAB_00ad3062:
-  if ((arg0[0x14] != '\0') && (cVar6 = FUN_00602d20(this_00,arg0), cVar6 != '\0')) {
+  if ((arg0[0x14] != '\0') && (bVar4 = SavedModelSharedSteps_Write(this_00,arg0,arg1), bVar4 != 0))
+  {
     ResourceStreamContext_Close(arg0);
     return 1;
   }

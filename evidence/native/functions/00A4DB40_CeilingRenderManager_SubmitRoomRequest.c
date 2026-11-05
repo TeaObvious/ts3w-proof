@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -15,16 +14,16 @@ void __fastcall CeilingRenderManager_SubmitRoomRequest(int param_1)
   undefined4 *puVar2;
   int *piVar3;
   
-  puVar2 = FUN_00adf150();
+  puVar2 = FloorMessagePool_AcquireStorage();
   if (puVar2 == (undefined4 *)0x0) {
     puVar2 = (undefined4 *)0x0;
   }
   else {
-    *puVar2 = &PTR_FUN_01065f8c;
+    *puVar2 = &PTR_DestroyPooledFloorMessage_01065f8c;
     LOCK();
     puVar2[1] = 0;
     UNLOCK();
-    *puVar2 = &PTR_FUN_01065f8c;
+    *puVar2 = &PTR_DestroyPooledFloorMessage_01065f8c;
   }
   iVar1 = *(int *)(param_1 + 0x18);
   puVar2[2] = *(undefined4 *)(iVar1 + 0x10);

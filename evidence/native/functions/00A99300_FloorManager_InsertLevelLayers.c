@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 selected added-level initialization contract: ECXmanager plus signedcount and lowbyte mode
@@ -32,21 +32,20 @@ void __thiscall FloorManager_InsertLevelLayers(void *this,int count,dword modeBi
   uint uVar5;
   int iVar6;
   undefined *puVar7;
-  void *pvVar8;
+  void *_Dst;
   undefined3 extraout_var;
-  float *pfVar9;
+  float *pfVar8;
+  int iVar9;
   int iVar10;
   int iVar11;
-  int iVar12;
-  void *pvVar13;
+  void *pvVar12;
   dword mode;
-  uint *puVar14;
-  void *pvVar15;
-  int iVar16;
-  int iVar17;
-  uint *puVar18;
-  float10 fVar19;
-  float fVar20;
+  uint *puVar13;
+  int iVar14;
+  int iVar15;
+  uint *puVar16;
+  float10 fVar17;
+  float fVar18;
   byte bStack_59;
   float fStack_58;
   float fStack_54;
@@ -60,41 +59,41 @@ void __thiscall FloorManager_InsertLevelLayers(void *this,int count,dword modeBi
   uint auStack_30 [12];
   
   mode = modeBits;
-  iVar17 = count;
+  iVar15 = count;
   (**(code **)(**(int **)((int)this + 0x2c) + 4))(*(int **)((int)this + 0x2c),count,modeBits,0);
-  (**(code **)(**(int **)((int)this + 0x30) + 4))(*(int **)((int)this + 0x30),iVar17,mode,0);
-  (**(code **)(**(int **)((int)this + 0xd0) + 4))(*(int **)((int)this + 0xd0),iVar17,mode,0);
-  (**(code **)(**(int **)((int)this + 0x24) + 4))(*(int **)((int)this + 0x24),iVar17,mode,0);
-  (**(code **)(**(int **)((int)this + 0x28) + 4))(*(int **)((int)this + 0x28),iVar17,mode,0);
+  (**(code **)(**(int **)((int)this + 0x30) + 4))(*(int **)((int)this + 0x30),iVar15,mode,0);
+  (**(code **)(**(int **)((int)this + 0xd0) + 4))(*(int **)((int)this + 0xd0),iVar15,mode,0);
+  (**(code **)(**(int **)((int)this + 0x24) + 4))(*(int **)((int)this + 0x24),iVar15,mode,0);
+  (**(code **)(**(int **)((int)this + 0x28) + 4))(*(int **)((int)this + 0x28),iVar15,mode,0);
   piVar1 = *(int **)((int)this + 0xd4);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 4))(piVar1,iVar17,mode,0);
+    (**(code **)(*piVar1 + 4))(piVar1,iVar15,mode,0);
   }
   piVar1 = *(int **)((int)this + 0x48);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 4))(piVar1,iVar17,mode,0);
+    (**(code **)(*piVar1 + 4))(piVar1,iVar15,mode,0);
   }
   piVar1 = *(int **)((int)this + 0x4c);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 4))(piVar1,iVar17,mode,0);
+    (**(code **)(*piVar1 + 4))(piVar1,iVar15,mode,0);
   }
-  if (0 < iVar17) {
-    pvVar13 = (void *)(-(uint)((char)mode != '\0') &
+  if (0 < iVar15) {
+    pvVar12 = (void *)(-(uint)((char)mode != '\0') &
                       (*(int *)((int)this + 0x14) - *(int *)((int)this + 0x10)) + 1U);
-    iVar17 = (int)pvVar13 + iVar17 + -1;
-    apvStack_48[0] = pvVar13;
-    iStack_40 = iVar17;
+    iVar15 = (int)pvVar12 + iVar15 + -1;
+    apvStack_48[0] = pvVar12;
+    iStack_40 = iVar15;
     uVar5 = FloorKeyMap_FindStorageIdOrZero(*(void **)((int)this + 0xd8),(undefined *)&DAT_011ec8e0)
     ;
     uVar2 = (undefined2)uVar5;
     fStack_38 = (float)CONCAT22(uVar2,uVar2);
     piStack_34 = (int *)CONCAT22(uVar2,uVar2);
-    FUN_00a974c0(*(void **)((int)this + 0x2c),(int)pvVar13,iVar17,&fStack_38);
-    if (iVar17 < (int)pvVar13) {
+    FUN_00a974c0(*(void **)((int)this + 0x2c),(int)pvVar12,iVar15,&fStack_38);
+    if (iVar15 < (int)pvVar12) {
       iVar6 = 0;
     }
     else {
-      iVar6 = (iVar17 - (int)pvVar13) + 1;
+      iVar6 = (iVar15 - (int)pvVar12) + 1;
     }
     pvStack_4c = *(void **)((int)this + 0xd8);
     uVar5 = (*(int *)((int)this + 0xc) + 1) * (*(int *)((int)this + 8) + 1) * iVar6 * 4;
@@ -104,7 +103,7 @@ void __thiscall FloorManager_InsertLevelLayers(void *this,int count,dword modeBi
       *(uint *)(puVar7 + 4) = *(int *)(puVar7 + 4) + (uVar5 - 1);
     }
     if (*(void **)((int)this + 0x48) != (void *)0x0) {
-      FUN_00a974c0(*(void **)((int)this + 0x48),(int)pvVar13,iVar17,&fStack_38);
+      FUN_00a974c0(*(void **)((int)this + 0x48),(int)pvVar12,iVar15,&fStack_38);
       pvStack_4c = *(void **)((int)this + 0xd8);
       if ((uVar5 != 0) &&
          (FloorKeyMap_AddReference(pvStack_4c,(undefined *)&DAT_011ec8e0), 1 < uVar5)) {
@@ -114,261 +113,256 @@ void __thiscall FloorManager_InsertLevelLayers(void *this,int count,dword modeBi
     }
     if (*(void **)((int)this + 0x4c) != (void *)0x0) {
       bStack_59 = 0;
-      FUN_00a971a0(*(void **)((int)this + 0x4c),(int)pvVar13,iVar17,&bStack_59);
+      FUN_00a971a0(*(void **)((int)this + 0x4c),(int)pvVar12,iVar15,&bStack_59);
     }
     bStack_59 = 0;
-    FUN_00a971a0(*(void **)((int)this + 0x30),(int)pvVar13,iVar17,&bStack_59);
+    FUN_00a971a0(*(void **)((int)this + 0x30),(int)pvVar12,iVar15,&bStack_59);
     bStack_59 = 0;
-    FUN_00a971a0(*(void **)((int)this + 0xd0),(int)pvVar13,iVar17,&bStack_59);
+    FUN_00a971a0(*(void **)((int)this + 0xd0),(int)pvVar12,iVar15,&bStack_59);
     iVar6 = *(int *)((int)this + 0x28);
-    iVar12 = *(int *)(iVar6 + 8) * *(int *)(iVar6 + 4);
-    pvVar8 = (void *)(iVar12 * (int)pvVar13 + *(int *)(iVar6 + 0x10));
-    memset(pvVar8,0xf,((iVar17 + 1) * iVar12 - (int)pvVar8) + *(int *)(iVar6 + 0x10));
+    iVar11 = *(int *)(iVar6 + 8) * *(int *)(iVar6 + 4);
+    _Dst = (void *)(iVar11 * (int)pvVar12 + *(int *)(iVar6 + 0x10));
+    memset(_Dst,0xf,((iVar15 + 1) * iVar11 - (int)_Dst) + *(int *)(iVar6 + 0x10));
     if (*(void **)((int)this + 0xd4) != (void *)0x0) {
       bStack_59 = 0;
-      FUN_00a971a0(*(void **)((int)this + 0xd4),(int)pvVar13,iVar17,&bStack_59);
+      FUN_00a971a0(*(void **)((int)this + 0xd4),(int)pvVar12,iVar15,&bStack_59);
     }
-    fVar19 = Lot_GetLocalSeaLevel(*(int **)((int)this + 4));
-    fStack_38 = (float)fVar19;
+    fVar17 = Lot_GetLocalSeaLevel(*(int **)((int)this + 4));
+    fStack_38 = (float)fVar17;
     bStack_59 = *(byte *)(*(int *)((int)this + 4) + 0x4b0);
-    uVar4 = FUN_00ab0590(*(int *)((int)this + 4));
+    uVar4 = Lot_IsCommercialDivingLot(*(int *)((int)this + 4));
     fVar3 = fStack_38;
     pvStack_50 = (void *)CONCAT31(extraout_var,uVar4);
     iVar6 = 0;
-    mode = modeBits;
     if (-1 < *(int *)((int)this + 8)) {
       do {
-        iVar12 = 0;
+        iVar11 = 0;
         if (-1 < *(int *)((int)this + 0xc)) {
-          fStack_38 = (float)((iVar17 - (int)pvVar13) + 1);
-          pvVar8 = pvVar13;
+          fStack_38 = (float)((iVar15 - (int)pvVar12) + 1);
           do {
             if ((char)modeBits == '\0') {
-              iVar10 = iVar17;
-              iVar16 = iVar17;
+              iVar9 = iVar15;
+              iVar14 = iVar15;
               if (3 < (int)fStack_38) {
-                pvStack_4c = (void *)(iVar17 + -1);
+                pvStack_4c = (void *)(iVar15 + -1);
                 do {
-                  iVar10 = *(int *)((int)this + 0x24);
-                  *(float *)(*(int *)(iVar10 + 0x10) +
-                            ((*(int *)(iVar10 + 4) * iVar17 + iVar6) * *(int *)(iVar10 + 8) + iVar12
-                            ) * 4) =
-                       *(float *)(*(int *)(iVar10 + 0x10) +
-                                 ((((int)pvStack_4c + 2) * *(int *)(iVar10 + 4) + iVar6) *
-                                  *(int *)(iVar10 + 8) + iVar12) * 4) - 3.0;
-                  iVar10 = *(int *)((int)this + 0x24);
-                  *(float *)(*(int *)(iVar10 + 0x10) +
-                            ((*(int *)(iVar10 + 4) * (int)pvStack_4c + iVar6) * *(int *)(iVar10 + 8)
-                            + iVar12) * 4) =
-                       *(float *)(*(int *)(iVar10 + 0x10) +
-                                 ((*(int *)(iVar10 + 4) * iVar17 + iVar6) * *(int *)(iVar10 + 8) +
-                                 iVar12) * 4) - 3.0;
-                  iVar10 = *(int *)((int)this + 0x24);
-                  *(float *)(*(int *)(iVar10 + 0x10) +
-                            ((*(int *)(iVar10 + 4) * ((int)pvStack_4c + -1) + iVar6) *
-                             *(int *)(iVar10 + 8) + iVar12) * 4) =
-                       *(float *)(*(int *)(iVar10 + 0x10) +
-                                 ((*(int *)(iVar10 + 4) * (int)pvStack_4c + iVar6) *
-                                  *(int *)(iVar10 + 8) + iVar12) * 4) - 3.0;
-                  iVar10 = *(int *)((int)this + 0x24);
-                  *(float *)(*(int *)(iVar10 + 0x10) +
-                            ((((int)pvStack_4c + -2) * *(int *)(iVar10 + 4) + iVar6) *
-                             *(int *)(iVar10 + 8) + iVar12) * 4) =
-                       *(float *)(*(int *)(iVar10 + 0x10) +
-                                 ((*(int *)(iVar10 + 4) * ((int)pvStack_4c + -1) + iVar6) *
-                                  *(int *)(iVar10 + 8) + iVar12) * 4) - 3.0;
-                  iVar17 = iVar17 + -4;
+                  iVar9 = *(int *)((int)this + 0x24);
+                  *(float *)(*(int *)(iVar9 + 0x10) +
+                            ((*(int *)(iVar9 + 4) * iVar15 + iVar6) * *(int *)(iVar9 + 8) + iVar11)
+                            * 4) =
+                       *(float *)(*(int *)(iVar9 + 0x10) +
+                                 ((((int)pvStack_4c + 2) * *(int *)(iVar9 + 4) + iVar6) *
+                                  *(int *)(iVar9 + 8) + iVar11) * 4) - 3.0;
+                  iVar9 = *(int *)((int)this + 0x24);
+                  *(float *)(*(int *)(iVar9 + 0x10) +
+                            ((*(int *)(iVar9 + 4) * (int)pvStack_4c + iVar6) * *(int *)(iVar9 + 8) +
+                            iVar11) * 4) =
+                       *(float *)(*(int *)(iVar9 + 0x10) +
+                                 ((*(int *)(iVar9 + 4) * iVar15 + iVar6) * *(int *)(iVar9 + 8) +
+                                 iVar11) * 4) - 3.0;
+                  iVar9 = *(int *)((int)this + 0x24);
+                  *(float *)(*(int *)(iVar9 + 0x10) +
+                            ((*(int *)(iVar9 + 4) * ((int)pvStack_4c + -1) + iVar6) *
+                             *(int *)(iVar9 + 8) + iVar11) * 4) =
+                       *(float *)(*(int *)(iVar9 + 0x10) +
+                                 ((*(int *)(iVar9 + 4) * (int)pvStack_4c + iVar6) *
+                                  *(int *)(iVar9 + 8) + iVar11) * 4) - 3.0;
+                  iVar9 = *(int *)((int)this + 0x24);
+                  *(float *)(*(int *)(iVar9 + 0x10) +
+                            ((((int)pvStack_4c + -2) * *(int *)(iVar9 + 4) + iVar6) *
+                             *(int *)(iVar9 + 8) + iVar11) * 4) =
+                       *(float *)(*(int *)(iVar9 + 0x10) +
+                                 ((*(int *)(iVar9 + 4) * ((int)pvStack_4c + -1) + iVar6) *
+                                  *(int *)(iVar9 + 8) + iVar11) * 4) - 3.0;
+                  iVar15 = iVar15 + -4;
                   pvStack_4c = (void *)((int)pvStack_4c + -4);
-                  pvVar8 = apvStack_48[0];
-                  iVar10 = iStack_40;
-                  iVar16 = iVar17;
-                } while ((int)apvStack_48[0] + 3 <= iVar17);
+                } while ((int)apvStack_48[0] + 3 <= iVar15);
+                pvVar12 = apvStack_48[0];
+                iVar9 = iStack_40;
+                iVar14 = iVar15;
               }
-              pvVar13 = pvVar8;
-              iVar17 = iVar10;
-              if ((int)pvVar8 <= iVar16) {
-                pvStack_4c = (void *)(iVar16 + 1);
+              iVar15 = iVar9;
+              if ((int)pvVar12 <= iVar14) {
+                pvStack_4c = (void *)(iVar14 + 1);
                 do {
-                  iVar17 = *(int *)((int)this + 0x24);
-                  iVar10 = *(int *)(iVar17 + 4) * (int)pvStack_4c;
+                  iVar15 = *(int *)((int)this + 0x24);
+                  iVar9 = *(int *)(iVar15 + 4) * (int)pvStack_4c;
                   pvStack_4c = (void *)((int)pvStack_4c + -1);
-                  iVar11 = *(int *)(iVar17 + 4) * iVar16;
-                  iVar16 = iVar16 + -1;
-                  *(float *)(*(int *)(iVar17 + 0x10) +
-                            ((iVar11 + iVar6) * *(int *)(iVar17 + 8) + iVar12) * 4) =
-                       *(float *)(*(int *)(iVar17 + 0x10) +
-                                 ((iVar10 + iVar6) * *(int *)(iVar17 + 8) + iVar12) * 4) - 3.0;
-                  pvVar13 = apvStack_48[0];
-                  iVar17 = iStack_40;
-                } while ((int)apvStack_48[0] <= iVar16);
+                  iVar10 = *(int *)(iVar15 + 4) * iVar14;
+                  iVar14 = iVar14 + -1;
+                  *(float *)(*(int *)(iVar15 + 0x10) +
+                            ((iVar10 + iVar6) * *(int *)(iVar15 + 8) + iVar11) * 4) =
+                       *(float *)(*(int *)(iVar15 + 0x10) +
+                                 ((iVar9 + iVar6) * *(int *)(iVar15 + 8) + iVar11) * 4) - 3.0;
+                } while ((int)apvStack_48[0] <= iVar14);
+                pvVar12 = apvStack_48[0];
+                iVar15 = iStack_40;
               }
             }
             else {
-              pvVar13 = pvVar8;
+              pvStack_4c = pvVar12;
               if (3 < (int)fStack_38) {
-                pvVar15 = (void *)((int)pvVar8 + 1);
-                pvStack_4c = pvVar8;
+                pvVar12 = (void *)((int)pvVar12 + 1);
                 do {
-                  iVar17 = *(int *)((int)this + 0x24);
-                  fVar20 = *(float *)(*(int *)(iVar17 + 0x10) +
-                                     ((*(int *)(iVar17 + 4) * ((int)pvVar15 + -2) + iVar6) *
-                                      *(int *)(iVar17 + 8) + iVar12) * 4);
-                  if (((bStack_59 == 0) || ((void *)((int)pvVar15 + -2) != pvStack_50)) ||
-                     (fVar3 <= fVar20)) {
-                    fVar20 = fVar20 + 3.0;
+                  iVar15 = *(int *)((int)this + 0x24);
+                  fVar18 = *(float *)(*(int *)(iVar15 + 0x10) +
+                                     ((*(int *)(iVar15 + 4) * ((int)pvVar12 + -2) + iVar6) *
+                                      *(int *)(iVar15 + 8) + iVar11) * 4);
+                  if (((bStack_59 == 0) || ((void *)((int)pvVar12 + -2) != pvStack_50)) ||
+                     (fVar3 <= fVar18)) {
+                    fVar18 = fVar18 + 3.0;
                   }
                   else {
                     fStack_58 = fVar3 + 0.75;
-                    fStack_54 = fVar20 + 3.0;
-                    pfVar9 = &fStack_58;
-                    if (fVar3 + 0.75 <= fVar20 + 3.0) {
-                      pfVar9 = &fStack_54;
+                    fStack_54 = fVar18 + 3.0;
+                    pfVar8 = &fStack_58;
+                    if (fVar3 + 0.75 <= fVar18 + 3.0) {
+                      pfVar8 = &fStack_54;
                     }
-                    fVar20 = *pfVar9;
+                    fVar18 = *pfVar8;
                   }
-                  *(float *)(*(int *)(iVar17 + 0x10) +
-                            ((*(int *)(iVar17 + 4) * (int)pvStack_4c + iVar6) * *(int *)(iVar17 + 8)
-                            + iVar12) * 4) = fVar20;
-                  iVar17 = *(int *)((int)this + 0x24);
-                  fVar20 = *(float *)(*(int *)(iVar17 + 0x10) +
-                                     ((*(int *)(iVar17 + 4) * (int)pvStack_4c + iVar6) *
-                                      *(int *)(iVar17 + 8) + iVar12) * 4);
-                  if (((bStack_59 == 0) || (pvStack_4c != pvStack_50)) || (fVar3 <= fVar20)) {
-                    fVar20 = fVar20 + 3.0;
+                  *(float *)(*(int *)(iVar15 + 0x10) +
+                            ((*(int *)(iVar15 + 4) * (int)pvStack_4c + iVar6) * *(int *)(iVar15 + 8)
+                            + iVar11) * 4) = fVar18;
+                  iVar15 = *(int *)((int)this + 0x24);
+                  fVar18 = *(float *)(*(int *)(iVar15 + 0x10) +
+                                     ((*(int *)(iVar15 + 4) * (int)pvStack_4c + iVar6) *
+                                      *(int *)(iVar15 + 8) + iVar11) * 4);
+                  if (((bStack_59 == 0) || (pvStack_4c != pvStack_50)) || (fVar3 <= fVar18)) {
+                    fVar18 = fVar18 + 3.0;
                   }
                   else {
                     fStack_58 = fVar3 + 0.75;
-                    fStack_54 = fVar20 + 3.0;
-                    pfVar9 = &fStack_58;
-                    if (fVar3 + 0.75 <= fVar20 + 3.0) {
-                      pfVar9 = &fStack_54;
+                    fStack_54 = fVar18 + 3.0;
+                    pfVar8 = &fStack_58;
+                    if (fVar3 + 0.75 <= fVar18 + 3.0) {
+                      pfVar8 = &fStack_54;
                     }
-                    fVar20 = *pfVar9;
+                    fVar18 = *pfVar8;
                   }
-                  *(float *)(*(int *)(iVar17 + 0x10) +
-                            ((*(int *)(iVar17 + 4) * (int)pvVar15 + iVar6) * *(int *)(iVar17 + 8) +
-                            iVar12) * 4) = fVar20;
-                  iVar17 = *(int *)((int)this + 0x24);
-                  fVar20 = *(float *)(*(int *)(iVar17 + 0x10) +
-                                     ((*(int *)(iVar17 + 4) * (int)pvVar15 + iVar6) *
-                                      *(int *)(iVar17 + 8) + iVar12) * 4);
-                  if (((bStack_59 == 0) || (pvVar15 != pvStack_50)) || (fVar3 <= fVar20)) {
-                    fVar20 = fVar20 + 3.0;
+                  *(float *)(*(int *)(iVar15 + 0x10) +
+                            ((*(int *)(iVar15 + 4) * (int)pvVar12 + iVar6) * *(int *)(iVar15 + 8) +
+                            iVar11) * 4) = fVar18;
+                  iVar15 = *(int *)((int)this + 0x24);
+                  fVar18 = *(float *)(*(int *)(iVar15 + 0x10) +
+                                     ((*(int *)(iVar15 + 4) * (int)pvVar12 + iVar6) *
+                                      *(int *)(iVar15 + 8) + iVar11) * 4);
+                  if (((bStack_59 == 0) || (pvVar12 != pvStack_50)) || (fVar3 <= fVar18)) {
+                    fVar18 = fVar18 + 3.0;
                   }
                   else {
                     fStack_58 = fVar3 + 0.75;
-                    fStack_54 = fVar20 + 3.0;
-                    pfVar9 = &fStack_58;
-                    if (fVar3 + 0.75 <= fVar20 + 3.0) {
-                      pfVar9 = &fStack_54;
+                    fStack_54 = fVar18 + 3.0;
+                    pfVar8 = &fStack_58;
+                    if (fVar3 + 0.75 <= fVar18 + 3.0) {
+                      pfVar8 = &fStack_54;
                     }
-                    fVar20 = *pfVar9;
+                    fVar18 = *pfVar8;
                   }
-                  *(float *)(*(int *)(iVar17 + 0x10) +
-                            ((*(int *)(iVar17 + 4) * ((int)pvVar15 + 1) + iVar6) *
-                             *(int *)(iVar17 + 8) + iVar12) * 4) = fVar20;
-                  iVar17 = *(int *)((int)this + 0x24);
-                  fVar20 = *(float *)(*(int *)(iVar17 + 0x10) +
-                                     ((*(int *)(iVar17 + 4) * ((int)pvVar15 + 1) + iVar6) *
-                                      *(int *)(iVar17 + 8) + iVar12) * 4);
-                  if (((bStack_59 == 0) || ((void *)((int)pvVar15 + 1) != pvStack_50)) ||
-                     (fVar3 <= fVar20)) {
-                    fVar20 = fVar20 + 3.0;
+                  *(float *)(*(int *)(iVar15 + 0x10) +
+                            ((*(int *)(iVar15 + 4) * ((int)pvVar12 + 1) + iVar6) *
+                             *(int *)(iVar15 + 8) + iVar11) * 4) = fVar18;
+                  iVar15 = *(int *)((int)this + 0x24);
+                  fVar18 = *(float *)(*(int *)(iVar15 + 0x10) +
+                                     ((*(int *)(iVar15 + 4) * ((int)pvVar12 + 1) + iVar6) *
+                                      *(int *)(iVar15 + 8) + iVar11) * 4);
+                  if (((bStack_59 == 0) || ((void *)((int)pvVar12 + 1) != pvStack_50)) ||
+                     (fVar3 <= fVar18)) {
+                    fVar18 = fVar18 + 3.0;
                   }
                   else {
                     fStack_58 = fVar3 + 0.75;
-                    fStack_54 = fVar20 + 3.0;
-                    pfVar9 = &fStack_58;
-                    if (fVar3 + 0.75 <= fVar20 + 3.0) {
-                      pfVar9 = &fStack_54;
+                    fStack_54 = fVar18 + 3.0;
+                    pfVar8 = &fStack_58;
+                    if (fVar3 + 0.75 <= fVar18 + 3.0) {
+                      pfVar8 = &fStack_54;
                     }
-                    fVar20 = *pfVar9;
+                    fVar18 = *pfVar8;
                   }
-                  *(float *)(*(int *)(iVar17 + 0x10) +
-                            ((((int)pvVar15 + 2) * *(int *)(iVar17 + 4) + iVar6) *
-                             *(int *)(iVar17 + 8) + iVar12) * 4) = fVar20;
-                  pvVar8 = (void *)((int)pvStack_4c + 4);
-                  pvVar15 = (void *)((int)pvVar15 + 4);
-                  pvVar13 = apvStack_48[0];
-                  iVar17 = iStack_40;
-                  pvStack_4c = pvVar8;
-                } while ((int)pvVar8 <= iStack_40 + -3);
+                  *(float *)(*(int *)(iVar15 + 0x10) +
+                            ((((int)pvVar12 + 2) * *(int *)(iVar15 + 4) + iVar6) *
+                             *(int *)(iVar15 + 8) + iVar11) * 4) = fVar18;
+                  pvStack_4c = (void *)((int)pvStack_4c + 4);
+                  pvVar12 = (void *)((int)pvVar12 + 4);
+                } while ((int)pvStack_4c <= iStack_40 + -3);
+                pvVar12 = apvStack_48[0];
+                iVar15 = iStack_40;
               }
-              pvStack_4c = pvVar8;
-              if ((int)pvVar8 <= iVar17) {
-                pvStack_4c = (void *)((int)pvVar8 + -1);
+              if ((int)pvStack_4c <= iVar15) {
+                pvVar12 = pvStack_4c;
+                pvStack_4c = (void *)((int)pvStack_4c + -1);
                 do {
-                  iVar17 = *(int *)((int)this + 0x24);
-                  fVar20 = *(float *)(*(int *)(iVar17 + 0x10) +
-                                     ((*(int *)(iVar17 + 4) * (int)pvStack_4c + iVar6) *
-                                      *(int *)(iVar17 + 8) + iVar12) * 4);
-                  if (((bStack_59 == 0) || (pvStack_4c != pvStack_50)) || (fVar3 <= fVar20)) {
-                    fVar20 = fVar20 + 3.0;
+                  iVar15 = *(int *)((int)this + 0x24);
+                  fVar18 = *(float *)(*(int *)(iVar15 + 0x10) +
+                                     ((*(int *)(iVar15 + 4) * (int)pvStack_4c + iVar6) *
+                                      *(int *)(iVar15 + 8) + iVar11) * 4);
+                  if (((bStack_59 == 0) || (pvStack_4c != pvStack_50)) || (fVar3 <= fVar18)) {
+                    fVar18 = fVar18 + 3.0;
                   }
                   else {
                     fStack_58 = fVar3 + 0.75;
-                    fStack_54 = fVar20 + 3.0;
-                    pfVar9 = &fStack_58;
-                    if (fVar3 + 0.75 <= fVar20 + 3.0) {
-                      pfVar9 = &fStack_54;
+                    fStack_54 = fVar18 + 3.0;
+                    pfVar8 = &fStack_58;
+                    if (fVar3 + 0.75 <= fVar18 + 3.0) {
+                      pfVar8 = &fStack_54;
                     }
-                    fVar20 = *pfVar9;
+                    fVar18 = *pfVar8;
                   }
                   pvStack_4c = (void *)((int)pvStack_4c + 1);
-                  *(float *)(*(int *)(iVar17 + 0x10) +
-                            ((*(int *)(iVar17 + 4) * (int)pvVar8 + iVar6) * *(int *)(iVar17 + 8) +
-                            iVar12) * 4) = fVar20;
-                  pvVar8 = (void *)((int)pvVar8 + 1);
-                  pvVar13 = apvStack_48[0];
-                  iVar17 = iStack_40;
-                } while ((int)pvVar8 <= iStack_40);
+                  *(float *)(*(int *)(iVar15 + 0x10) +
+                            ((*(int *)(iVar15 + 4) * (int)pvVar12 + iVar6) * *(int *)(iVar15 + 8) +
+                            iVar11) * 4) = fVar18;
+                  pvVar12 = (void *)((int)pvVar12 + 1);
+                } while ((int)pvVar12 <= iStack_40);
+                pvVar12 = apvStack_48[0];
+                iVar15 = iStack_40;
               }
             }
-            iVar12 = iVar12 + 1;
-            pvVar8 = pvVar13;
-          } while (iVar12 <= *(int *)((int)this + 0xc));
+            iVar11 = iVar11 + 1;
+          } while (iVar11 <= *(int *)((int)this + 0xc));
         }
         iVar6 = iVar6 + 1;
       } while (iVar6 <= *(int *)((int)this + 8));
     }
+    mode = modeBits;
   }
   *(undefined1 *)((int)this + 0x220) = 1;
   if (*(int *)((int)this + 0x160) != 0) {
-    pvVar13 = (void *)((int)this + 0x154);
+    pvVar12 = (void *)((int)this + 0x154);
     if ((char)mode == '\0') {
       if (count < 1) {
-        iVar17 = -count;
+        iVar15 = -count;
         iVar6 = 0;
-        if (0 < iVar17) {
+        if (0 < iVar15) {
           do {
             modeBits = *(int *)((int)this + 0x10) + iVar6;
-            FUN_00a668d0(pvVar13,&fStack_38,&modeBits);
+            FUN_00a668d0(pvVar12,&fStack_38,&modeBits);
             if (fStack_38 !=
                 *(float *)(*(int *)((int)this + 0x158) + *(int *)((int)this + 0x15c) * 4)) {
-              FUN_00a8b5d0(pvVar13,&iStack_40,(int)fStack_38,piStack_34);
+              FUN_00a8b5d0(pvVar12,&iStack_40,(int)fStack_38,piStack_34);
             }
             iVar6 = iVar6 + 1;
-          } while (iVar6 < iVar17);
+          } while (iVar6 < iVar15);
         }
       }
       else {
-        FUN_00a668d0(pvVar13,&fStack_38,(uint *)((int)this + 0x10));
-        iVar17 = count;
+        FUN_00a668d0(pvVar12,&fStack_38,(uint *)((int)this + 0x10));
+        iVar15 = count;
         if (fStack_38 != *(float *)(*(int *)((int)this + 0x158) + *(int *)((int)this + 0x15c) * 4))
         {
-          puVar14 = (uint *)((int)fStack_38 + 8);
-          puVar18 = auStack_30;
+          puVar13 = (uint *)((int)fStack_38 + 8);
+          puVar16 = auStack_30;
           for (iVar6 = 0xc; iVar6 != 0; iVar6 = iVar6 + -1) {
-            *puVar18 = *puVar14;
-            puVar14 = puVar14 + 1;
-            puVar18 = puVar18 + 1;
+            *puVar16 = *puVar13;
+            puVar13 = puVar13 + 1;
+            puVar16 = puVar16 + 1;
           }
           iVar6 = 1;
           if (0 < count) {
             do {
               FUN_00a91280(this,(char)*(uint *)((int)this + 0x10) - (char)iVar6,auStack_30,'\0');
               iVar6 = iVar6 + 1;
-            } while (iVar6 <= iVar17);
+            } while (iVar6 <= iVar15);
           }
         }
       }
@@ -376,29 +370,29 @@ void __thiscall FloorManager_InsertLevelLayers(void *this,int count,dword modeBi
     }
     if (count < 1) {
       fStack_38 = (float)-count;
-      iVar17 = 0;
+      iVar15 = 0;
       if (0 < (int)fStack_38) {
         do {
-          modeBits = *(int *)((int)this + 0x14) - iVar17;
-          FUN_00a668d0(pvVar13,&iStack_40,&modeBits);
+          modeBits = *(int *)((int)this + 0x14) - iVar15;
+          FUN_00a668d0(pvVar12,&iStack_40,&modeBits);
           if (iStack_40 != *(int *)(*(int *)((int)this + 0x158) + *(int *)((int)this + 0x15c) * 4))
           {
-            FUN_00a8b5d0(pvVar13,(int *)apvStack_48,iStack_40,piStack_3c);
+            FUN_00a8b5d0(pvVar12,(int *)apvStack_48,iStack_40,piStack_3c);
           }
-          iVar17 = iVar17 + 1;
-        } while (iVar17 < (int)fStack_38);
+          iVar15 = iVar15 + 1;
+        } while (iVar15 < (int)fStack_38);
       }
     }
     else {
-      FUN_00a668d0(pvVar13,&fStack_38,(uint *)((int)this + 0x14));
-      iVar17 = count;
+      FUN_00a668d0(pvVar12,&fStack_38,(uint *)((int)this + 0x14));
+      iVar15 = count;
       if (fStack_38 != *(float *)(*(int *)((int)this + 0x158) + *(int *)((int)this + 0x15c) * 4)) {
-        puVar14 = (uint *)((int)fStack_38 + 8);
-        puVar18 = auStack_30;
+        puVar13 = (uint *)((int)fStack_38 + 8);
+        puVar16 = auStack_30;
         for (iVar6 = 0xc; iVar6 != 0; iVar6 = iVar6 + -1) {
-          *puVar18 = *puVar14;
-          puVar14 = puVar14 + 1;
-          puVar18 = puVar18 + 1;
+          *puVar16 = *puVar13;
+          puVar13 = puVar13 + 1;
+          puVar16 = puVar16 + 1;
         }
         iVar6 = 1;
         if (0 < count) {
@@ -406,12 +400,12 @@ void __thiscall FloorManager_InsertLevelLayers(void *this,int count,dword modeBi
             FUN_00a91280(this,(char)*(undefined4 *)((int)this + 0x14) + (char)iVar6,auStack_30,'\0')
             ;
             iVar6 = iVar6 + 1;
-          } while (iVar6 <= iVar17);
+          } while (iVar6 <= iVar15);
         }
       }
     }
   }
-  iVar17 = count;
+  iVar15 = count;
   if ((char)mode != '\0') {
     *(int *)((int)this + 0x14) = *(int *)((int)this + 0x14) + count;
     if (count < 1) {
@@ -434,11 +428,11 @@ void __thiscall FloorManager_InsertLevelLayers(void *this,int count,dword modeBi
         FUN_00982420((void *)((int)this + 0x104),piVar1,&count);
       }
       iVar6 = iVar6 + 1;
-    } while (iVar6 < iVar17);
+    } while (iVar6 < iVar15);
     return;
   }
 LAB_00a99b5a:
-  iVar17 = count;
+  iVar15 = count;
   *(int *)((int)this + 0x10) = *(int *)((int)this + 0x10) - count;
   if ((0 < count) && (iVar6 = 0, 0 < count)) {
     do {
@@ -454,7 +448,7 @@ LAB_00a99b5a:
         FUN_00982420((void *)((int)this + 0x104),piVar1,&count);
       }
       iVar6 = iVar6 + 1;
-    } while (iVar6 < iVar17);
+    } while (iVar6 < iVar15);
   }
   return;
 }

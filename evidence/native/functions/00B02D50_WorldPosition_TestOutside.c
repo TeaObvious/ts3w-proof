@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original instruction review; analyst name. cdecl worldfloat3 pointer and low-byte mode,
@@ -38,15 +38,16 @@ bool __cdecl WorldPosition_TestOutside(float *param_1,char param_2)
   }
   fStack_18 = param_1[2];
   fStack_1c = param_1[1];
-  local_2c.x = DAT_00fab218;
-  local_2c.z = DAT_00fab218;
+  local_2c.x = -1.0;
+  local_2c.z = -1.0;
   local_20 = *param_1;
   local_2c.level = 0;
   fStack_14 = local_20;
   Lot_WorldPositionToPortalLocalXZLevel(lot,&local_20,&local_2c);
   if (param_2 == '\0') {
     if (*(void **)((int)lot + 0x2ac) == (void *)0x0) goto LAB_00b02e27;
-    uVar6 = FUN_00b94bb0(*(void **)((int)lot + 0x2ac),&local_2c.x,(LPCRITICAL_SECTION)0x0,'\0');
+    uVar6 = RoofManager_TestPointCoverage
+                      (*(void **)((int)lot + 0x2ac),&local_2c.x,(LPCRITICAL_SECTION)0x0,'\0');
     cVar2 = (char)uVar6;
   }
   else {
@@ -58,19 +59,16 @@ bool __cdecl WorldPosition_TestOutside(float *param_1,char param_2)
 LAB_00b02e27:
   this = *(void **)((int)lot + 0x298);
   iVar1 = *(int *)((int)lot + 0x180);
-  while( true ) {
-    if (iVar1 < local_2c.level) {
-      return true;
-    }
-    uVar4 = LotRoom_ResolveForLocalLocation(this,&local_2c.x,0,0);
-    if (uVar4 != 0) break;
-    sVar5 = LotRoom_ResolveForLocalLocation(this,&local_2c.x,1,0);
-    if (sVar5 == 0) {
-      return true;
-    }
-    local_2c.level = local_2c.level + 1;
+  if (local_2c.level <= iVar1) {
+    do {
+      uVar4 = LotRoom_ResolveForLocalLocation(this,&local_2c.x,0,0);
+      if (uVar4 != 0) {
+        bVar3 = LotRoom_TestOutsideClassification(this,(uint)uVar4,1);
+        return bVar3;
+      }
+      sVar5 = LotRoom_ResolveForLocalLocation(this,&local_2c.x,1,0);
+    } while ((sVar5 != 0) && (local_2c.level = local_2c.level + 1, local_2c.level <= iVar1));
   }
-  bVar3 = LotRoom_TestOutsideClassification(this,(uint)uVar4,1);
-  return bVar3;
+  return true;
 }
 

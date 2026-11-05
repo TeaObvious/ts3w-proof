@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst role, original PC1.67. Physical caller-cleaned four words/plain RET, low-byte status.
@@ -58,7 +58,7 @@ SimOutfit_ReadCachedRecord(void *param_1,void *param_2,int *param_3,undefined4 *
     uVar7 = 0;
     uStack_24 = 0;
     if (uStack_20 == 2) {
-      FUN_0056d0e0(param_1,(ushort *)&uStack_24);
+      ReadUInt16AndAccumulateStatus(param_1,(ushort *)&uStack_24);
     }
     else {
       StreamReader_ReadByteInto(param_1,&bStack_25);
@@ -71,8 +71,9 @@ SimOutfit_ReadCachedRecord(void *param_1,void *param_2,int *param_3,undefined4 *
         do {
           ReferenceStore_ReadHandle(param_2,param_1,(uint *)&pcStack_18);
           if ((*(char *)((int)param_1 + 0x14) == '\0') ||
-             (uVar6 = FUN_007d6b50(param_2,(uint *)&pcStack_18,
-                                   (undefined4 *)((uint)uVar7 * 0x10 + (int)apvStack_10[0])),
+             (uVar6 = ResourceReferences_ResolveWideHandle
+                                (param_2,(uint *)&pcStack_18,
+                                 (undefined4 *)((uint)uVar7 * 0x10 + (int)apvStack_10[0])),
              (char)uVar6 == '\0')) goto LAB_005eba6e;
           uVar7 = uVar7 + 1;
         } while (uVar7 < (ushort)uStack_24);

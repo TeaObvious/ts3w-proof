@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161c88 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161c88 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.RouteManager::RouteManager_AddPrivateFootprint [assembly=ScriptCore token=0x06001067;
    scriptHandle: System.UInt64, privateFootprintPointAry: System.Single[]&, numPoints: System.Int32,
    bAllowPlacementInWorld: System.Boolean; return=System.Boolean]
@@ -17,14 +18,15 @@ ScriptCore.RouteManager::RouteManager_AddPrivateFootprint
 
 {
   int *piVar1;
-  int iVar2;
+  void *this;
+  undefined4 *puVar2;
   undefined4 *puVar3;
-  undefined4 *puVar4;
-  int *piVar5;
-  undefined4 uVar6;
+  int *piVar4;
+  undefined4 uVar5;
   int unaff_EBX;
+  int iVar6;
   undefined4 *puStack_50;
-  int local_4c;
+  void *local_4c;
   undefined4 *local_48;
   undefined4 *local_44;
   undefined4 local_40;
@@ -38,90 +40,93 @@ ScriptCore.RouteManager::RouteManager_AddPrivateFootprint
   undefined4 uStack_20;
   
   piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
-  piVar5 = (int *)0x0;
+  piVar4 = (int *)0x0;
   if (piVar1 != (int *)0x0) {
-    iVar2 = FUN_00937570();
-    piVar5 = (int *)0x0;
-    if (iVar2 != 0) {
-      puVar3 = (undefined4 *)FUN_00937f80(iVar2);
-      if (puVar3 != (undefined4 *)0x0) {
+    this = ObjectRegistry_GetGlobal();
+    piVar4 = (int *)0x0;
+    if (this != (void *)0x0) {
+      puVar2 = ObjectRegistry_FindBorrowed(this,CONCAT44(param_2,param_1));
+      if (puVar2 != (undefined4 *)0x0) {
         LOCK();
-        puVar3[1] = puVar3[1] + 1;
+        puVar2[1] = puVar2[1] + 1;
         UNLOCK();
       }
-      puVar4 = (undefined4 *)thunk_FUN_00835d40();
-      piVar5 = (int *)0x0;
-      if (puVar3 != (undefined4 *)0x0) {
-        local_44 = puVar4;
-        if (puVar4 != (undefined4 *)0x0) {
+      puVar3 = (undefined4 *)thunk_FUN_00835d40();
+      piVar4 = (int *)0x0;
+      if (puVar2 != (undefined4 *)0x0) {
+        local_44 = puVar3;
+        if (puVar3 != (undefined4 *)0x0) {
           local_40 = 0;
           local_3c = 0;
           local_38 = 0;
-          local_4c = 0;
+          local_4c = (void *)0x0;
           local_48 = (undefined4 *)0x0;
           local_34 = "Routing/AddPrivateFootprint";
           (**(code **)(*piVar1 + 0x78))(*param_3,&local_4c,&local_48);
           if (0 < param_4) {
-            iVar2 = 0;
+            iVar6 = 0;
             do {
-              local_34 = *(char **)(iVar2 + 8 + unaff_EBX);
-              local_3c = *(undefined4 *)(iVar2 + unaff_EBX);
-              local_38 = *(undefined4 *)(iVar2 + 4 + unaff_EBX);
+              local_34 = *(char **)(iVar6 + 8 + unaff_EBX);
+              local_3c = *(undefined4 *)(iVar6 + unaff_EBX);
+              local_38 = *(undefined4 *)(iVar6 + 4 + unaff_EBX);
               uStack_30 = local_3c;
               uStack_2c = local_3c;
               uStack_28 = local_38;
               pcStack_24 = local_34;
               uStack_20 = local_3c;
               if (local_48 < local_44) {
-                puVar4 = local_48 + 4;
+                puVar3 = local_48 + 4;
                 if (local_48 != (undefined4 *)0x0) {
                   *local_48 = local_3c;
                   local_48[1] = local_38;
                   local_48[2] = local_34;
                   local_48[3] = local_3c;
+                  local_48 = local_48 + 4;
+                  goto LAB_0075de8a;
                 }
               }
               else {
                 FUN_005cf970(&local_4c,local_48,&uStack_2c);
-                puVar4 = local_48;
+LAB_0075de8a:
+                puVar3 = local_48;
               }
-              local_48 = puVar4;
-              iVar2 = iVar2 + 0xc;
+              local_48 = puVar3;
+              iVar6 = iVar6 + 0xc;
               param_4 = param_4 + -1;
-              puVar4 = puStack_50;
             } while (param_4 != 0);
+            puVar3 = puStack_50;
           }
-          uVar6 = FUN_008316e0(puVar4,puVar3,&local_4c,param_5);
-          if (local_4c != 0) {
-            FUN_004e44e0(local_4c);
+          uVar5 = FUN_008316e0(puVar3,puVar2,(int *)&local_4c,param_5);
+          if (local_4c != (void *)0x0) {
+            Memory_FreeIfNonNull(local_4c);
           }
-          piVar5 = puVar3 + 1;
+          piVar4 = puVar2 + 1;
           LOCK();
-          iVar2 = *piVar5;
-          *piVar5 = *piVar5 + -1;
+          iVar6 = *piVar4;
+          *piVar4 = *piVar4 + -1;
           UNLOCK();
-          if (iVar2 == 1) {
+          if (iVar6 == 1) {
             LOCK();
-            *piVar5 = 1;
+            *piVar4 = 1;
             UNLOCK();
-            piVar5 = (int *)(**(code **)*puVar3)(1);
+            piVar4 = (int *)(**(code **)*puVar2)(1);
           }
-          return CONCAT31((int3)((uint)piVar5 >> 8),(char)uVar6);
+          return CONCAT31((int3)((uint)piVar4 >> 8),(char)uVar5);
         }
-        piVar5 = puVar3 + 1;
+        piVar4 = puVar2 + 1;
         LOCK();
-        iVar2 = *piVar5;
-        *piVar5 = *piVar5 + -1;
+        iVar6 = *piVar4;
+        *piVar4 = *piVar4 + -1;
         UNLOCK();
-        if (iVar2 == 1) {
+        if (iVar6 == 1) {
           LOCK();
-          *piVar5 = 1;
+          *piVar4 = 1;
           UNLOCK();
-          piVar5 = (int *)(**(code **)*puVar3)(1);
+          piVar4 = (int *)(**(code **)*puVar2)(1);
         }
       }
     }
   }
-  return (uint)piVar5 & 0xffffff00;
+  return (uint)piVar4 & 0xffffff00;
 }
 

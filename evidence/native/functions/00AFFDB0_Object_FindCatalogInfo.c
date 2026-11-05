@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. cdecl object pointer; forms resource key
@@ -12,7 +12,7 @@ void * __cdecl Object_FindCatalogInfo(void *object)
 {
   void *pvVar1;
   
-  pvVar1 = (void *)FUN_00c8ebb0(DAT_011ee034,(uint *)((int)object + 0x18));
+  pvVar1 = (void *)ObjectCatalog_FindByTypedKey(DAT_011ee034,(uint *)((int)object + 0x18));
   return pvVar1;
 }
 

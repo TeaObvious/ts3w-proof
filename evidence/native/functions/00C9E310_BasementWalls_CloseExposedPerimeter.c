@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 static instructions/callers: cdecl seven words, low AL bool. For each compact wall locator
@@ -159,7 +159,9 @@ BasementWalls_CloseExposedPerimeter
            ((int)cStack_14a <= *(int *)((int)param_1 + 0x180))))))) {
         bVar4 = LotBasement_TestAnyRequestedPart(param_1,&cStack_14c);
       }
-      if ((bStack_14e != bVar4) && (bVar4 = FUN_00b47d20(pvStack_12c,(char *)pfVar12), !bVar4)) {
+      if ((bStack_14e != bVar4) &&
+         (bVar4 = PartitionManager_HasPhysicalWallForLocator(pvStack_12c,(char *)pfVar12), !bVar4))
+      {
         FUN_00afbc90(auStack_c8);
         if (param_7 != (void *)0x0) {
           piVar9 = (int *)FUN_00c4c900(param_7,&iStack_d0,(char *)pfVar12);

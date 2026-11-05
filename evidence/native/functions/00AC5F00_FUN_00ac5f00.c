@@ -1,12 +1,14 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Analyst instruction notes; original PC1.67 TS3W.exe.
  * Simple-mode total owner. ECX lot; RET0. Separate object and construction dirty flags and retained float stamp control recomputation. Object membership uses C6E140/C6E150 ordered manager pointers, not spatial position. AFFDB0 catalog category bits6/7 exclude fireplaces/chimneys; included B01D70 values feed all-object subtotal and separate bit1 unfurnished subtotal. Land uses inherited x87 FISTP; foundation price quarter-products accumulate through FSTP double memory. Final signed low32 sum clamps at zero. Stored inferred EDX parameter and float temporaries do not establish physical arguments or binary32 subtotal storage. Whole dirty writers, complex mode and catalog helpers remain open.
  * Actual Ghidra C follows unchanged. Stored names/prototypes were NOT edited.
  * Complete original Listing: 00AC5F00_FUN_00ac5f00.asm
  */
+
+
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
@@ -71,7 +73,7 @@ int __fastcall FUN_00ac5f00(void *param_1,uint param_2)
     iVar9 = *(int *)((int)param_1 + 0x174);
     iVar7 = *(int *)((int)param_1 + 0x178);
     if (DAT_01183eec == '\0') {
-      FUN_00ab0b60(&DAT_01183eec);
+      LotSettings_LoadToolTunables(&DAT_01183eec);
       param_2 = extraout_EDX_03;
     }
     *(int *)((int)param_1 + 0x324) = (int)ROUND((float)(iVar7 * iVar9) * _DAT_01183ef0);
@@ -104,7 +106,7 @@ int __fastcall FUN_00ac5f00(void *param_1,uint param_2)
           do {
             iVar7 = *(int *)((int)pvVar4 + iVar9 * 4);
             if ((iVar7 != 0) && (iVar7 = FUN_00c8bbb0(pvVar2,iVar7), iVar7 != 0)) {
-              fVar1 = *(float *)(iVar7 + 0x58) * DAT_0106f8c8 + fVar1;
+              fVar1 = *(float *)(iVar7 + 0x58) * 0.25 + fVar1;
             }
             iVar9 = iVar9 + 1;
           } while (iVar9 < 4);

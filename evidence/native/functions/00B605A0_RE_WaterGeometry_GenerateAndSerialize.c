@@ -1,12 +1,14 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; reference identity is in guides/water/README.md.
    Ghidra export refreshed on 2026-10-12 after WaterGeometry annotations.
    RE_ symbols and comments are analyst annotations, not original names.
    Read the paired original bytes and guides/water/README.md.
    Native ABI details not established by instructions remain inferred. */
+
+
 
 /* Analyst annotation: WaterGeometry generation, optional publication and serialization.
    RE_ names identify analyst-assigned labels, not recovered original symbols.
@@ -40,13 +42,13 @@ RE_WaterGeometry_GenerateAndSerialize
           int *outputStream,undefined4 streamContext)
 
 {
-  int scratchBegin;
-  int scratchEnd;
+  void *scratchBegin;
+  void *scratchEnd;
   undefined4 scratchCapacityEnd;
   char *scratchAllocationTag;
   
-  scratchBegin = 0;
-  scratchEnd = 0;
+  scratchBegin = (void *)0x0;
+  scratchEnd = (void *)0x0;
   scratchCapacityEnd = 0;
   scratchAllocationTag = "Misc/Pond/GeometryGenerator";
   *(undefined4 *)((int)this + 0x80) = *(undefined4 *)((int)this + 0x7c);
@@ -58,21 +60,21 @@ RE_WaterGeometry_GenerateAndSerialize
   }
                     /* Vertex array byte span /12 becomes state.vertexCount. This assignment also
                        records a valid zero-vertex result. */
-  *(int *)this = (scratchEnd - scratchBegin) / 0xc;
+  *(int *)this = ((int)scratchEnd - (int)scratchBegin) / 0xc;
   if ((scratchBegin != scratchEnd) && (publishVertices != '\0')) {
-    FUN_00b5ceb0(this,&scratchBegin);
+    FUN_00b5ceb0(this,(int *)&scratchBegin);
   }
                     /* Serialization is independent of publication and vertexCount. A nonnull
                        outputStream invokes the writer even if the generated list is empty. */
   if (outputStream != (int *)0x0) {
                     /* Invoke shared WaterGeometry writer 00B5CBA0, which writes geometry version3
                        and count-based query data. This is not the outer Sea-container writer. */
-    FUN_00b5cba0(this,&scratchBegin,outputStream,streamContext);
+    FUN_00b5cba0(this,(int *)&scratchBegin,outputStream,streamContext);
   }
                     /* Temporary vertex storage is released after optional publication and
                        serialization. */
-  if (scratchBegin != 0) {
-    FUN_004e44e0(scratchBegin);
+  if (scratchBegin != (void *)0x0) {
+    Memory_FreeIfNonNull(scratchBegin);
   }
   return;
 }

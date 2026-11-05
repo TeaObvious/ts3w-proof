@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01162110 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01162110 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Slots::Slots_CanAttachToSlotWithOffsetImpl [assembly=ScriptCore token=0x06000D3E;
    objectId: System.UInt64, parentId: System.UInt64, slotNameHash: System.UInt32, occupySlot:
    System.Boolean, forceBindPose: System.Boolean, trans: Sims3.SimIFace.Vector3&, axis:
@@ -19,14 +20,17 @@ undefined4 ScriptCore.Slots::Slots_CanAttachToSlotWithOffsetImpl(void)
   float fVar2;
   float fVar3;
   float fVar4;
-  int iVar5;
+  void *pvVar5;
   void *this;
-  int iVar6;
-  void *pvVar7;
-  undefined4 uVar8;
-  float10 fVar9;
+  void *pvVar6;
+  undefined4 uVar7;
+  float10 fVar8;
+  float fVar9;
   float fVar10;
-  float fVar11;
+  undefined4 in_stack_00000004;
+  undefined4 in_stack_00000008;
+  undefined4 in_stack_0000000c;
+  undefined4 in_stack_00000010;
   int in_stack_00000014;
   undefined4 *in_stack_00000020;
   float *in_stack_00000024;
@@ -51,41 +55,41 @@ undefined4 ScriptCore.Slots::Slots_CanAttachToSlotWithOffsetImpl(void)
   fVar1 = in_stack_00000024[2];
   fVar2 = in_stack_00000024[1];
   fVar3 = *in_stack_00000024;
-  fVar9 = (float10)fsin((float10)in_stack_00000028);
-  fVar4 = (float)fVar9;
-  fVar9 = (float10)fcos((float10)in_stack_00000028);
-  local_50 = (float)fVar9;
-  fVar10 = DAT_00f998f8 - local_50;
-  fVar11 = fVar10 * fVar1;
-  fStack_28 = fVar11 * fVar1 + local_50;
-  fStack_2c = fVar11 * fVar2 - fVar4 * fVar3;
-  local_30 = fVar11 * fVar3 + fVar4 * fVar2;
-  fVar11 = fVar10 * fVar2;
-  fStack_38 = fVar11 * fVar1 + fVar4 * fVar3;
-  fStack_3c = fVar11 * fVar2 + local_50;
-  local_40 = fVar11 * fVar3 - fVar4 * fVar1;
-  fVar10 = fVar10 * fVar3;
-  fStack_48 = fVar10 * fVar1 - fVar4 * fVar2;
-  fStack_4c = fVar10 * fVar2 + fVar4 * fVar1;
-  local_50 = fVar10 * fVar3 + local_50;
+  fVar8 = (float10)fsin((float10)in_stack_00000028);
+  fVar4 = (float)fVar8;
+  fVar8 = (float10)fcos((float10)in_stack_00000028);
+  local_50 = (float)fVar8;
+  fVar9 = 1.0 - local_50;
+  fVar10 = fVar9 * fVar1;
+  fStack_28 = fVar10 * fVar1 + local_50;
+  fStack_2c = fVar10 * fVar2 - fVar4 * fVar3;
+  local_30 = fVar10 * fVar3 + fVar4 * fVar2;
+  fVar10 = fVar9 * fVar2;
+  fStack_38 = fVar10 * fVar1 + fVar4 * fVar3;
+  fStack_3c = fVar10 * fVar2 + local_50;
+  local_40 = fVar10 * fVar3 - fVar4 * fVar1;
+  fVar9 = fVar9 * fVar3;
+  fStack_48 = fVar9 * fVar1 - fVar4 * fVar2;
+  fStack_4c = fVar9 * fVar2 + fVar4 * fVar1;
+  local_50 = fVar9 * fVar3 + local_50;
   uStack_44 = 0;
   uStack_34 = 0;
   uStack_24 = 0;
   uStack_18 = in_stack_00000020[2];
   uStack_1c = in_stack_00000020[1];
   local_20 = *in_stack_00000020;
-  fStack_14 = DAT_00f998f8;
-  iVar5 = FUN_00937570();
-  this = (void *)FUN_00937f80(iVar5);
+  fStack_14 = 1.0;
+  pvVar5 = ObjectRegistry_GetGlobal();
+  this = ObjectRegistry_FindBorrowed(pvVar5,CONCAT44(in_stack_00000008,in_stack_00000004));
   if (this != (void *)0x0) {
-    iVar6 = FUN_00934260(this,DAT_011ea158);
-    if (iVar6 != 0) {
-      pvVar7 = (void *)FUN_00937f80(iVar5);
-      if (pvVar7 == (void *)0x0) {
+    pvVar6 = Object_GetComponentByMask(this,DAT_011ea158);
+    if (pvVar6 != (void *)0x0) {
+      pvVar5 = ObjectRegistry_FindBorrowed(pvVar5,CONCAT44(in_stack_00000010,in_stack_0000000c));
+      if (pvVar5 == (void *)0x0) {
         return 0x3ea;
       }
-      uVar8 = FUN_00b43620(this,pvVar7,in_stack_00000014,&local_50);
-      return uVar8;
+      uVar7 = FUN_00b43620(this,pvVar5,in_stack_00000014,&local_50);
+      return uVar7;
     }
   }
   return 0x3e9;

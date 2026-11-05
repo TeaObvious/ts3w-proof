@@ -1,6 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+
 
 /* Reviewed PC 1.67 global ambience layer tick; ECX receiver, one binary32 stack word, RET 4. If
    byte+A8 is zero, byte+AA may request virtual+3C before rechecking +A8; returning still disabled
@@ -54,7 +55,7 @@ void __thiscall TS3W_AmbienceGlobalTick(void *this,float deltaSeconds)
     else {
       arg2 = (**(code **)(*piVar1 + 0x2c))(piVar1);
     }
-    FUN_00860880(*(uint *)((int)this + 0xa0),*(uint *)((int)this + 0xa4),arg2);
+    Audio_SubmitKeyedPlayCommand(*(uint *)((int)this + 0xa0),*(uint *)((int)this + 0xa4),arg2);
     *(uint *)((int)this + uVar2 * 4 + 0x14) = arg2;
     *(int *)((int)this + 0x94) = *(int *)((int)this + 0x94) + 1;
                     /* Reset elapsed after submission and slot/count commit; this path tests neither

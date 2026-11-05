@@ -1,7 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; analyst display name FootprintCell_CollectMaskedRecords.
    Original Ghidra database symbol: FUN_00669500; database unchanged.
    Names in this reviewed rendering are analyst aliases, not recovered EA symbols.
@@ -9,9 +9,12 @@
    Owned ranges (exclusive ends): [00669500,006697ff); 0 envelope gap bytes are not owned instructions.
 */
 
+/* Retained historical annotation 2, previous C line 12; earlier snapshot context. */
 /* For terminal subcell code s, 669507 loads the bit index from FEEEC8[s]. 6695CB..F2 tests low/high halves of each 12-byte record mask. For the social caller, queryRecord+40/+44 are zero, so the per-actor context and returned options are null. Retained candidates still pass virtual+60(0), virtual+28 exclusion and virtual+8(null,recordByte) classification. Kind1F is a per-callback marker, never inserted itself. Class2 references are deferred and inserted only if that same callback saw an eligible kind1F. Other classes are inserted unless 621220 rejects 0,1,0D. Kind14 is forced to class1 without options. Actual null-footprint dereferences remain visible; no malformed-record safety is claimed. */
 
-void __thiscall FootprintCell_CollectMaskedRecords(void *this,int param_1,int param_2,void *param_3,char param_4)
+
+
+void __thiscall FUN_00669500(void *this,int param_1,int param_2,void *param_3,char param_4)
 
 {
   uint *puVar1;
@@ -49,7 +52,7 @@ void __thiscall FootprintCell_CollectMaskedRecords(void *this,int param_1,int pa
       local_64 = (void *)0x0;
     }
     else {
-      local_64 = (void *)RoutingRecord_GetOptionsField28OrNull((int)puVar11);
+      local_64 = (void *)FUN_00828f00((int)puVar11);
     }
     bVar4 = false;
     if ((~*(byte *)puVar1 & 1) == 0) {
@@ -118,14 +121,14 @@ LAB_006696ed:
               if (param_4 == '\0') {
 LAB_0066974b:
                 if (*puVar1 != 0) {
-                  FootprintSet_InsertUniquePointerForwarder(param_3,local_58,puVar1);
+                  FUN_00629850(param_3,local_58,puVar1);
                 }
               }
               else if ((uVar9 == 2) && (*puVar1 != 0)) {
-                FootprintGather_AppendDeferredReference(&local_50,(int *)puVar1);
+                FUN_006694c0(&local_50,(int *)puVar1);
               }
               else {
-                uVar8 = FootprintGather_IsDiscardedClassification(uVar9);
+                uVar8 = FUN_00621220(uVar9);
                 if ((char)uVar8 == '\0') goto LAB_0066974b;
               }
             }
@@ -148,7 +151,7 @@ LAB_00669762:
     puVar12 = puVar5;
     if (((param_4 != '\0') && (puVar13 != puVar5)) && (bVar4)) {
       do {
-        FootprintSet_InsertUniquePointer(param_3,local_58,puVar13);
+        FUN_00628ca0(param_3,local_58,puVar13);
         puVar13 = puVar13 + 1;
         puVar1 = local_50;
         puVar12 = local_4c;
@@ -169,3 +172,4 @@ LAB_00669762:
   }
   return;
 }
+

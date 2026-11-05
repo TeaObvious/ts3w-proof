@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x0115ed10 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x0115ed10 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.CameraController::Camera_Lock [assembly=ScriptCore token=0x06000704; objectId:
    System.UInt64, targetOffset: Sims3.SimIFace.Vector3, defaultZoom: System.Single,
    defaultPitchDegrees: System.Single, defaultYawDegrees: System.Single, lerpToTargetDuration:
@@ -18,7 +19,8 @@ void __cdecl ScriptCore.CameraController::Camera_Lock(undefined4 param_1,undefin
   int iVar1;
   int *piVar2;
   void *this;
-  undefined4 *puVar3;
+  float *pfVar3;
+  undefined1 uStack0000000c;
   float in_stack_00000018;
   float in_stack_0000001c;
   float in_stack_00000020;
@@ -33,8 +35,8 @@ void __cdecl ScriptCore.CameraController::Camera_Lock(undefined4 param_1,undefin
       if (piVar2 != (int *)0x0) {
         this = (void *)(**(code **)(*piVar2 + 0xc))(0x110fdd89);
         if (this != (void *)0x0) {
-          puVar3 = (undefined4 *)FUN_0076c050(&stack0x0000000c,auStack_24);
-          FUN_00978ba0(this,param_1,param_2,puVar3,in_stack_00000018,in_stack_0000001c,
+          pfVar3 = RouteVector_ExpandXYZWithXLane(&uStack0000000c,auStack_24);
+          FUN_00978ba0(this,param_1,param_2,pfVar3,in_stack_00000018,in_stack_0000001c,
                        in_stack_00000020,in_stack_00000024);
         }
       }

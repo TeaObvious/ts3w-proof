@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -272,7 +272,7 @@ undefined4 __thiscall TreeComponent_ApplyObjectTransform(void *this,float *param
       fStack_19c = *(float *)(iVar1 + 0x34) * fStack_194;
       fStack_198 = *(float *)(iVar1 + 0x38) * fStack_194;
       fStack_194 = *(float *)(iVar1 + 0x3c) * fStack_194;
-      FUN_0068dbb0(&local_1a0,&local_230);
+      Bounds_TransformHomogeneousCorners(&local_1a0,&local_230);
       *(float *)((int)this_01 + 0x20) = local_1a0;
       *(float *)((int)this_01 + 0x24) = fStack_19c;
       *(float *)((int)this_01 + 0x28) = fStack_198;

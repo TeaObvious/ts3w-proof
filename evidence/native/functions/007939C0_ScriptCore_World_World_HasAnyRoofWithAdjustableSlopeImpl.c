@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163438 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163438 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_HasAnyRoofWithAdjustableSlopeImpl [assembly=ScriptCore token=0x0600078E;
    lotId: System.UInt64; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -16,6 +17,8 @@ uint ScriptCore_World__World_HasAnyRoofWithAdjustableSlopeImpl(int param_1,int p
   void *this;
   int *in_EAX;
   undefined4 uVar1;
+  int *extraout_EAX;
+  int *extraout_EAX_00;
   int iVar2;
   int iVar3;
   int *piStack_114;
@@ -23,7 +26,7 @@ uint ScriptCore_World__World_HasAnyRoofWithAdjustableSlopeImpl(int param_1,int p
   int aiStack_100 [64];
   
   if (DAT_011edbc4 != (void *)0x0) {
-    in_EAX = FUN_00c62810(DAT_011edbc4,param_1,param_2,(int *)0x0);
+    in_EAX = WorldObjects_FindLotByGuid(DAT_011edbc4,param_1,param_2,(uint *)0x0);
     if ((in_EAX != (int *)0x0) && (this = (void *)in_EAX[0xab], this != (void *)0x0)) {
       piStack_114 = aiStack_100;
       piStack_110 = aiStack_100;
@@ -35,7 +38,8 @@ uint ScriptCore_World__World_HasAnyRoofWithAdjustableSlopeImpl(int param_1,int p
           uVar1 = FUN_00b95f10(this,piStack_114[iVar3]);
           if ((char)uVar1 != '\0') {
             if ((piStack_114 != (int *)0x0) && (piStack_114 != aiStack_100)) {
-              piStack_114 = (int *)FUN_004e44e0((int)piStack_114);
+              Memory_FreeIfNonNull(piStack_114);
+              piStack_114 = extraout_EAX_00;
             }
             return CONCAT31((int3)((uint)piStack_114 >> 8),1);
           }
@@ -44,7 +48,8 @@ uint ScriptCore_World__World_HasAnyRoofWithAdjustableSlopeImpl(int param_1,int p
       }
       in_EAX = piStack_114;
       if ((piStack_114 != (int *)0x0) && (piStack_114 != aiStack_100)) {
-        in_EAX = (int *)FUN_004e44e0((int)piStack_114);
+        Memory_FreeIfNonNull(piStack_114);
+        in_EAX = extraout_EAX;
       }
     }
   }

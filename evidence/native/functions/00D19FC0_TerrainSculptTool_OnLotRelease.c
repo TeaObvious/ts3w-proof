@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PhysicalthiscallECX(noEDXparameter)noargs/plainRETAL1.
@@ -24,7 +24,7 @@ bool __thiscall TerrainSculptTool_OnLotRelease(void *this)
         (**(code **)(**(int **)((int)this + 0x178) + 8))();
       }
       else {
-        FUN_00cd3a20(this,*(int **)((int)this + 0x178),'\0');
+        UserTool_SubmitUndoableWithCostEffects(this,*(int **)((int)this + 0x178),'\0');
       }
     }
     puVar1 = *(undefined4 **)((int)this + 0x178);
@@ -44,7 +44,7 @@ bool __thiscall TerrainSculptTool_OnLotRelease(void *this)
   }
   thunk_FUN_00792320();
   if (*(int *)((int)this + 0x16c) != 0) {
-    FUN_008608e0(*(int *)((int)this + 0x16c));
+    Audio_SubmitHandleStopCommand(*(int *)((int)this + 0x16c));
     *(undefined4 *)((int)this + 0x16c) = 0;
   }
   return true;

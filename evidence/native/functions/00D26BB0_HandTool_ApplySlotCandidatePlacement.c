@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -51,10 +51,10 @@ HandTool_ApplySlotCandidatePlacement
   float fStack_3cc;
   float fStack_3c8;
   float fStack_3c4;
-  float fStack_3c0;
-  float fStack_3bc;
-  float fStack_3b8;
-  float fStack_3b4;
+  undefined4 uStack_3c0;
+  undefined4 uStack_3bc;
+  undefined4 uStack_3b8;
+  undefined4 uStack_3b4;
   float fStack_3b0;
   float fStack_3ac;
   float fStack_3a8;
@@ -118,8 +118,8 @@ HandTool_ApplySlotCandidatePlacement
   float fStack_2c0;
   float fStack_2bc;
   float fStack_2b8;
-  float fStack_2b4;
-  float fStack_2b0;
+  undefined4 uStack_2b4;
+  undefined4 uStack_2b0;
   float fStack_2a0;
   float afStack_290 [4];
   float fStack_280;
@@ -145,7 +145,7 @@ HandTool_ApplySlotCandidatePlacement
   float fStack_1e0;
   float fStack_1dc;
   float fStack_1d8;
-  float fStack_1d4;
+  undefined4 uStack_1d4;
   float fStack_1d0;
   float fStack_1cc;
   float fStack_1c8;
@@ -338,12 +338,12 @@ LAB_00d26c79:
     fStack_148 = local_350 + fStack_33c;
     fStack_144 = local_350 + fStack_33c;
     fStack_270 = fStack_328 + fStack_150;
-    fStack_2b0 = DAT_010f4ccc;
-    fStack_2c0 = _DAT_00f9b5b4;
-    fStack_2bc = _DAT_00f9b5b4;
-    fStack_2b8 = _DAT_00f9b5b4;
-    fStack_2b4 = _DAT_00f9b5b4;
-    if (fStack_270 <= DAT_010f4ccc) {
+    uStack_2b0 = 0;
+    fStack_2c0 = 0.5;
+    fStack_2bc = 0.5;
+    fStack_2b8 = 0.5;
+    uStack_2b4 = 0x3f000000;
+    if (fStack_270 <= 0.0) {
       fStack_260 = local_350;
       fStack_240 = fStack_33c;
       if ((local_350 <= fStack_33c) ||
@@ -355,10 +355,10 @@ LAB_00d26c79:
           fStack_ec = fStack_328 - fStack_14c;
           fStack_e8 = fStack_328 - fStack_148;
           fStack_e4 = fStack_328 - fStack_144;
-          auVar1._4_4_ = fStack_ec + FLOAT_00f998f8;
-          auVar1._0_4_ = fStack_f0 + FLOAT_00f998f8;
-          auVar1._8_4_ = fStack_e8 + FLOAT_00f998f8;
-          auVar1._12_4_ = fStack_e4 + FLOAT_00f998f8;
+          auVar1._4_4_ = fStack_ec + 1.0;
+          auVar1._0_4_ = fStack_f0 + 1.0;
+          auVar1._8_4_ = fStack_e8 + 1.0;
+          auVar1._12_4_ = fStack_e4 + 1.0;
           auVar22 = sqrtps(auVar25,auVar1);
           fStack_180 = fStack_34c - local_340;
           fStack_17c = fStack_34c - local_340;
@@ -372,14 +372,13 @@ LAB_00d26c79:
           fStack_13c = fStack_348 + fStack_330;
           fStack_138 = fStack_348 + fStack_330;
           fStack_134 = fStack_348 + fStack_330;
-          auVar27._4_4_ = _DAT_00f9b5b4;
-          auVar27._0_4_ = _DAT_00f9b5b4;
-          auVar27._8_4_ = _DAT_00f9b5b4;
-          auVar27._12_4_ = _DAT_00f9b5b4;
+          auVar27._8_4_ = 0x3f000000;
+          auVar27._0_8_ = 0x3f0000003f000000;
+          auVar27._12_4_ = 0x3f000000;
           auVar25 = divps(auVar27,auVar22);
           fStack_2f0 = fStack_140 * auVar25._0_4_;
           fStack_2ec = fStack_15c * auVar25._4_4_;
-          fStack_2e8 = auVar22._8_4_ * _DAT_00f9b5b4;
+          fStack_2e8 = auVar22._8_4_ * 0.5;
           fStack_2e4 = fStack_174 * auVar25._12_4_;
           fStack_b0 = fStack_150;
           fStack_ac = fStack_14c;
@@ -395,10 +394,10 @@ LAB_00d26c79:
           fStack_cc = fStack_33c - fStack_18c;
           fStack_c8 = fStack_33c - fStack_188;
           fStack_c4 = fStack_33c - fStack_184;
-          auVar19._0_4_ = fStack_d0 + FLOAT_00f998f8;
-          auVar19._4_4_ = fStack_cc + FLOAT_00f998f8;
-          auVar19._8_4_ = fStack_c8 + FLOAT_00f998f8;
-          auVar19._12_4_ = fStack_c4 + FLOAT_00f998f8;
+          auVar19._0_4_ = fStack_d0 + 1.0;
+          auVar19._4_4_ = fStack_cc + 1.0;
+          auVar19._8_4_ = fStack_c8 + 1.0;
+          auVar19._12_4_ = fStack_c4 + 1.0;
           auVar25 = sqrtps(ZEXT416((uint)fStack_33c),auVar19);
           fStack_130 = fStack_330 - fStack_348;
           fStack_12c = fStack_330 - fStack_348;
@@ -412,13 +411,12 @@ LAB_00d26c79:
           fStack_10c = fStack_34c + local_340;
           fStack_108 = fStack_34c + local_340;
           fStack_104 = fStack_34c + local_340;
-          auVar24._4_4_ = _DAT_00f9b5b4;
-          auVar24._0_4_ = _DAT_00f9b5b4;
-          auVar24._8_4_ = _DAT_00f9b5b4;
-          auVar24._12_4_ = _DAT_00f9b5b4;
+          auVar24._8_4_ = 0x3f000000;
+          auVar24._0_8_ = 0x3f0000003f000000;
+          auVar24._12_4_ = 0x3f000000;
           auVar22 = divps(auVar24,auVar25);
           fStack_2f0 = fStack_110 * auVar22._0_4_;
-          fStack_2ec = auVar25._4_4_ * _DAT_00f9b5b4;
+          fStack_2ec = auVar25._4_4_ * 0.5;
           fStack_2e8 = fStack_88 * auVar22._8_4_;
           fStack_2e4 = fStack_124 * auVar22._12_4_;
         }
@@ -432,10 +430,10 @@ LAB_00d26c79:
         fStack_9c = local_350 - fStack_bc;
         fStack_98 = local_350 - fStack_b8;
         fStack_94 = local_350 - fStack_b4;
-        auVar23._0_4_ = fStack_a0 + FLOAT_00f998f8;
-        auVar23._4_4_ = fStack_9c + FLOAT_00f998f8;
-        auVar23._8_4_ = fStack_98 + FLOAT_00f998f8;
-        auVar23._12_4_ = fStack_94 + FLOAT_00f998f8;
+        auVar23._0_4_ = fStack_a0 + 1.0;
+        auVar23._4_4_ = fStack_9c + 1.0;
+        auVar23._8_4_ = fStack_98 + 1.0;
+        auVar23._12_4_ = fStack_94 + 1.0;
         auVar22 = sqrtps(auVar22,auVar23);
         fStack_80 = fStack_338 - fStack_32c;
         fStack_7c = fStack_338 - fStack_32c;
@@ -449,22 +447,21 @@ LAB_00d26c79:
         fStack_6c = fStack_34c + local_340;
         fStack_68 = fStack_34c + local_340;
         fStack_64 = fStack_34c + local_340;
-        auVar26._4_4_ = _DAT_00f9b5b4;
-        auVar26._0_4_ = _DAT_00f9b5b4;
-        auVar26._8_4_ = _DAT_00f9b5b4;
-        auVar26._12_4_ = _DAT_00f9b5b4;
+        auVar26._8_4_ = 0x3f000000;
+        auVar26._0_8_ = 0x3f0000003f000000;
+        auVar26._12_4_ = 0x3f000000;
         auVar25 = divps(auVar26,auVar22);
-        fStack_2f0 = auVar22._0_4_ * _DAT_00f9b5b4;
+        fStack_2f0 = auVar22._0_4_ * 0.5;
         fStack_2ec = fStack_6c * auVar25._4_4_;
         fStack_2e8 = fStack_168 * auVar25._8_4_;
         fStack_2e4 = fStack_74 * auVar25._12_4_;
       }
     }
     else {
-      auVar18._0_4_ = fStack_270 + FLOAT_00f998f8;
-      auVar18._4_4_ = fStack_328 + fStack_14c + FLOAT_00f998f8;
-      auVar18._8_4_ = fStack_328 + fStack_148 + FLOAT_00f998f8;
-      auVar18._12_4_ = fStack_328 + fStack_144 + FLOAT_00f998f8;
+      auVar18._0_4_ = fStack_270 + 1.0;
+      auVar18._4_4_ = fStack_328 + fStack_14c + 1.0;
+      auVar18._8_4_ = fStack_328 + fStack_148 + 1.0;
+      auVar18._12_4_ = fStack_328 + fStack_144 + 1.0;
       auVar25 = sqrtps(ZEXT416((uint)fStack_270),auVar18);
       fStack_120 = fStack_34c - local_340;
       fStack_11c = fStack_34c - local_340;
@@ -478,23 +475,22 @@ LAB_00d26c79:
       fStack_dc = fStack_338 - fStack_32c;
       fStack_d8 = fStack_338 - fStack_32c;
       fStack_d4 = fStack_338 - fStack_32c;
-      auVar21._4_4_ = _DAT_00f9b5b4;
-      auVar21._0_4_ = _DAT_00f9b5b4;
-      auVar21._8_4_ = _DAT_00f9b5b4;
-      auVar21._12_4_ = _DAT_00f9b5b4;
+      auVar21._8_4_ = 0x3f000000;
+      auVar21._0_8_ = 0x3f0000003f000000;
+      auVar21._12_4_ = 0x3f000000;
       auVar22 = divps(auVar21,auVar25);
       fStack_2f0 = fStack_e0 * auVar22._0_4_;
       fStack_2ec = fStack_fc * auVar22._4_4_;
       fStack_2e8 = fStack_118 * auVar22._8_4_;
-      fStack_2e4 = auVar25._12_4_ * _DAT_00f9b5b4;
+      fStack_2e4 = auVar25._12_4_ * 0.5;
     }
-    fStack_3c0 = FLOAT_00f998f8;
-    TStack_3dc.x = FLOAT_00fab218;
-    TStack_3dc.z = FLOAT_00fab218;
+    uStack_3b4 = 0x3f800000;
+    uStack_3b8 = 0x3f800000;
+    uStack_3bc = 0x3f800000;
+    uStack_3c0 = 0x3f800000;
+    TStack_3dc.x = -1.0;
+    TStack_3dc.z = -1.0;
     TStack_3dc.level = 0;
-    fStack_3bc = fStack_3c0;
-    fStack_3b8 = fStack_3c0;
-    fStack_3b4 = fStack_3c0;
     fStack_2e0 = fStack_320;
     fStack_2dc = fStack_31c;
     fStack_2d8 = fStack_318;
@@ -539,18 +535,17 @@ LAB_00d26c79:
       fVar17 = fStack_2e4 * fStack_2e4;
       fVar12 = fStack_2e4 * fStack_2e8 + fStack_2ec * fStack_2f0;
       fVar15 = fVar14 + fVar20 + fVar11 + fVar17;
-      if (fVar12 <= fVar15 * DAT_00fc2434) {
-        if (fVar15 * DAT_00fc242c <= fVar12) {
+      if (fVar12 <= fVar15 * 0.499) {
+        if (fVar15 * -0.499 <= fVar12) {
           fStack_3a0 = ((fVar11 - fVar20) - fVar14) + fVar17;
-          fVar8 = (float10)fpatan((float10)(fStack_2e4 * fStack_2ec * DAT_0103fd88 -
-                                           fStack_2e8 * fStack_2f0 * DAT_0103fd88),
-                                  (float10)fStack_3a0);
+          fVar8 = (float10)fpatan((float10)(fStack_2e4 * fStack_2ec * 2.0 -
+                                           fStack_2e8 * fStack_2f0 * 2.0),(float10)fStack_3a0);
           fVar12 = (float)fVar8;
           fStack_39c = fVar12;
           fStack_398 = fStack_3a0;
           fStack_394 = fStack_3a0;
           _CIasin();
-          fStack_3a0 = fVar10 * fVar9 * DAT_0103fd88 - fStack_3a8 * fStack_3cc * DAT_0103fd88;
+          fStack_3a0 = fVar10 * fVar9 * 2.0 - fStack_3a8 * fStack_3cc * 2.0;
           fpatan((float10)fStack_3a0,(float10)(((fVar20 - fVar11) - fVar14) + fVar17));
           fStack_39c = fStack_3a0;
           fStack_398 = fStack_3a0;
@@ -558,12 +553,12 @@ LAB_00d26c79:
         }
         else {
           fVar8 = (float10)fpatan((float10)fStack_2f0,(float10)fStack_2e4);
-          fVar12 = (float)fVar8 * DAT_00fc2428;
+          fVar12 = (float)fVar8 * -2.0;
         }
       }
       else {
         fVar8 = (float10)fpatan((float10)fStack_2f0,(float10)fStack_2e4);
-        fVar12 = (float)fVar8 * DAT_0103fd88;
+        fVar12 = (float)fVar8 * 2.0;
       }
       fVar8 = (float10)(**(code **)(*param_1 + 0x68))();
       fVar7 = Placement_QuantizeYawToEightDirections(fVar12 - (float)fVar8);
@@ -589,10 +584,10 @@ LAB_00d26c79:
         fStack_2f8 = param_5[6];
         fStack_2f4 = param_5[7];
       }
-      fVar9 = DAT_01086d34 * fStack_310;
-      fVar11 = DAT_01086d34 * fStack_30c;
-      fVar12 = DAT_01086d34 * fStack_308;
-      fVar14 = DAT_01086d34 * fStack_304;
+      fVar9 = fStack_310 * 1.4142135;
+      fVar11 = fStack_30c * 1.4142135;
+      fVar12 = fStack_308 * 1.4142135;
+      fVar14 = fStack_304 * 1.4142135;
       fVar15 = (0.0 - fVar9) * fVar9 + fStack_2c0;
       fVar17 = (0.0 - fVar11) * fVar11 + fStack_2bc;
       fVar20 = (0.0 - fVar12) * fVar12 + fStack_2b8;
@@ -611,7 +606,7 @@ LAB_00d26c79:
       uStack_1ec = (uint)(fVar12 * fVar11 - fVar14 * fVar9) & uRam011b0674;
       uStack_1e8 = (uint)fVar16 & uRam011b0678;
       uStack_1e4 = (uint)fVar16 & uRam011b067c;
-      fStack_1d4 = fStack_3b4;
+      uStack_1d4 = uStack_3b4;
       fStack_1e0 = fStack_300;
       fStack_1dc = fStack_2fc;
       fStack_1d8 = fStack_2f8;
@@ -621,7 +616,8 @@ LAB_00d26c79:
       else {
         pvVar2 = Object_GetComponentByMask(*(void **)((int)unaff_EDI + 0x58),DAT_011ea158);
       }
-      iVar6 = FUN_00958d90(pvVar2,param_2,piVar3,&fStack_210,'\x01','\x01','\0','\0');
+      iVar6 = TransformComponent_AttachToSlotPoint
+                        (pvVar2,param_2,piVar3,&fStack_210,'\x01','\x01','\0','\0');
       pvVar2 = unaff_EDI;
       if (*(char *)((int)unaff_EDI + 0x4d) != '\0') {
         pvVar2 = (void *)FUN_00790850();

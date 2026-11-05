@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011632f8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011632f8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_HasObjectSnowImpl [assembly=ScriptCore token=0x0600075C; scriptHandle:
    System.UInt64, bCheckOnlyScript: System.Boolean; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -14,16 +15,15 @@ bool ScriptCore_World__World_HasObjectSnowImpl(undefined4 param_1,undefined4 par
 
 {
   bool bVar1;
-  int iVar2;
-  void *pvVar3;
+  void *pvVar2;
   
-  iVar2 = FUN_00937570();
-  if (iVar2 != 0) {
-    pvVar3 = (void *)FUN_00937f80(iVar2);
-    if (pvVar3 != (void *)0x0) {
-      pvVar3 = (void *)FUN_00934260(pvVar3,DAT_011ea2a8);
-      if (pvVar3 != (void *)0x0) {
-        bVar1 = FUN_0095e120(pvVar3,param_3);
+  pvVar2 = ObjectRegistry_GetGlobal();
+  if (pvVar2 != (void *)0x0) {
+    pvVar2 = ObjectRegistry_FindBorrowed(pvVar2,CONCAT44(param_2,param_1));
+    if (pvVar2 != (void *)0x0) {
+      pvVar2 = Object_GetComponentByMask(pvVar2,DAT_011ea2a8);
+      if (pvVar2 != (void *)0x0) {
+        bVar1 = Seasons_TestObjectSnowEnableBits(pvVar2,param_3);
         return bVar1;
       }
     }

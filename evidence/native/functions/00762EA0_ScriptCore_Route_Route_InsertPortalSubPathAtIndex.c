@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x01161b80 (TS3W.exe).
@@ -107,24 +107,24 @@ ScriptCore.Route::Route_InsertPortalSubPathAtIndex
       fStack_24 = pfVar4[3];
       FUN_007462e0((int *)&pvStack_38);
 LAB_00762feb:
-      fVar8 = (DAT_00f998f8 * fStack_2c - fStack_28 * 0.0) + fStack_24 * 0.0;
-      fVar9 = (fStack_28 * 0.0 - DAT_00f998f8 * fStack_30) + fStack_24 * 0.0;
-      fVar10 = (fStack_30 * 0.0 - fStack_2c * 0.0) + fStack_24 * DAT_00f998f8;
+      fVar8 = (fStack_2c * 1.0 - fStack_28 * 0.0) + fStack_24 * 0.0;
+      fVar9 = (fStack_28 * 0.0 - fStack_30 * 1.0) + fStack_24 * 0.0;
+      fVar10 = (fStack_30 * 0.0 - fStack_2c * 0.0) + fStack_24 * 1.0;
       fVar11 = fVar9 * fStack_30;
       fVar12 = fVar8 * fStack_30;
       fVar13 = fVar10 * fStack_30;
       fVar14 = fVar8 * fStack_2c;
       fVar15 = fVar8 * fStack_30;
-      fStack_30 = (fVar10 * fStack_2c - fVar9 * fStack_28) * DAT_0103fd88 + 0.0;
-      fStack_2c = (fVar8 * fStack_28 - fVar13) * DAT_0103fd88 + 0.0;
-      fStack_28 = (fVar11 - fVar14) * DAT_0103fd88 + DAT_00f998f8;
-      fStack_24 = (fVar12 - fVar15) * DAT_0103fd88 + 0.0;
+      fStack_30 = (fVar10 * fStack_2c - fVar9 * fStack_28) * 2.0 + 0.0;
+      fStack_2c = (fVar8 * fStack_28 - fVar13) * 2.0 + 0.0;
+      fStack_28 = (fVar11 - fVar14) * 2.0 + 1.0;
+      fStack_24 = (fVar12 - fVar15) * 2.0 + 0.0;
       puVar3 = (undefined4 *)FUN_004e4500(400,"Routing/RoutingPathImp",0);
       if (puVar3 == (undefined4 *)0x0) {
         piVar7 = (int *)0x0;
       }
       else {
-        uVar16 = FUN_00820020(puVar3);
+        uVar16 = ConstructRoutingPathImp(puVar3);
         piVar7 = (int *)uVar16;
         if (piVar7 != (int *)0x0) {
           LOCK();
@@ -139,7 +139,7 @@ LAB_00762feb:
       piVar7[0x32] = (int)fStack_18;
       piVar7[0x33] = (int)fStack_14;
       puVar3 = (undefined4 *)(**(code **)(*piVar7 + 0xdc))();
-      FUN_0075fd90(puVar3,1);
+      ResizeRecord48Vector(puVar3,1);
       pfVar4 = (float *)*puVar3;
       *pfVar4 = fStack_20;
       pfVar4[1] = fStack_1c;

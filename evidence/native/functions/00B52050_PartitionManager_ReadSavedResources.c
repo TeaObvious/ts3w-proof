@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 Room provenance/caller gate: entire1549owned bytes/492instructions in B52050..B522D6,
@@ -59,8 +59,8 @@ PartitionManager_ReadSavedResources
         *(undefined1 *)((int)this + 500) = 1;
       }
       else {
-        FUN_00b4f990(param_1,(int *)((int)this + 0xa8));
-        FUN_00b4f990(param_1,(int *)((int)this + 0xbc));
+        PartitionState_ReadCountedUInt16Vector(param_1,(int *)((int)this + 0xa8));
+        PartitionState_ReadCountedUInt16Vector(param_1,(int *)((int)this + 0xbc));
       }
       if (local_20[0] < 8) {
         *(undefined1 *)((int)this + 500) = 1;
@@ -157,7 +157,7 @@ PartitionManager_ReadSavedResources
     local_18 = 0;
   }
   if (uVar6 < 0xb) {
-    FUN_00c07d80(*(void **)((int)this + 0x50));
+    RoomManager_ResetToEmptyGrid(*(void **)((int)this + 0x50));
   }
   param_1 = (undefined4 *)((int)this + 0x54);
   param_3 = 6;
@@ -180,12 +180,12 @@ PartitionManager_ReadSavedResources
     WallPatternMap_ReadResource(*(void **)((int)this + 0x80),stream,param_2,0xdd3460,lotLow,uVar9);
   }
   if (10 < local_20[0]) {
-    FUN_00aa5490(*(void **)((int)this + 0x94),stream,param_2,0xd2507,lotLow,uVar9,local_1c & 0xffff)
-    ;
+    FloorPatternMap_ReadResourceRows
+              (*(void **)((int)this + 0x94),stream,param_2,0xd2507,lotLow,uVar9,local_1c & 0xffff);
   }
   if (0xb < local_20[0]) {
-    FUN_00aa5490(*(void **)((int)this + 0x9c),stream,param_2,0x3b1255,lotLow,uVar9,local_1c & 0xffff
-                );
+    FloorPatternMap_ReadResourceRows
+              (*(void **)((int)this + 0x9c),stream,param_2,0x3b1255,lotLow,uVar9,local_1c & 0xffff);
   }
   LotFence_ReadPostResource(*(void **)((int)this + 0x8c),stream,param_2,lotLow,uVar9);
   WallSidePatterns_ReadResource(*(void **)((int)this + 0x90),stream,param_2,0x2e7e1d,lotLow,uVar9);
@@ -230,15 +230,15 @@ PartitionManager_ReadSavedResources
     iVar11 = *(int *)(iVar4 + 0x14);
     uVar9 = *(int *)(iVar4 + 0x10) * iVar10;
     pvVar1 = *(void **)(iVar4 + 0x18);
-    if (uVar9 < (uint)((int)pvVar1 - iVar11) || uVar9 - ((int)pvVar1 - iVar11) == 0) {
-      param_2 = (void *)(iVar11 + uVar9);
-      memmove(param_2,pvVar1,0);
-      *(int *)(iVar4 + 0x18) = (int)param_2 + (*(int *)(iVar4 + 0x18) - (int)pvVar1);
-    }
-    else {
+    if ((uint)((int)pvVar1 - iVar11) < uVar9) {
       param_2 = (void *)((uint)param_2 & 0xffffff00);
       FUN_00b6f4c0((void *)(iVar4 + 0x14),pvVar1,(void *)((iVar11 - (int)pvVar1) + uVar9),
                    (byte *)&param_2);
+    }
+    else {
+      param_2 = (void *)(iVar11 + uVar9);
+      memmove(param_2,pvVar1,0);
+      *(int *)(iVar4 + 0x18) = (int)param_2 + (*(int *)(iVar4 + 0x18) - (int)pvVar1);
     }
     pvVar1 = *(void **)(*(int *)((int)this + 0xa4) + 0x14);
     memset(pvVar1,0,*(int *)(*(int *)((int)this + 0xa4) + 0x18) - (int)pvVar1);

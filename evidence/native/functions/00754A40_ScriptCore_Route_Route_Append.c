@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161b28 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161b28 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Route::Route_Append [assembly=ScriptCore token=0x0600113C; routeHandle: System.UInt32,
    routeHandleOther: System.UInt32, preserveSegments: System.Boolean; return=System.UInt32]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -19,12 +20,13 @@ undefined4 ScriptCore_Route__Route_Append(uint param_1,uint param_2,undefined4 p
   undefined4 *puVar3;
   int iVar4;
   int *piVar5;
+  int iStack_4;
   
-  this = (int *)FUN_0074b4b0(DAT_011d50c4,param_1);
+  this = (int *)RouteRegistry_ResolveTypedHandle(DAT_011d50c4,param_1);
   if (this != (int *)0x0) {
     (**(code **)(*this + 0x10))();
   }
-  piVar2 = (int *)FUN_0074b4b0(DAT_011d50c4,param_2);
+  piVar2 = (int *)RouteRegistry_ResolveTypedHandle(DAT_011d50c4,param_2);
   if (piVar2 != (int *)0x0) {
     (**(code **)(*piVar2 + 0x10))();
   }
@@ -82,20 +84,20 @@ undefined4 ScriptCore_Route__Route_Append(uint param_1,uint param_2,undefined4 p
     else {
       if (puVar3 != (undefined4 *)0x0) {
         iVar4 = (**(code **)(*piVar5 + 0xf8))(puVar3,param_3);
-        if (iVar4 != 0) {
-          FUN_0074bde0(this,(int)piVar2);
-          FUN_00750450((int)this);
-          FUN_007462e0((int *)&stack0xfffffff0);
-          FUN_007462e0((int *)&stack0xfffffff4);
+        if (iVar4 == 0) {
+          FUN_007462e0((int *)((int)register0x00000010 + -0x10));
+          FUN_007462e0((int *)((int)register0x00000010 + -0xc));
           (**(code **)(*piVar2 + 0x14))();
           (**(code **)(*this + 0x14))();
-          return 1;
+          return 0;
         }
-        FUN_007462e0((int *)&stack0xfffffff0);
-        FUN_007462e0((int *)&stack0xfffffff4);
+        FUN_0074bde0(this,(int)piVar2);
+        FUN_00750450((int)this);
+        FUN_007462e0((int *)((int)register0x00000010 + -0x10));
+        FUN_007462e0((int *)((int)register0x00000010 + -0xc));
         (**(code **)(*piVar2 + 0x14))();
         (**(code **)(*this + 0x14))();
-        return 0;
+        return 1;
       }
       piVar1 = piVar5 + 1;
       LOCK();

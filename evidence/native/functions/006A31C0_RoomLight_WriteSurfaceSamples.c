@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -98,10 +98,10 @@ RoomLight_WriteSurfaceSamples
   }
   if (local_d8 != 0) {
     local_80 = 1.0;
-    fStack_7c = 1.0;
-    fStack_78 = 1.0;
-    fStack_74 = 1.0;
     local_e4 = 0;
+    fStack_7c = local_80;
+    fStack_78 = local_80;
+    fStack_74 = local_80;
     do {
       pfVar8 = (float *)(*param_1 + local_e4);
       uVar1 = *(ushort *)((int)pfVar8 + 0x22);
@@ -164,7 +164,7 @@ RoomLight_WriteSurfaceSamples
       auVar6._12_4_ = fStack_74;
       local_60 = minps(auVar5,auVar6);
       fStack_84 = fVar10;
-      FUN_0060d360(&local_9c,(float *)local_60);
+      PackedArgb_StoreFloat4(&local_9c,(float *)local_60);
       local_e4 = local_e4 + 0x30;
       local_d8 = local_d8 - 1;
       *(undefined4 *)((uint)uVar1 * iVar3 + (uint)uVar2 * 4 + iVar4) = local_9c;

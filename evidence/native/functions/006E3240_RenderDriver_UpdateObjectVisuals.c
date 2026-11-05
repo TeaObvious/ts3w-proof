@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -13,7 +13,6 @@ void __thiscall RenderDriver_UpdateObjectVisuals(void *this)
 
 {
   void *pvVar1;
-  int iVar2;
   float delta;
   
   if ((DAT_011cfcc8 != 0) && (*(char *)(DAT_011cfcc8 + 0x8d) != '\0')) {
@@ -23,11 +22,11 @@ void __thiscall RenderDriver_UpdateObjectVisuals(void *this)
   FUN_00693b90((void *)((int)this + 0x25c),_DAT_011ceda0);
   pvVar1 = (void *)FUN_006fdbe0();
   Renderer_AdvanceObjectVisualTransitions(pvVar1,delta);
-  iVar2 = FUN_006e8170();
-  if ((iVar2 != 0) && (DAT_011d2530 != (void *)0x0)) {
-    FUN_006e2db0(DAT_011d2530,*(char *)(iVar2 + 0x270));
+  pvVar1 = LoadPump_ReadFrameServiceGlobal();
+  if ((pvVar1 != (void *)0x0) && (DAT_011d2530 != (void *)0x0)) {
+    FUN_006e2db0(DAT_011d2530,*(char *)((int)pvVar1 + 0x270));
   }
-  pvVar1 = (void *)FUN_006e8170();
+  pvVar1 = LoadPump_ReadFrameServiceGlobal();
   if (pvVar1 != (void *)0x0) {
     FUN_006e8330((int)pvVar1);
     FUN_006f3d20(pvVar1);

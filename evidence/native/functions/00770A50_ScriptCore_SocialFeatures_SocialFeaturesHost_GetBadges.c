@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01162550 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01162550 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.SocialFeatures::SocialFeaturesHost_GetBadges [assembly=ScriptCore token=0x06000ABC;
    startIndex: System.UInt32, numRecords: System.UInt32, platform: System.UInt32;
    return=System.UInt32]
@@ -19,12 +20,12 @@ ScriptCore_SocialFeatures__SocialFeaturesHost_GetBadges
   int iVar1;
   void *this;
   
-  iVar1 = FUN_0056c070(DAT_011ebda0);
+  iVar1 = AnimationRenderState_GetWorldMatrices(DAT_011ebda0);
   this = (void *)GetNativeDescriptorTypeName_Field4(iVar1);
-  if (this != (void *)0x0) {
-    FUN_00a1a590(this,param_1,param_2,param_3);
-    return 0;
+  if (this == (void *)0x0) {
+    return 1;
   }
-  return 1;
+  FUN_00a1a590(this,param_1,param_2,param_3);
+  return 0;
 }
 

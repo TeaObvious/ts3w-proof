@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 catalog/template instruction contract): Analyst-assigned name. ECX placement
@@ -65,7 +65,7 @@ ObjectPlacementTool_CompletePlacement(void *this,undefined4 param_1,float *param
           }
           FUN_00cfaf80(this,pvVar5,1.4013e-45,'\0');
           FUN_00cfb5e0(this,pvVar7);
-          FUN_00cfdd10(this,pvVar7);
+          ObjectTool_NotifyCompletedEdit(this,pvVar7);
           if ((*(char *)((int)this + 0x1d9) == '\0') && (*(char *)((int)this + 0x1da) == '\0')) {
             FUN_00ccea10();
             PayloadCleanup_NoOperation((byte *)0x0);

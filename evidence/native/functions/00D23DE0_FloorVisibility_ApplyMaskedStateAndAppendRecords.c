@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -25,7 +24,7 @@ FloorVisibility_ApplyMaskedStateAndAppendRecords(void *this,undefined3 *param_1,
   char cVar2;
   undefined2 uVar3;
   byte bVar4;
-  int iVar5;
+  bool bVar5;
   byte bVar6;
   undefined1 uStack0000000a;
   undefined1 uStack0000000b;
@@ -43,8 +42,8 @@ FloorVisibility_ApplyMaskedStateAndAppendRecords(void *this,undefined3 *param_1,
     bVar4 = '\x01' << (bVar6 & 0x1f);
     if ((*(byte *)((int)param_1 + 3) & bVar4) != 0) {
       _param_2 = CONCAT13(bVar4,*param_1);
-      iVar5 = FUN_00a8cb10(this_00,&param_2);
-      if ((char)iVar5 != cVar2) {
+      bVar5 = FloorManager_TileHasAnyRequestedFlag(this_00,&param_2);
+      if (bVar5 != (bool)cVar2) {
         uVar3 = _param_2;
         local_6 = uStack0000000a;
         local_8 = _param_2;

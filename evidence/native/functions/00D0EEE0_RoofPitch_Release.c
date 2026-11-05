@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Physical ECX tool, two pointer words eventually forwarded to CCE800, RET8; stored one-parameter
@@ -26,7 +26,7 @@ void __fastcall RoofPitch_Release(void *param_1)
     }
   }
   else {
-    FUN_00cd3a20(param_1,*(int **)((int)param_1 + 0x34),'\0');
+    UserTool_SubmitUndoableWithCostEffects(param_1,*(int **)((int)param_1 + 0x34),'\0');
     puVar4 = *(undefined4 **)((int)param_1 + 0x34);
     if (puVar4 != (undefined4 *)0x0) {
       *(undefined4 *)((int)param_1 + 0x34) = 0;

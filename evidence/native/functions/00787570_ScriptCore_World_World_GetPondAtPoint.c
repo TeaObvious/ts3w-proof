@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -40,7 +39,7 @@ ScriptCore.World::World_GetPondAtPoint
       }
     }
     else {
-      piVar2 = FUN_00c62810(DAT_011edbc4,param_1,param_2,(int *)0x0);
+      piVar2 = WorldObjects_FindLotByGuid(DAT_011edbc4,param_1,param_2,(uint *)0x0);
       if ((piVar2 != (int *)0x0) && ((void *)piVar2[0xb2] != (void *)0x0)) {
         local_20 = param_3;
         uStack_1c = param_4;

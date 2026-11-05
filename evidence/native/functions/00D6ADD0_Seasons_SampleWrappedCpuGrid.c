@@ -1,8 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-Decompiled function Seasons_SampleWrappedCpuGrid:
 
 
 /* Analyst-assigned name. Wrapped bilinear sample of the CPU copy of a weather texture.
@@ -31,10 +29,10 @@ float10 Seasons_SampleWrappedCpuGrid
   float fVar13;
   double dVar14;
   double dVar15;
-  int in_stack_00000030;
-  int in_stack_00000040;
-  undefined4 local_10;
-
+  void *in_stack_00000030;
+  void *in_stack_00000040;
+  int local_10;
+  
   fVar4 = (float)(int)param_3;
   if ((int)param_3 < 0) {
     fVar4 = fVar4 + 4.2949673e+09;
@@ -48,55 +46,54 @@ float10 Seasons_SampleWrappedCpuGrid
   uVar10 = (uint)fVar4;
   uVar12 = (uint)fVar5;
   iVar6 = ((int)uVar10 >> 2) * param_6 + ((int)uVar12 >> 2);
-  uVar3 = *(ushort *)(in_stack_00000040 + iVar6 * 2);
+  uVar3 = *(ushort *)((int)in_stack_00000040 + iVar6 * 2);
   if ((short)uVar3 < 0) {
     pbVar7 = (byte *)(iVar6 + param_8);
   }
   else {
-    pbVar7 = (byte *)((uVar12 & 3) + in_stack_00000030 + ((uVar10 & 3) + (uint)uVar3 * 4) * 4);
+    pbVar7 = (byte *)((int)in_stack_00000030 + ((uVar10 & 3) + (uint)uVar3 * 4) * 4 + (uVar12 & 3));
   }
   local_10 = (int)(longlong)ROUND(fVar5);
   uVar9 = (local_10 + 1U) % param_3;
   iVar6 = ((int)uVar10 >> 2) * param_6 + ((int)uVar9 >> 2);
-  uVar3 = *(ushort *)(in_stack_00000040 + iVar6 * 2);
+  uVar3 = *(ushort *)((int)in_stack_00000040 + iVar6 * 2);
   if ((short)uVar3 < 0) {
     pbVar11 = (byte *)(param_8 + iVar6);
   }
   else {
-    pbVar11 = (byte *)((uVar9 & 3) + in_stack_00000030 + ((uVar10 & 3) + (uint)uVar3 * 4) * 4);
+    pbVar11 = (byte *)((int)in_stack_00000030 + ((uVar10 & 3) + (uint)uVar3 * 4) * 4 + (uVar9 & 3));
   }
   local_10 = (int)(longlong)ROUND(fVar4);
   uVar10 = (local_10 + 1U) % param_3;
   iVar6 = ((int)uVar10 >> 2) * param_6 + ((int)uVar9 >> 2);
-  uVar3 = *(ushort *)(in_stack_00000040 + iVar6 * 2);
+  uVar3 = *(ushort *)((int)in_stack_00000040 + iVar6 * 2);
   if ((short)uVar3 < 0) {
     pbVar8 = (byte *)(iVar6 + param_8);
   }
   else {
-    pbVar8 = (byte *)((uVar9 & 3) + in_stack_00000030 + ((uVar10 & 3) + (uint)uVar3 * 4) * 4);
+    pbVar8 = (byte *)((int)in_stack_00000030 + ((uVar10 & 3) + (uint)uVar3 * 4) * 4 + (uVar9 & 3));
   }
   bVar1 = *pbVar8;
   iVar6 = ((int)uVar10 >> 2) * param_6 + ((int)uVar12 >> 2);
-  uVar3 = *(ushort *)(in_stack_00000040 + iVar6 * 2);
+  uVar3 = *(ushort *)((int)in_stack_00000040 + iVar6 * 2);
   if ((short)uVar3 < 0) {
     pbVar8 = (byte *)(iVar6 + param_8);
   }
   else {
-    pbVar8 = (byte *)((uVar12 & 3) + in_stack_00000030 + ((uVar10 & 3) + (uint)uVar3 * 4) * 4);
+    pbVar8 = (byte *)((int)in_stack_00000030 + ((uVar10 & 3) + (uint)uVar3 * 4) * 4 + (uVar12 & 3));
   }
   bVar2 = *pbVar8;
   fVar13 = ((float)*pbVar11 - (float)*pbVar7) * (fVar5 - (float)dVar14) + (float)*pbVar7;
-  if (in_stack_00000040 != 0) {
-    FUN_004e44e0(in_stack_00000040);
+  if (in_stack_00000040 != (void *)0x0) {
+    Memory_FreeIfNonNull(in_stack_00000040);
   }
-  if (in_stack_00000030 != 0) {
-    FUN_004e44e0(in_stack_00000030);
+  if (in_stack_00000030 != (void *)0x0) {
+    Memory_FreeIfNonNull(in_stack_00000030);
   }
   if (param_8 != 0) {
-    FUN_004e44e0(param_8);
+    Memory_FreeIfNonNull((void *)param_8);
   }
   return (float10)(((((float)bVar1 - (float)bVar2) * (fVar5 - (float)dVar14) + (float)bVar2) -
                    fVar13) * (fVar4 - (float)dVar15) + fVar13);
 }
-
 

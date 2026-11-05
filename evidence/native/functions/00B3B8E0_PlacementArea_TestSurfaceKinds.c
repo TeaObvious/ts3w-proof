@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 placement/source boundary. cdecl two physical words/plainRET/AL status. Full
@@ -26,7 +26,7 @@ bool __cdecl PlacementArea_TestSurfaceKinds(int *param_1,void *param_2)
 
 {
   char *pcVar1;
-  int *this;
+  int *lot;
   void *pvVar2;
   char cVar3;
   bool bVar4;
@@ -58,29 +58,27 @@ bool __cdecl PlacementArea_TestSurfaceKinds(int *param_1,void *param_2)
   int local_7c;
   undefined8 local_78;
   int local_70;
-  float local_64;
-  float local_60;
-  int local_5c;
+  LotPaintPoint local_64;
   longlong local_58;
   float local_50 [19];
   
   local_a0 = *(uint *)(param_1[0x27] + 0xc);
-  local_64 = (float)param_1[2];
-  local_5c = param_1[9];
-  local_60 = (float)param_1[3];
-  this = (int *)param_1[1];
+  local_64.x = (float)param_1[2];
+  local_64.level = param_1[9];
+  local_64.z = (float)param_1[3];
+  lot = (int *)param_1[1];
   local_96 = 1;
   local_97 = '\0';
   if ((local_a0 & 0x10) != 0) {
-    local_78 = (ulonglong)ROUND(local_64);
-    local_58 = (longlong)ROUND(local_60);
+    local_78 = (ulonglong)ROUND(local_64.x);
+    local_58 = (longlong)ROUND(local_64.z);
     local_80 = (float)(int)(float)local_78;
-    if (ABS(local_64 - local_80) < 0.1) {
+    if (ABS(local_64.x - local_80) < 0.1) {
       local_8c = (float)(int)(uint)local_58;
-      if (ABS(local_60 - local_8c) < 0.1) {
+      if (ABS(local_64.z - local_8c) < 0.1) {
         local_78 = CONCAT44(local_8c,local_80);
         pvVar2 = *(void **)(param_1[1] + 0x298);
-        local_70 = local_5c;
+        local_70 = local_64.level;
         cVar3 = FUN_00b46f60(pvVar2,(float *)&local_78);
         if (cVar3 != '\0') {
           puVar6 = (uint *)FUN_00b46f80(pvVar2,(float *)&local_78,(undefined4 *)0x0);
@@ -141,7 +139,7 @@ LAB_00b3bd00:
     cVar3 = '\x01';
 LAB_00b3bd02:
     if (local_95 != '\0') {
-      uVar7 = Lot_TestCellRegionAndCollectionAdmission(this,pcVar1,1,0,(undefined1 *)0x0);
+      uVar7 = Lot_TestCellRegionAndCollectionAdmission(lot,pcVar1,1,0,(undefined1 *)0x0);
       cVar3 = (char)uVar7 == '\0';
     }
     if (cVar3 == '\0') goto LAB_00b3c005;
@@ -172,48 +170,48 @@ LAB_00b3bef3:
       if (cVar3 == '\0') goto LAB_00b3c005;
     }
     else {
-      uVar10 = FUN_00ab6550(this,pcVar1,0xff,0xffff);
+      bVar4 = LotFloorFeatures_TestAny(lot,pcVar1,0xff,0xffff);
       local_9b = pcVar1[1];
       local_80 = (float)(int)local_9b;
       local_7c = (int)*pcVar1;
       local_9c = *pcVar1 + -1;
       local_9a = pcVar1[2];
       cVar3 = false;
-      if ((char)uVar10 != '\0') {
+      if (bVar4) {
 LAB_00b3bee9:
         if (param_2 != (void *)0x0) {
-          FUN_00ad6960(local_50,0x81,(int)this,(undefined2 *)&local_9c);
+          FUN_00ad6960(local_50,0x81,(int)lot,(undefined2 *)&local_9c);
           goto LAB_00b3bfd7;
         }
         goto LAB_00b3bef3;
       }
-      uVar10 = FUN_00ab6550(this,&local_9c,0xff,0xffff);
-      cVar3 = (char)uVar10 == '\0';
+      bVar4 = LotFloorFeatures_TestAny(lot,&local_9c,0xff,0xffff);
+      cVar3 = !bVar4;
       if (!(bool)cVar3) goto LAB_00b3bee9;
       local_9c = (char)local_7c + '\x01';
-      uVar10 = FUN_00ab6550(this,&local_9c,0xff,0xffff);
-      cVar3 = (char)uVar10 == '\0';
+      bVar4 = LotFloorFeatures_TestAny(lot,&local_9c,0xff,0xffff);
+      cVar3 = !bVar4;
       if (!(bool)cVar3) goto LAB_00b3bee9;
       local_9c = (char)local_7c;
       local_9b = local_80._0_1_ + -1;
-      uVar10 = FUN_00ab6550(this,&local_9c,0xff,0xffff);
-      cVar3 = (char)uVar10 == '\0';
+      bVar4 = LotFloorFeatures_TestAny(lot,&local_9c,0xff,0xffff);
+      cVar3 = !bVar4;
       if (!(bool)cVar3) goto LAB_00b3bee9;
       local_9c = (char)local_7c;
       local_9b = local_80._0_1_ + '\x01';
-      uVar10 = FUN_00ab6550(this,&local_9c,0xff,0xffff);
-      cVar3 = (char)uVar10 == '\0';
+      bVar4 = LotFloorFeatures_TestAny(lot,&local_9c,0xff,0xffff);
+      cVar3 = !bVar4;
       if (!(bool)cVar3) goto LAB_00b3bee9;
     }
     if ((local_a0 & 0x1000) != 0) {
-      bVar4 = LotQuarter_IsCoveredByRoofOrHigherFloor(this,pcVar1,'\x01');
+      bVar4 = LotQuarter_IsCoveredByRoofOrHigherFloor(lot,pcVar1,'\x01');
       cVar3 = !bVar4;
     }
     if (cVar3 == '\0') goto LAB_00b3c005;
     if (((((char)local_94 != *pcVar1) || (local_94._1_1_ != pcVar1[1])) || (local_92 != pcVar1[2]))
        && ((local_a0 & 0x2000) != 0)) {
       uVar7 = Seasons_TileHasSnowBlockingObjects
-                        (this,pcVar1,*(int *)(*param_1 + 8),*(int *)(*param_1 + 0xc));
+                        (lot,pcVar1,*(int *)(*param_1 + 8),*(int *)(*param_1 + 0xc));
       local_94 = *(undefined2 *)pcVar1;
       local_92 = pcVar1[2];
       cVar3 = (char)uVar7 == '\0';
@@ -224,11 +222,11 @@ LAB_00b3bf95:
       if (cVar3 == '\0') goto LAB_00b3c005;
     }
     else {
-      uVar10 = FUN_00acf210(this,pcVar1);
+      uVar10 = FUN_00acf210(lot,pcVar1);
       if ((char)uVar10 == '\0') {
         cVar3 = '\0';
         if (param_2 != (void *)0x0) {
-          FUN_00ad6a40(local_50,0x3c,(int)this,pcVar1);
+          FUN_00ad6a40(local_50,0x3c,(int)lot,pcVar1);
 LAB_00b3bfd7:
           FUN_00ad8570(param_2,local_50);
           FUN_00ad70d0((int)local_50);
@@ -244,56 +242,57 @@ LAB_00b3bfd7:
     fVar11 = (float)local_78;
   }
   if ((local_a0 & 1) != 0) {
-    uVar7 = FUN_00ad0e20(this,pcVar1);
+    uVar7 = Lot_TestTerrainSurfaceAtCellPart(lot,pcVar1);
     cVar3 = (char)uVar7;
     if ((char)uVar7 == '\0') goto LAB_00b3bb02;
     goto LAB_00b3bd02;
   }
 LAB_00b3bb02:
   if ((local_a0 & 2) != 0) {
-    uVar7 = FUN_00ad0ee0(this,pcVar1);
+    uVar7 = Lot_TestFloorSurfaceAtCellPart(lot,pcVar1);
     cVar3 = (char)uVar7;
     if ((char)uVar7 != '\0') goto LAB_00b3bd02;
   }
   if (((local_a0 & 4) != 0) &&
-     ((cVar3 = FUN_00ad0d70(this,(undefined2 *)pcVar1,1,0), cVar3 != '\0' ||
-      (uVar7 = Lot_TestCellRegionAndCollectionAdmission(this,pcVar1,1,0,(undefined1 *)0x0),
+     ((cVar3 = FUN_00ad0d70(lot,(undefined2 *)pcVar1,1,0), cVar3 != '\0' ||
+      (uVar7 = Lot_TestCellRegionAndCollectionAdmission(lot,pcVar1,1,0,(undefined1 *)0x0),
       (char)uVar7 != '\0')))) goto LAB_00b3bd00;
   if ((local_a0 & 8) != 0) {
-    bVar4 = FUN_00acf070(this,pcVar1);
+    bVar4 = FUN_00acf070(lot,pcVar1);
     cVar3 = '\x01';
     if (bVar4) goto LAB_00b3bd02;
   }
   if (((local_a0 & 0x4000) != 0) || (*(char *)((int)param_1 + 0x8a) != '\0')) {
-    uVar10 = Lot_TestCellBelowSea(this,pcVar1,(void *)0x0,'\0');
+    uVar10 = Lot_TestCellBelowSea(lot,pcVar1,(void *)0x0,'\0');
     cVar3 = (char)uVar10;
     if ((char)uVar10 != '\0') goto LAB_00b3bd02;
   }
   if ((local_a0 & 0x8000) != 0) {
-    uVar10 = FUN_00ad0a20(this,pcVar1);
+    uVar10 = FUN_00ad0a20(lot,pcVar1);
     cVar3 = (char)uVar10;
     if ((char)uVar10 != '\0') goto LAB_00b3bd02;
   }
   if (((local_a0 & 0x10) != 0) && (cVar3 = local_97, local_97 != '\0')) goto LAB_00b3bd02;
   if (((((((local_a0 & 0x100) != 0) &&
-         (((bVar4 = Lot_TestChimneyCellSupport((void *)param_1[1],pcVar1,0), bVar4 &&
-           (uVar7 = Lot_TestCellRegionAndCollectionAdmission(this,pcVar1,1,0,(undefined1 *)0x0),
-           (char)uVar7 == '\0')) && (uVar7 = FUN_00ad0e20(this,pcVar1), (char)uVar7 == '\0')))) &&
-        (((uVar7 = FUN_00ad0ee0(this,pcVar1), (char)uVar7 == '\0' &&
-          (cVar3 = FUN_00ad0d70(this,(undefined2 *)pcVar1,1,1), cVar3 == '\0')) &&
-         (bVar4 = FUN_00acf070(this,pcVar1), !bVar4)))) &&
-       (uVar10 = Lot_TestCellBelowSea(this,pcVar1,(void *)0x0,'\0'), (char)uVar10 == '\0')) ||
+         (((bVar4 = Lot_TestChimneyCellSupport((undefined *)param_1[1],pcVar1,(undefined *)0x0),
+           bVar4 && (uVar7 = Lot_TestCellRegionAndCollectionAdmission
+                                       (lot,pcVar1,1,0,(undefined1 *)0x0), (char)uVar7 == '\0')) &&
+          (uVar7 = Lot_TestTerrainSurfaceAtCellPart(lot,pcVar1), (char)uVar7 == '\0')))) &&
+        (((uVar7 = Lot_TestFloorSurfaceAtCellPart(lot,pcVar1), (char)uVar7 == '\0' &&
+          (cVar3 = FUN_00ad0d70(lot,(undefined2 *)pcVar1,1,1), cVar3 == '\0')) &&
+         (bVar4 = FUN_00acf070(lot,pcVar1), !bVar4)))) &&
+       (uVar10 = Lot_TestCellBelowSea(lot,pcVar1,(void *)0x0,'\0'), (char)uVar10 == '\0')) ||
       (((local_a0 & 0x40) != 0 &&
-       ((((uVar7 = FUN_00ad0e20(this,pcVar1), (char)uVar7 == '\0' &&
-          (uVar7 = FUN_00ad0ee0(this,pcVar1), (char)uVar7 == '\0')) &&
-         ((cVar3 = FUN_00ad0d70(this,(undefined2 *)pcVar1,1,1), cVar3 == '\0' &&
-          (bVar4 = FUN_00acf070(this,pcVar1), !bVar4)))) ||
-        (uVar10 = Lot_TestCellBelowSea(this,pcVar1,(void *)0x0,'\0'), (char)uVar10 != '\0')))))) ||
+       ((((uVar7 = Lot_TestTerrainSurfaceAtCellPart(lot,pcVar1), (char)uVar7 == '\0' &&
+          (uVar7 = Lot_TestFloorSurfaceAtCellPart(lot,pcVar1), (char)uVar7 == '\0')) &&
+         ((cVar3 = FUN_00ad0d70(lot,(undefined2 *)pcVar1,1,1), cVar3 == '\0' &&
+          (bVar4 = FUN_00acf070(lot,pcVar1), !bVar4)))) ||
+        (uVar10 = Lot_TestCellBelowSea(lot,pcVar1,(void *)0x0,'\0'), (char)uVar10 != '\0')))))) ||
      ((local_8d != '\0' &&
-      ((((cVar3 = FUN_00ad0d70(this,(undefined2 *)pcVar1,1,0), cVar3 != '\0' ||
-         (uVar7 = Lot_TestCellRegionAndCollectionAdmission(this,pcVar1,1,0,(undefined1 *)0x0),
-         (char)uVar7 != '\0')) || (bVar4 = FUN_00acf070(this,pcVar1), bVar4)) ||
-       (uVar10 = Lot_TestCellBelowSea(this,pcVar1,(void *)0x0,'\0'), (char)uVar10 != '\0'))))))
+      ((((cVar3 = FUN_00ad0d70(lot,(undefined2 *)pcVar1,1,0), cVar3 != '\0' ||
+         (uVar7 = Lot_TestCellRegionAndCollectionAdmission(lot,pcVar1,1,0,(undefined1 *)0x0),
+         (char)uVar7 != '\0')) || (bVar4 = FUN_00acf070(lot,pcVar1), bVar4)) ||
+       (uVar10 = Lot_TestCellBelowSea(lot,pcVar1,(void *)0x0,'\0'), (char)uVar10 != '\0'))))))
   goto LAB_00b3bd00;
 LAB_00b3c005:
   local_96 = 0;
@@ -302,24 +301,24 @@ LAB_00b3c005:
   }
   if (local_a0 < 9) {
     if (local_a0 == 8) {
-      uVar7 = 0x37;
+      uVar10 = 0x37;
     }
     else {
       switch(local_a0) {
       case 0:
-        uVar7 = 0xe9;
+        uVar10 = 0xe9;
         break;
       case 1:
-        uVar7 = 0x2c;
+        uVar10 = 0x2c;
         break;
       case 2:
-        uVar7 = 0x2e;
+        uVar10 = 0x2e;
         break;
       case 3:
-        uVar7 = 0x30;
+        uVar10 = 0x30;
         break;
       case 4:
-        uVar7 = 0x34;
+        uVar10 = 0x34;
         break;
       default:
 switchD_00b3c028_default:
@@ -337,19 +336,19 @@ switchD_00b3c028_default:
         }
         while( true ) {
           pcVar1 = (char *)(param_1[0x34] + (int)fVar11 * 4);
-          uVar7 = Lot_TestCellSupportRegionType(this,pcVar1,'\0',(undefined1 *)0x0);
+          uVar7 = Lot_TestCellSupportRegionType(lot,pcVar1,'\0',(undefined1 *)0x0);
           if ((char)uVar7 != '\0') break;
-          bVar4 = FUN_00acf8e0(this,pcVar1);
+          bVar4 = FUN_00acf8e0(lot,pcVar1);
           if (bVar4) {
             uVar7 = 0x36;
             goto LAB_00b3c18d;
           }
-          bVar4 = FUN_00acf070(this,pcVar1);
+          bVar4 = FUN_00acf070(lot,pcVar1);
           if (bVar4) {
             uVar7 = 0x38;
             goto LAB_00b3c18d;
           }
-          uVar10 = Lot_TestCellBelowSea(this,pcVar1,(void *)0x0,'\0');
+          uVar10 = Lot_TestCellBelowSea(lot,pcVar1,(void *)0x0,'\0');
           if ((char)uVar10 != '\0') {
             uVar7 = 0x3a;
             goto LAB_00b3c18d;
@@ -361,36 +360,37 @@ switchD_00b3c028_default:
         }
         uVar7 = 0x35;
 LAB_00b3c18d:
-        FUN_00ad6a40(local_50,uVar7,(int)this,pcVar1);
+        FUN_00ad6a40(local_50,uVar7,(int)lot,pcVar1);
         goto LAB_00b3c19e;
       }
     }
   }
   else if (local_a0 < 0x4001) {
     if (local_a0 == 0x4000) {
-      uVar7 = 0x39;
+      uVar10 = 0x39;
     }
     else {
       if (local_a0 < 0x844) {
         if (local_a0 != 0x843) {
           if (local_a0 == 0xc) goto LAB_00b3c0a2;
           if (local_a0 != 0x10) goto switchD_00b3c028_default;
-          uVar7 = 0xbe;
+          uVar10 = 0xbe;
           goto LAB_00b3c0a7;
         }
       }
       else if (local_a0 != 0xf03) goto switchD_00b3c028_default;
-      uVar7 = 0x107;
+      uVar10 = 0x107;
     }
   }
   else {
     if (((local_a0 != 0x4004) && (local_a0 != 0x4008)) && (local_a0 != 0x400c))
     goto switchD_00b3c028_default;
 LAB_00b3c0a2:
-    uVar7 = 0x3d;
+    uVar10 = 0x3d;
   }
 LAB_00b3c0a7:
-  FUN_00ad6720(local_50,uVar7,(int)this,&local_64,local_a0,*param_1);
+  BuildEditErrorRecord_InitializeAtLotPoint
+            (local_50,uVar10,(undefined *)lot,&local_64,local_a0,*param_1);
 LAB_00b3c19e:
   FUN_00ad8570(param_2,local_50);
   FUN_00ad70d0((int)local_50);

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. Reads current VisualState+8; absent
@@ -21,13 +21,13 @@ void __cdecl VisualState_PublishDerivedObjectState(void *object)
   char local_bc;
   byte local_b8;
   byte local_b4;
-  undefined4 local_b0;
+  byte local_b0 [4];
   undefined4 *local_ac;
   undefined4 local_a8;
   undefined4 local_a4;
   undefined4 local_a0;
   uint local_9c [15];
-  undefined4 local_60;
+  byte local_60 [4];
   undefined4 *local_5c;
   undefined4 local_58;
   undefined4 local_54;
@@ -63,16 +63,22 @@ void __cdecl VisualState_PublishDerivedObjectState(void *object)
   }
   local_a8 = *(undefined4 *)((int)object + 8);
   local_a4 = *(undefined4 *)((int)object + 0xc);
-  local_b0 = 0x4878bc4;
+  local_b0[0] = 0xc4;
+  local_b0[1] = 0x8b;
+  local_b0[2] = 0x87;
+  local_b0[3] = 4;
   local_ac = (undefined4 *)0x0;
   FUN_0095e9f0(object,&local_a0,local_9c,local_bc,local_c4,local_c0,local_b4,local_b8);
-  FUN_00693380(&local_b0);
+  RenderCommand_EnqueueIfDispatcherExists(local_b0);
   local_58 = *(undefined4 *)((int)object + 8);
   local_54 = *(undefined4 *)((int)object + 0xc);
   local_50[0] = (uint)bVar3;
-  local_60 = 0xe128229b;
+  local_60[0] = 0x9b;
+  local_60[1] = 0x22;
+  local_60[2] = 0x28;
+  local_60[3] = 0xe1;
   local_5c = (undefined4 *)0x0;
-  FUN_00693380(&local_60);
+  RenderCommand_EnqueueIfDispatcherExists(local_60);
   if (local_5c != (undefined4 *)0x0) {
     (**(code **)*local_5c)(local_50);
   }

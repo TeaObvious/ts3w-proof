@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 ECX context plus locator/unused product/errors RET0C, AL success. Samples actual world
@@ -31,13 +31,9 @@ WallPlacement_ValidateFenceSlopeAndRegions
   char local_ba;
   undefined1 local_b9;
   undefined4 local_b8;
-  float local_b4;
-  float local_b0;
-  int local_ac;
+  LotPaintPoint local_b4;
   LotXZLevel local_a8;
-  float local_9c;
-  float local_98;
-  int local_94;
+  LotPaintPoint local_9c;
   float local_90;
   float fStack_8c;
   float fStack_88;
@@ -56,15 +52,15 @@ WallPlacement_ValidateFenceSlopeAndRegions
   float fStack_18;
   float fStack_14;
   
-  local_ac = (int)param_1[2];
-  local_b4 = (float)(int)*param_1;
-  local_b0 = (float)(int)param_1[1];
-  local_94 = (int)param_1[5];
-  local_9c = (float)(int)param_1[3];
-  local_98 = (float)(int)param_1[4];
+  local_b4.level = (int)param_1[2];
+  local_b4.x = (float)(int)*param_1;
+  local_b4.z = (float)(int)param_1[1];
+  local_9c.level = (int)param_1[5];
+  local_9c.x = (float)(int)param_1[3];
+  local_9c.z = (float)(int)param_1[4];
   local_c1 = true;
-  FUN_00adc750(*(int *)((int)this + 8),&local_b4,&local_20);
-  FUN_00adc750(*(int *)((int)this + 8),&local_9c,&local_40);
+  LotPoint_ResolveLevelPosition(*(undefined **)((int)this + 8),&local_b4,&local_20);
+  LotPoint_ResolveLevelPosition(*(undefined **)((int)this + 8),&local_9c,&local_40);
   local_30 = local_40 - local_20;
   fStack_2c = fStack_3c - fStack_1c;
   fStack_28 = fStack_38 - fStack_18;
@@ -123,7 +119,7 @@ WallPlacement_ValidateFenceSlopeAndRegions
           (bVar3 = LotRegion_MatchesTypeCode(iVar4,5), !bVar3)))) &&
         (bVar3 = LotRegion_MatchesTypeCode(local_b8,5), !bVar3)) &&
        ((((bVar3 = LotRegion_MatchesTypeCode(iVar4,6), !bVar3 &&
-          (bVar3 = LotRegion_MatchesTypeCode(local_b8,6), !bVar3)) && (local_ac < 1)) &&
+          (bVar3 = LotRegion_MatchesTypeCode(local_b8,6), !bVar3)) && (local_b4.level < 1)) &&
         ((iVar4 != -1 || (local_b8 != -1)))))) {
       if (param_3 == (void *)0x0) {
         return false;
@@ -134,15 +130,16 @@ WallPlacement_ValidateFenceSlopeAndRegions
       FUN_00ad70d0((int)local_80);
     }
   }
-  local_a8.x = (local_9c + local_b4) * 0.5;
-  local_a8.z = (local_98 + local_b0) * 0.5;
-  local_a8.level = local_ac;
+  local_a8.x = (local_9c.x + local_b4.x) * 0.5;
+  local_a8.z = (local_9c.z + local_b4.z) * 0.5;
+  local_a8.level = local_b4.level;
   uVar5 = Lot_TestNextLevelAtLocalLocation(*(void **)((int)this + 8),&local_a8,0);
   if ((char)uVar5 != '\0') {
     if (param_3 == (void *)0x0) {
       return false;
     }
-    FUN_00ad6720(local_80,0x35,*(int *)((int)this + 8),&local_a8.x,0,0);
+    BuildEditErrorRecord_InitializeAtLotPoint
+              (local_80,0x35,*(undefined **)((int)this + 8),(LotPaintPoint *)&local_a8,0,0);
     FUN_00ad8570(param_3,local_80);
     local_c1 = false;
     FUN_00ad70d0((int)local_80);
@@ -152,7 +149,8 @@ WallPlacement_ValidateFenceSlopeAndRegions
     if (param_3 == (void *)0x0) {
       return false;
     }
-    FUN_00ad6720(local_80,0x36,*(int *)((int)this + 8),&local_a8.x,0,0);
+    BuildEditErrorRecord_InitializeAtLotPoint
+              (local_80,0x36,*(undefined **)((int)this + 8),(LotPaintPoint *)&local_a8,0,0);
     FUN_00ad8570(param_3,local_80);
     local_c1 = false;
     FUN_00ad70d0((int)local_80);

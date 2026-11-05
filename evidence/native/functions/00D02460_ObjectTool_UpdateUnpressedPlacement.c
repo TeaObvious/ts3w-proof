@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Stores incoming raw XZLevel into tool+B8/+BC/+C0 before grid/cell/placement work; this is the
@@ -25,10 +25,10 @@ void __thiscall ObjectTool_UpdateUnpressedPlacement(void *this,float param_1,flo
   void *pvVar12;
   int *piVar13;
   float10 fVar14;
-  float fVar15;
   char unaff_retaddr;
+  float fVar15;
   uint uVar16;
-  uint uStack_34;
+  undefined4 uStack_34;
   void *pvStack_30;
   char local_2c;
   undefined1 uStack_2b;
@@ -57,9 +57,8 @@ void __thiscall ObjectTool_UpdateUnpressedPlacement(void *this,float param_1,flo
   pfVar3 = param_2;
   *(undefined1 *)((int)this + 0x1de) = 0;
   pauVar1 = (undefined1 (*) [12])((int)this + 0xb8);
-  if (((*(float *)((int)this + 0xc0) != param_2[2]) ||
-      (FLOAT_00fb35b4 < ABS(*(float *)*pauVar1 - *param_2))) ||
-     (FLOAT_00fb35b4 < ABS(*(float *)((int)this + 0xbc) - param_2[1]))) {
+  if (((*(float *)((int)this + 0xc0) != param_2[2]) || (0.001 < ABS(*(float *)*pauVar1 - *param_2)))
+     || (0.001 < ABS(*(float *)((int)this + 0xbc) - param_2[1]))) {
     param_2 = (float *)CONCAT31(param_2._1_3_,1);
   }
   else {
@@ -85,14 +84,14 @@ void __thiscall ObjectTool_UpdateUnpressedPlacement(void *this,float param_1,flo
     }
     *(undefined4 *)((int)this + 0xc0) = *(undefined4 *)pcVar6;
   }
-  local_c = FLOAT_00fab218;
-  local_8 = FLOAT_00fab218;
+  local_c = -1.0;
+  local_8 = -1.0;
   local_4 = (int *)0x0;
   (**(code **)(*(int *)this + 0x98))(pauVar1,&local_c);
-  LotLocation_EncodeCellAndQuadrant((float *)pauVar1,&stack0xffffffc4);
+  LotLocation_EncodeCellAndQuadrant((float *)pauVar1,(char *)((int)register0x00000010 + -0x3c));
   if (((((param_1._0_1_ != '\0') || (local_c != *(float *)((int)this + 0xcc))) ||
-       ((FLOAT_00fb35b4 < ABS(fStack_14 - *(float *)((int)this + 0xc4)) ||
-        ((FLOAT_00fb35b4 < ABS(fStack_10 - *(float *)((int)this + 200)) ||
+       ((0.001 < ABS(fStack_14 - *(float *)((int)this + 0xc4)) ||
+        ((0.001 < ABS(fStack_10 - *(float *)((int)this + 200)) ||
          (*(char *)((int)this + 0xb3) != -1)))))) || (*(char *)((int)this + 0xb4) != -1)) ||
      ((*(char *)((int)this + 0xb5) != '\0' || (*(char *)((int)this + 0xb6) != -1)))) {
     bVar2 = true;
@@ -175,9 +174,9 @@ void __thiscall ObjectTool_UpdateUnpressedPlacement(void *this,float param_1,flo
   uStack_29 = (undefined1)((uint)uVar9 >> 0x18);
   uVar9 = Object_HasSteeringWithoutSim((int)pvVar10);
   if ((char)uVar9 != '\0') {
-    fVar15 = DAT_01083f70;
+    fVar15 = 3.0;
   }
-  param_1 = DAT_00ff0c50;
+  param_1 = 1e+30;
   pvStack_30 = (void *)0x0;
   uStack_34 = 0xffffffff;
   if (*(char *)((int)this + 0x1cf) != '\0') {
@@ -187,9 +186,10 @@ void __thiscall ObjectTool_UpdateUnpressedPlacement(void *this,float param_1,flo
   }
   piVar13 = local_4;
   if ((((DAT_011ee7ba != '\0') && (*(char *)((int)this + 0x89) == '\0')) ||
-      (uVar7 = FUN_00cfd780(this,local_4,(float *)pauVar1,*(float *)((int)this + 0xe0),
-                            (uint *)&pvStack_30,&uStack_34,(uint *)&param_1,(uint *)&stack0xffffffc8
-                           ), (char)uVar7 == '\0')) ||
+      (uVar7 = HandTool_FindPointedSlotCandidate
+                         (this,local_4,(float *)pauVar1,*(float *)((int)this + 0xe0),
+                          (uint *)&pvStack_30,&uStack_34,(uint *)&param_1,
+                          (uint *)((int)register0x00000010 + -0x38)), (char)uVar7 == '\0')) ||
      ((fVar15 <= param_1 &&
       (((float)CONCAT13(uStack_29,CONCAT12(uStack_2a,CONCAT11(uStack_2b,local_2c))) <= param_1 ||
        (cVar4 = FUN_00ccdad0((int)pvVar10,(int)piVar13,&fStack_14,0,DAT_011ee7b8,0,0,
@@ -200,11 +200,11 @@ LAB_00d027e1:
     if ((local_4 != (int *)0x0) && (uVar9 = FUN_00cfe2a0((int)pvVar10), (char)uVar9 != '\0')) {
       Lot_ApplyObjectDisplayDetail(local_4,pvVar10,'\0','\0');
     }
-    piVar13 = local_4;
     if (cVar4 == '\0') {
       FUN_00d01d70(this,(float *)pauVar1);
       goto LAB_00d02996;
     }
+    piVar13 = local_4;
   }
   else {
     FUN_00cfde90((int)this);
@@ -261,7 +261,7 @@ LAB_00d027e1:
           uVar9 = FUN_00cb3320(&uStack_1c,&local_2c);
           if (((char)uVar9 != '\0') &&
              (uVar9 = FUN_00cb3320(&uStack_1c,(char *)&uStack_24), (char)uVar9 != '\0')) {
-            FUN_00cd04a0(DAT_011ebfd0);
+            BuildBuy_PlayKeyedSound(DAT_011ebfd0);
           }
         }
       }
@@ -269,11 +269,11 @@ LAB_00d027e1:
     *(float *)((int)this + 0x208) = fStack_14;
     *(float *)((int)this + 0x20c) = fStack_10;
     *(float *)((int)this + 0x210) = local_c;
-    FUN_00cfca50(this,fVar15,'\x01');
+    HandTool_ReportPlacementValidity(this,fVar15,'\x01');
     return;
   }
 LAB_00d02996:
-  FUN_00cfca50(this,fVar15,'\x01');
+  HandTool_ReportPlacementValidity(this,fVar15,'\x01');
   return;
 }
 

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): ECX context with stream/key stack args
@@ -22,7 +22,7 @@ void __thiscall ResourceReferences_WriteRegisteredContextKey(void *this,void *pa
   uint local_8;
   
   FUN_005ed9e0(this,local_24,param_2);
-  if (*(char *)((int)this + 0x82) != '\0') {
+  if (*(char *)((int)this + 0x82) == '\0') {
     if (local_24[0] == *(int *)(*(int *)((int)this + 4) + *(int *)((int)this + 8) * 4)) {
       local_14 = param_2[1];
       local_18 = *param_2;
@@ -30,12 +30,13 @@ void __thiscall ResourceReferences_WriteRegisteredContextKey(void *this,void *pa
       uVar2 = *(uint *)((int)this + 0xc);
       local_c = param_2[3];
       local_8 = uVar2;
-      FUN_00700890(this,local_24,&local_18);
+      ResourceKeyMap_InsertUnique(this,local_24,&local_18);
     }
     else {
       uVar2 = *(uint *)(local_24[0] + 0x10);
     }
-    bVar1 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),uVar2,*(uint *)((int)param_1 + 0x10));
+    bVar1 = Stream_WriteUInt16(*(void **)((int)param_1 + 8),(ushort)uVar2,
+                               *(uint *)((int)param_1 + 0x10));
     StreamReader_AccumulateStatus(param_1,bVar1);
     return;
   }
@@ -46,13 +47,12 @@ void __thiscall ResourceReferences_WriteRegisteredContextKey(void *this,void *pa
     uVar2 = *(uint *)((int)this + 0xc);
     local_c = param_2[3];
     local_8 = uVar2;
-    FUN_00700890(this,local_24,&local_18);
+    ResourceKeyMap_InsertUnique(this,local_24,&local_18);
   }
   else {
     uVar2 = *(uint *)(local_24[0] + 0x10);
   }
-  bVar1 = Stream_WriteUInt16(*(void **)((int)param_1 + 8),(ushort)uVar2,
-                             *(uint *)((int)param_1 + 0x10));
+  bVar1 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),uVar2,*(uint *)((int)param_1 + 0x10));
   StreamReader_AccumulateStatus(param_1,bVar1);
   return;
 }

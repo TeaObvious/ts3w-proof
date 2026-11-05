@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 original contract. ECX renderer,no stack args, RET. Reads Config/FSAALevel
@@ -21,11 +21,11 @@ void __fastcall SceneRenderer_ApplyFsaaConfig(void *param_1)
     uVar1 = Graphics_SelectSupportedFsaaLevel(this,uVar1);
     if (uVar1 != *(uint *)((int)this + 0x38)) {
       Graphics_SetFsaaLevel(this,uVar1,'\x01');
-      FUN_00611ce0(this);
+      Graphics_ApplyPresentationSettingsAndReset(this);
     }
   }
-  FUN_006e15f0(param_1,'\0');
-  FUN_006e2380(param_1,'\0');
+  RenderSystem_ReleaseRenderTargets(param_1,'\0');
+  RenderSystem_RebuildRenderTargets(param_1,'\0');
   return;
 }
 

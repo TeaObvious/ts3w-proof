@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 ECX context plus locator/product/errors RET0C, AL means CONFLICT (opposite
@@ -61,7 +61,7 @@ WallPlacement_TestPartitionConflicts(void *this,char *param_1,uint *param_2,void
         cVar10 = (char)uVar6;
       }
       else {
-        bVar1 = FUN_00b47d20(this_00,param_1);
+        bVar1 = PartitionManager_HasPhysicalWallForLocator(this_00,param_1);
         if (!bVar1) goto LAB_00d46f70;
         puVar7 = FUN_00b47df0(this_00,param_1,'\0');
         uVar6 = WallProduct_GetPartitionType(puVar7);

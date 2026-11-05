@@ -1,8 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Sampler-specific qualification: at79E9D0 split descriptor into stage=raw>>16 andstate=raw&FFFF. Missing valuepointer orcount0 uses rawdefaultDWORD; live type1 scalar state8 preservesfloatbits, all other IDs incl9 use FNSTCW/OR0C00/FLDCW/FISTPqword thenLOWDWORD/restoredCW (79EA01..27). Wrongnonemptytype skips call. No finite/[0,16)/texturemipcount clamp. 6100C0->60F0A0 rawcache/COMsetter; laterselectedpreset1 omitsstate9 and60F120 excludes activebits. Current C ROUND/casts obscure these paths. Fresh readonly ownedranges[E7E0..E999],[E9A0..EA5C],[EA60..EB1C] total820bytes/266instr within retained829envelope: ninegapbytesnotowned, no fresh wholeenvelopeownership claim. */
+
+
 
 /* Analyst PC1.67: Binds pixel/vertex objects, applies static8-byte render-state pairs only on pass
    identity change, dynamic12-byte triples every call, binds textures/samplers and parameters, then
@@ -127,7 +129,7 @@ LAB_0079ea2c:
       if ((*(short *)(puVar4 + 1) != 0) && (*(short *)(puVar4 + 1) != *(short *)(iVar2 + 0x10))) {
         puVar4 = &DAT_010168e0;
       }
-      FUN_0060f3b0(renderDevice,uVar8,puVar4[3]);
+      RenderDevice_BindTextureSlotCached(renderDevice,uVar8,puVar4[3]);
       if ((bVar9) && ((void *)*puVar3 != (void *)0x0)) {
         FUN_0079a590((void *)*puVar3,renderDevice,uVar8);
       }

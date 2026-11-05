@@ -1,6 +1,13 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+/* Retained historical annotation 1, previous C line 632; earlier snapshot context. */
+/* TEST AH,0x44 / JNP skips equal zero only; unordered UCOMISS publishes RugSort
+                       too. */
+
+/* Retained historical annotation 2, previous C line 638; earlier snapshot context. */
+/* Publish packet+0x3c pointer as scalar RugSort parameter. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -48,32 +55,33 @@ void __thiscall RenderObject_DrawPacketWithParameters(void *this,uchar *packet)
   float fVar21;
   float fVar22;
   float fVar23;
-  float fVar24;
-  bool bVar25;
+  bool bVar24;
   void *this_00;
-  int iVar26;
-  int *piVar27;
-  int iVar28;
+  int iVar25;
+  int *piVar26;
+  int iVar27;
+  undefined4 *puVar28;
   undefined4 *puVar29;
-  undefined4 *puVar30;
-  void *pvVar31;
-  uint uVar32;
-  void *pvVar33;
-  undefined *puVar34;
-  float *pfVar35;
+  void *pvVar30;
+  uint uVar31;
+  void *pvVar32;
+  undefined *puVar33;
+  float *pfVar34;
+  Ts3SkinPostDefinition *pTVar35;
   float *pfVar36;
-  undefined1 auVar37 [16];
+  float fVar37;
   undefined1 auVar38 [16];
   undefined1 auVar39 [16];
-  double dVar40;
-  code *pcVar41;
+  undefined1 auVar40 [16];
+  double dVar41;
+  code *drawCallback;
   GeometryState20 *pGVar42;
   char local_1f1;
   float local_1f0;
   float fStack_1ec;
   float fStack_1e8;
   float fStack_1e4;
-  void *local_1d4;
+  Ts3SkinPostDefinition *local_1d4;
   longlong local_1d0;
   float *local_1c8;
   float *local_1c4;
@@ -173,33 +181,33 @@ void __thiscall RenderObject_DrawPacketWithParameters(void *this,uchar *packet)
   if ((local_1b4 != (GeometryState20 *)0x0) && (local_1b4->primitiveCount == 0)) {
     return;
   }
-  local_1d4 = *(void **)(packet + 0x18);
+  local_1d4 = *(Ts3SkinPostDefinition **)(packet + 0x18);
   local_1f1 = '\0';
-  bVar25 = false;
-  if (local_1d4 == (void *)0x0) {
-    local_1d4 = (void *)FUN_0068f810(this,(int)packet,&local_1f1);
-    if (local_1d4 == (void *)0x0) {
+  bVar24 = false;
+  if (local_1d4 == (Ts3SkinPostDefinition *)0x0) {
+    local_1d4 = (Ts3SkinPostDefinition *)FUN_0068f810(this,(int)packet,&local_1f1);
+    if (local_1d4 == (Ts3SkinPostDefinition *)0x0) {
       return;
     }
-    if (((((*(int *)(packet + 0x2c) == 0) && (iVar28 = *(int *)((int)this + 0x24), iVar28 != 0)) &&
-         (*(char *)(iVar28 + 0x98) != '\0')) &&
+    if (((((*(int *)(packet + 0x2c) == 0) && (iVar27 = *(int *)((int)this + 0x24), iVar27 != 0)) &&
+         (*(char *)(iVar27 + 0x98) != '\0')) &&
         (((*(int *)((int)this + 100) == 0 || (*(int *)(packet + 0x14) == 0)) ||
          ((*(int *)((int)this + 0x5c) == 0 || (*(int *)((int)this + 0x60) == 1)))))) &&
        ((packet[0x38] == '\0' && (packet[0x39] == '\0')))) {
-      iVar26 = *(int *)(&DAT_00ff3170 + ((uint)packet[0x34] + DAT_011d0564 * 2) * 4);
-      if (iVar26 == 0) {
-        iVar26 = 1;
+      iVar25 = *(int *)(&DAT_00ff3170 + ((uint)packet[0x34] + DAT_011d0564 * 2) * 4);
+      if (iVar25 == 0) {
+        iVar25 = 1;
       }
-      else if (iVar26 == 2) {
-        iVar26 = 3;
+      else if (iVar25 == 2) {
+        iVar25 = 3;
       }
       else {
-        if (iVar26 != 5) goto LAB_0069035b;
-        iVar26 = 6;
+        if (iVar25 != 5) goto LAB_0069035b;
+        iVar25 = 6;
       }
-      bVar25 = true;
-      local_1d4 = *(void **)(iVar28 + 8 + iVar26 * 4);
-      if (local_1d4 == (void *)0x0) {
+      bVar24 = true;
+      local_1d4 = *(Ts3SkinPostDefinition **)(iVar27 + 8 + iVar25 * 4);
+      if (local_1d4 == (Ts3SkinPostDefinition *)0x0) {
         return;
       }
     }
@@ -207,13 +215,13 @@ void __thiscall RenderObject_DrawPacketWithParameters(void *this,uchar *packet)
 LAB_0069035b:
   this_00 = DAT_011d8530;
   FUN_0079a0e0((int)DAT_011d8530);
-  iVar28 = *(int *)((int)this + 0x2c);
-  if (iVar28 != 0) {
-    if (((*(uint *)((int)local_1d4 + 0x18) & 0x2000) != 0) && (*(int *)(iVar28 + 0x30) == 2)) {
+  iVar27 = *(int *)((int)this + 0x2c);
+  if (iVar27 != 0) {
+    if (((*(uint *)(local_1d4 + 1) & 0x2000) != 0) && (*(int *)(iVar27 + 0x30) == 2)) {
       FUN_0079a130((int)this_00);
       return;
     }
-    FUN_006c96f0(iVar28);
+    FUN_006c96f0(iVar27);
   }
   if (*(int *)((int)this + 0x30) != 0) {
     FUN_006c96f0(*(int *)((int)this + 0x30));
@@ -221,129 +229,130 @@ LAB_0069035b:
   if (packet[0x37] != '\0') {
     FUN_0068f500(this,(float *)packet);
   }
+  fVar37 = 1.0;
   if ((packet[0x38] == '\0') || ((*(byte *)((int)this + 0xc1) & 2) != 0)) {
     if ((DAT_011d0610 & 1) == 0) {
       DAT_011d0610 = DAT_011d0610 | 1;
-      fStack_1e4 = 1.0;
-      fStack_1e8 = 1.0;
-      fStack_1ec = 1.0;
-      local_1f0 = 1.0;
-      _DAT_011d0600 = 0x3f800000;
-      uRam011d0604 = 0x3f800000;
-      uRam011d0608 = 0x3f800000;
-      uRam011d060c = 0x3f800000;
+      _DAT_011d0600 = fVar37;
+      fRam011d0604 = fVar37;
+      fRam011d0608 = fVar37;
+      fRam011d060c = fVar37;
+      local_1f0 = fVar37;
+      fStack_1ec = fVar37;
+      fStack_1e8 = fVar37;
+      fStack_1e4 = fVar37;
     }
     if (DAT_011598b8 < *(uint *)((int)this_00 + 8)) {
-      piVar27 = (int *)(DAT_011598b8 * 0x10 + *(int *)((int)this_00 + 4));
-      *piVar27 = *piVar27 + 1;
-      *(undefined2 *)(piVar27 + 1) = *(undefined2 *)((int)this_00 + 0x12);
-      piVar27[3] = (int)&DAT_011d0600;
+      piVar26 = (int *)(DAT_011598b8 * 0x10 + *(int *)((int)this_00 + 4));
+      *piVar26 = *piVar26 + 1;
+      *(undefined2 *)(piVar26 + 1) = *(undefined2 *)((int)this_00 + 0x12);
+      piVar26[3] = (int)&DAT_011d0600;
     }
   }
   else if (DAT_011598b8 < *(uint *)((int)this_00 + 8)) {
-    piVar27 = (int *)(DAT_011598b8 * 0x10 + *(int *)((int)this_00 + 4));
-    *piVar27 = *piVar27 + 1;
-    *(undefined2 *)(piVar27 + 1) = *(undefined2 *)((int)this_00 + 0x12);
-    piVar27[3] = (int)packet;
+    piVar26 = (int *)(DAT_011598b8 * 0x10 + *(int *)((int)this_00 + 4));
+    *piVar26 = *piVar26 + 1;
+    *(undefined2 *)(piVar26 + 1) = *(undefined2 *)((int)this_00 + 0x12);
+    piVar26[3] = (int)packet;
   }
   if (packet[0x3a] == '\0') {
     if (DAT_011598e4 < *(uint *)((int)this_00 + 8)) {
-      piVar27 = (int *)(DAT_011598e4 * 0x10 + *(int *)((int)this_00 + 4));
-      *piVar27 = *piVar27 + 1;
-      *(undefined2 *)(piVar27 + 1) = *(undefined2 *)((int)this_00 + 0x12);
-      piVar27[3] = (int)&DAT_011d05f0;
+      piVar26 = (int *)(DAT_011598e4 * 0x10 + *(int *)((int)this_00 + 4));
+      *piVar26 = *piVar26 + 1;
+      *(undefined2 *)(piVar26 + 1) = *(undefined2 *)((int)this_00 + 0x12);
+      piVar26[3] = (int)&DAT_011d05f0;
     }
   }
   else if (DAT_011598e4 < *(uint *)((int)this_00 + 8)) {
-    piVar27 = (int *)(DAT_011598e4 * 0x10 + *(int *)((int)this_00 + 4));
-    *piVar27 = *piVar27 + 1;
-    *(undefined2 *)(piVar27 + 1) = *(undefined2 *)((int)this_00 + 0x12);
-    piVar27[3] = (int)&DAT_011598fc;
+    piVar26 = (int *)(DAT_011598e4 * 0x10 + *(int *)((int)this_00 + 4));
+    *piVar26 = *piVar26 + 1;
+    *(undefined2 *)(piVar26 + 1) = *(undefined2 *)((int)this_00 + 0x12);
+    piVar26[3] = (int)&DAT_011598fc;
   }
-  piVar27 = DAT_011598bc;
+  piVar26 = DAT_011598bc;
   if (DAT_011598bc < *(int **)((int)this_00 + 8)) {
-    piVar27 = (int *)((int)DAT_011598bc * 0x10 + *(int *)((int)this_00 + 4));
-    *piVar27 = *piVar27 + 1;
-    *(undefined2 *)(piVar27 + 1) = *(undefined2 *)((int)this_00 + 0x12);
-    piVar27[3] = (int)(packet + 0x10);
+    piVar26 = (int *)((int)DAT_011598bc * 0x10 + *(int *)((int)this_00 + 4));
+    *piVar26 = *piVar26 + 1;
+    *(undefined2 *)(piVar26 + 1) = *(undefined2 *)((int)this_00 + 0x12);
+    piVar26[3] = (int)(packet + 0x10);
   }
-  iVar28 = *(int *)((int)this + 100);
+  iVar27 = *(int *)((int)this + 100);
   local_1c8 = (float *)0x0;
   local_1c4 = (float *)0x0;
-  if (iVar28 != 0) {
-    piVar27 = *(int **)(packet + 0x14);
-    if ((piVar27 == (int *)0x0) || (*(int *)((int)this + 0x5c) == 0)) {
-      uVar32 = *(uint *)(iVar28 + 0x28);
-      if (0x3c < uVar32) {
-        uVar32 = 0x3c;
+  if (iVar27 != 0) {
+    piVar26 = *(int **)(packet + 0x14);
+    if ((piVar26 == (int *)0x0) || (*(int *)((int)this + 0x5c) == 0)) {
+      uVar31 = *(uint *)(iVar27 + 0x28);
+      if (0x3c < uVar31) {
+        uVar31 = 0x3c;
       }
-      puVar34 = &DAT_00ff1af0;
+      puVar33 = &DAT_00ff1af0;
     }
     else {
-      if (bVar25) {
+      if (bVar24) {
         if (*(int *)((int)this + 0x60) == 1) {
-          iVar28 = FUN_0068f130(iVar28);
-          pfVar35 = (float *)(**(int **)((int)this + 0x5c) * 0x40 + *(int *)(packet + 0x14));
-          iVar26 = **(int **)((int)this + 0x58) * 0x40;
-          pfVar36 = (float *)(iVar26 + iVar28);
-          fVar1 = *pfVar36;
-          fVar2 = pfVar36[1];
-          fVar3 = pfVar36[2];
-          fVar4 = pfVar36[3];
-          fVar5 = pfVar35[4];
-          fVar6 = pfVar35[5];
-          fVar7 = pfVar35[6];
-          fVar8 = pfVar35[7];
-          fVar9 = *pfVar35;
-          fVar10 = pfVar35[1];
-          fVar11 = pfVar35[2];
-          fVar12 = pfVar35[3];
-          fVar13 = pfVar35[8];
-          fVar14 = pfVar35[9];
-          fVar15 = pfVar35[10];
-          fVar16 = pfVar35[0xb];
-          fVar17 = pfVar35[0xc];
-          fVar18 = pfVar35[0xd];
-          fVar19 = pfVar35[0xe];
-          fVar20 = pfVar35[0xf];
-          iVar26 = iVar26 + iVar28;
-          fVar21 = *(float *)(iVar26 + 0x10);
-          fVar22 = *(float *)(iVar26 + 0x14);
-          fVar23 = *(float *)(iVar26 + 0x18);
-          fVar24 = *(float *)(iVar26 + 0x1c);
-          local_50 = fVar1 * fVar9 + fVar2 * fVar5 + fVar3 * fVar13 + fVar4 * fVar17;
-          fStack_4c = fVar1 * fVar10 + fVar2 * fVar6 + fVar3 * fVar14 + fVar4 * fVar18;
-          fStack_48 = fVar1 * fVar11 + fVar2 * fVar7 + fVar3 * fVar15 + fVar4 * fVar19;
-          fStack_44 = fVar1 * fVar12 + fVar2 * fVar8 + fVar3 * fVar16 + fVar4 * fVar20;
-          fVar1 = *(float *)(iVar26 + 0x20);
-          fVar2 = *(float *)(iVar26 + 0x24);
-          fVar3 = *(float *)(iVar26 + 0x28);
-          fVar4 = *(float *)(iVar26 + 0x2c);
-          local_40 = fVar21 * fVar9 + fVar22 * fVar5 + fVar23 * fVar13 + fVar24 * fVar17;
-          fStack_3c = fVar21 * fVar10 + fVar22 * fVar6 + fVar23 * fVar14 + fVar24 * fVar18;
-          fStack_38 = fVar21 * fVar11 + fVar22 * fVar7 + fVar23 * fVar15 + fVar24 * fVar19;
-          fStack_34 = fVar21 * fVar12 + fVar22 * fVar8 + fVar23 * fVar16 + fVar24 * fVar20;
-          fVar21 = *(float *)(iVar26 + 0x30);
-          fVar22 = *(float *)(iVar26 + 0x34);
-          fVar23 = *(float *)(iVar26 + 0x38);
-          fVar24 = *(float *)(iVar26 + 0x3c);
-          local_30 = fVar2 * fVar5 + fVar1 * fVar9 + fVar3 * fVar13 + fVar4 * fVar17;
-          fStack_2c = fVar2 * fVar6 + fVar1 * fVar10 + fVar3 * fVar14 + fVar4 * fVar18;
-          fStack_28 = fVar2 * fVar7 + fVar1 * fVar11 + fVar3 * fVar15 + fVar4 * fVar19;
-          fStack_24 = fVar2 * fVar8 + fVar1 * fVar12 + fVar3 * fVar16 + fVar4 * fVar20;
-          local_20 = fVar21 * fVar9 + fVar22 * fVar5 + fVar23 * fVar13 + fVar24 * fVar17;
-          fStack_1c = fVar21 * fVar10 + fVar22 * fVar6 + fVar23 * fVar14 + fVar24 * fVar18;
-          fStack_18 = fVar21 * fVar11 + fVar22 * fVar7 + fVar23 * fVar15 + fVar24 * fVar19;
-          fStack_14 = fVar21 * fVar12 + fVar22 * fVar8 + fVar23 * fVar16 + fVar24 * fVar20;
-          puVar29 = FUN_0068ed30(this_00,DAT_011598c0);
-          puVar30 = FUN_0068ed30(this_00,DAT_011598c4);
+          iVar27 = FUN_0068f130(iVar27);
+          pfVar34 = (float *)(**(int **)((int)this + 0x5c) * 0x40 + *(int *)(packet + 0x14));
+          iVar25 = **(int **)((int)this + 0x58) * 0x40;
+          pfVar36 = (float *)(iVar25 + iVar27);
+          fVar37 = *pfVar36;
+          fVar1 = pfVar36[1];
+          fVar2 = pfVar36[2];
+          fVar3 = pfVar36[3];
+          fVar4 = pfVar34[4];
+          fVar5 = pfVar34[5];
+          fVar6 = pfVar34[6];
+          fVar7 = pfVar34[7];
+          fVar8 = *pfVar34;
+          fVar9 = pfVar34[1];
+          fVar10 = pfVar34[2];
+          fVar11 = pfVar34[3];
+          fVar12 = pfVar34[8];
+          fVar13 = pfVar34[9];
+          fVar14 = pfVar34[10];
+          fVar15 = pfVar34[0xb];
+          fVar16 = pfVar34[0xc];
+          fVar17 = pfVar34[0xd];
+          fVar18 = pfVar34[0xe];
+          fVar19 = pfVar34[0xf];
+          iVar25 = iVar25 + iVar27;
+          fVar20 = *(float *)(iVar25 + 0x10);
+          fVar21 = *(float *)(iVar25 + 0x14);
+          fVar22 = *(float *)(iVar25 + 0x18);
+          fVar23 = *(float *)(iVar25 + 0x1c);
+          local_50 = fVar37 * fVar8 + fVar1 * fVar4 + fVar2 * fVar12 + fVar3 * fVar16;
+          fStack_4c = fVar37 * fVar9 + fVar1 * fVar5 + fVar2 * fVar13 + fVar3 * fVar17;
+          fStack_48 = fVar37 * fVar10 + fVar1 * fVar6 + fVar2 * fVar14 + fVar3 * fVar18;
+          fStack_44 = fVar37 * fVar11 + fVar1 * fVar7 + fVar2 * fVar15 + fVar3 * fVar19;
+          fVar37 = *(float *)(iVar25 + 0x20);
+          fVar1 = *(float *)(iVar25 + 0x24);
+          fVar2 = *(float *)(iVar25 + 0x28);
+          fVar3 = *(float *)(iVar25 + 0x2c);
+          local_40 = fVar20 * fVar8 + fVar21 * fVar4 + fVar22 * fVar12 + fVar23 * fVar16;
+          fStack_3c = fVar20 * fVar9 + fVar21 * fVar5 + fVar22 * fVar13 + fVar23 * fVar17;
+          fStack_38 = fVar20 * fVar10 + fVar21 * fVar6 + fVar22 * fVar14 + fVar23 * fVar18;
+          fStack_34 = fVar20 * fVar11 + fVar21 * fVar7 + fVar22 * fVar15 + fVar23 * fVar19;
+          fVar20 = *(float *)(iVar25 + 0x30);
+          fVar21 = *(float *)(iVar25 + 0x34);
+          fVar22 = *(float *)(iVar25 + 0x38);
+          fVar23 = *(float *)(iVar25 + 0x3c);
+          local_30 = fVar1 * fVar4 + fVar37 * fVar8 + fVar2 * fVar12 + fVar3 * fVar16;
+          fStack_2c = fVar1 * fVar5 + fVar37 * fVar9 + fVar2 * fVar13 + fVar3 * fVar17;
+          fStack_28 = fVar1 * fVar6 + fVar37 * fVar10 + fVar2 * fVar14 + fVar3 * fVar18;
+          fStack_24 = fVar1 * fVar7 + fVar37 * fVar11 + fVar2 * fVar15 + fVar3 * fVar19;
+          local_20 = fVar20 * fVar8 + fVar21 * fVar4 + fVar22 * fVar12 + fVar23 * fVar16;
+          fStack_1c = fVar20 * fVar9 + fVar21 * fVar5 + fVar22 * fVar13 + fVar23 * fVar17;
+          fStack_18 = fVar20 * fVar10 + fVar21 * fVar6 + fVar22 * fVar14 + fVar23 * fVar18;
+          fStack_14 = fVar20 * fVar11 + fVar21 * fVar7 + fVar22 * fVar15 + fVar23 * fVar19;
+          puVar28 = FUN_0068ed30(this_00,DAT_011598c0);
+          puVar29 = FUN_0068ed30(this_00,DAT_011598c4);
           if ((DAT_011d0610 & 2) == 0) {
             DAT_011d0610 = DAT_011d0610 | 2;
           }
           if ((DAT_011d0610 & 4) == 0) {
             DAT_011d0610 = DAT_011d0610 | 4;
           }
-          if (puVar29[3] == 0) {
+          if (puVar28[3] == 0) {
             local_1b0[0] = 1.0;
             local_1b0[1] = 0.0;
             local_1b0[2] = 0.0;
@@ -362,16 +371,16 @@ LAB_0069035b:
             local_1b0[0xf] = 1.0;
           }
           else {
-            local_1c8 = (float *)puVar29[3];
+            local_1c8 = (float *)puVar28[3];
             pfVar36 = local_1c8;
-            pfVar35 = local_1b0;
-            for (iVar28 = 0x10; iVar28 != 0; iVar28 = iVar28 + -1) {
-              *pfVar35 = *pfVar36;
+            pfVar34 = local_1b0;
+            for (iVar27 = 0x10; iVar27 != 0; iVar27 = iVar27 + -1) {
+              *pfVar34 = *pfVar36;
               pfVar36 = pfVar36 + 1;
-              pfVar35 = pfVar35 + 1;
+              pfVar34 = pfVar34 + 1;
             }
           }
-          if (puVar30[3] == 0) {
+          if (puVar29[3] == 0) {
             local_160[4] = 0.0;
             fStack_14c = 1.0;
             fStack_148 = 0.0;
@@ -390,13 +399,13 @@ LAB_0069035b:
             fStack_124 = 1.0;
           }
           else {
-            local_1c4 = (float *)puVar30[3];
+            local_1c4 = (float *)puVar29[3];
             pfVar36 = local_1c4;
-            pfVar35 = local_160;
-            for (iVar28 = 0x10; iVar28 != 0; iVar28 = iVar28 + -1) {
-              *pfVar35 = *pfVar36;
+            pfVar34 = local_160;
+            for (iVar27 = 0x10; iVar27 != 0; iVar27 = iVar27 + -1) {
+              *pfVar34 = *pfVar36;
               pfVar36 = pfVar36 + 1;
-              pfVar35 = pfVar35 + 1;
+              pfVar34 = pfVar34 + 1;
             }
           }
           local_70 = fStack_4c;
@@ -532,145 +541,142 @@ LAB_0069035b:
           fRam011d05ac = fStack_144 * fStack_1c + local_20 * local_160[3] + fStack_134 * fStack_18 +
                          fStack_124 * fStack_14;
           FUN_0079a040(this_00,DAT_011598c0,0x11d05b0);
-          piVar27 = (int *)FUN_0079a040(this_00,DAT_011598c4,0x11d0570);
+          piVar26 = (int *)FUN_0079a040(this_00,DAT_011598c4,0x11d0570);
           this = (void *)local_1d0;
         }
         goto LAB_00690ad0;
       }
-      FUN_0068f8d0(this,(int)piVar27);
-      uVar32 = *(uint *)((int)this + 0x60);
-      puVar34 = *(undefined **)((int)this + 0x70);
+      FUN_0068f8d0(this,(int)piVar26);
+      uVar31 = *(uint *)((int)this + 0x60);
+      puVar33 = *(undefined **)((int)this + 0x70);
     }
-    piVar27 = (int *)FUN_0068eda0(this_00,DAT_011598d0,(int)puVar34,uVar32 * 3);
+    piVar26 = (int *)FUN_0068eda0(this_00,DAT_011598d0,(int)puVar33,uVar31 * 3);
   }
 LAB_00690ad0:
-  if ((packet[0x35] != '\0') && (piVar27 = DAT_011598e0, DAT_011598e0 < *(int **)((int)this_00 + 8))
+  if ((packet[0x35] != '\0') && (piVar26 = DAT_011598e0, DAT_011598e0 < *(int **)((int)this_00 + 8))
      ) {
-    piVar27 = (int *)((int)DAT_011598e0 * 0x10 + *(int *)((int)this_00 + 4));
-    *piVar27 = *piVar27 + 1;
-    *(undefined2 *)(piVar27 + 1) = *(undefined2 *)((int)this_00 + 0x12);
-    piVar27[3] = (int)&DAT_011598f8;
+    piVar26 = (int *)((int)DAT_011598e0 * 0x10 + *(int *)((int)this_00 + 4));
+    *piVar26 = *piVar26 + 1;
+    *(undefined2 *)(piVar26 + 1) = *(undefined2 *)((int)this_00 + 0x12);
+    piVar26[3] = (int)&DAT_011598f8;
   }
-  iVar28 = *(int *)(packet + 0x40);
-  if (iVar28 != 0) {
-    uVar32 = *(uint *)(packet + 0x44);
-    if (uVar32 < 5) {
-      iVar26 = 1;
-      uVar32 = DAT_011598d4;
+  iVar27 = *(int *)(packet + 0x40);
+  if (iVar27 != 0) {
+    uVar31 = *(uint *)(packet + 0x44);
+    if (uVar31 < 5) {
+      iVar25 = 1;
+      uVar31 = DAT_011598d4;
     }
     else {
-      local_1d0 = CONCAT44(local_1d0._4_4_,uVar32);
-      fVar1 = (float)(int)uVar32;
-      if ((int)uVar32 < 0) {
-        fVar1 = fVar1 + 4.2949673e+09;
+      local_1d0 = CONCAT44(local_1d0._4_4_,uVar31);
+      fVar37 = (float)(int)uVar31;
+      if ((int)uVar31 < 0) {
+        fVar37 = fVar37 + 4.2949673e+09;
       }
-      dVar40 = ceil((double)(fVar1 * 0.25));
-      iVar28 = *(int *)(packet + 0x40);
-      local_1d0 = (longlong)ROUND(dVar40);
-      iVar26 = (int)local_1d0;
-      uVar32 = DAT_011598d8;
+      dVar41 = ceil((double)(fVar37 * 0.25));
+      iVar27 = *(int *)(packet + 0x40);
+      local_1d0 = (longlong)ROUND(dVar41);
+      iVar25 = (int)local_1d0;
+      uVar31 = DAT_011598d8;
     }
-    piVar27 = (int *)FUN_0068eda0(this_00,uVar32,iVar28,iVar26);
+    piVar26 = (int *)FUN_0068eda0(this_00,uVar31,iVar27,iVar25);
   }
-  auVar38 = *(undefined1 (*) [16])(packet + 0x50);
-  auVar37._0_4_ = auVar38._0_4_ * -1.0;
-  auVar37._4_4_ = auVar38._4_4_ * -1.0;
-  auVar37._8_4_ = auVar38._8_4_ * -1.0;
-  auVar37._12_4_ = auVar38._12_4_ * -1.0;
-  auVar38 = maxps(auVar37,auVar38);
-  auVar39._4_4_ = -(uint)(auVar38._4_4_ <= 1.1920929e-07);
-  auVar39._0_4_ = -(uint)(auVar38._0_4_ <= 1.1920929e-07);
-  auVar39._8_4_ = -(uint)(auVar38._8_4_ <= 1.1920929e-07);
-  auVar39._12_4_ = -(uint)(auVar38._12_4_ <= 1.1920929e-07);
-  iVar28 = movmskps(piVar27,auVar39);
-  if ((iVar28 != 0xf) && (DAT_011598dc < *(uint *)((int)this_00 + 8))) {
-    piVar27 = (int *)(DAT_011598dc * 0x10 + *(int *)((int)this_00 + 4));
-    *piVar27 = *piVar27 + 1;
-    piVar27[2] = 1;
-    *(undefined2 *)((int)piVar27 + 6) = 2;
-    *(undefined2 *)(piVar27 + 1) = *(undefined2 *)((int)this_00 + 0x12);
-    piVar27[3] = (int)(packet + 0x50);
+  auVar39 = *(undefined1 (*) [16])(packet + 0x50);
+  auVar38._0_4_ = auVar39._0_4_ * -1.0;
+  auVar38._4_4_ = auVar39._4_4_ * -1.0;
+  auVar38._8_4_ = auVar39._8_4_ * -1.0;
+  auVar38._12_4_ = auVar39._12_4_ * -1.0;
+  auVar39 = maxps(auVar38,auVar39);
+  auVar40._4_4_ = -(uint)(auVar39._4_4_ <= 1.1920929e-07);
+  auVar40._0_4_ = -(uint)(auVar39._0_4_ <= 1.1920929e-07);
+  auVar40._8_4_ = -(uint)(auVar39._8_4_ <= 1.1920929e-07);
+  auVar40._12_4_ = -(uint)(auVar39._12_4_ <= 1.1920929e-07);
+  iVar27 = movmskps(piVar26,auVar40);
+  if ((iVar27 != 0xf) && (DAT_011598dc < *(uint *)((int)this_00 + 8))) {
+    piVar26 = (int *)(DAT_011598dc * 0x10 + *(int *)((int)this_00 + 4));
+    *piVar26 = *piVar26 + 1;
+    piVar26[2] = 1;
+    *(undefined2 *)((int)piVar26 + 6) = 2;
+    *(undefined2 *)(piVar26 + 1) = *(undefined2 *)((int)this_00 + 0x12);
+    piVar26[3] = (int)(packet + 0x50);
   }
   if ((*(byte *)((int)this + 0xc1) & 8) == 0) {
     if ((*(byte *)((int)this + 0xc1) & 0x10) != 0) {
-      pvVar31 = (void *)FUN_0060e910();
-      FUN_0060f2a0((int)pvVar31);
-      iVar28 = 0x3f;
-      uVar32 = FUN_0060fe80((int)pvVar31);
-      FUN_0060fe40(pvVar31,2,uVar32 | 0x40,iVar28);
-      FUN_0060fea0(pvVar31,0,0,2);
-      FUN_0060fe30(pvVar31,1);
-      iVar28 = 0x40;
+      pvVar30 = (void *)Graphics_GetManagerSingleton();
+      FUN_0060f2a0((int)pvVar30);
+      iVar27 = 0x3f;
+      uVar31 = FUN_0060fe80((int)pvVar30);
+      RenderDevice_SetStencilCompareReferenceMask(pvVar30,2,uVar31 | 0x40,iVar27);
+      RenderDevice_SetStencilOpsFromIndices(pvVar30,0,0,2);
+      FUN_0060fe30(pvVar30,1);
+      iVar27 = 0x40;
       goto LAB_00690ca0;
     }
     if ((*(byte *)((int)this + 0xc0) & 8) != 0) {
-      pvVar31 = (void *)FUN_0060e910();
-      FUN_0060f2a0((int)pvVar31);
-      iVar28 = 0x3f;
-      uVar32 = FUN_0060fe80((int)pvVar31);
-      FUN_0060fe40(pvVar31,2,uVar32 | 0x80,iVar28);
-      FUN_0060fea0(pvVar31,0,0,2);
-      FUN_0060fe30(pvVar31,1);
-      iVar28 = 0x80;
+      pvVar30 = (void *)Graphics_GetManagerSingleton();
+      FUN_0060f2a0((int)pvVar30);
+      iVar27 = 0x3f;
+      uVar31 = FUN_0060fe80((int)pvVar30);
+      RenderDevice_SetStencilCompareReferenceMask(pvVar30,2,uVar31 | 0x80,iVar27);
+      RenderDevice_SetStencilOpsFromIndices(pvVar30,0,0,2);
+      FUN_0060fe30(pvVar30,1);
+      iVar27 = 0x80;
       goto LAB_00690ca0;
     }
   }
   else {
-    pvVar31 = (void *)FUN_0060e910();
-    FUN_0060f2a0((int)pvVar31);
-    iVar28 = 0x3f;
-    uVar32 = FUN_0060fe80((int)pvVar31);
-    FUN_0060fe40(pvVar31,2,uVar32 | 0x40,iVar28);
-    FUN_0060fea0(pvVar31,0,0,1);
-    FUN_0060fe30(pvVar31,1);
-    iVar28 = 0x40;
+    pvVar30 = (void *)Graphics_GetManagerSingleton();
+    FUN_0060f2a0((int)pvVar30);
+    iVar27 = 0x3f;
+    uVar31 = FUN_0060fe80((int)pvVar30);
+    RenderDevice_SetStencilCompareReferenceMask(pvVar30,2,uVar31 | 0x40,iVar27);
+    RenderDevice_SetStencilOpsFromIndices(pvVar30,0,0,1);
+    FUN_0060fe30(pvVar30,1);
+    iVar27 = 0x40;
 LAB_00690ca0:
-    FUN_0060fe90(pvVar31,iVar28);
-    RenderDevice_ApplyPendingBaselines(pvVar31);
+    RenderDevice_SetStencilWriteMask(pvVar30,iVar27);
+    RenderDevice_ApplyPendingBaselines(pvVar30);
   }
-  pvVar31 = local_1d4;
-                    /* TEST AH,0x44 / JNP skips equal zero only; unordered UCOMISS publishes RugSort
-                       too. */
+  pTVar35 = local_1d4;
   if ((*(float *)(packet + 0x3c) != 0.0) && (DAT_011598c8 < *(uint *)((int)this_00 + 8))) {
-    piVar27 = (int *)(DAT_011598c8 * 0x10 + *(int *)((int)this_00 + 4));
-    *piVar27 = *piVar27 + 1;
-    *(undefined2 *)(piVar27 + 1) = *(undefined2 *)((int)this_00 + 0x12);
-                    /* Publish packet+0x3c pointer as scalar RugSort parameter. */
-    piVar27[3] = (int)(packet + 0x3c);
+    piVar26 = (int *)(DAT_011598c8 * 0x10 + *(int *)((int)this_00 + 4));
+    *piVar26 = *piVar26 + 1;
+    *(undefined2 *)(piVar26 + 1) = *(undefined2 *)((int)this_00 + 0x12);
+    piVar26[3] = (int)(packet + 0x3c);
   }
   local_1bc = local_1b4;
   local_1b8 = packet;
   local_1c0 = this;
   if ((((*(byte *)((int)this + 0xc0) & 0x10) == 0) || (packet[0x36] == '\0')) || (local_1f1 != '\0')
      ) {
-    uVar32 = *(uint *)((int)this + 0x78);
+    uVar31 = *(uint *)((int)this + 0x78);
     if (-1 < (int)*(uint *)(packet + 0x24)) {
-      uVar32 = *(uint *)(packet + 0x24);
+      uVar31 = *(uint *)(packet + 0x24);
     }
-    FUN_0079a6a0(local_1d4,uVar32);
-    pvVar31 = local_1d4;
+    ShaderDefinition_SelectTechniqueOrdinal(local_1d4,uVar31);
+    pTVar35 = local_1d4;
     if (*(int *)(packet + 0x28) != 0) {
-      pcVar41 = RenderObject_SubmitSpecialGeometry;
+      drawCallback = RenderObject_SubmitSpecialGeometry;
       goto LAB_00690d55;
     }
   }
   else {
-    FUN_0079a6a0(local_1d4,1);
+    ShaderDefinition_SelectTechniqueOrdinal(local_1d4,1);
   }
-  pcVar41 = RenderObject_SubmitSelectedGeometryRange;
+  drawCallback = RenderObject_SubmitSelectedGeometryRange;
 LAB_00690d55:
-  ShaderDefinition_DrawSelectedTechnique(pvVar31,pcVar41,&local_1c0);
+  ShaderDefinition_DrawSelectedTechnique(pTVar35,drawCallback,&local_1c0);
   FUN_0079a130((int)this_00);
   if ((*(byte *)((int)this + 0xc1) & 0x20) != 0) {
-    pvVar33 = (void *)FUN_0060e910();
-    pvVar31 = this;
+    pvVar32 = (void *)Graphics_GetManagerSingleton();
+    pvVar30 = this;
     pGVar42 = local_1bc;
-    puVar34 = FUN_009e3b80();
-    FUN_009e4f80(puVar34,(int)pvVar31,(int)pGVar42,pvVar33);
+    puVar33 = FUN_009e3b80();
+    FUN_009e4f80(puVar33,(int)pvVar30,(int)pGVar42,pvVar32);
   }
   if (((*(byte *)((int)this + 0xc0) & 8) != 0) || ((*(byte *)((int)this + 0xc1) & 0x18) != 0)) {
-    iVar28 = FUN_0060e910();
-    FUN_00610330(iVar28);
+    iVar27 = Graphics_GetManagerSingleton();
+    FUN_00610330(iVar27);
   }
   if (local_1c8 != (float *)0x0) {
     FUN_0079a040(this_00,DAT_011598c0,(int)local_1c8);

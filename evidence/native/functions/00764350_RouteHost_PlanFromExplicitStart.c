@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst static routing contract: Builds one64-byte start candidate from supplied native float4.
@@ -23,7 +23,9 @@ int * __thiscall RouteHost_PlanFromExplicitStart(void *this,int *param_1,float *
   float fStack_cc;
   float fStack_c8;
   float fStack_c4;
-  int local_c0 [3];
+  void *local_c0;
+  undefined4 local_bc;
+  undefined4 local_b8;
   char *local_b4;
   float local_b0;
   float fStack_ac;
@@ -44,9 +46,9 @@ int * __thiscall RouteHost_PlanFromExplicitStart(void *this,int *param_1,float *
   undefined4 uStack_64;
   undefined4 local_38 [13];
   
-  local_c0[0] = 0;
-  local_c0[1] = 0;
-  local_c0[2] = 0;
+  local_c0 = (void *)0x0;
+  local_bc = 0;
+  local_b8 = 0;
   local_b4 = "Routing/RoutingHost/startPoints";
   local_d4 = 0;
   local_8c = RoutePoint_ResolveLotAndLevel(param_2,&local_d4);
@@ -62,7 +64,7 @@ int * __thiscall RouteHost_PlanFromExplicitStart(void *this,int *param_1,float *
   uStack_9c = 0;
   uStack_98 = 0;
   uStack_94 = 0;
-  local_90 = DAT_00f998f8;
+  local_90 = 0x3f800000;
   local_88 = 0;
   local_84 = 0;
   local_80 = 0;
@@ -71,19 +73,19 @@ int * __thiscall RouteHost_PlanFromExplicitStart(void *this,int *param_1,float *
   if (((char)uVar1 != '\0') || ((char)uVar2 != '\0')) {
     iVar3 = RouteHost_ReadFollowerStartPose(this,&local_d0,&local_70,local_38);
     if (iVar3 == 1) {
-      auVar4._0_4_ = DAT_00fab218 * (local_d0 - *param_2);
-      auVar4._4_4_ = DAT_00fab218 * (fStack_cc - param_2[1]);
-      auVar4._8_4_ = DAT_00fab218 * (fStack_c8 - param_2[2]);
-      auVar4._12_4_ = DAT_00fab218 * (fStack_c4 - param_2[3]);
+      auVar4._0_4_ = (local_d0 - *param_2) * -1.0;
+      auVar4._4_4_ = (fStack_cc - param_2[1]) * -1.0;
+      auVar4._8_4_ = (fStack_c8 - param_2[2]) * -1.0;
+      auVar4._12_4_ = (fStack_c4 - param_2[3]) * -1.0;
       auVar5._4_4_ = fStack_cc - param_2[1];
       auVar5._0_4_ = local_d0 - *param_2;
       auVar5._8_4_ = fStack_c8 - param_2[2];
       auVar5._12_4_ = fStack_c4 - param_2[3];
       auVar5 = maxps(auVar4,auVar5);
-      auVar6._4_4_ = -(uint)(auVar5._4_4_ <= DAT_0100519c);
-      auVar6._0_4_ = -(uint)(auVar5._0_4_ <= DAT_0100519c);
-      auVar6._8_4_ = -(uint)(auVar5._8_4_ <= DAT_0100519c);
-      auVar6._12_4_ = -(uint)(auVar5._12_4_ <= DAT_0100519c);
+      auVar6._4_4_ = -(uint)(auVar5._4_4_ <= 1.5258789e-05);
+      auVar6._0_4_ = -(uint)(auVar5._0_4_ <= 1.5258789e-05);
+      auVar6._8_4_ = -(uint)(auVar5._8_4_ <= 1.5258789e-05);
+      auVar6._12_4_ = -(uint)(auVar5._12_4_ <= 1.5258789e-05);
       uVar1 = movmskps(extraout_EDX,auVar6);
       if (((byte)uVar1 & 7) == 7) {
         local_a0 = local_70;
@@ -93,10 +95,10 @@ int * __thiscall RouteHost_PlanFromExplicitStart(void *this,int *param_1,float *
       }
     }
   }
-  FUN_00654980(local_c0,&local_b0);
-  RouteHost_PlanFromStartCandidates(this,param_1,local_c0);
-  if (local_c0[0] != 0) {
-    FUN_004e44e0(local_c0[0]);
+  FUN_00654980(&local_c0,&local_b0);
+  RouteHost_PlanFromStartCandidates(this,param_1,(int *)&local_c0);
+  if (local_c0 != (void *)0x0) {
+    Memory_FreeIfNonNull(local_c0);
   }
   return param_1;
 }

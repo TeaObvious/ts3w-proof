@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 painting contract. ECX=definition; overrides pointer, UInt32 count, two BYTE
@@ -57,7 +57,7 @@ MaterialDef_CreateSubstituted
     }
     return false;
   }
-  *this_00 = &PTR_FUN_00fb3c14;
+  *this_00 = &PTR_AddAtomicReference_00fb3c14;
   LOCK();
   this_00[1] = 0;
   UNLOCK();
@@ -147,8 +147,9 @@ MaterialDef_CreateSubstituted
                 if (local_3c != *(int *)(pbVar4 + 0x18)) break;
               }
               if (*(int *)pbVar4 == 4) {
-                FUN_00799a30(local_64,uVar1,*(int *)(pbVar4 + 0x10),*(int *)(pbVar4 + 0x14),
-                             *(int *)(pbVar4 + 0x18),*(int *)(pbVar4 + 0x1c),local_78);
+                MaterialParams_AppendTextureKey
+                          (local_64,uVar1,*(int *)(pbVar4 + 0x10),*(int *)(pbVar4 + 0x14),
+                           *(int *)(pbVar4 + 0x18),*(int *)(pbVar4 + 0x1c),local_78);
               }
               else if (*(int *)pbVar4 == 6) {
                     /* Three stack DWORDs: hash, override+8 value, existing auxiliary word. Prior
@@ -162,7 +163,8 @@ MaterialDef_CreateSubstituted
           } while (uVar2 < overrideCount);
         }
         if (local_74 == 4) {
-          FUN_00799a30(local_64,uVar1,*local_80,local_80[1],local_80[2],local_80[3],local_78);
+          MaterialParams_AppendTextureKey
+                    (local_64,uVar1,*local_80,local_80[1],local_80[2],local_80[3],local_78);
         }
         else if (local_74 == 6) {
           FUN_00799ab0(local_64,uVar1,(uint)local_80,local_78);
@@ -183,8 +185,9 @@ switchD_006cb5e4_default:
           FUN_007999d0(local_64,*(int *)(pbVar4 + -0x20),*(void **)(pbVar4 + -4),*(int *)pbVar4);
         }
         else if (*(int *)(pbVar4 + -0x24) == 4) {
-          FUN_00799a30(local_64,*(int *)(pbVar4 + -0x20),*(int *)(pbVar4 + -0x14),
-                       *(int *)(pbVar4 + -0x10),*(int *)(pbVar4 + -0xc),*(int *)(pbVar4 + -8),0);
+          MaterialParams_AppendTextureKey
+                    (local_64,*(int *)(pbVar4 + -0x20),*(int *)(pbVar4 + -0x14),
+                     *(int *)(pbVar4 + -0x10),*(int *)(pbVar4 + -0xc),*(int *)(pbVar4 + -8),0);
         }
       }
       uVar1 = uVar1 + 1;

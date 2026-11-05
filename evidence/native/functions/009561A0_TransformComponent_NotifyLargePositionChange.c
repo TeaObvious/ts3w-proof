@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC 1.67 original contract. Beforelocal position store: requiresownercomponent011ea0fc;
@@ -20,13 +20,11 @@ void __thiscall TransformComponent_NotifyLargePositionChange(void *this,float *n
   float fVar7;
   float fVar8;
   float *pfVar9;
-  undefined4 local_b0;
-  undefined4 local_ac;
+  byte local_b0 [8];
   undefined4 local_a8;
   undefined4 local_a4;
   undefined4 local_a0;
-  undefined4 local_60;
-  undefined4 local_5c;
+  byte local_60 [8];
   undefined4 local_58;
   undefined4 local_54;
   
@@ -36,14 +34,14 @@ void __thiscall TransformComponent_NotifyLargePositionChange(void *this,float *n
       fVar6 = *(float *)((int)this + 0x20) - *newLocalPosition;
       fVar7 = *(float *)((int)this + 0x24) - newLocalPosition[1];
       fVar8 = *(float *)((int)this + 0x28) - newLocalPosition[2];
-      if ((DAT_010f6bf4 < fVar8 * fVar8 + fVar7 * fVar7 + fVar6 * fVar6) &&
+      if ((100.0 < fVar8 * fVar8 + fVar7 * fVar7 + fVar6 * fVar6) &&
          (*(void **)((int)this + 4) != (void *)0x0)) {
         pvVar3 = Object_GetComponentByMask(*(void **)((int)this + 4),DAT_011e9fc4);
         if (pvVar3 != (void *)0x0) {
           pfVar9 = (float *)((int)this + 0x10);
-          pfVar4 = (float *)FUN_00948880((int)pvVar3);
+          pfVar4 = (float *)ModelComponent_GetBoundsStorage((int)pvVar3);
           cVar1 = FUN_0097f770(pfVar4,pfVar9);
-          pvVar3 = (void *)FUN_00948880((int)pvVar3);
+          pvVar3 = (void *)ModelComponent_GetBoundsStorage((int)pvVar3);
           cVar2 = FUN_0097f710(pvVar3,newLocalPosition);
           if ((cVar1 != '\0') && (cVar2 == '\0')) {
             iVar5 = FUN_0055e030(*(void **)((int)this + 4));
@@ -52,17 +50,29 @@ void __thiscall TransformComponent_NotifyLargePositionChange(void *this,float *n
             }
             local_a8 = *(undefined4 *)(*(int *)((int)this + 4) + 8);
             local_a4 = *(undefined4 *)(*(int *)((int)this + 4) + 0xc);
-            local_b0 = 0xecff5d63;
-            local_ac = 0;
+            local_b0[0] = 99;
+            local_b0[1] = 0x5d;
+            local_b0[2] = 0xff;
+            local_b0[3] = 0xec;
+            local_b0[4] = 0;
+            local_b0[5] = 0;
+            local_b0[6] = 0;
+            local_b0[7] = 0;
             local_a0 = 0;
-            FUN_00693380(&local_b0);
+            RenderCommand_EnqueueIfDispatcherExists(local_b0);
             local_58 = *(undefined4 *)(*(int *)((int)this + 4) + 8);
             local_54 = *(undefined4 *)(*(int *)((int)this + 4) + 0xc);
-            local_60 = 0x7727ad2e;
-            local_5c = 0;
-            FUN_00693380(&local_60);
-            FUN_00582a70((int)&local_60);
-            FUN_00582a70((int)&local_b0);
+            local_60[0] = 0x2e;
+            local_60[1] = 0xad;
+            local_60[2] = 0x27;
+            local_60[3] = 0x77;
+            local_60[4] = 0;
+            local_60[5] = 0;
+            local_60[6] = 0;
+            local_60[7] = 0;
+            RenderCommand_EnqueueIfDispatcherExists(local_60);
+            FUN_00582a70((int)local_60);
+            FUN_00582a70((int)local_b0);
           }
         }
       }

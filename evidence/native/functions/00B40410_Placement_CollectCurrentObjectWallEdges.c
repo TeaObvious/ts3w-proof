@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 STATIC ORIGINAL. cdecl object + required/prohibited output pointers. Resolve placement
@@ -27,7 +27,7 @@ uint __cdecl Placement_CollectCurrentObjectWallEdges(void *param_1,void *param_2
       local_c = -1.0;
       local_8[0] = -1.0;
       local_8[1] = 0.0;
-      FUN_00c894e0(this,&local_c,local_8,local_8 + 1);
+      ObjectLocation_CopyXZLevel(this,&local_c,local_8,local_8 + 1);
       uVar1 = Placement_QuantizeYawToOctant(yaw);
       uVar1 = Placement_CollectWallFlagEdgeSets(param_1,&local_c,uVar1,param_2,param_3);
       return uVar1;

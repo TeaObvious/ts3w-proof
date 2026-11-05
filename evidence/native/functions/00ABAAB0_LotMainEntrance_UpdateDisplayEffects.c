@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -50,9 +49,7 @@ void __fastcall LotMainEntrance_UpdateDisplayEffects(void *param_1)
   float fStack_10c;
   float fStack_108;
   float fStack_104;
-  float fStack_fc;
-  float fStack_f8;
-  undefined4 uStack_f4;
+  LotPaintPoint LStack_fc;
   float local_f0;
   float fStack_ec;
   float fStack_e8;
@@ -151,7 +148,7 @@ LAB_00abb185:
     }
   }
   fVar14 = 0.01;
-  pfVar8 = (float *)FUN_00ab1610(param_1,local_50);
+  pfVar8 = (float *)Lot_BuildWorldToLocalPoseMatrix(param_1,local_50);
   fStack_108 = local_e0 * *pfVar8 + pfVar8[0xc] + fStack_dc * pfVar8[4] + fStack_d8 * pfVar8[8];
   fStack_5c = local_e0 * pfVar8[1] + pfVar8[0xd] + fStack_dc * pfVar8[5] + fStack_d8 * pfVar8[9];
   fStack_58 = local_e0 * pfVar8[2] + pfVar8[0xe] + fStack_dc * pfVar8[6] + fStack_d8 * pfVar8[10];
@@ -293,18 +290,18 @@ LAB_00abae50:
       }
     }
   }
-  fStack_f8 = fStack_10c + fStack_11c * -0.2;
+  LStack_fc.z = fStack_10c + fStack_11c * -0.2;
   fStack_ec = fStack_10c + fStack_11c * -0.2;
   fStack_e8 = fStack_10c + fStack_11c * -0.2;
   fStack_e4 = fStack_10c + fStack_11c * -0.2;
-  fStack_fc = local_110 + local_120 * -0.2;
+  LStack_fc.x = local_110 + local_120 * -0.2;
   local_130._4_4_ = local_110 + local_120 * -0.2;
-  local_130._0_4_ = fStack_fc;
+  local_130._0_4_ = LStack_fc.x;
   fStack_128 = local_110 + local_120 * -0.2;
   fStack_124 = local_110 + local_120 * -0.2;
-  uStack_f4 = 0;
-  local_f0 = fStack_f8;
-  FUN_00adc750((int)param_1,&fStack_fc,afStack_a0);
+  LStack_fc.level = 0;
+  local_f0 = LStack_fc.z;
+  LotPoint_ResolveLevelPosition(param_1,&LStack_fc,afStack_a0);
   FUN_00cdbcf0(pvVar5,&local_d0);
   FUN_00cdb9e0(pvVar5,afStack_a0);
   FUN_00cdbb50(pvVar5,local_13c,1.0,0);

@@ -1,6 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+
 
 /* Analyst PC1.67 intro gain and resource-open instruction contract. thiscall ECX movie view plus
    FOUR physical stack words UTF-16name,UInt32width,UInt32height,binary32gain; both returns RET0x10
@@ -56,7 +57,8 @@ IntroMovie_OpenNamedResource(void *this,ushort *resourceName,uint width,uint hei
                     /* Fourth original caller argument is binary32gain. FLD then FSTP forwards it as
                        manager argument6; old three-word signature rendered unaff_retaddr and lost
                        this dataflow. */
-  bVar2 = FUN_009d79e0(arg0,&local_10,0,(void *)0x0,0,0,gain,width,height,0,0,0);
+  bVar2 = ObjectVideoManager_StartOrUpdateObject
+                    (arg0,&local_10,0,(void *)0x0,0,0,gain,width,height,0,0,0);
   return bVar2;
 }
 

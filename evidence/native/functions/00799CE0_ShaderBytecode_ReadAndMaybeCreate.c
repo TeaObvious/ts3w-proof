@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: VSHD/PSHD bytecode reader. Uses the object's virtual stage tag, validates payload
@@ -10,48 +10,58 @@
 uint __thiscall ShaderBytecode_ReadAndMaybeCreate(void *this,void *param_1,char param_2)
 
 {
-  uint *puVar1;
+  uint *outUInt32;
   void *this_00;
+  bool bVar1;
   char cVar2;
-  uint uVar3;
-  void *pvVar4;
-  int *piVar5;
-  undefined4 uVar6;
+  void *extraout_EAX;
+  void *pvVar3;
+  uint extraout_EAX_00;
+  undefined3 extraout_var;
+  int *destination;
+  undefined4 extraout_EAX_01;
+  uint uVar4;
+  undefined4 uVar5;
   
   this_00 = param_1;
-  uVar3 = FUN_004dd980(*(int **)((int)param_1 + 8),(uint *)&param_1);
-  pvVar4 = (void *)FUN_007d79f0(this_00,(byte)uVar3);
+  bVar1 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&param_1,
+                            *(uint *)((int)param_1 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar1);
+  pvVar3 = extraout_EAX;
   if (*(char *)((int)this_00 + 0x14) != '\0') {
     cVar2 = (**(code **)(*(int *)this + 4))();
-    pvVar4 = (void *)((-(uint)(cVar2 != '\0') & 0xfffffffa) + 0x44485356);
-    if (param_1 == pvVar4) {
-      puVar1 = (uint *)((int)this + 0xc);
-      uVar3 = FUN_004dd980(*(int **)((int)this_00 + 8),puVar1);
-      uVar3 = FUN_007d79f0(this_00,(byte)uVar3);
+    pvVar3 = (void *)((-(uint)(cVar2 != '\0') & 0xfffffffa) + 0x44485356);
+    if (param_1 == pvVar3) {
+      outUInt32 = (uint *)((int)this + 0xc);
+      bVar1 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),outUInt32,
+                                *(uint *)((int)this_00 + 0x10));
+      StreamReader_AccumulateStatus(this_00,bVar1);
+      uVar4 = extraout_EAX_00;
       if (*(char *)((int)this_00 + 0x14) != '\0') {
-        uVar3 = FUN_007d7a00(this_00,*puVar1,1);
-        if ((char)uVar3 != '\0') {
-          piVar5 = FUN_004e6f20(DAT_011cc864,*puVar1,0);
-          *(int **)((int)this + 8) = piVar5;
-          uVar3 = 0;
-          if (piVar5 != (int *)0x0) {
-            uVar6 = FUN_005bd2c0(this_00,piVar5,*puVar1);
+        bVar1 = StreamReader_CheckArrayBytes(this_00,*outUInt32,1);
+        uVar4 = CONCAT31(extraout_var,bVar1);
+        if (bVar1) {
+          destination = FUN_004e6f20(DAT_011cc864,*outUInt32,0);
+          *(int **)((int)this + 8) = destination;
+          uVar4 = 0;
+          if (destination != (int *)0x0) {
+            StreamReader_ReadBytesInto(this_00,destination,*outUInt32);
             if (*(char *)((int)this_00 + 0x14) != '\0') {
-              if (param_2 != '\0') {
-                return CONCAT31((int3)((uint)uVar6 >> 8),1);
+              if (param_2 == '\0') {
+                uVar5 = (**(code **)(*(int *)this + 0xc))(0);
+                return uVar5;
               }
-              uVar6 = (**(code **)(*(int *)this + 0xc))(0);
-              return uVar6;
+              return CONCAT31((int3)((uint)extraout_EAX_01 >> 8),1);
             }
-            uVar3 = FUN_004e5e70(DAT_011cc864,*(int *)((int)this + 8));
+            uVar4 = FUN_004e5e70(DAT_011cc864,*(int *)((int)this + 8));
             *(undefined4 *)((int)this + 8) = 0;
           }
         }
       }
-      *puVar1 = 0;
-      return uVar3 & 0xffffff00;
+      *outUInt32 = 0;
+      return uVar4 & 0xffffff00;
     }
   }
-  return (uint)pvVar4 & 0xffffff00;
+  return (uint)pvVar3 & 0xffffff00;
 }
 

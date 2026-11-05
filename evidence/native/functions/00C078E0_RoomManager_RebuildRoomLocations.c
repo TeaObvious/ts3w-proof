@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 Room origin/query consumer gate: complete474byte/153instruction body C078E0..C07AB9,
@@ -53,7 +53,7 @@ void __fastcall RoomManager_RebuildRoomLocations(void *param_1)
   local_10 = "Lot/RoomManager/IntraTileMap";
   *(undefined4 *)((int)param_1 + 0x10) = *(undefined4 *)(*(int *)((int)param_1 + 8) + 0x17c);
   FUN_00af6b20(local_28,*(int *)((int)param_1 + 8));
-  bVar3 = FUN_00af6490((int)local_28);
+  bVar3 = TilePartRectangleIterator_IsDone((int)local_28);
   puVar8 = (ushort *)0x0;
   do {
     if (bVar3) {
@@ -62,7 +62,7 @@ void __fastcall RoomManager_RebuildRoomLocations(void *param_1)
       }
       return;
     }
-    puVar5 = (undefined2 *)FUN_00af64e0((int)local_28);
+    puVar5 = (undefined2 *)TilePartRectangleIterator_Current((int)local_28);
     iVar10 = 0;
     local_18 = puVar8;
     do {
@@ -113,7 +113,7 @@ LAB_00c07a26:
       } while (local_44 != local_18);
     }
     FUN_00af6610(local_28);
-    bVar3 = FUN_00af6490((int)local_28);
+    bVar3 = TilePartRectangleIterator_IsDone((int)local_28);
     puVar8 = local_1c;
   } while( true );
 }

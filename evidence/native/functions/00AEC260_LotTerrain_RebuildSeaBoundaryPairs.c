@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): ECX terrain. Clear six-byte pair vector.
@@ -72,9 +72,9 @@ void __fastcall LotTerrain_RebuildSeaBoundaryPairs(int param_1)
     FUN_00af6590(local_4c,&local_6c,&local_70);
     fVar11 = Lot_GetLocalSeaLevel(*(int **)(param_1 + 4));
     local_60 = (float)fVar11;
-    bVar5 = FUN_00af6490((int)local_4c);
+    bVar5 = TilePartRectangleIterator_IsDone((int)local_4c);
     while (!bVar5) {
-      local_58 = (char *)FUN_00af64e0((int)local_4c);
+      local_58 = (char *)TilePartRectangleIterator_Current((int)local_4c);
       local_5c = *(int *)(param_1 + 4);
       iVar1 = *(int *)(local_5c + 0x290);
       iVar10 = *(int *)(iVar1 + 0x24);
@@ -129,13 +129,14 @@ void __fastcall LotTerrain_RebuildSeaBoundaryPairs(int param_1)
             else {
               FUN_00aeb900((void *)(local_64 + 0x154),puVar3,(undefined4 *)&local_52);
             }
-            break;
+            goto LAB_00aec451;
           }
           iVar10 = iVar10 + 4;
         } while (iVar10 < 0x20);
       }
+LAB_00aec451:
       FUN_00af6610(local_4c);
-      bVar5 = FUN_00af6490((int)local_4c);
+      bVar5 = TilePartRectangleIterator_IsDone((int)local_4c);
     }
   }
   return;

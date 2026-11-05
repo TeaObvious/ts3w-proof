@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -160,19 +160,19 @@ RadialRangeDestination_GenerateRadiusCandidates
   local_254 = DAT_011edbc4;
   if ((DAT_011d5ba4 & 1) == 0) {
     DAT_011d5ba4 = DAT_011d5ba4 | 1;
-    _DAT_011d5ba0 = DAT_00fc2420;
+    _DAT_011d5ba0 = 0.15915494;
   }
   if ((DAT_011d5ba4 & 2) == 0) {
     DAT_011d5ba4 = DAT_011d5ba4 | 2;
     _DAT_011d5b90 = 0;
-    fRam011d5b94 = _DAT_00f9b5b4;
+    uRam011d5b94 = 0x3f000000;
     uRam011d5b98 = 0;
     uRam011d5b9c = 0;
   }
   local_1f8 = 1;
   local_248 = (longlong)
-              ROUND((_DAT_011d5ba0 * (param_8 - param_7) * param_5 * DAT_010051a8) /
-                    *(float *)((int)this + 0x6c) + _DAT_00f9b5b4);
+              ROUND((_DAT_011d5ba0 * (param_8 - param_7) * param_5 * 6.2831855) /
+                    *(float *)((int)this + 0x6c) + 0.5);
   local_1f4 = (uint)local_248;
   puVar7 = &local_1f4;
   if ((uint)local_248 < 2) {
@@ -186,17 +186,17 @@ RadialRangeDestination_GenerateRadiusCandidates
     local_248 = CONCAT44((int)uVar5,iVar1);
     local_250 = (float)iVar1;
     if (iVar1 < 0) {
-      local_250 = local_250 + _DAT_00f99948;
+      local_250 = local_250 + 4.2949673e+09;
     }
     local_250 = (param_8 - param_7) / local_250;
   }
-  local_e0 = DAT_00f998f8;
+  local_e0 = 1.0;
   fStack_dc = 0.0;
   fStack_d8 = 0.0;
   fStack_d4 = 0.0;
   local_1a0 = 0.0;
   fStack_19c = 0.0;
-  fStack_198 = DAT_00f998f8;
+  fStack_198 = 1.0;
   fStack_194 = 0.0;
   local_70 = *param_4;
   fStack_6c = param_4[1];
@@ -214,7 +214,7 @@ RadialRangeDestination_GenerateRadiusCandidates
   uStack_5c = 0;
   uStack_58 = 0;
   uStack_54 = 0;
-  local_50 = DAT_00f998f8;
+  local_50 = 1.0;
   local_4c = param_6;
   local_48 = 0;
   local_44 = 0;
@@ -228,13 +228,13 @@ RadialRangeDestination_GenerateRadiusCandidates
     local_1fc = this;
     do {
       fVar11 = (float10)(int)local_274;
-      local_220 = DAT_00f998f8;
+      local_220 = 1.0;
       local_21c = (float)param_6;
       local_218 = 0.0;
       local_214 = 0.0;
       local_210 = 0.0;
       if ((int)local_274 < 0) {
-        fVar11 = fVar11 + (float10)_DAT_00f99948;
+        fVar11 = fVar11 + (float10)4.2949673e+09;
       }
       fVar11 = fVar11 * (float10)local_250 + (float10)param_7;
       fVar12 = (float10)fsin(fVar11);
@@ -249,12 +249,8 @@ RadialRangeDestination_GenerateRadiusCandidates
       fStack_22c = fStack_17c;
       fStack_228 = fStack_178;
       fStack_224 = fStack_174;
-      if ((local_254 == (void *)0x0) ||
-         (local_160 = local_240, fStack_15c = fStack_23c, fStack_158 = fStack_238,
-         fStack_154 = fStack_234, local_90 = local_240, fStack_8c = fStack_23c,
-         fStack_88 = fStack_238, fStack_84 = fStack_234,
-         pvVar8 = LotSpatialIndex_FindContainingLotAtWorldXZ(local_254,local_240,fStack_238),
-         pvVar8 == (void *)0x0)) {
+      if (local_254 == (void *)0x0) {
+LAB_0075ba99:
         local_21c = 0.0;
         local_120 = local_240;
         fStack_11c = fStack_23c;
@@ -282,17 +278,17 @@ RadialRangeDestination_GenerateRadiusCandidates
         uVar10 = RoutingOptions_TestMask(param_2,1,0,'\x01');
         if ((char)uVar10 == '\0') {
           fStack_14 = param_4[1];
-          local_a0 = fStack_14 + DAT_00fa2b9c;
-          fStack_1c = fStack_14 + DAT_00fa2b9c;
-          fStack_18 = fStack_14 + DAT_00fa2b9c;
-          fStack_14 = fStack_14 + DAT_00fa2b9c;
+          local_a0 = fStack_14 + 3.0;
+          fStack_1c = fStack_14 + 3.0;
+          fStack_18 = fStack_14 + 3.0;
+          fStack_14 = fStack_14 + 3.0;
           local_100 = fStack_23c;
           local_20 = local_a0;
           if (local_a0 < fStack_23c) {
-            fVar11 = FUN_00c61090((int)local_254);
+            fVar11 = WorldWater_GetSeaLevel((int)local_254);
             fVar18 = local_21c;
             local_190 = param_4[1];
-            local_170 = (float)(fVar11 - (float10)DAT_00f998f8);
+            local_170 = (float)(fVar11 - (float10)1.0);
             if (local_170 < local_190) {
               local_150 = local_240;
               fStack_14c = fStack_23c;
@@ -320,17 +316,27 @@ RadialRangeDestination_GenerateRadiusCandidates
         }
       }
       else {
-        local_270.x = DAT_00fab218;
-        local_270.z = DAT_00fab218;
+        local_160 = local_240;
+        fStack_15c = fStack_23c;
+        fStack_158 = fStack_238;
+        fStack_154 = fStack_234;
+        local_90 = local_240;
+        fStack_8c = fStack_23c;
+        fStack_88 = fStack_238;
+        fStack_84 = fStack_234;
+        pvVar8 = LotSpatialIndex_FindContainingLotAtWorldXZ(local_254,local_240,fStack_238);
+        if (pvVar8 == (void *)0x0) goto LAB_0075ba99;
+        local_270.x = -1.0;
+        local_270.z = -1.0;
         local_270.level = 0;
         Lot_WorldPositionToLocalXZLevel(pvVar8,&local_240,&local_270);
         local_21c = (float)local_270.level;
-        if ((local_270.level < 0) &&
-           (bVar6 = Lot_TestProperty15AtLocalLocation(pvVar8,&local_270), bVar6)) {
-          bVar6 = true;
+        if ((-1 < local_270.level) ||
+           (bVar6 = Lot_TestProperty15AtLocalLocation(pvVar8,&local_270), !bVar6)) {
+          bVar6 = false;
         }
         else {
-          bVar6 = false;
+          bVar6 = true;
         }
         uVar9 = Lot_TestNextLevelAtLocalLocation(pvVar8,&local_270,1);
         if ((((int)local_21c < 0) && (!bVar6)) && ((char)uVar9 == '\0')) {
@@ -397,18 +403,14 @@ LAB_0075bd54:
           fVar14 = auVar21._4_4_;
           fVar19 = auVar21._8_4_;
           fVar20 = auVar21._12_4_;
-          fVar18 = (DAT_00f998f8 - fVar18 * fVar18 * fVar13) * fVar18 * _DAT_00f9b5b4 + fVar18;
-          fVar14 = (DAT_00f998f8 - fVar14 * fVar14 * fVar13) * fVar14 * _DAT_00f9b5b4 + fVar14;
-          fVar19 = (DAT_00f998f8 - fVar19 * fVar19 * fVar13) * fVar19 * _DAT_00f9b5b4 + fVar19;
-          fVar20 = (DAT_00f998f8 - fVar20 * fVar20 * fVar13) * fVar20 * _DAT_00f9b5b4 + fVar20;
-          local_230 = ((DAT_00f998f8 - fVar18 * fVar18 * fVar13) * fVar18 * _DAT_00f9b5b4 + fVar18)
-                      * fVar15;
-          fStack_22c = ((DAT_00f998f8 - fVar14 * fVar14 * fVar13) * fVar14 * _DAT_00f9b5b4 + fVar14)
-                       * 0.0;
-          fStack_228 = ((DAT_00f998f8 - fVar19 * fVar19 * fVar13) * fVar19 * _DAT_00f9b5b4 + fVar19)
-                       * fVar16;
-          fStack_224 = ((DAT_00f998f8 - fVar20 * fVar20 * fVar13) * fVar20 * _DAT_00f9b5b4 + fVar20)
-                       * fVar17;
+          fVar18 = (1.0 - fVar18 * fVar18 * fVar13) * fVar18 * 0.5 + fVar18;
+          fVar14 = (1.0 - fVar14 * fVar14 * fVar13) * fVar14 * 0.5 + fVar14;
+          fVar19 = (1.0 - fVar19 * fVar19 * fVar13) * fVar19 * 0.5 + fVar19;
+          fVar20 = (1.0 - fVar20 * fVar20 * fVar13) * fVar20 * 0.5 + fVar20;
+          local_230 = ((1.0 - fVar18 * fVar18 * fVar13) * fVar18 * 0.5 + fVar18) * fVar15;
+          fStack_22c = ((1.0 - fVar14 * fVar14 * fVar13) * fVar14 * 0.5 + fVar14) * 0.0;
+          fStack_228 = ((1.0 - fVar19 * fVar19 * fVar13) * fVar19 * 0.5 + fVar19) * fVar16;
+          fStack_224 = ((1.0 - fVar20 * fVar20 * fVar13) * fVar20 * 0.5 + fVar20) * fVar17;
         }
       }
       else if (*(int *)((int)local_1fc + 0x58) == 2) {
@@ -443,7 +445,7 @@ LAB_0075bddd:
         param_14[3] = fStack_234;
         if (local_274 == 0) goto LAB_0075bddd;
       }
-      local_258 = DAT_00f998f8;
+      local_258 = 1.0;
       uVar10 = RadialRangeDestination_ShouldRejectCandidateEarly
                          (local_1fc,param_1,&local_70,&local_240,param_2,param_10,param_11,param_12,
                           &local_258);

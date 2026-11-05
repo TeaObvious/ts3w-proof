@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): Clear retained flights,open04A09283 and
@@ -37,7 +37,7 @@ ModularStairs_ReadManager
   uint local_130;
   uint local_12c;
   float local_128;
-  float local_124;
+  uint local_124;
   uint local_120;
   float local_11c;
   undefined1 local_118;
@@ -50,12 +50,8 @@ ModularStairs_ReadManager
   undefined4 local_f0 [4];
   undefined4 local_e0 [4];
   uint local_d0;
-  float local_cc;
-  float local_c8;
-  uint local_c4;
-  float local_c0;
-  float local_bc;
-  uint local_b8;
+  LotXZLevel local_cc;
+  LotXZLevel local_c0;
   float *local_b4;
   float *local_b0;
   float *local_ac;
@@ -78,7 +74,7 @@ ModularStairs_ReadManager
   uint local_58 [4];
   float local_48;
   float local_44;
-  uint local_40;
+  int local_40;
   undefined4 local_38 [4];
   undefined4 local_28 [4];
   undefined4 local_18 [5];
@@ -103,7 +99,7 @@ ModularStairs_ReadManager
     local_120 = 0;
     if (local_12c != 0) {
       do {
-        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_124,
+        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),&local_124,
                                   *(uint *)((int)param_1 + 0x10));
         StreamReader_AccumulateStatus(param_1,bVar3);
         local_110 = 0;
@@ -111,12 +107,12 @@ ModularStairs_ReadManager
         local_108 = 0;
         local_104 = 0;
         FUN_00afbba0(local_100);
-        local_cc = FLOAT_00fab218;
-        local_c8 = FLOAT_00fab218;
-        local_c4 = 0;
-        local_c0 = FLOAT_00fab218;
-        local_bc = FLOAT_00fab218;
-        local_b8 = 0;
+        local_cc.x = -1.0;
+        local_cc.z = -1.0;
+        local_cc.level = 0;
+        local_c0.x = -1.0;
+        local_c0.z = -1.0;
+        local_c0.level = 0;
         local_b4 = (float *)0x0;
         local_b0 = (float *)0x0;
         local_ac = (float *)0x0;
@@ -151,22 +147,23 @@ ModularStairs_ReadManager
         bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_cc,
                                   *(uint *)((int)param_1 + 0x10));
         StreamReader_AccumulateStatus(param_1,bVar3);
-        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_c8,
+        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_cc.z,
                                   *(uint *)((int)param_1 + 0x10));
         StreamReader_AccumulateStatus(param_1,bVar3);
-        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),&local_c4,
+        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_cc.level,
                                   *(uint *)((int)param_1 + 0x10));
         StreamReader_AccumulateStatus(param_1,bVar3);
         bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_c0,
                                   *(uint *)((int)param_1 + 0x10));
         StreamReader_AccumulateStatus(param_1,bVar3);
-        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_bc,
+        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_c0.z,
                                   *(uint *)((int)param_1 + 0x10));
         StreamReader_AccumulateStatus(param_1,bVar3);
-        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),&local_b8,
+        bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_c0.level,
                                   *(uint *)((int)param_1 + 0x10));
         StreamReader_AccumulateStatus(param_1,bVar3);
-        FUN_00b1c360(local_140,local_124,&local_110,local_d0,&local_cc,&local_c0);
+        ModularStairs_BuildFlightCollisionShapes
+                  (local_140,local_124,&local_110,local_d0,&local_cc,&local_c0);
         local_134 = 0;
         bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),&local_134,
                                   *(uint *)((int)param_1 + 0x10));
@@ -203,8 +200,8 @@ ModularStairs_ReadManager
             local_58[1] = 0;
             local_58[2] = 0;
             local_58[3] = 0;
-            local_48 = FLOAT_00fab218;
-            local_44 = FLOAT_00fab218;
+            local_48 = -1.0;
+            local_44 = -1.0;
             local_40 = 0;
             FUN_00afbba0(local_38);
             if (local_138 < 3) {
@@ -227,7 +224,7 @@ ModularStairs_ReadManager
             bVar3 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&local_44,
                                       *(uint *)((int)param_1 + 0x10));
             StreamReader_AccumulateStatus(param_1,bVar3);
-            local_40 = local_c4;
+            local_40 = local_cc.level;
             puVar4 = (uint *)FUN_00b1ae50((void *)((int)local_140 + 0x3c),(uint *)&local_13c);
             puVar9 = local_58;
             for (iVar8 = 0x14; iVar8 != 0; iVar8 = iVar8 + -1) {
@@ -282,19 +279,19 @@ LAB_00b21cfd:
               pfVar6 = *ppfVar5 + 1;
               *(char *)pfVar6 = *(char *)pfVar6 + '\x01';
             }
-            FUN_00b1c650(local_140,local_13c,local_58,local_d0,&local_48,&local_c0);
+            FUN_00b1c650(local_140,local_13c,local_58,local_d0,&local_48,&local_c0.x);
             local_114 = local_114 + 1;
           } while (local_114 < local_134);
         }
         puVar11 = &local_110;
-        this_00 = (void *)FUN_00b21630((void *)((int)local_140 + 0x1c),(uint *)&local_124);
+        this_00 = (void *)FUN_00b21630((void *)((int)local_140 + 0x1c),&local_124);
         FUN_00b1d9a0(this_00,puVar11);
         if (local_b4 != (float *)0x0) {
           Memory_FreeIfNonNull(local_b4);
         }
         local_120 = local_120 + 1;
-        this = local_140;
       } while (local_120 < local_12c);
+      this = local_140;
     }
     uVar10 = 0;
     if (3 < local_138) {

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 catalog/template instruction contract): Analyst-assigned name. ECX catalog,
@@ -19,7 +19,7 @@ undefined4 __thiscall ObjectCatalog_FindByTypedKey(void *this,uint *param_1)
   
                     /* Analyst: Typed lookup dispatch; key words+8 type,+C group. */
   if (param_1[2] == 0x319e4f1d) {
-    FUN_00c8db20((void *)((int)this + 0xc0),&local_18,param_1);
+    ProductCatalogKeyArray_FindExact((void *)((int)this + 0xc0),&local_18,param_1);
     iVar1 = local_18;
     if (local_18 == local_14) {
       iVar1 = *(int *)((int)this + 0xc4);
@@ -29,7 +29,7 @@ LAB_00c8ebee:
       return *(undefined4 *)(iVar1 + 0x10);
     }
     ResourceKey_MakeAlternate(local_10,param_1);
-    FUN_00c8db20((void *)((int)this + 0xc0),&local_18,local_10);
+    ProductCatalogKeyArray_FindExact((void *)((int)this + 0xc0),&local_18,local_10);
     if (local_18 == local_14) {
       local_18 = *(int *)((int)this + 0xc4);
     }
@@ -38,14 +38,14 @@ LAB_00c8ebee:
     }
   }
   else if (param_1[2] == 0x2dc343f) {
-    FUN_00c8db20((void *)((int)this + 0xd4),&local_18,param_1);
+    ProductCatalogKeyArray_FindExact((void *)((int)this + 0xd4),&local_18,param_1);
     iVar1 = local_18;
     if (local_18 == local_14) {
       iVar1 = *(int *)((int)this + 0xd8);
     }
     if (iVar1 != *(int *)((int)this + 0xd8)) goto LAB_00c8ebee;
     ResourceKey_MakeAlternate(local_10,param_1);
-    FUN_00c8db20((void *)((int)this + 0xd4),&local_18,local_10);
+    ProductCatalogKeyArray_FindExact((void *)((int)this + 0xd4),&local_18,local_10);
     if (local_18 == local_14) {
       local_18 = *(int *)((int)this + 0xd8);
     }

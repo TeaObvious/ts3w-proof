@@ -1,13 +1,19 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* Verified PC 1.67: dispatches scalar property IDs. Gain ID 25DF0108 assigns the supplied float
    directly to voice +70 at 008ADAF6; authored and later scripted gain use this field on the
    ordinary voice path. Raw instruction proof:
    008AD940_AudioVoice_SetScalarProperty.asm.
    original PC 1.67 TS3W.exe. */
+
+
+
+/* Verified PC 1.67: dispatches scalar property IDs. Gain ID 25DF0108 assigns the supplied float
+   directly to voice +70 at 008ADAF6; authored and later scripted gain use this field on the
+   ordinary voice path. Raw instruction proof: the canonical ASM/C pair for this function. Reference
+   TS3W.exe SHA256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3. */
 
 void __thiscall
 AudioVoice_SetScalarProperty(void *this,uint param_1,float param_2,undefined4 param_3)
@@ -29,7 +35,7 @@ AudioVoice_SetScalarProperty(void *this,uint param_1,float param_2,undefined4 pa
   float fStack_24;
   int local_1c [6];
   
-  FUN_00a5b9b0((void *)((int)this + 0x898),&local_28,&param_1);
+  UInt32PairMap_Find((void *)((int)this + 0x898),&local_28,&param_1);
   iVar6 = *(int *)((int)this + 0x89c);
   uVar5 = local_28;
   if (local_28 != *(uint *)(iVar6 + *(int *)((int)this + 0x8a0) * 4)) {
@@ -42,7 +48,7 @@ AudioVoice_SetScalarProperty(void *this,uint param_1,float param_2,undefined4 pa
     if (param_1 == 0x310330cc) {
       if (*(void **)((int)this + 0x2e8) != (void *)0x0) {
         if (*(int **)((int)this + 0xa84) == (int *)0x0) {
-          FUN_008a34a0(*(void **)((int)this + 0x2e8),param_2 != DAT_010f4ccc);
+          FUN_008a34a0(*(void **)((int)this + 0x2e8),param_2 != 0.0);
           (**(code **)(*(int *)this + 0x18))(0,0);
           return;
         }
@@ -53,7 +59,7 @@ AudioVoice_SetScalarProperty(void *this,uint param_1,float param_2,undefined4 pa
     }
     if (param_1 < 0x12d2a4d5) {
       if (param_1 == 0x12d2a4d4) {
-        if (param_2 == DAT_010f4ccc) {
+        if (param_2 == 0.0) {
           *(byte *)((int)this + 0xd0) = *(byte *)((int)this + 0xd0) & 0xf7;
           return;
         }
@@ -94,7 +100,7 @@ AudioVoice_SetScalarProperty(void *this,uint param_1,float param_2,undefined4 pa
         return;
       }
       if (param_1 == 0x222b8006) {
-        if (param_2 == DAT_010f4ccc) {
+        if (param_2 == 0.0) {
           *(undefined1 *)((int)this + 0xac) = 0;
           return;
         }
@@ -155,7 +161,7 @@ joined_r0x008adc9e:
       goto LAB_008ade67;
     }
     if (param_1 == 0x6dd08218) {
-      if (param_2 == DAT_010f4ccc) {
+      if (param_2 == 0.0) {
         *(undefined1 *)((int)this + 0xad) = 0;
         return;
       }
@@ -171,15 +177,14 @@ joined_r0x008adc9e:
   else if (param_1 < 0xb85523e6) {
     if (param_1 == 0xb85523e5) {
       uVar2 = CONCAT21((short)(uVar5 >> 0x10),
-                       (param_2 == DAT_010f4ccc) << 6 | (NAN(param_2) || NAN(DAT_010f4ccc)) << 2 |
-                       2U | param_2 < DAT_010f4ccc);
-      if (param_2 == DAT_010f4ccc) {
+                       (param_2 == 0.0) << 6 | NAN(param_2) << 2 | 2U | param_2 < 0.0);
+      if (param_2 == 0.0) {
         iVar6 = (uint)uVar2 << 8;
       }
       else {
         iVar6 = CONCAT31(uVar2,1);
       }
-      (**(code **)(*(int *)this + 0x1c))(iVar6,4,DAT_00fab218,1);
+      (**(code **)(*(int *)this + 0x1c))(iVar6,4,0xbf800000,1);
       return;
     }
     if (param_1 == 0xa26a765f) {
@@ -202,24 +207,24 @@ joined_r0x008adc9e:
       return;
     }
     if (param_1 == 0xe1f872f2) {
-      fVar10 = param_2 - DAT_00f998f8;
-      auVar7._0_4_ = DAT_00fab218 * fVar10;
-      auVar7._4_4_ = DAT_00fab218 * fVar10;
-      auVar7._8_4_ = DAT_00fab218 * fVar10;
-      auVar7._12_4_ = DAT_00fab218 * fVar10;
+      fVar10 = param_2 - 1.0;
+      auVar7._0_4_ = fVar10 * -1.0;
+      auVar7._4_4_ = fVar10 * -1.0;
+      auVar7._8_4_ = fVar10 * -1.0;
+      auVar7._12_4_ = fVar10 * -1.0;
       auVar8._4_4_ = fVar10;
       auVar8._0_4_ = fVar10;
       auVar8._8_4_ = fVar10;
       auVar8._12_4_ = fVar10;
       auVar8 = maxps(auVar7,auVar8);
-      auVar9._4_4_ = -(uint)(auVar8._4_4_ <= DAT_0103b8fc);
-      auVar9._0_4_ = -(uint)(auVar8._0_4_ <= DAT_0103b8fc);
-      auVar9._8_4_ = -(uint)(auVar8._8_4_ <= DAT_0103b8fc);
-      auVar9._12_4_ = -(uint)(auVar8._12_4_ <= DAT_0103b8fc);
+      auVar9._4_4_ = -(uint)(auVar8._4_4_ <= 1.5258789e-05);
+      auVar9._0_4_ = -(uint)(auVar8._0_4_ <= 1.5258789e-05);
+      auVar9._8_4_ = -(uint)(auVar8._8_4_ <= 1.5258789e-05);
+      auVar9._12_4_ = -(uint)(auVar8._12_4_ <= 1.5258789e-05);
       iVar6 = movmskps(iVar6,auVar9);
       if (iVar6 != 0xf) {
-        local_2c = DAT_00f998f8;
-        FUN_008ab2a0((void *)((int)this + 0x187c),&local_2c,DAT_0106f8c8);
+        local_2c = 1.0;
+        FUN_008ab2a0((void *)((int)this + 0x187c),&local_2c,0.25);
         return;
       }
       if (*(int *)((int)this + 0x58) == 0) {
@@ -229,12 +234,12 @@ joined_r0x008adc9e:
         return;
       }
       local_2c = 0.0;
-      FUN_008ab2a0((void *)((int)this + 0x187c),&local_2c,DAT_0106f8c8);
+      FUN_008ab2a0((void *)((int)this + 0x187c),&local_2c,0.25);
       return;
     }
   }
 LAB_008addff:
-  FUN_00a5b9b0((void *)((int)this + 0x108),&local_28,&param_1);
+  UInt32PairMap_Find((void *)((int)this + 0x108),&local_28,&param_1);
   if (local_28 == *(uint *)(*(int *)((int)this + 0x10c) + *(int *)((int)this + 0x110) * 4)) {
     _local_28 = CONCAT44(param_2,uVar3);
     FUN_008ad770((void *)((int)this + 0x108),local_1c,&local_28);
@@ -244,11 +249,11 @@ LAB_008addff:
     *(float *)(local_28 + 4) = param_2;
   }
 LAB_008ade67:
-  if (((*(int *)((int)this + 0x58) != 0) && (local_2c._0_1_ != '\0')) &&
-     (cVar4 = (**(code **)(*(int *)this + 0x20))(0xffffffff,1), cVar4 == '\0')) {
-    (**(code **)(**(int **)((int)this + 0x58) + 0x34))(uVar3,param_2,1);
+  if (((*(int *)((int)this + 0x58) == 0) || (local_2c._0_1_ == '\0')) ||
+     (cVar4 = (**(code **)(*(int *)this + 0x20))(0xffffffff,1), cVar4 != '\0')) {
     return;
   }
+  (**(code **)(**(int **)((int)this + 0x58) + 0x34))(uVar3,param_2,1);
   return;
 }
 

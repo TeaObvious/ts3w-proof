@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x0115eba8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x0115eba8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Animation::Animation_EnableDisableLargeAnimalEvalNode [assembly=ScriptCore
    token=0x06000DC8; id: System.UInt64, bEnable: System.Boolean; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -16,22 +17,23 @@ void ScriptCore_Animation__Animation_EnableDisableLargeAnimalEvalNode
 {
   int *piVar1;
   int iVar2;
+  void *pvVar3;
   undefined4 *this;
   
-  iVar2 = FUN_00937570();
-  this = (undefined4 *)FUN_00937f80(iVar2);
+  pvVar3 = ObjectRegistry_GetGlobal();
+  this = ObjectRegistry_FindBorrowed(pvVar3,CONCAT44(param_2,param_1));
   if (this != (undefined4 *)0x0) {
     piVar1 = this + 1;
     LOCK();
     *piVar1 = *piVar1 + 1;
     UNLOCK();
-    iVar2 = FUN_00934260(this,DAT_011dd484);
-    if (iVar2 != 0) {
+    pvVar3 = Object_GetComponentByMask(this,DAT_011dd484);
+    if (pvVar3 != (void *)0x0) {
       if (param_3 == '\0') {
-        *(uint *)(iVar2 + 0x2c) = *(uint *)(iVar2 + 0x2c) | 0x40000;
+        *(uint *)((int)pvVar3 + 0x2c) = *(uint *)((int)pvVar3 + 0x2c) | 0x40000;
       }
       else {
-        *(uint *)(iVar2 + 0x2c) = *(uint *)(iVar2 + 0x2c) & 0xfffbffff;
+        *(uint *)((int)pvVar3 + 0x2c) = *(uint *)((int)pvVar3 + 0x2c) & 0xfffbffff;
       }
     }
     LOCK();

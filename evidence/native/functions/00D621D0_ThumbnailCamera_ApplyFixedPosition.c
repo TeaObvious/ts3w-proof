@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): ECX render owner; authored position/settings stack
@@ -14,20 +14,20 @@ void __thiscall ThumbnailCamera_ApplyFixedPosition(void *this,undefined4 *param_
   float fVar1;
   float fVar2;
   
-  FUN_004dac30(*(void **)((int)this + 0x10),param_2[0xd]);
+  Camera_SetProjectionMode(*(void **)((int)this + 0x10),param_2[0xd]);
   if (param_2[0xd] == 0.0) {
-    FUN_00960e30(*(void **)((int)this + 0x10),param_2[0xc]);
+    Camera_SetHorizontalFieldOfViewDegrees(*(void **)((int)this + 0x10),param_2[0xc]);
   }
   else {
-    FUN_0095ff10(*(void **)((int)this + 0x10),1.0);
+    Camera_SetOrthographicWidth(*(void **)((int)this + 0x10),1.0);
   }
   fVar1 = (float)*(int *)((int)this + 0x24);
   if (*(int *)((int)this + 0x24) < 0) {
-    fVar1 = fVar1 + FLOAT_00f99948;
+    fVar1 = fVar1 + 4.2949673e+09;
   }
   fVar2 = (float)*(int *)((int)this + 0x28);
   if (*(int *)((int)this + 0x28) < 0) {
-    fVar2 = fVar2 + FLOAT_00f99948;
+    fVar2 = fVar2 + 4.2949673e+09;
   }
   FUN_00960ef0(*(void **)((int)this + 0x10),fVar1 / fVar2);
   FUN_00961bd0(*(void **)((int)this + 0x10),param_1,param_2 + 4,param_2);

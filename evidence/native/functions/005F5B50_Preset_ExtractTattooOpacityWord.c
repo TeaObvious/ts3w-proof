@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 direct x86 E9 jump target: ScriptCore.CASUtils::CASUtils_ExtractTattooOpacity at
@@ -25,21 +25,20 @@ uint __cdecl Preset_ExtractTattooOpacityWord(void *managedPreset)
   int *piVar1;
   LPCWSTR pWVar2;
   uint uStack_68;
-  undefined4 auStack_64 [25];
+  uint auStack_64 [25];
   
   piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
   pWVar2 = (LPCWSTR)(**(code **)(*piVar1 + 0x58))(managedPreset);
   if (pWVar2 == (LPCWSTR)0x0) {
     return 0;
   }
-  FUN_005bfac0(auStack_64);
+  DesignPreset_InitializeEmpty(auStack_64);
   FUN_005c0060(auStack_64,pWVar2);
   uStack_68 = 2;
                     /* Three stack args name,typeOut,wordOut; ECX context. output initialized0,
                        typeOut initialized2, both addresses passed. Function ignores
                        Boolean/typeOut. */
-  PresetProperty_ReadWordByName(auStack_64,"ColorAlphaMultiply",&uStack_68,(uint *)&stack0xffffff94)
-  ;
+  PresetProperty_ReadWordByName(auStack_64,"ColorAlphaMultiply",&uStack_68,auStack_64 + -2);
                     /* Read ACTUAL out DWORD into ESI before destructor, then return via EAX
                        at5F5BBA; not literal zero. */
   FUN_005bfce0(auStack_64);

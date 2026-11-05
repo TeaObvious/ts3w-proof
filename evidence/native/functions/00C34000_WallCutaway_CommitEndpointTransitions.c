@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. ECX cutaway manager. Commits old/new
@@ -121,12 +121,12 @@ joined_r0x00c34045:
         FUN_00c4d210(*(void **)((int)this + 8),pfVar1,'\0');
         iVar9 = 0;
 LAB_00c342f0:
-        iVar7 = FUN_00c41860((void *)local_40[iVar9],pfVar1);
+        iVar7 = WallGraph_FindVertexForCompactLocation((void *)local_40[iVar9],pfVar1);
         if (iVar7 == 0) goto code_r0x00c342fe;
         pbVar12 = *(byte **)(iVar7 + 8);
         local_54 = pbVar12;
         do {
-          iVar9 = FUN_00c36010(pbVar12);
+          iVar9 = WallHalfEdge_ReadOppositeVertex(pbVar12);
           local_68 = (byte *)*pfVar1;
           local_4b = *(char *)(iVar9 + 6);
           local_2c = (int)local_4b;
@@ -193,12 +193,12 @@ LAB_00c34614:
     FUN_00c4d210(*(void **)((int)this + 8),pfVar1,'\x01');
     iVar9 = 0;
 LAB_00c344b0:
-    iVar7 = FUN_00c41860((void *)local_40[iVar9],pfVar1);
+    iVar7 = WallGraph_FindVertexForCompactLocation((void *)local_40[iVar9],pfVar1);
     if (iVar7 == 0) goto code_r0x00c344be;
     pbVar12 = *(byte **)(iVar7 + 8);
     local_68 = pbVar12;
     do {
-      iVar9 = FUN_00c36010(pbVar12);
+      iVar9 = WallHalfEdge_ReadOppositeVertex(pbVar12);
       local_54 = (byte *)*pfVar1;
       local_4b = *(char *)(iVar9 + 6);
       local_2c = (int)local_4b;
@@ -238,7 +238,8 @@ LAB_00c344b0:
   if ((*(byte *)(piVar8 + 8) & 8) == 0) {
     iVar13 = 0;
     do {
-      iVar7 = FUN_00c41860((void *)local_40[iVar13],(float *)(piVar8 + 4));
+      iVar7 = WallGraph_FindVertexForCompactLocation((void *)local_40[iVar13],(float *)(piVar8 + 4))
+      ;
       if (iVar7 != 0) {
         pbVar12 = *(byte **)(iVar7 + 8);
         pbVar10 = pbVar12;
@@ -258,7 +259,7 @@ code_r0x00c344be:
   goto LAB_00c344b0;
   while (pbVar10 = *(byte **)(pbVar10 + 4), pbVar10 != pbVar12) {
 LAB_00c34081:
-    iVar13 = FUN_00c36010(pbVar10);
+    iVar13 = WallHalfEdge_ReadOppositeVertex(pbVar10);
     pvVar4 = *(void **)((int)this + 0x88);
     local_2c = (int)*(char *)(iVar13 + 6);
     local_40[3] = (float)(int)*(char *)(iVar13 + 4);

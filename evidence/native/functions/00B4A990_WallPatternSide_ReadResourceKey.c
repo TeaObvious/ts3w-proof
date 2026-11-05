@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* ECX side owner; directed locator stack word, RET4. Initializes ordinal low word0; an existing
@@ -29,7 +29,7 @@ undefined4 * __thiscall WallPatternSide_ReadResourceKey(void *this,char *param_1
   local_6 = '\0';
   local_3 = '\0';
   FUN_00b47d40(this,param_1,(undefined4 *)&local_8);
-  puVar2 = (undefined4 *)FUN_00c418d0(*(void **)((int)this + 100),param_1);
+  puVar2 = (undefined4 *)WallGraph_FindWallForPackedLocator(*(void **)((int)this + 100),param_1);
   if (puVar2 != (undefined4 *)0x0) {
     if ((((param_1[2] == local_6) && (*param_1 == local_8)) && (param_1[1] == local_7)) &&
        (((param_1[5] == local_3 && (param_1[3] == local_5)) && (param_1[4] == local_4)))) {

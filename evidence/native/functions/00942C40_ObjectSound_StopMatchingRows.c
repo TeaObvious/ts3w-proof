@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 object sound admission. ECX component, byte stopMode + UInt32 rowMask RET8.
@@ -25,7 +25,7 @@ void __thiscall ObjectSound_StopMatchingRows(void *this,byte stopMode,uint rowMa
         ObjectSound_FinishAndRetire(this,uVar2 & 0x3fffffff,1);
       }
       else {
-        FUN_008608e0(uVar2 & 0x3fffffff,stopMode);
+        Audio_SubmitHandleStopCommand(uVar2 & 0x3fffffff,stopMode);
       }
     }
                     /* Captured-end iterator increment is preserved even after942A00 may erase/shift

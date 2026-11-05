@@ -1,8 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-Decompiled function Seasons_SpawnMissingGroundSplashes:
 
 
 /* Analyst-assigned name. Spawns missing ground splash effects for rain1/bewitching5/hail2. Target
@@ -36,68 +34,50 @@ void __fastcall Seasons_SpawnMissingGroundSplashes(void *param_1)
   undefined4 *local_90;
   undefined1 local_8c;
   undefined1 local_8b;
-  int local_80;
-  float local_7c;
-  undefined4 local_78;
-  undefined4 local_74;
-  undefined4 local_70;
-  undefined4 local_6c;
-  undefined4 local_68;
-  undefined4 local_64;
-  undefined4 local_60;
-  undefined1 local_5c;
-  undefined4 local_58;
-  undefined1 local_54;
-  undefined4 local_50;
-  undefined4 local_4c;
-  undefined4 local_3c;
-  undefined4 local_38;
-  undefined4 local_34;
-  undefined4 local_30;
-  undefined4 local_2c;
-  undefined4 local_28;
+  PCWeatherSettings local_80;
   float local_20 [7];
-
+  
   if (DAT_011edbc4 == 0) {
     return;
   }
   if (*(void **)(DAT_011edbc4 + 0x74) == (void *)0x0) {
     return;
   }
-  local_7c = 1.0;
-  local_80 = 0;
-  local_78 = 0;
-  local_74 = 0;
-  local_70 = 0;
-  local_6c = 0;
-  local_68 = 0;
-  local_64 = 0;
-  local_60 = 0;
-  local_5c = 0;
-  local_58 = 0;
-  local_54 = 1;
-  local_50 = 0;
-  local_4c = 0xbf800000;
-  local_3c = 0;
-  local_38 = 0;
-  local_34 = 0;
-  local_30 = 0;
-  local_2c = 0;
-  local_28 = 0;
+  local_80.precipitationStrength = 1.0;
+  local_80.precipitationType = 0;
+  local_80.frostAmount = 0.0;
+  local_80.currentSeason = 0;
+  local_80.sunriseOffset = 0.0;
+  local_80.sunsetOffset = 0.0;
+  local_80.snowThickness = 0.0;
+  local_80.snowRoadDepth = 0.0;
+  local_80.wetAmount = 0.0;
+  local_80.isSnowMelting = 0;
+  local_80.treeLeafLoss = 0.0;
+  local_80.useFallSet = 1;
+  local_80.treeFallColor = 0.0;
+  local_80.heatShimmerDistance = -1.0;
+  local_80.precipitationFog = 0.0;
+  local_80.pondFreeze = 0.0;
+  local_80.worldLeaves = 0.0;
+  local_80.cloudinessTarget = 0.0;
+  local_80.windStrength = 0.0;
+  local_80.normalFog = 0.0;
   local_b8 = param_1;
-  FUN_00d699d0(*(void **)(DAT_011edbc4 + 0x74),&local_80);
-  if (local_80 != 1) {
-    if (local_80 == 2) {
+  WeatherSettings_CopyPending(*(void **)(DAT_011edbc4 + 0x74),&local_80);
+  if (local_80.precipitationType != 1) {
+    if (local_80.precipitationType == 2) {
       bVar3 = true;
       goto LAB_00d68987;
     }
-    if (local_80 != 5) {
+    if (local_80.precipitationType != 5) {
       return;
     }
   }
   bVar3 = false;
 LAB_00d68987:
-  fVar6 = (float)((uint)(local_7c * 30.0) & (int)(-0.0 - local_7c * 30.0) >> 0x1f);
+  fVar6 = (float)((uint)(local_80.precipitationStrength * 30.0) &
+                 (int)(-0.0 - local_80.precipitationStrength * 30.0) >> 0x1f);
   uVar4 = (int)(30.0 - fVar6) >> 0x1f;
   local_bc = 0x41f00000;
   iVar7 = (int)(float)(~uVar4 & (uint)fVar6 | uVar4 & 0x41f00000) -
@@ -138,13 +118,13 @@ LAB_00d68a70:
           iVar7 = *piVar1;
           *piVar1 = *piVar1 + -1;
           UNLOCK();
-          if (iVar7 != 1) {
+          if (iVar7 == 1) {
+            LOCK();
+            *piVar1 = 1;
+            UNLOCK();
+            (**(code **)*local_90)(1);
             return;
           }
-          LOCK();
-          *piVar1 = 1;
-          UNLOCK();
-          (**(code **)*local_90)(1);
           return;
         }
         this = *(undefined4 **)((int)param_1 + 0x10);
@@ -179,5 +159,4 @@ LAB_00d68a70:
   }
   return;
 }
-
 

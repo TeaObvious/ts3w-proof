@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 painting contract. ECX=fixup; input LOD, output LOD pointer, substitution DWORD,
@@ -82,13 +82,13 @@ PaintingFixup_ApplyLod
   revealChannels[2] = 0.0;
   revealChannels[3] = 0.0;
   if (iVar1 == 0) {
-    revealChannels[0] = DAT_0103fd88;
+    revealChannels[0] = 2.0;
   }
   else {
                     /* SIGNED JGE 5. High-bit stages pass: 32-bit base+stage*4-4 may alias a channel
                        or address outside the vector; no unsigned range guard. */
     if (iVar1 < 5) {
-      revealChannels[iVar1 + -1] = FLOAT_00f998f8;
+      revealChannels[iVar1 + -1] = 1.0;
     }
   }
   local_8 = revealChannels;
@@ -102,7 +102,7 @@ PaintingFixup_ApplyLod
   local_74 = 1;
   local_a4 = (int *)0x0;
   if (*(char *)((int)inputLod + 0x72) == '\0') {
-    bVar3 = FUN_006db3d0(inputLod,&local_a4,&local_84,renderContext);
+    bVar3 = ModelLOD_CloneWithMaterialSubstitutions(inputLod,&local_a4,&local_84,renderContext);
     if (!bVar3) {
       if (local_a4 != (int *)0x0) {
         (**(code **)(*local_a4 + 4))(local_a4);
@@ -118,7 +118,7 @@ PaintingFixup_ApplyLod
   else {
     (*(code *)**(undefined4 **)inputLod)(inputLod);
     local_a4 = inputLod;
-    FUN_006db170(inputLod,inputLod,&local_84,renderContext);
+    ModelLOD_ApplyMaterialSubstitutions(inputLod,inputLod,&local_84,renderContext);
   }
                     /* EAX mesh count is a DWORD at stack -98; EBP loop index is integer. No
                        float/count CVT instruction. */
@@ -137,7 +137,7 @@ PaintingFixup_ApplyLod
           piStack_a0 = (int *)0x0;
           selector = FUN_006caf60();
           MaterialDef_AcquireMaterial(this_00,&piStack_a0,selector);
-          FUN_00691400(arg0,piStack_a0,'\0',renderContext);
+          Drawable_RebindEffectiveMaterial(arg0,piStack_a0,'\0',renderContext);
           if (piStack_a0 != (int *)0x0) {
             (**(code **)(*piStack_a0 + 4))(piStack_a0);
           }

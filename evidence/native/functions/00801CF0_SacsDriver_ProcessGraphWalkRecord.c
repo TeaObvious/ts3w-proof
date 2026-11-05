@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst role, original PC1.67 ECX driver, record pointer RET4, AL readiness Boolean. Driver error
@@ -31,7 +31,7 @@ bool __thiscall SacsDriver_ProcessGraphWalkRecord(void *this,undefined4 *param_1
   this_01 = (void *)param_1[1];
   iVar4 = *(int *)((int)this_00 + 0x68);
   if ((*(int *)((int)this_01 + 0x78) != iVar4) && (*(int *)((int)this_01 + 0x78) != 0)) {
-    FUN_007ffd60(this,(uint)this_01);
+    SacsDriver_AbandonRetainedGraph(this,(uint)this_01);
   }
   if ((param_1[2] == 1) || (*(int *)((int)this_01 + 0x78) != iVar4)) {
     SacsDecisionGraph_DispatchPhase(this_00,1,(void *)((int)this + 0x44),(uint)this_01);

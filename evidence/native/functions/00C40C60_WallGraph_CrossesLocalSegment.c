@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 complete259instructions/963ownedbytes. Physical ECX graph receiver plus3stackDWORD inputs,
@@ -135,7 +135,7 @@ WallGraph_CrossesLocalSegment(void *this,float *param_1,float *param_2,void *par
       local_108 = (float)(int)*(char *)(iVar2 + 5);
       if (pfVar1 == (float *)param_1[2]) {
         local_104 = pfVar1;
-        iVar2 = FUN_00c36010((byte *)(*piVar5 + 4));
+        iVar2 = WallHalfEdge_ReadOppositeVertex((byte *)(*piVar5 + 4));
         local_120 = (float)(int)*(char *)(iVar2 + 4);
         fStack_11c = (float)(int)*(char *)(iVar2 + 5);
         fStack_118 = (float)(int)*(char *)(iVar2 + 6);

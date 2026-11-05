@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -28,49 +27,52 @@ undefined4 __cdecl ScriptCore.StreamHost::StreamHost_CopyStream(uint param_1,uin
 {
   char cVar1;
   int *piVar2;
-  int *piVar3;
+  uint uVar3;
   uint uVar4;
-  uint uVar5;
+  int *piVar5;
   uint uVar6;
+  undefined1 auStack_ffe [4094];
   
-  piVar2 = DAT_011d783c;
-  if (param_1 != DAT_011d7838) {
-    if ((param_1 & 0xff000000) == 0x60000000) {
-      piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
-      piVar2 = (int *)(**(code **)(*piVar2 + 0xcc))();
-      if (piVar2 != (int *)0x0) {
-        DAT_011d7838 = param_1;
-        DAT_011d783c = piVar2;
-      }
+  if (param_1 == DAT_011d7838) {
+    piVar5 = DAT_011d783c;
+  }
+  else if ((param_1 & 0xff000000) == 0x60000000) {
+    piVar5 = (int *)GetGlobalInterfacePointer_11D5BBC();
+    piVar5 = (int *)(**(code **)(*piVar5 + 0xcc))();
+    if (piVar5 != (int *)0x0) {
+      DAT_011d7838 = param_1;
+      DAT_011d783c = piVar5;
     }
-    else {
-      piVar2 = (int *)0x0;
-    }
+  }
+  else {
+    piVar5 = (int *)0x0;
+  }
+  if (piVar5 == (int *)0x0) {
+    return 0xfffffffe;
+  }
+  if (param_2 == DAT_011d7838) {
+    piVar2 = DAT_011d783c;
+  }
+  else {
+    piVar2 = (int *)StreamHost_ResolveTaggedStreamAndCache(param_2);
   }
   if (piVar2 == (int *)0x0) {
     return 0xfffffffe;
   }
-  piVar3 = DAT_011d783c;
-  if (param_2 != DAT_011d7838) {
-    piVar3 = (int *)FUN_00774e80(param_2);
-  }
-  if (piVar3 == (int *)0x0) {
-    return 0xfffffffe;
-  }
-  uVar4 = (**(code **)(*piVar3 + 0x1c))();
-  if ((uVar4 != 0xffffffff) && (cVar1 = (**(code **)(*piVar3 + 0x28))(0,0), cVar1 != '\0')) {
+  uVar3 = (**(code **)(*piVar2 + 0x1c))();
+  if ((uVar3 != 0xffffffff) && (cVar1 = (**(code **)(*piVar2 + 0x28))(0,0), cVar1 != '\0')) {
     while( true ) {
-      if (uVar4 == 0) {
+      if (uVar3 == 0) {
         return 0;
       }
       uVar6 = 0x1000;
-      if (uVar4 < 0x1001) {
-        uVar6 = uVar4;
+      if (uVar3 < 0x1001) {
+        uVar6 = uVar3;
       }
-      uVar5 = (**(code **)(*piVar3 + 0x30))(&stack0xffffeff8,uVar6);
-      if ((uVar6 != uVar5) ||
-         (cVar1 = (**(code **)(*piVar2 + 0x38))(&stack0xffffeff0,uVar6), cVar1 == '\0')) break;
-      uVar4 = uVar4 - uVar6;
+      uVar4 = (**(code **)(*piVar2 + 0x30))(auStack_ffe + -10,uVar6);
+      if ((uVar6 != uVar4) ||
+         (cVar1 = (**(code **)(*piVar5 + 0x38))(auStack_ffe + -0x12,uVar6), cVar1 == '\0')) break;
+      uVar3 = uVar3 - uVar6;
     }
   }
   return 0xfffffffd;

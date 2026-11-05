@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst original PC1.67 instruction contract. ECX child Transform, three physical stack words
@@ -47,7 +47,8 @@ TransformComponent_InstallParentSurfaceCutoutIfEligible
     local_7c = 0;
     local_78 = 0;
     local_74 = 0;
-    uVar2 = FUN_0093a1b0((uint *)(*(int *)((int)this + 4) + 0x18),&local_80);
+    uVar2 = ObjectCatalog_TryGetSurfaceCutoutKey((uint *)(*(int *)((int)this + 4) + 0x18),&local_80)
+    ;
     if ((char)uVar2 != '\0') {
       local_58 = *(undefined4 *)(*(int *)((int)this + 4) + 8);
       local_54 = *(undefined4 *)(*(int *)((int)this + 4) + 0xc);

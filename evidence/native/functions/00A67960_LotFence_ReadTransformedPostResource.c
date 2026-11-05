@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -12,7 +11,7 @@ undefined1 __thiscall
 LotFence_ReadTransformedPostResource(void *this,void *param_1,undefined4 *param_2)
 
 {
-  undefined4 *this_00;
+  undefined4 *keyContext;
   bool bVar1;
   uint uVar2;
   uint uVar3;
@@ -37,9 +36,10 @@ LotFence_ReadTransformedPostResource(void *this,void *param_1,undefined4 *param_
   undefined4 local_20 [4];
   undefined4 local_10 [4];
   
-  this_00 = param_2 + 0x1d;
+  keyContext = param_2 + 0x1d;
   local_74 = this;
-  FUN_00b14a20(*(void **)((int)this + 0x18),param_1,this_00,0x913c61,*param_2,param_2[1]);
+  FenceDesignMap_ReadResource
+            (*(void **)((int)this + 0x18),param_1,keyContext,0x913c61,*param_2,param_2[1]);
   local_58 = *param_2;
   local_54 = param_2[1];
   local_50 = 0x913381f2;
@@ -77,12 +77,12 @@ LotFence_ReadTransformedPostResource(void *this,void *param_1,undefined4 *param_
       local_40 = DAT_011ec8d8;
       local_3c = DAT_011ec8dc;
       local_38[0] = local_38[0] & 0xffff0000;
-      ResourceReferences_ReadContextKey(this_00,param_1,&local_48);
+      ResourceReferences_ReadContextKey(keyContext,param_1,&local_48);
       if (local_68 == 3) {
         FUN_00afbba0((undefined4 *)local_30);
-        ResourceReferences_ReadContextKey(this_00,param_1,(undefined4 *)local_30);
-        ResourceReferences_ReadContextKey(this_00,param_1,local_20);
-        ResourceReferences_ReadContextKey(this_00,param_1,local_10);
+        ResourceReferences_ReadContextKey(keyContext,param_1,(undefined4 *)local_30);
+        ResourceReferences_ReadContextKey(keyContext,param_1,local_20);
+        ResourceReferences_ReadContextKey(keyContext,param_1,local_10);
         uVar2 = LotFence_AcquirePostDesign(*(void **)((int)local_74 + 0x18),local_30);
         local_38[0] = CONCAT22(local_38[0]._2_2_,(short)uVar2);
       }

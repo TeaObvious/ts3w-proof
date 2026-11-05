@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -12,12 +11,12 @@
 undefined4 __cdecl WallProduct_HasNonzeroFieldE0(uint *param_1)
 
 {
-  int iVar1;
+  void *pvVar1;
   
-  iVar1 = FUN_00c8e760(DAT_011ee034,param_1,'\x01');
-  if ((iVar1 != 0) && (*(int *)(iVar1 + 0xe0) != 0)) {
-    return 1;
+  pvVar1 = ProductCatalog_LookupFenceProduct(DAT_011ee034,param_1,1);
+  if ((pvVar1 == (void *)0x0) || (*(int *)((int)pvVar1 + 0xe0) == 0)) {
+    return 0;
   }
-  return 0;
+  return 1;
 }
 

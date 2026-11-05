@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 placement/source boundary. cdecl two physical words/plainRET/AL status. Area
@@ -55,7 +55,8 @@ undefined4 __cdecl PlacementArea_TestSlopeSupport(undefined4 *param_1,void *para
             }
 LAB_00b3c411:
             if (param_2 != (void *)0x0) {
-              FUN_00ad6720(local_50,0x3f,param_1[1],(float *)(param_1 + 2),0,0);
+              BuildEditErrorRecord_InitializeAtLotPoint
+                        (local_50,0x3f,(undefined *)param_1[1],(LotPaintPoint *)(param_1 + 2),0,0);
               FUN_00ad8570(param_2,local_50);
               in_EAX = FUN_00ad70d0((int)local_50);
             }

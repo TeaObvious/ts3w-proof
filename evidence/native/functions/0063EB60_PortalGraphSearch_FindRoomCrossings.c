@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst: original PC 1.67 portal contract. Original search has unsigned packed room/portal keys,
    float32 g/f priorities, closed-node filter, predecessor map; rejects edge>=1000000. Updates
    cheaper open nodes, does not reopen closed nodes. Success reconstructs only room-changing
@@ -38,19 +40,19 @@ PortalGraphSearch_FindRoomCrossings
   undefined4 ******ppppppuVar16;
   float *pfVar17;
   undefined3 in_stack_00000025;
-  undefined4 *****local_114;
-  undefined4 *****local_110;
+  undefined4 ******local_114;
+  undefined4 ******local_110;
   float local_10c;
-  undefined4 *****local_108;
+  undefined4 ******local_108;
   ulonglong local_104;
-  undefined4 *****local_fc;
+  undefined4 ******local_fc;
   uint *local_f8;
   uint local_f4;
   undefined1 local_f0 [4];
   undefined4 *local_ec;
   uint local_e8;
   undefined4 local_e4;
-  undefined4 local_e0;
+  float local_e0;
   undefined4 local_dc;
   undefined4 local_d8;
   char *local_d4;
@@ -68,19 +70,19 @@ PortalGraphSearch_FindRoomCrossings
   undefined4 *local_a4;
   uint local_a0;
   undefined4 local_9c;
-  undefined4 local_98;
+  float local_98;
   undefined4 local_94;
   undefined4 local_90;
   char *local_8c;
   undefined1 local_88 [4];
-  undefined4 ******local_84;
-  undefined4 ******local_80;
-  undefined4 ******local_7c;
+  undefined4 *******local_84;
+  undefined4 *******local_80;
+  undefined4 *******local_7c;
   undefined4 local_78;
   undefined4 local_74;
   char *local_70;
   undefined4 local_6c;
-  int local_68;
+  void *local_68;
   undefined4 local_64;
   undefined4 local_60;
   char *local_5c;
@@ -96,7 +98,7 @@ PortalGraphSearch_FindRoomCrossings
   undefined4 local_34;
   float *local_30 [2];
   char local_28;
-  undefined4 *****local_24;
+  undefined4 ******local_24;
   undefined4 local_20;
   undefined4 local_1c;
   undefined4 local_18;
@@ -107,7 +109,6 @@ PortalGraphSearch_FindRoomCrossings
   
   toKey = goalKey;
   fromKey = startKey;
-  local_98 = DAT_00f998f8;
   *(ushort *)((int)this + 4) = startConnection;
   local_84 = &local_84;
   local_54 = -1;
@@ -117,14 +118,15 @@ PortalGraphSearch_FindRoomCrossings
   *(float *)((int)this + 0xc) = start->z;
   *(int *)((int)this + 0x10) = start->level;
   *(float *)((int)this + 0x14) = goal->x;
-  local_94 = DAT_0103fd88;
+  local_98 = 1.0;
   *(float *)((int)this + 0x18) = goal->z;
   *(int *)((int)this + 0x1c) = goal->level;
+  local_94 = 0x40000000;
   local_70 = "Routing/closedlist";
   local_7c = (undefined4 *******)0x0;
   local_78 = 0;
   local_74 = 0;
-  local_68 = 0;
+  local_68 = (void *)0x0;
   local_64 = 0;
   local_60 = 0;
   local_5c = "Routing/OpenList/mBuckets";
@@ -149,10 +151,10 @@ PortalGraphSearch_FindRoomCrossings
   iVar8 = FUN_0062a1a0(local_a8,&startKey);
   FUN_0062c6e0(&local_6c,iVar8);
   *outClosest = fromKey;
-  local_110 = (undefined4 *****)
+  local_110 = (undefined4 ******)
               PortalGraphSearch_EstimateDistance(this,routeContext,lotGraph,fromKey,toKey);
-  local_e0 = DAT_00f998f8;
-  local_dc = DAT_0103fd88;
+  local_e0 = 1.0;
+  local_dc = 0x40000000;
   local_d4 = "Routing/came_from";
   local_e8 = 1;
   local_ec = &DAT_0114d900;
@@ -161,11 +163,13 @@ PortalGraphSearch_FindRoomCrossings
   local_104 = 0;
   iVar8 = thunk_FUN_00835d40();
   this_00 = outCrossings;
-  if ((iVar8 != 0) &&
-     (iVar8 = FUN_00828f00(*(int *)((int)routeContext + 0x40)), this_00 = outCrossings, iVar8 != 0))
-  {
-    local_104 = FUN_0081c570(iVar8);
+  if (iVar8 != 0) {
+    iVar8 = FUN_00828f00(*(int *)((int)routeContext + 0x40));
     this_00 = outCrossings;
+    if (iVar8 != 0) {
+      local_104 = FUN_0081c570(iVar8);
+      this_00 = outCrossings;
+    }
   }
   do {
     outCrossings = this_00;
@@ -173,28 +177,28 @@ PortalGraphSearch_FindRoomCrossings
       FUN_0073ebe0((int)local_ec,local_e8);
       local_e4 = 0;
       if (1 < local_e8) {
-        FUN_004e44e0((int)local_ec);
+        Memory_FreeIfNonNull(local_ec);
       }
       FUN_00626490((int)local_a4,local_a0);
       local_9c = 0;
       if (1 < local_a0) {
-        FUN_004e44e0((int)local_a4);
+        Memory_FreeIfNonNull(local_a4);
       }
-      pppppppuVar13 = (undefined4 *******)local_7c;
-      if (local_68 != 0) {
-        FUN_004e44e0(local_68);
-        pppppppuVar13 = (undefined4 *******)local_7c;
+      pppppppuVar13 = local_7c;
+      if (local_68 != (void *)0x0) {
+        Memory_FreeIfNonNull(local_68);
+        pppppppuVar13 = local_7c;
       }
       while (pppppppuVar13 != (undefined4 *******)0x0) {
         FUN_008b19b0(*pppppppuVar13);
         pppppppuVar9 = (undefined4 *******)pppppppuVar13[1];
-        FUN_004e44e0((int)pppppppuVar13);
+        Memory_FreeIfNonNull(pppppppuVar13);
         pppppppuVar13 = pppppppuVar9;
       }
       return false;
     }
-    puVar2 = *(undefined2 **)(local_68 + local_58 * 0xc);
-    piVar1 = (int *)(local_68 + local_58 * 0xc);
+    puVar2 = *(undefined2 **)((int)local_68 + local_58 * 0xc);
+    piVar1 = (int *)((int)local_68 + local_58 * 0xc);
     ppppppuVar15 = (undefined4 ******)CONCAT22(*puVar2,puVar2[1]);
     local_4c = puVar2;
     local_108 = ppppppuVar15;
@@ -219,7 +223,7 @@ LAB_0063f2b9:
           if (*ppfVar11 == (float *)local_ec[local_e8]) {
             local_f4 = local_f4 & 0xffffff00;
             local_104 = ZEXT48(ppppppuVar15);
-            FUN_007f4270(local_f0,local_30,(uint *)&local_104);
+            UInt32PairMap_InsertUnique(local_f0,local_30,(uint *)&local_104,local_f4);
             pfVar12 = local_30[0];
           }
           ppppppuVar16 = (undefined4 ******)pfVar12[1];
@@ -244,7 +248,7 @@ LAB_0063f2b9:
             }
             else {
               FUN_00982420(this_00,puVar5,&local_114);
-              ppppppuVar16 = (undefined4 ******)local_114;
+              ppppppuVar16 = local_114;
             }
           }
           ppppppuVar15 = ppppppuVar16;
@@ -264,22 +268,22 @@ LAB_0063f2b9:
       FUN_0073ebe0((int)local_ec,local_e8);
       local_e4 = 0;
       if (1 < local_e8) {
-        FUN_004e44e0((int)local_ec);
+        Memory_FreeIfNonNull(local_ec);
       }
       FUN_00626490((int)local_a4,local_a0);
       local_9c = 0;
       if (1 < local_a0) {
-        FUN_004e44e0((int)local_a4);
+        Memory_FreeIfNonNull(local_a4);
       }
-      pppppppuVar13 = (undefined4 *******)local_7c;
-      if (local_68 != 0) {
-        FUN_004e44e0(local_68);
-        pppppppuVar13 = (undefined4 *******)local_7c;
+      pppppppuVar13 = local_7c;
+      if (local_68 != (void *)0x0) {
+        Memory_FreeIfNonNull(local_68);
+        pppppppuVar13 = local_7c;
       }
       while (pppppppuVar13 != (undefined4 *******)0x0) {
         FUN_008b19b0(*pppppppuVar13);
         pppppppuVar9 = (undefined4 *******)pppppppuVar13[1];
-        FUN_004e44e0((int)pppppppuVar13);
+        Memory_FreeIfNonNull(pppppppuVar13);
         pppppppuVar13 = pppppppuVar9;
       }
       return true;
@@ -314,15 +318,15 @@ LAB_0063f2b9:
       do {
         ppppppuVar15 = (undefined4 ******)*local_f8;
         pppppppuVar13 = &local_84;
-        pppppppuVar9 = (undefined4 *******)local_7c;
+        pppppppuVar9 = local_7c;
         local_114 = ppppppuVar15;
-        if ((undefined4 *******)local_7c == (undefined4 *******)0x0) {
+        if (local_7c == (undefined4 *******)0x0) {
 LAB_0063ef06:
-          local_fc = (undefined4 *****)
+          local_fc = (undefined4 ******)
                      PortalGraphSearch_EvaluateEdgeCost
                                (this,routeContext,lotGraph,(uint)local_108,(uint)ppppppuVar15,
                                 local_104);
-          if ((float)local_fc < _DAT_00fec638) {
+          if ((float)local_fc < 1e+06) {
             local_10c = *(float *)(local_4c + 2) + (float)local_fc;
             for (pfVar12 = (float *)local_a4[(uint)ppppppuVar15 % local_a0]; pfVar12 != (float *)0x0
                 ; pfVar12 = (float *)pfVar12[7]) {
@@ -357,28 +361,28 @@ LAB_0063efa1:
                 puVar7 = (undefined4 *)FUN_00654810(local_f0,(uint *)&local_114);
                 *puVar7 = local_108;
                 pfVar12[2] = local_10c;
-                local_114 = (undefined4 *****)
+                local_114 = (undefined4 ******)
                             PortalGraphSearch_EstimateDistance
                                       (this,routeContext,lotGraph,(uint)ppppppuVar15,goalKey);
                 pfVar12[3] = (float)local_114 + local_10c;
                 FUN_0062c6e0(&local_6c,(int)pfVar17);
-LAB_0063f147:
-                if ((float)local_114 < (float)local_110) {
-                  local_110 = local_114;
-                  *outClosest = (uint)ppppppuVar15;
-                }
+                goto LAB_0063f147;
               }
             }
             else if ((-1 < (int)pfVar12[6]) && (local_10c < pfVar12[2])) {
               puVar7 = (undefined4 *)FUN_00654810(local_f0,(uint *)&local_114);
               *puVar7 = local_108;
               pfVar12[2] = local_10c;
-              local_114 = (undefined4 *****)
+              local_114 = (undefined4 ******)
                           PortalGraphSearch_EstimateDistance
                                     (this,routeContext,lotGraph,(uint)ppppppuVar15,goalKey);
               pfVar12[3] = (float)local_114 + local_10c;
               FUN_0062c740(&local_6c,(int)(pfVar12 + 1));
-              goto LAB_0063f147;
+LAB_0063f147:
+              if ((float)local_114 < (float)local_110) {
+                local_110 = local_114;
+                *outClosest = (uint)ppppppuVar15;
+              }
             }
           }
         }
@@ -393,14 +397,15 @@ LAB_0063f147:
             }
             pppppppuVar9 = pppppppuVar10;
           } while (pppppppuVar10 != (undefined4 *******)0x0);
-          if ((pppppppuVar13 == &local_84) || (ppppppuVar15 < pppppppuVar13[4])) goto LAB_0063ef06;
+          if (((undefined4 ********)pppppppuVar13 == &local_84) || (ppppppuVar15 < pppppppuVar13[4])
+             ) goto LAB_0063ef06;
         }
         local_f8 = local_f8 + 1;
       } while (local_f8 != local_cc);
     }
     this_00 = outCrossings;
     if (local_d0 != (uint *)0x0) {
-      FUN_004e44e0((int)local_d0);
+      Memory_FreeIfNonNull(local_d0);
       this_00 = outCrossings;
     }
   } while( true );

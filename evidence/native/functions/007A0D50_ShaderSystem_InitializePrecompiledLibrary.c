@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: shader-system startup. Establishes renderer globals, configures shader
@@ -15,7 +15,7 @@ undefined4 __fastcall ShaderSystem_InitializePrecompiledLibrary(int param_1)
   short *psVar2;
   
   DAT_011d8530 = param_1 + 0x18;
-  FUN_0060e910();
+  Graphics_GetManagerSingleton();
   this = (void *)(param_1 + 0x148);
   *(undefined4 *)(param_1 + 0x188) = *(undefined4 *)(param_1 + 0x14);
   FUN_0079b330(this);

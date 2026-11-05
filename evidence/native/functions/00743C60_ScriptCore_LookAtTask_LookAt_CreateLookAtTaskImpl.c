@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011612c8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011612c8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.LookAtTask::LookAt_CreateLookAtTaskImpl [assembly=ScriptCore token=0x06000FAF; handle:
    System.UInt64, priority: System.Int32, jointFilter: System.Int32; return=System.UInt32]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -16,38 +17,38 @@ ScriptCore_LookAtTask__LookAt_CreateLookAtTaskImpl
 
 {
   int iVar1;
-  void *this;
-  undefined4 *this_00;
-  int *piVar2;
-  undefined4 uVar3;
+  void *pvVar2;
+  undefined4 *this;
+  int *piVar3;
+  undefined4 uVar4;
   
-  iVar1 = FUN_00937570();
-  this = (void *)FUN_00937f80(iVar1);
-  if (this != (void *)0x0) {
-    iVar1 = FUN_00934260(this,DAT_011dd484);
-    if (iVar1 != 0) {
-      if (*(int *)(iVar1 + 0x28) == 0) {
-        this_00 = (undefined4 *)0x0;
+  pvVar2 = ObjectRegistry_GetGlobal();
+  pvVar2 = ObjectRegistry_FindBorrowed(pvVar2,CONCAT44(param_2,param_1));
+  if (pvVar2 != (void *)0x0) {
+    pvVar2 = Object_GetComponentByMask(pvVar2,DAT_011dd484);
+    if (pvVar2 != (void *)0x0) {
+      if (*(int *)((int)pvVar2 + 0x28) == 0) {
+        this = (undefined4 *)0x0;
       }
       else {
-        this_00 = FUN_00580840(*(int *)(iVar1 + 4),param_3,param_4);
-        if (this_00 != (undefined4 *)0x0) {
-          this_00[1] = this_00[1] + 1;
+        this = FUN_00580840(*(int *)((int)pvVar2 + 4),param_3,param_4);
+        if (this != (undefined4 *)0x0) {
+          this[1] = this[1] + 1;
         }
       }
-      uVar3 = 0xffffffff;
-      if (this_00 != (undefined4 *)0x0) {
-        piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
-        uVar3 = (**(code **)(*piVar2 + 200))(this_00,0x46);
-        FUN_00580530(this_00,'\x01');
-        iVar1 = this_00[1];
-        this_00[1] = iVar1 + -1;
+      uVar4 = 0xffffffff;
+      if (this != (undefined4 *)0x0) {
+        piVar3 = (int *)GetGlobalInterfacePointer_11D5BBC();
+        uVar4 = (**(code **)(*piVar3 + 200))(this,0x46);
+        FUN_00580530(this,'\x01');
+        iVar1 = this[1];
+        this[1] = iVar1 + -1;
         if (iVar1 + -1 == 0) {
-          this_00[1] = 1;
-          (**(code **)*this_00)(1);
+          this[1] = 1;
+          (**(code **)*this)(1);
         }
       }
-      return uVar3;
+      return uVar4;
     }
   }
   return 0;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original instruction review: this in ECX state object; AL Boolean. Rejectsalready loaded world
@@ -16,23 +16,27 @@ uint __fastcall GameState_LoadRequestedWorldOrSave(undefined4 *param_1)
   bool bVar2;
   char cVar3;
   uint in_EAX;
-  undefined4 *puVar4;
+  void *pvVar4;
+  short *psVar6;
   short *psVar5;
-  uint uVar7;
+  void *pvVar7;
   int *piVar8;
   undefined4 uVar9;
-  LPCWSTR pWVar10;
-  uint uVar11;
+  void *extraout_EAX;
+  uint uVar10;
+  undefined4 *puVar11;
   LPCWSTR pWVar12;
-  undefined3 extraout_var;
   uint uVar13;
-  void *this;
+  LPCWSTR pWVar14;
+  undefined3 extraout_var;
+  uint uVar15;
   undefined4 *local_428;
   void *local_424;
-  uint local_420 [3];
+  void *local_420;
+  undefined4 local_41c;
+  int local_418;
   char *local_414;
   undefined2 local_410 [520];
-  short *psVar6;
   
   if (param_1[8] != 0) {
     return in_EAX & 0xffffff00;
@@ -42,54 +46,50 @@ uint __fastcall GameState_LoadRequestedWorldOrSave(undefined4 *param_1)
   if (local_424 != (void *)0x0) {
     FUN_00aa99e0(1);
   }
-  pWVar12 = (LPCWSTR)param_1[4];
-  puVar4 = (undefined4 *)FUN_004e4520(0x3e0,0x10,0,"World",0);
-  if (puVar4 == (undefined4 *)0x0) {
-    puVar4 = (undefined4 *)0x0;
+  pWVar14 = (LPCWSTR)param_1[4];
+  pvVar4 = (void *)FUN_004e4520(0x3e0,0x10,0,"World",0);
+  if (pvVar4 == (void *)0x0) {
+    pvVar4 = (void *)0x0;
   }
   else {
-    puVar4 = FUN_00c67020(puVar4);
+    pvVar4 = WorldManager_Construct(pvVar4);
   }
-  param_1[8] = puVar4;
+  param_1[8] = pvVar4;
   psVar5 = (short *)&DAT_010f57e0;
   do {
     psVar6 = psVar5;
     psVar5 = psVar6 + 1;
   } while (*psVar5 != 0);
-  uVar7 = FUN_00aaa750(param_1 + 4,(short *)&DAT_010f57e0,0xffffffff,(int)(psVar6 + -0x87abef) >> 1)
-  ;
-  this = local_424;
-  if (uVar7 == 0xffffffff) {
+  pvVar7 = (void *)FUN_00aaa750(param_1 + 4,(short *)&DAT_010f57e0,0xffffffff,
+                                (int)(psVar6 + -0x87abef) >> 1);
+  pvVar4 = local_424;
+  if (pvVar7 == (void *)0xffffffff) {
     FUN_004ec7e0(local_410);
-    FUN_004ee400(local_410,pWVar12,0);
-    uVar7 = FUN_004dbd70(pWVar12);
-    if ((char)uVar7 == '\0') {
-      FUN_004edf60(local_410,(ushort *)pWVar12);
-      uVar13 = 0;
-      uVar7 = FUN_00595590(0x11cede0);
-      param_1 = local_428;
-      if (uVar7 != 0) {
+    FUN_004ee400(local_410,pWVar14,0);
+    uVar10 = FUN_004dbd70(pWVar14);
+    if ((char)uVar10 == '\0') {
+      FUN_004edf60(local_410,(ushort *)pWVar14);
+      uVar15 = 0;
+      uVar10 = FUN_00595590(0x11cede0);
+      if (uVar10 != 0) {
         do {
-          puVar4 = (undefined4 *)FUN_005955b0(&DAT_011cede0,uVar13,(undefined4 *)0x0);
-          FUN_004ee3e0(local_410,(short *)*puVar4,0);
-          pWVar10 = (LPCWSTR)FUN_007e51a0(local_410);
-          uVar11 = FUN_004dbd70(pWVar10);
-          if ((char)uVar11 != '\0') {
-            pWVar12 = (LPCWSTR)FUN_007e51a0(local_410);
-            param_1 = local_428;
+          puVar11 = (undefined4 *)FUN_005955b0(&DAT_011cede0,uVar15,(undefined4 *)0x0);
+          FUN_004ee3e0(local_410,(short *)*puVar11,0);
+          pWVar12 = (LPCWSTR)FUN_007e51a0(local_410);
+          uVar13 = FUN_004dbd70(pWVar12);
+          if ((char)uVar13 != '\0') {
+            pWVar14 = (LPCWSTR)FUN_007e51a0(local_410);
             break;
           }
-          uVar13 = uVar13 + 1;
-          param_1 = local_428;
-        } while (uVar13 < uVar7);
+          uVar15 = uVar15 + 1;
+        } while (uVar15 < uVar10);
       }
+      param_1 = local_428;
     }
-    uVar7 = FUN_00aa99c0();
-    this = local_424;
-    if ((uVar7 != 0) && (*(char *)(uVar7 + 0x1d) == '\0')) {
-      cVar3 = FUN_00c6d7b0((void *)param_1[8],pWVar12);
-      uVar7 = CONCAT31(extraout_var,cVar3);
-      this = local_424;
+    pvVar7 = (void *)FUN_00aa99c0();
+    if ((pvVar7 != (void *)0x0) && (*(char *)((int)pvVar7 + 0x1d) == '\0')) {
+      cVar3 = FUN_00c6d7b0((void *)param_1[8],pWVar14);
+      pvVar7 = (void *)CONCAT31(extraout_var,cVar3);
       if (cVar3 != '\0') {
         uVar9 = LoadSave_ConfigureCurrentTravelDatabases('\x01',0);
         if (local_424 != (void *)0x0) {
@@ -98,20 +98,21 @@ uint __fastcall GameState_LoadRequestedWorldOrSave(undefined4 *param_1)
         return CONCAT31((int3)((uint)uVar9 >> 8),1);
       }
     }
+    pvVar4 = local_424;
   }
   else if (local_424 != (void *)0x0) {
-    local_420[0] = 0;
-    local_420[1] = 0;
-    local_420[2] = 0;
+    local_420 = (void *)0x0;
+    local_41c = 0;
+    local_418 = 0;
     local_414 = "UI/MainMenu";
-    FUN_0040b590(local_420,pWVar12);
+    FUN_0040b590(&local_420,pWVar14);
     local_428 = (undefined4 *)0x0;
     piVar8 = FUN_009348e0((int *)&local_428);
-    uVar9 = FUN_00aab460(local_420,piVar8);
-    if (((char)uVar9 != '\0') && (bVar2 = LoadSaveManager_DispatchLoad(this,local_428), bVar2)) {
+    uVar9 = FUN_00aab460(&local_420,piVar8);
+    if (((char)uVar9 != '\0') && (bVar2 = LoadSaveManager_DispatchLoad(pvVar4,local_428), bVar2)) {
       LoadSave_ConfigureCurrentTravelDatabases('\x01',0);
       FUN_00565d20((int *)&local_428);
-      FUN_004ef8f0((int *)local_420);
+      FUN_004ef8f0((int *)&local_420);
       uVar9 = FUN_00aa99e0(0);
       return CONCAT31((int3)((uint)uVar9 >> 8),1);
     }
@@ -123,21 +124,22 @@ uint __fastcall GameState_LoadRequestedWorldOrSave(undefined4 *param_1)
         (**(code **)*local_428)(1);
       }
     }
-    uVar7 = local_420[0];
-    if ((2 < (int)(local_420[2] - local_420[0] & 0xfffffffe)) && (local_420[0] != 0)) {
-      uVar7 = FUN_004e44e0(local_420[0]);
+    pvVar7 = local_420;
+    if ((2 < (int)(local_418 - (int)local_420 & 0xfffffffeU)) && (local_420 != (void *)0x0)) {
+      Memory_FreeIfNonNull(local_420);
+      pvVar7 = extraout_EAX;
     }
   }
   if ((void *)param_1[8] != (void *)0x0) {
-    uVar7 = FUN_00c6b5c0((void *)param_1[8]);
+    pvVar7 = (void *)FUN_00c6b5c0((void *)param_1[8]);
     if ((undefined4 *)param_1[8] != (undefined4 *)0x0) {
-      uVar7 = (*(code *)**(undefined4 **)param_1[8])(1);
+      pvVar7 = (void *)(*(code *)**(undefined4 **)param_1[8])(1);
     }
     param_1[8] = 0;
   }
-  if (this != (void *)0x0) {
-    uVar7 = FUN_00aa99e0(0);
+  if (pvVar4 != (void *)0x0) {
+    pvVar7 = (void *)FUN_00aa99e0(0);
   }
-  return uVar7 & 0xffffff00;
+  return (uint)pvVar7 & 0xffffff00;
 }
 

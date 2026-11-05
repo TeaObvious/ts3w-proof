@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -16,17 +15,17 @@ void __thiscall LotTile_ChangeStateAndEmitMessage(void *this,char param_1,int *p
   undefined2 uVar3;
   undefined4 *puVar4;
   int *piVar5;
-  undefined1 *puVar6;
+  byte *pbVar6;
   undefined4 uVar7;
   uint uVar8;
   int iVar9;
   int *piVar10;
   int *piVar11;
   
-  FUN_00a8d130(this,param_1,(char *)param_2);
+  FloorManager_SetQuarterFlagsRaw(this,(bool)param_1,(undefined *)param_2);
   if (*(char *)((int)this + 1) != '\0') {
-    FUN_0044c4f0();
-    puVar4 = FUN_00adf150();
+    MessageDispatch_GetCurrent();
+    puVar4 = FloorMessagePool_AcquireStorage();
     if (puVar4 == (undefined4 *)0x0) {
       piVar5 = (int *)0x0;
     }
@@ -49,17 +48,17 @@ void __thiscall LotTile_ChangeStateAndEmitMessage(void *this,char param_1,int *p
     else {
       piVar10 = piVar5 + 6;
       uVar2 = FUN_00a8d1c0(this,(char *)param_2);
-      FUN_00a8ee40(this,uVar2,piVar10);
+      FloorManager_CopyPatternKeysForCellId(this,uVar2,piVar10);
     }
     FUN_00a911c0(this,(byte *)(piVar5 + 6),(undefined2 *)(piVar5 + 0x16));
-    puVar6 = (undefined1 *)
-             FUN_00a8b3b0(*(void **)((int)this + 0x30),(int)(char)*param_2,
-                          (int)*(char *)((int)param_2 + 1),
-                          (int)*(char *)((int)param_2 + 2) - *(int *)((int)this + 0x10));
-    *(undefined1 *)((int)piVar5 + 0x5a) = *puVar6;
+    pbVar6 = ByteTileGrid_CellPointer
+                       (*(void **)((int)this + 0x30),(int)(char)*param_2,
+                        (int)*(char *)((int)param_2 + 1),
+                        (int)*(char *)((int)param_2 + 2) - *(int *)((int)this + 0x10));
+    *(byte *)((int)piVar5 + 0x5a) = *pbVar6;
     if (((~*(byte *)((int)param_2 + 3) & 0x10) == 0) ||
-       (uVar7 = FUN_00afed60(*(void **)((int)this + 4),(char *)param_2,'\0'), (char)uVar7 == '\0'))
-    {
+       (uVar7 = TestPlatformRegion(*(void **)((int)this + 4),(char *)param_2,'\0'),
+       (char)uVar7 == '\0')) {
       uVar1 = 0;
     }
     else {
@@ -76,7 +75,8 @@ void __thiscall LotTile_ChangeStateAndEmitMessage(void *this,char param_1,int *p
     uVar7 = FUN_00ad1380(*(void **)((int)this + 4),(char *)piVar10);
     *(char *)((int)piVar5 + 0x86) = (char)uVar7;
     if (((~*(byte *)((int)piVar5 + 0x13) & 0x10) == 0) ||
-       (uVar7 = FUN_00acf820(*(void **)((int)this + 4),(char *)piVar10,'\x01',(undefined1 *)0x0),
+       (uVar7 = Lot_TestCellSupportRegionType
+                          (*(void **)((int)this + 4),(char *)piVar10,'\x01',(undefined1 *)0x0),
        (char)uVar7 == '\0')) {
       uVar1 = 0;
     }

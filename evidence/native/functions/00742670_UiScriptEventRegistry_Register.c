@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static. Physical ECX registry, two words / RET 8, only AL boolean.
@@ -27,7 +27,7 @@ bool __thiscall UiScriptEventRegistry_Register(void *this,void *windowInterface,
   UInt32PairMap_Find((void *)((int)this + 4),&local_14,(uint *)&windowInterface);
   pvVar3 = local_14;
   if (local_14 == *(void **)(*(int *)((int)this + 8) + *(int *)((int)this + 0xc) * 4)) {
-    this_00 = FUN_005050b0(0x40,4,"Scripting/EventHook",(int *)0x0);
+    this_00 = AllocateWithAllocatorHeader(0x40,4,"Scripting/EventHook",(int *)0x0);
     if (this_00 == (uint *)0x0) {
       piVar2 = (int *)0x0;
     }

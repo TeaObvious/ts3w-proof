@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -20,6 +19,8 @@ void __thiscall DesignSwap_ReservePatternResource(void *this,uint *param_1)
   undefined4 *puVar4;
   int *piVar5;
   void *this_00;
+  undefined1 uStack00000000;
+  uint uStack00000008;
   int local_18 [2];
   uint uStack_10;
   uint uStack_c;
@@ -27,7 +28,7 @@ void __thiscall DesignSwap_ReservePatternResource(void *this,uint *param_1)
   uint uStack_4;
   
   piVar3 = (int *)FUN_004afe80();
-  UInt32PairMap_Find((void *)((int)this + 0x74),local_18,(uint *)&stack0x00000008);
+  UInt32PairMap_Find((void *)((int)this + 0x74),local_18,&uStack00000008);
   if (local_18[0] != *(int *)(*(int *)((int)this + 0x78) + *(int *)((int)this + 0x7c) * 4)) {
     iVar1 = *(int *)(local_18[0] + 4);
     *param_1 = *(uint *)(iVar1 + 8);
@@ -45,8 +46,8 @@ void __thiscall DesignSwap_ReservePatternResource(void *this,uint *param_1)
     piVar5 = FUN_00600ad0(puVar4);
   }
   (**(code **)*piVar5)();
-  this_00 = (void *)FUN_00b302a0();
-  FUN_00b33c30(this_00,&uStack_10,0x341acc9);
+  this_00 = (void *)ProductPresets_GetGlobalOwner();
+  CompositorKeys_ChooseUnusedRandomInstance(this_00,&uStack_10,0x341acc9);
   if (uStack_10 == 0 && uStack_c == 0) {
     (**(code **)(*piVar5 + 4))();
   }
@@ -57,7 +58,7 @@ void __thiscall DesignSwap_ReservePatternResource(void *this,uint *param_1)
     piVar5[5] = uStack_4;
     FUN_005fead0(piVar5);
     (**(code **)(*piVar3 + 0x5c))(piVar5,1);
-    puVar4 = (undefined4 *)FUN_007f35b0((void *)((int)this + 0x74),(uint *)&stack0x00000000);
+    puVar4 = (undefined4 *)FUN_007f35b0((void *)((int)this + 0x74),(uint *)&uStack00000000);
     piVar3 = (int *)*puVar4;
     if (piVar5 != piVar3) {
       (**(code **)*piVar5)();

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011636b8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011636b8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_ObjectSetPosition [assembly=ScriptCore token=0x060007DF; objId:
    System.UInt64, pos: Sims3.SimIFace.Vector3, level: System.Int32; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -16,10 +17,9 @@ ScriptCore.World::World_ObjectSetPosition
           undefined4 param_6)
 
 {
-  int iVar1;
-  uint uVar2;
+  void *pvVar1;
   int *this;
-  int *piVar3;
+  int *piVar2;
   float local_50;
   undefined4 uStack_4c;
   float fStack_48;
@@ -37,26 +37,26 @@ ScriptCore.World::World_ObjectSetPosition
   undefined4 uStack_18;
   undefined4 uStack_14;
   
-  iVar1 = FUN_00937570();
-  if (iVar1 != 0) {
-    uVar2 = FUN_00937f80(iVar1);
-    if (uVar2 != 0) {
+  pvVar1 = ObjectRegistry_GetGlobal();
+  if (pvVar1 != (void *)0x0) {
+    pvVar1 = ObjectRegistry_FindBorrowed(pvVar1,CONCAT44(param_2,param_1));
+    if (pvVar1 != (void *)0x0) {
       if (DAT_011edbc4 == (void *)0x0) {
         this = (int *)0x0;
       }
       else {
-        this = FUN_00c687d0(DAT_011edbc4,param_3,param_5);
+        this = LotSpatialIndex_FindContainingLotAtWorldXZ(DAT_011edbc4,param_3,param_5);
       }
-      piVar3 = (int *)FUN_0068f130(uVar2);
-      if (piVar3 != (int *)0x0) {
-        (**(code **)(*piVar3 + 0x3c))(uVar2,0);
+      piVar2 = (int *)FUN_0068f130((int)pvVar1);
+      if (piVar2 != (int *)0x0) {
+        (**(code **)(*piVar2 + 0x3c))(pvVar1,0);
       }
       if (this != (int *)0x0) {
         local_50 = param_3;
         uStack_4c = param_4;
         fStack_48 = param_5;
         fStack_44 = param_3;
-        FUN_00ab71a0(this,&local_50,&local_40);
+        Lot_WorldPositionToLocalVector(this,&local_50,&local_40);
         fStack_30 = local_40;
         uStack_2c = uStack_3c;
         uStack_28 = uStack_38;
@@ -65,7 +65,7 @@ ScriptCore.World::World_ObjectSetPosition
         uStack_1c = uStack_3c;
         uStack_18 = uStack_38;
         uStack_14 = uStack_34;
-        (**(code **)(*this + 0x34))(uVar2,local_40,uStack_38,param_6);
+        (**(code **)(*this + 0x34))(pvVar1,local_40,uStack_38,param_6);
       }
     }
   }

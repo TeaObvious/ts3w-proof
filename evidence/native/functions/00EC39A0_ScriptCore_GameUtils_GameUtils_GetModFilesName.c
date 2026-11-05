@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011972a8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011972a8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.GameUtils::GameUtils_GetModFilesName [assembly=ScriptCore token=0x06000267; idx:
    System.UInt32; return=System.String]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -15,7 +16,7 @@ undefined4 ScriptCore_GameUtils__GameUtils_GetModFilesName(uint param_1)
 {
   int *piVar1;
   undefined4 uVar2;
-  int unaff_ESI;
+  void *unaff_ESI;
   undefined4 unaff_EDI;
   undefined4 uStack_44;
   undefined1 *puStack_40;
@@ -52,8 +53,8 @@ undefined4 ScriptCore_GameUtils__GameUtils_GetModFilesName(uint param_1)
   }
   uStack_44 = 0;
   (**(code **)(*piVar1 + 0x50))(appuStack_20,&uStack_44);
-  if ((2 < (int)((int)puStack_40 - unaff_ESI & 0xfffffffeU)) && (unaff_ESI != 0)) {
-    FUN_004e44e0(unaff_ESI);
+  if ((2 < (int)((int)puStack_40 - (int)unaff_ESI & 0xfffffffeU)) && (unaff_ESI != (void *)0x0)) {
+    Memory_FreeIfNonNull(unaff_ESI);
   }
   ppuStack_28 = &PTR_FUN_00fba6f4;
   if (((uint)appuStack_20[0] & 4) != 0) {
@@ -61,7 +62,7 @@ undefined4 ScriptCore_GameUtils__GameUtils_GetModFilesName(uint param_1)
   }
   if ((2 < (int)((int)puStack_30 - (int)puStack_38 & 0xfffffffeU)) &&
      (puStack_38 != (undefined2 *)0x0)) {
-    FUN_004e44e0((int)puStack_38);
+    Memory_FreeIfNonNull(puStack_38);
   }
   return unaff_EDI;
 }

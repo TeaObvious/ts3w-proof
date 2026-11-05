@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -61,7 +60,7 @@ ScriptCore.World::World_GetPondInfo(uint param_1,int param_2,int param_3,void *p
       }
       return param_2 & 0xffffff00;
     }
-    piVar7 = FUN_00c62810(DAT_011edbc4,param_2,param_3,(int *)0x0);
+    piVar7 = WorldObjects_FindLotByGuid(DAT_011edbc4,param_2,param_3,(uint *)0x0);
     in_EAX = 0;
     if ((piVar7 != (int *)0x0) && (in_EAX = 0, (void *)piVar7[0xb2] != (void *)0x0)) {
       uVar6 = LotPonds_TryWriteInfoForId((void *)piVar7[0xb2],(short)param_1,param_4);

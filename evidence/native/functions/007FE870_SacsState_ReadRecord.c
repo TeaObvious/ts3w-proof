@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): PC1.67 static instruction contract: ECX state,
@@ -29,7 +29,7 @@ uint __thiscall SacsState_ReadRecord(void *this,int *param_1,void *param_2,char 
   uVar2 = (**(code **)(*param_1 + 0x1c))();
   if (0x13 < uVar2) {
     if (param_3 != '\0') {
-      FUN_007d3070(puVar5,uVar2 >> 2);
+      ResourceBytes_SwapDwordsInPlace(puVar5,uVar2 >> 2);
     }
     puVar1 = puVar5 + 1;
     uVar2 = *puVar1;

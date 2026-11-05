@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst static routing contract: RoutingJob cleanup frees separately owned candidate vectors
@@ -12,16 +12,16 @@ void __fastcall RoutingJob_ReleaseCandidateStorage(undefined4 *param_1)
 {
   *param_1 = &PTR_LAB_01022290;
   FUN_0081c830(param_1 + 0x10);
-  if (param_1[10] != 0) {
-    FUN_004e44e0(param_1[10]);
+  if ((void *)param_1[10] != (void *)0x0) {
+    Memory_FreeIfNonNull((void *)param_1[10]);
   }
-  if (param_1[6] != 0) {
-    FUN_004e44e0(param_1[6]);
+  if ((void *)param_1[6] != (void *)0x0) {
+    Memory_FreeIfNonNull((void *)param_1[6]);
   }
-  if (param_1[4] != 0) {
-    FUN_0059b350(param_1[4]);
+  if ((void *)param_1[4] == (void *)0x0) {
     return;
   }
+  Job_ReleaseReference((void *)param_1[4]);
   return;
 }
 

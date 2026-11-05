@@ -1,12 +1,14 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; reference identity is in guides/water/README.md.
    Ghidra export refreshed on 2026-10-12 after WaterGeometry annotations.
    RE_ symbols and comments are analyst annotations, not original names.
    Read the paired original bytes and guides/water/README.md.
    Native ABI details not established by instructions remain inferred. */
+
+
 
 /* Analyst annotation: shared WaterGeometry reader, original PC 1.67 TS3W.exe.
    RE_ names identify analyst-assigned labels, not recovered original symbols.
@@ -38,42 +40,47 @@
 uint __thiscall RE_WaterGeometry_Read(void *this,int *inputStream,uint streamContext)
 
 {
-  uint uVar1;
+  void *allocation;
+  bool bVar1;
   undefined4 uVar2;
+  uint extraout_EAX;
+  undefined4 extraout_EAX_00;
   int *piVar3;
-  int iVar4;
+  uint uVar4;
+  int iVar5;
   uint cellCount;
   uint vertexCount;
-  int scratchBegin;
-  int scratchEnd;
+  void *scratchBegin;
+  void *scratchEnd;
   undefined4 scratchCapacityEnd;
   char *scratchAllocationTag;
   undefined1 readerContext [8];
-  int *readerStream;
+  void *readerStream;
+  uint local_30;
   char readerValid;
   undefined4 cellRecord40Bytes [10];
   undefined4 *cellDestination;
   uint *rootRows;
   
-  uVar1 = 0;
+  uVar4 = 0;
   if (inputStream != (int *)0x0) {
-    FUN_007d93e0(readerContext,inputStream,streamContext);
-    scratchBegin = 0;
-    scratchEnd = 0;
+    StreamReader_Construct(readerContext,inputStream,streamContext);
+    scratchBegin = (void *)0x0;
+    scratchEnd = (void *)0x0;
     scratchCapacityEnd = 0;
     scratchAllocationTag = "Renderer/WaterGeometryGenerator/ScratchArray";
                     /* The incoming streamContext stack slot is reused for the serialized
                        geometryVersion. The decompiler keeps the parameter name; the value below is
                        a signed format version. */
     streamContext = 0;
-    uVar1 = FUN_004dd980(readerStream,&streamContext);
-    FUN_007d79f0(readerContext,(byte)uVar1);
+    bVar1 = Stream_ReadUInt32(readerStream,&streamContext,local_30);
+    StreamReader_AccumulateStatus(readerContext,bVar1);
                     /* Signed geometryVersion >=2. This executable has no upper-version bound here;
                        >=3 selects the query-grid branch, not a fixed eight-byte trailer. */
     if ((readerValid != '\0') && (1 < (int)streamContext)) {
       vertexCount = 0;
-      uVar1 = FUN_004dd980(readerStream,&vertexCount);
-      FUN_007d79f0(readerContext,(byte)uVar1);
+      bVar1 = Stream_ReadUInt32(readerStream,&vertexCount,local_30);
+      StreamReader_AccumulateStatus(readerContext,bVar1);
                     /* vertexCount <=0 bypasses the vertex reader. Zero is a supported empty case;
                        no validity claim is made for negative counts. */
       if (((int)vertexCount < 1) ||
@@ -84,8 +91,8 @@ uint __thiscall RE_WaterGeometry_Read(void *this,int *inputStream,uint streamCon
         if (2 < (int)streamContext) {
           *(undefined4 *)((int)this + 0x60) = *(undefined4 *)((int)this + 0x5c);
           cellCount = 0;
-          FUN_005684b0(readerContext,&cellCount);
-          uVar1 = 0;
+          StreamReader_ReadUInt32Into(readerContext,&cellCount);
+          uVar4 = 0;
           if (cellCount != 0) {
             do {
                     /* Read one 39-byte persisted cell via 00B5C120; the destination record has
@@ -101,8 +108,8 @@ uint __thiscall RE_WaterGeometry_Read(void *this,int *inputStream,uint streamCon
               else {
                 FUN_00b5ec00((void *)((int)this + 0x5c),cellDestination,cellRecord40Bytes);
               }
-              uVar1 = uVar1 + 1;
-            } while (uVar1 < cellCount);
+              uVar4 = uVar4 + 1;
+            } while (uVar4 < cellCount);
           }
           rootRows = (uint *)((int)this + 0x6c);
           FUN_006223a0(rootRows);
@@ -110,46 +117,48 @@ uint __thiscall RE_WaterGeometry_Read(void *this,int *inputStream,uint streamCon
                        pointer-typed comparisons/casts are decompiler storage-coalescing artifacts.
                         */
           inputStream = (int *)0x0;
-          uVar1 = FUN_004dd980(readerStream,(uint *)&inputStream);
-          FUN_007d79f0(readerContext,(byte)uVar1);
+          bVar1 = Stream_ReadUInt32(readerStream,(uint *)&inputStream,local_30);
+          StreamReader_AccumulateStatus(readerContext,bVar1);
           if (inputStream != (int *)0x0) {
             FUN_00b60e90(rootRows,(uint)inputStream);
             piVar3 = (int *)0x0;
             if (inputStream != (int *)0x0) {
-              iVar4 = 0;
+              iVar5 = 0;
               do {
                     /* Read one length-prefixed int32 root row. In-memory row descriptors are 16
                        bytes; that is not the persisted row length. */
-                FUN_007d99b0(readerContext,(undefined4 *)(*rootRows + iVar4));
+                FUN_007d99b0(readerContext,(undefined4 *)(*rootRows + iVar5));
                 piVar3 = (int *)((int)piVar3 + 1);
-                iVar4 = iVar4 + 0x10;
+                iVar5 = iVar5 + 0x10;
               } while (piVar3 < inputStream);
             }
           }
         }
-        iVar4 = scratchBegin;
+        allocation = scratchBegin;
         if (scratchBegin != scratchEnd) {
           if (*(char *)((int)this + 0xb4) == '\0') {
-            FUN_0061a6f0((void *)((int)this + 0x18),&DAT_0106eac8,2);
+            VertexDeclaration_CreateFromElements
+                      ((void *)((int)this + 0x18),(NativeVertexElement8 *)&DAT_0106eac8,2);
             *(undefined1 *)((int)this + 0xb4) = 1;
           }
-          FUN_00b5ceb0(this,&scratchBegin);
+          FUN_00b5ceb0(this,(int *)&scratchBegin);
         }
-        if (iVar4 != 0) {
-          FUN_004e44e0(iVar4);
+        if (allocation != (void *)0x0) {
+          Memory_FreeIfNonNull(allocation);
         }
-        uVar2 = FUN_007d7990((int)readerContext);
+        StreamReader_ReleaseAuxiliary(readerContext);
                     /* Only AL=1 is established as the success result. Upper EAX bits are
                        incidental; CONCAT31 in pseudocode does not describe a multi-field API
                        result. */
-        return CONCAT31((int3)((uint)uVar2 >> 8),1);
+        return CONCAT31((int3)((uint)extraout_EAX_00 >> 8),1);
       }
-      if (scratchBegin != 0) {
-        FUN_004e44e0(scratchBegin);
+      if (scratchBegin != (void *)0x0) {
+        Memory_FreeIfNonNull(scratchBegin);
       }
     }
-    uVar1 = FUN_007d7990((int)readerContext);
+    StreamReader_ReleaseAuxiliary(readerContext);
+    uVar4 = extraout_EAX;
   }
-  return uVar1 & 0xffffff00;
+  return uVar4 & 0xffffff00;
 }
 

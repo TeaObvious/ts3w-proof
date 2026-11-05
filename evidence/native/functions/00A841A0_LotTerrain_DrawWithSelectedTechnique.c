@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -28,8 +28,9 @@ LotTerrain_DrawWithSelectedTechnique(void *this,int param_1,int param_2,void *pa
   undefined4 extraout_EDX;
   uint uVar12;
   uint uVar13;
-  char cVar14;
-  byte bVar15;
+  Ts3SkinPostDefinition *pTVar14;
+  char cVar15;
+  byte bVar16;
   uint local_20;
   uint local_1c;
   void *local_c;
@@ -80,20 +81,20 @@ LotTerrain_DrawWithSelectedTechnique(void *this,int param_1,int param_2,void *pa
   if (((*(byte *)(param_1 + 4) & 0x80) != 0) && (DAT_011ec2c5 != '\0')) {
     return;
   }
-  iVar8 = FUN_0060e910();
+  iVar8 = Graphics_GetManagerSingleton();
   FUN_0060f2a0(iVar8);
   bVar11 = *(int *)(param_2 + 0x18) < 1;
   if ((bool)bVar11) {
-    bVar15 = 0;
-    pvVar9 = (void *)FUN_0060e910();
-    RenderDevice_SetAlphaBlendByte(pvVar9,bVar15);
+    bVar16 = 0;
+    pvVar9 = (void *)Graphics_GetManagerSingleton();
+    RenderDevice_SetAlphaBlendByte(pvVar9,bVar16);
   }
   else {
-    bVar15 = 1;
-    pvVar9 = (void *)FUN_0060e910();
-    RenderDevice_SetAlphaBlendByte(pvVar9,bVar15);
+    bVar16 = 1;
+    pvVar9 = (void *)Graphics_GetManagerSingleton();
+    RenderDevice_SetAlphaBlendByte(pvVar9,bVar16);
   }
-  pvVar9 = (void *)FUN_0060e910();
+  pvVar9 = (void *)Graphics_GetManagerSingleton();
   RenderDevice_SetDepthWriteByte(pvVar9,bVar11);
   if (*(char *)(*(int *)((int)this + 0x214) + 0x3d8) != '\0') {
     local_1c = CONCAT31(local_1c._1_3_,1);
@@ -105,7 +106,7 @@ LAB_00a84312:
   piVar3 = *(int **)((int)this + 0x26c);
   do {
     if (piVar7 == piVar3) {
-      iVar8 = FUN_0060e910();
+      iVar8 = Graphics_GetManagerSingleton();
       FUN_00610330(iVar8);
       return;
     }
@@ -118,10 +119,10 @@ LAB_00a84312:
     if ((bVar11 & 4) == 0) {
 LAB_00a8438b:
       iVar8 = *piVar7;
-      pvVar9 = param_3;
+      pTVar14 = param_3;
       if (*(char *)(iVar8 + 2) == '\0') {
         if ((*(byte *)(param_2 + 0x20) & 1) != 0) {
-          cVar14 = '\0';
+          cVar15 = '\0';
           uVar13 = local_20;
           goto LAB_00a843fe;
         }
@@ -132,43 +133,42 @@ LAB_00a8438b:
           if (param_4 == (void *)0x0) goto LAB_00a8440e;
           if ((uVar12 & 1) == 0) {
             uVar13 = *(uint *)(param_2 + 0x1c);
-            pvVar9 = param_4;
+            pTVar14 = param_4;
           }
           else {
             uVar13 = 0;
             if (*(char *)(iVar8 + 100) == '\0') {
-              pvVar9 = param_4;
+              pTVar14 = param_4;
             }
           }
         }
         else {
-          cVar14 = '\x01';
+          cVar15 = '\x01';
           uVar13 = local_1c;
           uVar6 = local_20;
 LAB_00a843fe:
-          bVar11 = FUN_00a83b90(uVar13,uVar6,cVar14,bVar5,(char)local_1c);
+          bVar11 = Flags_SelectVariantIndex(uVar13,uVar6,cVar15,bVar5,(char)local_1c);
           uVar13 = CONCAT31(extraout_var,bVar11);
         }
-        FUN_0079a6a0(pvVar9,uVar13);
+        ShaderDefinition_SelectTechniqueOrdinal(pTVar14,uVar13);
       }
 LAB_00a8440e:
       if (((*(byte *)(param_2 + 0x20) & 4) != 0) && ((*(byte *)(param_2 + 0x20) & 2) != 0)) {
         uVar13 = *(uint *)(param_2 + 0x1c);
         FUN_00a9d530(*(void **)((int)this + 0x218),*(undefined4 **)(iVar8 + 0x10));
         if (uVar13 != *(uint *)(param_2 + 0x1c)) {
-          FUN_0079a6a0(param_3,uVar13);
+          ShaderDefinition_SelectTechniqueOrdinal(param_3,uVar13);
         }
       }
       bVar4 = false;
       if ((((*(char *)(iVar8 + 0x65) == '\0') && (*(char *)(iVar8 + 0x66) == '\0')) || (bVar5)) ||
          (((*(byte *)(param_2 + 0x20) & 1) != 0 || ((uVar12 & 1) != 0)))) {
         if (((*(byte *)(param_2 + 0x20) & 3) == 0) && (bVar5)) {
-          uVar13 = DAT_011ec2e0;
           if ((_DAT_011ec2fc & 0x40) == 0) {
             _DAT_011ec2fc = _DAT_011ec2fc | 0x40;
-            uVar13 = HashLowercasedCStringFNV1("TerrainIndoor");
-            DAT_011ec2e0 = uVar13;
+            DAT_011ec2e0 = HashLowercasedCStringFNV1("TerrainIndoor");
           }
+          uVar13 = DAT_011ec2e0;
           goto LAB_00a845c9;
         }
       }
@@ -203,24 +203,29 @@ LAB_00a8440e:
             uVar13 = DAT_011ec2f8;
           }
         }
-        else {
-          uVar13 = DAT_011ec2ec;
-          if ((*(int *)(param_2 + 0x18) == 2000) &&
-             (uVar13 = DAT_011ec2f0, *(char *)(iVar8 + 0x66) != '\0')) {
+        else if (*(int *)(param_2 + 0x18) == 2000) {
+          if (*(char *)(iVar8 + 0x66) == '\0') {
+            uVar13 = DAT_011ec2f0;
+          }
+          else {
             uVar13 = DAT_011ec2e4;
           }
         }
+        else {
+          uVar13 = DAT_011ec2ec;
+        }
 LAB_00a845c9:
-        uVar13 = FUN_0079a700(pvVar9,uVar13);
-        FUN_0079a6a0(pvVar9,uVar13);
+        uVar13 = FUN_0079a700(pTVar14,uVar13);
+        ShaderDefinition_SelectTechniqueOrdinal(pTVar14,uVar13);
         bVar4 = true;
       }
       local_4 = param_1;
       local_c = this;
       local_8 = iVar8;
-      ShaderDefinition_DrawSelectedTechnique(pvVar9,&LAB_00a82fa0,&local_c);
+      ShaderDefinition_DrawSelectedTechnique
+                (pTVar14,(Ts3SkinPostDrawCallback *)&LAB_00a82fa0,&local_c);
       if (bVar4) {
-        FUN_0079a6a0(pvVar9,*(uint *)(param_2 + 0x1c));
+        ShaderDefinition_SelectTechniqueOrdinal(pTVar14,*(uint *)(param_2 + 0x1c));
       }
     }
     else {

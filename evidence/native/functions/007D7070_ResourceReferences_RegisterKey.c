@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): ECX context,key and low-byte markLocal
@@ -31,7 +31,7 @@ uint __thiscall ResourceReferences_RegisterKey(void *this,uint *param_1,uint par
     local_c = puVar1[3];
     param_1 = (uint *)((uint)param_1 & 0xffffff00);
     local_8 = uVar2;
-    FUN_00700890(this,local_24,&local_18);
+    ResourceKeyMap_InsertUnique(this,local_24,&local_18);
   }
   else {
     uVar2 = *(uint *)(local_24[0] + 0x10);

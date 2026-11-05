@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67: Collects footprint-intersecting objects; for earlier unsigned16 insertion
@@ -21,8 +21,9 @@ bool __thiscall RugManager_RecomputeOverlapLayer(void *this,uint param_1,char pa
   uint uVar2;
   uint uVar3;
   ushort uVar4;
-  void *pvVar5;
+  undefined *puVar5;
   uint *puVar6;
+  void *this_00;
   int *piVar7;
   bool bVar8;
   int **ppiVar9;
@@ -43,29 +44,33 @@ bool __thiscall RugManager_RecomputeOverlapLayer(void *this,uint param_1,char pa
     local_c = (int *)0x0;
     local_8 = 0;
     local_4 = "Lot/RugManager";
-    pvVar5 = (void *)FUN_00c6dc80(*(int *)((int)this + 0x34));
+    puVar5 = ObjectRegistry_FindBorrowedInLot
+                       (*(void **)((int)this + 0x34),*(ulonglong *)(param_1 + 0x10));
     Lot_CollectObjectsIntersectingObjectFootprints
-              (*(void **)((int)this + 0x34),pvVar5,(int *)ppiVar9);
+              (*(void **)((int)this + 0x34),puVar5,(int *)ppiVar9);
     param_1 = 0;
     piVar7 = local_10;
     if (local_10 != local_c) {
       do {
         iVar1 = *piVar7;
         if (iVar1 != 0) {
-          if ((((*(int *)(iVar1 + 8) != *(int *)(uVar2 + 0x10)) ||
-               (*(int *)(iVar1 + 0xc) != *(int *)(uVar2 + 0x14))) &&
-              (local_20 = *(int *)(iVar1 + 8), local_1c = *(int *)(iVar1 + 0xc),
-              U64PairMap_Find((void *)((int)this + 0xc),local_18,(ulonglong *)&local_20),
-              local_18[0] != *(int *)(*(int *)((int)this + 0x10) + *(int *)((int)this + 0x14) * 4)))
-             && ((iVar1 = *(int *)(local_18[0] + 8), iVar1 != 0 &&
-                 (*(ushort *)(iVar1 + 0x1c) < *(ushort *)(uVar2 + 0x1c))))) {
-            uVar4 = *(short *)(iVar1 + 0x1e) + 1;
-            local_24 = (uint)uVar4;
-            puVar6 = &local_24;
-            if (uVar4 <= (ushort)param_1) {
-              puVar6 = &param_1;
+          if ((*(int *)(iVar1 + 8) != *(int *)(uVar2 + 0x10)) ||
+             (*(int *)(iVar1 + 0xc) != *(int *)(uVar2 + 0x14))) {
+            local_20 = *(int *)(iVar1 + 8);
+            local_1c = *(int *)(iVar1 + 0xc);
+            U64PairMap_Find((void *)((int)this + 0xc),local_18,(ulonglong *)&local_20);
+            if ((local_18[0] !=
+                 *(int *)(*(int *)((int)this + 0x10) + *(int *)((int)this + 0x14) * 4)) &&
+               ((iVar1 = *(int *)(local_18[0] + 8), iVar1 != 0 &&
+                (*(ushort *)(iVar1 + 0x1c) < *(ushort *)(uVar2 + 0x1c))))) {
+              uVar4 = *(short *)(iVar1 + 0x1e) + 1;
+              local_24 = (uint)uVar4;
+              puVar6 = &local_24;
+              if (uVar4 <= (ushort)param_1) {
+                puVar6 = &param_1;
+              }
+              param_1 = (uint)(ushort)*puVar6;
             }
-            param_1 = (uint)(ushort)*puVar6;
           }
         }
         piVar7 = piVar7 + 1;
@@ -76,12 +81,14 @@ bool __thiscall RugManager_RecomputeOverlapLayer(void *this,uint param_1,char pa
     if (bVar8) {
       *(short *)(uVar2 + 0x1e) = (short)param_1;
     }
-    if (((param_3 != '\0') && ((param_2 != '\0' || (bVar8)))) &&
-       ((*(int *)((int)this + 0x34) != 0 &&
-        (((*(int *)(uVar2 + 0x10) != 0 || *(int *)(uVar2 + 0x14) != 0 &&
-          (pvVar5 = (void *)FUN_00c6dc80(*(int *)((int)this + 0x34)), pvVar5 != (void *)0x0)) &&
-         (pvVar5 = Object_GetComponentByMask(pvVar5,DAT_011ea2a8), pvVar5 != (void *)0x0)))))) {
-      RugComponent_NotifyLayerChanged(pvVar5,uVar3 & 0xffff);
+    if (((param_3 != '\0') &&
+        (((param_2 != '\0' || (bVar8)) && (*(void **)((int)this + 0x34) != (void *)0x0)))) &&
+       (((*(int *)(uVar2 + 0x10) != 0 || *(int *)(uVar2 + 0x14) != 0 &&
+         (puVar5 = ObjectRegistry_FindBorrowedInLot
+                             (*(void **)((int)this + 0x34),*(ulonglong *)(uVar2 + 0x10)),
+         puVar5 != (undefined *)0x0)) &&
+        (this_00 = Object_GetComponentByMask(puVar5,DAT_011ea2a8), this_00 != (void *)0x0)))) {
+      RugComponent_NotifyLayerChanged(this_00,uVar3 & 0xffff);
     }
     if (local_10 != (int *)0x0) {
       Memory_FreeIfNonNull(local_10);

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): ECX manager plus request pointer RET4. Iterate
@@ -127,7 +127,7 @@ void __thiscall ThumbnailScene_AssignCustomLightRigs(void *this,int *param_1)
       do {
         uVar8 = local_1c[uVar7];
         this_00 = (void *)FUN_006e9640();
-        piVar4 = FUN_006ad190(this_00,uVar8);
+        piVar4 = CustomLightRigCatalog_FindReadyName(this_00,uVar8);
         if (piVar4 != (int *)0x0) {
           uVar5 = local_1c[uVar7];
           break;

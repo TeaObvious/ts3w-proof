@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst static routing contract: Slot vtable+0x10 expansion uses target ObjectGuid, slot
@@ -117,7 +117,7 @@ SlotArrayDestination_ExpandCandidates
       }
       else {
         local_144 = (void *)0x0;
-        FUN_00957a90(pvVar3,(uint *)&local_90);
+        TransformComponent_GetWorldMatrix(pvVar3,&local_90);
         ppvVar9 = &local_144;
         pfVar4 = TransformComponent_GetWorldPosition(pvVar3,&local_130);
         RoutePoint_ResolveLotAndLevel(pfVar4,ppvVar9);
@@ -156,7 +156,7 @@ SlotArrayDestination_ExpandCandidates
               }
               uVar2 = FUN_00624940(param_1 & 0xcf00);
               if (((char)uVar2 != '\0') && (DAT_011edbc4 != 0)) {
-                fVar8 = FUN_00c61090(DAT_011edbc4);
+                fVar8 = WorldWater_GetSeaLevel(DAT_011edbc4);
                 local_130 = fStack_110;
                 fStack_128 = fStack_108;
                 fStack_124 = fStack_104;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 original static instructions. cdecl3DWORDslots lot/packedquarter/countEave, RET,
@@ -23,9 +23,7 @@ bool __cdecl LotQuarter_IsCoveredByRoofOrHigherFloor(void *param_1,char *param_2
   undefined2 local_14;
   char local_12;
   undefined4 local_11;
-  float local_c;
-  float local_8;
-  int local_4;
+  LotXZLevel local_c;
   
   cVar3 = param_2[2];
   if (cVar3 < -1) {
@@ -40,12 +38,12 @@ bool __cdecl LotQuarter_IsCoveredByRoofOrHigherFloor(void *param_1,char *param_2
   iVar1 = *(int *)((int)param_1 + 0x180);
   this = *(void **)((int)param_1 + 0x2ac);
   local_11 = CONCAT31(local_11._1_3_,param_2[3]);
-  local_c = -1.0;
-  local_8 = -1.0;
-  local_4 = 0;
-  FUN_00af81a0((char *)&local_14,&local_c);
+  local_c.x = -1.0;
+  local_c.z = -1.0;
+  local_c.level = 0;
+  TilePart_GetLocalSamplePoint((char *)&local_14,&local_c);
   if (this == (void *)0x0) goto joined_r0x00acf1a8;
-  uVar4 = RoofManager_TestPointCoverage(this,&local_c,(LPCRITICAL_SECTION)0x0,'\0');
+  uVar4 = RoofManager_TestPointCoverage(this,&local_c.x,(LPCRITICAL_SECTION)0x0,'\0');
   cVar3 = (char)uVar4;
   do {
     if (cVar3 != '\0') {
@@ -62,9 +60,9 @@ joined_r0x00acf1a8:
       if ((char)uVar5 != '\0') {
         return true;
       }
-      local_4 = local_4 + 1;
+      local_c.level = local_c.level + 1;
     } while (this == (void *)0x0);
-    uVar4 = RoofManager_TestPointCoverage(this,&local_c,(LPCRITICAL_SECTION)0x0,param_3);
+    uVar4 = RoofManager_TestPointCoverage(this,&local_c.x,(LPCRITICAL_SECTION)0x0,param_3);
     cVar3 = (char)uVar4;
   } while( true );
 }

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static; analyst-assigned name. Physical ECX product receiver plus
@@ -22,11 +22,11 @@ bool __thiscall RailingProduct_ReadCatalog(void *this,void *reader)
   bool bVar1;
   char cVar2;
   byte bVar3;
-  undefined4 *puVar4;
-  int *this_00;
-  uint uVar5;
+  void *this_00;
+  int *this_01;
+  uint uVar4;
   undefined *_Src;
-  char *pcVar6;
+  char *pcVar5;
   undefined *arg0;
   byte abStack_82 [10];
   void *pvStack_78;
@@ -84,24 +84,23 @@ bool __thiscall RailingProduct_ReadCatalog(void *this,void *reader)
     StreamReader_AccumulateStatus(abStack_82 + 2,bVar1);
     FUN_00af9f10((void *)((int)this + 0xe0),(uint)pcStack_64);
     pcStack_68 = (char *)0x0;
-    this = pvStack_48;
     if (pcStack_64 != (char *)0x0) {
       do {
-        pcVar6 = pcStack_68;
+        pcVar5 = pcStack_68;
         puStack_44 = (undefined4 *)(*(int *)((int)pvStack_48 + 0xe0) + (int)pcStack_68 * 8);
         abStack_82[1] = 0;
         bVar1 = Stream_ReadBoolean(pvStack_78,abStack_82 + 1);
         StreamReader_AccumulateStatus(abStack_82 + 2,bVar1);
-        puVar4 = (undefined4 *)FUN_004e4500(0x60,"World/Catalog/FencePreset",0);
-        if ((puVar4 == (undefined4 *)0x0) ||
-           (this_00 = (int *)FUN_005bfac0(puVar4), this_00 == (int *)0x0)) {
+        this_00 = (void *)FUN_004e4500(0x60,"World/Catalog/FencePreset",0);
+        if ((this_00 == (void *)0x0) ||
+           (this_01 = (int *)DesignPreset_InitializeEmpty(this_00), this_01 == (int *)0x0)) {
 LAB_00c96859:
           if (arg0 != (undefined *)0x0) {
             Memory_FreeIfNonNull(arg0);
           }
           goto LAB_00c96952;
         }
-        (**(code **)*this_00)();
+        (**(code **)*this_01)();
         bVar1 = Stream_ReadUInt32(pvStack_78,&uStack_4c,uStack_70);
         StreamReader_AccumulateStatus(abStack_82 + 2,bVar1);
         if ((uint)((int)_Src - (int)arg0) < uStack_4c) {
@@ -112,24 +111,24 @@ LAB_00c96859:
         else {
           _Dst = arg0 + uStack_4c;
           memmove(_Dst,_Src,0);
-          pcVar6 = pcStack_68;
+          pcVar5 = pcStack_68;
           puStack_3c = _Dst;
         }
         _Src = puStack_3c;
         bVar1 = Stream_ReadExactBytes(pvStack_78,arg0,uStack_4c);
         StreamReader_AccumulateStatus(abStack_82 + 2,bVar1);
-        bVar3 = Preset_ReadBinaryOrTextBuffer(this_00,arg0,uStack_4c,1);
+        bVar3 = Preset_ReadBinaryOrTextBuffer(this_01,arg0,uStack_4c,1);
         if (bVar3 == 0) {
-          (**(code **)(*this_00 + 4))();
+          (**(code **)(*this_01 + 4))();
           goto LAB_00c96859;
         }
         bVar1 = Stream_ReadUInt32(pvStack_78,puStack_44 + 1,uStack_70);
         StreamReader_AccumulateStatus(abStack_82 + 2,bVar1);
-        pcStack_68 = pcVar6 + 1;
-        *puStack_44 = this_00;
-        this = pvStack_48;
+        pcStack_68 = pcVar5 + 1;
+        *puStack_44 = this_01;
       } while (pcStack_68 < pcStack_64);
     }
+    this = pvStack_48;
   }
   CatalogProduct_ReadCommonFields(this,reader);
   uStack_30 = 0;
@@ -153,12 +152,12 @@ LAB_00c96859:
     StreamReader_AccumulateStatus(abStack_82 + 2,bVar1);
   }
   else {
-    uVar5 = ReferenceTable_ReadKeyByOrdinal(abStack_82 + 2,(int *)apvStack_60,&uStack_30);
-    if ((((char)uVar5 == '\0') ||
-        (uVar5 = ReferenceTable_ReadKeyByOrdinal(abStack_82 + 2,(int *)apvStack_60,&uStack_10),
-        (char)uVar5 == '\0')) ||
-       (uVar5 = ReferenceTable_ReadKeyByOrdinal(abStack_82 + 2,(int *)apvStack_60,&uStack_20),
-       (char)uVar5 == '\0')) goto LAB_00c9693f;
+    uVar4 = ReferenceTable_ReadKeyByOrdinal(abStack_82 + 2,(int *)apvStack_60,&uStack_30);
+    if ((((char)uVar4 == '\0') ||
+        (uVar4 = ReferenceTable_ReadKeyByOrdinal(abStack_82 + 2,(int *)apvStack_60,&uStack_10),
+        (char)uVar4 == '\0')) ||
+       (uVar4 = ReferenceTable_ReadKeyByOrdinal(abStack_82 + 2,(int *)apvStack_60,&uStack_20),
+       (char)uVar4 == '\0')) goto LAB_00c9693f;
   }
   bVar1 = VisualProxy_ResolveTypedResource(&uStack_30,0x1661233,(void *)((int)this + 0x88));
   if (((bVar1) &&

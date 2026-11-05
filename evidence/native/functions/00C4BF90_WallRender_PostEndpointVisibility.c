@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. ECX wall renderer. Posts04A06E68 message
@@ -18,16 +18,16 @@ WallRender_PostEndpointVisibility(void *this,char *wallLocator6,byte firstUp,byt
   
   piVar2 = (int *)FUN_007693a0();
   if (piVar2 != (int *)0x0) {
-    puVar3 = FUN_00adf150();
+    puVar3 = FloorMessagePool_AcquireStorage();
     if (puVar3 == (undefined4 *)0x0) {
       puVar3 = (undefined4 *)0x0;
     }
     else {
-      *puVar3 = &PTR_FUN_01065f8c;
+      *puVar3 = &PTR_DestroyPooledFloorMessage_01065f8c;
       LOCK();
       puVar3[1] = 0;
       UNLOCK();
-      *puVar3 = &PTR_FUN_01065f8c;
+      *puVar3 = &PTR_DestroyPooledFloorMessage_01065f8c;
       *(undefined1 *)(puVar3 + 4) = 0xff;
       *(undefined1 *)((int)puVar3 + 0x11) = 0xff;
       *(undefined1 *)((int)puVar3 + 0x12) = 0;

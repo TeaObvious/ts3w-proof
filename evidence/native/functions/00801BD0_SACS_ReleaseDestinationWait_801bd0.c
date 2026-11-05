@@ -1,8 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* PC 1.67 destination release. Status 5 may transition listener to ready subject to controller/idle
    gating; then walker/driver are marked dirty and scheduled. Otherwise it clears bit 0x20 on the
    first queued request and returns immediately, without scheduling or actor-byte transfer. When not
@@ -10,6 +9,16 @@
    destination actor byte +0x24. Exact broader meaning of this byte remains unresolved. Raw proof:
    guides/sacs/native/disassembly/destination-wait-release-801bd0.objdump.txt;
    reference . */
+
+
+
+/* PC 1.67 destination release. Status 5 may transition listener to ready subject to controller/idle
+   gating; then walker/driver are marked dirty and scheduled. Otherwise it clears bit 0x20 on the
+   first queued request and returns immediately, without scheduling or actor-byte transfer. When not
+   returning through that queue branch, source actor byte +0x24 is cleared and a nonzero value sets
+   destination actor byte +0x24. Exact broader meaning of this byte remains unresolved. Raw proof:
+   the canonical ASM/C pair for this function; reference SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3. */
 
 void __thiscall SACS_ReleaseDestinationWait_801bd0(void *this,int param_1)
 
@@ -23,19 +32,20 @@ void __thiscall SACS_ReleaseDestinationWait_801bd0(void *this,int param_1)
   
   if (*(int *)((int)this + 0x6c) == 5) {
     if (((*(int *)((int)this + 0x6c) < 1) ||
-        (uVar4 = FUN_00804fb0(*(int *)((int)this + 100)), (char)uVar4 == '\0')) ||
-       (uVar5 = FUN_00800150(*(void **)((int)this + 4),(int)this), (char)uVar5 != '\0')) {
+        (uVar4 = SacsListener_HasBlockingController(*(int *)((int)this + 100)), (char)uVar4 == '\0')
+        ) || (uVar5 = SacsDriver_CheckWalkerIdleReadiness(*(void **)((int)this + 4),(int)this),
+             (char)uVar5 != '\0')) {
       LOCK();
       *(int *)((int)this + 0x6c) = 0;
       UNLOCK();
       if (*(void **)((int)this + 100) != (void *)0x0) {
-        FUN_009de4d0(*(void **)((int)this + 100),0);
+        RecordField14_StoreDword(*(void **)((int)this + 100),0);
       }
       iVar6 = *(int *)((int)this + 4);
       *(undefined1 *)((int)this + 0xc) = 1;
       *(undefined1 *)(iVar6 + 0x146) = 1;
       if (DAT_011d9d40 != (void *)0x0) {
-        FUN_007fcf80(DAT_011d9d40,iVar6,'\0');
+        SACS_QueueOrRevisitDriver_7FCF80(DAT_011d9d40,iVar6,'\0');
       }
     }
   }

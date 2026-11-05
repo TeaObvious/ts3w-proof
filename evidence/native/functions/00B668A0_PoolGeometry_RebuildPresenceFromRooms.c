@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -15,13 +14,12 @@ undefined1 __fastcall PoolGeometry_RebuildPresenceFromRooms(int param_1)
 {
   ushort uVar1;
   void *this;
-  char cVar2;
+  byte bVar2;
   undefined4 uVar3;
   void *this_00;
-  uint uVar4;
-  byte *pbVar5;
-  int iVar6;
-  ushort *puVar7;
+  byte *pbVar4;
+  int iVar5;
+  ushort *puVar6;
   undefined1 local_25;
   char local_24;
   char local_23;
@@ -47,35 +45,33 @@ undefined1 __fastcall PoolGeometry_RebuildPresenceFromRooms(int param_1)
   FUN_00b47120(this,*(int *)(param_1 + 0x264) - 1,2,&local_14,'\0');
   local_18 = local_10;
   local_25 = 0;
-  puVar7 = local_14;
+  puVar6 = local_14;
   if (local_14 != local_10) {
     do {
-      uVar1 = *puVar7;
+      uVar1 = *puVar6;
       local_20 = -1;
       local_1f = 0xff;
       local_1e = 0;
       local_1d = 0xff;
       FUN_00b48280(this,(uint)uVar1,2,(undefined4 *)&local_20);
-      uVar3 = FUN_00acf820(local_1c,&local_20,'\x01',(undefined1 *)0x0);
+      uVar3 = Lot_TestCellSupportRegionType(local_1c,&local_20,'\x01',(undefined1 *)0x0);
       if (((char)uVar3 != '\0') &&
          (this_00 = (void *)FUN_00b470c0(this,(uint)uVar1,2), this_00 != (void *)0x0)) {
         local_24 = -1;
         local_23 = -1;
         local_22 = 0;
         local_21 = 0xff;
-        uVar4 = FUN_00c32240(this_00,&local_24);
-        cVar2 = (char)uVar4;
-        while (cVar2 != '\0') {
-          iVar6 = (int)local_24 * *(int *)(param_1 + 0x220) + (int)local_23;
-          pbVar5 = (byte *)((iVar6 >> 3) + *(int *)(param_1 + 0x224));
-          *pbVar5 = *pbVar5 | '\x01' << ((byte)iVar6 & 7);
-          uVar3 = FUN_00c312e0(this_00,&local_24);
-          cVar2 = (char)uVar3;
+        bVar2 = SpanShape_BeginLocationEnumeration(this_00,&local_24);
+        while (bVar2 != 0) {
+          iVar5 = (int)local_24 * *(int *)(param_1 + 0x220) + (int)local_23;
+          pbVar4 = (byte *)((iVar5 >> 3) + *(int *)(param_1 + 0x224));
+          *pbVar4 = *pbVar4 | '\x01' << ((byte)iVar5 & 7);
+          bVar2 = SpanShape_NextLocation(this_00,&local_24);
         }
         local_25 = 1;
       }
-      puVar7 = puVar7 + 1;
-    } while (puVar7 != local_18);
+      puVar6 = puVar6 + 1;
+    } while (puVar6 != local_18);
   }
   if (local_14 != (ushort *)0x0) {
     Memory_FreeIfNonNull(local_14);

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 undefined4 __cdecl FUN_007f1dd0(undefined4 *param_1,char param_2)
@@ -14,7 +14,7 @@ undefined4 __cdecl FUN_007f1dd0(undefined4 *param_1,char param_2)
   int local_10 [3];
   undefined4 local_4;
   
-  this = (void *)FUN_0060e910();
+  this = (void *)Graphics_GetManagerSingleton();
   uVar3 = FUN_0058e800();
   uVar4 = uVar3;
   if ((this != (void *)0x0) && (uVar3 != 0)) {

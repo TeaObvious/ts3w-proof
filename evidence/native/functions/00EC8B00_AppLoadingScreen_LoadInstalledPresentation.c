@@ -1,11 +1,13 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+/* Retained historical annotation 1, previous C line 8; earlier snapshot context. */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 
 
 /* WARNING: Removing unreachable block (ram,0x00ec8e5d) */
 /* WARNING: Removing unreachable block (ram,0x00ec8e61) */
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 /* PC167_STARTUP_00ec8b00. Installed application startup presentation initialization. Existing
    instructions use the object in ECX, preserve callee-saved registers, return with RET and AL=1.
    Selected observations: install a product-specific LAYO key with base-name fallback when the
@@ -44,6 +46,7 @@ undefined4 __fastcall AppLoadingScreen_LoadInstalledPresentation(int param_1)
   LARGE_INTEGER LStack_8c;
   undefined4 uVar20;
   undefined4 uVar21;
+  undefined1 auStack_4e [14];
   ushort *puStack_40;
   ushort *puStack_3c;
   undefined1 *puStack_38;
@@ -63,14 +66,14 @@ undefined4 __fastcall AppLoadingScreen_LoadInstalledPresentation(int param_1)
   fVar1 = pfVar7[2];
   fVar2 = *pfVar7;
   *(float *)(param_1 + 0x2e4) = fVar1 - fVar2;
-  *(float *)(param_1 + 0x2e8) = (fVar1 - fVar2) * _DAT_00f9b5b4;
+  *(float *)(param_1 + 0x2e8) = (fVar1 - fVar2) * 0.5;
   piVar8 = (int *)GetGlobalInterfacePointer_11D5BBC();
   FUN_00779660();
   pcStack_30 = "UI/StartupScreen";
   puStack_3c = (ushort *)&DAT_011c8e54;
   puStack_38 = &DAT_011c8e54;
   puStack_34 = &DAT_011c8e56;
-  pwVar9 = FUN_00595390(0x11cede0);
+  pwVar9 = InstalledProducts_GetStartupSuffix(0x11cede0);
   pwVar15 = L"AppLoadingScreen";
   do {
     pwVar12 = pwVar15;
@@ -107,13 +110,13 @@ undefined4 __fastcall AppLoadingScreen_LoadInstalledPresentation(int param_1)
       uVar5 = 1;
     }
     *(undefined1 *)(param_1 + 0x2f8) = uVar5;
-    UInt32PairMap_Find((void *)(iVar11 + 0x44),&stack0xffffffac,(uint *)&stack0xffffffa0);
-    pwVar15 = pwVar6;
+    UInt32PairMap_Find((void *)(iVar11 + 0x44),auStack_4e + -6,(uint *)(auStack_4e + -0x12));
     if (((unaff_EBX != *(int *)(*(int *)(iVar11 + 0x48) + *(int *)(iVar11 + 0x4c) * 4)) &&
         (*(int **)(unaff_EBX + 4) != (int *)0x0)) &&
        (iVar11 = (**(code **)(**(int **)(unaff_EBX + 4) + 0xc))(), iVar11 != 0)) {
       (**(code **)(*piVar17 + 0xdc))();
     }
+    pwVar15 = pwVar6;
   }
   ScriptCore.UIManager::UIManager_DestroyLayoutImpl((uint)pwVar9);
   if (*(char *)(param_1 + 0x2f8) == '\0') {
@@ -125,8 +128,8 @@ undefined4 __fastcall AppLoadingScreen_LoadInstalledPresentation(int param_1)
         pwVar9 = pwVar6;
         pwVar6 = pwVar9 + 1;
       } while (*pwVar6 != L'\0');
-      FUN_00408d60(&stack0xffffffac,L"logo_large_",L"logo_large_" + ((int)(pwVar9 + -0x87adb3) >> 1)
-                  );
+      FUN_00408d60(auStack_4e + -6,L"logo_large_",L"logo_large_" + ((int)(pwVar9 + -0x87adb3) >> 1))
+      ;
       iVar13 = FUN_0059b7b0();
       pwVar6 = pwVar15 + 1;
       do {
@@ -137,14 +140,14 @@ undefined4 __fastcall AppLoadingScreen_LoadInstalledPresentation(int param_1)
         pwVar15 = FUN_0059bd30(iVar13);
       }
       else {
-        FUN_004af140(&stack0xffffffac,(ushort *)&DAT_010f5b60);
+        FUN_004af140(auStack_4e + -6,(ushort *)&DAT_010f5b60);
         pwVar15 = FUN_0059c200(iVar13);
       }
       iVar13 = FUN_004fe720((ushort *)pwVar15,(ushort *)L"en_us");
       if (iVar13 != 0) {
-        FUN_004e3950(&stack0xffffffac,pwVar15);
-        iVar13 = FUN_00595240(0x11cede0);
-        iVar13 = FUN_0059dc10(iVar13);
+        FUN_004e3950(auStack_4e + -6,pwVar15);
+        iVar13 = InstalledProducts_SelectHighestKnownFlag(0x11cede0);
+        iVar13 = ProductFlag_FindOrdinal(iVar13);
         uStack_24 = NameHash64_Utf16Z((ushort *)&DAT_011c8e54);
         uStack_1c = 0x2f7d0004;
         LStack_8c.s.HighPart = 0xec8e34;
@@ -184,10 +187,10 @@ undefined4 __fastcall AppLoadingScreen_LoadInstalledPresentation(int param_1)
       }
       *(undefined4 *)(param_1 + 0x26c) = uVar20;
       piVar8 = (int *)(**(code **)(**(int **)(param_1 + 0x268) + 0x10))();
-      iVar11 = FUN_00ec76f0(piVar8);
+      iVar11 = Window_FindStartupGrowInterface(piVar8);
       *(int *)(param_1 + 0x274) = iVar11;
       piVar8 = (int *)(**(code **)(**(int **)(param_1 + 0x26c) + 0x10))();
-      iVar11 = FUN_00ec76f0(piVar8);
+      iVar11 = Window_FindStartupGrowInterface(piVar8);
       *(int *)(param_1 + 0x278) = iVar11;
       fVar18 = (float10)(**(code **)(*(int *)(*(int *)(param_1 + 0x274) + 0x10) + 0x14))();
       *(float *)(param_1 + 0x254) = (float)fVar18;
@@ -201,7 +204,7 @@ undefined4 __fastcall AppLoadingScreen_LoadInstalledPresentation(int param_1)
       *(undefined4 *)(param_1 + 0x270) = uVar20;
       uVar20 = (**(code **)(*piVar17 + 0xf4))(0x6eb4130,1);
       *(undefined4 *)(param_1 + 0x27c) = uVar20;
-      FUN_00ec8700();
+      AppLoadingScreen_ReadLocalizedTextDeck();
       *(undefined4 *)(param_1 + 0x2a8) = 0;
       *(undefined4 *)(param_1 + 0x2ac) = 0;
       *(undefined4 *)(param_1 + 0x2b0) = 0;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). cdecl. Resolves
@@ -19,7 +19,7 @@ Footprint_BuildOwnerToLotXZMatrix
     iVar1 = 0;
   }
   else {
-    iVar1 = FUN_00c8ebb0(DAT_011ee034,(uint *)((int)param_1 + 0x18));
+    iVar1 = ObjectCatalog_FindByTypedKey(DAT_011ee034,(uint *)((int)param_1 + 0x18));
   }
   Footprint_BuildXZRotationTranslationMatrix(param_1,iVar1,param_2,param_3,param_4,'\0',param_5);
   return;

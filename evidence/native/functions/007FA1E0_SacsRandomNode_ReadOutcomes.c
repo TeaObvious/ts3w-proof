@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): PC1.67: ECX node, five stack words, RET14, AL
@@ -66,7 +66,7 @@ SacsRandomNode_ReadOutcomes
     *(byte *)((int)this + 0x44) = SUB41(*pfVar1,0) & 1;
   }
   if (param_5 != '\0') {
-    FUN_007d3070((uint *)pfVar6,1);
+    ResourceBytes_SwapDwordsInPlace((uint *)pfVar6,1);
   }
   puVar4 = (uint *)((int)pfVar6 - (int)local_10 >> 2);
   if ((((param_3 - (int)puVar4 == 1) && (*(char *)pfVar6 == '/')) &&

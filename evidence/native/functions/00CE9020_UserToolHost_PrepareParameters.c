@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction preparation/interaction comparison): Analyst role from the
@@ -29,6 +29,7 @@ UserToolHost_PrepareParameters
   char cVar4;
   int *piVar5;
   int iVar6;
+  void *this;
   undefined8 uVar7;
   uint uVar8;
   void *pvVar9;
@@ -111,7 +112,7 @@ LAB_00ce9254:
     break;
   case 8:
     if (param_3 != 0) {
-      cVar4 = FUN_00a63b20((int)piVar5,param_2,param_3,param_5);
+      cVar4 = FencePreset_BuildForProductKey((int)piVar5,param_2,param_3,param_5);
       goto LAB_00ce9205;
     }
     break;
@@ -130,12 +131,12 @@ LAB_00ce9254:
     }
     break;
   case 0x13:
-    iVar6 = FUN_00c8e890(DAT_011ee034,param_2,'\x01');
+    this = (void *)FUN_00c8e890(DAT_011ee034,param_2,'\x01');
     pvVar2 = param_5;
-    if ((param_3 != 0) && (iVar6 != 0)) {
+    if ((param_3 != 0) && (this != (void *)0x0)) {
       uVar8 = param_3;
       pvVar9 = param_5;
-      puVar10 = (uint *)FUN_00c95320(iVar6);
+      puVar10 = ObjectField_Address90(this);
       cVar4 = FUN_00a63ba0((int)piVar5,puVar10,uVar8,pvVar9);
       if (cVar4 != '\0') {
         FUN_00c9fa90((void *)((int)pvVar1 + 0x20),(void *)((int)pvVar2 + 0x28));

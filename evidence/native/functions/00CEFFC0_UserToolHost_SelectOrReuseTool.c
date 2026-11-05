@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction preparation/interaction comparison): Analyst role includes real
@@ -195,7 +195,7 @@ LAB_00cf025a:
   case 0x14:
     pvVar12 = (void *)FUN_004e4500(0x3a0,"UserTool/UserToolObject",0);
     if (pvVar12 == (void *)0x0) goto switchD_00cf02a4_caseD_5;
-    piVar6 = FUN_00d05880(pvVar12,(int)piVar6);
+    piVar6 = ObjectTool_Construct(pvVar12,(int)piVar6);
     break;
   default:
     goto switchD_00cf02a4_caseD_5;
@@ -336,7 +336,7 @@ LAB_00cf025a:
   case 0x1b:
     pvVar12 = (void *)FUN_004e4500(0x6c,"UserTool/UserToolRoofPitch",0);
     if (pvVar12 == (void *)0x0) goto switchD_00cf02a4_caseD_5;
-    piVar6 = FUN_00d0e9f0(pvVar12,piVar6);
+    piVar6 = RoofPitch_Construct(pvVar12,piVar6);
     break;
   case 0x1c:
     puVar8 = (undefined4 *)FUN_004e4500(0x1e0,"UserTool/UserToolWorldObject",0);

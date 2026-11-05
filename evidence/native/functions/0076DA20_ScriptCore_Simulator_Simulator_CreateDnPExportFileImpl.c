@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161fc0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161fc0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Simulator::Simulator_CreateDnPExportFileImpl [assembly=ScriptCore token=0x0600054A;
    fileHandle: System.UInt32&; return=System.String]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -23,7 +24,7 @@ undefined4 ScriptCore_Simulator__Simulator_CreateDnPExportFileImpl(int *param_1)
   int iVar7;
   undefined1 **ppuVar8;
   undefined4 unaff_ESI;
-  short *psVar9;
+  short *allocation;
   undefined4 uStack_468;
   uint uStack_464;
   short *psStack_460;
@@ -37,7 +38,7 @@ undefined4 ScriptCore_Simulator__Simulator_CreateDnPExportFileImpl(int *param_1)
   undefined **appuStack_440 [2];
   undefined2 uStack_438;
   undefined2 uStack_436;
-  int aiStack_420 [2];
+  void *apvStack_420 [2];
   int iStack_418;
   undefined1 auStack_410 [1040];
   
@@ -48,8 +49,8 @@ undefined4 ScriptCore_Simulator__Simulator_CreateDnPExportFileImpl(int *param_1)
   FUN_004dd2f0(pWVar4);
   *param_1 = 0;
   piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
-  FUN_004fa9f0(&uStack_464,-1);
-  FUN_004fa9f0(&uStack_464,0);
+  TreeVariation_Reseed(&uStack_464,-1);
+  TreeVariation_Reseed(&uStack_464,0);
   pcStack_454 = "Scripting/DnPExport/Filename";
   psStack_460 = (short *)&DAT_011c8e54;
   puStack_45c = (undefined2 *)&DAT_011c8e54;
@@ -63,18 +64,19 @@ undefined4 ScriptCore_Simulator__Simulator_CreateDnPExportFileImpl(int *param_1)
   puStack_44c = &DAT_011c8e54;
   ppuStack_448 = (undefined **)&DAT_011c8e56;
   uVar5 = FUN_004dbcf0(pWVar4,'\0');
-  psVar9 = psStack_460;
+  allocation = psStack_460;
   if ((char)uVar5 == '\0') {
-    ppuVar8 = FUN_004f3b50(aiStack_420,(LPCWSTR)"ERROR: unable to write to a file",0xffffffff,
-                           "Scripting/DnPExport/ErrorString");
+    ppuVar8 = EaString_FromUtf8Bytes
+                        (apvStack_420,(byte *)"ERROR: unable to write to a file",0xffffffff,
+                         (byte *)"Scripting/DnPExport/ErrorString");
     if (ppuVar8 != &puStack_450) {
       FUN_00408d60(&puStack_450,*ppuVar8,(undefined2 *)ppuVar8[1]);
     }
-    psVar9 = psStack_460;
-    if ((2 < (int)(iStack_418 - aiStack_420[0] & 0xfffffffeU)) && (aiStack_420[0] != 0)) {
-      FUN_004e44e0(aiStack_420[0]);
-      psVar9 = psStack_460;
+    if ((2 < (int)(iStack_418 - (int)apvStack_420[0] & 0xfffffffeU)) &&
+       (apvStack_420[0] != (void *)0x0)) {
+      Memory_FreeIfNonNull(apvStack_420[0]);
     }
+    allocation = psStack_460;
   }
   else {
     FUN_00408d60(&puStack_450,psStack_460,puStack_45c);
@@ -83,7 +85,7 @@ undefined4 ScriptCore_Simulator__Simulator_CreateDnPExportFileImpl(int *param_1)
       piVar6 = (int *)0x0;
     }
     else {
-      piVar6 = FUN_004dbb40(this,pWVar4);
+      piVar6 = FileReadStream_Construct(this,pWVar4);
     }
     cVar1 = (**(code **)(*piVar6 + 0x4c))(2,3,1,0);
     if (cVar1 != '\0') {
@@ -107,10 +109,11 @@ undefined4 ScriptCore_Simulator__Simulator_CreateDnPExportFileImpl(int *param_1)
   }
   if ((2 < (int)((int)puStack_450 - (int)puStack_458 & 0xfffffffeU)) &&
      (puStack_458 != (undefined2 *)0x0)) {
-    FUN_004e44e0((int)puStack_458);
+    Memory_FreeIfNonNull(puStack_458);
   }
-  if ((2 < (int)((int)psStack_460 - (int)psVar9 & 0xfffffffeU)) && (psVar9 != (short *)0x0)) {
-    FUN_004e44e0((int)psVar9);
+  if ((2 < (int)((int)psStack_460 - (int)allocation & 0xfffffffeU)) && (allocation != (short *)0x0))
+  {
+    Memory_FreeIfNonNull(allocation);
   }
   return unaff_ESI;
 }

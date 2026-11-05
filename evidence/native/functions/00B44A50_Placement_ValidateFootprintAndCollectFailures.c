@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst PC1.67 held footprint gate. cdecl context/optionalFailures, Boolean AL only. Invokes
    selected object gateB44480 and surrounding validation children in original order. Each false
    returns immediately when failuresNULL; with nonnull failures records false and CONTINUES
@@ -31,8 +33,7 @@ Placement_ValidateFootprintAndCollectFailures(void *candidateContext,void *optio
   if ((*(int *)((int)candidateContext + 0x98) == 0) &&
      (uVar3 = FUN_00b3d480((int)candidateContext,optionalFailures), (char)uVar3 == '\0')) {
     if (DAT_011edbc1 != '\0') {
-      FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffff6600,
-                   _DAT_0106d720);
+      FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffff6600,0.23);
     }
     if (optionalFailures == (void *)0x0) {
       return false;
@@ -44,8 +45,7 @@ Placement_ValidateFootprintAndCollectFailures(void *candidateContext,void *optio
                        collector nonnull retains false and continues later checks. */
   if (!bVar2) {
     if (DAT_011edbc1 != '\0') {
-      FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffff0000,
-                   _DAT_0106d714);
+      FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffff0000,0.28);
     }
     if (optionalFailures == (void *)0x0) {
       return false;
@@ -56,8 +56,7 @@ Placement_ValidateFootprintAndCollectFailures(void *candidateContext,void *optio
     uVar3 = FUN_00b3c5b0(candidateContext,optionalFailures);
     if ((char)uVar3 == '\0') {
       if (DAT_011edbc1 != '\0') {
-        FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffff6600,
-                     _DAT_0106d724);
+        FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffff6600,0.22);
       }
       if (optionalFailures == (void *)0x0) {
         return false;
@@ -67,14 +66,14 @@ Placement_ValidateFootprintAndCollectFailures(void *candidateContext,void *optio
     bVar2 = FUN_00b3d840(candidateContext,optionalFailures);
     if (!bVar2) {
       if (DAT_011edbc1 != '\0') {
-        FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffff0000,
-                     _DAT_0106d71c);
+        FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffff0000,0.26);
       }
       if (optionalFailures == (void *)0x0) {
         return false;
       }
-      FUN_00ad6720(local_50,0xe8,*(int *)((int)candidateContext + 4),
-                   (float *)((int)candidateContext + 8),0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_50,0xe8,*(undefined **)((int)candidateContext + 4),
+                 (LotPaintPoint *)((int)candidateContext + 8),0,0);
       FUN_00ad8570(optionalFailures,local_50);
       bVar1 = false;
       FUN_00ad70d0((int)local_50);
@@ -82,8 +81,7 @@ Placement_ValidateFootprintAndCollectFailures(void *candidateContext,void *optio
     bVar2 = FUN_00b3f8c0(candidateContext,optionalFailures);
     if (!bVar2) {
       if (DAT_011edbc1 != '\0') {
-        FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffcc0066,
-                     _DAT_0106d718);
+        FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xffcc0066,0.27);
       }
       if (optionalFailures == (void *)0x0) {
         return false;
@@ -106,15 +104,15 @@ Placement_ValidateFootprintAndCollectFailures(void *candidateContext,void *optio
       if (optionalFailures == (void *)0x0) {
         return false;
       }
-      FUN_00ad6720(local_50,((char)uVar3 != '\0') + 0x35,*(int *)((int)candidateContext + 4),
-                   (float *)((int)candidateContext + 8),0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_50,((char)uVar3 != '\0') + 0x35,*(undefined **)((int)candidateContext + 4),
+                 (LotPaintPoint *)((int)candidateContext + 8),0,0);
       FUN_00ad8570(optionalFailures,local_50);
       FUN_00ad70d0((int)local_50);
       return false;
     }
     if ((bVar1) && (DAT_011edbc1 != '\0')) {
-      FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xff00ff00,
-                   _DAT_0106d708);
+      FUN_00b3b460((int)candidateContext,(int *)((int)candidateContext + 0xa0),0xff00ff00,0.3);
     }
   }
   return bVar1;

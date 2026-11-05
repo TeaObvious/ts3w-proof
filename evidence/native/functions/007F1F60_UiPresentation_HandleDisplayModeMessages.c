@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified original PC1.67 TS3W.exe physical body; Presentation vtable0101F78C reaches this
@@ -35,17 +35,14 @@ UiPresentation_HandleDisplayModeMessages(undefined *receiver,uint messageId,unde
   undefined *puStack_30;
   int iStack_2c;
   int iStack_28;
-  int iStack_24;
-  int iStack_20;
-  int iStack_1c;
-  int iStack_18;
+  tagRECT tStack_24;
   uint uStack_10;
   int iStack_c;
   undefined *puStack_8;
   
   puStack_30 = receiver;
   if (messageId == 0x7983246) {
-    pvVar5 = (void *)FUN_0060e910();
+    pvVar5 = (void *)Graphics_GetManagerSingleton();
     Renderer_GetLogicalDimensions(pvVar5,&messageId,&iStack_2c,&puStack_30);
     cVar1 = payload[0x14];
     uStack_10 = *(uint *)(payload + 8);
@@ -70,10 +67,10 @@ UiPresentation_HandleDisplayModeMessages(undefined *receiver,uint messageId,unde
     }
   }
   else if (messageId == 0x76cbb23d) {
-    pvVar5 = (void *)FUN_0060e910();
+    pvVar5 = (void *)Graphics_GetManagerSingleton();
     bVar12 = *(char *)((int)pvVar5 + 0x24) == '\0';
     messageId = CONCAT31(messageId._1_3_,bVar12);
-    Renderer_GetLogicalDimensions(pvVar5,&iStack_2c,&payload,&iStack_24);
+    Renderer_GetLogicalDimensions(pvVar5,&iStack_2c,&payload,&tStack_24.left);
     iVar7 = FUN_0058e800();
     uVar4 = messageId;
     piVar10 = DAT_011cebd0;
@@ -84,11 +81,9 @@ UiPresentation_HandleDisplayModeMessages(undefined *receiver,uint messageId,unde
         FUN_0058e7a0((void *)(iVar7 + 4),(char)uVar4);
       }
       iVar8 = (**(code **)(*piVar10 + 0x98))();
-      receiver = puStack_30;
       if (iVar8 == 0) {
         if (bVar12) {
           (**(code **)(*piVar10 + 0x44))(0x7fffffff,0x7fffffff,iStack_2c,payload);
-          receiver = puStack_30;
         }
         else {
           SystemParametersInfoA(0x30,0,&uStack_10,0);
@@ -98,25 +93,30 @@ UiPresentation_HandleDisplayModeMessages(undefined *receiver,uint messageId,unde
           iVar7 = iStack_2c;
           nHeight = payload;
           (**(code **)(*piVar10 + 0x44))();
-          lpRect = (LPRECT)&stack0xffffffcc;
+          lpRect = (LPRECT)((int)register0x00000010 + -0x34);
           pHVar9 = (HWND)(**(code **)(*piVar10 + 0x9c))();
           GetWindowRect(pHVar9,lpRect);
-          uStack_10 = iStack_1c - iStack_24;
+          uStack_10 = tStack_24.right - tStack_24.left;
           if (iStack_2c - unaff_EBP <= (int)uStack_10) {
-            iStack_24 = (((iStack_1c - iStack_2c) - iStack_24) + unaff_EBP) / 2 + iStack_24;
+            tStack_24.left =
+                 (((tStack_24.right - iStack_2c) - tStack_24.left) + unaff_EBP) / 2 + tStack_24.left
+            ;
             uStack_10 = iStack_2c - unaff_EBP;
           }
-          iVar11 = iStack_18 - iStack_20;
-          if (iStack_28 - (int)puStack_30 <= iStack_18 - iStack_20) {
-            iStack_20 = (int)(puStack_30 + ((iStack_18 - iStack_28) - iStack_20)) / 2 + iStack_20;
+          iVar11 = tStack_24.bottom - tStack_24.top;
+          if (iStack_28 - (int)puStack_30 <= tStack_24.bottom - tStack_24.top) {
+            tStack_24.top =
+                 (int)(puStack_30 + ((tStack_24.bottom - iStack_28) - tStack_24.top)) / 2 +
+                 tStack_24.top;
             iVar11 = iStack_28 - (int)puStack_30;
           }
-          pHVar9 = (HWND)(**(code **)(*piVar10 + 0x9c))(iStack_24,iStack_20,uStack_10,iVar11,1);
+          pHVar9 = (HWND)(**(code **)(*piVar10 + 0x9c))
+                                   (tStack_24.left,tStack_24.top,uStack_10,iVar11,1);
           MoveWindow(pHVar9,iVar8,Y,iVar7,(int)nHeight,bRepaint);
-          receiver = puStack_30;
           iVar7 = iStack_28;
         }
       }
+      receiver = puStack_30;
     }
     if (iVar7 != 0) {
       messageId = CONCAT31(messageId._1_3_,*(undefined1 *)(iVar7 + 0xac));

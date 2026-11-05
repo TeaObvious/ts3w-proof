@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -128,7 +127,7 @@ uint __cdecl Lot_QueryDeckFoundationAtLocalPoint(void *param_1,float *param_2)
         iVar4 = movmskps(CONCAT31((int3)((uint)iVar4 >> 8),bVar7),auVar9);
         if (iVar4 == 0xf) {
           local_40 = (float)CONCAT13(local_40._3_1_,0xffff);
-          FUN_00af7730(param_2,(char *)&local_40);
+          EncodeCellCoordinates(param_2,(char *)&local_40);
           uVar5 = FUN_00afec10(param_1,(char *)&local_40);
           return uVar5;
         }
@@ -171,10 +170,10 @@ uint __cdecl Lot_QueryDeckFoundationAtLocalPoint(void *param_1,float *param_2)
   FUN_00784df0(local_30,&local_1c,&local_28);
   local_40 = -1.714704e+38;
   local_3c = -1.714704e+38;
-  FUN_00c45f20((char *)local_30,(undefined2 *)&local_40);
+  WallLocator_QueryFirstAdjacentTile((char *)local_30,(undefined2 *)&local_40);
   uVar5 = FUN_00afecd0(param_1,(char *)&local_40);
   if ((char)uVar5 == '\0') {
-    FUN_00c45fb0((undefined2 *)local_30,(undefined2 *)&local_3c);
+    WallLocator_QueryOtherAdjacentTile((undefined2 *)local_30,(undefined2 *)&local_3c);
     uVar5 = FUN_00afecd0(param_1,(char *)&local_3c);
     return uVar5;
   }

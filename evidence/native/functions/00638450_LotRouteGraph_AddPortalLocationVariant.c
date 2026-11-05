@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: original PC 1.67 portal contract. Creates stride0x38 record containing four float
@@ -30,7 +30,8 @@ LotRouteGraph_AddPortalLocationVariant
   
   pvVar1 = lot;
   if ((*(char *)((int)this + 0x10d) == '\0') && (lot != (void *)0x0)) {
-    uVar4 = FUN_00629360(this,*(uint *)((int)lot + 0x48),*(uint *)((int)lot + 0x4c));
+    uVar4 = LotRouting_HasAdmittedLotRecord
+                      (this,*(uint *)((int)lot + 0x48),*(uint *)((int)lot + 0x4c));
     pvVar2 = portal;
     if (((char)uVar4 != '\0') && (portal != (void *)0x0)) {
       local_3c = *(undefined4 *)((int)pvVar1 + 0x4c);

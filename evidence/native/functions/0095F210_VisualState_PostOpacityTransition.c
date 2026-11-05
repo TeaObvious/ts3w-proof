@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 original instruction review. cdecl(object,payload16). Copies ownerGUID at+8/+C and
@@ -11,7 +11,7 @@
 void __cdecl VisualState_PostOpacityTransition(void *object,uint *payload16)
 
 {
-  undefined4 local_60;
+  byte local_60 [4];
   undefined **local_5c;
   undefined4 local_58;
   undefined4 local_54;
@@ -26,9 +26,12 @@ void __cdecl VisualState_PostOpacityTransition(void *object,uint *payload16)
   local_4c = payload16[1];
   local_48 = payload16[2];
   local_44 = payload16[3];
-  local_60 = 0x48a2325;
+  local_60[0] = 0x25;
+  local_60[1] = 0x23;
+  local_60[2] = 0x8a;
+  local_60[3] = 4;
   local_5c = &PTR_PTR_01156b3c;
-  FUN_00693380(&local_60);
+  RenderCommand_EnqueueIfDispatcherExists(local_60);
   if (local_5c != (undefined **)0x0) {
     (**(code **)*local_5c)(&local_50);
   }

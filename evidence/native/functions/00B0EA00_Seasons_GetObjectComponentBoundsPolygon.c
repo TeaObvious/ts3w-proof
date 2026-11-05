@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. Gets the four X/Z corners of the object's component bounding box,
@@ -12,12 +12,14 @@
 uint __cdecl Seasons_GetObjectComponentBoundsPolygon(void *param_1,int *param_2,float *param_3)
 
 {
-  uint in_EAX;
+  bool bVar1;
+  void *in_EAX;
   void *this;
-  int iVar1;
-  undefined4 *puVar2;
-  float *pfVar3;
-  uint uVar4;
+  void *pvVar2;
+  undefined4 *puVar3;
+  float *pfVar4;
+  undefined3 extraout_var;
+  undefined3 extraout_var_00;
   float *pfVar5;
   float local_120;
   float fStack_11c;
@@ -55,33 +57,33 @@ uint __cdecl Seasons_GetObjectComponentBoundsPolygon(void *param_1,int *param_2,
   undefined4 uStack_6c;
   float fStack_68;
   undefined4 uStack_64;
-  uint local_50 [19];
-
+  float local_50 [19];
+  
   if (param_1 != (void *)0x0) {
-    this = (void *)FUN_00934260(param_1,DAT_011ea158);
-    iVar1 = FUN_00934260(param_1,DAT_011e9fc4);
-    in_EAX = FUN_00934260(param_1,DAT_011ea290);
+    this = Object_GetComponentByMask(param_1,DAT_011ea158);
+    pvVar2 = Object_GetComponentByMask(param_1,DAT_011e9fc4);
+    in_EAX = Object_GetComponentByMask(param_1,DAT_011ea290);
     if (this != (void *)0x0) {
-      if (iVar1 == 0) {
-        if (in_EAX == 0) goto LAB_00b0ec11;
-        puVar2 = (undefined4 *)FUN_0095a640(in_EAX);
+      if (pvVar2 == (void *)0x0) {
+        if (in_EAX == (void *)0x0) goto LAB_00b0ec11;
+        puVar3 = (undefined4 *)FUN_0095a640((int)in_EAX);
       }
       else {
                     /* Take component bounding box through948880. This box is independent of the
                        current enabled FTPT polygons. */
-        puVar2 = (undefined4 *)FUN_00948880(iVar1);
+        puVar3 = (undefined4 *)ModelComponent_GetBoundsStorage((int)pvVar2);
       }
-      local_f0 = *puVar2;
-      uStack_ec = puVar2[1];
-      uStack_e8 = puVar2[2];
-      uStack_e4 = puVar2[3];
-      local_e0 = puVar2[4];
-      uStack_dc = puVar2[5];
-      uStack_d8 = puVar2[6];
-      uStack_d4 = puVar2[7];
+      local_f0 = *puVar3;
+      uStack_ec = puVar3[1];
+      uStack_e8 = puVar3[2];
+      uStack_e4 = puVar3[3];
+      local_e0 = puVar3[4];
+      uStack_dc = puVar3[5];
+      uStack_d8 = puVar3[6];
+      uStack_d4 = puVar3[7];
       pfVar5 = &local_d0;
-      pfVar3 = (float *)FUN_00957a90(this,local_50);
-      FUN_0068d9c0(&local_f0,pfVar3,pfVar5);
+      pfVar4 = TransformComponent_GetWorldMatrix(this,local_50);
+      Bounds_TransformEightComponentCorners(&local_f0,pfVar4,pfVar5);
       pfVar5 = (float *)param_2[1];
       local_110 = local_d0;
       uStack_10c = uStack_cc;
@@ -159,19 +161,18 @@ uint __cdecl Seasons_GetObjectComponentBoundsPolygon(void *param_1,int *param_2,
         if (pfVar5 != (float *)0x0) {
           *pfVar5 = local_70;
           pfVar5[1] = fStack_68;
-          uVar4 = FUN_007ce1c0(param_2,param_3);
-          return uVar4;
+          bVar1 = Geometry_GetPolygonXZBounds(param_2,param_3);
+          return CONCAT31(extraout_var,bVar1);
         }
       }
       else {
         FUN_00405c10(param_2,pfVar5,&local_120);
       }
-      uVar4 = FUN_007ce1c0(param_2,param_3);
-      return uVar4;
+      bVar1 = Geometry_GetPolygonXZBounds(param_2,param_3);
+      return CONCAT31(extraout_var_00,bVar1);
     }
   }
 LAB_00b0ec11:
-  return in_EAX & 0xffffff00;
+  return (uint)in_EAX & 0xffffff00;
 }
-
 

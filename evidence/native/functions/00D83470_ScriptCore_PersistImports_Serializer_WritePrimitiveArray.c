@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x0108d138 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x0108d138 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.PersistImports::Serializer_WritePrimitiveArray [assembly=ScriptCore token=0x06000CAC;
    src: System.Array, fastStreamHandle: System.UInt32, ptc: System.Byte; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -16,15 +17,15 @@ ScriptCore_PersistImports__Serializer_WritePrimitiveArray
 
 {
   int iVar1;
-  int *piVar2;
+  void *stream;
   undefined1 auStack_18 [20];
   undefined1 uStack_4;
   
-  piVar2 = (int *)FUN_00774e80(param_2);
-  if (piVar2 == (int *)0x0) {
+  stream = (void *)StreamHost_ResolveTaggedStreamAndCache(param_2);
+  if (stream == (void *)0x0) {
     return 0;
   }
-  FUN_007d93e0(auStack_18,piVar2,1);
+  StreamReader_Construct(auStack_18,stream,1);
   iVar1 = *(int *)(param_1 + 8);
   switch(param_3) {
   case 2:
@@ -33,7 +34,7 @@ ScriptCore_PersistImports__Serializer_WritePrimitiveArray
     FUN_007d4e50(auStack_18,param_1 + 0x10,iVar1);
     break;
   default:
-    FUN_007d7990((int)auStack_18);
+    StreamReader_ReleaseAuxiliary(auStack_18);
     return 0;
   case 7:
   case 10:
@@ -49,7 +50,7 @@ ScriptCore_PersistImports__Serializer_WritePrimitiveArray
   case 0xe:
     FUN_005fe9f0(auStack_18,(uint *)(param_1 + 0x10),iVar1);
   }
-  FUN_007d7990((int)auStack_18);
+  StreamReader_ReleaseAuxiliary(auStack_18);
   return uStack_4;
 }
 

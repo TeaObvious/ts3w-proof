@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: original PC 1.67 portal contract. Uses original portal-check cache and per-follower
@@ -24,7 +24,7 @@ PortalGraphSearch_TestEndpointReachability
   undefined4 *local_40;
   uint local_3c;
   undefined4 local_38;
-  undefined4 local_34;
+  float local_34;
   undefined4 local_30;
   undefined4 local_2c;
   char *local_28;
@@ -42,9 +42,9 @@ PortalGraphSearch_TestEndpointReachability
   local_4c = 0;
   local_20 = *(undefined4 *)((int)routeContext + 0x40);
   local_18 = &local_64;
-  local_34 = DAT_00f998f8;
+  local_34 = 1.0;
   local_64 = &PTR_LAB_00fecfd0;
-  local_30 = DAT_0103fd88;
+  local_30 = 0x40000000;
   local_28 = "Routing/PortalCheckCache";
   local_3c = 1;
   local_40 = &DAT_0114d900;
@@ -56,30 +56,30 @@ PortalGraphSearch_TestEndpointReachability
   local_8 = 0;
   local_1c = this;
   this_00 = FUN_006328f0(this,(uint)lotId,lotId._4_4_,&position->x);
-  if (this_00 != (void *)0x0) {
-    *(int *)((int)this_00 + 0x28) = *(int *)((int)this_00 + 0x28) + 1;
-    uVar1 = FUN_0066b8d0(this_00,local_60);
-    if ((uVar1 < 2) || (routeContext._0_1_ = false, uVar1 == 0xd)) {
-      routeContext._0_1_ = true;
-    }
-    iVar2 = *(int *)((int)this_00 + 0x28) + -1;
-    *(int *)((int)this_00 + 0x28) = iVar2;
-    if (iVar2 == 0) {
-      *(undefined4 *)((int)this_00 + 0x28) = 1;
-      (*(code *)**(undefined4 **)((int)this_00 + 0x24))(1);
-    }
+  if (this_00 == (void *)0x0) {
     FUN_009d67f0((int)local_40,local_3c);
     local_38 = 0;
     if (1 < local_3c) {
-      FUN_004e44e0((int)local_40);
+      Memory_FreeIfNonNull(local_40);
     }
-    return routeContext._0_1_;
+    return false;
+  }
+  *(int *)((int)this_00 + 0x28) = *(int *)((int)this_00 + 0x28) + 1;
+  uVar1 = FUN_0066b8d0(this_00,local_60);
+  if ((uVar1 < 2) || (routeContext._0_1_ = false, uVar1 == 0xd)) {
+    routeContext._0_1_ = true;
+  }
+  iVar2 = *(int *)((int)this_00 + 0x28) + -1;
+  *(int *)((int)this_00 + 0x28) = iVar2;
+  if (iVar2 == 0) {
+    *(undefined4 *)((int)this_00 + 0x28) = 1;
+    (*(code *)**(undefined4 **)((int)this_00 + 0x24))(1);
   }
   FUN_009d67f0((int)local_40,local_3c);
   local_38 = 0;
   if (1 < local_3c) {
-    FUN_004e44e0((int)local_40);
+    Memory_FreeIfNonNull(local_40);
   }
-  return false;
+  return routeContext._0_1_;
 }
 

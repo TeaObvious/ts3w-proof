@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163c68 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163c68 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_RebuildLotCompositorsImpl [assembly=ScriptCore token=0x06000888; lotId:
    System.UInt64; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -35,7 +36,7 @@ void ScriptCore_World__World_RebuildLotCompositorsImpl(int param_1,int param_2)
   undefined4 *puStack_98;
   uint uStack_94;
   undefined4 uStack_90;
-  undefined4 uStack_8c;
+  float fStack_8c;
   undefined4 uStack_88;
   undefined4 uStack_84;
   char *pcStack_80;
@@ -60,12 +61,13 @@ void ScriptCore_World__World_RebuildLotCompositorsImpl(int param_1,int param_2)
   uint uStack_4;
   
   if ((DAT_011edbc4 != (void *)0x0) &&
-     (this = FUN_00c62810(DAT_011edbc4,param_1,param_2,(int *)0x0), this != (int *)0x0)) {
+     (this = WorldObjects_FindLotByGuid(DAT_011edbc4,param_1,param_2,(uint *)0x0),
+     this != (int *)0x0)) {
     pvVar6 = (void *)this[0xa6];
     piStack_a4 = this;
     FUN_00a96ef0(this[0xa4]);
-    uStack_8c = DAT_00f998f8;
-    uStack_88 = DAT_0103fd88;
+    fStack_8c = 1.0;
+    uStack_88 = 0x40000000;
     pcStack_80 = "Scripting/WorldHost";
     uStack_94 = 1;
     puStack_98 = &DAT_0114d900;
@@ -92,7 +94,7 @@ void ScriptCore_World__World_RebuildLotCompositorsImpl(int param_1,int param_2)
         if (uVar1 != 0) {
           FUN_00793830(auStack_9c,&iStack_7c,&uStack_74);
           if (iStack_7c == puStack_98[uStack_94]) {
-            puVar5 = FUN_00b4a990(pvVar6,&cStack_ac);
+            puVar5 = WallPatternSide_ReadResourceKey(pvVar6,&cStack_ac);
             FUN_00afba70(auStack_40);
             auStack_40[0] = *puVar5;
             auStack_40[1] = puVar5[1];
@@ -103,8 +105,10 @@ void ScriptCore_World__World_RebuildLotCompositorsImpl(int param_1,int param_2)
             uStack_10 = uVar2;
             uStack_8 = uVar1;
             bVar3 = FUN_00793c90((int)auStack_40);
-            this = piStack_a4;
-            if (!bVar3) goto LAB_0079625d;
+            if (!bVar3) {
+              this = piStack_a4;
+              goto LAB_0079625d;
+            }
             uStack_54 = uStack_54 & 0xffffff00;
             FUN_007938a0(auStack_9c,&iStack_4c,&uStack_74);
             uStack_78 = uStack_48;
@@ -135,7 +139,8 @@ LAB_0079625d:
       puVar9 = puStack_60;
       for (puVar5 = puStack_64; puVar5 != puVar9; puVar5 = puVar5 + 1) {
         if (((void *)*puVar5 != (void *)0x0) &&
-           (pvVar6 = (void *)FUN_00934260((void *)*puVar5,DAT_011e9fc4), pvVar6 != (void *)0x0)) {
+           (pvVar6 = Object_GetComponentByMask((void *)*puVar5,DAT_011e9fc4), pvVar6 != (void *)0x0)
+           ) {
           FUN_0094b280(pvVar6);
         }
       }
@@ -143,12 +148,12 @@ LAB_0079625d:
     }
     FUN_00ab0940(this,'\x01','\x01');
     if (puStack_64 != (undefined4 *)0x0) {
-      FUN_004e44e0((int)puStack_64);
+      Memory_FreeIfNonNull(puStack_64);
     }
     FUN_005ca740((int)puStack_98,uStack_94);
     uStack_90 = 0;
     if (1 < uStack_94) {
-      FUN_004e44e0((int)puStack_98);
+      Memory_FreeIfNonNull(puStack_98);
     }
   }
   return;

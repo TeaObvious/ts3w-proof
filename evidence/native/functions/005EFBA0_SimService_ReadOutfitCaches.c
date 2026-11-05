@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst role, original PC1.67. ECX SimService, package-context stack word/RET4, AL status. Read
@@ -14,8 +14,9 @@ undefined1 __thiscall SimService_ReadOutfitCaches(void *this,undefined4 *param_1
 
 {
   bool bVar1;
-  undefined4 uVar2;
-  int iVar3;
+  byte bVar2;
+  undefined4 uVar3;
+  int iVar4;
   uint local_100;
   undefined1 local_fc [8];
   void *local_f4;
@@ -42,8 +43,8 @@ undefined1 __thiscall SimService_ReadOutfitCaches(void *this,undefined4 *param_1
     StreamReader_AccumulateStatus(local_fc,bVar1);
     if (local_100 - 1 < 8) {
       FUN_00602c10(local_e4 + 0xc);
-      uVar2 = FUN_00607340(local_e4 + 0xc,local_fc,(uint)local_84);
-      if ((char)uVar2 != '\0') {
+      bVar2 = SavedModelSharedSteps_Read(local_e4 + 0xc,local_fc,local_84);
+      if (bVar2 != 0) {
         ResourceStreamContext_Close(local_fc);
         local_e4[0] = 0x10001;
         local_e4[1] = 0;
@@ -51,10 +52,10 @@ undefined1 __thiscall SimService_ReadOutfitCaches(void *this,undefined4 *param_1
         local_e4[3] = 0;
         bVar1 = ResourceStreamContext_OpenWrite(local_fc,local_e4,0);
         if (((bVar1) && (StreamReader_ReadUInt32Into(local_fc,&local_100), local_100 - 1 < 8)) &&
-           (uVar2 = FUN_005ef870(local_fc,(uint)local_84,(int)(local_e4 + 0xc),local_100),
-           (char)uVar2 != '\0')) {
+           (uVar3 = FUN_005ef870(local_fc,(uint)local_84,(int)(local_e4 + 0xc),local_100),
+           (char)uVar3 != '\0')) {
           ResourceStreamContext_Close(local_fc);
-          iVar3 = 0x30001;
+          iVar4 = 0x30001;
           local_e4[0] = 0x30001;
           local_e4[1] = 0;
           local_e4[2] = 0x342779a7;
@@ -64,14 +65,14 @@ undefined1 __thiscall SimService_ReadOutfitCaches(void *this,undefined4 *param_1
             do {
               StreamReader_ReadUInt32Into(local_fc,&local_100);
               if (((local_100 == 0) || (8 < local_100)) ||
-                 (uVar2 = SimService_ReadCachedOutfitRecords(local_fc,local_84,local_100),
-                 (char)uVar2 == '\0')) goto LAB_005efc7e;
+                 (uVar3 = SimService_ReadCachedOutfitRecords(local_fc,local_84,local_100),
+                 (char)uVar3 == '\0')) goto LAB_005efc7e;
               ResourceStreamContext_Close(local_fc);
-              iVar3 = iVar3 + 1;
+              iVar4 = iVar4 + 1;
               local_e4[1] = 0;
               local_e4[2] = 0x342779a7;
               local_e4[3] = 0;
-              local_e4[0] = iVar3;
+              local_e4[0] = iVar4;
               bVar1 = ResourceStreamContext_OpenRead(local_fc,local_e4,0);
             } while (bVar1);
           }
@@ -86,7 +87,7 @@ LAB_005efc7e:
   else {
     bVar1 = ResourceStreamContext_OpenRead(local_fc,local_e4 + 4,0);
     if ((bVar1) &&
-       (uVar2 = SimService_ReadLegacyOutfitCache(local_fc,local_84), (char)uVar2 != '\0')) {
+       (uVar3 = SimService_ReadLegacyOutfitCache(local_fc,local_84), (char)uVar3 != '\0')) {
       ResourceStreamContext_Close(local_fc);
 LAB_005efe07:
       *(undefined1 *)((int)this + 0x138) = 1;

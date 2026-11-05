@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 model-resource instruction contract. thiscall
@@ -34,11 +34,12 @@ ModelLodResource_ReadDrawables
   int *piVar4;
   undefined4 *puVar5;
   undefined4 uVar6;
-  void *this_00;
-  int *piVar7;
-  int iVar8;
-  uint *puVar9;
+  void *pvVar7;
+  uint selector;
+  void **ppvVar8;
+  int iVar9;
   uint *puVar10;
+  uint *puVar11;
   int *piStack_188;
   int *piStack_184;
   int *piStack_180;
@@ -85,38 +86,38 @@ ModelLodResource_ReadDrawables
   uint uStack_14;
   
   if (*(int *)((int)resourceView + 4) == 0) {
-    puVar10 = (uint *)0x0;
+    puVar11 = (uint *)0x0;
   }
   else {
-    puVar10 = *(uint **)(*(int *)((int)resourceView + 4) + 8);
+    puVar11 = *(uint **)(*(int *)((int)resourceView + 4) + 8);
   }
-  local_16c = puVar10;
+  local_16c = puVar11;
   local_160 = this;
   uStack_148 = (**(code **)(*(int *)resourceView + 0x1c))();
   if (0xb < uStack_148) {
     if ((char)swapWordFlag != '\0') {
-      FUN_007d3070(puVar10,uStack_148 >> 2);
+      ResourceBytes_SwapDwordsInPlace(puVar11,uStack_148 >> 2);
     }
-    if ((((*puVar10 == 0x444f4c4d) && (puVar10[1] != 0)) && (puVar10[1] < 0x300)) &&
-       (bVar2 = ModelLodResource_AllocateDrawables(this,puVar10[2]), bVar2)) {
+    if ((((*puVar11 == 0x444f4c4d) && (puVar11[1] != 0)) && (puVar11[1] < 0x300)) &&
+       (bVar2 = ModelLodResource_AllocateDrawables(this,puVar11[2]), bVar2)) {
       ModelLodResource_SetContextOrdinal(this,*(short *)((int)referenceContext + 0x20) - 1);
       iStack_164 = 0x90;
       FUN_006d94c0((int *)&piStack_e8);
       pcStack_dc = "Renderer/TempUncachedResources";
-      puVar9 = puVar10 + 3;
+      puVar10 = puVar11 + 3;
       uStack_15c = 0;
-      iVar8 = 0x90;
+      iVar9 = 0x90;
       piVar4 = piStack_e8;
-      if (puVar10[2] != 0) {
+      if (puVar11[2] != 0) {
         do {
           pvVar1 = *(void **)(*(int *)((int)local_160 + 0x40) + uStack_15c * 4);
           uVar3 = 0;
           puStack_150 = (uint *)0x0;
           if (0x1ff < local_16c[1]) {
-            uVar3 = *puVar9;
-            puVar9 = puVar9 + 1;
-            if ((uStack_148 - (int)puVar9) + (int)local_16c < uVar3) goto LAB_006da88c;
-            puStack_150 = (uint *)(uVar3 + (int)puVar9);
+            uVar3 = *puVar10;
+            puVar10 = puVar10 + 1;
+            if ((uStack_148 - (int)puVar10) + (int)local_16c < uVar3) goto LAB_006da88c;
+            puStack_150 = (uint *)(uVar3 + (int)puVar10);
             if (local_16c[1] < 0x203) {
               uVar3 = puStack_150[-1];
             }
@@ -125,13 +126,13 @@ ModelLodResource_ReadDrawables
             }
           }
           FUN_0068f220(pvVar1,uVar3);
-          uVar3 = puVar9[5];
-          puStack_154 = puVar9;
-          piStack_174 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar9[2]);
+          uVar3 = puVar10[5];
+          puStack_154 = puVar10;
+          piStack_174 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar10[2]);
           if (piStack_174 == (int *)0x0) {
-            if (puVar9[2] != 0) goto LAB_006da88c;
-            piStack_170 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar9[3]);
-            piStack_174 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar9[4]);
+            if (puVar10[2] != 0) goto LAB_006da88c;
+            piStack_170 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar10[3]);
+            piStack_174 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar10[4]);
             if (piStack_170[9] == 0) {
               piStack_188 = piStack_170;
               FUN_006d9ed0(&piStack_e8,aiStack_40,(uint *)&piStack_188);
@@ -212,8 +213,8 @@ LAB_006da88c:
             Memory_FreeIfNonNull(piStack_e8);
             return false;
           }
-          piStack_188 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar9[3]);
-          piStack_184 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar9[4]);
+          piStack_188 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar10[3]);
+          piStack_184 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar10[4]);
           if (piStack_188[9] == 0) {
             piStack_178 = piStack_188;
             FUN_006d9ed0(&piStack_e8,aiStack_50,(uint *)&piStack_178);
@@ -223,32 +224,32 @@ LAB_006da88c:
             FUN_006d9ed0(&piStack_e8,aiStack_38,(uint *)&piStack_178);
           }
           RenderObject_SetVertexDeclaration(pvVar1,(void *)piStack_174[10]);
-          RenderObject_SetVertexStream(pvVar1,0,piStack_188 + 10,puVar9[6]);
+          RenderObject_SetVertexStream(pvVar1,0,piStack_188 + 10,puVar10[6]);
           RenderObject_SetIndexBuffer(pvVar1,piStack_184 + 10);
 LAB_006da35e:
-          piStack_188 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar9[1]);
+          piStack_188 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar10[1]);
           piStack_168 = (int *)0x0;
           if (piStack_188 != (int *)0x0) {
-            puVar5 = (undefined4 *)(**(code **)(*piStack_188 + 0xc))(0x202f7d5);
-            if (puVar5 == (undefined4 *)0x0) {
-              iVar8 = *(int *)((int)referenceContext + 0x20) + -1;
-              piVar4 = FUN_0074efa0((int *)&piStack_168);
-              uVar6 = FUN_006caec0(piStack_188,piVar4,iVar8);
-              if ((char)uVar6 != '\0') {
-                FUN_00691400(pvVar1,piStack_168,'\x01',(undefined4 *)0x0);
+            pvVar7 = (void *)(**(code **)(*piStack_188 + 0xc))(0x202f7d5);
+            if (pvVar7 == (void *)0x0) {
+              selector = *(int *)((int)referenceContext + 0x20) - 1;
+              ppvVar8 = (void **)FUN_0074efa0((int *)&piStack_168);
+              bVar2 = MaterialDef_AcquireMaterial(piStack_188,ppvVar8,selector);
+              if (bVar2) {
+                Drawable_RebindEffectiveMaterial(pvVar1,piStack_168,'\x01',(void *)0x0);
                 FUN_0068fe00(pvVar1,0);
               }
             }
             else {
-              FUN_0068f1a0(pvVar1,puVar5);
+              Drawable_SetMaterialSetInterface(pvVar1,pvVar7);
             }
           }
-          uStack_118 = puVar9[0xe];
-          uStack_120 = puVar9[0xc];
-          uStack_110 = puVar9[0xf];
-          uStack_10c = puVar9[0x10];
-          uStack_108 = puVar9[0x11];
-          uStack_11c = puVar9[0xd];
+          uStack_118 = puVar10[0xe];
+          uStack_120 = puVar10[0xc];
+          uStack_110 = puVar10[0xf];
+          uStack_10c = puVar10[0x10];
+          uStack_108 = puVar10[0x11];
+          uStack_11c = puVar10[0xd];
           uStack_114 = uStack_120;
           uStack_104 = uStack_110;
           uStack_30 = uStack_120;
@@ -260,12 +261,12 @@ LAB_006da35e:
           uStack_18 = uStack_108;
           uStack_14 = uStack_110;
           FUN_0068fdd0(pvVar1,&uStack_30);
-          NStack_100.minVertexIndex = puVar9[9];
-          NStack_100.primitiveCount = puVar9[0xb];
-          NStack_100.primitiveType = (uint)(byte)puVar9[5];
-          NStack_100.startIndex = puVar9[8];
-          NStack_100.baseVertexIndex = puVar9[7];
-          NStack_100.vertexCount = puVar9[10];
+          NStack_100.minVertexIndex = puVar10[9];
+          NStack_100.primitiveCount = puVar10[0xb];
+          NStack_100.primitiveType = (uint)(byte)puVar10[5];
+          NStack_100.startIndex = puVar10[8];
+          NStack_100.baseVertexIndex = puVar10[7];
+          NStack_100.vertexCount = puVar10[10];
           RenderObject_SetBaseDrawRange(pvVar1,&NStack_100);
           FUN_0068f390(pvVar1,(byte)(uVar3 >> 8) & 1);
           FUN_00410140(pvVar1,uVar3 >> 10 & 1);
@@ -280,16 +281,16 @@ LAB_006da35e:
           FUN_0068f470(pvVar1,(byte)(uVar3 >> 0xe) & 1);
           FUN_0068f4a0(pvVar1,(byte)(uVar3 >> 0xf) & 1);
           FUN_0068f4d0(pvVar1,(byte)(uVar3 >> 0x10) & 1);
-          puVar5 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar9[0x12]);
+          puVar5 = RcolContext_ResolveOneBasedBlock(referenceContext,puVar10[0x12]);
           FUN_0068f1f0(pvVar1,puVar5);
-          puVar9 = puVar9 + 0x14;
+          puVar10 = puVar10 + 0x14;
           if (puStack_154[0x13] != 0) {
             if (puVar5 != (undefined4 *)0x0) {
-              FUN_0070cf80(puVar5,(int)puVar9,puStack_154[0x13]);
+              FUN_0070cf80(puVar5,(int)puVar10,puStack_154[0x13]);
             }
-            puVar10 = puStack_154;
-            FUN_0068f230(pvVar1,puVar9,puStack_154[0x13]);
-            puVar9 = puVar9 + puVar10[0x13];
+            puVar11 = puStack_154;
+            FUN_0068f230(pvVar1,puVar10,puStack_154[0x13]);
+            puVar10 = puVar10 + puVar11[0x13];
           }
           if (local_16c[1] < 0x100) {
             puVar5 = (undefined4 *)FUN_004e4500(0x40,"Renderer/ModelLODRes/OffsetScaleMatDef",0);
@@ -308,10 +309,10 @@ LAB_006da35e:
             uVar3 = FUN_00799490((int *)&GStack_140);
             piVar4 = piStack_144;
             FUN_006cb0a0(piStack_144,(void *)0x0,uVar3);
-            uVar6 = *(undefined4 *)((int)referenceContext + 0x20);
+            uVar3 = *(uint *)((int)referenceContext + 0x20);
             piStack_158 = (int *)0x0;
-            piVar7 = FUN_0074efa0((int *)&piStack_158);
-            FUN_006caec0(piVar4,piVar7,uVar6);
+            ppvVar8 = (void **)FUN_0074efa0((int *)&piStack_158);
+            MaterialDef_AcquireMaterial(piVar4,ppvVar8,uVar3);
             RenderObject_SetOffsetScaleMaterial(pvVar1,piStack_158);
             if (piStack_158 != (int *)0x0) {
               (**(code **)(*piStack_158 + 4))();
@@ -322,68 +323,68 @@ LAB_006da35e:
             }
           }
           else {
-            if ((*puVar9 != 0) &&
-               (this_00 = RcolContext_ResolveOneBasedBlock(referenceContext,*puVar9),
-               this_00 != (void *)0x0)) {
+            if ((*puVar10 != 0) &&
+               (pvVar7 = RcolContext_ResolveOneBasedBlock(referenceContext,*puVar10),
+               pvVar7 != (void *)0x0)) {
               piStack_188 = (int *)0x0;
-              uVar6 = FUN_006caf60();
-              piVar4 = FUN_0074efa0((int *)&piStack_188);
-              FUN_006caec0(this_00,piVar4,uVar6);
+              uVar3 = FUN_006caf60();
+              ppvVar8 = (void **)FUN_0074efa0((int *)&piStack_188);
+              MaterialDef_AcquireMaterial(pvVar7,ppvVar8,uVar3);
               RenderObject_SetOffsetScaleMaterial(pvVar1,piStack_188);
               if (piStack_188 != (int *)0x0) {
                 (**(code **)(*piStack_188 + 4))();
               }
             }
-            puVar9 = puVar9 + 1;
+            puVar10 = puVar10 + 1;
           }
           if (0x201 < local_16c[1]) {
-            piVar4 = (int *)*puVar9;
-            puVar9 = puVar9 + 1;
+            piVar4 = (int *)*puVar10;
+            puVar10 = puVar10 + 1;
             piStack_184 = piVar4;
             RenderObject_AllocateGeometryStates(pvVar1,(uint)piVar4);
             if (piVar4 != (int *)0x0) {
               piStack_188 = (int *)0x0;
-              puVar10 = puVar9;
               if (piStack_184 != (int *)0x0) {
+                puVar11 = puVar10;
                 do {
-                  GStack_140.nameHash = *puVar10;
-                  GStack_140.startIndex = puVar10[1];
-                  GStack_140.minVertexIndex = puVar10[2];
-                  GStack_140.vertexCount = puVar10[3];
-                  GStack_140.primitiveCount = puVar10[4];
+                  GStack_140.nameHash = *puVar11;
+                  GStack_140.startIndex = puVar11[1];
+                  GStack_140.minVertexIndex = puVar11[2];
+                  GStack_140.vertexCount = puVar11[3];
+                  GStack_140.primitiveCount = puVar11[4];
+                  puVar11 = puVar11 + 5;
                   RenderObject_CopyGeometryState(pvVar1,(int)piStack_188,&GStack_140);
                   piStack_188 = (int *)((int)piStack_188 + 1);
-                  puVar10 = puVar10 + 5;
                 } while (piStack_188 < piStack_184);
               }
-              puVar9 = puVar9 + (int)piStack_184 * 5;
+              puVar10 = puVar10 + (int)piStack_184 * 5;
             }
           }
-          puVar10 = local_16c;
+          puVar11 = local_16c;
           if (0x1ff < local_16c[1]) {
-            puVar9 = puVar9 + 1;
+            puVar10 = puVar10 + 1;
           }
           if (0x202 < local_16c[1]) {
-            FUN_0068fea0(pvVar1,*puVar9,puVar9[1],puVar9[2],puVar9[3]);
-            puVar9 = puVar9 + 4;
+            FUN_0068fea0(pvVar1,*puVar10,puVar10[1],puVar10[2],puVar10[3]);
+            puVar10 = puVar10 + 4;
           }
-          iVar8 = FUN_0068eea0((int)pvVar1);
-          iStack_164 = iStack_164 + iVar8;
+          iVar9 = FUN_0068eea0((int)pvVar1);
+          iStack_164 = iStack_164 + iVar9;
           if (puStack_150 != (uint *)0x0) {
-            puVar9 = puStack_150;
+            puVar10 = puStack_150;
           }
           if (piStack_168 != (int *)0x0) {
             (**(code **)(*piStack_168 + 4))();
           }
           uStack_15c = uStack_15c + 1;
-          iVar8 = iStack_164;
+          iVar9 = iStack_164;
           piVar4 = piStack_e8;
-        } while (uStack_15c < puVar10[2]);
+        } while (uStack_15c < puVar11[2]);
       }
       for (; pvVar1 = local_160, piVar4 != piStack_e4; piVar4 = piVar4 + 1) {
-        iVar8 = iVar8 + *(int *)(*piVar4 + 0x20);
+        iVar9 = iVar9 + *(int *)(*piVar4 + 0x20);
       }
-      FUN_00731be0(local_160,iVar8);
+      FUN_00731be0(local_160,iVar9);
       FUN_006dacd0((int)pvVar1);
       FUN_006dab20((int)pvVar1);
       if ((piStack_e8 != (int *)0x0) && (piStack_e8 != piStack_d8)) {

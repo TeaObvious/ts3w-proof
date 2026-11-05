@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 physical cdecl three words/plainRET ALBoolean only. Called after click geometric bounds.
@@ -16,13 +16,13 @@ bool __cdecl FUN_00a642d0(undefined *lot,LotPaintPoint *point,undefined *errors)
   uint uVar2;
   float local_50 [19];
   
-  cVar1 = FUN_00ab0830();
+  cVar1 = ObjectPickup_IsContextGateEnabled();
   if (((cVar1 != '\0') && (lot != (undefined *)0x0)) && (point->level == 0)) {
     uVar2 = FUN_00acec30((int)lot);
     uVar2 = FUN_00ab0a40(lot,uVar2);
     if ((char)uVar2 == '\0') {
       if (errors != (undefined *)0x0) {
-        FUN_00ad6720(local_50,7,(int)lot,&point->x,0,0);
+        BuildEditErrorRecord_InitializeAtLotPoint(local_50,7,lot,point,0,0);
         FUN_00ad8570(errors,local_50);
         FUN_00ad70d0((int)local_50);
       }

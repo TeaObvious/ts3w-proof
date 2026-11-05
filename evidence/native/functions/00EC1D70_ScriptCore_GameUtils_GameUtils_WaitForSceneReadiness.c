@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x011972c0 (TS3W.exe).
@@ -25,7 +25,7 @@ ScriptCore.GameUtils::GameUtils_WaitForSceneReadiness(undefined4 param_1,undefin
   int *piVar3;
   uint unaff_ESI;
   undefined8 uVar4;
-  undefined **appuStack_20 [2];
+  undefined4 uStack_20;
   undefined2 uStack_18;
   undefined2 uStack_16;
   undefined1 uStack_10;
@@ -37,7 +37,7 @@ ScriptCore.GameUtils::GameUtils_WaitForSceneReadiness(undefined4 param_1,undefin
     piVar2 = SceneReadyNotifier_Construct(this,(int)uVar4,(int)((ulonglong)uVar4 >> 0x20),param_1);
     if (piVar2 != (int *)0x0) {
       (**(code **)(*piVar2 + 4))();
-      piVar3 = (int *)FUN_0044c4f0();
+      piVar3 = (int *)MessageDispatch_GetCurrent();
       if (piVar3 != (int *)0x0) {
         (**(code **)(*piVar3 + 0x1c))(0xb577aa16,piVar2 + 4,0);
       }
@@ -47,13 +47,13 @@ ScriptCore.GameUtils::GameUtils_WaitForSceneReadiness(undefined4 param_1,undefin
       return;
     }
   }
-  appuStack_20[0] = &PTR_FUN_00fba6f4;
+  uStack_20 = &PTR_FUN_00fba6f4;
   uStack_10 = 0;
   uStack_16 = 1;
   uStack_18 = 0;
-  (**(code **)(*piVar1 + 0x130))(param_2,uVar4,appuStack_20);
+  (**(code **)(*piVar1 + 0x130))(param_2,uVar4,&uStack_20);
   if ((unaff_ESI & 4) != 0) {
-    FUN_004f5760(&stack0xffffffcc,'\0');
+    FUN_004f5760((void *)((int)register0x00000010 + -0x34),'\0');
   }
   return;
 }

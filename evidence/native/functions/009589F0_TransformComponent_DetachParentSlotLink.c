@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst original PC1.67 instruction contract. ECX child Transform plus one physical flag
@@ -35,7 +35,7 @@ void __thiscall TransformComponent_DetachParentSlotLink(void *this,char param_1)
       Object_MarkUpdateFlags(*(void **)((int)this + 4),DAT_011ea150);
       *(uint *)((int)this + 0x34) = *(uint *)((int)this + 0x34) | 2;
       piStack_64 = (int *)0x0;
-      FUN_009518d0(pvVar2,*(int *)((int)this + 4),(int *)&piStack_64);
+      SlotComponent_RemoveChildPointBinding(pvVar2,*(int *)((int)this + 4),(int *)&piStack_64);
       *(undefined4 *)((int)this + 0x30) = 0;
       ObjectEvents_Dispatch(0x21,*(void **)((int)this + 4),(void *)0x0);
       if (param_1 != '\0') {

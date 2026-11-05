@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011971c8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011971c8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.GameUtils::GameUtils_GetGenericString [assembly=ScriptCore token=0x0600024B; id:
    System.UInt32; return=System.String]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -14,8 +15,9 @@ int * ScriptCore_GameUtils__GameUtils_GetGenericString(void)
 
 {
   int *piVar1;
-  int *piVar2;
-  int iStack_38;
+  uint uStack00000004;
+  void **ppvVar2;
+  void *pvStack_38;
   undefined **ppuStack_34;
   undefined1 *puStack_30;
   undefined1 *puStack_2c;
@@ -34,23 +36,23 @@ int * ScriptCore_GameUtils__GameUtils_GetGenericString(void)
   uStack_18 = 0;
   uStack_16 = 0;
   FUN_004f59c0(appuStack_20,0x13,9,&puStack_30,0x10,1);
-  FUN_005ca6f0(&DAT_01197068,(int *)&ppuStack_34,(uint *)&stack0x00000004);
+  FUN_005ca6f0(&DAT_01197068,(int *)&ppuStack_34,&uStack00000004);
   if (ppuStack_34 != &PTR_LOOP_0119706c) {
     if ((uStack_18 & 4) != 0) {
       FUN_004f5760(appuStack_20,'\x01');
     }
     FUN_004f59c0(appuStack_20,0x13,9,ppuStack_34 + 5,0x10,1);
   }
-  piVar2 = &iStack_38;
-  iStack_38 = 0;
+  ppvVar2 = &pvStack_38;
+  pvStack_38 = (void *)0x0;
   (**(code **)(*piVar1 + 0x50))(appuStack_20);
   ppuStack_28 = &PTR_FUN_00fba6f4;
   if (((uint)appuStack_20[0] & 4) != 0) {
     FUN_004f5760(&ppuStack_28,'\0');
   }
-  if ((2 < (int)((int)puStack_30 - iStack_38 & 0xfffffffeU)) && (iStack_38 != 0)) {
-    FUN_004e44e0(iStack_38);
+  if ((2 < (int)((int)puStack_30 - (int)pvStack_38 & 0xfffffffeU)) && (pvStack_38 != (void *)0x0)) {
+    Memory_FreeIfNonNull(pvStack_38);
   }
-  return piVar2;
+  return (int *)ppvVar2;
 }
 

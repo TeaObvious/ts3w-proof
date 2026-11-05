@@ -1,6 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
+
 
 /* Analyst PC1.67 intro gain and resource-open instruction contract. thiscall ECX phase object, NO
    explicit stack arguments, RET; normalizes called result AL to boolean. Optional service44C4F0
@@ -18,7 +19,7 @@ bool __thiscall IntroMovie_OpenEALogo(void *this)
   int *arg0;
   float10 fVar2;
   
-  arg0 = (int *)FUN_0044c4f0();
+  arg0 = (int *)MessageDispatch_GetCurrent();
   if (arg0 != (int *)0x0) {
     (**(code **)(*arg0 + 0x24))(arg0,(void *)((int)this + 0x10),0x6168be5,0,0);
   }

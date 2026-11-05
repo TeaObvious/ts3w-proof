@@ -1,9 +1,12 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Instruction-qualified original analyst note.
    ECX Steering component plus stream-context and component-descriptor stackwords, RET8; lowAL only is Boolean, not normalized upperEAX. Version is UInt16 descriptor+4:0 skips; otherwise local32 read, six-case table at952A64 accepts0..5 into+94; unsigned>5 preserves existing+94. Kind2 also owner-dependentB03460->+DC. Stream status checked AFTER state-switch, no rollback. >=5+100,>=4+E8 else legacy93D700/5ECCD0 derivation;>=2 optional pose then component+8 virtual30;>=3+E0 andzero+E4;>=6 bytes104/105,word106,word108 via existing helpers. Full pose/body/resource/primitive codec/lifetime open; C local pointers/in_EAX are not semantic state types. */
+
+
+
 uint __thiscall FUN_00952790(void *this,void *param_1,int param_2)
 
 {
@@ -121,7 +124,7 @@ LAB_009528fb:
         *(char *)((int)param_1 + 0x14) != '\0' &&
         (StreamReader_ReadByteInto(param_1,(uchar *)((int)this + 0x105)), in_EAX = extraout_EAX_03,
         *(char *)((int)param_1 + 0x14) != '\0')) &&
-       (in_EAX = (void *)FUN_0056d0e0(param_1,(ushort *)((int)this + 0x106)),
+       (in_EAX = (void *)ReadUInt16AndAccumulateStatus(param_1,(ushort *)((int)this + 0x106)),
        *(char *)((int)param_1 + 0x14) != '\0')) &&
       (StreamReader_ReadUInt32Into(param_1,(uint *)((int)this + 0x108)), in_EAX = extraout_EAX_04,
       *(char *)((int)param_1 + 0x14) != '\0')))) {

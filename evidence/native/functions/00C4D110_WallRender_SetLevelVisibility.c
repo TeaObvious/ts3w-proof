@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. ECX wall renderer, signed intlevel and
@@ -31,16 +31,16 @@ void __thiscall WallRender_SetLevelVisibility(void *this,int level,byte visibleB
     } while (iVar3 < 7);
     piVar2 = (int *)FUN_007693a0();
     if (piVar2 != (int *)0x0) {
-      puVar1 = FUN_00adf150();
+      puVar1 = FloorMessagePool_AcquireStorage();
       if (puVar1 == (undefined4 *)0x0) {
         puVar1 = (undefined4 *)0x0;
       }
       else {
-        *puVar1 = &PTR_FUN_01065f8c;
+        *puVar1 = &PTR_DestroyPooledFloorMessage_01065f8c;
         LOCK();
         puVar1[1] = 0;
         UNLOCK();
-        *puVar1 = &PTR_FUN_01065f8c;
+        *puVar1 = &PTR_DestroyPooledFloorMessage_01065f8c;
       }
       iVar3 = *(int *)((int)this + 4);
       puVar1[2] = *(undefined4 *)(iVar3 + 0x10);

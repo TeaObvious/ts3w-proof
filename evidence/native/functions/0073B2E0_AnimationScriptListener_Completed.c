@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC 1.67 original instruction review. Analyst-assigned name. Completed callback first unregisters
@@ -16,7 +16,7 @@ AnimationScriptListener_Completed(void *this,int *eventPayload,int registrationT
   int iVar1;
   int *piVar2;
   uint local_48;
-  undefined4 local_44;
+  undefined **local_44;
   undefined **local_40 [2];
   ushort local_38;
   undefined2 local_36;
@@ -27,7 +27,7 @@ AnimationScriptListener_Completed(void *this,int *eventPayload,int registrationT
   undefined2 uStack_16;
   
   local_48 = 0;
-  local_44 = 0;
+  local_44 = (undefined **)0x0;
   if (*eventPayload != 0) {
     AnimationController_UnregisterListener
               ((void *)(*eventPayload + 0xc),(int *)(-(uint)(this != &DAT_00000004) & (uint)this));
@@ -35,7 +35,7 @@ AnimationScriptListener_Completed(void *this,int *eventPayload,int registrationT
       iVar1 = (**(code **)(**(int **)(*eventPayload + 0x1c) + 0x24))();
       if (iVar1 != 0) {
         local_48 = *(uint *)(iVar1 + 8);
-        local_44 = *(undefined4 *)(iVar1 + 0xc);
+        local_44 = *(undefined ***)(iVar1 + 0xc);
       }
     }
   }
@@ -44,7 +44,7 @@ AnimationScriptListener_Completed(void *this,int *eventPayload,int registrationT
     local_40[0] = &PTR_FUN_00fba6f4;
     local_38 = 0;
     local_36 = 0;
-    FUN_004f6020(local_40,&local_48);
+    Variant_AssignUInt64(local_40,(ulonglong *)&local_48);
     appuStack_20[0] = &PTR_FUN_00fba6f4;
     uStack_18 = 0;
     uStack_16 = 0;
@@ -55,7 +55,7 @@ AnimationScriptListener_Completed(void *this,int *eventPayload,int registrationT
     }
     (**(code **)(*piVar2 + 0x134))(local_40,*(undefined4 *)((int)this + 4),appuStack_20,1);
     if ((local_48 & 4) != 0) {
-      FUN_004f5760(&stack0xffffffb0,'\0');
+      FUN_004f5760(local_40 + -4,'\0');
     }
     appuStack_30[0] = &PTR_FUN_00fba6f4;
     if ((bStack_28 & 4) != 0) {

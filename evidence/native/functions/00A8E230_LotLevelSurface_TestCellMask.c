@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: validates a level cell/mask. Inputs are compact signed coordinate/level bytes, a
@@ -15,29 +15,34 @@ LotLevelSurface_TestCellMask(void *this,char *param_1,byte param_2,undefined4 pa
 
 {
   void *this_00;
-  uint uVar1;
-  undefined4 uVar2;
+  bool bVar1;
+  uint uVar2;
+  undefined3 extraout_var;
+  undefined3 extraout_var_00;
+  undefined3 extraout_var_01;
+  undefined3 extraout_var_02;
   
   this_00 = *(void **)((int)this + 4);
   if (param_1[2] == '\0') {
     if (*(char *)((int)this_00 + 0x4bc) == '\0') {
-      uVar2 = FUN_00868970(this_00,param_1);
-      if (((char)uVar2 != '\0') && ((char)param_3 != '\0')) {
+      bVar1 = Lot_IsSignedTileInBounds(this_00,param_1);
+      if ((bVar1) && ((char)param_3 != '\0')) {
         param_3 = CONCAT13(param_2,*(undefined3 *)param_1);
-        uVar1 = FUN_00a8cb10(this,(char *)&param_3);
-        return uVar1;
+        bVar1 = FloorManager_TileHasAnyRequestedFlag(this,(char *)&param_3);
+        return CONCAT31(extraout_var_00,bVar1);
       }
-      return CONCAT31((int3)((uint)uVar2 >> 8),1);
+      return CONCAT31(extraout_var,1);
     }
-    uVar1 = FUN_00807670(this_00,param_1);
+    uVar2 = FUN_00807670(this_00,param_1);
   }
   else {
-    uVar1 = FUN_00868970(this_00,param_1);
+    bVar1 = Lot_IsSignedTileInBounds(this_00,param_1);
+    uVar2 = CONCAT31(extraout_var_01,bVar1);
   }
-  if ((char)uVar1 != '\0') {
-    uVar1 = FUN_00a8d300(this,param_1,param_2,'\0',(char)param_3);
-    return uVar1;
+  if ((char)uVar2 == '\0') {
+    return uVar2 & 0xffffff00;
   }
-  return uVar1 & 0xffffff00;
+  bVar1 = FloorManager_TestPatternParts(this,param_1,param_2,false,SUB41(param_3,0));
+  return CONCAT31(extraout_var_02,bVar1);
 }
 

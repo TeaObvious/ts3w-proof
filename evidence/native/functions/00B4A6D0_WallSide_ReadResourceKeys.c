@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* ECX side owner; directed locator and output64-byte key block stack words. Existing section and
@@ -27,7 +27,7 @@ void __thiscall WallSide_ReadResourceKeys(void *this,char *param_1,undefined4 *p
   char local_3;
   
   pcVar3 = param_1;
-  puVar4 = (undefined4 *)FUN_00c418d0(*(void **)((int)this + 100),param_1);
+  puVar4 = (undefined4 *)WallGraph_FindWallForPackedLocator(*(void **)((int)this + 100),param_1);
   if (puVar4 == (undefined4 *)0x0) {
     *param_2 = DAT_011ec8d0;
     param_2[1] = DAT_011ec8d4;

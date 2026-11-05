@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst original PC1.67 instruction contract. ECX object registry plus44physical stack
@@ -31,7 +31,7 @@ ObjectRegistry_ReadAndCreateObjectRow
   uint uVar9;
   ulonglong guid;
   char local_b7;
-  ushort local_b4 [2];
+  char local_b4 [4];
   int *local_b0;
   int local_ac;
   uint local_a8;
@@ -117,15 +117,15 @@ ObjectRegistry_ReadAndCreateObjectRow
       StreamContext_ReadResourceKey(param_1,&local_a0);
     }
     else {
-      FUN_0056d0e0(param_1,local_b4);
-      ResourceReferences_ResolveNarrowHandle((void *)param_2[3],local_b4,&local_a0);
+      ReadUInt16AndAccumulateStatus(param_1,(ushort *)local_b4);
+      ResourceReferences_ResolveNarrowHandle((void *)param_2[3],(ushort *)local_b4,&local_a0);
       if (8 < local_a8) {
-        FUN_0056d0e0(param_1,local_b4);
-        ResourceReferences_ResolveNarrowHandle((void *)param_2[3],local_b4,&local_7c);
+        ReadUInt16AndAccumulateStatus(param_1,(ushort *)local_b4);
+        ResourceReferences_ResolveNarrowHandle((void *)param_2[3],(ushort *)local_b4,&local_7c);
       }
       if (9 < local_a8) {
-        FUN_0056d0e0(param_1,local_b4);
-        ResourceReferences_ResolveNarrowHandle((void *)param_2[3],local_b4,&local_6c);
+        ReadUInt16AndAccumulateStatus(param_1,(ushort *)local_b4);
+        ResourceReferences_ResolveNarrowHandle((void *)param_2[3],(ushort *)local_b4,&local_6c);
       }
     }
   }
@@ -214,9 +214,9 @@ LAB_00938b86:
       piVar7 = local_b0;
       goto LAB_00938b86;
     }
-    local_b4[0]._0_1_ = '\x01';
+    local_b4[0] = '\x01';
     ObjectEvents_Dispatch(0x27,piVar7,local_b4);
-    if ((char)local_b4[0] == '\0') {
+    if (local_b4[0] == '\0') {
       *param_9 = 0;
       goto LAB_00938a11;
     }

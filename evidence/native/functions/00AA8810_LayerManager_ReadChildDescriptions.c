@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name, original PC 1.67 TS3W.exe. Reads exact layer-description type 03D86EA4,
@@ -16,9 +16,8 @@ undefined1 __thiscall LayerManager_ReadChildDescriptions(void *this,int *resourc
 {
   int *piVar1;
   int *this_00;
-  char cVar2;
-  uint uVar3;
-  int *piVar4;
+  bool bVar2;
+  int *piVar3;
   uint local_28;
   uint childCount;
   uint local_20;
@@ -27,71 +26,71 @@ undefined1 __thiscall LayerManager_ReadChildDescriptions(void *this,int *resourc
   undefined4 local_c;
   undefined4 local_8;
   undefined4 local_4;
-
+  
   this_00 = resourceReader;
   local_c = *(undefined4 *)((int)this + 0x4c);
   local_18[2] = *(undefined4 *)((int)this + 0x48);
   local_8 = 0x3d86ea4;
   local_4 = 0;
-  cVar2 = FUN_007d84c0(resourceReader,local_18 + 2,'\0');
-  if (cVar2 == '\0') {
+  bVar2 = ResourceStreamContext_OpenWrite(resourceReader,local_18 + 2,0);
+  if (!bVar2) {
     return 0;
   }
   FUN_00d4d2a0((uint *)((int)this + 0xa0));
-  uVar3 = FUN_004dd8e0((int *)this_00[2],(ushort *)((int)this + 0x78));
-  FUN_007d79f0(this_00,(byte)uVar3);
-  if (*(ushort *)((int)this + 0x78) < 5) {
-    FUN_007d96b0(this_00,(undefined4 *)((int)this + 0x50));
-    uVar3 = FUN_004dd980((int *)this_00[2],&childCount);
-    FUN_007d79f0(this_00,(byte)uVar3);
-    local_28 = 0;
-    if (childCount != 0) {
-      do {
+  bVar2 = Stream_ReadUInt16((void *)this_00[2],(ushort *)((int)this + 0x78),this_00[4]);
+  StreamReader_AccumulateStatus(this_00,bVar2);
+  if (4 < *(ushort *)((int)this + 0x78)) {
+    return 0;
+  }
+  StreamContext_ReadUtf16String(this_00,(undefined4 *)((int)this + 0x50));
+  bVar2 = Stream_ReadUInt32((void *)this_00[2],&childCount,this_00[4]);
+  StreamReader_AccumulateStatus(this_00,bVar2);
+  local_28 = 0;
+  if (childCount != 0) {
+    do {
                     /* Iterate the descriptor's child count. For version>=2 read one UInt64 child
                        ID; older records widen one UInt32 to UInt64. A UInt32 manager type follows;
                        no LDES package scan determines admission. */
-        if (*(ushort *)((int)this + 0x78) < 2) {
-          uVar3 = FUN_004dd980((int *)this_00[2],&local_20);
-          FUN_007d79f0(this_00,(byte)uVar3);
-          local_18[0] = local_20;
-          local_18[1] = 0;
-        }
-        else {
-          uVar3 = FUN_004ddab0((int *)this_00[2],local_18);
-          FUN_007d79f0(this_00,(byte)uVar3);
-        }
-        uVar3 = FUN_004dd980((int *)this_00[2],(uint *)&local_1c);
-        FUN_007d79f0(this_00,(byte)uVar3);
+      if (*(ushort *)((int)this + 0x78) < 2) {
+        bVar2 = Stream_ReadUInt32((void *)this_00[2],&local_20,this_00[4]);
+        StreamReader_AccumulateStatus(this_00,bVar2);
+        local_18[0] = local_20;
+        local_18[1] = 0;
+      }
+      else {
+        bVar2 = Stream_ReadUInt64((void *)this_00[2],(ulonglong *)local_18,this_00[4]);
+        StreamReader_AccumulateStatus(this_00,bVar2);
+      }
+      bVar2 = Stream_ReadUInt32((void *)this_00[2],(uint *)&local_1c,this_00[4]);
+      StreamReader_AccumulateStatus(this_00,bVar2);
                     /* Create the row's child manager via 00C64000, establish parent pointer +10,
                        and append successful child to vector +A0/+A4/+A8. Only descriptor-listed
                        children are admitted. */
-        piVar4 = FUN_00c64000(*(void **)((int)this + 0xc),local_1c);
-        resourceReader = piVar4;
-        if (piVar4 != (int *)0x0) {
-          (**(code **)*piVar4)();
-          piVar4[4] = (int)this;
-          piVar1 = *(int **)((int)this + 0xa4);
-          if (piVar1 < *(int **)((int)this + 0xa8)) {
-            *(int **)((int)this + 0xa4) = piVar1 + 1;
-            if (piVar1 != (int *)0x0) {
-              *piVar1 = (int)piVar4;
-              (**(code **)*piVar4)();
-            }
-          }
-          else {
-            FUN_00c65ad0((uint *)((int)this + 0xa0),piVar1,(int *)&resourceReader);
-            piVar4 = resourceReader;
-          }
-          if (piVar4 != (int *)0x0) {
-            (**(code **)(*piVar4 + 4))();
+      piVar3 = FUN_00c64000(*(void **)((int)this + 0xc),local_1c);
+      resourceReader = piVar3;
+      if (piVar3 != (int *)0x0) {
+        (**(code **)*piVar3)();
+        piVar3[4] = (int)this;
+        piVar1 = *(int **)((int)this + 0xa4);
+        if (piVar1 < *(int **)((int)this + 0xa8)) {
+          *(int **)((int)this + 0xa4) = piVar1 + 1;
+          if (piVar1 != (int *)0x0) {
+            *piVar1 = (int)piVar3;
+            (**(code **)*piVar3)();
           }
         }
-        local_28 = local_28 + 1;
-      } while (local_28 < childCount);
-    }
-    FUN_007d7a70((int)this_00);
-    return (char)this_00[5];
+        else {
+          FUN_00c65ad0((uint *)((int)this + 0xa0),piVar1,(int *)&resourceReader);
+          piVar3 = resourceReader;
+        }
+        if (piVar3 != (int *)0x0) {
+          (**(code **)(*piVar3 + 4))();
+        }
+      }
+      local_28 = local_28 + 1;
+    } while (local_28 < childCount);
   }
-  return 0;
+  ResourceStreamContext_Close(this_00);
+  return (char)this_00[5];
 }
 

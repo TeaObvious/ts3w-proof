@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 original static instructions. ECX manager plus1stackDWORD/RET4. Outside room0; signed
@@ -85,66 +85,74 @@ void __thiscall CeilingManager_CollectExteriorPartsByElevation(void *this,int pa
       cVar9 = local_a2 + '\x01';
       local_98 = local_a4;
       local_96 = local_a2;
-      if (((((-1 < local_a2) && (cVar9 <= local_5c)) &&
-           (uVar6 = FUN_00acf460(*(void **)((int)this + 0x18),&local_a4), (char)uVar6 == '\0')) &&
-          (uVar6 = Lot_TestSelectedFloorZone2(*(void **)((int)this + 0x18),&local_a4),
-          (char)uVar6 == '\0')) &&
-         ((this_00 = *(void **)(*(int *)((int)this + 0x18) + 0x290), this_00 == (void *)0x0 ||
-          (uVar6 = FUN_00a48cd0(this_00,cVar9), (char)uVar6 == '\0')))) {
-        local_8c = 0;
-        local_94 = 4;
-        do {
-          bVar4 = '\x01' << ((byte)local_8c & 0x1f);
-          if ((local_a1 & bVar4) != 0) {
-            local_a0 = local_98;
-            local_9e = cVar9;
-            local_9d = bVar4;
-            uVar7 = FUN_00ad01d0(*(int *)((int)this + 0x18),(char *)&local_a0,'\0','\0');
-            if (((char)uVar7 != '\0') &&
-               (uVar6 = FUN_00acff30(*(int *)((int)this + 0x18),(char *)&local_a0),
-               (char)uVar6 != '\0')) {
-              local_99 = local_9e;
-              local_9a = local_a0._1_1_;
-              iVar10 = ((local_9e * 0x100 + (int)(char)local_9d) * 0x100 + (int)local_a0._1_1_) *
-                       0x100 + (int)(char)local_a0;
-              local_9b = (char)local_a0;
-              local_50 = iVar10;
-              fVar11 = FUN_0077d7e0(*(void **)((int)this + 0x18),&local_9b);
-              local_68 = (float)fVar11;
-              local_4c = (float)fVar11;
-              FUN_00a48c40(local_88,local_64,&local_4c);
-              if (local_64[0] == local_84[local_80]) {
-                local_58 = local_68;
-                piVar8 = FUN_00a48e10(&local_48,iVar10);
-                local_34 = local_58;
-                FUN_00d4c330(&local_30,piVar8[1] - *piVar8 >> 2,piVar8 + 3);
-                _Size = piVar8[1] - *piVar8;
-                local_2c = memmove(local_30,(void *)*piVar8,_Size);
-                local_2c = (void *)((int)local_2c + ((int)_Size >> 2) * 4);
-                FUN_00a48e60(&local_20,&local_34);
-                local_54 = local_54 & 0xffffff00;
-                FUN_00a48eb0(local_88,local_c,&local_20);
-                if (local_1c != (void *)0x0) {
-                  Memory_FreeIfNonNull(local_1c);
-                }
-                if (local_30 != (void *)0x0) {
-                  Memory_FreeIfNonNull(local_30);
-                }
-                if (local_48 != (void *)0x0) {
-                  Memory_FreeIfNonNull(local_48);
-                }
-              }
-              else {
-                Int32Vector_AppendValue((void *)(local_64[0] + 4),&local_50);
-              }
+      if ((-1 < local_a2) && (cVar9 <= local_5c)) {
+        uVar6 = FUN_00acf460(*(void **)((int)this + 0x18),&local_a4);
+        if ((char)uVar6 == '\0') {
+          uVar6 = Lot_TestSelectedFloorZone2(*(void **)((int)this + 0x18),&local_a4);
+          if ((char)uVar6 == '\0') {
+            this_00 = *(void **)(*(int *)((int)this + 0x18) + 0x290);
+            if (this_00 != (void *)0x0) {
+              uVar6 = FUN_00a48cd0(this_00,cVar9);
+              if ((char)uVar6 != '\0') goto LAB_00a496ae;
             }
+            local_8c = 0;
+            local_94 = 4;
+            do {
+              bVar4 = '\x01' << ((byte)local_8c & 0x1f);
+              if ((local_a1 & bVar4) != 0) {
+                local_a0 = local_98;
+                local_9e = cVar9;
+                local_9d = bVar4;
+                uVar7 = FUN_00ad01d0(*(int *)((int)this + 0x18),(char *)&local_a0,'\0','\0');
+                if (((char)uVar7 != '\0') &&
+                   (uVar6 = TestFloorCellCornerHeightAgreement
+                                      (*(int *)((int)this + 0x18),(char *)&local_a0),
+                   (char)uVar6 != '\0')) {
+                  local_99 = local_9e;
+                  local_9a = local_a0._1_1_;
+                  iVar10 = ((local_9e * 0x100 + (int)(char)local_9d) * 0x100 + (int)local_a0._1_1_)
+                           * 0x100 + (int)(char)local_a0;
+                  local_9b = (char)local_a0;
+                  local_50 = iVar10;
+                  fVar11 = FUN_0077d7e0(*(void **)((int)this + 0x18),&local_9b);
+                  local_68 = (float)fVar11;
+                  local_4c = (float)fVar11;
+                  FUN_00a48c40(local_88,local_64,&local_4c);
+                  if (local_64[0] == local_84[local_80]) {
+                    local_58 = local_68;
+                    piVar8 = FUN_00a48e10(&local_48,iVar10);
+                    local_34 = local_58;
+                    FUN_00d4c330(&local_30,piVar8[1] - *piVar8 >> 2,piVar8 + 3);
+                    _Size = piVar8[1] - *piVar8;
+                    local_2c = memmove(local_30,(void *)*piVar8,_Size);
+                    local_2c = (void *)((int)local_2c + ((int)_Size >> 2) * 4);
+                    FUN_00a48e60(&local_20,&local_34);
+                    local_54 = local_54 & 0xffffff00;
+                    FUN_00a48eb0(local_88,local_c,&local_20);
+                    if (local_1c != (void *)0x0) {
+                      Memory_FreeIfNonNull(local_1c);
+                    }
+                    if (local_30 != (void *)0x0) {
+                      Memory_FreeIfNonNull(local_30);
+                    }
+                    if (local_48 != (void *)0x0) {
+                      Memory_FreeIfNonNull(local_48);
+                    }
+                  }
+                  else {
+                    Int32Vector_AppendValue((void *)(local_64[0] + 4),&local_50);
+                  }
+                }
+              }
+              local_8c = local_8c + 1;
+              local_94 = local_94 + -1;
+            } while (local_94 != 0);
+            local_94 = 0;
+            pvVar5 = local_90;
           }
-          local_8c = local_8c + 1;
-          local_94 = local_94 + -1;
-        } while (local_94 != 0);
-        local_94 = 0;
-        pvVar5 = local_90;
+        }
       }
+LAB_00a496ae:
       bVar4 = SpanShape_NextLocation(pvVar5,(char *)&local_a4);
     }
     iVar10 = *local_84;

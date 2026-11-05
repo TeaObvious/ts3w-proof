@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). Destroys owned vertex
@@ -19,8 +19,8 @@ void __fastcall FootprintPolygonVector_Clear(uint *param_1)
     return;
   }
   do {
-    if (*(int *)(uVar2 + 0x30) != 0) {
-      FUN_004e44e0(*(int *)(uVar2 + 0x30));
+    if (*(void **)(uVar2 + 0x30) != (void *)0x0) {
+      Memory_FreeIfNonNull(*(void **)(uVar2 + 0x30));
     }
     uVar2 = uVar2 + 0x40;
   } while (uVar2 < uVar1);

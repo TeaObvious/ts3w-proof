@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -42,12 +41,12 @@ void __fastcall LotPonds_RebuildAndUpdateNativeHelpers(int param_1)
   short sVar19;
   int *piVar20;
   int *piVar21;
-  ulonglong *puVar22;
-  int iVar23;
-  void *pvVar24;
+  int iVar22;
+  void *pvVar23;
+  int iVar24;
   int iVar25;
-  int iVar26;
-  float10 fVar27;
+  float10 fVar26;
+  float fVar27;
   float fVar28;
   float fVar29;
   float fVar30;
@@ -59,7 +58,6 @@ void __fastcall LotPonds_RebuildAndUpdateNativeHelpers(int param_1)
   float fVar36;
   float fVar37;
   float fVar38;
-  float fVar39;
   ulonglong guid;
   uint local_2fc;
   int iStack_2f0;
@@ -207,17 +205,17 @@ void __fastcall LotPonds_RebuildAndUpdateNativeHelpers(int param_1)
   undefined1 local_60 [16];
   uint auStack_50 [19];
   
-  iVar23 = *(int *)(param_1 + 4);
-  if (((iVar23 != 0) && (pvVar24 = *(void **)(iVar23 + 0x294), pvVar24 != (void *)0x0)) &&
-     (local_270 = *(int *)(iVar23 + 0x290), local_270 != 0)) {
+  iVar22 = *(int *)(param_1 + 4);
+  if (((iVar22 != 0) && (pvVar23 = *(void **)(iVar22 + 0x294), pvVar23 != (void *)0x0)) &&
+     (local_270 = *(int *)(iVar22 + 0x290), local_270 != 0)) {
     this = ObjectRegistry_GetGlobal();
     local_2b8 = thunk_FUN_00835d40();
     if ((local_2b8 == 0) || (bVar9 = true, *(char *)(local_2b8 + 0x97e) == '\0')) {
       bVar9 = false;
     }
-    iVar23 = *(int *)(*(int *)(param_1 + 4) + 0x174) + 1;
-    iVar25 = *(int *)(*(int *)(param_1 + 4) + 0x178) + 1;
-    local_2b4 = iVar25;
+    iVar22 = *(int *)(*(int *)(param_1 + 4) + 0x174) + 1;
+    iVar24 = *(int *)(*(int *)(param_1 + 4) + 0x178) + 1;
+    local_2b4 = iVar24;
     FUN_00b63b70(&local_2a0,(int *)(param_1 + 0xc));
     local_274 = "Lot/PondManager";
     local_264 = "Lot/PondManager";
@@ -228,72 +226,75 @@ void __fastcall LotPonds_RebuildAndUpdateNativeHelpers(int param_1)
     local_288 = 1;
     local_28c = &DAT_0114d900;
     local_244 = 0xffffffff;
-    FUN_00b63f40(local_23c,iVar25 * iVar23,(undefined2 *)&local_244,&local_264);
-    puVar22 = local_29c;
+    FUN_00b63f40(local_23c,iVar24 * iVar22,(undefined2 *)&local_244,&local_264);
+    puVar1 = local_29c;
     *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0xc);
     local_20c = local_23c;
     sVar10 = 0;
-    local_208 = iVar23;
-    local_204 = iVar25;
-    for (puVar14 = local_2a0; puVar14 != puVar22; puVar14 = puVar14 + 0xc) {
+    local_208 = iVar22;
+    local_204 = iVar24;
+    for (puVar14 = local_2a0; puVar14 != puVar1; puVar14 = puVar14 + 0xc) {
       local_240 = (uint)(ushort)puVar14[3];
       local_268 = local_268 & 0xffffff00;
       FUN_00ae4420(local_290,local_ac,(short *)&local_240);
     }
     local_2fc = 0;
-    if (0 < iVar25) {
+    if (0 < iVar24) {
       do {
         local_2ec = 0;
-        if (0 < iVar23) {
-          local_2e0 = local_2fc * iVar23 * 2;
+        if (0 < iVar22) {
+          local_2e0 = local_2fc * iVar22 * 2;
           do {
             puVar2 = (undefined2 *)(local_2e0 + (int)local_23c[0]);
             if (*(short *)(local_2e0 + (int)local_23c[0]) == -1) {
-              uVar12 = LotWater_IsVertexUnderWater(pvVar24,local_2ec,local_2fc);
+              uVar12 = LotWater_IsVertexUnderWater(pvVar23,local_2ec,local_2fc);
               if ((char)uVar12 == '\0') {
                 *puVar2 = 0;
               }
               else {
-                iVar25 = *(int *)(local_270 + 0x24);
+                iVar24 = *(int *)(local_270 + 0x24);
                 local_26c = (float)(int)local_2fc;
                 local_2b0 = (float)(int)local_2ec;
                 local_200 = local_2b0 + 0.001;
                 fStack_1f8 = local_26c + 0.001;
                 uStack_1fc = *(undefined4 *)
-                              (*(int *)(iVar25 + 0x10) +
+                              (*(int *)(iVar24 + 0x10) +
                               (((int)(char)local_2ec -
-                               *(int *)(iVar25 + 4) * *(int *)(local_270 + 0x10)) *
-                               *(int *)(iVar25 + 8) + (int)(char)local_2fc) * 4);
+                               *(int *)(iVar24 + 4) * *(int *)(local_270 + 0x10)) *
+                               *(int *)(iVar24 + 8) + (int)(char)local_2fc) * 4);
                 fStack_1f4 = local_200;
                 local_e0 = local_200;
                 uStack_dc = uStack_1fc;
                 fStack_d8 = fStack_1f8;
                 fStack_d4 = local_200;
-                FUN_00ab7040(*(void **)(param_1 + 4),&local_e0,&local_f0);
+                Lot_LocalPositionToWorldVector(*(void **)(param_1 + 4),&local_e0,&local_f0);
                 local_2a4 = 0;
                 local_2e8 = (undefined4 *)0x0;
-                iVar25 = 0;
-                if (((local_2a0 != local_29c) && ((int)local_2ec < *(int *)(param_1 + 0x1c))) &&
-                   ((int)local_2fc < *(int *)(param_1 + 0x20))) {
-                  psVar13 = (short *)FUN_00b63590((void *)(param_1 + 0x1c),local_2ec,local_2fc);
-                  sVar19 = *psVar13;
-                  if (0 < sVar19) {
-                    puVar14 = local_2a0;
-                    do {
-                      if ((int)puVar14[3] == (int)sVar19) {
-                        iVar26 = (int)puVar14[9];
-                        iVar18 = *(int *)((int)puVar14 + 0x4c);
-                        if (iVar26 != 0 || iVar18 != 0) {
-                          *(int *)(puVar14 + 9) = 0;
-                          *(int *)((int)puVar14 + 0x4c) = 0;
-                          iVar25 = iVar26;
-                          local_2a4 = iVar18;
-                          if (iVar26 != 0 || iVar18 != 0) goto LAB_00b65600;
-                        }
-                        break;
+                iVar24 = 0;
+                if (local_2a0 != local_29c) {
+                  if ((int)local_2ec < *(int *)(param_1 + 0x1c)) {
+                    if ((int)local_2fc < *(int *)(param_1 + 0x20)) {
+                      psVar13 = (short *)FUN_00b63590((void *)(param_1 + 0x1c),local_2ec,local_2fc);
+                      sVar19 = *psVar13;
+                      if (0 < sVar19) {
+                        puVar14 = local_2a0;
+                        do {
+                          if ((int)puVar14[3] == (int)sVar19) {
+                            iVar25 = (int)puVar14[9];
+                            iVar18 = *(int *)((int)puVar14 + 0x4c);
+                            if (iVar25 != 0 || iVar18 != 0) {
+                              *(int *)(puVar14 + 9) = 0;
+                              *(int *)((int)puVar14 + 0x4c) = 0;
+                              iVar24 = iVar25;
+                              local_2a4 = iVar18;
+                              if (iVar25 != 0 || iVar18 != 0) goto LAB_00b65600;
+                            }
+                            break;
+                          }
+                          puVar14 = puVar14 + 0xc;
+                        } while (puVar14 != local_29c);
                       }
-                      puVar14 = puVar14 + 0xc;
-                    } while (puVar14 != local_29c);
+                    }
                   }
                 }
                 local_138 = (short *)local_28c[local_288];
@@ -314,8 +315,9 @@ void __fastcall LotPonds_RebuildAndUpdateNativeHelpers(int param_1)
                   ppsVar15 = &local_22c;
 LAB_00b655c4:
                   local_25c = ppsVar15[1];
-                  sVar10 = sVar19;
                 } while (*ppsVar15 != local_138);
+                iVar25 = iVar24;
+                sVar10 = sVar19;
 LAB_00b65600:
                 bVar11 = false;
                 if (this != (void *)0x0) {
@@ -345,8 +347,8 @@ LAB_00b65600:
                     local_2e8 = puVar16;
                   }
                 }
-                fVar27 = LotWater_GetVertexHeight(pvVar24,local_2ec,local_2fc);
-                local_2ac = (float)fVar27;
+                fVar26 = LotWater_GetVertexHeight(pvVar23,local_2ec,local_2fc);
+                local_2ac = (float)fVar26;
                 local_188 = (int)sVar19;
                 local_178 = local_2ec + 1;
                 local_174 = local_2fc + 1;
@@ -389,11 +391,11 @@ LAB_00b65600:
                   do {
                     iStack_2bc = piVar21[-1];
                     iStack_2c0 = piVar21[-2];
-                    iVar25 = iStack_2bc * iVar23 + iStack_2c0;
+                    iVar24 = iStack_2bc * iVar22 + iStack_2c0;
                     piVar21 = piVar21 + -2;
                     piStack_2cc = piVar21;
-                    if (*(short *)((int)local_23c[0] + iVar25 * 2) == -1) {
-                      *(short *)((int)local_23c[0] + iVar25 * 2) = sVar19;
+                    if (*(short *)((int)local_23c[0] + iVar24 * 2) == -1) {
+                      *(short *)((int)local_23c[0] + iVar24 * 2) = sVar19;
                       iStack_1a8 = iStack_2c0 + 1;
                       iStack_1a4 = iStack_2bc + 1;
                       iStack_1b0 = iStack_2c0;
@@ -403,33 +405,38 @@ LAB_00b65600:
                       iStack_2f0 = 0;
                       piVar20 = piVar21;
                       do {
-                        iVar25 = *(int *)(&DAT_011849a4 + iStack_2f0) + iStack_2c0;
-                        iVar26 = *(int *)(&DAT_01184984 + iStack_2f0) + iStack_2bc;
+                        iVar24 = *(int *)(&DAT_011849a4 + iStack_2f0) + iStack_2c0;
+                        iVar25 = *(int *)(&DAT_01184984 + iStack_2f0) + iStack_2bc;
                         piVar21 = piVar20;
-                        if ((((-1 < iVar25) && (iVar25 <= *(int *)(*(int *)(param_1 + 4) + 0x174)))
-                            && (-1 < iVar26)) &&
-                           ((iVar26 <= *(int *)(*(int *)(param_1 + 4) + 0x178) &&
-                            (iVar18 = iVar26 * iVar23 + iVar25,
-                            puStack_260 = (undefined4 *)((int)local_23c[0] + iVar18 * 2),
-                            *(short *)((int)local_23c[0] + iVar18 * 2) == -1)))) {
-                          uVar12 = LotWater_IsVertexUnderWater(pvVar24,iVar25,iVar26);
-                          if ((char)uVar12 == '\0') {
-                            *(undefined2 *)puStack_260 = 0;
-                          }
-                          else {
-                            iStack_21c = iVar25;
-                            iStack_218 = iVar26;
-                            if (piVar20 < piStack_2c8) {
-                              piStack_2cc = piVar20 + 2;
-                              piVar21 = piStack_2cc;
-                              if (piVar20 != (int *)0x0) {
-                                *piVar20 = iVar25;
-                                piVar20[1] = iVar26;
+                        if (-1 < iVar24) {
+                          if (iVar24 <= *(int *)(*(int *)(param_1 + 4) + 0x174)) {
+                            if (-1 < iVar25) {
+                              if (iVar25 <= *(int *)(*(int *)(param_1 + 4) + 0x178)) {
+                                iVar18 = iVar25 * iVar22 + iVar24;
+                                puStack_260 = (undefined4 *)((int)local_23c[0] + iVar18 * 2);
+                                if (*(short *)((int)local_23c[0] + iVar18 * 2) == -1) {
+                                  uVar12 = LotWater_IsVertexUnderWater(pvVar23,iVar24,iVar25);
+                                  if ((char)uVar12 == '\0') {
+                                    *(undefined2 *)puStack_260 = 0;
+                                  }
+                                  else {
+                                    iStack_21c = iVar24;
+                                    iStack_218 = iVar25;
+                                    if (piVar20 < piStack_2c8) {
+                                      piStack_2cc = piVar20 + 2;
+                                      piVar21 = piStack_2cc;
+                                      if (piVar20 != (int *)0x0) {
+                                        *piVar20 = iVar24;
+                                        piVar20[1] = iVar25;
+                                      }
+                                    }
+                                    else {
+                                      FUN_0040c540(&piStack_2d0,piVar20,&iStack_21c);
+                                      piVar21 = piStack_2cc;
+                                    }
+                                  }
+                                }
                               }
-                            }
-                            else {
-                              FUN_0040c540(&piStack_2d0,piVar20,&iStack_21c);
-                              piVar21 = piStack_2cc;
                             }
                           }
                         }
@@ -486,71 +493,72 @@ LAB_00b65600:
                     fStack_fc = local_2ac;
                     fStack_f8 = local_26c;
                     fStack_f4 = 1.0;
-                    pfVar17 = (float *)FUN_00ab1540(*(void **)(param_1 + 4),auStack_50);
+                    pfVar17 = (float *)Lot_BuildLocalToWorldPoseMatrix
+                                                 (*(void **)(param_1 + 4),auStack_50);
                     fVar3 = *pfVar17;
-                    fVar34 = pfVar17[1];
-                    fVar35 = pfVar17[2];
-                    fVar36 = pfVar17[3];
+                    fVar33 = pfVar17[1];
+                    fVar34 = pfVar17[2];
+                    fVar35 = pfVar17[3];
                     fVar4 = pfVar17[4];
                     fVar5 = pfVar17[5];
-                    fVar38 = pfVar17[6];
-                    fVar39 = pfVar17[7];
+                    fVar37 = pfVar17[6];
+                    fVar38 = pfVar17[7];
                     fVar6 = pfVar17[8];
                     fVar7 = pfVar17[9];
                     fVar8 = pfVar17[10];
-                    fVar37 = pfVar17[0xb];
+                    fVar36 = pfVar17[0xb];
                     puStack_260 = (undefined4 *)pfVar17[0xc];
                     local_25c = (short *)pfVar17[0xd];
                     fStack_258 = pfVar17[0xe];
                     fStack_254 = pfVar17[0xf];
+                    fVar30 = fStack_12c * fVar37;
                     fVar31 = fStack_12c * fVar38;
-                    fVar32 = fStack_12c * fVar39;
+                    fVar27 = fStack_130 * fVar33;
                     fVar28 = fStack_130 * fVar34;
                     fVar29 = fStack_130 * fVar35;
-                    fVar30 = fStack_130 * fVar36;
-                    fVar33 = fStack_128 * fVar37;
+                    fVar32 = fStack_128 * fVar36;
                     fStack_130 = fStack_130 * fVar3 + fStack_12c * fVar4 + fStack_128 * fVar6 +
                                  fStack_124 * (float)puStack_260;
-                    fStack_12c = fVar28 + fStack_12c * fVar5 + fStack_128 * fVar7 +
+                    fStack_12c = fVar27 + fStack_12c * fVar5 + fStack_128 * fVar7 +
                                  fStack_124 * (float)local_25c;
-                    fStack_128 = fVar29 + fVar31 + fStack_128 * fVar8 + fStack_124 * fStack_258;
-                    fStack_124 = fVar30 + fVar32 + fVar33 + fStack_124 * fStack_254;
+                    fStack_128 = fVar28 + fVar30 + fStack_128 * fVar8 + fStack_124 * fStack_258;
+                    fStack_124 = fVar29 + fVar31 + fVar32 + fStack_124 * fStack_254;
+                    fVar30 = fStack_11c * fVar37;
                     fVar31 = fStack_11c * fVar38;
-                    fVar32 = fStack_11c * fVar39;
+                    fVar27 = fStack_120 * fVar33;
                     fVar28 = fStack_120 * fVar34;
                     fVar29 = fStack_120 * fVar35;
-                    fVar30 = fStack_120 * fVar36;
-                    fVar33 = fStack_118 * fVar37;
+                    fVar32 = fStack_118 * fVar36;
                     fStack_120 = fStack_120 * fVar3 + fStack_11c * fVar4 + fStack_118 * fVar6 +
                                  fStack_114 * (float)puStack_260;
-                    fStack_11c = fVar28 + fStack_11c * fVar5 + fStack_118 * fVar7 +
+                    fStack_11c = fVar27 + fStack_11c * fVar5 + fStack_118 * fVar7 +
                                  fStack_114 * (float)local_25c;
-                    fStack_118 = fVar29 + fVar31 + fStack_118 * fVar8 + fStack_114 * fStack_258;
-                    fStack_114 = fVar30 + fVar32 + fVar33 + fStack_114 * fStack_254;
+                    fStack_118 = fVar28 + fVar30 + fStack_118 * fVar8 + fStack_114 * fStack_258;
+                    fStack_114 = fVar29 + fVar31 + fVar32 + fStack_114 * fStack_254;
+                    fVar27 = fStack_110 * fVar33;
                     fVar28 = fStack_110 * fVar34;
                     fVar29 = fStack_110 * fVar35;
-                    fVar30 = fStack_110 * fVar36;
+                    fVar30 = fStack_10c * fVar37;
                     fVar31 = fStack_10c * fVar38;
-                    fVar32 = fStack_10c * fVar39;
-                    fVar33 = fStack_108 * fVar37;
+                    fVar32 = fStack_108 * fVar36;
                     fStack_110 = fStack_110 * fVar3 + fStack_10c * fVar4 + fStack_108 * fVar6 +
                                  fStack_104 * (float)puStack_260;
-                    fStack_10c = fVar28 + fStack_10c * fVar5 + fStack_108 * fVar7 +
+                    fStack_10c = fVar27 + fStack_10c * fVar5 + fStack_108 * fVar7 +
                                  fStack_104 * (float)local_25c;
-                    fStack_108 = fVar29 + fVar31 + fStack_108 * fVar8 + fStack_104 * fStack_258;
-                    fStack_104 = fVar30 + fVar32 + fVar33 + fStack_104 * fStack_254;
+                    fStack_108 = fVar28 + fVar30 + fStack_108 * fVar8 + fStack_104 * fStack_258;
+                    fStack_104 = fVar29 + fVar31 + fVar32 + fStack_104 * fStack_254;
+                    fVar33 = fStack_100 * fVar33;
                     fVar34 = fStack_100 * fVar34;
                     fVar35 = fStack_100 * fVar35;
-                    fVar36 = fStack_100 * fVar36;
+                    fVar37 = fStack_fc * fVar37;
                     fVar38 = fStack_fc * fVar38;
-                    fVar39 = fStack_fc * fVar39;
-                    fVar37 = fStack_f8 * fVar37;
+                    fVar36 = fStack_f8 * fVar36;
                     fStack_100 = fStack_100 * fVar3 + fStack_fc * fVar4 + fStack_f8 * fVar6 +
                                  fStack_f4 * (float)puStack_260;
-                    fStack_fc = fVar34 + fStack_fc * fVar5 + fStack_f8 * fVar7 +
+                    fStack_fc = fVar33 + fStack_fc * fVar5 + fStack_f8 * fVar7 +
                                 fStack_f4 * (float)local_25c;
-                    fStack_f8 = fVar35 + fVar38 + fStack_f8 * fVar8 + fStack_f4 * fStack_258;
-                    fStack_f4 = fVar36 + fVar39 + fVar37 + fStack_f4 * fStack_254;
+                    fStack_f8 = fVar34 + fVar37 + fStack_f8 * fVar8 + fStack_f4 * fStack_258;
+                    fStack_f4 = fVar35 + fVar38 + fVar36 + fStack_f4 * fStack_254;
                     fStack_a0 = fStack_130;
                     fStack_9c = fStack_12c;
                     fStack_98 = fStack_128;
@@ -569,9 +577,9 @@ LAB_00b65600:
                     fStack_64 = fStack_f4;
                     TransformComponent_SetWorldMatrix(this_00,&fStack_130);
                   }
-                  FUN_00b64ce0(local_2e8,(int)&local_1a0);
-                  iVar25 = FUN_0068f130((int)local_2e8);
-                  if ((iVar25 == 0) || (bVar11)) {
+                  LotPonds_SetHelperRectangleFootprint(local_2e8,(int)&local_1a0);
+                  iVar24 = FUN_0068f130((int)local_2e8);
+                  if ((iVar24 == 0) || (bVar11)) {
                     if (bVar9) {
                       *(undefined1 *)(local_2b8 + 0x978) = 1;
                     }
@@ -590,10 +598,10 @@ LAB_00b65600:
                 if (local_2e8 != (undefined4 *)0x0) {
                   piVar21 = local_2e8 + 1;
                   LOCK();
-                  iVar25 = *piVar21;
+                  iVar24 = *piVar21;
                   *piVar21 = *piVar21 + -1;
                   UNLOCK();
-                  if (iVar25 == 1) {
+                  if (iVar24 == 1) {
                     LOCK();
                     *piVar21 = 1;
                     UNLOCK();
@@ -604,21 +612,21 @@ LAB_00b65600:
             }
             local_2e0 = local_2e0 + 2;
             local_2ec = local_2ec + 1;
-          } while ((int)local_2ec < iVar23);
+          } while ((int)local_2ec < iVar22);
         }
         local_2fc = local_2fc + 1;
       } while ((int)local_2fc < local_2b4);
     }
-    pvVar24 = (void *)(param_1 + 0x1c);
-    FUN_00b646b0(pvVar24,iVar23,local_2b4);
-    FUN_00b64940(pvVar24,(int *)local_23c);
-    FUN_00b64390((int)pvVar24);
+    pvVar23 = (void *)(param_1 + 0x1c);
+    FUN_00b646b0(pvVar23,iVar22,local_2b4);
+    FUN_00b64940(pvVar23,(int *)local_23c);
+    FUN_00b64390((int)pvVar23);
     puVar14 = local_2a0;
     if ((local_2a0 != local_29c) && (this != (void *)0x0)) {
-      puVar22 = local_2a0 + 9;
+      puVar14 = local_2a0 + 9;
       do {
-        if (((int)*puVar22 != 0 || *(int *)((int)puVar22 + 4) != 0) &&
-           (puVar16 = ObjectRegistry_FindBorrowed(this,*puVar22), puVar16 != (undefined4 *)0x0)) {
+        if (((int)*puVar14 != 0 || *(int *)((int)puVar14 + 4) != 0) &&
+           (puVar16 = ObjectRegistry_FindBorrowed(this,*puVar14), puVar16 != (undefined4 *)0x0)) {
           piVar21 = puVar16 + 1;
           LOCK();
           *piVar21 = *piVar21 + 1;
@@ -626,20 +634,20 @@ LAB_00b65600:
           (**(code **)(**(int **)(param_1 + 4) + 0x3c))(puVar16,0);
           FUN_0076d2a0(puVar16[2],puVar16[3]);
           LOCK();
-          iVar23 = *piVar21;
+          iVar22 = *piVar21;
           *piVar21 = *piVar21 + -1;
           UNLOCK();
-          if (iVar23 == 1) {
+          if (iVar22 == 1) {
             LOCK();
             *piVar21 = 1;
             UNLOCK();
             (**(code **)*puVar16)(1);
           }
         }
-        puVar1 = puVar22 + 3;
-        puVar14 = local_2a0;
-        puVar22 = puVar22 + 0xc;
+        puVar1 = puVar14 + 3;
+        puVar14 = puVar14 + 0xc;
       } while (puVar1 != local_29c);
+      puVar14 = local_2a0;
     }
     if (local_23c[0] != (void *)0x0) {
       Memory_FreeIfNonNull(local_23c[0]);

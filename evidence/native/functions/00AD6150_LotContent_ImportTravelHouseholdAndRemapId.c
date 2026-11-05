@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original instruction review: source adapter pointer, returns64ID EDX:EAX or0. Reads
@@ -12,14 +12,15 @@
 undefined8 LotContent_ImportTravelHouseholdAndRemapId(uint *param_1)
 
 {
-  undefined4 uVar1;
+  ulonglong instance;
+  ulonglong uVar1;
   void *this;
-  char cVar2;
+  bool bVar2;
   undefined4 uVar3;
-  int iVar4;
+  undefined4 uVar4;
   int iVar5;
-  undefined4 *unaff_EBP;
-  undefined4 *unaff_ESI;
+  ulonglong *unaff_EBP;
+  ulonglong *unaff_ESI;
   undefined4 local_dc;
   undefined4 local_d8;
   undefined4 local_d4;
@@ -44,45 +45,47 @@ undefined8 LotContent_ImportTravelHouseholdAndRemapId(uint *param_1)
   (**(code **)(*(int *)*param_1 + 0x30))(&local_dc,&local_cc);
   this = DAT_011ea6a4;
   if (unaff_ESI == unaff_EBP) {
-    if (unaff_ESI != (undefined4 *)0x0) {
-      FUN_004e44e0((int)unaff_ESI);
+    if (unaff_ESI != (ulonglong *)0x0) {
+      Memory_FreeIfNonNull(unaff_ESI);
     }
     return 0;
   }
   FUN_007d7900(apiStack_bc);
   uVar3 = FUN_009a16e0(this,apiStack_bc);
   if ((char)uVar3 != '\0') {
-    uVar3 = *unaff_ESI;
-    uVar1 = unaff_ESI[1];
+    uVar1 = *unaff_ESI;
+    uVar3 = *(undefined4 *)((int)unaff_ESI + 4);
+    instance = *unaff_ESI;
     uStack_9c = FUN_007cfe00('\0');
     uStack_90 = (undefined4)((ulonglong)uStack_9c >> 0x20);
-    iVar4 = (int)uStack_9c;
+    uVar4 = (undefined4)uStack_9c;
     local_cc = &PTR_LAB_01066cec;
     ppuStack_a4 = &PTR_LAB_01068e94;
-    uStack_c4 = uVar3;
-    uStack_c0 = uVar1;
+    uStack_c4 = (int)uVar1;
+    uStack_c0 = uVar3;
     iVar5 = FUN_007d9130(apiStack_bc[0],(int *)*param_1);
     if (iVar5 != 0) {
-      FUN_007d6be0(auStack_8c,0);
-      cVar2 = FUN_007d73f0(auStack_8c,param_1,0x283095,uVar3,uVar1,(undefined4 *)0x1);
-      if (cVar2 != '\0') {
+      ResourceReferences_ConstructContext(auStack_8c,0);
+      bVar2 = ReferenceStore_ReadResource(auStack_8c,param_1,0x283095,instance,1);
+      if (bVar2) {
         FUN_00ad59e0((int)auStack_2c,apiStack_bc,param_1);
         uVar3 = uStack_90;
-        FUN_007d6940(auStack_8c,apiStack_bc,0x283095,iVar4,uStack_90,(void *)0x0);
+        ReferenceStore_WriteResource
+                  (auStack_8c,apiStack_bc,0x283095,CONCAT44(uStack_90,uVar4),(void *)0x0);
         FUN_007d6890((int)auStack_8c);
         local_cc = &PTR_LAB_00fb3ccc;
-        FUN_007d7990((int)apiStack_bc);
-        if (unaff_ESI != (undefined4 *)0x0) {
-          FUN_004e44e0((int)unaff_ESI);
+        StreamReader_ReleaseAuxiliary(apiStack_bc);
+        if (unaff_ESI != (ulonglong *)0x0) {
+          Memory_FreeIfNonNull(unaff_ESI);
         }
-        return CONCAT44(uVar3,iVar4);
+        return CONCAT44(uVar3,uVar4);
       }
       FUN_007d6890((int)auStack_8c);
     }
   }
-  FUN_007d7990((int)apiStack_bc);
-  if (unaff_ESI != (undefined4 *)0x0) {
-    FUN_004e44e0((int)unaff_ESI);
+  StreamReader_ReleaseAuxiliary(apiStack_bc);
+  if (unaff_ESI != (ulonglong *)0x0) {
+    Memory_FreeIfNonNull(unaff_ESI);
   }
   return 0;
 }

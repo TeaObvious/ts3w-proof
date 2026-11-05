@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 thiscall lot pointer+point pointer RET8, ALBoolean only. Click requires selected same
@@ -84,13 +84,13 @@ bool __thiscall LotPaintTool_OnLotClick(void *this,undefined *lot,LotPaintPoint 
         FUN_00cee5a0((int)this + -0x28);
         (**(code **)(*(int *)this + 0x74))(lot,&local_68,0);
         if (*(int *)((int)this + 0x17c) == 0) {
-          uVar5 = FUN_00cedf20(DAT_011ec060);
+          uVar5 = UserTool_StartKeyedSound(DAT_011ec060);
           *(undefined4 *)((int)this + 0x17c) = uVar5;
         }
         return true;
       }
     }
-    FUN_00ad6720(local_50,0xd7,(int)lot,&local_68.x,0,0);
+    BuildEditErrorRecord_InitializeAtLotPoint(local_50,0xd7,lot,&local_68,0,0);
     FUN_00ad8570(errors,local_50);
     FUN_00cd3890(errors,1,'\x01');
     FUN_00ad70d0((int)local_50);

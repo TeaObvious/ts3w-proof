@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): ECX graph,
@@ -106,10 +106,10 @@ WallGraph_WriteResource(void *this,void *param_1,int param_2,undefined4 param_3,
       StreamReader_AccumulateStatus(param_1,bVar8);
       pbVar9 = FUN_00c35f00((byte *)(puVar10 + 1));
       uVar3 = *(uint *)puVar10[3];
-      puVar10 = (uint *)FUN_00c36010((byte *)(puVar10 + 1));
+      puVar10 = (uint *)WallHalfEdge_ReadOppositeVertex((byte *)(puVar10 + 1));
       uVar4 = *puVar10;
       uVar5 = **(uint **)(pbVar9 + 8);
-      puVar10 = (uint *)FUN_00c36010(pbVar9);
+      puVar10 = (uint *)WallHalfEdge_ReadOppositeVertex(pbVar9);
       uVar6 = *puVar10;
       bVar8 = FUN_004de060(*(int **)((int)param_1 + 8),uVar3,*(int *)((int)param_1 + 0x10));
       StreamReader_AccumulateStatus(param_1,bVar8);

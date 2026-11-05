@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011634f0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011634f0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_FindPlacesOnRoad [assembly=ScriptCore token=0x060007A2; objId:
    System.UInt64, objIdsToIgnore: System.UInt64[], pos: Sims3.SimIFace.Vector3&, option:
    System.UInt32, requestCount: System.UInt32, separation: System.Single, posArray:
@@ -18,11 +19,12 @@ ScriptCore.World::World_FindPlacesOnRoad
           ,float param_7,undefined4 param_8,undefined4 param_9)
 
 {
-  longlong lVar1;
-  bool bVar2;
-  int iVar3;
+  int iVar1;
+  longlong lVar2;
+  bool bVar3;
+  void *this;
   int *piVar4;
-  float *pfVar5;
+  float *allocation;
   int unaff_EBX;
   undefined4 uStack_4c;
   uint local_48;
@@ -40,9 +42,9 @@ ScriptCore.World::World_FindPlacesOnRoad
   float fStack_18;
   float fStack_14;
   
-  iVar3 = FUN_00937570();
-  if (iVar3 != 0) {
-    local_38 = (undefined4 *)FUN_00937f80(iVar3);
+  this = ObjectRegistry_GetGlobal();
+  if (this != (void *)0x0) {
+    local_38 = ObjectRegistry_FindBorrowed(this,CONCAT44(param_2,param_1));
     if (local_38 != (undefined4 *)0x0) {
       LOCK();
       local_38[1] = local_38[1] + 1;
@@ -63,32 +65,32 @@ ScriptCore.World::World_FindPlacesOnRoad
       if (param_3 != 0) {
         (**(code **)(*piVar4 + 0x68))(param_3,&local_40,&local_44);
       }
-      lVar1 = (ulonglong)(param_6 * 3) * 4;
+      lVar2 = (ulonglong)(param_6 * 3) * 4;
       local_48 = 0;
-      pfVar5 = (float *)FUN_004e4500(-(uint)((int)((ulonglong)lVar1 >> 0x20) != 0) | (uint)lVar1,
-                                     "World/Placement",0);
-      lVar1 = (ulonglong)(param_6 * 4) * 4;
-      pfStack_3c = (float *)FUN_004e4500(-(uint)((int)((ulonglong)lVar1 >> 0x20) != 0) | (uint)lVar1
+      allocation = (float *)FUN_004e4500(-(uint)((int)((ulonglong)lVar2 >> 0x20) != 0) | (uint)lVar2
                                          ,"World/Placement",0);
-      bVar2 = FUN_00c7b490(local_34,local_38,local_40,local_44,&local_20,param_5,param_6,param_7,
-                           &local_48,pfVar5,pfStack_3c);
-      uStack_4c = CONCAT13(bVar2,(undefined3)uStack_4c);
-      if (bVar2) {
-        (**(code **)(*piVar4 + 0xa8))(param_8,pfVar5,0,local_48 * 3);
+      lVar2 = (ulonglong)(param_6 * 4) * 4;
+      pfStack_3c = (float *)FUN_004e4500(-(uint)((int)((ulonglong)lVar2 >> 0x20) != 0) | (uint)lVar2
+                                         ,"World/Placement",0);
+      bVar3 = FUN_00c7b490(local_34,local_38,local_40,local_44,&local_20,param_5,param_6,param_7,
+                           &local_48,allocation,pfStack_3c);
+      uStack_4c = CONCAT13(bVar3,(undefined3)uStack_4c);
+      if (bVar3) {
+        (**(code **)(*piVar4 + 0xa8))(param_8,allocation,0,local_48 * 3);
         (**(code **)(*piVar4 + 0xa8))(param_9,uStack_4c,0,unaff_EBX * 4);
       }
-      FUN_004e44e0((int)pfVar5);
-      FUN_004e44e0((int)pfStack_3c);
+      Memory_FreeIfNonNull(allocation);
+      Memory_FreeIfNonNull(pfStack_3c);
       FUN_007462e0((int *)&local_38);
-      return bVar2;
+      return bVar3;
     }
     if (local_38 != (undefined4 *)0x0) {
       piVar4 = local_38 + 1;
       LOCK();
-      iVar3 = *piVar4;
+      iVar1 = *piVar4;
       *piVar4 = *piVar4 + -1;
       UNLOCK();
-      if (iVar3 == 1) {
+      if (iVar1 == 1) {
         LOCK();
         *piVar4 = 1;
         UNLOCK();

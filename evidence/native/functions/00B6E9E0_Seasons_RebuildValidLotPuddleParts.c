@@ -1,8 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-Decompiled function Seasons_RebuildValidLotPuddleParts:
 
 
 /* Analyst-assigned name. Rebuilds valid per-level puddle part sets from candidates. Exposure/room
@@ -35,12 +33,12 @@ void __fastcall Seasons_RebuildValidLotPuddleParts(int param_1)
   undefined4 *local_1c;
   uint local_18;
   undefined4 local_14;
-  undefined4 local_10;
+  float local_10;
   undefined4 local_c;
   undefined4 local_8;
   char *local_4;
-
-  bVar5 = FUN_00523da0(&DAT_011cede0,0x8000);
+  
+  bVar5 = FlagWord_TestAnyMask(&DAT_011cede0,0x8000);
   if (bVar5) {
     if (*(char *)(param_1 + 0x38) == '\0') {
       Seasons_CollectLotPuddleCandidates(param_1);
@@ -52,7 +50,7 @@ void __fastcall Seasons_RebuildValidLotPuddleParts(int param_1)
        (local_34 = 0, -1 < *(int *)(iVar2 + 0x180))) {
       do {
         this = *(undefined4 **)(param_1 + 0x28);
-        local_10 = 0x3f800000;
+        local_10 = 1.0;
         local_c = 0x40000000;
         local_4 = "Scratch/RainPuddleManager/PuddleValidTilePartSet";
         local_18 = 1;
@@ -71,7 +69,7 @@ void __fastcall Seasons_RebuildValidLotPuddleParts(int param_1)
         FUN_00ae0410((int)local_1c,local_18);
         local_14 = 0;
         if (1 < local_18) {
-          FUN_004e44e0((int)local_1c);
+          Memory_FreeIfNonNull(local_1c);
         }
         piVar11 = *(int **)(param_1 + 8);
         iVar9 = local_34 * 0x20;
@@ -99,8 +97,9 @@ void __fastcall Seasons_RebuildValidLotPuddleParts(int param_1)
                  ((pvVar4 = *(void **)(*(int *)(param_1 + 0x34) + 0x298), pvVar4 == (void *)0x0 ||
                   (sVar7 = FUN_00b470e0(pvVar4,(char *)&local_38,0,'\x01'), sVar7 == 0)))))) &&
                ((local_34 != 0 ||
-                (uVar8 = FUN_00acff30(*(int *)(param_1 + 0x34),(char *)&local_38),
-                (char)uVar8 != '\0')))) {
+                (uVar8 = TestFloorCellCornerHeightAgreement
+                                   (*(int *)(param_1 + 0x34),(char *)&local_38), (char)uVar8 != '\0'
+                )))) {
               local_30 = local_30 & 0xffffff00;
               FUN_00a56160((void *)(iVar9 + iVar2),local_2c,(char *)&local_38);
             }
@@ -119,5 +118,4 @@ void __fastcall Seasons_RebuildValidLotPuddleParts(int param_1)
   }
   return;
 }
-
 

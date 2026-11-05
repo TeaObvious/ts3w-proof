@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161c08 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161c08 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.RouteManager::RouteManager_RoutingBlockerCheck2d [assembly=ScriptCore
    token=0x0600105F; startPoint: Sims3.SimIFace.Vector2, startPointLevel: System.Int32, endPoint:
    Sims3.SimIFace.Vector2, endPointLevel: System.Int32, options: System.UInt64, options2:
@@ -20,19 +21,21 @@ ScriptCore.RouteManager::RouteManager_RoutingBlockerCheck2d
           undefined4 param_10)
 
 {
-  int iVar1;
+  void *pvVar1;
   void *this;
   void *pvVar2;
   void *pvVar3;
-  void *pvVar4;
-  float10 fVar5;
+  float10 fVar4;
+  undefined4 in_stack_0000002c;
+  undefined4 in_stack_00000030;
+  int iStack00000034;
   undefined4 in_stack_0000003c;
-  int *piVar6;
+  int *piVar5;
+  char cVar6;
   char cVar7;
   char cVar8;
   char cVar9;
   char cVar10;
-  char cVar11;
   float local_fc;
   undefined4 local_f8;
   undefined4 local_f4;
@@ -48,45 +51,46 @@ ScriptCore.RouteManager::RouteManager_RoutingBlockerCheck2d
   undefined4 local_ac;
   undefined4 local_90 [35];
   
-  iVar1 = FUN_00937570();
+  pvVar1 = ObjectRegistry_GetGlobal();
   this = (void *)thunk_FUN_00835d40();
   pvVar3 = DAT_011edbc4;
   if (DAT_011edbc4 == (void *)0x0) {
     pvVar2 = (void *)0x0;
   }
   else {
-    pvVar2 = FUN_00c687d0(DAT_011edbc4,param_1,param_2);
+    pvVar2 = LotSpatialIndex_FindContainingLotAtWorldXZ(DAT_011edbc4,param_1,param_2);
   }
-  if ((((this != (void *)0x0) && (iVar1 != 0)) && (pvVar3 != (void *)0x0)) &&
-     (pvVar2 != (void *)0x0)) {
-    FUN_00651100(&local_d0);
-    fStack_e4 = param_1;
-    fStack_e8 = param_2;
-    fVar5 = FUN_00c6a090(pvVar3,param_1,param_2,param_3,'\x01','\0',(undefined1 *)0x0,
-                         (undefined1 *)0x0,'\0','\x01');
-    fStack_ec = (float)fVar5;
-    cVar11 = '\0';
-    cVar10 = '\0';
-    cVar9 = '\0';
-    cVar8 = '\0';
-    cVar7 = '\0';
-    local_f0 = param_1;
-    piVar6 = (int *)&stack0x00000034;
-    local_f4 = param_6;
-    local_d0 = param_1;
-    fStack_c8 = fStack_e8;
-    fStack_c4 = fStack_e4;
-    local_fc = param_4;
-    local_ac = param_3;
-    local_f8 = param_5;
-    fStack_cc = fStack_ec;
-    pvVar3 = (void *)FUN_00937f80(iVar1);
-    pvVar4 = (void *)FUN_0081c7b0(local_90,param_7,param_8,param_9,param_10);
-    FUN_0082dd70(this,local_e0,(int)pvVar2,&local_d0,&local_fc,pvVar4,pvVar3,piVar6,cVar7,cVar8,
-                 cVar9,cVar10,cVar11,in_stack_0000003c);
-    FUN_0081c830(local_90);
-    return local_e0[0];
+  if ((((this == (void *)0x0) || (pvVar1 == (void *)0x0)) || (pvVar3 == (void *)0x0)) ||
+     (pvVar2 == (void *)0x0)) {
+    return 8;
   }
-  return 8;
+  FUN_00651100(&local_d0);
+  fStack_e4 = param_1;
+  fStack_e8 = param_2;
+  fVar4 = WorldSurface_QueryHeight
+                    (pvVar3,param_1,param_2,param_3,'\x01','\0',(undefined1 *)0x0,(undefined1 *)0x0,
+                     '\0','\x01');
+  fStack_ec = (float)fVar4;
+  cVar10 = '\0';
+  cVar9 = '\0';
+  cVar8 = '\0';
+  cVar7 = '\0';
+  cVar6 = '\0';
+  local_f0 = param_1;
+  piVar5 = &iStack00000034;
+  local_f4 = param_6;
+  local_d0 = param_1;
+  fStack_c8 = fStack_e8;
+  fStack_c4 = fStack_e4;
+  local_fc = param_4;
+  local_ac = param_3;
+  local_f8 = param_5;
+  fStack_cc = fStack_ec;
+  pvVar3 = ObjectRegistry_FindBorrowed(pvVar1,CONCAT44(in_stack_00000030,in_stack_0000002c));
+  pvVar1 = (void *)FUN_0081c7b0(local_90,param_7,param_8,param_9,param_10);
+  FUN_0082dd70(this,local_e0,(int)pvVar2,&local_d0,&local_fc,pvVar1,pvVar3,piVar5,cVar6,cVar7,cVar8,
+               cVar9,cVar10,in_stack_0000003c);
+  FUN_0081c830(local_90);
+  return local_e0[0];
 }
 

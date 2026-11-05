@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 FindGoodLocation boundary contract. cdecl2pointers RET, AL Boolean.
@@ -15,35 +15,34 @@
 bool __cdecl FglCandidate_TestPlacementChain(int *candidate,void *optionalOutput)
 
 {
-  bool bVar1;
-  char cVar2;
-  undefined1 uVar3;
-  uint uVar4;
-  int iVar5;
-  undefined4 uVar6;
+  char cVar1;
+  undefined1 uVar2;
+  uint uVar3;
+  void *catalog;
+  undefined4 uVar4;
   
-  uVar4 = FUN_00afbd00((float)candidate[5]);
-  candidate[8] = uVar4;
-  iVar5 = FUN_00c8ebb0(DAT_011ee034,(uint *)(*candidate + 0x18));
-  candidate[7] = iVar5;
-  if (iVar5 == 0) {
+  uVar3 = Placement_QuantizeYawToOctant((float)candidate[5]);
+  candidate[8] = uVar3;
+  catalog = (void *)ObjectCatalog_FindByTypedKey(DAT_011ee034,(uint *)(*candidate + 0x18));
+  candidate[7] = (int)catalog;
+  if (catalog == (void *)0x0) {
     return false;
   }
   if (*(char *)((int)candidate + 0x81) == '\0') {
-    bVar1 = FUN_00afc090(iVar5);
-    if (bVar1) {
-      uVar6 = FUN_00b3b2f0(candidate[7],candidate[1],(float *)(candidate + 2),optionalOutput);
-      if ((char)uVar6 == '\0') {
+    uVar3 = Catalog_TestPlacementMask403F(catalog);
+    if ((char)uVar3 != '\0') {
+      uVar4 = FUN_00b3b2f0(candidate[7],candidate[1],(float *)(candidate + 2),optionalOutput);
+      if ((char)uVar4 == '\0') {
         return false;
       }
     }
   }
-  cVar2 = FUN_00b45410(candidate,optionalOutput);
-  uVar3 = 0;
-  if (cVar2 != '\0') {
-    uVar6 = FUN_00b43900(candidate,optionalOutput);
-    uVar3 = (undefined1)uVar6;
+  cVar1 = ObjectPlacement_TestLotAdmission(candidate,optionalOutput);
+  uVar2 = 0;
+  if (cVar1 != '\0') {
+    uVar4 = FUN_00b43900(candidate,optionalOutput);
+    uVar2 = (undefined1)uVar4;
   }
-  return (bool)uVar3;
+  return (bool)uVar2;
 }
 

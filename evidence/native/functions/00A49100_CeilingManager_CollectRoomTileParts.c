@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 original static instructions. ECX manager plus3stackDWORDs/RET0C: room ID lowInt16,
@@ -114,9 +114,9 @@ LAB_00a491e0:
         bVar7 = '\x01' << (bVar3 & 0x1f);
         if ((local_39 & bVar7) != 0) {
           local_38 = local_40;
-          local_36 = local_3e;
           local_1c = local_3c;
           uStack_19 = CONCAT31(uStack_19._1_3_,bVar7);
+          local_36 = local_3e;
           cStack_1a = local_3a;
           uVar6 = FUN_00ad01d0(*(int *)((int)this + 0x18),(char *)&local_1c,'\0','\0');
           if (((char)uVar6 == '\0') &&
@@ -124,7 +124,8 @@ LAB_00a491e0:
               (uVar6 = FUN_00a8e170(*(void **)(*(int *)((int)this + 0x18) + 0x290),&local_1c,
                                     (byte)uStack_19,1), (char)uVar6 == '\0')))) {
             if (local_3e < -1) {
-              bVar4 = FUN_00ab6d10(*(void **)((int)this + 0x18),(char *)&local_3c);
+              bVar4 = LotBasement_TestAnyRequestedPart
+                                (*(void **)((int)this + 0x18),(char *)&local_3c);
             }
             else {
               if (local_3e != '\0') goto LAB_00a4936c;
@@ -154,8 +155,8 @@ LAB_00a492f5:
 LAB_00a4936c:
         bVar3 = bVar3 + 1;
         iVar9 = iVar9 + -1;
-        pvVar8 = local_20;
       } while (iVar9 != 0);
+      pvVar8 = local_20;
     }
     bVar3 = SpanShape_NextLocation(local_30,(char *)&local_40);
   } while( true );

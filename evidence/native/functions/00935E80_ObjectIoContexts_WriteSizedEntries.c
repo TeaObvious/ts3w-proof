@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 object IO context instruction contract. ECX context array owner, TWO physical
@@ -24,10 +24,10 @@ byte __thiscall ObjectIoContexts_WriteSizedEntries(void *this,void *ownerArgumen
   byte bVar1;
   char cVar2;
   void *this_00;
-  uint value;
-  int iVar3;
+  uint uVar3;
+  int iVar4;
   int unaff_EBX;
-  uint uVar4;
+  uint uVar5;
   undefined4 unaff_retaddr;
   
                     /* After PUSH ECX/EBX/EBP/ESI, [ESP+18] is entryESP+8: second stack argument
@@ -41,14 +41,14 @@ byte __thiscall ObjectIoContexts_WriteSizedEntries(void *this,void *ownerArgumen
                              *(uint *)((int)writer + 0x10));
   StreamReader_AccumulateStatus(writer,bVar1);
   this_00 = ObjectRegistry_GetGlobal();
-  uVar4 = 0;
+  uVar5 = 0;
   if (*(int *)((int)this + 4) != 0) {
     do {
-      FUN_009374a0(this_00,uVar4);
-      value = FUN_009374c0(this_00,1 << ((byte)uVar4 & 0x1f));
-      bVar1 = Stream_WriteUInt32(*(void **)((int)writer + 8),value,*(uint *)((int)writer + 0x10));
+      FUN_009374a0(this_00,uVar5);
+      uVar3 = FUN_009374c0(this_00,1 << ((byte)uVar5 & 0x1f));
+      bVar1 = Stream_WriteUInt32(*(void **)((int)writer + 8),uVar3,*(uint *)((int)writer + 0x10));
       StreamReader_AccumulateStatus(writer,bVar1);
-      (**(code **)(**(int **)((int)writer + 8) + 0x24))(0);
+      uVar3 = (**(code **)(**(int **)((int)writer + 8) + 0x24))(0);
       bVar1 = Stream_WriteUInt32(*(void **)((int)writer + 8),0,*(uint *)((int)writer + 0x10));
       StreamReader_AccumulateStatus(writer,bVar1);
                     /* Recover saved original context-array owner from [ESP+10] = entryESP-4, then
@@ -56,25 +56,25 @@ byte __thiscall ObjectIoContexts_WriteSizedEntries(void *this,void *ownerArgumen
                        external input. */
                     /* [ESP+18] = entryESP+4: first opaque ownerArgument; push writer then
                        ownerArgument for virtual+1C. */
-      cVar2 = (**(code **)(**(int **)(*(int *)(unaff_EBX + 8) + uVar4 * 4) + 0x1c))
+      cVar2 = (**(code **)(**(int **)(*(int *)(unaff_EBX + 8) + uVar5 * 4) + 0x1c))
                         (unaff_retaddr,writer);
       if (cVar2 == '\0') {
         StreamReader_AccumulateStatus(writer,0);
         *(undefined1 *)((int)writer + 0x14) = 0;
         return 0;
       }
-      iVar3 = (**(code **)(**(int **)((int)writer + 8) + 0x24))();
-      if (iVar3 == -1) {
+      iVar4 = (**(code **)(**(int **)((int)writer + 8) + 0x24))();
+      if (iVar4 == -1) {
         *(undefined1 *)((int)writer + 0x14) = 0;
       }
       else {
                     /* Physical backpatch call: ECX writer plus TWO stack DWORDs: placeholder
                        position, computed payload byte count. Missing operands in C reflect
                        unexpanded shared helper model, not missing pushes. */
-        FUN_005bee40(writer);
+        Stream_BackpatchUInt32(writer,uVar3,(iVar4 - uVar3) - 4);
       }
-      uVar4 = uVar4 + 1;
-    } while (uVar4 < *(uint *)((int)this + 4));
+      uVar5 = uVar5 + 1;
+    } while (uVar5 < *(uint *)((int)this + 4));
   }
   return *(byte *)((int)writer + 0x14);
 }

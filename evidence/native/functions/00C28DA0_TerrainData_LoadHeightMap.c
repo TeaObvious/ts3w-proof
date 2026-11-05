@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: PC 1.67 heightmap lifecycle. onlyIfReloadable && !this+1c refuses. Opens database
@@ -41,15 +41,15 @@ TerrainData_LoadHeightMap(void *this,void *database,uint streamMode,bool onlyIfR
   if (cVar1 != '\0') {
     bVar2 = HeightMap_ReadSamplePayload(*(void **)((int)this + 8),local_10,streamMode,7);
     if (bVar2) {
-      FUN_007d7a70((int)local_18);
+      ResourceStreamContext_Close(local_18);
       if (local_4 != '\0') {
         *(undefined1 *)((int)this + 0x20) = 1;
-        FUN_007d7990((int)local_18);
+        StreamReader_ReleaseAuxiliary(local_18);
         return true;
       }
     }
   }
-  FUN_007d7990((int)local_18);
+  StreamReader_ReleaseAuxiliary(local_18);
   return false;
 }
 

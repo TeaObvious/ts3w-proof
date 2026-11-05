@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011620b0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011620b0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Slots::Slots_GetPositionOfSlotImpl [assembly=ScriptCore token=0x06000D37;
    scriptHandle: System.UInt64, slotNameHash: System.UInt32, ageGenderSpecies: System.UInt32,
    isExitSlot: System.Boolean; return=Sims3.SimIFace.Vector3]
@@ -17,11 +18,12 @@ ScriptCore.Slots::Slots_GetPositionOfSlotImpl
           char param_6)
 
 {
-  int iVar1;
+  int *piVar1;
+  int iVar2;
+  void *pvVar3;
   undefined4 *this;
   void *this_00;
-  void *this_01;
-  int *piVar2;
+  byte *pbVar4;
   float local_bc;
   float local_b8;
   float local_b4;
@@ -52,26 +54,26 @@ ScriptCore.Slots::Slots_GetPositionOfSlotImpl
   float fStack_18;
   float fStack_14;
   
-  iVar1 = FUN_00937570();
-  this = (undefined4 *)FUN_00937f80(iVar1);
+  pvVar3 = ObjectRegistry_GetGlobal();
+  this = ObjectRegistry_FindBorrowed(pvVar3,CONCAT44(param_3,param_2));
   if (this == (undefined4 *)0x0) {
+    pvVar3 = (void *)0x0;
     this_00 = (void *)0x0;
-    this_01 = (void *)0x0;
   }
   else {
     LOCK();
     this[1] = this[1] + 1;
     UNLOCK();
-    this_00 = (void *)FUN_00934260(this,DAT_011ea158);
-    this_01 = (void *)FUN_00934260(this,DAT_011ea114);
+    pvVar3 = Object_GetComponentByMask(this,DAT_011ea158);
+    this_00 = Object_GetComponentByMask(this,DAT_011ea114);
   }
   FUN_0076bf70(&local_bc,0,0,0);
-  if (((this != (undefined4 *)0x0) && (this_00 != (void *)0x0)) && (this_01 != (void *)0x0)) {
-    piVar2 = (int *)thunk_FUN_009501a0(this_01,param_4);
-    if (piVar2 != (int *)0x0) {
-      FUN_00957a90(this_00,(uint *)&local_90);
-      (**(code **)(*piVar2 + 0x14))(local_50);
-      (**(code **)(*piVar2 + 0x20))(auStack_94,&fStack_54,0);
+  if (((this != (undefined4 *)0x0) && (pvVar3 != (void *)0x0)) && (this_00 != (void *)0x0)) {
+    pbVar4 = SlotComponent_FindFirstNameWordThunk(this_00,param_4);
+    if (pbVar4 != (byte *)0x0) {
+      TransformComponent_GetWorldMatrix(pvVar3,&local_90);
+      (**(code **)(*(int *)pbVar4 + 0x14))(local_50);
+      (**(code **)(*(int *)pbVar4 + 0x20))(auStack_94,&fStack_54,0);
       fStack_b0 = fStack_20 * local_90 + fStack_1c * fStack_80 + fStack_18 * fStack_70 +
                   fStack_14 * fStack_60;
       fStack_ac = fStack_20 * fStack_8c + fStack_1c * fStack_7c + fStack_18 * fStack_6c +
@@ -90,14 +92,14 @@ ScriptCore.Slots::Slots_GetPositionOfSlotImpl
   param_1[1] = local_b8;
   param_1[2] = local_b4;
   if (this != (undefined4 *)0x0) {
-    piVar2 = this + 1;
+    piVar1 = this + 1;
     LOCK();
-    iVar1 = *piVar2;
-    *piVar2 = *piVar2 + -1;
+    iVar2 = *piVar1;
+    *piVar1 = *piVar1 + -1;
     UNLOCK();
-    if (iVar1 == 1) {
+    if (iVar2 == 1) {
       LOCK();
-      *piVar2 = 1;
+      *piVar1 = 1;
       UNLOCK();
       (**(code **)*this)(1);
     }

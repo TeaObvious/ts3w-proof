@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name, original PC 1.67 TS3W.exe. Writes LDES type D063545B, group 0, supplied
@@ -37,8 +37,8 @@ Lot_WriteDescriptionResource
           uint param_5,uint param_6)
 
 {
-  undefined1 uVar1;
-  float fVar2;
+  float fVar1;
+  undefined1 uVar2;
   bool bVar3;
   char cVar4;
   byte bVar5;
@@ -187,7 +187,7 @@ Lot_WriteDescriptionResource
     if ((*(int *)((int)this + 0x2e8) == 0) &&
        ((iVar6 = *(int *)((int)this + 0x298), iVar6 == 0 ||
         (*(int *)(iVar6 + 0x120) == *(int *)(iVar6 + 0x124))))) {
-      iVar6 = FUN_00ab3e00((int)this);
+      iVar6 = Lot_ComputeEmptyLandWorth((int)this);
       uVar9 = uVar9 - (iVar6 + (int)*(float *)((int)this + 0x420));
       if ((int)uVar9 < 0) {
         uVar9 = 0;
@@ -216,15 +216,15 @@ Lot_WriteDescriptionResource
   if (*(char *)((int)this + 0x4b0) == '\0') {
     uVar9 = *(uint *)((int)resourceWriter + 0x10);
     piVar12 = *(int **)((int)resourceWriter + 8);
-    fVar2 = DAT_00fccba4;
+    fVar1 = -3.4028235e+38;
   }
   else {
     fVar10 = Lot_GetLocalSeaLevel(this);
     uVar9 = *(uint *)((int)resourceWriter + 0x10);
     piVar12 = *(int **)((int)resourceWriter + 8);
-    fVar2 = (float)fVar10;
+    fVar1 = (float)fVar10;
   }
-  bVar5 = FUN_004de390(piVar12,fVar2,uVar9);
+  bVar5 = FUN_004de390(piVar12,fVar1,uVar9);
   StreamReader_AccumulateStatus(resourceWriter,bVar5);
   bVar3 = Stream_WriteBoolean(*(void **)((int)resourceWriter + 8),*(byte *)((int)this + 0x4bc));
   StreamReader_AccumulateStatus(resourceWriter,bVar3);
@@ -238,7 +238,7 @@ Lot_WriteDescriptionResource
   bVar3 = Stream_WriteBoolean(*(void **)((int)resourceWriter + 8),*(byte *)((int)this + 0x4bd));
   StreamReader_AccumulateStatus(resourceWriter,bVar3);
   ResourceStreamContext_Close(resourceWriter);
-  uVar1 = *(undefined1 *)((int)resourceWriter + 0x14);
+  uVar2 = *(undefined1 *)((int)resourceWriter + 0x14);
   if ((2 < (int)(local_38 - (int)local_40 & 0xfffffffeU)) && (local_40 != (void *)0x0)) {
     Memory_FreeIfNonNull(local_40);
   }
@@ -248,6 +248,6 @@ Lot_WriteDescriptionResource
   if ((2 < (int)(local_18 - (int)local_20 & 0xfffffffeU)) && (local_20 != (void *)0x0)) {
     Memory_FreeIfNonNull(local_20);
   }
-  return uVar1;
+  return uVar2;
 }
 

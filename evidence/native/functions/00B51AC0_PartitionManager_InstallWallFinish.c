@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Selected PC1.67 finish storage role: thiscall partition manager plus
@@ -27,17 +27,17 @@ PartitionManager_InstallWallFinish
   bool bVar6;
   uint *puVar7;
   float *pfVar8;
-  char cVar9;
+  undefined2 uVar9;
   char cVar10;
-  char cVar11;
-  uint *puVar12;
+  uint *puVar11;
+  undefined4 uVar12;
   undefined4 uVar13;
-  undefined4 uVar14;
-  uint *puVar15;
-  uint uVar16;
-  uint *puVar17;
-  char local_20;
-  char cStack_1f;
+  uint *puVar14;
+  uint uVar15;
+  uint *puVar16;
+  char local_24;
+  char cStack_23;
+  undefined2 local_20;
   char local_1e;
   undefined1 local_1d;
   uint *local_1c;
@@ -49,41 +49,42 @@ PartitionManager_InstallWallFinish
   uint local_4;
   
   pfVar8 = param_4;
-  local_20 = -1;
-  cStack_1f = -1;
+  local_20 = 0xffff;
   local_1d = 0xff;
   local_1e = '\0';
-  WallLocator_QueryFirstAdjacentTile((char *)param_4,(undefined2 *)&local_20);
-  cVar11 = local_1e;
-  cVar10 = cStack_1f;
-  cVar9 = local_20;
-  WallLocator_QueryOtherAdjacentTile((undefined2 *)pfVar8,(undefined2 *)&local_20);
-  puVar15 = param_1;
-  uVar16 = *(uint *)((int)this + 0xc);
-  if (((((cVar9 < 0) || (*(int *)(uVar16 + 0x174) <= (int)cVar9)) || (cVar10 < 0)) ||
-      ((*(int *)(uVar16 + 0x178) <= (int)cVar10 || ((int)cVar11 < *(int *)(uVar16 + 0x17c))))) ||
-     (*(int *)(uVar16 + 0x180) < (int)cVar11)) {
-    if (((local_20 < 0) || (*(int *)(uVar16 + 0x174) <= (int)local_20)) ||
-       ((cStack_1f < 0 ||
-        (((*(int *)(uVar16 + 0x178) <= (int)cStack_1f || ((int)local_1e < *(int *)(uVar16 + 0x17c)))
-         || (*(int *)(uVar16 + 0x180) < (int)local_1e)))))) {
-      return uVar16 & 0xffffff00;
+  WallLocator_QueryFirstAdjacentTile((char *)param_4,&local_20);
+  cVar10 = local_1e;
+  uVar9 = local_20;
+  WallLocator_QueryOtherAdjacentTile((undefined2 *)pfVar8,&local_20);
+  puVar14 = param_1;
+  local_24 = (char)uVar9;
+  uVar15 = *(uint *)((int)this + 0xc);
+  cStack_23 = (char)((ushort)uVar9 >> 8);
+  if (((((local_24 < 0) || (*(int *)(uVar15 + 0x174) <= (int)local_24)) || (cStack_23 < 0)) ||
+      ((*(int *)(uVar15 + 0x178) <= (int)cStack_23 || ((int)cVar10 < *(int *)(uVar15 + 0x17c))))) ||
+     (*(int *)(uVar15 + 0x180) < (int)cVar10)) {
+    if ((((char)local_20 < 0) || (*(int *)(uVar15 + 0x174) <= (int)(char)local_20)) ||
+       ((local_20._1_1_ < 0 ||
+        (((*(int *)(uVar15 + 0x178) <= (int)local_20._1_1_ ||
+          ((int)local_1e < *(int *)(uVar15 + 0x17c))) || (*(int *)(uVar15 + 0x180) < (int)local_1e))
+        )))) {
+      return uVar15 & 0xffffff00;
     }
   }
-  uVar13 = WallProduct_HasNonzeroFieldE0(param_1);
-  uVar14 = FUN_00c5b860(puVar15);
-  if (((char)uVar14 == '\0') || (bVar4 = true, (char)uVar13 != '\0')) {
+  uVar12 = WallProduct_HasNonzeroFieldE0(param_1);
+  uVar13 = FUN_00c5b860(puVar14);
+  if (((char)uVar13 == '\0') || (bVar4 = true, (char)uVar12 != '\0')) {
     bVar4 = false;
   }
   FUN_00b50590(this,(char *)pfVar8,1);
-  FUN_00b47150(this,(int *)pfVar8,puVar15);
-  puVar15 = (uint *)FUN_00c418d0(*(void **)((int)this + 100),(char *)pfVar8);
-  uVar16 = *puVar15;
-  local_10 = (uint *)uVar16;
+  FUN_00b47150(this,(int *)pfVar8,puVar14);
+  puVar14 = (uint *)WallGraph_FindWallForPackedLocator(*(void **)((int)this + 100),(char *)pfVar8);
+  uVar15 = *puVar14;
+  local_10 = (uint *)uVar15;
   if (((*(int *)(param_3 + 0x18) != 0) || (*(int *)(param_3 + 0x28) != 0)) ||
      (*(int *)(param_3 + 0x38) != 0)) {
-    param_3 = (byte *)FUN_00a90e70(*(void **)((int)this + 0x9c),param_3);
-    FUN_00c5b2f0(*(void **)((int)this + 0xa0),uVar16,&param_3);
+    param_3 = (byte *)FloorKeyMap_AddReference(*(void **)((int)this + 0x9c),param_3);
+    FUN_00c5b2f0(*(void **)((int)this + 0xa0),uVar15,&param_3);
   }
   puVar7 = param_2;
   WallPatternMap_AddReference(*(void **)((int)this + 0x70),param_2);
@@ -92,18 +93,18 @@ PartitionManager_InstallWallFinish
   local_c = WallPatternMap_OrdinalForKey(this_00,puVar7);
   local_c = local_c & 0xffff;
   local_8 = WallPatternMap_OrdinalForKey(this_00,puVar7 + 0x10);
-  puVar12 = local_10;
+  puVar11 = local_10;
   local_8 = local_8 & 0xffff;
   FUN_00c452d0(*(void **)((int)this + 0x6c),(uint)local_10,param_1);
-  FUN_00c44f60(*(void **)((int)this + 0x6c),puVar12,0,(undefined2 *)&local_c);
-  FUN_00c44f60(*(void **)((int)this + 0x6c),puVar12,1,(undefined2 *)&local_8);
+  FUN_00c44f60(*(void **)((int)this + 0x6c),puVar11,0,(undefined2 *)&local_c);
+  FUN_00c44f60(*(void **)((int)this + 0x6c),puVar11,1,(undefined2 *)&local_8);
   local_18 = puVar7 + 8;
-  puVar15 = puVar7 + 4;
+  puVar14 = puVar7 + 4;
   puVar1 = puVar7 + 0x14;
   local_1c = puVar7 + 0xc;
   local_14 = puVar7 + 0x18;
-  puVar17 = puVar7 + 0x1c;
-  if ((((*puVar15 != DAT_011ec8d0) || (puVar7[6] != DAT_011ec8d8)) || (puVar7[7] != DAT_011ec8dc))
+  puVar16 = puVar7 + 0x1c;
+  if ((((*puVar14 != DAT_011ec8d0) || (puVar7[6] != DAT_011ec8d8)) || (puVar7[7] != DAT_011ec8dc))
      || (param_3 = (byte *)((uint)param_3 & 0xffffff00), puVar7[5] != DAT_011ec8d4)) {
     param_3 = (byte *)CONCAT31(param_3._1_3_,1);
   }
@@ -113,7 +114,7 @@ PartitionManager_InstallWallFinish
       (param_2 = (uint *)((uint)param_2 & 0xffffff00), puVar7[0x15] != DAT_011ec8d4)))) {
     param_2 = (uint *)CONCAT31(param_2._1_3_,1);
   }
-  if (((*puVar15 != DAT_011ec8d0) || (puVar7[6] != DAT_011ec8d8)) ||
+  if (((*puVar14 != DAT_011ec8d0) || (puVar7[6] != DAT_011ec8d8)) ||
      ((puVar7[7] != DAT_011ec8dc || (bVar2 = false, puVar7[5] != DAT_011ec8d4)))) {
     bVar2 = true;
   }
@@ -125,13 +126,13 @@ PartitionManager_InstallWallFinish
      ((puVar7[0xf] != DAT_011ec8dc || (bVar3 = false, puVar7[0xd] != DAT_011ec8d4)))) {
     bVar3 = true;
   }
-  if (((*puVar17 != DAT_011ec8d0) || (puVar7[0x1e] != DAT_011ec8d8)) ||
+  if (((*puVar16 != DAT_011ec8d0) || (puVar7[0x1e] != DAT_011ec8d8)) ||
      ((puVar7[0x1f] != DAT_011ec8dc || (bVar6 = false, puVar7[0x1d] != DAT_011ec8d4)))) {
     bVar6 = true;
   }
-  local_10 = puVar17;
+  local_10 = puVar16;
   if ((char)param_3 != '\0') {
-    WallPatternMap_AddReference(*(void **)((int)this + 0x78),puVar15);
+    WallPatternMap_AddReference(*(void **)((int)this + 0x78),puVar14);
     if (bVar2) {
       WallPatternMap_AddReference(*(void **)((int)this + 0x88),local_18);
     }
@@ -145,50 +146,50 @@ PartitionManager_InstallWallFinish
       WallPatternMap_AddReference(*(void **)((int)this + 0x88),local_14);
     }
     if (bVar6) {
-      WallPatternMap_AddReference(*(void **)((int)this + 0x80),puVar17);
+      WallPatternMap_AddReference(*(void **)((int)this + 0x80),puVar16);
     }
   }
   puVar7 = param_1;
   if (((char)param_3 != '\0') || ((char)param_2 != '\0')) {
-    FUN_00c452d0(*(void **)((int)this + 0x74),(uint)puVar12,param_1);
+    FUN_00c452d0(*(void **)((int)this + 0x74),(uint)puVar11,param_1);
   }
   if ((bVar2) || (bVar5)) {
-    FUN_00c452d0(*(void **)((int)this + 0x84),(uint)puVar12,puVar7);
+    FUN_00c452d0(*(void **)((int)this + 0x84),(uint)puVar11,puVar7);
   }
   if ((bVar3) || (bVar6)) {
-    FUN_00c452d0(*(void **)((int)this + 0x7c),(uint)puVar12,puVar7);
+    FUN_00c452d0(*(void **)((int)this + 0x7c),(uint)puVar11,puVar7);
   }
   if ((char)param_3 != '\0') {
-    uVar16 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x78),puVar15);
-    param_1 = (uint *)(uVar16 & 0xffff);
-    FUN_00c44f60(*(void **)((int)this + 0x74),puVar12,0,(undefined2 *)&param_1);
+    uVar15 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x78),puVar14);
+    param_1 = (uint *)(uVar15 & 0xffff);
+    FUN_00c44f60(*(void **)((int)this + 0x74),puVar11,0,(undefined2 *)&param_1);
   }
   if (((char)param_2 != '\0') && (!bVar4)) {
-    uVar16 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x78),puVar1);
-    param_1 = (uint *)(uVar16 & 0xffff);
-    FUN_00c44f60(*(void **)((int)this + 0x74),puVar12,1,(undefined2 *)&param_1);
+    uVar15 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x78),puVar1);
+    param_1 = (uint *)(uVar15 & 0xffff);
+    FUN_00c44f60(*(void **)((int)this + 0x74),puVar11,1,(undefined2 *)&param_1);
   }
   if (bVar2) {
-    uVar16 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x88),local_18);
-    param_1 = (uint *)(uVar16 & 0xffff);
-    FUN_00c44f60(*(void **)((int)this + 0x84),puVar12,0,(undefined2 *)&param_1);
+    uVar15 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x88),local_18);
+    param_1 = (uint *)(uVar15 & 0xffff);
+    FUN_00c44f60(*(void **)((int)this + 0x84),puVar11,0,(undefined2 *)&param_1);
   }
   if ((bVar5) && (!bVar4)) {
-    uVar16 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x88),local_14);
-    param_1 = (uint *)(uVar16 & 0xffff);
-    FUN_00c44f60(*(void **)((int)this + 0x84),puVar12,1,(undefined2 *)&param_1);
+    uVar15 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x88),local_14);
+    param_1 = (uint *)(uVar15 & 0xffff);
+    FUN_00c44f60(*(void **)((int)this + 0x84),puVar11,1,(undefined2 *)&param_1);
   }
   if (bVar3) {
-    uVar16 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x80),local_1c);
-    param_1 = (uint *)(uVar16 & 0xffff);
-    FUN_00c44f60(*(void **)((int)this + 0x7c),puVar12,0,(undefined2 *)&param_1);
+    uVar15 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x80),local_1c);
+    param_1 = (uint *)(uVar15 & 0xffff);
+    FUN_00c44f60(*(void **)((int)this + 0x7c),puVar11,0,(undefined2 *)&param_1);
   }
   if ((bVar6) && (!bVar4)) {
-    uVar16 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x80),local_10);
-    param_1 = (uint *)(uVar16 & 0xffff);
-    FUN_00c44f60(*(void **)((int)this + 0x7c),puVar12,1,(undefined2 *)&param_1);
+    uVar15 = WallPatternMap_OrdinalForKey(*(void **)((int)this + 0x80),local_10);
+    param_1 = (uint *)(uVar15 & 0xffff);
+    FUN_00c44f60(*(void **)((int)this + 0x7c),puVar11,1,(undefined2 *)&param_1);
   }
-  uVar13 = FUN_00b4fc10(this,param_4,puVar7);
-  return CONCAT31((int3)((uint)uVar13 >> 8),1);
+  uVar12 = FUN_00b4fc10(this,param_4,puVar7);
+  return CONCAT31((int3)((uint)uVar12 >> 8),1);
 }
 

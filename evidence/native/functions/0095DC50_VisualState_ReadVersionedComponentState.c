@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 VisualState producer contract. Analyst-assigned name; ECX component, reader
@@ -53,7 +53,7 @@ VisualState_ReadVersionedComponentState(void *this,void *reader,void *versionDes
     *(uint *)((int)this + 8) = uVar3 | 0x810;
   }
   if (DAT_011ee034 != (void *)0x0) {
-    iVar4 = FUN_00c8ebb0(DAT_011ee034,(uint *)(*(int *)((int)this + 4) + 0x18));
+    iVar4 = ObjectCatalog_FindByTypedKey(DAT_011ee034,(uint *)(*(int *)((int)this + 4) + 0x18));
     if ((iVar4 != 0) && ((*(uint *)(iVar4 + 0x9c) >> 0xd & 1) != 0)) {
       *(uint *)((int)this + 8) = *(uint *)((int)this + 8) | 0x100000;
       goto LAB_0095dd2c;

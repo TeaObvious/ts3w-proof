@@ -1,25 +1,30 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67: Fetches global render-device context; selects first technique if selected pointer
-   is null, otherwise uses selected technique, then ApplyPassesAndDraw(callback,userdata). */
+   is null, otherwise uses selected technique, then ApplyPassesAndDraw(callback,userdata).
+   
+   Skin-comparison refinement: ECX definition, RET8. Resolves default/selected technique, obtains
+   the render device, then dispatches its pass loop. Analyst partial types/names; unknown fields
+   remain opaque. */
 
 void __thiscall
-ShaderDefinition_DrawSelectedTechnique(void *this,undefined *param_1,undefined4 param_2)
+ShaderDefinition_DrawSelectedTechnique
+          (Ts3SkinPostDefinition *self,Ts3SkinPostDrawCallback *drawCallback,void *userData)
 
 {
-  void *pvVar1;
+  void *renderDevice;
   
-  pvVar1 = (void *)FUN_0060e910();
-  if (*(int *)((int)this + 0x10) == 0) {
-    if (*(int *)((int)this + 8) == 0) {
+  renderDevice = (void *)Graphics_GetManagerSingleton();
+  if (self->selectedTechnique == (Ts3SkinPostTechnique *)0x0) {
+    if (self->techniques == (Ts3SkinPostTechnique *)0x0) {
       return;
     }
-    *(int *)((int)this + 0x10) = *(int *)((int)this + 8);
+    self->selectedTechnique = self->techniques;
   }
-  ShaderTechnique_ApplyPassesAndDraw(*(void **)((int)this + 0x10),pvVar1,param_1,param_2);
+  ShaderTechnique_ApplyPassesAndDraw(self->selectedTechnique,renderDevice,drawCallback,userData);
   return;
 }
 

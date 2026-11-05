@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Removing unreachable block (ram,0x00a94f83) */
@@ -20,14 +20,14 @@ void __thiscall ByteTileGrid_ImportFlatBytes(void *this,int *param_1)
   int iVar4;
   uint uVar5;
   uint uVar6;
-  undefined4 local_18;
-  undefined4 local_14;
+  void *local_18;
+  int local_14;
   
   uVar5 = *(int *)((int)this + 0x24) * *(int *)((int)this + 0x20) * *(int *)((int)this + 0xc);
   iVar4 = 0;
   if (*(int *)((int)this + 0x4c) - *(int *)((int)this + 0x48) >> 1 != uVar5) {
-    FUN_0067f5e0((void *)((int)this + 0x48),uVar5);
-    FUN_00412e20((void *)((int)this + 0x38),uVar5);
+    UInt16Vector_ResizeZeroed((void *)((int)this + 0x48),uVar5);
+    ByteVector_ResizeZeroed((void *)((int)this + 0x38),uVar5);
   }
   piVar1 = (int *)((int)this + 0x28);
   *(undefined4 *)((int)this + 0x2c) = *(undefined4 *)((int)this + 0x28);

@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -45,14 +44,14 @@ PoolGeometry_UpdatePresenceRectangle(void *this,char *param_1,char *param_2,char
   }
   param_1._3_1_ = SUB41(pcVar6,3);
   param_1._0_3_ = CONCAT12(*(undefined1 *)((int)this + 0x264),CONCAT11(*pcVar9,*pcVar5));
-  param_2._3_1_ = (char)*pcVar5 >> 7;
+  param_2._3_1_ = *pcVar5 >> 7;
   param_2 = (char *)CONCAT22(CONCAT11(param_2._3_1_,*(undefined1 *)((int)this + 0x264)),
                              CONCAT11(*pcVar10 + -1,cVar2 + -1));
   FUN_00af6450(local_c,(undefined2 *)&param_1,(undefined2 *)&param_2);
-  bVar3 = FUN_00af6490((int)local_c);
+  bVar3 = TilePartRectangleIterator_IsDone((int)local_c);
   cVar2 = param_3;
   while (!bVar3) {
-    pcVar6 = (char *)FUN_00af64e0((int)local_c);
+    pcVar6 = (char *)TilePartRectangleIterator_Current((int)local_c);
     iVar7 = (int)*pcVar6 * *(int *)((int)this + 0x220) + (int)pcVar6[1];
     bVar4 = '\x01' << ((byte)iVar7 & 7);
     pbVar8 = (byte *)(*(int *)((int)this + 0x224) + (iVar7 >> 3));
@@ -63,7 +62,7 @@ PoolGeometry_UpdatePresenceRectangle(void *this,char *param_1,char *param_2,char
       *pbVar8 = *pbVar8 | bVar4;
     }
     FUN_00af6610(local_c);
-    bVar3 = FUN_00af6490((int)local_c);
+    bVar3 = TilePartRectangleIterator_IsDone((int)local_c);
   }
   return;
 }

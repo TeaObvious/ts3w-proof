@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst PC1.67 object sound admission. ECX=Audio component; byte name/flags/related
    object/existing sound id RET16, UInt32 EAX (0 rejected). Only flag bits0/1 used. Missing global
    interface rejects. If both bits clear, owner Transform and camera exist: SSE squared range is
@@ -101,7 +103,7 @@ ObjectSound_StartWithAdmissionChecks
     piStack_54 = local_60;
                     /* SSE (dz^2+dy^2)+dx^2 compared against float word104465C. JA means ordered
                        strictly greater; NaN/equality do not reject here. */
-    if (_DAT_0104465c < (float)local_60) {
+    if (40000.0 < (float)local_60) {
       return 0;
     }
   }
@@ -198,55 +200,59 @@ ObjectSound_StartWithAdmissionChecks
     FUN_00866280(piVar7,existingSoundId,*(undefined4 *)(*(int *)((int)this + 4) + 8),
                  *(undefined4 *)(*(int *)((int)this + 4) + 0xc));
   }
-  if ((*(void **)((int)this + 4) == (void *)0x0) ||
-     (this_01 = Object_GetComponentByMask(*(void **)((int)this + 4),DAT_011edf08),
-     existingSoundId = (uint)this_00, piStack_5c = this_01, this_01 == (int *)0x0))
-  goto LAB_009432dc;
-  if (DAT_011edbc4 == (void *)0x0) {
-    arg1 = (int *)0x0;
+  if (*(void **)((int)this + 4) == (void *)0x0) goto LAB_009432dc;
+  this_01 = Object_GetComponentByMask(*(void **)((int)this + 4),DAT_011edf08);
+  piStack_5c = this_01;
+  if (this_01 != (int *)0x0) {
+    if (DAT_011edbc4 == (void *)0x0) {
+      arg1 = (int *)0x0;
 LAB_00943155:
-    local_70 = 0;
-  }
-  else {
-    arg1 = FUN_00c62810(DAT_011edbc4,this_01[2],this_01[3],(int *)0x0);
-    if (arg1 == (int *)0x0) goto LAB_00943155;
-    local_70 = arg1[0xa6];
-  }
-  iStack_68 = 0;
-  if (local_70 != 0) {
-    pvStack_4c = (void *)0x0;
-    piStack_54 = (int *)FLOAT_00fab218;
-    local_50 = (void *)FLOAT_00fab218;
-    FUN_00c894e0(this_01,&piStack_54,&local_50,&pvStack_4c);
-    uVar6 = FUN_00b05960(*(int *)((int)pvVar1 + 4));
-    if (((char)uVar6 != '\0') &&
-       (bVar2 = FUN_00b012b0(*(void **)((int)pvVar1 + 4),arg1,auStack_24), bVar2)) {
-      FUN_0068bda0(auStack_24,(float *)&piStack_44);
-      piStack_54 = piStack_44;
-      local_50 = pvStack_3c;
+      local_70 = 0;
     }
-    sVar3 = LotRoom_ResolveForLocalLocation(&piStack_54,0,1);
-    iStack_68 = (int)sVar3;
-  }
-                    /* SUB/NEG/SBB/AND maps ONLY exact owner word18==7FFFFFFF to0; all other raw
-                       DWORD values retained, then signed CVTSI2SS. */
-  uVar8 = -(uint)(this_01[6] != 0x7fffffff) & this_01[6];
-  if (arg1 != (int *)0x0) {
-    piStack_54 = (int *)FLOAT_00fab218;
-    local_50 = (void *)FLOAT_00fab218;
-    pvStack_4c = (void *)0x0;
-    FUN_00c894e0(piStack_5c,&piStack_54,&local_50,&pvStack_4c);
-    bVar2 = Lot_TestNextLevelAtLocalLocation(arg1,&piStack_54,1);
-    if ((bVar2) && (uVar8 = 0, arg1[0xa6] != 0)) {
-      pvStack_4c = (void *)((int)pvStack_4c + 1);
+    else {
+      arg1 = WorldObjects_FindLotByGuid(DAT_011edbc4,this_01[2],this_01[3],(uint *)0x0);
+      if (arg1 == (int *)0x0) goto LAB_00943155;
+      local_70 = arg1[0xa6];
+    }
+    iStack_68 = 0;
+    if (local_70 != 0) {
+      pvStack_4c = (void *)0x0;
+      piStack_54 = (int *)-1.0;
+      local_50 = (void *)-1.0;
+      ObjectLocation_CopyXZLevel(this_01,&piStack_54,&local_50,&pvStack_4c);
+      uVar6 = FUN_00b05960(*(int *)((int)pvVar1 + 4));
+      if (((char)uVar6 != '\0') &&
+         (bVar2 = FUN_00b012b0(*(void **)((int)pvVar1 + 4),arg1,auStack_24), bVar2)) {
+        FUN_0068bda0(auStack_24,(float *)&piStack_44);
+        piStack_54 = piStack_44;
+        local_50 = pvStack_3c;
+      }
       sVar3 = LotRoom_ResolveForLocalLocation(&piStack_54,0,1);
       iStack_68 = (int)sVar3;
     }
+                    /* SUB/NEG/SBB/AND maps ONLY exact owner word18==7FFFFFFF to0; all other raw
+                       DWORD values retained, then signed CVTSI2SS. */
+    uVar8 = -(uint)(this_01[6] != 0x7fffffff) & this_01[6];
+    if (arg1 != (int *)0x0) {
+      piStack_54 = (int *)-1.0;
+      local_50 = (void *)-1.0;
+      pvStack_4c = (void *)0x0;
+      ObjectLocation_CopyXZLevel(piStack_5c,&piStack_54,&local_50,&pvStack_4c);
+      bVar2 = Lot_TestNextLevelAtLocalLocation(arg1,&piStack_54,1);
+      if ((bVar2) && (uVar8 = 0, arg1[0xa6] != 0)) {
+        pvStack_4c = (void *)((int)pvStack_4c + 1);
+        sVar3 = LotRoom_ResolveForLocalLocation(&piStack_54,0,1);
+        iStack_68 = (int)sVar3;
+      }
+    }
+    (**(code **)(*piVar7 + 0x58))(0x2081b4e6,arg1);
+    (**(code **)(*piVar7 + 0x48))(0x5dbed967,(float)iStack_68);
+    (**(code **)(*piVar7 + 0x48))(0x39ff78d1,(float)(int)uVar8);
+    this = pvVar1;
   }
-  (**(code **)(*piVar7 + 0x58))(0x2081b4e6,arg1);
-  (**(code **)(*piVar7 + 0x48))(0x5dbed967,(float)iStack_68);
-  (**(code **)(*piVar7 + 0x48))(0x39ff78d1,(float)(int)uVar8);
-  this = pvVar1;
+                    /* Restore allocated/reused sound handle from ESP18; final return keeps that
+                       handle. Pointer-valued substitutions in actual C are artifacts. */
+  existingSoundId = (uint)this_00;
 LAB_009432dc:
   (**(code **)(*piVar7 + 0x68))();
   piVar7 = local_60;

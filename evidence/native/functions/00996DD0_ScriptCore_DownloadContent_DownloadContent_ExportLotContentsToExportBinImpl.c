@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011816b8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011816b8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.DownloadContent::DownloadContent_ExportLotContentsToExportBinImpl [assembly=ScriptCore
    token=0x060000A5; id: System.UInt64; return=System.String]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -23,7 +24,8 @@ ScriptCore.DownloadContent::DownloadContent_ExportLotContentsToExportBinImpl
   int unaff_EDI;
   int local_58;
   undefined1 local_54 [4];
-  int local_50 [2];
+  void *local_50;
+  undefined4 local_4c;
   undefined1 *local_48;
   undefined1 *local_44;
   undefined2 *local_40;
@@ -38,12 +40,12 @@ ScriptCore.DownloadContent::DownloadContent_ExportLotContentsToExportBinImpl
   uVar2 = FUN_009a1670((int)DAT_011ea6a4);
   if ((char)uVar2 == '\0') {
     local_58 = 0;
-    local_50[0] = 0;
-    local_50[1] = 0;
-    uVar2 = FUN_009a2d10(this,&local_58,(undefined8 *)local_50);
+    local_50 = (void *)0x0;
+    local_4c = 0;
+    uVar2 = FUN_009a2d10(this,&local_58,(undefined8 *)&local_50);
     if ((char)uVar2 != '\0') {
       FUN_007d7920(local_38,local_58,1);
-      cVar1 = FUN_00ad4e80(param_1,param_2,local_38);
+      cVar1 = LotContent_ExportHouseholdToTravelDatabase(param_1,param_2,local_38);
       if (cVar1 != '\0') {
         local_3c = "Scratch/DownloadContent/NewPackage";
         local_48 = &DAT_011c8e54;
@@ -61,16 +63,16 @@ ScriptCore.DownloadContent::DownloadContent_ExportLotContentsToExportBinImpl
         if (((uint)local_20[0] & 4) != 0) {
           FUN_004f5760(appuStack_28,'\0');
         }
-        if ((2 < (int)((int)local_48 - local_50[0] & 0xfffffffeU)) && (local_50[0] != 0)) {
-          FUN_004e44e0(local_50[0]);
+        if ((2 < (int)((int)local_48 - (int)local_50 & 0xfffffffeU)) && (local_50 != (void *)0x0)) {
+          Memory_FreeIfNonNull(local_50);
         }
-        FUN_007d7990((int)&local_40);
+        StreamReader_ReleaseAuxiliary(&local_40);
         if (unaff_EDI != 0) {
           (**(code **)(*(int *)(unaff_EDI + 4) + 4))();
         }
         return unaff_ESI;
       }
-      FUN_007d7990((int)local_38);
+      StreamReader_ReleaseAuxiliary(local_38);
     }
     if (local_58 != 0) {
       (**(code **)(*(int *)(local_58 + 4) + 4))();
@@ -84,7 +86,7 @@ ScriptCore.DownloadContent::DownloadContent_ExportLotContentsToExportBinImpl
     FUN_009a1bf0(this,&local_48);
     if ((2 < (int)((int)local_40 - (int)local_48 & 0xfffffffeU)) && (local_48 != (undefined1 *)0x0))
     {
-      FUN_004e44e0((int)local_48);
+      Memory_FreeIfNonNull(local_48);
       return 0;
     }
   }

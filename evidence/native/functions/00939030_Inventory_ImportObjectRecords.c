@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): ECX object registry plus four stack words.
@@ -45,7 +45,7 @@ Inventory_ImportObjectRecords(void *this,void *param_1,int *param_2,undefined4 p
   undefined1 local_7c [124];
   
   local_100 = this;
-  FUN_00938d70(this,param_4);
+  ObjectRegistry_FillFreshIdVector(this,param_4);
   local_80 = 0;
   memset(local_7c,0,0x7c);
   iVar9 = 0;
@@ -65,7 +65,7 @@ Inventory_ImportObjectRecords(void *this,void *param_1,int *param_2,undefined4 p
       *(int **)(iVar5 + 4) = param_2;
       *(undefined4 *)(iVar5 + 8) = param_3;
       *(int **)(iVar5 + 0xc) = param_4;
-      *(int *)(local_7c + iVar9 * 4 + -4) = iVar5;
+      *(int *)(auStack_8c + iVar9 * 4 + 0xc) = iVar5;
       iVar9 = iVar9 + 1;
       piVar8 = piVar8 + 1;
     } while (iVar9 < *(int *)((int)local_100 + 0x11c8));
@@ -184,10 +184,10 @@ LAB_00939329:
   FUN_007d5090((int)local_c0);
   iVar9 = 0x1f;
   do {
-    if (*(int **)(local_7c + iVar9 * 4 + -4) != (int *)0x0) {
-      (**(code **)(**(int **)(local_7c + iVar9 * 4 + -4) + 4))();
-      if (*(undefined4 **)(local_7c + iVar9 * 4 + -4) != (undefined4 *)0x0) {
-        (**(code **)**(undefined4 **)(local_7c + iVar9 * 4 + -4))(1);
+    if (*(int **)(auStack_8c + iVar9 * 4 + 0xc) != (int *)0x0) {
+      (**(code **)(**(int **)(auStack_8c + iVar9 * 4 + 0xc) + 4))();
+      if (*(undefined4 **)(auStack_8c + iVar9 * 4 + 0xc) != (undefined4 *)0x0) {
+        (**(code **)**(undefined4 **)(auStack_8c + iVar9 * 4 + 0xc))(1);
       }
     }
     iVar9 = iVar9 + -1;

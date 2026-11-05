@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011618c8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011618c8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Route::Route_IsPointObstructedBySim [assembly=ScriptCore token=0x060010F6; handle:
    System.UInt32, point: Sims3.SimIFace.Vector3; return=System.UInt64]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -29,9 +30,8 @@ longlong __cdecl ScriptCore.Route::Route_IsPointObstructedBySim(uint param_1)
   int iVar12;
   float10 fVar13;
   longlong lVar14;
-  float fStack_90;
-  float fStack_8c;
-  float fStack_88;
+  undefined1 uStack00000008;
+  LotXZLevel LStack_90;
   float fStack_84;
   int *piStack_80;
   int *piStack_7c;
@@ -52,7 +52,7 @@ longlong __cdecl ScriptCore.Route::Route_IsPointObstructedBySim(uint param_1)
   undefined4 uStack_3c;
   undefined4 uStack_38;
   undefined4 uStack_34;
-  undefined4 uStack_30;
+  float fStack_30;
   float fStack_2c;
   undefined4 uStack_28;
   undefined4 uStack_24;
@@ -61,7 +61,7 @@ longlong __cdecl ScriptCore.Route::Route_IsPointObstructedBySim(uint param_1)
   if (DAT_011d50c4 == (void *)0x0) {
     return 0;
   }
-  piVar8 = (int *)FUN_0074b4b0(DAT_011d50c4,param_1);
+  piVar8 = (int *)RouteRegistry_ResolveTypedHandle(DAT_011d50c4,param_1);
   if (piVar8 == (int *)0x0) {
     return 0;
   }
@@ -70,9 +70,9 @@ longlong __cdecl ScriptCore.Route::Route_IsPointObstructedBySim(uint param_1)
   this_00 = (void *)FUN_008295c0((int)this);
   pvVar10 = DAT_011edbc4;
   fStack_84 = 0.0;
-  fStack_88 = 0.0;
-  fStack_8c = 0.0;
-  fStack_90 = 0.0;
+  LStack_90.level = 0;
+  LStack_90.z = 0.0;
+  LStack_90.x = 0.0;
   fStack_50 = 0.0;
   fStack_4c = 0.0;
   fStack_48 = 0.0;
@@ -81,27 +81,28 @@ longlong __cdecl ScriptCore.Route::Route_IsPointObstructedBySim(uint param_1)
   uStack_3c = 0;
   uStack_38 = 0;
   uStack_34 = 0;
-  uStack_30 = DAT_00f998f8;
+  fStack_30 = 1.0;
   fStack_2c = 0.0;
   uStack_28 = 0;
   uStack_24 = 0;
   uStack_20 = 0;
-  pfVar9 = (float *)FUN_0076c050(&stack0x00000008,&fStack_60);
+  pfVar9 = RouteVector_ExpandXYZWithXLane(&uStack00000008,&fStack_60);
   fStack_50 = *pfVar9;
   fStack_4c = pfVar9[1];
   fStack_48 = pfVar9[2];
   fStack_44 = pfVar9[3];
   if ((pvVar10 == (void *)0x0) ||
-     (fStack_90 = fStack_50, fStack_8c = fStack_4c, fStack_88 = fStack_48, fStack_84 = fStack_44,
-     pvVar10 = FUN_00c687d0(pvVar10,fStack_50,fStack_48), pvVar10 == (void *)0x0))
-  goto LAB_007519b5;
-  fStack_90 = DAT_00fab218;
-  fStack_8c = DAT_00fab218;
-  fStack_88 = 0.0;
-  FUN_00adc980(pvVar10,&fStack_50,&fStack_90);
-  fStack_2c = fStack_88;
+     (LStack_90.x = fStack_50, LStack_90.z = fStack_4c, LStack_90.level = (int)fStack_48,
+     fStack_84 = fStack_44,
+     pvVar10 = LotSpatialIndex_FindContainingLotAtWorldXZ(pvVar10,fStack_50,fStack_48),
+     pvVar10 == (void *)0x0)) goto LAB_007519b5;
+  LStack_90.x = -1.0;
+  LStack_90.z = -1.0;
+  LStack_90.level = 0;
+  Lot_WorldPositionToLocalLocationAtFloor(pvVar10,&fStack_50,&LStack_90);
+  fStack_2c = (float)LStack_90.level;
   if ((*(int *)((int)pvVar10 + 0x408) == 1) &&
-     ((*(int *)((int)pvVar10 + 0x40c) == 0x50 && (fStack_88 == 0.0)))) {
+     ((*(int *)((int)pvVar10 + 0x40c) == 0x50 && ((float)LStack_90.level == 0.0)))) {
     bVar3 = true;
 LAB_007517ba:
     if (bVar3) goto LAB_007517c4;
@@ -109,8 +110,8 @@ LAB_007517ba:
   }
   else {
     bVar3 = false;
-    if ((-1 < (int)fStack_88) || (bVar6 = FUN_00affbf0(pvVar10,&fStack_90), !bVar6))
-    goto LAB_007517ba;
+    if ((-1 < LStack_90.level) ||
+       (bVar6 = Lot_TestProperty15AtLocalLocation(pvVar10,&LStack_90), !bVar6)) goto LAB_007517ba;
 LAB_007517c4:
     cVar7 = '\0';
   }
@@ -124,13 +125,13 @@ LAB_007517c4:
   fStack_58 = fStack_48;
   fStack_54 = fStack_44;
   fStack_4c = fStack_5c;
-  FUN_0062f750(this_00,*(undefined4 *)((int)pvVar10 + 0x48),*(undefined4 *)((int)pvVar10 + 0x4c),
-               fStack_50,fStack_48,&fStack_6c,&fStack_68);
+  LotRouteGraph_ApplyLotPositionMatrix
+            (this_00,*(ulonglong *)((int)pvVar10 + 0x48),fStack_50,fStack_48,&fStack_6c,&fStack_68);
   piStack_80 = (int *)0x0;
   piStack_7c = (int *)0x0;
   uStack_78 = 0;
   pcStack_74 = "Routing/RoutingHost/TemporaryFootprintSet";
-  uVar11 = FUN_0082e7e0(this,&fStack_50,DAT_0106f8c8,(int *)&piStack_80,'\0',piVar8[0xf]);
+  uVar11 = FUN_0082e7e0(this,&fStack_50,0.25,(int *)&piStack_80,'\0',piVar8[0xf]);
   piVar5 = piStack_7c;
   piVar4 = piStack_80;
   if ((char)uVar11 != '\0') {
@@ -145,7 +146,7 @@ LAB_007517c4:
           if ((lVar14 != *(longlong *)(piVar8 + 0x10)) &&
              (((uVar11 = FUN_0081c5c0(piVar8 + 0x56,(int)lVar14,(int)((ulonglong)lVar14 >> 0x20)),
                (char)uVar11 == '\0' && (cVar7 = (**(code **)(*piVar1 + 0xc0))(), cVar7 != '\0')) &&
-              (cVar7 = (**(code **)(*piVar1 + 0xd4))(0,fStack_6c,fStack_68,DAT_0106f8c8),
+              (cVar7 = (**(code **)(*piVar1 + 0xd4))(0,fStack_6c,fStack_68,0x3e800000),
               cVar7 != '\0')))) {
             FUN_00565d20((int *)&puStack_64);
             FUN_00652de0((int *)&piStack_80);
@@ -164,7 +165,7 @@ LAB_007517c4:
   }
   FUN_00ca0570(piStack_80,piStack_7c);
   if (piStack_80 != (int *)0x0) {
-    FUN_004e44e0((int)piStack_80);
+    Memory_FreeIfNonNull(piStack_80);
   }
 LAB_007519b5:
   (**(code **)(*piVar8 + 0x14))();

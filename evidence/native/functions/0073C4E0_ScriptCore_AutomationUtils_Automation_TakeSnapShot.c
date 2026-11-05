@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x0115ebd8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x0115ebd8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.AutomationUtils::Automation_TakeSnapShot [assembly=ScriptCore token=0x06000622; strid:
    System.String; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -17,6 +18,7 @@ void __cdecl ScriptCore.AutomationUtils::Automation_TakeSnapShot(int param_1)
   int *piVar2;
   short *psVar3;
   short *psVar4;
+  undefined1 auStack_3e [2];
   undefined2 *puStack_3c;
   char *pcStack_38;
   undefined4 uStack_34;
@@ -41,7 +43,7 @@ void __cdecl ScriptCore.AutomationUtils::Automation_TakeSnapShot(int param_1)
       psVar4 = psVar4 + 1;
       sVar1 = *psVar4;
     }
-    FUN_00408d60(&stack0xffffffbc,psVar3,psVar3 + ((int)psVar4 - (int)psVar3 >> 1));
+    FUN_00408d60(auStack_3e + -6,psVar3,psVar3 + ((int)psVar4 - (int)psVar3 >> 1));
     piVar2 = (int *)FUN_009dff90();
     if (piVar2 != (int *)0x0) {
       (**(code **)(*piVar2 + 0x14))(&DAT_011c8e54,1);
@@ -60,7 +62,7 @@ void __cdecl ScriptCore.AutomationUtils::Automation_TakeSnapShot(int param_1)
       (**(code **)(*piVar2 + 0x34))(&puStack_3c);
     }
     if (2 < (int)((uint)(puStack_3c + -0x8e472a) & 0xfffffffe)) {
-      FUN_004e44e0(0x11c8e54);
+      Memory_FreeIfNonNull(&DAT_011c8e54);
     }
   }
   return;

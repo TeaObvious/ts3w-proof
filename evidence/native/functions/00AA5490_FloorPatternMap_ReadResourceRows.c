@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 floor pattern-map producer boundary): Physical ECX map plus six stack words,
@@ -27,7 +27,7 @@ FloorPatternMap_ReadResourceRows
   uint *puVar3;
   undefined4 *puVar4;
   int iVar5;
-  byte *pbVar6;
+  undefined4 *puVar6;
   uint local_70;
   uint local_6c;
   void *local_68;
@@ -38,7 +38,7 @@ FloorPatternMap_ReadResourceRows
   undefined4 local_54;
   undefined4 local_50;
   undefined4 local_4c;
-  byte local_48 [16];
+  undefined4 local_48 [4];
   undefined4 local_38 [4];
   undefined4 local_28 [4];
   undefined4 local_18 [5];
@@ -74,11 +74,11 @@ FloorPatternMap_ReadResourceRows
     FUN_00aa52f0(this,param_1,(char)local_6c,local_64,local_70);
   }
   else {
-    FUN_00afba70((undefined4 *)local_48);
+    FUN_00afba70(local_48);
     local_6c = 0;
     if (local_70 != 0) {
       do {
-        ResourceReferences_ReadContextKey(param_2,param_1,(undefined4 *)local_48);
+        ResourceReferences_ReadContextKey(param_2,param_1,local_48);
         ResourceReferences_ReadContextKey(param_2,param_1,local_38);
         ResourceReferences_ReadContextKey(param_2,param_1,local_28);
         ResourceReferences_ReadContextKey(param_2,param_1,local_18);
@@ -88,15 +88,15 @@ FloorPatternMap_ReadResourceRows
         bVar2 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),&local_5c,
                                   *(uint *)((int)param_1 + 0x10));
         StreamReader_AccumulateStatus(param_1,bVar2);
-        puVar3 = (uint *)FUN_00a90c00(this,local_48);
+        puVar3 = (uint *)FloorKeyMap_GetOrCreateCounters(this,(undefined *)local_48);
         *puVar3 = local_60;
         puVar3[1] = local_5c;
         puVar4 = (undefined4 *)FUN_00a90180((void *)((int)this + 0x20),&local_60);
         local_6c = local_6c + 1;
-        pbVar6 = local_48;
+        puVar6 = local_48;
         for (iVar5 = 0x10; iVar5 != 0; iVar5 = iVar5 + -1) {
-          *puVar4 = *(undefined4 *)pbVar6;
-          pbVar6 = pbVar6 + 4;
+          *puVar4 = *puVar6;
+          puVar6 = puVar6 + 1;
           puVar4 = puVar4 + 1;
         }
         this = local_68;

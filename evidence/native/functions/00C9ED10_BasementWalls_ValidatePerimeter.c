@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 static instructions/callers: cdecl three words, low AL bool. Validates each six-byte wall
@@ -14,8 +14,8 @@ bool __cdecl BasementWalls_ValidatePerimeter(undefined4 param_1,int *param_2,voi
   int iVar1;
   int iVar2;
   int *piVar3;
-  uint *puVar4;
-  uint uVar5;
+  bool bVar4;
+  uint *puVar5;
   int *piVar6;
   int local_13c;
   int local_138;
@@ -48,7 +48,7 @@ bool __cdecl BasementWalls_ValidatePerimeter(undefined4 param_1,int *param_2,voi
   undefined4 *local_70;
   float local_50 [19];
   
-  puVar4 = (uint *)BasementProducts_GetWallKey();
+  puVar5 = (uint *)BasementProducts_GetWallKey();
   local_12c = 0;
   local_130 = &PTR_FUN_0106be30;
   local_128 = 0;
@@ -79,8 +79,9 @@ bool __cdecl BasementWalls_ValidatePerimeter(undefined4 param_1,int *param_2,voi
     do {
       iVar1 = *param_2;
       FUN_00ad7740((int)local_d0);
-      uVar5 = FUN_00d49790(&local_130,(char *)(iVar1 + local_13c),puVar4,local_d0,1);
-      if ((char)uVar5 == '\0') {
+      bVar4 = WallPlacement_ValidateProduct
+                        (&local_130,(char *)(iVar1 + local_13c),puVar5,local_d0,1);
+      if (!bVar4) {
         FUN_00ad7520(local_d0,local_50);
         if (local_50[0] != 1.69557e-43) {
           if (param_3 != (void *)0x0) {

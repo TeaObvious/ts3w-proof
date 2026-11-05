@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 LotLocation contract): Analyst-assigned name. ECX graph;
@@ -87,8 +87,8 @@ WallGraph_ReadResource(void *this,void *stream,uint resourceGroup,uint lotLow,ui
       bVar2 = Stream_ReadUInt32(*(void **)((int)this_01 + 8),&local_38,
                                 *(uint *)((int)this_01 + 0x10));
       StreamReader_AccumulateStatus(this_01,bVar2);
-      local_1c = FLOAT_00fab218;
-      local_18 = FLOAT_00fab218;
+      local_1c = -1.0;
+      local_18 = -1.0;
       local_14 = 0;
       bVar2 = Stream_ReadUInt32(*(void **)((int)this_01 + 8),(uint *)&local_1c,
                                 *(uint *)((int)this_01 + 0x10));
@@ -104,7 +104,7 @@ WallGraph_ReadResource(void *this,void *stream,uint resourceGroup,uint lotLow,ui
         uVar4 = 0;
       }
       else {
-        uVar4 = FUN_00c5d530(pvVar3,&local_1c);
+        uVar4 = WallVertex_InitializeCompactLocation(pvVar3,&local_1c);
       }
       *(undefined4 *)(*this_00 + iVar8 * 4) = uVar4;
       iVar7 = iVar8 * 4;
@@ -188,7 +188,6 @@ WallGraph_ReadResource(void *this,void *stream,uint resourceGroup,uint lotLow,ui
         if ((int)uVar6 < 0) {
           bVar2 = (uVar6 - 1 | 0xfffffffe) == 0xffffffff;
         }
-        pvVar3 = this;
         if (bVar2) {
           iVar8 = *(int *)((int)this + 0x10) - *(int *)((int)this + 0xc) >> 2;
           iVar7 = 0;
@@ -202,8 +201,8 @@ WallGraph_ReadResource(void *this,void *stream,uint resourceGroup,uint lotLow,ui
               }
               iVar7 = iVar7 + 1;
               puVar5 = puVar5 + 1;
-              pvVar3 = local_44;
             } while (iVar7 < iVar8);
+            this = local_44;
           }
         }
         else {
@@ -222,7 +221,6 @@ WallGraph_ReadResource(void *this,void *stream,uint resourceGroup,uint lotLow,ui
           }
         }
         uVar6 = 0;
-        this = pvVar3;
 LAB_00c44338:
         local_40 = local_40 + 1;
         local_3c[2] = uVar6;

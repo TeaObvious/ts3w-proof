@@ -1,7 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; analyst display name FootprintQueryCell_Initialize.
    Original Ghidra database symbol: FUN_00669f00; database unchanged.
    Names in this reviewed rendering are analyst aliases, not recovered EA symbols.
@@ -9,10 +9,13 @@
    Owned ranges (exclusive ends): [00669f00,00669f71); 0 envelope gap bytes are not owned instructions.
 */
 
+/* Retained historical annotation 2, previous C line 12; earlier snapshot context. */
 /* This initializes a 0x24-byte query descriptor: tree+4, parent storage+8, selected storage+C, scale+14, packed coordinates/depth+18 and low-byte subcell code+1C. The constructor preserves unrelated bitfields through masks; its unreviewed initialization/destruction helpers remain separate lifetime boundaries. */
 
+
+
 void __thiscall
-FootprintQueryCell_Initialize(void *this,undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4,
+FUN_00669f00(void *this,undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4,
             uint param_5,uint param_6,int param_7,int param_8,undefined4 param_9,undefined1 param_10
             )
 
@@ -29,3 +32,4 @@ FootprintQueryCell_Initialize(void *this,undefined4 param_1,undefined4 param_2,i
   *(undefined1 *)((int)this + 0x1c) = param_10;
   return;
 }
+

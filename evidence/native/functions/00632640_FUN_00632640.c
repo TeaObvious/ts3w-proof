@@ -1,7 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; analyst display name LotRouting_GatherSegmentFootprints.
    Original Ghidra database symbol: FUN_00632640; database unchanged.
    Names in this reviewed rendering are analyst aliases, not recovered EA symbols.
@@ -9,10 +9,13 @@
    Owned ranges (exclusive ends): [00632640,00632729); 0 envelope gap bytes are not owned instructions.
 */
 
+/* Retained historical annotation 2, previous C line 12; earlier snapshot context. */
 /* 632644 reads queryRecord+54, then lot GUID words+48/+4c. Missing owner/GUID/admission and absent selected quadtree produce AL0; the earliest failure clears only AL. 6326C8..DE passes a null filter context when queryRecord+44 is zero, otherwise queryRecord itself. Both endpoint XZ conversions occur before the null-tree check. The final six-word RET is 0x18. */
 
+
+
 uint __thiscall
-LotRouting_GatherSegmentFootprints(void *this,uint param_1,float *param_2,float *param_3,float param_4,int param_5,
+FUN_00632640(void *this,uint param_1,float *param_2,float *param_3,float param_4,int param_5,
             char param_6)
 
 {
@@ -37,7 +40,7 @@ LotRouting_GatherSegmentFootprints(void *this,uint param_1,float *param_2,float 
         FUN_0062f560(this,uVar1,uVar2,param_2,&local_c);
         FUN_0062f560(this,uVar1,uVar2,param_3,&local_18);
         if (this_00 != (void *)0x0) {
-          bVar3 = FootprintQuadtree_GatherSegmentFootprints(this_00,-(uint)(*(int *)(param_1 + 0x44) != 0) & param_1,local_c,
+          bVar3 = FUN_006676a0(this_00,-(uint)(*(int *)(param_1 + 0x44) != 0) & param_1,local_c,
                                local_8,local_18,local_14,param_4,param_5,param_6);
           if (bVar3) {
             return 1;
@@ -49,3 +52,4 @@ LotRouting_GatherSegmentFootprints(void *this,uint param_1,float *param_2,float 
   }
   return uVar4 & 0xffffff00;
 }
+

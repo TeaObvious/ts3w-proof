@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name; original PC 1.67 Swarm terrain collision. 00925FA0 converts old/end points
@@ -94,7 +94,7 @@ TS3W_SwarmTerrainSurfaceCollide
   float fStack_1c;
   float fStack_18;
   float fStack_14;
-
+  
   uVar3 = TS3W_SwarmSurfaceStepToGame
                     (&local_120,param_2,param_7,param_4,param_5,param_3,&local_120,&local_130);
   pvVar2 = DAT_011edbc4;
@@ -123,8 +123,9 @@ LAB_00926f46:
   fStack_9c = fStack_11c;
   fStack_98 = fStack_118;
   fStack_94 = fStack_114;
-  fVar5 = FUN_00c60c20(DAT_011edbc4,local_120,fStack_118,0,'\x01','\0',(undefined1 *)0x0,
-                       (undefined1 *)0x0);
+  fVar5 = TS3W_QueryWorldGroundHeight
+                    (DAT_011edbc4,local_120,fStack_118,0,'\x01','\0',(undefined1 *)0x0,
+                     (undefined1 *)0x0);
   local_b0 = fStack_12c;
   local_f0 = (float)fVar5;
   uVar3 = extraout_EAX;
@@ -153,8 +154,9 @@ LAB_00926f46:
     fStack_dc = fStack_12c;
     fStack_d8 = fStack_128;
     fStack_d4 = fStack_124;
-    fVar5 = FUN_00c60c20(pvVar2,local_130,fStack_128,0,'\x01','\0',(undefined1 *)0x0,
-                         (undefined1 *)0x0);
+    fVar5 = TS3W_QueryWorldGroundHeight
+                      (pvVar2,local_130,fStack_128,0,'\x01','\0',(undefined1 *)0x0,(undefined1 *)0x0
+                      );
     fStack_d4 = (float)fVar5;
     local_e0 = fStack_12c - fStack_d4;
     fStack_dc = fStack_12c - fStack_d4;

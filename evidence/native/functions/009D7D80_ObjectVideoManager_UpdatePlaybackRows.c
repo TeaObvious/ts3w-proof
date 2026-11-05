@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -38,7 +37,7 @@ void __fastcall ObjectVideoManager_UpdatePlaybackRows(void *param_1)
   int local_8;
   int local_4;
   
-  iVar1 = FUN_0060e910();
+  iVar1 = Graphics_GetManagerSingleton();
   if (*(char *)(iVar1 + 0x8d) == '\0') {
     piVar5 = *(int **)((int)param_1 + 0x88);
     local_44 = piVar5;
@@ -52,7 +51,6 @@ LAB_009d8080:
             puVar4 = (undefined4 *)
                      ObjectVideoManager_EndPlaybackAndBindFallback(param_1,piVar5,(int *)&local_44);
             piVar5 = (int *)*puVar4;
-            local_44 = piVar5;
           }
           else {
             if (((char)piVar5[0x28] == '\0') && (*(char *)(piVar5[0x1f] + 0x78) != '\0')) {
@@ -70,7 +68,6 @@ LAB_009d8080:
             iVar1 = FUN_00f1c750((void *)piVar5[0x1e]);
             if (iVar1 == 0) {
               piVar5 = (int *)*piVar5;
-              local_44 = piVar5;
             }
             else {
               if (*(char *)((int)piVar5 + 0xa3) != '\0') {
@@ -82,38 +79,36 @@ LAB_009d8080:
               piVar5[0x2a] = (int)(float)fVar6;
               if ((float10)0 <= fVar6) {
                 if (3.4028235e+38 <= local_40) {
-                  if (*(char *)((int)piVar5 + 0xa2) == '\0') {
-                    piVar5 = &local_28;
-                    goto LAB_009d8080;
+                  if (*(char *)((int)piVar5 + 0xa2) != '\0') {
+                    FUN_009d64d0((int)piVar5);
+                    *(undefined1 *)(piVar5 + 0x29) = 1;
+                    FUN_009d6710(piVar5[0x1c],(int *)piVar5[0x1d]);
+                    FUN_009d70e0(param_1,(int)piVar5,'\0');
+                    goto LAB_009d808d;
                   }
-                  FUN_009d64d0((int)piVar5);
-                  *(undefined1 *)(piVar5 + 0x29) = 1;
-                  FUN_009d6710(piVar5[0x1c],(int *)piVar5[0x1d]);
-                  FUN_009d70e0(param_1,(int)piVar5,'\0');
+                  piVar5 = &local_28;
+                  goto LAB_009d8080;
                 }
-                else {
-                  if (local_40 < *(float *)((int)param_1 + 0x94) ||
-                      local_40 == *(float *)((int)param_1 + 0x94)) goto LAB_009d8052;
+                if (*(float *)((int)param_1 + 0x94) <= local_40 &&
+                    local_40 != *(float *)((int)param_1 + 0x94)) {
                   if (*(char *)((int)piVar5 + 0xa5) == '\0') {
                     *(undefined1 *)((int)piVar5 + 0xa5) = 1;
                     FUN_00f18be0(piVar5[0x1e]);
                   }
                   piVar5 = (int *)*piVar5;
-                  local_44 = piVar5;
+                  goto LAB_009d8089;
                 }
               }
-              else {
-LAB_009d8052:
-                if (*(char *)((int)piVar5 + 0xa5) != '\0') {
-                  *(undefined1 *)((int)piVar5 + 0xa5) = 0;
-                  FUN_00f1c870(piVar5[0x1e]);
-                }
-                FUN_00f1e470((void *)piVar5[0x1e]);
-                piVar5 = (int *)*piVar5;
-                local_44 = piVar5;
+              if (*(char *)((int)piVar5 + 0xa5) != '\0') {
+                *(undefined1 *)((int)piVar5 + 0xa5) = 0;
+                FUN_00f1c870(piVar5[0x1e]);
               }
+              FUN_00f1e470((void *)piVar5[0x1e]);
+              piVar5 = (int *)*piVar5;
             }
           }
+LAB_009d8089:
+          local_44 = piVar5;
         }
         else {
           fVar6 = FUN_009d6860(piVar5[0x1c],piVar5[0x1d]);
@@ -133,30 +128,28 @@ LAB_009d8052:
                 piVar5[0x19] = 0;
                 piVar5[0x1a] = 0;
                 piVar5[0x1b] = 0;
-                uVar3 = FUN_009d79e0(param_1,&local_10,piVar5[0x1c],(int *)piVar5[0x1d],
-                                     *(char *)((int)piVar5 + 0xa2),(int)local_40,piVar5[0x27],
-                                     piVar5[0x22],piVar5[0x23],piVar5[0x26],piVar5[0x25],
-                                     *(undefined1 *)((int)piVar5 + 0xa1));
+                uVar3 = ObjectVideoManager_StartOrUpdateObject
+                                  (param_1,&local_10,piVar5[0x1c],(int *)piVar5[0x1d],
+                                   *(char *)((int)piVar5 + 0xa2),(int)local_40,piVar5[0x27],
+                                   piVar5[0x22],piVar5[0x23],piVar5[0x26],piVar5[0x25],
+                                   *(undefined1 *)((int)piVar5 + 0xa1));
                 if ((char)uVar3 != '\0') goto LAB_009d808d;
               }
               piVar5 = &local_38;
               goto LAB_009d8080;
             }
+LAB_009d7e21:
+            piVar5 = (int *)*piVar5;
+            goto LAB_009d8089;
           }
-          else {
-            local_3c = (local_20.s.HighPart - piVar5[0x2d]) -
-                       (uint)(local_20.s.LowPart < (uint)piVar5[0x2c]);
-            if (-1 < local_3c) {
-              if (*(char *)((int)piVar5 + 0xa2) == '\0') {
-                piVar5 = &local_34;
-                goto LAB_009d8080;
-              }
-              FUN_009d64d0((int)piVar5);
-              goto LAB_009d808d;
-            }
+          local_3c = (local_20.s.HighPart - piVar5[0x2d]) -
+                     (uint)(local_20.s.LowPart < (uint)piVar5[0x2c]);
+          if (local_3c < 0) goto LAB_009d7e21;
+          if (*(char *)((int)piVar5 + 0xa2) == '\0') {
+            piVar5 = &local_34;
+            goto LAB_009d8080;
           }
-          piVar5 = (int *)*piVar5;
-          local_44 = piVar5;
+          FUN_009d64d0((int)piVar5);
         }
 LAB_009d808d:
       } while (piVar5 != (int *)((int)param_1 + 0x88));

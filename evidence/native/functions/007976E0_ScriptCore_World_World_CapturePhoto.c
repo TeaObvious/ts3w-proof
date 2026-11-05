@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163750 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163750 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_CapturePhoto [assembly=ScriptCore token=0x060007EE; style: System.UInt32,
    objIdsToFrame: Sims3.SimIFace.ObjectGuid[], callback: System.Delegate; return=System.Void]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -18,8 +19,8 @@ void __cdecl ScriptCore.World::World_CapturePhoto(int param_1,int param_2,undefi
   undefined4 uVar3;
   int unaff_ESI;
   undefined8 uVar4;
-  int iStack_94;
-  uint local_90;
+  void *pvStack_94;
+  float local_90;
   int local_8c [2];
   int local_84;
   int local_80 [3];
@@ -40,9 +41,9 @@ void __cdecl ScriptCore.World::World_CapturePhoto(int param_1,int param_2,undefi
     local_74[0] = "World/CapturePhoto";
     if (param_2 != 0) {
       local_8c[0] = 0;
-      local_90 = 0;
+      local_90 = 0.0;
       (**(code **)(*piVar2 + 0x68))(param_2,local_8c,&local_90);
-      FUN_0059f220(local_80,local_90);
+      FUN_0059f220(local_80,(uint)local_90);
       iVar1 = 0;
       if (0 < (int)local_90) {
         do {
@@ -55,9 +56,10 @@ void __cdecl ScriptCore.World::World_CapturePhoto(int param_1,int param_2,undefi
     }
     uVar4 = (**(code **)(*piVar2 + 0x118))();
     (**(code **)(*piVar2 + 0x120))(uVar4,0xffffffff,param_3,0);
-    FUN_0097e600(&iStack_94,afStack_64,(undefined1 (*) [16])local_74,(float *)&stack0xffffff64);
-    uVar3 = FUN_009db630(&iStack_94,param_1,(int *)afStack_64,(int *)local_74,unaff_ESI,&local_84,
-                         (int)uVar4,(int)((ulonglong)uVar4 >> 0x20));
+    FUN_0097e600((int *)&pvStack_94,afStack_64,(undefined1 (*) [16])local_74,
+                 (float *)(local_8c + -4));
+    uVar3 = FUN_009db630((int *)&pvStack_94,param_1,(int *)afStack_64,(int *)local_74,unaff_ESI,
+                         &local_84,(int)uVar4,(int)((ulonglong)uVar4 >> 0x20));
     if ((char)uVar3 == '\0') {
       appuStack_44[0] = &PTR_FUN_00fba6f4;
       uStack_3c = 0;
@@ -72,8 +74,8 @@ void __cdecl ScriptCore.World::World_CapturePhoto(int param_1,int param_2,undefi
     else {
       (**(code **)(*piVar2 + 0x11c))();
     }
-    if (iStack_94 != 0) {
-      FUN_004e44e0(iStack_94);
+    if (pvStack_94 != (void *)0x0) {
+      Memory_FreeIfNonNull(pvStack_94);
     }
   }
   return;

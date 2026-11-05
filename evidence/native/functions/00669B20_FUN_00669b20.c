@@ -1,7 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; analyst display name FootprintCell_CollectLeafRecords.
    Original Ghidra database symbol: FUN_00669b20; database unchanged.
    Names in this reviewed rendering are analyst aliases, not recovered EA symbols.
@@ -9,10 +9,13 @@
    Owned ranges (exclusive ends): [00669b20,00669d87), [00669d90,00669dff); 9 envelope gap bytes are not owned instructions.
 */
 
+/* Retained historical annotation 2, previous C line 12; earlier snapshot context. */
 /* This unmasked leaf collector is a separate generic dispatch branch. 669FA0 selects it only for descriptor tag0 with an ordinary leaf node; the nonempty terminal segment cells use masked collection instead. It shares deferred class2/marker1F behavior and pointer-set insertion. Its configurable self/ignore flags do not establish that the social query supplies a nonnull actor context. The nine-byte owned-range gap is not part of the Listing. */
 
+
+
 void __thiscall
-FootprintCell_CollectLeafRecords(void *this,int param_1,void *param_2,char param_3,char param_4,char param_5)
+FUN_00669b20(void *this,int param_1,void *param_2,char param_3,char param_4,char param_5)
 
 {
   uint *puVar1;
@@ -46,7 +49,7 @@ FootprintCell_CollectLeafRecords(void *this,int param_1,void *param_2,char param
       local_64 = (void *)0x0;
     }
     else {
-      local_64 = (void *)RoutingRecord_GetOptionsField28OrNull((int)puVar9);
+      local_64 = (void *)FUN_00828f00((int)puVar9);
     }
     bVar2 = false;
     if ((~*(byte *)puVar1 & 1) == 0) {
@@ -105,11 +108,11 @@ LAB_00669ce5:
             }
             if (param_3 == '\0') {
 LAB_00669d3d:
-              FootprintSet_InsertUniquePointer(param_2,auStack_58,puVar1);
+              FUN_00628ca0(param_2,auStack_58,puVar1);
             }
             else if (uVar7 == 2) {
               if (*puVar1 == 0) goto LAB_00669d3d;
-              FootprintGather_AppendDeferredReference(&local_50,(int *)puVar1);
+              FUN_006694c0(&local_50,(int *)puVar1);
             }
             else if ((1 < uVar7) && (uVar7 != 0xd)) goto LAB_00669d3d;
           }
@@ -131,7 +134,7 @@ LAB_00669d59:
     puVar8 = puVar3;
     if (((param_3 != '\0') && (puVar10 != puVar3)) && (bVar2)) {
       do {
-        FootprintSet_InsertUniquePointer(param_2,auStack_58,puVar10);
+        FUN_00628ca0(param_2,auStack_58,puVar10);
         puVar10 = puVar10 + 1;
         puVar1 = local_50;
         puVar8 = local_4c;
@@ -152,3 +155,4 @@ LAB_00669d59:
   }
   return;
 }
+

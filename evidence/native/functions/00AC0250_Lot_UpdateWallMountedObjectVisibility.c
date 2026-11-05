@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name. PC1.67 static instruction review. ECX lot with six stack args, RET18h.
@@ -27,8 +27,7 @@ Lot_UpdateWallMountedObjectVisibility
   short sVar8;
   void *pvVar9;
   uint uVar10;
-  undefined4 uVar11;
-  void *pvVar12;
+  void *pvVar11;
   float local_18;
   float local_14;
   int local_10;
@@ -72,20 +71,21 @@ Lot_UpdateWallMountedObjectVisibility
     bVar5 = false;
   }
   if ((char)requestedVisibilityWord == '\0') {
-    if ((iVar3 == 0xc9) && (uVar11 = FUN_00c97a00((int)pvVar9), (char)uVar11 != '\0')) {
+    if ((iVar3 == 0xc9) &&
+       (uVar10 = Catalog_TestIntersectionCategoryOrD0Bit4(pvVar9), (char)uVar10 != '\0')) {
       return;
     }
     if (bVar5) {
-      pvVar12 = (void *)FUN_00cfe370();
-      if (pvVar12 == object) {
+      pvVar11 = (void *)HandTool_GetCurrentHeldPointer();
+      if (pvVar11 == object) {
         return;
       }
     }
     else {
-      uVar11 = FUN_00c97790((int)pvVar9);
-      if ((char)uVar11 != '\0') {
-        pvVar12 = *(void **)((int)this + 0x298);
-        if (*(int *)((int)pvVar12 + 0xe4) == *(int *)((int)pvVar12 + 0xe8)) {
+      uVar10 = Catalog_TestIntersectionCategoryMask(pvVar9);
+      if ((char)uVar10 != '\0') {
+        pvVar11 = *(void **)((int)this + 0x298);
+        if (*(int *)((int)pvVar11 + 0xe4) == *(int *)((int)pvVar11 + 0xe8)) {
           if (*(char *)((int)this + 0x3a4) != '\0') {
             cVar6 = FUN_00791710();
 LAB_00ac04a1:
@@ -95,23 +95,24 @@ LAB_00ac04a1:
           }
         }
         else {
-          sVar7 = FUN_00b470e0(pvVar12,tile4,0,'\0');
+          sVar7 = FUN_00b470e0(pvVar11,tile4,0,'\0');
           bVar5 = FUN_00abf1f0(*(void **)((int)this + 0x298),sVar7);
           if (bVar5) {
             return;
           }
           requestedVisibilityWord = 0xff00ffff;
-          FUN_00c45fb0((undefined2 *)wallLocator6,(undefined2 *)&requestedVisibilityWord);
+          WallLocator_QueryOtherAdjacentTile
+                    ((undefined2 *)wallLocator6,(undefined2 *)&requestedVisibilityWord);
           sVar8 = FUN_00b470e0(*(void **)((int)this + 0x298),(char *)&requestedVisibilityWord,0,'\0'
                               );
-          pvVar12 = *(void **)((int)this + 0x298);
-          bVar5 = FUN_00abf1f0(pvVar12,sVar8);
+          pvVar11 = *(void **)((int)this + 0x298);
+          bVar5 = FUN_00abf1f0(pvVar11,sVar8);
           if (bVar5) {
             return;
           }
           if (((*(char *)((int)this + 0x3a4) != '\0') ||
-              (bVar5 = FUN_00abf240(pvVar12,sVar7), bVar5)) ||
-             (bVar5 = FUN_00abf240(pvVar12,sVar8), bVar5)) {
+              (bVar5 = FUN_00abf240(pvVar11,sVar7), bVar5)) ||
+             (bVar5 = FUN_00abf240(pvVar11,sVar8), bVar5)) {
             cVar6 = FUN_00791710();
             goto LAB_00ac04a1;
           }
@@ -123,7 +124,7 @@ LAB_00ac04a1:
                        and00B48B80(endpoint) true, no catalog+D0 bit4 causes event13(value1) even
                        though requested lowbyte0. */
     if (((secondUp != 0) || (firstUp != 0)) &&
-       (uVar11 = FUN_00c97a00((int)pvVar9), (char)uVar11 != '\0')) {
+       (uVar10 = Catalog_TestIntersectionCategoryOrD0Bit4(pvVar9), (char)uVar10 != '\0')) {
       if (bVar4 == 0) {
         cVar6 = wallLocator6[3];
         cVar1 = wallLocator6[4];
@@ -167,7 +168,7 @@ LAB_00ac04a1:
     local_4 = local_10;
     if (((*(uint *)((int)pvVar9 + 0xd0) >> 2 & 1) != 0) &&
        (uVar10 = FUN_00b48b80(*(void **)((int)this + 0x298),&local_c), (char)uVar10 != '\0')) {
-      FUN_00b0bc60(object);
+      WorldObject_ApplyAuthoredWallAndFenceCutoutRows(object);
     }
 LAB_00ac0382:
     pvVar9 = (void *)0x1;

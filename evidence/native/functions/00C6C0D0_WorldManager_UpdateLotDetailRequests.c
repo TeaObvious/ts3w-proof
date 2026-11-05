@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst: PC 1.67 map/lot detail contract. x86 thiscall consumes four stack slots (RET10),
    including unused cameraContext at+14; old inferred C omitted that parameter. Copies 16-byte
    viewPosition into+3a0 before freeze+d9 early return; imposter+d8 then delegates active-only pass.
@@ -59,8 +61,7 @@ WorldManager_UpdateLotDetailRequests
   int iStack_86c;
   int local_868;
   int *local_864;
-  undefined1 local_860 [8];
-  float fStack_858;
+  undefined1 local_860 [28];
   float local_844;
   float local_840;
   float fStack_83c;
@@ -102,20 +103,20 @@ WorldManager_UpdateLotDetailRequests
     auVar17._4_4_ = auVar17._0_4_;
     auVar17._8_4_ = auVar17._0_4_;
     auVar17._12_4_ = auVar17._0_4_;
-    _local_860 = sqrtps(auVar17,auVar17);
-    auVar18._0_4_ = DAT_00fab218 * deltaSeconds;
-    auVar18._4_4_ = DAT_00fab218 * deltaSeconds;
-    auVar18._8_4_ = DAT_00fab218 * deltaSeconds;
-    auVar18._12_4_ = DAT_00fab218 * deltaSeconds;
+    local_860._0_16_ = sqrtps(auVar17,auVar17);
+    auVar18._0_4_ = deltaSeconds * -1.0;
+    auVar18._4_4_ = deltaSeconds * -1.0;
+    auVar18._8_4_ = deltaSeconds * -1.0;
+    auVar18._12_4_ = deltaSeconds * -1.0;
     auVar19._4_4_ = deltaSeconds;
     auVar19._0_4_ = deltaSeconds;
     auVar19._8_4_ = deltaSeconds;
     auVar19._12_4_ = deltaSeconds;
     auVar19 = maxps(auVar18,auVar19);
-    auVar20._4_4_ = -(uint)(auVar19._4_4_ <= DAT_01079744);
-    auVar20._0_4_ = -(uint)(auVar19._0_4_ <= DAT_01079744);
-    auVar20._8_4_ = -(uint)(auVar19._8_4_ <= DAT_01079744);
-    auVar20._12_4_ = -(uint)(auVar19._12_4_ <= DAT_01079744);
+    auVar20._4_4_ = -(uint)(auVar19._4_4_ <= 1.1920929e-07);
+    auVar20._0_4_ = -(uint)(auVar19._0_4_ <= 1.1920929e-07);
+    auVar20._8_4_ = -(uint)(auVar19._8_4_ <= 1.1920929e-07);
+    auVar20._12_4_ = -(uint)(auVar19._12_4_ <= 1.1920929e-07);
     iVar11 = movmskps(local_884,auVar20);
     if (iVar11 == 0xf) {
       local_87c = (undefined4 *)0x0;
@@ -154,7 +155,7 @@ WorldManager_UpdateLotDetailRequests
       if (puVar16 != (undefined4 *)0x0) {
         fVar21 = (float)(int)puVar16;
         if ((int)puVar16 < 0) {
-          fVar21 = fVar21 + _DAT_00f99948;
+          fVar21 = fVar21 + 4.2949673e+09;
         }
         puVar22 = (undefined4 *)((float)puVar22 / fVar21);
         local_878 = puVar22;
@@ -176,7 +177,9 @@ WorldManager_UpdateLotDetailRequests
   local_814 = local_824;
   LotDetailScores_Resize(&local_824,*(int *)((int)this + 0x208) - *(int *)((int)this + 0x204) >> 2);
   local_864 = (int *)0x0;
-  local_870 = FUN_00c60740(this,*(int *)((int)this + 0x170),*(int *)((int)this + 0x174),(int *)0x0);
+  local_870 = WorldObjects_FindByGuid
+                        (this,*(uint *)((int)this + 0x170),*(uint *)((int)this + 0x174),(uint *)0x0)
+  ;
   if ((local_870 == (int *)0x0) || (iVar11 = (**(code **)(*local_870 + 0x40))(), iVar11 != 1)) {
 LAB_00c6c325:
     local_870 = (int *)0x0;
@@ -197,10 +200,8 @@ LAB_00c6c372:
     fStack_83c = viewPosition[1];
     fStack_838 = viewPosition[2];
     fStack_834 = viewPosition[3];
-    fStack_858 = SUB124(*(undefined1 (*) [12])viewPosition,8);
-    fVar21 = fStack_858;
-    _local_860 = *(undefined1 (*) [16])viewPosition;
-    pvVar13 = FUN_00c7e0c0(local_884,local_840,fVar21);
+    local_860._0_16_ = *(undefined1 (*) [16])viewPosition;
+    pvVar13 = FUN_00c7e0c0(local_884,local_840,(float)local_860._8_4_);
     if (pvVar13 == (void *)0x0) goto LAB_00c6c372;
     local_864 = *(int **)((int)pvVar13 + 0x18);
   }
@@ -233,8 +234,8 @@ LAB_00c6c378:
           local_878 = (undefined4 *)((int)local_878 + 1);
         }
         auVar7._12_4_ = 0;
-        auVar7._0_12_ = stack0xfffff7a4;
-        _local_860 = auVar7 << 0x20;
+        auVar7._0_12_ = local_860._4_12_;
+        local_860._0_16_ = auVar7 << 0x20;
         fVar21 = WorldManager_ComputeLotDetailScore(this,viewPosition,piVar2,(float *)local_860);
         *(float *)((int)local_824 + iStack_86c + 0xc) = fVar21;
         puVar22 = (undefined4 *)((int)local_824 + iStack_86c);
@@ -311,7 +312,7 @@ LAB_00c6c5fa:
 LAB_00c6c58e:
           if ((*(int *)((int)this + 0x1b4) == 2) &&
              (uVar15 = FUN_0096fe00((int)this), (char)uVar15 != '\0')) {
-            local_860 = (undefined1  [8])*(undefined8 *)((int)pvVar13 + 0x48);
+            local_860._0_8_ = *(undefined8 *)((int)pvVar13 + 0x48);
             uVar15 = FUN_00c63720(this,(uint *)local_860);
             if ((char)uVar15 != '\0') {
               FUN_00c640b0(pvVar13,'\0');

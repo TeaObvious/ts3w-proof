@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Original compositor reader clears maps before opening. Admits decimal versions 1 through 5;
@@ -24,8 +24,8 @@ LotCompositors_ReadResource
   byte bVar2;
   undefined3 extraout_var;
   uint uVar3;
-  undefined4 uVar4;
-  int *piVar5;
+  int *piVar4;
+  undefined4 uVar5;
   undefined3 extraout_var_00;
   undefined3 uVar6;
   uint extraout_EAX;
@@ -70,8 +70,8 @@ LAB_00ad3ed7:
       param_5 = (int *)StreamContext_GetPositionAndMarkNegative(this_00);
       StreamContext_SeekWithSignedAbsoluteGuard(this_00,local_24,0);
       piVar7 = param_2;
-      uVar4 = FUN_00607340((void *)((int)this + 0x44),this_00,(uint)param_2);
-      if ((char)uVar4 != '\0') {
+      bVar2 = SavedModelSharedSteps_Read((void *)((int)this + 0x44),this_00,param_2);
+      if (bVar2 != 0) {
         StreamContext_SeekWithSignedAbsoluteGuard(this_00,(int)param_5,0);
         param_1 = (int *)0x0;
         StreamReader_ReadUInt32Into(this_00,(uint *)&param_1);
@@ -86,15 +86,15 @@ LAB_00ad3ed7:
             ResourceReferences_ReadContextKey(piVar7,this_00,&local_20);
             piVar7 = (int *)this_00[2];
             param_5 = (int *)0x0;
-            piVar5 = FUN_0074efa0((int *)&param_5);
-            uVar4 = TextureCompositor_CreateFromResourceStream
-                              (piVar7,(void *)((int)this + 0x44),local_18,(int)param_2,piVar5);
-            if ((char)uVar4 != '\0') {
+            piVar4 = FUN_0074efa0((int *)&param_5);
+            uVar5 = TextureCompositor_CreateFromResourceStream
+                              (piVar7,(void *)((int)this + 0x44),local_18,(int)param_2,piVar4);
+            if ((char)uVar5 != '\0') {
               param_5[2] = local_20;
               param_5[3] = local_1c;
               param_5[4] = local_18;
               param_5[5] = local_14;
-              FUN_00ad33d0(this,param_5,'\0');
+              LotCompositors_RetainProgramByResourceKey(this,param_5,'\0');
             }
             if (param_5 != (int *)0x0) {
               (**(code **)(*param_5 + 4))();
@@ -121,7 +121,7 @@ LAB_00ad3ed7:
               param_2[3] = local_1c;
               param_2[4] = local_18;
               param_2[5] = local_14;
-              FUN_00ad3620(this,param_2);
+              LotCompositors_RetainPresetByResourceKey(this,param_2);
             }
             if (param_2 != (int *)0x0) {
               (**(code **)(*param_2 + 4))();

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): PC1.67 ECX driver,two stack dwords RET8. Selected
@@ -23,9 +23,11 @@ void __thiscall SacsDriver_WriteStateAndParameters(void *this,void *param_1,int 
   short sVar1;
   int iVar2;
   size_t _Size;
-  bool bVar3;
-  byte bVar4;
-  char cVar5;
+  void *this_00;
+  bool readSucceeded;
+  byte bVar3;
+  char cVar4;
+  int iVar5;
   uint uVar6;
   short *_Src;
   short *psVar7;
@@ -42,71 +44,86 @@ void __thiscall SacsDriver_WriteStateAndParameters(void *this,void *param_1,int 
   undefined4 local_8;
   undefined4 local_4;
   
+  this_00 = param_1;
+  iVar9 = *(int *)((int)this + 0xc);
+  iVar2 = *(int *)((int)this + 8);
   if (*(char *)((int)param_1 + 0x14) != '\0') {
-    iVar9 = *(int *)((int)this + 4);
-    local_10 = *(undefined4 *)(iVar9 + 8);
-    local_c = *(undefined4 *)(iVar9 + 0xc);
-    local_8 = *(undefined4 *)(iVar9 + 0x10);
-    local_4 = *(undefined4 *)(iVar9 + 0x14);
-    bVar3 = Stream_WriteResourceKeyTGI
-                      (*(void **)((int)param_1 + 8),&local_10,*(uint *)((int)param_1 + 0x10));
+    iVar5 = *(int *)((int)this + 4);
+    local_10 = *(undefined4 *)(iVar5 + 8);
+    local_c = *(undefined4 *)(iVar5 + 0xc);
+    local_8 = *(undefined4 *)(iVar5 + 0x10);
+    local_4 = *(undefined4 *)(iVar5 + 0x14);
+    readSucceeded =
+         Stream_WriteResourceKeyTGI
+                   (*(void **)((int)param_1 + 8),&local_10,*(uint *)((int)param_1 + 0x10));
+    StreamReader_AccumulateStatus(param_1,readSucceeded);
+    bVar3 = Stream_WriteUInt16(*(void **)((int)param_1 + 8),0,*(uint *)((int)param_1 + 0x10));
     StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar4 = Stream_WriteUInt16(*(void **)((int)param_1 + 8),0,*(uint *)((int)param_1 + 0x10));
-    StreamReader_AccumulateStatus(param_1,bVar4);
-    bVar3 = FUN_004dde30(*(int **)((int)param_1 + 8));
+    bVar3 = Stream_WriteByte(*(undefined **)((int)param_1 + 8),1);
     StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar3 = FUN_004dde30(*(int **)((int)param_1 + 8));
+    bVar3 = Stream_WriteByte(*(undefined **)((int)param_1 + 8),(byte)(iVar9 - iVar2 >> 3));
     StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar4 = FUN_004de060(*(int **)((int)param_1 + 8),0,*(int *)((int)param_1 + 0x10));
-    StreamReader_AccumulateStatus(param_1,bVar4);
-    bVar4 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),*(uint *)((int)this + 0x30),
+    bVar3 = FUN_004de060(*(int **)((int)param_1 + 8),0,*(int *)((int)param_1 + 0x10));
+    StreamReader_AccumulateStatus(param_1,bVar3);
+    bVar3 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),*(uint *)((int)this + 0x30),
                                *(uint *)((int)param_1 + 0x10));
-    StreamReader_AccumulateStatus(param_1,bVar4);
+    StreamReader_AccumulateStatus(param_1,bVar3);
     puVar10 = *(uint **)((int)this + 0xc);
     for (puVar8 = *(uint **)((int)this + 8); puVar8 != puVar10; puVar8 = puVar8 + 2) {
-      bVar4 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),*puVar8,*(uint *)((int)param_1 + 0x10)
+      bVar3 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),*puVar8,*(uint *)((int)param_1 + 0x10)
                                 );
-      StreamReader_AccumulateStatus(param_1,bVar4);
+      StreamReader_AccumulateStatus(param_1,bVar3);
       if ((void *)puVar8[1] == (void *)0x0) {
         return;
       }
-      cVar5 = SacsWalker_WriteSavedState((void *)puVar8[1],param_1,param_2);
-      if (cVar5 == '\0') {
+      cVar4 = SacsWalker_WriteSavedState((void *)puVar8[1],param_1,param_2);
+      if (cVar4 == '\0') {
         return;
       }
     }
+    iVar9 = *(int *)((int)this + 0x18);
     iVar2 = *(int *)((int)this + 0x1c);
-    for (iVar9 = *(int *)((int)this + 0x18); iVar9 != iVar2; iVar9 = iVar9 + 0x10) {
-      SacsParameter_ResolveText((void *)(iVar9 + 4),'\0');
+    param_1 = (void *)0x0;
+    param_1._0_1_ = 0;
+    param_2 = (int *)0x0;
+    param_2._0_1_ = 0;
+    for (; iVar9 != iVar2; iVar9 = iVar9 + 0x10) {
+      iVar5 = SacsParameter_ResolveText((void *)(iVar9 + 4),'\0');
+      if (iVar5 == 0) {
+        param_1 = (void *)(uint)(byte)((byte)param_1 + 1);
+      }
+      else {
+        param_2 = (int *)(uint)(byte)((byte)param_2 + 1);
+      }
     }
     uVar6 = 0;
     if (*(int *)((int)this + 0x38) != 0) {
       uVar6 = *(uint *)(*(int *)(*(int *)(*(int *)((int)this + 0x38) + 8) + 0x20) + 0x2c);
     }
-    bVar4 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),uVar6,*(uint *)((int)param_1 + 0x10));
-    StreamReader_AccumulateStatus(param_1,bVar4);
-    bVar3 = FUN_004dde30(*(int **)((int)param_1 + 8));
-    StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar3 = FUN_004dde30(*(int **)((int)param_1 + 8));
-    StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar3 = FUN_004dde30(*(int **)((int)param_1 + 8));
-    StreamReader_AccumulateStatus(param_1,bVar3);
-    bVar3 = FUN_004dde30(*(int **)((int)param_1 + 8));
-    StreamReader_AccumulateStatus(param_1,bVar3);
+    bVar3 = Stream_WriteUInt32(*(void **)((int)this_00 + 8),uVar6,*(uint *)((int)this_00 + 0x10));
+    StreamReader_AccumulateStatus(this_00,bVar3);
+    bVar3 = Stream_WriteByte(*(undefined **)((int)this_00 + 8),0);
+    StreamReader_AccumulateStatus(this_00,bVar3);
+    bVar3 = Stream_WriteByte(*(undefined **)((int)this_00 + 8),0);
+    StreamReader_AccumulateStatus(this_00,bVar3);
+    bVar3 = Stream_WriteByte(*(undefined **)((int)this_00 + 8),(byte)param_1);
+    StreamReader_AccumulateStatus(this_00,bVar3);
+    bVar3 = Stream_WriteByte(*(undefined **)((int)this_00 + 8),(byte)param_2);
+    StreamReader_AccumulateStatus(this_00,bVar3);
     puVar8 = *(uint **)((int)this + 0x1c);
     for (puVar10 = *(uint **)((int)this + 0x18); puVar10 != puVar8; puVar10 = puVar10 + 4) {
       iVar9 = SacsParameter_ResolveText(puVar10 + 1,'\0');
       if (iVar9 == 0) {
-        bVar4 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),*puVar10,
-                                   *(uint *)((int)param_1 + 0x10));
-        StreamReader_AccumulateStatus(param_1,bVar4);
+        bVar3 = Stream_WriteUInt32(*(void **)((int)this_00 + 8),*puVar10,
+                                   *(uint *)((int)this_00 + 0x10));
+        StreamReader_AccumulateStatus(this_00,bVar3);
         uVar6 = puVar10[3];
         if (uVar6 == 0) {
           uVar6 = *(uint *)(puVar10[1] + 0x34);
         }
-        bVar4 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),uVar6,*(uint *)((int)param_1 + 0x10)
+        bVar3 = Stream_WriteUInt32(*(void **)((int)this_00 + 8),uVar6,*(uint *)((int)this_00 + 0x10)
                                   );
-        StreamReader_AccumulateStatus(param_1,bVar4);
+        StreamReader_AccumulateStatus(this_00,bVar3);
       }
     }
     puVar10 = *(uint **)((int)this + 0x1c);
@@ -140,10 +157,10 @@ void __thiscall SacsDriver_WriteStateAndParameters(void *this,void *param_1,int 
         memmove(_Dst,_Src,_Size);
         local_1c = (undefined2 *)(_Dst + _Size);
         *local_1c = 0;
-        bVar4 = Stream_WriteUInt32(*(void **)((int)param_1 + 8),*puVar8,
-                                   *(uint *)((int)param_1 + 0x10));
-        StreamReader_AccumulateStatus(param_1,bVar4);
-        StreamContext_WriteUtf16String(param_1,&local_20);
+        bVar3 = Stream_WriteUInt32(*(void **)((int)this_00 + 8),*puVar8,
+                                   *(uint *)((int)this_00 + 0x10));
+        StreamReader_AccumulateStatus(this_00,bVar3);
+        StreamContext_WriteUtf16String(this_00,&local_20);
         if ((2 < (int)((int)local_18 - (int)local_20 & 0xfffffffeU)) &&
            (local_20 != (undefined1 *)0x0)) {
           Memory_FreeIfNonNull(local_20);

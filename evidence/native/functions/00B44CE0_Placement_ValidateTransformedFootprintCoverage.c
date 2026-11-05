@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -22,6 +22,7 @@ Placement_ValidateTransformedFootprintCoverage(int *param_1,float *param_2,void 
 {
   float fVar1;
   int iVar2;
+  void *this;
   char cVar3;
   bool bVar4;
   uint uVar5;
@@ -30,7 +31,7 @@ Placement_ValidateTransformedFootprintCoverage(int *param_1,float *param_2,void 
   float *pfVar8;
   int ***pppiVar9;
   bool bVar10;
-  void *pvVar11;
+  undefined *lot;
   float local_98;
   float local_94;
   float local_90;
@@ -58,15 +59,20 @@ Placement_ValidateTransformedFootprintCoverage(int *param_1,float *param_2,void 
   cVar3 = *(char *)(iVar6 + 5);
   *(undefined1 *)(param_1 + 10) = 1;
   param_1[9] = (int)cVar3 + param_1[4];
-  pvVar11 = (void *)param_1[1];
+  lot = (undefined *)param_1[1];
   iVar2 = param_1[9];
-  if ((*(int *)((int)pvVar11 + 0x180) < iVar2) || (iVar2 < *(int *)((int)pvVar11 + 0x17c))) {
+  if ((*(int *)(lot + 0x180) < iVar2) || (iVar2 < *(int *)(lot + 0x17c))) {
     if (('\0' < *(char *)(iVar6 + 5)) &&
-       (((*(byte *)(iVar6 + 0xc) & 0x40) != 0 && (*(int *)((int)pvVar11 + 0x180) < iVar2)))) {
+       (((*(byte *)(iVar6 + 0xc) & 0x40) != 0 && (*(int *)(lot + 0x180) < iVar2)))) {
       return true;
     }
-    iVar6 = param_1[0x26];
-    goto joined_r0x00b450a1;
+    if (param_1[0x26] != 0) {
+      return true;
+    }
+    if (param_3 == (void *)0x0) {
+      return false;
+    }
+    goto LAB_00b450b3;
   }
   Geometry_TransformPolygonXZByMatrix3((int *)(iVar6 + 0x30),param_2,param_1 + 0x28);
   pfVar8 = (float *)(param_1 + 0x2c);
@@ -74,19 +80,19 @@ Placement_ValidateTransformedFootprintCoverage(int *param_1,float *param_2,void 
   if (((param_1[4] < 1) || ((void *)param_1[7] == (void *)0x0)) ||
      (uVar5 = Catalog_TestIntersectionCategoryMask((void *)param_1[7]), (char)uVar5 == '\0')) {
     if ((char)param_1[0x22] != '\0') goto LAB_00b44e23;
-    pvVar11 = (void *)param_1[1];
-    uVar7 = FUN_0074aa40(pvVar11,*pfVar8,(float)param_1[0x2d]);
+    lot = (undefined *)param_1[1];
+    uVar7 = FUN_0074aa40(lot,*pfVar8,(float)param_1[0x2d]);
     if ((char)uVar7 != '\0') {
-      uVar7 = FUN_0074aa40(pvVar11,(float)param_1[0x2e],(float)param_1[0x2f]);
+      uVar7 = FUN_0074aa40(lot,(float)param_1[0x2e],(float)param_1[0x2f]);
       cVar3 = (char)uVar7;
       goto LAB_00b44df9;
     }
   }
   else {
-    pvVar11 = (void *)param_1[1];
-    cVar3 = FUN_00b3adc0(pvVar11,*pfVar8,(float)param_1[0x2d]);
+    lot = (undefined *)param_1[1];
+    cVar3 = FUN_00b3adc0(lot,*pfVar8,(float)param_1[0x2d]);
     if (cVar3 != '\0') {
-      cVar3 = FUN_00b3adc0(pvVar11,(float)param_1[0x2e],(float)param_1[0x2f]);
+      cVar3 = FUN_00b3adc0(lot,(float)param_1[0x2e],(float)param_1[0x2f]);
 LAB_00b44df9:
       if (cVar3 != '\0') {
 LAB_00b44e23:
@@ -113,9 +119,9 @@ LAB_00b44e23:
           param_1[0x1d] = iStack_5c;
           param_1[0x1e] = iStack_58;
           param_1[0x1f] = iStack_54;
-          pvVar11 = (void *)param_1[7];
-          if (((pvVar11 != (void *)0x0) && ((*(uint *)((int)pvVar11 + 0xa4) & 0x4002) != 0)) &&
-             ((uVar5 = Catalog_TestIntersectionCategoryOrD0Bit4(pvVar11), (char)uVar5 == '\0' &&
+          this = (void *)param_1[7];
+          if (((this != (void *)0x0) && ((*(uint *)((int)this + 0xa4) & 0x4002) != 0)) &&
+             ((uVar5 = Catalog_TestIntersectionCategoryOrD0Bit4(this), (char)uVar5 == '\0' &&
               (((*(uint *)(param_1[7] + 0xd0) & 0x10000) == 0 &&
                (iVar6 = FUN_00789450(param_1[7]), iVar6 == 0)))))) {
             if ((_DAT_011ed198 & 1) == 0) {
@@ -185,16 +191,16 @@ LAB_00b44e23:
       }
     }
   }
-  iVar6 = param_1[0x26];
-joined_r0x00b450a1:
-  if (iVar6 == 0) {
-    if (param_3 != (void *)0x0) {
-      FUN_00ad6720(local_50,2,(int)pvVar11,(float *)(param_1 + 2),0,0);
-      FUN_00ad8570(param_3,local_50);
-      FUN_00ad70d0((int)local_50);
-    }
+  if (param_1[0x26] != 0) {
+    return true;
+  }
+  if (param_3 == (void *)0x0) {
     return false;
   }
-  return true;
+LAB_00b450b3:
+  BuildEditErrorRecord_InitializeAtLotPoint(local_50,2,lot,(LotPaintPoint *)(param_1 + 2),0,0);
+  FUN_00ad8570(param_3,local_50);
+  FUN_00ad70d0((int)local_50);
+  return false;
 }
 

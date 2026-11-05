@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Enclosing saved-lot data writer: deck group 0x0093D6D6 writes the header, flattens four-word
@@ -86,7 +86,9 @@ LotDataLayers_WriteSavedResources(void *this,char *param_1,void *param_2,char *p
                       (*(void **)((int)this + 0x2ac),param_1,param_2,param_3,param_4,
                        (undefined4 *)0x0);
             if (param_1[0x14] != '\0') {
-              FUN_00a48920(*(void **)((int)this + 0x2b0),param_1,param_2,param_3,param_4,0);
+              CeilingManager_WriteMaterialKey
+                        (*(void **)((int)this + 0x2b0),param_1,param_2,(uint)param_3,(uint)param_4,0
+                        );
               if (param_1[0x14] != '\0') {
                 ModularStairs_WriteManager
                           (*(void **)((int)this + 0x2b4),param_1,param_2,param_3,param_4,0);

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011634f8 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011634f8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_FindPlaceOnRoadOffScreen [assembly=ScriptCore token=0x060007A3; objId:
    System.UInt64, pos: Sims3.SimIFace.Vector3&, option: System.UInt32, distance: System.Single,
    posArray: System.Single[]&, orientArray: System.Single[]&; return=System.Boolean]
@@ -17,12 +18,13 @@ ScriptCore.World::World_FindPlaceOnRoadOffScreen
           undefined4 param_6,undefined4 param_7)
 
 {
-  char cVar1;
-  int iVar2;
+  int iVar1;
+  char cVar2;
+  void *this;
   undefined4 *puVar3;
-  float *pfVar4;
-  float *pfVar5;
-  int *piVar6;
+  float *allocation;
+  float *allocation_00;
+  int *piVar4;
   undefined4 unaff_EBX;
   int unaff_ESI;
   int local_2c;
@@ -33,59 +35,60 @@ ScriptCore.World::World_FindPlaceOnRoadOffScreen
   float fStack_18;
   float fStack_14;
   
-  iVar2 = FUN_00937570();
-  puVar3 = (undefined4 *)FUN_00937f80(iVar2);
+  this = ObjectRegistry_GetGlobal();
+  puVar3 = ObjectRegistry_FindBorrowed(this,CONCAT44(param_2,param_1));
   if (puVar3 != (undefined4 *)0x0) {
     LOCK();
     puVar3[1] = puVar3[1] + 1;
     UNLOCK();
   }
-  if ((param_3 != (float *)0x0) && (local_24 = DAT_011edbc4, DAT_011edbc4 != (void *)0x0)) {
-    fStack_18 = param_3[2];
-    local_20 = *param_3;
-    fStack_1c = param_3[1];
-    local_2c = 0;
-    fStack_14 = local_20;
-    pfVar4 = (float *)FUN_004e4500(0xc,"World/Placement",0);
-    pfVar5 = (float *)FUN_004e4500(0x10,"World/Placement",0);
-    local_28 = pfVar5;
-    cVar1 = FUN_00c7ca40(local_24,puVar3,&local_20,param_4,param_5,&local_2c,pfVar4,pfVar5);
-    if (cVar1 != '\0') {
-      piVar6 = (int *)GetGlobalInterfacePointer_11D5BBC();
-      (**(code **)(*piVar6 + 0xa8))(param_6,pfVar4,0,local_2c * 3);
-      (**(code **)(*piVar6 + 0xa8))(param_7,unaff_EBX,0,unaff_ESI * 4);
-      pfVar5 = local_28;
-    }
-    FUN_004e44e0((int)pfVar4);
-    FUN_004e44e0((int)pfVar5);
+  if ((param_3 == (float *)0x0) || (local_24 = DAT_011edbc4, DAT_011edbc4 == (void *)0x0)) {
     if (puVar3 != (undefined4 *)0x0) {
-      piVar6 = puVar3 + 1;
+      piVar4 = puVar3 + 1;
       LOCK();
-      iVar2 = *piVar6;
-      *piVar6 = *piVar6 + -1;
+      iVar1 = *piVar4;
+      *piVar4 = *piVar4 + -1;
       UNLOCK();
-      if (iVar2 == 1) {
+      if (iVar1 == 1) {
         LOCK();
-        *piVar6 = 1;
+        *piVar4 = 1;
         UNLOCK();
         (**(code **)*puVar3)(1);
       }
     }
-    return cVar1;
+    return '\0';
   }
+  fStack_18 = param_3[2];
+  local_20 = *param_3;
+  fStack_1c = param_3[1];
+  local_2c = 0;
+  fStack_14 = local_20;
+  allocation = (float *)FUN_004e4500(0xc,"World/Placement",0);
+  allocation_00 = (float *)FUN_004e4500(0x10,"World/Placement",0);
+  local_28 = allocation_00;
+  cVar2 = FUN_00c7ca40(local_24,puVar3,&local_20,param_4,param_5,&local_2c,allocation,allocation_00)
+  ;
+  if (cVar2 != '\0') {
+    piVar4 = (int *)GetGlobalInterfacePointer_11D5BBC();
+    (**(code **)(*piVar4 + 0xa8))(param_6,allocation,0,local_2c * 3);
+    (**(code **)(*piVar4 + 0xa8))(param_7,unaff_EBX,0,unaff_ESI * 4);
+    allocation_00 = local_28;
+  }
+  Memory_FreeIfNonNull(allocation);
+  Memory_FreeIfNonNull(allocation_00);
   if (puVar3 != (undefined4 *)0x0) {
-    piVar6 = puVar3 + 1;
+    piVar4 = puVar3 + 1;
     LOCK();
-    iVar2 = *piVar6;
-    *piVar6 = *piVar6 + -1;
+    iVar1 = *piVar4;
+    *piVar4 = *piVar4 + -1;
     UNLOCK();
-    if (iVar2 == 1) {
+    if (iVar1 == 1) {
       LOCK();
-      *piVar6 = 1;
+      *piVar4 = 1;
       UNLOCK();
       (**(code **)*puVar3)(1);
     }
   }
-  return '\0';
+  return cVar2;
 }
 

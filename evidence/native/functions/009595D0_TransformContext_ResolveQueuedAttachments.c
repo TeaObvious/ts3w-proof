@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst original PC1.67 instruction contract. ECX context, no physical stack arguments/plain RET.
@@ -49,9 +49,9 @@ LAB_00959694:
             if (pbVar2 == (byte *)0x0) goto LAB_0095971e;
           }
           else {
-            pbVar2 = (byte *)thunk_FUN_00950200(this_03,(int)puVar5[2]);
+            pbVar2 = (byte *)SlotComponent_FindBoneBindingByIdentifier(this_03,(int)puVar5[2]);
             if (pbVar2 == (byte *)0x0) {
-              pbVar2 = (byte *)FUN_00951bc0(this_03,(int)puVar5[2]);
+              pbVar2 = (byte *)SlotComponent_AppendBonePointByIdentifier(this_03,(int)puVar5[2]);
               goto LAB_00959694;
             }
           }

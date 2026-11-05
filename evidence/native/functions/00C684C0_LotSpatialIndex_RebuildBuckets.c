@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: rebuilds the lot spatial candidate buckets when the index is dirty. Under the lock at
@@ -14,14 +14,13 @@ void __fastcall LotSpatialIndex_RebuildBuckets(int param_1)
 
 {
   int *piVar1;
-  undefined4 uVar2;
+  int iVar2;
   int iVar3;
   int iVar4;
-  int iVar5;
   void *this;
-  int iVar6;
-  undefined4 *puVar7;
-  uint uVar8;
+  int iVar5;
+  undefined4 *puVar6;
+  uint uVar7;
   int local_18;
   int local_14;
   int *local_10;
@@ -36,60 +35,59 @@ void __fastcall LotSpatialIndex_RebuildBuckets(int param_1)
   *(undefined4 *)(param_1 + 0x208) = *(undefined4 *)(param_1 + 0x204);
   *(undefined4 *)(param_1 + 0x218) = *(undefined4 *)(param_1 + 0x214);
   local_10 = *(int **)(param_1 + 0xa0);
-  puVar7 = *(undefined4 **)(param_1 + 0x9c);
-  if (puVar7 != local_10) {
+  puVar6 = *(undefined4 **)(param_1 + 0x9c);
+  if (puVar6 != local_10) {
     do {
-      FUN_00c66630((int *)*puVar7,(int *)(param_1 + 500));
-      puVar7 = puVar7 + 1;
-    } while (puVar7 != local_10);
+      FUN_00c66630((int *)*puVar6,(int *)(param_1 + 500));
+      puVar6 = puVar6 + 1;
+    } while (puVar6 != local_10);
   }
-  FUN_005d3680(piVar1,(int *)(param_1 + 500));
+  DwordVector_CopyAssign_5D3680(piVar1,(int *)(param_1 + 500));
   FUN_00c66630(*(int **)(param_1 + 0xb0),piVar1);
   FUN_00b7a260(*(int *)(param_1 + 0x1d8),*(uint *)(param_1 + 0x1dc));
-  uVar2 = DAT_00fa4138;
   *(undefined4 *)(param_1 + 0x1e0) = 0;
   local_10 = (int *)*piVar1;
-  *(undefined4 *)(param_1 + 0x1d0) = uVar2;
+  *(undefined4 *)(param_1 + 0x1d0) = 0x41800000;
   if (local_10 != *(int **)(param_1 + 0x208)) {
     do {
-      iVar6 = *local_10;
-      local_18 = iVar6;
-      if ((iVar6 != 0) && (*(char *)(iVar6 + 0x74) != '\0')) {
-        iVar3 = *(int *)(iVar6 + 0x15c) - (int)*(float *)(param_1 + 0xb4);
-        iVar4 = *(int *)(iVar6 + 0x158) - (int)*(float *)(param_1 + 0xb8);
-        local_14 = (int)(iVar4 + (iVar4 >> 0x1f & 0xfU)) >> 4;
-        iVar4 = *(int *)(iVar6 + 0x160) - (int)*(float *)(param_1 + 0xb8);
-        iVar5 = *(int *)(iVar6 + 0x154) - (int)*(float *)(param_1 + 0xb4);
-        local_8 = (int)(iVar3 + (iVar3 >> 0x1f & 0xfU)) >> 4;
-        uVar8 = (int)(iVar5 + (iVar5 >> 0x1f & 0xfU)) >> 4;
-        iVar3 = local_14;
-        if ((int)uVar8 <= local_8) {
+      iVar5 = *local_10;
+      local_18 = iVar5;
+      if ((iVar5 != 0) && (*(char *)(iVar5 + 0x74) != '\0')) {
+        iVar2 = *(int *)(iVar5 + 0x15c) - (int)*(float *)(param_1 + 0xb4);
+        iVar3 = *(int *)(iVar5 + 0x158) - (int)*(float *)(param_1 + 0xb8);
+        local_14 = (int)(iVar3 + (iVar3 >> 0x1f & 0xfU)) >> 4;
+        iVar3 = *(int *)(iVar5 + 0x160) - (int)*(float *)(param_1 + 0xb8);
+        iVar4 = *(int *)(iVar5 + 0x154) - (int)*(float *)(param_1 + 0xb4);
+        local_8 = (int)(iVar2 + (iVar2 >> 0x1f & 0xfU)) >> 4;
+        uVar7 = (int)(iVar4 + (iVar4 >> 0x1f & 0xfU)) >> 4;
+        iVar2 = local_14;
+        if ((int)uVar7 <= local_8) {
           do {
-            for (; iVar3 <= (int)(iVar4 + (iVar4 >> 0x1f & 0xfU)) >> 4; iVar3 = iVar3 + 1) {
-              local_c = iVar3 << 0x10 | uVar8;
+            for (; iVar2 <= (int)(iVar3 + (iVar3 >> 0x1f & 0xfU)) >> 4; iVar2 = iVar2 + 1) {
+              local_c = iVar2 << 0x10 | uVar7;
               this = (void *)LotSpatialIndex_GetOrCreateBucket((void *)(param_1 + 0x1d4),&local_c);
               piVar1 = *(int **)((int)this + 4);
               if (piVar1 < *(int **)((int)this + 8)) {
                 *(int **)((int)this + 4) = piVar1 + 1;
                 if (piVar1 != (int *)0x0) {
-                  *piVar1 = iVar6;
+                  *piVar1 = iVar5;
                 }
               }
               else {
                 FUN_00982420(this,piVar1,&local_18);
-                iVar6 = local_18;
+                iVar5 = local_18;
               }
             }
-            uVar8 = uVar8 + 1;
-            iVar3 = local_14;
-          } while ((int)uVar8 <= local_8);
+            uVar7 = uVar7 + 1;
+            iVar2 = local_14;
+          } while ((int)uVar7 <= local_8);
         }
-        if (*(char *)(iVar6 + 0x4bc) != '\0') {
+        if (*(char *)(iVar5 + 0x4bc) != '\0') {
           piVar1 = *(int **)(param_1 + 0x218);
           if (piVar1 < *(int **)(param_1 + 0x21c)) {
             *(int **)(param_1 + 0x218) = piVar1 + 1;
             if (piVar1 != (int *)0x0) {
-              *piVar1 = iVar6;
+              *piVar1 = iVar5;
             }
           }
           else {

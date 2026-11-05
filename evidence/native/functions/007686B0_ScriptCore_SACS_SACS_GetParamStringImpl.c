@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01161e40 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01161e40 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.SACS::SACS_GetParamStringImpl [assembly=ScriptCore token=0x06000D67; driverHandle:
    System.UInt32, paramHash: System.UInt32; return=System.String]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -19,6 +20,7 @@ undefined1 * __cdecl ScriptCore.SACS::SACS_GetParamStringImpl(int param_1)
   wchar_t *pwVar3;
   wchar_t *pwVar4;
   undefined1 *puVar5;
+  undefined1 auStack_3c [4];
   undefined1 *puStack_34;
   undefined1 *puStack_30;
   undefined **ppuStack_2c;
@@ -47,7 +49,7 @@ undefined1 * __cdecl ScriptCore.SACS::SACS_GetParamStringImpl(int param_1)
     if (pwVar3 == (wchar_t *)0x0) {
       if ((2 < (int)((int)ppuStack_2c - (int)puStack_34 & 0xfffffffeU)) &&
          (puStack_34 != (undefined1 *)0x0)) {
-        FUN_004e44e0((int)puStack_34);
+        Memory_FreeIfNonNull(puStack_34);
       }
       return (undefined1 *)0x0;
     }
@@ -64,14 +66,14 @@ undefined1 * __cdecl ScriptCore.SACS::SACS_GetParamStringImpl(int param_1)
   uStack_1a = 0x13;
   uStack_1c = 0xb;
   FUN_004f59c0(appuStack_24,0x13,9,&puStack_34,0x10,1);
-  puVar5 = &stack0xffffffc8;
+  puVar5 = auStack_3c + 4;
   (**(code **)(*piVar2 + 0x50))(appuStack_24);
   ppuStack_2c = &PTR_FUN_00fba6f4;
   if (((uint)appuStack_24[0] & 4) != 0) {
     FUN_004f5760(&ppuStack_2c,'\0');
   }
   if ((2 < (int)((int)puStack_34 - param_1 & 0xfffffffeU)) && (param_1 != 0)) {
-    FUN_004e44e0(param_1);
+    Memory_FreeIfNonNull((void *)param_1);
   }
   return puVar5;
 }

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC 1.67 REFS instruction review. ECX set, RET 0Ch: output iterator/result, UInt16 handle
@@ -27,8 +27,9 @@ LocalHandleSet_InsertUnique(void *this,void *outResult,ushort *handle,uint unuse
   puVar5 = (ushort *)*puVar1;
   while( true ) {
     if (puVar5 == (ushort *)0x0) {
-      FUN_004e0ec0((void *)((int)this + 0x10),local_8,*(uint *)((int)this + 8),
-                   *(uint *)((int)this + 0xc),1);
+      HashGrowth_SelectPrimeCapacity
+                ((void *)((int)this + 0x10),local_8,*(uint *)((int)this + 8),
+                 *(uint *)((int)this + 0xc),1);
       puVar5 = (ushort *)FUN_004e4500(8,*(undefined4 *)((int)this + 0x1c),0);
       if (puVar5 != (ushort *)0x0) {
         *puVar5 = *handle;

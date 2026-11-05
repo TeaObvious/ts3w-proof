@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 authored-lot representations comparison): Analyst producer chain established
@@ -28,6 +28,7 @@ uint __fastcall LotImposter_RenderAtlasesAndBuildModels(void *param_1)
   undefined4 uStack_34;
   undefined ***pppuStack_30;
   undefined4 uStack_2c;
+  undefined1 auStack_16 [6];
   undefined **ppuStack_10;
   undefined4 uStack_c;
   undefined4 uStack_8;
@@ -56,14 +57,14 @@ uint __fastcall LotImposter_RenderAtlasesAndBuildModels(void *param_1)
     }
   }
   uStack_2c = 0xadef8b;
-  piVar2 = (int *)FUN_0044c4f0();
+  piVar2 = (int *)MessageDispatch_GetCurrent();
   LOCK();
   uStack_c = 0;
   UNLOCK();
   uStack_8 = *(undefined4 *)((int)param_1 + 4);
   uStack_2c = 0;
   pppuStack_30 = &ppuStack_10;
-  ppuStack_10 = &PTR_FUN_01065f8c;
+  ppuStack_10 = &PTR_DestroyPooledFloorMessage_01065f8c;
   uStack_4 = 1;
   uStack_34 = 0x3fabf1d;
   (**(code **)(*piVar2 + 0x18))();
@@ -72,12 +73,12 @@ uint __fastcall LotImposter_RenderAtlasesAndBuildModels(void *param_1)
   FUN_00adebf0((int *)((int)param_1 + 0x98),piVar1,0,2,0);
   uVar6 = 0;
   ppuStack_10 = (undefined **)0x2;
-  (**(code **)(*piVar2 + 0x18))(0x3fabf1d,&stack0xffffffe4);
+  (**(code **)(*piVar2 + 0x18))(0x3fabf1d,auStack_16 + -6);
   pppuStack_30 = (undefined ***)0xff000000;
   DAT_011d0564 = 10;
   FUN_00adebf0((int *)((int)param_1 + 0x68),piVar1,0xff000000,2,1);
   FUN_00adebf0((int *)((int)param_1 + 0xb0),piVar1,pppuStack_30,4,1);
-  (**(code **)(*piVar2 + 0x18))(0x3fabf1d,&stack0xffffffd8,0);
+  (**(code **)(*piVar2 + 0x18))(0x3fabf1d,auStack_16 + -0x12,0);
   DAT_011d0564 = 9;
   uVar3 = FUN_00adebf0((int *)((int)param_1 + 0x80),(int *)((int)param_1 + 0x18),0,2,2);
   DAT_011d0564 = uVar6;

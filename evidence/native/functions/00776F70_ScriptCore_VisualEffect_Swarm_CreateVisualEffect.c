@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011629a0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011629a0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.VisualEffect::Swarm_CreateVisualEffect [assembly=ScriptCore token=0x060004B8;
    effectName: System.String; return=System.UInt64]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -14,34 +15,35 @@ undefined8 ScriptCore_VisualEffect__Swarm_CreateVisualEffect(undefined4 param_1)
 
 {
   undefined8 uVar1;
-  void *this;
-  int *piVar2;
-  ushort *puVar3;
+  void *pvVar2;
+  int *piVar3;
+  ushort *inputCodeUnits;
   undefined4 uVar4;
-  undefined4 *puVar5;
-  uint uVar6;
-  int aiStack_140 [3];
+  uint baseMask;
+  uint auStack_148 [2];
+  uint auStack_140 [3];
   int aiStack_134 [12];
   byte abStack_104 [260];
   
-  this = (void *)FUN_00937570();
-  if (this != (void *)0x0) {
-    piVar2 = (int *)GetGlobalInterfacePointer_11D5BBC();
-    puVar3 = (ushort *)(**(code **)(*piVar2 + 0x58))(param_1);
-    if (puVar3 != (ushort *)0x0) {
-      FUN_004fdfa0(abStack_104,puVar3,0x100,-1);
+  pvVar2 = ObjectRegistry_GetGlobal();
+  if (pvVar2 != (void *)0x0) {
+    piVar3 = (int *)GetGlobalInterfacePointer_11D5BBC();
+    inputCodeUnits = (ushort *)(**(code **)(*piVar3 + 0x58))(param_1);
+    if (inputCodeUnits != (ushort *)0x0) {
+      CodeUnits16_EncodeBoundedBytes(abStack_104,inputCodeUnits,0x100,0xffffffff);
       uVar4 = FUN_0092f9c0();
       FUN_00939a40(aiStack_134,uVar4);
-      FUN_00939f90(aiStack_134,0x8cdb555b,(char *)abStack_104);
-      FUN_00939eb0(aiStack_134,aiStack_140);
-      uVar6 = DAT_011e9e90 | DAT_011ea158;
+      ParameterBuilder_AppendByteString(aiStack_134,0x8cdb555b,(char *)abStack_104);
+      ParameterBuilder_FinalizeBorrowedTable(aiStack_134,auStack_140);
+      baseMask = DAT_011e9e90 | DAT_011ea158;
       FUN_004fa780(abStack_104,0x811c9dc5,0);
-      puVar5 = FUN_00938c00(this,aiStack_140,uVar6,&stack0xfffffeb0,0,0);
-      if (puVar5 == (undefined4 *)0x0) {
+      pvVar2 = ObjectRegistry_CreateInitializedObject
+                         (pvVar2,auStack_140,baseMask,auStack_148 + -2,0);
+      if (pvVar2 == (void *)0x0) {
         FUN_00582cf0(aiStack_134);
         return 0;
       }
-      uVar1 = *(undefined8 *)(puVar5 + 2);
+      uVar1 = *(undefined8 *)((int)pvVar2 + 8);
       FUN_00582cf0(aiStack_134);
       return uVar1;
     }

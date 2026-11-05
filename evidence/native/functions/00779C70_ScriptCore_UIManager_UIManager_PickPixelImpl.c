@@ -1,10 +1,13 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-/* Verified PC 1.67 registration table at 0x01163058 (original PC 1.67 TS3W.exe).
+
+
+
+/* Verified PC 1.67 registration table at 0x01163058 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.UIManager::UIManager_PickPixelImpl [assembly=ScriptCore token=0x06000E48; imageKey:
    Sims3.SimIFace.ResourceKey, x: System.Single, y: System.Single; return=System.Single[]]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -25,11 +28,13 @@ undefined4 ScriptCore.UIManager::UIManager_PickPixelImpl(void)
   uint uVar9;
   uint uVar10;
   bool bVar11;
+  undefined1 uStack00000004;
   float in_stack_00000014;
   float in_stack_00000018;
   void *pvVar12;
   int *piVar13;
-  undefined1 auStack_60 [4];
+  undefined1 auStack_60 [2];
+  undefined1 auStack_5e [2];
   int *piStack_5c;
   undefined4 local_58;
   undefined8 uStack_54;
@@ -43,7 +48,7 @@ undefined4 ScriptCore.UIManager::UIManager_PickPixelImpl(void)
   piVar6 = (int *)GetGlobalInterfacePointer_11D5BBC();
   local_58 = 0;
   FUN_00445400(local_2c);
-  FUN_0076c0e0(&stack0x00000004,local_3c);
+  UIResourceKey_CopyManagedToNative(&uStack00000004,local_3c);
   if (((local_34 == 0x2f7d0002) || (local_34 == 0x2f7d0004)) || (local_34 == 0x2f7d0006)) {
     piVar5 = (int *)(**(code **)(*piVar5 + 0x44))(local_3c);
     piStack_5c = (int *)0x0;
@@ -77,14 +82,14 @@ undefined4 ScriptCore.UIManager::UIManager_PickPixelImpl(void)
         uVar9 = piVar5[6];
         fVar2 = (float)(int)uVar9;
         if ((int)uVar9 < 0) {
-          fVar2 = fVar2 + _DAT_00f99948;
+          fVar2 = fVar2 + 4.2949673e+09;
         }
         uVar1 = piVar5[7];
         uStack_54._0_4_ = (uint)(longlong)ROUND(fVar2 * in_stack_00000014);
         uVar10 = (uint)uStack_54;
         fVar2 = (float)(int)uVar1;
         if ((int)uVar1 < 0) {
-          fVar2 = fVar2 + _DAT_00f99948;
+          fVar2 = fVar2 + 4.2949673e+09;
         }
         bVar11 = uVar9 <= (uint)uStack_54;
         uStack_54._0_4_ = (uint)(longlong)ROUND(fVar2 * in_stack_00000018);
@@ -97,12 +102,12 @@ undefined4 ScriptCore.UIManager::UIManager_PickPixelImpl(void)
         uVar9 = (uint)uStack_54;
         uStack_54 = (longlong)ROUND(fVar2 * in_stack_00000018);
         uVar9 = (**(code **)(*piVar5 + 0x30))(uVar10,uVar9);
-        uStack_54 = CONCAT44((float)(uVar9 >> 8 & 0xff) * DAT_00fae564,
-                             (float)(uVar9 >> 0x10 & 0xff) * DAT_00fae564);
-        fStack_4c = (float)(uVar9 & 0xff) * DAT_00fae564;
-        fStack_48 = (float)(uVar9 >> 0x18) * DAT_00fae564;
+        uStack_54 = CONCAT44((float)(uVar9 >> 8 & 0xff) * 0.003921569,
+                             (float)(uVar9 >> 0x10 & 0xff) * 0.003921569);
+        fStack_4c = (float)(uVar9 & 0xff) * 0.003921569;
+        fStack_48 = (float)(uVar9 >> 0x18) * 0.003921569;
         (**(code **)(*piVar6 + 0x90))(auStack_60,4);
-        (**(code **)(*piVar6 + 0xa8))(&stack0xffffff98,&piStack_5c,0,4);
+        (**(code **)(*piVar6 + 0xa8))(auStack_60 + -8,&piStack_5c,0,4);
         (**(code **)*piVar5)(1);
       }
     }

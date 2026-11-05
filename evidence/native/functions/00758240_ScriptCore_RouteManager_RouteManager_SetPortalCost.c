@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Verified PC 1.67 registration table at 0x01161d18 (TS3W.exe).
@@ -45,27 +45,27 @@ bool __cdecl ScriptCore.RouteManager::RouteManager_SetPortalCost(ulonglong objec
   else {
     pvVar4 = (void *)(**(code **)(*piVar5 + 0xc))(0x90566b0e);
   }
-  if ((this != (void *)0x0) && (pvVar4 != (void *)0x0)) {
-    local_10 = (int *)0x0;
-    local_c = (int *)0x0;
-    local_8 = 0;
-    local_4 = "Routing/SetPortalCost";
-    LotRouteGraph_CollectObjectPortals(this,pvVar4,objectId,&local_10);
-    piVar2 = local_c;
-    bVar6 = local_10 != local_c;
-    for (piVar5 = local_10; piVar1 = local_10, piVar5 != local_c; piVar5 = piVar5 + 1) {
-      *(float *)(*piVar5 + 0x2c) = cost;
-    }
-    for (; piVar1 < piVar2; piVar1 = piVar1 + 1) {
-      if ((int *)*piVar1 != (int *)0x0) {
-        (**(code **)(*(int *)*piVar1 + 4))();
-      }
-    }
-    if (local_10 != (int *)0x0) {
-      FUN_004e44e0((int)local_10);
-    }
-    return bVar6;
+  if ((this == (void *)0x0) || (pvVar4 == (void *)0x0)) {
+    return false;
   }
-  return false;
+  local_10 = (int *)0x0;
+  local_c = (int *)0x0;
+  local_8 = 0;
+  local_4 = "Routing/SetPortalCost";
+  LotRouteGraph_CollectObjectPortals(this,pvVar4,objectId,&local_10);
+  piVar2 = local_c;
+  bVar6 = local_10 != local_c;
+  for (piVar5 = local_10; piVar1 = local_10, piVar5 != local_c; piVar5 = piVar5 + 1) {
+    *(float *)(*piVar5 + 0x2c) = cost;
+  }
+  for (; piVar1 < piVar2; piVar1 = piVar1 + 1) {
+    if ((int *)*piVar1 != (int *)0x0) {
+      (**(code **)(*(int *)*piVar1 + 4))();
+    }
+  }
+  if (local_10 != (int *)0x0) {
+    Memory_FreeIfNonNull(local_10);
+  }
+  return bVar6;
 }
 

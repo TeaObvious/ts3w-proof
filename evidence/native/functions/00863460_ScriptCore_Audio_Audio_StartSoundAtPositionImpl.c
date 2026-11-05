@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01167770 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01167770 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Audio::Audio_StartSoundAtPositionImpl [assembly=ScriptCore token=0x060011D9; name:
    System.String, position: Sims3.SimIFace.Vector3; return=System.UInt32]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -16,21 +17,20 @@ ScriptCore.Audio::Audio_StartSoundAtPositionImpl
 
 {
   int *piVar1;
-  ushort *puVar2;
-  undefined4 uVar3;
+  ushort *inputCodeUnits;
+  undefined4 uVar2;
   void *this;
-  uint uVar4;
   void *this_00;
-  int *piVar5;
-  float fStack_118;
-  float fStack_114;
-  int iStack_110;
+  int iVar3;
+  int *piVar4;
+  LotXZLevel LStack_118;
   undefined4 uStack_10c;
   undefined4 uStack_108;
-  float fVar6;
-  undefined4 uVar7;
-  int iVar8;
-  byte *pbVar9;
+  float fVar5;
+  undefined4 uVar6;
+  uint uVar7;
+  byte *pbVar8;
+  float afStack_e0 [2];
   byte *pbStack_d8;
   undefined4 uStack_d4;
   undefined4 uStack_cc;
@@ -42,73 +42,73 @@ ScriptCore.Audio::Audio_StartSoundAtPositionImpl
   float fStack_9c;
   byte abStack_94 [144];
   
-  if ((DAT_011d9c40 != 0) && (piVar5 = (int *)(DAT_011d9c40 + -0x27bd0), piVar5 != (int *)0x0)) {
-    piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
-    iVar8 = 0x80;
-    puVar2 = (ushort *)(**(code **)(*piVar1 + 0x58))();
-    uStack_108 = 0x8634ad;
-    FUN_004fdfa0(abStack_94,puVar2,param_1,iVar8);
-    pbVar9 = abStack_94;
-    uStack_c8 = (**(code **)(*piVar5 + 0x118))();
-    uVar3 = (**(code **)(*piVar5 + 0x28))();
-    fStack_a8 = param_2;
-    uStack_a4 = param_3;
-    fStack_a0 = param_4;
-    fStack_9c = param_2;
-    uStack_ac = uVar3;
-    if (DAT_011edbc4 == (void *)0x0) {
-      this = (void *)0x0;
-    }
-    else {
-      this = FUN_00c687d0(DAT_011edbc4,param_2,param_4);
-      if ((this != (void *)0x0) && (*(char *)((int)this + 0x444) != '\0')) {
-        FUN_00ab1b00(this,(float *)&stack0xffffff18);
-      }
-    }
-    uVar7 = 0x3475365;
-    (**(code **)(*piVar5 + 0x44))();
-    uStack_108 = 0x3475381;
-    uStack_10c = 0x8635e6;
-    fVar6 = (float)uStack_c8;
-    (**(code **)(*piVar5 + 0x50))();
-    iStack_110 = 0x3475385;
-    fStack_114 = 1.2325313e-38;
-    uStack_10c = uVar3;
-    (**(code **)(*piVar5 + 0x4c))();
-    fStack_114 = fVar6;
-    uStack_d4 = 0xffffffff;
-    fStack_118 = 5.8576773e-37;
-    fVar6 = fStack_114;
-    pbStack_d8 = pbVar9;
-    (**(code **)(*piVar5 + 0x48))();
-    (**(code **)(*piVar5 + 0x48))(0x3475395,uStack_cc);
-    (**(code **)(*piVar5 + 0x48))(0x3475398,uStack_108);
-    if (this == (void *)0x0) {
-      this_00 = (void *)0x0;
-    }
-    else {
-      this_00 = *(void **)((int)this + 0x298);
-    }
-    if (this_00 != (void *)0x0) {
-      fStack_118 = DAT_00fab218;
-      fStack_114 = DAT_00fab218;
-      iStack_110 = 0;
-      FUN_00adc860(this,(float *)&pbStack_d8,&fStack_118);
-      FUN_00b482c0(this_00,&fStack_118,0,1);
-      iVar8 = iStack_110;
-      uVar4 = FUN_00aff6a0(this,&fStack_118,1);
-      if ((char)uVar4 != '\0') {
-        iStack_110 = iStack_110 + 1;
-        iVar8 = iVar8 + 1;
-        FUN_00b482c0(*(void **)((int)this + 0x298),&fStack_118,0,1);
-      }
-      (**(code **)(*piVar5 + 0x58))(0x2081b4e6,this);
-      (**(code **)(*piVar5 + 0x48))(0x5dbed967,(float)(int)fVar6);
-      (**(code **)(*piVar5 + 0x48))(0x39ff78d1,(float)iVar8);
-    }
-    (**(code **)(*piVar5 + 0x68))();
-    return uVar7;
+  if ((DAT_011d9c40 == 0) || (piVar4 = (int *)(DAT_011d9c40 + -0x27bd0), piVar4 == (int *)0x0)) {
+    return 0;
   }
-  return 0;
+  piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
+  uVar7 = 0x80;
+  inputCodeUnits = (ushort *)(**(code **)(*piVar1 + 0x58))();
+  uStack_108 = 0x8634ad;
+  CodeUnits16_EncodeBoundedBytes(abStack_94,inputCodeUnits,param_1,uVar7);
+  pbVar8 = abStack_94;
+  uStack_c8 = (**(code **)(*piVar4 + 0x118))();
+  uVar2 = (**(code **)(*piVar4 + 0x28))();
+  fStack_a8 = param_2;
+  uStack_a4 = param_3;
+  fStack_a0 = param_4;
+  fStack_9c = param_2;
+  uStack_ac = uVar2;
+  if (DAT_011edbc4 == (void *)0x0) {
+    this = (void *)0x0;
+  }
+  else {
+    this = LotSpatialIndex_FindContainingLotAtWorldXZ(DAT_011edbc4,param_2,param_4);
+    if ((this != (void *)0x0) && (*(char *)((int)this + 0x444) != '\0')) {
+      Lot_GetAttachedWorldQuaternionTranslation(this,afStack_e0 + -2);
+    }
+  }
+  uVar6 = 0x3475365;
+  (**(code **)(*piVar4 + 0x44))();
+  uStack_108 = 0x3475381;
+  uStack_10c = 0x8635e6;
+  fVar5 = (float)uStack_c8;
+  (**(code **)(*piVar4 + 0x50))();
+  LStack_118.level = 0x3475385;
+  LStack_118.z = 1.2325313e-38;
+  uStack_10c = uVar2;
+  (**(code **)(*piVar4 + 0x4c))();
+  LStack_118.z = fVar5;
+  uStack_d4 = 0xffffffff;
+  LStack_118.x = 5.8576773e-37;
+  fVar5 = LStack_118.z;
+  pbStack_d8 = pbVar8;
+  (**(code **)(*piVar4 + 0x48))();
+  (**(code **)(*piVar4 + 0x48))(0x3475395,uStack_cc);
+  (**(code **)(*piVar4 + 0x48))(0x3475398,uStack_108);
+  if (this == (void *)0x0) {
+    this_00 = (void *)0x0;
+  }
+  else {
+    this_00 = *(void **)((int)this + 0x298);
+  }
+  if (this_00 != (void *)0x0) {
+    LStack_118.x = -1.0;
+    LStack_118.z = -1.0;
+    LStack_118.level = 0;
+    Lot_WorldPositionToLocalLocation(this,(float *)&pbStack_d8,&LStack_118);
+    LotRoom_ResolveForLocalLocation(this_00,&LStack_118.x,0,1);
+    iVar3 = LStack_118.level;
+    uVar7 = Lot_TestNextLevelAtLocalLocation(this,&LStack_118,1);
+    if ((char)uVar7 != '\0') {
+      LStack_118.level = LStack_118.level + 1;
+      iVar3 = iVar3 + 1;
+      LotRoom_ResolveForLocalLocation(*(void **)((int)this + 0x298),&LStack_118.x,0,1);
+    }
+    (**(code **)(*piVar4 + 0x58))(0x2081b4e6,this);
+    (**(code **)(*piVar4 + 0x48))(0x5dbed967,(float)(int)fVar5);
+    (**(code **)(*piVar4 + 0x48))(0x39ff78d1,(float)iVar3);
+  }
+  (**(code **)(*piVar4 + 0x68))();
+  return uVar6;
 }
 

@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011630d0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011630d0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.UIManager::UIManager_GetWorldNameMetadataImpl [assembly=ScriptCore token=0x06000E55;
    worldFile: System.String; return=System.String]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -21,7 +22,7 @@ undefined4 ScriptCore_UIManager__UIManager_GetWorldNameMetadataImpl(undefined4 p
   void *pvVar6;
   undefined4 uStack_10c;
   undefined4 *puStack_108;
-  int iStack_104;
+  void *pvStack_104;
   int iStack_100;
   int iStack_fc;
   char *pcStack_f8;
@@ -38,14 +39,14 @@ undefined4 ScriptCore_UIManager__UIManager_GetWorldNameMetadataImpl(undefined4 p
   piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
   if (piVar1 != (int *)0x0) {
     psVar2 = (short *)(**(code **)(*piVar1 + 0x58))(param_1);
-    iStack_104 = 0;
+    pvStack_104 = (void *)0x0;
     iStack_100 = 0;
     iStack_fc = 0;
     pcStack_f8 = "UI/SaveGameMetadata";
-    FUN_0040b590(&iStack_104,psVar2);
-    if ((((iStack_100 - iStack_104 >> 1 != 0) && (iVar3 = FUN_00aa9c70(), iVar3 != 0)) &&
+    FUN_0040b590(&pvStack_104,psVar2);
+    if ((((iStack_100 - (int)pvStack_104 >> 1 != 0) && (iVar3 = FUN_00aa9c70(), iVar3 != 0)) &&
         ((void *)(iVar3 + -0x14) != (void *)0x0)) &&
-       (uVar4 = FUN_00aab460(&iStack_104,&puStack_108), (char)uVar4 != '\0')) {
+       (uVar4 = FUN_00aab460(&pvStack_104,&puStack_108), (char)uVar4 != '\0')) {
       FUN_005a27e0(auStack_a0);
       uVar5 = FUN_00aabd30((void *)(iVar3 + -0x14),(int)puStack_108);
       if ((char)uVar5 != '\0') {
@@ -64,8 +65,8 @@ undefined4 ScriptCore_UIManager__UIManager_GetWorldNameMetadataImpl(undefined4 p
       FUN_0050a3b0(puStack_108);
       FUN_005a28a0(auStack_a0);
     }
-    if ((2 < (int)(iStack_fc - iStack_104 & 0xfffffffeU)) && (iStack_104 != 0)) {
-      FUN_004e44e0(iStack_104);
+    if ((2 < (int)(iStack_fc - (int)pvStack_104 & 0xfffffffeU)) && (pvStack_104 != (void *)0x0)) {
+      Memory_FreeIfNonNull(pvStack_104);
     }
   }
   return uStack_10c;

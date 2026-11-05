@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst static routing contract: Reads follower ObjectGuid from route via shared object
@@ -24,7 +24,7 @@ RouteHost_ReadFollowerStartPose(void *this,undefined4 *param_1,float *param_2,un
   undefined4 uVar9;
   undefined4 *local_64;
   undefined4 local_60 [4];
-  uint local_50 [8];
+  float local_50 [8];
   float local_30;
   float fStack_2c;
   float fStack_28;
@@ -58,7 +58,7 @@ RouteHost_ReadFollowerStartPose(void *this,undefined4 *param_1,float *param_2,un
   if ((char)uVar9 == '\0') {
     uVar9 = RoutingOptions_TestMask((void *)((int)this + 0x158),0x400,0,'\x01');
     if ((char)uVar9 != '\0') {
-      FUN_00957a90(pvVar6,local_50);
+      TransformComponent_GetWorldMatrix(pvVar6,local_50);
       *param_2 = 0.0 - local_30;
       param_2[1] = 0.0 - fStack_2c;
       param_2[2] = 0.0 - fStack_28;
@@ -71,7 +71,7 @@ RouteHost_ReadFollowerStartPose(void *this,undefined4 *param_1,float *param_2,un
     fStack_24 = 0.0;
   }
   else {
-    FUN_00957a90(pvVar6,local_50);
+    TransformComponent_GetWorldMatrix(pvVar6,local_50);
   }
   *param_2 = local_30;
   param_2[1] = fStack_2c;

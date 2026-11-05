@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163d58 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163d58 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_HasAnySnowAtPoint [assembly=ScriptCore token=0x060008A6; worldPos:
    Sims3.SimIFace.Vector3; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -38,7 +39,7 @@ ScriptCore.World::World_HasAnySnowAtPoint(float param_1,undefined4 param_2,undef
       uStack_18 = param_3;
       fStack_14 = param_1;
       local_31 = '\0';
-      FUN_00d6e270(pvVar1,&local_20,&local_31);
+      Seasons_QuerySnowPresenceAndDepth(pvVar1,&local_20,&local_31);
       return local_31;
     }
   }

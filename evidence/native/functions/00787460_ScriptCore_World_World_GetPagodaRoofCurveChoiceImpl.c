@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163c38 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163c38 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_GetPagodaRoofCurveChoiceImpl [assembly=ScriptCore token=0x06000883; ;
    return=System.UInt32]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -14,16 +15,18 @@ undefined4 ScriptCore_World__World_GetPagodaRoofCurveChoiceImpl(void)
 
 {
   void *this;
-  undefined8 uVar1;
-  int *piVar2;
+  int *piVar1;
+  undefined8 uVar2;
+  uint *visitCounter;
   
   this = DAT_011edbc4;
   if (DAT_011edbc4 != (void *)0x0) {
-    piVar2 = (int *)0x0;
-    uVar1 = FUN_00c5f560((int)DAT_011edbc4);
-    piVar2 = FUN_00c62810(this,(int)uVar1,(int)((ulonglong)uVar1 >> 0x20),piVar2);
-    if ((piVar2 != (int *)0x0) && (piVar2[0xab] != 0)) {
-      return *(undefined4 *)(piVar2[0xab] + 0x8c);
+    visitCounter = (uint *)0x0;
+    uVar2 = FUN_00c5f560((int)DAT_011edbc4);
+    piVar1 = WorldObjects_FindLotByGuid
+                       (this,(uint)uVar2,(uint)((ulonglong)uVar2 >> 0x20),visitCounter);
+    if ((piVar1 != (int *)0x0) && (piVar1[0xab] != 0)) {
+      return *(undefined4 *)(piVar1[0xab] + 0x8c);
     }
   }
   return 2;

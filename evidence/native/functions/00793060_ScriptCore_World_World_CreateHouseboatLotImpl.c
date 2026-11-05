@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163d60 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163d60 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_CreateHouseboatLotImpl [assembly=ScriptCore token=0x060008AB; width:
    System.UInt32, height: System.UInt32, lotType: System.UInt32, lotSubtype: System.UInt32;
    return=System.UInt64]
@@ -53,10 +54,11 @@ ScriptCore.World::World_CreateHouseboatLotImpl
       *(undefined1 *)((int)pvVar1 + 0x40) = 1;
       pvVar3 = (void *)FUN_004e4520(0x4c0,0x10,0,"World/New Lot",0);
       if (pvVar3 != (void *)0x0) {
-        this = FUN_00ac0b60(pvVar3,pvVar1);
+        this = Lot_Construct(pvVar3,pvVar1);
         if (this != (int *)0x0) {
-          uVar2 = FUN_00acdc90(this,param_1,param_2,local_80,0.0,param_3,param_4,'\0',1,'\0',0.0,
-                               1.4013e-45);
+          uVar2 = InitializeLotStateAndOwners
+                            (this,param_1,param_2,local_80,0.0,param_3,param_4,'\0',1,'\0',0.0,
+                             1.4013e-45);
           if ((char)uVar2 != '\0') {
             FUN_00b0a170(this);
             FUN_00ab11a0((int)this);
@@ -68,10 +70,10 @@ ScriptCore.World::World_CreateHouseboatLotImpl
             }
             local_88 = (void *)this[0x12];
             local_84 = this[0x13];
-            FUN_004f63d0(local_50,&local_88);
+            Variant_ConstructUInt64(local_50,(ulonglong *)&local_88);
             local_88 = (void *)this[0x102];
             FUN_004f6340(auStack_30,&local_88);
-            FUN_0078f670(auStack_70,0x10,local_50,2);
+            World_DispatchRegisteredEventCallback(auStack_70,0x10,local_50,2);
             FUN_004f5820(auStack_70);
             FUN_004466e0(local_50,0x20,2,FUN_004f5820);
             FUN_00792500();
@@ -79,7 +81,7 @@ ScriptCore.World::World_CreateHouseboatLotImpl
             uVar6 = this[0x13];
             uVar5 = this[0x12];
             this_00 = (void *)FUN_008295c0((int)pvVar3);
-            uVar2 = FUN_00629360(this_00,uVar5,uVar6);
+            uVar2 = LotRouting_HasAdmittedLotRecord(this_00,uVar5,uVar6);
             if ((char)uVar2 == '\0') {
               FUN_00834c50(pvVar3,this,'\x01');
             }

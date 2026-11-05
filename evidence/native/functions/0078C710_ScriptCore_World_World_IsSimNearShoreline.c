@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01163568 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01163568 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_IsSimNearShoreline [assembly=ScriptCore token=0x060007AC; objId:
    System.UInt64, pointInWater: Sims3.SimIFace.Vector3&; return=System.Boolean]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -17,13 +18,14 @@ ScriptCore.World::World_IsSimNearShoreline
 {
   int *piVar1;
   int iVar2;
+  void *this;
   undefined4 uVar3;
   undefined4 uVar4;
   undefined4 *local_24;
   undefined1 local_20 [28];
   
-  iVar2 = FUN_00937570();
-  local_24 = (undefined4 *)FUN_00937f80(iVar2);
+  this = ObjectRegistry_GetGlobal();
+  local_24 = ObjectRegistry_FindBorrowed(this,CONCAT44(param_2,param_1));
   if (local_24 != (undefined4 *)0x0) {
     piVar1 = local_24 + 1;
     LOCK();

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 tree texture instruction contract. Analyst names, not recovered symbols. ECX
@@ -57,15 +57,15 @@ bool __thiscall TreeTemplate_PrepareTextureProxies(void *this)
     iVar9 = FUN_00c5f930(DAT_011edbc4);
     if (iVar9 - 1U < 2) {
       auVar15 = *(undefined1 (*) [16])(iVar13 + 0x10);
-      auVar14._0_4_ = FLOAT_00fab218 * auVar15._0_4_;
-      auVar14._4_4_ = FLOAT_00fab218 * auVar15._4_4_;
-      auVar14._8_4_ = FLOAT_00fab218 * auVar15._8_4_;
-      auVar14._12_4_ = FLOAT_00fab218 * auVar15._12_4_;
+      auVar14._0_4_ = auVar15._0_4_ * -1.0;
+      auVar14._4_4_ = auVar15._4_4_ * -1.0;
+      auVar14._8_4_ = auVar15._8_4_ * -1.0;
+      auVar14._12_4_ = auVar15._12_4_ * -1.0;
       auVar15 = maxps(auVar14,auVar15);
-      auVar16._4_4_ = -(uint)(auVar15._4_4_ <= DAT_00ffccf4);
-      auVar16._0_4_ = -(uint)(auVar15._0_4_ <= DAT_00ffccf4);
-      auVar16._8_4_ = -(uint)(auVar15._8_4_ <= DAT_00ffccf4);
-      auVar16._12_4_ = -(uint)(auVar15._12_4_ <= DAT_00ffccf4);
+      auVar16._4_4_ = -(uint)(auVar15._4_4_ <= 1.1920929e-07);
+      auVar16._0_4_ = -(uint)(auVar15._0_4_ <= 1.1920929e-07);
+      auVar16._8_4_ = -(uint)(auVar15._8_4_ <= 1.1920929e-07);
+      auVar16._12_4_ = -(uint)(auVar15._12_4_ <= 1.1920929e-07);
       iVar9 = movmskps(iVar9 - 1U,auVar16);
       *(bool *)((int)this + 0x170) = iVar9 != 0xf;
       if (iVar9 != 0xf) {
@@ -259,7 +259,7 @@ bool __thiscall TreeTemplate_PrepareTextureProxies(void *this)
       SptMaps_DestroyStringViews(local_30);
       return false;
     }
-    FUN_00718260(*(int **)((int)this + 0x180));
+    Flora_InitializeSpeciesGeometry(*(int **)((int)this + 0x180));
   }
   SptMaps_DestroyStringViews(local_30);
   return true;

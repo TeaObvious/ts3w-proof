@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: render-pass post-load reference resolution. Resolves vertex/pixel stage references,
@@ -22,9 +22,9 @@ void __thiscall ShaderPass_ResolveParameterIds(void *this,void *param_1,void *pa
   undefined4 *puVar9;
   
   if (param_1 != (void *)0x0) {
-    piVar3 = FUN_0079ab70(param_1,*(int *)((int)this + 0x28));
+    piVar3 = ShaderDatabase_ResolveOneBasedProgram(param_1,*(int *)((int)this + 0x28));
     *(int **)((int)this + 0x2c) = piVar3;
-    piVar3 = FUN_0079ab70(param_1,*(int *)((int)this + 0x24));
+    piVar3 = ShaderDatabase_ResolveOneBasedProgram(param_1,*(int *)((int)this + 0x24));
     *(int **)((int)this + 0x30) = piVar3;
   }
   pvVar2 = DAT_011d8530;
@@ -93,13 +93,13 @@ void __thiscall ShaderPass_ResolveParameterIds(void *this,void *param_1,void *pa
   pvVar2 = DAT_011d8530;
   for (iVar7 = *(int *)((int)this + 0x168); DAT_011d8530 = pvVar2, iVar7 != iVar1;
       iVar7 = iVar7 + 0x1c) {
-    iVar6 = FUN_0079a3c0(this_00,*(uint *)(iVar7 + 0xc));
+    iVar6 = ShaderParameterRegistry_FindOrCreateHashRowIndex(this_00,*(uint *)(iVar7 + 0xc));
     *(int *)(iVar7 + 0x10) = iVar6;
     pvVar2 = DAT_011d8530;
   }
   iVar1 = *(int *)((int)this + 0x17c);
   for (iVar7 = *(int *)((int)this + 0x178); iVar7 != iVar1; iVar7 = iVar7 + 0x1c) {
-    iVar6 = FUN_0079a3c0(pvVar2,*(uint *)(iVar7 + 0xc));
+    iVar6 = ShaderParameterRegistry_FindOrCreateHashRowIndex(pvVar2,*(uint *)(iVar7 + 0xc));
     *(int *)(iVar7 + 0x10) = iVar6;
   }
   return;

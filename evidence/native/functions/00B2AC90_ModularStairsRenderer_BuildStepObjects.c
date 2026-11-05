@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst note (PC1.67 stair collision and renderer contract): ECX renderer; RET24 nine stack
    slots: UInt32 flight ID, descriptor pointer, direction32, top/bottom LotXZLevel pointers, byte
    flag6, retained word, meta-scene pointer, byte flag9. AFC420 computes total quarter-steps and
@@ -102,8 +104,10 @@ ModularStairsRenderer_BuildStepObjects
   uVar4 = FUN_00afce20(direction);
   _local_38 = CONCAT31(uStack_37,(char)uVar4);
   local_84 = pLVar9->level;
-  local_ac = local_84;
-  if (local_84 != pLVar2->level) {
+  if (local_84 == pLVar2->level) {
+    local_ac = local_84;
+  }
+  else {
     local_ac = local_84 + -1;
   }
   local_84 = local_84 - pLVar2->level;
@@ -126,15 +130,15 @@ ModularStairsRenderer_BuildStepObjects
         fStack_78 = (float)(local_d4 + -1);
         fStack_7c = local_d8;
         LotLocation_CopyXZAndSampleElevation(*(void **)((int)this + 0x1c),&local_80,&local_d0);
-        fStack_cc = fStack_cc + DAT_0106c298;
+        fStack_cc = fStack_cc + 3.0;
       }
       else {
         LotLocation_CopyXZAndSampleElevation(*(void **)((int)this + 0x1c),&local_dc,&local_d0);
       }
       local_64 = (void *)FUN_00aa0aa0(*(void **)(*(int *)((int)this + 0x1c) + 0x230),top->level,
                                       '\x01');
-      local_a0 = FLOAT_00fab218;
-      fStack_9c = FLOAT_00fab218;
+      local_a0 = -1.0;
+      fStack_9c = -1.0;
       fStack_98 = 0.0;
       FUN_00cb4380(&local_dc,&local_a0,(char)_local_38);
       local_40 = (int)ROUND(local_dc);
@@ -159,19 +163,19 @@ ModularStairsRenderer_BuildStepObjects
       local_f9 = 0xff;
       if (bVar1) {
 LAB_00b2af5b:
-        fStack_cc = fStack_cc + DAT_0106c28c;
+        fStack_cc = fStack_cc + 0.1875;
         bVar1 = true;
       }
       else {
-        FUN_00c45f20(&local_e4,(undefined2 *)&local_f8);
-        FUN_00c45fb0((undefined2 *)&local_e4,(undefined2 *)&local_fc);
+        WallLocator_QueryFirstAdjacentTile(&local_e4,(undefined2 *)&local_f8);
+        WallLocator_QueryOtherAdjacentTile((undefined2 *)&local_e4,(undefined2 *)&local_fc);
         if ((local_64 != (void *)0x0) &&
            ((bVar3 = FUN_00a9cfc0(local_64,(undefined2 *)&local_f8), bVar3 != 0 ||
             (bVar3 = FUN_00a9cfc0(local_64,(undefined2 *)&local_fc), bVar3 != 0))))
         goto LAB_00b2af5b;
       }
-      local_d0 = local_d0 + local_ec * _DAT_00f9b5b4;
-      fStack_c8 = fStack_c8 + local_e8 * _DAT_00f9b5b4;
+      local_d0 = local_d0 + local_ec * 0.5;
+      fStack_c8 = fStack_c8 + local_e8 * 0.5;
       if (uVar8 == 0) {
         local_60 = local_d0;
         fStack_5c = fStack_cc;
@@ -196,9 +200,9 @@ LAB_00b2af5b:
                  local_68,ModularStairsRenderer_AddOneStepBlock,metaSceneObject,(byte)_flag9,
                  &local_b4);
       local_dc = local_a0;
+      uVar8 = uVar8 + 1;
       local_d8 = fStack_9c;
       local_d4 = (int)fStack_98;
-      uVar8 = uVar8 + 1;
     } while (uVar8 < local_f0);
   }
   pLVar9 = top;
@@ -208,14 +212,14 @@ LAB_00b2af5b:
       fStack_7c = top->z;
       fStack_78 = (float)(top->level + -1);
       LotLocation_CopyXZAndSampleElevation(*(void **)((int)this + 0x1c),&local_80,&local_d0);
-      fStack_cc = fStack_cc + DAT_0106c298;
+      fStack_cc = fStack_cc + 3.0;
     }
     else {
       LotLocation_CopyXZAndSampleElevation(*(void **)((int)this + 0x1c),&top->x,&local_d0);
       pLVar9 = top;
     }
     if (bVar1) {
-      fStack_cc = fStack_cc + DAT_0106c28c;
+      fStack_cc = fStack_cc + 0.1875;
     }
     local_b0 = fStack_58 - fStack_c8;
     fStack_2c = fStack_58 - fStack_c8;
@@ -235,7 +239,7 @@ LAB_00b2af5b:
                local_a4,FUN_00b299c0,metaSceneObject,(byte)_flag9,&local_b4);
     local_a8 = (float)(int)local_f0;
     if ((int)local_f0 < 0) {
-      local_a8 = local_a8 + FLOAT_00f99948;
+      local_a8 = local_a8 + 4.2949673e+09;
     }
     local_d0 = local_a8 * local_ec + pLVar9->x;
     fStack_c8 = local_a8 * local_e8 + pLVar9->z;

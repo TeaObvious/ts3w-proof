@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -78,7 +78,7 @@ void __thiscall Lot_GetCachedDisplayBounds(void *this,undefined4 *param_1)
   float local_140;
   float fStack_13c;
   float fStack_138;
-  float fStack_134;
+  undefined4 uStack_134;
   undefined1 *local_124;
   undefined1 *local_120;
   undefined1 *local_11c;
@@ -163,8 +163,8 @@ LAB_00abc304:
         Memory_FreeIfNonNull(local_124);
       }
       if (bVar5) {
-        pfVar7 = (float *)FUN_00ab1610(this,(uint *)&local_170);
-        FUN_0068dbb0(param_1,pfVar7);
+        pfVar7 = (float *)Lot_BuildWorldToLocalPoseMatrix(this,(uint *)&local_170);
+        Bounds_TransformHomogeneousCorners(param_1,pfVar7);
         local_180 = local_1c0;
         fStack_17c = fStack_1bc;
         fStack_178 = fStack_1b8;
@@ -185,24 +185,25 @@ LAB_00abc304:
         local_1f0 = local_1c0;
         fStack_1bc = local_1d8;
         fStack_1b4 = local_1c0;
-        pfVar7 = (float *)FUN_00ab1540(this,(uint *)&local_170);
-        FUN_0068dbb0(&local_1d0,pfVar7);
+        pfVar7 = (float *)Lot_BuildLocalToWorldPoseMatrix(this,(uint *)&local_170);
+        Bounds_TransformHomogeneousCorners(&local_1d0,pfVar7);
       }
     }
     if ((*(int *)((int)this + 0x408) == 1) && (*(int *)((int)this + 0x40c) == 0x50)) {
-      fVar9 = DAT_00f998f4;
-      if (*(int *)((int)this + 0xc) != 0) {
-        fVar8 = WorldWater_GetSeaLevel(*(int *)((int)this + 0xc));
-        local_1e0 = (float)fVar8;
-        fVar9 = local_1e0;
+      if (*(int *)((int)this + 0xc) == 0) {
+        fVar9 = 10.0;
       }
-      fVar13 = fVar9 + DAT_01065cac;
+      else {
+        fVar8 = WorldWater_GetSeaLevel(*(int *)((int)this + 0xc));
+        fVar9 = (float)fVar8;
+        local_1e0 = fVar9;
+      }
       *param_1 = *param_1;
       param_1[1] = fVar9;
       param_1[2] = param_1[2];
       param_1[3] = param_1[3];
       param_1[4] = param_1[4];
-      param_1[5] = fVar13;
+      param_1[5] = fVar9 + 0.75;
       param_1[6] = param_1[6];
       param_1[7] = param_1[7];
     }
@@ -240,33 +241,33 @@ LAB_00abc304:
     return;
   }
   pfVar7 = (float *)Lot_GetAttachedWorldQuaternionTranslation(this,&local_1d0);
-  fVar9 = DAT_01065d80 * *pfVar7;
-  fVar10 = DAT_01065d80 * pfVar7[1];
-  fVar11 = DAT_01065d80 * pfVar7[2];
-  fVar12 = DAT_01065d80 * pfVar7[3];
-  fVar14 = (0.0 - fVar9) * fVar9 + _DAT_00f9b5b4;
-  fVar15 = (0.0 - fVar10) * fVar10 + _DAT_00f9b5b4;
-  fVar16 = (0.0 - fVar11) * fVar11 + _DAT_00f9b5b4;
-  fVar13 = fVar12 * fVar11 + fVar10 * fVar9;
-  fVar17 = fVar10 * fVar9 - fVar12 * fVar11;
+  fVar9 = *pfVar7 * 1.4142135;
+  fVar11 = pfVar7[1] * 1.4142135;
+  fVar12 = pfVar7[2] * 1.4142135;
+  fVar13 = pfVar7[3] * 1.4142135;
+  fVar14 = (0.0 - fVar9) * fVar9 + 0.5;
+  fVar15 = (0.0 - fVar11) * fVar11 + 0.5;
+  fVar16 = (0.0 - fVar12) * fVar12 + 0.5;
+  fVar10 = fVar13 * fVar12 + fVar11 * fVar9;
+  fVar17 = fVar11 * fVar9 - fVar13 * fVar12;
   fVar18 = fVar15 + fVar14;
   local_140 = pfVar7[4];
   fStack_13c = pfVar7[5];
   fStack_138 = pfVar7[6];
   local_170 = (float)((uint)(fVar16 + fVar15) & _DAT_011b0670);
-  uStack_16c = (uint)fVar13 & uRam011b0674;
-  uStack_168 = (uint)(fVar9 * fVar11 - fVar12 * fVar10) & uRam011b0678;
+  uStack_16c = (uint)fVar10 & uRam011b0674;
+  uStack_168 = (uint)(fVar9 * fVar12 - fVar13 * fVar11) & uRam011b0678;
   uStack_164 = (uint)fVar17 & uRam011b067c;
   local_160 = (uint)fVar17 & _DAT_011b0670;
   uStack_15c = (uint)(fVar14 + fVar16) & uRam011b0674;
-  uStack_158 = (uint)(fVar12 * fVar9 + fVar11 * fVar10) & uRam011b0678;
-  uStack_154 = (uint)fVar13 & uRam011b067c;
-  local_150 = (uint)(fVar12 * fVar10 + fVar9 * fVar11) & _DAT_011b0670;
-  uStack_14c = (uint)(fVar11 * fVar10 - fVar12 * fVar9) & uRam011b0674;
+  uStack_158 = (uint)(fVar13 * fVar9 + fVar12 * fVar11) & uRam011b0678;
+  uStack_154 = (uint)fVar10 & uRam011b067c;
+  local_150 = (uint)(fVar13 * fVar11 + fVar9 * fVar12) & _DAT_011b0670;
+  uStack_14c = (uint)(fVar12 * fVar11 - fVar13 * fVar9) & uRam011b0674;
   uStack_148 = (uint)fVar18 & uRam011b0678;
   uStack_144 = (uint)fVar18 & uRam011b067c;
-  fStack_134 = FLOAT_00f998f8;
-  FUN_0068dbb0((void *)((int)this + 0x250),&local_170);
+  uStack_134 = 0x3f800000;
+  Bounds_TransformHomogeneousCorners((void *)((int)this + 0x250),&local_170);
   return;
 }
 

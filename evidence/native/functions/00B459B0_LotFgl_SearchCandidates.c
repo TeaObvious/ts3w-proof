@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -70,9 +70,7 @@ LotFgl_SearchCandidates(int *query,float *outLocalLocation,int *outDirection,flo
   char cStack_4f6;
   undefined2 local_4f4;
   char local_4f2;
-  float local_4f0;
-  float local_4ec;
-  float local_4e8;
+  LotPaintPoint local_4f0;
   float local_4e4;
   int local_4e0;
   float local_4dc;
@@ -94,9 +92,7 @@ LotFgl_SearchCandidates(int *query,float *outLocalLocation,int *outDirection,flo
   float local_4a0;
   int local_49c;
   int local_498;
-  float local_494;
-  float local_490;
-  int local_48c;
+  LotPaintPoint local_494;
   float local_488;
   int local_484;
   uint local_480;
@@ -113,7 +109,7 @@ LotFgl_SearchCandidates(int *query,float *outLocalLocation,int *outDirection,flo
   undefined4 local_454;
   undefined4 local_450;
   undefined4 uStack_44c;
-  float fStack_448;
+  undefined4 uStack_448;
   undefined4 uStack_444;
   undefined4 local_440;
   float fStack_43c;
@@ -293,8 +289,7 @@ LotFgl_SearchCandidates(int *query,float *outLocalLocation,int *outDirection,flo
         if (((*(int *)((int)pvVar9 + 8) == piVar13[0x12]) &&
             (*(int *)((int)pvVar9 + 0xc) == piVar13[0x13])) &&
            (*(int *)((int)pvVar9 + 0x18) != 0x7fffffff)) {
-          fVar21 = FUN_00c89940((float)pvVar9);
-          local_3cc = (float)fVar21;
+          local_3cc = PlacementLocation_ReadYawWithRefresh(pvVar9);
         }
         else {
           uVar11 = FUN_00b089a0(piVar13,local_3e0,&local_460);
@@ -302,7 +297,7 @@ LotFgl_SearchCandidates(int *query,float *outLocalLocation,int *outDirection,flo
             local_3cc = local_460;
           }
         }
-        local_3c0 = FUN_00afbd00(local_3cc);
+        local_3c0 = Placement_QuantizeYawToOctant(local_3cc);
         local_3b4 = *(char *)((int)query + 0x32);
         local_3b2 = *(undefined1 *)((int)query + 0x33);
         local_35f = *(undefined1 *)((int)query + 0x35);
@@ -321,7 +316,7 @@ LotFgl_SearchCandidates(int *query,float *outLocalLocation,int *outDirection,flo
             iVar8 = iVar8 + 1;
           } while (iVar8 < query[0x14]);
         }
-        local_3c4 = FUN_00c8ebb0(DAT_011ee034,(uint *)(*query + 0x18));
+        local_3c4 = ObjectCatalog_FindByTypedKey(DAT_011ee034,(uint *)(*query + 0x18));
         local_4b8 = (float)piVar13[0x5d];
         local_4b4 = (float)piVar13[0x5e];
         pfVar10 = &local_4b4;
@@ -339,7 +334,7 @@ LotFgl_SearchCandidates(int *query,float *outLocalLocation,int *outDirection,flo
         local_50c = -1;
         local_50b = -1;
         local_50a = '\0';
-        FUN_00af7730(&local_4a0,&local_50c);
+        EncodeCellCoordinates(&local_4a0,&local_50c);
         pvVar9 = local_4c4;
         local_4b0 = (void *)0x0;
         if ((char)query[0xb] != '\0') {
@@ -348,29 +343,29 @@ LotFgl_SearchCandidates(int *query,float *outLocalLocation,int *outDirection,flo
         _local_4c8 = CONCAT31(uStack_4c7,(char)piVar13[0x12f]);
         local_518 = 0xffff;
         local_516 = '\0';
-        FUN_00af7730(&local_4a0,(char *)&local_518);
+        EncodeCellCoordinates(&local_4a0,(char *)&local_518);
         FUN_00b3ae30((int)piVar13,(char *)&local_518,(char *)((int)&local_518 + 1),(char)_local_4c8)
         ;
-        local_490 = (float)(int)local_518._1_1_;
-        local_48c = (int)local_516;
-        local_494 = (float)(int)(char)local_518;
-        uVar6 = LotRoom_ResolveForLocalLocation(pvVar9,&local_494,2,1);
+        local_494.z = (float)(int)local_518._1_1_;
+        local_494.level = (int)local_516;
+        local_494.x = (float)(int)(char)local_518;
+        uVar6 = LotRoom_ResolveForLocalLocation(pvVar9,&local_494.x,2,1);
         local_480 = (uint)uVar6;
         if (((*(char *)((int)query + 0x2d) == '\0') || (query[8] < 0)) ||
            (query[8] == (int)(short)uVar6)) {
-          uVar6 = LotRoom_ResolveForLocalLocation(pvVar9,&local_494,3,1);
+          uVar6 = LotRoom_ResolveForLocalLocation(pvVar9,&local_494.x,3,1);
           local_47c = (uint)uVar6;
           if (((*(char *)((int)query + 0x3a) == '\0') || (query[9] < 0)) ||
              (query[9] == (int)(short)uVar6)) {
             local_501 = '\0';
-            if ((local_48c < 0) && (*(char *)((int)query + 0x2d) == '\0')) {
+            if ((local_494.level < 0) && (*(char *)((int)query + 0x2d) == '\0')) {
               local_4d4[0] = -1;
               local_4d4[1] = 0xff;
               local_4d4[2] = 0;
               local_4d4[3] = 0xff;
-              LotLocation_EncodeCellAndQuadrant(&local_494,local_4d4);
-              iVar8 = FUN_00ab67d0(piVar13,local_4d4,'\0');
-              bVar4 = FUN_00afe300(iVar8,3);
+              LotLocation_EncodeCellAndQuadrant(&local_494.x,local_4d4);
+              iVar8 = Lot_ResolveCompatibleCellRegion(piVar13,local_4d4,'\0');
+              bVar4 = LotRegion_MatchesTypeCode(iVar8,3);
               if (bVar4) {
                 local_501 = '\x01';
               }
@@ -444,56 +439,59 @@ LAB_00b45e77:
                     /* COMISS radius,stored1000000 then JA bypass; unordered does NOT bypass. Later
                        COMISS radiusSquared,distanceSquared / JB rejects unordered. */
                   local_4e0 = 0;
-                  if ((local_4ac <= DAT_00f99970) &&
-                     (piVar13 = local_4d0,
-                     local_4ac * local_4ac <
-                     ((float)(int)cVar18 - local_4a4) * ((float)(int)cVar18 - local_4a4) +
-                     ((float)(int)local_510 - local_4a8) * ((float)(int)local_510 - local_4a8)))
-                  goto LAB_00b45e77;
+                  if (local_4ac <= 1e+06) {
+                    if (local_4ac * local_4ac <
+                        ((float)(int)cVar18 - local_4a4) * ((float)(int)cVar18 - local_4a4) +
+                        ((float)(int)local_510 - local_4a8) * ((float)(int)local_510 - local_4a8))
+                    goto LAB_00b45e77;
+                    piVar13 = local_4d0;
+                  }
                   if ((local_501 != '\0') &&
                      (uVar15 = LotLevelSurface_TestCellMask((void *)piVar13[0xa4],&local_510,0xf,1),
                      (char)uVar15 == '\0')) {
                     local_50e = local_50e + '\x01';
                   }
                   pvVar9 = local_4c4;
-                  local_4e8 = (float)(int)local_50e;
-                  local_4f0 = (float)(int)local_510 + _DAT_00f9b5b4;
-                  local_4ec = (float)(int)local_50f + _DAT_00f9b5b4;
+                  local_4f0.level = (int)local_50e;
+                  local_4f0.x = (float)(int)local_510 + 0.5;
+                  local_4f0.z = (float)(int)local_50f + 0.5;
                   uVar11 = FUN_00b49740(local_4c4,(undefined2 *)&local_510);
                   if ((char)uVar11 == '\0') {
                     if ((*(char *)((int)query + 0x2e) == '\0') ||
                        (uVar11 = FUN_00b433f0(piVar13,&local_510,(local_3b4 != '\0') + 5,local_3ac),
                        (char)uVar11 == '\0')) {
-                      if ((((char)query[0xb] == '\0') || (local_4b0 == (void *)0x0)) ||
-                         (uVar11 = FUN_00c40c60(local_4b0,&local_4a0,&local_4f0,(void *)0x0),
-                         (char)uVar11 == '\0')) {
+                      if (((char)query[0xb] == '\0') ||
+                         ((local_4b0 == (void *)0x0 ||
+                          (uVar11 = WallGraph_CrossesLocalSegment
+                                              (local_4b0,&local_4a0,&local_4f0.x,(void *)0x0),
+                          (char)uVar11 == '\0')))) {
                         if (*(char *)((int)query + 0x2d) != '\0') {
-                          sVar7 = LotRoom_ResolveForLocalLocation(pvVar9,&local_4f0,2,1);
+                          sVar7 = LotRoom_ResolveForLocalLocation(pvVar9,&local_4f0.x,2,1);
                           if (sVar7 != (short)local_480) {
                             cVar18 = '\0';
                             goto LAB_00b460d4;
                           }
                         }
                         if ((query[8] < 0) ||
-                           (sVar7 = LotRoom_ResolveForLocalLocation(pvVar9,&local_4f0,2,1),
+                           (sVar7 = LotRoom_ResolveForLocalLocation(pvVar9,&local_4f0.x,2,1),
                            (int)sVar7 == query[8])) {
                           if (*(char *)((int)query + 0x3a) != '\0') {
-                            sVar7 = LotRoom_ResolveForLocalLocation(pvVar9,&local_4f0,3,1);
+                            sVar7 = LotRoom_ResolveForLocalLocation(pvVar9,&local_4f0.x,3,1);
                             if (sVar7 != (short)local_47c) {
                               cVar18 = '\0';
                               goto LAB_00b460d4;
                             }
                           }
-                          cVar18 = local_511;
                           if ((char)query[0xc] != '\0') {
-                            FUN_00ab16e0(piVar13,local_4f0,local_4ec,&local_46c,&local_474);
+                            FUN_00ab16e0(piVar13,local_4f0.x,local_4f0.z,&local_46c,&local_474);
                             bVar4 = FUN_00635730(local_4bc,(int)piVar13,local_46c,local_474,
-                                                 local_4e8,DAT_0106d704,0);
-                            cVar18 = local_511;
+                                                 local_4f0.level,0.01,0);
                             if (!bVar4) {
                               cVar18 = '\0';
+                              goto LAB_00b460d4;
                             }
                           }
+                          cVar18 = local_511;
                         }
                         else {
                           cVar18 = '\0';
@@ -514,14 +512,14 @@ LAB_00b460d4:
                   local_511 = '\x01';
                   if ((cVar18 == '\0') ||
                      ((*(char *)((int)query + 0x31) == '\0' &&
-                      (uVar15 = FUN_00ab0ab0(piVar13,&local_4f0,'\x01'), (char)uVar15 != '\0'))))
+                      (uVar15 = FUN_00ab0ab0(piVar13,&local_4f0.x,'\x01'), (char)uVar15 != '\0'))))
                   goto LAB_00b45e77;
                   if (*(char *)((int)query + 0x36) == '\0') {
                     if (*(char *)((int)query + 0x37) == '\0') {
                       if ((char)query[0xe] == '\0') {
                         if ((char)query[0xf] != '\0') {
-                          FUN_00adc750((int)piVar13,&local_494,local_1e0);
-                          FUN_00ab7040(piVar13,local_1e0,&local_300);
+                          LotPoint_ResolveLevelPosition((undefined *)piVar13,&local_494,local_1e0);
+                          Lot_LocalPositionToWorldVector(piVar13,local_1e0,&local_300);
                           local_230 = local_300;
                           uStack_22c = uStack_2fc;
                           fStack_228 = fStack_2f8;
@@ -542,18 +540,17 @@ LAB_00b460d4:
                             auVar22._0_4_ = local_4e4;
                             auVar22._8_4_ = local_4e4;
                             auVar22._12_4_ = local_4e4;
-                            auVar3._4_4_ = DAT_0103fd88;
-                            auVar3._0_4_ = DAT_0103fd88;
-                            auVar3._8_4_ = DAT_0103fd88;
-                            auVar3._12_4_ = DAT_0103fd88;
+                            auVar3._8_4_ = 0x40000000;
+                            auVar3._0_8_ = 0x4000000040000000;
+                            auVar3._12_4_ = 0x40000000;
                             local_2b0 = divps(auVar22,auVar3);
                             fVar21 = (float10)fsin((float10)(float)local_2b0._0_4_);
-                            fStack_42c = FLOAT_00f998f8;
+                            fStack_42c = 1.0;
                             uStack_424 = 0;
                             uStack_428 = 0;
                             local_430 = 0;
                             local_290 = 0;
-                            fStack_28c = FLOAT_00f998f8;
+                            fStack_28c = 1.0;
                             uStack_288 = 0;
                             uStack_284 = 0;
                             uStack_444 = 0;
@@ -567,27 +564,22 @@ LAB_00b460d4:
                             fStack_14c = fStack_14 * 0.0;
                             fStack_148 = fStack_14 * 0.0;
                             fStack_144 = fStack_14 * 0.0;
-                            local_100 = FLOAT_00f998f8 * fStack_14;
-                            fStack_fc = FLOAT_00f998f8 * fStack_14;
-                            fStack_f8 = FLOAT_00f998f8 * fStack_14;
-                            fStack_f4 = FLOAT_00f998f8 * fStack_14;
+                            local_100 = fStack_14 * 1.0;
+                            fStack_fc = fStack_14 * 1.0;
+                            fStack_f8 = fStack_14 * 1.0;
+                            fStack_f4 = fStack_14 * 1.0;
                             local_20 = fStack_14 * 0.0;
                             fStack_1c = fStack_14 * 0.0;
                             fStack_18 = fStack_14 * 0.0;
                             fStack_14 = fStack_14 * 0.0;
-                            fStack_448 = DAT_00fee558;
-                            fVar25 = local_4dc * 0.0 + (DAT_00fee558 * fStack_fc - fStack_148 * 0.0)
-                            ;
-                            fVar26 = local_4dc * 0.0 + (fStack_148 * 0.0 - DAT_00fee558 * local_20);
-                            fVar27 = DAT_00fee558 * local_4dc + (local_20 * 0.0 - fStack_fc * 0.0);
-                            local_130 = (fVar27 * fStack_fc - fVar26 * fStack_148) * DAT_0103fd88 +
-                                        0.0;
-                            fStack_12c = (fVar25 * fStack_148 - fVar27 * local_20) * DAT_0103fd88 +
-                                         0.0;
-                            fStack_128 = (fVar26 * local_20 - fVar25 * fStack_fc) * DAT_0103fd88 +
-                                         DAT_00fee558;
-                            fStack_124 = (fVar25 * local_20 - fVar25 * local_20) * DAT_0103fd88 +
-                                         0.0;
+                            uStack_448 = 0xc0800000;
+                            fVar25 = local_4dc * 0.0 + (fStack_fc * -4.0 - fStack_148 * 0.0);
+                            fVar26 = local_4dc * 0.0 + (fStack_148 * 0.0 - local_20 * -4.0);
+                            fVar27 = local_4dc * -4.0 + (local_20 * 0.0 - fStack_fc * 0.0);
+                            local_130 = (fVar27 * fStack_fc - fVar26 * fStack_148) * 2.0 + 0.0;
+                            fStack_12c = (fVar25 * fStack_148 - fVar27 * local_20) * 2.0 + 0.0;
+                            fStack_128 = (fVar26 * local_20 - fVar25 * fStack_fc) * 2.0 + -4.0;
+                            fStack_124 = (fVar25 * local_20 - fVar25 * local_20) * 2.0 + 0.0;
                             local_1d0 = fStack_2f8 + fStack_128;
                             fStack_1cc = fStack_2f8 + fStack_128;
                             fStack_1c8 = fStack_2f8 + fStack_128;
@@ -597,34 +589,35 @@ LAB_00b460d4:
                             fStack_268 = local_300 + local_130;
                             fStack_264 = local_300 + local_130;
                             local_200 = local_2b0;
-                            fVar21 = FUN_00c6a090(DAT_011edbc4,local_270,local_1d0,0,'\x01','\x01',
-                                                  (undefined1 *)0x0,(undefined1 *)0x0,'\0','\0');
+                            fVar21 = WorldSurface_QueryHeight
+                                               (DAT_011edbc4,local_270,local_1d0,0,'\x01','\x01',
+                                                (undefined1 *)0x0,(undefined1 *)0x0,'\0','\0');
                             local_4dc = (float)fVar21;
-                            fVar21 = FUN_00c61090((int)pvVar9);
+                            fVar21 = WorldWater_GetSeaLevel((int)pvVar9);
                             if (((float10)local_4dc <= fVar21) &&
-                               (local_4e4 = local_4e4 + _DAT_0106d768, DAT_0106d76c < local_4e4)) {
-                              local_4e4 = local_4e4 - DAT_0106d76c;
+                               (local_4e4 = local_4e4 + 3.1415927, 6.2831855 < local_4e4)) {
+                              local_4e4 = local_4e4 - 6.2831855;
                             }
                             *outFreeYaw = local_4e4;
                             local_3cc = local_4e4;
-                            local_3c0 = FUN_00afbd00(local_4e4);
+                            local_3c0 = Placement_QuantizeYawToOctant(local_4e4);
                             piVar13 = local_4d0;
                           }
                         }
                       }
                       else {
-                        pppiVar12 = FUN_00ab7e80(piVar13,&local_4f0,8);
+                        pppiVar12 = FUN_00ab7e80(piVar13,&local_4f0.x,8);
                         cVar18 = pppiVar12 == (int ***)&DAT_00000006;
                       }
                     }
                     else {
-                      pppiVar12 = FUN_00ab7e80(piVar13,&local_4f0,0x34);
+                      pppiVar12 = FUN_00ab7e80(piVar13,&local_4f0.x,0x34);
                       uVar11 = FUN_00afd570((int)pppiVar12);
                       cVar18 = (char)uVar11;
                     }
                   }
                   else {
-                    pppiVar12 = FUN_00ab7e80(piVar13,&local_4f0,0x34);
+                    pppiVar12 = FUN_00ab7e80(piVar13,&local_4f0.x,0x34);
                     uVar11 = FUN_00afd530((int)pppiVar12);
                     cVar18 = (char)uVar11;
                   }
@@ -633,11 +626,11 @@ LAB_00b460d4:
                      (local_511 != '\0')) {
                     if ((_DAT_011ed1a4 & 1) == 0) {
                       _DAT_011ed1a4 = _DAT_011ed1a4 | 1;
-                      FUN_004fa9f0(&DAT_011ed1a0,-1);
+                      TreeVariation_Reseed(&DAT_011ed1a0,-1);
                     }
                     cVar18 = FUN_00588be0();
                     if ((cVar18 != '\0') && (DAT_011ed19c == '\0')) {
-                      FUN_004fa9f0(&DAT_011ed1a0,0x539);
+                      TreeVariation_Reseed(&DAT_011ed1a0,0x539);
                       DAT_011ed19c = '\x01';
                     }
                     local_4dc = (float)FUN_004faa30(&DAT_011ed1a0,8);
@@ -651,15 +644,15 @@ LAB_00b460d4:
                       if (((*(char *)((int)query + 0x2f) == '\0') || ((uVar20 & 1) == 0)) &&
                          ((*(byte *)(query + 7) & (byte)(1 << (sbyte)uVar17)) != 0)) {
                         if (*(char *)((int)query + 0x3d) != '\0') {
-                          FUN_00adc750(query[1],&local_4f0,local_1b0);
-                          FUN_00ab7040((void *)query[1],local_1b0,local_210);
+                          LotPoint_ResolveLevelPosition((undefined *)query[1],&local_4f0,local_1b0);
+                          Lot_LocalPositionToWorldVector((void *)query[1],local_1b0,local_210);
                           fVar21 = FUN_00afbee0(uVar20);
                           uStack_434 = 0;
                           uStack_438 = 0;
                           local_440 = 0;
-                          fStack_43c = FLOAT_00f998f8;
+                          fStack_43c = 1.0;
                           local_190 = 0;
-                          fStack_18c = FLOAT_00f998f8;
+                          fStack_18c = 1.0;
                           uStack_188 = 0;
                           uStack_184 = 0;
                           fVar25 = (float)fVar21;
@@ -667,10 +660,9 @@ LAB_00b460d4:
                           auVar23._0_4_ = fVar25;
                           auVar23._8_4_ = fVar25;
                           auVar23._12_4_ = fVar25;
-                          auVar1._4_4_ = DAT_0103fd88;
-                          auVar1._0_4_ = DAT_0103fd88;
-                          auVar1._8_4_ = DAT_0103fd88;
-                          auVar1._12_4_ = DAT_0103fd88;
+                          auVar1._8_4_ = 0x40000000;
+                          auVar1._0_8_ = 0x4000000040000000;
+                          auVar1._12_4_ = 0x40000000;
                           local_250 = divps(auVar23,auVar1);
                           fVar21 = (float10)fsin((float10)(float)local_250._0_4_);
                           fStack_b4 = (float)fVar21;
@@ -679,10 +671,10 @@ LAB_00b460d4:
                           fStack_2c = fStack_b4 * 0.0;
                           fStack_1b8 = fStack_b4 * 0.0;
                           fStack_24 = fStack_b4 * 0.0;
-                          local_110 = FLOAT_00f998f8 * fStack_b4;
-                          fStack_1bc = FLOAT_00f998f8 * fStack_b4;
-                          fStack_108 = FLOAT_00f998f8 * fStack_b4;
-                          fStack_104 = FLOAT_00f998f8 * fStack_b4;
+                          local_110 = fStack_b4 * 1.0;
+                          fStack_1bc = fStack_b4 * 1.0;
+                          fStack_108 = fStack_b4 * 1.0;
+                          fStack_104 = fStack_b4 * 1.0;
                           local_1c0 = fStack_b4 * 0.0;
                           fStack_bc = fStack_b4 * 0.0;
                           fStack_b8 = fStack_b4 * 0.0;
@@ -697,9 +689,9 @@ LAB_00b460d4:
                                                 (float)query[0x10],(float)query[0x11],'\x01');
                           if ((char)uVar11 == '\0') goto LAB_00b466db;
                         }
-                        local_3d8 = local_4f0;
-                        local_3d4 = local_4ec;
-                        local_3d0 = local_4e8;
+                        local_3d8 = local_4f0.x;
+                        local_3d4 = local_4f0.z;
+                        local_3d0 = (float)local_4f0.level;
                         fVar21 = FUN_00afbee0(uVar20);
                         local_3cc = (float)fVar21;
                         local_3c0 = uVar20;
@@ -707,8 +699,9 @@ LAB_00b460d4:
                         if (cVar18 != '\0') {
                           if (query[10] != 0) {
                             piVar13 = (int *)GetGlobalInterfacePointer_11D5BBC();
-                            FUN_00adc750(query[1],&local_4f0,local_180);
-                            FUN_00ab7040((void *)query[1],local_180,&local_410);
+                            LotPoint_ResolveLevelPosition
+                                      ((undefined *)query[1],&local_4f0,local_180);
+                            Lot_LocalPositionToWorldVector((void *)query[1],local_180,&local_410);
                             fVar21 = FUN_00afbee0(uVar20);
                             local_470 = (float)fVar21;
                             _vector_constructor_iterator_
@@ -751,21 +744,24 @@ LAB_00b460d4:
                             FUN_004466e0(local_b0,0x20,4,FUN_004f5820);
                           }
                           uVar15 = local_4cc;
-                          if ((((local_500 != 0) || (local_4fc != 0)) || ((int)local_4cc < 0)) ||
-                             (uVar17 = FUN_00afbe60(&local_4a0,&local_4f0), uVar17 == uVar15))
+                          if ((((local_500 == 0) && (local_4fc == 0)) && (-1 < (int)local_4cc)) &&
+                             (uVar17 = FUN_00afbe60(&local_4a0,&local_4f0.x), uVar17 != uVar15)) {
+                            uStack_4f8 = CONCAT11((&DAT_0106d650)[uVar15 * 4] * (char)query[0x12] +
+                                                  local_50b,
+                                                  (&DAT_0106d630)[uVar15 * 4] * (char)query[0x12] +
+                                                  local_50c);
+                            cStack_4f6 = local_50a;
+                            FUN_00b3ae30((int)local_4d0,(char *)&uStack_4f8,
+                                         (char *)((int)&uStack_4f8 + 1),(char)_local_4c8);
+                            uVar11 = FUN_00ab05c0(&uStack_4f8,(char *)&local_518);
+                            if ((char)uVar11 != '\0') {
+                              local_518 = uStack_4f8;
+                              local_516 = cStack_4f6;
+                              goto LAB_00b46c85;
+                            }
+                          }
+                          local_4c0 = uVar20;
                           goto LAB_00b46cb6;
-                          uStack_4f8 = CONCAT11((&DAT_0106d650)[uVar15 * 4] * (char)query[0x12] +
-                                                local_50b,
-                                                (&DAT_0106d630)[uVar15 * 4] * (char)query[0x12] +
-                                                local_50c);
-                          cStack_4f6 = local_50a;
-                          FUN_00b3ae30((int)local_4d0,(char *)&uStack_4f8,
-                                       (char *)((int)&uStack_4f8 + 1),(char)_local_4c8);
-                          uVar11 = FUN_00ab05c0(&uStack_4f8,(char *)&local_518);
-                          if ((char)uVar11 == '\0') goto LAB_00b46cb6;
-                          local_518 = uStack_4f8;
-                          local_516 = cStack_4f6;
-                          goto LAB_00b46c85;
                         }
                       }
 LAB_00b466db:
@@ -774,15 +770,15 @@ LAB_00b466db:
                     goto LAB_00b45e77;
                   }
                   if (*(char *)((int)query + 0x3d) != '\0') {
-                    FUN_00adc750(query[1],&local_4f0,local_240);
-                    FUN_00ab7040((void *)query[1],local_240,local_260);
+                    LotPoint_ResolveLevelPosition((undefined *)query[1],&local_4f0,local_240);
+                    Lot_LocalPositionToWorldVector((void *)query[1],local_240,local_260);
                     fVar21 = FUN_00afbee0(0);
                     uStack_414 = 0;
                     uStack_418 = 0;
                     local_420 = 0;
-                    fStack_41c = FLOAT_00f998f8;
+                    fStack_41c = 1.0;
                     local_2c0 = 0;
-                    fStack_2bc = FLOAT_00f998f8;
+                    fStack_2bc = 1.0;
                     uStack_2b8 = 0;
                     uStack_2b4 = 0;
                     fVar25 = (float)fVar21;
@@ -790,10 +786,9 @@ LAB_00b466db:
                     auVar24._0_4_ = fVar25;
                     auVar24._8_4_ = fVar25;
                     auVar24._12_4_ = fVar25;
-                    auVar2._4_4_ = DAT_0103fd88;
-                    auVar2._0_4_ = DAT_0103fd88;
-                    auVar2._8_4_ = DAT_0103fd88;
-                    auVar2._12_4_ = DAT_0103fd88;
+                    auVar2._8_4_ = 0x40000000;
+                    auVar2._0_8_ = 0x4000000040000000;
+                    auVar2._12_4_ = 0x40000000;
                     local_2e0 = divps(auVar24,auVar2);
                     fVar21 = (float10)fsin((float10)(float)local_2e0._0_4_);
                     fStack_114 = (float)fVar21;
@@ -802,10 +797,10 @@ LAB_00b466db:
                     fStack_ec = fStack_114 * 0.0;
                     fStack_278 = fStack_114 * 0.0;
                     fStack_e4 = fStack_114 * 0.0;
-                    local_140 = FLOAT_00f998f8 * fStack_114;
-                    fStack_27c = FLOAT_00f998f8 * fStack_114;
-                    fStack_138 = FLOAT_00f998f8 * fStack_114;
-                    fStack_134 = FLOAT_00f998f8 * fStack_114;
+                    local_140 = fStack_114 * 1.0;
+                    fStack_27c = fStack_114 * 1.0;
+                    fStack_138 = fStack_114 * 1.0;
+                    fStack_134 = fStack_114 * 1.0;
                     local_280 = fStack_114 * 0.0;
                     fStack_11c = fStack_114 * 0.0;
                     fStack_118 = fStack_114 * 0.0;
@@ -818,32 +813,28 @@ LAB_00b466db:
                     fStack_e8 = fStack_278;
                     uVar11 = FUN_00c727e0((void *)*query,local_260,&local_280,(float)query[0x10],
                                           (float)query[0x11],'\x01');
-                    piVar13 = local_4d0;
                     if ((char)uVar11 == '\0') goto LAB_00b45e77;
+                    piVar13 = local_4d0;
                   }
-                  local_3d8 = local_4f0;
-                  local_3d4 = local_4ec;
-                  local_3d0 = local_4e8;
-                  uVar20 = FUN_00b45960((int *)&local_3e0,(void *)0x0);
+                  local_3d8 = local_4f0.x;
+                  local_3d4 = local_4f0.z;
+                  local_3d0 = (float)local_4f0.level;
+                  uVar17 = FUN_00b45960((int *)&local_3e0,(void *)0x0);
                   uVar15 = local_4cc;
-                  if ((char)uVar20 == '\0') goto LAB_00b45e77;
-                  if (((local_500 != 0) || (local_4fc != 0)) ||
-                     (((int)local_4cc < 0 ||
-                      (uVar20 = FUN_00afbe60(&local_4a0,&local_4f0), uVar20 == uVar15)))) {
+                  if ((char)uVar17 == '\0') goto LAB_00b45e77;
+                  if (((local_500 != 0) || ((local_4fc != 0 || ((int)local_4cc < 0)))) ||
+                     (uVar17 = FUN_00afbe60(&local_4a0,&local_4f0.x), uVar17 == uVar15)) {
 LAB_00b46ca4:
-                    uVar20 = local_4c0;
                     if (outDirection != (int *)0x0) {
                       local_4c0 = local_3c0;
-                      uVar20 = local_4c0;
                     }
 LAB_00b46cb6:
-                    local_4c0 = uVar20;
                     /* Success-only common output publication: threeDWORD local location,
                        optionaldirection, cleanup, AL1. Free-yaw output may have earlier writes;
                        don't claim every output untouched on all failures. */
-                    *outLocalLocation = local_4f0;
-                    outLocalLocation[1] = local_4ec;
-                    outLocalLocation[2] = local_4e8;
+                    *outLocalLocation = local_4f0.x;
+                    outLocalLocation[1] = local_4f0.z;
+                    outLocalLocation[2] = (float)local_4f0.level;
                     if (outDirection != (int *)0x0) {
                       *outDirection = local_4c0;
                     }
@@ -861,8 +852,9 @@ LAB_00b46cb6:
                   local_516 = local_4f2;
                 }
 LAB_00b46c85:
+                if (local_484 <= local_4e0) break;
                 piVar13 = local_4d0;
-              } while (local_4e0 < local_484);
+              } while( true );
             }
           }
         }

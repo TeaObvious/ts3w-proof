@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): ECX machine; three physical stack words, RET0C, AL
@@ -36,7 +36,7 @@ uint __thiscall JazzMachine_ReadResource(void *this,int *param_1,void *param_2,u
   uVar3 = FUN_00731be0(this,uVar2);
   if (0xb < uVar2) {
     if ((char)param_3 != '\0') {
-      FUN_007d3070(puVar8,uVar2 >> 2);
+      ResourceBytes_SwapDwordsInPlace(puVar8,uVar2 >> 2);
     }
     param_3 = puVar8 + 1;
     uVar3 = *param_3;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 SACS migration contract): Seven physical stack words observed at importer
@@ -26,7 +26,7 @@ uint Inventory_TryCreateObjectFromRecord
   
   puVar5 = param_3;
   local_40 = (int *)0x0;
-  uVar3 = FUN_0093a2b0(param_3,&local_40);
+  uVar3 = ObjectResource_LoadParamsForPrototypeKey(param_3,&local_40);
   if ((char)uVar3 != '\0') {
     uVar4 = FUN_0092f9c0();
     FUN_00939a40(local_30,uVar4);
@@ -64,7 +64,7 @@ LAB_009379ca:
       LOCK();
       puVar5[1] = puVar5[1] + 1;
       UNLOCK();
-      bVar2 = FUN_009352a0(puVar5,local_3c,param_4,param_5,param_7);
+      bVar2 = Object_InitializeAndReadImportedComponents(puVar5,local_3c,param_4,param_5,param_7);
       if (bVar2) goto LAB_009379ca;
       FUN_007462e0((int *)&param_3);
     }

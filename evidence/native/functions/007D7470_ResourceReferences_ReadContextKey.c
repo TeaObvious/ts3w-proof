@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Resource-table context offset 0x82 selects a UInt32 or UInt16 handle read before the
@@ -20,17 +20,17 @@ void __thiscall ResourceReferences_ReadContextKey(void *this,void *param_1,undef
   bool bVar1;
   
   this_00 = param_1;
-  if (*(char *)((int)this + 0x82) != '\0') {
-    bVar1 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&param_1,
+  if (*(char *)((int)this + 0x82) == '\0') {
+    bVar1 = Stream_ReadUInt16(*(void **)((int)param_1 + 8),(ushort *)&param_1,
                               *(uint *)((int)param_1 + 0x10));
     StreamReader_AccumulateStatus(this_00,bVar1);
-    FUN_007d6b50(this,(uint *)&param_1,param_2);
+    ResourceReferences_ResolveNarrowHandle(this,(ushort *)&param_1,param_2);
     return;
   }
-  bVar1 = Stream_ReadUInt16(*(void **)((int)param_1 + 8),(ushort *)&param_1,
+  bVar1 = Stream_ReadUInt32(*(void **)((int)param_1 + 8),(uint *)&param_1,
                             *(uint *)((int)param_1 + 0x10));
   StreamReader_AccumulateStatus(this_00,bVar1);
-  ResourceReferences_ResolveNarrowHandle(this,(ushort *)&param_1,param_2);
+  ResourceReferences_ResolveWideHandle(this,(uint *)&param_1,param_2);
   return;
 }
 

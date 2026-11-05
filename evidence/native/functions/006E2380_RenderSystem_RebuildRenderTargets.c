@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Removing unreachable block (ram,0x006e24d2) */
@@ -19,18 +19,19 @@ void __thiscall RenderSystem_RebuildRenderTargets(void *this,char param_1)
 {
   int iVar1;
   char cVar2;
-  int iVar3;
-  void *this_00;
+  bool bVar3;
   int iVar4;
-  uint uVar5;
+  void *this_00;
+  int iVar5;
   uint uVar6;
-  int *piVar7;
-  undefined4 *puVar8;
-  undefined4 uVar9;
-  int *piVar10;
-  uint uVar11;
-  uint uVar12;
-  bool bVar13;
+  uint uVar7;
+  int *piVar8;
+  undefined4 *puVar9;
+  Ts3SkinTexture2D *self;
+  undefined4 uVar10;
+  uint height;
+  uint width;
+  uint height_00;
   int *local_44;
   int *local_40;
   int local_38;
@@ -39,92 +40,92 @@ void __thiscall RenderSystem_RebuildRenderTargets(void *this,char param_1)
   
   iVar1 = DAT_011d8530;
   RenderSystem_ClearTargetFlag17E((int)this);
-  iVar3 = *(int *)((int)this + 0x108);
+  iVar4 = *(int *)((int)this + 0x108);
   *(undefined4 *)((int)this + 0x108) = 0;
-  *(uint *)((int)this + 0x10c) = iVar3 + *(int *)((int)this + 0x10c) | 0x80000000;
-  iVar3 = Graphics_GetManagerSingleton();
+  *(uint *)((int)this + 0x10c) = iVar4 + *(int *)((int)this + 0x10c) | 0x80000000;
+  iVar4 = Graphics_GetManagerSingleton();
   this_00 = (void *)FUN_00617780();
-  iVar4 = FUN_00c7cbd0(iVar3);
-  FUN_0081d420(iVar3);
-  uVar11 = *(uint *)(iVar4 + 0x18) >> 1;
-  uVar5 = uVar11 - 1 | uVar11 - 1 >> 0x10;
-  uVar5 = uVar5 | uVar5 >> 8;
-  uVar5 = uVar5 | uVar5 >> 4;
-  uVar5 = uVar5 | uVar5 >> 2;
-  uVar12 = *(uint *)(iVar4 + 0x1c) >> 1;
-  uVar6 = uVar12 - 1 | uVar12 - 1 >> 0x10;
+  iVar5 = FUN_00c7cbd0(iVar4);
+  FUN_0081d420(iVar4);
+  width = *(uint *)(iVar5 + 0x18) >> 1;
+  uVar6 = width - 1 | width - 1 >> 0x10;
   uVar6 = uVar6 | uVar6 >> 8;
   uVar6 = uVar6 | uVar6 >> 4;
   uVar6 = uVar6 | uVar6 >> 2;
+  height_00 = *(uint *)(iVar5 + 0x1c) >> 1;
+  uVar7 = height_00 - 1 | height_00 - 1 >> 0x10;
+  uVar7 = uVar7 | uVar7 >> 8;
+  uVar7 = uVar7 | uVar7 >> 4;
+  uVar7 = uVar7 | uVar7 >> 2;
+  uVar7 = (uVar7 >> 1 | uVar7) + 1;
   uVar6 = (uVar6 >> 1 | uVar6) + 1;
-  uVar5 = (uVar5 >> 1 | uVar5) + 1;
-  if (uVar12 < uVar6) {
-    uVar12 = uVar6 >> 1;
+  if (height_00 < uVar7) {
+    height_00 = uVar7 >> 1;
   }
-  if (uVar11 < uVar5) {
-    uVar11 = uVar5 >> 1;
+  if (width < uVar6) {
+    width = uVar6 >> 1;
   }
-  if (uVar12 < 0x100) {
-    uVar12 = 0x100;
+  if (height_00 < 0x100) {
+    height_00 = 0x100;
   }
-  if (uVar11 < 0x100) {
-    uVar11 = 0x100;
+  if (width < 0x100) {
+    width = 0x100;
   }
-  iVar3 = *(int *)(iVar4 + 0x20);
+  uVar6 = *(uint *)(iVar5 + 0x20);
   FUN_006e1920(this_00,0x80,0x2fcd2b4c);
   *(undefined1 *)((int)this + 0x17f) = 1;
   FUN_006e1990(this_00);
-  FUN_006e17a0(uVar11,uVar12,0x76b9af5e,0x47f8c49a,iVar3);
+  RenderSystem_AddNamedRenderTarget2D(width,height_00,0x76b9af5e,0x47f8c49a,uVar6,0);
   if ((_DAT_011d26b0 & 1) == 0) {
     _DAT_011d26b0 = _DAT_011d26b0 | 1;
   }
-  fRam011d26a4 = (float)uVar12;
-  _DAT_011d26a0 = (float)uVar11;
+  fRam011d26a4 = (float)height_00;
+  _DAT_011d26a0 = (float)width;
   fRam011d26ac = 1.0 / fRam011d26a4;
   fRam011d26a8 = 1.0 / _DAT_011d26a0;
   if (*(uint *)((int)this + 0x1c) < *(uint *)(iVar1 + 8)) {
-    piVar7 = (int *)(*(uint *)((int)this + 0x1c) * 0x10 + *(int *)(iVar1 + 4));
-    *piVar7 = *piVar7 + 1;
-    *(undefined2 *)(piVar7 + 1) = *(undefined2 *)(iVar1 + 0x12);
-    piVar7[3] = (int)&DAT_011d26a0;
+    piVar8 = (int *)(*(uint *)((int)this + 0x1c) * 0x10 + *(int *)(iVar1 + 4));
+    *piVar8 = *piVar8 + 1;
+    *(undefined2 *)(piVar8 + 1) = *(undefined2 *)(iVar1 + 0x12);
+    piVar8[3] = (int)&DAT_011d26a0;
   }
-  FUN_006e17a0(uVar11 >> 1,uVar12 >> 1,0xf56a02a0,0x80d63c2c,iVar3);
-  uVar5 = uVar11;
-  uVar6 = uVar12;
+  RenderSystem_AddNamedRenderTarget2D(width >> 1,height_00 >> 1,0xf56a02a0,0x80d63c2c,uVar6,0);
+  uVar7 = width;
+  height = height_00;
   if (*(char *)((int)this + 0xf0) != '\0') {
-    uVar5 = uVar11 * 2;
-    uVar6 = uVar12 * 2;
-    if (0x800 < uVar5) {
-      uVar5 = 0x800;
+    uVar7 = width * 2;
+    height = height_00 * 2;
+    if (0x800 < uVar7) {
+      uVar7 = 0x800;
     }
-    if (0x400 < uVar6) {
-      uVar6 = 0x400;
+    if (0x400 < height) {
+      height = 0x400;
     }
   }
-  FUN_006e17a0(uVar5,uVar6,0x75bd7813,0x679d9d4d,iVar3);
+  RenderSystem_AddNamedRenderTarget2D(uVar7,height,0x75bd7813,0x679d9d4d,uVar6,0);
   if (*(char *)((int)this + 0x179) != '\0') {
-    FUN_006e17a0(uVar11,uVar12,0xbc0c28f2,0xb451ee7e,iVar3);
+    RenderSystem_AddNamedRenderTarget2D(width,height_00,0xbc0c28f2,0xb451ee7e,uVar6,0);
   }
   if (*(char *)((int)this + 0x178) == '\0') {
     DAT_0115c3ce = 0;
   }
   else {
-    FUN_006e17a0(0x40,0x40,0x7440b7a6,0xcf5c8f42,0x3d);
+    RenderSystem_AddNamedRenderTarget2D(0x40,0x40,0x7440b7a6,0xcf5c8f42,0x3d,0);
     ShadowMap_ClearOptionFlags(0x115c3c4);
     DAT_0115c3ce = 1;
     ShadowMap_CreateTargetsAndChooseOptions(0x115c3c4);
-    piVar7 = SurfaceRegistry_FindValueByTag(this_00,0x633e72e2);
-    if (piVar7 == (int *)0x0) {
-      iVar3 = 0;
+    piVar8 = SurfaceRegistry_FindValueByTag(this_00,0x633e72e2);
+    if (piVar8 == (int *)0x0) {
+      iVar4 = 0;
     }
     else {
-      iVar3 = *piVar7;
+      iVar4 = *piVar8;
     }
     if (*(uint *)((int)this + 200) < *(uint *)(iVar1 + 8)) {
-      piVar7 = (int *)(*(uint *)((int)this + 200) * 0x10 + *(int *)(iVar1 + 4));
-      *piVar7 = *piVar7 + 1;
-      *(undefined2 *)(piVar7 + 1) = *(undefined2 *)(iVar1 + 0x12);
-      piVar7[3] = iVar3;
+      piVar8 = (int *)(*(uint *)((int)this + 200) * 0x10 + *(int *)(iVar1 + 4));
+      *piVar8 = *piVar8 + 1;
+      *(undefined2 *)(piVar8 + 1) = *(undefined2 *)(iVar1 + 0x12);
+      piVar8[3] = iVar4;
     }
   }
   if ((*(char *)((int)this + 0x178) == '\0') || (*(char *)((int)this + 0x17b) == '\0')) {
@@ -134,49 +135,49 @@ void __thiscall RenderSystem_RebuildRenderTargets(void *this,char param_1)
     ShadowMap_ClearOptionFlags(0x115c3dc);
     DAT_0115c3e6 = 1;
     ShadowMap_CreateTargetsAndChooseOptions(0x115c3dc);
-    piVar7 = SurfaceRegistry_FindValueByTag(this_00,0xd536718);
-    if (piVar7 == (int *)0x0) {
-      iVar3 = 0;
+    piVar8 = SurfaceRegistry_FindValueByTag(this_00,0xd536718);
+    if (piVar8 == (int *)0x0) {
+      iVar4 = 0;
     }
     else {
-      iVar3 = *piVar7;
+      iVar4 = *piVar8;
     }
     if (*(uint *)((int)this + 0x38) < *(uint *)(iVar1 + 8)) {
-      piVar7 = (int *)(*(uint *)((int)this + 0x38) * 0x10 + *(int *)(iVar1 + 4));
-      *piVar7 = *piVar7 + 1;
-      *(undefined2 *)(piVar7 + 1) = *(undefined2 *)(iVar1 + 0x12);
-      piVar7[3] = iVar3;
+      piVar8 = (int *)(*(uint *)((int)this + 0x38) * 0x10 + *(int *)(iVar1 + 4));
+      *piVar8 = *piVar8 + 1;
+      *(undefined2 *)(piVar8 + 1) = *(undefined2 *)(iVar1 + 0x12);
+      piVar8[3] = iVar4;
     }
   }
   FUN_006e0e00(0x47f8c49a,0x76b9af5e,*(uint *)((int)this + 0x14),*(uint *)((int)this + 0x18));
   FUN_006e0e00(0x679d9d4d,0x75bd7813,*(uint *)((int)this + 0x20),*(uint *)((int)this + 0x24));
-  piVar7 = SurfaceRegistry_FindValueByTag(this_00,0xf56a02a0);
-  if (piVar7 == (int *)0x0) {
+  piVar8 = SurfaceRegistry_FindValueByTag(this_00,0xf56a02a0);
+  if (piVar8 == (int *)0x0) {
     if (*(uint *)((int)this + 0xb0) < *(uint *)(iVar1 + 8)) {
-      piVar7 = (int *)(*(uint *)((int)this + 0xb0) * 0x10 + *(int *)(iVar1 + 4));
-      *piVar7 = *piVar7 + 1;
-      *(undefined2 *)(piVar7 + 1) = *(undefined2 *)(iVar1 + 0x12);
-      piVar7[3] = 0;
+      piVar8 = (int *)(*(uint *)((int)this + 0xb0) * 0x10 + *(int *)(iVar1 + 4));
+      *piVar8 = *piVar8 + 1;
+      *(undefined2 *)(piVar8 + 1) = *(undefined2 *)(iVar1 + 0x12);
+      piVar8[3] = 0;
     }
   }
   else {
-    iVar3 = *piVar7;
+    iVar4 = *piVar8;
     if (*(uint *)((int)this + 0xb0) < *(uint *)(iVar1 + 8)) {
-      piVar7 = (int *)(*(uint *)((int)this + 0xb0) * 0x10 + *(int *)(iVar1 + 4));
-      *piVar7 = *piVar7 + 1;
-      *(undefined2 *)(piVar7 + 1) = *(undefined2 *)(iVar1 + 0x12);
-      piVar7[3] = iVar3;
+      piVar8 = (int *)(*(uint *)((int)this + 0xb0) * 0x10 + *(int *)(iVar1 + 4));
+      *piVar8 = *piVar8 + 1;
+      *(undefined2 *)(piVar8 + 1) = *(undefined2 *)(iVar1 + 0x12);
+      piVar8[3] = iVar4;
     }
   }
   if ((param_1 != '\0') && (*(char *)((int)this + 0x180) != '\0')) {
-    FUN_006e1df0(this,this_00);
+    RenderSystem_AllocateAndBindCasLightMaps(this,this_00);
   }
   FUN_006e2120((int)this);
   if (*(char *)((int)this + 0x17c) != '\0') {
-    FUN_006e17a0(0x200,0x200,0x5e732bf9,0x29941e13,DAT_0115c0c4);
-    FUN_006e17a0(0x200,0x200,0x19f5c6b8,0x6a5f2524,DAT_0115c0c4);
-    FUN_006e17a0(0x200,0x200,0x2bd64910,0xf3676b3c,DAT_0115c0c4);
-    FUN_006e17a0(0x200,0x200,0x6ee31d32,0x114efdbe,DAT_01159fbc);
+    RenderSystem_AddNamedRenderTarget2D(0x200,0x200,0x5e732bf9,0x29941e13,DAT_0115c0c4,0);
+    RenderSystem_AddNamedRenderTarget2D(0x200,0x200,0x19f5c6b8,0x6a5f2524,DAT_0115c0c4,0);
+    RenderSystem_AddNamedRenderTarget2D(0x200,0x200,0x2bd64910,0xf3676b3c,DAT_0115c0c4,0);
+    RenderSystem_AddNamedRenderTarget2D(0x200,0x200,0x6ee31d32,0x114efdbe,DAT_01159fbc,0);
     FUN_006e0e00(0x29941e13,0x5e732bf9,*(uint *)((int)this + 0x3c),*(uint *)((int)this + 0x40));
     FUN_006e0e00(0x6a5f2524,0x19f5c6b8,*(uint *)((int)this + 0x44),*(uint *)((int)this + 0x48));
     FUN_006e0e00(0xf3676b3c,0x2bd64910,*(uint *)((int)this + 0x4c),*(uint *)((int)this + 0x50));
@@ -184,76 +185,76 @@ void __thiscall RenderSystem_RebuildRenderTargets(void *this,char param_1)
   }
   FUN_006e0e00(0xcf5c8f42,0x7440b7a6,*(uint *)((int)this + 0xb4),*(uint *)((int)this + 0xb8));
   if (*(int *)((int)this + 300) == 0) {
-    puVar8 = (undefined4 *)FUN_004e4500(0x34,"Renderer/OpaqueWhiteTexture",0);
-    if (puVar8 == (undefined4 *)0x0) {
-      piVar7 = (int *)0x0;
+    puVar9 = (undefined4 *)FUN_004e4500(0x34,"Renderer/OpaqueWhiteTexture",0);
+    if (puVar9 == (undefined4 *)0x0) {
+      piVar8 = (int *)0x0;
     }
     else {
-      piVar7 = Texture_Construct(puVar8);
+      piVar8 = Texture_Construct(puVar9);
     }
-    *(int **)((int)this + 300) = piVar7;
-    (**(code **)(*piVar7 + 4))();
-    Texture_Create2D(*(void **)((int)this + 300),4,4,1,0x19,2);
+    *(int **)((int)this + 300) = piVar8;
+    (**(code **)(*piVar8 + 4))();
+    Texture_Create2D(*(Ts3SkinTexture2D **)((int)this + 300),4,4,1,0x19,2,"RenderSystem");
   }
   if (*(int *)((int)this + 0x130) == 0) {
-    puVar8 = (undefined4 *)FUN_004e4500(0x34,"Renderer/OpaqueGrey2DTexture",0);
-    if (puVar8 == (undefined4 *)0x0) {
-      piVar7 = (int *)0x0;
+    puVar9 = (undefined4 *)FUN_004e4500(0x34,"Renderer/OpaqueGrey2DTexture",0);
+    if (puVar9 == (undefined4 *)0x0) {
+      piVar8 = (int *)0x0;
     }
     else {
-      piVar7 = Texture_Construct(puVar8);
+      piVar8 = Texture_Construct(puVar9);
     }
-    *(int **)((int)this + 0x130) = piVar7;
-    (**(code **)(*piVar7 + 4))();
-    Texture_Create2D(*(void **)((int)this + 0x130),4,4,1,0x19,2);
+    *(int **)((int)this + 0x130) = piVar8;
+    (**(code **)(*piVar8 + 4))();
+    Texture_Create2D(*(Ts3SkinTexture2D **)((int)this + 0x130),4,4,1,0x19,2,"RenderSystem");
   }
   if (*(int *)((int)this + 0x134) == 0) {
-    puVar8 = (undefined4 *)FUN_004e4500(0x34,"Renderer/TransparentWhiteTexture",0);
-    if (puVar8 == (undefined4 *)0x0) {
-      piVar7 = (int *)0x0;
+    puVar9 = (undefined4 *)FUN_004e4500(0x34,"Renderer/TransparentWhiteTexture",0);
+    if (puVar9 == (undefined4 *)0x0) {
+      piVar8 = (int *)0x0;
     }
     else {
-      piVar7 = Texture_Construct(puVar8);
+      piVar8 = Texture_Construct(puVar9);
     }
-    *(int **)((int)this + 0x134) = piVar7;
-    (**(code **)(*piVar7 + 4))();
-    Texture_Create2D(*(void **)((int)this + 0x134),4,4,1,0x19,2);
+    *(int **)((int)this + 0x134) = piVar8;
+    (**(code **)(*piVar8 + 4))();
+    Texture_Create2D(*(Ts3SkinTexture2D **)((int)this + 0x134),4,4,1,0x19,2,"RenderSystem");
   }
   if (*(int *)((int)this + 0x138) == 0) {
-    puVar8 = (undefined4 *)FUN_004e4500(0x34,"Renderer/OpaqueBlackTexture",0);
-    if (puVar8 == (undefined4 *)0x0) {
-      piVar7 = (int *)0x0;
+    puVar9 = (undefined4 *)FUN_004e4500(0x34,"Renderer/OpaqueBlackTexture",0);
+    if (puVar9 == (undefined4 *)0x0) {
+      piVar8 = (int *)0x0;
     }
     else {
-      piVar7 = Texture_Construct(puVar8);
+      piVar8 = Texture_Construct(puVar9);
     }
-    *(int **)((int)this + 0x138) = piVar7;
-    (**(code **)(*piVar7 + 4))();
-    Texture_Create2D(*(void **)((int)this + 0x138),4,4,1,0x19,2);
+    *(int **)((int)this + 0x138) = piVar8;
+    (**(code **)(*piVar8 + 4))();
+    Texture_Create2D(*(Ts3SkinTexture2D **)((int)this + 0x138),4,4,1,0x19,2,"RenderSystem");
   }
   if (*(int *)((int)this + 0x13c) == 0) {
-    puVar8 = (undefined4 *)FUN_004e4500(0x34,"Renderer/TransparentBlackTexture",0);
-    if (puVar8 == (undefined4 *)0x0) {
-      piVar7 = (int *)0x0;
+    puVar9 = (undefined4 *)FUN_004e4500(0x34,"Renderer/TransparentBlackTexture",0);
+    if (puVar9 == (undefined4 *)0x0) {
+      piVar8 = (int *)0x0;
     }
     else {
-      piVar7 = Texture_Construct(puVar8);
+      piVar8 = Texture_Construct(puVar9);
     }
-    *(int **)((int)this + 0x13c) = piVar7;
-    (**(code **)(*piVar7 + 4))();
-    Texture_Create2D(*(void **)((int)this + 0x13c),4,4,1,0x19,2);
+    *(int **)((int)this + 0x13c) = piVar8;
+    (**(code **)(*piVar8 + 4))();
+    Texture_Create2D(*(Ts3SkinTexture2D **)((int)this + 0x13c),4,4,1,0x19,2,"RenderSystem");
   }
   if (*(int *)((int)this + 0x140) == 0) {
-    puVar8 = (undefined4 *)FUN_004e4500(0x34,"Renderer/FlatNormalMapTexture",0);
-    if (puVar8 == (undefined4 *)0x0) {
-      piVar7 = (int *)0x0;
+    puVar9 = (undefined4 *)FUN_004e4500(0x34,"Renderer/FlatNormalMapTexture",0);
+    if (puVar9 == (undefined4 *)0x0) {
+      piVar8 = (int *)0x0;
     }
     else {
-      piVar7 = Texture_Construct(puVar8);
+      piVar8 = Texture_Construct(puVar9);
     }
-    *(int **)((int)this + 0x140) = piVar7;
-    (**(code **)(*piVar7 + 4))();
-    Texture_Create2D(*(void **)((int)this + 0x140),4,4,1,0x23,2);
+    *(int **)((int)this + 0x140) = piVar8;
+    (**(code **)(*piVar8 + 4))();
+    Texture_Create2D(*(Ts3SkinTexture2D **)((int)this + 0x140),4,4,1,0x23,2,"RenderSystem");
   }
   Texture_CopyMipRows2D(*(void **)((int)this + 300),0,&DAT_00ff8c5c,8,0,0);
   Texture_CopyMipRows2D(*(void **)((int)this + 0x130),0,&DAT_00ff8c3c,8,0,0);
@@ -261,12 +262,12 @@ void __thiscall RenderSystem_RebuildRenderTargets(void *this,char param_1)
   Texture_CopyMipRows2D(*(void **)((int)this + 0x138),0,&DAT_00ff8bfc,8,0,0);
   Texture_CopyMipRows2D(*(void **)((int)this + 0x13c),0,&DAT_00ff8bdc,8,0,0);
   Texture_CopyMipRows2D(*(void **)((int)this + 0x140),0,&DAT_00ff8bbc,4,0,0);
-  puVar8 = (undefined4 *)FUN_004e4500(0x28,"Renderer/RenderSystem/RenderPickColorTarget",0);
-  if (puVar8 == (undefined4 *)0x0) {
+  puVar9 = (undefined4 *)FUN_004e4500(0x28,"Renderer/RenderSystem/RenderPickColorTarget",0);
+  if (puVar9 == (undefined4 *)0x0) {
     local_40 = (int *)0x0;
   }
   else {
-    local_40 = FUN_006187a0(puVar8);
+    local_40 = FUN_006187a0(puVar9);
     if (local_40 != (int *)0x0) {
       (**(code **)(*local_40 + 4))();
       cVar2 = FUN_006182f0(local_40,0x10,0x10,0x3d,1);
@@ -275,26 +276,26 @@ void __thiscall RenderSystem_RebuildRenderTargets(void *this,char param_1)
       }
     }
   }
-  puVar8 = (undefined4 *)FUN_004e4500(0x34,"Renderer/RenderSystem/RenderPickColorTexture",0);
-  if (puVar8 == (undefined4 *)0x0) {
-    piVar7 = (int *)0x0;
+  puVar9 = (undefined4 *)FUN_004e4500(0x34,"Renderer/RenderSystem/RenderPickColorTexture",0);
+  if (puVar9 == (undefined4 *)0x0) {
+    self = (Ts3SkinTexture2D *)0x0;
   }
   else {
-    piVar7 = Texture_Construct(puVar8);
-    if (piVar7 != (int *)0x0) {
-      (**(code **)(*piVar7 + 4))();
-      uVar9 = Texture_Create2D(piVar7,0x10,0x10,1,0x3d,0x100);
-      if ((char)uVar9 != '\0') {
-        FUN_00617da0(this_00,0x6ee45453,piVar7);
+    self = (Ts3SkinTexture2D *)Texture_Construct(puVar9);
+    if (self != (Ts3SkinTexture2D *)0x0) {
+      (**(code **)(*(int *)self + 4))();
+      bVar3 = Texture_Create2D(self,0x10,0x10,1,0x3d,0x100,"RenderSystem");
+      if (bVar3) {
+        FUN_00617da0(this_00,0x6ee45453,(int *)self);
       }
     }
   }
-  puVar8 = (undefined4 *)FUN_004e4500(0x28,"Renderer/RenderSystem/RenderPickColorTarget",0);
-  if (puVar8 == (undefined4 *)0x0) {
+  puVar9 = (undefined4 *)FUN_004e4500(0x28,"Renderer/RenderSystem/RenderPickColorTarget",0);
+  if (puVar9 == (undefined4 *)0x0) {
     local_44 = (int *)0x0;
   }
   else {
-    local_44 = FUN_006187a0(puVar8);
+    local_44 = FUN_006187a0(puVar9);
     if (local_44 != (int *)0x0) {
       (**(code **)(*local_44 + 4))();
       cVar2 = FUN_006182f0(local_44,0x10,0x10,0x8d,0x11);
@@ -303,28 +304,28 @@ void __thiscall RenderSystem_RebuildRenderTargets(void *this,char param_1)
       }
     }
   }
-  uVar9 = FUN_0058af90((short *)PTR_u_Config_01150ab0,L"PseudoResolution",&fStack_20);
-  if ((char)uVar9 != '\0') {
+  uVar10 = FUN_0058af90((short *)PTR_u_Config_01150ab0,L"PseudoResolution",&fStack_20);
+  if ((char)uVar10 != '\0') {
     local_38 = (int)(longlong)ROUND(fStack_20);
-    bVar13 = local_38 != 0;
+    bVar3 = local_38 != 0;
     local_38 = (int)(longlong)ROUND(fStack_1c);
-    if ((((bVar13) && (local_38 != 0)) &&
-        (puVar8 = (undefined4 *)FUN_004e4500(0x28,"Renderer/RenderSystem/RenderPickColorTexture",0),
-        puVar8 != (undefined4 *)0x0)) && (piVar10 = FUN_006187a0(puVar8), piVar10 != (int *)0x0)) {
-      (**(code **)(*piVar10 + 4))();
-      uVar9 = FUN_006e3980();
-      if ((char)uVar9 != '\0') {
-        FUN_00617cd0(this_00,0x5a6af52c,piVar10);
+    if ((((bVar3) && (local_38 != 0)) &&
+        (puVar9 = (undefined4 *)FUN_004e4500(0x28,"Renderer/RenderSystem/RenderPickColorTexture",0),
+        puVar9 != (undefined4 *)0x0)) && (piVar8 = FUN_006187a0(puVar9), piVar8 != (int *)0x0)) {
+      (**(code **)(*piVar8 + 4))();
+      uVar10 = FUN_006e3980();
+      if ((char)uVar10 != '\0') {
+        FUN_00617cd0(this_00,0x5a6af52c,piVar8);
       }
-      (**(code **)(*piVar10 + 8))();
+      (**(code **)(*piVar8 + 8))();
     }
   }
   FUN_006e1bb0(this,this_00);
   if (local_44 != (int *)0x0) {
     (**(code **)(*local_44 + 8))();
   }
-  if (piVar7 != (int *)0x0) {
-    (**(code **)(*piVar7 + 8))();
+  if (self != (Ts3SkinTexture2D *)0x0) {
+    (**(code **)(*(int *)self + 8))();
   }
   if (local_40 != (int *)0x0) {
     (**(code **)(*local_40 + 8))();

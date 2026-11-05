@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name, original PC 1.67 TS3W.exe. Reads TerrainSizeInfo resource type 90624C1B
@@ -20,13 +20,12 @@ WorldManager_ReadTerrainSizeInfo(void *this,void *resourceReader,uint *headerLoa
   uint3 uVar1;
   char cVar2;
   bool bVar3;
-  uint uVar4;
-  uint uVar5;
+  int *piVar4;
+  void *pvVar5;
   int *piVar6;
-  void *pvVar7;
-  int *piVar8;
-  int iVar9;
-  uint unaff_retaddr;
+  int iVar7;
+  uint uVar8;
+  undefined1 uStack00000000;
   undefined4 uStack_40;
   uint local_3c;
   ushort headerVersionWords [2];
@@ -41,7 +40,7 @@ WorldManager_ReadTerrainSizeInfo(void *this,void *resourceReader,uint *headerLoa
   wchar_t *local_14;
   undefined8 local_10;
   undefined4 uStack_8;
-
+  
   uVar1 = (uint3)uStack_40;
   this_00 = resourceReader;
   local_3c = 0;
@@ -55,67 +54,76 @@ WorldManager_ReadTerrainSizeInfo(void *this,void *resourceReader,uint *headerLoa
   local_24 = (int *)0x0;
   cVar2 = FUN_007d9410(resourceReader,0x90624c1b);
   if (cVar2 == '\0') goto LAB_00c6604c;
-  uVar4 = FUN_004dd8e0(*(int **)((int)this_00 + 8),headerVersionWords);
-  FUN_007d79f0(this_00,(byte)uVar4);
+  bVar3 = Stream_ReadUInt16(*(void **)((int)this_00 + 8),headerVersionWords,
+                            *(uint *)((int)this_00 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar3);
                     /* Legacy header word is consumed only when unsigned (version-2) <=10, i.e.
                        UInt16 versions 2..12. Versions 13 and 14 therefore share the following
                        common field order. */
   if ((ushort)(headerVersionWords[0] - 2U) < 0xb) {
-    uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)&resourceReader);
-    FUN_007d79f0(this_00,(byte)uVar4);
+    bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)&resourceReader,
+                              *(uint *)((int)this_00 + 0x10));
+    StreamReader_AccumulateStatus(this_00,bVar3);
   }
-  uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)((int)this + 0xb4));
-  FUN_007d79f0(this_00,(byte)uVar4);
-  uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)((int)this + 0xb8));
-  FUN_007d79f0(this_00,(byte)uVar4);
-  uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)((int)this + 0xcc));
-  FUN_007d79f0(this_00,(byte)uVar4);
-  uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)((int)this + 0xd0));
-  FUN_007d79f0(this_00,(byte)uVar4);
+  bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)((int)this + 0xb4),
+                            *(uint *)((int)this_00 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar3);
+  bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)((int)this + 0xb8),
+                            *(uint *)((int)this_00 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar3);
+  bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)((int)this + 0xcc),
+                            *(uint *)((int)this_00 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar3);
+  bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)((int)this + 0xd0),
+                            *(uint *)((int)this_00 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar3);
                     /* Unsigned version <7 enters legacy manager creation. Modern versions skip this
                        branch. This establishes the transition threshold, not a whitelist of
                        versions 13 and 14. */
   if (headerVersionWords[0] < 7) {
     local_18 = 0;
-    uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),&local_18);
-    FUN_007d79f0(this_00,(byte)uVar4);
-    uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),&local_3c);
-    FUN_007d79f0(this_00,(byte)uVar4);
+    bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&local_18,*(uint *)((int)this_00 + 0x10))
+    ;
+    StreamReader_AccumulateStatus(this_00,bVar3);
+    bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&local_3c,*(uint *)((int)this_00 + 0x10))
+    ;
+    StreamReader_AccumulateStatus(this_00,bVar3);
     if (headerVersionWords[0] == 5) {
       local_3c = local_3c + 1;
     }
     else if (headerVersionWords[0] < 4) {
       local_10 = FUN_007cfe00('\0');
-      pvVar7 = (void *)FUN_004e4520(0xb8,8,0,"Lot/ObjMgr - Layer",0);
-      if (pvVar7 == (void *)0x0) {
+      pvVar5 = (void *)FUN_004e4520(0xb8,8,0,"Lot/ObjMgr - Layer",0);
+      if (pvVar5 == (void *)0x0) {
         return 0;
       }
-      piVar6 = FUN_00aa79b0(pvVar7,this);
-      if (piVar6 == (int *)0x0) {
+      piVar4 = FUN_00aa79b0(pvVar5,this);
+      if (piVar4 == (int *)0x0) {
         return 0;
       }
-      (**(code **)(*piVar6 + 0x60))(&local_10);
-      FUN_00c63e10(piVar6);
+      (**(code **)(*piVar4 + 0x60))(&local_10);
+      FUN_00c63e10(piVar4);
       if (uStack_40 != 0) {
         piStack_20 = (int *)0x0;
         do {
-          piVar8 = (int *)0x0;
-          pvVar7 = (void *)FUN_004e4520(0x4c0,0x10,0,"World/Lot",0);
-          if (pvVar7 != (void *)0x0) {
-            piVar8 = FUN_00ac0b60(pvVar7,this);
+          piVar6 = (int *)0x0;
+          pvVar5 = (void *)FUN_004e4520(0x4c0,0x10,0,"World/Lot",0);
+          if (pvVar5 != (void *)0x0) {
+            piVar6 = Lot_Construct(pvVar5,this);
           }
-          uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)&stack0x00000000);
-          FUN_007d79f0(this_00,(byte)uVar4);
+          bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)&uStack00000000,
+                                    *(uint *)((int)this_00 + 0x10));
+          StreamReader_AccumulateStatus(this_00,bVar3);
           uStack_8 = 0;
-          local_10._4_4_ = unaff_retaddr;
-          (**(code **)(*piVar8 + 0x60))((int)&local_10 + 4);
-          iVar9 = (**(code **)(*piVar6 + 0x40))();
-          if (iVar9 == 2) {
-            (**(code **)(*piVar6 + 0x44))(piVar8);
+          local_10._4_4_ = _uStack00000000;
+          (**(code **)(*piVar6 + 0x60))((int)&local_10 + 4);
+          iVar7 = (**(code **)(*piVar4 + 0x40))();
+          if (iVar7 == 2) {
+            (**(code **)(*piVar4 + 0x44))(piVar6);
           }
           else {
-            local_28 = piVar8;
-            (**(code **)*piVar8)();
+            local_28 = piVar6;
+            (**(code **)*piVar6)();
             FUN_00b27450((void *)((int)this + 0x9c),(int *)&local_24);
             if (local_24 != (int *)0x0) {
               (**(code **)(*local_24 + 4))();
@@ -124,77 +132,83 @@ WorldManager_ReadTerrainSizeInfo(void *this,void *resourceReader,uint *headerLoa
           piStack_20 = (int *)((int)piStack_20 + 1);
         } while (piStack_20 < uStack_40);
       }
-      *(int **)((int)this + 0xac) = piVar6;
-      piStack_20 = piVar6;
-      (**(code **)*piVar6)();
-      piVar8 = *(int **)((int)this + 0xa0);
-      if (piVar8 < *(int **)((int)this + 0xa4)) {
-        *(int **)((int)this + 0xa0) = piVar8 + 1;
-        if (piVar8 != (int *)0x0) {
-          *piVar8 = (int)piVar6;
-          (**(code **)*piVar6)();
+      *(int **)((int)this + 0xac) = piVar4;
+      piStack_20 = piVar4;
+      (**(code **)*piVar4)();
+      piVar6 = *(int **)((int)this + 0xa0);
+      if (piVar6 < *(int **)((int)this + 0xa4)) {
+        *(int **)((int)this + 0xa0) = piVar6 + 1;
+        if (piVar6 != (int *)0x0) {
+          *piVar6 = (int)piVar4;
+          (**(code **)*piVar4)();
         }
       }
       else {
-        FUN_00c65ad0((void *)((int)this + 0x9c),piVar8,(int *)&local_1c);
-        piVar6 = local_1c;
+        FUN_00c65ad0((void *)((int)this + 0x9c),piVar6,(int *)&local_1c);
+        piVar4 = local_1c;
       }
-      if (piVar6 != (int *)0x0) {
-        (**(code **)(*piVar6 + 4))();
+      if (piVar4 != (int *)0x0) {
+        (**(code **)(*piVar4 + 4))();
       }
       goto LAB_00c65f51;
     }
     if (local_3c != 0) {
-      uVar4 = 0;
+      uVar8 = 0;
       if (local_3c != 0) {
         do {
           if (*(char *)((int)this_00 + 0x14) == '\0') break;
-          uVar5 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)&resourceReader);
-          FUN_007d79f0(this_00,(byte)uVar5);
-          uVar5 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)&local_14);
-          FUN_007d79f0(this_00,(byte)uVar5);
-          piVar6 = FUN_00c64000(this,local_14);
-          if (piVar6 != (int *)0x0) {
-            local_1c = piVar6;
-            (**(code **)*piVar6)();
+          bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)&resourceReader,
+                                    *(uint *)((int)this_00 + 0x10));
+          StreamReader_AccumulateStatus(this_00,bVar3);
+          bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)&local_14,
+                                    *(uint *)((int)this_00 + 0x10));
+          StreamReader_AccumulateStatus(this_00,bVar3);
+          piVar4 = FUN_00c64000(this,local_14);
+          if (piVar4 != (int *)0x0) {
+            local_1c = piVar4;
+            (**(code **)*piVar4)();
             FUN_00b27450((void *)((int)this + 0x9c),(int *)&local_1c);
             if (local_1c != (int *)0x0) {
               (**(code **)(*local_1c + 4))();
             }
           }
-          uVar4 = uVar4 + 1;
-        } while (uVar4 < local_3c);
+          uVar8 = uVar8 + 1;
+        } while (uVar8 < local_3c);
       }
       *(undefined4 *)((int)this + 0xac) = **(undefined4 **)((int)this + 0x9c);
     }
   }
 LAB_00c65f51:
-  uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),&local_34);
-  FUN_007d79f0(this_00,(byte)uVar4);
+  bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&local_34,*(uint *)((int)this_00 + 0x10));
+  StreamReader_AccumulateStatus(this_00,bVar3);
   if (*(char *)((int)this_00 + 0x14) == '\0') {
     local_34 = 0;
     *(undefined1 *)((int)this_00 + 0x14) = 1;
   }
   if (4 < headerVersionWords[0]) {
-    uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),&local_30);
-    FUN_007d79f0(this_00,(byte)uVar4);
-    uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),&local_2c);
-    FUN_007d79f0(this_00,(byte)uVar4);
-    uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)&local_28);
-    FUN_007d79f0(this_00,(byte)uVar4);
-    uVar4 = FUN_004dd980(*(int **)((int)this_00 + 8),(uint *)&local_24);
-    FUN_007d79f0(this_00,(byte)uVar4);
+    bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&local_30,*(uint *)((int)this_00 + 0x10))
+    ;
+    StreamReader_AccumulateStatus(this_00,bVar3);
+    bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),&local_2c,*(uint *)((int)this_00 + 0x10))
+    ;
+    StreamReader_AccumulateStatus(this_00,bVar3);
+    bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)&local_28,
+                              *(uint *)((int)this_00 + 0x10));
+    StreamReader_AccumulateStatus(this_00,bVar3);
+    bVar3 = Stream_ReadUInt32(*(void **)((int)this_00 + 8),(uint *)&local_24,
+                              *(uint *)((int)this_00 + 0x10));
+    StreamReader_AccumulateStatus(this_00,bVar3);
     if ((((local_30 != 0) && (local_2c != 0)) && (local_28 != (int *)0x0)) &&
        (local_24 != (int *)0x0)) {
       uStack_40 = CONCAT13(1,uVar1);
     }
   }
   if (0xb < headerVersionWords[0]) {
-    bVar3 = FUN_004dd890(*(int **)((int)this_00 + 8),&resourceReader);
-    FUN_007d79f0(this_00,bVar3);
+    bVar3 = Stream_ReadByte(*(void **)((int)this_00 + 8),(byte *)&resourceReader);
+    StreamReader_AccumulateStatus(this_00,bVar3);
     *(uint *)((int)this + 0x164) = (uint)resourceReader & 0xff;
   }
-  FUN_007d7a70((int)this_00);
+  ResourceStreamContext_Close(this_00);
 LAB_00c6604c:
   *headerLoadInfo = local_3c;
   headerLoadInfo[1] = local_34;

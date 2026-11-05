@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note, original PC1.67 static; analyst-assigned name. Physical thiscall ECX factory and
@@ -20,105 +20,104 @@ CatalogProductFactory_CreateByResourceType
 
 {
   char cVar1;
-  undefined4 *puVar2;
-  void *pvVar3;
+  void *pvVar2;
+  undefined4 *puVar3;
   
   *outResource = (void *)0x0;
   if (resourceType < 0x60b390d) {
     if (resourceType == 0x60b390c) {
-      puVar2 = (undefined4 *)FUN_004e4500(0xc0,"Lot/CatalogProductFactory/ProductWaterBrush",0);
-      if (puVar2 == (undefined4 *)0x0) goto LAB_00c8d0e2;
-      puVar2 = FUN_00c9b420(puVar2);
+      puVar3 = (undefined4 *)FUN_004e4500(0xc0,"Lot/CatalogProductFactory/ProductWaterBrush",0);
+      if (puVar3 == (undefined4 *)0x0) goto LAB_00c8d0e2;
+      puVar3 = FUN_00c9b420(puVar3);
     }
     else if (resourceType < 0x4b3066a) {
       if (resourceType == 0x4b30669) {
-        puVar2 = (undefined4 *)
+        puVar3 = (undefined4 *)
                  FUN_004e4500(0xc0,"Lot/CatalogProductFactory/ProductTerrainSculptBrush",0);
-        if (puVar2 == (undefined4 *)0x0) goto LAB_00c8d0e2;
-        puVar2 = TerrainSculptProduct_Construct(puVar2);
+        if (puVar3 == (undefined4 *)0x0) goto LAB_00c8d0e2;
+        puVar3 = TerrainSculptProduct_Construct(puVar3);
       }
       else if (resourceType == 0x418fe2a) {
-        pvVar3 = (void *)FUN_004e4500(0x180,"Lot/CatalogProductFactory/ProductFence",0);
-        if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-        puVar2 = FenceProduct_Construct(pvVar3);
+        pvVar2 = (void *)FUN_004e4500(0x180,"Lot/CatalogProductFactory/ProductFence",0);
+        if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+        puVar3 = FenceProduct_Construct(pvVar2);
       }
       else if (resourceType == 0x49ca4cd) {
-        pvVar3 = (void *)FUN_004e4500(0x108,"Lot/CatalogProductFactory/ProductModularStairs",0);
-        if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-        puVar2 = StairsProduct_Construct(pvVar3);
+        pvVar2 = (void *)FUN_004e4500(0x108,"Lot/CatalogProductFactory/ProductModularStairs",0);
+        if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+        puVar3 = StairsProduct_Construct(pvVar2);
       }
       else {
         if (resourceType != 0x4ac5d93) goto LAB_00c8d0ec;
-        puVar2 = (undefined4 *)FUN_004e4500(0x90,"Lot/CatalogProductFactory/ProductUserToolProxy",0)
-        ;
-        if (puVar2 == (undefined4 *)0x0) goto LAB_00c8d0e2;
-        puVar2 = FUN_00c9b190(puVar2);
+        pvVar2 = (void *)FUN_004e4500(0x90,"Lot/CatalogProductFactory/ProductUserToolProxy",0);
+        if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+        puVar3 = (undefined4 *)ToolProxyProduct_Construct(pvVar2);
       }
     }
     else if (resourceType == 0x4c58103) {
-      pvVar3 = (void *)FUN_004e4500(0xf0,"Lot/CatalogProductFactory/ProductModularRailings",0);
-      if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-      puVar2 = RailingProduct_Construct(pvVar3);
+      pvVar2 = (void *)FUN_004e4500(0xf0,"Lot/CatalogProductFactory/ProductModularRailings",0);
+      if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+      puVar3 = RailingProduct_Construct(pvVar2);
     }
     else if (resourceType == 0x4ed4bb2) {
-      pvVar3 = (void *)FUN_004e4500(0xd8,"Lot/CatalogProductFactory/ProductTerrainPaintBrush",0);
-      if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-      puVar2 = TerrainPaintProduct_Construct(pvVar3);
+      pvVar2 = (void *)FUN_004e4500(0xd8,"Lot/CatalogProductFactory/ProductTerrainPaintBrush",0);
+      if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+      puVar3 = TerrainPaintProduct_Construct(pvVar2);
     }
     else {
       if (resourceType != 0x4f3cc01) goto LAB_00c8d0ec;
-      pvVar3 = (void *)FUN_004e4500(0x100,"Lot/CatalogProductFactor/Fireplace",0);
-      if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-      puVar2 = FireplaceProduct_Construct(pvVar3);
+      pvVar2 = (void *)FUN_004e4500(0x100,"Lot/CatalogProductFactor/Fireplace",0);
+      if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+      puVar3 = FireplaceProduct_Construct(pvVar2);
     }
   }
   else if (resourceType < 0x515ca4ce) {
     if (resourceType == 0x515ca4cd) {
-      pvVar3 = (void *)FUN_004e4500(0xd0,"Lot/CatalogProductFactory/ProductPattern",0);
-      if (pvVar3 == (void *)0x0) {
+      pvVar2 = (void *)FUN_004e4500(0xd0,"Lot/CatalogProductFactory/ProductPattern",0);
+      if (pvVar2 == (void *)0x0) {
 LAB_00c8d0e2:
-        puVar2 = (undefined4 *)0x0;
+        puVar3 = (undefined4 *)0x0;
       }
       else {
-        puVar2 = CatalogPattern_Construct(pvVar3);
+        puVar3 = CatalogPattern_Construct(pvVar2);
       }
     }
     else if (resourceType == 0xa36f07a) {
-      pvVar3 = (void *)FUN_004e4500(0xe8,"Lot/CatalogProductFactory/CurvedPool",0);
-      if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-      puVar2 = CurvedPoolProduct_Construct(pvVar3);
+      pvVar2 = (void *)FUN_004e4500(0xe8,"Lot/CatalogProductFactory/CurvedPool",0);
+      if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+      puVar3 = CurvedPoolProduct_Construct(pvVar2);
     }
     else if (resourceType == 0x316c78f2) {
-      pvVar3 = (void *)FUN_004e4500(0x100,"Lot/CatalogProductFactory/ProductDeckFoundation",0);
-      if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-      puVar2 = FoundationProduct_Construct(pvVar3);
+      pvVar2 = (void *)FUN_004e4500(0x100,"Lot/CatalogProductFactory/ProductDeckFoundation",0);
+      if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+      puVar3 = FoundationProduct_Construct(pvVar2);
     }
     else {
       if (resourceType != 0x319e4f1d) goto LAB_00c8d0ec;
-      puVar2 = (undefined4 *)FUN_004e4500(0x240,"Lot/CatalogProductFactory/ProductObject",0);
-      if (puVar2 == (undefined4 *)0x0) goto LAB_00c8d0e2;
-      puVar2 = ObjectProduct_Construct(puVar2);
+      puVar3 = (undefined4 *)FUN_004e4500(0x240,"Lot/CatalogProductFactory/ProductObject",0);
+      if (puVar3 == (undefined4 *)0x0) goto LAB_00c8d0e2;
+      puVar3 = ObjectProduct_Construct(puVar3);
     }
   }
   else if (resourceType == 0x9151e6bc) {
-    pvVar3 = (void *)FUN_004e4500(0xc0,"Lot/CatalogProductFactory/ProductWall",0);
-    if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-    puVar2 = WallStyleProduct_Construct(pvVar3);
+    pvVar2 = (void *)FUN_004e4500(0xc0,"Lot/CatalogProductFactory/ProductWall",0);
+    if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+    puVar3 = WallStyleProduct_Construct(pvVar2);
   }
   else if (resourceType == 0x91edbd3e) {
-    pvVar3 = (void *)FUN_004e4500(0xb8,"Lot/CatalogProductFactory/ProductRoof",0);
-    if (pvVar3 == (void *)0x0) goto LAB_00c8d0e2;
-    puVar2 = RoofStyleProduct_Construct(pvVar3);
+    pvVar2 = (void *)FUN_004e4500(0xb8,"Lot/CatalogProductFactory/ProductRoof",0);
+    if (pvVar2 == (void *)0x0) goto LAB_00c8d0e2;
+    puVar3 = RoofStyleProduct_Construct(pvVar2);
   }
   else {
     if (resourceType != 0xf1edbd86) goto LAB_00c8d0ec;
-    puVar2 = (undefined4 *)FUN_004e4500(200,"Lot/CatalogProductFactory/ProductRoofPattern",0);
-    if (puVar2 == (undefined4 *)0x0) goto LAB_00c8d0e2;
-    puVar2 = RoofPatternProduct_Construct(puVar2);
+    puVar3 = (undefined4 *)FUN_004e4500(200,"Lot/CatalogProductFactory/ProductRoofPattern",0);
+    if (puVar3 == (undefined4 *)0x0) goto LAB_00c8d0e2;
+    puVar3 = RoofPatternProduct_Construct(puVar3);
   }
-  *outResource = puVar2;
-  if (puVar2 != (undefined4 *)0x0) {
-    (**(code **)*puVar2)();
+  *outResource = puVar3;
+  if (puVar3 != (undefined4 *)0x0) {
+    (**(code **)*puVar3)();
     if (source != (void *)0x0) {
       cVar1 = (**(code **)(*(int *)this + 0x24))(source,*outResource,context,resourceType);
       if (cVar1 == '\0') {

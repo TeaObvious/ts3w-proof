@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67: Steering interface vtable0x010455a8 +0x58 at0x01045600 contains this
@@ -27,6 +27,7 @@ void __thiscall Steering_InvokeManagedStairsCompleted(void *this,void *stairsReq
 {
   int iVar1;
   int iVar2;
+  undefined4 *this_00;
   undefined4 *puVar3;
   undefined **local_8c [2];
   ushort local_84;
@@ -44,7 +45,6 @@ void __thiscall Steering_InvokeManagedStairsCompleted(void *this,void *stairsReq
   undefined **local_20 [2];
   undefined2 local_18;
   undefined2 local_16;
-  undefined4 *this_00;
   
   iVar1 = *(int *)((int)stairsRequest + 0x1c);
   iVar2 = *(int *)((int)stairsRequest + 0x20);
@@ -54,7 +54,7 @@ void __thiscall Steering_InvokeManagedStairsCompleted(void *this,void *stairsReq
     local_8c[0] = &PTR_FUN_00fba6f4;
     local_84 = 0;
     local_82 = 0;
-    FUN_004f6020(local_8c,(undefined4 *)((int)stairsRequest + 8));
+    Variant_AssignUInt64(local_8c,(ulonglong *)((int)stairsRequest + 8));
     local_60[0] = &PTR_FUN_00fba6f4;
     local_58 = 0;
     local_56 = 0;
@@ -68,7 +68,7 @@ void __thiscall Steering_InvokeManagedStairsCompleted(void *this,void *stairsReq
     local_8c[0] = &PTR_FUN_00fba6f4;
     local_84 = 0;
     local_82 = 0;
-    FUN_004f6020(local_8c,&local_68);
+    Variant_AssignUInt64(local_8c,(ulonglong *)&local_68);
     local_40[0] = &PTR_FUN_00fba6f4;
     local_38 = 0;
     local_36 = 0;

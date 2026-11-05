@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 LotLocation contract): Analyst name. ECX routing owner; three stack slots
@@ -83,8 +83,8 @@ byte __thiscall LotRouting_WriteLotLocationPayload(void *this,void *stream,uint 
       }
       Stream_FinishSizedBlock(this_00,uVar8);
       stream = (void *)0x0;
-      uVar8 = FUN_0062b950(this,this_00,&stream);
-      if ((char)uVar8 != '\0') {
+      bVar5 = RoutingFootprintTable_Write(this,this_00,(uint *)&stream);
+      if (bVar5 != 0) {
         Stream_BackpatchUInt32(this_00,arg0,(uint)stream);
         FUN_0062cce0(this,'\0');
         FUN_0063cdd0(this,(ushort *)uVar2,uVar3);

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 static instructions/callers: cdecl four words, low AL bool. Dig rejects support-region
@@ -21,9 +21,7 @@ BasementTile_ValidateObstructions(void *param_1,char param_2,char *param_3,void 
   void *pvVar7;
   int local_74;
   int local_70;
-  float local_6c;
-  float local_68;
-  undefined4 local_64;
+  LotXZLevel local_6c;
   void *local_60;
   void *local_5c;
   undefined4 local_58;
@@ -44,7 +42,7 @@ BasementTile_ValidateObstructions(void *param_1,char param_2,char *param_3,void 
     FUN_00ad70d0((int)local_50);
     return false;
   }
-  cVar2 = FUN_00ab0830();
+  cVar2 = ObjectPickup_IsContextGateEnabled();
   if ((cVar2 != '\0') && (uVar4 = FUN_00ab0a00((int)param_1), (char)uVar4 != '\0')) {
     if (param_4 == (void *)0x0) {
       return false;
@@ -69,7 +67,7 @@ BasementTile_ValidateObstructions(void *param_1,char param_2,char *param_3,void 
       do {
         pvVar1 = *(void **)((int)pvVar7 + local_74 * 4);
         if (pvVar1 != (void *)0x0) {
-          bVar3 = FUN_00afc7c0((int)pvVar1);
+          bVar3 = Object_HasSimComponent((int)pvVar1);
           if (bVar3) {
             if (param_4 == (void *)0x0) goto LAB_00c9d5fd;
             FUN_00ad6fb0(local_50,0x6c,pvVar1);
@@ -90,14 +88,15 @@ BasementTile_ValidateObstructions(void *param_1,char param_2,char *param_3,void 
   }
   pvVar7 = *(void **)((int)param_1 + 0x2b4);
   if (pvVar7 != (void *)0x0) {
-    local_6c = -1.0;
-    local_68 = -1.0;
-    local_64 = 0;
-    FUN_00af81a0(param_3,&local_6c);
-    uVar4 = FUN_00b16640(pvVar7,&local_6c,&local_70);
+    local_6c.x = -1.0;
+    local_6c.z = -1.0;
+    local_6c.level = 0;
+    TilePart_GetLocalSamplePoint(param_3,&local_6c);
+    uVar4 = FUN_00b16640(pvVar7,&local_6c.x,&local_70);
     if ((char)uVar4 != '\0') {
       if (param_4 == (void *)0x0) goto LAB_00c9d5fd;
-      FUN_00ad6720(local_50,0x6e,(int)param_1,&local_6c,0,0);
+      BuildEditErrorRecord_InitializeAtLotPoint
+                (local_50,0x6e,param_1,(LotPaintPoint *)&local_6c,0,0);
       FUN_00ad8570(param_4,local_50);
       bVar3 = false;
       FUN_00ad70d0((int)local_50);
@@ -120,7 +119,7 @@ BasementTile_ValidateObstructions(void *param_1,char param_2,char *param_3,void 
     bVar3 = false;
     FUN_00ad70d0((int)local_50);
   }
-  uVar4 = FUN_00afed60(param_1,param_3,'\0');
+  uVar4 = TestPlatformRegion(param_1,param_3,'\0');
   if ((char)uVar4 != '\0') {
     if (param_4 == (void *)0x0) {
 LAB_00c9d5fd:

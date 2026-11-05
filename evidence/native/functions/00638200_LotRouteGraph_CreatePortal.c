@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: original PC 1.67 portal contract. Rejects graph+0x10d mode or unavailable lot.
@@ -36,7 +36,8 @@ LotRouteGraph_CreatePortal
     return 0;
   }
   if (lot != (void *)0x0) {
-    uVar2 = FUN_00629360(this,*(uint *)((int)lot + 0x48),*(uint *)((int)lot + 0x4c));
+    uVar2 = LotRouting_HasAdmittedLotRecord
+                      (this,*(uint *)((int)lot + 0x48),*(uint *)((int)lot + 0x4c));
     if ((char)uVar2 != '\0') {
       local_4 = *(undefined4 *)((int)pvVar1 + 0x4c);
       local_8 = *(uint *)((int)pvVar1 + 0x48);

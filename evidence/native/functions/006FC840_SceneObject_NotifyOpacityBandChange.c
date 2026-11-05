@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 original instruction review. Finite alpha bucket thresholds
@@ -16,10 +16,10 @@ void __thiscall SceneObject_NotifyOpacityBandChange(void *this,float oldAlpha,fl
   int *piVar2;
   int iVar3;
   
-  if (DAT_00ffacf4 <= oldAlpha) {
-    if (DAT_00ffacf8 <= oldAlpha) {
+  if (0.001 <= oldAlpha) {
+    if (0.3 <= oldAlpha) {
       iVar3 = 2;
-      if (DAT_00ffacf0 <= oldAlpha) {
+      if (0.999 <= oldAlpha) {
         iVar3 = 3;
       }
     }
@@ -30,10 +30,10 @@ void __thiscall SceneObject_NotifyOpacityBandChange(void *this,float oldAlpha,fl
   else {
     iVar3 = 0;
   }
-  if (DAT_00ffacf4 <= newAlpha) {
-    if (DAT_00ffacf8 <= newAlpha) {
+  if (0.001 <= newAlpha) {
+    if (0.3 <= newAlpha) {
       iVar1 = 2;
-      if (DAT_00ffacf0 <= newAlpha) {
+      if (0.999 <= newAlpha) {
         iVar1 = 3;
       }
     }
@@ -55,7 +55,7 @@ void __thiscall SceneObject_NotifyOpacityBandChange(void *this,float oldAlpha,fl
       *piVar2 = (int)piVar2;
       piVar2[1] = (int)piVar2;
       if (*(void **)((int)this + 0x30) != (void *)0x0) {
-        FUN_006e3f00(*(void **)((int)this + 0x30),(int)this);
+        Scene_AppendDirtyObject(*(void **)((int)this + 0x30),(int)this);
       }
     }
     if ((*(byte *)((int)this + 0x208) & 0x10) != 0) {

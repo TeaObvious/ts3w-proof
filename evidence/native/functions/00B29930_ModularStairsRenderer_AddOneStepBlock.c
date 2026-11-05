@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 stair collision and renderer contract): ECX renderer; RET24 same nine
@@ -25,17 +25,18 @@ ModularStairsRenderer_AddOneStepBlock
   float local_30 [4];
   float local_20 [7];
   
-  FUN_00b230c0(this,direction,DAT_0106c28c,DAT_0106c284,position4,outAdvance4,local_20,local_30,
-               '\x01');
+  ModularStairsRenderer_ComputeStepPlacement
+            (this,direction,0.1875,0.25,position4,outAdvance4,local_20,local_30,1);
   iVar1 = FUN_00c8e7d0(DAT_011ee034,descriptor,'\x01');
   cVar7 = '\x01';
   iVar6 = 0;
   pfVar5 = local_30;
   pfVar4 = local_20;
   puVar3 = (undefined4 *)((int)descriptor + 0x10);
-  piVar2 = (int *)FUN_00c95ed0(iVar1);
-  FUN_00b28bd0(this,piVar2,puVar3,pfVar4,pfVar5,flightId,level,retainedWord,iVar6,metaSceneObject,
-               flag,cVar7);
+  piVar2 = (int *)GetMemberAddressAtOffset98(iVar1);
+  ModularStairsRenderer_PrepareComponentSceneModel
+            (this,piVar2,puVar3,pfVar4,pfVar5,flightId,level,retainedWord,iVar6,metaSceneObject,flag
+             ,cVar7);
   return;
 }
 

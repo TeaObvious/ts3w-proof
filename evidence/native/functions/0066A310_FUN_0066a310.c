@@ -1,7 +1,7 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Original PC 1.67 TS3W.exe; analyst display name FootprintQueryCell_SelectChild.
    Original Ghidra database symbol: FUN_0066a310; database unchanged.
    Names in this reviewed rendering are analyst aliases, not recovered EA symbols.
@@ -9,9 +9,12 @@
    Owned ranges (exclusive ends): [0066a310,0066a4ee); 0 envelope gap bytes are not owned instructions.
 */
 
+/* Retained historical annotation 2, previous C line 12; earlier snapshot context. */
 /* A real branch node with low two tag bits equal to1 selects child slot+0C+4*q, halves scale and resets subcell code to0. A compressed leaf keeps its backing storage while selecting a virtual subcell using FEF598. Missing backing storage propagates a null selection. Packed coordinates, level/depth bits and child-code tables are separate; do not replace them with per-polygon intersection. */
 
-void __thiscall FootprintQueryCell_SelectChild(void *this,int param_1,void *param_2)
+
+
+void __thiscall FUN_0066a310(void *this,int param_1,void *param_2)
 
 {
   undefined4 uVar1;
@@ -73,3 +76,4 @@ void __thiscall FootprintQueryCell_SelectChild(void *this,int param_1,void *para
   *(uint *)((int)param_2 + 0x1c) = *(uint *)((int)param_2 + 0x1c) & 0xff;
   return;
 }
+

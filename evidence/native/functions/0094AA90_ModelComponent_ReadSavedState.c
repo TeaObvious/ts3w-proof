@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 saved Model reader. ECX component, stack4 reader, stack8 descriptor; RET8, status
@@ -216,7 +216,7 @@ LAB_0094ae76:
     bVar3 = Stream_ReadBoolean(*(void **)((int)reader + 8),&bStack_665);
     StreamReader_AccumulateStatus(reader,bVar3);
     *(byte *)((int)this + 0x81) =
-         *(byte *)((int)this + 0x81) ^ (bStack_665 << 2 ^ *(byte *)((int)this + 0x81)) & 4;
+         *(byte *)((int)this + 0x81) ^ (bStack_665 * '\x04' ^ *(byte *)((int)this + 0x81)) & 4;
   }
   if (0xd < uVar8) {
     bVar3 = Stream_ReadBoolean(*(void **)((int)reader + 8),&bStack_665);
@@ -228,7 +228,7 @@ LAB_0094ae76:
   bStack_665 = 0xf < uVar8;
   if (uVar8 == 0xf) {
     FUN_004ec7e0(auStack_410);
-    puVar7 = (ushort *)FUN_00a19140(iVar6);
+    puVar7 = (ushort *)World_ReadFilenameInputWord(iVar6);
     FUN_004edf60(auStack_410,puVar7);
     FUN_004eddc0(auStack_410,awStack_610,0x100);
     iVar6 = _wcsicmp(awStack_610,L"EP05_broadPass");
@@ -266,14 +266,14 @@ LAB_0094b078:
   }
   bVar2 = (cVar4 << 6 ^ bVar2) & 0x40 ^ bVar2;
   *(byte *)((int)this + 0x81) = bVar2;
-  if (bStack_665 != 0) {
-    bVar3 = Stream_ReadBoolean(*(void **)((int)reader + 8),&bStack_665);
-    StreamReader_AccumulateStatus(reader,bVar3);
-    *(byte *)((int)this + 0x81) =
-         *(byte *)((int)this + 0x81) ^ (bStack_665 * '\b' ^ *(byte *)((int)this + 0x81)) & 8;
+  if (bStack_665 == 0) {
+    *(byte *)((int)this + 0x81) = bVar2 & 0xf7;
     return *(byte *)((int)reader + 0x14);
   }
-  *(byte *)((int)this + 0x81) = bVar2 & 0xf7;
+  bVar3 = Stream_ReadBoolean(*(void **)((int)reader + 8),&bStack_665);
+  StreamReader_AccumulateStatus(reader,bVar3);
+  *(byte *)((int)this + 0x81) =
+       *(byte *)((int)this + 0x81) ^ (bStack_665 * '\b' ^ *(byte *)((int)this + 0x81)) & 8;
   return *(byte *)((int)reader + 0x14);
 }
 

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 fence resource/renderer and resolved virtual contract): ECX renderer; RET1C
@@ -121,14 +121,16 @@ FenceRenderer_AddPostSceneModel
       if ((*(int *)((int)designWords + 8) != 0) || (*(int *)((int)designWords + 0x18) != 0)) {
         pvVar5 = (void *)FUN_004e4520(0x30,8,0,"Renderer/TexCompFixupLOD",0);
         piVar12 = (int *)0x0;
-        if ((pvVar5 != (void *)0x0) &&
-           (piVar8 = (int *)FUN_006fe070(pvVar5,designWords,(undefined4 *)((int)designWords + 0x10))
-           , piVar8 != (int *)0x0)) {
-          (**(code **)*piVar8)();
-          piVar12 = piVar8;
+        if (pvVar5 != (void *)0x0) {
+          piVar8 = (int *)TexCompFixupLOD_Initialize
+                                    (pvVar5,designWords,(undefined4 *)((int)designWords + 0x10));
+          if (piVar8 != (int *)0x0) {
+            (**(code **)*piVar8)();
+            piVar12 = piVar8;
+          }
         }
         (**(code **)(*piVar4 + 0x80))(piVar12,&DAT_00ffaf14);
-        FUN_006dcc00(piVar4 + 0x84);
+        ModelBinding_ApplyMaterialToAvailableLod(piVar4 + 0x84);
         if (piVar12 != (int *)0x0) {
           (**(code **)(*piVar12 + 4))();
         }
@@ -146,18 +148,17 @@ FenceRenderer_AddPostSceneModel
       piStack_8c = piVar4;
       (*pcVar1)();
       bStack_88 = flag6;
-      FUN_00a6a410(local_128,(undefined4 *)&stack0xfffffeb4,asStack_ec);
+      FUN_00a6a410(local_128,local_124 + -10,asStack_ec);
       if (piStack_8c != (int *)0x0) {
         (**(code **)(*piStack_8c + 4))();
       }
       (**(code **)(*piVar4 + 4))();
       (**(code **)(*piVar4 + 4))();
-      this = local_118;
       if (flag7 != 0) {
         FUN_006dd400(piVar4 + 0x84,0x7bfef7db);
         FUN_006db630(piVar4 + 0x84,'\0');
-        this = local_118;
       }
+      this = local_118;
     }
     else {
       local_138 = *(int **)((int)local_124[0] + 0x60);

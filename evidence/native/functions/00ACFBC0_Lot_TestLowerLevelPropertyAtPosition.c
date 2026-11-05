@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: selector validation predicate at a LotXZLevel position. Encodes a compact key, tests the
@@ -33,7 +33,7 @@ uint __cdecl Lot_TestLowerLevelPropertyAtPosition(void *param_1,LotXZLevel *para
     return in_EAX & 0xffffff00;
   }
   param_1 = (void *)CONCAT13(param_1._3_1_,0xffff);
-  uVar4 = FUN_00af7730(&param_2->x,(char *)&param_1);
+  uVar4 = EncodeCellCoordinates(&param_2->x,(char *)&param_1);
   uVar6 = (uint3)((uint)uVar4 >> 8);
   this = *(void **)((int)this_00 + 0x2c4);
   cVar2 = param_1._2_1_ + -1;
@@ -43,10 +43,10 @@ uint __cdecl Lot_TestLowerLevelPropertyAtPosition(void *param_1,LotXZLevel *para
        (*(int *)((int)this_00 + 0x17c) <= (int)cVar2)) &&
       ((int)cVar2 <= *(int *)((int)this_00 + 0x180))))) {
     _local_4 = CONCAT13(0xf,CONCAT12(cVar2,(short)param_1));
-    iVar5 = FUN_00ab67d0(this_00,(char *)&local_4,'\0');
-    bVar3 = FUN_00afe300(iVar5,3);
+    iVar5 = Lot_ResolveCompatibleCellRegion(this_00,(char *)&local_4,'\0');
+    bVar3 = LotRegion_MatchesTypeCode(iVar5,3);
     if (!bVar3) {
-      bVar3 = FUN_00afe300(iVar5,6);
+      bVar3 = LotRegion_MatchesTypeCode(iVar5,6);
       uVar6 = extraout_var;
       if (!bVar3) goto LAB_00acfc93;
     }

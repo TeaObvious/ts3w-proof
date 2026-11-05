@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
+/* Retained historical annotation 1, previous C line 5; earlier snapshot context. */
 /* Analyst role: Pending floor cell refresh and removal; descriptive label, not recovered original symbol.
    ECX manager plus packed three-byte cell, RET4 void. A8E850 selects equal pending location. If found, callsA913D0 with a copied fullmask0F and arguments0,0,1, THEN removes exactly that three-byte pending record by forward shift and end-=3. If callback fails, later erase is not reached; no rollback/lock guarantee. */
+
+
 
 void __thiscall FUN_00a925b0(void *this,char *param_1)
 
@@ -21,7 +23,7 @@ void __thiscall FUN_00a925b0(void *this,char *param_1)
   }
   if (local_8 != *(undefined2 **)((int)this + 0xf4)) {
     param_1 = (char *)CONCAT13(0xf,*(undefined3 *)pcVar2);
-    FUN_00a913d0(this,(char *)&param_1,0,0,'\x01');
+    RefreshFloorUpperQuarterFlags(this,(char *)&param_1,0,0,'\x01');
     puVar1 = *(undefined2 **)((int)this + 0xf4);
     puVar3 = (undefined2 *)((int)local_8 + 3);
     if (puVar3 < puVar1) {
@@ -36,3 +38,4 @@ void __thiscall FUN_00a925b0(void *this,char *param_1)
   }
   return;
 }
+

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
@@ -46,6 +46,7 @@ SceneAnimation_EvaluatePoseStreams
   int *extraout_ECX_02;
   int *extraout_ECX_03;
   uint uVar10;
+  undefined1 auStack_1f2 [2];
   undefined4 uStack_1f0;
   undefined4 uStack_1ec;
   char *local_1e8;
@@ -101,7 +102,7 @@ SceneAnimation_EvaluatePoseStreams
     *param_2 = 0;
     *(undefined1 *)(param_2 + 5) = 1;
   }
-  if (((char)param_2[5] == '\0') && (DAT_010f4ccc <= param_4)) {
+  if (((char)param_2[5] == '\0') && (0.0 <= param_4)) {
     *param_2 = *param_2 + 4;
     if (-1 < *param_2) {
       FUN_00594af0(param_2,4);
@@ -133,7 +134,7 @@ LAB_00940bb6:
     *param_2 = 0;
     *(undefined1 *)(param_2 + 5) = 1;
   }
-  if (((char)param_2[5] == '\0') && (DAT_010f4ccc <= param_4)) {
+  if (((char)param_2[5] == '\0') && (0.0 <= param_4)) {
     in_EAX = (int *)param_2[4];
     pvStack_1d8 = (void *)((int)in_EAX + *param_2 + 1);
   }
@@ -151,7 +152,7 @@ LAB_00940bb6:
     *param_2 = 0;
     *(undefined1 *)(param_2 + 5) = 1;
   }
-  if (((char)param_2[5] == '\0') && (DAT_010f4ccc <= param_4)) {
+  if (((char)param_2[5] == '\0') && (0.0 <= param_4)) {
     *param_2 = *param_2 + 4;
     if (-1 < *param_2) {
       FUN_00594af0(param_2,4);
@@ -184,7 +185,7 @@ LAB_00940ee2:
       *param_2 = 0;
       *(undefined1 *)(param_2 + 5) = 1;
     }
-    if (((char)param_2[5] == '\0') && (DAT_010f4ccc <= param_4)) {
+    if (((char)param_2[5] == '\0') && (0.0 <= param_4)) {
       FUN_00594a40(param_2,(uint)((int)pvStack_1d8 + (int)local_1e8));
       in_EAX = (int *)((uint)extraout_var_04 << 8);
     }
@@ -198,7 +199,7 @@ LAB_00940ee2:
     }
   }
   else {
-    iVar2 = FUN_006f48e0((int)local_1dc);
+    iVar2 = SceneAnimation_GetRenderState((int)local_1dc);
     if (iVar2 == 0) {
 LAB_00940ed1:
       bVar1 = FUN_006f4de0((int)local_1dc);
@@ -209,7 +210,7 @@ LAB_00940ed1:
       bVar1 = FUN_00573820(iVar2);
       uStack_1ec = (undefined4 *)CONCAT13(bVar1,(undefined3)uStack_1ec);
       if (bVar1 == 0) goto LAB_00940ed1;
-      FUN_00573f80(iVar2);
+      AnimationPoseCache_Clear(iVar2);
     }
     if ((_DAT_011e9e68 & 1) == 0) {
       _DAT_011e9e68 = _DAT_011e9e68 | 1;
@@ -233,8 +234,7 @@ LAB_00940ed1:
       *param_2 = 0;
       *(undefined1 *)(param_2 + 5) = 1;
     }
-    if ((((char)param_2[5] == '\0') && (DAT_010f4ccc <= param_4)) && (((uint)puStack_1e4 & 1) != 0))
-    {
+    if ((((char)param_2[5] == '\0') && (0.0 <= param_4)) && (((uint)puStack_1e4 & 1) != 0)) {
       FUN_0054c8c0(&DAT_011e5b28,param_2);
     }
     if (-1 < *param_3) {
@@ -248,7 +248,7 @@ LAB_00940ed1:
        (((uStack_1ec._3_1_ != '\0' || (bVar1 = FUN_006f4de0((int)local_1dc), bVar1 != 0)) ||
         (DAT_011dd488 == 0)))) {
       uVar10 = (uint)pcStack_1e0 >> 2;
-      pvVar3 = (void *)FUN_006f48e0((int)local_1dc);
+      pvVar3 = (void *)SceneAnimation_GetRenderState((int)local_1dc);
       if ((pvVar3 != (void *)0x0) && (iVar2 = FUN_0054c8f0(0x11e17e8), iVar2 != 0)) {
         FUN_0093d3d0(auStack_1c8);
         FUN_0083a990(&iStack_1c0);
@@ -265,19 +265,18 @@ LAB_00940ed1:
             fStack_170 = 0.0;
           }
           else {
-            piStack_1d4 = (int *)((param_4 - fStack_128) * DAT_00fc2b9c);
+            piStack_1d4 = (int *)((param_4 - fStack_128) * 0.033333335);
             local_1d0 = (char *)0x0;
-            fStack_170 = (float)((uint)piStack_1d4 &
-                                (int)(FLOAT_00f998f0 - (float)piStack_1d4) >> 0x1f);
+            fStack_170 = (float)((uint)piStack_1d4 & (int)(-0.0 - (float)piStack_1d4) >> 0x1f);
           }
         }
         else {
-          fStack_170 = (float)CONCAT44(iStack_1cc,local_1d0) * DAT_00fc2b9c;
+          fStack_170 = (float)CONCAT44(iStack_1cc,local_1d0) * 0.033333335;
           if (0.0 <= fStack_128) {
-            fStack_170 = fStack_170 - (FLOAT_00f998f8 - fStack_128) * DAT_00fc2b9c;
+            fStack_170 = fStack_170 - (1.0 - fStack_128) * 0.033333335;
           }
           if (0.0 <= param_4) {
-            fStack_170 = param_4 * DAT_00fc2b9c + fStack_170;
+            fStack_170 = param_4 * 0.033333335 + fStack_170;
           }
         }
         iStack_1c0 = local_1dc[0x20];
@@ -324,7 +323,7 @@ LAB_00940ed1:
             }
             else {
               piVar5 = extraout_ECX_03;
-              FUN_007fd370(&stack0xfffffdfc,*(undefined4 **)((int)pvVar3 + 0x20));
+              FUN_007fd370(auStack_1f2 + -0x12,*(undefined4 **)((int)pvVar3 + 0x20));
               puVar4 = FUN_00575050(puVar4,piVar5);
             }
             FUN_00566590(&local_1e8,puVar4);
@@ -339,7 +338,7 @@ LAB_00940ed1:
             }
             else {
               piVar5 = extraout_ECX_02;
-              FUN_007fd370(&stack0xfffffdfc,*(undefined4 **)((int)pvVar3 + 0x20));
+              FUN_007fd370(auStack_1f2 + -0x12,*(undefined4 **)((int)pvVar3 + 0x20));
               puVar4 = FUN_00575050(puVar4,piVar5);
             }
             FUN_00566590(&local_1e8,puVar4);
@@ -350,7 +349,7 @@ LAB_00940ed1:
               FUN_0054c890(0x11e17e8);
               FUN_00574300((int)pcVar7);
               FUN_00574320((int)pcVar7);
-              FUN_005742e0((int)pcVar7);
+              ClearDwordAtECXPlus3C((int)pcVar7);
               puVar4 = (undefined4 *)FUN_004e4500(0x3860,"Animation/PoseEvalNode/LocalPoseBuffer",0)
               ;
               if (puVar4 == (undefined4 *)0x0) {
@@ -381,7 +380,7 @@ LAB_00940ed1:
           }
           else {
             piVar5 = extraout_ECX;
-            FUN_007fd370(&stack0xfffffdfc,*(undefined4 **)((int)pvVar3 + 0x20));
+            FUN_007fd370(auStack_1f2 + -0x12,*(undefined4 **)((int)pvVar3 + 0x20));
             puVar4 = FUN_00575050(puVar4,piVar5);
           }
           FUN_00566590(&local_1e8,puVar4);
@@ -415,7 +414,7 @@ LAB_00940ed1:
               }
               else {
                 piVar5 = extraout_ECX_00;
-                FUN_007fd370(&stack0xfffffdfc,*(undefined4 **)((int)pvVar3 + 0x20));
+                FUN_007fd370(auStack_1f2 + -0x12,*(undefined4 **)((int)pvVar3 + 0x20));
                 pcVar8 = FUN_00575050(puVar4,piVar5);
               }
               if (pcVar8 != (char *)0x0) {
@@ -456,7 +455,7 @@ LAB_00940ed1:
               }
               else {
                 piVar5 = extraout_ECX_01;
-                FUN_007fd370(&stack0xfffffdfc,*(undefined4 **)((int)pvVar3 + 0x20));
+                FUN_007fd370(auStack_1f2 + -0x12,*(undefined4 **)((int)pvVar3 + 0x20));
                 pcVar7 = FUN_00575050(puVar4,piVar5);
               }
               if (pcVar7 != (char *)0x0) {
@@ -478,7 +477,7 @@ LAB_00940ed1:
             FUN_00565d20((int *)&pcStack_1e0);
             piVar5 = piStack_1d4;
           }
-          FUN_0054c2b0(pvStack_1d8,FLOAT_00f998f8 - param_4);
+          FUN_0054c2b0(pvStack_1d8,1.0 - param_4);
           FUN_0054c2b0(pvVar6,param_4);
           (**(code **)(*piVar5 + 0xc))();
           (**(code **)(*piVar5 + 0xc))(pvVar6);
@@ -503,8 +502,8 @@ LAB_00940ed1:
                     /* Actual attachment-child walk follows pose publication; later dirty/bounds
                        work still executes. */
         SceneObject_UpdateAttachmentChildren(local_1dc);
-        FUN_006f4d60((int)piVar5);
-        FUN_006fa9f0((int)piVar5);
+        SceneAnimation_InvokePostPoseCallback((int)piVar5);
+        SceneObject_QueueDirtyOnce((int)piVar5);
         if (cStack_60 != '\0') {
           uStack_6c = param_1;
           cStack_60 = '\x01';

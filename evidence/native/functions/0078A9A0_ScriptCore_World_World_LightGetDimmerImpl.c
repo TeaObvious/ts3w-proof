@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011632d0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011632d0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.World::World_LightGetDimmerImpl [assembly=ScriptCore token=0x06000757; scriptHandle:
    System.UInt64; return=System.Single]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -15,19 +16,22 @@ float10 ScriptCore_World__World_LightGetDimmerImpl(void)
 {
   int *piVar1;
   int iVar2;
+  void *pvVar3;
   undefined4 *this;
-  float10 fVar3;
+  float10 fVar4;
+  undefined4 in_stack_00000004;
+  undefined4 in_stack_00000008;
   
-  iVar2 = FUN_00937570();
-  this = (undefined4 *)FUN_00937f80(iVar2);
+  pvVar3 = ObjectRegistry_GetGlobal();
+  this = ObjectRegistry_FindBorrowed(pvVar3,CONCAT44(in_stack_00000008,in_stack_00000004));
   if (this != (undefined4 *)0x0) {
     piVar1 = this + 1;
     LOCK();
     *piVar1 = *piVar1 + 1;
     UNLOCK();
-    iVar2 = FUN_00934260(this,DAT_011e9fc0);
-    if (iVar2 != 0) {
-      fVar3 = FUN_009de4e0(iVar2);
+    pvVar3 = Object_GetComponentByMask(this,DAT_011e9fc0);
+    if (pvVar3 != (void *)0x0) {
+      fVar4 = FUN_009de4e0((int)pvVar3);
       LOCK();
       iVar2 = *piVar1;
       *piVar1 = *piVar1 + -1;
@@ -38,7 +42,7 @@ float10 ScriptCore_World__World_LightGetDimmerImpl(void)
         UNLOCK();
         (**(code **)*this)(1);
       }
-      return (float10)(float)fVar3;
+      return (float10)(float)fVar4;
     }
     LOCK();
     iVar2 = *piVar1;

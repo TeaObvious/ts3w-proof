@@ -1,11 +1,12 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Removing unreachable block (ram,0x0073b777) */
 /* WARNING: Restarted to delay deadcode elimination for space: stack */
-/* Verified PC 1.67 registration table at 0x0115eb58 (original PC 1.67 TS3W.exe).
+/* Verified PC 1.67 registration table at 0x0115eb58 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Animation::Animation_StartRandomClipController [assembly=ScriptCore token=0x06000DBE;
    objId: System.UInt64, track: System.UInt32, blendTime: System.Single, trackMaskKey:
    Sims3.SimIFace.ResourceKey, resourceIds: System.UInt64[], weights: System.Single[], repeats:
@@ -17,43 +18,40 @@
 undefined4 __cdecl ScriptCore.Animation::Animation_StartRandomClipController(char **param_1)
 
 {
-  int iVar1;
-  char *pcVar2;
-  int iVar3;
-  undefined4 *puVar4;
-  undefined1 *this;
-  int *piVar5;
-  char ***pppcVar6;
-  char ***pppcVar7;
+  void *pvVar1;
+  undefined4 *puVar2;
+  int *piVar3;
+  undefined4 **ppuVar4;
+  undefined4 **ppuVar5;
+  undefined4 *puVar6;
+  undefined4 *puVar7;
   undefined4 *puVar8;
-  void *this_00;
-  undefined4 *puVar9;
-  int unaff_EBP;
+  void *unaff_EBP;
+  int iVar9;
   undefined4 *unaff_ESI;
   int unaff_EDI;
-  undefined4 *puVar10;
+  undefined4 in_stack_00000008;
   undefined4 in_stack_00000014;
   undefined4 in_stack_0000001c;
-  char **in_stack_00000024;
-  undefined4 uVar11;
+  undefined4 *in_stack_00000024;
+  undefined4 uVar10;
   char **ppcStack_94;
-  undefined1 *puStack_90;
-  char **ppcStack_8c;
-  char **ppcStack_88;
-  undefined4 **ppuVar12;
-  undefined4 *local_70;
+  void *pvStack_90;
+  undefined4 *puStack_8c;
+  undefined4 **ppuVar11;
+  undefined4 local_70;
   undefined4 *local_6c;
   char *pcStack_68;
-  int iStack_64;
-  char *local_60;
-  char *pcStack_5c;
+  void *pvStack_64;
+  undefined4 *local_60;
+  undefined4 *puStack_5c;
   char *pcStack_58;
   undefined4 *local_54;
   undefined4 *puStack_50;
   undefined4 *puStack_4c;
   char *pcStack_48;
-  undefined4 *puStack_44;
-  undefined4 *puStack_40;
+  undefined4 uStack_44;
+  undefined4 uStack_40;
   undefined4 uStack_3c;
   undefined4 uStack_38;
   undefined4 uStack_34;
@@ -67,171 +65,168 @@ undefined4 __cdecl ScriptCore.Animation::Animation_StartRandomClipController(cha
   undefined4 uStack_8;
   undefined4 uStack_4;
   
-  iVar3 = FUN_00937570();
-  ppcStack_88 = param_1;
-  ppcStack_8c = (char **)0x73b413;
-  puVar4 = (undefined4 *)FUN_00937f80(iVar3);
-  if (puVar4 != (undefined4 *)0x0) {
-    piVar5 = puVar4 + 1;
+  pvVar1 = ObjectRegistry_GetGlobal();
+  puStack_8c = (undefined4 *)0x73b413;
+  puVar2 = ObjectRegistry_FindBorrowed(pvVar1,CONCAT44(in_stack_00000008,param_1));
+  if (puVar2 != (undefined4 *)0x0) {
+    piVar3 = puVar2 + 1;
     LOCK();
-    *piVar5 = *piVar5 + 1;
+    *piVar3 = *piVar3 + 1;
     UNLOCK();
-    ppcStack_88 = (char **)0x73b43f;
-    local_54 = puVar4;
-    this = (undefined1 *)FUN_00934260(puVar4,DAT_011dd484);
-    local_6c = (undefined4 *)this;
-    if (this != (undefined1 *)0x0) {
-      piVar5 = (int *)GetGlobalInterfacePointer_11D5BBC();
-      ppuVar12 = &local_70;
-      ppcStack_88 = &local_60;
-      local_60 = (char *)0x0;
-      ppcStack_8c = in_stack_00000024;
-      puStack_90 = (undefined1 *)0x73b473;
-      (**(code **)(*piVar5 + 0x68))();
-      puStack_90 = &stack0xffffff8c;
+    local_54 = puVar2;
+    pvVar1 = Object_GetComponentByMask(puVar2,DAT_011dd484);
+    local_6c = pvVar1;
+    if (pvVar1 != (void *)0x0) {
+      piVar3 = (int *)GetGlobalInterfacePointer_11D5BBC();
+      puVar2 = &local_70;
+      ppuVar11 = &local_60;
+      local_60 = (undefined4 *)0x0;
+      puStack_8c = in_stack_00000024;
+      pvStack_90 = (void *)0x73b473;
+      (**(code **)(*piVar3 + 0x68))();
+      pvStack_90 = (void *)((int)register0x00000010 + -0x74);
       ppcStack_94 = &pcStack_68;
       pcStack_68 = (char *)0x0;
-      (**(code **)(*piVar5 + 0x78))(in_stack_0000001c);
+      (**(code **)(*piVar3 + 0x78))(in_stack_0000001c);
       local_70 = (undefined4 *)0x0;
-      (**(code **)(*piVar5 + 0x78))(in_stack_00000014,&local_70);
-      pppcVar6 = &ppcStack_8c;
-      if ((int)ppcStack_94 <= (int)ppcStack_8c) {
-        pppcVar6 = &ppcStack_94;
+      (**(code **)(*piVar3 + 0x78))(in_stack_00000014,&local_70);
+      ppuVar4 = &puStack_8c;
+      if ((int)ppcStack_94 <= (int)puStack_8c) {
+        ppuVar4 = &ppcStack_94;
       }
-      ppcStack_94 = *pppcVar6;
-      pppcVar7 = &ppcStack_88;
-      if ((int)*pppcVar6 <= (int)ppcStack_88) {
-        pppcVar7 = &ppcStack_94;
+      ppcStack_94 = (char **)*ppuVar4;
+      ppuVar5 = (undefined4 **)((int)register0x00000010 + -0x88);
+      if ((int)*ppuVar4 <= (int)ppuVar11) {
+        ppuVar5 = &ppcStack_94;
       }
-      ppcStack_94 = *pppcVar7;
+      ppcStack_94 = (char **)*ppuVar5;
       local_70 = (undefined4 *)0x0;
       local_6c = (undefined4 *)0x0;
       pcStack_68 = "Scratch/Animation/StartRandomClipController/Keys";
-      iStack_64 = 0;
-      local_60 = (char *)0x0;
-      pcStack_5c = (char *)0x0;
+      pvStack_64 = (void *)0x0;
+      local_60 = (undefined4 *)0x0;
+      puStack_5c = (undefined4 *)0x0;
       pcStack_58 = "Scratch/Animation/StartRandomClipController/Weights";
       local_54 = (undefined4 *)0x0;
       puStack_50 = (undefined4 *)0x0;
       puStack_4c = (undefined4 *)0x0;
       pcStack_48 = "Scratch/Animation/StartRandomClipController/Repeats";
-      FUN_00d75380(&stack0xffffff8c,(uint)ppcStack_94);
-      FUN_004d5650(&iStack_64,(uint)ppcStack_94);
-      iVar3 = 0;
-      puVar4 = local_70;
+      FUN_00d75380((void *)((int)register0x00000010 + -0x74),(uint)ppcStack_94);
+      FUN_004d5650(&pvStack_64,(uint)ppcStack_94);
+      iVar9 = 0;
+      puVar8 = local_70;
       if (0 < (int)ppcStack_94) {
         do {
-          puStack_44 = ppuVar12[iVar3 * 2];
-          puStack_40 = ppuVar12[iVar3 * 2 + 1];
+          uStack_44 = puVar2[iVar9 * 2];
+          uStack_40 = puVar2[iVar9 * 2 + 1];
           uStack_3c = 0x6b20c4f3;
           uStack_38 = 0;
-          if (puVar4 < local_6c) {
-            local_70 = puVar4 + 4;
-            if (puVar4 != (undefined4 *)0x0) {
-              *puVar4 = puStack_44;
-              puVar4[1] = puStack_40;
-              puVar4[2] = 0x6b20c4f3;
-              puVar4[3] = 0;
+          if (puVar8 < local_6c) {
+            local_70 = puVar8 + 4;
+            if (puVar8 != (undefined4 *)0x0) {
+              *puVar8 = uStack_44;
+              puVar8[1] = uStack_40;
+              puVar8[2] = 0x6b20c4f3;
+              puVar8[3] = 0;
             }
           }
           else {
-            FUN_00cca0b0(&stack0xffffff8c,puVar4,&puStack_44);
+            FUN_00cca0b0((void *)((int)register0x00000010 + -0x74),puVar8,&uStack_44);
           }
-          puVar4 = local_70;
-          puVar10 = (undefined4 *)(unaff_EDI + iVar3 * 4);
-          if (local_60 < pcStack_5c) {
-            pcVar2 = local_60 + 4;
-            if (local_60 != (char *)0x0) {
-              *(undefined4 *)local_60 = *puVar10;
+          puVar8 = local_70;
+          puVar6 = (undefined4 *)(unaff_EDI + iVar9 * 4);
+          if (local_60 < puStack_5c) {
+            puVar7 = local_60 + 1;
+            if (local_60 != (undefined4 *)0x0) {
+              *local_60 = *puVar6;
             }
           }
           else {
-            FUN_00405f80(&iStack_64,(undefined4 *)local_60,puVar10);
-            pcVar2 = local_60;
+            FUN_00405f80(&pvStack_64,local_60,puVar6);
+            puVar7 = local_60;
           }
-          local_60 = pcVar2;
+          local_60 = puVar7;
           if (puStack_50 < puStack_4c) {
-            puVar10 = puStack_50 + 1;
+            puVar6 = puStack_50 + 1;
             if (puStack_50 != (undefined4 *)0x0) {
-              *puStack_50 = unaff_ESI[iVar3];
+              *puStack_50 = unaff_ESI[iVar9];
             }
           }
           else {
-            FUN_00405f80(&local_54,puStack_50,unaff_ESI + iVar3);
-            puVar10 = puStack_50;
+            FUN_00405f80(&local_54,puStack_50,unaff_ESI + iVar9);
+            puVar6 = puStack_50;
           }
-          puStack_50 = puVar10;
-          iVar3 = iVar3 + 1;
-          this = puStack_90;
-        } while (iVar3 < (int)ppcStack_94);
+          puStack_50 = puVar6;
+          iVar9 = iVar9 + 1;
+        } while (iVar9 < (int)ppcStack_94);
+        pvVar1 = pvStack_90;
       }
-      iVar3 = FUN_0093cba0(this,iStack_18);
-      puVar10 = (undefined4 *)0x0;
-      if ((iVar3 != 0) &&
-         (puVar8 = (undefined4 *)(**(code **)(*(int *)(iVar3 + 8) + 4))(0x6c12d61),
-         puVar8 != (undefined4 *)0x0)) {
-        puVar8[1] = puVar8[1] + 1;
-        puVar10 = puVar8;
+      iVar9 = FUN_0093cba0(pvVar1,iStack_18);
+      puVar2 = (undefined4 *)0x0;
+      if ((iVar9 != 0) &&
+         (puVar6 = (undefined4 *)(**(code **)(*(int *)(iVar9 + 8) + 4))(0x6c12d61),
+         puVar6 != (undefined4 *)0x0)) {
+        puVar6[1] = puVar6[1] + 1;
+        puVar2 = puVar6;
       }
-      puVar8 = puVar10;
-      if (puVar10 == (undefined4 *)0x0) {
-        this_00 = (void *)FUN_004e4500(0x88,"Animation/RandomClipController",0);
-        if ((this_00 != (void *)0x0) &&
-           (puVar9 = FUN_0056d8a0(this_00,puStack_90 + 8), puVar9 != (undefined4 *)0x0)) {
-          puVar9[1] = puVar9[1] + 1;
-          puVar8 = puVar9;
+      puVar6 = puVar2;
+      if (puVar2 == (undefined4 *)0x0) {
+        pvVar1 = (void *)FUN_004e4500(0x88,"Animation/RandomClipController",0);
+        if ((pvVar1 != (void *)0x0) &&
+           (puVar7 = FUN_0056d8a0(pvVar1,(int)pvStack_90 + 8), puVar7 != (undefined4 *)0x0)) {
+          puVar7[1] = puVar7[1] + 1;
+          puVar6 = puVar7;
         }
       }
       else {
-        puVar10[1] = puVar10[1] + 1;
+        puVar2[1] = puVar2[1] + 1;
       }
       uStack_34 = uStack_8;
       uStack_2c = uStack_10;
       uStack_30 = uStack_4;
       uStack_28 = uStack_c;
-      FUN_0056d180(puVar8,uStack_14);
-      FUN_0056d480(puVar8,&uStack_34);
-      iVar1 = iStack_64;
-      FUN_0056e150(puVar8,(undefined4 *)0x0,iStack_64,(int)local_54,(int)puVar4 >> 4);
-      (**(code **)(*(int *)(puStack_90 + 8) + 0x14))(iStack_18,puVar8,0,uStack_14,uStack_14,1,0,0,0)
-      ;
-      uVar11 = puVar8[8];
-      iVar3 = puVar8[1];
-      puVar8[1] = iVar3 + -1;
-      if (iVar3 + -1 == 0) {
-        puVar8[1] = 1;
-        (**(code **)*puVar8)(1);
+      FUN_0056d180(puVar6,uStack_14);
+      FUN_0056d480(puVar6,&uStack_34);
+      pvVar1 = pvStack_64;
+      FUN_0056e150(puVar6,(undefined4 *)0x0,(int)pvStack_64,(int)local_54,(int)puVar8 >> 4);
+      (**(code **)(*(int *)((int)pvStack_90 + 8) + 0x14))
+                (iStack_18,puVar6,0,uStack_14,uStack_14,1,0,0,0);
+      uVar10 = puVar6[8];
+      iVar9 = puVar6[1];
+      puVar6[1] = iVar9 + -1;
+      if (iVar9 + -1 == 0) {
+        puVar6[1] = 1;
+        (**(code **)*puVar6)(1);
       }
-      if ((puVar10 != (undefined4 *)0x0) &&
-         (iVar3 = puVar10[1], puVar10[1] = iVar3 + -1, iVar3 + -1 == 0)) {
-        puVar10[1] = 1;
-        (**(code **)*puVar10)(1);
+      if ((puVar2 != (undefined4 *)0x0) &&
+         (iVar9 = puVar2[1], puVar2[1] = iVar9 + -1, iVar9 + -1 == 0)) {
+        puVar2[1] = 1;
+        (**(code **)*puVar2)(1);
       }
-      if (unaff_EBP != 0) {
-        FUN_004e44e0(unaff_EBP);
+      if (unaff_EBP != (void *)0x0) {
+        Memory_FreeIfNonNull(unaff_EBP);
       }
-      if (iVar1 != 0) {
-        FUN_004e44e0(iVar1);
+      if (pvVar1 != (void *)0x0) {
+        Memory_FreeIfNonNull(pvVar1);
       }
       LOCK();
       UNLOCK();
-      if (unaff_EBP == 1) {
+      if (unaff_EBP == (void *)0x1) {
         LOCK();
         UNLOCK();
         (*(code *)*unaff_ESI)(1);
       }
-      return uVar11;
+      return uVar10;
     }
     LOCK();
-    iVar3 = *piVar5;
-    *piVar5 = *piVar5 + -1;
+    iVar9 = *piVar3;
+    *piVar3 = *piVar3 + -1;
     UNLOCK();
-    if (iVar3 == 1) {
+    if (iVar9 == 1) {
       LOCK();
-      *piVar5 = 1;
+      *piVar3 = 1;
       UNLOCK();
-      ppcStack_88 = (char **)0x73b7cc;
-      (**(code **)*puVar4)();
+      (**(code **)*puVar2)();
     }
   }
   return 0;

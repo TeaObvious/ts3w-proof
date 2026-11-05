@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-assigned name; original PC 1.67 ripple render-target update. Gates on feature/renderer
@@ -23,9 +23,10 @@ void __fastcall TS3W_UpdateRainRippleTargets(int param_1)
   undefined4 local_38;
   undefined4 local_34;
   undefined4 local_30 [12];
-
-  if ((*(char *)(param_1 + 0x1f5) != '\0') && (bVar1 = FUN_00523da0(&DAT_011cede0,0x8000), bVar1)) {
-    this_00 = (void *)FUN_0060e910();
+  
+  if ((*(char *)(param_1 + 0x1f5) != '\0') &&
+     (bVar1 = FlagWord_TestAnyMask(&DAT_011cede0,0x8000), bVar1)) {
+    this_00 = (void *)Graphics_GetManagerSingleton();
     if ((this_00 == (void *)0x0) || (*(char *)((int)this_00 + 0x8d) != '\0')) {
       *(undefined1 *)(param_1 + 500) = 0;
     }
@@ -38,8 +39,8 @@ void __fastcall TS3W_UpdateRainRippleTargets(int param_1)
       if (((*(char *)(param_1 + 500) == '\0') ||
           ((uVar3 = FUN_00595050((LPCRITICAL_SECTION)&DAT_011ced48), (char)uVar3 == '\0' &&
            (bVar1 = FUN_00594ed0((LPCRITICAL_SECTION)&DAT_011ced48), !bVar1)))) &&
-         ((uVar3 = FUN_006e15c0(DAT_011d2530,-0xc6d54d4), (char)uVar3 != '\0' ||
-          (uVar3 = FUN_006e15c0(DAT_011d2530,-0x173b025e), (char)uVar3 != '\0')))) {
+         ((bVar1 = RenderSystem_HasGlobalShaderOption(DAT_011d2530,-0xc6d54d4), bVar1 ||
+          (bVar1 = RenderSystem_HasGlobalShaderOption(DAT_011d2530,-0x173b025e), bVar1)))) {
         FUN_0060e930(this_00,local_30);
         FUN_0060f2a0((int)this_00);
         this = DAT_011d8530;
@@ -51,9 +52,11 @@ void __fastcall TS3W_UpdateRainRippleTargets(int param_1)
         local_34 = 0;
         FUN_005f78c0(this,*(uint *)(param_1 + 0x1ec),(int)&local_40);
         if (*(char *)(param_1 + 500) == '\0') {
-          FUN_0079a6a0(*(void **)(param_1 + 0x304),2);
+          ShaderDefinition_SelectTechniqueOrdinal(*(Ts3SkinPostDefinition **)(param_1 + 0x304),2);
           FUN_0060ffe0(this_00,2);
-          FUN_0079a6d0(*(void **)(param_1 + 0x304),(undefined *)0x0,0);
+          ShaderDefinition_DrawSelectedTechnique
+                    (*(Ts3SkinPostDefinition **)(param_1 + 0x304),(Ts3SkinPostDrawCallback *)0x0,
+                     (void *)0x0);
           *(undefined1 *)(param_1 + 500) = 1;
         }
         puVar4 = (uint *)(param_1 + 0x1f0);
@@ -62,14 +65,18 @@ void __fastcall TS3W_UpdateRainRippleTargets(int param_1)
             puVar4 = &DAT_0115c1a8;
           }
           if (*(uint *)(param_1 + 0x250) % *puVar4 == 0) {
-            FUN_0079a6a0(*(void **)(param_1 + 0x304),0);
+            ShaderDefinition_SelectTechniqueOrdinal(*(Ts3SkinPostDefinition **)(param_1 + 0x304),0);
             FUN_0060ffe0(this_00,2);
-            FUN_0079a6d0(*(void **)(param_1 + 0x304),(undefined *)0x0,0);
+            ShaderDefinition_DrawSelectedTechnique
+                      (*(Ts3SkinPostDefinition **)(param_1 + 0x304),(Ts3SkinPostDrawCallback *)0x0,
+                       (void *)0x0);
           }
         }
-        FUN_0079a6a0(*(void **)(param_1 + 0x304),1);
+        ShaderDefinition_SelectTechniqueOrdinal(*(Ts3SkinPostDefinition **)(param_1 + 0x304),1);
         FUN_0060ffe0(this_00,2);
-        FUN_0079a6d0(*(void **)(param_1 + 0x304),(undefined *)0x0,0);
+        ShaderDefinition_DrawSelectedTechnique
+                  (*(Ts3SkinPostDefinition **)(param_1 + 0x304),(Ts3SkinPostDrawCallback *)0x0,
+                   (void *)0x0);
         FUN_00610330((int)this_00);
         FUN_0060ea60(this_00,(int)local_30);
         return;

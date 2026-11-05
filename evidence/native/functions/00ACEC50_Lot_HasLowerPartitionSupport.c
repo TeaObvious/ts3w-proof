@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 cdecl lot/packedcell plainRET ALbool. At signedbyte(level-1), tests BOTH diagonals
@@ -79,7 +79,7 @@ bool __cdecl Lot_HasLowerPartitionSupport(undefined *lot,char *cell)
   iVar6 = 0;
   pcVar8 = local_54;
   do {
-    bVar2 = FUN_00b47d20(this,pcVar8);
+    bVar2 = PartitionManager_HasPhysicalWallForLocator(this,pcVar8);
     if (bVar2) {
       puVar4 = FUN_00b47df0(this,pcVar8,'\0');
       bVar2 = WallProduct_BearsLoadOrMissing((undefined *)puVar4);
@@ -126,7 +126,7 @@ LAB_00acee61:
     local_57 = cVar1;
     local_10 = iVar7;
     local_4 = iVar7;
-    bVar2 = FUN_00b47d20(this,&local_5c);
+    bVar2 = PartitionManager_HasPhysicalWallForLocator(this,&local_5c);
     if (bVar2) {
       puVar4 = FUN_00b47df0(this,&local_5c,'\0');
       bVar2 = WallProduct_BearsLoadOrMissing((undefined *)puVar4);

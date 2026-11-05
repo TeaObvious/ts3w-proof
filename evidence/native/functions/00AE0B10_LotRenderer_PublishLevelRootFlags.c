@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 authored-lot representations comparison): Analyst actual root-flag
@@ -59,7 +59,7 @@ void __fastcall LotRenderer_PublishLevelRootFlags(int param_1)
   *(undefined1 *)(param_1 + 0x3d7) = 0;
   if (!bVar5) {
     if (lVar15 == 0) {
-      FUN_006e9300(pvVar7,0);
+      FrameService_SetForwardedPointer(pvVar7,0);
       SceneRenderer_SetBasementView(pvVar7,'\0',0,0);
       FUN_006e9280(pvVar7,'\0',0,0);
       FUN_006e92c0(pvVar7,'\0');
@@ -92,7 +92,7 @@ void __fastcall LotRenderer_PublishLevelRootFlags(int param_1)
     }
     goto LAB_00ae0dac;
   }
-  FUN_006e9300(pvVar7,*(undefined4 *)(param_1 + 0x264));
+  FrameService_SetForwardedPointer(pvVar7,*(undefined4 *)(param_1 + 0x264));
   if (*(int *)(param_1 + 0x29c) < 0) {
     SceneRenderer_SetBasementView
               (pvVar7,'\x01',*(undefined4 *)(*(int *)(param_1 + 0x18) + 0x48),
@@ -125,7 +125,8 @@ LAB_00ae0c60:
     }
     FUN_006e9280(pvVar7,bVar13,uVar16,uVar17);
     if ((*(char *)(param_1 + 0x3d8) == '\0') ||
-       (uVar17 = FUN_006eaf90((int)pvVar7), (char)uVar17 == '\0')) goto LAB_00ae0c60;
+       (uVar17 = CameraFlags_TestBelowHeightThreshold((int)pvVar7), (char)uVar17 == '\0'))
+    goto LAB_00ae0c60;
     uVar6 = 1;
   }
   *(undefined1 *)(param_1 + 0x3d7) = uVar6;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst PC1.67 placement/source boundary. cdecl two physical words/plainRET/AL status. Low
@@ -35,8 +35,9 @@ LAB_00b3c2d9:
           if (param_2 == (void *)0x0) {
             return 0;
           }
-          FUN_00ad6720(local_50,((uVar2 & 1) != 0) + 0x2a,*(int *)(param_1 + 4),
-                       (float *)(param_1 + 8),0,0);
+          BuildEditErrorRecord_InitializeAtLotPoint
+                    (local_50,((uVar2 & 1) != 0) + 0x2a,*(undefined **)(param_1 + 4),
+                     (LotPaintPoint *)(param_1 + 8),0,0);
           FUN_00ad8570(param_2,local_50);
           FUN_00ad70d0((int)local_50);
           return 0;

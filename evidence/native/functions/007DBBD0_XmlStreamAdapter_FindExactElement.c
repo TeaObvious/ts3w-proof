@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC167_STARTUP_READER_007dbbd0. ECX adapter and UTF16 target name. State must be1 and target
@@ -53,7 +53,7 @@ uint __thiscall XmlStreamAdapter_FindExactElement(void *this,short *param_1)
       psVar11 = (short *)(local_c - (int)local_10 >> 1);
       local_18[0] = psVar11;
       do {
-        puVar5 = (ushort *)FUN_00470f50(*(int *)((int)this + 8));
+        puVar5 = XmlCursor_GetRawElementName(*(void **)((int)this + 8));
         uVar1 = *puVar5;
         puVar8 = puVar5;
         while (uVar1 != 0) {

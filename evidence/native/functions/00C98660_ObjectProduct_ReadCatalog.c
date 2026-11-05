@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst note (PC1.67 construction persistence contract): Analyst-assigned name. Native ECX
@@ -41,9 +41,11 @@ bool __thiscall ObjectProduct_ReadCatalog(void *this,void *reader)
   bool bVar3;
   char cVar4;
   byte bVar5;
-  undefined4 *puVar6;
-  int *piVar7;
+  void *this_00;
+  int *piVar6;
   short *psVar8;
+  short *psVar7;
+  undefined4 *puVar9;
   uint *puVar10;
   uint uVar11;
   uint uVar12;
@@ -92,7 +94,6 @@ bool __thiscall ObjectProduct_ReadCatalog(void *this,void *reader)
   undefined4 uStack_c;
   undefined4 uStack_8;
   undefined4 uStack_4;
-  short *psVar9;
   
   StreamReader_Construct(acStack_cc,reader,1);
   pcStack_60 = "World/Catalog/KeyTable";
@@ -130,44 +131,44 @@ bool __thiscall ObjectProduct_ReadCatalog(void *this,void *reader)
           bVar3 = Stream_ReadBoolean(pvStack_c4,&cStack_a1);
           StreamReader_AccumulateStatus(acStack_cc,bVar3);
         }
-        puVar6 = (undefined4 *)FUN_004e4500(0x60,"World/Catalog/ObjectPreset",0);
-        if ((puVar6 == (undefined4 *)0x0) ||
-           (piVar7 = (int *)DesignPreset_InitializeEmpty(puVar6), piVar7 == (int *)0x0))
+        this_00 = (void *)FUN_004e4500(0x60,"World/Catalog/ObjectPreset",0);
+        if ((this_00 == (void *)0x0) ||
+           (piVar6 = (int *)DesignPreset_InitializeEmpty(this_00), piVar6 == (int *)0x0))
         goto LAB_00c9966f;
-        (**(code **)*piVar7)();
+        (**(code **)*piVar6)();
         if (cStack_a1 == '\0') {
           StreamContext_ReadUtf16String(acStack_cc,&puStack_80);
           Preset_ReadBinaryOrTextBuffer
-                    (piVar7,puStack_80,((int)puStack_7c - (int)puStack_80 >> 1) * 2,1);
+                    (piVar6,puStack_80,((int)puStack_7c - (int)puStack_80 >> 1) * 2,1);
         }
         else {
           bVar3 = Stream_ReadUInt32(pvStack_c4,&uStack_88,uStack_bc);
           StreamReader_AccumulateStatus(acStack_cc,bVar3);
-          FUN_00412e20(&puStack_70,uStack_88);
+          ByteVector_ResizeZeroed(&puStack_70,uStack_88);
           bVar3 = Stream_ReadExactBytes(pvStack_c4,puStack_70,uStack_88);
           StreamReader_AccumulateStatus(acStack_cc,bVar3);
-          bVar5 = Preset_ReadBinaryOrTextBuffer(piVar7,puStack_70,uStack_88,1);
+          bVar5 = Preset_ReadBinaryOrTextBuffer(piVar6,puStack_70,uStack_88,1);
           if (bVar5 == 0) {
-            (**(code **)(*piVar7 + 4))();
+            (**(code **)(*piVar6 + 4))();
             goto LAB_00c98860;
           }
         }
         bVar3 = Stream_ReadUInt32(pvStack_c4,puStack_8c + 1,uStack_bc);
         StreamReader_AccumulateStatus(acStack_cc,bVar3);
-        *puStack_8c = piVar7;
-        iStack_a0 = iStack_a0 + piVar7[8];
+        *puStack_8c = piVar6;
+        iStack_a0 = iStack_a0 + piVar6[8];
         uVar12 = uVar12 + 1;
       } while (uVar12 < uStack_a8);
     }
   }
   if (uStack_b0 < 0x16) {
-    psVar8 = (short *)&DAT_0107d1c4;
+    psVar7 = (short *)&DAT_0107d1c4;
     do {
-      psVar9 = psVar8;
-      psVar8 = psVar9 + 1;
-    } while (*psVar8 != 0);
+      psVar8 = psVar7;
+      psVar7 = psVar8 + 1;
+    } while (*psVar7 != 0);
     FUN_00408d60((void *)((int)this + 0x1f8),&DAT_0107d1c4,
-                 (undefined2 *)(&DAT_0107d1c4 + ((int)(psVar9 + -0x83e8e1) >> 1) * 2));
+                 (undefined2 *)(&DAT_0107d1c4 + ((int)(psVar8 + -0x83e8e1) >> 1) * 2));
   }
   else {
     CatalogWire_ReadWideString(reader,(void *)((int)this + 0x1f8));
@@ -180,11 +181,11 @@ bool __thiscall ObjectProduct_ReadCatalog(void *this,void *reader)
   bVar3 = Stream_ReadUInt32(pvStack_c4,&uStack_b4,uStack_bc);
   StreamReader_AccumulateStatus(acStack_cc,bVar3);
   if (uStack_b4 < uVar12) {
-    puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-    *(undefined4 *)((int)this + 0x88) = *puVar6;
-    *(undefined4 *)((int)this + 0x8c) = puVar6[1];
-    *(undefined4 *)((int)this + 0x90) = puVar6[2];
-    *(undefined4 *)((int)this + 0x94) = puVar6[3];
+    puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+    *(undefined4 *)((int)this + 0x88) = *puVar9;
+    *(undefined4 *)((int)this + 0x8c) = puVar9[1];
+    *(undefined4 *)((int)this + 0x90) = puVar9[2];
+    *(undefined4 *)((int)this + 0x94) = puVar9[3];
     bVar3 = Stream_ReadUInt32(pvStack_c4,(uint *)((int)this + 0x98),uStack_bc);
     StreamReader_AccumulateStatus(acStack_cc,bVar3);
     if (0x19 < uStack_b0) {
@@ -201,12 +202,12 @@ bool __thiscall ObjectProduct_ReadCatalog(void *this,void *reader)
     bStack_a9 = 0;
     bVar3 = Stream_ReadByte(pvStack_c4,&bStack_a9);
     StreamReader_AccumulateStatus(acStack_cc,bVar3);
-    piVar7 = (int *)((int)this + 0xd4);
-    FUN_00c985a0(piVar7,(uint)bStack_a9);
-    bVar5 = 0;
+    piVar6 = (int *)((int)this + 0xd4);
+    FUN_00c985a0(piVar6,(uint)bStack_a9);
+    uVar12 = 0;
     if (bStack_a9 != 0) {
       do {
-        puVar1 = (uint *)(*piVar7 + (uint)bVar5 * 0x28);
+        puVar1 = (uint *)(*piVar6 + uVar12 * 0x28);
         bVar3 = Stream_ReadUInt32(pvStack_c4,puVar1,uStack_bc);
         StreamReader_AccumulateStatus(acStack_cc,bVar3);
         bVar3 = Stream_ReadUInt32(pvStack_c4,puVar1 + 1,uStack_bc);
@@ -224,22 +225,23 @@ bool __thiscall ObjectProduct_ReadCatalog(void *this,void *reader)
         puVar1[6] = *puVar10;
         puVar1[7] = puVar10[1];
         puVar1[8] = puVar10[2];
-        bVar5 = bVar5 + 1;
+        bVar5 = (char)uVar12 + 1;
+        uVar12 = (uint)bVar5;
         puVar1[9] = puVar10[3];
       } while (bVar5 < bStack_a9);
     }
-    iStack_a0 = iStack_a0 + ((*(int *)((int)this + 0xd8) - *piVar7) / 0x28) * 0x28;
+    iStack_a0 = iStack_a0 + ((*(int *)((int)this + 0xd8) - *piVar6) / 0x28) * 0x28;
     bVar3 = Stream_ReadByte(pvStack_c4,&bStack_81);
     StreamReader_AccumulateStatus(acStack_cc,bVar3);
     *(bool *)((int)this + 0x114) = bStack_81 != 0;
     bVar3 = Stream_ReadUInt32(pvStack_c4,&uStack_b4,uStack_bc);
     StreamReader_AccumulateStatus(acStack_cc,bVar3);
     if (uStack_b4 < uStack_88) {
-      puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-      *(undefined4 *)((int)this + 0x118) = *puVar6;
-      *(undefined4 *)((int)this + 0x11c) = puVar6[1];
-      *(undefined4 *)((int)this + 0x120) = puVar6[2];
-      *(undefined4 *)((int)this + 0x124) = puVar6[3];
+      puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+      *(undefined4 *)((int)this + 0x118) = *puVar9;
+      *(undefined4 *)((int)this + 0x11c) = puVar9[1];
+      *(undefined4 *)((int)this + 0x120) = puVar9[2];
+      *(undefined4 *)((int)this + 0x124) = puVar9[3];
       bVar3 = Stream_ReadUInt32(pvStack_c4,(uint *)((int)this + 0xec),uStack_bc);
       StreamReader_AccumulateStatus(acStack_cc,bVar3);
       puVar1 = (uint *)((int)this + 0xac);
@@ -287,18 +289,18 @@ bool __thiscall ObjectProduct_ReadCatalog(void *this,void *reader)
       StreamReader_AccumulateStatus(acStack_cc,bVar3);
       uVar12 = uStack_88;
       if (uStack_88 <= uStack_b4) goto LAB_00c9966f;
-      puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-      *(undefined4 *)((int)this + 0x128) = *puVar6;
-      *(undefined4 *)((int)this + 300) = puVar6[1];
-      *(undefined4 *)((int)this + 0x130) = puVar6[2];
-      *(undefined4 *)((int)this + 0x134) = puVar6[3];
+      puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+      *(undefined4 *)((int)this + 0x128) = *puVar9;
+      *(undefined4 *)((int)this + 300) = puVar9[1];
+      *(undefined4 *)((int)this + 0x130) = puVar9[2];
+      *(undefined4 *)((int)this + 0x134) = puVar9[3];
       if (0x16 < uStack_b0) {
         StreamReader_ReadUInt32Into(acStack_cc,&uStack_b4);
-        puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-        *(undefined4 *)((int)this + 0x148) = *puVar6;
-        *(undefined4 *)((int)this + 0x14c) = puVar6[1];
-        *(undefined4 *)((int)this + 0x150) = puVar6[2];
-        *(undefined4 *)((int)this + 0x154) = puVar6[3];
+        puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+        *(undefined4 *)((int)this + 0x148) = *puVar9;
+        *(undefined4 *)((int)this + 0x14c) = puVar9[1];
+        *(undefined4 *)((int)this + 0x150) = puVar9[2];
+        *(undefined4 *)((int)this + 0x154) = puVar9[3];
         StreamReader_ReadUInt32Into(acStack_cc,(uint *)((int)this + 0xf0));
         StreamReader_ReadUInt32Into(acStack_cc,(uint *)((int)this + 0x158));
         if (uStack_b0 < 0x20) {
@@ -335,11 +337,11 @@ bool __thiscall ObjectProduct_ReadCatalog(void *this,void *reader)
       if (0x18 < uStack_b0) {
         StreamReader_ReadUInt32Into(acStack_cc,&uStack_b4);
         if (uStack_b4 < uVar12) {
-          puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-          *(undefined4 *)((int)this + 0x168) = *puVar6;
-          *(undefined4 *)((int)this + 0x16c) = puVar6[1];
-          *(undefined4 *)((int)this + 0x170) = puVar6[2];
-          *(undefined4 *)((int)this + 0x174) = puVar6[3];
+          puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+          *(undefined4 *)((int)this + 0x168) = *puVar9;
+          *(undefined4 *)((int)this + 0x16c) = puVar9[1];
+          *(undefined4 *)((int)this + 0x170) = puVar9[2];
+          *(undefined4 *)((int)this + 0x174) = puVar9[3];
           goto LAB_00c98fbc;
         }
 LAB_00c98860:
@@ -354,11 +356,11 @@ LAB_00c98fbc:
       if (0x1a < uStack_b0) {
         StreamReader_ReadUInt32Into(acStack_cc,&uStack_b4);
         if (uVar12 <= uStack_b4) goto LAB_00c98860;
-        puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-        *(undefined4 *)((int)this + 0x178) = *puVar6;
-        *(undefined4 *)((int)this + 0x17c) = puVar6[1];
-        *(undefined4 *)((int)this + 0x180) = puVar6[2];
-        *(undefined4 *)((int)this + 0x184) = puVar6[3];
+        puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+        *(undefined4 *)((int)this + 0x178) = *puVar9;
+        *(undefined4 *)((int)this + 0x17c) = puVar9[1];
+        *(undefined4 *)((int)this + 0x180) = puVar9[2];
+        *(undefined4 *)((int)this + 0x184) = puVar9[3];
       }
       *(undefined4 *)((int)this + 0x188) = DAT_011ee250;
       *(undefined4 *)((int)this + 0x18c) = DAT_011ee254;
@@ -366,11 +368,11 @@ LAB_00c98fbc:
       *(undefined4 *)((int)this + 0x194) = DAT_011ee25c;
       if (0x1c < uStack_b0) {
         StreamReader_ReadUInt32Into(acStack_cc,&uStack_b4);
-        puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-        *(undefined4 *)((int)this + 0x188) = *puVar6;
-        *(undefined4 *)((int)this + 0x18c) = puVar6[1];
-        *(undefined4 *)((int)this + 400) = puVar6[2];
-        *(undefined4 *)((int)this + 0x194) = puVar6[3];
+        puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+        *(undefined4 *)((int)this + 0x188) = *puVar9;
+        *(undefined4 *)((int)this + 0x18c) = puVar9[1];
+        *(undefined4 *)((int)this + 400) = puVar9[2];
+        *(undefined4 *)((int)this + 0x194) = puVar9[3];
       }
       *(undefined4 *)((int)this + 0x198) = DAT_011ee250;
       *(undefined4 *)((int)this + 0x19c) = DAT_011ee254;
@@ -378,11 +380,11 @@ LAB_00c98fbc:
       *(undefined4 *)((int)this + 0x1a4) = DAT_011ee25c;
       if (0x1d < uStack_b0) {
         StreamReader_ReadUInt32Into(acStack_cc,&uStack_b4);
-        puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-        *(undefined4 *)((int)this + 0x198) = *puVar6;
-        *(undefined4 *)((int)this + 0x19c) = puVar6[1];
-        *(undefined4 *)((int)this + 0x1a0) = puVar6[2];
-        *(undefined4 *)((int)this + 0x1a4) = puVar6[3];
+        puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+        *(undefined4 *)((int)this + 0x198) = *puVar9;
+        *(undefined4 *)((int)this + 0x19c) = puVar9[1];
+        *(undefined4 *)((int)this + 0x1a0) = puVar9[2];
+        *(undefined4 *)((int)this + 0x1a4) = puVar9[3];
       }
       *(undefined4 *)((int)this + 0x1a8) = 0;
       *(undefined4 *)((int)this + 0x1ac) = 0;
@@ -399,8 +401,8 @@ LAB_00c98fbc:
       pcStack_60 = "Lot/CTProductObject/tempStr";
       FUN_004088f0(&puStack_50,&pcStack_60);
       FUN_007d7aa0(acStack_cc,(int *)&puStack_50);
-      puVar6 = FUN_004f3df0(&pcStack_60,&puStack_50);
-      FUN_008c25d0((int *)((int)this + 0x208),puVar6);
+      puVar9 = FUN_004f3df0(&pcStack_60,&puStack_50);
+      FUN_008c25d0((int *)((int)this + 0x208),puVar9);
       FUN_0071c6c0((int *)&pcStack_60);
       iVar2 = iStack_a0 + (*(int *)((int)this + 0x20c) - *(int *)((int)this + 0x208));
       if (puStack_50 != puStack_4c) {
@@ -408,8 +410,8 @@ LAB_00c98fbc:
         puStack_4c = puStack_50;
       }
       FUN_007d7aa0(acStack_cc,(int *)&puStack_50);
-      puVar6 = FUN_004f3df0(&pcStack_60,&puStack_50);
-      FUN_008c25d0((int *)((int)this + 0x218),puVar6);
+      puVar9 = FUN_004f3df0(&pcStack_60,&puStack_50);
+      FUN_008c25d0((int *)((int)this + 0x218),puVar9);
       FUN_0071c6c0((int *)&pcStack_60);
       iStack_a0 = iVar2 + 2 + (*(int *)((int)this + 0x21c) - *(int *)((int)this + 0x218));
       if (0x12 < uStack_b0) {
@@ -423,18 +425,18 @@ LAB_00c98fbc:
         }
         uStack_a8 = 0;
         StreamReader_ReadUInt32Into(acStack_cc,&uStack_a8);
-        piVar7 = (int *)((int)this + 0x230);
+        piVar6 = (int *)((int)this + 0x230);
         pcStack_60 = (char *)0x0;
         uStack_5c = 0;
-        FUN_00c98620(piVar7,uStack_a8,&pcStack_60);
+        FUN_00c98620(piVar6,uStack_a8,&pcStack_60);
         uVar12 = 0;
         if (uStack_a8 != 0) {
           do {
             pcStack_60 = (char *)0x0;
             bVar3 = Stream_ReadUInt32(pvStack_c4,(uint *)&pcStack_60,uStack_bc);
             StreamReader_AccumulateStatus(acStack_cc,bVar3);
-            *(char **)(*piVar7 + uVar12 * 8) = pcStack_60;
-            bVar3 = Stream_ReadUInt32(pvStack_c4,(uint *)(*piVar7 + 4 + uVar12 * 8),uStack_bc);
+            *(char **)(*piVar6 + uVar12 * 8) = pcStack_60;
+            bVar3 = Stream_ReadUInt32(pvStack_c4,(uint *)(*piVar6 + 4 + uVar12 * 8),uStack_bc);
             StreamReader_AccumulateStatus(acStack_cc,bVar3);
             uVar12 = uVar12 + 1;
           } while (uVar12 < uStack_a8);
@@ -510,11 +512,11 @@ LAB_00c993b4:
       else {
         StreamReader_ReadUInt32Into(acStack_cc,&uStack_b4);
         if (uStack_b4 < uStack_88) {
-          puVar6 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
-          *(undefined4 *)((int)this + 0x138) = *puVar6;
-          *(undefined4 *)((int)this + 0x13c) = puVar6[1];
-          *(undefined4 *)((int)this + 0x140) = puVar6[2];
-          *(undefined4 *)((int)this + 0x144) = puVar6[3];
+          puVar9 = (undefined4 *)(uStack_b4 * 0x10 + (int)pvStack_9c);
+          *(undefined4 *)((int)this + 0x138) = *puVar9;
+          *(undefined4 *)((int)this + 0x13c) = puVar9[1];
+          *(undefined4 *)((int)this + 0x140) = puVar9[2];
+          *(undefined4 *)((int)this + 0x144) = puVar9[3];
           goto LAB_00c993b4;
         }
       }

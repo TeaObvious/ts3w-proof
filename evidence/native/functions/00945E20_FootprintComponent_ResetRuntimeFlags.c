@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). Restores runtime
@@ -115,7 +115,7 @@ void __fastcall FootprintComponent_ResetRuntimeFlags(int param_1)
             pvVar9 != (void *)0x0)) &&
            (pvVar9 = *(void **)((int)pvVar9 + 0x30), pvVar9 != (void *)0x0)) &&
           (((*(uint *)((int)pvVar9 + 0x2c) & DAT_011ea0fc) != 0 ||
-           (uVar8 = FUN_00944be0(pvVar9), (char)uVar8 != '\0')))))) {
+           (uVar8 = Object_HasSimTransformAncestor(pvVar9), (char)uVar8 != '\0')))))) {
         cVar5 = '\0';
       }
       else {

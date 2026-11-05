@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). Registered cdecl Type
@@ -16,25 +16,24 @@ void * __cdecl
 ScriptCore_Queries__Query_GetObjectsOverlappingObject(void *managedType,ulonglong objectGuid)
 
 {
-  undefined4 *puVar1;
-  int *piVar2;
-  char cVar3;
-  void *pvVar4;
-  int *piVar5;
+  undefined4 *allocation;
+  char cVar1;
+  void *pvVar2;
+  int *piVar3;
   void *this;
-  void *pvVar6;
-  undefined4 *puVar7;
-  int iVar8;
-  float10 fVar9;
+  void *pvVar4;
+  undefined4 *puVar5;
+  int iVar6;
+  float fVar7;
   undefined4 unaff_retaddr;
   undefined4 in_stack_00000008;
+  int *piVar8;
   undefined4 uStack_40;
   undefined4 uStack_3c;
   undefined4 uStack_38;
   undefined4 uStack_34;
-  float fStack_30;
-  float fStack_2c;
-  undefined4 uStack_28;
+  void *pvStack_30;
+  float afStack_2c [2];
   int *piStack_24;
   int *piStack_20;
   undefined4 uStack_1c;
@@ -44,73 +43,74 @@ ScriptCore_Queries__Query_GetObjectsOverlappingObject(void *managedType,ulonglon
   undefined4 uStack_c;
   char *pcStack_8;
   
-  pvVar4 = ObjectRegistry_GetGlobal();
+  pvVar2 = ObjectRegistry_GetGlobal();
+  if (pvVar2 == (void *)0x0) {
+    return (void *)0x0;
+  }
+  pvVar2 = ObjectRegistry_FindBorrowed(pvVar2,CONCAT44((undefined4)objectGuid,in_stack_00000008));
+  if (pvVar2 == (void *)0x0) {
+    return (void *)0x0;
+  }
+  piVar3 = (int *)FUN_0068f130((int)pvVar2);
+  if ((piVar3 == (int *)0x0) ||
+     (this = (void *)(**(code **)(*piVar3 + 0xc))(0x90566b0e), this == (void *)0x0)) {
+    return (void *)0x0;
+  }
+  pvVar4 = Object_GetComponentByMask(pvVar2,DAT_011edf08);
   if (pvVar4 == (void *)0x0) {
     return (void *)0x0;
   }
-  pvVar4 = ObjectRegistry_FindBorrowed(pvVar4,CONCAT44((undefined4)objectGuid,in_stack_00000008));
-  if (pvVar4 == (void *)0x0) {
-    return (void *)0x0;
-  }
-  piVar5 = (int *)FUN_0068f130((int)pvVar4);
-  if ((piVar5 != (int *)0x0) &&
-     (this = (void *)(**(code **)(*piVar5 + 0xc))(0x90566b0e), this != (void *)0x0)) {
-    pvVar6 = Object_GetComponentByMask(pvVar4,DAT_011edf08);
-    if (pvVar6 == (void *)0x0) {
-      return (void *)0x0;
-    }
-    fVar9 = FUN_00c89940((float)pvVar6);
-    fStack_30 = DAT_00fab218;
-    fStack_2c = DAT_00fab218;
-    uStack_28 = 0;
-    FUN_00c894e0(pvVar6,&fStack_30,&fStack_2c,&uStack_28);
-    piStack_24 = (int *)0x0;
-    piStack_20 = (int *)0x0;
-    uStack_1c = 0;
-    pcStack_18 = "QueryHost/Query_GetObjectsOverlappingObject/objects";
-    Lot_CollectObjectsIntersectingObjectFootprints(this,pvVar4,(int *)&piStack_24);
-    piVar2 = piStack_20;
-    puStack_14 = (undefined4 *)0x0;
-    iStack_10 = 0;
-    uStack_c = 0;
-    pcStack_8 = "QueryHost/Query_GetObjectsOverlappingObject/objectsIds";
-    puVar1 = puStack_14;
-    iVar8 = iStack_10;
-    for (piVar5 = piStack_24; puStack_14 = puVar1, iStack_10 = iVar8, piVar5 != piVar2;
-        piVar5 = piVar5 + 1) {
-      pvVar6 = (void *)*piVar5;
-      if (((pvVar6 != (void *)0x0) && (pvVar6 != pvVar4)) &&
-         (((*(uint *)((int)pvVar4 + 0x2c) & DAT_011ea0f8) == 0 ||
-          (((*(uint *)((int)pvVar6 + 0x2c) & DAT_011ea0f8) == 0 ||
-           (cVar3 = ObjectIntersection_InvokeHandToolAllowCallback
-                              (this,*(undefined4 *)((int)pvVar4 + 8),
-                               *(undefined4 *)((int)pvVar4 + 0xc),*(undefined4 *)((int)pvVar6 + 8),
-                               *(undefined4 *)((int)pvVar6 + 0xc),&fStack_30,(float)fVar9),
-           cVar3 == '\0')))))) {
-        uStack_40 = *(undefined4 *)((int)pvVar6 + 8);
-        uStack_3c = *(undefined4 *)((int)pvVar6 + 0xc);
+  fVar7 = PlacementLocation_ReadYawWithRefresh(pvVar4);
+  pvStack_30 = (void *)-1.0;
+  afStack_2c[0] = -1.0;
+  afStack_2c[1] = 0.0;
+  ObjectLocation_CopyXZLevel(pvVar4,&pvStack_30,afStack_2c,afStack_2c + 1);
+  piStack_24 = (int *)0x0;
+  piStack_20 = (int *)0x0;
+  uStack_1c = 0;
+  pcStack_18 = "QueryHost/Query_GetObjectsOverlappingObject/objects";
+  Lot_CollectObjectsIntersectingObjectFootprints(this,pvVar2,(int *)&piStack_24);
+  piVar3 = piStack_20;
+  puStack_14 = (undefined4 *)0x0;
+  iStack_10 = 0;
+  uStack_c = 0;
+  pcStack_8 = "QueryHost/Query_GetObjectsOverlappingObject/objectsIds";
+  if (piStack_24 != piStack_20) {
+    piVar8 = piStack_24;
+    do {
+      pvVar4 = (void *)*piVar8;
+      if (((pvVar4 != (void *)0x0) && (pvVar4 != pvVar2)) &&
+         (((*(uint *)((int)pvVar2 + 0x2c) & DAT_011ea0f8) == 0 ||
+          (((*(uint *)((int)pvVar4 + 0x2c) & DAT_011ea0f8) == 0 ||
+           (cVar1 = ObjectIntersection_InvokeHandToolAllowCallback
+                              (this,*(undefined4 *)((int)pvVar2 + 8),
+                               *(undefined4 *)((int)pvVar2 + 0xc),*(undefined4 *)((int)pvVar4 + 8),
+                               *(undefined4 *)((int)pvVar4 + 0xc),(float *)&pvStack_30,fVar7),
+           cVar1 == '\0')))))) {
+        uStack_40 = *(undefined4 *)((int)pvVar4 + 8);
+        uStack_3c = *(undefined4 *)((int)pvVar4 + 0xc);
         FUN_00572500(&puStack_14,&uStack_40);
       }
-      puVar1 = puStack_14;
-      iVar8 = iStack_10;
-    }
-    piVar5 = (int *)GetGlobalInterfacePointer_11D5BBC();
-    iVar8 = iVar8 - (int)puVar1 >> 3;
-    uStack_38 = 0;
-    uStack_34 = 0;
-    puVar7 = puVar1;
-    if (iVar8 == 0) {
-      puVar7 = &uStack_38;
-    }
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0xc0))(unaff_retaddr,puVar7,iVar8);
-    if (puVar1 != (undefined4 *)0x0) {
-      FUN_004e44e0((int)puVar1);
-    }
-    if (fStack_30 != 0.0) {
-      FUN_004e44e0((int)fStack_30);
-    }
-    return pvVar4;
+      piVar8 = piVar8 + 1;
+    } while (piVar8 != piVar3);
   }
-  return (void *)0x0;
+  iVar6 = iStack_10;
+  allocation = puStack_14;
+  piVar3 = (int *)GetGlobalInterfacePointer_11D5BBC();
+  iVar6 = iVar6 - (int)allocation >> 3;
+  uStack_38 = 0;
+  uStack_34 = 0;
+  puVar5 = allocation;
+  if (iVar6 == 0) {
+    puVar5 = &uStack_38;
+  }
+  pvVar2 = (void *)(**(code **)(*piVar3 + 0xc0))(unaff_retaddr,puVar5,iVar6);
+  if (allocation != (undefined4 *)0x0) {
+    Memory_FreeIfNonNull(allocation);
+  }
+  if (pvStack_30 != (void *)0x0) {
+    Memory_FreeIfNonNull(pvStack_30);
+  }
+  return pvVar2;
 }
 

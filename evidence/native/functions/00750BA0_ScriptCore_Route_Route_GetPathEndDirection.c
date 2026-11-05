@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011619b0 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x011619b0 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Route::Route_GetPathEndDirection [assembly=ScriptCore token=0x06001119; handle:
    System.UInt32, pathIndex: System.UInt32, outDirection: Sims3.SimIFace.Vector3&;
    return=System.Void]
@@ -36,7 +37,7 @@ void __cdecl ScriptCore.Route::Route_GetPathEndDirection(uint param_1,int param_
     piVar3 = (int *)0x0;
   }
   else {
-    piVar3 = (int *)FUN_0074b4b0(DAT_011d50c4,param_1);
+    piVar3 = (int *)RouteRegistry_ResolveTypedHandle(DAT_011d50c4,param_1);
     if (piVar3 != (int *)0x0) {
       (**(code **)(*piVar3 + 0x10))();
       piVar4 = (int *)piVar3[0x38];
@@ -58,13 +59,13 @@ void __cdecl ScriptCore.Route::Route_GetPathEndDirection(uint param_1,int param_
           }
           (**(code **)(*piVar1 + 0x140))(&fStack_20);
           uStack_38 = 0;
-          fVar6 = (DAT_00f998f8 * fStack_20 - fStack_1c * 0.0) + fStack_18 * 0.0;
-          fVar7 = (fStack_1c * 0.0 - DAT_00f998f8 * fStack_24) + fStack_18 * 0.0;
-          fVar8 = (fStack_24 * 0.0 - fStack_20 * 0.0) + fStack_18 * DAT_00f998f8;
-          fStack_34 = (fVar8 * fStack_20 - fVar7 * fStack_1c) * DAT_0103fd88 + 0.0;
-          fStack_30 = (fVar6 * fStack_1c - fVar8 * fStack_24) * DAT_0103fd88 + 0.0;
-          fStack_2c = (fVar7 * fStack_24 - fVar6 * fStack_20) * DAT_0103fd88 + DAT_00f998f8;
-          fStack_28 = (fVar6 * fStack_24 - fVar6 * fStack_24) * DAT_0103fd88 + 0.0;
+          fVar6 = (fStack_20 * 1.0 - fStack_1c * 0.0) + fStack_18 * 0.0;
+          fVar7 = (fStack_1c * 0.0 - fStack_24 * 1.0) + fStack_18 * 0.0;
+          fVar8 = (fStack_24 * 0.0 - fStack_20 * 0.0) + fStack_18 * 1.0;
+          fStack_34 = (fVar8 * fStack_20 - fVar7 * fStack_1c) * 2.0 + 0.0;
+          fStack_30 = (fVar6 * fStack_1c - fVar8 * fStack_24) * 2.0 + 0.0;
+          fStack_2c = (fVar7 * fStack_24 - fVar6 * fStack_20) * 2.0 + 1.0;
+          fStack_28 = (fVar6 * fStack_24 - fVar6 * fStack_24) * 2.0 + 0.0;
           FUN_0076c100(param_3,&fStack_34);
           (**(code **)(*piVar3 + 0x14))();
           return;

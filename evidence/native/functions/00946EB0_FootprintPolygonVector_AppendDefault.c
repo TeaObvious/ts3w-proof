@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). ECX vector
@@ -15,7 +15,7 @@ void __fastcall FootprintPolygonVector_AppendDefault(void *param_1)
   undefined4 local_40;
   undefined1 local_3b;
   undefined4 local_24;
-  int local_10;
+  void *local_10;
   undefined4 local_c;
   undefined4 local_8;
   char *local_4;
@@ -36,13 +36,13 @@ void __fastcall FootprintPolygonVector_AppendDefault(void *param_1)
   else {
     local_3b = 0;
     local_24 = 0;
-    local_10 = 0;
+    local_10 = (void *)0x0;
     local_c = 0;
     local_8 = 0;
     local_4 = "Objects/FootprintPolygon";
     FUN_0082f220(param_1,puVar1,&local_40);
-    if (local_10 != 0) {
-      FUN_004e44e0(local_10);
+    if (local_10 != (void *)0x0) {
+      Memory_FreeIfNonNull(local_10);
     }
   }
   return;

@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* Analyst: original PC 1.67 portal contract. Full64 GUID lookup in graph lot map. Returns borrowed
@@ -13,7 +13,7 @@ void * __thiscall LotRouteGraph_FindLotByGuid(void *this,ulonglong lotId)
   undefined4 uVar1;
   void *pvVar2;
   
-  uVar1 = FUN_00629360(this,(uint)lotId,lotId._4_4_);
+  uVar1 = LotRouting_HasAdmittedLotRecord(this,(uint)lotId,lotId._4_4_);
   if ((char)uVar1 == '\0') {
     return (void *)0x0;
   }

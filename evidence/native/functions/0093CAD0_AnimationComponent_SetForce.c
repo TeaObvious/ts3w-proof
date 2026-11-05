@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC 1.67 original instruction review. Analyst-assigned name. Stores force byte at full
@@ -10,7 +10,7 @@
 void __thiscall AnimationComponent_SetForce(void *this,char param_1)
 
 {
-  undefined4 local_60;
+  byte local_60 [4];
   undefined4 *local_5c;
   undefined4 local_58;
   undefined4 local_54;
@@ -20,9 +20,12 @@ void __thiscall AnimationComponent_SetForce(void *this,char param_1)
   local_58 = *(undefined4 *)(*(int *)((int)this + 4) + 8);
   local_54 = *(undefined4 *)(*(int *)((int)this + 4) + 0xc);
   local_50[0] = (uint)(param_1 != '\0');
-  local_60 = 0xe092878;
+  local_60[0] = 0x78;
+  local_60[1] = 0x28;
+  local_60[2] = 9;
+  local_60[3] = 0xe;
   local_5c = (undefined4 *)0x0;
-  FUN_00693380(&local_60);
+  RenderCommand_EnqueueIfDispatcherExists(local_60);
   if (local_5c != (undefined4 *)0x0) {
     (**(code **)*local_5c)(local_50);
   }

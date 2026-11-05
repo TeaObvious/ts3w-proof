@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* WARNING: Removing unreachable block (ram,0x00aa37b5) */
@@ -30,7 +30,7 @@ void __thiscall RoomGrid_ImportFourHalfwords(void *this,int *param_1)
   uVar4 = *(int *)((int)this + 0x24) * *(int *)((int)this + 0x20) * *(int *)((int)this + 0xc);
   iVar6 = 0;
   if (*(int *)((int)this + 0x4c) - *(int *)((int)this + 0x48) >> 1 != uVar4) {
-    FUN_0067f5e0((void *)((int)this + 0x48),uVar4);
+    UInt16Vector_ResizeZeroed((void *)((int)this + 0x48),uVar4);
     FUN_00af9f10((void *)((int)this + 0x38),uVar4);
   }
   piVar1 = (int *)((int)this + 0x28);

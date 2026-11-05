@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x011620b8 (original PC 1.67 TS3W.exe).
+
+/* WARNING: Variable defined which should be unmapped: param_1 */
+/* Verified PC 1.67 registration table at 0x011620b8 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.Slots::Slots_GetMatrixOfSlotImpl [assembly=ScriptCore token=0x06000D38; scriptHandle:
    System.UInt64, slotNameHash: System.UInt32; return=Sims3.SimIFace.Matrix44]
    The table establishes entry identity only. Parameter types/names come from pristine managed
@@ -15,13 +17,14 @@ ScriptCore.Slots::Slots_GetMatrixOfSlotImpl
           (undefined4 *param_1,undefined4 param_2,undefined4 param_3,int param_4)
 
 {
-  int iVar1;
+  int *piVar1;
+  void *pvVar2;
   undefined4 *this;
   void *this_00;
-  void *this_01;
-  int *piVar2;
-  undefined4 *puVar3;
-  undefined4 *puVar4;
+  byte *pbVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
   undefined1 auStack_114 [4];
   float local_110;
   float fStack_10c;
@@ -73,42 +76,42 @@ ScriptCore.Slots::Slots_GetMatrixOfSlotImpl
   float fStack_54;
   undefined4 local_50 [19];
   
-  iVar1 = FUN_00937570();
-  this = (undefined4 *)FUN_00937f80(iVar1);
+  pvVar2 = ObjectRegistry_GetGlobal();
+  this = ObjectRegistry_FindBorrowed(pvVar2,CONCAT44(param_3,param_2));
   if (this == (undefined4 *)0x0) {
+    pvVar2 = (void *)0x0;
     this_00 = (void *)0x0;
-    this_01 = (void *)0x0;
   }
   else {
     LOCK();
     this[1] = this[1] + 1;
     UNLOCK();
-    this_00 = (void *)FUN_00934260(this,DAT_011ea158);
-    this_01 = (void *)FUN_00934260(this,DAT_011ea114);
+    pvVar2 = Object_GetComponentByMask(this,DAT_011ea158);
+    this_00 = Object_GetComponentByMask(this,DAT_011ea114);
   }
-  local_110 = DAT_00f998f8;
+  local_110 = 1.0;
   fStack_10c = 0.0;
   fStack_108 = 0.0;
   fStack_104 = 0.0;
   local_100 = 0.0;
-  fStack_fc = DAT_00f998f8;
+  fStack_fc = 1.0;
   fStack_f8 = 0.0;
   fStack_f4 = 0.0;
   local_f0 = 0.0;
   fStack_ec = 0.0;
-  fStack_e8 = DAT_00f998f8;
+  fStack_e8 = 1.0;
   fStack_e4 = 0.0;
   local_e0 = 0.0;
   fStack_dc = 0.0;
   fStack_d8 = 0.0;
-  fStack_d4 = DAT_00f998f8;
-  FUN_0076c220(local_50,&local_110);
-  if (((this != (undefined4 *)0x0) && (this_00 != (void *)0x0)) && (this_01 != (void *)0x0)) {
-    piVar2 = (int *)thunk_FUN_009501a0(this_01,param_4);
-    if (piVar2 != (int *)0x0) {
-      FUN_00957a90(this_00,(uint *)&local_d0);
-      (**(code **)(*piVar2 + 0x14))(&local_110);
-      (**(code **)(*piVar2 + 0x20))(&fStack_d4,auStack_114,0);
+  fStack_d4 = 1.0;
+  Matrix44_CopyNativeToScriptFields(local_50,&local_110);
+  if (((this != (undefined4 *)0x0) && (pvVar2 != (void *)0x0)) && (this_00 != (void *)0x0)) {
+    pbVar3 = SlotComponent_FindFirstNameWordThunk(this_00,param_4);
+    if (pbVar3 != (byte *)0x0) {
+      TransformComponent_GetWorldMatrix(pvVar2,&local_d0);
+      (**(code **)(*(int *)pbVar3 + 0x14))(&local_110);
+      (**(code **)(*(int *)pbVar3 + 0x20))(&fStack_d4,auStack_114,0);
       fStack_90 = local_110 * local_d0 + fStack_10c * fStack_c0 + fStack_108 * fStack_b0 +
                   fStack_104 * fStack_a0;
       fStack_8c = local_110 * fStack_cc + fStack_10c * fStack_bc + fStack_108 * fStack_ac +
@@ -141,25 +144,25 @@ ScriptCore.Slots::Slots_GetMatrixOfSlotImpl
                   fStack_d4 * fStack_98;
       fStack_54 = local_e0 * fStack_c4 + fStack_dc * fStack_b4 + fStack_d8 * fStack_a4 +
                   fStack_d4 * fStack_94;
-      FUN_0076c220(local_50,&fStack_90);
+      Matrix44_CopyNativeToScriptFields(local_50,&fStack_90);
     }
   }
-  puVar3 = local_50;
-  puVar4 = param_1;
-  for (iVar1 = 0x10; iVar1 != 0; iVar1 = iVar1 + -1) {
-    *puVar4 = *puVar3;
-    puVar3 = puVar3 + 1;
-    puVar4 = puVar4 + 1;
+  puVar5 = local_50;
+  puVar6 = param_1;
+  for (iVar4 = 0x10; iVar4 != 0; iVar4 = iVar4 + -1) {
+    *puVar6 = *puVar5;
+    puVar5 = puVar5 + 1;
+    puVar6 = puVar6 + 1;
   }
   if (this != (undefined4 *)0x0) {
-    piVar2 = this + 1;
+    piVar1 = this + 1;
     LOCK();
-    iVar1 = *piVar2;
-    *piVar2 = *piVar2 + -1;
+    iVar4 = *piVar1;
+    *piVar1 = *piVar1 + -1;
     UNLOCK();
-    if (iVar1 == 1) {
+    if (iVar4 == 1) {
       LOCK();
-      *piVar2 = 1;
+      *piVar1 = 1;
       UNLOCK();
       (**(code **)*this)(1);
     }

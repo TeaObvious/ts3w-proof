@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 
@@ -80,7 +79,7 @@ undefined4 ScriptCore_World__World_GetAllPondIds(int param_1,int param_2,int par
 LAB_00797dc7:
       return CONCAT31((int3)((uint)uVar3 >> 8),1);
     }
-    piVar4 = FUN_00c62810(DAT_011edbc4,param_1,param_2,(int *)0x0);
+    piVar4 = WorldObjects_FindLotByGuid(DAT_011edbc4,param_1,param_2,(uint *)0x0);
     in_EAX = 0;
     if (piVar4 != (int *)0x0) {
       in_EAX = 0;

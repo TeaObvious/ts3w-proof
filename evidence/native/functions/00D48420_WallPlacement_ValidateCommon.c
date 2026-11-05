@@ -1,6 +1,6 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
+
 
 
 /* PC1.67 ECX placement context plus location6/product key/errors/option byte four stackwords,
@@ -156,7 +156,7 @@ LAB_00d4852d:
     }
   }
   if (((*(char *)((int)this + 0xc) == '\0') && (uVar7 = FUN_00c5bc30(param_2), (char)uVar7 != '\0'))
-     && (uVar6 = FUN_00afdb70(*(void **)((int)this + 8),param_1), (char)uVar6 == '\0')) {
+     && (bVar5 = Lot_HasWallSupport(*(undefined **)((int)this + 8),param_1), !bVar5)) {
     if (param_3 == (void *)0x0) {
       return false;
     }

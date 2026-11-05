@@ -1,9 +1,10 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
-/* Verified PC 1.67 registration table at 0x01162280 (original PC 1.67 TS3W.exe).
+
+/* Verified PC 1.67 registration table at 0x01162280 (TS3W.exe SHA256
+   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).
    ScriptCore.SocialFeatures::SocialFeaturesHost_SearchForFriend [assembly=ScriptCore
    token=0x06000A49; nucleusID: System.Int64, matchString: System.String, status: System.UInt32,
    withinFriendSearch: System.Boolean, ep: System.UInt32, startIndex: System.UInt32, maxResults:
@@ -25,35 +26,38 @@ ScriptCore.SocialFeatures::SocialFeaturesHost_SearchForFriend
   undefined4 uVar4;
   char *unaff_EBX;
   undefined1 *puVar5;
-  char *pcVar6;
+  char *allocation;
   int unaff_retaddr;
+  undefined1 auStack_1e [2];
+  undefined1 *local_1c [2];
   char *local_14 [2];
   int iStack_c;
   
   piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
-  if ((piVar1 != (int *)0x0) && (param_3 != 0)) {
-    pcVar6 = &DAT_011c8e54;
-    puVar5 = &DAT_011c8e55;
-    local_14[0] = "Services/SocialFeaturesHost/SearchForFriend/MatchString8";
-    pWVar2 = (LPCWSTR)(**(code **)(*piVar1 + 0x58))(param_3);
-    puVar3 = FUN_004f3cc0(local_14,pWVar2,0xffffffff,(char *)0x0);
-    if (puVar3 != (undefined4 *)&stack0xffffffdc) {
-      pcVar6 = unaff_EBX;
-      FUN_00405910(&stack0xffffffdc,(void *)*puVar3,(undefined1 *)puVar3[1]);
-      puVar5 = &DAT_011c8e54;
-    }
-    if ((1 < iStack_c - (int)local_14[0]) && (local_14[0] != (char *)0x0)) {
-      FUN_004e44e0((int)local_14[0]);
-    }
-    uVar4 = FUN_00a227e0(unaff_retaddr,param_1,pcVar6,param_3,(char)param_4,param_5,param_6,param_7,
-                         param_8,param_9);
-    if ((1 < (int)puVar5 - (int)pcVar6) && (pcVar6 != (char *)0x0)) {
-      FUN_004e44e0((int)pcVar6);
-    }
+  if ((piVar1 == (int *)0x0) || (param_3 == 0)) {
+    uVar4 = FUN_00a227e0(param_1,param_2,(char *)0x0,param_4,(char)param_5,param_6,param_7,param_8,
+                         param_9,param_10);
     return uVar4;
   }
-  uVar4 = FUN_00a227e0(param_1,param_2,(char *)0x0,param_4,(char)param_5,param_6,param_7,param_8,
-                       param_9,param_10);
+  allocation = &DAT_011c8e54;
+  local_14[0] = "Services/SocialFeaturesHost/SearchForFriend/MatchString8";
+  local_1c[0] = &DAT_011c8e54;
+  pWVar2 = (LPCWSTR)(**(code **)(*piVar1 + 0x58))(param_3);
+  puVar3 = Utf_ConvertWideSpanToByteStorage(local_14,pWVar2,0xffffffff,(char *)0x0);
+  puVar5 = &DAT_011c8e55;
+  if (puVar3 != (undefined4 *)(auStack_1e + -6)) {
+    allocation = unaff_EBX;
+    FUN_00405910(auStack_1e + -6,(void *)*puVar3,(undefined1 *)puVar3[1]);
+    puVar5 = local_1c[0];
+  }
+  if ((1 < iStack_c - (int)local_14[0]) && (local_14[0] != (char *)0x0)) {
+    Memory_FreeIfNonNull(local_14[0]);
+  }
+  uVar4 = FUN_00a227e0(unaff_retaddr,param_1,allocation,param_3,(char)param_4,param_5,param_6,
+                       param_7,param_8,param_9);
+  if ((1 < (int)puVar5 - (int)allocation) && (allocation != (char *)0x0)) {
+    Memory_FreeIfNonNull(allocation);
+  }
   return uVar4;
 }
 

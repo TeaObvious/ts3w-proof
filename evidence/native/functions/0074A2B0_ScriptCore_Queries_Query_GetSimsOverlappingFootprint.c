@@ -1,9 +1,11 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
-
+/* Retained historical annotation 1, previous C line 6; earlier snapshot context. */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+
+
 /* Analyst-reviewed PC 1.67 footprint contract (static original instructions). Registered cdecl
    managed Type, full GUID, footprint hash and float simRadius. Named polygon copies supply stored
    local bounds for nonempty vertex records. Min initialization is FLT_MAX; max initialization is
@@ -32,15 +34,16 @@ ScriptCore.Queries::Query_GetSimsOverlappingFootprint
   float *pfVar8;
   int iVar9;
   float fVar10;
-  float fVar13;
+  undefined1 auVar11 [12];
   float fVar14;
   float fVar15;
-  undefined1 auVar11 [16];
-  undefined1 auVar12 [16];
   float fVar16;
+  undefined1 auVar12 [16];
+  undefined1 auVar13 [16];
   float fVar17;
-  undefined1 auVar18 [16];
+  float fVar18;
   undefined1 auVar19 [16];
+  undefined1 auVar20 [16];
   undefined4 in_stack_00000008;
   char local_149;
   ulonglong *local_148;
@@ -116,7 +119,7 @@ ScriptCore.Queries::Query_GetSimsOverlappingFootprint
   
   pvVar4 = ObjectRegistry_GetGlobal();
   local_cc = pvVar4;
-  local_144 = (void *)FUN_00686e60();
+  local_144 = (void *)CollisionService_GetGlobal();
   if (((pvVar4 != (void *)0x0) && (local_144 != (void *)0x0)) &&
      (pvVar4 = ObjectRegistry_FindBorrowed
                          (pvVar4,CONCAT44((undefined4)objectGuid,in_stack_00000008)),
@@ -135,22 +138,20 @@ ScriptCore.Queries::Query_GetSimsOverlappingFootprint
       local_d0 = (int)local_149 +
                  (-(uint)(*(uint *)((int)pvVar4 + 0x18) != 0x7fffffff) &
                  *(uint *)((int)pvVar4 + 0x18));
-      local_f0._4_4_ = DAT_01004dbc;
-      local_f0._0_4_ = DAT_01004dbc;
-      fStack_e8 = (float)DAT_01004dbc;
-      fStack_e4 = (float)DAT_01004dbc;
-      fStack_134 = DAT_01004db8;
-      fStack_138 = DAT_01004db8;
-      fStack_13c = DAT_01004db8;
-      local_140 = DAT_01004db8;
-      fStack_10c = DAT_01004db8;
-      local_110 = (undefined1  [4])DAT_01004db8;
-      fStack_108 = DAT_01004db8;
-      fStack_104 = DAT_01004db8;
+      fStack_e8 = 3.4028235e+38;
+      local_f0 = (undefined1  [8])0x7f7fffff7f7fffff;
+      fStack_e4 = 3.4028235e+38;
+      local_140 = 1.1754944e-38;
+      fStack_108 = 1.1754944e-38;
+      _local_110 = 0x80000000800000;
+      fStack_104 = 1.1754944e-38;
       local_120 = 0;
       local_11c = 0;
       local_118 = 0;
       local_114 = "Scripting/QueryHost/ClipPolygons";
+      fStack_13c = local_140;
+      fStack_138 = local_140;
+      fStack_134 = local_140;
       FUN_00b7c070(&local_120,(int)local_fc - (int)local_100 >> 6);
       if (local_100 != pfVar5) {
         pfVar8 = local_100 + 8;
@@ -158,10 +159,10 @@ ScriptCore.Queries::Query_GetSimsOverlappingFootprint
           if (pfVar8[4] != pfVar8[5]) {
             local_140 = *pfVar8;
             fStack_13c = pfVar8[1];
-            auVar19._8_4_ = local_140;
-            auVar19._0_8_ = *(undefined8 *)pfVar8;
-            auVar19._12_4_ = local_140;
-            _local_f0 = minps(_local_f0,auVar19);
+            auVar20._8_4_ = local_140;
+            auVar20._0_8_ = *(undefined8 *)pfVar8;
+            auVar20._12_4_ = local_140;
+            _local_f0 = minps(_local_f0,auVar20);
             local_130 = pfVar8[2];
             fStack_12c = pfVar8[3];
             auVar2._8_4_ = local_130;
@@ -180,36 +181,34 @@ ScriptCore.Queries::Query_GetSimsOverlappingFootprint
         } while (pfVar1 != pfVar5);
       }
       if (local_120 != local_11c) {
-        local_130 = ((float)local_110 + (float)local_f0._0_4_) * _DAT_00f9b5b4;
-        fStack_128 = (fStack_10c + (float)local_f0._4_4_) * _DAT_00f9b5b4;
-        fVar16 = ((float)local_110 - (float)local_f0._0_4_) * _DAT_00f9b5b4;
-        fVar17 = (fStack_10c - (float)local_f0._4_4_) * _DAT_00f9b5b4;
+        local_130 = ((float)local_110 + (float)local_f0._0_4_) * 0.5;
+        fStack_128 = (fStack_10c + (float)local_f0._4_4_) * 0.5;
+        fVar17 = ((float)local_110 - (float)local_f0._0_4_) * 0.5;
+        fVar18 = (fStack_10c - (float)local_f0._4_4_) * 0.5;
         fStack_12c = 0.0;
         fVar10 = (fStack_128 * fStack_9c - fStack_98 * 0.0) + fStack_94 * local_130;
-        fVar13 = (local_130 * fStack_98 - fStack_128 * local_a0) + fStack_94 * 0.0;
-        fVar14 = (local_a0 * 0.0 - local_130 * fStack_9c) + fStack_94 * fStack_128;
-        auVar18._4_4_ = DAT_0103fd88;
-        auVar18._0_4_ = DAT_0103fd88;
-        auVar18._8_4_ = DAT_0103fd88;
-        auVar18._12_4_ = DAT_0103fd88;
-        fVar16 = fVar16 * fVar16;
+        fVar14 = (local_130 * fStack_98 - fStack_128 * local_a0) + fStack_94 * 0.0;
+        fVar15 = (local_a0 * 0.0 - local_130 * fStack_9c) + fStack_94 * fStack_128;
+        auVar19._8_4_ = 0x40000000;
+        auVar19._0_8_ = 0x4000000040000000;
+        auVar19._12_4_ = 0x40000000;
         fVar17 = fVar17 * fVar17;
-        local_70 = (fVar14 * fStack_9c - fVar13 * fStack_98) * DAT_0103fd88 + local_130 + local_90;
-        fStack_6c = (fVar10 * fStack_98 - fVar14 * local_a0) * DAT_0103fd88 + 0.0 + fStack_8c;
-        fStack_68 = (fVar13 * local_a0 - fVar10 * fStack_9c) * DAT_0103fd88 + fStack_128 + fStack_88
-        ;
-        fStack_64 = (fVar10 * local_a0 - fVar10 * local_a0) * DAT_0103fd88 + local_130 + fStack_84;
-        auVar11._0_4_ = fVar17 + fVar16;
-        auVar11._4_4_ = fVar17 + fVar16;
-        auVar11._8_4_ = fVar17 + fVar16;
-        auVar11._12_4_ = fVar17 + fVar16;
-        _local_110 = sqrtps(auVar11,auVar11);
+        fVar18 = fVar18 * fVar18;
+        local_70 = (fVar15 * fStack_9c - fVar14 * fStack_98) * 2.0 + local_130 + local_90;
+        fStack_6c = (fVar10 * fStack_98 - fVar15 * local_a0) * 2.0 + 0.0 + fStack_8c;
+        fStack_68 = (fVar14 * local_a0 - fVar10 * fStack_9c) * 2.0 + fStack_128 + fStack_88;
+        fStack_64 = (fVar10 * local_a0 - fVar10 * local_a0) * 2.0 + local_130 + fStack_84;
+        auVar12._0_4_ = fVar18 + fVar17;
+        auVar12._4_4_ = fVar18 + fVar17;
+        auVar12._8_4_ = fVar18 + fVar17;
+        auVar12._12_4_ = fVar18 + fVar17;
+        _local_110 = sqrtps(auVar12,auVar12);
         local_e0 = (ulonglong *)0x0;
         local_dc = (ulonglong *)0x0;
         local_d8 = 0;
         local_d4 = "Physics/RangeResult";
         fStack_124 = local_130;
-        _local_f0 = auVar18;
+        _local_f0 = auVar19;
         FUN_00687030(local_144,&local_70,(float)local_110,6,(int *)&local_e0,'\0');
         local_148 = local_dc;
         local_c0 = 0;
@@ -217,40 +216,44 @@ ScriptCore.Queries::Query_GetSimsOverlappingFootprint
         local_b8 = 0;
         local_b4 = "Physics/PolygonProcessor";
         local_b0 = 0;
-        auVar12._0_4_ =
+        auVar13._0_4_ =
              fStack_94 * fStack_94 + fStack_9c * fStack_9c +
              fStack_98 * fStack_98 + local_a0 * local_a0;
-        auVar12._4_4_ = auVar12._0_4_;
-        auVar12._8_4_ = auVar12._0_4_;
-        auVar12._12_4_ = auVar12._0_4_;
-        auVar19 = rcpps(auVar18,auVar12);
-        fVar10 = ((float)local_f0._0_4_ - auVar19._0_4_ * auVar12._0_4_) * auVar19._0_4_;
-        fVar13 = ((float)local_f0._4_4_ - auVar19._4_4_ * auVar12._0_4_) * auVar19._4_4_;
-        fVar14 = (fStack_e8 - auVar19._8_4_ * auVar12._0_4_) * auVar19._8_4_;
-        fVar16 = (fStack_e4 - auVar19._12_4_ * auVar12._0_4_) * auVar19._12_4_;
+        auVar13._4_4_ = auVar13._0_4_;
+        auVar13._8_4_ = auVar13._0_4_;
+        auVar13._12_4_ = auVar13._0_4_;
+        auVar20 = rcpps(auVar19,auVar13);
+        fVar10 = ((float)local_f0._0_4_ - auVar20._0_4_ * auVar13._0_4_) * auVar20._0_4_;
+        fVar14 = ((float)local_f0._4_4_ - auVar20._4_4_ * auVar13._0_4_) * auVar20._4_4_;
+        fVar15 = (fStack_e8 - auVar20._8_4_ * auVar13._0_4_) * auVar20._8_4_;
+        fVar17 = (fStack_e4 - auVar20._12_4_ * auVar13._0_4_) * auVar20._12_4_;
         local_144 = (void *)0x80000000;
-        fStack_12c = ((float)local_f0._0_4_ - fVar10 * auVar12._0_4_) * fVar10 * -local_a0;
-        fStack_128 = ((float)local_f0._4_4_ - fVar13 * auVar12._0_4_) * fVar13 * -fStack_9c;
-        local_130 = (fStack_e8 - fVar14 * auVar12._0_4_) * fVar14 * -fStack_98;
-        local_80 = (fStack_e4 - fVar16 * auVar12._0_4_) * fVar16 * fStack_94;
-        fVar10 = (fStack_88 * fStack_128 - fStack_8c * local_130) + local_90 * local_80;
-        fVar13 = (local_90 * local_130 - fStack_88 * fStack_12c) + fStack_8c * local_80;
-        fVar14 = (fStack_8c * fStack_12c - local_90 * fStack_128) + fStack_88 * local_80;
-        local_20 = 0.0 - ((fVar14 * fStack_128 - fVar13 * local_130) * (float)local_f0._0_4_ +
-                         local_90);
-        fStack_1c = 0.0 - ((fVar10 * local_130 - fVar14 * fStack_12c) * (float)local_f0._4_4_ +
-                          fStack_8c);
-        fStack_18 = 0.0 - ((fVar13 * fStack_12c - fVar10 * fStack_128) * fStack_e8 + fStack_88);
-        fStack_14 = 0.0 - ((fVar10 * fStack_12c - fVar10 * fStack_12c) * fStack_e4 + fStack_84);
+        auVar11._0_4_ = ((float)local_f0._0_4_ - fVar10 * auVar13._0_4_) * fVar10 * -local_a0;
+        auVar11._4_4_ = ((float)local_f0._4_4_ - fVar14 * auVar13._0_4_) * fVar14 * -fStack_9c;
+        auVar11._8_4_ = (fStack_e8 - fVar15 * auVar13._0_4_) * fVar15 * -fStack_98;
+        local_80 = (fStack_e4 - fVar17 * auVar13._0_4_) * fVar17 * fStack_94;
+        fVar10 = (fStack_88 * auVar11._4_4_ - fStack_8c * auVar11._8_4_) + local_90 * local_80;
+        fVar14 = (local_90 * auVar11._8_4_ - fStack_88 * auVar11._0_4_) + fStack_8c * local_80;
+        fVar15 = (fStack_8c * auVar11._0_4_ - local_90 * auVar11._4_4_) + fStack_88 * local_80;
+        local_20 = 0.0 - ((fVar15 * auVar11._4_4_ - fVar14 * auVar11._8_4_) * (float)local_f0._0_4_
+                         + local_90);
+        fStack_1c = 0.0 - ((fVar10 * auVar11._8_4_ - fVar15 * auVar11._0_4_) * (float)local_f0._4_4_
+                          + fStack_8c);
+        fStack_18 = 0.0 - ((fVar14 * auVar11._0_4_ - fVar10 * auVar11._4_4_) * fStack_e8 + fStack_88
+                          );
+        fStack_14 = 0.0 - ((fVar10 * auVar11._0_4_ - fVar10 * auVar11._0_4_) * fStack_e4 + fStack_84
+                          );
         local_ac = 0;
         local_a8 = 0;
         local_a4 = "Physics/PolygonProcessor";
-        fStack_10c = local_130;
-        local_110 = (undefined1  [4])fStack_128;
-        fStack_108 = fStack_12c;
-        fStack_104 = fStack_12c;
+        fStack_108 = auVar11._0_4_;
+        _local_110 = auVar11._4_8_;
+        fStack_104 = auVar11._0_4_;
         puVar7 = local_e0;
-        fStack_124 = fStack_12c;
+        local_130 = auVar11._8_4_;
+        fStack_12c = auVar11._0_4_;
+        fStack_128 = auVar11._4_4_;
+        fStack_124 = auVar11._0_4_;
         fStack_7c = local_80;
         fStack_78 = local_80;
         fStack_74 = local_80;
@@ -271,18 +274,18 @@ LAB_0074a8bf:
                   *(uint *)((int)pvVar4 + 0x18)) != local_d0)) goto LAB_0074a8bf;
               pfVar5 = TransformComponent_GetWorldPosition(local_144,local_40);
               fVar10 = *pfVar5;
-              fVar13 = pfVar5[1];
-              fVar14 = pfVar5[2];
-              fVar16 = (fVar14 * (float)local_110 - fVar13 * local_130) + fVar10 * local_80;
-              fVar17 = (fVar10 * fStack_10c - fVar14 * fStack_12c) + fVar13 * fStack_7c;
-              fVar15 = (fVar13 * fStack_108 - fVar10 * fStack_128) + fVar14 * fStack_78;
-              local_140 = (fVar15 * (float)local_110 - fVar17 * local_130) * (float)local_f0._0_4_ +
+              fVar14 = pfVar5[1];
+              fVar15 = pfVar5[2];
+              fVar17 = (fVar15 * (float)local_110 - fVar14 * local_130) + fVar10 * local_80;
+              fVar18 = (fVar10 * fStack_10c - fVar15 * fStack_12c) + fVar14 * fStack_7c;
+              fVar16 = (fVar14 * fStack_108 - fVar10 * fStack_128) + fVar15 * fStack_78;
+              local_140 = (fVar16 * (float)local_110 - fVar18 * local_130) * (float)local_f0._0_4_ +
                           fVar10 + local_20;
-              fStack_5c = (fVar16 * fStack_10c - fVar15 * fStack_12c) * (float)local_f0._4_4_ +
-                          fVar13 + fStack_1c;
-              fStack_13c = (fVar17 * fStack_108 - fVar16 * fStack_128) * fStack_e8 + fVar14 +
+              fStack_5c = (fVar17 * fStack_10c - fVar16 * fStack_12c) * (float)local_f0._4_4_ +
+                          fVar14 + fStack_1c;
+              fStack_13c = (fVar18 * fStack_108 - fVar17 * fStack_128) * fStack_e8 + fVar15 +
                            fStack_18;
-              fStack_54 = (fVar16 * fStack_104 - fVar16 * fStack_124) * fStack_e4 + pfVar5[3] +
+              fStack_54 = (fVar17 * fStack_104 - fVar17 * fStack_124) * fStack_e4 + pfVar5[3] +
                           fStack_14;
               local_60 = local_140;
               fStack_58 = fStack_13c;
@@ -313,11 +316,11 @@ LAB_0074a8bf:
         }
         pvVar4 = (void *)(**(code **)(*piVar6 + 0xc0))(managedType,puVar7,iVar9);
         FUN_007996b0((int *)&local_cc);
-        if (local_f0._4_4_ != 0) {
-          FUN_004e44e0(local_f0._4_4_);
+        if ((void *)local_f0._4_4_ != (void *)0x0) {
+          Memory_FreeIfNonNull((void *)local_f0._4_4_);
         }
         FUN_00629730((int *)&fStack_12c);
-        FootprintPolygonVector_Destroy((uint *)(local_110 + 4));
+        FootprintPolygonVector_Destroy((uint *)&fStack_10c);
         return pvVar4;
       }
       FUN_00629730(&local_120);
