@@ -1,0 +1,377 @@
+{
+  "reference_id": "ts3w-pc-1.67",
+  "scope": "Eight genuine current C projections after the target variable names; qualified reference refresh, not canonical function/body/ABI or whole-historical-C-equivalence acceptance",
+  "callers": [
+    {
+      "reference_id": "ts3w-pc-1.67",
+      "entry_va": "00742890",
+      "current_name": "ScriptCore.EventQueue::EventQueue_CreateEventQueueImpl",
+      "actual_owned_ranges_halfopen": [
+        [
+          "00742890",
+          "00742891"
+        ]
+      ],
+      "singleton_metadata": true,
+      "qualified_original_context_va": [
+        "00742890",
+        "007428F0"
+      ],
+      "context_limit": "96-byte retained original window including padding; never adopted as ownership.",
+      "original_reference_sites": [
+        {
+          "site_va": "007428C5",
+          "bytes_hex": "c700d0220001",
+          "kind": "original_table_pointer_store"
+        }
+      ],
+      "current_reference_bindings": [
+        {
+          "kind": "actual_table_data_symbol_projection",
+          "name": "PTR_IncrementReferenceCount_010022d0",
+          "actual_token_indices": [
+            92
+          ],
+          "table": "010022D0",
+          "original_slot0": "00B31790",
+          "original_slot4": "00EC7190",
+          "full_table_extent": false
+        }
+      ],
+      "historical_C_comparison": {
+        "legacy_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+        "legacy_path": "tools/ts3w-proof/evidence/native/pseudocode/0x00742890.c",
+        "before_tokens": 144,
+        "after_tokens": 144,
+        "table_identifier_only_delta": true,
+        "scope": "Only target/table expressions and genuine source identity are accepted; no broad historical whole-C equivalence."
+      },
+      "projection_limit": "Two singleton metadata bytes do not bound the rich C.",
+      "canonical_pair_adopted": false,
+      "actual_Ghidra_C_projection": "\n\n/* Verified PC 1.67 registration table at 0x011611c0 (TS3W.exe SHA256\n   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).\n   ScriptCore.EventQueue::EventQueue_CreateEventQueueImpl [assembly=ScriptCore token=0x060005EE;\n   callback: System.Delegate; return=System.UInt32]\n   The table establishes entry identity only. Parameter types/names come from pristine managed\n   metadata; calling convention, argument stack use, returns and side effects require\n   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */\n\nvoid ScriptCore_EventQueue__EventQueue_CreateEventQueueImpl(undefined4 param_1)\n\n{\n  int *piVar1;\n  undefined4 *puVar2;\n  undefined4 *puVar3;\n  \n  piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();\n  (**(code **)(*piVar1 + 0x118))();\n  puVar2 = (undefined4 *)FUN_004e4500(0xc,\"Scripting/EventQueueHost/CreateQueue\",0);\n  puVar3 = (undefined4 *)0x0;\n  if (puVar2 != (undefined4 *)0x0) {\n    puVar2[1] = 0;\n    *puVar2 = &PTR_IncrementReferenceCount_010022d0;\n    puVar2[2] = param_1;\n    puVar3 = puVar2;\n  }\n  (**(code **)*puVar3)();\n  (**(code **)(*piVar1 + 200))(puVar3,0x22);\n  return;\n}\n\n"
+    },
+    {
+      "reference_id": "ts3w-pc-1.67",
+      "entry_va": "00803500",
+      "current_name": "SACS_StepWalker_803500",
+      "actual_owned_ranges_halfopen": [
+        [
+          "00803500",
+          "008039D1"
+        ]
+      ],
+      "singleton_metadata": false,
+      "qualified_original_context_va": null,
+      "context_limit": "No extra caller body is adopted; only selected original operand sites are checked here.",
+      "original_reference_sites": [
+        {
+          "site_va": "00803530",
+          "bytes_hex": "c70018100201",
+          "kind": "original_table_pointer_store"
+        }
+      ],
+      "current_reference_bindings": [
+        {
+          "kind": "actual_table_data_symbol_projection",
+          "name": "PTR_IncrementReferenceCount_01021018",
+          "actual_token_indices": [
+            147
+          ],
+          "table": "01021018",
+          "original_slot0": "00B31790",
+          "original_slot4": "00EC7190",
+          "full_table_extent": false
+        }
+      ],
+      "historical_C_comparison": {
+        "legacy_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+        "legacy_path": "tools/ts3w-proof/evidence/native/pseudocode/0x00803500.c",
+        "before_tokens": 2452,
+        "after_tokens": 2452,
+        "table_identifier_only_delta": false,
+        "scope": "Only target/table expressions and genuine source identity are accepted; no broad historical whole-C equivalence."
+      },
+      "projection_limit": "Fresh projection with current Info; not an independently revalidated full original caller body.",
+      "canonical_pair_adopted": false,
+      "actual_Ghidra_C_projection": "\n\n/* PC 1.67 walker step: in the examined update path, pending state is assigned to current at\n   0x00803608 and callback pump 0x00800640 runs immediately at 0x0080360D, before later\n   graph/event/idle processing. State watch release therefore follows current-state assignment, not\n   ordinary animation completion.\n   \n   Analyst original PC1.67 physical ABI: ECX driver, walker pointer RET4; procedure result is not\n   the managed progress Boolean. Complete owned body1233bytes418instructions ends008039D0, excludes\n   following alignment. Listener binding/readiness failure emits Result-7; admissible step applies\n   interrupt bit2 to actual or synchronized actors, clears dirty, assigns pending to current and\n   pumps retained state watches00800640 immediately, then clears pending/sets entered. Later\n   state/path/loop/request logic may queue graph through actual driver vtable. State-watch release\n   follows current assignment, not AnimationDone. Original loop-entry driver+147 defers next update;\n   current per-update serial and512/4096 caps are project scheduling. Actual step state, requests\n   and graph children remain authoritative; no original return-width/atomicity inferred from managed\n   progress control. */\n\nvoid __thiscall SACS_StepWalker_803500(void *this,void *param_1)\n\n{\n  int iVar1;\n  void *this_00;\n  uint uVar2;\n  bool bVar3;\n  char cVar4;\n  int *piVar5;\n  uint uVar6;\n  int iVar7;\n  undefined4 *puVar8;\n  undefined4 uVar9;\n  int iVar10;\n  bool bVar11;\n  int local_1c;\n  undefined4 uStack_18;\n  undefined1 auStack_14 [4];\n  undefined1 local_10 [8];\n  undefined1 local_8 [8];\n  \n  cVar4 = SACS_RestoreControllerBinding(*(int *)((int)param_1 + 100));\n  if (cVar4 == '\\0') {\n    piVar5 = FUN_007427b0();\n    if (piVar5 == (int *)0x0) {\n      SACS_AdmitFilteredEvent(this,(int *)0x0);\n      return;\n    }\n    piVar5[1] = 0;\n    *piVar5 = (int)&PTR_IncrementReferenceCount_01021018;\n    piVar5[2] = 0x50;\n    piVar5[3] = 1;\n    piVar5[4] = -7;\n    piVar5[8] = (int)\"Scripting/EventQueue/Event\";\n    piVar5[5] = (int)&DAT_011c8e54;\n    piVar5[6] = (int)&DAT_011c8e54;\n    piVar5[7] = (int)&DAT_011c8e55;\n    SACS_AdmitFilteredEvent(this,piVar5);\n    return;\n  }\n  uVar6 = SacsDriver_CanStepWalker(this,(uint)param_1);\n  if ((char)uVar6 != '\\0') {\n    if ((*(byte *)((int)param_1 + 0x20) & 2) != 0) {\n      if (*(char *)((int)this + 0x3c) == '\\0') {\n        *(undefined1 *)(*(int *)((int)param_1 + 8) + 0x24) = 1;\n      }\n      else {\n        iVar10 = *(int *)((int)this + 0x14);\n        for (iVar7 = *(int *)((int)this + 0x10); iVar7 != iVar10; iVar7 = iVar7 + 8) {\n          iVar1 = *(int *)(iVar7 + 4);\n          if ((*(int *)(iVar1 + 0x10) != 0) || (*(int *)(iVar1 + 0x1c) != 0)) {\n            *(undefined1 *)(*(int *)(iVar1 + 8) + 0x24) = 1;\n          }\n        }\n      }\n      *(uint *)((int)param_1 + 0x20) = *(uint *)((int)param_1 + 0x20) & 0xfffffffd;\n    }\n    iVar7 = *(int *)((int)param_1 + 0x1c);\n    *(undefined1 *)((int)param_1 + 0xc) = 0;\n    if (iVar7 != 0) {\n      if (iVar7 != *(int *)((int)param_1 + 0x10)) {\n        *(int *)((int)param_1 + 0x10) = iVar7;\n        SACS_PumpWalkerCallbacks_800640((int)param_1);\n      }\n      if (*(int *)((int)param_1 + 0x1c) != 0) {\n        *(undefined4 *)((int)param_1 + 0x1c) = 0;\n        SacsWalker_PropagateDirtyState(param_1,'\\0');\n      }\n      *(undefined1 *)((int)param_1 + 0x68) = 1;\n    }\n    if (*(int *)((int)param_1 + 0x10) != 0) {\n      local_1c = *(int *)((int)param_1 + 0x18);\n      *(undefined1 *)((int)param_1 + 0x72) = 0;\n      if ((((*(int *)((int)param_1 + 0x24) != 0) && (local_1c != 0)) &&\n          (local_1c != *(int *)((int)param_1 + 0x24))) &&\n         (*(undefined1 *)((int)param_1 + 0x72) = 1,\n         *(char *)(*(int *)((int)param_1 + 0x10) + 0x50) == '\\0')) {\n        FUN_007ffd30(local_10,*(undefined4 *)((int)this + 0xc));\n        uVar6 = SacsPaths_SelectFirstStep\n                          (local_10,*(uint *)((int)param_1 + 0x10),*(int *)((int)param_1 + 0x24),1,1\n                           ,(int)&local_1c,1);\n        if (uVar6 != 0) {\n          *(undefined4 *)((int)param_1 + 0x18) = 0;\n          SacsWalker_PropagateDirtyState(param_1,'\\0');\n          *(undefined1 *)((int)param_1 + 0x72) = 0;\n        }\n      }\n      bVar11 = false;\n      if (*(char *)((int)param_1 + 0x68) != '\\0') {\n        iVar7 = *(int *)((int)param_1 + 0x10);\n        *(undefined1 *)((int)param_1 + 0x68) = 0;\n        if ((*(char *)(iVar7 + 0x50) != '\\0') && (iVar7 != local_1c)) {\n          *(undefined1 *)((int)param_1 + 0x73) = 1;\n        }\n        if (iVar7 == *(int *)((int)param_1 + 0x24)) {\n          if ((*(char *)((int)this + 0x3c) == '\\0') ||\n             (bVar3 = true, *(char *)(iVar7 + 0x4c) == '\\0')) {\n            bVar3 = false;\n          }\n          cVar4 = *(char *)(iVar7 + 0x53);\n          SacsWalker_PopQueuedRequest(param_1);\n          bVar11 = *(int *)((int)param_1 + 0x24) == 0;\n          if (cVar4 != '\\0') {\n            if (*(int *)((int)param_1 + 0x28) != 0) {\n              uVar9 = *(undefined4 *)(*(int *)((int)param_1 + 0x28) + 0x28);\n              puVar8 = FUN_007427b0();\n              if (puVar8 == (undefined4 *)0x0) {\n                piVar5 = (int *)0x0;\n              }\n              else {\n                piVar5 = FUN_008020a0(puVar8,9,uVar9,\"%sreturning to <0x%08x>\");\n              }\n              SACS_AdmitFilteredEvent(this,piVar5);\n            }\n            SacsWalker_QueueOrInstallRequest(param_1,0x40,*(uint *)((int)param_1 + 0x28));\n          }\n          if (bVar3) {\n            iVar10 = *(int *)((int)this + 0x14);\n            for (iVar7 = *(int *)((int)this + 0x10); iVar7 != iVar10; iVar7 = iVar7 + 8) {\n              this_00 = *(void **)(iVar7 + 4);\n              if (((this_00 != param_1) &&\n                  (((*(int *)((int)this_00 + 0x10) != 0 || (*(int *)((int)this_00 + 0x1c) != 0)) &&\n                   (*(int *)((int)this_00 + 0x24) == *(int *)((int)param_1 + 0x10))))) &&\n                 (SacsWalker_PopQueuedRequest(this_00), cVar4 != '\\0')) {\n                SacsWalker_QueueOrInstallRequest(this_00,0x40,*(uint *)((int)this_00 + 0x28));\n              }\n            }\n          }\n        }\n        iVar7 = *(int *)((int)param_1 + 0x10);\n        if (*(char *)(iVar7 + 0x50) != '\\0') {\n          if (*(int *)((int)param_1 + 0x24) == 0) {\n            *(int *)((int)param_1 + 0x18) = iVar7;\n            SacsWalker_PropagateDirtyState(param_1,iVar7 != 0);\n            *(undefined1 *)((int)this + 0x147) = 1;\n          }\n          else {\n            *(undefined4 *)((int)param_1 + 0x18) = 0;\n            SacsWalker_PropagateDirtyState(param_1,'\\0');\n            *(undefined1 *)((int)param_1 + 0x72) = 1;\n          }\n        }\n        uVar6 = *(uint *)((int)param_1 + 0x10);\n        uVar2 = *(uint *)((int)param_1 + 0x28);\n        if (((uVar6 != 0) && (*(char *)(uVar6 + 0x4f) != '\\0')) && (uVar6 != uVar2)) {\n          FUN_007ffd30(local_8,*(undefined4 *)((int)this + 0xc));\n          iVar7 = FUN_007fc950(local_8,uVar6,uVar2,0x40,1,0,0);\n          if (iVar7 == 0) {\n            *(uint *)((int)param_1 + 0x28) = uVar6;\n          }\n        }\n        (**(code **)(*(int *)this + 4))(param_1);\n        if (bVar11) {\n          FUN_007f4500((int)this + 0x44);\n        }\n        if ((*(char *)((int)param_1 + 0x73) != '\\0') &&\n           ((uVar9 = FUN_007fff40((int)param_1), (char)uVar9 != '\\0' ||\n            (*(int *)((int)param_1 + 0x18) == 0)))) {\n          *(undefined1 *)((int)param_1 + 0x73) = 0;\n        }\n      }\n      if (*(int *)((int)param_1 + 0x1c) == 0) {\n        iVar7 = *(int *)((int)param_1 + 0x18);\n        iVar10 = *(int *)((int)param_1 + 0x24);\n        if ((iVar7 != 0) && ((iVar10 == 0 || (*(int *)((int)param_1 + 0x10) != iVar7)))) {\n          iVar10 = iVar7;\n        }\n        if (iVar10 != 0) {\n          if (((*(char *)(*(int *)((int)param_1 + 0x10) + 0x50) == '\\0') &&\n              (*(int *)((int)param_1 + 0x10) == iVar10)) &&\n             ((*(uint *)((int)param_1 + 0x20) & 0x180) == 0)) {\n            SacsWalker_PopQueuedRequest(param_1);\n          }\n          uVar9 = *(undefined4 *)((int)this + 0xc);\n          TreeVariation_Reseed(auStack_14,-1);\n          iVar7 = 1;\n          if (*(int *)((int)param_1 + 0x18) != 0) {\n            iVar7 = 2;\n          }\n          uStack_18 = uVar9;\n          iVar7 = FUN_007fc950(&uStack_18,*(uint *)((int)param_1 + 0x10),iVar10,\n                               *(uint *)((int)param_1 + 0x20),iVar7,0,0);\n          if (iVar7 == 0) {\n            bVar11 = FUN_00800130((int)this);\n            if (bVar11) {\n              SacsWalker_PopQueuedRequest(param_1);\n            }\n          }\n          else {\n            SacsDriver_ReplacePendingWalkerState(this,param_1,iVar7);\n          }\n        }\n      }\n      if (*(char *)((int)this + 0x3c) != '\\0') {\n        SacsDriver_PropagateSynchronizedWalker(this,param_1);\n      }\n      if (((*(int *)((int)this + 0x11c) == *(int *)((int)this + 0x120)) &&\n          (uVar6 = SACS_GraphEntriesHaveNoBit0_7F3F90((int)this + 0x44), (char)uVar6 != '\\0')) &&\n         ((*(int *)((int)param_1 + 0x24) == 0 &&\n          ((*(int *)((int)param_1 + 0x18) == 0 &&\n           (uVar9 = FUN_007fff40((int)param_1), (char)uVar9 == '\\0')))))) {\n        *(undefined1 *)(*(int *)((int)param_1 + 8) + 0x24) = 0;\n        if (*(char *)((int)this + 0x3c) == '\\0') {\n          uVar9 = *(undefined4 *)(*(int *)(*(int *)((int)param_1 + 8) + 0x20) + 0x2c);\n        }\n        else {\n          uVar9 = 0x42207261;\n        }\n        puVar8 = FUN_007427b0();\n        if (puVar8 == (undefined4 *)0x0) {\n          piVar5 = (int *)0x0;\n        }\n        else {\n          piVar5 = (int *)FUN_008004c0(puVar8,0xb,uVar9);\n        }\n        SACS_AdmitFilteredEvent(this,piVar5);\n        if (*(int *)((int)param_1 + 0x10) == 0) {\n          uVar9 = 0;\n        }\n        else {\n          uVar9 = *(undefined4 *)(*(int *)((int)param_1 + 0x10) + 0x28);\n        }\n        puVar8 = FUN_007427b0();\n        if (puVar8 != (undefined4 *)0x0) {\n          piVar5 = (int *)FUN_008004c0(puVar8,0xb,uVar9);\n          SACS_AdmitFilteredEvent(this,piVar5);\n          return;\n        }\n        SACS_AdmitFilteredEvent(this,(int *)0x0);\n      }\n    }\n  }\n  return;\n}\n\n"
+    },
+    {
+      "reference_id": "ts3w-pc-1.67",
+      "entry_va": "009956F0",
+      "current_name": "ScriptCore.DownloadContent::DownloadContent_SetSimSavedCallbackImpl",
+      "actual_owned_ranges_halfopen": [
+        [
+          "009956F0",
+          "009956F1"
+        ]
+      ],
+      "singleton_metadata": true,
+      "qualified_original_context_va": [
+        "009956F0",
+        "0099570E"
+      ],
+      "context_limit": "30-byte original CFG context; call lies outside the one-byte owned singleton.",
+      "original_reference_sites": [
+        {
+          "site_va": "00995708",
+          "bytes_hex": "e8c3330300",
+          "kind": "direct_E8",
+          "target_va": "009C8AD0"
+        }
+      ],
+      "current_reference_bindings": [
+        {
+          "kind": "actual_direct_call",
+          "name": "StoreSimSavedCallbackWord",
+          "actual_token_indices": [
+            48
+          ],
+          "original_E8": "00995708",
+          "target": "009C8AD0"
+        }
+      ],
+      "historical_C_comparison": {
+        "legacy_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+        "legacy_path": "tools/ts3w-proof/evidence/native/pseudocode/0x009956f0.c",
+        "before_tokens": 49,
+        "after_tokens": 57,
+        "table_identifier_only_delta": false,
+        "scope": "Only target/table expressions and genuine source identity are accepted; no broad historical whole-C equivalence."
+      },
+      "projection_limit": "Two singleton metadata bytes do not bound the rich C.",
+      "canonical_pair_adopted": false,
+      "actual_Ghidra_C_projection": "\n\n/* Verified PC 1.67 registration table at 0x011817d0 (TS3W.exe SHA256\n   694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3).\n   ScriptCore.DownloadContent::DownloadContent_SetSimSavedCallbackImpl [assembly=ScriptCore\n   token=0x060000B3; simSavedCallback: ScriptCore.DownloadContent+SimSavedCallback;\n   return=System.Void]\n   The table establishes entry identity only. Parameter types/names come from pristine managed\n   metadata; calling convention, argument stack use, returns and side effects require\n   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */\n\nvoid ScriptCore_DownloadContent__DownloadContent_SetSimSavedCallbackImpl(undefined4 param_1)\n\n{\n  void *pvVar1;\n  \n  pvVar1 = DownloadContent_GetOwnerFromGlobalLink();\n  if ((pvVar1 != (void *)0x0) && (*(int *)((int)pvVar1 + 0x664) != 0)) {\n    StoreSimSavedCallbackWord(param_1);\n  }\n  return;\n}\n\n"
+    },
+    {
+      "reference_id": "ts3w-pc-1.67",
+      "entry_va": "00EC71B0",
+      "current_name": "GameState_QueueNotInWorld",
+      "actual_owned_ranges_halfopen": [
+        [
+          "00EC71B0",
+          "00EC71F9"
+        ]
+      ],
+      "singleton_metadata": false,
+      "qualified_original_context_va": null,
+      "context_limit": "No extra caller body is adopted; only selected original operand sites are checked here.",
+      "original_reference_sites": [
+        {
+          "site_va": "00EC71DC",
+          "bytes_hex": "c70094570f01",
+          "kind": "original_table_pointer_store"
+        }
+      ],
+      "current_reference_bindings": [
+        {
+          "kind": "actual_table_data_symbol_projection",
+          "name": "PTR_IncrementReferenceCount_010f5794",
+          "actual_token_indices": [
+            69
+          ],
+          "table": "010F5794",
+          "original_slot0": "00B31790",
+          "original_slot4": "00EC7190",
+          "full_table_extent": false
+        }
+      ],
+      "historical_C_comparison": {
+        "legacy_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+        "legacy_path": "tools/ts3w-proof/evidence/native/pseudocode/0x00ec71b0.c",
+        "before_tokens": 93,
+        "after_tokens": 93,
+        "table_identifier_only_delta": false,
+        "scope": "Only target/table expressions and genuine source identity are accepted; no broad historical whole-C equivalence."
+      },
+      "projection_limit": "Fresh projection with current Info; not an independently revalidated full original caller body.",
+      "canonical_pair_adopted": false,
+      "actual_Ghidra_C_projection": "\n\n/* Original instruction review; analyst name. cdecl state machine pointer on stack; plain RET.\n   Creates0x0c-byte GameStateNotInGame state, vtable010f5794, machine pointer+8; queues00ec5240 with\n   state-id028d6e03. Scheduling does not establish shutdown callback completion. */\n\nvoid __cdecl GameState_QueueNotInWorld(void *param_1)\n\n{\n  int *piVar1;\n  \n  piVar1 = (int *)FUN_004e4500(0xc,\"Misc/GameState/GameStateNotInGame\",0);\n  if (piVar1 == (int *)0x0) {\n    StateController_SetPending(param_1,(int *)0x0,0x28d6e03);\n    return;\n  }\n  piVar1[1] = 0;\n  *piVar1 = (int)&PTR_IncrementReferenceCount_010f5794;\n  piVar1[2] = (int)param_1;\n  StateController_SetPending(param_1,piVar1,0x28d6e03);\n  return;\n}\n\n"
+    },
+    {
+      "reference_id": "ts3w-pc-1.67",
+      "entry_va": "00EC7650",
+      "current_name": "GameState_QueueWorldLoad",
+      "actual_owned_ranges_halfopen": [
+        [
+          "00EC7650",
+          "00EC76C4"
+        ]
+      ],
+      "singleton_metadata": false,
+      "qualified_original_context_va": null,
+      "context_limit": "No extra caller body is adopted; only selected original operand sites are checked here.",
+      "original_reference_sites": [
+        {
+          "site_va": "00EC767C",
+          "bytes_hex": "c70678570f01",
+          "kind": "original_table_pointer_store"
+        }
+      ],
+      "current_reference_bindings": [
+        {
+          "kind": "actual_table_data_symbol_projection",
+          "name": "PTR_IncrementReferenceCount_010f5778",
+          "actual_token_indices": [
+            73
+          ],
+          "table": "010F5778",
+          "original_slot0": "00B31790",
+          "original_slot4": "00EC7190",
+          "full_table_extent": false
+        }
+      ],
+      "historical_C_comparison": {
+        "legacy_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+        "legacy_path": "tools/ts3w-proof/evidence/native/pseudocode/0x00ec7650.c",
+        "before_tokens": 151,
+        "after_tokens": 151,
+        "table_identifier_only_delta": false,
+        "scope": "Only target/table expressions and genuine source identity are accepted; no broad historical whole-C equivalence."
+      },
+      "projection_limit": "Fresh projection with current Info; not an independently revalidated full original caller body.",
+      "canonical_pair_adopted": false,
+      "actual_Ghidra_C_projection": "\n\n/* Original instruction review; analyst name. cdecl game-state machine pointer and UTF-16 filename\n   on stack; plain RET. Creates0x24-byte GameStateInWorld state: vtable010f5778, machine+0c,\n   filename string+10 and unloaded World pointer+20. Queues via00ec5240 with state-id028d6958.\n   Loading consumer00ec7250 resolves raw-world versus colon-qualified save filename. */\n\nvoid __cdecl GameState_QueueWorldLoad(void *param_1,short *param_2)\n\n{\n  int *piVar1;\n  \n  piVar1 = (int *)FUN_004e4500(0x24,\"Misc/GameState/GameStateInWorld\",0);\n  if (piVar1 == (int *)0x0) {\n    StateController_SetPending(param_1,(int *)0x0,0x28d6958);\n    return;\n  }\n  piVar1[1] = 0;\n  *piVar1 = (int)&PTR_IncrementReferenceCount_010f5778;\n  piVar1[2] = 0;\n  piVar1[3] = (int)param_1;\n  piVar1[4] = 0;\n  piVar1[5] = 0;\n  piVar1[6] = 0;\n  piVar1[7] = (int)\"UI/MainMenu\";\n  FUN_0040b590(piVar1 + 4,param_2);\n  piVar1[8] = 0;\n  StateController_SetPending(param_1,piVar1,0x28d6958);\n  return;\n}\n\n"
+    },
+    {
+      "reference_id": "ts3w-pc-1.67",
+      "entry_va": "00802690",
+      "current_name": "SACS_WalkerInstallDestination_802690",
+      "actual_owned_ranges_halfopen": [
+        [
+          "00802690",
+          "00802865"
+        ]
+      ],
+      "singleton_metadata": false,
+      "qualified_original_context_va": null,
+      "context_limit": "No extra caller body is adopted; only selected original operand sites are checked here.",
+      "original_reference_sites": [
+        {
+          "site_va": "008026E7",
+          "bytes_hex": "c70018100201",
+          "kind": "original_table_pointer_store"
+        },
+        {
+          "site_va": "0080273F",
+          "bytes_hex": "c70018100201",
+          "kind": "original_table_pointer_store"
+        }
+      ],
+      "current_reference_bindings": [
+        {
+          "kind": "actual_table_data_symbol_projection",
+          "name": "PTR_IncrementReferenceCount_01021018",
+          "actual_token_indices": [
+            180,
+            362
+          ],
+          "table": "01021018",
+          "original_slot0": "00B31790",
+          "original_slot4": "00EC7190",
+          "full_table_extent": false
+        }
+      ],
+      "historical_C_comparison": {
+        "legacy_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+        "legacy_path": "tools/ts3w-proof/evidence/native/pseudocode/0x00802690.c",
+        "before_tokens": 984,
+        "after_tokens": 984,
+        "table_identifier_only_delta": true,
+        "scope": "Only target/table expressions and genuine source identity are accepted; no broad historical whole-C equivalence."
+      },
+      "projection_limit": "Fresh projection with current Info; not an independently revalidated full original caller body.",
+      "canonical_pair_adopted": false,
+      "actual_Ghidra_C_projection": "\n\n/* PC1.67 complete160-instruction body: store supplied request flags at walker+20 and selected\n   target-state argument at+24 before7FFD90(target!=0). Existing canonical8029E0 request supplies\n   that target through8028E0; this establishes the quiescence predicate field as a request\n   destination, not a reference/work counter. Preserve existing event type50/subtypeA emissions,\n   status/dirty scheduling, binding flag and retained/one-shot branches in actual body. RET8. This\n   contextual label does not establish every downstream80150/804FB0/7FCF80 side effect or parity of\n   authored request/lifetime policy. */\n\nvoid __thiscall SACS_WalkerInstallDestination_802690(void *this,uint param_1,int param_2)\n\n{\n  int *piVar1;\n  uint uVar2;\n  undefined4 uVar3;\n  undefined4 *puVar4;\n  int iVar5;\n  \n  *(uint *)((int)this + 0x20) = param_1;\n  *(int *)((int)this + 0x24) = param_2;\n  SacsWalker_PropagateDirtyState(this,param_2 != 0);\n  if (*(int *)((int)this + 0x34) == *(int *)((int)this + 0x44)) {\n    piVar1 = FUN_007427b0();\n    if (piVar1 == (int *)0x0) {\n      piVar1 = (int *)0x0;\n    }\n    else {\n      iVar5 = *(int *)(*(int *)(*(int *)((int)this + 8) + 0x20) + 0x2c);\n      piVar1[1] = 0;\n      *piVar1 = (int)&PTR_IncrementReferenceCount_01021018;\n      piVar1[2] = 0x50;\n      piVar1[3] = 10;\n      piVar1[4] = iVar5;\n      piVar1[8] = (int)\"Scripting/EventQueue/Event\";\n      piVar1[5] = (int)&DAT_011c8e54;\n      piVar1[6] = (int)&DAT_011c8e54;\n      piVar1[7] = (int)&DAT_011c8e55;\n    }\n    if (*(void **)((int)this + 4) != (void *)0x0) {\n      SACS_AdmitFilteredEvent(*(void **)((int)this + 4),piVar1);\n    }\n    if (param_2 == 0) {\n      iVar5 = 0;\n    }\n    else {\n      iVar5 = *(int *)(param_2 + 0x28);\n    }\n    piVar1 = FUN_007427b0();\n    if (piVar1 == (int *)0x0) {\n      piVar1 = (int *)0x0;\n    }\n    else {\n      piVar1[1] = 0;\n      *piVar1 = (int)&PTR_IncrementReferenceCount_01021018;\n      piVar1[2] = 0x50;\n      piVar1[3] = 10;\n      piVar1[4] = iVar5;\n      piVar1[8] = (int)\"Scripting/EventQueue/Event\";\n      piVar1[5] = (int)&DAT_011c8e54;\n      piVar1[6] = (int)&DAT_011c8e54;\n      piVar1[7] = (int)&DAT_011c8e55;\n    }\n    if (*(void **)((int)this + 4) != (void *)0x0) {\n      SACS_AdmitFilteredEvent(*(void **)((int)this + 4),piVar1);\n    }\n  }\n  if ((param_1 & 0x20) == 0) {\n    if ((*(int *)((int)this + 0x6c) == 3) &&\n       (((*(int *)((int)this + 0x6c) < 1 ||\n         (uVar2 = SacsListener_HasBlockingController(*(int *)((int)this + 100)), (char)uVar2 == '\\0'\n         )) || (uVar3 = SacsDriver_CheckWalkerIdleReadiness(*(void **)((int)this + 4),(int)this),\n               (char)uVar3 != '\\0')))) {\n      LOCK();\n      *(int *)((int)this + 0x6c) = 0;\n      UNLOCK();\n      if (*(void **)((int)this + 100) != (void *)0x0) {\n        RecordField14_StoreDword(*(void **)((int)this + 100),0);\n      }\n      iVar5 = *(int *)((int)this + 4);\n      *(undefined1 *)((int)this + 0xc) = 1;\n      *(undefined1 *)(iVar5 + 0x146) = 1;\n      if (DAT_011d9d40 != (void *)0x0) {\n        SACS_QueueOrRevisitDriver_7FCF80(DAT_011d9d40,iVar5,'\\0');\n      }\n    }\n  }\n  else if (*(int *)((int)this + 0x6c) != 4) {\n    LOCK();\n    *(undefined4 *)((int)this + 0x6c) = 5;\n    UNLOCK();\n  }\n  FUN_00804d40(*(void **)((int)this + 100),(byte)(param_1 >> 6) & 1);\n  iVar5 = *(int *)((int)this + 0x24);\n  if (iVar5 != 0) {\n    if (*(char *)(iVar5 + 0x53) == '\\0') {\n      if (*(char *)(iVar5 + 0x54) == '\\0') {\n        *(int *)((int)this + 0x28) = iVar5;\n        return;\n      }\n    }\n    else {\n      uVar3 = *(undefined4 *)(iVar5 + 0x28);\n      puVar4 = FUN_007427b0();\n      if (puVar4 == (undefined4 *)0x0) {\n        piVar1 = (int *)0x0;\n      }\n      else {\n        piVar1 = FUN_008020a0(puVar4,8,uVar3,\"%s<0x%08x> is a one-shot\");\n      }\n      if (*(void **)((int)this + 4) != (void *)0x0) {\n        SACS_AdmitFilteredEvent(*(void **)((int)this + 4),piVar1);\n      }\n    }\n  }\n  return;\n}\n\n"
+    },
+    {
+      "reference_id": "ts3w-pc-1.67",
+      "entry_va": "00804FE0",
+      "current_name": "SacsListener_EmitAnimationDoneOnce",
+      "actual_owned_ranges_halfopen": [
+        [
+          "00804FE0",
+          "00805113"
+        ]
+      ],
+      "singleton_metadata": false,
+      "qualified_original_context_va": null,
+      "context_limit": "No extra caller body is adopted; only selected original operand sites are checked here.",
+      "original_reference_sites": [
+        {
+          "site_va": "00805083",
+          "bytes_hex": "c70018100201",
+          "kind": "original_table_pointer_store"
+        }
+      ],
+      "current_reference_bindings": [
+        {
+          "kind": "actual_table_data_symbol_projection",
+          "name": "PTR_IncrementReferenceCount_01021018",
+          "actual_token_indices": [
+            209
+          ],
+          "table": "01021018",
+          "original_slot0": "00B31790",
+          "original_slot4": "00EC7190",
+          "full_table_extent": false
+        }
+      ],
+      "historical_C_comparison": {
+        "legacy_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+        "legacy_path": "tools/ts3w-proof/evidence/native/pseudocode/0x00804fe0.c",
+        "before_tokens": 656,
+        "after_tokens": 656,
+        "table_identifier_only_delta": false,
+        "scope": "Only target/table expressions and genuine source identity are accepted; no broad historical whole-C equivalence."
+      },
+      "projection_limit": "Fresh projection with current Info; not an independently revalidated full original caller body.",
+      "canonical_pair_adopted": false,
+      "actual_Ghidra_C_projection": "\n\n/* Analyst note (PC1.67 SACS migration contract): ECX listener,controller identity RET4. Entry\n   flag+E suppresses repeated completion emission; creates event type50/subtype5 with actor or\n   synchronized special identity, dispatches via008019C0, readies active1/2/3/7 through008019D0 and\n   clears listener mode when no requested destination. Full packet/queue delivery is a separate\n   owner. Current completion queue/ReadyVersion are projections. */\n\nvoid __thiscall SacsListener_EmitAnimationDoneOnce(void *this,int param_1)\n\n{\n  int iVar1;\n  int *piVar2;\n  int iVar3;\n  \n  iVar1 = *(int *)((int)this + 4);\n  do {\n    if (iVar1 == *(int *)((int)this + 8)) {\nLAB_0080503e:\n      iVar1 = *(int *)((int)this + 0x18);\n      iVar3 = 0x42207261;\n      if ((*(int *)(iVar1 + 0x10) == 0) || (*(char *)(*(int *)(iVar1 + 0x10) + 0x4c) == '\\0')) {\n        iVar3 = *(int *)(*(int *)(*(int *)(iVar1 + 8) + 0x20) + 0x2c);\n      }\n      FUN_00801f20(iVar1);\n      piVar2 = FUN_007427b0();\n      if (piVar2 == (int *)0x0) {\n        piVar2 = (int *)0x0;\n      }\n      else {\n        piVar2[4] = iVar3;\n        piVar2[1] = 0;\n        *piVar2 = (int)&PTR_IncrementReferenceCount_01021018;\n        piVar2[2] = 0x50;\n        piVar2[3] = 5;\n        piVar2[8] = (int)\"Scripting/EventQueue/Event\";\n        piVar2[5] = (int)&DAT_011c8e54;\n        piVar2[6] = (int)&DAT_011c8e54;\n        piVar2[7] = (int)&DAT_011c8e55;\n        (**(code **)*piVar2)();\n      }\n      FUN_008019c0(*(void **)((int)this + 0x18),piVar2);\n      iVar1 = *(int *)((int)this + 0x18);\n      if (((*(int *)(iVar1 + 0x6c) == 1) || (*(int *)(iVar1 + 0x6c) == 2)) ||\n         ((*(int *)(iVar1 + 0x6c) == 3 || (*(int *)(iVar1 + 0x6c) == 7)))) {\n        SacsWalker_TrySetExecutionStatus(*(void **)((int)this + 0x18),0);\n      }\n      if (*(int *)(*(int *)((int)this + 0x18) + 0x24) == 0) {\n        *(undefined1 *)((int)this + 0x1c) = 0;\n      }\n      if (piVar2 != (int *)0x0) {\n        (**(code **)(*piVar2 + 4))();\n      }\n      return;\n    }\n    if (*(int *)(iVar1 + 8) == param_1) {\n      if (*(char *)(iVar1 + 0xe) != '\\0') {\n        iVar1 = *(int *)((int)this + 0x18);\n        if ((((*(int *)(iVar1 + 0x6c) == 1) || (*(int *)(iVar1 + 0x6c) == 2)) ||\n            (*(int *)(iVar1 + 0x6c) == 3)) || (*(int *)(iVar1 + 0x6c) == 7)) {\n          SacsWalker_TrySetExecutionStatus(*(void **)((int)this + 0x18),0);\n          return;\n        }\n        return;\n      }\n      *(undefined1 *)(iVar1 + 0xe) = 1;\n      goto LAB_0080503e;\n    }\n    iVar1 = iVar1 + 0x18;\n  } while( true );\n}\n\n"
+    },
+    {
+      "reference_id": "ts3w-pc-1.67",
+      "entry_va": "00805120",
+      "current_name": "SacsListener_OnControllerStarted",
+      "actual_owned_ranges_halfopen": [
+        [
+          "00805120",
+          "00805245"
+        ]
+      ],
+      "singleton_metadata": false,
+      "qualified_original_context_va": null,
+      "context_limit": "No extra caller body is adopted; only selected original operand sites are checked here.",
+      "original_reference_sites": [
+        {
+          "site_va": "008051EF",
+          "bytes_hex": "c70018100201",
+          "kind": "original_table_pointer_store"
+        }
+      ],
+      "current_reference_bindings": [
+        {
+          "kind": "actual_table_data_symbol_projection",
+          "name": "PTR_IncrementReferenceCount_01021018",
+          "actual_token_indices": [
+            511
+          ],
+          "table": "01021018",
+          "original_slot0": "00B31790",
+          "original_slot4": "00EC7190",
+          "full_table_extent": false
+        }
+      ],
+      "historical_C_comparison": {
+        "legacy_commit": "cf6f60a42fe8c5bd181495a32161217972cefebc",
+        "legacy_path": "tools/ts3w-proof/evidence/native/pseudocode/0x00805120.c",
+        "before_tokens": 639,
+        "after_tokens": 639,
+        "table_identifier_only_delta": true,
+        "scope": "Only target/table expressions and genuine source identity are accepted; no broad historical whole-C equivalence."
+      },
+      "projection_limit": "Fresh projection with current Info; not an independently revalidated full original caller body.",
+      "canonical_pair_adopted": false,
+      "actual_Ghidra_C_projection": "\n\n/* Analyst note (PC1.67 SACS migration contract): ECX listener; RET8 consumes two physical words\n   despite inferred argument roles. Updates actor overlay selection using007FD8A0 and native state\n   identity. Selected controller plus active statuses1/2/3/7 can become ready0 for non-Edith\n   destination, otherwise interruptible3 or playing2; Edith interruptible emits completion. Native\n   also emits overlay subtype7 when selected state is overlay-enabled. Current notification\n   projection omits this overlay side effect. */\n\nvoid __thiscall SacsListener_OnControllerStarted(void *this,int *param_1,int param_2)\n\n{\n  char cVar1;\n  int *piVar2;\n  void *this_00;\n  int iVar3;\n  \n  cVar1 = FUN_007fd8a0(*(void **)(*(int *)(*(int *)((int)this + 0x18) + 4) + 0xc),param_2);\n  if (cVar1 == '\\0') {\n    *(undefined4 *)(*(int *)((int)this + 0x18) + 0x14) = 0;\n  }\n  else {\n    *(int *)(*(int *)((int)this + 0x18) + 0x14) = param_2;\n  }\n  if ((*(int *)(*param_1 + 0x20) == *(int *)((int)this + 0x14)) &&\n     ((((iVar3 = *(int *)((int)this + 0x18), *(int *)(iVar3 + 0x6c) == 1 ||\n        (*(int *)(iVar3 + 0x6c) == 2)) || (*(int *)(iVar3 + 0x6c) == 3)) ||\n      (*(int *)(iVar3 + 0x6c) == 7)))) {\n    if ((*(char *)((int)this + 0x1c) == '\\0') &&\n       (this_00 = *(void **)((int)this + 0x18), *(int *)((int)this_00 + 0x24) != 0)) {\n      iVar3 = 0;\n    }\n    else {\n      this_00 = *(void **)((int)this + 0x18);\n      if (*(char *)((int)param_1 + 0x16) != '\\0') {\n        SacsWalker_TrySetExecutionStatus(this_00,3);\n        if (*(char *)((int)this + 0x1c) != '\\0') {\n          SacsListener_EmitAnimationDoneOnce(this,*(int *)((int)this + 0x14));\n        }\n        goto LAB_008051bb;\n      }\n      iVar3 = 2;\n    }\n    SacsWalker_TrySetExecutionStatus(this_00,iVar3);\n  }\nLAB_008051bb:\n  cVar1 = FUN_007fd8a0(*(void **)(*(int *)(*(int *)((int)this + 0x18) + 4) + 0xc),param_2);\n  if (cVar1 != '\\0') {\n    iVar3 = FUN_007fd1b0(param_2);\n    piVar2 = FUN_007427b0();\n    if (piVar2 == (int *)0x0) {\n      piVar2 = (int *)0x0;\n    }\n    else {\n      piVar2[4] = iVar3;\n      piVar2[1] = 0;\n      *piVar2 = (int)&PTR_IncrementReferenceCount_01021018;\n      piVar2[2] = 0x50;\n      piVar2[3] = 7;\n      piVar2[8] = (int)\"Scripting/EventQueue/Event\";\n      piVar2[5] = (int)&DAT_011c8e54;\n      piVar2[6] = (int)&DAT_011c8e54;\n      piVar2[7] = (int)&DAT_011c8e55;\n      (**(code **)*piVar2)();\n    }\n    FUN_008019c0(*(void **)((int)this + 0x18),piVar2);\n    if (piVar2 != (int *)0x0) {\n      (**(code **)(*piVar2 + 4))();\n    }\n  }\n  return;\n}\n\n"
+    }
+  ]
+}

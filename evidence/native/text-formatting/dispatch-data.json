@@ -1,0 +1,1424 @@
+{
+  "reference": "ts3w-pc-1.67",
+  "scope": "Finite selector/target tables, count-store table and null-string fallbacks; separate from code ownership",
+  "records": [
+    {
+      "va": "004FBFE0",
+      "rva": "000FBFE0",
+      "file_offset": "000FBFE0",
+      "bytes": 32,
+      "bytes_hex": "9cbe4f001ebd4f0069be4f0051bd4f0086bc4f008dbb4f0020be4f0093bf4f00",
+      "role": "engine DWORD dispatch targets",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "004FC000",
+      "rva": "000FC000",
+      "file_offset": "000FC000",
+      "bytes": 84,
+      "bytes_hex": "000707070707070707070707070707070707070707070707070707070107020701010107070707070707070707070307070707040707070707070707010402050101010705070707070604070707030704070704",
+      "role": "engine conversion selectors for bytes25..78",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "004FC054",
+      "rva": "000FC054",
+      "file_offset": "000FC054",
+      "bytes": 20,
+      "bytes_hex": "46be4f004dbe4f0062be4f0062be4f0055be4f00",
+      "role": "count-write length tags1..5 dispatch targets",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "004FB0F0",
+      "rva": "000FB0F0",
+      "file_offset": "000FB0F0",
+      "bytes": 24,
+      "bytes_hex": "fbad4f0007ae4f00f4ad4f00eead4f000eae4f0038ae4f00",
+      "role": "parser flag targets",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "004FB108",
+      "rva": "000FB108",
+      "file_offset": "000FB108",
+      "bytes": 17,
+      "bytes_hex": "0005050105050505050505020503050504",
+      "role": "parser flag selectors bytes20..30",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "004FB11C",
+      "rva": "000FB11C",
+      "file_offset": "000FB11C",
+      "bytes": 32,
+      "bytes_hex": "9faf4f0092af4f0029af4f006faf4f004caf4f0085af4f0078af4f0028b04f00",
+      "role": "parser length-prefix targets",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "004FB13C",
+      "rva": "000FB13C",
+      "file_offset": "000FB13C",
+      "bytes": 50,
+      "bytes_hex": "0007070107070707070707070707070707070707070707070707070707070702070307040707070707070705070707070706",
+      "role": "parser length-prefix selectors bytes49..7A",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "004FB170",
+      "rva": "000FB170",
+      "file_offset": "000FB170",
+      "bytes": 24,
+      "bytes_hex": "70b04f0094b04f006cb04f0049b04f007eb04f00d3b04f00",
+      "role": "parser conversion adjustment targets",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "004FB188",
+      "rva": "000FB188",
+      "file_offset": "000FB188",
+      "bytes": 56,
+      "bytes_hex": "0005010500000205050505050505050505050105050505030505050505050505000301030000020503050505050503040505010503050503",
+      "role": "parser conversion adjustment selectors bytes41..78",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "00FBA8C0",
+      "rva": "00BBA8C0",
+      "file_offset": "00BBA8C0",
+      "bytes": 7,
+      "bytes_hex": "286e756c6c2900",
+      "role": "null byte-string fallback",
+      "in_stored_function_range": false
+    },
+    {
+      "va": "00FBA8C8",
+      "rva": "00BBA8C8",
+      "file_offset": "00BBA8C8",
+      "bytes": 14,
+      "bytes_hex": "28006e0075006c006c0029000000",
+      "role": "null two-byte-string fallback",
+      "in_stored_function_range": false
+    }
+  ],
+  "dispatch_maps": [
+    {
+      "targets_va": "004FBFE0",
+      "selectors_va": "004FC000",
+      "byte_low": 37,
+      "byte_high": 120,
+      "targets": [
+        "004FBE9C",
+        "004FBD1E",
+        "004FBE69",
+        "004FBD51",
+        "004FBC86",
+        "004FBB8D",
+        "004FBE20",
+        "004FBF93"
+      ],
+      "map": [
+        {
+          "input_hex": "25",
+          "input_char": "%",
+          "selector": 0,
+          "target": "004FBE9C"
+        },
+        {
+          "input_hex": "26",
+          "input_char": "&",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "27",
+          "input_char": "'",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "28",
+          "input_char": "(",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "29",
+          "input_char": ")",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "2A",
+          "input_char": "*",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "2B",
+          "input_char": "+",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "2C",
+          "input_char": ",",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "2D",
+          "input_char": "-",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "2E",
+          "input_char": ".",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "2F",
+          "input_char": "/",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "30",
+          "input_char": "0",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "31",
+          "input_char": "1",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "32",
+          "input_char": "2",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "33",
+          "input_char": "3",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "34",
+          "input_char": "4",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "35",
+          "input_char": "5",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "36",
+          "input_char": "6",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "37",
+          "input_char": "7",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "38",
+          "input_char": "8",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "39",
+          "input_char": "9",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "3A",
+          "input_char": ":",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "3B",
+          "input_char": ";",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "3C",
+          "input_char": "<",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "3D",
+          "input_char": "=",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "3E",
+          "input_char": ">",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "3F",
+          "input_char": "?",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "40",
+          "input_char": "@",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "41",
+          "input_char": "A",
+          "selector": 1,
+          "target": "004FBD1E"
+        },
+        {
+          "input_hex": "42",
+          "input_char": "B",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "43",
+          "input_char": "C",
+          "selector": 2,
+          "target": "004FBE69"
+        },
+        {
+          "input_hex": "44",
+          "input_char": "D",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "45",
+          "input_char": "E",
+          "selector": 1,
+          "target": "004FBD1E"
+        },
+        {
+          "input_hex": "46",
+          "input_char": "F",
+          "selector": 1,
+          "target": "004FBD1E"
+        },
+        {
+          "input_hex": "47",
+          "input_char": "G",
+          "selector": 1,
+          "target": "004FBD1E"
+        },
+        {
+          "input_hex": "48",
+          "input_char": "H",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "49",
+          "input_char": "I",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "4A",
+          "input_char": "J",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "4B",
+          "input_char": "K",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "4C",
+          "input_char": "L",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "4D",
+          "input_char": "M",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "4E",
+          "input_char": "N",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "4F",
+          "input_char": "O",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "50",
+          "input_char": "P",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "51",
+          "input_char": "Q",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "52",
+          "input_char": "R",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "53",
+          "input_char": "S",
+          "selector": 3,
+          "target": "004FBD51"
+        },
+        {
+          "input_hex": "54",
+          "input_char": "T",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "55",
+          "input_char": "U",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "56",
+          "input_char": "V",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "57",
+          "input_char": "W",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "58",
+          "input_char": "X",
+          "selector": 4,
+          "target": "004FBC86"
+        },
+        {
+          "input_hex": "59",
+          "input_char": "Y",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "5A",
+          "input_char": "Z",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "5B",
+          "input_char": "[",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "5C",
+          "input_char": "\\",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "5D",
+          "input_char": "]",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "5E",
+          "input_char": "^",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "5F",
+          "input_char": "_",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "60",
+          "input_char": "`",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "61",
+          "input_char": "a",
+          "selector": 1,
+          "target": "004FBD1E"
+        },
+        {
+          "input_hex": "62",
+          "input_char": "b",
+          "selector": 4,
+          "target": "004FBC86"
+        },
+        {
+          "input_hex": "63",
+          "input_char": "c",
+          "selector": 2,
+          "target": "004FBE69"
+        },
+        {
+          "input_hex": "64",
+          "input_char": "d",
+          "selector": 5,
+          "target": "004FBB8D"
+        },
+        {
+          "input_hex": "65",
+          "input_char": "e",
+          "selector": 1,
+          "target": "004FBD1E"
+        },
+        {
+          "input_hex": "66",
+          "input_char": "f",
+          "selector": 1,
+          "target": "004FBD1E"
+        },
+        {
+          "input_hex": "67",
+          "input_char": "g",
+          "selector": 1,
+          "target": "004FBD1E"
+        },
+        {
+          "input_hex": "68",
+          "input_char": "h",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "69",
+          "input_char": "i",
+          "selector": 5,
+          "target": "004FBB8D"
+        },
+        {
+          "input_hex": "6A",
+          "input_char": "j",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "6B",
+          "input_char": "k",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "6C",
+          "input_char": "l",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "6D",
+          "input_char": "m",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "6E",
+          "input_char": "n",
+          "selector": 6,
+          "target": "004FBE20"
+        },
+        {
+          "input_hex": "6F",
+          "input_char": "o",
+          "selector": 4,
+          "target": "004FBC86"
+        },
+        {
+          "input_hex": "70",
+          "input_char": "p",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "71",
+          "input_char": "q",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "72",
+          "input_char": "r",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "73",
+          "input_char": "s",
+          "selector": 3,
+          "target": "004FBD51"
+        },
+        {
+          "input_hex": "74",
+          "input_char": "t",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "75",
+          "input_char": "u",
+          "selector": 4,
+          "target": "004FBC86"
+        },
+        {
+          "input_hex": "76",
+          "input_char": "v",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "77",
+          "input_char": "w",
+          "selector": 7,
+          "target": "004FBF93"
+        },
+        {
+          "input_hex": "78",
+          "input_char": "x",
+          "selector": 4,
+          "target": "004FBC86"
+        }
+      ]
+    },
+    {
+      "targets_va": "004FB0F0",
+      "selectors_va": "004FB108",
+      "byte_low": 32,
+      "byte_high": 48,
+      "targets": [
+        "004FADFB",
+        "004FAE07",
+        "004FADF4",
+        "004FADEE",
+        "004FAE0E",
+        "004FAE38"
+      ],
+      "map": [
+        {
+          "input_hex": "20",
+          "input_char": " ",
+          "selector": 0,
+          "target": "004FADFB"
+        },
+        {
+          "input_hex": "21",
+          "input_char": "!",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "22",
+          "input_char": "\"",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "23",
+          "input_char": "#",
+          "selector": 1,
+          "target": "004FAE07"
+        },
+        {
+          "input_hex": "24",
+          "input_char": "$",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "25",
+          "input_char": "%",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "26",
+          "input_char": "&",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "27",
+          "input_char": "'",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "28",
+          "input_char": "(",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "29",
+          "input_char": ")",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "2A",
+          "input_char": "*",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "2B",
+          "input_char": "+",
+          "selector": 2,
+          "target": "004FADF4"
+        },
+        {
+          "input_hex": "2C",
+          "input_char": ",",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "2D",
+          "input_char": "-",
+          "selector": 3,
+          "target": "004FADEE"
+        },
+        {
+          "input_hex": "2E",
+          "input_char": ".",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "2F",
+          "input_char": "/",
+          "selector": 5,
+          "target": "004FAE38"
+        },
+        {
+          "input_hex": "30",
+          "input_char": "0",
+          "selector": 4,
+          "target": "004FAE0E"
+        }
+      ]
+    },
+    {
+      "targets_va": "004FB11C",
+      "selectors_va": "004FB13C",
+      "byte_low": 73,
+      "byte_high": 122,
+      "targets": [
+        "004FAF9F",
+        "004FAF92",
+        "004FAF29",
+        "004FAF6F",
+        "004FAF4C",
+        "004FAF85",
+        "004FAF78",
+        "004FB028"
+      ],
+      "map": [
+        {
+          "input_hex": "49",
+          "input_char": "I",
+          "selector": 0,
+          "target": "004FAF9F"
+        },
+        {
+          "input_hex": "4A",
+          "input_char": "J",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "4B",
+          "input_char": "K",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "4C",
+          "input_char": "L",
+          "selector": 1,
+          "target": "004FAF92"
+        },
+        {
+          "input_hex": "4D",
+          "input_char": "M",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "4E",
+          "input_char": "N",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "4F",
+          "input_char": "O",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "50",
+          "input_char": "P",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "51",
+          "input_char": "Q",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "52",
+          "input_char": "R",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "53",
+          "input_char": "S",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "54",
+          "input_char": "T",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "55",
+          "input_char": "U",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "56",
+          "input_char": "V",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "57",
+          "input_char": "W",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "58",
+          "input_char": "X",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "59",
+          "input_char": "Y",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "5A",
+          "input_char": "Z",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "5B",
+          "input_char": "[",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "5C",
+          "input_char": "\\",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "5D",
+          "input_char": "]",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "5E",
+          "input_char": "^",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "5F",
+          "input_char": "_",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "60",
+          "input_char": "`",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "61",
+          "input_char": "a",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "62",
+          "input_char": "b",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "63",
+          "input_char": "c",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "64",
+          "input_char": "d",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "65",
+          "input_char": "e",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "66",
+          "input_char": "f",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "67",
+          "input_char": "g",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "68",
+          "input_char": "h",
+          "selector": 2,
+          "target": "004FAF29"
+        },
+        {
+          "input_hex": "69",
+          "input_char": "i",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "6A",
+          "input_char": "j",
+          "selector": 3,
+          "target": "004FAF6F"
+        },
+        {
+          "input_hex": "6B",
+          "input_char": "k",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "6C",
+          "input_char": "l",
+          "selector": 4,
+          "target": "004FAF4C"
+        },
+        {
+          "input_hex": "6D",
+          "input_char": "m",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "6E",
+          "input_char": "n",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "6F",
+          "input_char": "o",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "70",
+          "input_char": "p",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "71",
+          "input_char": "q",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "72",
+          "input_char": "r",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "73",
+          "input_char": "s",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "74",
+          "input_char": "t",
+          "selector": 5,
+          "target": "004FAF85"
+        },
+        {
+          "input_hex": "75",
+          "input_char": "u",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "76",
+          "input_char": "v",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "77",
+          "input_char": "w",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "78",
+          "input_char": "x",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "79",
+          "input_char": "y",
+          "selector": 7,
+          "target": "004FB028"
+        },
+        {
+          "input_hex": "7A",
+          "input_char": "z",
+          "selector": 6,
+          "target": "004FAF78"
+        }
+      ]
+    },
+    {
+      "targets_va": "004FB170",
+      "selectors_va": "004FB188",
+      "byte_low": 65,
+      "byte_high": 120,
+      "targets": [
+        "004FB070",
+        "004FB094",
+        "004FB06C",
+        "004FB049",
+        "004FB07E",
+        "004FB0D3"
+      ],
+      "map": [
+        {
+          "input_hex": "41",
+          "input_char": "A",
+          "selector": 0,
+          "target": "004FB070"
+        },
+        {
+          "input_hex": "42",
+          "input_char": "B",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "43",
+          "input_char": "C",
+          "selector": 1,
+          "target": "004FB094"
+        },
+        {
+          "input_hex": "44",
+          "input_char": "D",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "45",
+          "input_char": "E",
+          "selector": 0,
+          "target": "004FB070"
+        },
+        {
+          "input_hex": "46",
+          "input_char": "F",
+          "selector": 0,
+          "target": "004FB070"
+        },
+        {
+          "input_hex": "47",
+          "input_char": "G",
+          "selector": 2,
+          "target": "004FB06C"
+        },
+        {
+          "input_hex": "48",
+          "input_char": "H",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "49",
+          "input_char": "I",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "4A",
+          "input_char": "J",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "4B",
+          "input_char": "K",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "4C",
+          "input_char": "L",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "4D",
+          "input_char": "M",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "4E",
+          "input_char": "N",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "4F",
+          "input_char": "O",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "50",
+          "input_char": "P",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "51",
+          "input_char": "Q",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "52",
+          "input_char": "R",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "53",
+          "input_char": "S",
+          "selector": 1,
+          "target": "004FB094"
+        },
+        {
+          "input_hex": "54",
+          "input_char": "T",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "55",
+          "input_char": "U",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "56",
+          "input_char": "V",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "57",
+          "input_char": "W",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "58",
+          "input_char": "X",
+          "selector": 3,
+          "target": "004FB049"
+        },
+        {
+          "input_hex": "59",
+          "input_char": "Y",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "5A",
+          "input_char": "Z",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "5B",
+          "input_char": "[",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "5C",
+          "input_char": "\\",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "5D",
+          "input_char": "]",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "5E",
+          "input_char": "^",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "5F",
+          "input_char": "_",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "60",
+          "input_char": "`",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "61",
+          "input_char": "a",
+          "selector": 0,
+          "target": "004FB070"
+        },
+        {
+          "input_hex": "62",
+          "input_char": "b",
+          "selector": 3,
+          "target": "004FB049"
+        },
+        {
+          "input_hex": "63",
+          "input_char": "c",
+          "selector": 1,
+          "target": "004FB094"
+        },
+        {
+          "input_hex": "64",
+          "input_char": "d",
+          "selector": 3,
+          "target": "004FB049"
+        },
+        {
+          "input_hex": "65",
+          "input_char": "e",
+          "selector": 0,
+          "target": "004FB070"
+        },
+        {
+          "input_hex": "66",
+          "input_char": "f",
+          "selector": 0,
+          "target": "004FB070"
+        },
+        {
+          "input_hex": "67",
+          "input_char": "g",
+          "selector": 2,
+          "target": "004FB06C"
+        },
+        {
+          "input_hex": "68",
+          "input_char": "h",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "69",
+          "input_char": "i",
+          "selector": 3,
+          "target": "004FB049"
+        },
+        {
+          "input_hex": "6A",
+          "input_char": "j",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "6B",
+          "input_char": "k",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "6C",
+          "input_char": "l",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "6D",
+          "input_char": "m",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "6E",
+          "input_char": "n",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "6F",
+          "input_char": "o",
+          "selector": 3,
+          "target": "004FB049"
+        },
+        {
+          "input_hex": "70",
+          "input_char": "p",
+          "selector": 4,
+          "target": "004FB07E"
+        },
+        {
+          "input_hex": "71",
+          "input_char": "q",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "72",
+          "input_char": "r",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "73",
+          "input_char": "s",
+          "selector": 1,
+          "target": "004FB094"
+        },
+        {
+          "input_hex": "74",
+          "input_char": "t",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "75",
+          "input_char": "u",
+          "selector": 3,
+          "target": "004FB049"
+        },
+        {
+          "input_hex": "76",
+          "input_char": "v",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "77",
+          "input_char": "w",
+          "selector": 5,
+          "target": "004FB0D3"
+        },
+        {
+          "input_hex": "78",
+          "input_char": "x",
+          "selector": 3,
+          "target": "004FB049"
+        }
+      ]
+    }
+  ],
+  "count_store_targets_by_length_tags1_through5": [
+    "004FBE46",
+    "004FBE4D",
+    "004FBE62",
+    "004FBE62",
+    "004FBE55"
+  ]
+}

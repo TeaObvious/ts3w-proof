@@ -451,5 +451,37 @@
     "Literal DWORD reference scanning cannot establish computed/aliased reference closure.",
     "Three target ownership ranges reuse the archived baseline. 0051A720 remains only a static unowned candidate until current containing-function/info checks.",
     "No private transport responses, Native task journals, operating directories, full assemblies or source trees are included."
+  ],
+  "open_native_body_frontier_scope": "Historical acquisition snapshot retained below; current successor links are in native_frontier_successors. Earlier not-queried/pair-gap values are not current acquisition status.",
+  "native_frontier_successors": [
+    {
+      "target_va": "009C8AD0",
+      "name": "StoreSimSavedCallbackWord",
+      "asm": "evidence/native/bridge/callback-reference-words/009C8AD0_StoreSimSavedCallbackWord.asm",
+      "pseudocode": "evidence/native/bridge/callback-reference-words/009C8AD0_StoreSimSavedCallbackWord.c",
+      "guide": "guides/bridge/callback-word-and-reference-counts.md",
+      "state": "current_saved_canonical_body; generated_ABI_and_lifetime_limits_preserved"
+    },
+    {
+      "target_va": "00B31790",
+      "name": "IncrementReferenceCount",
+      "asm": "evidence/native/bridge/callback-reference-words/00B31790_IncrementReferenceCount.asm",
+      "pseudocode": "evidence/native/bridge/callback-reference-words/00B31790_IncrementReferenceCount.c",
+      "guide": "guides/bridge/callback-word-and-reference-counts.md",
+      "state": "current_saved_canonical_body; generated_ABI_and_lifetime_limits_preserved"
+    },
+    {
+      "target_va": "00EC7190",
+      "name": "DecrementReferenceCountAndDispatchAtZero",
+      "asm": "evidence/native/bridge/callback-reference-words/00EC7190_DecrementReferenceCountAndDispatchAtZero.asm",
+      "pseudocode": "evidence/native/bridge/callback-reference-words/00EC7190_DecrementReferenceCountAndDispatchAtZero.c",
+      "guide": "guides/bridge/callback-word-and-reference-counts.md",
+      "state": "current_saved_canonical_body; generated_ABI_and_lifetime_limits_preserved"
+    },
+    {
+      "target_va": "0051A720",
+      "guide": "inventory/remaining-instruction-context-evidence.md",
+      "state": "retained_NoFunction; qualified31byte_context_only; no_definition_or_C_pair"
+    }
   ]
 }

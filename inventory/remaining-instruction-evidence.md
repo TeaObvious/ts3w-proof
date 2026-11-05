@@ -12,7 +12,7 @@ VA intervals have exclusive stops; RVA = VA minus `00400000`. Baseline inventory
 version `20261104` and all 42,715 original complement rows remain unchanged.
 The [existing four dispatch-data assertions](remaining-region-dispositions.md)
 remain separate, byte-identical facts for 118 bytes. They intersect neither
-parent below. No canonical ASM/C pair is added; the native index retains 75 pairs.
+parent below. No canonical ASM/C pair is added by these assertions; the [native evidence index](../indexes/native-evidence.tsv) records the current pair total.
 
 ## Original evidence and declared boundaries
 

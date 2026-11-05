@@ -15,7 +15,7 @@ the [42,715-row complement](remaining-executable-regions.tsv). That baseline
 stays unchanged. The separate [four singleton-root assertions](remaining-instruction-evidence.md)
 remain four /1,690 complement bytes and 597 whole anchors /1,692 bytes. The
 [four data assertions](remaining-region-dispositions.md) remain 118 bytes.
-The [native pair index](../indexes/native-evidence.tsv) remains at 75 pairs.
+This context assertion adds no canonical function pair; the [native pair index](../indexes/native-evidence.tsv) records the current total.
 
 ## Original instruction context
 

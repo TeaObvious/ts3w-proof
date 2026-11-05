@@ -1,6 +1,6 @@
 # EventQueue and SimSaved: original managed chains and native evidence frontier
 
-The original ScriptCore IL proves two retained managed delegate chains. Original registration and table bytes connect them to native targets with four remaining body-evidence gaps. This is a bounded static partial contract; native ownership, callback delivery, marshaling and runtime behavior remain open.
+The original ScriptCore IL proves two retained managed delegate chains. Original registration and table bytes connect them to native targets. The [native word/counter follow-up](callback-word-and-reference-counts.md) supplies three complete current canonical bodies and eight qualified reference projections; the selected slot+8 target remains an unowned instruction context. This is a bounded static partial contract; native ownership, callback delivery, marshaling and runtime behavior remain open.
 
 The [central original-resource manifest](../../evidence/managed/reference-inputs.json) identifies ScriptCore resource `073faa07-00000000-78cf6cf5304d0c4f`, including its package, resource hash, decoded assembly hash, version and MVID. The native identity is the [PC 1.67 reference](../../references/pc-167.md). All three original packages, ten resource slices and ten retained decoded assembly identities were freshly checked for this evidence. The original resource-decoding provenance is reused; no new decode or target execution is claimed. No reconstructed managed source tree was used.
 
@@ -29,11 +29,11 @@ Exactly twelve original bytes at file offset `00C022D0` establish this table pre
 
 | Table offset | Target VA | Evidence boundary |
 | --- | --- | --- |
-| `+0` | `00B31790` | Existing baseline entry; no exact canonical or legacy ASM/C pair in the reviewed offline inventory. |
-| `+4` | `00EC7190` | Existing baseline entry; no exact canonical or legacy pair. |
-| `+8` | `0051A720` | Static code candidate, absent as both an entry and containing owned range in that baseline. Current live ownership is unqueried. |
+| `+0` | `00B31790` | Current IncrementReferenceCount [ASM](../../evidence/native/bridge/callback-reference-words/00B31790_IncrementReferenceCount.asm) ([C](../../evidence/native/bridge/callback-reference-words/00B31790_IncrementReferenceCount.c)); shared non-atomic helper, not event dispatch. |
+| `+4` | `00EC7190` | Current DecrementReferenceCountAndDispatchAtZero [ASM](../../evidence/native/bridge/callback-reference-words/00EC7190_DecrementReferenceCountAndDispatchAtZero.asm) ([C](../../evidence/native/bridge/callback-reference-words/00EC7190_DecrementReferenceCountAndDispatchAtZero.c)); reset1 precedes slot+8 call. |
+| `+8` | `0051A720` | Retained NoFunction and no selected baseline owner; [qualified 31-byte original context](../../inventory/remaining-instruction-context-evidence.md), not a new function/C pair. |
 
-This prefix does not establish the entire table extent. None of these slot targets is labeled an event-dispatch implementation here. The candidate at `0051A720` requires a current containing-function/info check before any controlled definition proposal; a table word does not authorize a database definition.
+This prefix does not establish the entire table extent. None of these slot targets is labeled an event-dispatch implementation here. The retained query at `0051A720` reports Function not found. Its independently checked context establishes a conditional selected target/RET4 relation, not a definition, complete lifetime or installed runtime table; a table word does not authorize a database definition.
 
 Managed `OnNativeEvent` creates an event, invokes an optional permissive handler, then either invokes the main handler and returns, or enqueues the event and conditionally calls `Simulator.Wake` with false. This describes the original IL when invoked. It does not establish when, where, or how often the native host invokes it.
 
@@ -41,7 +41,7 @@ Managed `OnNativeEvent` creates an event, invokes an optional permissive handler
 
 Constructor `060000B8` takes the address of `DownloadContent_OnSimSaved` (`06000114`) at IL_0018, constructs delegate `06000115`, stores field `04000008`, and passes it to `060000B3` at IL_002E. The handler checks event field `04000007`, constructs a `ResourceKey` from its uint64/uint32/uint32 arguments and invokes the subscribed delegate when non-null. Keeping the managed delegate in a field is not proof of native retention or release behavior.
 
-The registration descriptor at `011817D0` contains target `009956F0` and the exact import name. A direct call at `00995708` reaches `009C8AD0`, whose selected original instructions load an incoming stack word and store it to global `011EA958` at `009C8AD4`. This target has a recorded 12-byte baseline owned range but no exact canonical or legacy ASM/C pair in the reviewed inventory. No native C export is manufactured for it.
+The registration descriptor at `011817D0` contains target `009956F0` and the exact import name. A direct call at `00995708` reaches `009C8AD0`, whose selected original instructions load an incoming stack word and store it to global `011EA958` at `009C8AD4`. The actual saved StoreSimSavedCallbackWord [ASM](../../evidence/native/bridge/callback-reference-words/009C8AD0_StoreSimSavedCallbackWord.asm) ([C](../../evidence/native/bridge/callback-reference-words/009C8AD0_StoreSimSavedCallbackWord.c)) preserves that complete 12-byte body and opaque callbackWord formal. Its undefined/void return projection is not a proved API return-value contract.
 
 The global has original comparison/load operands at `009CB5C4` and `009CB661`, inside the already exported `009CB0D0` (`SimStorage_WriteSimRecordAndDependencies`). The selected consumer instructions load host virtual slot `+134h`, pass count three, an argument-block address, the callback word and an output-block address, then invoke the slot at `009CB66F`. This is an original native forwarding edge. It does not settle tagged-argument decoding, callback marshaling, conversion of errors/results, lifetime or callback-side reentrancy. The existing owner should be reused when those questions are pursued; it is not a new function-body acquisition gap.
 
@@ -49,6 +49,6 @@ A raw scan found the writer operand and these two reader operands as literal DWO
 
 ## Remaining evidence
 
-A later coordinated read needs fresh identity/ownership checks for `009C8AD0`, `00B31790`, `00EC7190` and `0051A720`. The first three may then receive actual C reads if their recorded entries/ranges still agree and no current capture already exists. The fourth needs an ownership decision first. Existing anchors and original table bytes can be reused.
+The [native follow-up](callback-word-and-reference-counts.md) closes the three specific current-body/pair gaps with 52 original bytes/18 starts, actual names/heads/variables and eight qualified current caller projections. It keeps the two frontend singletons unchanged. The selected slot+8 context has an explicit NoFunction boundary and remains outside canonical function ownership. Earlier frontier records in the managed evidence JSON remain a historical acquisition snapshot; its successor links identify the current native evidence.
 
-Host implementations behind `+118h`, `+C8h` and `+134h`, the wrapper's event-delivery consumer, callback/string/handle ownership, replacement/release behavior, error propagation and runtime order remain open. These selected native instruction/data witnesses are not canonical ASM/C function exports and do not claim fresh Native-read completeness, a completed indirect closure or runtime observation.
+Host implementations behind `+118h`, `+C8h` and `+134h`, the wrapper's event-delivery consumer, callback/string/handle ownership, replacement/release behavior, error propagation and runtime order remain open. The selected managed witnesses, three native canonical bodies and unowned context retain those separate limits; they do not close complete indirect behavior, all callers or runtime observation.

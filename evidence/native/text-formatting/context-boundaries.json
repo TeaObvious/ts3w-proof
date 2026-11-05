@@ -1,0 +1,193 @@
+{
+  "reference": "ts3w-pc-1.67",
+  "original_identity": "../../../references/pc-167.md",
+  "scope": "Finite instruction contexts; no decompiler C, canonical function pair, new definition or whole-chain completion",
+  "address_and_count_units": "Addresses and offsets are hexadecimal strings; byte counts and instruction counts are decimal integers; range stops exclusive",
+  "contexts": [
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "005F6250",
+      "start": "005F6250",
+      "stop_exclusive": "005F626A",
+      "bytes": 26,
+      "instruction_starts": 11,
+      "role": "Caller-area forwarding wrapper",
+      "ownership_basis": "fresh read-only stored body snapshot",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "00930DA0",
+      "start": "00930DA0",
+      "stop_exclusive": "00930EC9",
+      "bytes": 297,
+      "instruction_starts": 118,
+      "role": "Destination formatting/retry forwarder; growth dependency open",
+      "ownership_basis": "historical stored body inventory; not current live metadata",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "004F3140",
+      "start": "004F3140",
+      "stop_exclusive": "004F3145",
+      "bytes": 5,
+      "instruction_starts": 1,
+      "role": "Five-byte direct tail jump",
+      "ownership_basis": "historical stored body inventory; not current live metadata",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "004FC070",
+      "start": "004FC070",
+      "stop_exclusive": "004FC0DA",
+      "bytes": 106,
+      "instruction_starts": 39,
+      "role": "Byte-output adapter",
+      "ownership_basis": "historical stored body inventory; not current live metadata",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "004FACC0",
+      "start": "004FACC0",
+      "stop_exclusive": "004FAD3D",
+      "bytes": 125,
+      "instruction_starts": 55,
+      "role": "Bounded output callback",
+      "ownership_basis": "historical stored body inventory; not current live metadata",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "004FBAC0",
+      "start": "004FBAC0",
+      "stop_exclusive": "004FBFDF",
+      "bytes": 1311,
+      "instruction_starts": 383,
+      "role": "Format-directed operand engine",
+      "ownership_basis": "historical stored body inventory; not current live metadata",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "004FAD80",
+      "start": "004FAD80",
+      "stop_exclusive": "004FB0ED",
+      "bytes": 877,
+      "instruction_starts": 241,
+      "role": "Format descriptor parser",
+      "ownership_basis": "historical stored body inventory; not current live metadata",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "005F67C0",
+      "start": "005F694B",
+      "stop_exclusive": "005F698C",
+      "bytes": 65,
+      "instruction_starts": 12,
+      "role": "Selected caller push/CALL/cleanup context only",
+      "ownership_basis": "subset of historical caller body; no complete caller export",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "005F6BE0",
+      "start": "005F6BF0",
+      "stop_exclusive": "005F6C2B",
+      "bytes": 59,
+      "instruction_starts": 14,
+      "role": "Selected second caller input-load/push/CALL/cleanup context only",
+      "ownership_basis": "subset of reused actual caller body; two-decoder agreement reused",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    },
+    {
+      "reference": "ts3w-pc-1.67",
+      "entry": "005A57B0",
+      "start": "005A57B0",
+      "stop_exclusive": "005A57B5",
+      "bytes": 5,
+      "instruction_starts": 1,
+      "role": "Tail jump context to 005F67C0; not another direct formatter CALL",
+      "ownership_basis": "METADATA_SINGLETON: only [005A57B0,005A57B1) owned; decoded E9 needs five context bytes",
+      "canonical_pair_status": "NOT_A_CANONICAL_ASM_C_PAIR; instruction evidence only"
+    }
+  ],
+  "wrapper_read_only_snapshot": {
+    "entry": "005F6250",
+    "observed_name": "FUN_005f6250",
+    "current_two_fixed_parameter_projection": {
+      "name": "FUN_005f6250",
+      "address": "005f6250",
+      "calling_convention": "__cdecl",
+      "prototype": "void * FUN_005f6250(void * param_1, undefined4 param_2)",
+      "return_type": "void *",
+      "parameter_count": 2
+    },
+    "inventory": [
+      {
+        "kind": "parameter",
+        "name": "param_2",
+        "type": "undefined4",
+        "ordinal": 1,
+        "storage": null
+      },
+      {
+        "kind": "parameter",
+        "name": "param_1",
+        "type": "void *",
+        "ordinal": 0,
+        "storage": null
+      },
+      {
+        "kind": "local",
+        "name": "uStack0000000c",
+        "type": "unknown",
+        "storage": "Stack[0xc]:4"
+      }
+    ],
+    "internal_variadic_flag_exposed": false,
+    "compatible_ellipsis_model_adopted": false,
+    "canonical_pair_adoption": "HOLD for separately verified live name/head/prototype/variables and genuine wrapper/caller exports"
+  },
+  "captured_direct_calls": [
+    {
+      "caller": "005F6BE0",
+      "site": "005F6C18",
+      "target": "005F6250",
+      "entry_argument_words": 3,
+      "postcall_stack_cleanup": "ADD ESP,0Ch",
+      "first_unnamed_word": "original caller param_3, copied/pushed at005F6C08"
+    },
+    {
+      "caller": "005F67C0",
+      "site": "005F697D",
+      "target": "005F6250",
+      "entry_argument_words": 3,
+      "postcall_stack_cleanup_site": "005F6989",
+      "postcall_stack_cleanup": "ADD ESP,0Ch",
+      "pushes": [
+        {
+          "va": "005F694B",
+          "value": "EDI formatting argument"
+        },
+        {
+          "va": "005F6961",
+          "value": "format pointer word00FE7018"
+        },
+        {
+          "va": "005F6966",
+          "value": "ECX destination descriptor address"
+        }
+      ]
+    }
+  ],
+  "captured_dependent_entries": [
+    "005F6BE0",
+    "005F67C0",
+    "005A57B0"
+  ],
+  "caller_census_complete": false
+}
