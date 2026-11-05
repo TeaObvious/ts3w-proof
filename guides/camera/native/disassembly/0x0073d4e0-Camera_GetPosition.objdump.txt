@@ -1,0 +1,60 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_GetPosition
+# Entry: 0x0073d4e0; bounded stop: 0x0073d550; next Ghidra entry: 0x0073d550
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073d4e0 <.text+0x33c4e0>:
+  73d4e0:	55                   	push   ebp
+  73d4e1:	8b ec                	mov    ebp,esp
+  73d4e3:	83 e4 f0             	and    esp,0xfffffff0
+  73d4e6:	83 ec 1c             	sub    esp,0x1c
+  73d4e9:	56                   	push   esi
+  73d4ea:	e8 e1 c6 22 00       	call   0x969bd0
+  73d4ef:	85 c0                	test   eax,eax
+  73d4f1:	74 38                	je     0x73d52b
+  73d4f3:	8b c8                	mov    ecx,eax
+  73d4f5:	e8 f6 4a 7e 00       	call   0xf21ff0
+  73d4fa:	85 c0                	test   eax,eax
+  73d4fc:	74 2d                	je     0x73d52b
+  73d4fe:	8b c8                	mov    ecx,eax
+  73d500:	e8 db 68 dd ff       	call   0x513de0
+  73d505:	85 c0                	test   eax,eax
+  73d507:	74 22                	je     0x73d52b
+  73d509:	8b 10                	mov    edx,DWORD PTR [eax]
+  73d50b:	8b 52 34             	mov    edx,DWORD PTR [edx+0x34]
+  73d50e:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  73d512:	51                   	push   ecx
+  73d513:	8b c8                	mov    ecx,eax
+  73d515:	ff d2                	call   edx
+  73d517:	8b 75 08             	mov    esi,DWORD PTR [ebp+0x8]
+  73d51a:	50                   	push   eax
+  73d51b:	56                   	push   esi
+  73d51c:	e8 2f ec 02 00       	call   0x76c150
+  73d521:	83 c4 08             	add    esp,0x8
+  73d524:	8b c6                	mov    eax,esi
+  73d526:	5e                   	pop    esi
+  73d527:	8b e5                	mov    esp,ebp
+  73d529:	5d                   	pop    ebp
+  73d52a:	c3                   	ret
+  73d52b:	d9 ee                	fldz
+  73d52d:	8b 75 08             	mov    esi,DWORD PTR [ebp+0x8]
+  73d530:	83 ec 0c             	sub    esp,0xc
+  73d533:	d9 54 24 08          	fst    DWORD PTR [esp+0x8]
+  73d537:	d9 54 24 04          	fst    DWORD PTR [esp+0x4]
+  73d53b:	8b ce                	mov    ecx,esi
+  73d53d:	d9 1c 24             	fstp   DWORD PTR [esp]
+  73d540:	e8 2b ea 02 00       	call   0x76bf70
+  73d545:	8b c6                	mov    eax,esi
+  73d547:	5e                   	pop    esi
+  73d548:	8b e5                	mov    esp,ebp
+  73d54a:	5d                   	pop    ebp
+  73d54b:	c3                   	ret
+  73d54c:	cc                   	int3
+  73d54d:	cc                   	int3
+  73d54e:	cc                   	int3
+  73d54f:	cc                   	int3

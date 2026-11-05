@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000252.
+// Assembly: CSHostWrap; type: Sims3.CSHost.ObjectManagerWrap.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/ObjectManagerWrap.cs:106
+	[DllImport("Sims3Common.dll")]
+	protected static extern IntPtr ObjectManagerWrap_AddNewObjectAtLoc(IntPtr pObjMgr, ref ResourceKey modelKey, uint variant, [In][MarshalAs(UnmanagedType.LPWStr)] string effectName, ref ResourceKey rigKey, float locationX, float locationZ, uint level);

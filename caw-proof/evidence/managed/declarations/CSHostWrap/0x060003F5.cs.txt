@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x060003F5.
+// Assembly: CSHostWrap; type: Sims3.CSHost.ThumbnailManager.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/ThumbnailManager.cs:60
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.U1)]
+	private static extern bool ThumbnailManager_ExportModelThumbnail(IntPtr pModel, IntPtr presetRes, uint sizeMask, ResourceKey exportKey, [In][MarshalAs(UnmanagedType.LPWStr)] string outputDirectory);

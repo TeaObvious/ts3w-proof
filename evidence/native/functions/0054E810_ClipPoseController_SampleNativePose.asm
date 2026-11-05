@@ -1,0 +1,99 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: ClipPoseController_SampleNativePose
+Paired actual annotated Ghidra pseudocode: 0054E810_ClipPoseController_SampleNativePose.c
+Owned ranges: [[0054e810, 0054e945]]
+Envelope bytes=310
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+0054e810  55  PUSH EBP
+0054e811  8bec  MOV EBP,ESP
+0054e813  83e4f0  AND ESP,0xfffffff0
+0054e816  83ec14  SUB ESP,0x14
+0054e819  53  PUSH EBX
+0054e81a  56  PUSH ESI
+0054e81b  8bf1  MOV ESI,ECX
+0054e81d  f30f1086c4030000  MOVSS XMM0,dword ptr [ESI + 0x3c4]
+0054e825  0f2f05cc4c0f01  COMISS XMM0,dword ptr [0x010f4ccc]
+0054e82c  57  PUSH EDI
+0054e82d  7308  JNC 0x0054e837
+0054e82f  8b4508  MOV EAX,dword ptr [EBP + 0x8]
+0054e832  f30f104050  MOVSS XMM0,dword ptr [EAX + 0x50]
+0054e837  8b8eb8030000  MOV ECX,dword ptr [ESI + 0x3b8]
+0054e83d  85c9  TEST ECX,ECX
+0054e83f  f30f1144240c  MOVSS dword ptr [ESP + 0xc],XMM0
+0054e845  0f84f2000000  JZ 0x0054e93d
+0054e84b  e810c20200  CALL 0x0057aa60
+0054e850  8b4d08  MOV ECX,dword ptr [EBP + 0x8]
+0054e853  f6415402  TEST byte ptr [ECX + 0x54],0x2
+0054e857  8b7d0c  MOV EDI,dword ptr [EBP + 0xc]
+0054e85a  8bd8  MOV EBX,EAX
+0054e85c  742a  JZ 0x0054e888
+0054e85e  8b4730  MOV EAX,dword ptr [EDI + 0x30]
+0054e861  8b8eb8030000  MOV ECX,dword ptr [ESI + 0x3b8]
+0054e867  50  PUSH EAX
+0054e868  e883c80200  CALL 0x0057b0f0
+0054e86d  d986c0030000  FLD float ptr [ESI + 0x3c0]
+0054e873  0fb696c8030000  MOVZX EDX,byte ptr [ESI + 0x3c8]
+0054e87a  52  PUSH EDX
+0054e87b  50  PUSH EAX
+0054e87c  51  PUSH ECX
+0054e87d  8bcb  MOV ECX,EBX
+0054e87f  d91c24  FSTP float ptr [ESP]
+0054e882  57  PUSH EDI
+0054e883  e8b8a20300  CALL 0x00588b40
+0054e888  8b86b8030000  MOV EAX,dword ptr [ESI + 0x3b8]
+0054e88e  8b484c  MOV ECX,dword ptr [EAX + 0x4c]
+0054e891  f6411c02  TEST byte ptr [ECX + 0x1c],0x2
+0054e895  f30f100df898f900  MOVSS XMM1,dword ptr [0x00f998f8]
+0054e89d  746b  JZ 0x0054e90a
+0054e89f  8b5508  MOV EDX,dword ptr [EBP + 0x8]
+0054e8a2  f6425401  TEST byte ptr [EDX + 0x54],0x1
+0054e8a6  743a  JZ 0x0054e8e2
+0054e8a8  0fb686c8030000  MOVZX EAX,byte ptr [ESI + 0x3c8]
+0054e8af  d944240c  FLD float ptr [ESP + 0xc]
+0054e8b3  50  PUSH EAX
+0054e8b4  83ec08  SUB ESP,0x8
+0054e8b7  8bcb  MOV ECX,EBX
+0054e8b9  d95c2404  FSTP float ptr [ESP + 0x4]
+0054e8bd  d986c0030000  FLD float ptr [ESI + 0x3c0]
+0054e8c3  d91c24  FSTP float ptr [ESP]
+0054e8c6  57  PUSH EDI
+0054e8c7  e8c4a20300  CALL 0x00588b90
+0054e8cc  f30f100df898f900  MOVSS XMM1,dword ptr [0x00f998f8]
+0054e8d4  f30f114f48  MOVSS dword ptr [EDI + 0x48],XMM1
+0054e8d9  5f  POP EDI
+0054e8da  5e  POP ESI
+0054e8db  5b  POP EBX
+0054e8dc  8be5  MOV ESP,EBP
+0054e8de  5d  POP EBP
+0054e8df  c20800  RET 0x8
+0054e8e2  0f57c0  XORPS XMM0,XMM0
+0054e8e5  0f28d0  MOVAPS XMM2,XMM0
+0054e8e8  0f57c0  XORPS XMM0,XMM0
+0054e8eb  f30f114c241c  MOVSS dword ptr [ESP + 0x1c],XMM1
+0054e8f1  f30f11442418  MOVSS dword ptr [ESP + 0x18],XMM0
+0054e8f7  f30f11442414  MOVSS dword ptr [ESP + 0x14],XMM0
+0054e8fd  f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+0054e903  0f28442410  MOVAPS XMM0,xmmword ptr [ESP + 0x10]
+0054e908  eb26  JMP 0x0054e930
+0054e90a  0f57c0  XORPS XMM0,XMM0
+0054e90d  0f28d0  MOVAPS XMM2,XMM0
+0054e910  0f57c0  XORPS XMM0,XMM0
+0054e913  f30f114c241c  MOVSS dword ptr [ESP + 0x1c],XMM1
+0054e919  f30f11442418  MOVSS dword ptr [ESP + 0x18],XMM0
+0054e91f  f30f11442414  MOVSS dword ptr [ESP + 0x14],XMM0
+0054e925  f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+0054e92b  0f28442410  MOVAPS XMM0,xmmword ptr [ESP + 0x10]
+0054e930  0f295710  MOVAPS xmmword ptr [EDI + 0x10],XMM2
+0054e934  0f294720  MOVAPS xmmword ptr [EDI + 0x20],XMM0
+0054e938  f30f114f48  MOVSS dword ptr [EDI + 0x48],XMM1
+0054e93d  5f  POP EDI
+0054e93e  5e  POP ESI
+0054e93f  5b  POP EBX
+0054e940  8be5  MOV ESP,EBP
+0054e942  5d  POP EBP
+0054e943  c20800  RET 0x8
+Owned instructions=88 owned bytes=310 gap/nonowned bytes=0

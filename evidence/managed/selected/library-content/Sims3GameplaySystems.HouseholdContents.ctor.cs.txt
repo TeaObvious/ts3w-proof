@@ -1,0 +1,20 @@
+// Actual ILSpy rendering; static analysis, no target code executed. Native and nested/lambda dependencies remain bounded.
+public HouseholdContents()
+{
+	Description = "";
+	Name = "";
+	base..ctor();
+}
+
+using Sims3.Gameplay.CAS;
+
+public HouseholdContents(Household household)
+{
+	Description = "";
+	Name = "";
+	base..ctor();
+	mHousehold = household;
+	CreateInventories();
+	ContentId = mHousehold.HouseholdId;
+}
+

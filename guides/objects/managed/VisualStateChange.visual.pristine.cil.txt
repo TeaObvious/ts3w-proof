@@ -1,0 +1,80 @@
+// Pristine PC1.67 Sims3GameplaySystems.dll; identity and package key in the material-state guide.
+// Analyst: Builds daily alarms; ChangeVisualState calls SetMaterial, appends the suffix, and dispatches virtual custom effects. The base path does not call SetGeometryState. Subclass custom effects remain an extension point.
+Pristine PC1.67 selected managed method bodies; metadata tokens and complete decoded IL instructions. Analyst scope: material/visual-state calls; no runtime claim.
+
+// token 0x060030FA; RVA 0x000D9F7C
+System.Void Sims3.Gameplay.Abstracts.VisualStateChange::.ctor(Sims3.Gameplay.Abstracts.RabbitHole,System.String,System.Single,System.String)
+.maxstack 7; code size 74
+// Original IL bytes: 02285400000A02037D5517000402047D5417000402057D52170004020E047D511700040203027B521700041502FE06FC300006730DB20006027B51170004186F000B00067D531700042A
+IL_0000: ldarg.0
+IL_0001: call System.Void System.Object::.ctor()
+IL_0006: ldarg.0
+IL_0007: ldarg.1
+IL_0008: stfld Sims3.Gameplay.Abstracts.RabbitHole Sims3.Gameplay.Abstracts.VisualStateChange::mRabbitHole
+IL_000d: ldarg.0
+IL_000e: ldarg.2
+IL_000f: stfld System.String Sims3.Gameplay.Abstracts.VisualStateChange::mMaterialName
+IL_0014: ldarg.0
+IL_0015: ldarg.3
+IL_0016: stfld System.Single Sims3.Gameplay.Abstracts.VisualStateChange::mTime
+IL_001b: ldarg.0
+IL_001c: ldarg.s alarmString
+IL_001e: stfld System.String Sims3.Gameplay.Abstracts.VisualStateChange::mName
+IL_0023: ldarg.0
+IL_0024: ldarg.1
+IL_0025: ldarg.0
+IL_0026: ldfld System.Single Sims3.Gameplay.Abstracts.VisualStateChange::mTime
+IL_002b: ldc.i4.m1
+IL_002c: ldarg.0
+IL_002d: ldftn System.Void Sims3.Gameplay.Abstracts.VisualStateChange::ChangeVisualState()
+IL_0033: newobj System.Void Sims3.Gameplay.Utilities.AlarmTimerCallback::.ctor(System.Object,System.IntPtr)
+IL_0038: ldarg.0
+IL_0039: ldfld System.String Sims3.Gameplay.Abstracts.VisualStateChange::mName
+IL_003e: ldc.i4.2
+IL_003f: callvirt Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Abstracts.GameObject::AddAlarmDay(System.Single,Sims3.Gameplay.Utilities.DaysOfTheWeek,Sims3.Gameplay.Utilities.AlarmTimerCallback,System.String,Sims3.Gameplay.Utilities.AlarmType)
+IL_0044: stfld Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Abstracts.VisualStateChange::mHandle
+IL_0049: ret
+
+// token 0x060030FB; RVA 0x000D9FD2
+System.Void Sims3.Gameplay.Abstracts.VisualStateChange::.ctor()
+.maxstack 8; code size 7
+// Original IL bytes: 02285400000A2A
+IL_0000: ldarg.0
+IL_0001: call System.Void System.Object::.ctor()
+IL_0006: ret
+
+// token 0x060030FC; RVA 0x000D9FDC
+System.Void Sims3.Gameplay.Abstracts.VisualStateChange::ChangeVisualState()
+.maxstack 3; code size 93
+// Original IL bytes: 027B551700046FC42E00060A027B5417000472D5320070288E00000A2C1606282400000A2D0E027B55170004066F380900062B17027B55170004027B5417000406286E01000A6F38090006027B55170004027B541700046FC52E00062A
+.local 0 System.String
+IL_0000: ldarg.0
+IL_0001: ldfld Sims3.Gameplay.Abstracts.RabbitHole Sims3.Gameplay.Abstracts.VisualStateChange::mRabbitHole
+IL_0006: callvirt System.String Sims3.Gameplay.Abstracts.RabbitHole::VisualStateSuffix()
+IL_000b: stloc.0
+IL_000c: ldarg.0
+IL_000d: ldfld System.String Sims3.Gameplay.Abstracts.VisualStateChange::mMaterialName
+IL_0012: ldstr "Default"
+IL_0017: call System.Boolean System.String::op_Equality(System.String,System.String)
+IL_001c: brfalse.s IL_0034
+IL_001e: ldloc.0
+IL_001f: call System.Boolean System.String::IsNullOrEmpty(System.String)
+IL_0024: brtrue.s IL_0034
+IL_0026: ldarg.0
+IL_0027: ldfld Sims3.Gameplay.Abstracts.RabbitHole Sims3.Gameplay.Abstracts.VisualStateChange::mRabbitHole
+IL_002c: ldloc.0
+IL_002d: callvirt System.Void Sims3.Gameplay.Abstracts.GameObject::SetMaterial(System.String)
+IL_0032: br.s IL_004b
+IL_0034: ldarg.0
+IL_0035: ldfld Sims3.Gameplay.Abstracts.RabbitHole Sims3.Gameplay.Abstracts.VisualStateChange::mRabbitHole
+IL_003a: ldarg.0
+IL_003b: ldfld System.String Sims3.Gameplay.Abstracts.VisualStateChange::mMaterialName
+IL_0040: ldloc.0
+IL_0041: call System.String System.String::Concat(System.String,System.String)
+IL_0046: callvirt System.Void Sims3.Gameplay.Abstracts.GameObject::SetMaterial(System.String)
+IL_004b: ldarg.0
+IL_004c: ldfld Sims3.Gameplay.Abstracts.RabbitHole Sims3.Gameplay.Abstracts.VisualStateChange::mRabbitHole
+IL_0051: ldarg.0
+IL_0052: ldfld System.String Sims3.Gameplay.Abstracts.VisualStateChange::mMaterialName
+IL_0057: callvirt System.Void Sims3.Gameplay.Abstracts.RabbitHole::DoCustomStateChangeEffects(System.String)
+IL_005c: ret

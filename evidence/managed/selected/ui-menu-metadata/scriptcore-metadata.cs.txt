@@ -1,0 +1,11 @@
+// Selected pristine PC1.67 managed decompiler projection; raw CIL/metadata govern.
+public string GetSaveGameMetadata(string saveFile, ref uint householdThumbnail, ref uint lotThumbnail)
+{
+	return UIManager_GetSaveGameMetadataImpl(saveFile, ref householdThumbnail, ref lotThumbnail);
+}
+
+public string GetWorldMetadata(string worldFile, ref uint lotCount, ref uint worldThumbnail, ref ulong worldNameKey, ref uint worldType, ref uint worldName)
+{
+	return UIManager_GetWorldMetadataImpl(worldFile, ref lotCount, ref worldThumbnail, ref worldNameKey, ref worldType, ref worldName);
+}
+

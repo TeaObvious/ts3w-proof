@@ -1,0 +1,3109 @@
+.class public auto ansi beforefieldinit Sims3.Gameplay.Objects.Door.RotatingWallDoor
+	extends Sims3.Gameplay.Objects.Door.SecretDoor
+	implements [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IBuildBuyListener,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ISandsOfUnderstandingable,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent
+{
+	// Nested Types
+	.class nested private auto ansi sealed beforefieldinit Inspect
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x1935cb
+				// Header size: 1
+				// Code size: 20 (0x14)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscoverable()
+				IL_0006: brfalse.s IL_0012
+
+				IL_0008: ldarg.2
+				IL_0009: callvirt instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscovered()
+				IL_000e: ldc.i4.0
+				IL_000f: ceq
+				IL_0011: ret
+
+				IL_0012: ldc.i4.0
+				IL_0013: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x1935e0
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static int32[] kLogicSkillBoundaries
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 57 52 61 6e 67 65 3a 20 20 30 20 2d 20 31
+			30 20 20 44 65 73 63 72 69 70 74 69 6f 6e 3a 20
+			20 41 20 73 65 74 20 6f 66 20 6c 6f 67 69 63 20
+			73 6b 69 6c 6c 20 6c 65 76 65 6c 73 20 74 68 61
+			74 20 64 65 66 69 6e 65 20 74 68 65 20 6f 74 68
+			65 72 20 74 75 6e 61 62 6c 65 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private static float32[] kChancesOfFailure
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 61 52 61 6e 67 65 3a 20 20 30 2e 30 20 2d
+			20 31 2e 30 20 20 44 65 73 63 72 69 70 74 69 6f
+			6e 3a 20 20 46 6f 72 20 65 61 63 68 20 6c 6f 67
+			69 63 20 73 6b 69 6c 6c 20 6c 65 76 65 6c 20 64
+			65 66 69 6e 65 64 2c 20 74 68 65 20 63 68 61 6e
+			63 65 20 74 68 65 20 53 69 6d 20 77 69 6c 6c 20
+			66 61 69 6c 00 00
+		)
+		.field private static float32[] kChancesOfEpicFailure
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 70 52 61 6e 67 65 3a 20 20 30 2e 30 20 2d
+			20 31 2e 30 20 20 44 65 73 63 72 69 70 74 69 6f
+			6e 3a 20 20 46 6f 72 20 65 61 63 68 20 6c 6f 67
+			69 63 20 73 6b 69 6c 6c 20 6c 65 76 65 6c 20 64
+			65 66 69 6e 65 64 2c 20 67 69 76 65 6e 20 61 20
+			66 61 69 6c 75 72 65 2c 20 74 68 65 20 63 68 61
+			6e 63 65 20 69 74 20 77 69 6c 6c 20 62 65 20 65
+			70 69 63 00 00
+		)
+		.field private static float32[] kAverageInspectionTimes
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 80 89 52 61 6e 67 65 3a 20 20 30 2b 20 20
+			44 65 73 63 72 69 70 74 69 6f 6e 3a 20 20 46 6f
+			72 20 65 61 63 68 20 6c 6f 67 69 63 20 73 6b 69
+			6c 6c 20 6c 65 76 65 6c 20 64 65 66 69 6e 65 64
+			2c 20 74 68 65 20 6e 6f 72 6d 61 6c 20 74 69 6d
+			65 20 69 74 20 77 69 6c 6c 20 74 61 6b 65 20 74
+			68 65 20 53 69 6d 2c 20 69 6e 20 53 69 6d 20 6d
+			69 6e 75 74 65 73 2c 20 74 6f 20 65 6e 64 20 74
+			68 65 20 69 6e 73 70 65 63 74 69 6f 6e 00 00
+		)
+		.field private static float32 kAverageInspectionTimeSkew
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 5a 52 61 6e 67 65 3a 20 20 30 20 2d 20 31
+			2e 30 20 44 65 73 63 72 69 70 74 69 6f 6e 3a 20
+			20 54 68 65 20 70 65 72 63 65 6e 74 61 67 65 20
+			62 79 20 77 68 69 63 68 20 74 68 65 20 61 76 65
+			72 61 67 65 20 69 6e 73 70 65 63 74 69 6f 6e 20
+			74 69 6d 65 20 63 61 6e 20 73 6b 65 77 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+		.field private static initonly uint64 kIconQuestionMarkHash
+
+		// Methods
+		.method public hidebysig virtual 
+			instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey GetIconKey () cil managed 
+		{
+			// Method begins at RVA 0x1932c4
+			// Header size: 1
+			// Code size: 23 (0x17)
+			.maxstack 8
+
+			IL_0000: ldsfld uint64 Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kIconQuestionMarkHash
+			IL_0005: ldc.i4 796721156
+			IL_000a: ldc.i4.0
+			IL_000b: newobj instance void [SimIFace]Sims3.SimIFace.ResourceKey::.ctor(uint64, uint32, uint32)
+			IL_0010: ldc.i4.1
+			IL_0011: newobj instance void [SimIFace]Sims3.SimIFace.ThumbnailKey::.ctor(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+			IL_0016: ret
+		} // end of method Inspect::GetIconKey
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x1932dc
+			// Header size: 12
+			// Code size: 485 (0x1e5)
+			.maxstack 6
+			.locals init (
+				[0] string,
+				[1] int32,
+				[2] int32,
+				[3] int32,
+				[4] bool,
+				[5] bool,
+				[6] float32,
+				[7] bool
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_000c: ldloca.s 0
+			IL_000e: callvirt instance bool Sims3.Gameplay.Objects.Door.SecretDoor::RouteToSecretDoor(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, string&)
+			IL_0013: brtrue.s IL_0017
+
+			IL_0015: ldc.i4.0
+			IL_0016: ret
+
+			IL_0017: ldc.i4.0
+			IL_0018: stloc.1
+			IL_0019: ldarg.0
+			IL_001a: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_001f: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SkillManager()
+			IL_0024: ldc.i4.s 12
+			IL_0026: conv.i8
+			IL_0027: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager::GetSkillLevel(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillNames)
+			IL_002c: stloc.2
+			IL_002d: ldc.i4.0
+			IL_002e: stloc.3
+			IL_002f: br.s IL_0041
+			// loop start (head: IL_0041)
+				IL_0031: ldloc.2
+				IL_0032: ldsfld int32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kLogicSkillBoundaries
+				IL_0037: ldloc.3
+				IL_0038: ldelem.i4
+				IL_0039: blt.s IL_004b
+
+				IL_003b: ldloc.3
+				IL_003c: stloc.1
+				IL_003d: ldloc.3
+				IL_003e: ldc.i4.1
+				IL_003f: add
+				IL_0040: stloc.3
+
+				IL_0041: ldloc.3
+				IL_0042: ldsfld int32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kLogicSkillBoundaries
+				IL_0047: ldlen
+				IL_0048: conv.i4
+				IL_0049: blt.s IL_0031
+			// end loop
+
+			IL_004b: ldsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kChancesOfFailure
+			IL_0050: ldloc.1
+			IL_0051: ldelem.r4
+			IL_0052: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_0057: stloc.s 4
+			IL_0059: ldloc.s 4
+			IL_005b: brfalse.s IL_006b
+
+			IL_005d: ldsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kChancesOfEpicFailure
+			IL_0062: ldloc.1
+			IL_0063: ldelem.r4
+			IL_0064: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_0069: br.s IL_006c
+
+			IL_006b: ldc.i4.0
+
+			IL_006c: stloc.s 5
+			IL_006e: ldsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kAverageInspectionTimes
+			IL_0073: ldloc.1
+			IL_0074: ldelem.r4
+			IL_0075: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kAverageInspectionTimeSkew
+			IL_007a: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomFloatGaussianDistributionWithSkew(float32, float32)
+			IL_007f: stloc.s 6
+			IL_0081: ldarg.0
+			IL_0082: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_0087: ldarg.0
+			IL_0088: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_008d: ldarg.0
+			IL_008e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0093: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+			IL_0098: ldarg.0
+			IL_0099: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_009e: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::EnableFootprintAndPushSims(uint32, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_00a3: pop
+			IL_00a4: ldarg.0
+			IL_00a5: ldstr "doorRotatingWall"
+			IL_00aa: ldstr "Enter"
+			IL_00af: ldstr "x"
+			IL_00b4: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_00b9: ldarg.0
+			IL_00ba: ldstr "rotatingWall"
+			IL_00bf: ldarg.0
+			IL_00c0: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_00c5: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_00ca: ldloc.0
+			IL_00cb: call bool [mscorlib]System.String::IsNullOrEmpty(string)
+			IL_00d0: brtrue.s IL_00de
+
+			IL_00d2: ldarg.0
+			IL_00d3: ldstr "ikSuffix"
+			IL_00d8: ldloc.0
+			IL_00d9: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, string)
+
+			IL_00de: ldarg.0
+			IL_00df: ldstr "LoopInspect"
+			IL_00e4: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_00e9: ldarg.0
+			IL_00ea: ldloc.s 6
+			IL_00ec: call instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::DoTimedLoop(float32)
+			IL_00f1: stloc.s 7
+			IL_00f3: ldloc.s 7
+			IL_00f5: brfalse IL_01be
+
+			IL_00fa: ldloc.s 4
+			IL_00fc: brfalse.s IL_0119
+
+			IL_00fe: ldarg.0
+			IL_00ff: ldloc.s 5
+			IL_0101: brtrue.s IL_010a
+
+			IL_0103: ldstr "CancelInspect"
+			IL_0108: br.s IL_010f
+
+			IL_010a: ldstr "FailInspect"
+
+			IL_010f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0114: br IL_01af
+
+			IL_0119: ldarg.0
+			IL_011a: ldstr "SucceedInspect"
+			IL_011f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0124: ldarg.0
+			IL_0125: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_012a: callvirt instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscovered()
+			IL_012f: brtrue.s IL_0153
+
+			IL_0131: ldc.i4 362
+			IL_0136: ldarg.0
+			IL_0137: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_013c: ldarg.0
+			IL_013d: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0142: call class [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.Event [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTracker::SendEvent(valuetype [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTypeId, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_0147: pop
+			IL_0148: ldarg.0
+			IL_0149: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_014e: callvirt instance void Sims3.Gameplay.Objects.Door.SecretDoor::UnHide()
+
+			IL_0153: ldarg.0
+			IL_0154: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0159: ldarg.0
+			IL_015a: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_015f: callvirt instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::ShowInspectTns(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0164: ldarg.0
+			IL_0165: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_016a: ldc.i4.1
+			IL_016b: stfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mHasBeenInspected
+			IL_0170: ldarg.0
+			IL_0171: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0176: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mIsAutoOpenAfterInspect
+			IL_017b: brfalse.s IL_01af
+
+			IL_017d: ldarg.0
+			IL_017e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0183: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor::get_IsLocked()
+			IL_0188: brtrue.s IL_01af
+
+			IL_018a: ldarg.0
+			IL_018b: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_0190: ldc.r4 1
+			IL_0195: ldc.r4 2
+			IL_019a: ldc.i4.0
+			IL_019b: ldc.i4.3
+			IL_019c: ldc.i4.0
+			IL_019d: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::Wander(float32, float32, bool, valuetype [SimIFace]Sims3.SimIFace.RouteDistancePreference, bool)
+			IL_01a2: pop
+			IL_01a3: ldarg.0
+			IL_01a4: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_01a9: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::Open()
+			IL_01ae: pop
+
+			IL_01af: ldc.i4.s 76
+			IL_01b1: ldarg.0
+			IL_01b2: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_01b7: call void [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Lessons, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_01bc: br.s IL_01c9
+
+			IL_01be: ldarg.0
+			IL_01bf: ldstr "CancelInspect"
+			IL_01c4: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+
+			IL_01c9: ldarg.0
+			IL_01ca: ldstr "ExitClosed"
+			IL_01cf: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_01d4: ldarg.0
+			IL_01d5: ldloc.s 7
+			IL_01d7: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_01dc: ldarg.0
+			IL_01dd: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_01e2: ldloc.s 7
+			IL_01e4: ret
+		} // end of method Inspect::Run
+
+		.method public hidebysig virtual 
+			instance void Cleanup () cil managed 
+		{
+			// Method begins at RVA 0x1934cd
+			// Header size: 1
+			// Code size: 32 (0x20)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::Cleanup()
+			IL_0006: ldarg.0
+			IL_0007: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_StandardEntryCalled()
+			IL_000c: brfalse.s IL_001f
+
+			IL_000e: ldarg.0
+			IL_000f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0014: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+			IL_0019: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+			IL_001e: pop
+
+			IL_001f: ret
+		} // end of method Inspect::Cleanup
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x1935c3
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::.ctor()
+			IL_0006: ret
+		} // end of method Inspect::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x193534
+			// Header size: 12
+			// Code size: 131 (0x83)
+			.maxstack 3
+			.locals init (
+				[0] float32[]
+			)
+
+			IL_0000: ldc.i4.5
+			IL_0001: newarr [mscorlib]System.Int32
+			IL_0006: dup
+			IL_0007: ldtoken field valuetype '<PrivateImplementationDetails>{B67F5F42-2C02-4BC7-9878-87A75E61A538}'/'__StaticArrayInitTypeSize=20' '<PrivateImplementationDetails>{B67F5F42-2C02-4BC7-9878-87A75E61A538}'::'$$method0x600d066-1'
+			IL_000c: call void [mscorlib]System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(class [mscorlib]System.Array, valuetype [mscorlib]System.RuntimeFieldHandle)
+			IL_0011: stsfld int32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kLogicSkillBoundaries
+			IL_0016: ldc.i4.5
+			IL_0017: newarr [mscorlib]System.Single
+			IL_001c: dup
+			IL_001d: ldtoken field valuetype '<PrivateImplementationDetails>{B67F5F42-2C02-4BC7-9878-87A75E61A538}'/'__StaticArrayInitTypeSize=20' '<PrivateImplementationDetails>{B67F5F42-2C02-4BC7-9878-87A75E61A538}'::'$$method0x600d066-2'
+			IL_0022: call void [mscorlib]System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(class [mscorlib]System.Array, valuetype [mscorlib]System.RuntimeFieldHandle)
+			IL_0027: stsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kChancesOfFailure
+			IL_002c: ldc.i4.5
+			IL_002d: newarr [mscorlib]System.Single
+			IL_0032: stloc.0
+			IL_0033: ldloc.0
+			IL_0034: ldc.i4.0
+			IL_0035: ldc.r4 0.5
+			IL_003a: stelem.r4
+			IL_003b: ldloc.0
+			IL_003c: ldc.i4.1
+			IL_003d: ldc.r4 0.3
+			IL_0042: stelem.r4
+			IL_0043: ldloc.0
+			IL_0044: stsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kChancesOfEpicFailure
+			IL_0049: ldc.i4.5
+			IL_004a: newarr [mscorlib]System.Single
+			IL_004f: dup
+			IL_0050: ldtoken field valuetype '<PrivateImplementationDetails>{B67F5F42-2C02-4BC7-9878-87A75E61A538}'/'__StaticArrayInitTypeSize=20' '<PrivateImplementationDetails>{B67F5F42-2C02-4BC7-9878-87A75E61A538}'::'$$method0x600d066-3'
+			IL_0055: call void [mscorlib]System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(class [mscorlib]System.Array, valuetype [mscorlib]System.RuntimeFieldHandle)
+			IL_005a: stsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kAverageInspectionTimes
+			IL_005f: ldc.r4 0.25
+			IL_0064: stsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kAverageInspectionTimeSkew
+			IL_0069: newobj instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect/Definition::.ctor()
+			IL_006e: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::Singleton
+			IL_0073: ldstr "misc_question_mark"
+			IL_0078: call uint64 [SimIFace]Sims3.SimIFace.ResourceUtils::HashString64(string)
+			IL_007d: stsfld uint64 Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::kIconQuestionMarkHash
+			IL_0082: ret
+		} // end of method Inspect::.cctor
+
+	} // end of class Inspect
+
+	.class nested private auto ansi sealed beforefieldinit ReInspect
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/ReInspect>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x19361c
+				// Header size: 1
+				// Code size: 42 (0x2a)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mHasBeenInspected
+				IL_0006: brfalse.s IL_0019
+
+				IL_0008: ldstr "Gameplay/Objects/Door/RotatingWallDoor/ReInspect:InteractionName"
+				IL_000d: ldc.i4.0
+				IL_000e: newarr [mscorlib]System.Object
+				IL_0013: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+				IL_0018: ret
+
+				IL_0019: ldstr "Gameplay/Objects/Door/RotatingWallDoor/Inspect:InteractionName"
+				IL_001e: ldc.i4.0
+				IL_001f: newarr [mscorlib]System.Object
+				IL_0024: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+				IL_0029: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x193647
+				// Header size: 1
+				// Code size: 28 (0x1c)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscovered()
+				IL_0006: brfalse.s IL_001a
+
+				IL_0008: ldarg.2
+				IL_0009: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor::get_IsLocked()
+				IL_000e: brfalse.s IL_001a
+
+				IL_0010: ldarg.2
+				IL_0011: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+				IL_0016: ldc.i4.0
+				IL_0017: ceq
+				IL_0019: ret
+
+				IL_001a: ldc.i4.0
+				IL_001b: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x193664
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/ReInspect>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x1935e8
+			// Header size: 1
+			// Code size: 31 (0x1f)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_000c: callvirt instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::ShowInspectTns(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0011: ldarg.0
+			IL_0012: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0017: ldc.i4.1
+			IL_0018: stfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mHasBeenInspected
+			IL_001d: ldc.i4.1
+			IL_001e: ret
+		} // end of method ReInspect::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x193614
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::.ctor()
+			IL_0006: ret
+		} // end of method ReInspect::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x193608
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/ReInspect/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/ReInspect::Singleton
+			IL_000a: ret
+		} // end of method ReInspect::.cctor
+
+	} // end of class ReInspect
+
+	.class nested private auto ansi sealed beforefieldinit PushOpen
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x193b33
+				// Header size: 1
+				// Code size: 36 (0x24)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscovered()
+				IL_0006: brfalse.s IL_0022
+
+				IL_0008: ldarg.2
+				IL_0009: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor::get_IsLocked()
+				IL_000e: brtrue.s IL_0022
+
+				IL_0010: ldarg.2
+				IL_0011: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+				IL_0016: brtrue.s IL_0022
+
+				IL_0018: ldarg.2
+				IL_0019: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsMoving()
+				IL_001e: ldc.i4.0
+				IL_001f: ceq
+				IL_0021: ret
+
+				IL_0022: ldc.i4.0
+				IL_0023: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x193b58
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static int32 kAthleticSkillDeltaForMediumSpeed
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 61 52 61 6e 67 65 3a 20 20 30 2b 20 20 44
+			65 73 63 72 69 70 74 69 6f 6e 3a 20 20 54 68 65
+			20 64 65 6c 74 61 20 66 72 6f 6d 20 74 68 65 20
+			6d 69 6e 20 73 6b 69 6c 6c 20 6c 65 76 65 6c 20
+			61 66 74 65 72 20 77 68 69 63 68 20 74 68 65 20
+			6d 65 64 69 75 6d 20 73 70 65 65 64 20 69 73 20
+			75 73 65 64 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private static float32[] kAverageOpeningTime
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 80 9b 52 61 6e 67 65 3a 20 20 30 2b 20 20
+			44 65 73 63 72 69 70 74 69 6f 6e 3a 20 20 48 6f
+			77 20 6c 6f 6e 67 20 69 74 20 6e 6f 72 6d 61 6c
+			6c 79 20 74 61 6b 65 73 20 66 6f 72 20 53 69 6d
+			73 20 61 74 68 6c 65 74 69 63 3e 6d 69 6e 2c 20
+			61 74 68 6c 65 74 69 63 3e 6d 69 6e 2b 64 65 6c
+			74 61 6d 65 64 69 75 6d 2c 20 61 74 68 6c 65 74
+			69 63 3e 72 65 63 6f 6d 6d 65 6e 64 65 64 20 74
+			6f 20 6f 70 65 6e 20 74 68 65 20 64 6f 6f 72 2c
+			20 69 6e 20 53 69 6d 20 6d 69 6e 75 74 65 73 00 00
+		)
+		.field private static float32 kAverageOpeningTimeSkew
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 58 52 61 6e 67 65 3a 20 20 30 20 2d 20 31
+			2e 30 20 20 44 65 73 63 72 69 70 74 69 6f 6e 3a
+			20 20 54 68 65 20 70 65 72 63 65 6e 74 61 67 65
+			20 62 79 20 77 68 69 63 68 20 74 68 65 20 61 76
+			65 72 61 67 65 20 6f 70 65 6e 69 6e 67 20 74 69
+			6d 65 20 63 61 6e 20 73 6b 65 77 00 00
+		)
+		.field private static float32 kOpeningTimeFirstLoopRatio
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 6f 52 61 6e 67 65 3a 20 20 30 20 2d 20 31
+			2e 30 20 20 44 65 73 63 72 69 70 74 69 6f 6e 3a
+			20 20 54 68 69 73 20 70 65 72 63 65 6e 74 61 67
+			65 20 6f 66 20 74 68 65 20 74 69 6d 65 20 6e 65
+			63 65 73 73 61 72 79 20 74 6f 20 6f 70 65 6e 20
+			74 68 65 20 64 6f 6f 72 20 77 69 6c 6c 20 62 65
+			20 69 6e 20 74 68 65 20 66 69 72 73 74 20 6c 6f
+			6f 70 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private static float32 kChanceOfFailure
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 78 52 61 6e 67 65 3a 20 20 30 20 2d 20 31
+			2e 30 20 20 44 65 73 63 72 69 70 74 69 6f 6e 3a
+			20 20 54 68 65 20 63 68 61 6e 63 65 20 6f 66 20
+			61 20 66 61 69 6c 75 72 65 2c 20 70 72 6f 76 69
+			64 65 64 20 74 68 65 20 61 74 68 6c 65 74 69 63
+			20 73 6b 69 6c 6c 20 6c 65 76 65 6c 20 69 73 20
+			62 65 6c 6f 77 20 74 68 65 20 72 65 63 6f 6d 6d
+			65 6e 64 65 64 20 6c 65 76 65 6c 00 00
+		)
+		.field private static float32 kChanceOfEpicFailure
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 4f 52 61 6e 67 65 3a 20 20 30 20 2d 20 31
+			2e 30 20 20 44 65 73 63 72 69 70 74 69 6f 6e 3a
+			20 20 47 69 76 65 6e 20 61 20 66 61 69 6c 75 72
+			65 2c 20 74 68 65 20 63 68 61 6e 63 65 20 74 68
+			61 74 20 69 74 20 77 69 6c 6c 20 62 65 20 65 70
+			69 63 00 00
+		)
+		.field private static float32 kChanceOfFunnyFailure
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 41 52 61 6e 67 65 3a 20 20 30 20 2d 20 31
+			2e 30 20 20 44 65 73 63 72 69 70 74 69 6f 6e 3a
+			20 20 54 68 65 20 63 68 61 6e 63 65 20 6f 66 20
+			61 20 76 65 72 79 20 66 75 6e 6e 79 20 66 61 69
+			6c 75 72 65 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private static float32 kSandsOfUnderstandingOpenTimeMultiplier
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 80 af 4d 75 6c 74 69 70 6c 69 65 72 20 28
+			66 6c 6f 61 74 20 76 61 6c 75 65 29 20 74 6f 20
+			72 65 64 75 63 65 20 74 69 6d 65 20 74 6f 20 70
+			75 73 68 20 6f 70 65 6e 20 74 68 65 20 72 6f 74
+			61 74 69 6e 67 20 77 61 6c 6c 20 64 6f 6f 72 20
+			77 68 65 6e 20 67 6c 6f 77 69 6e 67 20 66 72 6f
+			6d 20 53 61 6e 64 73 20 6f 66 20 55 6e 64 65 72
+			73 74 61 6e 64 69 6e 67 2e 20 20 53 65 74 20 74
+			6f 20 31 20 74 6f 20 68 61 76 65 20 6e 6f 20 65
+			66 66 65 63 74 2c 20 30 2e 35 20 74 6f 20 73 70
+			65 65 64 20 75 70 20 62 79 20 35 30 25 2c 20 65
+			74 63 2e 00 00
+		)
+		.field private static float32 kAthleticSkillGainRate
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 3a 52 61 6e 67 65 3a 20 20 30 2b 20 20 44
+			65 73 63 72 69 70 74 69 6f 6e 3a 20 20 54 68 65
+			20 41 74 68 6c 65 74 69 63 20 67 61 69 6e 20 70
+			65 72 20 53 69 6d 20 6d 69 6e 75 74 65 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private static bool kIsSkillMeterVisible
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 50 52 61 6e 67 65 3a 20 20 74 72 75 65 2f
+			66 61 6c 73 65 20 20 44 65 73 63 72 69 70 74 69
+			6f 6e 3a 20 20 54 72 75 65 2c 20 74 6f 20 73 68
+			6f 77 20 74 68 65 20 73 6b 69 6c 6c 20 6d 65 74
+			65 72 2c 20 66 61 6c 73 65 20 6f 74 68 65 72 77
+			69 73 65 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private float32 mTimeToOpen
+		.field private float32 mTimeToOpenThisStage
+		.field private float32 mTimeSpentOpening
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x19366c
+			// Header size: 12
+			// Code size: 827 (0x33b)
+			.maxstack 5
+			.locals init (
+				[0] string,
+				[1] int32,
+				[2] bool,
+				[3] bool,
+				[4] bool,
+				[5] float32,
+				[6] bool,
+				[7] class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill,
+				[8] float32
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_000c: ldloca.s 0
+			IL_000e: callvirt instance bool Sims3.Gameplay.Objects.Door.SecretDoor::RouteToSecretDoor(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, string&)
+			IL_0013: brfalse.s IL_001d
+
+			IL_0015: ldarg.0
+			IL_0016: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::Test()
+			IL_001b: brtrue.s IL_001f
+
+			IL_001d: ldc.i4.0
+			IL_001e: ret
+
+			IL_001f: ldarg.0
+			IL_0020: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_0025: ldarg.0
+			IL_0026: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_002b: ldarg.0
+			IL_002c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0031: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnStartMoving()
+			IL_0036: ldarg.0
+			IL_0037: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_003c: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+			IL_0041: ldarg.0
+			IL_0042: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_0047: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::EnableFootprintAndPushSims(uint32, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_004c: pop
+			IL_004d: ldarg.0
+			IL_004e: ldstr "doorRotatingWall"
+			IL_0053: ldstr "Enter"
+			IL_0058: ldstr "x"
+			IL_005d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_0062: ldarg.0
+			IL_0063: ldstr "rotatingWall"
+			IL_0068: ldarg.0
+			IL_0069: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_006e: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_0073: ldloc.0
+			IL_0074: call bool [mscorlib]System.String::IsNullOrEmpty(string)
+			IL_0079: brtrue.s IL_0087
+
+			IL_007b: ldarg.0
+			IL_007c: ldstr "ikSuffix"
+			IL_0081: ldloc.0
+			IL_0082: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, string)
+
+			IL_0087: ldarg.0
+			IL_0088: ldc.i4.s 104
+			IL_008a: ldarg.0
+			IL_008b: ldftn instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::OnPushedOpen(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_0091: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_0096: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_009b: ldarg.0
+			IL_009c: ldc.i4.s 105
+			IL_009e: ldarg.0
+			IL_009f: ldftn instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::OnHandStuckInDoor(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_00a5: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_00aa: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_00af: ldarg.0
+			IL_00b0: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_00b5: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SkillManager()
+			IL_00ba: ldc.i4.2
+			IL_00bb: conv.i8
+			IL_00bc: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager::GetSkillLevel(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillNames)
+			IL_00c1: stloc.1
+			IL_00c2: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kChanceOfFunnyFailure
+			IL_00c7: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_00cc: stloc.2
+			IL_00cd: ldc.i4.0
+			IL_00ce: stloc.3
+			IL_00cf: ldc.i4.0
+			IL_00d0: stloc.s 4
+			IL_00d2: ldloc.1
+			IL_00d3: ldarg.0
+			IL_00d4: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_00d9: callvirt instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_AthleticSkillRecommended()
+			IL_00de: bge.s IL_00fa
+
+			IL_00e0: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kChanceOfFailure
+			IL_00e5: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_00ea: stloc.3
+			IL_00eb: ldloc.3
+			IL_00ec: brfalse.s IL_00fa
+
+			IL_00ee: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kChanceOfEpicFailure
+			IL_00f3: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_00f8: stloc.s 4
+
+			IL_00fa: ldarg.0
+			IL_00fb: ldsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAverageOpeningTime
+			IL_0100: ldc.i4.0
+			IL_0101: ldelem.r4
+			IL_0102: stfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+			IL_0107: ldloc.1
+			IL_0108: ldarg.0
+			IL_0109: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_010e: callvirt instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_AthleticSkillMinimum()
+			IL_0113: ldsfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAthleticSkillDeltaForMediumSpeed
+			IL_0118: add
+			IL_0119: blt.s IL_0128
+
+			IL_011b: ldarg.0
+			IL_011c: ldsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAverageOpeningTime
+			IL_0121: ldc.i4.1
+			IL_0122: ldelem.r4
+			IL_0123: stfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+
+			IL_0128: ldloc.1
+			IL_0129: ldarg.0
+			IL_012a: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_012f: callvirt instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_AthleticSkillRecommended()
+			IL_0134: blt.s IL_0143
+
+			IL_0136: ldarg.0
+			IL_0137: ldsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAverageOpeningTime
+			IL_013c: ldc.i4.2
+			IL_013d: ldelem.r4
+			IL_013e: stfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+
+			IL_0143: ldarg.0
+			IL_0144: ldarg.0
+			IL_0145: ldfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+			IL_014a: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAverageOpeningTimeSkew
+			IL_014f: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomFloatGaussianDistributionWithSkew(float32, float32)
+			IL_0154: stfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+			IL_0159: ldarg.0
+			IL_015a: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_015f: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_SandsOfUnderstandingComponent()
+			IL_0164: brfalse.s IL_0178
+
+			IL_0166: ldarg.0
+			IL_0167: dup
+			IL_0168: ldfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+			IL_016d: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kSandsOfUnderstandingOpenTimeMultiplier
+			IL_0172: mul
+			IL_0173: stfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+
+			IL_0178: ldarg.0
+			IL_0179: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_017e: ldc.r4 0.0
+			IL_0183: ldc.i4.1
+			IL_0184: call void [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter::ShowProgressMeter(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter/GlowType)
+			IL_0189: ldc.i4.1
+			IL_018a: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Utilities.SimClock::ElapsedTime(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit)
+			IL_018f: stloc.s 5
+			IL_0191: ldarg.0
+			IL_0192: ldstr "LoopClosed"
+			IL_0197: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_019c: ldarg.0
+			IL_019d: ldarg.0
+			IL_019e: ldfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+			IL_01a3: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kOpeningTimeFirstLoopRatio
+			IL_01a8: mul
+			IL_01a9: stfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpenThisStage
+			IL_01ae: ldarg.0
+			IL_01af: ldc.i4 -5652481 // 0xffa9bfff
+			IL_01b4: ldarg.0
+			IL_01b5: ldftn instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::Open(class [SimIFace]Sims3.SimIFace.StateMachineClient, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData)
+			IL_01bb: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/InsideLoopFunction::.ctor(object, native int)
+			IL_01c0: ldarg.0
+			IL_01c1: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+			IL_01c6: callvirt instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::DoLoop(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/InsideLoopFunction, class [SimIFace]Sims3.SimIFace.StateMachineClient)
+			IL_01cb: stloc.s 6
+			IL_01cd: ldloc.s 6
+			IL_01cf: brfalse.s IL_01e2
+
+			IL_01d1: ldloc.1
+			IL_01d2: ldarg.0
+			IL_01d3: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_01d8: callvirt instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_AthleticSkillMinimum()
+			IL_01dd: bge.s IL_01f2
+
+			IL_01df: ldloc.2
+			IL_01e0: brtrue.s IL_01f2
+
+			IL_01e2: ldarg.0
+			IL_01e3: ldstr "ExitClosed"
+			IL_01e8: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_01ed: br IL_02d7
+
+			IL_01f2: ldloc.2
+			IL_01f3: brfalse.s IL_0221
+
+			IL_01f5: ldarg.0
+			IL_01f6: ldstr "FunnyFailOpen"
+			IL_01fb: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0200: ldarg.0
+			IL_0201: ldstr "ExitOpen"
+			IL_0206: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_020b: ldarg.0
+			IL_020c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0211: ldarg.0
+			IL_0212: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_0217: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor::OnWalkedThrough(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_021c: br IL_02d7
+
+			IL_0221: ldarg.0
+			IL_0222: ldstr "LoopHalfOpen"
+			IL_0227: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_022c: ldarg.0
+			IL_022d: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_0232: ldc.i4 8192
+			IL_0237: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::RemoveExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_023c: ldarg.0
+			IL_023d: ldarg.0
+			IL_023e: ldfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+			IL_0243: ldc.r4 1
+			IL_0248: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kOpeningTimeFirstLoopRatio
+			IL_024d: sub
+			IL_024e: mul
+			IL_024f: stfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpenThisStage
+			IL_0254: ldarg.0
+			IL_0255: ldc.i4 -5652481 // 0xffa9bfff
+			IL_025a: ldarg.0
+			IL_025b: ldftn instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::Open(class [SimIFace]Sims3.SimIFace.StateMachineClient, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData)
+			IL_0261: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/InsideLoopFunction::.ctor(object, native int)
+			IL_0266: ldarg.0
+			IL_0267: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+			IL_026c: callvirt instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::DoLoop(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/InsideLoopFunction, class [SimIFace]Sims3.SimIFace.StateMachineClient)
+			IL_0271: stloc.s 6
+			IL_0273: ldloc.s 6
+			IL_0275: brtrue.s IL_028f
+
+			IL_0277: ldarg.0
+			IL_0278: ldstr "CancelOpen"
+			IL_027d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0282: ldarg.0
+			IL_0283: ldstr "ExitClosed"
+			IL_0288: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_028d: br.s IL_02d7
+
+			IL_028f: ldloc.3
+			IL_0290: brfalse.s IL_02bb
+
+			IL_0292: ldloc.s 4
+			IL_0294: brfalse.s IL_02a3
+
+			IL_0296: ldarg.0
+			IL_0297: ldstr "EpicFailOpen"
+			IL_029c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_02a1: br.s IL_02ae
+
+			IL_02a3: ldarg.0
+			IL_02a4: ldstr "FailOpen"
+			IL_02a9: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+
+			IL_02ae: ldarg.0
+			IL_02af: ldstr "ExitClosed"
+			IL_02b4: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_02b9: br.s IL_02d7
+
+			IL_02bb: ldarg.0
+			IL_02bc: ldstr "ExitOpen"
+			IL_02c1: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_02c6: ldarg.0
+			IL_02c7: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_02cc: ldarg.0
+			IL_02cd: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_02d2: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor::OnWalkedThrough(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+
+			IL_02d7: ldarg.0
+			IL_02d8: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_02dd: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnDoneMoving()
+			IL_02e2: ldarg.0
+			IL_02e3: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_02e8: ldarg.0
+			IL_02e9: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_02ee: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+			IL_02f3: call void [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter::HideProgressMeter(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, bool)
+			IL_02f8: ldarg.0
+			IL_02f9: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_02fe: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SkillManager()
+			IL_0303: ldc.i4.2
+			IL_0304: conv.i8
+			IL_0305: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager::AddElement(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillNames)
+			IL_030a: stloc.s 7
+			IL_030c: ldloca.s 5
+			IL_030e: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Utilities.SimClock::ElapsedTimeInMinutes(float32&)
+			IL_0313: stloc.s 8
+			IL_0315: ldloc.s 7
+			IL_0317: ldloc.s 8
+			IL_0319: ldsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAthleticSkillGainRate
+			IL_031e: mul
+			IL_031f: ldsfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kIsSkillMeterVisible
+			IL_0324: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill::AddPoints(float32, bool)
+			IL_0329: pop
+			IL_032a: ldarg.0
+			IL_032b: ldloc.s 6
+			IL_032d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_0332: ldarg.0
+			IL_0333: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_0338: ldloc.s 6
+			IL_033a: ret
+		} // end of method PushOpen::Run
+
+		.method public hidebysig virtual 
+			instance void Cleanup () cil managed 
+		{
+			// Method begins at RVA 0x1939b3
+			// Header size: 1
+			// Code size: 32 (0x20)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::Cleanup()
+			IL_0006: ldarg.0
+			IL_0007: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_StandardEntryCalled()
+			IL_000c: brfalse.s IL_001f
+
+			IL_000e: ldarg.0
+			IL_000f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0014: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+			IL_0019: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+			IL_001e: pop
+
+			IL_001f: ret
+		} // end of method PushOpen::Cleanup
+
+		.method private hidebysig 
+			instance void Open (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData ld
+			) cil managed 
+		{
+			// Method begins at RVA 0x1939d4
+			// Header size: 12
+			// Code size: 92 (0x5c)
+			.maxstack 4
+
+			IL_0000: ldarg.0
+			IL_0001: dup
+			IL_0002: ldfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeSpentOpening
+			IL_0007: ldarga.s ld
+			IL_0009: ldfld float32 [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData::mDeltaTime
+			IL_000e: add
+			IL_000f: stfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeSpentOpening
+			IL_0014: ldarg.0
+			IL_0015: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_001a: ldarg.0
+			IL_001b: ldfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeSpentOpening
+			IL_0020: ldarg.0
+			IL_0021: ldfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpen
+			IL_0026: div
+			IL_0027: ldc.r4 0.0
+			IL_002c: ldc.r4 1
+			IL_0031: call float32 [SimIFace]Sims3.SimIFace.MathUtils::Clamp(float32, float32, float32)
+			IL_0036: ldc.i4.1
+			IL_0037: call void [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter::UpdateProgressMeter(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter/GlowType)
+			IL_003c: ldarga.s ld
+			IL_003e: ldfld float32 [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData::mLifeTime
+			IL_0043: ldarg.0
+			IL_0044: ldfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::mTimeToOpenThisStage
+			IL_0049: blt.un.s IL_005b
+
+			IL_004b: ldarg.0
+			IL_004c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_0051: ldc.i4 8192
+			IL_0056: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::AddExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+
+			IL_005b: ret
+		} // end of method PushOpen::Open
+
+		.method private hidebysig 
+			instance void OnPushedOpen (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x193a3c
+			// Header size: 1
+			// Code size: 47 (0x2f)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0006: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::RemoveComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent>()
+			IL_000b: ldarg.0
+			IL_000c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0011: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::SetOpen()
+			IL_0016: ldarg.0
+			IL_0017: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_001c: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsAutoshut()
+			IL_0021: brfalse.s IL_002e
+
+			IL_0023: ldarg.0
+			IL_0024: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0029: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::CloseWhenAble()
+
+			IL_002e: ret
+		} // end of method PushOpen::OnPushedOpen
+
+		.method private hidebysig 
+			instance void OnHandStuckInDoor (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x193a6c
+			// Header size: 1
+			// Code size: 48 (0x30)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_0006: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_BuffManager()
+			IL_000b: ldc.i8 18577522211120080
+			IL_0014: ldc.i8 -8359806666160896141 // 0x8bfc002118898773
+			IL_001d: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffManager::AddElement(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffNames, valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.Origin)
+			IL_0022: pop
+			IL_0023: ldarg.0
+			IL_0024: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Actor
+			IL_0029: ldc.i4.5
+			IL_002a: call void [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitFunctions::TraitReactionToDanger(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.ReactionSpeed)
+			IL_002f: ret
+		} // end of method PushOpen::OnHandStuckInDoor
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x193b2b
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::.ctor()
+			IL_0006: ret
+		} // end of method PushOpen::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x193aac
+			// Header size: 12
+			// Code size: 115 (0x73)
+			.maxstack 3
+
+			IL_0000: ldc.i4.3
+			IL_0001: stsfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAthleticSkillDeltaForMediumSpeed
+			IL_0006: ldc.i4.3
+			IL_0007: newarr [mscorlib]System.Single
+			IL_000c: dup
+			IL_000d: ldtoken field valuetype '<PrivateImplementationDetails>{B67F5F42-2C02-4BC7-9878-87A75E61A538}'/'__StaticArrayInitTypeSize=12' '<PrivateImplementationDetails>{B67F5F42-2C02-4BC7-9878-87A75E61A538}'::'$$method0x600d068-1'
+			IL_0012: call void [mscorlib]System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(class [mscorlib]System.Array, valuetype [mscorlib]System.RuntimeFieldHandle)
+			IL_0017: stsfld float32[] Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAverageOpeningTime
+			IL_001c: ldc.r4 0.25
+			IL_0021: stsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAverageOpeningTimeSkew
+			IL_0026: ldc.r4 0.7
+			IL_002b: stsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kOpeningTimeFirstLoopRatio
+			IL_0030: ldc.r4 0.7
+			IL_0035: stsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kChanceOfFailure
+			IL_003a: ldc.r4 0.3
+			IL_003f: stsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kChanceOfEpicFailure
+			IL_0044: ldc.r4 0.1
+			IL_0049: stsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kChanceOfFunnyFailure
+			IL_004e: ldc.r4 0.5
+			IL_0053: stsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kSandsOfUnderstandingOpenTimeMultiplier
+			IL_0058: ldc.r4 2
+			IL_005d: stsfld float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kAthleticSkillGainRate
+			IL_0062: ldc.i4.1
+			IL_0063: stsfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::kIsSkillMeterVisible
+			IL_0068: newobj instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen/Definition::.ctor()
+			IL_006d: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::Singleton
+			IL_0072: ret
+		} // end of method PushOpen::.cctor
+
+	} // end of class PushOpen
+
+	.class nested private auto ansi sealed beforefieldinit SetAthleticSkillRequirements
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field private bool mIsMinimum
+			.field private int32 mSkillLevel
+
+			// Methods
+			.method public hidebysig specialname 
+				instance bool get_IsMinimum () cil managed 
+			{
+				// Method begins at RVA 0x193bba
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mIsMinimum
+				IL_0006: ret
+			} // end of method Definition::get_IsMinimum
+
+			.method public hidebysig specialname 
+				instance int32 get_SkillLevel () cil managed 
+			{
+				// Method begins at RVA 0x193bc2
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mSkillLevel
+				IL_0006: ret
+			} // end of method Definition::get_SkillLevel
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x193bca
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+			.method private hidebysig specialname rtspecialname 
+				instance void .ctor (
+					bool isMinimum,
+					int32 skillLevel
+				) cil managed 
+			{
+				// Method begins at RVA 0x193bd2
+				// Header size: 1
+				// Code size: 21 (0x15)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements>::.ctor()
+				IL_0006: ldarg.0
+				IL_0007: ldarg.1
+				IL_0008: stfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mIsMinimum
+				IL_000d: ldarg.0
+				IL_000e: ldarg.2
+				IL_000f: stfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mSkillLevel
+				IL_0014: ret
+			} // end of method Definition::.ctor
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor actor,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x193be8
+				// Header size: 12
+				// Code size: 66 (0x42)
+				.maxstack 4
+				.locals init (
+					[0] class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill,
+					[1] int32
+				)
+
+				IL_0000: ldc.i4.2
+				IL_0001: conv.i8
+				IL_0002: call class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager::GetStaticSkill(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillNames)
+				IL_0007: stloc.0
+				IL_0008: ldc.i4.m1
+				IL_0009: stloc.1
+				IL_000a: br.s IL_0038
+				// loop start (head: IL_0038)
+					IL_000c: ldarg.s results
+					IL_000e: ldc.i4.1
+					IL_000f: ldloc.1
+					IL_0010: newobj instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::.ctor(bool, int32)
+					IL_0015: ldarg.3
+					IL_0016: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+					IL_001b: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+					IL_0020: ldarg.s results
+					IL_0022: ldc.i4.0
+					IL_0023: ldloc.1
+					IL_0024: newobj instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::.ctor(bool, int32)
+					IL_0029: ldarg.3
+					IL_002a: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+					IL_002f: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+					IL_0034: ldloc.1
+					IL_0035: ldc.i4.1
+					IL_0036: add
+					IL_0037: stloc.1
+
+					IL_0038: ldloc.1
+					IL_0039: ldloc.0
+					IL_003a: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill::get_MaxSkillLevel()
+					IL_003f: ble.s IL_000c
+				// end loop
+
+				IL_0041: ret
+			} // end of method Definition::AddInteractions
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x193c38
+				// Header size: 12
+				// Code size: 75 (0x4b)
+				.maxstack 3
+				.locals init (
+					[0] string
+				)
+
+				IL_0000: ldarg.0
+				IL_0001: ldflda int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mSkillLevel
+				IL_0006: call instance string [mscorlib]System.Int32::ToString()
+				IL_000b: stloc.0
+				IL_000c: ldarg.0
+				IL_000d: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mIsMinimum
+				IL_0012: brfalse.s IL_0022
+
+				IL_0014: ldarg.2
+				IL_0015: callvirt instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_AthleticSkillMinimum()
+				IL_001a: ldarg.0
+				IL_001b: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mSkillLevel
+				IL_0020: beq.s IL_0038
+
+				IL_0022: ldarg.0
+				IL_0023: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mIsMinimum
+				IL_0028: brtrue.s IL_0049
+
+				IL_002a: ldarg.2
+				IL_002b: callvirt instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_AthleticSkillRecommended()
+				IL_0030: ldarg.0
+				IL_0031: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mSkillLevel
+				IL_0036: bne.un.s IL_0049
+
+				IL_0038: ldstr "*"
+				IL_003d: ldloc.0
+				IL_003e: ldstr "*"
+				IL_0043: call string [mscorlib]System.String::Concat(string, string, string)
+				IL_0048: stloc.0
+
+				IL_0049: ldloc.0
+				IL_004a: ret
+			} // end of method Definition::GetInteractionName
+
+			.method public hidebysig virtual 
+				instance string[] GetPath (
+					bool isFemale
+				) cil managed 
+			{
+				// Method begins at RVA 0x193c90
+				// Header size: 12
+				// Code size: 84 (0x54)
+				.maxstack 4
+				.locals init (
+					[0] string[],
+					[1] string[]
+				)
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::mIsMinimum
+				IL_0006: brfalse.s IL_002e
+
+				IL_0008: ldc.i4.1
+				IL_0009: newarr [mscorlib]System.String
+				IL_000e: stloc.0
+				IL_000f: ldloc.0
+				IL_0010: ldc.i4.0
+				IL_0011: ldstr "SetAthleticSkillMinimum"
+				IL_0016: ldc.i4.0
+				IL_0017: newarr [mscorlib]System.Object
+				IL_001c: call string Sims3.Gameplay.Objects.Door.RotatingWallDoor::LocalizeString(string, object[])
+				IL_0021: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::get_Ellipsis()
+				IL_0026: call string [mscorlib]System.String::Concat(string, string)
+				IL_002b: stelem.ref
+				IL_002c: ldloc.0
+				IL_002d: ret
+
+				IL_002e: ldc.i4.1
+				IL_002f: newarr [mscorlib]System.String
+				IL_0034: stloc.1
+				IL_0035: ldloc.1
+				IL_0036: ldc.i4.0
+				IL_0037: ldstr "SetAthleticSkillRecommended"
+				IL_003c: ldc.i4.0
+				IL_003d: newarr [mscorlib]System.Object
+				IL_0042: call string Sims3.Gameplay.Objects.Door.RotatingWallDoor::LocalizeString(string, object[])
+				IL_0047: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::get_Ellipsis()
+				IL_004c: call string [mscorlib]System.String::Concat(string, string)
+				IL_0051: stelem.ref
+				IL_0052: ldloc.1
+				IL_0053: ret
+			} // end of method Definition::GetPath
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x193cf0
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			// Properties
+			.property instance bool IsMinimum()
+			{
+				.get instance bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::get_IsMinimum()
+			}
+			.property instance int32 SkillLevel()
+			{
+				.get instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::get_SkillLevel()
+			}
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x193b60
+			// Header size: 12
+			// Code size: 58 (0x3a)
+			.maxstack 2
+			.locals init (
+				[0] class Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_InteractionDefinition()
+			IL_0006: isinst Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition
+			IL_000b: stloc.0
+			IL_000c: ldloc.0
+			IL_000d: callvirt instance bool Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::get_IsMinimum()
+			IL_0012: brfalse.s IL_0027
+
+			IL_0014: ldarg.0
+			IL_0015: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_001a: ldloc.0
+			IL_001b: callvirt instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::get_SkillLevel()
+			IL_0020: callvirt instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::set_AthleticSkillMinimum(int32)
+			IL_0025: br.s IL_0038
+
+			IL_0027: ldarg.0
+			IL_0028: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_002d: ldloc.0
+			IL_002e: callvirt instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::get_SkillLevel()
+			IL_0033: callvirt instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::set_AthleticSkillRecommended(int32)
+
+			IL_0038: ldc.i4.1
+			IL_0039: ret
+		} // end of method SetAthleticSkillRequirements::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x193bb2
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::.ctor()
+			IL_0006: ret
+		} // end of method SetAthleticSkillRequirements::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x193ba6
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements::Singleton
+			IL_000a: ret
+		} // end of method SetAthleticSkillRequirements::.cctor
+
+	} // end of class SetAthleticSkillRequirements
+
+	.class nested private auto ansi sealed beforefieldinit ToggleAutoOpen
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/ToggleAutoOpen>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x193d23
+				// Header size: 1
+				// Code size: 42 (0x2a)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mIsAutoOpenAfterInspect
+				IL_0006: brfalse.s IL_0019
+
+				IL_0008: ldstr "DisableAutoOpen"
+				IL_000d: ldc.i4.0
+				IL_000e: newarr [mscorlib]System.Object
+				IL_0013: call string Sims3.Gameplay.Objects.Door.RotatingWallDoor::LocalizeString(string, object[])
+				IL_0018: ret
+
+				IL_0019: ldstr "EnableAutoOpen"
+				IL_001e: ldc.i4.0
+				IL_001f: newarr [mscorlib]System.Object
+				IL_0024: call string Sims3.Gameplay.Objects.Door.RotatingWallDoor::LocalizeString(string, object[])
+				IL_0029: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.Door.RotatingWallDoor target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x193d4e
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x193d51
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor/ToggleAutoOpen>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x193cf3
+			// Header size: 1
+			// Code size: 27 (0x1b)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::Target
+			IL_000c: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mIsAutoOpenAfterInspect
+			IL_0011: ldc.i4.0
+			IL_0012: ceq
+			IL_0014: stfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mIsAutoOpenAfterInspect
+			IL_0019: ldc.i4.1
+			IL_001a: ret
+		} // end of method ToggleAutoOpen::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x193d1b
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.Door.RotatingWallDoor>::.ctor()
+			IL_0006: ret
+		} // end of method ToggleAutoOpen::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x193d0f
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor/ToggleAutoOpen/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/ToggleAutoOpen::Singleton
+			IL_000a: ret
+		} // end of method ToggleAutoOpen::.cctor
+
+	} // end of class ToggleAutoOpen
+
+
+	// Fields
+	.field private static literal string kLocalizationKey = "Gameplay/Objects/Door/RotatingWallDoor"
+	.field private static literal uint32 kRotatingWallDoorAthleticSkillRecommended = uint32(147007425)
+	.field private static literal uint32 kRotatingWallDoorAthleticSkillMinimum = uint32(147007426)
+	.field private static literal uint32 kRotatingWallDoorIsAutoOpenAfterInspect = uint32(147007427)
+	.field private static initonly uint32 kOpenFootprint
+	.field private static initonly uint32 kOpeningFootprint
+	.field private static class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[] sInteractionDefinitions
+	.field private static int32 kDefaultMinimumAthleticSkill
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 5e 52 61 6e 67 65 3a 20 20 30 2d 31 30 20
+		20 44 65 73 63 72 69 70 74 69 6f 6e 3a 20 20 54
+		68 65 20 64 65 66 61 75 6c 74 20 6d 69 6e 69 6d
+		75 6d 20 72 65 71 75 69 72 65 64 20 61 74 68 6c
+		65 74 69 63 20 73 6b 69 6c 6c 20 6f 6e 20 6e 65
+		77 6c 79 20 63 72 65 61 74 65 64 20 64 6f 6f 72
+		73 00 00
+	)
+	.field private static int32 kDefaultRecommendedAthleticSkill
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 59 52 61 6e 67 65 3a 20 20 30 2d 31 30 20
+		20 44 65 73 63 72 69 70 74 69 6f 6e 3a 20 20 54
+		68 65 20 64 65 66 61 75 6c 74 20 72 65 63 6f 6d
+		6d 65 6e 64 65 64 20 61 74 68 6c 65 74 69 63 20
+		73 6b 69 6c 6c 20 6f 6e 20 6e 65 77 6c 79 20 63
+		72 65 61 74 65 64 20 64 6f 6f 72 73 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private bool mIsAutoOpenAfterInspect
+	.field private bool mHasBeenInspected
+	.field private int32 mAthleticSkillRecommended
+	.field private int32 mAthleticSkillMinimum
+	.field private class [SimIFace]Sims3.SimIFace.StateMachineClient mPoseStateMachine
+
+	// Methods
+	.method public hidebysig specialname 
+		instance int32 get_AthleticSkillRecommended () cil managed 
+	{
+		// Method begins at RVA 0x192b37
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillRecommended
+		IL_0006: ret
+	} // end of method RotatingWallDoor::get_AthleticSkillRecommended
+
+	.method public hidebysig specialname 
+		instance void set_AthleticSkillRecommended (
+			int32 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x192b3f
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillRecommended
+		IL_0007: ret
+	} // end of method RotatingWallDoor::set_AthleticSkillRecommended
+
+	.method public hidebysig specialname 
+		instance int32 get_AthleticSkillMinimum () cil managed 
+	{
+		// Method begins at RVA 0x192b48
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillMinimum
+		IL_0006: ret
+	} // end of method RotatingWallDoor::get_AthleticSkillMinimum
+
+	.method public hidebysig specialname 
+		instance void set_AthleticSkillMinimum (
+			int32 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x192b50
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillMinimum
+		IL_0007: ret
+	} // end of method RotatingWallDoor::set_AthleticSkillMinimum
+
+	.method public hidebysig specialname virtual 
+		instance float32 get_PortalCost () cil managed 
+	{
+		// Method begins at RVA 0x192b59
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldc.r4 2
+		IL_0005: ret
+	} // end of method RotatingWallDoor::get_PortalCost
+
+	.method public hidebysig specialname virtual 
+		instance string get_StateMachineName () cil managed 
+	{
+		// Method begins at RVA 0x192b60
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldstr "doorRotatingWall"
+		IL_0005: ret
+	} // end of method RotatingWallDoor::get_StateMachineName
+
+	.method public hidebysig specialname virtual 
+		instance string get_StateMachineActorName () cil managed 
+	{
+		// Method begins at RVA 0x192b67
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldstr "rotatingWall"
+		IL_0005: ret
+	} // end of method RotatingWallDoor::get_StateMachineActorName
+
+	.method public hidebysig specialname virtual 
+		instance string get_OpenGeoState () cil managed 
+	{
+		// Method begins at RVA 0x192b6e
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldstr "unlocked"
+		IL_0005: ret
+	} // end of method RotatingWallDoor::get_OpenGeoState
+
+	.method public hidebysig specialname virtual 
+		instance string get_ClosedGeoState () cil managed 
+	{
+		// Method begins at RVA 0x192b75
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor::get_IsLocked()
+		IL_0006: brtrue.s IL_000e
+
+		IL_0008: ldstr "unlocked"
+		IL_000d: ret
+
+		IL_000e: ldstr "locked"
+		IL_0013: ret
+	} // end of method RotatingWallDoor::get_ClosedGeoState
+
+	.method family hidebysig specialname virtual 
+		instance bool get_CanOpen () cil managed 
+	{
+		// Method begins at RVA 0x192b8a
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.0
+		IL_0001: ret
+	} // end of method RotatingWallDoor::get_CanOpen
+
+	.method family hidebysig specialname virtual 
+		instance bool get_CanAutoshut () cil managed 
+	{
+		// Method begins at RVA 0x192b8d
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscovered()
+		IL_0006: ret
+	} // end of method RotatingWallDoor::get_CanAutoshut
+
+	.method private hidebysig static 
+		string LocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x192b95
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldstr "Gameplay/Objects/Door/RotatingWallDoor:"
+		IL_0005: ldarg.0
+		IL_0006: call string [mscorlib]System.String::Concat(string, string)
+		IL_000b: ldarg.1
+		IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0011: ret
+	} // end of method RotatingWallDoor::LocalizeString
+
+	.method private hidebysig static 
+		string LocalizeString (
+			bool isFemale,
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [3]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x192ba8
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldstr "Gameplay/Objects/Door/RotatingWallDoor:"
+		IL_0006: ldarg.1
+		IL_0007: call string [mscorlib]System.String::Concat(string, string)
+		IL_000c: ldarg.2
+		IL_000d: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+		IL_0012: ret
+	} // end of method RotatingWallDoor::LocalizeString
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x192bbc
+		// Header size: 1
+		// Code size: 30 (0x1e)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/ToggleAutoOpen::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.1
+		IL_000c: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements::Singleton
+		IL_0011: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0016: ldarg.0
+		IL_0017: ldarg.1
+		IL_0018: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_001d: ret
+	} // end of method RotatingWallDoor::AddBuildBuyInteractions
+
+	.method family hidebysig virtual 
+		instance void AddDebugInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> debugInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x192bdb
+		// Header size: 1
+		// Code size: 30 (0x1e)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/ToggleAutoOpen::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.1
+		IL_000c: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/SetAthleticSkillRequirements::Singleton
+		IL_0011: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0016: ldarg.0
+		IL_0017: ldarg.1
+		IL_0018: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::AddDebugInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_001d: ret
+	} // end of method RotatingWallDoor::AddDebugInteractions
+
+	.method public hidebysig virtual 
+		instance void OnCreation () cil managed 
+	{
+		// Method begins at RVA 0x192bfa
+		// Header size: 1
+		// Code size: 36 (0x24)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::OnCreation()
+		IL_0006: ldarg.0
+		IL_0007: ldsfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kDefaultMinimumAthleticSkill
+		IL_000c: stfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillMinimum
+		IL_0011: ldarg.0
+		IL_0012: ldsfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kDefaultRecommendedAthleticSkill
+		IL_0017: stfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillRecommended
+		IL_001c: ldarg.0
+		IL_001d: ldc.i4.1
+		IL_001e: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates(bool)
+		IL_0023: ret
+	} // end of method RotatingWallDoor::OnCreation
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x192c1f
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::UpdateVisualState()
+		IL_0006: ldarg.0
+		IL_0007: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnStartup()
+		IL_000c: ret
+	} // end of method RotatingWallDoor::OnStartup
+
+	.method public hidebysig virtual 
+		instance void OnLoad () cil managed 
+	{
+		// Method begins at RVA 0x192c2d
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnLoad()
+		IL_0006: ldarg.0
+		IL_0007: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates()
+		IL_000c: ret
+	} // end of method RotatingWallDoor::OnLoad
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x192c3c
+		// Header size: 12
+		// Code size: 81 (0x51)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 147007425
+		IL_0010: ldarg.0
+		IL_0011: ldflda int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillRecommended
+		IL_0016: ldc.i4.m1
+		IL_0017: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadInt32(uint32, int32&, int32)
+		IL_001c: pop
+		IL_001d: ldarg.3
+		IL_001e: ldc.i4 147007426
+		IL_0023: ldarg.0
+		IL_0024: ldflda int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillMinimum
+		IL_0029: ldc.i4.m1
+		IL_002a: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadInt32(uint32, int32&, int32)
+		IL_002f: pop
+		IL_0030: ldarg.3
+		IL_0031: ldc.i4 147007427
+		IL_0036: ldarg.0
+		IL_0037: ldflda bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mIsAutoOpenAfterInspect
+		IL_003c: ldc.i4.0
+		IL_003d: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_0042: pop
+		IL_0043: ldarg.0
+		IL_0044: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates()
+		IL_0049: ldarg.0
+		IL_004a: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::UpdateVisualState()
+		IL_004f: ldloc.0
+		IL_0050: ret
+	} // end of method RotatingWallDoor::ImportContent
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x192c9c
+		// Header size: 12
+		// Code size: 66 (0x42)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 147007425
+		IL_0010: ldarg.0
+		IL_0011: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillRecommended
+		IL_0016: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_001b: pop
+		IL_001c: ldarg.3
+		IL_001d: ldc.i4 147007426
+		IL_0022: ldarg.0
+		IL_0023: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillMinimum
+		IL_0028: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_002d: pop
+		IL_002e: ldarg.3
+		IL_002f: ldc.i4 147007427
+		IL_0034: ldarg.0
+		IL_0035: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mIsAutoOpenAfterInspect
+		IL_003a: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_003f: pop
+		IL_0040: ldloc.0
+		IL_0041: ret
+	} // end of method RotatingWallDoor::ExportContent
+
+	.method public hidebysig virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x192cec
+		// Header size: 12
+		// Code size: 97 (0x61)
+		.maxstack 4
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::LoadWorldBuilderData()
+		IL_0006: ldstr "SecretDoor"
+		IL_000b: ldarg.0
+		IL_000c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0011: ldstr "mAthleticSkillRecommended"
+		IL_0016: ldarg.0
+		IL_0017: ldflda int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillRecommended
+		IL_001c: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<int32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0021: pop
+		IL_0022: ldstr "SecretDoor"
+		IL_0027: ldarg.0
+		IL_0028: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_002d: ldstr "mAthleticSkillMinimum"
+		IL_0032: ldarg.0
+		IL_0033: ldflda int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillMinimum
+		IL_0038: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<int32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_003d: pop
+		IL_003e: ldstr "SecretDoor"
+		IL_0043: ldarg.0
+		IL_0044: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0049: ldstr "mIsAutoOpenAfterInspect"
+		IL_004e: ldarg.0
+		IL_004f: ldflda bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mIsAutoOpenAfterInspect
+		IL_0054: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0059: pop
+		IL_005a: ldarg.0
+		IL_005b: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates()
+		IL_0060: ret
+	} // end of method RotatingWallDoor::LoadWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x192d5c
+		// Header size: 12
+		// Code size: 91 (0x5b)
+		.maxstack 5
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::SaveWorldBuilderData()
+		IL_0006: ldstr "SecretDoor"
+		IL_000b: ldarg.0
+		IL_000c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0011: ldstr "mAthleticSkillRecommended"
+		IL_0016: ldarg.0
+		IL_0017: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillRecommended
+		IL_001c: ldc.i4.0
+		IL_001d: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<int32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0022: ldstr "SecretDoor"
+		IL_0027: ldarg.0
+		IL_0028: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_002d: ldstr "mAthleticSkillMinimum"
+		IL_0032: ldarg.0
+		IL_0033: ldfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::mAthleticSkillMinimum
+		IL_0038: ldc.i4.0
+		IL_0039: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<int32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_003e: ldstr "SecretDoor"
+		IL_0043: ldarg.0
+		IL_0044: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0049: ldstr "mIsAutoOpenAfterInspect"
+		IL_004e: ldarg.0
+		IL_004f: ldfld bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::mIsAutoOpenAfterInspect
+		IL_0054: ldc.i4.0
+		IL_0055: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_005a: ret
+	} // end of method RotatingWallDoor::SaveWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance void Dispose () cil managed 
+	{
+		// Method begins at RVA 0x192dc3
+		// Header size: 1
+		// Code size: 33 (0x21)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_0006: brfalse.s IL_001a
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_000e: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::Dispose()
+		IL_0013: ldarg.0
+		IL_0014: ldnull
+		IL_0015: stfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+
+		IL_001a: ldarg.0
+		IL_001b: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::Dispose()
+		IL_0020: ret
+	} // end of method RotatingWallDoor::Dispose
+
+	.method family hidebysig virtual 
+		instance void DoReset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject/ResetInformation resetInformation
+		) cil managed 
+	{
+		// Method begins at RVA 0x192de5
+		// Header size: 1
+		// Code size: 21 (0x15)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DoReset(class [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject/ResetInformation)
+		IL_0007: ldarg.0
+		IL_0008: ldnull
+		IL_0009: stfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_000e: ldarg.0
+		IL_000f: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::UpdateVisualState()
+		IL_0014: ret
+	} // end of method RotatingWallDoor::DoReset
+
+	.method public hidebysig virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> GetAllInteractionsForActor (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor s
+		) cil managed 
+	{
+		// Method begins at RVA 0x192dfb
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.0
+		IL_0003: ldarg.1
+		IL_0004: call instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::GetAllInteractionsForActor(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor)
+		IL_0009: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Objects.Door.RotatingWallDoor::sInteractionDefinitions
+		IL_000e: call instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::BuildInteractions(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_0013: ret
+	} // end of method RotatingWallDoor::GetAllInteractionsForActor
+
+	.method public hidebysig virtual 
+		instance bool HasAnyInteraction (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor actor,
+			valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+		) cil managed 
+	{
+		// Method begins at RVA 0x192e10
+		// Header size: 1
+		// Code size: 26 (0x1a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Objects.Door.RotatingWallDoor::sInteractionDefinitions
+		IL_0008: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::TestInteractions(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_000d: brfalse.s IL_0011
+
+		IL_000f: ldc.i4.1
+		IL_0010: ret
+
+		IL_0011: ldarg.0
+		IL_0012: ldarg.1
+		IL_0013: ldarg.2
+		IL_0014: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::HasAnyInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+		IL_0019: ret
+	} // end of method RotatingWallDoor::HasAnyInteraction
+
+	.method private hidebysig 
+		instance void ShowInspectTns (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x192e2c
+		// Header size: 12
+		// Code size: 153 (0x99)
+		.maxstack 6
+		.locals init (
+			[0] object[],
+			[1] valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor::get_IsLocked()
+		IL_0006: brtrue.s IL_0038
+
+		IL_0008: ldarg.1
+		IL_0009: ldarg.1
+		IL_000a: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+		IL_000f: ldstr "Discovered"
+		IL_0014: ldc.i4.1
+		IL_0015: newarr [mscorlib]System.Object
+		IL_001a: stloc.0
+		IL_001b: ldloc.0
+		IL_001c: ldc.i4.0
+		IL_001d: ldarg.1
+		IL_001e: stelem.ref
+		IL_001f: ldloc.0
+		IL_0020: call string Sims3.Gameplay.Objects.Door.RotatingWallDoor::LocalizeString(bool, string, object[])
+		IL_0025: ldc.i4.3
+		IL_0026: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_002b: ldarg.1
+		IL_002c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0031: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0036: pop
+		IL_0037: ret
+
+		IL_0038: ldarg.0
+		IL_0039: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_003e: ldc.i4.1
+		IL_003f: newarr [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior
+		IL_0044: stloc.1
+		IL_0045: ldloc.1
+		IL_0046: ldc.i4.0
+		IL_0047: ldc.i4.4
+		IL_0048: stelem.i4
+		IL_0049: ldloc.1
+		IL_004a: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::IsActivatedBehaviorLinkedFromObjectType<class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior[])
+		IL_004f: brfalse.s IL_0075
+
+		IL_0051: ldarg.1
+		IL_0052: ldstr "LockedByKeystonePanel"
+		IL_0057: ldc.i4.0
+		IL_0058: newarr [mscorlib]System.Object
+		IL_005d: call string Sims3.Gameplay.Objects.Door.RotatingWallDoor::LocalizeString(string, object[])
+		IL_0062: ldc.i4.3
+		IL_0063: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_0068: ldarg.1
+		IL_0069: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_006e: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0073: pop
+		IL_0074: ret
+
+		IL_0075: ldarg.1
+		IL_0076: ldstr "LockedByTrigger"
+		IL_007b: ldc.i4.0
+		IL_007c: newarr [mscorlib]System.Object
+		IL_0081: call string Sims3.Gameplay.Objects.Door.RotatingWallDoor::LocalizeString(string, object[])
+		IL_0086: ldc.i4.3
+		IL_0087: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_008c: ldarg.1
+		IL_008d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0092: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0097: pop
+		IL_0098: ret
+	} // end of method RotatingWallDoor::ShowInspectTns
+
+	.method family hidebysig virtual 
+		instance bool ShouldClose () cil managed 
+	{
+		// Method begins at RVA 0x192ed1
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::ShouldOpenOrClose()
+		IL_0006: brtrue.s IL_000a
+
+		IL_0008: ldc.i4.0
+		IL_0009: ret
+
+		IL_000a: ldarg.0
+		IL_000b: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::ShouldClose()
+		IL_0010: ret
+	} // end of method RotatingWallDoor::ShouldClose
+
+	.method family hidebysig virtual 
+		instance bool ShouldOpen () cil managed 
+	{
+		// Method begins at RVA 0x192ee3
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::ShouldOpenOrClose()
+		IL_0006: brtrue.s IL_000a
+
+		IL_0008: ldc.i4.0
+		IL_0009: ret
+
+		IL_000a: ldarg.0
+		IL_000b: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::ShouldOpen()
+		IL_0010: ret
+	} // end of method RotatingWallDoor::ShouldOpen
+
+	.method private hidebysig 
+		instance bool ShouldOpenOrClose () cil managed 
+	{
+		// Method begins at RVA 0x192ef8
+		// Header size: 12
+		// Code size: 50 (0x32)
+		.maxstack 5
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>::.ctor()
+		IL_0005: stloc.0
+		IL_0006: ldloc.0
+		IL_0007: ldarg.0
+		IL_0008: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::mSimCausingAutoshut
+		IL_000d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>::Add(!0)
+		IL_0012: ldarg.0
+		IL_0013: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+		IL_0018: ldnull
+		IL_0019: ldloc.0
+		IL_001a: ldc.i4.1
+		IL_001b: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::EnableFootprintAndPushSims(uint32, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>, bool)
+		IL_0020: brtrue.s IL_0030
+
+		IL_0022: ldarg.0
+		IL_0023: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+		IL_0028: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+		IL_002d: pop
+		IL_002e: ldc.i4.0
+		IL_002f: ret
+
+		IL_0030: ldc.i4.1
+		IL_0031: ret
+	} // end of method RotatingWallDoor::ShouldOpenOrClose
+
+	.method family hidebysig virtual 
+		instance void OnStartMoving () cil managed 
+	{
+		// Method begins at RVA 0x192f36
+		// Header size: 1
+		// Code size: 33 (0x21)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+		IL_0006: brtrue.s IL_0014
+
+		IL_0008: ldarg.0
+		IL_0009: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000e: ldc.i4.1
+		IL_000f: call void [SimIFace]Sims3.SimIFace.World::SetWallCutoutStateForObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+
+		IL_0014: ldarg.0
+		IL_0015: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_001a: ldc.i4.1
+		IL_001b: call void [SimIFace]Sims3.SimIFace.World::DoorLockStateChanged(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+		IL_0020: ret
+	} // end of method RotatingWallDoor::OnStartMoving
+
+	.method family hidebysig virtual 
+		instance void OnDoneMoving () cil managed 
+	{
+		// Method begins at RVA 0x192f58
+		// Header size: 1
+		// Code size: 44 (0x2c)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::OnDoneMoving()
+		IL_0006: ldarg.0
+		IL_0007: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+		IL_000c: brtrue.s IL_001a
+
+		IL_000e: ldarg.0
+		IL_000f: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0014: ldc.i4.0
+		IL_0015: call void [SimIFace]Sims3.SimIFace.World::SetWallCutoutStateForObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+
+		IL_001a: ldarg.0
+		IL_001b: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0020: ldarg.0
+		IL_0021: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor::IsVisibleInTombRoom()
+		IL_0026: call void [SimIFace]Sims3.SimIFace.World::DoorLockStateChanged(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+		IL_002b: ret
+	} // end of method RotatingWallDoor::OnDoneMoving
+
+	.method family hidebysig virtual 
+		instance void OnClose () cil managed 
+	{
+		// Method begins at RVA 0x192f88
+		// Header size: 12
+		// Code size: 47 (0x2f)
+		.maxstack 2
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnClose()
+		IL_0006: ldarg.0
+		IL_0007: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000c: stloc.0
+		IL_000d: ldloca.s 0
+		IL_000f: call instance !!0 [SimIFace]Sims3.SimIFace.ObjectGuid::ObjectFromId<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>()
+		IL_0014: brfalse.s IL_002e
+
+		IL_0016: ldarg.0
+		IL_0017: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+		IL_001c: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+		IL_0021: pop
+		IL_0022: ldarg.0
+		IL_0023: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpenFootprint
+		IL_0028: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+		IL_002d: pop
+
+		IL_002e: ret
+	} // end of method RotatingWallDoor::OnClose
+
+	.method family hidebysig virtual 
+		instance void OnOpen () cil managed 
+	{
+		// Method begins at RVA 0x192fc4
+		// Header size: 12
+		// Code size: 47 (0x2f)
+		.maxstack 2
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnOpen()
+		IL_0006: ldarg.0
+		IL_0007: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000c: stloc.0
+		IL_000d: ldloca.s 0
+		IL_000f: call instance !!0 [SimIFace]Sims3.SimIFace.ObjectGuid::ObjectFromId<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>()
+		IL_0014: brfalse.s IL_002e
+
+		IL_0016: ldarg.0
+		IL_0017: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+		IL_001c: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+		IL_0021: pop
+		IL_0022: ldarg.0
+		IL_0023: ldsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpenFootprint
+		IL_0028: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::EnableFootprint(uint32)
+		IL_002d: pop
+
+		IL_002e: ret
+	} // end of method RotatingWallDoor::OnOpen
+
+	.method public final hidebysig newslot virtual 
+		instance void OnEnterBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x192fff
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityForBuildMode()
+		IL_0006: ret
+	} // end of method RotatingWallDoor::OnEnterBuildBuyMode
+
+	.method public final hidebysig newslot virtual 
+		instance void OnExitBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x193007
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates()
+		IL_0006: ret
+	} // end of method RotatingWallDoor::OnExitBuildBuyMode
+
+	.method family hidebysig virtual 
+		instance void OnLockChanged (
+			valuetype [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor/tLock previousLockType
+		) cil managed 
+	{
+		// Method begins at RVA 0x19300f
+		// Header size: 1
+		// Code size: 28 (0x1c)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+		IL_0006: brtrue.s IL_0014
+
+		IL_0008: ldarg.0
+		IL_0009: ldarg.0
+		IL_000a: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_ClosedGeoState()
+		IL_000f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetGeometryState(string)
+
+		IL_0014: ldarg.0
+		IL_0015: ldarg.1
+		IL_0016: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::OnLockChanged(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor/tLock)
+		IL_001b: ret
+	} // end of method RotatingWallDoor::OnLockChanged
+
+	.method family hidebysig virtual 
+		instance bool OnHideBehavior (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x19302c
+		// Header size: 1
+		// Code size: 34 (0x22)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::OnHideBehavior(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: brfalse.s IL_0020
+
+		IL_0009: call bool [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_IsBuildBuyLikeState()
+		IL_000e: brfalse.s IL_0018
+
+		IL_0010: ldarg.0
+		IL_0011: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityForBuildMode()
+		IL_0016: br.s IL_001e
+
+		IL_0018: ldarg.0
+		IL_0019: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates()
+
+		IL_001e: ldc.i4.1
+		IL_001f: ret
+
+		IL_0020: ldc.i4.0
+		IL_0021: ret
+	} // end of method RotatingWallDoor::OnHideBehavior
+
+	.method family hidebysig virtual 
+		instance bool OnUnhideBehavior (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x193050
+		// Header size: 12
+		// Code size: 78 (0x4e)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::OnUnhideBehavior(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: brfalse.s IL_004c
+
+		IL_0009: call bool [SimIFace]Sims3.SimIFace.Environment::get_HasEditInGameModeSwitch()
+		IL_000e: brtrue.s IL_003d
+
+		IL_0010: ldarg.0
+		IL_0011: ldarg.1
+		IL_0012: dup
+		IL_0013: brtrue.s IL_001b
+
+		IL_0015: pop
+		IL_0016: call class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim [Sims3GameplaySystems]Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+
+		IL_001b: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_RoomId()
+		IL_0020: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.RoomConnectionObject::ConnectsToRoom(int32)
+		IL_0025: brfalse.s IL_003d
+
+		IL_0027: ldc.i4 362
+		IL_002c: ldarg.1
+		IL_002d: dup
+		IL_002e: brtrue.s IL_0036
+
+		IL_0030: pop
+		IL_0031: call class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim [Sims3GameplaySystems]Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+
+		IL_0036: ldarg.0
+		IL_0037: call class [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.Event [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTracker::SendEvent(valuetype [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTypeId, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+		IL_003c: pop
+
+		IL_003d: ldarg.0
+		IL_003e: ldarg.0
+		IL_003f: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscovered()
+		IL_0044: ldc.i4.1
+		IL_0045: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates(bool, bool)
+		IL_004a: ldc.i4.1
+		IL_004b: ret
+
+		IL_004c: ldc.i4.0
+		IL_004d: ret
+	} // end of method RotatingWallDoor::OnUnhideBehavior
+
+	.method public hidebysig virtual 
+		instance void OnHandToolPlacement () cil managed 
+	{
+		// Method begins at RVA 0x1930aa
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: call bool [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_IsBuildBuyLikeState()
+		IL_0005: brfalse.s IL_000d
+
+		IL_0007: ldarg.0
+		IL_0008: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityForBuildMode()
+
+		IL_000d: ret
+	} // end of method RotatingWallDoor::OnHandToolPlacement
+
+	.method private hidebysig 
+		instance void SetVisibilityStates () cil managed 
+	{
+		// Method begins at RVA 0x1930b9
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.0
+		IL_0002: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscovered()
+		IL_0007: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates(bool)
+		IL_000c: ret
+	} // end of method RotatingWallDoor::SetVisibilityStates
+
+	.method private hidebysig 
+		instance void SetVisibilityStates (
+			bool visible
+		) cil managed 
+	{
+		// Method begins at RVA 0x1930c7
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldc.i4.0
+		IL_0003: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates(bool, bool)
+		IL_0008: ret
+	} // end of method RotatingWallDoor::SetVisibilityStates
+
+	.method private hidebysig 
+		instance void SetVisibilityStates (
+			bool visible,
+			bool fade
+		) cil managed 
+	{
+		// Method begins at RVA 0x1930d4
+		// Header size: 12
+		// Code size: 90 (0x5a)
+		.maxstack 3
+
+		IL_0000: ldarg.1
+		IL_0001: brfalse.s IL_0046
+
+		IL_0003: ldarg.0
+		IL_0004: call instance valuetype [SimIFace]Sims3.SimIFace.HiddenFlags [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetHiddenFlags()
+		IL_0009: brfalse.s IL_0035
+
+		IL_000b: ldarg.2
+		IL_000c: brfalse.s IL_001e
+
+		IL_000e: ldarg.0
+		IL_000f: ldc.r4 0.0
+		IL_0014: ldc.r4 0.0
+		IL_0019: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+
+		IL_001e: ldarg.0
+		IL_001f: ldc.i4.0
+		IL_0020: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0025: ldarg.2
+		IL_0026: brfalse.s IL_0059
+
+		IL_0028: ldarg.0
+		IL_0029: ldc.i4.1
+		IL_002a: ldc.r4 2
+		IL_002f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::FadeIn(bool, float32)
+		IL_0034: ret
+
+		IL_0035: ldarg.0
+		IL_0036: ldc.r4 1
+		IL_003b: ldc.r4 0.0
+		IL_0040: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+		IL_0045: ret
+
+		IL_0046: ldarg.0
+		IL_0047: ldc.i4.1
+		IL_0048: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_004d: ldarg.0
+		IL_004e: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0053: ldc.i4.0
+		IL_0054: call void [SimIFace]Sims3.SimIFace.World::SetWallCutoutStateForObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+
+		IL_0059: ret
+	} // end of method RotatingWallDoor::SetVisibilityStates
+
+	.method private hidebysig 
+		instance void SetVisibilityForBuildMode () cil managed 
+	{
+		// Method begins at RVA 0x19313a
+		// Header size: 1
+		// Code size: 51 (0x33)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.Door.SecretDoor::get_IsDiscovered()
+		IL_0006: brtrue.s IL_002c
+
+		IL_0008: ldarg.0
+		IL_0009: ldc.i4.0
+		IL_000a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_000f: ldarg.0
+		IL_0010: ldc.r4 0.5
+		IL_0015: ldc.r4 0.0
+		IL_001a: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+		IL_001f: ldarg.0
+		IL_0020: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0025: ldc.i4.1
+		IL_0026: call void [SimIFace]Sims3.SimIFace.World::SetWallCutoutStateForObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+		IL_002b: ret
+
+		IL_002c: ldarg.0
+		IL_002d: call instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::SetVisibilityStates()
+		IL_0032: ret
+	} // end of method RotatingWallDoor::SetVisibilityForBuildMode
+
+	.method private hidebysig 
+		instance void UpdateVisualState () cil managed 
+	{
+		// Method begins at RVA 0x193170
+		// Header size: 12
+		// Code size: 170 (0xaa)
+		.maxstack 5
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: call bool [SimIFace]Sims3.SimIFace.Objects::IsValid(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_000b: brfalse IL_00a9
+
+		IL_0010: ldc.i4.0
+		IL_0011: stloc.0
+		IL_0012: ldarg.0
+		IL_0013: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_0018: brtrue.s IL_005b
+
+		IL_001a: ldarg.0
+		IL_001b: ldarg.0
+		IL_001c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0021: ldstr "doorRotatingWall"
+		IL_0026: ldc.i4.s -2
+		IL_0028: ldc.i4.0
+		IL_0029: call class [SimIFace]Sims3.SimIFace.StateMachineClient [SimIFace]Sims3.SimIFace.StateMachineClient::Acquire(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, valuetype [SimIFace]Sims3.SimIFace.AnimationPriority, bool)
+		IL_002e: stfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_0033: ldarg.0
+		IL_0034: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_0039: ldstr "rotatingWall"
+		IL_003e: ldarg.0
+		IL_003f: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+		IL_0044: ldarg.0
+		IL_0045: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_004a: ldstr "rotatingWall"
+		IL_004f: ldstr "Closed"
+		IL_0054: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::EnterState(string, string)
+		IL_0059: ldc.i4.1
+		IL_005a: stloc.0
+
+		IL_005b: ldarg.0
+		IL_005c: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+		IL_0061: brfalse.s IL_0090
+
+		IL_0063: ldarg.0
+		IL_0064: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_0069: ldc.i4.0
+		IL_006a: ldstr "rotatingWall"
+		IL_006f: ldstr "Open Pose"
+		IL_0074: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::RequestState(bool, string, string)
+		IL_0079: ldarg.0
+		IL_007a: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_007f: ldc.i4.0
+		IL_0080: ldstr "rotatingWall"
+		IL_0085: ldstr "Open"
+		IL_008a: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::RequestState(bool, string, string)
+		IL_008f: ret
+
+		IL_0090: ldloc.0
+		IL_0091: brtrue.s IL_00a9
+
+		IL_0093: ldarg.0
+		IL_0094: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Objects.Door.RotatingWallDoor::mPoseStateMachine
+		IL_0099: ldc.i4.0
+		IL_009a: ldstr "rotatingWall"
+		IL_009f: ldstr "Closed"
+		IL_00a4: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::RequestState(bool, string, string)
+
+		IL_00a9: ret
+	} // end of method RotatingWallDoor::UpdateVisualState
+
+	.method public final hidebysig newslot virtual 
+		instance bool CanTurnOnUnderstandingGlowNow () cil managed 
+	{
+		// Method begins at RVA 0x193226
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+		IL_0006: ldc.i4.0
+		IL_0007: ceq
+		IL_0009: ret
+	} // end of method RotatingWallDoor::CanTurnOnUnderstandingGlowNow
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldUnderstandingGlowBePositive () cil managed 
+	{
+		// Method begins at RVA 0x193231
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method RotatingWallDoor::ShouldUnderstandingGlowBePositive
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldConsumeSandsOfUnderstanding () cil managed 
+	{
+		// Method begins at RVA 0x193234
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+		IL_0006: ldc.i4.0
+		IL_0007: ceq
+		IL_0009: ret
+	} // end of method RotatingWallDoor::ShouldConsumeSandsOfUnderstanding
+
+	.method public final hidebysig newslot virtual 
+		instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback GetOnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x19323f
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldftn instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::OnGlowCallback()
+		IL_0007: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback::.ctor(object, native int)
+		IL_000c: ret
+	} // end of method RotatingWallDoor::GetOnGlowCallback
+
+	.method private hidebysig 
+		instance void OnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x19324d
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::UnHide()
+		IL_0006: ret
+	} // end of method RotatingWallDoor::OnGlowCallback
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x1932bc
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Door.SecretDoor::.ctor()
+		IL_0006: ret
+	} // end of method RotatingWallDoor::.ctor
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x193258
+		// Header size: 12
+		// Code size: 88 (0x58)
+		.maxstack 3
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[]
+		)
+
+		IL_0000: ldstr "openPathing"
+		IL_0005: call uint32 [SimIFace]Sims3.SimIFace.ResourceUtils::HashString32(string)
+		IL_000a: stsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpenFootprint
+		IL_000f: ldstr "openingPathing"
+		IL_0014: call uint32 [SimIFace]Sims3.SimIFace.ResourceUtils::HashString32(string)
+		IL_0019: stsfld uint32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kOpeningFootprint
+		IL_001e: ldc.i4.4
+		IL_001f: newarr [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition
+		IL_0024: stloc.0
+		IL_0025: ldloc.0
+		IL_0026: ldc.i4.0
+		IL_0027: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/Inspect::Singleton
+		IL_002c: stelem.ref
+		IL_002d: ldloc.0
+		IL_002e: ldc.i4.1
+		IL_002f: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/ReInspect::Singleton
+		IL_0034: stelem.ref
+		IL_0035: ldloc.0
+		IL_0036: ldc.i4.2
+		IL_0037: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Door.RotatingWallDoor/PushOpen::Singleton
+		IL_003c: stelem.ref
+		IL_003d: ldloc.0
+		IL_003e: ldc.i4.3
+		IL_003f: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.CommonDoor/EnterDoor::Singleton
+		IL_0044: stelem.ref
+		IL_0045: ldloc.0
+		IL_0046: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Objects.Door.RotatingWallDoor::sInteractionDefinitions
+		IL_004b: ldc.i4.4
+		IL_004c: stsfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kDefaultMinimumAthleticSkill
+		IL_0051: ldc.i4.7
+		IL_0052: stsfld int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::kDefaultRecommendedAthleticSkill
+		IL_0057: ret
+	} // end of method RotatingWallDoor::.cctor
+
+	// Properties
+	.property instance int32 AthleticSkillRecommended()
+	{
+		.get instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_AthleticSkillRecommended()
+		.set instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::set_AthleticSkillRecommended(int32)
+	}
+	.property instance int32 AthleticSkillMinimum()
+	{
+		.get instance int32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_AthleticSkillMinimum()
+		.set instance void Sims3.Gameplay.Objects.Door.RotatingWallDoor::set_AthleticSkillMinimum(int32)
+	}
+	.property instance float32 PortalCost()
+	{
+		.get instance float32 Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_PortalCost()
+	}
+	.property instance string StateMachineName()
+	{
+		.get instance string Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_StateMachineName()
+	}
+	.property instance string StateMachineActorName()
+	{
+		.get instance string Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_StateMachineActorName()
+	}
+	.property instance string OpenGeoState()
+	{
+		.get instance string Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_OpenGeoState()
+	}
+	.property instance string ClosedGeoState()
+	{
+		.get instance string Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_ClosedGeoState()
+	}
+	.property instance bool CanOpen()
+	{
+		.get instance bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_CanOpen()
+	}
+	.property instance bool CanAutoshut()
+	{
+		.get instance bool Sims3.Gameplay.Objects.Door.RotatingWallDoor::get_CanAutoshut()
+	}
+
+} // end of class Sims3.Gameplay.Objects.Door.RotatingWallDoor

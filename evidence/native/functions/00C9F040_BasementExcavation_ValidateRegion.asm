@@ -1,0 +1,177 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: bool BasementExcavation_ValidateRegion(void * param_1, undefined4 param_2, char * param_3, char * param_4, float param_5, void * param_6)
+Owned ranges: [[00c9f040, 00c9f1eb]]
+
+00c9f040  55  PUSH EBP
+00c9f041  8bec  MOV EBP,ESP
+00c9f043  83e4f0  AND ESP,0xfffffff0
+00c9f046  83ec64  SUB ESP,0x64
+00c9f049  53  PUSH EBX
+00c9f04a  56  PUSH ESI
+00c9f04b  57  PUSH EDI
+00c9f04c  8b7d08  MOV EDI,dword ptr [EBP + 0x8]
+00c9f04f  85ff  TEST EDI,EDI
+00c9f051  c644241701  MOV byte ptr [ESP + 0x17],0x1
+00c9f056  0f8495000000  JZ 0x00c9f0f1
+00c9f05c  8b751c  MOV ESI,dword ptr [EBP + 0x1c]
+00c9f05f  8b4514  MOV EAX,dword ptr [EBP + 0x14]
+00c9f062  8b5d10  MOV EBX,dword ptr [EBP + 0x10]
+00c9f065  8b4d0c  MOV ECX,dword ptr [EBP + 0xc]
+00c9f068  56  PUSH ESI
+00c9f069  50  PUSH EAX
+00c9f06a  53  PUSH EBX
+00c9f06b  51  PUSH ECX
+00c9f06c  57  PUSH EDI
+00c9f06d  e81ed6ffff  CALL 0x00c9c690
+00c9f072  83c414  ADD ESP,0x14
+00c9f075  84c0  TEST AL,AL
+00c9f077  7578  JNZ 0x00c9f0f1
+00c9f079  0fb613  MOVZX EDX,byte ptr [EBX]
+00c9f07c  8b4d14  MOV ECX,dword ptr [EBP + 0x14]
+00c9f07f  0fb64301  MOVZX EAX,byte ptr [EBX + 0x1]
+00c9f083  8854241c  MOV byte ptr [ESP + 0x1c],DL
+00c9f087  0fb611  MOVZX EDX,byte ptr [ECX]
+00c9f08a  8844241d  MOV byte ptr [ESP + 0x1d],AL
+00c9f08e  8a4302  MOV AL,byte ptr [EBX + 0x2]
+00c9f091  88542418  MOV byte ptr [ESP + 0x18],DL
+00c9f095  0fb65101  MOVZX EDX,byte ptr [ECX + 0x1]
+00c9f099  8a4902  MOV CL,byte ptr [ECX + 0x2]
+00c9f09c  2c01  SUB AL,0x1
+00c9f09e  80e901  SUB CL,0x1
+00c9f0a1  3cff  CMP AL,0xff
+00c9f0a3  8844241e  MOV byte ptr [ESP + 0x1e],AL
+00c9f0a7  88542419  MOV byte ptr [ESP + 0x19],DL
+00c9f0ab  884c241a  MOV byte ptr [ESP + 0x1a],CL
+00c9f0af  7f40  JG 0x00c9f0f1
+00c9f0b1  8a8fbc040000  MOV CL,byte ptr [EDI + 0x4bc]
+00c9f0b7  f6d9  NEG CL
+00c9f0b9  0fbed0  MOVSX EDX,AL
+00c9f0bc  1bc9  SBB ECX,ECX
+00c9f0be  83e103  AND ECX,0x3
+00c9f0c1  83c1fc  ADD ECX,-0x4
+00c9f0c4  3bd1  CMP EDX,ECX
+00c9f0c6  7d32  JGE 0x00c9f0fa
+00c9f0c8  85f6  TEST ESI,ESI
+00c9f0ca  7425  JZ 0x00c9f0f1
+00c9f0cc  53  PUSH EBX
+00c9f0cd  57  PUSH EDI
+00c9f0ce  68ea000000  PUSH 0xea
+00c9f0d3  8d4c243c  LEA ECX,[ESP + 0x3c]
+00c9f0d7  e8e479e3ff  CALL 0x00ad6ac0
+00c9f0dc  8d442430  LEA EAX,[ESP + 0x30]
+00c9f0e0  50  PUSH EAX
+00c9f0e1  8bce  MOV ECX,ESI
+00c9f0e3  e88894e3ff  CALL 0x00ad8570
+00c9f0e8  8d4c2430  LEA ECX,[ESP + 0x30]
+00c9f0ec  e8df7fe3ff  CALL 0x00ad70d0
+00c9f0f1  32c0  XOR AL,AL
+00c9f0f3  5f  POP EDI
+00c9f0f4  5e  POP ESI
+00c9f0f5  5b  POP EBX
+00c9f0f6  8be5  MOV ESP,EBP
+00c9f0f8  5d  POP EBP
+00c9f0f9  c3  RET
+00c9f0fa  d94518  FLD float ptr [EBP + 0x18]
+00c9f0fd  8b5d0c  MOV EBX,dword ptr [EBP + 0xc]
+00c9f100  56  PUSH ESI
+00c9f101  51  PUSH ECX
+00c9f102  d91c24  FSTP float ptr [ESP]
+00c9f105  8d4c2420  LEA ECX,[ESP + 0x20]
+00c9f109  51  PUSH ECX
+00c9f10a  8d542428  LEA EDX,[ESP + 0x28]
+00c9f10e  52  PUSH EDX
+00c9f10f  53  PUSH EBX
+00c9f110  57  PUSH EDI
+00c9f111  e82aebffff  CALL 0x00c9dc40
+00c9f116  83c418  ADD ESP,0x18
+00c9f119  84c0  TEST AL,AL
+00c9f11b  7508  JNZ 0x00c9f125
+00c9f11d  85f6  TEST ESI,ESI
+00c9f11f  74d0  JZ 0x00c9f0f1
+00c9f121  88442417  MOV byte ptr [ESP + 0x17],AL
+00c9f125  56  PUSH ESI
+00c9f126  8d44241c  LEA EAX,[ESP + 0x1c]
+00c9f12a  50  PUSH EAX
+00c9f12b  8d4c2424  LEA ECX,[ESP + 0x24]
+00c9f12f  51  PUSH ECX
+00c9f130  6a01  PUSH 0x1
+00c9f132  53  PUSH EBX
+00c9f133  57  PUSH EDI
+00c9f134  e8f7deffff  CALL 0x00c9d030
+00c9f139  83c418  ADD ESP,0x18
+00c9f13c  84c0  TEST AL,AL
+00c9f13e  7508  JNZ 0x00c9f148
+00c9f140  85f6  TEST ESI,ESI
+00c9f142  74ad  JZ 0x00c9f0f1
+00c9f144  88442417  MOV byte ptr [ESP + 0x17],AL
+00c9f148  56  PUSH ESI
+00c9f149  8d54241c  LEA EDX,[ESP + 0x1c]
+00c9f14d  52  PUSH EDX
+00c9f14e  8d442424  LEA EAX,[ESP + 0x24]
+00c9f152  50  PUSH EAX
+00c9f153  6a01  PUSH 0x1
+00c9f155  53  PUSH EBX
+00c9f156  57  PUSH EDI
+00c9f157  e8c4e4ffff  CALL 0x00c9d620
+00c9f15c  83c418  ADD ESP,0x18
+00c9f15f  84c0  TEST AL,AL
+00c9f161  750c  JNZ 0x00c9f16f
+00c9f163  33c0  XOR EAX,EAX
+00c9f165  3bf0  CMP ESI,EAX
+00c9f167  7488  JZ 0x00c9f0f1
+00c9f169  88442417  MOV byte ptr [ESP + 0x17],AL
+00c9f16d  eb02  JMP 0x00c9f171
+00c9f16f  33c0  XOR EAX,EAX
+00c9f171  8d4c2420  LEA ECX,[ESP + 0x20]
+00c9f175  51  PUSH ECX
+00c9f176  50  PUSH EAX
+00c9f177  8d542420  LEA EDX,[ESP + 0x20]
+00c9f17b  89442428  MOV dword ptr [ESP + 0x28],EAX
+00c9f17f  8944242c  MOV dword ptr [ESP + 0x2c],EAX
+00c9f183  89442430  MOV dword ptr [ESP + 0x30],EAX
+00c9f187  52  PUSH EDX
+00c9f188  8d442428  LEA EAX,[ESP + 0x28]
+00c9f18c  50  PUSH EAX
+00c9f18d  53  PUSH EBX
+00c9f18e  c7442440e0d60701  MOV dword ptr [ESP + 0x40],0x107d6e0
+00c9f196  e8b5e2fbff  CALL 0x00c5d450
+00c9f19b  56  PUSH ESI
+00c9f19c  8d4c2438  LEA ECX,[ESP + 0x38]
+00c9f1a0  51  PUSH ECX
+00c9f1a1  57  PUSH EDI
+00c9f1a2  e869fbffff  CALL 0x00c9ed10
+00c9f1a7  83c420  ADD ESP,0x20
+00c9f1aa  84c0  TEST AL,AL
+00c9f1ac  7508  JNZ 0x00c9f1b6
+00c9f1ae  85f6  TEST ESI,ESI
+00c9f1b0  7420  JZ 0x00c9f1d2
+00c9f1b2  88442417  MOV byte ptr [ESP + 0x17],AL
+00c9f1b6  8b442420  MOV EAX,dword ptr [ESP + 0x20]
+00c9f1ba  85c0  TEST EAX,EAX
+00c9f1bc  7409  JZ 0x00c9f1c7
+00c9f1be  50  PUSH EAX
+00c9f1bf  e81c5384ff  CALL 0x004e44e0
+00c9f1c4  83c404  ADD ESP,0x4
+00c9f1c7  8a442417  MOV AL,byte ptr [ESP + 0x17]
+00c9f1cb  5f  POP EDI
+00c9f1cc  5e  POP ESI
+00c9f1cd  5b  POP EBX
+00c9f1ce  8be5  MOV ESP,EBP
+00c9f1d0  5d  POP EBP
+00c9f1d1  c3  RET
+00c9f1d2  8b442420  MOV EAX,dword ptr [ESP + 0x20]
+00c9f1d6  85c0  TEST EAX,EAX
+00c9f1d8  7409  JZ 0x00c9f1e3
+00c9f1da  50  PUSH EAX
+00c9f1db  e8005384ff  CALL 0x004e44e0
+00c9f1e0  83c404  ADD ESP,0x4
+00c9f1e3  5f  POP EDI
+00c9f1e4  5e  POP ESI
+00c9f1e5  32c0  XOR AL,AL
+00c9f1e7  5b  POP EBX
+00c9f1e8  8be5  MOV ESP,EBP
+00c9f1ea  5d  POP EBP
+00c9f1eb  c3  RET

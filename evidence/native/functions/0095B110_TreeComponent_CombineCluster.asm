@@ -1,0 +1,62 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined4 TreeComponent_CombineCluster(void * this, int param_1)
+Owned ranges: [[0095b110, 0095b195]]
+
+0095b110  8b4110  MOV EAX,dword ptr [ECX + 0x10]
+0095b113  57  PUSH EDI
+0095b114  8b7c2408  MOV EDI,dword ptr [ESP + 0x8]
+0095b118  3b4710  CMP EAX,dword ptr [EDI + 0x10]
+0095b11b  7518  JNZ 0x0095b135
+0095b11d  8b5118  MOV EDX,dword ptr [ECX + 0x18]
+0095b120  3b5718  CMP EDX,dword ptr [EDI + 0x18]
+0095b123  7510  JNZ 0x0095b135
+0095b125  8b411c  MOV EAX,dword ptr [ECX + 0x1c]
+0095b128  3b471c  CMP EAX,dword ptr [EDI + 0x1c]
+0095b12b  7508  JNZ 0x0095b135
+0095b12d  8b5114  MOV EDX,dword ptr [ECX + 0x14]
+0095b130  3b5714  CMP EDX,dword ptr [EDI + 0x14]
+0095b133  7406  JZ 0x0095b13b
+0095b135  32c0  XOR AL,AL
+0095b137  5f  POP EDI
+0095b138  c20400  RET 0x4
+0095b13b  8b4108  MOV EAX,dword ptr [ECX + 0x8]
+0095b13e  56  PUSH ESI
+0095b13f  8d7108  LEA ESI,[ECX + 0x8]
+0095b142  83c004  ADD EAX,0x4
+0095b145  8b00  MOV EAX,dword ptr [EAX]
+0095b147  83f801  CMP EAX,0x1
+0095b14a  7e38  JLE 0x0095b184
+0095b14c  6a00  PUSH 0x0
+0095b14e  6a00  PUSH 0x0
+0095b150  6a00  PUSH 0x0
+0095b152  6a00  PUSH 0x0
+0095b154  68c8590401  PUSH 0x10459c8
+0095b159  6a40  PUSH 0x40
+0095b15b  e8a093b8ff  CALL 0x004e4500
+0095b160  83c418  ADD ESP,0x18
+0095b163  85c0  TEST EAX,EAX
+0095b165  740e  JZ 0x0095b175
+0095b167  8b16  MOV EDX,dword ptr [ESI]
+0095b169  52  PUSH EDX
+0095b16a  8bc8  MOV ECX,EAX
+0095b16c  e88ffeffff  CALL 0x0095b000
+0095b171  85c0  TEST EAX,EAX
+0095b173  7507  JNZ 0x0095b17c
+0095b175  5e  POP ESI
+0095b176  32c0  XOR AL,AL
+0095b178  5f  POP EDI
+0095b179  c20400  RET 0x4
+0095b17c  50  PUSH EAX
+0095b17d  8bce  MOV ECX,ESI
+0095b17f  e82c9ef1ff  CALL 0x00874fb0
+0095b184  8b4f08  MOV ECX,dword ptr [EDI + 0x8]
+0095b187  51  PUSH ECX
+0095b188  8b0e  MOV ECX,dword ptr [ESI]
+0095b18a  e8f1cee5ff  CALL 0x007b8080
+0095b18f  5e  POP ESI
+0095b190  b001  MOV AL,0x1
+0095b192  5f  POP EDI
+0095b193  c20400  RET 0x4

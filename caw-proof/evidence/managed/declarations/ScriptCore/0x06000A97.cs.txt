@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000A97.
+// Assembly: ScriptCore; type: ScriptCore.UserToolUtils.
+// Decompiled C# source: ScriptCore/ScriptCore/UserToolUtils.cs:125
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalType = "ScriptCore.StringFromVariantMarshaler")]
+	private static extern uint[] UserToolUtils_GetObjectProductListFilteredImpl(uint buyCategoryFlag, uint buildCategoryFlag, ulong buySubCategoryFlag, ulong buySubCategory2Flag, ulong buyRoomSubCategoryFlag, ulong excludeBuyRoomSubCategoryFlag, uint includeRoomFlag, uint excludeRoomFlag);

@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x0600000D.
+// Assembly: ScriptCore; type: ScriptCore.Queries.
+// Decompiled C# source: ScriptCore/ScriptCore/Queries.cs:10
+	[DllImport("Sims3Common")]
+	[return: MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI8)]
+	private static extern ulong[] Query_GetObjects([MarshalAs(UnmanagedType.Interface)] Type type);

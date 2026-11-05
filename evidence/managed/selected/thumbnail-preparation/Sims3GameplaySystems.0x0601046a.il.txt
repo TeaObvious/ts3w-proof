@@ -1,0 +1,345 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig static 
+		bool PrepareCASHouseholdForThumbnail (
+			class Sims3.Gameplay.CAS.Household household
+		) cil managed 
+	{
+		// Method begins at RVA 0x49beac
+		// Header size: 12
+		// Code size: 827 (0x33b)
+		.maxstack 3
+		.locals init (
+			[0] int32,
+			[1] bool,
+			[2] class [mscorlib]System.Collections.Hashtable,
+			[3] int32,
+			[4] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>,
+			[5] class Sims3.Gameplay.CAS.SimDescription,
+			[6] class [SimIFace]Sims3.SimIFace.CAS.SimOutfit,
+			[7] uint32,
+			[8] class [SimIFace]Sims3.SimIFace.CAS.SimBuilder,
+			[9] valuetype Sims3.Gameplay.Core.ThumbnailHelper/PoseInfo,
+			[10] uint32,
+			[11] uint32,
+			[12] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>,
+			[13] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance bool Sims3.Gameplay.CAS.Household::get_IsSpecialHousehold()
+		IL_0006: brfalse.s IL_0012
+
+		IL_0008: ldarg.0
+		IL_0009: callvirt instance bool Sims3.Gameplay.CAS.Household::get_IsFutureDescendantHousehold()
+		IL_000e: brtrue.s IL_0012
+
+		IL_0010: ldc.i4.1
+		IL_0011: ret
+
+		IL_0012: ldarg.0
+		IL_0013: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_AllSimDescriptions()
+		IL_0018: brtrue.s IL_001d
+
+		IL_001a: ldc.i4.0
+		IL_001b: br.s IL_0028
+
+		IL_001d: ldarg.0
+		IL_001e: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_AllSimDescriptions()
+		IL_0023: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+
+		IL_0028: stloc.0
+		IL_0029: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.Household> Sims3.Gameplay.Core.ThumbnailHelper::sHouseholdsToCacheAtlases
+		IL_002e: ldarg.0
+		IL_002f: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.Household>::Contains(!0)
+		IL_0034: stloc.1
+		IL_0035: ldloc.0
+		IL_0036: brfalse IL_0307
+
+		IL_003b: ldarg.0
+		IL_003c: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_AllSimDescriptions()
+		IL_0041: ldc.i4.0
+		IL_0042: call class [mscorlib]System.Collections.Hashtable Sims3.Gameplay.Core.ThumbnailHelper::GetSimPosesForCASHouseholdThumbnail(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>, valuetype Sims3.Gameplay.Core.ThumbnailHelper/ThumbnailType)
+		IL_0047: stloc.2
+		IL_0048: ldc.i4.0
+		IL_0049: stloc.3
+		IL_004a: ldarg.0
+		IL_004b: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_AllSimDescriptions()
+		IL_0050: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+		IL_0055: stloc.s 4
+		IL_0057: ldloc.s 4
+		IL_0059: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::GetEnumerator()
+		IL_005e: stloc.s 12
+		.try
+		{
+			IL_0060: br IL_0243
+			// loop start (head: IL_0243)
+				IL_0065: ldloca.s 12
+				IL_0067: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::get_Current()
+				IL_006c: stloc.s 5
+				IL_006e: ldnull
+				IL_006f: stloc.s 6
+				IL_0071: ldloc.s 5
+				IL_0073: ldc.i4.2
+				IL_0074: ldc.i4.0
+				IL_0075: callvirt instance class [SimIFace]Sims3.SimIFace.CAS.SimOutfit Sims3.Gameplay.CAS.SimDescriptionCore::GetOutfit(valuetype [SimIFace]Sims3.SimIFace.CAS.OutfitCategories, int32)
+				IL_007a: stloc.s 6
+				IL_007c: ldloc.s 6
+				IL_007e: brfalse IL_0243
+
+				IL_0083: ldc.i4.0
+				IL_0084: stloc.s 7
+				IL_0086: ldsfld class [mscorlib]System.Collections.ArrayList Sims3.Gameplay.Core.ThumbnailHelper::sBuilders
+				IL_008b: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+				IL_0090: ldloc.3
+				IL_0091: bgt.s IL_00a3
+
+				IL_0093: ldsfld class [mscorlib]System.Collections.ArrayList Sims3.Gameplay.Core.ThumbnailHelper::sBuilders
+				IL_0098: newobj instance void [SimIFace]Sims3.SimIFace.CAS.SimBuilder::.ctor()
+				IL_009d: callvirt instance int32 [mscorlib]System.Collections.ArrayList::Add(object)
+				IL_00a2: pop
+
+				IL_00a3: ldsfld class [mscorlib]System.Collections.ArrayList Sims3.Gameplay.Core.ThumbnailHelper::sBuilders
+				IL_00a8: ldloc.3
+				IL_00a9: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+				IL_00ae: castclass [SimIFace]Sims3.SimIFace.CAS.SimBuilder
+				IL_00b3: stloc.s 8
+				IL_00b5: ldloc.s 8
+				IL_00b7: callvirt instance void [SimIFace]Sims3.SimIFace.CAS.SimBuilder::Clear()
+				IL_00bc: ldloc.s 8
+				IL_00be: ldc.i4.1
+				IL_00bf: callvirt instance void [SimIFace]Sims3.SimIFace.CAS.SimBuilder::set_UseCompression(bool)
+				IL_00c4: ldloc.s 8
+				IL_00c6: ldc.i4 512
+				IL_00cb: callvirt instance void [SimIFace]Sims3.SimIFace.CAS.SimBuilder::set_TextureSize(uint32)
+				IL_00d0: ldloc.s 8
+				IL_00d2: ldc.i4.1
+				IL_00d3: callvirt instance void [SimIFace]Sims3.SimIFace.CAS.SimBuilder::set_WaitForTextures(bool)
+				IL_00d8: ldloc.1
+				IL_00d9: brfalse.s IL_00e3
+
+				IL_00db: ldloc.s 8
+				IL_00dd: ldc.i4.1
+				IL_00de: callvirt instance void [SimIFace]Sims3.SimIFace.CAS.SimBuilder::set_CacheAtlases(bool)
+
+				IL_00e3: ldloc.s 8
+				IL_00e5: ldloc.s 6
+				IL_00e7: ldnull
+				IL_00e8: call void Sims3.Gameplay.CAS.OutfitUtils::SetOutfit(class [SimIFace]Sims3.SimIFace.CAS.SimBuilder, class [SimIFace]Sims3.SimIFace.CAS.SimOutfit, class Sims3.Gameplay.CAS.SimDescriptionCore)
+				IL_00ed: ldloc.s 8
+				IL_00ef: ldc.i4.0
+				IL_00f0: ldc.i4 200
+				IL_00f5: callvirt instance void [SimIFace]Sims3.SimIFace.CAS.SimBuilder::BuildModel(int32, uint32)
+				IL_00fa: ldloc.s 8
+				IL_00fc: callvirt instance uint32 [SimIFace]Sims3.SimIFace.CAS.SimBuilder::get_ModelHandle()
+				IL_0101: stloc.s 7
+				IL_0103: ldloc.2
+				IL_0104: ldloc.s 5
+				IL_0106: callvirt instance bool [mscorlib]System.Collections.Hashtable::ContainsKey(object)
+				IL_010b: brfalse IL_023f
+
+				IL_0110: ldloc.2
+				IL_0111: ldloc.s 5
+				IL_0113: callvirt instance object [mscorlib]System.Collections.Hashtable::get_Item(object)
+				IL_0118: unbox.any Sims3.Gameplay.Core.ThumbnailHelper/PoseInfo
+				IL_011d: stloc.s 9
+				IL_011f: ldloc.s 7
+				IL_0121: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::AddModel(uint32)
+				IL_0126: ldloc.s 6
+				IL_0128: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.CAS.SimOutfit::get_RigKey()
+				IL_012d: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::AddRig(valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+				IL_0132: ldloca.s 9
+				IL_0134: ldfld string Sims3.Gameplay.Core.ThumbnailHelper/PoseInfo::mPose
+				IL_0139: ldloca.s 9
+				IL_013b: ldfld valuetype [SimIFace]Sims3.SimIFace.ProductVersion Sims3.Gameplay.Core.ThumbnailHelper/PoseInfo::mProductVersion
+				IL_0140: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::AddPose(string, valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+				IL_0145: ldloca.s 9
+				IL_0147: ldflda valuetype [SimIFace]Sims3.SimIFace.Vector2 Sims3.Gameplay.Core.ThumbnailHelper/PoseInfo::mDisplacement
+				IL_014c: ldfld float32 [SimIFace]Sims3.SimIFace.Vector2::x
+				IL_0151: ldc.r4 0.0
+				IL_0156: ldloca.s 9
+				IL_0158: ldflda valuetype [SimIFace]Sims3.SimIFace.Vector2 Sims3.Gameplay.Core.ThumbnailHelper/PoseInfo::mDisplacement
+				IL_015d: ldfld float32 [SimIFace]Sims3.SimIFace.Vector2::y
+				IL_0162: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::AddDisplacement(float32, float32, float32)
+				IL_0167: ldloca.s 9
+				IL_0169: ldfld float32 Sims3.Gameplay.Core.ThumbnailHelper/PoseInfo::mRotation
+				IL_016e: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::AddRotation(float32)
+				IL_0173: ldloca.s 9
+				IL_0175: ldfld uint32 Sims3.Gameplay.Core.ThumbnailHelper/PoseInfo::mNameSpace
+				IL_017a: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::AddNameSpace(uint32)
+				IL_017f: ldc.i4.0
+				IL_0180: stloc.s 10
+				IL_0182: ldloc.s 5
+				IL_0184: callvirt instance valuetype Sims3.Gameplay.CAS.SimDescription/DeathType Sims3.Gameplay.CAS.SimDescription::get_DeathStyle()
+				IL_0189: brfalse.s IL_01a5
+
+				IL_018b: ldloc.s 5
+				IL_018d: callvirt instance valuetype Sims3.Gameplay.CAS.SimDescription/DeathType Sims3.Gameplay.CAS.SimDescription::get_DeathStyle()
+				IL_0192: ldc.i4 65535
+				IL_0197: and
+				IL_0198: ldc.i4 65536
+				IL_019d: or
+				IL_019e: stloc.s 10
+				IL_01a0: br IL_022c
+
+				IL_01a5: ldloc.s 5
+				IL_01a7: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsVampire()
+				IL_01ac: brtrue.s IL_01c6
+
+				IL_01ae: ldloc.s 5
+				IL_01b0: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+				IL_01b5: brfalse.s IL_01cf
+
+				IL_01b7: ldloc.s 5
+				IL_01b9: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+				IL_01be: callvirt instance valuetype [UI]Sims3.UI.Hud.OccultTypes Sims3.Gameplay.CAS.CASSupernaturalData::get_OccultType()
+				IL_01c3: ldc.i4.4
+				IL_01c4: bne.un.s IL_01cf
+
+				IL_01c6: ldc.i4 131072
+				IL_01cb: stloc.s 10
+				IL_01cd: br.s IL_022c
+
+				IL_01cf: ldloc.s 5
+				IL_01d1: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsGenie()
+				IL_01d6: brtrue.s IL_01f1
+
+				IL_01d8: ldloc.s 5
+				IL_01da: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+				IL_01df: brfalse.s IL_01fa
+
+				IL_01e1: ldloc.s 5
+				IL_01e3: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+				IL_01e8: callvirt instance valuetype [UI]Sims3.UI.Hud.OccultTypes Sims3.Gameplay.CAS.CASSupernaturalData::get_OccultType()
+				IL_01ed: ldc.i4.s 32
+				IL_01ef: bne.un.s IL_01fa
+
+				IL_01f1: ldc.i4 524288
+				IL_01f6: stloc.s 10
+				IL_01f8: br.s IL_022c
+
+				IL_01fa: ldloc.s 5
+				IL_01fc: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+				IL_0201: brfalse.s IL_021c
+
+				IL_0203: ldloc.s 5
+				IL_0205: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+				IL_020a: callvirt instance valuetype [UI]Sims3.UI.Hud.OccultTypes Sims3.Gameplay.CAS.CASSupernaturalData::get_OccultType()
+				IL_020f: ldc.i4.s 64
+				IL_0211: bne.un.s IL_021c
+
+				IL_0213: ldc.i4 1048576
+				IL_0218: stloc.s 10
+				IL_021a: br.s IL_022c
+
+				IL_021c: ldloc.s 5
+				IL_021e: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsAlien()
+				IL_0223: brfalse.s IL_022c
+
+				IL_0225: ldc.i4 262144
+				IL_022a: stloc.s 10
+
+				IL_022c: ldloc.s 10
+				IL_022e: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::AddOccultState(uint32)
+				IL_0233: ldloc.s 8
+				IL_0235: callvirt instance uint32 [SimIFace]Sims3.SimIFace.CAS.SimBuilder::get_SimBuilderHandle()
+				IL_023a: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::AddSimBuilder(uint32)
+
+				IL_023f: ldloc.3
+				IL_0240: ldc.i4.1
+				IL_0241: add
+				IL_0242: stloc.3
+
+				IL_0243: ldloca.s 12
+				IL_0245: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::MoveNext()
+				IL_024a: brtrue IL_0065
+			// end loop
+
+			IL_024f: leave.s IL_025f
+		} // end .try
+		finally
+		{
+			IL_0251: ldloca.s 12
+			IL_0253: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+			IL_0259: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_025e: endfinally
+		} // end handler
+
+		IL_025f: ldc.i4 66267653
+		IL_0264: stloc.s 11
+		IL_0266: ldc.i4 512
+		IL_026b: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsInstalled(valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+		IL_0270: brfalse IL_0300
+
+		IL_0275: ldarg.0
+		IL_0276: callvirt instance class Sims3.Gameplay.CAS.Household/Members Sims3.Gameplay.CAS.Household::get_CurrentMembers()
+		IL_027b: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household/Members::get_PetSimDescriptionList()
+		IL_0280: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+		IL_0285: ldc.i4.0
+		IL_0286: ble.s IL_0300
+
+		IL_0288: ldarg.0
+		IL_0289: callvirt instance class Sims3.Gameplay.CAS.Household/Members Sims3.Gameplay.CAS.Household::get_CurrentMembers()
+		IL_028e: ldc.i4 28672
+		IL_0293: conv.i8
+		IL_0294: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household/Members::GetSimDescriptionsOfType(valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags)
+		IL_0299: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+		IL_029e: stloc.s 13
+		IL_02a0: ldloc.s 13
+		IL_02a2: ldc.i4.1
+		IL_02a3: sub
+		IL_02a4: switch (IL_02f0, IL_02e7, IL_02de, IL_02d5, IL_02cc, IL_02c3)
+
+		IL_02c1: br.s IL_02f9
+
+		IL_02c3: ldc.i4 -1289044552 // 0xb32abdb8
+		IL_02c8: stloc.s 11
+		IL_02ca: br.s IL_0300
+
+		IL_02cc: ldc.i4 -1289044549 // 0xb32abdbb
+		IL_02d1: stloc.s 11
+		IL_02d3: br.s IL_0300
+
+		IL_02d5: ldc.i4 -1289044550 // 0xb32abdba
+		IL_02da: stloc.s 11
+		IL_02dc: br.s IL_0300
+
+		IL_02de: ldc.i4 -1289044547 // 0xb32abdbd
+		IL_02e3: stloc.s 11
+		IL_02e5: br.s IL_0300
+
+		IL_02e7: ldc.i4 -1289044548 // 0xb32abdbc
+		IL_02ec: stloc.s 11
+		IL_02ee: br.s IL_0300
+
+		IL_02f0: ldc.i4 -1289044545 // 0xb32abdbf
+		IL_02f5: stloc.s 11
+		IL_02f7: br.s IL_0300
+
+		IL_02f9: ldc.i4 -1248448330 // 0xb59630b6
+		IL_02fe: stloc.s 11
+
+		IL_0300: ldloc.s 11
+		IL_0302: call void [SimIFace]Sims3.SimIFace.ThumbnailManager::SetHouseholdCamera(uint32)
+
+		IL_0307: ldloc.1
+		IL_0308: brfalse.s IL_0339
+
+		IL_030a: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.Household> Sims3.Gameplay.Core.ThumbnailHelper::sHouseholdsToCacheAtlases
+		IL_030f: ldarg.0
+		IL_0310: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.Household>::Remove(!0)
+		IL_0315: pop
+		IL_0316: ldsfld class [mscorlib]System.Collections.ArrayList Sims3.Gameplay.Core.ThumbnailHelper::sBuilders
+		IL_031b: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+		IL_0320: ldc.i4.0
+		IL_0321: ble.s IL_0339
+
+		IL_0323: ldsfld class [mscorlib]System.Collections.ArrayList Sims3.Gameplay.Core.ThumbnailHelper::sBuilders
+		IL_0328: ldc.i4.0
+		IL_0329: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+		IL_032e: castclass [SimIFace]Sims3.SimIFace.CAS.SimBuilder
+		IL_0333: ldc.i4.0
+		IL_0334: callvirt instance void [SimIFace]Sims3.SimIFace.CAS.SimBuilder::set_CacheAtlases(bool)
+
+		IL_0339: ldc.i4.1
+		IL_033a: ret
+	} // end of method ThumbnailHelper::PrepareCASHouseholdForThumbnail

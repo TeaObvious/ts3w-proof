@@ -1,0 +1,39 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_Untether
+# Entry: 0x0073df80; bounded stop: 0x0073dfc0; next Ghidra entry: 0x0073dfc0
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073df80 <.text+0x33cf80>:
+  73df80:	e8 4b bc 22 00       	call   0x969bd0
+  73df85:	85 c0                	test   eax,eax
+  73df87:	74 2f                	je     0x73dfb8
+  73df89:	8b c8                	mov    ecx,eax
+  73df8b:	e8 60 40 7e 00       	call   0xf21ff0
+  73df90:	85 c0                	test   eax,eax
+  73df92:	74 24                	je     0x73dfb8
+  73df94:	8b c8                	mov    ecx,eax
+  73df96:	e8 45 5e dd ff       	call   0x513de0
+  73df9b:	85 c0                	test   eax,eax
+  73df9d:	74 19                	je     0x73dfb8
+  73df9f:	8b 10                	mov    edx,DWORD PTR [eax]
+  73dfa1:	8b c8                	mov    ecx,eax
+  73dfa3:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73dfa6:	68 89 dd 0f 11       	push   0x110fdd89
+  73dfab:	ff d0                	call   eax
+  73dfad:	85 c0                	test   eax,eax
+  73dfaf:	74 07                	je     0x73dfb8
+  73dfb1:	8b c8                	mov    ecx,eax
+  73dfb3:	e9 68 5e 23 00       	jmp    0x973e20
+  73dfb8:	c3                   	ret
+  73dfb9:	cc                   	int3
+  73dfba:	cc                   	int3
+  73dfbb:	cc                   	int3
+  73dfbc:	cc                   	int3
+  73dfbd:	cc                   	int3
+  73dfbe:	cc                   	int3
+  73dfbf:	cc                   	int3

@@ -1,0 +1,68 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: bool WallPlacement_ValidateProduct(void * this, char * param_1, uint * param_2, void * param_3, byte param_4)
+Owned ranges: [[00d49790, 00d4980c]]
+
+00d49790  8b442410  MOV EAX,dword ptr [ESP + 0x10]
+00d49794  53  PUSH EBX
+00d49795  8b5c2410  MOV EBX,dword ptr [ESP + 0x10]
+00d49799  55  PUSH EBP
+00d4979a  8b6c240c  MOV EBP,dword ptr [ESP + 0xc]
+00d4979e  56  PUSH ESI
+00d4979f  57  PUSH EDI
+00d497a0  8b7c2418  MOV EDI,dword ptr [ESP + 0x18]
+00d497a4  50  PUSH EAX
+00d497a5  53  PUSH EBX
+00d497a6  57  PUSH EDI
+00d497a7  55  PUSH EBP
+00d497a8  8bf1  MOV ESI,ECX
+00d497aa  e871ecffff  CALL 0x00d48420
+00d497af  84c0  TEST AL,AL
+00d497b1  7451  JZ 0x00d49804
+00d497b3  57  PUSH EDI
+00d497b4  e80721f1ff  CALL 0x00c5b8c0
+00d497b9  83c404  ADD ESP,0x4
+00d497bc  84c0  TEST AL,AL
+00d497be  53  PUSH EBX
+00d497bf  57  PUSH EDI
+00d497c0  8bce  MOV ECX,ESI
+00d497c2  55  PUSH EBP
+00d497c3  740c  JZ 0x00d497d1
+00d497c5  e886d2ffff  CALL 0x00d46a50
+00d497ca  5f  POP EDI
+00d497cb  5e  POP ESI
+00d497cc  5d  POP EBP
+00d497cd  5b  POP EBX
+00d497ce  c21000  RET 0x10
+00d497d1  e8aafcffff  CALL 0x00d49480
+00d497d6  84c0  TEST AL,AL
+00d497d8  742a  JZ 0x00d49804
+00d497da  57  PUSH EDI
+00d497db  e8101ff1ff  CALL 0x00c5b6f0
+00d497e0  83c404  ADD ESP,0x4
+00d497e3  84c0  TEST AL,AL
+00d497e5  53  PUSH EBX
+00d497e6  57  PUSH EDI
+00d497e7  8bce  MOV ECX,ESI
+00d497e9  55  PUSH EBP
+00d497ea  740c  JZ 0x00d497f8
+00d497ec  e83fc8ffff  CALL 0x00d46030
+00d497f1  5f  POP EDI
+00d497f2  5e  POP ESI
+00d497f3  5d  POP EBP
+00d497f4  5b  POP EBX
+00d497f5  c21000  RET 0x10
+00d497f8  e8f3c9ffff  CALL 0x00d461f0
+00d497fd  5f  POP EDI
+00d497fe  5e  POP ESI
+00d497ff  5d  POP EBP
+00d49800  5b  POP EBX
+00d49801  c21000  RET 0x10
+00d49804  5f  POP EDI
+00d49805  5e  POP ESI
+00d49806  5d  POP EBP
+00d49807  32c0  XOR AL,AL
+00d49809  5b  POP EBX
+00d4980a  c21000  RET 0x10

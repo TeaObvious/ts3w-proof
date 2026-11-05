@@ -1,0 +1,69 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: uint FenceProduct_ResolvePresetId(void * this, uint presetId)
+Owned ranges: [[00c94780, 00c9480c] [00c94810, 00c94825]]
+
+00c94780  56  PUSH ESI
+00c94781  8bb168010000  MOV ESI,dword ptr [ECX + 0x168]
+00c94787  2bb164010000  SUB ESI,dword ptr [ECX + 0x164]
+00c9478d  57  PUSH EDI
+00c9478e  8b7c240c  MOV EDI,dword ptr [ESP + 0xc]
+00c94792  c1fe03  SAR ESI,0x3
+00c94795  f7c700008000  TEST EDI,0x800000
+00c9479b  745f  JZ 0x00c947fc
+00c9479d  6a00  PUSH 0x0
+00c9479f  8d442410  LEA EAX,[ESP + 0x10]
+00c947a3  50  PUSH EAX
+00c947a4  83c108  ADD ECX,0x8
+00c947a7  51  PUSH ECX
+00c947a8  c744241800000000  MOV dword ptr [ESP + 0x18],0x0
+00c947b0  e8ebbae9ff  CALL 0x00b302a0
+00c947b5  8bc8  MOV ECX,EAX
+00c947b7  e874d0e9ff  CALL 0x00b31830
+00c947bc  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+00c947c0  85c9  TEST ECX,ECX
+00c947c2  745a  JZ 0x00c9481e
+00c947c4  57  PUSH EDI
+00c947c5  6a04  PUSH 0x4
+00c947c7  e8c45a97ff  CALL 0x0060a290
+00c947cc  83f8ff  CMP EAX,-0x1
+00c947cf  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+00c947d3  7414  JZ 0x00c947e9
+00c947d5  03f0  ADD ESI,EAX
+00c947d7  85c9  TEST ECX,ECX
+00c947d9  7407  JZ 0x00c947e2
+00c947db  8b11  MOV EDX,dword ptr [ECX]
+00c947dd  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+00c947e0  ffd0  CALL EAX
+00c947e2  5f  POP EDI
+00c947e3  8bc6  MOV EAX,ESI
+00c947e5  5e  POP ESI
+00c947e6  c20400  RET 0x4
+00c947e9  85c9  TEST ECX,ECX
+00c947eb  7431  JZ 0x00c9481e
+00c947ed  8b11  MOV EDX,dword ptr [ECX]
+00c947ef  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+00c947f2  ffd0  CALL EAX
+00c947f4  5f  POP EDI
+00c947f5  83c8ff  OR EAX,0xffffffff
+00c947f8  5e  POP ESI
+00c947f9  c20400  RET 0x4
+00c947fc  33c0  XOR EAX,EAX
+00c947fe  85f6  TEST ESI,ESI
+00c94800  761c  JBE 0x00c9481e
+00c94802  8b8964010000  MOV ECX,dword ptr [ECX + 0x164]
+00c94808  83c104  ADD ECX,0x4
+00c9480b  eb03  JMP 0x00c94810
+00c9480d  8d4900  .byte 8d4900 ; NONOWNED envelope gap bytes
+00c94810  3939  CMP dword ptr [ECX],EDI
+00c94812  740d  JZ 0x00c94821
+00c94814  83c001  ADD EAX,0x1
+00c94817  83c108  ADD ECX,0x8
+00c9481a  3bc6  CMP EAX,ESI
+00c9481c  72f2  JC 0x00c94810
+00c9481e  83c8ff  OR EAX,0xffffffff
+00c94821  5f  POP EDI
+00c94822  5e  POP ESI
+00c94823  c20400  RET 0x4

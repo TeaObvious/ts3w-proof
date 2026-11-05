@@ -1,0 +1,29 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.ThumbnailManager::ThumbnailManager_SetHouseholdCamera
+# Entry: 0x00777bc0; bounded stop: 0x00777be0; next Ghidra entry: 0x00777be0
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00777bc0 <.text+0x376bc0>:
+  777bc0:	8b 0d 30 ec 1e 01    	mov    ecx,DWORD PTR ds:0x11eec30
+  777bc6:	85 c9                	test   ecx,ecx
+  777bc8:	74 0a                	je     0x777bd4
+  777bca:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+  777bce:	50                   	push   eax
+  777bcf:	e8 9c 3b 5d 00       	call   0xd4b770
+  777bd4:	c3                   	ret
+  777bd5:	cc                   	int3
+  777bd6:	cc                   	int3
+  777bd7:	cc                   	int3
+  777bd8:	cc                   	int3
+  777bd9:	cc                   	int3
+  777bda:	cc                   	int3
+  777bdb:	cc                   	int3
+  777bdc:	cc                   	int3
+  777bdd:	cc                   	int3
+  777bde:	cc                   	int3
+  777bdf:	cc                   	int3

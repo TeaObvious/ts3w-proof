@@ -1,0 +1,20 @@
+// Pristine PC1.67 Sims3GameplaySystems.dll; identity and package key in the material-state guide.
+// Analyst: SetMaterial uses overlay=true and transitionTime=0. GeometryState has a separate World entry; the material wrappers do not call it.
+using Sims3.SimIFace;
+
+public void SetMaterial(string materialSetName)
+{
+	World.ObjectSetMaterial(ObjectId, materialSetName, 0f, bTransitionToOverlay: true);
+}
+public void SetMaterialTransitionToOverlay(string materialSetName, float transitionTime)
+{
+	World.ObjectSetMaterial(ObjectId, materialSetName, transitionTime, bTransitionToOverlay: true);
+}
+public void SetMaterialTransitionFromOverlay(string materialSetName, float transitionTime)
+{
+	World.ObjectSetMaterial(ObjectId, materialSetName, transitionTime, bTransitionToOverlay: false);
+}
+public void SetGeometryState(string state)
+{
+	World.ObjectSetGeometryVisibilityState(ObjectId, state);
+}

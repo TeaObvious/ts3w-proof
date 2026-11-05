@@ -1,0 +1,298 @@
+# IL from SimIFace.dll, type Sims3.SimIFace.Animation
+
+.method 0x060008e2 Sims3.SimIFace.Animation::.cctor RVA=0x0000dbcc
+  IL_0000: newobj         A100000A ; 0x0a0000a1 TypeSpec(0x1b00001a)::.ctor
+  IL_0005: stsfld         F9090004 ; 0x040009f9 sPMASleepingTasks
+  IL_000a: call           1400000A ; 0x0a000014 System.AppDomain::get_CurrentDomain
+  IL_000f: ldstr          D9020070
+  IL_0014: callvirt       1500000A ; 0x0a000015 System.AppDomain::GetData
+  IL_0019: isinst         53010002 ; 0x02000153 Sims3.SimIFace.IAnimation
+  IL_001e: stsfld         F7090004 ; 0x040009f7 Instance
+  IL_0023: ldnull         
+  IL_0024: ldftn          F8080006 ; 0x060008f8 Sims3.SimIFace.Animation::PMAAnimationFinishedCallback
+  IL_002a: newobj         C9080006 ; 0x060008c9 Sims3.SimIFace.PMAAnimationFinishedCallback::.ctor
+  IL_002f: stsfld         F8090004 ; 0x040009f8 sPMAAnimationFinishedCallbackDelegate
+  IL_0034: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0039: ldsfld         F8090004 ; 0x040009f8 sPMAAnimationFinishedCallbackDelegate
+  IL_003e: callvirt       DD080006 ; 0x060008dd Sims3.SimIFace.IAnimation::SetPMAAnimationFinishedCallback
+  IL_0043: ret            
+
+.method 0x060008e3 Sims3.SimIFace.Animation::PreWorldLoadShutdown RVA=0x0000dc1c
+  IL_0000: ldsfld         F9090004 ; 0x040009f9 sPMASleepingTasks
+  IL_0005: callvirt       A200000A ; 0x0a0000a2 TypeSpec(0x1b00001a)::Clear
+  IL_000a: ret            
+
+.method 0x060008e4 Sims3.SimIFace.Animation::SetLookAtsHidden RVA=0x0000dc28
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       CD080006 ; 0x060008cd Sims3.SimIFace.IAnimation::SetLookAtsHidden
+  IL_000c: ret            
+
+.method 0x060008e5 Sims3.SimIFace.Animation::CreateTransformController RVA=0x0000dc36
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       CF080006 ; 0x060008cf Sims3.SimIFace.IAnimation::CreateTransformController
+  IL_000b: ret            
+
+.method 0x060008e6 Sims3.SimIFace.Animation::SetBonePosition RVA=0x0000dc43
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: call           930E0006 ; 0x06000e93 Sims3.SimIFace.ResourceUtils::HashString32
+  IL_000c: ldarg.2        
+  IL_000d: ldarg.3        
+  IL_000e: callvirt       CE080006 ; 0x060008ce Sims3.SimIFace.IAnimation::SetBonePosition
+  IL_0013: ret            
+
+.method 0x060008e7 Sims3.SimIFace.Animation::CreateTimeController RVA=0x0000dc58
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       D1080006 ; 0x060008d1 Sims3.SimIFace.IAnimation::CreateTimeController
+  IL_000b: ret            
+
+.method 0x060008e8 Sims3.SimIFace.Animation::PlayAnimation RVA=0x0000dc65
+  IL_0000: ldarg.0        
+  IL_0001: ldarg.1        
+  IL_0002: ldarg.2        
+  IL_0003: ldc.r4         0000803F
+  IL_0008: call           E9080006 ; 0x060008e9 Sims3.SimIFace.Animation::PlayAnimation
+  IL_000d: ret            
+
+.method 0x060008e9 Sims3.SimIFace.Animation::PlayAnimation RVA=0x0000dc74
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldc.i4.0       
+  IL_000a: callvirt       D2080006 ; 0x060008d2 Sims3.SimIFace.IAnimation::PlayAnimation
+  IL_000f: ret            
+
+.method 0x060008ea Sims3.SimIFace.Animation::PlayAnimation RVA=0x0000dc88
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: callvirt       D2080006 ; 0x060008d2 Sims3.SimIFace.IAnimation::PlayAnimation
+  IL_0010: ldarg.s        04
+  IL_0012: brfalse.s      41 ; -> IL_0055
+  IL_0014: ldc.i4.0       
+  IL_0015: call           43120006 ; 0x06001243 Sims3.SimIFace.Simulator::CheckYieldingContext
+  IL_001a: brfalse.s      39 ; -> IL_0055
+  IL_001c: ldarg.0        
+  IL_001d: call           40120006 ; 0x06001240 Sims3.SimIFace.Simulator::get_CurrentTask
+  IL_0022: call           F9110006 ; 0x060011f9 Sims3.SimIFace.ObjectGuid::op_Equality
+  IL_0027: brfalse.s      2C ; -> IL_0055
+  IL_0029: ldsfld         F9090004 ; 0x040009f9 sPMASleepingTasks
+  IL_002e: ldarga.s       00
+  IL_0030: call           F5110006 ; 0x060011f5 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0035: callvirt       A300000A ; 0x0a0000a3 TypeSpec(0x1b00001a)::Add
+  IL_003a: ldc.i4.m1      
+  IL_003b: call           53120006 ; 0x06001253 Sims3.SimIFace.Simulator::Sleep
+  IL_0040: leave.s        13 ; -> IL_0055
+  IL_0042: ldsfld         F9090004 ; 0x040009f9 sPMASleepingTasks
+  IL_0047: ldarga.s       00
+  IL_0049: call           F5110006 ; 0x060011f5 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_004e: callvirt       A400000A ; 0x0a0000a4 TypeSpec(0x1b00001a)::Remove
+  IL_0053: pop            
+  IL_0054: endfinally     
+  IL_0055: ret            
+
+.method 0x060008eb Sims3.SimIFace.Animation::StartPose RVA=0x0000dcfc
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: callvirt       D3080006 ; 0x060008d3 Sims3.SimIFace.IAnimation::StartPose
+  IL_000d: ret            
+
+.method 0x060008ec Sims3.SimIFace.Animation::StopAllAnimation RVA=0x0000dd0b
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       D4080006 ; 0x060008d4 Sims3.SimIFace.IAnimation::StopAllAnimation
+  IL_000b: ret            
+
+.method 0x060008ed Sims3.SimIFace.Animation::ForceAnimation RVA=0x0000dd18
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       D5080006 ; 0x060008d5 Sims3.SimIFace.IAnimation::ForceAnimation
+  IL_000c: ret            
+
+.method 0x060008ee Sims3.SimIFace.Animation::SetBoneTimeRotation RVA=0x0000dd26
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: call           930E0006 ; 0x06000e93 Sims3.SimIFace.ResourceUtils::HashString32
+  IL_000c: ldarg.2        
+  IL_000d: callvirt       D0080006 ; 0x060008d0 Sims3.SimIFace.IAnimation::SetBoneTimeRotation
+  IL_0012: ret            
+
+.method 0x060008ef Sims3.SimIFace.Animation::StartRandomClipController RVA=0x0000dd3a
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: ldarg.s        05
+  IL_000d: ldarg.s        06
+  IL_000f: callvirt       D6080006 ; 0x060008d6 Sims3.SimIFace.IAnimation::StartRandomClipController
+  IL_0014: ret            
+
+.method 0x060008f0 Sims3.SimIFace.Animation::StopRandomClipController RVA=0x0000dd50
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: callvirt       D7080006 ; 0x060008d7 Sims3.SimIFace.IAnimation::StopRandomClipController
+  IL_000d: ret            
+
+.method 0x060008f1 Sims3.SimIFace.Animation::ClipExists RVA=0x0000dd60
+  IL_0000: ldarg.0        
+  IL_0001: call           7F00000A ; 0x0a00007f System.String::IsNullOrEmpty
+  IL_0006: brfalse.s      02 ; -> IL_000a
+  IL_0008: ldc.i4.0       
+  IL_0009: ret            
+  IL_000a: ldarg.1        
+  IL_000b: call           9B0E0006 ; 0x06000e9b Sims3.SimIFace.ResourceUtils::ProductVersionToGroupId
+  IL_0010: stloc.0        
+  IL_0011: ldarg.0        
+  IL_0012: call           F5080006 ; 0x060008f5 Sims3.SimIFace.Animation::GetClipInstanceId
+  IL_0017: ldloc.0        
+  IL_0018: call           F3080006 ; 0x060008f3 Sims3.SimIFace.Animation::ClipExists
+  IL_001d: ret            
+
+.method 0x060008f2 Sims3.SimIFace.Animation::ClipExists RVA=0x0000dd8a
+  IL_0000: ldarg.0        
+  IL_0001: ldc.i4.0       
+  IL_0002: call           F3080006 ; 0x060008f3 Sims3.SimIFace.Animation::ClipExists
+  IL_0007: ret            
+
+.method 0x060008f3 Sims3.SimIFace.Animation::ClipExists RVA=0x0000dd93
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       D8080006 ; 0x060008d8 Sims3.SimIFace.IAnimation::ClipExists
+  IL_000c: ret            
+
+.method 0x060008f4 Sims3.SimIFace.Animation::HasAnimation RVA=0x0000dda1
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       D9080006 ; 0x060008d9 Sims3.SimIFace.IAnimation::HasAnimation
+  IL_000c: ret            
+
+.method 0x060008f5 Sims3.SimIFace.Animation::GetClipInstanceId RVA=0x0000ddaf
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       DA080006 ; 0x060008da Sims3.SimIFace.IAnimation::GetClipInstanceId
+  IL_000b: ret            
+
+.method 0x060008f6 Sims3.SimIFace.Animation::GetClipInstanceIdForAges RVA=0x0000ddbc
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: callvirt       DB080006 ; 0x060008db Sims3.SimIFace.IAnimation::GetClipInstanceIdForAges
+  IL_000d: ret            
+
+.method 0x060008f7 Sims3.SimIFace.Animation::PlayProcedurallyMotionAccumulatedAnimation RVA=0x0000ddcc
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: callvirt       DC080006 ; 0x060008dc Sims3.SimIFace.IAnimation::PlayProcedurallyMotionAccumulatedAnimation
+  IL_0010: ldc.i4.0       
+  IL_0011: call           43120006 ; 0x06001243 Sims3.SimIFace.Simulator::CheckYieldingContext
+  IL_0016: brfalse.s      39 ; -> IL_0051
+  IL_0018: ldarg.0        
+  IL_0019: call           40120006 ; 0x06001240 Sims3.SimIFace.Simulator::get_CurrentTask
+  IL_001e: call           F9110006 ; 0x060011f9 Sims3.SimIFace.ObjectGuid::op_Equality
+  IL_0023: brfalse.s      2C ; -> IL_0051
+  IL_0025: ldsfld         F9090004 ; 0x040009f9 sPMASleepingTasks
+  IL_002a: ldarga.s       00
+  IL_002c: call           F5110006 ; 0x060011f5 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0031: callvirt       A300000A ; 0x0a0000a3 TypeSpec(0x1b00001a)::Add
+  IL_0036: ldc.i4.m1      
+  IL_0037: call           53120006 ; 0x06001253 Sims3.SimIFace.Simulator::Sleep
+  IL_003c: leave.s        13 ; -> IL_0051
+  IL_003e: ldsfld         F9090004 ; 0x040009f9 sPMASleepingTasks
+  IL_0043: ldarga.s       00
+  IL_0045: call           F5110006 ; 0x060011f5 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_004a: callvirt       A400000A ; 0x0a0000a4 TypeSpec(0x1b00001a)::Remove
+  IL_004f: pop            
+  IL_0050: endfinally     
+  IL_0051: ret            
+
+.method 0x060008f8 Sims3.SimIFace.Animation::PMAAnimationFinishedCallback RVA=0x0000de3c
+  IL_0000: ldsfld         F9090004 ; 0x040009f9 sPMASleepingTasks
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       A400000A ; 0x0a0000a4 TypeSpec(0x1b00001a)::Remove
+  IL_000b: brfalse.s      0C ; -> IL_0019
+  IL_000d: ldarg.0        
+  IL_000e: newobj         F4110006 ; 0x060011f4 Sims3.SimIFace.ObjectGuid::.ctor
+  IL_0013: ldc.i4.0       
+  IL_0014: call           55120006 ; 0x06001255 Sims3.SimIFace.Simulator::Wake
+  IL_0019: ret            
+
+.method 0x060008f9 Sims3.SimIFace.Animation::MeasureControllerDistanceTravelled RVA=0x0000de57
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       DE080006 ; 0x060008de Sims3.SimIFace.IAnimation::MeasureControllerDistanceTravelled
+  IL_000c: ret            
+
+.method 0x060008fa Sims3.SimIFace.Animation::EnableForceDiscontinuousOnParenting RVA=0x0000de65
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldc.i4.1       
+  IL_0007: callvirt       DF080006 ; 0x060008df Sims3.SimIFace.IAnimation::EnableDisableForceDiscontinuousOnParenting
+  IL_000c: ret            
+
+.method 0x060008fb Sims3.SimIFace.Animation::DisableForceDiscontinuousOnParenting RVA=0x0000de73
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldc.i4.0       
+  IL_0007: callvirt       DF080006 ; 0x060008df Sims3.SimIFace.IAnimation::EnableDisableForceDiscontinuousOnParenting
+  IL_000c: ret            
+
+.method 0x060008fc Sims3.SimIFace.Animation::EnableLargeAnimalEvalNode RVA=0x0000de81
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldc.i4.1       
+  IL_0007: callvirt       E0080006 ; 0x060008e0 Sims3.SimIFace.IAnimation::EnableDisableLargeAnimalEvalNode
+  IL_000c: ret            
+
+.method 0x060008fd Sims3.SimIFace.Animation::DisableLargeAnimalEvalNode RVA=0x0000de8f
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldc.i4.0       
+  IL_0007: callvirt       E0080006 ; 0x060008e0 Sims3.SimIFace.IAnimation::EnableDisableLargeAnimalEvalNode
+  IL_000c: ret            
+
+.method 0x060008fe Sims3.SimIFace.Animation::EnableScubaDivingMode RVA=0x0000de9d
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldc.i4.1       
+  IL_0007: ldarg.1        
+  IL_0008: callvirt       E1080006 ; 0x060008e1 Sims3.SimIFace.IAnimation::EnableDisableScubaDivingMode
+  IL_000d: ret            
+
+.method 0x060008ff Sims3.SimIFace.Animation::DisableScubaDivingMode RVA=0x0000deac
+  IL_0000: ldsfld         F7090004 ; 0x040009f7 Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldc.i4.0       
+  IL_0007: ldarg.1        
+  IL_0008: callvirt       E1080006 ; 0x060008e1 Sims3.SimIFace.IAnimation::EnableDisableScubaDivingMode
+  IL_000d: ret            
+
+.method 0x06000900 Sims3.SimIFace.Animation::.ctor RVA=0x0000debb
+  IL_0000: ldarg.0        
+  IL_0001: call           1C00000A ; 0x0a00001c System.Object::.ctor
+  IL_0006: ret            

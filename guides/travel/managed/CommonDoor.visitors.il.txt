@@ -1,0 +1,508 @@
+// Original PC1.67 Sims3GameplaySystems.dll; Sims3.Gameplay.Abstracts.CommonDoor selected complete members.
+// Original IL is authoritative; omitted siblings are outside this evidence extract.
+	.class nested public auto ansi sealed tLock
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field public specialname rtspecialname uint32 value__
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock Nobody = uint32(0)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock SelectedActor = uint32(1)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock SelectedHousehold = uint32(2)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock Anybody = uint32(3)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock Pets = uint32(4)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock OwnerList = uint32(5)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock VIPRoom = uint32(6)
+
+	} // end of class tLock
+	.field private valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock mLockType
+	.field private class Sims3.Gameplay.CAS.SimDescription mLockOwner
+	.field private class [mscorlib]System.Collections.Generic.List`1<uint64> mOwnerList
+	.field private int32 mOneWayDestinationRoomId
+	.method private hidebysig 
+		instance bool CanServiceIgnoreLock (
+			valuetype Sims3.Gameplay.Services.ServiceType serviceType
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c1c6e
+		// Header size: 1
+		// Code size: 54 (0x36)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4 2048
+		IL_0006: conv.i8
+		IL_0007: beq.s IL_0034
+
+		IL_0009: ldarg.1
+		IL_000a: ldc.i4 256
+		IL_000f: conv.i8
+		IL_0010: beq.s IL_0034
+
+		IL_0012: ldarg.1
+		IL_0013: ldc.i4 512
+		IL_0018: conv.i8
+		IL_0019: beq.s IL_0034
+
+		IL_001b: ldarg.1
+		IL_001c: ldc.i4 4096
+		IL_0021: conv.i8
+		IL_0022: beq.s IL_0034
+
+		IL_0024: ldarg.1
+		IL_0025: ldc.i4.s 16
+		IL_0027: conv.i8
+		IL_0028: beq.s IL_0034
+
+		IL_002a: ldarg.1
+		IL_002b: ldc.i4 1024
+		IL_0030: conv.i8
+		IL_0031: ceq
+		IL_0033: ret
+
+		IL_0034: ldc.i4.1
+		IL_0035: ret
+	} // end of method CommonDoor::CanServiceIgnoreLock
+	.method public hidebysig 
+		instance bool IsAllowedThrough (
+			class Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c1ca8
+		// Header size: 12
+		// Code size: 45 (0x2d)
+		.maxstack 5
+		.locals init (
+			[0] int32[],
+			[1] valuetype Sims3.Gameplay.ObjectComponents.PortalRestriction
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance int32[] Sims3.Gameplay.Abstracts.RoomConnectionObject::GetRoomConnections()
+		IL_0006: stloc.0
+		IL_0007: ldarg.0
+		IL_0008: ldloc.0
+		IL_0009: ldc.i4.0
+		IL_000a: ldelem.i4
+		IL_000b: ldloc.0
+		IL_000c: ldc.i4.1
+		IL_000d: ldelem.i4
+		IL_000e: ldarg.1
+		IL_000f: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalRestriction Sims3.Gameplay.Abstracts.CommonDoor::IsAllowedThrough(int32, int32, class Sims3.Gameplay.Actors.Sim)
+		IL_0014: ldarg.0
+		IL_0015: ldloc.0
+		IL_0016: ldc.i4.1
+		IL_0017: ldelem.i4
+		IL_0018: ldloc.0
+		IL_0019: ldc.i4.0
+		IL_001a: ldelem.i4
+		IL_001b: ldarg.1
+		IL_001c: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalRestriction Sims3.Gameplay.Abstracts.CommonDoor::IsAllowedThrough(int32, int32, class Sims3.Gameplay.Actors.Sim)
+		IL_0021: or
+		IL_0022: stloc.1
+		IL_0023: ldloc.1
+		IL_0024: ldc.i4.2
+		IL_0025: and
+		IL_0026: ldc.i4.2
+		IL_0027: ceq
+		IL_0029: ldc.i4.0
+		IL_002a: ceq
+		IL_002c: ret
+	} // end of method CommonDoor::IsAllowedThrough
+	.method public hidebysig newslot virtual 
+		instance valuetype Sims3.Gameplay.ObjectComponents.PortalRestriction IsAllowedThrough (
+			int32 srcRoomId,
+			int32 destRoomId,
+			class Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c1ce4
+		// Header size: 12
+		// Code size: 496 (0x1f0)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Core.Lot,
+			[1] bool,
+			[2] bool,
+			[3] bool,
+			[4] class Sims3.Gameplay.Controllers.ResortManager,
+			[5] class Sims3.Gameplay.Controllers.ResortManager/VIPRoomData,
+			[6] valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: ldarg.1
+		IL_0009: callvirt instance bool Sims3.Gameplay.Core.Lot::IsRoomHidden(int32)
+		IL_000e: brtrue.s IL_0019
+
+		IL_0010: ldloc.0
+		IL_0011: ldarg.2
+		IL_0012: callvirt instance bool Sims3.Gameplay.Core.Lot::IsRoomHidden(int32)
+		IL_0017: brfalse.s IL_001b
+
+		IL_0019: ldc.i4.2
+		IL_001a: ret
+
+		IL_001b: ldarg.3
+		IL_001c: callvirt instance class Sims3.Gameplay.Services.Service Sims3.Gameplay.Actors.Sim::get_Service()
+		IL_0021: brfalse.s IL_0038
+
+		IL_0023: ldarg.0
+		IL_0024: ldarg.3
+		IL_0025: callvirt instance class Sims3.Gameplay.Services.Service Sims3.Gameplay.Actors.Sim::get_Service()
+		IL_002a: callvirt instance valuetype Sims3.Gameplay.Services.ServiceType Sims3.Gameplay.Services.Service::get_ServiceType()
+		IL_002f: call instance bool Sims3.Gameplay.Abstracts.CommonDoor::CanServiceIgnoreLock(valuetype Sims3.Gameplay.Services.ServiceType)
+		IL_0034: brfalse.s IL_0038
+
+		IL_0036: ldc.i4.0
+		IL_0037: ret
+
+		IL_0038: ldarg.3
+		IL_0039: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsStray()
+		IL_003e: brfalse.s IL_004b
+
+		IL_0040: ldarg.3
+		IL_0041: ldloc.0
+		IL_0042: callvirt instance bool Sims3.Gameplay.Actors.Sim::IsGreetedOnLot(class Sims3.Gameplay.Core.Lot)
+		IL_0047: brtrue.s IL_004b
+
+		IL_0049: ldc.i4.2
+		IL_004a: ret
+
+		IL_004b: ldarg.0
+		IL_004c: ldfld int32 Sims3.Gameplay.Abstracts.CommonDoor::mOneWayDestinationRoomId
+		IL_0051: ldc.i4 36863
+		IL_0056: beq.s IL_0063
+
+		IL_0058: ldarg.2
+		IL_0059: ldarg.0
+		IL_005a: ldfld int32 Sims3.Gameplay.Abstracts.CommonDoor::mOneWayDestinationRoomId
+		IL_005f: beq.s IL_0063
+
+		IL_0061: ldc.i4.2
+		IL_0062: ret
+
+		IL_0063: ldarg.0
+		IL_0064: isinst Sims3.Gameplay.Abstracts.IBarnDoor
+		IL_0069: ldnull
+		IL_006a: cgt.un
+		IL_006c: stloc.1
+		IL_006d: ldarg.3
+		IL_006e: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsHorse()
+		IL_0073: brfalse.s IL_0097
+
+		IL_0075: ldloc.1
+		IL_0076: brtrue.s IL_0097
+
+		IL_0078: ldarg.0
+		IL_0079: isinst Sims3.Gameplay.Abstracts.GateDouble
+		IL_007e: brtrue.s IL_0088
+
+		IL_0080: ldarg.0
+		IL_0081: isinst Sims3.Gameplay.Interfaces.IElectronicGate
+		IL_0086: brfalse.s IL_0090
+
+		IL_0088: ldarg.0
+		IL_0089: call instance bool Sims3.Gameplay.Abstracts.GameObject::get_CanLargeAnimalUse()
+		IL_008e: br.s IL_0091
+
+		IL_0090: ldc.i4.0
+
+		IL_0091: stloc.2
+		IL_0092: ldloc.2
+		IL_0093: brtrue.s IL_0097
+
+		IL_0095: ldc.i4.2
+		IL_0096: ret
+
+		IL_0097: ldloc.1
+		IL_0098: brtrue.s IL_00a2
+
+		IL_009a: ldarg.3
+		IL_009b: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsPet()
+		IL_00a0: brfalse.s IL_00af
+
+		IL_00a2: ldarg.0
+		IL_00a3: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_00a8: callvirt instance bool Sims3.Gameplay.Core.Lot::IsFireOnLot()
+		IL_00ad: br.s IL_00b0
+
+		IL_00af: ldc.i4.0
+
+		IL_00b0: stloc.3
+		IL_00b1: ldarg.3
+		IL_00b2: ldc.i4.1
+		IL_00b3: callvirt instance bool Sims3.Gameplay.Actors.Sim::FlagIsSet(valuetype Sims3.Gameplay.Actors.Sim/SimFlags)
+		IL_00b8: brtrue IL_01ee
+
+		IL_00bd: ldloc.3
+		IL_00be: brtrue IL_01ee
+
+		IL_00c3: ldarg.0
+		IL_00c4: ldfld valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock Sims3.Gameplay.Abstracts.CommonDoor::mLockType
+		IL_00c9: stloc.s 6
+		IL_00cb: ldloc.s 6
+		IL_00cd: switch (IL_00f5, IL_00f7, IL_010a, IL_00f3, IL_01c5, IL_01d4, IL_0127)
+
+		IL_00ee: br IL_01ee
+
+		IL_00f3: ldc.i4.0
+		IL_00f4: ret
+
+		IL_00f5: ldc.i4.2
+		IL_00f6: ret
+
+		IL_00f7: ldarg.3
+		IL_00f8: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_00fd: ldarg.0
+		IL_00fe: ldfld class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Abstracts.CommonDoor::mLockOwner
+		IL_0103: beq IL_01ee
+
+		IL_0108: ldc.i4.2
+		IL_0109: ret
+
+		IL_010a: ldarg.3
+		IL_010b: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0110: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.SimDescription::get_Household()
+		IL_0115: ldarg.0
+		IL_0116: ldfld class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Abstracts.CommonDoor::mLockOwner
+		IL_011b: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.SimDescription::get_Household()
+		IL_0120: beq IL_01ee
+
+		IL_0125: ldc.i4.2
+		IL_0126: ret
+
+		IL_0127: ldarg.0
+		IL_0128: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_012d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot::get_CommercialLotSubType()
+		IL_0132: ldc.i4.s 81
+		IL_0134: bne.un IL_01ee
+
+		IL_0139: ldarg.3
+		IL_013a: call bool Sims3.Gameplay.Controllers.ResortManager::IsResortWorker(class Sims3.Gameplay.Actors.Sim)
+		IL_013f: brtrue IL_01ee
+
+		IL_0144: ldarg.3
+		IL_0145: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_014a: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsBonehilda()
+		IL_014f: brtrue IL_01ee
+
+		IL_0154: ldarg.0
+		IL_0155: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_015a: callvirt instance class Sims3.Gameplay.Controllers.ResortManager Sims3.Gameplay.Core.Lot::get_ResortManager()
+		IL_015f: stloc.s 4
+		IL_0161: ldarg.0
+		IL_0162: ldfld class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Abstracts.CommonDoor::mLockOwner
+		IL_0167: brfalse.s IL_01ab
+
+		IL_0169: ldarg.0
+		IL_016a: ldfld class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Abstracts.CommonDoor::mLockOwner
+		IL_016f: ldarg.3
+		IL_0170: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0175: bne.un.s IL_0179
+
+		IL_0177: ldc.i4.0
+		IL_0178: ret
+
+		IL_0179: ldloc.s 4
+		IL_017b: brfalse.s IL_01ab
+
+		IL_017d: ldloc.s 4
+		IL_017f: ldarg.0
+		IL_0180: ldfld class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Abstracts.CommonDoor::mLockOwner
+		IL_0185: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+		IL_018a: callvirt instance class Sims3.Gameplay.Controllers.ResortManager/VIPRoomData Sims3.Gameplay.Controllers.ResortManager::FindVIPRoomDataBySimId(uint64)
+		IL_018f: stloc.s 5
+		IL_0191: ldloc.s 5
+		IL_0193: brfalse.s IL_01ab
+
+		IL_0195: ldloc.s 5
+		IL_0197: ldarg.3
+		IL_0198: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_019d: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+		IL_01a2: callvirt instance bool Sims3.Gameplay.Controllers.ResortManager/VIPRoomData::IsGuest(uint64)
+		IL_01a7: brfalse.s IL_01ab
+
+		IL_01a9: ldc.i4.0
+		IL_01aa: ret
+
+		IL_01ab: ldloc.s 4
+		IL_01ad: callvirt instance bool Sims3.Gameplay.Controllers.ResortManager::get_Closed()
+		IL_01b2: brfalse.s IL_01c3
+
+		IL_01b4: ldarg.0
+		IL_01b5: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_01ba: callvirt instance bool Sims3.Gameplay.Core.Lot::get_IsControllable()
+		IL_01bf: brfalse.s IL_01c3
+
+		IL_01c1: ldc.i4.0
+		IL_01c2: ret
+
+		IL_01c3: ldc.i4.2
+		IL_01c4: ret
+
+		IL_01c5: ldarg.3
+		IL_01c6: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_01cb: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsPet()
+		IL_01d0: brfalse.s IL_01ee
+
+		IL_01d2: ldc.i4.2
+		IL_01d3: ret
+
+		IL_01d4: ldarg.0
+		IL_01d5: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.Abstracts.CommonDoor::mOwnerList
+		IL_01da: ldarg.3
+		IL_01db: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_01e0: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+		IL_01e5: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<uint64>::Contains(!0)
+		IL_01ea: brtrue.s IL_01ee
+
+		IL_01ec: ldc.i4.2
+		IL_01ed: ret
+
+		IL_01ee: ldc.i4.0
+		IL_01ef: ret
+	} // end of method CommonDoor::IsAllowedThrough
+	.method family hidebysig 
+		instance void OnPortalRestrictionChanged () cil managed 
+	{
+		// Method begins at RVA 0x1c1fca
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0006: brfalse.s IL_0013
+
+		IL_0008: ldarg.0
+		IL_0009: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_000e: callvirt instance void Sims3.Gameplay.Core.Lot::RefreshObjectCacheUsers()
+
+		IL_0013: ret
+	} // end of method CommonDoor::OnPortalRestrictionChanged
+	.method public hidebysig 
+		instance void SetLockType (
+			valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock lockType
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c1fdf
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldnull
+		IL_0003: call instance void Sims3.Gameplay.Abstracts.CommonDoor::SetLockTypeAndOwner(valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock, class Sims3.Gameplay.CAS.SimDescription)
+		IL_0008: ret
+	} // end of method CommonDoor::SetLockType
+	.method public hidebysig 
+		instance void SetLockTypeAndOwner (
+			valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock lockType,
+			class Sims3.Gameplay.CAS.SimDescription lockOwner
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c1fe9
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldc.i4 36863
+		IL_0008: call instance void Sims3.Gameplay.Abstracts.CommonDoor::SetLockTypeAndOwner(valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock, class Sims3.Gameplay.CAS.SimDescription, int32)
+		IL_000d: ret
+	} // end of method CommonDoor::SetLockTypeAndOwner
+	.method public hidebysig 
+		instance void SetLockTypeOwnerList (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> ownerList
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c1ff8
+		// Header size: 12
+		// Code size: 84 (0x54)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.CAS.SimDescription,
+			[1] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.5
+		IL_0002: call instance void Sims3.Gameplay.Abstracts.CommonDoor::SetLockType(valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock)
+		IL_0007: ldarg.0
+		IL_0008: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.Abstracts.CommonDoor::mOwnerList
+		IL_000d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<uint64>::Clear()
+		IL_0012: ldarg.1
+		IL_0013: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::GetEnumerator()
+		IL_0018: stloc.1
+		.try
+		{
+			IL_0019: br.s IL_0034
+			// loop start (head: IL_0034)
+				IL_001b: ldloca.s 1
+				IL_001d: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::get_Current()
+				IL_0022: stloc.0
+				IL_0023: ldarg.0
+				IL_0024: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.Abstracts.CommonDoor::mOwnerList
+				IL_0029: ldloc.0
+				IL_002a: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+				IL_002f: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<uint64>::Add(!0)
+
+				IL_0034: ldloca.s 1
+				IL_0036: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::MoveNext()
+				IL_003b: brtrue.s IL_001b
+			// end loop
+
+			IL_003d: leave.s IL_004d
+		} // end .try
+		finally
+		{
+			IL_003f: ldloca.s 1
+			IL_0041: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+			IL_0047: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_004c: endfinally
+		} // end handler
+
+		IL_004d: ldarg.0
+		IL_004e: call instance void Sims3.Gameplay.Abstracts.CommonDoor::SetHouseholdCallback()
+		IL_0053: ret
+	} // end of method CommonDoor::SetLockTypeOwnerList
+	.method public hidebysig 
+		instance void SetLockTypeAndOwner (
+			valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock lockType,
+			class Sims3.Gameplay.CAS.SimDescription lockOwner,
+			int32 oneWayDestinationRoomId
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c214c
+		// Header size: 12
+		// Code size: 42 (0x2a)
+		.maxstack 2
+		.locals init (
+			[0] valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock Sims3.Gameplay.Abstracts.CommonDoor::mLockType
+		IL_0006: stloc.0
+		IL_0007: ldarg.0
+		IL_0008: ldarg.1
+		IL_0009: stfld valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock Sims3.Gameplay.Abstracts.CommonDoor::mLockType
+		IL_000e: ldarg.0
+		IL_000f: ldarg.2
+		IL_0010: stfld class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Abstracts.CommonDoor::mLockOwner
+		IL_0015: ldarg.0
+		IL_0016: ldarg.3
+		IL_0017: stfld int32 Sims3.Gameplay.Abstracts.CommonDoor::mOneWayDestinationRoomId
+		IL_001c: ldarg.0
+		IL_001d: call instance void Sims3.Gameplay.Abstracts.CommonDoor::OnPortalRestrictionChanged()
+		IL_0022: ldarg.0
+		IL_0023: ldloc.0
+		IL_0024: callvirt instance void Sims3.Gameplay.Abstracts.CommonDoor::OnLockChanged(valuetype Sims3.Gameplay.Abstracts.CommonDoor/tLock)
+		IL_0029: ret
+	} // end of method CommonDoor::SetLockTypeAndOwner

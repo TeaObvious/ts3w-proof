@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000A7E.
+// Assembly: ScriptCore; type: ScriptCore.UserToolUtils.
+// Decompiled C# source: ScriptCore/ScriptCore/UserToolUtils.cs:35
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalType = "ScriptCore.StringFromVariantMarshaler")]
+	private static extern string UserToolUtils_ProductGenericImpl(uint productHandle, uint funcID, ref uint retUint32, ref ulong instance, ref uint group, ref uint type, ref float retFloat);

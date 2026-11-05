@@ -1,0 +1,108 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: WorldBuilderCS/WorldLayersControl.cs
+// Each selected declaration or method is complete. Other members are omitted.
+
+	public void Init(WorldBuilderMainForm mainForm)
+	{
+		if (mainForm == null)
+		{
+			throw new ArgumentNullException("mainForm", Strings.kError_WorldLayersControlInit);
+		}
+		Shutdown();
+		mApp = mainForm;
+		if (!InitTreeControl())
+		{
+			return;
+		}
+		if (mApp.WorldSettings.ContainsKey("ActiveLayer"))
+		{
+			string s = mApp.WorldSettings["ActiveLayer"];
+			if (ulong.TryParse(s, out var result))
+			{
+				Node nodeFromKey = mTreeControl.GetNodeFromKey((object)result);
+				if (nodeFromKey != null)
+				{
+					ObjectManager activeObjectManager = nodeFromKey.Tag as ObjectManager;
+					World currentWorld = mApp.GetCurrentWorld();
+					currentWorld.SetActiveObjectManager(activeObjectManager);
+					SetActiveLayer(nodeFromKey);
+				}
+			}
+			return;
+		}
+		World currentWorld2 = mApp.GetCurrentWorld();
+		using ObjectManager objectManager = currentWorld2.GetActiveObjectManager();
+		if (objectManager != null)
+		{
+			Node nodeFromKey2 = mTreeControl.GetNodeFromKey((object)objectManager.Id);
+			SetActiveLayer(nodeFromKey2);
+		}
+	}
+
+// [Next selected original declaration or method]
+
+	private void SetActiveLayer(Node activeNode)
+	{
+		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0054: Expected Obj, but got Unknown
+		if (activeNode != null && activeNode.Tag is Layer)
+		{
+			if (mActiveLayer != null)
+			{
+				mActiveLayer.NodeFont = Control.DefaultFont;
+			}
+			mActiveLayer = activeNode;
+			mActiveLayer.NodeFont = new Font(Control.DefaultFont.FontFamily, Control.DefaultFont.Size, (FontStyle)1);
+			mActiveLayer.Select();
+		}
+	}
+
+// [Next selected original declaration or method]
+
+	private void OnSetActiveLayer(object sender, EventArgs e)
+	{
+		if (mContextMenuNode != null)
+		{
+			World currentWorld = mApp.GetCurrentWorld();
+			if (mContextMenuNode.Tag is ObjectManager objectManager)
+			{
+				currentWorld.SetActiveObjectManager(objectManager);
+				mApp.WorldSettings["ActiveLayer"] = objectManager.Id.ToString();
+			}
+			SetActiveLayer(mContextMenuNode);
+		}
+		mContextMenuNode = null;
+	}
+
+// [Next selected original declaration or method]
+
+	private void OnAddLayer(object sender, EventArgs e)
+	{
+		if (mContextMenuNode != null)
+		{
+			World currentWorld = mApp.GetCurrentWorld();
+			Layer layer = currentWorld.CreateNewLayer();
+			if (layer != null)
+			{
+				AddToNode(mContextMenuNode, layer);
+				currentWorld.EditableObjMgrs.AddEntry(layer.Id);
+			}
+		}
+		mContextMenuNode = null;
+	}
+
+// [Next selected original declaration or method]
+
+	private void OnAddLayerToWorld(object sender, EventArgs e)
+	{
+		if (mContextMenuNode != null)
+		{
+			World currentWorld = mApp.GetCurrentWorld();
+			Layer layer = currentWorld.CreateNewLayer();
+			if (layer != null)
+			{
+				AddToNode(mContextMenuNode, layer);
+				currentWorld.EditableObjMgrs.AddEntry(layer.Id);
+			}
+		}
+		mContextMenuNode = null;
+	}

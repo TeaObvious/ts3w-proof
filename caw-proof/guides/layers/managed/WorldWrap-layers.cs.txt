@@ -1,0 +1,67 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: CSHostWrap/Sims3/CSHost/WorldWrap.cs
+// Each selected declaration or method is complete. Other members are omitted.
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldWrap_AddObjectManager(IntPtr pWorldAsVoid, IntPtr pObjMgrAsVoid);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldWrap_RemoveObjectManager(IntPtr pWorldAsVoid, IntPtr pObjMgrAsVoid);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldWrap_SetActiveObjectManager(IntPtr pWorld, IntPtr pObjMgr);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern IntPtr WorldWrap_CreateNewLayer(IntPtr pWorldAsVoid);
+
+// [Next selected original declaration or method]
+
+	public void SetActiveObjectManager(ObjectManagerWrap objMgr)
+	{
+		WorldWrap_SetActiveObjectManager(mNativeObj, objMgr.NativeObj);
+	}
+
+// [Next selected original declaration or method]
+
+	public LayerWrap CreateNewLayer()
+	{
+		IntPtr intPtr = WorldWrap_CreateNewLayer(mNativeObj);
+		if (intPtr != IntPtr.Zero)
+		{
+			return new LayerWrap(this, intPtr);
+		}
+		return null;
+	}
+
+// [Next selected original declaration or method]
+
+	public void AddObjectManager(ObjectManagerWrap objMgr)
+	{
+		if (objMgr != null && mNativeObj != IntPtr.Zero)
+		{
+			IntPtr nativeObj = objMgr.NativeObj;
+			if (nativeObj != IntPtr.Zero)
+			{
+				WorldWrap_AddObjectManager(mNativeObj, nativeObj);
+			}
+		}
+	}
+
+// [Next selected original declaration or method]
+
+	public void RemoveObjectManager(ObjectManagerWrap objMgr)
+	{
+		if (objMgr != null && mNativeObj != IntPtr.Zero)
+		{
+			IntPtr nativeObj = objMgr.NativeObj;
+			if (nativeObj != IntPtr.Zero)
+			{
+				WorldWrap_RemoveObjectManager(mNativeObj, nativeObj);
+			}
+		}
+	}

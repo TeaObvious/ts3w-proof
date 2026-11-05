@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x0600017A.
+// Assembly: ScriptCore; type: ScriptCore.Route.
+// Decompiled C# source: ScriptCore/ScriptCore/Route.cs:247
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool Route_BeginFollowingRouteAnimationSpecMult(uint handle, RouteAnimationSpec rAnimSpec, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI4)] uint[] slaveAnimSpecsPacked, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI8)] ulong[] slaveObjectGuids, [MarshalAs(UnmanagedType.I1)] bool bSlavesRoute, uint routeStartFlags);

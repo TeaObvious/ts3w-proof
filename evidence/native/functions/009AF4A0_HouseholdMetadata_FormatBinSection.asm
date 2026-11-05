@@ -1,0 +1,226 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: HouseholdMetadata_FormatBinSection
+Paired actual annotated Ghidra pseudocode: 009AF4A0_HouseholdMetadata_FormatBinSection.c
+Owned ranges: [[009af4a0, 009af711]]
+Envelope bytes=626
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+009af4a0  83ec24  SUB ESP,0x24
+009af4a3  53  PUSH EBX
+009af4a4  55  PUSH EBP
+009af4a5  56  PUSH ESI
+009af4a6  57  PUSH EDI
+009af4a7  33c0  XOR EAX,EAX
+009af4a9  8bf9  MOV EDI,ECX
+009af4ab  6824c20101  PUSH 0x101c224
+009af4b0  8d4c2428  LEA ECX,[ESP + 0x28]
+009af4b4  89442428  MOV dword ptr [ESP + 0x28],EAX
+009af4b8  8944242c  MOV dword ptr [ESP + 0x2c],EAX
+009af4bc  89442430  MOV dword ptr [ESP + 0x30],EAX
+009af4c0  c744243410d70401  MOV dword ptr [ESP + 0x34],0x104d710
+009af4c8  e8c3c0a5ff  CALL 0x0040b590
+009af4cd  8b4f08  MOV ECX,dword ptr [EDI + 0x8]
+009af4d0  8b742438  MOV ESI,dword ptr [ESP + 0x38]
+009af4d4  b8548e1c01  MOV EAX,0x11c8e54
+009af4d9  89442414  MOV dword ptr [ESP + 0x14],EAX
+009af4dd  89442418  MOV dword ptr [ESP + 0x18],EAX
+009af4e1  8b470c  MOV EAX,dword ptr [EDI + 0xc]
+009af4e4  50  PUSH EAX
+009af4e5  51  PUSH ECX
+009af4e6  680cc20101  PUSH 0x101c20c
+009af4eb  56  PUSH ESI
+009af4ec  c7442430d0d60401  MOV dword ptr [ESP + 0x30],0x104d6d0
+009af4f4  c744242c568e1c01  MOV dword ptr [ESP + 0x2c],0x11c8e56
+009af4fc  e83ff3a5ff  CALL 0x0040e840
+009af501  8b6c2438  MOV EBP,dword ptr [ESP + 0x38]
+009af505  8b5c2434  MOV EBX,dword ptr [ESP + 0x34]
+009af509  83c410  ADD ESP,0x10
+009af50c  55  PUSH EBP
+009af50d  53  PUSH EBX
+009af50e  8bce  MOV ECX,ESI
+009af510  e87b96a5ff  CALL 0x00408b90
+009af515  8b5714  MOV EDX,dword ptr [EDI + 0x14]
+009af518  8b4710  MOV EAX,dword ptr [EDI + 0x10]
+009af51b  52  PUSH EDX
+009af51c  50  PUSH EAX
+009af51d  8d4c241c  LEA ECX,[ESP + 0x1c]
+009af521  680cc20101  PUSH 0x101c20c
+009af526  51  PUSH ECX
+009af527  e814f3a5ff  CALL 0x0040e840
+009af52c  8b542428  MOV EDX,dword ptr [ESP + 0x28]
+009af530  8b442424  MOV EAX,dword ptr [ESP + 0x24]
+009af534  83c410  ADD ESP,0x10
+009af537  52  PUSH EDX
+009af538  50  PUSH EAX
+009af539  8bce  MOV ECX,ESI
+009af53b  e85096a5ff  CALL 0x00408b90
+009af540  55  PUSH EBP
+009af541  53  PUSH EBX
+009af542  8bce  MOV ECX,ESI
+009af544  e84796a5ff  CALL 0x00408b90
+009af549  8b4f18  MOV ECX,dword ptr [EDI + 0x18]
+009af54c  3b4f1c  CMP ECX,dword ptr [EDI + 0x1c]
+009af54f  7505  JNZ 0x009af556
+009af551  b9c0d60401  MOV ECX,0x104d6c0
+009af556  66833900  CMP word ptr [ECX],0x0
+009af55a  8bc1  MOV EAX,ECX
+009af55c  740b  JZ 0x009af569
+009af55e  8bff  MOV EDI,EDI
+009af560  83c002  ADD EAX,0x2
+009af563  66833800  CMP word ptr [EAX],0x0
+009af567  75f7  JNZ 0x009af560
+009af569  2bc1  SUB EAX,ECX
+009af56b  d1f8  SAR EAX,0x1
+009af56d  8d1441  LEA EDX,[ECX + EAX*0x2]
+009af570  52  PUSH EDX
+009af571  51  PUSH ECX
+009af572  8bce  MOV ECX,ESI
+009af574  e81796a5ff  CALL 0x00408b90
+009af579  55  PUSH EBP
+009af57a  53  PUSH EBX
+009af57b  8bce  MOV ECX,ESI
+009af57d  e80e96a5ff  CALL 0x00408b90
+009af582  8b07  MOV EAX,dword ptr [EDI]
+009af584  50  PUSH EAX
+009af585  8d4c2418  LEA ECX,[ESP + 0x18]
+009af589  686c05fc00  PUSH 0xfc056c
+009af58e  51  PUSH ECX
+009af58f  e8acf2a5ff  CALL 0x0040e840
+009af594  8b542424  MOV EDX,dword ptr [ESP + 0x24]
+009af598  8b442420  MOV EAX,dword ptr [ESP + 0x20]
+009af59c  83c40c  ADD ESP,0xc
+009af59f  52  PUSH EDX
+009af5a0  50  PUSH EAX
+009af5a1  8bce  MOV ECX,ESI
+009af5a3  e8e895a5ff  CALL 0x00408b90
+009af5a8  55  PUSH EBP
+009af5a9  53  PUSH EBX
+009af5aa  8bce  MOV ECX,ESI
+009af5ac  e8df95a5ff  CALL 0x00408b90
+009af5b1  8b4f04  MOV ECX,dword ptr [EDI + 0x4]
+009af5b4  51  PUSH ECX
+009af5b5  8d542418  LEA EDX,[ESP + 0x18]
+009af5b9  686c05fc00  PUSH 0xfc056c
+009af5be  52  PUSH EDX
+009af5bf  e87cf2a5ff  CALL 0x0040e840
+009af5c4  8b442424  MOV EAX,dword ptr [ESP + 0x24]
+009af5c8  8b4c2420  MOV ECX,dword ptr [ESP + 0x20]
+009af5cc  83c40c  ADD ESP,0xc
+009af5cf  50  PUSH EAX
+009af5d0  51  PUSH ECX
+009af5d1  8bce  MOV ECX,ESI
+009af5d3  e8b895a5ff  CALL 0x00408b90
+009af5d8  55  PUSH EBP
+009af5d9  53  PUSH EBX
+009af5da  8bce  MOV ECX,ESI
+009af5dc  e8af95a5ff  CALL 0x00408b90
+009af5e1  8b572c  MOV EDX,dword ptr [EDI + 0x2c]
+009af5e4  8b4728  MOV EAX,dword ptr [EDI + 0x28]
+009af5e7  52  PUSH EDX
+009af5e8  50  PUSH EAX
+009af5e9  8bce  MOV ECX,ESI
+009af5eb  e8a095a5ff  CALL 0x00408b90
+009af5f0  33c0  XOR EAX,EAX
+009af5f2  3907  CMP dword ptr [EDI],EAX
+009af5f4  89442438  MOV dword ptr [ESP + 0x38],EAX
+009af5f8  0f8ed0000000  JLE 0x009af6ce
+009af5fe  89442410  MOV dword ptr [ESP + 0x10],EAX
+009af602  55  PUSH EBP
+009af603  53  PUSH EBX
+009af604  8bce  MOV ECX,ESI
+009af606  e88595a5ff  CALL 0x00408b90
+009af60b  8b4738  MOV EAX,dword ptr [EDI + 0x38]
+009af60e  03442410  ADD EAX,dword ptr [ESP + 0x10]
+009af612  8b4804  MOV ECX,dword ptr [EAX + 0x4]
+009af615  8b10  MOV EDX,dword ptr [EAX]
+009af617  51  PUSH ECX
+009af618  52  PUSH EDX
+009af619  8bce  MOV ECX,ESI
+009af61b  e87095a5ff  CALL 0x00408b90
+009af620  55  PUSH EBP
+009af621  53  PUSH EBX
+009af622  8bce  MOV ECX,ESI
+009af624  e86795a5ff  CALL 0x00408b90
+009af629  8b87cc000000  MOV EAX,dword ptr [EDI + 0xcc]
+009af62f  03442410  ADD EAX,dword ptr [ESP + 0x10]
+009af633  8b4804  MOV ECX,dword ptr [EAX + 0x4]
+009af636  8b10  MOV EDX,dword ptr [EAX]
+009af638  51  PUSH ECX
+009af639  52  PUSH EDX
+009af63a  8bce  MOV ECX,ESI
+009af63c  e84f95a5ff  CALL 0x00408b90
+009af641  55  PUSH EBP
+009af642  53  PUSH EBX
+009af643  8bce  MOV ECX,ESI
+009af645  e84695a5ff  CALL 0x00408b90
+009af64a  8b8760010000  MOV EAX,dword ptr [EDI + 0x160]
+009af650  8b4c2438  MOV ECX,dword ptr [ESP + 0x38]
+009af654  8b1488  MOV EDX,dword ptr [EAX + ECX*0x4]
+009af657  52  PUSH EDX
+009af658  8d442418  LEA EAX,[ESP + 0x18]
+009af65c  686c05fc00  PUSH 0xfc056c
+009af661  50  PUSH EAX
+009af662  e8d9f1a5ff  CALL 0x0040e840
+009af667  8b4c2424  MOV ECX,dword ptr [ESP + 0x24]
+009af66b  8b542420  MOV EDX,dword ptr [ESP + 0x20]
+009af66f  83c40c  ADD ESP,0xc
+009af672  51  PUSH ECX
+009af673  52  PUSH EDX
+009af674  8bce  MOV ECX,ESI
+009af676  e81595a5ff  CALL 0x00408b90
+009af67b  55  PUSH EBP
+009af67c  53  PUSH EBX
+009af67d  8bce  MOV ECX,ESI
+009af67f  e80c95a5ff  CALL 0x00408b90
+009af684  8b8794010000  MOV EAX,dword ptr [EDI + 0x194]
+009af68a  8b4c2438  MOV ECX,dword ptr [ESP + 0x38]
+009af68e  0fb61408  MOVZX EDX,byte ptr [EAX + ECX*0x1]
+009af692  52  PUSH EDX
+009af693  8d442418  LEA EAX,[ESP + 0x18]
+009af697  686c05fc00  PUSH 0xfc056c
+009af69c  50  PUSH EAX
+009af69d  e89ef1a5ff  CALL 0x0040e840
+009af6a2  8b4c2424  MOV ECX,dword ptr [ESP + 0x24]
+009af6a6  8b542420  MOV EDX,dword ptr [ESP + 0x20]
+009af6aa  83c40c  ADD ESP,0xc
+009af6ad  51  PUSH ECX
+009af6ae  52  PUSH EDX
+009af6af  8bce  MOV ECX,ESI
+009af6b1  e8da94a5ff  CALL 0x00408b90
+009af6b6  8b442438  MOV EAX,dword ptr [ESP + 0x38]
+009af6ba  8344241010  ADD dword ptr [ESP + 0x10],0x10
+009af6bf  83c001  ADD EAX,0x1
+009af6c2  3b07  CMP EAX,dword ptr [EDI]
+009af6c4  89442438  MOV dword ptr [ESP + 0x38],EAX
+009af6c8  0f8c34ffffff  JL 0x009af602
+009af6ce  8b4c241c  MOV ECX,dword ptr [ESP + 0x1c]
+009af6d2  8b442414  MOV EAX,dword ptr [ESP + 0x14]
+009af6d6  2bc8  SUB ECX,EAX
+009af6d8  83e1fe  AND ECX,0xfffffffe
+009af6db  83f902  CMP ECX,0x2
+009af6de  7e0d  JLE 0x009af6ed
+009af6e0  85c0  TEST EAX,EAX
+009af6e2  7409  JZ 0x009af6ed
+009af6e4  50  PUSH EAX
+009af6e5  e8f64db3ff  CALL 0x004e44e0
+009af6ea  83c404  ADD ESP,0x4
+009af6ed  8b54242c  MOV EDX,dword ptr [ESP + 0x2c]
+009af6f1  2bd3  SUB EDX,EBX
+009af6f3  83e2fe  AND EDX,0xfffffffe
+009af6f6  83fa02  CMP EDX,0x2
+009af6f9  7e0d  JLE 0x009af708
+009af6fb  85db  TEST EBX,EBX
+009af6fd  7409  JZ 0x009af708
+009af6ff  53  PUSH EBX
+009af700  e8db4db3ff  CALL 0x004e44e0
+009af705  83c404  ADD ESP,0x4
+009af708  5f  POP EDI
+009af709  5e  POP ESI
+009af70a  5d  POP EBP
+009af70b  5b  POP EBX
+009af70c  83c424  ADD ESP,0x24
+009af70f  c20400  RET 0x4
+Owned instructions=215 owned bytes=626 gap/nonowned bytes=0

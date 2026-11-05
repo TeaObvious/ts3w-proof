@@ -1,0 +1,132 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x009971a0 (ScriptCore.DownloadContent::DownloadContent_GetFirstFilename)
+Paired Ghidra pseudocode: 009971A0_ScriptCore_DownloadContent_DownloadContent_GetFirstFilename.c
+Window: [0x009971a0, 0x009972c0) (288 bytes; stop exclusive)
+Next defined Ghidra entry: 0x009972c0
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+009971a0: 83 ec 34 e8 b8 9a 01 00 85 c0 0f 84 01 01 00 00
+009971b0: 8b c8 e8 f9 94 01 00 85 c0 0f 84 f2 00 00 00 66
+009971c0: 83 38 00 b9 54 8e 1c 01 89 4c 24 04 89 4c 24 08
+009971d0: c7 44 24 10 ec a1 04 01 c7 44 24 0c 56 8e 1c 01
+009971e0: 8b c8 74 09 83 c1 02 66 83 39 00 75 f7 2b c8 d1
+009971f0: f9 8d 0c 48 51 50 8d 4c 24 0c e8 61 1b a7 ff 8b
+00997200: 44 24 04 3b 44 24 08 0f 84 89 00 00 00 56 6a 01
+00997210: 6a 10 8d 54 24 10 52 6a 09 6a 13 8d 4c 24 2c c7
+00997220: 44 24 2c 6c 88 00 01 66 c7 44 24 36 13 00 66 c7
+00997230: 44 24 34 0b 00 e8 86 e7 b5 ff e8 51 21 dd ff 8b
+00997240: 10 8b 52 50 8d 4c 24 04 51 8d 4c 24 1c 51 8b c8
+00997250: ff d2 f6 44 24 20 04 8b 74 24 04 c7 44 24 18 f4
+00997260: a6 fb 00 74 0b 6a 00 8d 4c 24 1c e8 f0 e4 b5 ff
+00997270: 8b 4c 24 10 8b 44 24 08 2b c8 83 e1 fe 83 f9 02
+00997280: 7e 0d 85 c0 74 09 50 e8 54 d2 b4 ff 83 c4 04 8b
+00997290: c6 5e 83 c4 34 c3 8b 54 24 0c 2b d0 83 e2 fe 83
+009972a0: fa 02 7e 0d 85 c0 74 09 50 e8 32 d2 b4 ff 83 c4
+009972b0: 04 33 c0 83 c4 34 c3 cc cc cc cc cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+009971a0 <.text+0x5961a0>:
+  9971a0:	83 ec 34                                        	sub    esp,0x34
+  9971a3:	e8 b8 9a 01 00                                  	call   0x9b0c60
+  9971a8:	85 c0                                           	test   eax,eax
+  9971aa:	0f 84 01 01 00 00                               	je     0x9972b1
+  9971b0:	8b c8                                           	mov    ecx,eax
+  9971b2:	e8 f9 94 01 00                                  	call   0x9b06b0
+  9971b7:	85 c0                                           	test   eax,eax
+  9971b9:	0f 84 f2 00 00 00                               	je     0x9972b1
+  9971bf:	66 83 38 00                                     	cmp    WORD PTR [eax],0x0
+  9971c3:	b9 54 8e 1c 01                                  	mov    ecx,0x11c8e54
+  9971c8:	89 4c 24 04                                     	mov    DWORD PTR [esp+0x4],ecx
+  9971cc:	89 4c 24 08                                     	mov    DWORD PTR [esp+0x8],ecx
+  9971d0:	c7 44 24 10 ec a1 04 01                         	mov    DWORD PTR [esp+0x10],0x104a1ec
+  9971d8:	c7 44 24 0c 56 8e 1c 01                         	mov    DWORD PTR [esp+0xc],0x11c8e56
+  9971e0:	8b c8                                           	mov    ecx,eax
+  9971e2:	74 09                                           	je     0x9971ed
+  9971e4:	83 c1 02                                        	add    ecx,0x2
+  9971e7:	66 83 39 00                                     	cmp    WORD PTR [ecx],0x0
+  9971eb:	75 f7                                           	jne    0x9971e4
+  9971ed:	2b c8                                           	sub    ecx,eax
+  9971ef:	d1 f9                                           	sar    ecx,1
+  9971f1:	8d 0c 48                                        	lea    ecx,[eax+ecx*2]
+  9971f4:	51                                              	push   ecx
+  9971f5:	50                                              	push   eax
+  9971f6:	8d 4c 24 0c                                     	lea    ecx,[esp+0xc]
+  9971fa:	e8 61 1b a7 ff                                  	call   0x408d60
+  9971ff:	8b 44 24 04                                     	mov    eax,DWORD PTR [esp+0x4]
+  997203:	3b 44 24 08                                     	cmp    eax,DWORD PTR [esp+0x8]
+  997207:	0f 84 89 00 00 00                               	je     0x997296
+  99720d:	56                                              	push   esi
+  99720e:	6a 01                                           	push   0x1
+  997210:	6a 10                                           	push   0x10
+  997212:	8d 54 24 10                                     	lea    edx,[esp+0x10]
+  997216:	52                                              	push   edx
+  997217:	6a 09                                           	push   0x9
+  997219:	6a 13                                           	push   0x13
+  99721b:	8d 4c 24 2c                                     	lea    ecx,[esp+0x2c]
+  99721f:	c7 44 24 2c 6c 88 00 01                         	mov    DWORD PTR [esp+0x2c],0x100886c
+  997227:	66 c7 44 24 36 13 00                            	mov    WORD PTR [esp+0x36],0x13
+  99722e:	66 c7 44 24 34 0b 00                            	mov    WORD PTR [esp+0x34],0xb
+  997235:	e8 86 e7 b5 ff                                  	call   0x4f59c0
+  99723a:	e8 51 21 dd ff                                  	call   0x769390
+  99723f:	8b 10                                           	mov    edx,DWORD PTR [eax]
+  997241:	8b 52 50                                        	mov    edx,DWORD PTR [edx+0x50]
+  997244:	8d 4c 24 04                                     	lea    ecx,[esp+0x4]
+  997248:	51                                              	push   ecx
+  997249:	8d 4c 24 1c                                     	lea    ecx,[esp+0x1c]
+  99724d:	51                                              	push   ecx
+  99724e:	8b c8                                           	mov    ecx,eax
+  997250:	ff d2                                           	call   edx
+  997252:	f6 44 24 20 04                                  	test   BYTE PTR [esp+0x20],0x4
+  997257:	8b 74 24 04                                     	mov    esi,DWORD PTR [esp+0x4]
+  99725b:	c7 44 24 18 f4 a6 fb 00                         	mov    DWORD PTR [esp+0x18],0xfba6f4
+  997263:	74 0b                                           	je     0x997270
+  997265:	6a 00                                           	push   0x0
+  997267:	8d 4c 24 1c                                     	lea    ecx,[esp+0x1c]
+  99726b:	e8 f0 e4 b5 ff                                  	call   0x4f5760
+  997270:	8b 4c 24 10                                     	mov    ecx,DWORD PTR [esp+0x10]
+  997274:	8b 44 24 08                                     	mov    eax,DWORD PTR [esp+0x8]
+  997278:	2b c8                                           	sub    ecx,eax
+  99727a:	83 e1 fe                                        	and    ecx,0xfffffffe
+  99727d:	83 f9 02                                        	cmp    ecx,0x2
+  997280:	7e 0d                                           	jle    0x99728f
+  997282:	85 c0                                           	test   eax,eax
+  997284:	74 09                                           	je     0x99728f
+  997286:	50                                              	push   eax
+  997287:	e8 54 d2 b4 ff                                  	call   0x4e44e0
+  99728c:	83 c4 04                                        	add    esp,0x4
+  99728f:	8b c6                                           	mov    eax,esi
+  997291:	5e                                              	pop    esi
+  997292:	83 c4 34                                        	add    esp,0x34
+  997295:	c3                                              	ret
+  997296:	8b 54 24 0c                                     	mov    edx,DWORD PTR [esp+0xc]
+  99729a:	2b d0                                           	sub    edx,eax
+  99729c:	83 e2 fe                                        	and    edx,0xfffffffe
+  99729f:	83 fa 02                                        	cmp    edx,0x2
+  9972a2:	7e 0d                                           	jle    0x9972b1
+  9972a4:	85 c0                                           	test   eax,eax
+  9972a6:	74 09                                           	je     0x9972b1
+  9972a8:	50                                              	push   eax
+  9972a9:	e8 32 d2 b4 ff                                  	call   0x4e44e0
+  9972ae:	83 c4 04                                        	add    esp,0x4
+  9972b1:	33 c0                                           	xor    eax,eax
+  9972b3:	83 c4 34                                        	add    esp,0x34
+  9972b6:	c3                                              	ret
+  9972b7:	cc                                              	int3
+  9972b8:	cc                                              	int3
+  9972b9:	cc                                              	int3
+  9972ba:	cc                                              	int3
+  9972bb:	cc                                              	int3
+  9972bc:	cc                                              	int3
+  9972bd:	cc                                              	int3
+  9972be:	cc                                              	int3
+  9972bf:	cc                                              	int3

@@ -1,0 +1,56 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_00c29080:
+
+
+float10 __thiscall FUN_00c29080(void *param_1,float param_2,float param_3)
+
+{
+  int iVar1;
+  float fVar2;
+  char cVar3;
+  uint uVar4;
+  uint uVar5;
+  float10 fVar6;
+  float local_60;
+  float fStack_5c;
+  float fStack_58;
+  float fStack_54;
+  undefined4 local_50;
+  undefined4 uStack_4c;
+  undefined4 uStack_48;
+  undefined4 uStack_44;
+  undefined1 local_40 [32];
+  float fStack_20;
+  
+  uVar4 = (int)((int)ROUND(param_3) + -1 +
+               (uint)((uint)(param_3 - (float)(int)ROUND(param_3)) < 0x80000001)) >> 8;
+  uVar5 = (int)((int)ROUND(param_2) + -1 +
+               (uint)((uint)(param_2 - (float)(int)ROUND(param_2)) < 0x80000001)) >> 8;
+  if (((uVar5 < *(uint *)((int)param_1 + 0xcc)) && (uVar4 < *(uint *)((int)param_1 + 0xd0))) &&
+     (iVar1 = *(int *)(*(int *)((int)param_1 + 0xbc) +
+                      (*(uint *)((int)param_1 + 0xcc) * uVar4 + uVar5) * 4), iVar1 != 0)) {
+    fVar2 = (float)*(int *)((int)param_1 + 0x34);
+    if (*(int *)((int)param_1 + 0x34) < 0) {
+      fVar2 = fVar2 + 4.2949673e+09;
+    }
+    local_60 = param_2 - *(float *)(iVar1 + 0x20);
+    fStack_5c = (fVar2 + 10.0) - *(float *)(iVar1 + 0x24);
+    fStack_58 = param_3 - *(float *)(iVar1 + 0x28);
+    fStack_54 = param_2 - *(float *)(iVar1 + 0x2c);
+    local_50 = 0;
+    uStack_4c = 0xbf800000;
+    uStack_48 = 0;
+    uStack_44 = 0;
+    cVar3 = (**(code **)(**(int **)(iVar1 + 0x38) + 0x10))(&local_60,local_40);
+    if (cVar3 != '\0') {
+      fVar6 = (float10)*(int *)((int)param_1 + 0x34);
+      if (*(int *)((int)param_1 + 0x34) < 0) {
+        fVar6 = fVar6 + (float10)4.2949673e+09;
+      }
+      return (fVar6 + (float10)10.0) - (float10)fStack_20;
+    }
+  }
+  return (float10)-100.0;
+}
+

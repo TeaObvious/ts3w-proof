@@ -1,0 +1,261 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x009806b0 to next catalog entry 0x00980960; may include padding or data.
+  9806b0:	81 7c 24 04 00 00 ce 	cmp    DWORD PTR [esp+0x4],0x5ece0000
+  9806b7:	5e 
+  9806b8:	0f 85 a2 00 00 00    	jne    0x980760
+  9806be:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+  9806c2:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+  9806c5:	3d f0 0f 2c 04       	cmp    eax,0x42c0ff0
+  9806ca:	0f 87 d0 00 00 00    	ja     0x9807a0
+  9806d0:	0f 84 b5 00 00 00    	je     0x98078b
+  9806d6:	2d 00 00 2c 04       	sub    eax,0x42c0000
+  9806db:	3d f4 00 00 00       	cmp    eax,0xf4
+  9806e0:	77 7e                	ja     0x980760
+  9806e2:	0f b6 90 34 08 98 00 	movzx  edx,BYTE PTR [eax+0x980834]
+  9806e9:	ff 24 95 08 08 98 00 	jmp    DWORD PTR [edx*4+0x980808]
+  9806f0:	c7 44 24 08 01 00 00 	mov    DWORD PTR [esp+0x8],0x1
+  9806f7:	00 
+  9806f8:	c7 44 24 04 00 00 00 	mov    DWORD PTR [esp+0x4],0x0
+  9806ff:	00 
+  980700:	e9 9b f2 ff ff       	jmp    0x97f9a0
+  980705:	c7 44 24 08 01 00 00 	mov    DWORD PTR [esp+0x8],0x1
+  98070c:	00 
+  98070d:	c7 44 24 04 01 00 00 	mov    DWORD PTR [esp+0x4],0x1
+  980714:	00 
+  980715:	e9 86 f2 ff ff       	jmp    0x97f9a0
+  98071a:	c7 44 24 08 01 00 00 	mov    DWORD PTR [esp+0x8],0x1
+  980721:	00 
+  980722:	c7 44 24 04 02 00 00 	mov    DWORD PTR [esp+0x4],0x2
+  980729:	00 
+  98072a:	e9 71 f2 ff ff       	jmp    0x97f9a0
+  98072f:	c7 44 24 08 01 00 00 	mov    DWORD PTR [esp+0x8],0x1
+  980736:	00 
+  980737:	c7 44 24 04 03 00 00 	mov    DWORD PTR [esp+0x4],0x3
+  98073e:	00 
+  98073f:	e9 5c f2 ff ff       	jmp    0x97f9a0
+  980744:	c7 44 24 08 01 00 00 	mov    DWORD PTR [esp+0x8],0x1
+  98074b:	00 
+  98074c:	c7 44 24 04 04 00 00 	mov    DWORD PTR [esp+0x4],0x4
+  980753:	00 
+  980754:	e9 47 f2 ff ff       	jmp    0x97f9a0
+  980759:	6a 00                	push   0x0
+  98075b:	e8 70 fd ff ff       	call   0x9804d0
+  980760:	c2 08 00             	ret    0x8
+  980763:	6a 01                	push   0x1
+  980765:	e8 66 fd ff ff       	call   0x9804d0
+  98076a:	c2 08 00             	ret    0x8
+  98076d:	6a 02                	push   0x2
+  98076f:	e8 5c fd ff ff       	call   0x9804d0
+  980774:	c2 08 00             	ret    0x8
+  980777:	6a 03                	push   0x3
+  980779:	e8 52 fd ff ff       	call   0x9804d0
+  98077e:	c2 08 00             	ret    0x8
+  980781:	6a 04                	push   0x4
+  980783:	e8 48 fd ff ff       	call   0x9804d0
+  980788:	c2 08 00             	ret    0x8
+  98078b:	c7 44 24 08 00 00 00 	mov    DWORD PTR [esp+0x8],0x0
+  980792:	00 
+  980793:	c7 44 24 04 00 00 00 	mov    DWORD PTR [esp+0x4],0x0
+  98079a:	00 
+  98079b:	e9 00 f2 ff ff       	jmp    0x97f9a0
+  9807a0:	2d f1 0f 2c 04       	sub    eax,0x42c0ff1
+  9807a5:	83 f8 03             	cmp    eax,0x3
+  9807a8:	77 b6                	ja     0x980760
+  9807aa:	ff 24 85 2c 09 98 00 	jmp    DWORD PTR [eax*4+0x98092c]
+  9807b1:	c7 44 24 08 00 00 00 	mov    DWORD PTR [esp+0x8],0x0
+  9807b8:	00 
+  9807b9:	c7 44 24 04 01 00 00 	mov    DWORD PTR [esp+0x4],0x1
+  9807c0:	00 
+  9807c1:	e9 da f1 ff ff       	jmp    0x97f9a0
+  9807c6:	c7 44 24 08 00 00 00 	mov    DWORD PTR [esp+0x8],0x0
+  9807cd:	00 
+  9807ce:	c7 44 24 04 02 00 00 	mov    DWORD PTR [esp+0x4],0x2
+  9807d5:	00 
+  9807d6:	e9 c5 f1 ff ff       	jmp    0x97f9a0
+  9807db:	c7 44 24 08 00 00 00 	mov    DWORD PTR [esp+0x8],0x0
+  9807e2:	00 
+  9807e3:	c7 44 24 04 03 00 00 	mov    DWORD PTR [esp+0x4],0x3
+  9807ea:	00 
+  9807eb:	e9 b0 f1 ff ff       	jmp    0x97f9a0
+  9807f0:	c7 44 24 08 00 00 00 	mov    DWORD PTR [esp+0x8],0x0
+  9807f7:	00 
+  9807f8:	c7 44 24 04 04 00 00 	mov    DWORD PTR [esp+0x4],0x4
+  9807ff:	00 
+  980800:	e9 9b f1 ff ff       	jmp    0x97f9a0
+  980805:	8d 49 00             	lea    ecx,[ecx+0x0]
+  980808:	f0 06                	lock push es
+  98080a:	98                   	cwde
+  98080b:	00 05 07 98 00 1a    	add    BYTE PTR ds:0x1a009807,al
+  980811:	07                   	pop    es
+  980812:	98                   	cwde
+  980813:	00 2f                	add    BYTE PTR [edi],ch
+  980815:	07                   	pop    es
+  980816:	98                   	cwde
+  980817:	00 44 07 98          	add    BYTE PTR [edi+eax*1-0x68],al
+  98081b:	00 59 07             	add    BYTE PTR [ecx+0x7],bl
+  98081e:	98                   	cwde
+  98081f:	00 63 07             	add    BYTE PTR [ebx+0x7],ah
+  980822:	98                   	cwde
+  980823:	00 6d 07             	add    BYTE PTR [ebp+0x7],ch
+  980826:	98                   	cwde
+  980827:	00 77 07             	add    BYTE PTR [edi+0x7],dh
+  98082a:	98                   	cwde
+  98082b:	00 81 07 98 00 60    	add    BYTE PTR [ecx+0x60009807],al
+  980831:	07                   	pop    es
+  980832:	98                   	cwde
+  980833:	00 00                	add    BYTE PTR [eax],al
+  980835:	01 02                	add    DWORD PTR [edx],eax
+  980837:	03 04 0a             	add    eax,DWORD PTR [edx+ecx*1]
+  98083a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98083c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98083e:	0a 0a                	or     cl,BYTE PTR [edx]
+  980840:	0a 0a                	or     cl,BYTE PTR [edx]
+  980842:	0a 0a                	or     cl,BYTE PTR [edx]
+  980844:	0a 0a                	or     cl,BYTE PTR [edx]
+  980846:	0a 0a                	or     cl,BYTE PTR [edx]
+  980848:	0a 0a                	or     cl,BYTE PTR [edx]
+  98084a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98084c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98084e:	0a 0a                	or     cl,BYTE PTR [edx]
+  980850:	0a 0a                	or     cl,BYTE PTR [edx]
+  980852:	0a 0a                	or     cl,BYTE PTR [edx]
+  980854:	0a 0a                	or     cl,BYTE PTR [edx]
+  980856:	0a 0a                	or     cl,BYTE PTR [edx]
+  980858:	0a 0a                	or     cl,BYTE PTR [edx]
+  98085a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98085c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98085e:	0a 0a                	or     cl,BYTE PTR [edx]
+  980860:	0a 0a                	or     cl,BYTE PTR [edx]
+  980862:	0a 0a                	or     cl,BYTE PTR [edx]
+  980864:	0a 0a                	or     cl,BYTE PTR [edx]
+  980866:	0a 0a                	or     cl,BYTE PTR [edx]
+  980868:	0a 0a                	or     cl,BYTE PTR [edx]
+  98086a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98086c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98086e:	0a 0a                	or     cl,BYTE PTR [edx]
+  980870:	0a 0a                	or     cl,BYTE PTR [edx]
+  980872:	0a 0a                	or     cl,BYTE PTR [edx]
+  980874:	0a 0a                	or     cl,BYTE PTR [edx]
+  980876:	0a 0a                	or     cl,BYTE PTR [edx]
+  980878:	0a 0a                	or     cl,BYTE PTR [edx]
+  98087a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98087c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98087e:	0a 0a                	or     cl,BYTE PTR [edx]
+  980880:	0a 0a                	or     cl,BYTE PTR [edx]
+  980882:	0a 0a                	or     cl,BYTE PTR [edx]
+  980884:	0a 0a                	or     cl,BYTE PTR [edx]
+  980886:	0a 0a                	or     cl,BYTE PTR [edx]
+  980888:	0a 0a                	or     cl,BYTE PTR [edx]
+  98088a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98088c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98088e:	0a 0a                	or     cl,BYTE PTR [edx]
+  980890:	0a 0a                	or     cl,BYTE PTR [edx]
+  980892:	0a 0a                	or     cl,BYTE PTR [edx]
+  980894:	0a 0a                	or     cl,BYTE PTR [edx]
+  980896:	0a 0a                	or     cl,BYTE PTR [edx]
+  980898:	0a 0a                	or     cl,BYTE PTR [edx]
+  98089a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98089c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98089e:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808a0:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808a2:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808a4:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808a6:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808a8:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808aa:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808ac:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808ae:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808b0:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808b2:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808b4:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808b6:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808b8:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808ba:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808bc:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808be:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808c0:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808c2:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808c4:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808c6:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808c8:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808ca:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808cc:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808ce:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808d0:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808d2:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808d4:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808d6:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808d8:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808da:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808dc:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808de:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808e0:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808e2:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808e4:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808e6:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808e8:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808ea:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808ec:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808ee:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808f0:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808f2:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808f4:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808f6:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808f8:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808fa:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808fc:	0a 0a                	or     cl,BYTE PTR [edx]
+  9808fe:	0a 0a                	or     cl,BYTE PTR [edx]
+  980900:	0a 0a                	or     cl,BYTE PTR [edx]
+  980902:	0a 0a                	or     cl,BYTE PTR [edx]
+  980904:	0a 0a                	or     cl,BYTE PTR [edx]
+  980906:	0a 0a                	or     cl,BYTE PTR [edx]
+  980908:	0a 0a                	or     cl,BYTE PTR [edx]
+  98090a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98090c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98090e:	0a 0a                	or     cl,BYTE PTR [edx]
+  980910:	0a 0a                	or     cl,BYTE PTR [edx]
+  980912:	0a 0a                	or     cl,BYTE PTR [edx]
+  980914:	0a 0a                	or     cl,BYTE PTR [edx]
+  980916:	0a 0a                	or     cl,BYTE PTR [edx]
+  980918:	0a 0a                	or     cl,BYTE PTR [edx]
+  98091a:	0a 0a                	or     cl,BYTE PTR [edx]
+  98091c:	0a 0a                	or     cl,BYTE PTR [edx]
+  98091e:	0a 0a                	or     cl,BYTE PTR [edx]
+  980920:	0a 0a                	or     cl,BYTE PTR [edx]
+  980922:	0a 0a                	or     cl,BYTE PTR [edx]
+  980924:	05 06 07 08 09       	add    eax,0x9080706
+  980929:	8d 49 00             	lea    ecx,[ecx+0x0]
+  98092c:	b1 07                	mov    cl,0x7
+  98092e:	98                   	cwde
+  98092f:	00 c6                	add    dh,al
+  980931:	07                   	pop    es
+  980932:	98                   	cwde
+  980933:	00 db                	add    bl,bl
+  980935:	07                   	pop    es
+  980936:	98                   	cwde
+  980937:	00 f0                	add    al,dh
+  980939:	07                   	pop    es
+  98093a:	98                   	cwde
+  98093b:	00 cc                	add    ah,cl
+  98093d:	cc                   	int3
+  98093e:	cc                   	int3
+  98093f:	cc                   	int3
+  980940:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+  980944:	8b 4c 24 04          	mov    ecx,DWORD PTR [esp+0x4]
+  980948:	50                   	push   eax
+  980949:	51                   	push   ecx
+  98094a:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+  98094e:	e8 5d fd ff ff       	call   0x9806b0
+  980953:	c3                   	ret
+  980954:	cc                   	int3
+  980955:	cc                   	int3
+  980956:	cc                   	int3
+  980957:	cc                   	int3
+  980958:	cc                   	int3
+  980959:	cc                   	int3
+  98095a:	cc                   	int3
+  98095b:	cc                   	int3
+  98095c:	cc                   	int3
+  98095d:	cc                   	int3
+  98095e:	cc                   	int3
+  98095f:	cc                   	int3

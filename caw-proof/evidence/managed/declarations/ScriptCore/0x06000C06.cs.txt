@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000C06.
+// Assembly: ScriptCore; type: ScriptCore.World.
+// Decompiled C# source: ScriptCore/ScriptCore/World.cs:373
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool World_FindPlacesToDisembarkOnShoreline(ulong objId, ref Vector3 pos, uint requestCount, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_R4)] ref float[] posArray, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_R4)] ref float[] orientArray);

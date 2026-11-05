@@ -1,0 +1,191 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_00680590:
+
+
+undefined4 __thiscall FUN_00680590(void *this,int *param_1,undefined4 param_2,char param_3)
+
+{
+  uint *puVar1;
+  void *pvVar2;
+  undefined2 uVar3;
+  uint uVar4;
+  uint uVar5;
+  undefined4 uVar6;
+  undefined4 uVar7;
+  undefined8 uVar8;
+  uint uVar9;
+  undefined4 *puVar10;
+  uint uVar11;
+  undefined4 uVar12;
+  uint *puVar13;
+  undefined1 auVar14 [16];
+  undefined1 auVar15 [16];
+  undefined1 auVar16 [16];
+  float fVar17;
+  float fVar18;
+  float fVar19;
+  float fVar20;
+  float fVar21;
+  float fVar22;
+  float fVar23;
+  float fVar24;
+  undefined1 auStack_30 [8];
+  float fStack_28;
+  float fStack_24;
+  float afStack_20 [7];
+  
+  uVar9 = (**(code **)(*param_1 + 0x1c))();
+  uVar11 = uVar9;
+  if (0x27 < uVar9) {
+    if (param_1[1] == 0) {
+      puVar13 = (uint *)0x0;
+    }
+    else {
+      puVar13 = *(uint **)(param_1[1] + 8);
+    }
+    if (param_3 != '\0') {
+      uVar11 = *puVar13;
+      uVar4 = puVar13[1];
+      uVar5 = puVar13[2];
+      *puVar13 = uVar11 >> 0x18 | (uVar11 & 0xff0000) >> 8 | (uVar11 & 0xff00) << 8 | uVar11 << 0x18
+      ;
+      uVar11 = puVar13[3];
+      puVar13[1] = uVar4 >> 0x18 | (uVar4 & 0xff0000) >> 8 | (uVar4 & 0xff00) << 8 | uVar4 << 0x18;
+      puVar13[2] = uVar5 >> 0x18 | (uVar5 & 0xff0000) >> 8 | (uVar5 & 0xff00) << 8 | uVar5 << 0x18;
+      puVar13[3] = uVar11 >> 0x18 | (uVar11 & 0xff0000) >> 8 | (uVar11 & 0xff00) << 8 |
+                   uVar11 << 0x18;
+      FUN_007d30a0(puVar13 + 4);
+      FUN_007d30a0(puVar13 + 5);
+      FUN_007d30a0(puVar13 + 6);
+      *(ushort *)(puVar13 + 7) =
+           CONCAT11((char)(short)puVar13[7],(char)((ushort)(short)puVar13[7] >> 8));
+      *(ushort *)((int)puVar13 + 0x1e) =
+           CONCAT11((char)*(undefined2 *)((int)puVar13 + 0x1e),
+                    (char)((ushort)*(undefined2 *)((int)puVar13 + 0x1e) >> 8));
+      *(ushort *)(puVar13 + 8) =
+           CONCAT11((char)(short)puVar13[8],(char)((ushort)(short)puVar13[8] >> 8));
+      *(ushort *)((int)puVar13 + 0x22) =
+           CONCAT11((char)*(undefined2 *)((int)puVar13 + 0x22),
+                    (char)((ushort)*(undefined2 *)((int)puVar13 + 0x22) >> 8));
+      *(ushort *)(puVar13 + 9) =
+           CONCAT11((char)(short)puVar13[9],(char)((ushort)(short)puVar13[9] >> 8));
+      *(ushort *)((int)puVar13 + 0x26) =
+           CONCAT11((char)*(undefined2 *)((int)puVar13 + 0x26),
+                    (char)((ushort)*(undefined2 *)((int)puVar13 + 0x26) >> 8));
+    }
+    uVar11 = *puVar13;
+    if ((0xff < uVar11) && (uVar11 < 0x200)) {
+      uVar11 = puVar13[6];
+      uVar4 = puVar13[4];
+      uVar8 = *(undefined8 *)(puVar13 + 4);
+      auStack_30._0_4_ = (undefined4)uVar8;
+      auStack_30._4_4_ = (undefined4)((ulonglong)uVar8 >> 0x20);
+      *(undefined4 *)((int)this + 0x60) = auStack_30._0_4_;
+      *(undefined4 *)((int)this + 100) = auStack_30._4_4_;
+      *(uint *)((int)this + 0x68) = uVar11;
+      *(uint *)((int)this + 0x6c) = uVar4;
+      fVar17 = (float)puVar13[4];
+      fVar18 = (float)puVar13[5];
+      fVar19 = (float)puVar13[6];
+      *(float *)((int)this + 0x70) = 1.0 / fVar17;
+      *(float *)((int)this + 0x74) = 1.0 / fVar18;
+      *(float *)((int)this + 0x78) = 1.0 / fVar19;
+      *(float *)((int)this + 0x7c) = 1.0 / fVar17;
+      *(short *)((int)this + 0x50) = (short)puVar13[7];
+      *(undefined2 *)((int)this + 0x52) = *(undefined2 *)((int)puVar13 + 0x1e);
+      *(short *)((int)this + 0x54) = (short)puVar13[8];
+      *(undefined2 *)((int)this + 0x56) = *(undefined2 *)((int)puVar13 + 0x22);
+      *(short *)((int)this + 0x58) = (short)puVar13[9];
+      *(undefined2 *)((int)this + 0x5a) = *(undefined2 *)((int)puVar13 + 0x26);
+      fVar17 = (float)(int)(short)puVar13[7] * *(float *)((int)this + 0x60);
+      fVar18 = (float)(int)*(short *)((int)puVar13 + 0x1e) * *(float *)((int)this + 100);
+      fVar19 = (float)(int)(short)puVar13[8] * *(float *)((int)this + 0x68);
+      fVar20 = (float)(int)(short)puVar13[7] * *(float *)((int)this + 0x6c);
+      fVar21 = (float)(int)*(short *)((int)puVar13 + 0x22) * *(float *)((int)this + 0x60);
+      fVar22 = (float)(int)(short)puVar13[9] * *(float *)((int)this + 100);
+      fVar23 = (float)(int)*(short *)((int)puVar13 + 0x26) * *(float *)((int)this + 0x68);
+      fVar24 = (float)(int)*(short *)((int)puVar13 + 0x22) * *(float *)((int)this + 0x6c);
+      *(float *)((int)this + 0x30) = (fVar21 + fVar17) * 0.5;
+      *(float *)((int)this + 0x34) = (fVar22 + fVar18) * 0.5;
+      *(float *)((int)this + 0x38) = (fVar23 + fVar19) * 0.5;
+      *(float *)((int)this + 0x3c) = (fVar24 + fVar20) * 0.5;
+      auStack_30._4_4_ = fVar22 - fVar18;
+      auStack_30._0_4_ = fVar21 - fVar17;
+      fStack_28 = fVar23 - fVar19;
+      fStack_24 = fVar24 - fVar20;
+      puVar10 = (undefined4 *)FUN_0067dea0(afStack_20,(float *)auStack_30);
+      uVar12 = puVar10[1];
+      uVar6 = puVar10[2];
+      uVar7 = puVar10[3];
+      *(undefined4 *)((int)this + 0x40) = *puVar10;
+      *(undefined4 *)((int)this + 0x44) = uVar12;
+      *(undefined4 *)((int)this + 0x48) = uVar6;
+      *(undefined4 *)((int)this + 0x4c) = uVar7;
+      auVar14._0_4_ = 0.0 - fVar17;
+      auVar14._4_4_ = 0.0 - fVar18;
+      auVar14._8_4_ = 0.0 - fVar19;
+      auVar14._12_4_ = 0.0 - fVar20;
+      auVar15._4_4_ = fVar22;
+      auVar15._0_4_ = fVar21;
+      auVar15._8_4_ = fVar23;
+      auVar15._12_4_ = fVar24;
+      auVar15 = maxps(auVar14,auVar15);
+      auVar16._0_4_ =
+           auVar15._8_4_ * auVar15._8_4_ + auVar15._4_4_ * auVar15._4_4_ +
+           auVar15._0_4_ * auVar15._0_4_;
+      auVar16._4_4_ = auVar16._0_4_;
+      auVar16._8_4_ = auVar16._0_4_;
+      auVar16._12_4_ = auVar16._0_4_;
+      _auStack_30 = sqrtps(auVar16,auVar16);
+      *(undefined4 *)((int)this + 0x28) = auStack_30._0_4_;
+      uVar11 = puVar13[2];
+      uVar4 = puVar13[1];
+      if ((uVar11 * 3 + 0x14 + uVar4 * 4 + puVar13[3]) * 2 <= uVar9) {
+        puVar1 = puVar13 + uVar4 * 2 + 10;
+        pvVar2 = (void *)((int)puVar1 + uVar11 * 6);
+        if (param_3 != '\0') {
+          uVar11 = 0;
+          if ((uVar4 & 0x7fffffff) != 0) {
+            do {
+              uVar9 = puVar13[uVar11 + 10];
+              puVar13[uVar11 + 10] =
+                   uVar9 >> 0x18 | (uVar9 & 0xff0000) >> 8 | (uVar9 & 0xff00) << 8 | uVar9 << 0x18;
+              uVar11 = uVar11 + 1;
+            } while (uVar11 < puVar13[1] * 2);
+          }
+          uVar11 = 0;
+          if (puVar13[2] * 3 != 0) {
+            do {
+              uVar3 = *(undefined2 *)((int)puVar1 + uVar11 * 2);
+              uVar11 = uVar11 + 1;
+              *(ushort *)((int)puVar1 + uVar11 * 2 + -2) =
+                   CONCAT11((char)uVar3,(char)((ushort)uVar3 >> 8));
+            } while (uVar11 < puVar13[2] * 3);
+          }
+          uVar11 = 0;
+          if (puVar13[3] != 0) {
+            do {
+              uVar3 = *(undefined2 *)((int)pvVar2 + uVar11 * 2);
+              uVar11 = uVar11 + 1;
+              *(ushort *)((int)pvVar2 + uVar11 * 2 + -2) =
+                   CONCAT11((char)uVar3,(char)((ushort)uVar3 >> 8));
+            } while (uVar11 < puVar13[3]);
+          }
+        }
+        FUN_00505650((void *)((int)this + 0x80),puVar13 + 10,puVar13 + 10 + puVar13[1] * 2);
+        FUN_0067f500((void *)((int)this + 0x90),puVar1,(void *)((int)puVar1 + puVar13[2] * 6));
+        FUN_0067f500((int *)((int)this + 0xa0),pvVar2,(void *)((int)pvVar2 + puVar13[3] * 2));
+        uVar12 = FUN_00731be0(this,((*(int *)((int)this + 0xa4) - *(int *)((int)this + 0xa0) >> 1) +
+                                    0x58 + (*(int *)((int)this + 0x84) - *(int *)((int)this + 0x80)
+                                           >> 3) * 4 +
+                                   (*(int *)((int)this + 0x94) - *(int *)((int)this + 0x90) >> 1)) *
+                                   2);
+        return CONCAT31((int3)((uint)uVar12 >> 8),1);
+      }
+    }
+  }
+  return uVar11 & 0xffffff00;
+}
+
+

@@ -1,0 +1,34 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.World::World_IsCameraRoutableImpl
+# Entry: 0x00785690; bounded stop: 0x007856c0; next Ghidra entry: 0x007856c0
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00785690 <.text+0x384690>:
+  785690:	8b 0d c4 db 1e 01    	mov    ecx,DWORD PTR ds:0x11edbc4
+  785696:	85 c9                	test   ecx,ecx
+  785698:	74 18                	je     0x7856b2
+  78569a:	d9 44 24 08          	fld    DWORD PTR [esp+0x8]
+  78569e:	83 ec 08             	sub    esp,0x8
+  7856a1:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  7856a5:	d9 44 24 0c          	fld    DWORD PTR [esp+0xc]
+  7856a9:	d9 1c 24             	fstp   DWORD PTR [esp]
+  7856ac:	e8 4f 63 4e 00       	call   0xc6ba00
+  7856b1:	c3                   	ret
+  7856b2:	32 c0                	xor    al,al
+  7856b4:	c3                   	ret
+  7856b5:	cc                   	int3
+  7856b6:	cc                   	int3
+  7856b7:	cc                   	int3
+  7856b8:	cc                   	int3
+  7856b9:	cc                   	int3
+  7856ba:	cc                   	int3
+  7856bb:	cc                   	int3
+  7856bc:	cc                   	int3
+  7856bd:	cc                   	int3
+  7856be:	cc                   	int3
+  7856bf:	cc                   	int3

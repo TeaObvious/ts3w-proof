@@ -1,0 +1,78 @@
+UI.dll MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+
+06001206 Sims3.UI.UIManager::IsCustomControl RVA=0006418f bytes=24 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 62
+Raw complete CIL 021428900000062c0d02287812000616fe0116fe012a162a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 14                   ldnull
+ IL_0002: 2890000006           call 90000006 op_Inequality
+ IL_0007: 2c0d                 brfalse.s 0d
+ IL_0009: 02                   ldarg.0
+ IL_000a: 2878120006           call 78120006 GetCustomControlID
+ IL_000f: 16                   ldc.i4.0
+ IL_0010: fe01                 ceq
+ IL_0012: 16                   ldc.i4.0
+ IL_0013: fe01                 ceq
+ IL_0015: 2a                   ret
+ IL_0016: 16                   ldc.i4.0
+ IL_0017: 2a                   ret
+
+06001278 Sims3.UI.UIManager::GetCustomControlID RVA=00065d44 bytes=28 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 72
+Raw complete CIL 021428900000062d02162a7ea1130004026f050000066f9f04000a2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 14                   ldnull
+ IL_0002: 2890000006           call 90000006 op_Inequality
+ IL_0007: 2d02                 brtrue.s 02
+ IL_0009: 16                   ldc.i4.0
+ IL_000a: 2a                   ret
+ IL_000b: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0010: 02                   ldarg.0
+ IL_0011: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_0016: 6f9f04000a           callvirt 9f04000a GetCustomControlID
+ IL_001b: 2a                   ret
+
+0600128c Sims3.UI.UIManager::SetFlagProperty RVA=00066134 bytes=40 maxStack=4 flags=3013 localSignature=110000f1
+Raw complete method header 1330040028000000f1000011
+Raw complete CIL 7ea113000402036fc404000a0a052d060604665f2b030604600b7ea11300040203076fc504000a2a
+ IL_0000: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0005: 02                   ldarg.0
+ IL_0006: 03                   ldarg.1
+ IL_0007: 6fc404000a           callvirt c404000a GetUInt32Property
+ IL_000c: 0a                   stloc.0
+ IL_000d: 05                   ldarg.3
+ IL_000e: 2d06                 brtrue.s 06
+ IL_0010: 06                   ldloc.0
+ IL_0011: 04                   ldarg.2
+ IL_0012: 66                   not
+ IL_0013: 5f                   and
+ IL_0014: 2b03                 br.s 03
+ IL_0016: 06                   ldloc.0
+ IL_0017: 04                   ldarg.2
+ IL_0018: 60                   or
+ IL_0019: 0b                   stloc.1
+ IL_001a: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_001f: 02                   ldarg.0
+ IL_0020: 03                   ldarg.1
+ IL_0021: 07                   ldloc.1
+ IL_0022: 6fc504000a           callvirt c504000a SetUInt32Property
+ IL_0027: 2a                   ret
+
+0600128d Sims3.UI.UIManager::GetFlagProperty RVA=00066168 bytes=23 maxStack=3 flags=3013 localSignature=1100003f
+Raw complete method header 13300300170000003f000011
+Raw complete CIL 7ea113000402036fc404000a0a06045f16fe0116fe012a
+ IL_0000: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0005: 02                   ldarg.0
+ IL_0006: 03                   ldarg.1
+ IL_0007: 6fc404000a           callvirt c404000a GetUInt32Property
+ IL_000c: 0a                   stloc.0
+ IL_000d: 06                   ldloc.0
+ IL_000e: 04                   ldarg.2
+ IL_000f: 5f                   and
+ IL_0010: 16                   ldc.i4.0
+ IL_0011: fe01                 ceq
+ IL_0013: 16                   ldc.i4.0
+ IL_0014: fe01                 ceq
+ IL_0016: 2a                   ret
+
+SELECTED complete_methods=4 CIL_bytes=115

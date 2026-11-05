@@ -1,0 +1,35 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: CSHostWrap/Sims3/CSHost/WorldWrap.cs
+// Each selected declaration or method is complete. Other members are omitted.
+
+	[DllImport("Sims3Common.dll")]
+	private static extern IntPtr WorldWrap_CreateNewLot(IntPtr pWorldAsVoid, int width, int height, ref Sims3.Math.Vector3 pos, float rot, int lotType, uint lotSubType);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldWrap_DeleteNewLot(IntPtr pWorldAsVoid, IntPtr pLotAsVoid);
+
+// [Next selected original declaration or method]
+
+	public LotWrap CreateNewLot(ref tNewLotDescription lotDesc)
+	{
+		IntPtr intPtr = WorldWrap_CreateNewLot(mNativeObj, (int)lotDesc.mWidth, (int)lotDesc.mHeight, ref lotDesc.mPosition, lotDesc.mRotation, (int)lotDesc.mLotType, lotDesc.mLotSubtype);
+		if (intPtr != IntPtr.Zero)
+		{
+			LotWrap lotWrap = new LotWrap(this, intPtr);
+			if (lotWrap != null)
+			{
+				lotWrap.SetAdditionalPropertyValue(lotDesc.mAdditionalPropertyValue);
+				lotWrap.SetBeautifulVistaBuf(lotDesc.mBeautifulVistaBuf);
+			}
+			return lotWrap;
+		}
+		return null;
+	}
+
+// [Next selected original declaration or method]
+
+	public void DeleteNewLot(LotWrap lot)
+	{
+		WorldWrap_DeleteNewLot(mNativeObj, lot.NativeObj);
+	}

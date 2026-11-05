@@ -1,0 +1,110 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x005a62a0 (ScriptCore.CASUtils::CASUtils_SimBuilderSaveOutfitImpl)
+Paired Ghidra pseudocode: 005A62A0_ScriptCore_CASUtils_CASUtils_SimBuilderSaveOutfitImpl.c
+Window: [0x005a62a0, 0x005a6350) (176 bytes; stop exclusive)
+Next defined Ghidra entry: 0x005a6350
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+005a62a0: 83 ec 10 56 57 e8 e6 30 1c 00 8b 74 24 1c 8b f8
+005a62b0: 33 c0 85 ff 89 06 89 46 04 89 46 08 89 46 0c 74
+005a62c0: 78 8b 4c 24 24 8b 07 8b 50 58 53 51 8b cf ff d2
+005a62d0: 8b d8 8b 44 24 24 8b c8 81 e1 00 00 00 ff 81 f9
+005a62e0: 00 00 00 35 75 4a 8b 17 50 8b 82 cc 00 00 00 8b
+005a62f0: cf ff d0 85 c0 74 39 8b 4c 24 34 8b 54 24 30 6a
+005a6300: 00 51 8b 4c 24 34 52 51 53 8d 54 24 20 52 8b c8
+005a6310: e8 eb a2 03 00 8b 44 24 14 8b 4c 24 18 8b 54 24
+005a6320: 0c 89 06 8b 44 24 10 89 4e 04 89 56 08 89 46 0c
+005a6330: 5b 5f 8b c6 5e 83 c4 10 c3 5f 8b c6 5e 83 c4 10
+005a6340: c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+005a62a0 <.text+0x1a52a0>:
+  5a62a0:	83 ec 10                                        	sub    esp,0x10
+  5a62a3:	56                                              	push   esi
+  5a62a4:	57                                              	push   edi
+  5a62a5:	e8 e6 30 1c 00                                  	call   0x769390
+  5a62aa:	8b 74 24 1c                                     	mov    esi,DWORD PTR [esp+0x1c]
+  5a62ae:	8b f8                                           	mov    edi,eax
+  5a62b0:	33 c0                                           	xor    eax,eax
+  5a62b2:	85 ff                                           	test   edi,edi
+  5a62b4:	89 06                                           	mov    DWORD PTR [esi],eax
+  5a62b6:	89 46 04                                        	mov    DWORD PTR [esi+0x4],eax
+  5a62b9:	89 46 08                                        	mov    DWORD PTR [esi+0x8],eax
+  5a62bc:	89 46 0c                                        	mov    DWORD PTR [esi+0xc],eax
+  5a62bf:	74 78                                           	je     0x5a6339
+  5a62c1:	8b 4c 24 24                                     	mov    ecx,DWORD PTR [esp+0x24]
+  5a62c5:	8b 07                                           	mov    eax,DWORD PTR [edi]
+  5a62c7:	8b 50 58                                        	mov    edx,DWORD PTR [eax+0x58]
+  5a62ca:	53                                              	push   ebx
+  5a62cb:	51                                              	push   ecx
+  5a62cc:	8b cf                                           	mov    ecx,edi
+  5a62ce:	ff d2                                           	call   edx
+  5a62d0:	8b d8                                           	mov    ebx,eax
+  5a62d2:	8b 44 24 24                                     	mov    eax,DWORD PTR [esp+0x24]
+  5a62d6:	8b c8                                           	mov    ecx,eax
+  5a62d8:	81 e1 00 00 00 ff                               	and    ecx,0xff000000
+  5a62de:	81 f9 00 00 00 35                               	cmp    ecx,0x35000000
+  5a62e4:	75 4a                                           	jne    0x5a6330
+  5a62e6:	8b 17                                           	mov    edx,DWORD PTR [edi]
+  5a62e8:	50                                              	push   eax
+  5a62e9:	8b 82 cc 00 00 00                               	mov    eax,DWORD PTR [edx+0xcc]
+  5a62ef:	8b cf                                           	mov    ecx,edi
+  5a62f1:	ff d0                                           	call   eax
+  5a62f3:	85 c0                                           	test   eax,eax
+  5a62f5:	74 39                                           	je     0x5a6330
+  5a62f7:	8b 4c 24 34                                     	mov    ecx,DWORD PTR [esp+0x34]
+  5a62fb:	8b 54 24 30                                     	mov    edx,DWORD PTR [esp+0x30]
+  5a62ff:	6a 00                                           	push   0x0
+  5a6301:	51                                              	push   ecx
+  5a6302:	8b 4c 24 34                                     	mov    ecx,DWORD PTR [esp+0x34]
+  5a6306:	52                                              	push   edx
+  5a6307:	51                                              	push   ecx
+  5a6308:	53                                              	push   ebx
+  5a6309:	8d 54 24 20                                     	lea    edx,[esp+0x20]
+  5a630d:	52                                              	push   edx
+  5a630e:	8b c8                                           	mov    ecx,eax
+  5a6310:	e8 eb a2 03 00                                  	call   0x5e0600
+  5a6315:	8b 44 24 14                                     	mov    eax,DWORD PTR [esp+0x14]
+  5a6319:	8b 4c 24 18                                     	mov    ecx,DWORD PTR [esp+0x18]
+  5a631d:	8b 54 24 0c                                     	mov    edx,DWORD PTR [esp+0xc]
+  5a6321:	89 06                                           	mov    DWORD PTR [esi],eax
+  5a6323:	8b 44 24 10                                     	mov    eax,DWORD PTR [esp+0x10]
+  5a6327:	89 4e 04                                        	mov    DWORD PTR [esi+0x4],ecx
+  5a632a:	89 56 08                                        	mov    DWORD PTR [esi+0x8],edx
+  5a632d:	89 46 0c                                        	mov    DWORD PTR [esi+0xc],eax
+  5a6330:	5b                                              	pop    ebx
+  5a6331:	5f                                              	pop    edi
+  5a6332:	8b c6                                           	mov    eax,esi
+  5a6334:	5e                                              	pop    esi
+  5a6335:	83 c4 10                                        	add    esp,0x10
+  5a6338:	c3                                              	ret
+  5a6339:	5f                                              	pop    edi
+  5a633a:	8b c6                                           	mov    eax,esi
+  5a633c:	5e                                              	pop    esi
+  5a633d:	83 c4 10                                        	add    esp,0x10
+  5a6340:	c3                                              	ret
+  5a6341:	cc                                              	int3
+  5a6342:	cc                                              	int3
+  5a6343:	cc                                              	int3
+  5a6344:	cc                                              	int3
+  5a6345:	cc                                              	int3
+  5a6346:	cc                                              	int3
+  5a6347:	cc                                              	int3
+  5a6348:	cc                                              	int3
+  5a6349:	cc                                              	int3
+  5a634a:	cc                                              	int3
+  5a634b:	cc                                              	int3
+  5a634c:	cc                                              	int3
+  5a634d:	cc                                              	int3
+  5a634e:	cc                                              	int3
+  5a634f:	cc                                              	int3

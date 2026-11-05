@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000007.
+// Assembly: CSHostWrap; type: Sims3.CSHost.TransformComponent.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/TransformComponent.cs:69
+	[DllImport("Sims3Common.dll")]
+	private static extern int TransformComponent_ParentToBone(IntPtr pThis, ulong parentObjectId, uint parentBoneNameHash, ref Sims3.Math.Matrix44 offset, bool bContain);

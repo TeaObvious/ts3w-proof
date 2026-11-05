@@ -1,0 +1,115 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+; Original PC1.67 TS3W.exe complete existing owned Listing.
+; Analyst-assigned name: LightingSolver_HasAdjacentSplitBase
+; Owned ranges: [[006a4fa0, 006a50e3]]
+; Actual entry PLATE: Static PC1.67: ECX solver, x/z stack slots+4/+8, RET8. Ordered signed-bound probes (x-1,z),(x,z-1) with mask10 then (x+1,z),(x,z-1) with mask40. Each uses6AA390/500DB0 and tests AL; early true MOV AL1, otherwise XOR AL0. Final fourth neighbor really repeats z-1. Upper EAX is not normalized; parent consumes AL. Child predicates and allocator-field initialization are not recovered here.
+
+006a4fa0  83ec08  SUB ESP,0x8
+006a4fa3  55  PUSH EBP
+006a4fa4  8b6c2414  MOV EBP,dword ptr [ESP + 0x14]
+006a4fa8  56  PUSH ESI
+006a4fa9  57  PUSH EDI
+006a4faa  8b7c2418  MOV EDI,dword ptr [ESP + 0x18]
+006a4fae  8d47ff  LEA EAX,[EDI + -0x1]
+006a4fb1  85c0  TEST EAX,EAX
+006a4fb3  8bf1  MOV ESI,ECX
+006a4fb5  7c48  JL 0x006a4fff
+006a4fb7  8b8664020000  MOV EAX,dword ptr [ESI + 0x264]
+006a4fbd  8b5604  MOV EDX,dword ptr [ESI + 0x4]
+006a4fc0  0fafc5  IMUL EAX,EBP
+006a4fc3  03c7  ADD EAX,EDI
+006a4fc5  8d0cc500000000  LEA ECX,[EAX*0x8 + 0x0]
+006a4fcc  2bc8  SUB ECX,EAX
+006a4fce  8d442418  LEA EAX,[ESP + 0x18]
+006a4fd2  8d4c4af2  LEA ECX,[EDX + ECX*0x2 + -0xe]
+006a4fd6  50  PUSH EAX
+006a4fd7  8d542411  LEA EDX,[ESP + 0x11]
+006a4fdb  52  PUSH EDX
+006a4fdc  c744242010000000  MOV dword ptr [ESP + 0x20],0x10
+006a4fe4  e8a7530000  CALL 0x006aa390
+006a4fe9  8bc8  MOV ECX,EAX
+006a4feb  e8c0bde5ff  CALL 0x00500db0
+006a4ff0  84c0  TEST AL,AL
+006a4ff2  740b  JZ 0x006a4fff
+006a4ff4  5f  POP EDI
+006a4ff5  5e  POP ESI
+006a4ff6  b001  MOV AL,0x1
+006a4ff8  5d  POP EBP
+006a4ff9  83c408  ADD ESP,0x8
+006a4ffc  c20800  RET 0x8
+006a4fff  53  PUSH EBX
+006a5000  8d5dff  LEA EBX,[EBP + -0x1]
+006a5003  85db  TEST EBX,EBX
+006a5005  7c40  JL 0x006a5047
+006a5007  8b8664020000  MOV EAX,dword ptr [ESI + 0x264]
+006a500d  8b5604  MOV EDX,dword ptr [ESI + 0x4]
+006a5010  0fafc3  IMUL EAX,EBX
+006a5013  03c7  ADD EAX,EDI
+006a5015  8d0cc500000000  LEA ECX,[EAX*0x8 + 0x0]
+006a501c  2bc8  SUB ECX,EAX
+006a501e  8d44241c  LEA EAX,[ESP + 0x1c]
+006a5022  8d0c4a  LEA ECX,[EDX + ECX*0x2]
+006a5025  50  PUSH EAX
+006a5026  8d542415  LEA EDX,[ESP + 0x15]
+006a502a  52  PUSH EDX
+006a502b  c744242410000000  MOV dword ptr [ESP + 0x24],0x10
+006a5033  e858530000  CALL 0x006aa390
+006a5038  8bc8  MOV ECX,EAX
+006a503a  e871bde5ff  CALL 0x00500db0
+006a503f  84c0  TEST AL,AL
+006a5041  0f8585000000  JNZ 0x006a50cc
+006a5047  8b8664020000  MOV EAX,dword ptr [ESI + 0x264]
+006a504d  8d4f01  LEA ECX,[EDI + 0x1]
+006a5050  3bc8  CMP ECX,EAX
+006a5052  7d38  JGE 0x006a508c
+006a5054  0fafc5  IMUL EAX,EBP
+006a5057  8d443801  LEA EAX,[EAX + EDI*0x1 + 0x1]
+006a505b  8d14c500000000  LEA EDX,[EAX*0x8 + 0x0]
+006a5062  2bd0  SUB EDX,EAX
+006a5064  8b4604  MOV EAX,dword ptr [ESI + 0x4]
+006a5067  8d0c50  LEA ECX,[EAX + EDX*0x2]
+006a506a  8d54241c  LEA EDX,[ESP + 0x1c]
+006a506e  52  PUSH EDX
+006a506f  8d442415  LEA EAX,[ESP + 0x15]
+006a5073  50  PUSH EAX
+006a5074  c744242440000000  MOV dword ptr [ESP + 0x24],0x40
+006a507c  e80f530000  CALL 0x006aa390
+006a5081  8bc8  MOV ECX,EAX
+006a5083  e828bde5ff  CALL 0x00500db0
+006a5088  84c0  TEST AL,AL
+006a508a  7540  JNZ 0x006a50cc
+006a508c  85db  TEST EBX,EBX
+006a508e  7c48  JL 0x006a50d8
+006a5090  8b8664020000  MOV EAX,dword ptr [ESI + 0x264]
+006a5096  8b5604  MOV EDX,dword ptr [ESI + 0x4]
+006a5099  0fafc3  IMUL EAX,EBX
+006a509c  03c7  ADD EAX,EDI
+006a509e  8d0cc500000000  LEA ECX,[EAX*0x8 + 0x0]
+006a50a5  2bc8  SUB ECX,EAX
+006a50a7  8d44241c  LEA EAX,[ESP + 0x1c]
+006a50ab  8d0c4a  LEA ECX,[EDX + ECX*0x2]
+006a50ae  50  PUSH EAX
+006a50af  8d542415  LEA EDX,[ESP + 0x15]
+006a50b3  52  PUSH EDX
+006a50b4  c744242440000000  MOV dword ptr [ESP + 0x24],0x40
+006a50bc  e8cf520000  CALL 0x006aa390
+006a50c1  8bc8  MOV ECX,EAX
+006a50c3  e8e8bce5ff  CALL 0x00500db0
+006a50c8  84c0  TEST AL,AL
+006a50ca  740c  JZ 0x006a50d8
+006a50cc  5b  POP EBX
+006a50cd  5f  POP EDI
+006a50ce  5e  POP ESI
+006a50cf  b001  MOV AL,0x1
+006a50d1  5d  POP EBP
+006a50d2  83c408  ADD ESP,0x8
+006a50d5  c20800  RET 0x8
+006a50d8  5b  POP EBX
+006a50d9  5f  POP EDI
+006a50da  5e  POP ESI
+006a50db  32c0  XOR AL,AL
+006a50dd  5d  POP EBP
+006a50de  83c408  ADD ESP,0x8
+006a50e1  c20800  RET 0x8

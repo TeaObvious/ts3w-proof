@@ -1,0 +1,84 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* CAW 1.22.10 Sims3Common.dll PE export identity: ThumbnailManager_ExportObjectThumbnail. Export
+   ordinal(s): 2507. Entry VA: 0x109954a0. Original managed P/Invoke MethodDef(s):
+   CSHostWrap:0x060003F6. This is an export/declaration annotation only; ABI, behavior and runtime
+   execution require the original instructions and caller evidence. */
+
+undefined4 __cdecl ThumbnailManager_ExportObjectThumbnail(int param_1,int param_2,uint param_3)
+
+{
+  uint uVar1;
+  int *piVar2;
+  undefined4 *puVar3;
+  int *piVar4;
+  uint uVar5;
+  short *in_stack_00000020;
+  uint local_14;
+  int local_10;
+  int local_c;
+  int local_8;
+  int local_4;
+  
+                    /* 0x9954a0  2507  ThumbnailManager_ExportObjectThumbnail */
+  uVar1 = FUN_1055daa0(&local_10,(undefined4 *)&stack0x00000010);
+  uVar5 = 0;
+  local_14 = 1;
+  do {
+    if ((local_14 & param_3) != 0) {
+      piVar2 = (int *)FUN_10918eb0(0x30,"ThumbnailManager_CreateNotifier",0);
+      if (piVar2 == (int *)0x0) {
+        piVar2 = (int *)0x0;
+      }
+      else {
+        FUN_10325520(piVar2);
+        piVar2[8] = (int)&PTR_LAB_10aaf8cc;
+        piVar2[9] = (int)&PTR_FUN_10aae9d8;
+        *piVar2 = (int)&PTR_FUN_10b97834;
+        piVar2[8] = (int)&PTR_LAB_10b97824;
+        piVar2[9] = (int)&PTR_LAB_10b97818;
+        *(undefined1 *)(piVar2 + 10) = 0;
+        *(undefined1 *)((int)piVar2 + 0x29) = 0;
+        (**(code **)(*piVar2 + 4))();
+      }
+      puVar3 = (undefined4 *)FUN_10918eb0(0x58,"ThumbnailManager_CreateNotifier",0);
+      if (puVar3 == (undefined4 *)0x0) {
+        piVar4 = (int *)0x0;
+      }
+      else {
+        piVar4 = FUN_1033d370(puVar3);
+        if (piVar4 != (int *)0x0) {
+          (**(code **)*piVar4)();
+        }
+      }
+      uVar1 = FUN_10995270(param_1,param_2,local_10,local_c,local_8,local_4,piVar4,piVar2,uVar5);
+      if ((char)uVar1 == '\0') {
+LAB_10995600:
+        if (piVar4 != (int *)0x0) {
+          uVar1 = (**(code **)(*piVar4 + 4))();
+        }
+        if (piVar2 != (int *)0x0) {
+          uVar1 = (**(code **)(*piVar2 + 8))();
+        }
+        return uVar1 & 0xffffff00;
+      }
+      uVar1 = FUN_10994cf0((int)piVar2,piVar4,&local_10,uVar5,in_stack_00000020);
+      if ((char)uVar1 == '\0') goto LAB_10995600;
+      if (piVar4 != (int *)0x0) {
+        uVar1 = (**(code **)(*piVar4 + 4))();
+      }
+      if (piVar2 != (int *)0x0) {
+        uVar1 = (**(code **)(*piVar2 + 8))();
+      }
+    }
+    uVar5 = uVar5 + 1;
+    local_14 = local_14 * 2;
+    if (3 < uVar5) {
+      return CONCAT31((int3)(uVar1 >> 8),1);
+    }
+  } while( true );
+}
+

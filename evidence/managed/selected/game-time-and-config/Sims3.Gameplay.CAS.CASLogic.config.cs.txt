@@ -1,0 +1,14 @@
+// Analyst: CAS numeric default2048; returned Boolean is POP atIL0012, so status mismatch is not a proved visible CAS failure.
+using Sims3.SimIFace;
+
+protected void SetDefaultBuilderValues()
+{
+	uint value = 2048u;
+	GameUtils.GetConfigValue("CASRenderTargetSize", ref value);
+	mBuilder.TextureSize = value;
+	mBuilder.SkinTone = mSkinToneKey;
+	mBuilder.Age = mDefaultAge;
+	mBuilder.Gender = mDefaultGender;
+	mBuilder.Species = mDefaultSpecies;
+}
+

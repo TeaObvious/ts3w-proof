@@ -1,0 +1,38 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00767480 <.text+0x366480>:
+  767480:	56                   	push   esi
+  767481:	e8 0a 1f 00 00       	call   0x769390
+  767486:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  76748a:	8b f0                	mov    esi,eax
+  76748c:	8b 06                	mov    eax,DWORD PTR [esi]
+  76748e:	8b 90 cc 00 00 00    	mov    edx,DWORD PTR [eax+0xcc]
+  767494:	51                   	push   ecx
+  767495:	8b ce                	mov    ecx,esi
+  767497:	ff d2                	call   edx
+  767499:	85 c0                	test   eax,eax
+  76749b:	74 2a                	je     0x7674c7
+  76749d:	8b 80 2c 01 00 00    	mov    eax,DWORD PTR [eax+0x12c]
+  7674a3:	8b 16                	mov    edx,DWORD PTR [esi]
+  7674a5:	6a 22                	push   0x22
+  7674a7:	50                   	push   eax
+  7674a8:	8b 82 c8 00 00 00    	mov    eax,DWORD PTR [edx+0xc8]
+  7674ae:	8b ce                	mov    ecx,esi
+  7674b0:	ff d0                	call   eax
+  7674b2:	85 c0                	test   eax,eax
+  7674b4:	74 11                	je     0x7674c7
+  7674b6:	8b 16                	mov    edx,DWORD PTR [esi]
+  7674b8:	50                   	push   eax
+  7674b9:	8b 82 d8 00 00 00    	mov    eax,DWORD PTR [edx+0xd8]
+  7674bf:	8b ce                	mov    ecx,esi
+  7674c1:	ff d0                	call   eax
+  7674c3:	b0 01                	mov    al,0x1
+  7674c5:	5e                   	pop    esi
+  7674c6:	c3                   	ret
+  7674c7:	32 c0                	xor    al,al
+  7674c9:	5e                   	pop    esi
+  7674ca:	c3                   	ret

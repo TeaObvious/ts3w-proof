@@ -1,0 +1,38 @@
+# camera-method-register: retail TS3W.exe VA 0x0073E7A0-0x0073E7FE, file offset 0x33E7A0
+73e7a0:	57                   	push   edi
+  73e7a1:	8b 7c 24 08          	mov    edi,DWORD PTR [esp+0x8]
+  73e7a5:	83 ff 04             	cmp    edi,0x4
+  73e7a8:	77 53                	ja     0x73e7fd
+  73e7aa:	53                   	push   ebx
+  73e7ab:	56                   	push   esi
+  73e7ac:	e8 df ab 02 00       	call   0x769390
+  73e7b1:	8b 4c 24 18          	mov    ecx,DWORD PTR [esp+0x18]
+  73e7b5:	8b f0                	mov    esi,eax
+  73e7b7:	8b 06                	mov    eax,DWORD PTR [esi]
+  73e7b9:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  73e7bc:	51                   	push   ecx
+  73e7bd:	8b ce                	mov    ecx,esi
+  73e7bf:	ff d2                	call   edx
+  73e7c1:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+  73e7c5:	8b d8                	mov    ebx,eax
+  73e7c7:	8b 06                	mov    eax,DWORD PTR [esi]
+  73e7c9:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  73e7cc:	51                   	push   ecx
+  73e7cd:	8b ce                	mov    ecx,esi
+  73e7cf:	ff d2                	call   edx
+  73e7d1:	50                   	push   eax
+  73e7d2:	c1 e7 05             	shl    edi,0x5
+  73e7d5:	8d 87 58 4e 1d 01    	lea    eax,[edi+0x11d4e58]
+  73e7db:	68 0c 0a 00 01       	push   0x1000a0c
+  73e7e0:	50                   	push   eax
+  73e7e1:	e8 7a 26 e5 ff       	call   0x590e60
+  73e7e6:	53                   	push   ebx
+  73e7e7:	8d 8f 68 4e 1d 01    	lea    ecx,[edi+0x11d4e68]
+  73e7ed:	68 0c 0a 00 01       	push   0x1000a0c
+  73e7f2:	51                   	push   ecx
+  73e7f3:	e8 68 26 e5 ff       	call   0x590e60
+  73e7f8:	83 c4 18             	add    esp,0x18
+  73e7fb:	5e                   	pop    esi
+  73e7fc:	5b                   	pop    ebx
+  73e7fd:	5f                   	pop    edi
+  73e7fe:	c3                   	ret

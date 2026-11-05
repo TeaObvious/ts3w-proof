@@ -1,0 +1,35 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: Sims3/CSHost/WorldTerrain.cs
+// Each selected method is complete. Other members are omitted.
+
+	public RoadSpline CreateRoadSpline(Sims3.Math.Vector2 knot0, Sims3.Math.Vector2 knot1, Sims3.Math.Vector2 knot2, Sims3.Math.Vector2 knot3, bool isSidewalk, bool isDirt, bool isRoadBridge)
+	{
+		if (mTerrainWrap != null && TryEdit())
+		{
+			return mTerrainWrap.CreateRoadSpline(knot0, knot1, knot2, knot3, isSidewalk, isDirt, isRoadBridge);
+		}
+		return null;
+	}
+
+// [Next selected original method]
+
+	public RoadIntersection CreateRoadIntersection(Sims3.Math.Vector2 position, float rotation, bool isFootpath, bool isDirt)
+	{
+		if (mTerrainWrap != null && TryEdit())
+		{
+			return mTerrainWrap.CreateRoadIntersection(position, rotation, isFootpath, isDirt);
+		}
+		return null;
+	}
+
+// [Next selected original method]
+
+	public bool CanSnapRoadObjectToAnyEmptyPort(RoadObject movingObject, uint movingPort, out RoadObject foundObject, out uint foundPort)
+	{
+		foundObject = null;
+		foundPort = 0u;
+		if (mTerrainWrap != null)
+		{
+			return mTerrainWrap.CanSnapRoadObjectToAnyEmptyPort(movingObject, movingPort, out foundObject, out foundPort);
+		}
+		return false;
+	}

@@ -1,0 +1,68 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00b5e390 to next catalog entry 0x00b5e440; may include padding or data.
+  b5e390:	d9 44 24 08          	fld    DWORD PTR [esp+0x8]
+  b5e394:	56                   	push   esi
+  b5e395:	83 ec 08             	sub    esp,0x8
+  b5e398:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  b5e39c:	8b f1                	mov    esi,ecx
+  b5e39e:	d9 44 24 10          	fld    DWORD PTR [esp+0x10]
+  b5e3a2:	8d 8e 80 04 00 00    	lea    ecx,[esi+0x480]
+  b5e3a8:	d9 1c 24             	fstp   DWORD PTR [esp]
+  b5e3ab:	e8 50 fe ff ff       	call   0xb5e200
+  b5e3b0:	84 c0                	test   al,al
+  b5e3b2:	74 7a                	je     0xb5e42e
+  b5e3b4:	d9 44 24 0c          	fld    DWORD PTR [esp+0xc]
+  b5e3b8:	8b 8e 14 02 00 00    	mov    ecx,DWORD PTR [esi+0x214]
+  b5e3be:	6a 00                	push   0x0
+  b5e3c0:	6a 00                	push   0x0
+  b5e3c2:	6a 00                	push   0x0
+  b5e3c4:	6a 00                	push   0x0
+  b5e3c6:	6a 00                	push   0x0
+  b5e3c8:	6a 01                	push   0x1
+  b5e3ca:	6a 00                	push   0x0
+  b5e3cc:	83 ec 08             	sub    esp,0x8
+  b5e3cf:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  b5e3d3:	d9 44 24 2c          	fld    DWORD PTR [esp+0x2c]
+  b5e3d7:	d9 1c 24             	fstp   DWORD PTR [esp]
+  b5e3da:	e8 b1 bc 10 00       	call   0xc6a090
+  b5e3df:	d9 86 18 02 00 00    	fld    DWORD PTR [esi+0x218]
+  b5e3e5:	df f1                	fcomip st,st(1)
+  b5e3e7:	dd d8                	fstp   st(0)
+  b5e3e9:	76 43                	jbe    0xb5e42e
+  b5e3eb:	80 7c 24 10 00       	cmp    BYTE PTR [esp+0x10],0x0
+  b5e3f0:	53                   	push   ebx
+  b5e3f1:	b3 01                	mov    bl,0x1
+  b5e3f3:	74 3f                	je     0xb5e434
+  b5e3f5:	8b 86 14 02 00 00    	mov    eax,DWORD PTR [esi+0x214]
+  b5e3fb:	8b 48 5c             	mov    ecx,DWORD PTR [eax+0x5c]
+  b5e3fe:	85 c9                	test   ecx,ecx
+  b5e400:	74 32                	je     0xb5e434
+  b5e402:	d9 44 24 10          	fld    DWORD PTR [esp+0x10]
+  b5e406:	6a 00                	push   0x0
+  b5e408:	6a 00                	push   0x0
+  b5e40a:	6a 00                	push   0x0
+  b5e40c:	6a 00                	push   0x0
+  b5e40e:	6a 01                	push   0x1
+  b5e410:	83 ec 08             	sub    esp,0x8
+  b5e413:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  b5e417:	d9 44 24 28          	fld    DWORD PTR [esp+0x28]
+  b5e41b:	d9 1c 24             	fstp   DWORD PTR [esp]
+  b5e41e:	e8 3d 9b 01 00       	call   0xb77f60
+  b5e423:	84 c0                	test   al,al
+  b5e425:	74 0d                	je     0xb5e434
+  b5e427:	5b                   	pop    ebx
+  b5e428:	32 c0                	xor    al,al
+  b5e42a:	5e                   	pop    esi
+  b5e42b:	c2 0c 00             	ret    0xc
+  b5e42e:	32 c0                	xor    al,al
+  b5e430:	5e                   	pop    esi
+  b5e431:	c2 0c 00             	ret    0xc
+  b5e434:	8a c3                	mov    al,bl
+  b5e436:	5b                   	pop    ebx
+  b5e437:	5e                   	pop    esi
+  b5e438:	c2 0c 00             	ret    0xc
+  b5e43b:	cc                   	int3
+  b5e43c:	cc                   	int3
+  b5e43d:	cc                   	int3
+  b5e43e:	cc                   	int3
+  b5e43f:	cc                   	int3

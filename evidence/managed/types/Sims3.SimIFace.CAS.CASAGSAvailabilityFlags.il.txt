@@ -1,0 +1,73 @@
+// Original PC 1.67 SimIFace.dll; complete type Sims3.SimIFace.CAS.CASAGSAvailabilityFlags.
+// Analyst annotations describe static contracts; IL remains authoritative for decompiler artifacts.
+
+.class public auto ansi sealed Sims3.SimIFace.CAS.CASAGSAvailabilityFlags
+	extends [mscorlib]System.Enum
+{
+	.custom instance void [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::.ctor(bool) = (
+		01 00 00 00 00
+	)
+	.custom instance void [mscorlib]System.FlagsAttribute::.ctor() = (
+		01 00 00 00
+	)
+	// Fields
+	.field public specialname rtspecialname uint64 value__
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags None = uint64(0)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HumanBaby = uint64(1)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HumanToddler = uint64(2)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HumanChild = uint64(4)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HumanTeen = uint64(8)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HumanYoungAdult = uint64(16)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HumanAdult = uint64(32)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HumanElder = uint64(64)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HumanAgeMask = uint64(127)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Male = uint64(128)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Female = uint64(256)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags GenderMask = uint64(384)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags LeftHanded = uint64(512)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags RightHanded = uint64(1024)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HandednessMask = uint64(1536)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HorseChild = uint64(4096)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HorseAdult = uint64(8192)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HorseElder = uint64(16384)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags CatChild = uint64(32768)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags CatAdult = uint64(65536)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags CatElder = uint64(131072)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags DogChild = uint64(262144)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags DogAdult = uint64(524288)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags DogElder = uint64(1048576)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags LittleDogChild = uint64(2097152)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags LittleDogAdult = uint64(4194304)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags LittleDogElder = uint64(8388608)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Deer = uint64(16777216)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Raccoon = uint64(33554432)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags LargeBird = uint64(67108864)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags SimWalkingDog = uint64(134217728)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags SimWalkingLittleDog = uint64(268435456)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags SimLeadingHorse = uint64(536870912)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Paddleboat = uint64(1073741824)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags WaterScooter = uint64(2147483648)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Speedboat = uint64(4294967296)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Rowboat = uint64(8589934592)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HouseboatSmall = uint64(17179869184)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HouseboatMedium = uint64(34359738368)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags HouseboatLarge = uint64(68719476736)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Shark = uint64(137438953472)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Sailboat = uint64(274877906944)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags WindsurfBoardChild = uint64(549755813888)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags WindsurfBoatAdult = uint64(1099511627776)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Houseboat6x20 = uint64(2199023255552)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Houseboat6x20Curved = uint64(4398046511104)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags Houseboat8x18Curved = uint64(8796093022208)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllHorsesMask = uint64(28672)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllCatsMask = uint64(229376)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllDogsMask = uint64(1835008)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllLittleDogsMask = uint64(14680064)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllDomesticAnimalsMask = uint64(83881984)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllWildAnimalsMask = uint64(50331648)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllAnimalsMask = uint64(134213632)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllBoatsMask = uint64(2060510560256)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags AllHouseboatsMask = uint64(120259084288)
+	.field public static literal valuetype Sims3.SimIFace.CAS.CASAGSAvailabilityFlags All = uint64(18446744073709551615)
+
+} // end of class Sims3.SimIFace.CAS.CASAGSAvailabilityFlags

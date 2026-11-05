@@ -1,0 +1,267 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+; Original PC1.67 TS3W.exe complete existing owned Listing.
+; Analyst-assigned name: WallGraph_CrossesLocalSegment
+; Owned ranges: [[00c40c60, 00c41022]]
+; Actual entry PLATE: PC1.67 complete259instructions/963ownedbytes. Physical ECX graph receiver plus3stackDWORD inputs, RET0C: first/second lot-local XY points carry Int32level at+8; third is optional hit output. Section endpoints use MOVSX signedbyte coordinates/level; first endpoint level compared as integer to first query point. Inclusive AABB admission then Float32 determinants. Wall endpoints may touch query line but may not be strictly same-side; query endpoints must be strictly nonzero opposite-side across wall, so end-only contact and collinear segments fail. COMISS/JBE sign sequences yield0 for unordered/NaN as well as either signedzero, despite misleading decompiler <= expressions. Result Boolean is AL only; optional hit output callsA64A80/A64AC0 on first hit. World785E40 supplies physical graphslot4 and tile centres+0.5;785EF0 selects room-definition graph and firstpoint level after world-to-lot conversion. Existing ABI/types and pointer/float decompiler artifacts are retained; no new input validation inferred.
+
+00c40c60  55  PUSH EBP
+00c40c61  8bec  MOV EBP,ESP
+00c40c63  83e4f0  AND ESP,0xfffffff0
+00c40c66  8b450c  MOV EAX,dword ptr [EBP + 0xc]
+00c40c69  f30f1008  MOVSS XMM1,dword ptr [EAX]
+00c40c6d  81ec14010000  SUB ESP,0x114
+00c40c73  53  PUSH EBX
+00c40c74  56  PUSH ESI
+00c40c75  57  PUSH EDI
+00c40c76  8b7d08  MOV EDI,dword ptr [EBP + 0x8]
+00c40c79  f30f1007  MOVSS XMM0,dword ptr [EDI]
+00c40c7d  0f2fc8  COMISS XMM1,XMM0
+00c40c80  8bd9  MOV EBX,ECX
+00c40c82  8bc8  MOV ECX,EAX
+00c40c84  7702  JA 0x00c40c88
+00c40c86  8bcf  MOV ECX,EDI
+00c40c88  0f2fc1  COMISS XMM0,XMM1
+00c40c8b  f30f1011  MOVSS XMM2,dword ptr [ECX]
+00c40c8f  f30f11542438  MOVSS dword ptr [ESP + 0x38],XMM2
+00c40c95  8bc8  MOV ECX,EAX
+00c40c97  7702  JA 0x00c40c9b
+00c40c99  8bcf  MOV ECX,EDI
+00c40c9b  f30f1011  MOVSS XMM2,dword ptr [ECX]
+00c40c9f  83c004  ADD EAX,0x4
+00c40ca2  f30f11542430  MOVSS dword ptr [ESP + 0x30],XMM2
+00c40ca8  f30f1010  MOVSS XMM2,dword ptr [EAX]
+00c40cac  0f2f5704  COMISS XMM2,dword ptr [EDI + 0x4]
+00c40cb0  8d4f04  LEA ECX,[EDI + 0x4]
+00c40cb3  8bd0  MOV EDX,EAX
+00c40cb5  7702  JA 0x00c40cb9
+00c40cb7  8bd1  MOV EDX,ECX
+00c40cb9  f30f1012  MOVSS XMM2,dword ptr [EDX]
+00c40cbd  f30f11542434  MOVSS dword ptr [ESP + 0x34],XMM2
+00c40cc3  f30f1011  MOVSS XMM2,dword ptr [ECX]
+00c40cc7  0f2f10  COMISS XMM2,dword ptr [EAX]
+00c40cca  8bd0  MOV EDX,EAX
+00c40ccc  7702  JA 0x00c40cd0
+00c40cce  8bd1  MOV EDX,ECX
+00c40cd0  f30f1012  MOVSS XMM2,dword ptr [EDX]
+00c40cd4  8b731c  MOV ESI,dword ptr [EBX + 0x1c]
+00c40cd7  3b7320  CMP ESI,dword ptr [EBX + 0x20]
+00c40cda  f30f1144241c  MOVSS dword ptr [ESP + 0x1c],XMM0
+00c40ce0  f30f11442418  MOVSS dword ptr [ESP + 0x18],XMM0
+00c40ce6  f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+00c40cec  f30f1154243c  MOVSS dword ptr [ESP + 0x3c],XMM2
+00c40cf2  f30f1011  MOVSS XMM2,dword ptr [ECX]
+00c40cf6  f30f11542414  MOVSS dword ptr [ESP + 0x14],XMM2
+00c40cfc  0f28442410  MOVAPS XMM0,xmmword ptr [ESP + 0x10]
+00c40d01  0f29442470  MOVAPS xmmword ptr [ESP + 0x70],XMM0
+00c40d06  0f28c1  MOVAPS XMM0,XMM1
+00c40d09  f30f1008  MOVSS XMM1,dword ptr [EAX]
+00c40d0d  f30f1144241c  MOVSS dword ptr [ESP + 0x1c],XMM0
+00c40d13  f30f11442418  MOVSS dword ptr [ESP + 0x18],XMM0
+00c40d19  f30f114c2414  MOVSS dword ptr [ESP + 0x14],XMM1
+00c40d1f  f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+00c40d25  0f28442410  MOVAPS XMM0,xmmword ptr [ESP + 0x10]
+00c40d2a  0f29442460  MOVAPS xmmword ptr [ESP + 0x60],XMM0
+00c40d2f  0f84b9020000  JZ 0x00c40fee
+00c40d35  8b0e  MOV ECX,dword ptr [ESI]
+00c40d37  8b410c  MOV EAX,dword ptr [ECX + 0xc]
+00c40d3a  0fbe5004  MOVSX EDX,byte ptr [EAX + 0x4]
+00c40d3e  83c104  ADD ECX,0x4
+00c40d41  83c004  ADD EAX,0x4
+00c40d44  f30f2ac2  CVTSI2SS XMM0,EDX
+00c40d48  0fbe5001  MOVSX EDX,byte ptr [EAX + 0x1]
+00c40d4c  0fbe4002  MOVSX EAX,byte ptr [EAX + 0x2]
+00c40d50  3b4708  CMP EAX,dword ptr [EDI + 0x8]
+00c40d53  f30f11442424  MOVSS dword ptr [ESP + 0x24],XMM0
+00c40d59  f30f2ac2  CVTSI2SS XMM0,EDX
+00c40d5d  f30f11442428  MOVSS dword ptr [ESP + 0x28],XMM0
+00c40d63  8944242c  MOV dword ptr [ESP + 0x2c],EAX
+00c40d67  0f8575020000  JNZ 0x00c40fe2
+00c40d6d  e89e52ffff  CALL 0x00c36010
+00c40d72  0fbe4804  MOVSX ECX,byte ptr [EAX + 0x4]
+00c40d76  0fbe5005  MOVSX EDX,byte ptr [EAX + 0x5]
+00c40d7a  f30f104c2424  MOVSS XMM1,dword ptr [ESP + 0x24]
+00c40d80  83c004  ADD EAX,0x4
+00c40d83  0fbe4002  MOVSX EAX,byte ptr [EAX + 0x2]
+00c40d87  f30f2ac1  CVTSI2SS XMM0,ECX
+00c40d8b  0f2fc8  COMISS XMM1,XMM0
+00c40d8e  f30f2ad2  CVTSI2SS XMM2,EDX
+00c40d92  89442418  MOV dword ptr [ESP + 0x18],EAX
+00c40d96  f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+00c40d9c  f30f11542414  MOVSS dword ptr [ESP + 0x14],XMM2
+00c40da2  8d442410  LEA EAX,[ESP + 0x10]
+00c40da6  7704  JA 0x00c40dac
+00c40da8  8d442424  LEA EAX,[ESP + 0x24]
+00c40dac  f30f1018  MOVSS XMM3,dword ptr [EAX]
+00c40db0  0f2f5c2438  COMISS XMM3,dword ptr [ESP + 0x38]
+00c40db5  0f8727020000  JA 0x00c40fe2
+00c40dbb  0f2fc1  COMISS XMM0,XMM1
+00c40dbe  8d442410  LEA EAX,[ESP + 0x10]
+00c40dc2  7704  JA 0x00c40dc8
+00c40dc4  8d442424  LEA EAX,[ESP + 0x24]
+00c40dc8  f30f105c2430  MOVSS XMM3,dword ptr [ESP + 0x30]
+00c40dce  0f2f18  COMISS XMM3,dword ptr [EAX]
+00c40dd1  0f870b020000  JA 0x00c40fe2
+00c40dd7  f30f105c2428  MOVSS XMM3,dword ptr [ESP + 0x28]
+00c40ddd  0f2fda  COMISS XMM3,XMM2
+00c40de0  8d442414  LEA EAX,[ESP + 0x14]
+00c40de4  7704  JA 0x00c40dea
+00c40de6  8d442428  LEA EAX,[ESP + 0x28]
+00c40dea  f30f1020  MOVSS XMM4,dword ptr [EAX]
+00c40dee  0f2f642434  COMISS XMM4,dword ptr [ESP + 0x34]
+00c40df3  0f87e9010000  JA 0x00c40fe2
+00c40df9  0f2fd3  COMISS XMM2,XMM3
+00c40dfc  8d442414  LEA EAX,[ESP + 0x14]
+00c40e00  7704  JA 0x00c40e06
+00c40e02  8d442428  LEA EAX,[ESP + 0x28]
+00c40e06  f30f1064243c  MOVSS XMM4,dword ptr [ESP + 0x3c]
+00c40e0c  0f2f20  COMISS XMM4,dword ptr [EAX]
+00c40e0f  0f87cd010000  JA 0x00c40fe2
+00c40e15  0f57ff  XORPS XMM7,XMM7
+00c40e18  f30f11542454  MOVSS dword ptr [ESP + 0x54],XMM2
+00c40e1e  0f28542470  MOVAPS XMM2,xmmword ptr [ESP + 0x70]
+00c40e23  f30f1144245c  MOVSS dword ptr [ESP + 0x5c],XMM0
+00c40e29  f30f11442458  MOVSS dword ptr [ESP + 0x58],XMM0
+00c40e2f  f30f11442450  MOVSS dword ptr [ESP + 0x50],XMM0
+00c40e35  0f28442450  MOVAPS XMM0,xmmword ptr [ESP + 0x50]
+00c40e3a  f30f115c2444  MOVSS dword ptr [ESP + 0x44],XMM3
+00c40e40  0f28d8  MOVAPS XMM3,XMM0
+00c40e43  0f5cc2  SUBPS XMM0,XMM2
+00c40e46  f30f114c244c  MOVSS dword ptr [ESP + 0x4c],XMM1
+00c40e4c  f30f114c2448  MOVSS dword ptr [ESP + 0x48],XMM1
+00c40e52  f30f114c2440  MOVSS dword ptr [ESP + 0x40],XMM1
+00c40e58  0f28742440  MOVAPS XMM6,xmmword ptr [ESP + 0x40]
+00c40e5d  0f298424b0000000  MOVAPS xmmword ptr [ESP + 0xb0],XMM0
+00c40e65  0f28442460  MOVAPS XMM0,xmmword ptr [ESP + 0x60]
+00c40e6a  0f5cc2  SUBPS XMM0,XMM2
+00c40e6d  0f28ce  MOVAPS XMM1,XMM6
+00c40e70  0f5cca  SUBPS XMM1,XMM2
+00c40e73  0f28e8  MOVAPS XMM5,XMM0
+00c40e76  0fc6e855  SHUFPS XMM5,XMM0,0x55
+00c40e7a  0f298424e0000000  MOVAPS xmmword ptr [ESP + 0xe0],XMM0
+00c40e82  0f28e1  MOVAPS XMM4,XMM1
+00c40e85  0f28d1  MOVAPS XMM2,XMM1
+00c40e88  0fc6d155  SHUFPS XMM2,XMM1,0x55
+00c40e8c  0fc6e100  SHUFPS XMM4,XMM1,0x0
+00c40e90  0fc6c000  SHUFPS XMM0,XMM0,0x0
+00c40e94  0f59d0  MULPS XMM2,XMM0
+00c40e97  0f59e5  MULPS XMM4,XMM5
+00c40e9a  0f5cd4  SUBPS XMM2,XMM4
+00c40e9d  0f299424c0000000  MOVAPS xmmword ptr [ESP + 0xc0],XMM2
+00c40ea5  f30f109424c0000000  MOVSS XMM2,dword ptr [ESP + 0xc0]
+00c40eae  0f2fd7  COMISS XMM2,XMM7
+00c40eb1  0f5cde  SUBPS XMM3,XMM6
+00c40eb4  0f299c24d0000000  MOVAPS xmmword ptr [ESP + 0xd0],XMM3
+00c40ebc  0f298c2400010000  MOVAPS xmmword ptr [ESP + 0x100],XMM1
+00c40ec4  7607  JBE 0x00c40ecd
+00c40ec6  b901000000  MOV ECX,0x1
+00c40ecb  eb0c  JMP 0x00c40ed9
+00c40ecd  0f2ffa  COMISS XMM7,XMM2
+00c40ed0  7605  JBE 0x00c40ed7
+00c40ed2  83c9ff  OR ECX,0xffffffff
+00c40ed5  eb02  JMP 0x00c40ed9
+00c40ed7  33c9  XOR ECX,ECX
+00c40ed9  0f289424b0000000  MOVAPS XMM2,xmmword ptr [ESP + 0xb0]
+00c40ee1  0f28e2  MOVAPS XMM4,XMM2
+00c40ee4  0fc6e200  SHUFPS XMM4,XMM2,0x0
+00c40ee8  0fc6d255  SHUFPS XMM2,XMM2,0x55
+00c40eec  0f59d0  MULPS XMM2,XMM0
+00c40eef  0f59e5  MULPS XMM4,XMM5
+00c40ef2  0f5cd4  SUBPS XMM2,XMM4
+00c40ef5  0f29942490000000  MOVAPS xmmword ptr [ESP + 0x90],XMM2
+00c40efd  f30f10842490000000  MOVSS XMM0,dword ptr [ESP + 0x90]
+00c40f06  0f2fc7  COMISS XMM0,XMM7
+00c40f09  7607  JBE 0x00c40f12
+00c40f0b  b801000000  MOV EAX,0x1
+00c40f10  eb0c  JMP 0x00c40f1e
+00c40f12  0f2ff8  COMISS XMM7,XMM0
+00c40f15  7605  JBE 0x00c40f1c
+00c40f17  83c8ff  OR EAX,0xffffffff
+00c40f1a  eb02  JMP 0x00c40f1e
+00c40f1c  33c0  XOR EAX,EAX
+00c40f1e  85c9  TEST ECX,ECX
+00c40f20  740e  JZ 0x00c40f30
+00c40f22  85c0  TEST EAX,EAX
+00c40f24  740a  JZ 0x00c40f30
+00c40f26  f7d8  NEG EAX
+00c40f28  3bc8  CMP ECX,EAX
+00c40f2a  0f85b2000000  JNZ 0x00c40fe2
+00c40f30  0f57c0  XORPS XMM0,XMM0
+00c40f33  0f5cc1  SUBPS XMM0,XMM1
+00c40f36  0f284c2460  MOVAPS XMM1,xmmword ptr [ESP + 0x60]
+00c40f3b  0f28d0  MOVAPS XMM2,XMM0
+00c40f3e  0fc6d000  SHUFPS XMM2,XMM0,0x0
+00c40f42  0f298424f0000000  MOVAPS xmmword ptr [ESP + 0xf0],XMM0
+00c40f4a  0f28e3  MOVAPS XMM4,XMM3
+00c40f4d  0fc6e355  SHUFPS XMM4,XMM3,0x55
+00c40f51  0fc6c055  SHUFPS XMM0,XMM0,0x55
+00c40f55  0fc6db00  SHUFPS XMM3,XMM3,0x0
+00c40f59  0f59c3  MULPS XMM0,XMM3
+00c40f5c  0f59d4  MULPS XMM2,XMM4
+00c40f5f  0f5cc2  SUBPS XMM0,XMM2
+00c40f62  0f298424a0000000  MOVAPS xmmword ptr [ESP + 0xa0],XMM0
+00c40f6a  f30f108424a0000000  MOVSS XMM0,dword ptr [ESP + 0xa0]
+00c40f73  0f2fc7  COMISS XMM0,XMM7
+00c40f76  0f5cce  SUBPS XMM1,XMM6
+00c40f79  0f298c2410010000  MOVAPS xmmword ptr [ESP + 0x110],XMM1
+00c40f81  7607  JBE 0x00c40f8a
+00c40f83  b901000000  MOV ECX,0x1
+00c40f88  eb0c  JMP 0x00c40f96
+00c40f8a  0f2ff8  COMISS XMM7,XMM0
+00c40f8d  7605  JBE 0x00c40f94
+00c40f8f  83c9ff  OR ECX,0xffffffff
+00c40f92  eb02  JMP 0x00c40f96
+00c40f94  33c9  XOR ECX,ECX
+00c40f96  0f28d1  MOVAPS XMM2,XMM1
+00c40f99  0f28c1  MOVAPS XMM0,XMM1
+00c40f9c  0fc6c155  SHUFPS XMM0,XMM1,0x55
+00c40fa0  0fc6d100  SHUFPS XMM2,XMM1,0x0
+00c40fa4  0f59c3  MULPS XMM0,XMM3
+00c40fa7  0f59d4  MULPS XMM2,XMM4
+00c40faa  0f5cc2  SUBPS XMM0,XMM2
+00c40fad  0f29842480000000  MOVAPS xmmword ptr [ESP + 0x80],XMM0
+00c40fb5  f30f10842480000000  MOVSS XMM0,dword ptr [ESP + 0x80]
+00c40fbe  0f2fc7  COMISS XMM0,XMM7
+00c40fc1  7607  JBE 0x00c40fca
+00c40fc3  b801000000  MOV EAX,0x1
+00c40fc8  eb0c  JMP 0x00c40fd6
+00c40fca  0f2ff8  COMISS XMM7,XMM0
+00c40fcd  7605  JBE 0x00c40fd4
+00c40fcf  83c8ff  OR EAX,0xffffffff
+00c40fd2  eb02  JMP 0x00c40fd6
+00c40fd4  33c0  XOR EAX,EAX
+00c40fd6  85c9  TEST ECX,ECX
+00c40fd8  7408  JZ 0x00c40fe2
+00c40fda  85c0  TEST EAX,EAX
+00c40fdc  7404  JZ 0x00c40fe2
+00c40fde  3bc8  CMP ECX,EAX
+00c40fe0  7517  JNZ 0x00c40ff9
+00c40fe2  83c604  ADD ESI,0x4
+00c40fe5  3b7320  CMP ESI,dword ptr [EBX + 0x20]
+00c40fe8  0f8547fdffff  JNZ 0x00c40d35
+00c40fee  32c0  XOR AL,AL
+00c40ff0  5f  POP EDI
+00c40ff1  5e  POP ESI
+00c40ff2  5b  POP EBX
+00c40ff3  8be5  MOV ESP,EBP
+00c40ff5  5d  POP EBP
+00c40ff6  c20c00  RET 0xc
+00c40ff9  8b7510  MOV ESI,dword ptr [EBP + 0x10]
+00c40ffc  85f6  TEST ESI,ESI
+00c40ffe  7418  JZ 0x00c41018
+00c41000  8d4c2424  LEA ECX,[ESP + 0x24]
+00c41004  51  PUSH ECX
+00c41005  8bce  MOV ECX,ESI
+00c41007  e8743ae2ff  CALL 0x00a64a80
+00c4100c  8d542410  LEA EDX,[ESP + 0x10]
+00c41010  52  PUSH EDX
+00c41011  8bce  MOV ECX,ESI
+00c41013  e8a83ae2ff  CALL 0x00a64ac0
+00c41018  5f  POP EDI
+00c41019  5e  POP ESI
+00c4101a  b001  MOV AL,0x1
+00c4101c  5b  POP EBX
+00c4101d  8be5  MOV ESP,EBP
+00c4101f  5d  POP EBP
+00c41020  c20c00  RET 0xc

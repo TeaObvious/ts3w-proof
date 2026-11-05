@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000D01.
+// Assembly: ScriptCore; type: ScriptCore.World.
+// Decompiled C# source: ScriptCore/ScriptCore/World.cs:1217
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool World_GetRainPuddlesOnLotImpl(ulong lotId, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_R4)] ref float[] posArray);

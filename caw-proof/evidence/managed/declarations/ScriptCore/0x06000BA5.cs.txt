@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000BA5.
+// Assembly: ScriptCore; type: ScriptCore.World.
+// Decompiled C# source: ScriptCore/ScriptCore/World.cs:44
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool World_AddObjectToObjectManagersImpl(ulong scriptHandle, ulong groupId, Vector3 position, int level, Vector3 createFacing, uint hiddenFlags);

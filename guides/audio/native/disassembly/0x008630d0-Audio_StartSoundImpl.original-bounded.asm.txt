@@ -1,0 +1,89 @@
+Reference: original PC 1.67 TS3W.exe SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+Registration: ScriptCore.Audio::Audio_StartSoundImpl
+PE VA interval: [0x008630d0, 0x00863190)
+Original file interval: [0x4630d0, 0x463190)
+Span SHA-256: 6f2d7fc3fac8c92795aa4f18a3687db53f94ffdd82e3d112e2748da5b4e7a98e
+Boundary: next function entry in retained Ghidra listing; this is a bounded linear decode, not independently proven exact function body.
+Decoder: GNU objdump -D -Mintel; control-flow paths must be checked before behavioral claims.
+
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+008630d0 <.text+0x4620d0>:
+  8630d0:	a1 40 9c 1d 01       	mov    eax,ds:0x11d9c40
+  8630d5:	81 ec 80 00 00 00    	sub    esp,0x80
+  8630db:	85 c0                	test   eax,eax
+  8630dd:	56                   	push   esi
+  8630de:	0f 84 9f 00 00 00    	je     0x863183
+  8630e4:	8d b0 30 84 fd ff    	lea    esi,[eax-0x27bd0]
+  8630ea:	85 f6                	test   esi,esi
+  8630ec:	0f 84 91 00 00 00    	je     0x863183
+  8630f2:	53                   	push   ebx
+  8630f3:	55                   	push   ebp
+  8630f4:	57                   	push   edi
+  8630f5:	e8 96 62 f0 ff       	call   0x769390
+  8630fa:	8b 8c 24 94 00 00 00 	mov    ecx,DWORD PTR [esp+0x94]
+  863101:	8b 10                	mov    edx,DWORD PTR [eax]
+  863103:	8b 52 58             	mov    edx,DWORD PTR [edx+0x58]
+  863106:	6a ff                	push   0xffffffff
+  863108:	68 80 00 00 00       	push   0x80
+  86310d:	51                   	push   ecx
+  86310e:	8b c8                	mov    ecx,eax
+  863110:	ff d2                	call   edx
+  863112:	50                   	push   eax
+  863113:	8d 44 24 1c          	lea    eax,[esp+0x1c]
+  863117:	50                   	push   eax
+  863118:	e8 83 ae c9 ff       	call   0x4fdfa0
+  86311d:	8b 16                	mov    edx,DWORD PTR [esi]
+  86311f:	8b 92 18 01 00 00    	mov    edx,DWORD PTR [edx+0x118]
+  863125:	83 c4 10             	add    esp,0x10
+  863128:	8d 44 24 10          	lea    eax,[esp+0x10]
+  86312c:	50                   	push   eax
+  86312d:	8b ce                	mov    ecx,esi
+  86312f:	ff d2                	call   edx
+  863131:	8b d8                	mov    ebx,eax
+  863133:	8b 06                	mov    eax,DWORD PTR [esi]
+  863135:	8b ea                	mov    ebp,edx
+  863137:	8b 50 28             	mov    edx,DWORD PTR [eax+0x28]
+  86313a:	8b ce                	mov    ecx,esi
+  86313c:	ff d2                	call   edx
+  86313e:	8b f8                	mov    edi,eax
+  863140:	8b 06                	mov    eax,DWORD PTR [esi]
+  863142:	8b 50 44             	mov    edx,DWORD PTR [eax+0x44]
+  863145:	68 65 53 47 03       	push   0x3475365
+  86314a:	8b ce                	mov    ecx,esi
+  86314c:	ff d2                	call   edx
+  86314e:	8b 06                	mov    eax,DWORD PTR [esi]
+  863150:	8b 50 50             	mov    edx,DWORD PTR [eax+0x50]
+  863153:	55                   	push   ebp
+  863154:	53                   	push   ebx
+  863155:	68 81 53 47 03       	push   0x3475381
+  86315a:	8b ce                	mov    ecx,esi
+  86315c:	ff d2                	call   edx
+  86315e:	8b 06                	mov    eax,DWORD PTR [esi]
+  863160:	8b 50 4c             	mov    edx,DWORD PTR [eax+0x4c]
+  863163:	57                   	push   edi
+  863164:	68 85 53 47 03       	push   0x3475385
+  863169:	8b ce                	mov    ecx,esi
+  86316b:	ff d2                	call   edx
+  86316d:	8b 06                	mov    eax,DWORD PTR [esi]
+  86316f:	8b 50 68             	mov    edx,DWORD PTR [eax+0x68]
+  863172:	8b ce                	mov    ecx,esi
+  863174:	ff d2                	call   edx
+  863176:	8b c7                	mov    eax,edi
+  863178:	5f                   	pop    edi
+  863179:	5d                   	pop    ebp
+  86317a:	5b                   	pop    ebx
+  86317b:	5e                   	pop    esi
+  86317c:	81 c4 80 00 00 00    	add    esp,0x80
+  863182:	c3                   	ret
+  863183:	33 c0                	xor    eax,eax
+  863185:	5e                   	pop    esi
+  863186:	81 c4 80 00 00 00    	add    esp,0x80
+  86318c:	c3                   	ret
+  86318d:	cc                   	int3
+  86318e:	cc                   	int3
+  86318f:	cc                   	int3

@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000EFD.
+// Assembly: CSHostWrap; type: Sims3.CSHost.ContentManager.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/ContentManager.cs:66
+	[DllImport("Sims3Common.dll")]
+	private static extern int ContentManager_GetSourceKeyList([In][MarshalAs(UnmanagedType.LPWStr)] string guidStr, [Out][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 2)] ResourceKey[] pList, int count);

@@ -1,0 +1,149 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe; actual Ghidra Listing and preserved non-owned envelope gaps.
+Owned ranges: [[004b0760, 004b08bd]]
+Signature: undefined ResourceManager_LoadDecodedResource(void)
+
+004b0760  51  PUSH ECX
+004b0761  53  PUSH EBX
+004b0762  55  PUSH EBP
+004b0763  8b6c2420  MOV EBP,dword ptr [ESP + 0x20]
+004b0767  56  PUSH ESI
+004b0768  57  PUSH EDI
+004b0769  8b7c2424  MOV EDI,dword ptr [ESP + 0x24]
+004b076d  8bf1  MOV ESI,ECX
+004b076f  8d8e70010000  LEA ECX,[ESI + 0x170]
+004b0775  68e03cfb00  PUSH 0xfb3ce0
+004b077a  894c2414  MOV dword ptr [ESP + 0x14],ECX
+004b077e  e87d140300  CALL 0x004e1c00
+004b0783  8b44242c  MOV EAX,dword ptr [ESP + 0x2c]
+004b0787  32db  XOR BL,BL
+004b0789  85c0  TEST EAX,EAX
+004b078b  7504  JNZ 0x004b0791
+004b078d  8b442418  MOV EAX,dword ptr [ESP + 0x18]
+004b0791  8b16  MOV EDX,dword ptr [ESI]
+004b0793  50  PUSH EAX
+004b0794  8b4258  MOV EAX,dword ptr [EDX + 0x58]
+004b0797  8bce  MOV ECX,ESI
+004b0799  ffd0  CALL EAX
+004b079b  85c0  TEST EAX,EAX
+004b079d  7434  JZ 0x004b07d3
+004b079f  8b4c242c  MOV ECX,dword ptr [ESP + 0x2c]
+004b07a3  85c9  TEST ECX,ECX
+004b07a5  7504  JNZ 0x004b07ab
+004b07a7  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+004b07ab  8b5c241c  MOV EBX,dword ptr [ESP + 0x1c]
+004b07af  8b10  MOV EDX,dword ptr [EAX]
+004b07b1  53  PUSH EBX
+004b07b2  51  PUSH ECX
+004b07b3  8bc8  MOV ECX,EAX
+004b07b5  8b4218  MOV EAX,dword ptr [EDX + 0x18]
+004b07b8  ffd0  CALL EAX
+004b07ba  8ad8  MOV BL,AL
+004b07bc  84db  TEST BL,BL
+004b07be  7413  JZ 0x004b07d3
+004b07c0  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+004b07c4  e8f7140300  CALL 0x004e1cc0
+004b07c9  5f  POP EDI
+004b07ca  5e  POP ESI
+004b07cb  5d  POP EBP
+004b07cc  b001  MOV AL,0x1
+004b07ce  5b  POP EBX
+004b07cf  59  POP ECX
+004b07d0  c21800  RET 0x18
+004b07d3  85ff  TEST EDI,EDI
+004b07d5  7518  JNZ 0x004b07ef
+004b07d7  8b16  MOV EDX,dword ptr [ESI]
+004b07d9  8b442418  MOV EAX,dword ptr [ESP + 0x18]
+004b07dd  8b5244  MOV EDX,dword ptr [EDX + 0x44]
+004b07e0  50  PUSH EAX
+004b07e1  8bce  MOV ECX,ESI
+004b07e3  ffd2  CALL EDX
+004b07e5  8bf8  MOV EDI,EAX
+004b07e7  85ff  TEST EDI,EDI
+004b07e9  0f84bc000000  JZ 0x004b08ab
+004b07ef  85ed  TEST EBP,EBP
+004b07f1  751d  JNZ 0x004b0810
+004b07f3  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+004b07f7  8b5108  MOV EDX,dword ptr [ECX + 0x8]
+004b07fa  8b06  MOV EAX,dword ptr [ESI]
+004b07fc  8b402c  MOV EAX,dword ptr [EAX + 0x2c]
+004b07ff  6aff  PUSH -0x1
+004b0801  52  PUSH EDX
+004b0802  8bce  MOV ECX,ESI
+004b0804  ffd0  CALL EAX
+004b0806  8be8  MOV EBP,EAX
+004b0808  85ed  TEST EBP,EBP
+004b080a  0f849b000000  JZ 0x004b08ab
+004b0810  837c241c00  CMP dword ptr [ESP + 0x1c],0x0
+004b0815  0f848e000000  JZ 0x004b08a9
+004b081b  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+004b081f  8b17  MOV EDX,dword ptr [EDI]
+004b0821  8b5234  MOV EDX,dword ptr [EDX + 0x34]
+004b0824  6a00  PUSH 0x0
+004b0826  6a01  PUSH 0x1 ; Physical loadFlags1 in six-argument provider virtual+34 call; nonzero row codec selects decoded branch in4A97E0.
+004b0828  6a03  PUSH 0x3
+004b082a  6a01  PUSH 0x1
+004b082c  8d442434  LEA EAX,[ESP + 0x34]
+004b0830  50  PUSH EAX
+004b0831  51  PUSH ECX
+004b0832  8bcf  MOV ECX,EDI
+004b0834  c744243c00000000  MOV dword ptr [ESP + 0x3c],0x0
+004b083c  ffd2  CALL EDX
+004b083e  84c0  TEST AL,AL
+004b0840  8b7c241c  MOV EDI,dword ptr [ESP + 0x1c]
+004b0844  741f  JZ 0x004b0865
+004b0846  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+004b084a  8b5108  MOV EDX,dword ptr [ECX + 0x8]
+004b084d  8b4c2420  MOV ECX,dword ptr [ESP + 0x20]
+004b0851  8b4500  MOV EAX,dword ptr [EBP]
+004b0854  8b401c  MOV EAX,dword ptr [EAX + 0x1c]
+004b0857  52  PUSH EDX
+004b0858  8b542428  MOV EDX,dword ptr [ESP + 0x28]
+004b085c  51  PUSH ECX
+004b085d  57  PUSH EDI
+004b085e  52  PUSH EDX
+004b085f  8bcd  MOV ECX,EBP
+004b0861  ffd0  CALL EAX
+004b0863  8ad8  MOV BL,AL
+004b0865  84db  TEST BL,BL
+004b0867  741e  JZ 0x004b0887
+004b0869  8b44242c  MOV EAX,dword ptr [ESP + 0x2c]
+004b086d  85c0  TEST EAX,EAX
+004b086f  7408  JZ 0x004b0879
+004b0871  8b0f  MOV ECX,dword ptr [EDI]
+004b0873  50  PUSH EAX
+004b0874  e8c7e9ffff  CALL 0x004af240
+004b0879  8b16  MOV EDX,dword ptr [ESI]
+004b087b  8b07  MOV EAX,dword ptr [EDI]
+004b087d  8b525c  MOV EDX,dword ptr [EDX + 0x5c]
+004b0880  6a01  PUSH 0x1
+004b0882  50  PUSH EAX
+004b0883  8bce  MOV ECX,ESI
+004b0885  ffd2  CALL EDX
+004b0887  8b4c2424  MOV ECX,dword ptr [ESP + 0x24]
+004b088b  85c9  TEST ECX,ECX
+004b088d  741c  JZ 0x004b08ab
+004b088f  8b01  MOV EAX,dword ptr [ECX]
+004b0891  8b5008  MOV EDX,dword ptr [EAX + 0x8]
+004b0894  ffd2  CALL EDX ; Local stream virtual+8 cleanup after loader consumption; detached managed output lifetime is a separate host implementation.
+004b0896  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+004b089a  e821140300  CALL 0x004e1cc0
+004b089f  5f  POP EDI
+004b08a0  5e  POP ESI
+004b08a1  5d  POP EBP
+004b08a2  8ac3  MOV AL,BL
+004b08a4  5b  POP EBX
+004b08a5  59  POP ECX
+004b08a6  c21800  RET 0x18
+004b08a9  b301  MOV BL,0x1
+004b08ab  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+004b08af  e80c140300  CALL 0x004e1cc0
+004b08b4  5f  POP EDI
+004b08b5  5e  POP ESI
+004b08b6  5d  POP EBP
+004b08b7  8ac3  MOV AL,BL
+004b08b9  5b  POP EBX
+004b08ba  59  POP ECX
+004b08bb  c21800  RET 0x18

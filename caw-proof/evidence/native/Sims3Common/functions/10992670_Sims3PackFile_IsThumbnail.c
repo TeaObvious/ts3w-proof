@@ -1,0 +1,23 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* CAW 1.22.10 Sims3Common.dll PE export identity: Sims3PackFile_IsThumbnail. Export ordinal(s):
+   2412. Entry VA: 0x10992670. Original managed P/Invoke MethodDef(s): CSHostWrap:0x06000A1F. This
+   is an export/declaration annotation only; ABI, behavior and runtime execution require the
+   original instructions and caller evidence. */
+
+bool __cdecl Sims3PackFile_IsThumbnail(void *param_1,ushort param_2)
+
+{
+  int iVar1;
+  
+                    /* 0x992670  2412  Sims3PackFile_IsThumbnail */
+  iVar1 = FUN_107b4260(param_1,param_2);
+  if (iVar1 != 0) {
+    return *(int *)(iVar1 + 0x85c) != 0;
+  }
+  return false;
+}
+

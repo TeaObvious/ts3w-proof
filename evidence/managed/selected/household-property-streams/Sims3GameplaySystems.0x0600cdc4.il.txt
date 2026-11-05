@@ -1,0 +1,1370 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method public final hidebysig newslot virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x3aeca0
+		// Header size: 12
+		// Code size: 3216 (0xc90)
+		.maxstack 6
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter,
+			[1] string,
+			[2] string,
+			[3] string,
+			[4] uint32,
+			[5] class [mscorlib]System.Collections.Generic.List`1<uint64>,
+			[6] class Sims3.Gameplay.ActorSystems.Trait,
+			[7] uint32,
+			[8] valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<string, class Sims3.Gameplay.Objects.ReadBookData>,
+			[9] int32,
+			[10] class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter,
+			[11] uint32,
+			[12] class Sims3.Gameplay.ActorSystems.BuffInstance,
+			[13] int32,
+			[14] uint32[],
+			[15] uint32[],
+			[16] uint32[],
+			[17] uint32[],
+			[18] uint32[],
+			[19] uint32[],
+			[20] uint32[],
+			[21] uint32[],
+			[22] uint32[],
+			[23] uint32[],
+			[24] class [mscorlib]System.Collections.Generic.IEnumerator`1<class Sims3.Gameplay.ActorSystems.Trait>,
+			[25] valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<string, class Sims3.Gameplay.Objects.ReadBookData>,
+			[26] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.ActorSystems.BuffInstance>
+		)
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 1752637606
+		IL_0006: ldarg.0
+		IL_0007: call instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+		IL_000c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint64(uint32, uint64)
+		IL_0011: pop
+		IL_0012: ldarg.3
+		IL_0013: ldc.i4 1758328370
+		IL_0018: ldarg.0
+		IL_0019: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::mSimFlags
+		IL_001e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0023: pop
+		IL_0024: ldarg.3
+		IL_0025: ldc.i4 -903123874 // 0xca2b6c5e
+		IL_002a: ldarg.0
+		IL_002b: ldfld float32 Sims3.Gameplay.CAS.SimDescriptionCore::AgingYearsSinceLastAgeTransition
+		IL_0030: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0035: pop
+		IL_0036: ldarg.3
+		IL_0037: ldc.i4 183048852
+		IL_003c: ldarg.0
+		IL_003d: ldfld int32 Sims3.Gameplay.CAS.SimDescription::UserDaysInCurrentAge
+		IL_0042: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0047: pop
+		IL_0048: ldarg.3
+		IL_0049: ldc.i4 -1669475657 // 0x9c7dd2b7
+		IL_004e: ldarg.1
+		IL_004f: ldarg.0
+		IL_0050: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescription::mSkinToneKey
+		IL_0055: callvirt instance int32 [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable::AddKey(valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+		IL_005a: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_005f: pop
+		IL_0060: ldarg.3
+		IL_0061: ldc.i4 -647623770 // 0xd9660ba6
+		IL_0066: ldarg.0
+		IL_0067: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mSkinToneIndex
+		IL_006c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0071: pop
+		IL_0072: ldarg.3
+		IL_0073: ldc.i4 -1451237818 // 0xa97fde46
+		IL_0078: ldarg.0
+		IL_0079: ldfld float32[] Sims3.Gameplay.CAS.SimDescription::mSecondaryNormalMapWeights
+		IL_007e: ldc.i4.0
+		IL_007f: ldelem.r4
+		IL_0080: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0085: pop
+		IL_0086: ldarg.3
+		IL_0087: ldc.i4 -910865800 // 0xc9b54a78
+		IL_008c: ldarg.0
+		IL_008d: ldfld float32[] Sims3.Gameplay.CAS.SimDescription::mSecondaryNormalMapWeights
+		IL_0092: ldc.i4.1
+		IL_0093: ldelem.r4
+		IL_0094: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0099: pop
+		IL_009a: ldarg.3
+		IL_009b: ldc.i4 -114075922 // 0xf93356ee
+		IL_00a0: ldarg.1
+		IL_00a1: ldarg.0
+		IL_00a2: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescription::mDefaultOutfitKey
+		IL_00a7: callvirt instance int32 [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable::AddKey(valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+		IL_00ac: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_00b1: pop
+		IL_00b2: ldarg.3
+		IL_00b3: ldc.i4 1343616996
+		IL_00b8: ldc.i4.3
+		IL_00b9: newarr [mscorlib]System.UInt32
+		IL_00be: stloc.s 14
+		IL_00c0: ldloc.s 14
+		IL_00c2: ldc.i4.0
+		IL_00c3: ldarg.0
+		IL_00c4: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_00c9: ldc.i4.0
+		IL_00ca: ldelem.ref
+		IL_00cb: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_00d0: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_00d5: stelem.i4
+		IL_00d6: ldloc.s 14
+		IL_00d8: ldc.i4.1
+		IL_00d9: ldarg.0
+		IL_00da: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_00df: ldc.i4.0
+		IL_00e0: ldelem.ref
+		IL_00e1: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_00e6: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_00eb: stelem.i4
+		IL_00ec: ldloc.s 14
+		IL_00ee: ldc.i4.2
+		IL_00ef: ldarg.0
+		IL_00f0: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_00f5: ldc.i4.0
+		IL_00f6: ldelem.ref
+		IL_00f7: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_00fc: brtrue.s IL_0101
+
+		IL_00fe: ldc.i4.0
+		IL_00ff: br.s IL_0102
+
+		IL_0101: ldc.i4.1
+
+		IL_0102: stelem.i4
+		IL_0103: ldloc.s 14
+		IL_0105: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_010a: pop
+		IL_010b: ldarg.3
+		IL_010c: ldc.i4 -159573447 // 0xf67d1a39
+		IL_0111: ldc.i4.3
+		IL_0112: newarr [mscorlib]System.UInt32
+		IL_0117: stloc.s 15
+		IL_0119: ldloc.s 15
+		IL_011b: ldc.i4.0
+		IL_011c: ldarg.0
+		IL_011d: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_0122: ldc.i4.1
+		IL_0123: ldelem.ref
+		IL_0124: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_0129: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_012e: stelem.i4
+		IL_012f: ldloc.s 15
+		IL_0131: ldc.i4.1
+		IL_0132: ldarg.0
+		IL_0133: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_0138: ldc.i4.1
+		IL_0139: ldelem.ref
+		IL_013a: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_013f: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_0144: stelem.i4
+		IL_0145: ldloc.s 15
+		IL_0147: ldc.i4.2
+		IL_0148: ldarg.0
+		IL_0149: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_014e: ldc.i4.1
+		IL_014f: ldelem.ref
+		IL_0150: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_0155: brtrue.s IL_015a
+
+		IL_0157: ldc.i4.0
+		IL_0158: br.s IL_015b
+
+		IL_015a: ldc.i4.1
+
+		IL_015b: stelem.i4
+		IL_015c: ldloc.s 15
+		IL_015e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_0163: pop
+		IL_0164: ldarg.3
+		IL_0165: ldc.i4 -1823123838 // 0x93555682
+		IL_016a: ldc.i4.3
+		IL_016b: newarr [mscorlib]System.UInt32
+		IL_0170: stloc.s 16
+		IL_0172: ldloc.s 16
+		IL_0174: ldc.i4.0
+		IL_0175: ldarg.0
+		IL_0176: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_017b: ldc.i4.2
+		IL_017c: ldelem.ref
+		IL_017d: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_0182: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_0187: stelem.i4
+		IL_0188: ldloc.s 16
+		IL_018a: ldc.i4.1
+		IL_018b: ldarg.0
+		IL_018c: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_0191: ldc.i4.2
+		IL_0192: ldelem.ref
+		IL_0193: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_0198: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_019d: stelem.i4
+		IL_019e: ldloc.s 16
+		IL_01a0: ldc.i4.2
+		IL_01a1: ldarg.0
+		IL_01a2: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_01a7: ldc.i4.2
+		IL_01a8: ldelem.ref
+		IL_01a9: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_01ae: brtrue.s IL_01b3
+
+		IL_01b0: ldc.i4.0
+		IL_01b1: br.s IL_01b4
+
+		IL_01b3: ldc.i4.1
+
+		IL_01b4: stelem.i4
+		IL_01b5: ldloc.s 16
+		IL_01b7: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_01bc: pop
+		IL_01bd: ldarg.3
+		IL_01be: ldc.i4 1055971375
+		IL_01c3: ldc.i4.3
+		IL_01c4: newarr [mscorlib]System.UInt32
+		IL_01c9: stloc.s 17
+		IL_01cb: ldloc.s 17
+		IL_01cd: ldc.i4.0
+		IL_01ce: ldarg.0
+		IL_01cf: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_01d4: ldc.i4.3
+		IL_01d5: ldelem.ref
+		IL_01d6: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_01db: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_01e0: stelem.i4
+		IL_01e1: ldloc.s 17
+		IL_01e3: ldc.i4.1
+		IL_01e4: ldarg.0
+		IL_01e5: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_01ea: ldc.i4.3
+		IL_01eb: ldelem.ref
+		IL_01ec: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_01f1: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_01f6: stelem.i4
+		IL_01f7: ldloc.s 17
+		IL_01f9: ldc.i4.2
+		IL_01fa: ldarg.0
+		IL_01fb: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_0200: ldc.i4.3
+		IL_0201: ldelem.ref
+		IL_0202: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_0207: brtrue.s IL_020c
+
+		IL_0209: ldc.i4.0
+		IL_020a: br.s IL_020d
+
+		IL_020c: ldc.i4.1
+
+		IL_020d: stelem.i4
+		IL_020e: ldloc.s 17
+		IL_0210: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_0215: pop
+		IL_0216: ldarg.3
+		IL_0217: ldc.i4 1836098543
+		IL_021c: ldc.i4.3
+		IL_021d: newarr [mscorlib]System.UInt32
+		IL_0222: stloc.s 18
+		IL_0224: ldloc.s 18
+		IL_0226: ldc.i4.0
+		IL_0227: ldarg.0
+		IL_0228: call instance class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::get_EyebrowColor()
+		IL_022d: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_0232: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_0237: stelem.i4
+		IL_0238: ldloc.s 18
+		IL_023a: ldc.i4.1
+		IL_023b: ldarg.0
+		IL_023c: call instance class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::get_EyebrowColor()
+		IL_0241: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_0246: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_024b: stelem.i4
+		IL_024c: ldloc.s 18
+		IL_024e: ldc.i4.2
+		IL_024f: ldarg.0
+		IL_0250: call instance class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::get_EyebrowColor()
+		IL_0255: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_025a: brtrue.s IL_025f
+
+		IL_025c: ldc.i4.0
+		IL_025d: br.s IL_0260
+
+		IL_025f: ldc.i4.1
+
+		IL_0260: stelem.i4
+		IL_0261: ldloc.s 18
+		IL_0263: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_0268: pop
+		IL_0269: ldarg.3
+		IL_026a: ldc.i4 1836098544
+		IL_026f: ldc.i4.3
+		IL_0270: newarr [mscorlib]System.UInt32
+		IL_0275: stloc.s 19
+		IL_0277: ldloc.s 19
+		IL_0279: ldc.i4.0
+		IL_027a: ldarg.0
+		IL_027b: call instance class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::get_BodyHairColor()
+		IL_0280: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_0285: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_028a: stelem.i4
+		IL_028b: ldloc.s 19
+		IL_028d: ldc.i4.1
+		IL_028e: ldarg.0
+		IL_028f: call instance class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::get_BodyHairColor()
+		IL_0294: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_0299: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_029e: stelem.i4
+		IL_029f: ldloc.s 19
+		IL_02a1: ldc.i4.2
+		IL_02a2: ldarg.0
+		IL_02a3: call instance class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::get_BodyHairColor()
+		IL_02a8: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_02ad: brtrue.s IL_02b2
+
+		IL_02af: ldc.i4.0
+		IL_02b0: br.s IL_02b3
+
+		IL_02b2: ldc.i4.1
+
+		IL_02b3: stelem.i4
+		IL_02b4: ldloc.s 19
+		IL_02b6: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_02bb: pop
+		IL_02bc: ldarg.3
+		IL_02bd: ldc.i4 -85876756 // 0xfae19fec
+		IL_02c2: ldc.i4.3
+		IL_02c3: newarr [mscorlib]System.UInt32
+		IL_02c8: stloc.s 20
+		IL_02ca: ldloc.s 20
+		IL_02cc: ldc.i4.0
+		IL_02cd: ldarg.0
+		IL_02ce: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_02d3: ldc.i4.0
+		IL_02d4: ldelem.ref
+		IL_02d5: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_02da: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_02df: stelem.i4
+		IL_02e0: ldloc.s 20
+		IL_02e2: ldc.i4.1
+		IL_02e3: ldarg.0
+		IL_02e4: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_02e9: ldc.i4.0
+		IL_02ea: ldelem.ref
+		IL_02eb: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_02f0: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_02f5: stelem.i4
+		IL_02f6: ldloc.s 20
+		IL_02f8: ldc.i4.2
+		IL_02f9: ldarg.0
+		IL_02fa: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_02ff: ldc.i4.0
+		IL_0300: ldelem.ref
+		IL_0301: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_0306: brtrue.s IL_030b
+
+		IL_0308: ldc.i4.0
+		IL_0309: br.s IL_030c
+
+		IL_030b: ldc.i4.1
+
+		IL_030c: stelem.i4
+		IL_030d: ldloc.s 20
+		IL_030f: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_0314: pop
+		IL_0315: ldarg.3
+		IL_0316: ldc.i4 -1583947423 // 0xa196e161
+		IL_031b: ldc.i4.3
+		IL_031c: newarr [mscorlib]System.UInt32
+		IL_0321: stloc.s 21
+		IL_0323: ldloc.s 21
+		IL_0325: ldc.i4.0
+		IL_0326: ldarg.0
+		IL_0327: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_032c: ldc.i4.1
+		IL_032d: ldelem.ref
+		IL_032e: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_0333: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_0338: stelem.i4
+		IL_0339: ldloc.s 21
+		IL_033b: ldc.i4.1
+		IL_033c: ldarg.0
+		IL_033d: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_0342: ldc.i4.1
+		IL_0343: ldelem.ref
+		IL_0344: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_0349: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_034e: stelem.i4
+		IL_034f: ldloc.s 21
+		IL_0351: ldc.i4.2
+		IL_0352: ldarg.0
+		IL_0353: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_0358: ldc.i4.1
+		IL_0359: ldelem.ref
+		IL_035a: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_035f: brtrue.s IL_0364
+
+		IL_0361: ldc.i4.0
+		IL_0362: br.s IL_0365
+
+		IL_0364: ldc.i4.1
+
+		IL_0365: stelem.i4
+		IL_0366: ldloc.s 21
+		IL_0368: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_036d: pop
+		IL_036e: ldarg.3
+		IL_036f: ldc.i4 -36640726 // 0xfdd0e82a
+		IL_0374: ldc.i4.3
+		IL_0375: newarr [mscorlib]System.UInt32
+		IL_037a: stloc.s 22
+		IL_037c: ldloc.s 22
+		IL_037e: ldc.i4.0
+		IL_037f: ldarg.0
+		IL_0380: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_0385: ldc.i4.2
+		IL_0386: ldelem.ref
+		IL_0387: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_038c: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_0391: stelem.i4
+		IL_0392: ldloc.s 22
+		IL_0394: ldc.i4.1
+		IL_0395: ldarg.0
+		IL_0396: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_039b: ldc.i4.2
+		IL_039c: ldelem.ref
+		IL_039d: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_03a2: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_03a7: stelem.i4
+		IL_03a8: ldloc.s 22
+		IL_03aa: ldc.i4.2
+		IL_03ab: ldarg.0
+		IL_03ac: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_03b1: ldc.i4.2
+		IL_03b2: ldelem.ref
+		IL_03b3: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_03b8: brtrue.s IL_03bd
+
+		IL_03ba: ldc.i4.0
+		IL_03bb: br.s IL_03be
+
+		IL_03bd: ldc.i4.1
+
+		IL_03be: stelem.i4
+		IL_03bf: ldloc.s 22
+		IL_03c1: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_03c6: pop
+		IL_03c7: ldarg.3
+		IL_03c8: ldc.i4 -373522377 // 0xe9bc8037
+		IL_03cd: ldc.i4.3
+		IL_03ce: newarr [mscorlib]System.UInt32
+		IL_03d3: stloc.s 23
+		IL_03d5: ldloc.s 23
+		IL_03d7: ldc.i4.0
+		IL_03d8: ldarg.0
+		IL_03d9: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_03de: ldc.i4.3
+		IL_03df: ldelem.ref
+		IL_03e0: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Genetic
+		IL_03e5: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_03ea: stelem.i4
+		IL_03eb: ldloc.s 23
+		IL_03ed: ldc.i4.1
+		IL_03ee: ldarg.0
+		IL_03ef: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_03f4: ldc.i4.3
+		IL_03f5: ldelem.ref
+		IL_03f6: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.GeneticColor::Dye
+		IL_03fb: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_0400: stelem.i4
+		IL_0401: ldloc.s 23
+		IL_0403: ldc.i4.2
+		IL_0404: ldarg.0
+		IL_0405: call instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_040a: ldc.i4.3
+		IL_040b: ldelem.ref
+		IL_040c: ldfld bool Sims3.Gameplay.CAS.GeneticColor::UseDye
+		IL_0411: brtrue.s IL_0416
+
+		IL_0413: ldc.i4.0
+		IL_0414: br.s IL_0417
+
+		IL_0416: ldc.i4.1
+
+		IL_0417: stelem.i4
+		IL_0418: ldloc.s 23
+		IL_041a: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_041f: pop
+		IL_0420: ldarg.3
+		IL_0421: ldc.i4 125685374
+		IL_0426: ldarg.0
+		IL_0427: call instance bool Sims3.Gameplay.CAS.SimDescriptionCore::get_BeardUsesHairColor()
+		IL_042c: brtrue.s IL_0431
+
+		IL_042e: ldc.i4.0
+		IL_042f: br.s IL_0432
+
+		IL_0431: ldc.i4.1
+
+		IL_0432: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0437: pop
+		IL_0438: ldarg.3
+		IL_0439: ldc.i4 -904573017 // 0xca154fa7
+		IL_043e: ldarg.0
+		IL_043f: call instance bool Sims3.Gameplay.CAS.SimDescriptionCore::get_EyebrowsUseHairColor()
+		IL_0444: brtrue.s IL_0449
+
+		IL_0446: ldc.i4.0
+		IL_0447: br.s IL_044a
+
+		IL_0449: ldc.i4.1
+
+		IL_044a: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_044f: pop
+		IL_0450: ldarg.3
+		IL_0451: ldc.i4 -904573016 // 0xca154fa8
+		IL_0456: ldarg.0
+		IL_0457: call instance bool Sims3.Gameplay.CAS.SimDescriptionCore::get_BodyHairUsesHairColor()
+		IL_045c: brtrue.s IL_0461
+
+		IL_045e: ldc.i4.0
+		IL_045f: br.s IL_0462
+
+		IL_0461: ldc.i4.1
+
+		IL_0462: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0467: pop
+		IL_0468: ldarg.3
+		IL_0469: ldc.i4 992007321
+		IL_046e: ldarg.0
+		IL_046f: ldfld bool Sims3.Gameplay.CAS.SimDescriptionCore::PropagateHairStyle
+		IL_0474: brtrue.s IL_0479
+
+		IL_0476: ldc.i4.0
+		IL_0477: br.s IL_047a
+
+		IL_0479: ldc.i4.1
+
+		IL_047a: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_047f: pop
+		IL_0480: ldarg.0
+		IL_0481: ldfld class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.SimDescriptionCore::mHousehold
+		IL_0486: brfalse.s IL_049f
+
+		IL_0488: ldarg.3
+		IL_0489: ldc.i4 -2073216372 // 0x846d3a8c
+		IL_048e: ldarg.0
+		IL_048f: ldfld class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.SimDescriptionCore::mHousehold
+		IL_0494: callvirt instance uint64 Sims3.Gameplay.CAS.Household::get_HouseholdId()
+		IL_0499: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint64(uint32, uint64)
+		IL_049e: pop
+
+		IL_049f: ldarg.0
+		IL_04a0: ldfld string Sims3.Gameplay.CAS.SimDescriptionCore::mFirstName
+		IL_04a5: stloc.1
+		IL_04a6: ldarg.0
+		IL_04a7: ldfld string Sims3.Gameplay.CAS.SimDescriptionCore::mLastName
+		IL_04ac: stloc.2
+		IL_04ad: ldarg.0
+		IL_04ae: ldfld string Sims3.Gameplay.CAS.SimDescriptionCore::mBio
+		IL_04b3: stloc.3
+		IL_04b4: call bool [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::IsDevBuild()
+		IL_04b9: brtrue.s IL_04d0
+
+		IL_04bb: ldarg.0
+		IL_04bc: call instance string Sims3.Gameplay.CAS.SimDescriptionCore::get_FirstName()
+		IL_04c1: stloc.1
+		IL_04c2: ldarg.0
+		IL_04c3: call instance string Sims3.Gameplay.CAS.SimDescriptionCore::get_LastName()
+		IL_04c8: stloc.2
+		IL_04c9: ldarg.0
+		IL_04ca: call instance string Sims3.Gameplay.CAS.SimDescription::get_Bio()
+		IL_04cf: stloc.3
+
+		IL_04d0: ldarg.3
+		IL_04d1: ldc.i4 -346983520 // 0xeb5173a0
+		IL_04d6: ldloc.1
+		IL_04d7: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string)
+		IL_04dc: pop
+		IL_04dd: ldarg.3
+		IL_04de: ldc.i4 1883753236
+		IL_04e3: ldloc.2
+		IL_04e4: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string)
+		IL_04e9: pop
+		IL_04ea: ldarg.3
+		IL_04eb: ldc.i4 1723164892
+		IL_04f0: ldarg.0
+		IL_04f1: ldfld valuetype Sims3.Gameplay.CAS.SimDescription/DeathType Sims3.Gameplay.CAS.SimDescription::mDeathStyle
+		IL_04f6: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_04fb: pop
+		IL_04fc: ldarg.3
+		IL_04fd: ldc.i4 -2037461023 // 0x868ecfe1
+		IL_0502: ldarg.0
+		IL_0503: call instance bool Sims3.Gameplay.CAS.SimDescription::get_IsNeverSelectable()
+		IL_0508: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_050d: pop
+		IL_050e: ldarg.3
+		IL_050f: ldc.i4 797789854
+		IL_0514: ldarg.0
+		IL_0515: call instance bool Sims3.Gameplay.CAS.SimDescription::get_AgingEnabled()
+		IL_051a: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_051f: pop
+		IL_0520: ldarg.3
+		IL_0521: ldc.i4 167162779
+		IL_0526: ldarg.0
+		IL_0527: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mLifetimeHappiness
+		IL_052c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0531: pop
+		IL_0532: ldarg.3
+		IL_0533: ldc.i4 -661975522 // 0xd88b0e1e
+		IL_0538: ldarg.0
+		IL_0539: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mSpendableHappiness
+		IL_053e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0543: pop
+		IL_0544: ldarg.3
+		IL_0545: ldc.i4 376622899
+		IL_054a: ldarg.0
+		IL_054b: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.FavoriteMusicType Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteMusicType
+		IL_0550: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0555: pop
+		IL_0556: ldarg.3
+		IL_0557: ldc.i4 904967806
+		IL_055c: ldarg.0
+		IL_055d: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.FavoriteFoodType Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteFoodType
+		IL_0562: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0567: pop
+		IL_0568: ldarg.3
+		IL_0569: ldc.i4 -1876603089 // 0x90254f2f
+		IL_056e: ldarg.0
+		IL_056f: ldflda valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteColor
+		IL_0574: call instance uint32 [SimIFace]Sims3.SimIFace.Color::get_ARGB()
+		IL_0579: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_057e: pop
+		IL_057f: ldarg.3
+		IL_0580: ldc.i4 647611013
+		IL_0585: ldloc.3
+		IL_0586: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string)
+		IL_058b: pop
+		IL_058c: ldarg.3
+		IL_058d: ldc.i4 176483828
+		IL_0592: ldarg.0
+		IL_0593: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.Zodiac Sims3.Gameplay.CAS.SimDescriptionCore::mZodiacSign
+		IL_0598: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_059d: pop
+		IL_059e: ldarg.3
+		IL_059f: ldc.i4 183048650
+		IL_05a4: ldarg.0
+		IL_05a5: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.AlmaMater Sims3.Gameplay.CAS.SimDescription::AlmaMater
+		IL_05aa: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_05af: pop
+		IL_05b0: ldarg.3
+		IL_05b1: ldc.i4 183661639
+		IL_05b6: ldarg.0
+		IL_05b7: ldfld string Sims3.Gameplay.CAS.SimDescription::mAlmaMaterName
+		IL_05bc: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string)
+		IL_05c1: pop
+		IL_05c2: ldarg.3
+		IL_05c3: ldc.i4 183048646
+		IL_05c8: ldarg.0
+		IL_05c9: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.GraduationType Sims3.Gameplay.CAS.SimDescription::GraduationType
+		IL_05ce: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_05d3: pop
+		IL_05d4: ldarg.3
+		IL_05d5: ldc.i4 -562041130 // 0xde7feed6
+		IL_05da: ldarg.0
+		IL_05db: ldfld valuetype Sims3.Gameplay.Services.ServiceType Sims3.Gameplay.CAS.SimDescription::ServiceHistory
+		IL_05e0: conv.u4
+		IL_05e1: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_05e6: pop
+		IL_05e7: ldarg.3
+		IL_05e8: ldc.i4 808457844
+		IL_05ed: ldarg.0
+		IL_05ee: call instance bool Sims3.Gameplay.CAS.SimDescription::get_Marryable()
+		IL_05f3: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_05f8: pop
+		IL_05f9: ldarg.3
+		IL_05fa: ldc.i4 -1848891591 // 0x91cc2739
+		IL_05ff: ldarg.0
+		IL_0600: call instance bool Sims3.Gameplay.CAS.SimDescription::get_CanBeKilledOnJob()
+		IL_0605: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_060a: pop
+		IL_060b: ldarg.3
+		IL_060c: ldc.i4 130688069
+		IL_0611: ldarg.0
+		IL_0612: call instance bool Sims3.Gameplay.CAS.SimDescription::get_IsGhost()
+		IL_0617: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_061c: pop
+		IL_061d: ldarg.3
+		IL_061e: ldc.i4 103218814
+		IL_0623: ldarg.0
+		IL_0624: call instance bool Sims3.Gameplay.CAS.SimDescription::get_Contactable()
+		IL_0629: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_062e: pop
+		IL_062f: ldarg.3
+		IL_0630: ldc.i4 452878294
+		IL_0635: ldarg.0
+		IL_0636: call instance bool Sims3.Gameplay.CAS.SimDescription::get_IsPregnant()
+		IL_063b: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0640: pop
+		IL_0641: ldarg.3
+		IL_0642: ldc.i4 1660858165
+		IL_0647: ldarg.0
+		IL_0648: call instance bool Sims3.Gameplay.CAS.SimDescription::get_IsVisuallyPregnant()
+		IL_064d: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0652: pop
+		IL_0653: ldarg.3
+		IL_0654: ldc.i4 233156252
+		IL_0659: ldarg.0
+		IL_065a: call instance float32 Sims3.Gameplay.CAS.SimDescriptionCore::get_AlienDNAPercentage()
+		IL_065f: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0664: pop
+		IL_0665: ldarg.3
+		IL_0666: ldc.i4 -1489590646 // 0xa736a68a
+		IL_066b: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+		IL_0670: stloc.0
+		IL_0671: ldarg.0
+		IL_0672: ldflda valuetype Sims3.Gameplay.CAS.SimDescriptionCore/BodyShape Sims3.Gameplay.CAS.SimDescriptionCore::mInitialShape
+		IL_0677: ldarg.1
+		IL_0678: ldarg.2
+		IL_0679: ldloc.0
+		IL_067a: call instance bool Sims3.Gameplay.CAS.SimDescriptionCore/BodyShape::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_067f: pop
+		IL_0680: ldarg.3
+		IL_0681: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+		IL_0686: ldnull
+		IL_0687: stloc.0
+		IL_0688: ldarg.3
+		IL_0689: ldc.i4 -1761764153 // 0x96fd9cc7
+		IL_068e: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+		IL_0693: stloc.0
+		IL_0694: ldarg.0
+		IL_0695: ldflda valuetype Sims3.Gameplay.CAS.SimDescriptionCore/BodyShape Sims3.Gameplay.CAS.SimDescriptionCore::mCurrentShape
+		IL_069a: ldarg.1
+		IL_069b: ldarg.2
+		IL_069c: ldloc.0
+		IL_069d: call instance bool Sims3.Gameplay.CAS.SimDescriptionCore/BodyShape::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_06a2: pop
+		IL_06a3: ldarg.3
+		IL_06a4: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+		IL_06a9: ldnull
+		IL_06aa: stloc.0
+		IL_06ab: ldarg.3
+		IL_06ac: ldc.i4 298511592
+		IL_06b1: ldarg.0
+		IL_06b2: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mFitnessShapeDelta
+		IL_06b7: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_06bc: pop
+		IL_06bd: ldarg.3
+		IL_06be: ldc.i4 -206489434 // 0xf3b138a6
+		IL_06c3: ldarg.0
+		IL_06c4: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mWeightShapeDelta
+		IL_06c9: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_06ce: pop
+		IL_06cf: ldarg.3
+		IL_06d0: ldc.i4 1817337409
+		IL_06d5: ldarg.0
+		IL_06d6: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mShapeDeltaMultiplier
+		IL_06db: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_06e0: pop
+		IL_06e1: ldarg.3
+		IL_06e2: ldc.i4 2011243416
+		IL_06e7: ldarg.0
+		IL_06e8: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.VoiceVariationType Sims3.Gameplay.CAS.SimDescriptionCore::mVoiceVariation
+		IL_06ed: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_06f2: pop
+		IL_06f3: ldarg.3
+		IL_06f4: ldc.i4 1170154690
+		IL_06f9: ldarg.0
+		IL_06fa: ldfld float32 Sims3.Gameplay.CAS.SimDescriptionCore::mVoicePitchModifier
+		IL_06ff: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0704: pop
+		IL_0705: ldarg.3
+		IL_0706: ldc.i4 -286156810 // 0xeef197f6
+		IL_070b: ldarg.1
+		IL_070c: ldarg.0
+		IL_070d: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescriptionCore::mGeneticHairstyleKey
+		IL_0712: callvirt instance int32 [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable::AddKey(valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+		IL_0717: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_071c: pop
+		IL_071d: ldc.i4.0
+		IL_071e: stloc.s 4
+		IL_0720: br.s IL_0750
+		// loop start (head: IL_0750)
+			IL_0722: ldarg.3
+			IL_0723: ldc.i4 193344880
+			IL_0728: ldloc.s 4
+			IL_072a: add
+			IL_072b: ldarg.1
+			IL_072c: ldarg.0
+			IL_072d: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey[] Sims3.Gameplay.CAS.SimDescriptionCore::mGeneticBodyhairStyleKeys
+			IL_0732: ldloc.s 4
+			IL_0734: conv.u
+			IL_0735: ldelema [SimIFace]Sims3.SimIFace.ResourceKey
+			IL_073a: ldobj [SimIFace]Sims3.SimIFace.ResourceKey
+			IL_073f: callvirt instance int32 [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable::AddKey(valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+			IL_0744: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+			IL_0749: pop
+			IL_074a: ldloc.s 4
+			IL_074c: ldc.i4.1
+			IL_074d: add
+			IL_074e: stloc.s 4
+
+			IL_0750: ldloc.s 4
+			IL_0752: ldc.i4.8
+			IL_0753: blt.un.s IL_0722
+		// end loop
+
+		IL_0755: ldarg.3
+		IL_0756: ldc.i4 -1910384336 // 0x8e21d930
+		IL_075b: ldarg.0
+		IL_075c: ldfld valuetype [SimIFace]Sims3.SimIFace.WorldName Sims3.Gameplay.CAS.SimDescriptionCore::mHomeWorld
+		IL_0761: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0766: pop
+		IL_0767: ldarg.3
+		IL_0768: ldc.i4 1481885306
+		IL_076d: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+		IL_0772: stloc.0
+		IL_0773: ldarg.0
+		IL_0774: ldfld class Sims3.Gameplay.CAS.OutfitCategoryMap Sims3.Gameplay.CAS.SimDescriptionCore::mOutfits
+		IL_0779: ldarg.1
+		IL_077a: ldarg.2
+		IL_077b: ldloc.0
+		IL_077c: callvirt instance bool Sims3.Gameplay.CAS.OutfitCategoryMap::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0781: pop
+		IL_0782: ldarg.3
+		IL_0783: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+		IL_0788: ldnull
+		IL_0789: stloc.0
+		IL_078a: ldarg.3
+		IL_078b: ldc.i4 -1142816723 // 0xbbe2002d
+		IL_0790: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+		IL_0795: stloc.0
+		IL_0796: ldarg.0
+		IL_0797: ldarg.3
+		IL_0798: call instance bool Sims3.Gameplay.CAS.SimDescriptionCore::ExportSpecialOutfitIndicies(class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_079d: pop
+		IL_079e: ldarg.3
+		IL_079f: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+		IL_07a4: ldnull
+		IL_07a5: stloc.0
+		IL_07a6: newobj instance void class [mscorlib]System.Collections.Generic.List`1<uint64>::.ctor()
+		IL_07ab: stloc.s 5
+		IL_07ad: ldarg.0
+		IL_07ae: call instance class Sims3.Gameplay.ActorSystems.TraitManager Sims3.Gameplay.CAS.SimDescriptionCore::get_TraitManager()
+		IL_07b3: callvirt instance class [mscorlib]System.Collections.Generic.ICollection`1<!2> class Sims3.Gameplay.Utilities.GenericManager`3<valuetype Sims3.Gameplay.ActorSystems.TraitNames, class Sims3.Gameplay.ActorSystems.Trait, class Sims3.Gameplay.ActorSystems.Trait>::get_List()
+		IL_07b8: callvirt instance class [mscorlib]System.Collections.Generic.IEnumerator`1<!0> class [mscorlib]System.Collections.Generic.IEnumerable`1<class Sims3.Gameplay.ActorSystems.Trait>::GetEnumerator()
+		IL_07bd: stloc.s 24
+		.try
+		{
+			IL_07bf: br.s IL_07d8
+			// loop start (head: IL_07d8)
+				IL_07c1: ldloc.s 24
+				IL_07c3: callvirt instance !0 class [mscorlib]System.Collections.Generic.IEnumerator`1<class Sims3.Gameplay.ActorSystems.Trait>::get_Current()
+				IL_07c8: stloc.s 6
+				IL_07ca: ldloc.s 5
+				IL_07cc: ldloc.s 6
+				IL_07ce: callvirt instance valuetype Sims3.Gameplay.ActorSystems.TraitNames Sims3.Gameplay.ActorSystems.Trait::get_Guid()
+				IL_07d3: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<uint64>::Add(!0)
+
+				IL_07d8: ldloc.s 24
+				IL_07da: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+				IL_07df: brtrue.s IL_07c1
+			// end loop
+
+			IL_07e1: leave.s IL_07ef
+		} // end .try
+		finally
+		{
+			IL_07e3: ldloc.s 24
+			IL_07e5: brfalse.s IL_07ee
+
+			IL_07e7: ldloc.s 24
+			IL_07e9: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+			IL_07ee: endfinally
+		} // end handler
+
+		IL_07ef: ldloc.s 5
+		IL_07f1: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<uint64>::get_Count()
+		IL_07f6: ldc.i4.0
+		IL_07f7: ble.s IL_081f
+
+		IL_07f9: ldarg.3
+		IL_07fa: ldc.i4 1533688765
+		IL_07ff: ldloc.s 5
+		IL_0801: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<uint64>::get_Count()
+		IL_0806: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_080b: pop
+		IL_080c: ldarg.3
+		IL_080d: ldc.i4 1769582843
+		IL_0812: ldloc.s 5
+		IL_0814: callvirt instance !0[] class [mscorlib]System.Collections.Generic.List`1<uint64>::ToArray()
+		IL_0819: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint64(uint32, uint64[])
+		IL_081e: pop
+
+		IL_081f: ldarg.1
+		IL_0820: ldarg.2
+		IL_0821: ldarg.3
+		IL_0822: ldc.i4 155067715
+		IL_0827: ldarg.0
+		IL_0828: call instance class Sims3.Gameplay.ActorSystems.TraitManager Sims3.Gameplay.CAS.SimDescriptionCore::get_TraitManager()
+		IL_082d: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_0832: ldarg.1
+		IL_0833: ldarg.2
+		IL_0834: ldarg.3
+		IL_0835: ldc.i4 2057337028
+		IL_083a: ldarg.0
+		IL_083b: ldfld class Sims3.Gameplay.Socializing.Genealogy Sims3.Gameplay.CAS.SimDescriptionCore::mGenealogy
+		IL_0840: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_0845: ldarg.3
+		IL_0846: ldc.i4 -2078255791 // 0x84205551
+		IL_084b: ldarg.0
+		IL_084c: ldfld uint32 Sims3.Gameplay.CAS.SimDescriptionCore::LifetimeWish
+		IL_0851: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0856: pop
+		IL_0857: ldarg.3
+		IL_0858: ldc.i4 -2030635946 // 0x86f6f456
+		IL_085d: ldarg.0
+		IL_085e: call instance bool Sims3.Gameplay.CAS.SimDescription::get_HasCompletedLifetimeWish()
+		IL_0863: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0868: pop
+		IL_0869: ldarg.0
+		IL_086a: ldfld class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::mSupernaturalData
+		IL_086f: brfalse.s IL_0897
+
+		IL_0871: ldarg.3
+		IL_0872: ldc.i4 226598758
+		IL_0877: ldarg.0
+		IL_0878: ldfld class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::mSupernaturalData
+		IL_087d: callvirt instance valuetype [UI]Sims3.UI.Hud.OccultTypes Sims3.Gameplay.CAS.CASSupernaturalData::get_OccultType()
+		IL_0882: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0887: pop
+		IL_0888: ldarg.0
+		IL_0889: ldfld class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::mSupernaturalData
+		IL_088e: ldarg.1
+		IL_088f: ldarg.2
+		IL_0890: ldarg.3
+		IL_0891: callvirt instance bool Sims3.Gameplay.CAS.CASSupernaturalData::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0896: pop
+
+		IL_0897: ldarg.1
+		IL_0898: ldarg.2
+		IL_0899: ldarg.3
+		IL_089a: ldc.i4 -1926127257 // 0x8d31a167
+		IL_089f: ldarg.0
+		IL_08a0: ldfld class Sims3.Gameplay.Skills.SkillManager Sims3.Gameplay.CAS.SimDescription::SkillManager
+		IL_08a5: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_08aa: ldarg.1
+		IL_08ab: ldarg.2
+		IL_08ac: ldarg.3
+		IL_08ad: ldc.i4 -444276094 // 0xe584e282
+		IL_08b2: ldarg.0
+		IL_08b3: ldfld class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.CAS.SimDescription::CareerManager
+		IL_08b8: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_08bd: ldarg.1
+		IL_08be: ldarg.2
+		IL_08bf: ldarg.3
+		IL_08c0: ldc.i4 243549899
+		IL_08c5: ldarg.0
+		IL_08c6: ldfld class Sims3.Gameplay.Visa.VisaManager Sims3.Gameplay.CAS.SimDescription::VisaManager
+		IL_08cb: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_08d0: ldarg.1
+		IL_08d1: ldarg.2
+		IL_08d2: ldarg.3
+		IL_08d3: ldc.i4 243549900
+		IL_08d8: ldarg.0
+		IL_08d9: ldfld class Sims3.Gameplay.CelebritySystem.CelebrityManager Sims3.Gameplay.CAS.SimDescription::CelebrityManager
+		IL_08de: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_08e3: ldarg.1
+		IL_08e4: ldarg.2
+		IL_08e5: ldarg.3
+		IL_08e6: ldc.i4 1916741826
+		IL_08eb: ldarg.0
+		IL_08ec: ldfld class Sims3.Gameplay.ActorSystems.LifeEventManager Sims3.Gameplay.CAS.SimDescription::LifeEventManager
+		IL_08f1: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_08f6: ldarg.1
+		IL_08f7: ldarg.2
+		IL_08f8: ldarg.3
+		IL_08f9: ldc.i4 146573769
+		IL_08fe: ldarg.0
+		IL_08ff: ldfld class Sims3.Gameplay.ActorSystems.OccultManager Sims3.Gameplay.CAS.SimDescription::OccultManager
+		IL_0904: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_0909: ldarg.0
+		IL_090a: ldfld class Sims3.Gameplay.ActorSystems.HealthManager Sims3.Gameplay.CAS.SimDescription::HealthManager
+		IL_090f: brfalse.s IL_0924
+
+		IL_0911: ldarg.1
+		IL_0912: ldarg.2
+		IL_0913: ldarg.3
+		IL_0914: ldc.i4 222542822
+		IL_0919: ldarg.0
+		IL_091a: ldfld class Sims3.Gameplay.ActorSystems.HealthManager Sims3.Gameplay.CAS.SimDescription::HealthManager
+		IL_091f: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0924: ldarg.0
+		IL_0925: ldfld class Sims3.Gameplay.Socializing.ReputationStatistics Sims3.Gameplay.CAS.SimDescription::mReputation
+		IL_092a: brfalse.s IL_093f
+
+		IL_092c: ldarg.1
+		IL_092d: ldarg.2
+		IL_092e: ldarg.3
+		IL_092f: ldc.i4 146573776
+		IL_0934: ldarg.0
+		IL_0935: ldfld class Sims3.Gameplay.Socializing.ReputationStatistics Sims3.Gameplay.CAS.SimDescription::mReputation
+		IL_093a: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_093f: ldarg.0
+		IL_0940: ldfld class Sims3.Gameplay.ActorSystems.MidlifeCrisisManager Sims3.Gameplay.CAS.SimDescription::MidlifeCrisisManager
+		IL_0945: brfalse.s IL_095a
+
+		IL_0947: ldarg.1
+		IL_0948: ldarg.2
+		IL_0949: ldarg.3
+		IL_094a: ldc.i4 181659961
+		IL_094f: ldarg.0
+		IL_0950: ldfld class Sims3.Gameplay.ActorSystems.MidlifeCrisisManager Sims3.Gameplay.CAS.SimDescription::MidlifeCrisisManager
+		IL_0955: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_095a: ldarg.0
+		IL_095b: ldfld class Sims3.Gameplay.ActorSystems.PetManager Sims3.Gameplay.CAS.SimDescription::PetManager
+		IL_0960: brfalse.s IL_0975
+
+		IL_0962: ldarg.1
+		IL_0963: ldarg.2
+		IL_0964: ldarg.3
+		IL_0965: ldc.i4 -199763639 // 0xf417d949
+		IL_096a: ldarg.0
+		IL_096b: ldfld class Sims3.Gameplay.ActorSystems.PetManager Sims3.Gameplay.CAS.SimDescription::PetManager
+		IL_0970: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0975: ldarg.3
+		IL_0976: ldc.i4 2081779727
+		IL_097b: ldarg.0
+		IL_097c: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.ReadBookData> Sims3.Gameplay.CAS.SimDescription::ReadBookDataList
+		IL_0981: callvirt instance int32 class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.ReadBookData>::get_Count()
+		IL_0986: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_098b: pop
+		IL_098c: ldc.i4.0
+		IL_098d: stloc.s 7
+		IL_098f: ldarg.0
+		IL_0990: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.ReadBookData> Sims3.Gameplay.CAS.SimDescription::ReadBookDataList
+		IL_0995: callvirt instance valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.ReadBookData>::GetEnumerator()
+		IL_099a: stloc.s 25
+		.try
+		{
+			IL_099c: br.s IL_09da
+			// loop start (head: IL_09da)
+				IL_099e: ldloca.s 25
+				IL_09a0: call instance valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<!0, !1> valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<string, class Sims3.Gameplay.Objects.ReadBookData>::get_Current()
+				IL_09a5: stloc.s 8
+				IL_09a7: ldarg.3
+				IL_09a8: ldc.i4 1155630664
+				IL_09ad: ldloc.s 7
+				IL_09af: add
+				IL_09b0: ldloca.s 8
+				IL_09b2: call instance !0 valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<string, class Sims3.Gameplay.Objects.ReadBookData>::get_Key()
+				IL_09b7: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string)
+				IL_09bc: pop
+				IL_09bd: ldarg.1
+				IL_09be: ldarg.2
+				IL_09bf: ldarg.3
+				IL_09c0: ldc.i4 -1873278614 // 0x9058096a
+				IL_09c5: ldloc.s 7
+				IL_09c7: add
+				IL_09c8: ldloca.s 8
+				IL_09ca: call instance !1 valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<string, class Sims3.Gameplay.Objects.ReadBookData>::get_Value()
+				IL_09cf: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+				IL_09d4: ldloc.s 7
+				IL_09d6: ldc.i4.1
+				IL_09d7: add
+				IL_09d8: stloc.s 7
+
+				IL_09da: ldloca.s 25
+				IL_09dc: call instance bool valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<string, class Sims3.Gameplay.Objects.ReadBookData>::MoveNext()
+				IL_09e1: brtrue.s IL_099e
+			// end loop
+
+			IL_09e3: leave.s IL_09f3
+		} // end .try
+		finally
+		{
+			IL_09e5: ldloca.s 25
+			IL_09e7: constrained. valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<string, class Sims3.Gameplay.Objects.ReadBookData>
+			IL_09ed: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_09f2: endfinally
+		} // end handler
+
+		IL_09f3: ldarg.0
+		IL_09f4: call instance bool Sims3.Gameplay.CAS.SimDescription::get_IsPregnant()
+		IL_09f9: brfalse.s IL_0a0e
+
+		IL_09fb: ldarg.1
+		IL_09fc: ldarg.2
+		IL_09fd: ldarg.3
+		IL_09fe: ldc.i4 1064352938
+		IL_0a03: ldarg.0
+		IL_0a04: ldfld class Sims3.Gameplay.ActorSystems.Pregnancy Sims3.Gameplay.CAS.SimDescription::Pregnancy
+		IL_0a09: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0a0e: ldarg.0
+		IL_0a0f: ldfld class Sims3.Gameplay.Opportunities.OpportunityHistory Sims3.Gameplay.CAS.SimDescription::OpportunityHistory
+		IL_0a14: brfalse.s IL_0a29
+
+		IL_0a16: ldarg.1
+		IL_0a17: ldarg.2
+		IL_0a18: ldarg.3
+		IL_0a19: ldc.i4 -469657192 // 0xe4019998
+		IL_0a1e: ldarg.0
+		IL_0a1f: ldfld class Sims3.Gameplay.Opportunities.OpportunityHistory Sims3.Gameplay.CAS.SimDescription::OpportunityHistory
+		IL_0a24: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0a29: ldarg.3
+		IL_0a2a: ldc.i4 148913893
+		IL_0a2f: ldarg.0
+		IL_0a30: call instance bool Sims3.Gameplay.CAS.SimDescription::get_NeedsOpportunityImport()
+		IL_0a35: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0a3a: pop
+		IL_0a3b: ldarg.0
+		IL_0a3c: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_0a41: brfalse.s IL_0a71
+
+		IL_0a43: ldarg.0
+		IL_0a44: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_0a49: callvirt instance class Sims3.Gameplay.DreamsAndPromises.DreamsAndPromisesManager Sims3.Gameplay.Actors.Sim::get_DreamsAndPromisesManager()
+		IL_0a4e: brfalse.s IL_0a71
+
+		IL_0a50: ldarg.0
+		IL_0a51: ldarg.0
+		IL_0a52: newobj instance void Sims3.Gameplay.DreamsAndPromises.DnPExportData::.ctor(class Sims3.Gameplay.CAS.SimDescription)
+		IL_0a57: stfld class Sims3.Gameplay.DreamsAndPromises.DnPExportData Sims3.Gameplay.CAS.SimDescription::DnPExportData
+		IL_0a5c: ldarg.1
+		IL_0a5d: ldarg.2
+		IL_0a5e: ldarg.3
+		IL_0a5f: ldc.i4 -1255589541 // 0xb529395b
+		IL_0a64: ldarg.0
+		IL_0a65: ldfld class Sims3.Gameplay.DreamsAndPromises.DnPExportData Sims3.Gameplay.CAS.SimDescription::DnPExportData
+		IL_0a6a: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_0a6f: br.s IL_0a78
+
+		IL_0a71: ldarg.0
+		IL_0a72: ldnull
+		IL_0a73: stfld class Sims3.Gameplay.DreamsAndPromises.DnPExportData Sims3.Gameplay.CAS.SimDescription::DnPExportData
+
+		IL_0a78: ldarg.0
+		IL_0a79: ldfld class Sims3.Gameplay.Skills.RelicStatTracking Sims3.Gameplay.CAS.SimDescription::RelicStats
+		IL_0a7e: brfalse.s IL_0a93
+
+		IL_0a80: ldarg.1
+		IL_0a81: ldarg.2
+		IL_0a82: ldarg.3
+		IL_0a83: ldc.i4 142971188
+		IL_0a88: ldarg.0
+		IL_0a89: ldfld class Sims3.Gameplay.Skills.RelicStatTracking Sims3.Gameplay.CAS.SimDescription::RelicStats
+		IL_0a8e: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0a93: ldarg.0
+		IL_0a94: ldfld class Sims3.Gameplay.Skills.TombStatTracking Sims3.Gameplay.CAS.SimDescription::TombStats
+		IL_0a99: brfalse.s IL_0aae
+
+		IL_0a9b: ldarg.1
+		IL_0a9c: ldarg.2
+		IL_0a9d: ldarg.3
+		IL_0a9e: ldc.i4 -61078060 // 0xfc5c05d4
+		IL_0aa3: ldarg.0
+		IL_0aa4: ldfld class Sims3.Gameplay.Skills.TombStatTracking Sims3.Gameplay.CAS.SimDescription::TombStats
+		IL_0aa9: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0aae: ldarg.0
+		IL_0aaf: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.ActorSystems.BuffInstance> Sims3.Gameplay.CAS.SimDescription::TravelBuffs
+		IL_0ab4: brfalse.s IL_0b27
+
+		IL_0ab6: ldarg.0
+		IL_0ab7: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.ActorSystems.BuffInstance> Sims3.Gameplay.CAS.SimDescription::TravelBuffs
+		IL_0abc: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.ActorSystems.BuffInstance>::get_Count()
+		IL_0ac1: stloc.s 9
+		IL_0ac3: ldarg.3
+		IL_0ac4: ldc.i4 143219793
+		IL_0ac9: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+		IL_0ace: stloc.s 10
+		IL_0ad0: ldloc.s 10
+		IL_0ad2: ldc.i4.0
+		IL_0ad3: ldloc.s 9
+		IL_0ad5: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0ada: pop
+		IL_0adb: ldc.i4.1
+		IL_0adc: stloc.s 11
+		IL_0ade: ldarg.0
+		IL_0adf: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.ActorSystems.BuffInstance> Sims3.Gameplay.CAS.SimDescription::TravelBuffs
+		IL_0ae4: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.ActorSystems.BuffInstance>::GetEnumerator()
+		IL_0ae9: stloc.s 26
+		.try
+		{
+			IL_0aeb: br.s IL_0b08
+			// loop start (head: IL_0b08)
+				IL_0aed: ldloca.s 26
+				IL_0aef: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.ActorSystems.BuffInstance>::get_Current()
+				IL_0af4: stloc.s 12
+				IL_0af6: ldarg.1
+				IL_0af7: ldarg.2
+				IL_0af8: ldloc.s 10
+				IL_0afa: ldloc.s 11
+				IL_0afc: dup
+				IL_0afd: ldc.i4.1
+				IL_0afe: add
+				IL_0aff: stloc.s 11
+				IL_0b01: ldloc.s 12
+				IL_0b03: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+				IL_0b08: ldloca.s 26
+				IL_0b0a: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.ActorSystems.BuffInstance>::MoveNext()
+				IL_0b0f: brtrue.s IL_0aed
+			// end loop
+
+			IL_0b11: leave.s IL_0b21
+		} // end .try
+		finally
+		{
+			IL_0b13: ldloca.s 26
+			IL_0b15: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.ActorSystems.BuffInstance>
+			IL_0b1b: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0b20: endfinally
+		} // end handler
+
+		IL_0b21: ldarg.3
+		IL_0b22: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+
+		IL_0b27: ldarg.0
+		IL_0b28: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.CAS.SimDescription::mPreferredVehicleGuid
+		IL_0b2d: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_0b32: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0b37: brfalse.s IL_0b55
+
+		IL_0b39: ldarg.2
+		IL_0b3a: ldarg.0
+		IL_0b3b: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.CAS.SimDescription::mPreferredVehicleGuid
+		IL_0b40: callvirt instance int32 [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable::AddId(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0b45: stloc.s 13
+		IL_0b47: ldarg.3
+		IL_0b48: ldc.i4 -458920252 // 0xe4a56ec4
+		IL_0b4d: ldloc.s 13
+		IL_0b4f: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0b54: pop
+
+		IL_0b55: ldarg.0
+		IL_0b56: ldfld class Sims3.Gameplay.ActorSystems.SingingInfo Sims3.Gameplay.CAS.SimDescription::Singing
+		IL_0b5b: brfalse.s IL_0b70
+
+		IL_0b5d: ldarg.1
+		IL_0b5e: ldarg.2
+		IL_0b5f: ldarg.3
+		IL_0b60: ldc.i4 145650758
+		IL_0b65: ldarg.0
+		IL_0b66: ldfld class Sims3.Gameplay.ActorSystems.SingingInfo Sims3.Gameplay.CAS.SimDescription::Singing
+		IL_0b6b: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0b70: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+		IL_0b75: brfalse IL_0c35
+
+		IL_0b7a: ldarg.3
+		IL_0b7b: ldc.i4 350667110
+		IL_0b80: ldarg.0
+		IL_0b81: ldflda valuetype Sims3.Gameplay.CAS.SimDescription/Charisma Sims3.Gameplay.CAS.SimDescription::CharismaStats
+		IL_0b86: ldfld int32 Sims3.Gameplay.CAS.SimDescription/Charisma::KnownSims
+		IL_0b8b: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0b90: pop
+		IL_0b91: ldarg.3
+		IL_0b92: ldc.i4 -1614902959 // 0x9fbe8951
+		IL_0b97: ldarg.0
+		IL_0b98: ldflda valuetype Sims3.Gameplay.CAS.SimDescription/Charisma Sims3.Gameplay.CAS.SimDescription::CharismaStats
+		IL_0b9d: ldfld int32 Sims3.Gameplay.CAS.SimDescription/Charisma::FriendSims
+		IL_0ba2: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0ba7: pop
+		IL_0ba8: ldarg.3
+		IL_0ba9: ldc.i4 -1645362901 // 0x9dedc12b
+		IL_0bae: ldarg.0
+		IL_0baf: ldflda valuetype Sims3.Gameplay.CAS.SimDescription/Charisma Sims3.Gameplay.CAS.SimDescription::CharismaStats
+		IL_0bb4: ldfld int32 Sims3.Gameplay.CAS.SimDescription/Charisma::BestFriendSims
+		IL_0bb9: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0bbe: pop
+		IL_0bbf: ldarg.3
+		IL_0bc0: ldc.i4 1611073300
+		IL_0bc5: ldarg.0
+		IL_0bc6: ldflda valuetype Sims3.Gameplay.CAS.SimDescription/Charisma Sims3.Gameplay.CAS.SimDescription::CharismaStats
+		IL_0bcb: ldfld int32 Sims3.Gameplay.CAS.SimDescription/Charisma::JokesSuccesfullyTold
+		IL_0bd0: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0bd5: pop
+		IL_0bd6: ldarg.3
+		IL_0bd7: ldc.i4 426808711
+		IL_0bdc: ldarg.0
+		IL_0bdd: ldflda valuetype Sims3.Gameplay.CAS.SimDescription/Charisma Sims3.Gameplay.CAS.SimDescription::CharismaStats
+		IL_0be2: ldfld int32 Sims3.Gameplay.CAS.SimDescription/Charisma::TraitsLearned
+		IL_0be7: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0bec: pop
+		IL_0bed: ldarg.3
+		IL_0bee: ldc.i4 150904202
+		IL_0bf3: ldarg.0
+		IL_0bf4: call instance bool Sims3.Gameplay.CAS.SimDescription::get_HadFirstKiss()
+		IL_0bf9: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0bfe: pop
+		IL_0bff: ldarg.3
+		IL_0c00: ldc.i4 150904210
+		IL_0c05: ldarg.0
+		IL_0c06: call instance bool Sims3.Gameplay.CAS.SimDescription::get_HadFirstRomance()
+		IL_0c0b: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0c10: pop
+		IL_0c11: ldarg.3
+		IL_0c12: ldc.i4 150904214
+		IL_0c17: ldarg.0
+		IL_0c18: call instance bool Sims3.Gameplay.CAS.SimDescription::get_HadFirstWooHoo()
+		IL_0c1d: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0c22: pop
+		IL_0c23: ldarg.3
+		IL_0c24: ldc.i4 150904215
+		IL_0c29: ldarg.0
+		IL_0c2a: call instance bool Sims3.Gameplay.CAS.SimDescription::get_HadBachelorParty()
+		IL_0c2f: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0c34: pop
+
+		IL_0c35: ldarg.3
+		IL_0c36: ldc.i4 -819356520 // 0xcf299c98
+		IL_0c3b: ldarg.0
+		IL_0c3c: ldfld valuetype Sims3.Gameplay.Objects.Environment.Snowman/SnowmanFlagType Sims3.Gameplay.CAS.SimDescription::KnownSnowmanTypes
+		IL_0c41: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteByte(uint32, uint8)
+		IL_0c46: pop
+		IL_0c47: ldarg.0
+		IL_0c48: ldarg.3
+		IL_0c49: call instance void Sims3.Gameplay.CAS.SimDescriptionCore::ExportSurgeryBlends(class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0c4e: ldarg.0
+		IL_0c4f: ldfld class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.CAS.SimDescription::CareerManager
+		IL_0c54: callvirt instance class Sims3.Gameplay.Academics.AcademicDegreeManager Sims3.Gameplay.Careers.CareerManager::get_DegreeManager()
+		IL_0c59: brfalse.s IL_0c73
+
+		IL_0c5b: ldarg.1
+		IL_0c5c: ldarg.2
+		IL_0c5d: ldarg.3
+		IL_0c5e: ldc.i4 240491398
+		IL_0c63: ldarg.0
+		IL_0c64: ldfld class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.CAS.SimDescription::CareerManager
+		IL_0c69: callvirt instance class Sims3.Gameplay.Academics.AcademicDegreeManager Sims3.Gameplay.Careers.CareerManager::get_DegreeManager()
+		IL_0c6e: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0c73: ldarg.0
+		IL_0c74: ldfld class Sims3.Gameplay.ActorSystems.TraitChipManager Sims3.Gameplay.CAS.SimDescription::mTraitChipManager
+		IL_0c79: brfalse.s IL_0c8e
+
+		IL_0c7b: ldarg.1
+		IL_0c7c: ldarg.2
+		IL_0c7d: ldarg.3
+		IL_0c7e: ldc.i4 -1823047309 // 0x93568173
+		IL_0c83: ldarg.0
+		IL_0c84: ldfld class Sims3.Gameplay.ActorSystems.TraitChipManager Sims3.Gameplay.CAS.SimDescription::mTraitChipManager
+		IL_0c89: call void Sims3.Gameplay.CAS.SimDescription::ExportContentChild(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter, uint32, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+
+		IL_0c8e: ldc.i4.1
+		IL_0c8f: ret
+	} // end of method SimDescription::ExportContent

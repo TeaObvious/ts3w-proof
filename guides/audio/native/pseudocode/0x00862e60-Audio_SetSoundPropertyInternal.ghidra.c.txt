@@ -1,0 +1,30 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_00862e60:
+
+
+void FUN_00862e60(void)
+
+{
+  int *piVar1;
+  undefined4 unaff_ESI;
+  undefined4 unaff_retaddr;
+  undefined4 uVar2;
+  
+  piVar1 = (int *)FUN_008afe00();
+  if (piVar1 != (int *)0x0) {
+    uVar2 = 0x3475376;
+    (**(code **)(*piVar1 + 0x44))(0x3475376);
+    (**(code **)(*piVar1 + 0x4c))(0x3475385,unaff_retaddr);
+    (**(code **)(*piVar1 + 0x4c))(0x34753a7,unaff_ESI);
+    (**(code **)(*piVar1 + 0x48))(0x34753aa,uVar2);
+    (**(code **)(*piVar1 + 0x4c))(0x34753ad,unaff_retaddr);
+                    /* WARNING: Could not recover jumptable at 0x00862ed1. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+    (**(code **)(*piVar1 + 0x68))();
+    return;
+  }
+  return;
+}
+
+

@@ -1,0 +1,105 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioVoice_PropertyInterfaceSet
+Entry Point: 008ad840
+
+008ad840: SUB ESP, 0x14
+008ad843: PUSH EBX
+008ad844: PUSH EDI
+008ad845: MOV EDI, ECX
+008ad847: CALL 0x008afe00
+008ad84c: MOV EDX, dword ptr [EAX]
+008ad84e: MOV EBX, dword ptr [ESP + 0x20]
+008ad852: MOV ECX, EAX
+008ad854: MOV EAX, dword ptr [EDX + 0x11c]
+008ad85a: PUSH EBX
+008ad85b: CALL EAX
+008ad85d: OR EAX, EDX
+008ad85f: JZ 0x008ad91c
+008ad865: PUSH EBP
+008ad866: LEA ECX, [ESP + 0x24]
+008ad86a: PUSH ECX
+008ad86b: LEA EDX, [ESP + 0x10]
+008ad86f: LEA EBP, [EDI + 0x524]
+008ad875: PUSH EDX
+008ad876: MOV ECX, EBP
+008ad878: CALL 0x00a5b9b0
+008ad87d: MOV ECX, dword ptr [EBP + 0x8]
+008ad880: MOV EDX, dword ptr [EBP + 0x4]
+008ad883: MOV EAX, dword ptr [ESP + 0xc]
+008ad887: CMP EAX, dword ptr [EDX + ECX*0x4]
+008ad88a: JZ 0x008ad8a5
+008ad88c: FLD float ptr [ESP + 0x28]
+008ad890: PUSH ECX
+008ad891: MOV ECX, dword ptr [EAX + 0x4]
+008ad894: FSTP float ptr [ESP]
+008ad897: CALL 0x008a6270
+008ad89c: POP EBP
+008ad89d: POP EDI
+008ad89e: POP EBX
+008ad89f: ADD ESP, 0x14
+008ad8a2: RET 0xc
+008ad8a5: PUSH ESI
+008ad8a6: PUSH 0x18
+008ad8a8: CALL 0x008a62f0
+008ad8ad: ADD ESP, 0x4
+008ad8b0: TEST EAX, EAX
+008ad8b2: JZ 0x008ad8c3
+008ad8b4: LEA ECX, [EDI + -0x4]
+008ad8b7: PUSH ECX
+008ad8b8: MOV ECX, EAX
+008ad8ba: CALL 0x008a6330
+008ad8bf: MOV ESI, EAX
+008ad8c1: JMP 0x008ad8c5
+008ad8c3: XOR ESI, ESI
+008ad8c5: MOV EDX, dword ptr [ESI]
+008ad8c7: MOV EAX, dword ptr [EDX]
+008ad8c9: MOV ECX, ESI
+008ad8cb: CALL EAX
+008ad8cd: PUSH EBX
+008ad8ce: MOV ECX, ESI
+008ad8d0: CALL 0x007391d0
+008ad8d5: FLD float ptr [ESP + 0x2c]
+008ad8d9: PUSH ECX
+008ad8da: MOV ECX, ESI
+008ad8dc: FSTP float ptr [ESP]
+008ad8df: CALL 0x008a6270
+008ad8e4: MOV byte ptr [ESP + 0x2c], 0x0
+008ad8e9: MOV ECX, dword ptr [ESP + 0x2c]
+008ad8ed: PUSH ECX
+008ad8ee: LEA EDX, [ESP + 0x14]
+008ad8f2: PUSH EDX
+008ad8f3: LEA EAX, [ESP + 0x20]
+008ad8f7: PUSH EAX
+008ad8f8: MOV ECX, EBP
+008ad8fa: MOV dword ptr [ESP + 0x1c], EBX
+008ad8fe: MOV dword ptr [ESP + 0x20], ESI
+008ad902: CALL 0x0045f3f0
+008ad907: MOV EDX, dword ptr [EDI]
+008ad909: MOV EAX, dword ptr [EDX + 0x18]
+008ad90c: PUSH ESI
+008ad90d: PUSH EBX
+008ad90e: MOV ECX, EDI
+008ad910: CALL EAX
+008ad912: POP ESI
+008ad913: POP EBP
+008ad914: POP EDI
+008ad915: POP EBX
+008ad916: ADD ESP, 0x14
+008ad919: RET 0xc
+008ad91c: MOV EAX, dword ptr [ESP + 0x28]
+008ad920: FLD float ptr [ESP + 0x24]
+008ad924: MOV EDX, dword ptr [EDI + -0x4]
+008ad927: MOV EDX, dword ptr [EDX + 0xb0]
+008ad92d: LEA ECX, [EDI + -0x4]
+008ad930: PUSH EAX
+008ad931: PUSH ECX
+008ad932: FSTP float ptr [ESP]
+008ad935: PUSH EBX
+008ad936: CALL EDX
+008ad938: POP EDI
+008ad939: POP EBX
+008ad93a: ADD ESP, 0x14
+008ad93d: RET 0xc
+
+Total instructions: 98

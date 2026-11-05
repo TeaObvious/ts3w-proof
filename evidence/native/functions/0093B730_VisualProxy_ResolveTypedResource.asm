@@ -1,0 +1,87 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body envelope; unowned alignment explicitly listed.
+Annotated Ghidra pseudocode: 0093B730_VisualProxy_ResolveTypedResource.c
+Owned ranges: [[0093b730, 0093b7f0]]
+
+0093b730  51  PUSH ECX
+0093b731  56  PUSH ESI
+0093b732  c744240400000000  MOV dword ptr [ESP + 0x4],0x0
+0093b73a  e84147b7ff  CALL 0x004afe80
+0093b73f  8bf0  MOV ESI,EAX
+0093b741  85f6  TEST ESI,ESI
+0093b743  0f8494000000  JZ 0x0093b7dd
+0093b749  8b4c2404  MOV ECX,dword ptr [ESP + 0x4]
+0093b74d  85c9  TEST ECX,ECX
+0093b74f  740f  JZ 0x0093b760
+0093b751  c744240400000000  MOV dword ptr [ESP + 0x4],0x0
+0093b759  8b01  MOV EAX,dword ptr [ECX]
+0093b75b  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+0093b75e  ffd2  CALL EDX
+0093b760  8b06  MOV EAX,dword ptr [ESI]
+0093b762  8b54240c  MOV EDX,dword ptr [ESP + 0xc]
+0093b766  8b400c  MOV EAX,dword ptr [EAX + 0xc]
+0093b769  6a00  PUSH 0x0
+0093b76b  6a00  PUSH 0x0
+0093b76d  6a00  PUSH 0x0
+0093b76f  6a00  PUSH 0x0
+0093b771  8d4c2414  LEA ECX,[ESP + 0x14]
+0093b775  51  PUSH ECX
+0093b776  52  PUSH EDX
+0093b777  8bce  MOV ECX,ESI
+0093b779  ffd0  CALL EAX
+0093b77b  84c0  TEST AL,AL
+0093b77d  745e  JZ 0x0093b7dd
+0093b77f  8b4c2404  MOV ECX,dword ptr [ESP + 0x4]
+0093b783  85c9  TEST ECX,ECX
+0093b785  7452  JZ 0x0093b7d9
+0093b787  8b11  MOV EDX,dword ptr [ECX]
+0093b789  8b420c  MOV EAX,dword ptr [EDX + 0xc]
+0093b78c  68afbab8b7  PUSH 0xb7b8baaf
+0093b791  ffd0  CALL EAX
+0093b793  8bf0  MOV ESI,EAX
+0093b795  85f6  TEST ESI,ESI
+0093b797  7408  JZ 0x0093b7a1
+0093b799  8b16  MOV EDX,dword ptr [ESI]
+0093b79b  8b02  MOV EAX,dword ptr [EDX]
+0093b79d  8bce  MOV ECX,ESI
+0093b79f  ffd0  CALL EAX
+0093b7a1  8b4c2414  MOV ECX,dword ptr [ESP + 0x14]
+0093b7a5  8b542410  MOV EDX,dword ptr [ESP + 0x10]
+0093b7a9  53  PUSH EBX
+0093b7aa  51  PUSH ECX
+0093b7ab  52  PUSH EDX
+0093b7ac  56  PUSH ESI
+0093b7ad  e8eefeffff  CALL 0x0093b6a0
+0093b7b2  83c40c  ADD ESP,0xc
+0093b7b5  85f6  TEST ESI,ESI
+0093b7b7  8ad8  MOV BL,AL
+0093b7b9  7409  JZ 0x0093b7c4
+0093b7bb  8b06  MOV EAX,dword ptr [ESI]
+0093b7bd  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+0093b7c0  8bce  MOV ECX,ESI
+0093b7c2  ffd2  CALL EDX
+0093b7c4  8b4c2408  MOV ECX,dword ptr [ESP + 0x8]
+0093b7c8  85c9  TEST ECX,ECX
+0093b7ca  7407  JZ 0x0093b7d3
+0093b7cc  8b01  MOV EAX,dword ptr [ECX]
+0093b7ce  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+0093b7d1  ffd2  CALL EDX
+0093b7d3  8ac3  MOV AL,BL
+0093b7d5  5b  POP EBX
+0093b7d6  5e  POP ESI
+0093b7d7  59  POP ECX
+0093b7d8  c3  RET
+0093b7d9  33f6  XOR ESI,ESI
+0093b7db  ebc4  JMP 0x0093b7a1
+0093b7dd  8b4c2404  MOV ECX,dword ptr [ESP + 0x4]
+0093b7e1  85c9  TEST ECX,ECX
+0093b7e3  7407  JZ 0x0093b7ec
+0093b7e5  8b01  MOV EAX,dword ptr [ECX]
+0093b7e7  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+0093b7ea  ffd2  CALL EDX
+0093b7ec  32c0  XOR AL,AL
+0093b7ee  5e  POP ESI
+0093b7ef  59  POP ECX
+0093b7f0  c3  RET

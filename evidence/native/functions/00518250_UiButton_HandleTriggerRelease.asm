@@ -1,0 +1,36 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body.
+Actual annotated Ghidra pseudocode: 00518250_UiButton_HandleTriggerRelease.c
+Owned ranges: [[00518250, 005182a5]]
+
+00518250  8b442404  MOV EAX,dword ptr [ESP + 0x4]
+00518254  85c0  TEST EAX,EAX
+00518256  56  PUSH ESI
+00518257  8bf1  MOV ESI,ECX
+00518259  7506  JNZ 0x00518261
+0051825b  32c0  XOR AL,AL
+0051825d  5e  POP ESI
+0051825e  c20c00  RET 0xc
+00518261  83f802  CMP EAX,0x2
+00518264  7c0a  JL 0x00518270
+00518266  817c240cd8070000  CMP dword ptr [ESP + 0xc],0x7d8
+0051826e  75eb  JNZ 0x0051825b
+00518270  f6467802  TEST byte ptr [ESI + 0x78],0x2
+00518274  742a  JZ 0x005182a0
+00518276  8b8650020000  MOV EAX,dword ptr [ESI + 0x250]
+0051827c  8b5028  MOV EDX,dword ptr [EAX + 0x28]
+0051827f  8d8e50020000  LEA ECX,[ESI + 0x250]
+00518285  6a00  PUSH 0x0
+00518287  6a02  PUSH 0x2
+00518289  ffd2  CALL EDX
+0051828b  f6865c02000001  TEST byte ptr [ESI + 0x25c],0x1
+00518292  750c  JNZ 0x005182a0
+00518294  8b06  MOV EAX,dword ptr [ESI]
+00518296  8b90a4000000  MOV EDX,dword ptr [EAX + 0xa4]
+0051829c  8bce  MOV ECX,ESI
+0051829e  ffd2  CALL EDX
+005182a0  b001  MOV AL,0x1
+005182a2  5e  POP ESI
+005182a3  c20c00  RET 0xc

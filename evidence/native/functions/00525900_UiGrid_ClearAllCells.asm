@@ -1,0 +1,56 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body and owned-range envelope.
+Actual annotated Ghidra pseudocode: 00525900_UiGrid_ClearAllCells.c
+Owned ranges: [[00525900, 0052598e]]
+
+00525900  83ec10  SUB ESP,0x10
+00525903  33c0  XOR EAX,EAX
+00525905  56  PUSH ESI
+00525906  8bf1  MOV ESI,ECX
+00525908  89442404  MOV dword ptr [ESP + 0x4],EAX
+0052590c  89442408  MOV dword ptr [ESP + 0x8],EAX
+00525910  8944240c  MOV dword ptr [ESP + 0xc],EAX
+00525914  89442410  MOV dword ptr [ESP + 0x10],EAX
+00525918  8b06  MOV EAX,dword ptr [ESI]
+0052591a  8b90f8000000  MOV EDX,dword ptr [EAX + 0xf8]
+00525920  8d4c2404  LEA ECX,[ESP + 0x4]
+00525924  51  PUSH ECX
+00525925  8bce  MOV ECX,ESI
+00525927  ffd2  CALL EDX
+00525929  84c0  TEST AL,AL
+0052592b  745b  JZ 0x00525988
+0052592d  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+00525931  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+00525935  8b16  MOV EDX,dword ptr [ESI]
+00525937  8b929c010000  MOV EDX,dword ptr [EDX + 0x19c]
+0052593d  57  PUSH EDI
+0052593e  8b7c2410  MOV EDI,dword ptr [ESP + 0x10]
+00525942  2bc8  SUB ECX,EAX
+00525944  83c101  ADD ECX,0x1
+00525947  51  PUSH ECX
+00525948  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+0052594c  2bf9  SUB EDI,ECX
+0052594e  83c701  ADD EDI,0x1
+00525951  57  PUSH EDI
+00525952  50  PUSH EAX
+00525953  51  PUSH ECX
+00525954  8bce  MOV ECX,ESI
+00525956  ffd2  CALL EDX
+00525958  8b06  MOV EAX,dword ptr [ESI]
+0052595a  8b90e8000000  MOV EDX,dword ptr [EAX + 0xe8]
+00525960  8bce  MOV ECX,ESI
+00525962  ffd2  CALL EDX
+00525964  8b86b4fdffff  MOV EAX,dword ptr [ESI + 0xfffffdb4]
+0052596a  8b9090000000  MOV EDX,dword ptr [EAX + 0x90]
+00525970  8d8eb4fdffff  LEA ECX,[ESI + 0xfffffdb4]
+00525976  ffd2  CALL EDX
+00525978  83c8ff  OR EAX,0xffffffff
+0052597b  8986b0010000  MOV dword ptr [ESI + 0x1b0],EAX
+00525981  8986b4010000  MOV dword ptr [ESI + 0x1b4],EAX
+00525987  5f  POP EDI
+00525988  b001  MOV AL,0x1
+0052598a  5e  POP ESI
+0052598b  83c410  ADD ESP,0x10
+0052598e  c3  RET

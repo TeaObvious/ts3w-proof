@@ -1,0 +1,99 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00800fb0 <.text+0x3fffb0>:
+  800fb0:	83 ec 0c             	sub    esp,0xc
+  800fb3:	8b 41 14             	mov    eax,DWORD PTR [ecx+0x14]
+  800fb6:	57                   	push   edi
+  800fb7:	8b 79 10             	mov    edi,DWORD PTR [ecx+0x10]
+  800fba:	3b f8                	cmp    edi,eax
+  800fbc:	89 4c 24 0c          	mov    DWORD PTR [esp+0xc],ecx
+  800fc0:	89 44 24 08          	mov    DWORD PTR [esp+0x8],eax
+  800fc4:	0f 84 d6 00 00 00    	je     0x8010a0
+  800fca:	53                   	push   ebx
+  800fcb:	55                   	push   ebp
+  800fcc:	56                   	push   esi
+  800fcd:	33 db                	xor    ebx,ebx
+  800fcf:	90                   	nop
+  800fd0:	8b 77 04             	mov    esi,DWORD PTR [edi+0x4]
+  800fd3:	8b 4e 08             	mov    ecx,DWORD PTR [esi+0x8]
+  800fd6:	3b cb                	cmp    ecx,ebx
+  800fd8:	89 4c 24 10          	mov    DWORD PTR [esp+0x10],ecx
+  800fdc:	74 56                	je     0x801034
+  800fde:	53                   	push   ebx
+  800fdf:	e8 8c 08 d8 ff       	call   0x581870
+  800fe4:	8b e8                	mov    ebp,eax
+  800fe6:	3b eb                	cmp    ebp,ebx
+  800fe8:	74 4a                	je     0x801034
+  800fea:	a1 84 d4 1d 01       	mov    eax,ds:0x11dd484
+  800fef:	50                   	push   eax
+  800ff0:	8b cd                	mov    ecx,ebp
+  800ff2:	e8 69 32 13 00       	call   0x934260
+  800ff7:	3b c3                	cmp    eax,ebx
+  800ff9:	74 0b                	je     0x801006
+  800ffb:	8b 50 08             	mov    edx,DWORD PTR [eax+0x8]
+  800ffe:	8d 48 08             	lea    ecx,[eax+0x8]
+  801001:	8b 42 18             	mov    eax,DWORD PTR [edx+0x18]
+  801004:	ff d0                	call   eax
+  801006:	8b 0d 90 9e 1e 01    	mov    ecx,DWORD PTR ds:0x11e9e90
+  80100c:	51                   	push   ecx
+  80100d:	8b cd                	mov    ecx,ebp
+  80100f:	e8 4c 32 13 00       	call   0x934260
+  801014:	3b c3                	cmp    eax,ebx
+  801016:	74 08                	je     0x801020
+  801018:	53                   	push   ebx
+  801019:	8b c8                	mov    ecx,eax
+  80101b:	e8 90 26 14 00       	call   0x9436b0
+  801020:	8b 4c 24 10          	mov    ecx,DWORD PTR [esp+0x10]
+  801024:	8b 51 0c             	mov    edx,DWORD PTR [ecx+0xc]
+  801027:	83 e2 02             	and    edx,0x2
+  80102a:	80 fa 02             	cmp    dl,0x2
+  80102d:	75 05                	jne    0x801034
+  80102f:	e8 7c 10 d8 ff       	call   0x5820b0
+  801034:	b8 40 00 00 00       	mov    eax,0x40
+  801039:	89 46 20             	mov    DWORD PTR [esi+0x20],eax
+  80103c:	33 c0                	xor    eax,eax
+  80103e:	8d 4e 2c             	lea    ecx,[esi+0x2c]
+  801041:	88 5e 0c             	mov    BYTE PTR [esi+0xc],bl
+  801044:	89 5e 10             	mov    DWORD PTR [esi+0x10],ebx
+  801047:	89 5e 14             	mov    DWORD PTR [esi+0x14],ebx
+  80104a:	89 5e 18             	mov    DWORD PTR [esi+0x18],ebx
+  80104d:	89 5e 1c             	mov    DWORD PTR [esi+0x1c],ebx
+  801050:	89 46 24             	mov    DWORD PTR [esi+0x24],eax
+  801053:	89 5e 28             	mov    DWORD PTR [esi+0x28],ebx
+  801056:	e8 75 f7 29 00       	call   0xaa07d0
+  80105b:	88 5e 68             	mov    BYTE PTR [esi+0x68],bl
+  80105e:	33 c0                	xor    eax,eax
+  801060:	8d 4e 6c             	lea    ecx,[esi+0x6c]
+  801063:	87 01                	xchg   DWORD PTR [ecx],eax
+  801065:	6a 01                	push   0x1
+  801067:	8b ce                	mov    ecx,esi
+  801069:	88 5e 72             	mov    BYTE PTR [esi+0x72],bl
+  80106c:	88 5e 73             	mov    BYTE PTR [esi+0x73],bl
+  80106f:	88 5e 70             	mov    BYTE PTR [esi+0x70],bl
+  801072:	88 5e 74             	mov    BYTE PTR [esi+0x74],bl
+  801075:	c6 46 71 01          	mov    BYTE PTR [esi+0x71],0x1
+  801079:	e8 22 f6 ff ff       	call   0x8006a0
+  80107e:	83 c7 08             	add    edi,0x8
+  801081:	3b 7c 24 14          	cmp    edi,DWORD PTR [esp+0x14]
+  801085:	88 5e 71             	mov    BYTE PTR [esi+0x71],bl
+  801088:	0f 85 42 ff ff ff    	jne    0x800fd0
+  80108e:	8b 54 24 18          	mov    edx,DWORD PTR [esp+0x18]
+  801092:	5e                   	pop    esi
+  801093:	5d                   	pop    ebp
+  801094:	88 9a 45 01 00 00    	mov    BYTE PTR [edx+0x145],bl
+  80109a:	5b                   	pop    ebx
+  80109b:	5f                   	pop    edi
+  80109c:	83 c4 0c             	add    esp,0xc
+  80109f:	c3                   	ret
+  8010a0:	c6 81 45 01 00 00 00 	mov    BYTE PTR [ecx+0x145],0x0
+  8010a7:	5f                   	pop    edi
+  8010a8:	83 c4 0c             	add    esp,0xc
+  8010ab:	c3                   	ret
+  8010ac:	cc                   	int3
+  8010ad:	cc                   	int3
+  8010ae:	cc                   	int3
+  8010af:	cc                   	int3

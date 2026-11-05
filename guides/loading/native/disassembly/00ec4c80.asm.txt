@@ -1,0 +1,54 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00ec4c80 <.text+0xac3c80>:
+  ec4c80:	56                   	push   esi
+  ec4c81:	e8 0a 47 8a ff       	call   0x769390
+  ec4c86:	6a 00                	push   0x0
+  ec4c88:	6a 00                	push   0x0
+  ec4c8a:	6a 00                	push   0x0
+  ec4c8c:	6a 00                	push   0x0
+  ec4c8e:	68 d4 39 0f 01       	push   0x10f39d4
+  ec4c93:	6a 34                	push   0x34
+  ec4c95:	8b f0                	mov    esi,eax
+  ec4c97:	e8 64 f8 61 ff       	call   0x4e4500
+  ec4c9c:	83 c4 18             	add    esp,0x18
+  ec4c9f:	85 c0                	test   eax,eax
+  ec4ca1:	74 1d                	je     0xec4cc0
+  ec4ca3:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  ec4ca7:	51                   	push   ecx
+  ec4ca8:	8b c8                	mov    ecx,eax
+  ec4caa:	e8 91 ed ff ff       	call   0xec3a40
+  ec4caf:	8b 16                	mov    edx,DWORD PTR [esi]
+  ec4cb1:	6a 40                	push   0x40
+  ec4cb3:	50                   	push   eax
+  ec4cb4:	8b 82 c8 00 00 00    	mov    eax,DWORD PTR [edx+0xc8]
+  ec4cba:	8b ce                	mov    ecx,esi
+  ec4cbc:	ff d0                	call   eax
+  ec4cbe:	5e                   	pop    esi
+  ec4cbf:	c3                   	ret
+  ec4cc0:	8b 16                	mov    edx,DWORD PTR [esi]
+  ec4cc2:	33 c0                	xor    eax,eax
+  ec4cc4:	6a 40                	push   0x40
+  ec4cc6:	50                   	push   eax
+  ec4cc7:	8b 82 c8 00 00 00    	mov    eax,DWORD PTR [edx+0xc8]
+  ec4ccd:	8b ce                	mov    ecx,esi
+  ec4ccf:	ff d0                	call   eax
+  ec4cd1:	5e                   	pop    esi
+  ec4cd2:	c3                   	ret
+  ec4cd3:	cc                   	int3
+  ec4cd4:	cc                   	int3
+  ec4cd5:	cc                   	int3
+  ec4cd6:	cc                   	int3
+  ec4cd7:	cc                   	int3
+  ec4cd8:	cc                   	int3
+  ec4cd9:	cc                   	int3
+  ec4cda:	cc                   	int3
+  ec4cdb:	cc                   	int3
+  ec4cdc:	cc                   	int3
+  ec4cdd:	cc                   	int3
+  ec4cde:	cc                   	int3
+  ec4cdf:	cc                   	int3

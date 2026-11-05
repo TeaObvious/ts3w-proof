@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000332.
+// Assembly: CSHostWrap; type: Sims3.CSHost.AnimationComponent.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/AnimationComponent.cs:92
+	[DllImport("Sims3Common.dll")]
+	private static extern void AnimationComponent_DrawSkeleton(IntPtr pThis, IntPtr ls, ref Matrix44 transform, bool displayInfo, IntPtr txtRndr, IntPtr camera, int maxBoneId, [In][MarshalAs(UnmanagedType.LPArray)] uint[] boneFlags, [In][MarshalAs(UnmanagedType.LPArray)] uint[] boneColors, [In][MarshalAs(UnmanagedType.LPArray)] uint[] textColors, [In][MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] boneInfos, [In][MarshalAs(UnmanagedType.LPArray)] Matrix44[] boneInfosOffsets);

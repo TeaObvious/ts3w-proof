@@ -1,0 +1,126 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: Sims3Pipeline/Sims3/Pipeline/MeshUtils.cs
+// Each selected declaration or method is complete. Other members are omitted.
+
+	[DllImport("Sims3PipelineHelper")]
+	private static extern void ConvertArray(IntPtr dst, NativeVertexElementType dstVEType, IntPtr src, NativeVertexElementType srcVEType, uint count);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3PipelineHelper")]
+	private static extern void ConvertArrayWithScaleOffset(IntPtr dst, NativeVertexElementType dstVEType, IntPtr src, NativeVertexElementType srcVEType, uint count, ref Vector4 scale, ref Vector4 offset);
+
+// [Next selected original declaration or method]
+
+	public static Array ConvertArray(Array array, Type newElementType)
+	{
+		Array array2 = Array.CreateInstance(newElementType, array.Length);
+		NativeVertexElementType nativeVETypeForArray = GetNativeVETypeForArray(array);
+		NativeVertexElementType nativeVETypeForArray2 = GetNativeVETypeForArray(array2);
+		if (array.Length > 0)
+		{
+			if (nativeVETypeForArray == NativeVertexElementType.None)
+			{
+				throw new NotSupportedException("Cannot convert array because the source array type is unsupported.");
+			}
+			if (nativeVETypeForArray2 == NativeVertexElementType.None)
+			{
+				throw new NotSupportedException("Cannot convert array because the destination array type is unsupported.");
+			}
+			GCHandle gCHandle = GCHandle.Alloc(array2, GCHandleType.Pinned);
+			GCHandle gCHandle2 = GCHandle.Alloc(array, GCHandleType.Pinned);
+			IntPtr dst = Marshal.UnsafeAddrOfPinnedArrayElement(array2, 0);
+			IntPtr src = Marshal.UnsafeAddrOfPinnedArrayElement(array, 0);
+			ConvertArray(dst, nativeVETypeForArray2, src, nativeVETypeForArray, (uint)array.Length);
+			gCHandle2.Free();
+			gCHandle.Free();
+		}
+		return array2;
+	}
+
+// [Next selected original declaration or method]
+
+	public static Array ConvertArrayWithScaleAndOffset(Array array, Type newElementType, Vector4 scale, Vector4 offset)
+	{
+		Array array2 = Array.CreateInstance(newElementType, array.Length);
+		NativeVertexElementType nativeVETypeForArray = GetNativeVETypeForArray(array);
+		NativeVertexElementType nativeVETypeForArray2 = GetNativeVETypeForArray(array2);
+		if (array.Length > 0)
+		{
+			if (nativeVETypeForArray == NativeVertexElementType.None)
+			{
+				throw new NotSupportedException("Cannot convert array because the source array type is unsupported.");
+			}
+			if (nativeVETypeForArray2 == NativeVertexElementType.None)
+			{
+				throw new NotSupportedException("Cannot convert array because the destination array type is unsupported.");
+			}
+			GCHandle gCHandle = GCHandle.Alloc(array2, GCHandleType.Pinned);
+			GCHandle gCHandle2 = GCHandle.Alloc(array, GCHandleType.Pinned);
+			IntPtr dst = Marshal.UnsafeAddrOfPinnedArrayElement(array2, 0);
+			IntPtr src = Marshal.UnsafeAddrOfPinnedArrayElement(array, 0);
+			ConvertArrayWithScaleOffset(dst, nativeVETypeForArray2, src, nativeVETypeForArray, (uint)array.Length, ref scale, ref offset);
+			gCHandle2.Free();
+			gCHandle.Free();
+		}
+		return array2;
+	}
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3PipelineHelper.dll")]
+	private static extern void StridedCopy(IntPtr dst, int dstStride, IntPtr src, int srcStride, int width, int height, StridedCopyMode mode);
+
+// [Next selected original declaration or method]
+
+	public static void InsertArrayIntoStream(byte[] dst, int dstOffset, int dstStride, Array src, StridedCopyMode mode)
+	{
+		if (src.Length != 0)
+		{
+			int num = Marshal.SizeOf(src.GetType().GetElementType());
+			int length = src.Length;
+			if (dstOffset + dstStride * (length - 1) + num > dst.Length)
+			{
+				throw new ArgumentOutOfRangeException();
+			}
+			GCHandle gCHandle = GCHandle.Alloc(dst, GCHandleType.Pinned);
+			GCHandle gCHandle2 = GCHandle.Alloc(src, GCHandleType.Pinned);
+			IntPtr src2 = Marshal.UnsafeAddrOfPinnedArrayElement(src, 0);
+			IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement((Array)dst, 0);
+			intPtr = (IntPtr)((long)intPtr + dstOffset);
+			StridedCopy(intPtr, dstStride, src2, num, num, length, mode);
+			gCHandle2.Free();
+			gCHandle.Free();
+		}
+	}
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3PipelineHelper")]
+	private static extern void WeldArray(IntPtr dstArray, IntPtr srcArray, NativeVertexElementType veType, [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 5)] uint[] groups, uint numElements, uint numGroups);
+
+// [Next selected original declaration or method]
+
+	public static Array WeldArray(Array srcArray, uint[] weldGroups, uint weldGroupCount)
+	{
+		Array array = Array.CreateInstance(srcArray.GetType().GetElementType(), (int)weldGroupCount);
+		NativeVertexElementType nativeVETypeForArray = GetNativeVETypeForArray(srcArray);
+		if (srcArray.Length > 0)
+		{
+			if (nativeVETypeForArray == NativeVertexElementType.None)
+			{
+				throw new NotSupportedException("Cannot convert array because the source array type is unsupported.");
+			}
+			for (int i = 0; i < weldGroups.Length; i++)
+			{
+				_ = weldGroups[i];
+			}
+			GCHandle gCHandle = GCHandle.Alloc(array, GCHandleType.Pinned);
+			GCHandle gCHandle2 = GCHandle.Alloc(srcArray, GCHandleType.Pinned);
+			IntPtr dstArray = Marshal.UnsafeAddrOfPinnedArrayElement(array, 0);
+			IntPtr srcArray2 = Marshal.UnsafeAddrOfPinnedArrayElement(srcArray, 0);
+			WeldArray(dstArray, srcArray2, nativeVETypeForArray, weldGroups, (uint)srcArray.Length, weldGroupCount);
+			gCHandle2.Free();
+			gCHandle.Free();
+		}
+		return array;
+	}

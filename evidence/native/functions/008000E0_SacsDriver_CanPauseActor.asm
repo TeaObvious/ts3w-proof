@@ -1,0 +1,37 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: bool SacsDriver_CanPauseActor(void * this, int param_1)
+Owned ranges: [[008000e0, 0080012a]]
+
+008000e0  8b542404  MOV EDX,dword ptr [ESP + 0x4]
+008000e4  85d2  TEST EDX,EDX
+008000e6  751b  JNZ 0x00800103
+008000e8  8b5110  MOV EDX,dword ptr [ECX + 0x10]
+008000eb  8b4914  MOV ECX,dword ptr [ECX + 0x14]
+008000ee  b001  MOV AL,0x1
+008000f0  3bd1  CMP EDX,ECX
+008000f2  7429  JZ 0x0080011d
+008000f4  84c0  TEST AL,AL
+008000f6  0f95c0  SETNZ AL
+008000f9  83c208  ADD EDX,0x8
+008000fc  84c0  TEST AL,AL
+008000fe  75f0  JNZ 0x008000f0
+00800100  c20400  RET 0x4
+00800103  8b4110  MOV EAX,dword ptr [ECX + 0x10]
+00800106  8b4914  MOV ECX,dword ptr [ECX + 0x14]
+00800109  3bc1  CMP EAX,ECX
+0080010b  740e  JZ 0x0080011b
+0080010d  8d4900  LEA ECX,[ECX]
+00800110  3910  CMP dword ptr [EAX],EDX
+00800112  740c  JZ 0x00800120
+00800114  83c008  ADD EAX,0x8
+00800117  3bc1  CMP EAX,ECX
+00800119  75f5  JNZ 0x00800110
+0080011b  32c0  XOR AL,AL
+0080011d  c20400  RET 0x4
+00800120  83780400  CMP dword ptr [EAX + 0x4],0x0
+00800124  74f5  JZ 0x0080011b
+00800126  b001  MOV AL,0x1
+00800128  c20400  RET 0x4

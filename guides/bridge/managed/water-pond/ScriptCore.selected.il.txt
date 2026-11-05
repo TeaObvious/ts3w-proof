@@ -1,0 +1,55 @@
+
+.bodyless 0x06000746 ScriptCore.World::World_GetSeaLevelImpl {"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":0,"return_type":"r4","parameter_types":[],"field_type":null,"issue":null}
+
+.bodyless 0x06000747 ScriptCore.World::World_GetPondLevelImpl {"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":3,"return_type":"bool","parameter_types":["r4","r4","r4&"],"field_type":null,"issue":null}
+
+.bodyless 0x060007a6 ScriptCore.World::World_FindPondRepresentativePositions {"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":2,"return_type":"bool","parameter_types":["u8","r4[]&"],"field_type":null,"issue":null}
+
+.bodyless 0x060007a7 ScriptCore.World::World_GetAllPondIds {"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":2,"return_type":"bool","parameter_types":["u8","u4[]&"],"field_type":null,"issue":null}
+
+.bodyless 0x060007a8 ScriptCore.World::World_GetPondInfo {"raw_length":9,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":3,"return_type":"bool","parameter_types":["u4","u8","valuetype:769&"],"field_type":null,"issue":null}
+
+.bodyless 0x060007a9 ScriptCore.World::World_GetPondAtPoint {"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":2,"return_type":"u4","parameter_types":["u8","valuetype:317"],"field_type":null,"issue":null}
+
+.bodyless 0x060007aa ScriptCore.World::World_GetNumPonds {"raw_length":4,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":1,"return_type":"u4","parameter_types":["u8"],"field_type":null,"issue":null}
+
+.method 0x060008bb ScriptCore.World::GetSeaLevel RVA=0xa40c signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":0,"return_type":"r4","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: call           0x06000746 ; ScriptCore.World::World_GetSeaLevelImpl
+ IL_0005: ret             ;
+
+.method 0x060008bc ScriptCore.World::GetPondLevel RVA=0xa413 signature={"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":3,"return_type":"bool","parameter_types":["r4","r4","r4&"],"field_type":null,"issue":null}
+ IL_0000: ldarg.1         ;
+ IL_0001: ldarg.2         ;
+ IL_0002: ldarg.3         ;
+ IL_0003: call           0x06000747 ; ScriptCore.World::World_GetPondLevelImpl
+ IL_0008: ret             ;
+
+.method 0x06000926 ScriptCore.World::FindPondRepresentativePositions RVA=0xab23 signature={"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":2,"return_type":"bool","parameter_types":["u8","r4[]&"],"field_type":null,"issue":null}
+ IL_0000: ldarg.1         ;
+ IL_0001: ldarg.2         ;
+ IL_0002: call           0x060007a6 ; ScriptCore.World::World_FindPondRepresentativePositions
+ IL_0007: ret             ;
+
+.method 0x06000927 ScriptCore.World::GetAllPondIds RVA=0xab2c signature={"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":2,"return_type":"bool","parameter_types":["u8","u4[]&"],"field_type":null,"issue":null}
+ IL_0000: ldarg.1         ;
+ IL_0001: ldarg.2         ;
+ IL_0002: call           0x060007a7 ; ScriptCore.World::World_GetAllPondIds
+ IL_0007: ret             ;
+
+.method 0x06000928 ScriptCore.World::GetPondInfo RVA=0xab35 signature={"raw_length":9,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":3,"return_type":"bool","parameter_types":["u4","u8","valuetype:769&"],"field_type":null,"issue":null}
+ IL_0000: ldarg.1         ;
+ IL_0001: ldarg.2         ;
+ IL_0002: ldarg.3         ;
+ IL_0003: call           0x060007a8 ; ScriptCore.World::World_GetPondInfo
+ IL_0008: ret             ;
+
+.method 0x06000929 ScriptCore.World::GetPondAtPoint RVA=0xab3f signature={"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":2,"return_type":"u4","parameter_types":["u8","valuetype:317"],"field_type":null,"issue":null}
+ IL_0000: ldarg.1         ;
+ IL_0001: ldarg.2         ;
+ IL_0002: call           0x060007a9 ; ScriptCore.World::World_GetPondAtPoint
+ IL_0007: ret             ;
+
+.method 0x0600092a ScriptCore.World::GetNumPonds RVA=0xab48 signature={"raw_length":4,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":1,"return_type":"u4","parameter_types":["u8"],"field_type":null,"issue":null}
+ IL_0000: ldarg.1         ;
+ IL_0001: call           0x060007aa ; ScriptCore.World::World_GetNumPonds
+ IL_0006: ret             ;

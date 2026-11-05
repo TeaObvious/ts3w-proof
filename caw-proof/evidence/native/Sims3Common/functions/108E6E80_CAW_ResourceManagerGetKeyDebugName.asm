@@ -1,0 +1,73 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 108e6e80..108e6f31; CAW_ResourceManagerGetKeyDebugName
+108e6e80: 83ec08  SUB ESP,0x8
+108e6e83: 53  PUSH EBX
+108e6e84: 8b5c2410  MOV EBX,dword ptr [ESP + 0x10]
+108e6e88: 55  PUSH EBP
+108e6e89: 56  PUSH ESI
+108e6e8a: 8bf1  MOV ESI,ECX
+108e6e8c: 8b06  MOV EAX,dword ptr [ESI]
+108e6e8e: 8b5044  MOV EDX,dword ptr [EAX + 0x44]
+108e6e91: 53  PUSH EBX
+108e6e92: ffd2  CALL EDX
+108e6e94: 8be8  MOV EBP,EAX
+108e6e96: 85ed  TEST EBP,EBP
+108e6e98: 7413  JZ 0x108e6ead
+108e6e9a: 8b44241c  MOV EAX,dword ptr [ESP + 0x1c]
+108e6e9e: 55  PUSH EBP
+108e6e9f: 50  PUSH EAX
+108e6ea0: 53  PUSH EBX
+108e6ea1: e81adcffff  CALL 0x108e4ac0
+108e6ea6: 83c40c  ADD ESP,0xc
+108e6ea9: 84c0  TEST AL,AL
+108e6eab: 757c  JNZ 0x108e6f29
+108e6ead: 57  PUSH EDI
+108e6eae: 8d8e40010000  LEA ECX,[ESI + 0x140]
+108e6eb4: 688c7eb810  PUSH 0x10b87e8c
+108e6eb9: 894c2420  MOV dword ptr [ESP + 0x20],ECX
+108e6ebd: e8fef70200  CALL 0x109166c0
+108e6ec2: 53  PUSH EBX
+108e6ec3: 8d4c2414  LEA ECX,[ESP + 0x14]
+108e6ec7: 8dbe18010000  LEA EDI,[ESI + 0x118]
+108e6ecd: 51  PUSH ECX
+108e6ece: 8bcf  MOV ECX,EDI
+108e6ed0: e88bfaffff  CALL 0x108e6960
+108e6ed5: 8b5708  MOV EDX,dword ptr [EDI + 0x8]
+108e6ed8: 8b4f04  MOV ECX,dword ptr [EDI + 0x4]
+108e6edb: 8b442410  MOV EAX,dword ptr [ESP + 0x10]
+108e6edf: 3b0491  CMP EAX,dword ptr [ECX + EDX*0x4]
+108e6ee2: 5f  POP EDI
+108e6ee3: 7524  JNZ 0x108e6f09
+108e6ee5: 8b54241c  MOV EDX,dword ptr [ESP + 0x1c]
+108e6ee9: 6a00  PUSH 0x0
+108e6eeb: 55  PUSH EBP
+108e6eec: 56  PUSH ESI
+108e6eed: 52  PUSH EDX
+108e6eee: 53  PUSH EBX
+108e6eef: e83cdcffff  CALL 0x108e4b30
+108e6ef4: 8b4c242c  MOV ECX,dword ptr [ESP + 0x2c]
+108e6ef8: 83c414  ADD ESP,0x14
+108e6efb: e880f80200  CALL 0x10916780
+108e6f00: 5e  POP ESI
+108e6f01: 5d  POP EBP
+108e6f02: 5b  POP EBX
+108e6f03: 83c408  ADD ESP,0x8
+108e6f06: c20800  RET 0x8
+108e6f09: 8b4c241c  MOV ECX,dword ptr [ESP + 0x1c]
+108e6f0d: 83c010  ADD EAX,0x10
+108e6f10: 3bc1  CMP EAX,ECX
+108e6f12: 740c  JZ 0x108e6f20
+108e6f14: 8b5004  MOV EDX,dword ptr [EAX + 0x4]
+108e6f17: 8b00  MOV EAX,dword ptr [EAX]
+108e6f19: 52  PUSH EDX
+108e6f1a: 50  PUSH EAX
+108e6f1b: e8a08973ff  CALL 0x1001f8c0
+108e6f20: 8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+108e6f24: e857f80200  CALL 0x10916780
+108e6f29: 5e  POP ESI
+108e6f2a: 5d  POP EBP
+108e6f2b: 5b  POP EBX
+108e6f2c: 83c408  ADD ESP,0x8
+108e6f2f: c20800  RET 0x8

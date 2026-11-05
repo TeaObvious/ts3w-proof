@@ -1,0 +1,136 @@
+### ScriptCore:0x060001FB ScriptCore.LoadSaveManager::SaveWorld RVA=0x000041A8 ILBytes=51
+IL_0000: newobj 0E120006 // ScriptCore.LoadSaveManager+<>c__DisplayClass1::.ctor
+IL_0005: stloc.0
+IL_0006: call 6100000A // Sims3.SimIFace.Simulator::CheckYieldingContext
+IL_000B: ldloc.0
+IL_000C: ldc.i4.1
+IL_000D: newarr 4D010001
+IL_0012: stloc.1
+IL_0013: ldloc.1
+IL_0014: stfld 45010004
+IL_0019: ldloc.0
+IL_001A: ldftn 0F120006 // ScriptCore.LoadSaveManager+<>c__DisplayClass1::<SaveWorld>b__0
+IL_0020: newobj 1D020006 // ScriptCore.LoadSaveManager+SaveWorldDelegate::.ctor
+IL_0025: call D5010006 // ScriptCore.LoadSaveManager::LoadSaveManager_SaveWorld
+IL_002A: ldloc.0
+IL_002B: ldfld 45010004
+IL_0030: ldc.i4.0
+IL_0031: ldelem.i1
+IL_0032: ret
+
+### ScriptCore:0x06000716 ScriptCore.CameraController::RegisterCallbackMethod RVA=0x0000A233 ILBytes=9
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: ldarg.3
+IL_0003: call E9060006 // ScriptCore.CameraController::Camera_RegisterCallbackMethod
+IL_0008: ret
+
+### ScriptCore:0x060008B7 ScriptCore.World::RegisterCallbackMethod RVA=0x0000A3E7 ILBytes=9
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: ldarg.3
+IL_0003: call 42070006 // ScriptCore.World::World_RegisterCallbackMethodImpl
+IL_0008: ret
+
+### ScriptCore:0x060008B8 ScriptCore.World::RegisterCallbackDelegate RVA=0x0000A3F1 ILBytes=8
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: call 43070006 // ScriptCore.World::World_RegisterCallbackDelegateImpl
+IL_0007: ret
+
+### ScriptCore:0x06000DDC ScriptCore.Animation::SetPMAAnimationFinishedCallback RVA=0x0001168D ILBytes=7
+IL_0000: ldarg.1
+IL_0001: call C50D0006 // ScriptCore.Animation::Animation_SetPMAAnimationFinishedCallback
+IL_0006: ret
+
+### ScriptCore:0x060011F1 ScriptCore.Audio::StartSound RVA=0x00014989 ILBytes=7
+IL_0000: ldarg.1
+IL_0001: call D7110006 // ScriptCore.Audio::Audio_StartSoundImpl
+IL_0006: ret
+
+### ScriptCore:0x060011F4 ScriptCore.Audio::StartSoundById RVA=0x000149A1 ILBytes=7
+IL_0000: ldarg.1
+IL_0001: call DB110006 // ScriptCore.Audio::Audio_StartSoundByIdImpl
+IL_0006: ret
+
+### ScriptCore:0x060011F5 ScriptCore.Audio::StartSoundById RVA=0x000149A9 ILBytes=17
+IL_0000: ldarg.1
+IL_0001: brfalse.s 07
+IL_0003: ldarg.1
+IL_0004: ldarg.2
+IL_0005: call E1110006 // ScriptCore.Audio::Audio_SoundFinishedCallbackImpl
+IL_000A: ldarg.1
+IL_000B: call DB110006 // ScriptCore.Audio::Audio_StartSoundByIdImpl
+IL_0010: ret
+
+### ScriptCore:0x060011F6 ScriptCore.Audio::StartSound RVA=0x000149BC ILBytes=19
+IL_0000: ldarg.1
+IL_0001: call D7110006 // ScriptCore.Audio::Audio_StartSoundImpl
+IL_0006: stloc.0
+IL_0007: ldloc.0
+IL_0008: brfalse.s 07
+IL_000A: ldloc.0
+IL_000B: ldarg.2
+IL_000C: call E1110006 // ScriptCore.Audio::Audio_SoundFinishedCallbackImpl
+IL_0011: ldloc.0
+IL_0012: ret
+
+### ScriptCore:0x060011F7 ScriptCore.Audio::StartSound RVA=0x000149DB ILBytes=8
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: call D9110006 // ScriptCore.Audio::Audio_StartSoundAtPositionImpl
+IL_0007: ret
+
+### ScriptCore:0x060011FB ScriptCore.Audio::StartObjectSound RVA=0x00014A0A ILBytes=15
+IL_0000: ldarga.s 01
+IL_0002: call 1700000A // Sims3.SimIFace.ObjectGuid::get_Value
+IL_0007: ldarg.2
+IL_0008: ldarg.3
+IL_0009: call DF110006 // ScriptCore.Audio::Audio_StartObjectSoundImpl
+IL_000E: ret
+
+### ScriptCore:0x060011FC ScriptCore.Audio::StartObjectSound RVA=0x00014A1C ILBytes=27
+IL_0000: ldarga.s 01
+IL_0002: call 1700000A // Sims3.SimIFace.ObjectGuid::get_Value
+IL_0007: ldarg.2
+IL_0008: ldc.i4.0
+IL_0009: call DF110006 // ScriptCore.Audio::Audio_StartObjectSoundImpl
+IL_000E: stloc.0
+IL_000F: ldloc.0
+IL_0010: brfalse.s 07
+IL_0012: ldloc.0
+IL_0013: ldarg.3
+IL_0014: call E1110006 // ScriptCore.Audio::Audio_SoundFinishedCallbackImpl
+IL_0019: ldloc.0
+IL_001A: ret
+
+### ScriptCore:0x060011FD ScriptCore.Audio::StartObjectSoundWithFlags RVA=0x00014A43 ILBytes=15
+IL_0000: ldarga.s 01
+IL_0002: call 1700000A // Sims3.SimIFace.ObjectGuid::get_Value
+IL_0007: ldarg.2
+IL_0008: ldarg.3
+IL_0009: call E0110006 // ScriptCore.Audio::Audio_StartObjectSoundWithFlagsImpl
+IL_000E: ret
+
+### ScriptCore:0x060011FE ScriptCore.Audio::StartObjectSoundWithFlags RVA=0x00014A54 ILBytes=28
+IL_0000: ldarga.s 01
+IL_0002: call 1700000A // Sims3.SimIFace.ObjectGuid::get_Value
+IL_0007: ldarg.2
+IL_0008: ldarg.3
+IL_0009: call E0110006 // ScriptCore.Audio::Audio_StartObjectSoundWithFlagsImpl
+IL_000E: stloc.0
+IL_000F: ldloc.0
+IL_0010: brfalse.s 08
+IL_0012: ldloc.0
+IL_0013: ldarg.s 04
+IL_0015: call E1110006 // ScriptCore.Audio::Audio_SoundFinishedCallbackImpl
+IL_001A: ldloc.0
+IL_001B: ret
+
+### ScriptCore:0x06001201 ScriptCore.Audio::SetEventModifiers RVA=0x00014A99 ILBytes=11
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: ldarg.3
+IL_0003: ldarg.s 04
+IL_0005: call E6110006 // ScriptCore.Audio::Audio_SetEventModifiersImpl
+IL_000A: ret

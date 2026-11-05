@@ -1,0 +1,40 @@
+[Context] Operating on: TS3W.exe | Total open programs: 3
+
+Decompiled function FUN_00c60e20:
+
+
+float10 __thiscall FUN_00c60e20(void *param_1,float param_2,float param_3,char param_4)
+
+{
+  float fVar1;
+  undefined4 *puVar2;
+  void *this;
+  undefined4 uVar3;
+  undefined4 *puVar4;
+  float local_4;
+  
+  local_4 = -100.0;
+  if ((((*(float *)((int)param_1 + 0xb4) <= param_2) && (*(float *)((int)param_1 + 0xb8) <= param_3)
+       ) && (param_2 < *(float *)((int)param_1 + 0xbc))) &&
+     (param_3 < *(float *)((int)param_1 + 0xc4) + *(float *)((int)param_1 + 0xc0))) {
+    puVar2 = *(undefined4 **)((int)param_1 + 0x104);
+    puVar4 = *(undefined4 **)((int)param_1 + 0x100);
+    if (puVar4 != puVar2) {
+      while( true ) {
+        this = (void *)*puVar4;
+        uVar3 = FUN_00b5e390(this,param_2,param_3,param_4);
+        if ((char)uVar3 != '\0') break;
+        puVar4 = puVar4 + 1;
+        if (puVar4 == puVar2) {
+          return (float10)-100.0;
+        }
+      }
+      fVar1 = *(float *)((int)this + 0x218);
+      if (-100.0 < fVar1) {
+        local_4 = fVar1;
+      }
+    }
+  }
+  return (float10)local_4;
+}
+

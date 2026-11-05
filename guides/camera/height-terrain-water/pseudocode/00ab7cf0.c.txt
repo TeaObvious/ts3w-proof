@@ -1,0 +1,28 @@
+[Context] Operating on: TS3W.exe | Total open programs: 3
+
+Decompiled function FUN_00ab7cf0:
+
+
+char __thiscall FUN_00ab7cf0(void *this,float param_1,float param_2,int param_3,float *param_4)
+
+{
+  char cVar1;
+  char extraout_DL;
+  float local_28;
+  float local_24 [8];
+  
+  cVar1 = '\0';
+  *param_4 = -100.0;
+  if (*(int *)((int)this + 0x2ac) != 0) {
+    FUN_00ab6e40(this,param_1,param_2,local_24,&local_28);
+    cVar1 = extraout_DL;
+    if ((((0.0 <= local_24[0]) && (local_24[0] <= (float)*(int *)((int)this + 0x174))) &&
+        (0.0 <= local_28)) && (local_28 <= (float)*(int *)((int)this + 0x178))) {
+      cVar1 = FUN_00b9a290(*(void **)((int)this + 0x2ac),local_24[0],local_28,param_3,param_4);
+      *param_4 = *param_4 + *(float *)((int)this + 0x194);
+      return cVar1;
+    }
+  }
+  return cVar1;
+}
+

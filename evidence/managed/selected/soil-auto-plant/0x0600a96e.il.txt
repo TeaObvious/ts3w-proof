@@ -1,0 +1,56 @@
+	.method private hidebysig 
+		instance class Sims3.Gameplay.Interfaces.IGameObject CreateSeed () cil managed 
+	{
+		// Method begins at RVA 0x301414
+		// Header size: 12
+		// Code size: 77 (0x4d)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.Interfaces.IGameObject,
+			[1] class Sims3.Gameplay.Objects.FoodObjects.IngredientData,
+			[2] class Sims3.Gameplay.Objects.Gardening.PlantableNonIngredientData
+		)
+
+		IL_0000: ldnull
+		IL_0001: stloc.0
+		IL_0002: ldnull
+		IL_0003: stloc.1
+		IL_0004: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.FoodObjects.IngredientData> Sims3.Gameplay.Objects.FoodObjects.IngredientData::NameToDataMap
+		IL_0009: ldarg.0
+		IL_000a: callvirt instance string Sims3.Gameplay.Objects.Gardening.SoilAutoPlant::GetPlantableNameKey()
+		IL_000f: ldloca.s 1
+		IL_0011: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.FoodObjects.IngredientData>::TryGetValue(!0, !1&)
+		IL_0016: brfalse.s IL_001f
+
+		IL_0018: ldloc.1
+		IL_0019: call class Sims3.Gameplay.Objects.FoodObjects.Ingredient Sims3.Gameplay.Objects.FoodObjects.Ingredient::Create(class Sims3.Gameplay.Objects.FoodObjects.IngredientData)
+		IL_001e: stloc.0
+
+		IL_001f: ldloc.0
+		IL_0020: brtrue.s IL_0042
+
+		IL_0022: ldnull
+		IL_0023: stloc.2
+		IL_0024: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.Gardening.PlantableNonIngredientData> Sims3.Gameplay.Objects.Gardening.PlantableNonIngredientData::NameToDataMap
+		IL_0029: ldarg.0
+		IL_002a: callvirt instance string Sims3.Gameplay.Objects.Gardening.SoilAutoPlant::GetPlantableNameKey()
+		IL_002f: ldloca.s 2
+		IL_0031: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.Gardening.PlantableNonIngredientData>::TryGetValue(!0, !1&)
+		IL_0036: brfalse.s IL_0042
+
+		IL_0038: ldloc.2
+		IL_0039: ldc.i4.5
+		IL_003a: ldc.i4.1
+		IL_003b: ldc.i4.0
+		IL_003c: call class Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.Gardening.PlantableNonIngredient::Create(class Sims3.Gameplay.Objects.Gardening.PlantableNonIngredientData, valuetype Sims3.Gameplay.Objects.Quality, bool, valuetype Sims3.Gameplay.Objects.Gardening.PlayerDisclosure)
+		IL_0041: stloc.0
+
+		IL_0042: ldloc.0
+		IL_0043: brfalse.s IL_004b
+
+		IL_0045: ldloc.0
+		IL_0046: callvirt instance void Sims3.Gameplay.Interfaces.IGameObject::RemoveFromWorld()
+
+		IL_004b: ldloc.0
+		IL_004c: ret
+	} // end of method SoilAutoPlant::CreateSeed

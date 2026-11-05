@@ -1,0 +1,13 @@
+# save-world-task-gate: retail TS3W.exe VA 0x00743220-0x00743241, file offset 0x343220
+743220:	83 7c 24 0c 04       	cmp    DWORD PTR [esp+0xc],0x4
+  743225:	75 15                	jne    0x74323c
+  743227:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+  74322b:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  74322f:	50                   	push   eax
+  743230:	e8 1b fe ff ff       	call   0x743050
+  743235:	84 c0                	test   al,al
+  743237:	75 03                	jne    0x74323c
+  743239:	33 c0                	xor    eax,eax
+  74323b:	c3                   	ret
+  74323c:	b8 01 00 00 00       	mov    eax,0x1
+  743241:	c3                   	ret

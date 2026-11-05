@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x0600006A.
+// Assembly: Sims3Pipeline; type: Sims3.Pipeline.MeshUtils.
+// Decompiled C# source: Sims3Pipeline/Sims3/Pipeline/MeshUtils.cs:528
+	[DllImport("Sims3PipelineHelper")]
+	private static extern void WeldArray(IntPtr dstArray, IntPtr srcArray, NativeVertexElementType veType, [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 5)] uint[] groups, uint numElements, uint numGroups);

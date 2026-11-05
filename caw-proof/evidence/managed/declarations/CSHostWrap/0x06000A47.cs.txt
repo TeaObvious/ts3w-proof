@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000A47.
+// Assembly: CSHostWrap; type: Sims3.CSHost.Animation.Rig.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/Animation/Rig.cs:164
+	[DllImport("Sims3Common.dll")]
+	private static extern int RigResource_BuildRigAndWriteToFile([In][MarshalAs(UnmanagedType.LPStr)] string rigName, [In][MarshalAs(UnmanagedType.LPArray)] RigJointInfo[] jointInfo, int jointCount, [In][MarshalAs(UnmanagedType.LPStr)] string outFilePath, bool isZUp, bool includeIK);

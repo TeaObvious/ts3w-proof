@@ -1,0 +1,32 @@
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x2072d4
+		// Header size: 12
+		// Code size: 87 (0x57)
+		.maxstack 3
+
+		IL_0000: ldc.i4.0
+		IL_0001: stsfld bool Sims3.Gameplay.Core.AudioManager::mIsPaused
+		IL_0006: ldc.i4.0
+		IL_0007: stsfld uint32 Sims3.Gameplay.Core.AudioManager::mMusicHandle
+		IL_000c: ldc.i4.0
+		IL_000d: stsfld valuetype Sims3.Gameplay.Core.MusicMode Sims3.Gameplay.Core.AudioManager::mMusicMode
+		IL_0012: ldnull
+		IL_0013: ldftn void Sims3.Gameplay.Actors.Sim::AudioEventModifier(uint64, string&, float32&, float32&, uint32&)
+		IL_0019: newobj instance void [SimIFace]Sims3.SimIFace.AudioEventSimModifier::.ctor(object, native int)
+		IL_001e: stsfld class [SimIFace]Sims3.SimIFace.AudioEventSimModifier Sims3.Gameplay.Core.AudioManager::mSimModifier
+		IL_0023: ldnull
+		IL_0024: ldftn void Sims3.Gameplay.Actors.Sim::AudioEventSkillModifier(uint64, string&, string&, int32&)
+		IL_002a: newobj instance void [SimIFace]Sims3.SimIFace.AudioEventSkillModifier::.ctor(object, native int)
+		IL_002f: stsfld class [SimIFace]Sims3.SimIFace.AudioEventSkillModifier Sims3.Gameplay.Core.AudioManager::mSkillModifier
+		IL_0034: ldnull
+		IL_0035: ldftn void Sims3.Gameplay.Abstracts.GameObject::AudioEventQualityModifier(uint64, string&, int32&)
+		IL_003b: newobj instance void [SimIFace]Sims3.SimIFace.AudioEventQualityModifier::.ctor(object, native int)
+		IL_0040: stsfld class [SimIFace]Sims3.SimIFace.AudioEventQualityModifier Sims3.Gameplay.Core.AudioManager::mQualityModifier
+		IL_0045: ldnull
+		IL_0046: ldftn bool Sims3.Gameplay.Abstracts.GameObject::AudioEventMaterialModifier(uint64, string&)
+		IL_004c: newobj instance void [SimIFace]Sims3.SimIFace.AudioEventMaterialModifier::.ctor(object, native int)
+		IL_0051: stsfld class [SimIFace]Sims3.SimIFace.AudioEventMaterialModifier Sims3.Gameplay.Core.AudioManager::mMaterialModifier
+		IL_0056: ret
+	} // end of method AudioManager::.cctor

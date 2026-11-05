@@ -1,0 +1,37 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67; complete actual saved Ghidra Listing with pristine original bytes; body [[00a64840, 00a6488d]]
+00a64840	e8ebbf0400	CALL 0x00ab0830
+00a64845	84c0	TEST AL,AL
+00a64847	7442	JZ 0x00a6488b
+00a64849	56	PUSH ESI
+00a6484a	8b742408	MOV ESI,dword ptr [ESP + 0x8]
+00a6484e	8bce	MOV ECX,ESI
+00a64850	e8dba8c2ff	CALL 0x0068f130
+00a64855	85c0	TEST EAX,EAX
+00a64857	741f	JZ 0x00a64878
+00a64859	8b10	MOV EDX,dword ptr [EAX]
+00a6485b	8bc8	MOV ECX,EAX
+00a6485d	8b420c	MOV EAX,dword ptr [EDX + 0xc]
+00a64860	680e6b5690	PUSH 0x90566b0e
+00a64865	ffd0	CALL EAX
+00a64867	8b4c240c	MOV ECX,dword ptr [ESP + 0xc]
+00a6486b	51	PUSH ECX
+00a6486c	56	PUSH ESI
+00a6486d	50	PUSH EAX
+00a6486e	e81dffffff	CALL 0x00a64790
+00a64873	83c40c	ADD ESP,0xc
+00a64876	5e	POP ESI
+00a64877	c3	RET
+00a64878	8b4c240c	MOV ECX,dword ptr [ESP + 0xc]
+00a6487c	51	PUSH ECX
+00a6487d	33c0	XOR EAX,EAX
+00a6487f	56	PUSH ESI
+00a64880	50	PUSH EAX
+00a64881	e80affffff	CALL 0x00a64790
+00a64886	83c40c	ADD ESP,0xc
+00a64889	5e	POP ESI
+00a6488a	c3	RET
+00a6488b	32c0	XOR AL,AL
+00a6488d	c3	RET

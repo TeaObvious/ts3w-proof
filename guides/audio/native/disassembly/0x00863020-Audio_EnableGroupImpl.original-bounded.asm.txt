@@ -1,0 +1,75 @@
+Reference: original PC 1.67 TS3W.exe SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+Registration: ScriptCore.Audio::Audio_EnableGroupImpl
+PE VA interval: [0x00863020, 0x00863090)
+Original file interval: [0x463020, 0x463090)
+Span SHA-256: e1d517c96d57c95175a510d43a0ec2d28e439e36b0cb0ffccd39f41f6016ba63
+Boundary: next function entry in retained Ghidra listing; this is a bounded linear decode, not independently proven exact function body.
+Decoder: GNU objdump -D -Mintel; control-flow paths must be checked before behavioral claims.
+
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00863020 <.text+0x462020>:
+  863020:	56                   	push   esi
+  863021:	e8 da cd 04 00       	call   0x8afe00
+  863026:	8b f0                	mov    esi,eax
+  863028:	85 f6                	test   esi,esi
+  86302a:	74 43                	je     0x86306f
+  86302c:	8b 06                	mov    eax,DWORD PTR [esi]
+  86302e:	8b 50 44             	mov    edx,DWORD PTR [eax+0x44]
+  863031:	68 94 bf 49 d5       	push   0xd549bf94
+  863036:	8b ce                	mov    ecx,esi
+  863038:	ff d2                	call   edx
+  86303a:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  86303e:	8b 06                	mov    eax,DWORD PTR [esi]
+  863040:	8b 50 4c             	mov    edx,DWORD PTR [eax+0x4c]
+  863043:	51                   	push   ecx
+  863044:	68 49 20 36 04       	push   0x4362049
+  863049:	8b ce                	mov    ecx,esi
+  86304b:	ff d2                	call   edx
+  86304d:	8b 06                	mov    eax,DWORD PTR [esi]
+  86304f:	8b 50 4c             	mov    edx,DWORD PTR [eax+0x4c]
+  863052:	33 c9                	xor    ecx,ecx
+  863054:	38 4c 24 0c          	cmp    BYTE PTR [esp+0xc],cl
+  863058:	0f 95 c1             	setne  cl
+  86305b:	51                   	push   ecx
+  86305c:	68 0a c5 49 15       	push   0x1549c50a
+  863061:	8b ce                	mov    ecx,esi
+  863063:	ff d2                	call   edx
+  863065:	8b 06                	mov    eax,DWORD PTR [esi]
+  863067:	8b 50 68             	mov    edx,DWORD PTR [eax+0x68]
+  86306a:	8b ce                	mov    ecx,esi
+  86306c:	5e                   	pop    esi
+  86306d:	ff e2                	jmp    edx
+  86306f:	5e                   	pop    esi
+  863070:	c3                   	ret
+  863071:	cc                   	int3
+  863072:	cc                   	int3
+  863073:	cc                   	int3
+  863074:	cc                   	int3
+  863075:	cc                   	int3
+  863076:	cc                   	int3
+  863077:	cc                   	int3
+  863078:	cc                   	int3
+  863079:	cc                   	int3
+  86307a:	cc                   	int3
+  86307b:	cc                   	int3
+  86307c:	cc                   	int3
+  86307d:	cc                   	int3
+  86307e:	cc                   	int3
+  86307f:	cc                   	int3
+  863080:	b8 fc 8e 02 01       	mov    eax,0x1028efc
+  863085:	c3                   	ret
+  863086:	cc                   	int3
+  863087:	cc                   	int3
+  863088:	cc                   	int3
+  863089:	cc                   	int3
+  86308a:	cc                   	int3
+  86308b:	cc                   	int3
+  86308c:	cc                   	int3
+  86308d:	cc                   	int3
+  86308e:	cc                   	int3
+  86308f:	cc                   	int3

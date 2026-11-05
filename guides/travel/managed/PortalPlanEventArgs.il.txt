@@ -1,0 +1,211 @@
+// Original PC1.67 Sims3GameplaySystems.dll; complete original type export.
+.class public auto ansi beforefieldinit Sims3.Gameplay.Core.PortalPlanEventArgs
+	extends [mscorlib]System.EventArgs
+{
+	// Fields
+	.field private bool mbLocked
+	.field private int32 mRoomFrom
+	.field private int32 mRoomTo
+	.field private class Sims3.Gameplay.Actors.Sim mActor
+	.field private class Sims3.Gameplay.Abstracts.GameObject mPortalObject
+	.field private class Sims3.Gameplay.Core.Lot mLot
+	.field private bool mbDiscouraged
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			class Sims3.Gameplay.Actors.Sim actor,
+			class Sims3.Gameplay.Abstracts.GameObject portalObject,
+			class Sims3.Gameplay.Core.Lot lot,
+			int32 roomFrom,
+			int32 roomTo,
+			bool initialLockedSetting
+		) cil managed 
+	{
+		// Method begins at RVA 0x43d8d0
+		// Header size: 1
+		// Code size: 59 (0x3b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [mscorlib]System.EventArgs::.ctor()
+		IL_0006: ldarg.0
+		IL_0007: ldarg.s initialLockedSetting
+		IL_0009: stfld bool Sims3.Gameplay.Core.PortalPlanEventArgs::mbLocked
+		IL_000e: ldarg.0
+		IL_000f: ldarg.1
+		IL_0010: stfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PortalPlanEventArgs::mActor
+		IL_0015: ldarg.0
+		IL_0016: ldarg.2
+		IL_0017: stfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Core.PortalPlanEventArgs::mPortalObject
+		IL_001c: ldarg.0
+		IL_001d: ldarg.s roomFrom
+		IL_001f: stfld int32 Sims3.Gameplay.Core.PortalPlanEventArgs::mRoomFrom
+		IL_0024: ldarg.0
+		IL_0025: ldarg.s roomTo
+		IL_0027: stfld int32 Sims3.Gameplay.Core.PortalPlanEventArgs::mRoomTo
+		IL_002c: ldarg.0
+		IL_002d: ldarg.3
+		IL_002e: stfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.PortalPlanEventArgs::mLot
+		IL_0033: ldarg.0
+		IL_0034: ldc.i4.0
+		IL_0035: stfld bool Sims3.Gameplay.Core.PortalPlanEventArgs::mbDiscouraged
+		IL_003a: ret
+	} // end of method PortalPlanEventArgs::.ctor
+
+	.method public hidebysig specialname 
+		instance class Sims3.Gameplay.Core.Lot get_Lot () cil managed 
+	{
+		// Method begins at RVA 0x43d90c
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.PortalPlanEventArgs::mLot
+		IL_0006: ret
+	} // end of method PortalPlanEventArgs::get_Lot
+
+	.method public hidebysig specialname 
+		instance int32 get_RoomFrom () cil managed 
+	{
+		// Method begins at RVA 0x43d914
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Core.PortalPlanEventArgs::mRoomFrom
+		IL_0006: ret
+	} // end of method PortalPlanEventArgs::get_RoomFrom
+
+	.method public hidebysig specialname 
+		instance int32 get_RoomTo () cil managed 
+	{
+		// Method begins at RVA 0x43d91c
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Core.PortalPlanEventArgs::mRoomTo
+		IL_0006: ret
+	} // end of method PortalPlanEventArgs::get_RoomTo
+
+	.method public hidebysig specialname 
+		instance class Sims3.Gameplay.Actors.Sim get_Actor () cil managed 
+	{
+		// Method begins at RVA 0x43d924
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PortalPlanEventArgs::mActor
+		IL_0006: ret
+	} // end of method PortalPlanEventArgs::get_Actor
+
+	.method public hidebysig specialname 
+		instance class Sims3.Gameplay.Abstracts.GameObject get_PortalObject () cil managed 
+	{
+		// Method begins at RVA 0x43d92c
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Core.PortalPlanEventArgs::mPortalObject
+		IL_0006: ret
+	} // end of method PortalPlanEventArgs::get_PortalObject
+
+	.method public hidebysig specialname 
+		instance bool get_Locked () cil managed 
+	{
+		// Method begins at RVA 0x43d934
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Core.PortalPlanEventArgs::mbLocked
+		IL_0006: ret
+	} // end of method PortalPlanEventArgs::get_Locked
+
+	.method public hidebysig specialname 
+		instance void set_Locked (
+			bool 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x43d93c
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld bool Sims3.Gameplay.Core.PortalPlanEventArgs::mbLocked
+		IL_0007: ret
+	} // end of method PortalPlanEventArgs::set_Locked
+
+	.method public hidebysig specialname 
+		instance bool get_Discouraged () cil managed 
+	{
+		// Method begins at RVA 0x43d945
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Core.PortalPlanEventArgs::mbDiscouraged
+		IL_0006: ret
+	} // end of method PortalPlanEventArgs::get_Discouraged
+
+	.method public hidebysig specialname 
+		instance void set_Discouraged (
+			bool 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x43d94d
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld bool Sims3.Gameplay.Core.PortalPlanEventArgs::mbDiscouraged
+		IL_0007: ret
+	} // end of method PortalPlanEventArgs::set_Discouraged
+
+	// Properties
+	.property instance class Sims3.Gameplay.Core.Lot Lot()
+	{
+		.get instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.PortalPlanEventArgs::get_Lot()
+	}
+	.property instance int32 RoomFrom()
+	{
+		.get instance int32 Sims3.Gameplay.Core.PortalPlanEventArgs::get_RoomFrom()
+	}
+	.property instance int32 RoomTo()
+	{
+		.get instance int32 Sims3.Gameplay.Core.PortalPlanEventArgs::get_RoomTo()
+	}
+	.property instance class Sims3.Gameplay.Actors.Sim Actor()
+	{
+		.get instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PortalPlanEventArgs::get_Actor()
+	}
+	.property instance class Sims3.Gameplay.Abstracts.GameObject PortalObject()
+	{
+		.get instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Core.PortalPlanEventArgs::get_PortalObject()
+	}
+	.property instance bool Locked()
+	{
+		.get instance bool Sims3.Gameplay.Core.PortalPlanEventArgs::get_Locked()
+		.set instance void Sims3.Gameplay.Core.PortalPlanEventArgs::set_Locked(bool)
+	}
+	.property instance bool Discouraged()
+	{
+		.get instance bool Sims3.Gameplay.Core.PortalPlanEventArgs::get_Discouraged()
+		.set instance void Sims3.Gameplay.Core.PortalPlanEventArgs::set_Discouraged(bool)
+	}
+
+} // end of class Sims3.Gameplay.Core.PortalPlanEventArgs

@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x060000CA.
+// Assembly: ScriptCore; type: ScriptCore.RouteManager.
+// Decompiled C# source: ScriptCore/ScriptCore/RouteManager.cs:74
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool RouteManager_PlaceGroupSocialImpl([MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI8)] ulong[] groupedScriptHandles, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI8)] ulong[] singleScriptHandles, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_R4)] ref float[] positionArray, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_R4)] ref float[] orientArray, float fSeparation);

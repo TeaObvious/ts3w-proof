@@ -1,0 +1,595 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; actual complete ILSpy type export.
+.class public auto ansi abstract sealed beforefieldinit Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld
+	extends [mscorlib]System.Object
+{
+	// Fields
+	.field private static literal int32 kMaximumNumberOfAttempts = int32(10)
+	.field private static class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> mCarTravelers
+	.field private static class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> mEarlyDepartureSims
+	.field private static valuetype Sims3.Gameplay.Utilities.AlarmHandle mRideInCarAlarm
+	.field private static valuetype Sims3.Gameplay.Utilities.AlarmHandle mDegreeUpdatesAlarm
+	.field private static valuetype [SimIFace]Sims3.SimIFace.WorldType mReturningFromWorld
+
+	// Methods
+	.method public hidebysig specialname static 
+		valuetype [SimIFace]Sims3.SimIFace.WorldType get_ReturningFromWorld () cil managed 
+	{
+		// Method begins at RVA 0x32fe9e
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldsfld valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mReturningFromWorld
+		IL_0005: ret
+	} // end of method ReturnHomeBehaviorInHomeWorld::get_ReturningFromWorld
+
+	.method public hidebysig static 
+		void SetupReturnHomeBehavior (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> carTravelers,
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> earlyDepartureSims
+		) cil managed 
+	{
+		// Method begins at RVA 0x32fea8
+		// Header size: 12
+		// Code size: 183 (0xb7)
+		.maxstack 8
+
+		IL_0000: call valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.GameStates::get_ReturningFromWorld()
+		IL_0005: stsfld valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mReturningFromWorld
+		IL_000a: ldarg.0
+		IL_000b: brfalse IL_00b6
+
+		IL_0010: ldarg.0
+		IL_0011: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+		IL_0016: ldc.i4.0
+		IL_0017: ble IL_00b6
+
+		IL_001c: ldsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mRideInCarAlarm
+		IL_0021: ldsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_0026: call bool Sims3.Gameplay.Utilities.AlarmHandle::op_Equality(valuetype Sims3.Gameplay.Utilities.AlarmHandle, valuetype Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_002b: brfalse.s IL_006b
+
+		IL_002d: ldarg.0
+		IL_002e: stsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mCarTravelers
+		IL_0033: ldarg.1
+		IL_0034: stsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mEarlyDepartureSims
+		IL_0039: call class Sims3.Gameplay.Utilities.AlarmManager Sims3.Gameplay.Utilities.AlarmManager::get_Global()
+		IL_003e: ldc.r4 1
+		IL_0043: ldc.i4.1
+		IL_0044: ldnull
+		IL_0045: ldftn void Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::TriggerReturnHomeSequence()
+		IL_004b: newobj instance void Sims3.Gameplay.Utilities.AlarmTimerCallback::.ctor(object, native int)
+		IL_0050: ldstr "Travelers return home"
+		IL_0055: ldc.i4.0
+		IL_0056: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mCarTravelers
+		IL_005b: ldc.i4.0
+		IL_005c: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Item(int32)
+		IL_0061: callvirt instance valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Utilities.AlarmManager::AddAlarm(float32, valuetype Sims3.Gameplay.Utilities.TimeUnit, class Sims3.Gameplay.Utilities.AlarmTimerCallback, string, valuetype Sims3.Gameplay.Utilities.AlarmType, class Sims3.Gameplay.Utilities.IAlarmOwner)
+		IL_0066: stsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mRideInCarAlarm
+
+		IL_006b: call valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.GameStates::get_ReturningFromWorld()
+		IL_0070: ldc.i4.3
+		IL_0071: bne.un.s IL_00b6
+
+		IL_0073: ldsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mDegreeUpdatesAlarm
+		IL_0078: ldsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_007d: call bool Sims3.Gameplay.Utilities.AlarmHandle::op_Equality(valuetype Sims3.Gameplay.Utilities.AlarmHandle, valuetype Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_0082: brfalse.s IL_00b6
+
+		IL_0084: call class Sims3.Gameplay.Utilities.AlarmManager Sims3.Gameplay.Utilities.AlarmManager::get_Global()
+		IL_0089: ldc.r4 1
+		IL_008e: ldc.i4.1
+		IL_008f: ldnull
+		IL_0090: ldftn void Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::TriggerDegreeUpdates()
+		IL_0096: newobj instance void Sims3.Gameplay.Utilities.AlarmTimerCallback::.ctor(object, native int)
+		IL_009b: ldstr "SetupDegreeBonuses Alarm"
+		IL_00a0: ldc.i4.0
+		IL_00a1: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mCarTravelers
+		IL_00a6: ldc.i4.0
+		IL_00a7: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Item(int32)
+		IL_00ac: callvirt instance valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Utilities.AlarmManager::AddAlarm(float32, valuetype Sims3.Gameplay.Utilities.TimeUnit, class Sims3.Gameplay.Utilities.AlarmTimerCallback, string, valuetype Sims3.Gameplay.Utilities.AlarmType, class Sims3.Gameplay.Utilities.IAlarmOwner)
+		IL_00b1: stsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mDegreeUpdatesAlarm
+
+		IL_00b6: ret
+	} // end of method ReturnHomeBehaviorInHomeWorld::SetupReturnHomeBehavior
+
+	.method private hidebysig static 
+		void TriggerReturnHomeSequence () cil managed 
+	{
+		// Method begins at RVA 0x32ff6c
+		// Header size: 12
+		// Code size: 116 (0x74)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Actors.Sim,
+			[1] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		.try
+		{
+			IL_0000: call void Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::SetupReturnHomeInteractions()
+			IL_0005: call void Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::ScatterEarlyDepartureSim()
+			IL_000a: ldc.i4.1
+			IL_000b: ldc.i4.1
+			IL_000c: call void Sims3.Gameplay.Gameflow::SetGameSpeed(valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed, valuetype Sims3.Gameplay.Gameflow/SetGameSpeedContext)
+			IL_0011: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+			IL_0016: brfalse.s IL_0066
+
+			IL_0018: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+			IL_001d: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+			IL_0022: call void Sims3.Gameplay.Services.GrimReaperSituation::CheckForAbandonedChildren(class Sims3.Gameplay.CAS.Household)
+			IL_0027: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+			IL_002c: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.CAS.Household::get_AllActors()
+			IL_0031: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+			IL_0036: stloc.1
+			.try
+			{
+				IL_0037: br.s IL_004d
+				// loop start (head: IL_004d)
+					IL_0039: ldloca.s 1
+					IL_003b: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current()
+					IL_0040: stloc.0
+					IL_0041: ldloc.0
+					IL_0042: callvirt instance class Sims3.Gameplay.Autonomy.Motives Sims3.Gameplay.Actors.Sim::get_Motives()
+					IL_0047: ldc.i4.1
+					IL_0048: callvirt instance void Sims3.Gameplay.Autonomy.Motives::SetMotivesToTimedDefaultsAndRemoveBuffs(bool)
+
+					IL_004d: ldloca.s 1
+					IL_004f: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::MoveNext()
+					IL_0054: brtrue.s IL_0039
+				// end loop
+
+				IL_0056: leave.s IL_0066
+			} // end .try
+			finally
+			{
+				IL_0058: ldloca.s 1
+				IL_005a: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+				IL_0060: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0065: endfinally
+			} // end handler
+
+			IL_0066: leave.s IL_0073
+		} // end .try
+		finally
+		{
+			IL_0068: ldsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+			IL_006d: stsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mRideInCarAlarm
+			IL_0072: endfinally
+		} // end handler
+
+		IL_0073: ret
+	} // end of method ReturnHomeBehaviorInHomeWorld::TriggerReturnHomeSequence
+
+	.method private hidebysig static 
+		void TriggerDegreeUpdates () cil managed 
+	{
+		// Method begins at RVA 0x330008
+		// Header size: 12
+		// Code size: 176 (0xb0)
+		.maxstack 6
+		.locals init (
+			[0] class Sims3.Gameplay.Actors.Sim,
+			[1] class Sims3.Gameplay.Careers.Career,
+			[2] class Sims3.Gameplay.Academics.AcademicDegreeManager,
+			[3] class Sims3.Gameplay.Academics.AcademicDegree,
+			[4] class Sims3.Gameplay.Academics.CollegeGraduation/GraduateInPlace,
+			[5] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		.try
+		{
+			IL_0000: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+			IL_0005: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.CAS.Household::get_AllActors()
+			IL_000a: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+			IL_000f: stloc.s 5
+			.try
+			{
+				IL_0011: br.s IL_0089
+				// loop start (head: IL_0089)
+					IL_0013: ldloca.s 5
+					IL_0015: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current()
+					IL_001a: stloc.0
+					IL_001b: ldloc.0
+					IL_001c: callvirt instance class Sims3.Gameplay.Careers.Career Sims3.Gameplay.Actors.Sim::get_OccupationAsCareer()
+					IL_0021: stloc.1
+					IL_0022: ldloc.1
+					IL_0023: brfalse.s IL_002b
+
+					IL_0025: ldloc.1
+					IL_0026: callvirt instance void Sims3.Gameplay.Careers.Career::UpdateCareerBonusesForDegree()
+
+					IL_002b: ldloc.0
+					IL_002c: callvirt instance class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.Actors.Sim::get_CareerManager()
+					IL_0031: callvirt instance class Sims3.Gameplay.Academics.AcademicDegreeManager Sims3.Gameplay.Careers.CareerManager::get_DegreeManager()
+					IL_0036: stloc.2
+					IL_0037: ldloc.2
+					IL_0038: brfalse.s IL_0089
+
+					IL_003a: ldloc.2
+					IL_003b: ldloc.2
+					IL_003c: callvirt instance valuetype Sims3.Gameplay.Academics.AcademicDegreeNames Sims3.Gameplay.Academics.AcademicDegreeManager::get_LastStudiedDegree()
+					IL_0041: callvirt instance class Sims3.Gameplay.Academics.AcademicDegree Sims3.Gameplay.Academics.AcademicDegreeManager::GetElement(valuetype Sims3.Gameplay.Academics.AcademicDegreeNames)
+					IL_0046: stloc.3
+					IL_0047: ldloc.3
+					IL_0048: brfalse.s IL_0089
+
+					IL_004a: ldloc.3
+					IL_004b: callvirt instance bool Sims3.Gameplay.Academics.AcademicDegree::get_IsDegreeCompleted()
+					IL_0050: brfalse.s IL_0089
+
+					IL_0052: ldloc.0
+					IL_0053: call void Sims3.Gameplay.Careers.Career::ShowUploadResumeTns(class Sims3.Gameplay.Actors.Sim)
+					IL_0058: ldloc.3
+					IL_0059: callvirt instance bool Sims3.Gameplay.Academics.AcademicDegree::get_IsRewardsGranted()
+					IL_005e: brtrue.s IL_0089
+
+					IL_0060: ldsfld class Sims3.Gameplay.Interactions.ISoloInteractionDefinition Sims3.Gameplay.Academics.CollegeGraduation/GraduateInPlace::Singleton
+					IL_0065: ldloc.0
+					IL_0066: ldloc.0
+					IL_0067: ldc.i4.4
+					IL_0068: newobj instance void Sims3.Gameplay.Interactions.InteractionPriority::.ctor(valuetype Sims3.Gameplay.Interactions.InteractionPriorityLevel)
+					IL_006d: ldc.i4.0
+					IL_006e: ldc.i4.0
+					IL_006f: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.ISoloInteractionDefinition::CreateInstance(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+					IL_0074: isinst Sims3.Gameplay.Academics.CollegeGraduation/GraduateInPlace
+					IL_0079: stloc.s 4
+					IL_007b: ldloc.0
+					IL_007c: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+					IL_0081: ldloc.s 4
+					IL_0083: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::AddNext(class Sims3.Gameplay.Interactions.InteractionInstance)
+					IL_0088: pop
+
+					IL_0089: ldloca.s 5
+					IL_008b: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::MoveNext()
+					IL_0090: brtrue.s IL_0013
+				// end loop
+
+				IL_0092: leave.s IL_00a2
+			} // end .try
+			finally
+			{
+				IL_0094: ldloca.s 5
+				IL_0096: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+				IL_009c: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_00a1: endfinally
+			} // end handler
+
+			IL_00a2: leave.s IL_00af
+		} // end .try
+		finally
+		{
+			IL_00a4: ldsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+			IL_00a9: stsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mDegreeUpdatesAlarm
+			IL_00ae: endfinally
+		} // end handler
+
+		IL_00af: ret
+	} // end of method ReturnHomeBehaviorInHomeWorld::TriggerDegreeUpdates
+
+	.method private hidebysig static 
+		void SetupReturnHomeInteractions () cil managed 
+	{
+		// Method begins at RVA 0x3300e0
+		// Header size: 12
+		// Code size: 335 (0x14f)
+		.maxstack 6
+		.locals init (
+			[0] class Sims3.Gameplay.CAS.Household,
+			[1] class Sims3.Gameplay.Interfaces.ITimePortal,
+			[2] class Sims3.Gameplay.Core.Lot,
+			[3] class Sims3.Gameplay.Actors.Sim,
+			[4] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[5] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>,
+			[6] int32,
+			[7] class Sims3.Gameplay.Actors.Sim,
+			[8] class Sims3.Gameplay.Visa.TravelUtil/SitInCarToReturnHomeWithinHomeWorld,
+			[9] class Sims3.Gameplay.Visa.TravelUtil/ArrivalRouteHomeInMovingVanInHomeWorld
+		)
+
+		IL_0000: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+		IL_0005: stloc.0
+		IL_0006: ldloc.0
+		IL_0007: brfalse.s IL_0011
+
+		IL_0009: ldloc.0
+		IL_000a: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.CAS.Household::get_LotHome()
+		IL_000f: brtrue.s IL_0012
+
+		IL_0011: ret
+
+		IL_0012: ldsfld valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mReturningFromWorld
+		IL_0017: ldc.i4.4
+		IL_0018: bne.un.s IL_0041
+
+		IL_001a: call class Sims3.Gameplay.TimeTravel.CauseEffectService Sims3.Gameplay.TimeTravel.CauseEffectService::GetInstance()
+		IL_001f: callvirt instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.TimeTravel.CauseEffectService::GetDepartureTimePortal()
+		IL_0024: isinst Sims3.Gameplay.Interfaces.ITimePortal
+		IL_0029: stloc.1
+		IL_002a: ldloc.1
+		IL_002b: brfalse IL_014e
+
+		IL_0030: ldloc.1
+		IL_0031: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mCarTravelers
+		IL_0036: callvirt instance bool Sims3.Gameplay.Interfaces.ITimePortal::PushArriveInteraction(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>)
+		IL_003b: brtrue IL_014e
+
+		IL_0040: ret
+
+		IL_0041: ldloc.0
+		IL_0042: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.CAS.Household::get_LotHome()
+		IL_0047: call class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::GetFarthestLot(class Sims3.Gameplay.Core.Lot)
+		IL_004c: stloc.2
+		IL_004d: ldloc.2
+		IL_004e: brtrue.s IL_0051
+
+		IL_0050: ret
+
+		IL_0051: ldnull
+		IL_0052: stloc.3
+		IL_0053: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+		IL_0058: stloc.s 4
+		IL_005a: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::.ctor()
+		IL_005f: stloc.s 5
+		IL_0061: ldc.i4.0
+		IL_0062: stloc.s 6
+		IL_0064: br.s IL_00b5
+		// loop start (head: IL_00b5)
+			IL_0066: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mCarTravelers
+			IL_006b: ldloc.s 6
+			IL_006d: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Item(int32)
+			IL_0072: callvirt instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+			IL_0077: stloc.s 7
+			IL_0079: ldloc.3
+			IL_007a: brtrue.s IL_0091
+
+			IL_007c: ldloc.s 7
+			IL_007e: stloc.3
+			IL_007f: ldloc.2
+			IL_0080: call valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Services.Service::GetPositionInRandomLot(class Sims3.Gameplay.Core.Lot)
+			IL_0085: stloc.s 4
+			IL_0087: ldloc.3
+			IL_0088: ldloc.s 4
+			IL_008a: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_008f: br.s IL_00af
+
+			IL_0091: ldloc.s 7
+			IL_0093: ldstr "Attended University"
+			IL_0098: call void Sims3.Gameplay.Socializing.ActiveTopic::AddToSim(class Sims3.Gameplay.Actors.Sim, string)
+			IL_009d: ldloc.s 7
+			IL_009f: ldloc.s 4
+			IL_00a1: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00a6: ldloc.s 5
+			IL_00a8: ldloc.s 7
+			IL_00aa: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::Add(!0)
+
+			IL_00af: ldloc.s 6
+			IL_00b1: ldc.i4.1
+			IL_00b2: add
+			IL_00b3: stloc.s 6
+
+			IL_00b5: ldloc.s 6
+			IL_00b7: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mCarTravelers
+			IL_00bc: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+			IL_00c1: blt.s IL_0066
+		// end loop
+
+		IL_00c3: ldsfld valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mReturningFromWorld
+		IL_00c8: ldc.i4.3
+		IL_00c9: beq.s IL_010d
+
+		IL_00cb: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Visa.TravelUtil/SitInCarToReturnHomeWithinHomeWorld::Singleton
+		IL_00d0: ldloc.3
+		IL_00d1: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Actors.Sim::get_LotHome()
+		IL_00d6: ldloc.3
+		IL_00d7: ldc.i4.1
+		IL_00d8: ldc.r4 1
+		IL_00dd: newobj instance void Sims3.Gameplay.Interactions.InteractionPriority::.ctor(valuetype Sims3.Gameplay.Interactions.InteractionPriorityLevel, float32)
+		IL_00e2: ldc.i4.0
+		IL_00e3: ldc.i4.1
+		IL_00e4: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstance(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+		IL_00e9: isinst Sims3.Gameplay.Visa.TravelUtil/SitInCarToReturnHomeWithinHomeWorld
+		IL_00ee: stloc.s 8
+		IL_00f0: ldloc.s 8
+		IL_00f2: brfalse.s IL_0148
+
+		IL_00f4: ldloc.s 8
+		IL_00f6: ldloc.s 5
+		IL_00f8: stfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Visa.TravelUtil/SitInCarToReturnHomeWithinHomeWorld::Followers
+		IL_00fd: ldloc.3
+		IL_00fe: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+		IL_0103: ldloc.s 8
+		IL_0105: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::Add(class Sims3.Gameplay.Interactions.InteractionInstance)
+		IL_010a: pop
+		IL_010b: br.s IL_0148
+
+		IL_010d: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Visa.TravelUtil/ArrivalRouteHomeInMovingVanInHomeWorld::Singleton
+		IL_0112: ldloc.3
+		IL_0113: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Actors.Sim::get_LotHome()
+		IL_0118: ldloc.3
+		IL_0119: ldc.i4.1
+		IL_011a: newobj instance void Sims3.Gameplay.Interactions.InteractionPriority::.ctor(valuetype Sims3.Gameplay.Interactions.InteractionPriorityLevel)
+		IL_011f: ldc.i4.0
+		IL_0120: ldc.i4.1
+		IL_0121: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstance(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+		IL_0126: isinst Sims3.Gameplay.Visa.TravelUtil/ArrivalRouteHomeInMovingVanInHomeWorld
+		IL_012b: stloc.s 9
+		IL_012d: ldloc.s 9
+		IL_012f: brfalse.s IL_0148
+
+		IL_0131: ldloc.s 9
+		IL_0133: ldloc.s 5
+		IL_0135: callvirt instance void Sims3.Gameplay.Visa.TravelUtil/ArrivalRouteHomeInMovingVanInHomeWorld::set_Followers(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>)
+		IL_013a: ldloc.3
+		IL_013b: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+		IL_0140: ldloc.s 9
+		IL_0142: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::Add(class Sims3.Gameplay.Interactions.InteractionInstance)
+		IL_0147: pop
+
+		IL_0148: ldc.i4.m1
+		IL_0149: stsfld valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mReturningFromWorld
+
+		IL_014e: ret
+	} // end of method ReturnHomeBehaviorInHomeWorld::SetupReturnHomeInteractions
+
+	.method private hidebysig static 
+		void ScatterEarlyDepartureSim () cil managed 
+	{
+		// Method begins at RVA 0x33023c
+		// Header size: 12
+		// Code size: 253 (0xfd)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.Core.Lot,
+			[1] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.GameObject>,
+			[2] int32,
+			[3] class Sims3.Gameplay.Actors.Sim,
+			[4] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[5] int32,
+			[6] class Sims3.Gameplay.Abstracts.GameObject,
+			[7] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[8] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[9] valuetype [SimIFace]Sims3.SimIFace.World/FindGoodLocationParams
+		)
+
+		IL_0000: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mEarlyDepartureSims
+		IL_0005: brfalse.s IL_0013
+
+		IL_0007: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mEarlyDepartureSims
+		IL_000c: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+		IL_0011: brtrue.s IL_0014
+
+		IL_0013: ret
+
+		IL_0014: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mEarlyDepartureSims
+		IL_0019: ldc.i4.0
+		IL_001a: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Item(int32)
+		IL_001f: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.CAS.SimDescription::get_LotHome()
+		IL_0024: stloc.0
+		IL_0025: ldloc.0
+		IL_0026: callvirt instance !!0[] Sims3.Gameplay.Core.Lot::GetObjects<class Sims3.Gameplay.Abstracts.GameObject>()
+		IL_002b: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.GameObject>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+		IL_0030: stloc.1
+		IL_0031: ldloc.1
+		IL_0032: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.GameObject>::get_Count()
+		IL_0037: brtrue.s IL_003a
+
+		IL_0039: ret
+
+		IL_003a: ldc.i4.0
+		IL_003b: stloc.2
+		IL_003c: br IL_00ec
+		// loop start (head: IL_00ec)
+			IL_0041: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mEarlyDepartureSims
+			IL_0046: ldloc.2
+			IL_0047: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Item(int32)
+			IL_004c: callvirt instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+			IL_0051: stloc.3
+			IL_0052: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+			IL_0057: stloc.s 4
+			IL_0059: ldc.i4.0
+			IL_005a: stloc.s 5
+			IL_005c: br.s IL_00a0
+			// loop start (head: IL_00a0)
+				IL_005e: ldloc.1
+				IL_005f: call !!0 Sims3.Gameplay.Core.RandomUtil::GetRandomObjectFromList<class Sims3.Gameplay.Abstracts.GameObject>(class [mscorlib]System.Collections.Generic.List`1<!!0>)
+				IL_0064: stloc.s 6
+				IL_0066: ldloc.1
+				IL_0067: ldloc.s 6
+				IL_0069: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.GameObject>::Remove(!0)
+				IL_006e: pop
+				IL_006f: ldloc.s 5
+				IL_0071: ldc.i4.1
+				IL_0072: add
+				IL_0073: stloc.s 5
+				IL_0075: ldloca.s 9
+				IL_0077: ldloc.s 6
+				IL_0079: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_PositionOnFloor()
+				IL_007e: call instance void [SimIFace]Sims3.SimIFace.World/FindGoodLocationParams::.ctor(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_0083: ldloc.3
+				IL_0084: ldloc.s 9
+				IL_0086: ldloca.s 7
+				IL_0088: ldloca.s 8
+				IL_008a: call bool Sims3.Gameplay.GlobalFunctions::FindGoodLocation(class Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.World/FindGoodLocationParams, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Vector3&)
+				IL_008f: brfalse.s IL_00a0
+
+				IL_0091: ldloc.3
+				IL_0092: ldloc.0
+				IL_0093: ldloc.s 7
+				IL_0095: callvirt instance bool Sims3.Gameplay.Actors.Sim::IsPointInLotSafelyRoutable(class Sims3.Gameplay.Core.Lot, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_009a: brfalse.s IL_00a0
+
+				IL_009c: ldloc.s 7
+				IL_009e: stloc.s 4
+
+				IL_00a0: ldloc.1
+				IL_00a1: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.GameObject>::get_Count()
+				IL_00a6: ldc.i4.0
+				IL_00a7: ble.s IL_00bd
+
+				IL_00a9: ldloc.s 5
+				IL_00ab: ldc.i4.s 10
+				IL_00ad: bge.s IL_00bd
+
+				IL_00af: ldloc.s 4
+				IL_00b1: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+				IL_00b6: call bool [SimIFace]Sims3.SimIFace.Vector3::op_Equality(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_00bb: brtrue.s IL_005e
+			// end loop
+
+			IL_00bd: ldloc.s 4
+			IL_00bf: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+			IL_00c4: call bool [SimIFace]Sims3.SimIFace.Vector3::op_Equality(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00c9: brfalse.s IL_00d5
+
+			IL_00cb: ldloc.3
+			IL_00cc: ldc.i4.1
+			IL_00cd: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::AttemptToPutInSafeLocation(bool)
+			IL_00d2: pop
+			IL_00d3: br.s IL_00dd
+
+			IL_00d5: ldloc.3
+			IL_00d6: ldloc.s 4
+			IL_00d8: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+
+			IL_00dd: ldloc.3
+			IL_00de: ldstr "Attended University"
+			IL_00e3: call void Sims3.Gameplay.Socializing.ActiveTopic::AddToSim(class Sims3.Gameplay.Actors.Sim, string)
+			IL_00e8: ldloc.2
+			IL_00e9: ldc.i4.1
+			IL_00ea: add
+			IL_00eb: stloc.2
+
+			IL_00ec: ldloc.2
+			IL_00ed: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mEarlyDepartureSims
+			IL_00f2: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+			IL_00f7: blt IL_0041
+		// end loop
+
+		IL_00fc: ret
+	} // end of method ReturnHomeBehaviorInHomeWorld::ScatterEarlyDepartureSim
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x330345
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_0005: stsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mRideInCarAlarm
+		IL_000a: ldsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_000f: stsfld valuetype Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mDegreeUpdatesAlarm
+		IL_0014: ldc.i4.m1
+		IL_0015: stsfld valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::mReturningFromWorld
+		IL_001a: ret
+	} // end of method ReturnHomeBehaviorInHomeWorld::.cctor
+
+	// Properties
+	.property valuetype [SimIFace]Sims3.SimIFace.WorldType ReturningFromWorld()
+	{
+		.get valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld::get_ReturningFromWorld()
+	}
+
+} // end of class Sims3.Gameplay.Visa.ReturnHomeBehaviorInHomeWorld

@@ -1,0 +1,201 @@
+using Sims3.SimIFace;
+
+namespace Sims3.UI;
+
+internal class ScrollWindow : Window
+{
+	private enum ControlID : uint
+	{
+		VerticalScrollBar = 2398241411u,
+		HorizontalScrollBar = 2398241412u,
+		VScrollbarMini = 92407426u,
+		HScrollbarMini = 92407427u,
+		OverrideScrollbarV = 100663298u,
+		OverrideScrollbarH = 100663299u
+	}
+
+	public delegate void ScrollHandler(Window sender, int scrollValue);
+
+	private const float kDefaultWidth = 100f;
+
+	private const float kScrollWidth = 15f;
+
+	private bool mHorizontal;
+
+	private bool mScrollBarVisibleAlways;
+
+	private bool mUseMiniScrollbars;
+
+	private bool mbOverrideScrollbars;
+
+	private Scrollbar mVerticalScrollBar;
+
+	private Scrollbar mHorizontalScrollBar;
+
+	private Scrollbar mVerticalScrollBarMini;
+
+	private Scrollbar mHorizontalScrollBarMini;
+
+	private Scrollbar mVerticalScrollBarOverride;
+
+	private Scrollbar mHorizontalScrollBarOverride;
+
+	[DesignerEditable(1095208245u)]
+	public bool Horizontal
+	{
+		get
+		{
+			return mHorizontal;
+		}
+		set
+		{
+			mHorizontal = value;
+			UpdateScrollBars(Area);
+		}
+	}
+
+	[DesignerEditable(267877466u)]
+	public bool ScrollBarVisibleAlways
+	{
+		get
+		{
+			return mScrollBarVisibleAlways;
+		}
+		set
+		{
+			mScrollBarVisibleAlways = value;
+			UpdateScrollBars(Area);
+		}
+	}
+
+	[DesignerEditable(92408084u)]
+	public bool UseMiniScrollbars
+	{
+		get
+		{
+			return mUseMiniScrollbars;
+		}
+		set
+		{
+			mUseMiniScrollbars = value;
+			if (mUseMiniScrollbars)
+			{
+				InitMiniScrollbars();
+			}
+		}
+	}
+
+	[DesignerEditable(92408085u)]
+	public bool OverrideScrollbars
+	{
+		get
+		{
+			return mbOverrideScrollbars;
+		}
+		set
+		{
+			mbOverrideScrollbars = value;
+			if (mbOverrideScrollbars)
+			{
+				InitOverrideScrollbars();
+			}
+		}
+	}
+
+	public Scrollbar VerticalScrollBar => mVerticalScrollBar;
+
+	public Scrollbar HorizontalScrollBar => mHorizontalScrollBar;
+
+	public void Update()
+	{
+		UpdateScrollBars(Area);
+	}
+
+	public ScrollWindow(uint winHandle)
+		: base(winHandle)
+	{
+	}
+
+	public override void PreInit()
+	{
+		ResourceKey resKey = ResourceKey.CreateUILayoutKey("ScrollWindow", 0u);
+		UIManager.LoadLayoutAndAddToWindow(resKey, this);
+		AreaChange += OnAreaChange;
+	}
+
+	public override void Init()
+	{
+		mVerticalScrollBar = GetChildByID(2398241411u, recursive: true) as Scrollbar;
+		mHorizontalScrollBar = GetChildByID(2398241412u, recursive: true) as Scrollbar;
+		mVerticalScrollBarMini = GetChildByID(92407426u, recursive: true) as Scrollbar;
+		mHorizontalScrollBarMini = GetChildByID(92407427u, recursive: true) as Scrollbar;
+		mVerticalScrollBarOverride = GetChildByID(100663298u, recursive: true) as Scrollbar;
+		mHorizontalScrollBarOverride = GetChildByID(100663299u, recursive: true) as Scrollbar;
+		UpdateScrollBars(Area);
+	}
+
+	private void InitMiniScrollbars()
+	{
+		mVerticalScrollBar.Visible = false;
+		mHorizontalScrollBar.Visible = false;
+		mVerticalScrollBar.ID = 92407426u;
+		mHorizontalScrollBar.ID = 92407427u;
+		mVerticalScrollBarMini.ScrollToIncrement = mVerticalScrollBar.ScrollToIncrement;
+		mHorizontalScrollBarMini.ScrollToIncrement = mHorizontalScrollBar.ScrollToIncrement;
+		mVerticalScrollBarMini.ID = 2398241411u;
+		mHorizontalScrollBarMini.ID = 2398241412u;
+		mVerticalScrollBar = mVerticalScrollBarMini;
+		mHorizontalScrollBar = mHorizontalScrollBarMini;
+		mVerticalScrollBar.MoveToFront();
+		mHorizontalScrollBar.MoveToFront();
+		mVerticalScrollBar.Visible = true;
+		mHorizontalScrollBar.Visible = true;
+		UpdateScrollBars(Area);
+	}
+
+	private void InitOverrideScrollbars()
+	{
+		mVerticalScrollBar.Visible = false;
+		mHorizontalScrollBar.Visible = false;
+		if (mHorizontalScrollBarOverride != null)
+		{
+			mHorizontalScrollBarOverride.ScrollToIncrement = mHorizontalScrollBar.ScrollToIncrement;
+			mHorizontalScrollBar.ID = mHorizontalScrollBarOverride.ID;
+			mHorizontalScrollBar = mHorizontalScrollBarOverride;
+			mHorizontalScrollBar.ID = 2398241412u;
+		}
+		if (mVerticalScrollBarOverride != null)
+		{
+			mVerticalScrollBarOverride.ScrollToIncrement = mVerticalScrollBar.ScrollToIncrement;
+			mVerticalScrollBar.ID = mVerticalScrollBarOverride.ID;
+			mVerticalScrollBar = mVerticalScrollBarOverride;
+			mVerticalScrollBar.ID = 2398241411u;
+		}
+		mVerticalScrollBar.MoveToFront();
+		mHorizontalScrollBar.MoveToFront();
+		mVerticalScrollBar.Visible = true;
+		mHorizontalScrollBar.Visible = true;
+	}
+
+	private void UpdateScrollBars(Rect area)
+	{
+		if (mVerticalScrollBar != null && mHorizontalScrollBar != null)
+		{
+			if (mHorizontal)
+			{
+				mHorizontalScrollBar.Area = new Rect(0f, area.Height - 15f, area.Width, area.Height);
+			}
+			else
+			{
+				mVerticalScrollBar.Area = new Rect(area.Width - 15f, 0f, area.Width, area.Height);
+			}
+			ScrollbarSettings scrollbarSettings = (mScrollBarVisibleAlways ? ScrollbarSettings.Always : ScrollbarSettings.AsNeeded);
+			SetupScrollbars((!mHorizontal) ? ScrollbarSettings.Never : scrollbarSettings, mHorizontal ? ScrollbarSettings.Never : scrollbarSettings);
+		}
+	}
+
+	private void OnAreaChange(WindowBase sender, UIAreaChangeEventArgs eventArgs)
+	{
+		UpdateScrollBars(eventArgs.NewArea);
+	}
+}

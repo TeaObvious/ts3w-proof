@@ -1,0 +1,99 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined1 TreeComponent_WriteBinaryPrimitives(void * this, void * param_1, int param_2)
+Owned ranges: [[0095a6a0, 0095a785]]
+
+0095a6a0  55  PUSH EBP
+0095a6a1  8bec  MOV EBP,ESP
+0095a6a3  83e4f0  AND ESP,0xfffffff0
+0095a6a6  8b450c  MOV EAX,dword ptr [EBP + 0xc]
+0095a6a9  83ec44  SUB ESP,0x44
+0095a6ac  53  PUSH EBX
+0095a6ad  56  PUSH ESI
+0095a6ae  57  PUSH EDI
+0095a6af  8bf9  MOV EDI,ECX
+0095a6b1  8b4810  MOV ECX,dword ptr [EAX + 0x10]
+0095a6b4  6a00  PUSH 0x0
+0095a6b6  8d5710  LEA EDX,[EDI + 0x10]
+0095a6b9  52  PUSH EDX
+0095a6ba  e8a1cde7ff  CALL 0x007d7460
+0095a6bf  8b7508  MOV ESI,dword ptr [EBP + 0x8]
+0095a6c2  8b4e10  MOV ECX,dword ptr [ESI + 0x10]
+0095a6c5  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+0095a6c8  0fb7c0  MOVZX EAX,AX
+0095a6cb  51  PUSH ECX
+0095a6cc  50  PUSH EAX
+0095a6cd  52  PUSH EDX
+0095a6ce  e89d37b8ff  CALL 0x004dde70
+0095a6d3  83c40c  ADD ESP,0xc
+0095a6d6  8bce  MOV ECX,ESI
+0095a6d8  50  PUSH EAX
+0095a6d9  e812d3e7ff  CALL 0x007d79f0
+0095a6de  8b4e10  MOV ECX,dword ptr [ESI + 0x10]
+0095a6e1  8b4720  MOV EAX,dword ptr [EDI + 0x20]
+0095a6e4  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+0095a6e7  51  PUSH ECX
+0095a6e8  50  PUSH EAX
+0095a6e9  52  PUSH EDX
+0095a6ea  e88138b8ff  CALL 0x004ddf70
+0095a6ef  83c40c  ADD ESP,0xc
+0095a6f2  8bce  MOV ECX,ESI
+0095a6f4  50  PUSH EAX
+0095a6f5  e8f6d2e7ff  CALL 0x007d79f0
+0095a6fa  8b4708  MOV EAX,dword ptr [EDI + 0x8]
+0095a6fd  8b480c  MOV ECX,dword ptr [EAX + 0xc]
+0095a700  2b4808  SUB ECX,dword ptr [EAX + 0x8]
+0095a703  83c008  ADD EAX,0x8
+0095a706  b867666666  MOV EAX,0x66666667
+0095a70b  f7e9  IMUL ECX
+0095a70d  8b4e10  MOV ECX,dword ptr [ESI + 0x10]
+0095a710  c1fa05  SAR EDX,0x5
+0095a713  8bc2  MOV EAX,EDX
+0095a715  c1e81f  SHR EAX,0x1f
+0095a718  03c2  ADD EAX,EDX
+0095a71a  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+0095a71d  51  PUSH ECX
+0095a71e  50  PUSH EAX
+0095a71f  52  PUSH EDX
+0095a720  e84b38b8ff  CALL 0x004ddf70
+0095a725  83c40c  ADD ESP,0xc
+0095a728  8bce  MOV ECX,ESI
+0095a72a  50  PUSH EAX
+0095a72b  e8c0d2e7ff  CALL 0x007d79f0
+0095a730  8b7f08  MOV EDI,dword ptr [EDI + 0x8]
+0095a733  8b5f08  MOV EBX,dword ptr [EDI + 0x8]
+0095a736  8b7f0c  MOV EDI,dword ptr [EDI + 0xc]
+0095a739  3bdf  CMP EBX,EDI
+0095a73b  743d  JZ 0x0095a77a
+0095a73d  8d4900  LEA ECX,[ECX]
+0095a740  8d442410  LEA EAX,[ESP + 0x10]
+0095a744  50  PUSH EAX
+0095a745  8bcb  MOV ECX,EBX
+0095a747  e8642fdbff  CALL 0x0070d6b0
+0095a74c  50  PUSH EAX
+0095a74d  8bce  MOV ECX,ESI
+0095a74f  e89cd4e7ff  CALL 0x007d7bf0
+0095a754  d94348  FLD float ptr [EBX + 0x48]
+0095a757  8b4e10  MOV ECX,dword ptr [ESI + 0x10]
+0095a75a  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+0095a75d  51  PUSH ECX
+0095a75e  51  PUSH ECX
+0095a75f  d91c24  FSTP float ptr [ESP]
+0095a762  52  PUSH EDX
+0095a763  e8283cb8ff  CALL 0x004de390
+0095a768  83c40c  ADD ESP,0xc
+0095a76b  8bce  MOV ECX,ESI
+0095a76d  50  PUSH EAX
+0095a76e  e87dd2e7ff  CALL 0x007d79f0
+0095a773  83c350  ADD EBX,0x50
+0095a776  3bdf  CMP EBX,EDI
+0095a778  75c6  JNZ 0x0095a740
+0095a77a  8a4614  MOV AL,byte ptr [ESI + 0x14]
+0095a77d  5f  POP EDI
+0095a77e  5e  POP ESI
+0095a77f  5b  POP EBX
+0095a780  8be5  MOV ESP,EBP
+0095a782  5d  POP EBP
+0095a783  c20800  RET 0x8

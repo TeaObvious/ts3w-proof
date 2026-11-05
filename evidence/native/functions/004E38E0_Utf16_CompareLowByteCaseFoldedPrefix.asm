@@ -1,0 +1,53 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe; full owned instruction Listing.
+Function Utf16_CompareLowByteCaseFoldedPrefix Entry 004e38e0
+OWNED_RANGE 004e38e0:004e394f
+004e38e0: 837c240c00  CMP dword ptr [ESP + 0xc],0x0
+004e38e5: 53  PUSH EBX
+004e38e6: 55  PUSH EBP
+004e38e7: 56  PUSH ESI
+004e38e8: 57  PUSH EDI
+004e38e9: 7651  JBE 0x004e393c
+004e38eb: 8b2dc066f900  MOV EBP,dword ptr [0x00f966c0]
+004e38f1: 8b5c2418  MOV EBX,dword ptr [ESP + 0x18]
+004e38f5: 8b7c2414  MOV EDI,dword ptr [ESP + 0x14]
+004e38f9: 8da42400000000  LEA ESP,[ESP]
+004e3900: 0fb707  MOVZX EAX,word ptr [EDI]
+004e3903: 663dff00  CMP AX,0xff
+004e3907: 7709  JA 0x004e3912
+004e3909: 0fb6c0  MOVZX EAX,AL
+004e390c: 50  PUSH EAX
+004e390d: ffd5  CALL EBP
+004e390f: 83c404  ADD ESP,0x4
+004e3912: 0fb7f0  MOVZX ESI,AX
+004e3915: 0fb703  MOVZX EAX,word ptr [EBX]
+004e3918: 663dff00  CMP AX,0xff
+004e391c: 7709  JA 0x004e3927
+004e391e: 0fb6c8  MOVZX ECX,AL
+004e3921: 51  PUSH ECX
+004e3922: ffd5  CALL EBP
+004e3924: 83c404  ADD ESP,0x4
+004e3927: 0fb7c0  MOVZX EAX,AX
+004e392a: 663bf0  CMP SI,AX
+004e392d: 7514  JNZ 0x004e3943
+004e392f: 83c702  ADD EDI,0x2
+004e3932: 83c302  ADD EBX,0x2
+004e3935: 836c241c01  SUB dword ptr [ESP + 0x1c],0x1
+004e393a: 75c4  JNZ 0x004e3900
+004e393c: 5f  POP EDI
+004e393d: 5e  POP ESI
+004e393e: 5d  POP EBP
+004e393f: 33c0  XOR EAX,EAX
+004e3941: 5b  POP EBX
+004e3942: c3  RET
+004e3943: 5f  POP EDI
+004e3944: 1bc0  SBB EAX,EAX
+004e3946: 5e  POP ESI
+004e3947: 83e0fe  AND EAX,0xfffffffe
+004e394a: 5d  POP EBP
+004e394b: 83c001  ADD EAX,0x1
+004e394e: 5b  POP EBX
+004e394f: c3  RET
+Total instructions: 46; owned bytes: 112

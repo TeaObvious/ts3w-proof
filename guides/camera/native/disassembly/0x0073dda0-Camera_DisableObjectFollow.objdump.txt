@@ -1,0 +1,53 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_DisableObjectFollow
+# Entry: 0x0073dda0; bounded stop: 0x0073de00; next Ghidra entry: 0x0073de00
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073dda0 <.text+0x33cda0>:
+  73dda0:	e8 2b be 22 00       	call   0x969bd0
+  73dda5:	85 c0                	test   eax,eax
+  73dda7:	74 53                	je     0x73ddfc
+  73dda9:	8b c8                	mov    ecx,eax
+  73ddab:	e8 40 42 7e 00       	call   0xf21ff0
+  73ddb0:	85 c0                	test   eax,eax
+  73ddb2:	74 48                	je     0x73ddfc
+  73ddb4:	56                   	push   esi
+  73ddb5:	8b c8                	mov    ecx,eax
+  73ddb7:	e8 24 60 dd ff       	call   0x513de0
+  73ddbc:	8b f0                	mov    esi,eax
+  73ddbe:	85 f6                	test   esi,esi
+  73ddc0:	74 39                	je     0x73ddfb
+  73ddc2:	8b 06                	mov    eax,DWORD PTR [esi]
+  73ddc4:	8b 50 0c             	mov    edx,DWORD PTR [eax+0xc]
+  73ddc7:	57                   	push   edi
+  73ddc8:	68 89 dd 0f 11       	push   0x110fdd89
+  73ddcd:	8b ce                	mov    ecx,esi
+  73ddcf:	ff d2                	call   edx
+  73ddd1:	8b f8                	mov    edi,eax
+  73ddd3:	8b 06                	mov    eax,DWORD PTR [esi]
+  73ddd5:	8b 50 0c             	mov    edx,DWORD PTR [eax+0xc]
+  73ddd8:	68 db 4e 39 4d       	push   0x4d394edb
+  73dddd:	8b ce                	mov    ecx,esi
+  73dddf:	ff d2                	call   edx
+  73dde1:	85 ff                	test   edi,edi
+  73dde3:	74 09                	je     0x73ddee
+  73dde5:	8b cf                	mov    ecx,edi
+  73dde7:	5f                   	pop    edi
+  73dde8:	5e                   	pop    esi
+  73dde9:	e9 c2 5f 23 00       	jmp    0x973db0
+  73ddee:	85 c0                	test   eax,eax
+  73ddf0:	5f                   	pop    edi
+  73ddf1:	74 08                	je     0x73ddfb
+  73ddf3:	8b c8                	mov    ecx,eax
+  73ddf5:	5e                   	pop    esi
+  73ddf6:	e9 b5 bf 23 00       	jmp    0x979db0
+  73ddfb:	5e                   	pop    esi
+  73ddfc:	c3                   	ret
+  73ddfd:	cc                   	int3
+  73ddfe:	cc                   	int3
+  73ddff:	cc                   	int3

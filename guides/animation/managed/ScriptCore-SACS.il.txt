@@ -1,0 +1,420 @@
+# IL from ScriptCore.dll, type ScriptCore.SACS
+
+.method 0x06000d5b ScriptCore.SACS::SACS_AcquireDriverImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d5c ScriptCore.SACS::SACS_AcquireDriverNoYieldImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d5d ScriptCore.SACS::SACS_ReleaseDriverImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d5e ScriptCore.SACS::SACS_IsEventQueueValidImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d5f ScriptCore.SACS::SACS_SetEventQueueImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d60 ScriptCore.SACS::SACS_SetActorImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d61 ScriptCore.SACS::SACS_HasActorImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d62 ScriptCore.SACS::SACS_SetParamImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d63 ScriptCore.SACS::SACS_SetParamStringImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d64 ScriptCore.SACS::SACS_SetParamCompositeImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d65 ScriptCore.SACS::SACS_SetParamCompositeStringValImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d66 ScriptCore.SACS::SACS_GetParamImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d67 ScriptCore.SACS::SACS_GetParamStringImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d68 ScriptCore.SACS::SACS_GetNumParamsImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d69 ScriptCore.SACS::SACS_GetParamNameImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d6a ScriptCore.SACS::SACS_GetDebugStringImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d6b ScriptCore.SACS::SACS_EnterStateImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d6c ScriptCore.SACS::SACS_RequestStateImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d6d ScriptCore.SACS::SACS_CanPauseImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d6e ScriptCore.SACS::SACS_PauseImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d6f ScriptCore.SACS::SACS_ContinueImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d70 ScriptCore.SACS::SACS_UpdateEventFilterImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d71 ScriptCore.SACS::SACS_GetActiveClipCountImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d72 ScriptCore.SACS::SACS_GetActiveClipInfoImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d73 ScriptCore.SACS::SACS_DestroyClipInfoHandleImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d74 ScriptCore.SACS::SACS_GetDefaultPriorityImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d75 ScriptCore.SACS::SACS_StopAllAnimationImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d76 ScriptCore.SACS::SACS_SetRigImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d77 ScriptCore.SACS::SACS_SetClipInterruptibleImpl RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000d78 ScriptCore.SACS::get_Instance RVA=0x00010d1e
+  IL_0000: call           1500000A ; 0x0a000015 System.AppDomain::get_CurrentDomain
+  IL_0005: ldstr          5C080070
+  IL_000a: callvirt       7700000A ; 0x0a000077 System.AppDomain::GetData
+  IL_000f: castclass      74000002 ; 0x02000074 ScriptCore.SACS
+  IL_0014: ret            
+
+.method 0x06000d79 ScriptCore.SACS::.ctor RVA=0x00010d34
+  IL_0000: ldarg.0        
+  IL_0001: call           5B010006 ; 0x0600015b ScriptCore.CallbackObject::.ctor
+  IL_0006: call           1500000A ; 0x0a000015 System.AppDomain::get_CurrentDomain
+  IL_000b: ldstr          5C080070
+  IL_0010: ldarg.0        
+  IL_0011: callvirt       1600000A ; 0x0a000016 System.AppDomain::SetData
+  IL_0016: call           E2010006 ; 0x060001e2 ScriptCore.LoadSaveManager::get_Instance
+  IL_001b: ldarg.0        
+  IL_001c: ldftn          7C0D0006 ; 0x06000d7c ScriptCore.SACS::ObjectGroupSaving
+  IL_0022: newobj         2602000A ; 0x0a000226 Sims3.SimIFace.ObjectGroupSavingHandler::.ctor
+  IL_0027: callvirt       EE010006 ; 0x060001ee ScriptCore.LoadSaveManager::add_ObjectGroupSaving
+  IL_002c: ret            
+
+.method 0x06000d7a ScriptCore.SACS::add_PreSave RVA=0x00010d62
+  IL_0000: ldarg.0        
+  IL_0001: ldarg.0        
+  IL_0002: ldfld          0A010004 ; 0x0400010a PreSave
+  IL_0007: ldarg.1        
+  IL_0008: call           1F00000A ; 0x0a00001f System.Delegate::Combine
+  IL_000d: castclass      F3000001 ; 0x010000f3 Sims3.SimIFace.VoidEventHandler
+  IL_0012: stfld          0A010004 ; 0x0400010a PreSave
+  IL_0017: ret            
+
+.method 0x06000d7b ScriptCore.SACS::remove_PreSave RVA=0x00010d7b
+  IL_0000: ldarg.0        
+  IL_0001: ldarg.0        
+  IL_0002: ldfld          0A010004 ; 0x0400010a PreSave
+  IL_0007: ldarg.1        
+  IL_0008: call           2000000A ; 0x0a000020 System.Delegate::Remove
+  IL_000d: castclass      F3000001 ; 0x010000f3 Sims3.SimIFace.VoidEventHandler
+  IL_0012: stfld          0A010004 ; 0x0400010a PreSave
+  IL_0017: ret            
+
+.method 0x06000d7c ScriptCore.SACS::ObjectGroupSaving RVA=0x00010d94
+  IL_0000: ldarg.0        
+  IL_0001: ldfld          0A010004 ; 0x0400010a PreSave
+  IL_0006: brfalse.s      29 ; -> IL_0031
+  IL_0008: ldarg.0        
+  IL_0009: ldfld          0A010004 ; 0x0400010a PreSave
+  IL_000e: callvirt       6500000A ; 0x0a000065 System.Delegate::GetInvocationList
+  IL_0013: stloc.1        
+  IL_0014: ldc.i4.0       
+  IL_0015: stloc.2        
+  IL_0016: br.s           13 ; -> IL_002b
+  IL_0018: ldloc.1        
+  IL_0019: ldloc.2        
+  IL_001a: ldelem.ref     
+  IL_001b: castclass      F3000001 ; 0x010000f3 Sims3.SimIFace.VoidEventHandler
+  IL_0020: stloc.0        
+  IL_0021: ldloc.0        
+  IL_0022: callvirt       2702000A ; 0x0a000227 Sims3.SimIFace.VoidEventHandler::Invoke
+  IL_0027: ldloc.2        
+  IL_0028: ldc.i4.1       
+  IL_0029: add            
+  IL_002a: stloc.2        
+  IL_002b: ldloc.2        
+  IL_002c: ldloc.1        
+  IL_002d: ldlen          
+  IL_002e: conv.i4        
+  IL_002f: blt.s          E7 ; -> IL_0018
+  IL_0031: ret            
+
+.method 0x06000d7d ScriptCore.SACS::OnPersistFormatterRead RVA=0x00010dd2
+  IL_0000: ldarg.0        
+  IL_0001: call           5D010006 ; 0x0600015d ScriptCore.CallbackObject::Init
+  IL_0006: ret            
+
+.method 0x06000d7e ScriptCore.SACS::AcquireDriver RVA=0x00010ddc
+  IL_0000: ldarg.1        
+  IL_0001: brfalse.s      52 ; -> IL_0055
+  IL_0003: ldarga.s       02
+  IL_0005: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_000a: ldarga.s       03
+  IL_000c: ldfld          DD00000A ; 0x0a0000dd Sims3.SimIFace.ResourceKey::InstanceId
+  IL_0011: ldarga.s       03
+  IL_0013: ldfld          2400000A ; 0x0a000024 Sims3.SimIFace.ResourceKey::GroupId
+  IL_0018: ldarga.s       03
+  IL_001a: ldfld          2500000A ; 0x0a000025 Sims3.SimIFace.ResourceKey::TypeId
+  IL_001f: ldarg.s        04
+  IL_0021: ldarg.0        
+  IL_0022: call           5A010006 ; 0x0600015a ScriptCore.CallbackObject::get_CallbackDelegate
+  IL_0027: call           5B0D0006 ; 0x06000d5b ScriptCore.SACS::SACS_AcquireDriverImpl
+  IL_002c: stloc.0        
+  IL_002d: leave.s        09 ; -> IL_0038
+  IL_002f: pop            
+  IL_0030: ldarg.0        
+  IL_0031: call           60010006 ; 0x06000160 ScriptCore.CallbackObject::AbortCallbackResult
+  IL_0036: rethrow        
+  IL_0038: ldloc.0        
+  IL_0039: ldc.i4.s       F5
+  IL_003b: bne.un.s       3C ; -> IL_0079
+  IL_003d: ldarg.0        
+  IL_003e: call           5F010006 ; 0x0600015f ScriptCore.CallbackObject::GetCallbackResult
+  IL_0043: stloc.1        
+  IL_0044: ldloc.1        
+  IL_0045: brtrue.s       05 ; -> IL_004c
+  IL_0047: ldc.i4.s       F3
+  IL_0049: stloc.0        
+  IL_004a: br.s           2D ; -> IL_0079
+  IL_004c: ldloc.1        
+  IL_004d: unbox.any      61010001 ; 0x01000161 System.UInt32
+  IL_0052: stloc.0        
+  IL_0053: br.s           24 ; -> IL_0079
+  IL_0055: ldarga.s       02
+  IL_0057: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_005c: ldarga.s       03
+  IL_005e: ldfld          DD00000A ; 0x0a0000dd Sims3.SimIFace.ResourceKey::InstanceId
+  IL_0063: ldarga.s       03
+  IL_0065: ldfld          2400000A ; 0x0a000024 Sims3.SimIFace.ResourceKey::GroupId
+  IL_006a: ldarga.s       03
+  IL_006c: ldfld          2500000A ; 0x0a000025 Sims3.SimIFace.ResourceKey::TypeId
+  IL_0071: ldarg.s        04
+  IL_0073: call           5C0D0006 ; 0x06000d5c ScriptCore.SACS::SACS_AcquireDriverNoYieldImpl
+  IL_0078: stloc.0        
+  IL_0079: ldloc.0        
+  IL_007a: ret            
+
+.method 0x06000d7f ScriptCore.SACS::ReleaseDriver RVA=0x00010e74
+  IL_0000: ldarg.1        
+  IL_0001: call           5D0D0006 ; 0x06000d5d ScriptCore.SACS::SACS_ReleaseDriverImpl
+  IL_0006: ret            
+
+.method 0x06000d80 ScriptCore.SACS::IsEventQueueValid RVA=0x00010e7c
+  IL_0000: ldarg.1        
+  IL_0001: call           5E0D0006 ; 0x06000d5e ScriptCore.SACS::SACS_IsEventQueueValidImpl
+  IL_0006: ret            
+
+.method 0x06000d81 ScriptCore.SACS::SetEventQueue RVA=0x00010e84
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           5F0D0006 ; 0x06000d5f ScriptCore.SACS::SACS_SetEventQueueImpl
+  IL_0007: ret            
+
+.method 0x06000d82 ScriptCore.SACS::SetActor RVA=0x00010e8d
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarga.s       03
+  IL_0004: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0009: call           600D0006 ; 0x06000d60 ScriptCore.SACS::SACS_SetActorImpl
+  IL_000e: ret            
+
+.method 0x06000d83 ScriptCore.SACS::HasActor RVA=0x00010e9d
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           610D0006 ; 0x06000d61 ScriptCore.SACS::SACS_HasActorImpl
+  IL_0007: ret            
+
+.method 0x06000d84 ScriptCore.SACS::SetParam RVA=0x00010ea6
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarg.3        
+  IL_0003: call           620D0006 ; 0x06000d62 ScriptCore.SACS::SACS_SetParamImpl
+  IL_0008: ret            
+
+.method 0x06000d85 ScriptCore.SACS::SetParam RVA=0x00010eb0
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarg.3        
+  IL_0003: call           630D0006 ; 0x06000d63 ScriptCore.SACS::SACS_SetParamStringImpl
+  IL_0008: ret            
+
+.method 0x06000d86 ScriptCore.SACS::SetParam RVA=0x00010eba
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarg.3        
+  IL_0003: ldarg.s        04
+  IL_0005: call           650D0006 ; 0x06000d65 ScriptCore.SACS::SACS_SetParamCompositeStringValImpl
+  IL_000a: ret            
+
+.method 0x06000d87 ScriptCore.SACS::SetParam RVA=0x00010ec6
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarg.3        
+  IL_0003: ldarg.s        04
+  IL_0005: call           640D0006 ; 0x06000d64 ScriptCore.SACS::SACS_SetParamCompositeImpl
+  IL_000a: ret            
+
+.method 0x06000d88 ScriptCore.SACS::GetParam RVA=0x00010ed2
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           660D0006 ; 0x06000d66 ScriptCore.SACS::SACS_GetParamImpl
+  IL_0007: ret            
+
+.method 0x06000d89 ScriptCore.SACS::GetParamString RVA=0x00010edb
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           670D0006 ; 0x06000d67 ScriptCore.SACS::SACS_GetParamStringImpl
+  IL_0007: ret            
+
+.method 0x06000d8a ScriptCore.SACS::GetNumParams RVA=0x00010ee4
+  IL_0000: ldarg.1        
+  IL_0001: call           680D0006 ; 0x06000d68 ScriptCore.SACS::SACS_GetNumParamsImpl
+  IL_0006: ret            
+
+.method 0x06000d8b ScriptCore.SACS::GetParamNameByIndex RVA=0x00010eec
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           690D0006 ; 0x06000d69 ScriptCore.SACS::SACS_GetParamNameImpl
+  IL_0007: ret            
+
+.method 0x06000d8c ScriptCore.SACS::GetDebugString RVA=0x00010ef5
+  IL_0000: ldarg.1        
+  IL_0001: call           6A0D0006 ; 0x06000d6a ScriptCore.SACS::SACS_GetDebugStringImpl
+  IL_0006: ret            
+
+.method 0x06000d8d ScriptCore.SACS::EnterState RVA=0x00010efd
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarg.3        
+  IL_0003: call           6B0D0006 ; 0x06000d6b ScriptCore.SACS::SACS_EnterStateImpl
+  IL_0008: ret            
+
+.method 0x06000d8e ScriptCore.SACS::RequestState RVA=0x00010f08
+  IL_0000: ldarg.2        
+  IL_0001: ldarg.3        
+  IL_0002: ldarg.s        04
+  IL_0004: ldarg.s        05
+  IL_0006: ldarg.s        07
+  IL_0008: ldarg.s        08
+  IL_000a: ldarg.s        09
+  IL_000c: call           6C0D0006 ; 0x06000d6c ScriptCore.SACS::SACS_RequestStateImpl
+  IL_0011: stloc.0        
+  IL_0012: ldarg.1        
+  IL_0013: brfalse.s      13 ; -> IL_0028
+  IL_0015: ldarg.0        
+  IL_0016: call           5F010006 ; 0x0600015f ScriptCore.CallbackObject::GetCallbackResult
+  IL_001b: stloc.1        
+  IL_001c: ldloc.1        
+  IL_001d: brtrue.s       02 ; -> IL_0021
+  IL_001f: ldc.i4.m1      
+  IL_0020: ret            
+  IL_0021: ldloc.1        
+  IL_0022: unbox.any      F1000001 ; 0x010000f1 Sims3.SimIFace.SACS.ResultCodes
+  IL_0027: ret            
+  IL_0028: ldloc.0        
+  IL_0029: ret            
+
+.method 0x06000d8f ScriptCore.SACS::Interrupt RVA=0x00010f3e
+  IL_0000: ldstr          D3020070
+  IL_0005: newobj         E300000A ; 0x0a0000e3 System.Exception::.ctor
+  IL_000a: throw          
+
+.method 0x06000d90 ScriptCore.SACS::CanPause RVA=0x00010f4a
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           6D0D0006 ; 0x06000d6d ScriptCore.SACS::SACS_CanPauseImpl
+  IL_0007: ret            
+
+.method 0x06000d91 ScriptCore.SACS::Pause RVA=0x00010f53
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           6E0D0006 ; 0x06000d6e ScriptCore.SACS::SACS_PauseImpl
+  IL_0007: ret            
+
+.method 0x06000d92 ScriptCore.SACS::Continue RVA=0x00010f5c
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           6F0D0006 ; 0x06000d6f ScriptCore.SACS::SACS_ContinueImpl
+  IL_0007: ret            
+
+.method 0x06000d93 ScriptCore.SACS::UpdateEventFilter RVA=0x00010f65
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarg.3        
+  IL_0003: ldarg.s        04
+  IL_0005: ldarg.s        05
+  IL_0007: call           700D0006 ; 0x06000d70 ScriptCore.SACS::SACS_UpdateEventFilterImpl
+  IL_000c: ret            
+
+.method 0x06000d94 ScriptCore.SACS::GetActiveClipCount RVA=0x00010f73
+  IL_0000: ldarg.2        
+  IL_0001: ldsfld         1B00000A ; 0x0a00001b System.IntPtr::Zero
+  IL_0006: stobj          36010001 ; 0x01000136 System.IntPtr
+  IL_000b: ldc.i4.0       
+  IL_000c: ret            
+
+.method 0x06000d95 ScriptCore.SACS::GetActiveClipInfo RVA=0x00010f81
+  IL_0000: ldnull         
+  IL_0001: ret            
+
+.method 0x06000d96 ScriptCore.SACS::DestroyClipInfoHandle RVA=0x00010f84
+  IL_0000: ret            
+
+.method 0x06000d97 ScriptCore.SACS::GetDefaultPriority RVA=0x00010f86
+  IL_0000: ldarg.1        
+  IL_0001: call           740D0006 ; 0x06000d74 ScriptCore.SACS::SACS_GetDefaultPriorityImpl
+  IL_0006: ret            
+
+.method 0x06000d98 ScriptCore.SACS::StopAllAnimation RVA=0x00010f8e
+  IL_0000: ldarg.1        
+  IL_0001: call           750D0006 ; 0x06000d75 ScriptCore.SACS::SACS_StopAllAnimationImpl
+  IL_0006: ret            
+
+.method 0x06000d99 ScriptCore.SACS::SetRig RVA=0x00010f96
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           760D0006 ; 0x06000d76 ScriptCore.SACS::SACS_SetRigImpl
+  IL_0007: ret            
+
+.method 0x06000d9a ScriptCore.SACS::SetClipInterruptible RVA=0x00010f9f
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarg.3        
+  IL_0003: call           770D0006 ; 0x06000d77 ScriptCore.SACS::SACS_SetClipInterruptibleImpl
+  IL_0008: ret            
+
+.method 0x06000d9b ScriptCore.SACS::OnAbortCallbackResult RVA=0x00010fac
+  IL_0000: ldarg.1        
+  IL_0001: isinst         61010001 ; 0x01000161 System.UInt32
+  IL_0006: brfalse.s      17 ; -> IL_001f
+  IL_0008: ldarg.1        
+  IL_0009: unbox.any      61010001 ; 0x01000161 System.UInt32
+  IL_000e: stloc.0        
+  IL_000f: ldloc.0        
+  IL_0010: ldc.i4.2       
+  IL_0011: ble.un.s       0C ; -> IL_001f
+  IL_0013: ldloc.0        
+  IL_0014: ldc.i4.s       F3
+  IL_0016: bge.un.s       07 ; -> IL_001f
+  IL_0018: ldarg.0        
+  IL_0019: ldloc.0        
+  IL_001a: call           7F0D0006 ; 0x06000d7f ScriptCore.SACS::ReleaseDriver
+  IL_001f: ret            

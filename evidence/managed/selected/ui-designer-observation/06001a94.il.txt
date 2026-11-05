@@ -1,0 +1,15 @@
+// Complete pristine UI MethodDef/CIL; pair with actual ILSpy group rendering and method index.
+Sims3.UI.CAS.CASCompositorController::get_Enabled
+MethodDef=0x06001A94 RVA=0x00094248 SignatureBlob=200002 MaxStack=8 LocalSignature=11000000 InitLocals=False CodeBytes=28
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001BF0 Sims3.UI.CAS.CASCompositorController::mFilterButton
+IL_0006: ldnull
+IL_0007: call 0x06000090 Sims3.UI.WindowBase::op_Inequality
+IL_000C: brfalse.s IL_001A
+IL_000E: ldarg.0
+IL_000F: ldfld 0x04001BF0 Sims3.UI.CAS.CASCompositorController::mFilterButton
+IL_0014: callvirt 0x0600003E Sims3.UI.WindowBase::get_Enabled
+IL_0019: ret
+IL_001A: ldc.i4.1
+IL_001B: ret
+ExceptionRegions=[]

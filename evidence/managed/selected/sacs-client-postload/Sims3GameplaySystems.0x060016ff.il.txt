@@ -1,0 +1,27 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+		.method public hidebysig 
+			instance void StartHighLODIdle () cil managed 
+		{
+			// Method begins at RVA 0x6ae0f
+			// Header size: 1
+			// Code size: 48 (0x30)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.ActorSystems.Posture::CurrentStateMachine
+			IL_0006: brtrue.s IL_002f
+
+			IL_0008: ldarg.0
+			IL_0009: ldarg.0
+			IL_000a: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Actors.Sim/StandingPosture::mActor
+			IL_000f: ldstr "idle"
+			IL_0014: ldstr "standing"
+			IL_0019: callvirt instance class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Actors.Sim::SacsInitStateMachineClient(string, string)
+			IL_001e: stfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.ActorSystems.Posture::CurrentStateMachine
+			IL_0023: ldarg.0
+			IL_0024: call instance void Sims3.Gameplay.Actors.Sim/StandingPosture::SetDefaultIdleAnim()
+			IL_0029: ldarg.0
+			IL_002a: call instance void Sims3.Gameplay.Actors.Sim/StandingPosture::SetIdleCallbacks()
+
+			IL_002f: ret
+		} // end of method StandingPosture::StartHighLODIdle

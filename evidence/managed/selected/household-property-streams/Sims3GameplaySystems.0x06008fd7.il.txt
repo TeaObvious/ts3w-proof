@@ -1,0 +1,90 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method public final hidebysig newslot virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x27c124
+		// Header size: 12
+		// Code size: 134 (0x86)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.IPropertyStreamReader,
+			[1] int32,
+			[2] int32[],
+			[3] int32,
+			[4] valuetype [SimIFace]Sims3.SimIFace.ResourceKey
+		)
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 -2073216372 // 0x846d3a8c
+		IL_0006: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamReader [SimIFace]Sims3.SimIFace.IPropertyStreamReader::GetChild(uint32)
+		IL_000b: stloc.0
+		IL_000c: ldloc.0
+		IL_000d: brfalse.s IL_002c
+
+		IL_000f: ldarg.0
+		IL_0010: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::Create()
+		IL_0015: stfld class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Core.HouseholdContents::mHousehold
+		IL_001a: ldarg.0
+		IL_001b: ldfld class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Core.HouseholdContents::mHousehold
+		IL_0020: ldarg.1
+		IL_0021: ldarg.2
+		IL_0022: ldloc.0
+		IL_0023: callvirt instance bool Sims3.Gameplay.CAS.Household::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0028: brtrue.s IL_002c
+
+		IL_002a: ldc.i4.0
+		IL_002b: ret
+
+		IL_002c: ldarg.3
+		IL_002d: ldc.i4 1758660904
+		IL_0032: ldloca.s 1
+		IL_0034: ldc.i4.2
+		IL_0035: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadInt32(uint32, int32&, int32)
+		IL_003a: pop
+		IL_003b: ldarg.0
+		IL_003c: ldloc.1
+		IL_003d: newarr [mscorlib]System.UInt64
+		IL_0042: stfld uint64[] Sims3.Gameplay.Core.HouseholdContents::mInventories
+		IL_0047: ldloc.1
+		IL_0048: newarr [mscorlib]System.Int32
+		IL_004d: stloc.2
+		IL_004e: ldarg.3
+		IL_004f: ldc.i4 -1548720681 // 0xa3b065d7
+		IL_0054: ldloca.s 2
+		IL_0056: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadInt32(uint32, int32[]&)
+		IL_005b: pop
+		IL_005c: ldc.i4.0
+		IL_005d: stloc.3
+		IL_005e: br.s IL_007e
+		// loop start (head: IL_007e)
+			IL_0060: ldarg.1
+			IL_0061: ldloc.2
+			IL_0062: ldloc.3
+			IL_0063: ldelem.i4
+			IL_0064: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable::get_Item(int32)
+			IL_0069: stloc.s 4
+			IL_006b: ldarg.0
+			IL_006c: ldfld uint64[] Sims3.Gameplay.Core.HouseholdContents::mInventories
+			IL_0071: ldloc.3
+			IL_0072: ldloca.s 4
+			IL_0074: ldfld uint64 [SimIFace]Sims3.SimIFace.ResourceKey::InstanceId
+			IL_0079: stelem.i8
+			IL_007a: ldloc.3
+			IL_007b: ldc.i4.1
+			IL_007c: add
+			IL_007d: stloc.3
+
+			IL_007e: ldloc.3
+			IL_007f: ldloc.2
+			IL_0080: ldlen
+			IL_0081: conv.i4
+			IL_0082: blt.s IL_0060
+		// end loop
+
+		IL_0084: ldc.i4.1
+		IL_0085: ret
+	} // end of method HouseholdContents::ImportContent

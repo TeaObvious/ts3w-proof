@@ -1,0 +1,77 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CASUtils::CASUtils_CASCameraModeImpl
+# Entry: 0x005a5a60; bounded stop: 0x005a5b10; next Ghidra entry: 0x005a5b10
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+005a5a60 <.text+0x1a4a60>:
+  5a5a60:	53                   	push   ebx
+  5a5a61:	56                   	push   esi
+  5a5a62:	e8 09 27 14 00       	call   0x6e8170
+  5a5a67:	8b 5c 24 0c          	mov    ebx,DWORD PTR [esp+0xc]
+  5a5a6b:	8b f0                	mov    esi,eax
+  5a5a6d:	85 f6                	test   esi,esi
+  5a5a6f:	74 4c                	je     0x5a5abd
+  5a5a71:	8a c3                	mov    al,bl
+  5a5a73:	f6 d8                	neg    al
+  5a5a75:	57                   	push   edi
+  5a5a76:	68 00 f0 ff 7f       	push   0x7ffff000
+  5a5a7b:	8b ce                	mov    ecx,esi
+  5a5a7d:	1b c0                	sbb    eax,eax
+  5a5a7f:	83 e0 0f             	and    eax,0xf
+  5a5a82:	83 c0 01             	add    eax,0x1
+  5a5a85:	8b f8                	mov    edi,eax
+  5a5a87:	57                   	push   edi
+  5a5a88:	e8 d3 27 14 00       	call   0x6e8260
+  5a5a8d:	88 9e 69 02 00 00    	mov    BYTE PTR [esi+0x269],bl
+  5a5a93:	8b 76 38             	mov    esi,DWORD PTR [esi+0x38]
+  5a5a96:	85 f6                	test   esi,esi
+  5a5a98:	74 22                	je     0x5a5abc
+  5a5a9a:	84 db                	test   bl,bl
+  5a5a9c:	0f 94 c1             	sete   cl
+  5a5a9f:	51                   	push   ecx
+  5a5aa0:	8b ce                	mov    ecx,esi
+  5a5aa2:	e8 09 93 13 00       	call   0x6dedb0
+  5a5aa7:	53                   	push   ebx
+  5a5aa8:	8b ce                	mov    ecx,esi
+  5a5aaa:	e8 f1 92 13 00       	call   0x6deda0
+  5a5aaf:	68 00 f0 ff 7f       	push   0x7ffff000
+  5a5ab4:	57                   	push   edi
+  5a5ab5:	8b ce                	mov    ecx,esi
+  5a5ab7:	e8 c4 92 13 00       	call   0x6ded80
+  5a5abc:	5f                   	pop    edi
+  5a5abd:	e8 0e 41 3c 00       	call   0x969bd0
+  5a5ac2:	8b c8                	mov    ecx,eax
+  5a5ac4:	e8 27 c5 97 00       	call   0xf21ff0
+  5a5ac9:	85 c0                	test   eax,eax
+  5a5acb:	74 37                	je     0x5a5b04
+  5a5acd:	84 db                	test   bl,bl
+  5a5acf:	74 23                	je     0x5a5af4
+  5a5ad1:	8b 88 90 00 00 00    	mov    ecx,DWORD PTR [eax+0x90]
+  5a5ad7:	83 f9 04             	cmp    ecx,0x4
+  5a5ada:	74 06                	je     0x5a5ae2
+  5a5adc:	89 0d e4 61 15 01    	mov    DWORD PTR ds:0x11561e4,ecx
+  5a5ae2:	6a 00                	push   0x0
+  5a5ae4:	6a 04                	push   0x4
+  5a5ae6:	8b c8                	mov    ecx,eax
+  5a5ae8:	e8 73 55 3c 00       	call   0x96b060
+  5a5aed:	5e                   	pop    esi
+  5a5aee:	5b                   	pop    ebx
+  5a5aef:	e9 3c 3e 14 00       	jmp    0x6e9930
+  5a5af4:	8b 15 e4 61 15 01    	mov    edx,DWORD PTR ds:0x11561e4
+  5a5afa:	6a 00                	push   0x0
+  5a5afc:	52                   	push   edx
+  5a5afd:	8b c8                	mov    ecx,eax
+  5a5aff:	e8 5c 55 3c 00       	call   0x96b060
+  5a5b04:	5e                   	pop    esi
+  5a5b05:	5b                   	pop    ebx
+  5a5b06:	e9 25 3e 14 00       	jmp    0x6e9930
+  5a5b0b:	cc                   	int3
+  5a5b0c:	cc                   	int3
+  5a5b0d:	cc                   	int3
+  5a5b0e:	cc                   	int3
+  5a5b0f:	cc                   	int3

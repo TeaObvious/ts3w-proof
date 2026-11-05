@@ -1,0 +1,149 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00996a50 <.text+0x595a50>:
+  996a50:	83 ec 54             	sub    esp,0x54
+  996a53:	57                   	push   edi
+  996a54:	8b 7c 24 5c          	mov    edi,DWORD PTR [esp+0x5c]
+  996a58:	85 ff                	test   edi,edi
+  996a5a:	75 07                	jne    0x996a63
+  996a5c:	32 c0                	xor    al,al
+  996a5e:	5f                   	pop    edi
+  996a5f:	83 c4 54             	add    esp,0x54
+  996a62:	c3                   	ret
+  996a63:	56                   	push   esi
+  996a64:	e8 27 29 dd ff       	call   0x769390
+  996a69:	8b f0                	mov    esi,eax
+  996a6b:	85 f6                	test   esi,esi
+  996a6d:	0f 84 c9 00 00 00    	je     0x996b3c
+  996a73:	b8 54 8e 1c 01       	mov    eax,0x11c8e54
+  996a78:	c7 44 24 14 e0 a0 04 	mov    DWORD PTR [esp+0x14],0x104a0e0
+  996a7f:	01 
+  996a80:	89 44 24 08          	mov    DWORD PTR [esp+0x8],eax
+  996a84:	89 44 24 0c          	mov    DWORD PTR [esp+0xc],eax
+  996a88:	c7 44 24 10 56 8e 1c 	mov    DWORD PTR [esp+0x10],0x11c8e56
+  996a8f:	01 
+  996a90:	8b 06                	mov    eax,DWORD PTR [esi]
+  996a92:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  996a95:	57                   	push   edi
+  996a96:	8b ce                	mov    ecx,esi
+  996a98:	ff d2                	call   edx
+  996a9a:	66 83 38 00          	cmp    WORD PTR [eax],0x0
+  996a9e:	8b c8                	mov    ecx,eax
+  996aa0:	74 09                	je     0x996aab
+  996aa2:	83 c1 02             	add    ecx,0x2
+  996aa5:	66 83 39 00          	cmp    WORD PTR [ecx],0x0
+  996aa9:	75 f7                	jne    0x996aa2
+  996aab:	2b c8                	sub    ecx,eax
+  996aad:	d1 f9                	sar    ecx,1
+  996aaf:	8d 0c 48             	lea    ecx,[eax+ecx*2]
+  996ab2:	51                   	push   ecx
+  996ab3:	50                   	push   eax
+  996ab4:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  996ab8:	e8 a3 22 a7 ff       	call   0x408d60
+  996abd:	68 80 a0 04 01       	push   0x104a080
+  996ac2:	6a 00                	push   0x0
+  996ac4:	6a 00                	push   0x0
+  996ac6:	8d 4c 24 3c          	lea    ecx,[esp+0x3c]
+  996aca:	e8 91 89 b4 ff       	call   0x4df460
+  996acf:	d9 e8                	fld1
+  996ad1:	83 44 24 3c 01       	add    DWORD PTR [esp+0x3c],0x1
+  996ad6:	51                   	push   ecx
+  996ad7:	d9 1c 24             	fstp   DWORD PTR [esp]
+  996ada:	6a 01                	push   0x1
+  996adc:	8d 4c 24 38          	lea    ecx,[esp+0x38]
+  996ae0:	e8 5b 83 b4 ff       	call   0x4dee40
+  996ae5:	8b 44 24 64          	mov    eax,DWORD PTR [esp+0x64]
+  996ae9:	85 c0                	test   eax,eax
+  996aeb:	74 57                	je     0x996b44
+  996aed:	8d 54 24 30          	lea    edx,[esp+0x30]
+  996af1:	52                   	push   edx
+  996af2:	50                   	push   eax
+  996af3:	56                   	push   esi
+  996af4:	e8 b7 e4 ff ff       	call   0x994fb0
+  996af9:	83 c4 0c             	add    esp,0xc
+  996afc:	84 c0                	test   al,al
+  996afe:	75 44                	jne    0x996b44
+  996b00:	8b 4c 24 34          	mov    ecx,DWORD PTR [esp+0x34]
+  996b04:	85 c9                	test   ecx,ecx
+  996b06:	c7 44 24 30 00 6c fb 	mov    DWORD PTR [esp+0x30],0xfb6c00
+  996b0d:	00 
+  996b0e:	74 05                	je     0x996b15
+  996b10:	e8 eb 82 b4 ff       	call   0x4dee00
+  996b15:	8b 4c 24 10          	mov    ecx,DWORD PTR [esp+0x10]
+  996b19:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+  996b1d:	2b c8                	sub    ecx,eax
+  996b1f:	83 e1 fe             	and    ecx,0xfffffffe
+  996b22:	83 f9 02             	cmp    ecx,0x2
+  996b25:	c7 44 24 30 04 aa fa 	mov    DWORD PTR [esp+0x30],0xfaaa04
+  996b2c:	00 
+  996b2d:	7e 0d                	jle    0x996b3c
+  996b2f:	85 c0                	test   eax,eax
+  996b31:	74 09                	je     0x996b3c
+  996b33:	50                   	push   eax
+  996b34:	e8 a7 d9 b4 ff       	call   0x4e44e0
+  996b39:	83 c4 04             	add    esp,0x4
+  996b3c:	5e                   	pop    esi
+  996b3d:	32 c0                	xor    al,al
+  996b3f:	5f                   	pop    edi
+  996b40:	83 c4 54             	add    esp,0x54
+  996b43:	c3                   	ret
+  996b44:	53                   	push   ebx
+  996b45:	6a 00                	push   0x0
+  996b47:	6a 00                	push   0x0
+  996b49:	8d 4c 24 3c          	lea    ecx,[esp+0x3c]
+  996b4d:	e8 5e 87 b4 ff       	call   0x4df2b0
+  996b52:	6a 01                	push   0x1
+  996b54:	8d 54 24 38          	lea    edx,[esp+0x38]
+  996b58:	52                   	push   edx
+  996b59:	8d 4c 24 24          	lea    ecx,[esp+0x24]
+  996b5d:	e8 7e 28 e4 ff       	call   0x7d93e0
+  996b62:	8d 44 24 1c          	lea    eax,[esp+0x1c]
+  996b66:	50                   	push   eax
+  996b67:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  996b6b:	51                   	push   ecx
+  996b6c:	e8 5f 0b 01 00       	call   0x9a76d0
+  996b71:	83 c4 08             	add    esp,0x8
+  996b74:	8d 4c 24 1c          	lea    ecx,[esp+0x1c]
+  996b78:	8a d8                	mov    bl,al
+  996b7a:	e8 11 0e e4 ff       	call   0x7d7990
+  996b7f:	8b 4c 24 38          	mov    ecx,DWORD PTR [esp+0x38]
+  996b83:	85 c9                	test   ecx,ecx
+  996b85:	c7 44 24 34 00 6c fb 	mov    DWORD PTR [esp+0x34],0xfb6c00
+  996b8c:	00 
+  996b8d:	74 05                	je     0x996b94
+  996b8f:	e8 6c 82 b4 ff       	call   0x4dee00
+  996b94:	8b 54 24 14          	mov    edx,DWORD PTR [esp+0x14]
+  996b98:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+  996b9c:	2b d0                	sub    edx,eax
+  996b9e:	83 e2 fe             	and    edx,0xfffffffe
+  996ba1:	83 fa 02             	cmp    edx,0x2
+  996ba4:	c7 44 24 34 04 aa fa 	mov    DWORD PTR [esp+0x34],0xfaaa04
+  996bab:	00 
+  996bac:	7e 0d                	jle    0x996bbb
+  996bae:	85 c0                	test   eax,eax
+  996bb0:	74 09                	je     0x996bbb
+  996bb2:	50                   	push   eax
+  996bb3:	e8 28 d9 b4 ff       	call   0x4e44e0
+  996bb8:	83 c4 04             	add    esp,0x4
+  996bbb:	8a c3                	mov    al,bl
+  996bbd:	5b                   	pop    ebx
+  996bbe:	5e                   	pop    esi
+  996bbf:	5f                   	pop    edi
+  996bc0:	83 c4 54             	add    esp,0x54
+  996bc3:	c3                   	ret
+  996bc4:	cc                   	int3
+  996bc5:	cc                   	int3
+  996bc6:	cc                   	int3
+  996bc7:	cc                   	int3
+  996bc8:	cc                   	int3
+  996bc9:	cc                   	int3
+  996bca:	cc                   	int3
+  996bcb:	cc                   	int3
+  996bcc:	cc                   	int3
+  996bcd:	cc                   	int3
+  996bce:	cc                   	int3
+  996bcf:	cc                   	int3

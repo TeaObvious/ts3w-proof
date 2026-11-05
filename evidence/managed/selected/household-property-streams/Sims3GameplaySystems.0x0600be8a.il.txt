@@ -1,0 +1,244 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method public final hidebysig newslot virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x369da4
+		// Header size: 12
+		// Code size: 553 (0x229)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter,
+			[1] string,
+			[2] string,
+			[3] int32,
+			[4] uint32,
+			[5] valuetype [SimIFace]Sims3.SimIFace.WorldName,
+			[6] class [mscorlib]System.Collections.Generic.List`1<string>,
+			[7] uint64[],
+			[8] uint64[],
+			[9] valuetype [mscorlib]System.DateTime,
+			[10] class [mscorlib]System.Collections.Generic.IEnumerator`1<valuetype [SimIFace]Sims3.SimIFace.WorldName>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld string Sims3.Gameplay.CAS.Household::mName
+		IL_0006: stloc.1
+		IL_0007: ldarg.0
+		IL_0008: ldfld string Sims3.Gameplay.CAS.Household::mBioText
+		IL_000d: stloc.2
+		IL_000e: call bool [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::IsDevBuild()
+		IL_0013: brtrue.s IL_0023
+
+		IL_0015: ldarg.0
+		IL_0016: call instance string Sims3.Gameplay.CAS.Household::get_Name()
+		IL_001b: stloc.1
+		IL_001c: ldarg.0
+		IL_001d: call instance string Sims3.Gameplay.CAS.Household::get_BioText()
+		IL_0022: stloc.2
+
+		IL_0023: ldarg.3
+		IL_0024: ldc.i4 1357107804
+		IL_0029: ldloc.1
+		IL_002a: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string)
+		IL_002f: pop
+		IL_0030: ldarg.3
+		IL_0031: ldc.i4 867787827
+		IL_0036: ldarg.0
+		IL_0037: ldfld int32 Sims3.Gameplay.CAS.Household::mFamilyFunds
+		IL_003c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0041: pop
+		IL_0042: ldarg.3
+		IL_0043: ldc.i4 -647298056 // 0xd96b03f8
+		IL_0048: ldloc.2
+		IL_0049: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string)
+		IL_004e: pop
+		IL_004f: ldarg.3
+		IL_0050: ldc.i4 1669643236
+		IL_0055: call valuetype [mscorlib]System.DateTime [mscorlib]System.DateTime::get_Now()
+		IL_005a: stloc.s 9
+		IL_005c: ldloca.s 9
+		IL_005e: call instance int64 [mscorlib]System.DateTime::ToBinary()
+		IL_0063: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt64(uint32, int64)
+		IL_0068: pop
+		IL_0069: ldarg.3
+		IL_006a: ldc.i4 571722353
+		IL_006f: ldarg.0
+		IL_0070: ldfld bool Sims3.Gameplay.CAS.Household::mbLifetimeHappinessNotificationShown
+		IL_0075: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_007a: pop
+		IL_007b: ldarg.3
+		IL_007c: ldc.i4 145720536
+		IL_0081: ldarg.0
+		IL_0082: ldfld int32 Sims3.Gameplay.CAS.Household::mUnpaidBills
+		IL_0087: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_008c: pop
+		IL_008d: ldarg.0
+		IL_008e: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.CAS.Household::get_LotHome()
+		IL_0093: brfalse.s IL_00ac
+
+		IL_0095: ldarg.3
+		IL_0096: ldc.i4 -956452563 // 0xc6fdb12d
+		IL_009b: ldarg.0
+		IL_009c: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.CAS.Household::get_LotHome()
+		IL_00a1: callvirt instance int32 Sims3.Gameplay.Abstracts.GameObject::get_Cost()
+		IL_00a6: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_00ab: pop
+
+		IL_00ac: ldarg.3
+		IL_00ad: ldc.i4 -1845871922 // 0x91fa3ace
+		IL_00b2: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+		IL_00b7: stloc.0
+		IL_00b8: ldarg.0
+		IL_00b9: ldfld class Sims3.Gameplay.CAS.Household/Members Sims3.Gameplay.CAS.Household::mMembers
+		IL_00be: ldarg.1
+		IL_00bf: ldarg.2
+		IL_00c0: ldloc.0
+		IL_00c1: callvirt instance bool Sims3.Gameplay.CAS.Household/Members::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_00c6: pop
+		IL_00c7: ldarg.3
+		IL_00c8: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+		IL_00cd: ldnull
+		IL_00ce: stloc.0
+		IL_00cf: ldarg.3
+		IL_00d0: ldc.i4 -1588663882 // 0xa14ee9b6
+		IL_00d5: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+		IL_00da: stloc.0
+		IL_00db: ldarg.0
+		IL_00dc: ldarg.1
+		IL_00dd: ldarg.2
+		IL_00de: ldloc.0
+		IL_00df: call instance bool Sims3.Gameplay.CAS.Household::ExportRelationships(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_00e4: pop
+		IL_00e5: ldarg.3
+		IL_00e6: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+		IL_00eb: ldnull
+		IL_00ec: stloc.0
+		IL_00ed: ldarg.3
+		IL_00ee: ldc.i4 141731785
+		IL_00f3: ldarg.0
+		IL_00f4: ldfld int32 Sims3.Gameplay.CAS.Household::mAncientCoinCount
+		IL_00f9: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_00fe: pop
+		IL_00ff: ldarg.3
+		IL_0100: ldc.i4 1193523264
+		IL_0105: ldarg.0
+		IL_0106: ldfld valuetype Sims3.Gameplay.Abstracts.UniqueObjectKey Sims3.Gameplay.CAS.Household::UniqueObjectsObtained
+		IL_010b: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint64(uint32, uint64)
+		IL_0110: pop
+		IL_0111: ldarg.0
+		IL_0112: ldfld class Sims3.Gameplay.Utilities.PairedListDictionary`2<valuetype [SimIFace]Sims3.SimIFace.WorldName, class [mscorlib]System.Collections.Generic.List`1<string>> Sims3.Gameplay.CAS.Household::mKeystonePanelsUsed
+		IL_0117: callvirt instance int32 class Sims3.Gameplay.Utilities.PairedListDictionary`2<valuetype [SimIFace]Sims3.SimIFace.WorldName, class [mscorlib]System.Collections.Generic.List`1<string>>::get_Count()
+		IL_011c: stloc.3
+		IL_011d: ldarg.3
+		IL_011e: ldc.i4 129814813
+		IL_0123: ldloc.3
+		IL_0124: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0129: pop
+		IL_012a: ldc.i4.0
+		IL_012b: stloc.s 4
+		IL_012d: ldarg.0
+		IL_012e: ldfld class Sims3.Gameplay.Utilities.PairedListDictionary`2<valuetype [SimIFace]Sims3.SimIFace.WorldName, class [mscorlib]System.Collections.Generic.List`1<string>> Sims3.Gameplay.CAS.Household::mKeystonePanelsUsed
+		IL_0133: callvirt instance class [mscorlib]System.Collections.Generic.ICollection`1<!0> class Sims3.Gameplay.Utilities.PairedListDictionary`2<valuetype [SimIFace]Sims3.SimIFace.WorldName, class [mscorlib]System.Collections.Generic.List`1<string>>::get_Keys()
+		IL_0138: callvirt instance class [mscorlib]System.Collections.Generic.IEnumerator`1<!0> class [mscorlib]System.Collections.Generic.IEnumerable`1<valuetype [SimIFace]Sims3.SimIFace.WorldName>::GetEnumerator()
+		IL_013d: stloc.s 10
+		.try
+		{
+			IL_013f: br.s IL_018b
+			// loop start (head: IL_018b)
+				IL_0141: ldloc.s 10
+				IL_0143: callvirt instance !0 class [mscorlib]System.Collections.Generic.IEnumerator`1<valuetype [SimIFace]Sims3.SimIFace.WorldName>::get_Current()
+				IL_0148: stloc.s 5
+				IL_014a: ldarg.3
+				IL_014b: ldc.i4 146578516
+				IL_0150: ldloc.s 4
+				IL_0152: add
+				IL_0153: ldloc.s 5
+				IL_0155: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+				IL_015a: pop
+				IL_015b: ldarg.0
+				IL_015c: ldfld class Sims3.Gameplay.Utilities.PairedListDictionary`2<valuetype [SimIFace]Sims3.SimIFace.WorldName, class [mscorlib]System.Collections.Generic.List`1<string>> Sims3.Gameplay.CAS.Household::mKeystonePanelsUsed
+				IL_0161: ldloc.s 5
+				IL_0163: callvirt instance !1 class Sims3.Gameplay.Utilities.PairedListDictionary`2<valuetype [SimIFace]Sims3.SimIFace.WorldName, class [mscorlib]System.Collections.Generic.List`1<string>>::get_Item(!0)
+				IL_0168: newobj instance void class [mscorlib]System.Collections.Generic.List`1<string>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+				IL_016d: stloc.s 6
+				IL_016f: ldarg.3
+				IL_0170: ldc.i4 163369191
+				IL_0175: ldloc.s 4
+				IL_0177: add
+				IL_0178: ldloc.s 6
+				IL_017a: callvirt instance !0[] class [mscorlib]System.Collections.Generic.List`1<string>::ToArray()
+				IL_017f: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string[])
+				IL_0184: pop
+				IL_0185: ldloc.s 4
+				IL_0187: ldc.i4.1
+				IL_0188: add
+				IL_0189: stloc.s 4
+
+				IL_018b: ldloc.s 10
+				IL_018d: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+				IL_0192: brtrue.s IL_0141
+			// end loop
+
+			IL_0194: leave.s IL_01a2
+		} // end .try
+		finally
+		{
+			IL_0196: ldloc.s 10
+			IL_0198: brfalse.s IL_01a1
+
+			IL_019a: ldloc.s 10
+			IL_019c: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+			IL_01a1: endfinally
+		} // end handler
+
+		IL_01a2: ldarg.0
+		IL_01a3: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, bool> Sims3.Gameplay.CAS.Household::mCompletedHouseholdOpportunities
+		IL_01a8: callvirt instance int32 class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, bool>::get_Count()
+		IL_01ad: newarr [mscorlib]System.UInt64
+		IL_01b2: stloc.s 7
+		IL_01b4: ldarg.0
+		IL_01b5: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, bool> Sims3.Gameplay.CAS.Household::mCompletedHouseholdOpportunities
+		IL_01ba: callvirt instance class [mscorlib]System.Collections.Generic.Dictionary`2/KeyCollection<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, bool>::get_Keys()
+		IL_01bf: ldloc.s 7
+		IL_01c1: ldc.i4.0
+		IL_01c2: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2/KeyCollection<uint64, bool>::CopyTo(!0[], int32)
+		IL_01c7: ldarg.3
+		IL_01c8: ldc.i4 149611345
+		IL_01cd: ldloc.s 7
+		IL_01cf: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint64(uint32, uint64[])
+		IL_01d4: pop
+		IL_01d5: ldarg.3
+		IL_01d6: ldc.i4 149611346
+		IL_01db: ldarg.0
+		IL_01dc: ldfld uint32[] Sims3.Gameplay.CAS.Household::mMoneySaved
+		IL_01e1: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32[])
+		IL_01e6: pop
+		IL_01e7: ldarg.0
+		IL_01e8: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.CAS.Household::mWardrobeCasParts
+		IL_01ed: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<uint64>::get_Count()
+		IL_01f2: newarr [mscorlib]System.UInt64
+		IL_01f7: stloc.s 8
+		IL_01f9: ldarg.0
+		IL_01fa: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.CAS.Household::mWardrobeCasParts
+		IL_01ff: ldloc.s 8
+		IL_0201: ldc.i4.0
+		IL_0202: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<uint64>::CopyTo(!0[], int32)
+		IL_0207: ldarg.3
+		IL_0208: ldc.i4 153835052
+		IL_020d: ldloc.s 8
+		IL_020f: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint64(uint32, uint64[])
+		IL_0214: pop
+		IL_0215: ldarg.3
+		IL_0216: ldc.i4 156333552
+		IL_021b: ldarg.0
+		IL_021c: ldfld valuetype Sims3.Gameplay.Services.ServiceType Sims3.Gameplay.CAS.Household::mServiceUniforms
+		IL_0221: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint64(uint32, uint64)
+		IL_0226: pop
+		IL_0227: ldc.i4.1
+		IL_0228: ret
+	} // end of method Household::ExportContent

@@ -1,0 +1,61 @@
+// Actual pristine ILSpy selected complete members; declaring type Sims3.Gameplay.Objects.Lighting.SearchLight.
+	public bool IsTurnedOn => mIsTurnedOn;
+
+	public override void OnStartup()
+	{
+		((GameObject)this).AddInteraction(TurnOnSearchLight.Singleton);
+		((GameObject)this).AddInteraction(TurnOffSearchLight.Singleton);
+	}
+
+	protected override void DoReset(ResetInformation resetInformation)
+	{
+		((GameObject)this).DoReset(resetInformation);
+		mSMC = null;
+		if (mIsTurnedOn)
+		{
+			TurnOn();
+		}
+	}
+
+	public override bool ExportContent(ResKeyTable resKeyTable, ObjectIdTable objIdTable, IPropertyStreamWriter writer)
+	{
+		bool result = ((GameObject)this).ExportContent(resKeyTable, objIdTable, writer);
+		writer.WriteBool(183453159u, mIsTurnedOn);
+		return result;
+	}
+
+	public override bool ImportContent(ResKeyTable resKeyTable, ObjectIdTable objIdTable, IPropertyStreamReader reader)
+	{
+		bool result = ((GameObject)this).ImportContent(resKeyTable, objIdTable, reader);
+		reader.ReadBool(183453159u, ref mIsTurnedOn, false);
+		if (mIsTurnedOn)
+		{
+			TurnOn();
+		}
+		return result;
+	}
+
+	public void TurnOn()
+	{
+		//IL_001c: Unknown result type (might be due to invalid IL or missing references)
+		mIsTurnedOn = true;
+		((GameObject)this).SetMaterial("OpenManyLights1");
+		if (mSMC == null)
+		{
+			mSMC = StateMachineClient.Acquire(((ScriptObject)this).ObjectId, "SearchLight", (AnimationPriority)(-2), false);
+			mSMC.SetActor("searchlight", (IHasScriptProxy)(object)this);
+			mSMC.EnterState("searchlight", "Enter");
+			mSMC.RequestState(false, "searchlight", "Loop");
+		}
+	}
+
+	public void TurnOff()
+	{
+		mIsTurnedOn = false;
+		((GameObject)this).SetMaterial("default");
+		if (mSMC != null)
+		{
+			mSMC.RequestState(false, "searchlight", "Exit");
+			mSMC = null;
+		}
+	}

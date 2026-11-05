@@ -1,0 +1,28 @@
+# world-method-register: retail TS3W.exe VA 0x00796550-0x0079658B, file offset 0x396550
+796550:	57                   	push   edi
+  796551:	8b 7c 24 08          	mov    edi,DWORD PTR [esp+0x8]
+  796555:	83 ff 4b             	cmp    edi,0x4b
+  796558:	77 30                	ja     0x79658a
+  79655a:	56                   	push   esi
+  79655b:	e8 30 2e fd ff       	call   0x769390
+  796560:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+  796564:	8b f0                	mov    esi,eax
+  796566:	8b 06                	mov    eax,DWORD PTR [esi]
+  796568:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  79656b:	51                   	push   ecx
+  79656c:	8b ce                	mov    ecx,esi
+  79656e:	ff d2                	call   edx
+  796570:	8b 4c 24 10          	mov    ecx,DWORD PTR [esp+0x10]
+  796574:	50                   	push   eax
+  796575:	8b 06                	mov    eax,DWORD PTR [esi]
+  796577:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  79657a:	51                   	push   ecx
+  79657b:	8b ce                	mov    ecx,esi
+  79657d:	ff d2                	call   edx
+  79657f:	50                   	push   eax
+  796580:	57                   	push   edi
+  796581:	e8 8a ff ff ff       	call   0x796510
+  796586:	83 c4 0c             	add    esp,0xc
+  796589:	5e                   	pop    esi
+  79658a:	5f                   	pop    edi
+  79658b:	c3                   	ret

@@ -1,0 +1,125 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_004a9470:
+
+
+undefined1 __fastcall FUN_004a9470(int *param_1)
+
+{
+  code *pcVar1;
+  int *piVar2;
+  char cVar3;
+  bool bVar4;
+  undefined4 uVar5;
+  uint uVar6;
+  undefined4 *this;
+  int *this_00;
+  int iVar7;
+  uint uVar8;
+  wchar_t *pwVar9;
+  wchar_t awStack_410 [248];
+  WCHAR aWStack_220 [12];
+  wchar_t awStack_208 [260];
+  
+  FUN_004ac900(param_1 + 0xd1,(int)(param_1 + 0xda));
+  if ((*(byte *)(param_1 + 5) & 2) == 0) {
+    return 0;
+  }
+  if (param_1[0xbf] == 0) {
+    cVar3 = (**(code **)(*(int *)param_1[0xb4] + 8))();
+    if (cVar3 != '\0') {
+      FUN_004a7930(param_1,0x60);
+      pcVar1 = *(code **)(*param_1 + 0xa0);
+      param_1[0xcc] = 0;
+      param_1[0xcb] = 0;
+      param_1[0xcd] = 0;
+      *(undefined1 *)(param_1 + 0xce) = 1;
+      (*pcVar1)();
+      (**(code **)(*param_1 + 0x24))();
+      return 1;
+    }
+    uVar5 = FUN_004dc7a0(awStack_208,(WCHAR *)0x0,L"TempDBPF_",(short *)0x0,0x104);
+    if ((char)uVar5 != '\0') {
+      uVar5 = FUN_004dc7a0(awStack_410,(WCHAR *)0x0,L"TempDBPF_",(short *)0x0,0x104);
+      if ((char)uVar5 != '\0') {
+        uVar6 = FUN_004dbd70(awStack_410);
+        if ((char)uVar6 != '\0') {
+          FUN_004dbda0(awStack_410);
+        }
+        this = FUN_004e4300(0x398,(int *)param_1[4],"ResourceSystem/ResourceMan/DBPF");
+        if (this == (undefined4 *)0x0) {
+          this_00 = (int *)0x0;
+        }
+        else {
+          this_00 = FUN_004a9290(this,(short *)0x0,param_1[4]);
+        }
+        this_00[8] = param_1[8];
+        cVar3 = (**(code **)(*this_00 + 4))();
+        if (cVar3 != '\0') {
+          pwVar9 = awStack_208;
+          (**(code **)(*this_00 + 0x2c))();
+          cVar3 = (**(code **)(*this_00 + 0x18))(3,6,0);
+          if (cVar3 != '\0') {
+            uVar6 = (**(code **)(*(int *)param_1[0xb4] + 0x14))();
+            (**(code **)(*this_00 + 0x14))(1);
+            bVar4 = FUN_004a6cd0(this_00,(int *)&stack0xfffffbd8,uVar6,'\0');
+            if (bVar4) {
+              FUN_004a6d10(this_00,(int)pwVar9,uVar6,'\x01');
+            }
+            (**(code **)(*this_00 + 0x14))(0);
+            iVar7 = FUN_004ae8c0(this_00,(char)param_1);
+            if (iVar7 != -1) {
+              pcVar1 = *(code **)(*this_00 + 0x1c);
+              this_00[0xcf] = 2;
+              cVar3 = (*pcVar1)();
+              if (cVar3 != '\0') {
+                (**(code **)(*this_00 + 8))();
+                uVar6 = param_1[0xcf];
+                pcVar1 = *(code **)(*param_1 + 0x1c);
+                iVar7 = param_1[5];
+                param_1[0xcf] = uVar6 & 0xfffffffe;
+                cVar3 = (*pcVar1)();
+                if (cVar3 != '\0') {
+                  uVar8 = FUN_004dbdc0((LPCWSTR)param_1[9],(LPCWSTR)&stack0xfffffbd8,'\x01');
+                  if ((char)uVar8 != '\0') {
+                    uVar8 = FUN_004dbdc0(aWStack_220,(LPCWSTR)param_1[9],'\x01');
+                    if ((char)uVar8 == '\0') {
+                      FUN_004dbdc0((LPCWSTR)&stack0xfffffbd8,(LPCWSTR)param_1[9],'\x01');
+                    }
+                    else {
+                      piVar2 = (int *)param_1[0x98];
+                      if (piVar2 != (int *)0x0) {
+                        param_1[0x98] = 0;
+                        (**(code **)(*piVar2 + 8))();
+                      }
+                      (**(code **)(*param_1 + 0x18))(iVar7,6,0);
+                    }
+                  }
+                }
+                param_1[0xcf] = uVar6;
+              }
+            }
+            iVar7 = (**(code **)(*this_00 + 0x20))();
+            if (iVar7 != 0) {
+              (**(code **)(*this_00 + 0x1c))();
+            }
+          }
+          (**(code **)(*this_00 + 8))();
+        }
+        (**(code **)*this_00)();
+        uVar6 = FUN_004dbd70(awStack_410);
+        if ((char)uVar6 != '\0') {
+          FUN_004dbda0(awStack_410);
+        }
+      }
+      uVar6 = FUN_004dbd70(awStack_208);
+      if ((char)uVar6 != '\0') {
+        FUN_004dbda0(awStack_208);
+      }
+      return 0;
+    }
+  }
+  return 0;
+}
+
+

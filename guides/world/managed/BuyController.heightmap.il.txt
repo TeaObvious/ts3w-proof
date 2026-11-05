@@ -1,0 +1,327 @@
+.method public hidebysig virtual 
+	instance void Dispose () cil managed 
+{
+	// Method begins at RVA 0xa2a2c
+	// Header size: 12
+	// Code size: 929 (0x3a1)
+	.maxstack 4
+	.locals init (
+		[0] class Sims3.UI.WindowBase,
+		[1] class Sims3.UI.CustomContentIcon,
+		[2] class Sims3.UI.WindowBase,
+		[3] class Sims3.UI.CustomContentIcon,
+		[4] valuetype Sims3.UI.ItemGridCellItem,
+		[5] class Sims3.UI.CustomContentIcon,
+		[6] class Sims3.UI.SceneMgrWindow,
+		[7] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.UI.WindowBase>,
+		[8] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.UI.WindowBase>,
+		[9] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<valuetype Sims3.UI.ItemGridCellItem>
+	)
+
+	IL_0000: ldarg.0
+	IL_0001: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.UI.WindowBase> Sims3.UI.BuyController::mBuyCatalogGridItemCache
+	IL_0006: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.UI.WindowBase>::GetEnumerator()
+	IL_000b: stloc.s 7
+	.try
+	{
+		IL_000d: br.s IL_002c
+		// loop start (head: IL_002c)
+			IL_000f: ldloca.s 7
+			IL_0011: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.UI.WindowBase>::get_Current()
+			IL_0016: stloc.0
+			IL_0017: ldloc.0
+			IL_0018: ldc.i4.s 35
+			IL_001a: ldc.i4.1
+			IL_001b: callvirt instance class Sims3.UI.WindowBase Sims3.UI.WindowBase::GetChildByID(uint32, bool)
+			IL_0020: isinst Sims3.UI.CustomContentIcon
+			IL_0025: stloc.1
+			IL_0026: ldloc.1
+			IL_0027: callvirt instance void Sims3.UI.WindowBase::Dispose()
+
+			IL_002c: ldloca.s 7
+			IL_002e: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.UI.WindowBase>::MoveNext()
+			IL_0033: brtrue.s IL_000f
+		// end loop
+
+		IL_0035: leave.s IL_0045
+	} // end .try
+	finally
+	{
+		IL_0037: ldloca.s 7
+		IL_0039: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.UI.WindowBase>
+		IL_003f: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+		IL_0044: endfinally
+	} // end handler
+
+	IL_0045: ldarg.0
+	IL_0046: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.UI.WindowBase> Sims3.UI.BuyController::mBuildCatalogPatternGridItemCache
+	IL_004b: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.UI.WindowBase>::GetEnumerator()
+	IL_0050: stloc.s 8
+	.try
+	{
+		IL_0052: br.s IL_0071
+		// loop start (head: IL_0071)
+			IL_0054: ldloca.s 8
+			IL_0056: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.UI.WindowBase>::get_Current()
+			IL_005b: stloc.2
+			IL_005c: ldloc.2
+			IL_005d: ldc.i4.s 35
+			IL_005f: ldc.i4.1
+			IL_0060: callvirt instance class Sims3.UI.WindowBase Sims3.UI.WindowBase::GetChildByID(uint32, bool)
+			IL_0065: isinst Sims3.UI.CustomContentIcon
+			IL_006a: stloc.3
+			IL_006b: ldloc.3
+			IL_006c: callvirt instance void Sims3.UI.WindowBase::Dispose()
+
+			IL_0071: ldloca.s 8
+			IL_0073: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.UI.WindowBase>::MoveNext()
+			IL_0078: brtrue.s IL_0054
+		// end loop
+
+		IL_007a: leave.s IL_008a
+	} // end .try
+	finally
+	{
+		IL_007c: ldloca.s 8
+		IL_007e: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.UI.WindowBase>
+		IL_0084: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+		IL_0089: endfinally
+	} // end handler
+
+	IL_008a: ldarg.0
+	IL_008b: ldfld class Sims3.UI.ItemGrid Sims3.UI.BuyController::mCatalogGrid
+	IL_0090: callvirt instance class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.UI.ItemGridCellItem> Sims3.UI.ItemGrid::get_Items()
+	IL_0095: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.UI.ItemGridCellItem>::GetEnumerator()
+	IL_009a: stloc.s 9
+	.try
+	{
+		IL_009c: br.s IL_00ce
+		// loop start (head: IL_00ce)
+			IL_009e: ldloca.s 9
+			IL_00a0: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<valuetype Sims3.UI.ItemGridCellItem>::get_Current()
+			IL_00a5: stloc.s 4
+			IL_00a7: ldloca.s 4
+			IL_00a9: ldfld class Sims3.UI.WindowBase Sims3.UI.ItemGridCellItem::mWin
+			IL_00ae: ldc.i4.s 35
+			IL_00b0: ldc.i4.1
+			IL_00b1: callvirt instance class Sims3.UI.WindowBase Sims3.UI.WindowBase::GetChildByID(uint32, bool)
+			IL_00b6: isinst Sims3.UI.CustomContentIcon
+			IL_00bb: stloc.s 5
+			IL_00bd: ldloc.s 5
+			IL_00bf: ldnull
+			IL_00c0: call bool Sims3.UI.WindowBase::op_Inequality(class Sims3.UI.WindowBase, class Sims3.UI.WindowBase)
+			IL_00c5: brfalse.s IL_00ce
+
+			IL_00c7: ldloc.s 5
+			IL_00c9: callvirt instance void Sims3.UI.WindowBase::Dispose()
+
+			IL_00ce: ldloca.s 9
+			IL_00d0: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<valuetype Sims3.UI.ItemGridCellItem>::MoveNext()
+			IL_00d5: brtrue.s IL_009e
+		// end loop
+
+		IL_00d7: leave.s IL_00e7
+	} // end .try
+	finally
+	{
+		IL_00d9: ldloca.s 9
+		IL_00db: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<valuetype Sims3.UI.ItemGridCellItem>
+		IL_00e1: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+		IL_00e6: endfinally
+	} // end handler
+
+	IL_00e7: ldarg.0
+	IL_00e8: ldfld class Sims3.UI.Hud.PuckController Sims3.UI.BuyController::mPuckController
+	IL_00ed: callvirt instance void Sims3.UI.Hud.PuckController::Dispose()
+	IL_00f2: ldarg.0
+	IL_00f3: ldnull
+	IL_00f4: stfld class Sims3.UI.Hud.PuckController Sims3.UI.BuyController::mPuckController
+	IL_00f9: ldarg.0
+	IL_00fa: call instance void Sims3.UI.BuyController::DisposeSellPanel()
+	IL_00ff: ldarg.0
+	IL_0100: ldftn instance void Sims3.UI.BuyController::UserToolUtils_OnCollectionChanged()
+	IL_0106: newobj instance void [SimIFace]Sims3.SimIFace.UserToolUtils/CollectionChangedDelegate::.ctor(object, native int)
+	IL_010b: call void [SimIFace]Sims3.SimIFace.UserToolUtils::remove_OnCollectionChanged(class [SimIFace]Sims3.SimIFace.UserToolUtils/CollectionChangedDelegate)
+	IL_0110: ldarg.0
+	IL_0111: ldfld class Sims3.UI.WindowBase Sims3.UI.BuyController::mCatalogPreviewPanelReshowWin
+	IL_0116: ldarg.0
+	IL_0117: ldftn instance void Sims3.UI.BuyController::OnCatalogPreviewPanelReshowWinFocusAcquired(class Sims3.UI.WindowBase, class Sims3.UI.UIFocusChangeEventArgs)
+	IL_011d: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIFocusChangeEventArgs>::.ctor(object, native int)
+	IL_0122: callvirt instance void Sims3.UI.WindowBase::remove_FocusAcquired(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIFocusChangeEventArgs>)
+	IL_0127: ldarg.0
+	IL_0128: call instance void Sims3.UI.BuyController::DisposeCatalogPreview()
+	IL_012d: ldarg.0
+	IL_012e: ldnull
+	IL_012f: stfld class Sims3.UI.Hud.IHudModel Sims3.UI.BuyController::mHudModel
+	IL_0134: ldarg.0
+	IL_0135: call instance void Sims3.UI.BuyController::UnregisterDebugCommand()
+	IL_013a: ldarg.0
+	IL_013b: ldftn instance void Sims3.UI.BuyController::OnCameraControllerSwitch(valuetype [SimIFace]Sims3.SimIFace.CameraControllerType)
+	IL_0141: newobj instance void [SimIFace]Sims3.SimIFace.CameraController/CameraControllerSwitchHandler::.ctor(object, native int)
+	IL_0146: call void [SimIFace]Sims3.SimIFace.CameraController::remove_OnCameraControllerSwitchCallback(class [SimIFace]Sims3.SimIFace.CameraController/CameraControllerSwitchHandler)
+	IL_014b: ldarg.0
+	IL_014c: ldftn instance void Sims3.UI.BuyController::OnNewContentInstalled(string)
+	IL_0152: newobj instance void Sims3.UI.UIManager/NewContentInstalledCallback::.ctor(object, native int)
+	IL_0157: call void Sims3.UI.UIManager::remove_NewContentInstalled(class Sims3.UI.UIManager/NewContentInstalledCallback)
+	IL_015c: call class Sims3.UI.IResponder Sims3.UI.Responder::get_Instance()
+	IL_0161: callvirt instance class Sims3.UI.Store.IStoreUIModel Sims3.UI.IResponder::get_StoreUI()
+	IL_0166: ldarg.0
+	IL_0167: ldftn instance void Sims3.UI.BuyController::OnFeaturedItemRemoveErrorHandler(uint64)
+	IL_016d: newobj instance void Sims3.UI.Store.OnFeaturedItemRemoveErrorDelegate::.ctor(object, native int)
+	IL_0172: callvirt instance void Sims3.UI.Store.IStoreUIModel::remove_OnFeaturedItemRemoveError(class Sims3.UI.Store.OnFeaturedItemRemoveErrorDelegate)
+	IL_0177: ldarg.0
+	IL_0178: ldfld bool Sims3.UI.BuyController::mbTriggersCallbackConnected
+	IL_017d: brfalse.s IL_01e3
+
+	IL_017f: call class Sims3.UI.SceneMgrWindow Sims3.UI.UIManager::GetSceneWindow()
+	IL_0184: stloc.s 6
+	IL_0186: ldloc.s 6
+	IL_0188: ldnull
+	IL_0189: call bool Sims3.UI.WindowBase::op_Inequality(class Sims3.UI.WindowBase, class Sims3.UI.WindowBase)
+	IL_018e: brfalse.s IL_01dc
+
+	IL_0190: ldloc.s 6
+	IL_0192: ldarg.0
+	IL_0193: ldftn instance void Sims3.UI.BuyController::OnResolutionChanged(class Sims3.UI.WindowBase, class Sims3.UI.UIAreaChangeEventArgs)
+	IL_0199: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIAreaChangeEventArgs>::.ctor(object, native int)
+	IL_019e: callvirt instance void Sims3.UI.WindowBase::remove_AreaChange(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIAreaChangeEventArgs>)
+	IL_01a3: ldloc.s 6
+	IL_01a5: ldarg.0
+	IL_01a6: ldftn instance void Sims3.UI.BuyController::OnTriggerDown(class Sims3.UI.WindowBase, class Sims3.UI.UITriggerEventArgs)
+	IL_01ac: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UITriggerEventArgs>::.ctor(object, native int)
+	IL_01b1: callvirt instance void Sims3.UI.WindowBase::remove_TriggerDown(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UITriggerEventArgs>)
+	IL_01b6: ldloc.s 6
+	IL_01b8: ldarg.0
+	IL_01b9: ldftn instance void Sims3.UI.BuyController::OnResolutionChanged(class Sims3.UI.WindowBase, class Sims3.UI.UIAreaChangeEventArgs)
+	IL_01bf: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIAreaChangeEventArgs>::.ctor(object, native int)
+	IL_01c4: callvirt instance void Sims3.UI.WindowBase::remove_AreaChange(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIAreaChangeEventArgs>)
+	IL_01c9: ldloc.s 6
+	IL_01cb: ldarg.0
+	IL_01cc: ldftn instance void Sims3.UI.BuyController::OnMouseUp(class Sims3.UI.WindowBase, class Sims3.UI.UIMouseEventArgs)
+	IL_01d2: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIMouseEventArgs>::.ctor(object, native int)
+	IL_01d7: callvirt instance void Sims3.UI.WindowBase::remove_MouseUp(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIMouseEventArgs>)
+
+	IL_01dc: ldarg.0
+	IL_01dd: ldc.i4.0
+	IL_01de: stfld bool Sims3.UI.BuyController::mbTriggersCallbackConnected
+
+	IL_01e3: ldsfld class Sims3.UI.Hud.PuckController/ModeChangeHandler Sims3.UI.Hud.PuckController::OnModeChangeCallback
+	IL_01e8: ldarg.0
+	IL_01e9: ldftn instance void Sims3.UI.BuyController::OnModeChangeHandler(valuetype Sims3.UI.Hud.PuckController/Mode)
+	IL_01ef: newobj instance void Sims3.UI.Hud.PuckController/ModeChangeHandler::.ctor(object, native int)
+	IL_01f4: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_01f9: castclass Sims3.UI.Hud.PuckController/ModeChangeHandler
+	IL_01fe: stsfld class Sims3.UI.Hud.PuckController/ModeChangeHandler Sims3.UI.Hud.PuckController::OnModeChangeCallback
+	IL_0203: ldarg.0
+	IL_0204: ldarg.0
+	IL_0205: ldftn instance void Sims3.UI.BuyController::OnFocusChange(class Sims3.UI.WindowBase, class Sims3.UI.UIFocusChangeEventArgs)
+	IL_020b: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIFocusChangeEventArgs>::.ctor(object, native int)
+	IL_0210: call instance void Sims3.UI.WindowBase::remove_FocusAcquired(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIFocusChangeEventArgs>)
+	IL_0215: ldarg.0
+	IL_0216: ldarg.0
+	IL_0217: ldftn instance void Sims3.UI.BuyController::OnFocusChange(class Sims3.UI.WindowBase, class Sims3.UI.UIFocusChangeEventArgs)
+	IL_021d: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIFocusChangeEventArgs>::.ctor(object, native int)
+	IL_0222: call instance void Sims3.UI.WindowBase::remove_FocusLost(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIFocusChangeEventArgs>)
+	IL_0227: ldsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnEyedropperPickCallback
+	IL_022c: ldarg.0
+	IL_022d: ldftn instance void Sims3.UI.BuyController::OnEyedropperPick(object, class [mscorlib]System.EventArgs)
+	IL_0233: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+	IL_0238: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_023d: castclass [mscorlib]System.EventHandler
+	IL_0242: stsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnEyedropperPickCallback
+	IL_0247: ldsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnUndoRedoStateChangeCallback
+	IL_024c: ldarg.0
+	IL_024d: ldftn instance void Sims3.UI.BuyController::OnUndoRedoStateChange(object, class [mscorlib]System.EventArgs)
+	IL_0253: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+	IL_0258: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_025d: castclass [mscorlib]System.EventHandler
+	IL_0262: stsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnUndoRedoStateChangeCallback
+	IL_0267: ldsfld class [SimIFace]Sims3.SimIFace.World/OnLotEditZonesChangedEventHandler [SimIFace]Sims3.SimIFace.World::OnLotEditZonesChangedCallback
+	IL_026c: ldarg.0
+	IL_026d: ldftn instance void Sims3.UI.BuyController::OnLotEditZonesChanged(object, class [SimIFace]Sims3.SimIFace.World/OnLotEditZonesChangedEventArgs)
+	IL_0273: newobj instance void [SimIFace]Sims3.SimIFace.World/OnLotEditZonesChangedEventHandler::.ctor(object, native int)
+	IL_0278: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_027d: castclass [SimIFace]Sims3.SimIFace.World/OnLotEditZonesChangedEventHandler
+	IL_0282: stsfld class [SimIFace]Sims3.SimIFace.World/OnLotEditZonesChangedEventHandler [SimIFace]Sims3.SimIFace.World::OnLotEditZonesChangedCallback
+	IL_0287: ldsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::StoreFeaturedItemPurchaseResultCallback
+	IL_028c: ldarg.0
+	IL_028d: ldftn instance void Sims3.UI.BuyController::OnStoreFeaturedItemPurchaseResult(object, class [mscorlib]System.EventArgs)
+	IL_0293: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+	IL_0298: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_029d: castclass [mscorlib]System.EventHandler
+	IL_02a2: stsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::StoreFeaturedItemPurchaseResultCallback
+	IL_02a7: ldarg.0
+	IL_02a8: call instance void Sims3.UI.BuyController::UnregisterBuyModeHandToolEvents()
+	IL_02ad: ldarg.0
+	IL_02ae: ldftn instance void Sims3.UI.BuyController::OnBuildBuyGenericEvent(object, class [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyGenericEventArgs)
+	IL_02b4: newobj instance void [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyGenericEventHandler::.ctor(object, native int)
+	IL_02b9: call void [SimIFace]Sims3.SimIFace.UserToolUtils::remove_BuildBuyGenericEvent(class [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyGenericEventHandler)
+	IL_02be: ldarg.0
+	IL_02bf: ldftn instance void Sims3.UI.BuyController::OnLocaleChange()
+	IL_02c5: newobj instance void Sims3.UI.UIManager/LocaleChangedCallback::.ctor(object, native int)
+	IL_02ca: call void Sims3.UI.UIManager::remove_LocaleChanged(class Sims3.UI.UIManager/LocaleChangedCallback)
+	IL_02cf: ldarg.0
+	IL_02d0: ldfld class Sims3.UI.IBuyModel Sims3.UI.BuyController::mBuyModel
+	IL_02d5: ldarg.0
+	IL_02d6: ldftn instance void Sims3.UI.BuyController::OnStoreTNSItemSelected(class Sims3.UI.Store.IFeaturedStoreItem)
+	IL_02dc: newobj instance void Sims3.UI.Store.StoreTNSItemSelected::.ctor(object, native int)
+	IL_02e1: callvirt instance void Sims3.UI.IBuildBuyModel::remove_StoreTNSItemSelected(class Sims3.UI.Store.StoreTNSItemSelected)
+	IL_02e6: ldarg.0
+	IL_02e7: ldfld class Sims3.UI.IBuyModel Sims3.UI.BuyController::mBuyModel
+	IL_02ec: ldarg.0
+	IL_02ed: ldftn instance void Sims3.UI.BuyController::OnFundsChanged(int32)
+	IL_02f3: newobj instance void Sims3.UI.FundsChangedDelegate::.ctor(object, native int)
+	IL_02f8: callvirt instance void Sims3.UI.IBuildBuyModel::remove_FundsChanged(class Sims3.UI.FundsChangedDelegate)
+	IL_02fd: call class Sims3.UI.CAS.CASCompositorController Sims3.UI.CAS.CASCompositorController::get_Instance()
+	IL_0302: ldnull
+	IL_0303: call bool Sims3.UI.WindowBase::op_Inequality(class Sims3.UI.WindowBase, class Sims3.UI.WindowBase)
+	IL_0308: brfalse.s IL_0336
+
+	IL_030a: call class Sims3.UI.CAS.CASCompositorController Sims3.UI.CAS.CASCompositorController::get_Instance()
+	IL_030f: ldarg.0
+	IL_0310: ldftn instance void Sims3.UI.BuyController::OnEnterFullEditMode()
+	IL_0316: newobj instance void Sims3.UI.CAS.CASCompositorController/EnterFullEditModeHandler::.ctor(object, native int)
+	IL_031b: callvirt instance void Sims3.UI.CAS.CASCompositorController::remove_EnterFullEditMode(class Sims3.UI.CAS.CASCompositorController/EnterFullEditModeHandler)
+	IL_0320: call class Sims3.UI.CAS.CASCompositorController Sims3.UI.CAS.CASCompositorController::get_Instance()
+	IL_0325: ldarg.0
+	IL_0326: ldftn instance void Sims3.UI.BuyController::OnExitFullEditMode()
+	IL_032c: newobj instance void Sims3.UI.CAS.CASCompositorController/ExitFullEditModeHandler::.ctor(object, native int)
+	IL_0331: callvirt instance void Sims3.UI.CAS.CASCompositorController::remove_ExitFullEditMode(class Sims3.UI.CAS.CASCompositorController/ExitFullEditModeHandler)
+
+	IL_0336: call void Sims3.UI.BBCompositorManager::Unload()
+	IL_033b: ldarg.0
+	IL_033c: ldc.i4.0
+	IL_033d: call instance void Sims3.UI.BuyController::SetInventoryMode(bool)
+	IL_0342: ldsfld class [SimIFace]Sims3.SimIFace.World/InventoryEventHandler [SimIFace]Sims3.SimIFace.World::OnPlaceObjectIntoInventoryCallback
+	IL_0347: ldnull
+	IL_0348: ldftn void Sims3.UI.BuyController::OnPlaceObjectIntoInventory(object, class [SimIFace]Sims3.SimIFace.World/InventoryEventArgs)
+	IL_034e: newobj instance void [SimIFace]Sims3.SimIFace.World/InventoryEventHandler::.ctor(object, native int)
+	IL_0353: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_0358: castclass [SimIFace]Sims3.SimIFace.World/InventoryEventHandler
+	IL_035d: stsfld class [SimIFace]Sims3.SimIFace.World/InventoryEventHandler [SimIFace]Sims3.SimIFace.World::OnPlaceObjectIntoInventoryCallback
+	IL_0362: ldc.i4.0
+	IL_0363: call void [SimIFace]Sims3.SimIFace.World::UnloadHeightMapRelatedData(bool)
+	IL_0368: ldarg.0
+	IL_0369: ldflda valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.UI.BuyController::mManualAutoPlaceTask
+	IL_036e: call instance bool [SimIFace]Sims3.SimIFace.ObjectGuid::get_IsValid()
+	IL_0373: brfalse.s IL_0380
+
+	IL_0375: ldarg.0
+	IL_0376: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.UI.BuyController::mManualAutoPlaceTask
+	IL_037b: call void [SimIFace]Sims3.SimIFace.Simulator::DestroyObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+
+	IL_0380: ldarg.0
+	IL_0381: ldfld class Sims3.UI.StyledNotification Sims3.UI.BuyController::mManualAutoPlaceNotification
+	IL_0386: brfalse.s IL_039a
+
+	IL_0388: ldarg.0
+	IL_0389: ldfld class Sims3.UI.StyledNotification Sims3.UI.BuyController::mManualAutoPlaceNotification
+	IL_038e: callvirt instance void Sims3.UI.Notification::CloseNow()
+	IL_0393: ldarg.0
+	IL_0394: ldnull
+	IL_0395: stfld class Sims3.UI.StyledNotification Sims3.UI.BuyController::mManualAutoPlaceNotification
+
+	IL_039a: ldarg.0
+	IL_039b: call instance void Sims3.UI.WindowBase::Dispose()
+	IL_03a0: ret
+} // end of method BuyController::Dispose

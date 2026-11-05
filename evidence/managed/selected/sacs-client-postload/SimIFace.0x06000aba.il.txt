@@ -1,0 +1,27 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+		.method public final hidebysig newslot virtual 
+			instance void Read (
+				class Sims3.SimIFace.FastStreamReader reader,
+				class Sims3.SimIFace.IPersistReader persistReader
+			) cil managed 
+		{
+			// Method begins at RVA 0x11a30
+			// Header size: 12
+			// Code size: 27 (0x1b)
+			.maxstack 2
+			.locals init (
+				[0] int32
+			)
+
+			IL_0000: ldarg.1
+			IL_0001: callvirt instance uint32 Sims3.SimIFace.FastStreamReader::ReadUInt32()
+			IL_0006: pop
+			IL_0007: ldarg.1
+			IL_0008: callvirt instance int32 Sims3.SimIFace.FastStreamReader::ReadInt32()
+			IL_000d: stloc.0
+			IL_000e: ldarg.0
+			IL_000f: ldloc.0
+			IL_0010: call uint32 Sims3.SimIFace.LoadSaveManager::NativeRead(int32)
+			IL_0015: stfld uint32 Sims3.SimIFace.StateMachineClient/DriverHandleWrapper::mHandle
+			IL_001a: ret
+		} // end of method DriverHandleWrapper::Read

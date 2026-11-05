@@ -1,0 +1,2247 @@
+// Original PC1.67 Sims3Metadata: complete selected method ILSpy11.1 rendering.
+// Assembly identity and evidence scope: README.md; metadata tokens are assembly-local.
+
+// Original MethodDef 0x06000321 Sims3.Metadata.Complate::Process
+	.method public hidebysig newslot virtual 
+		instance void Process () cil managed 
+	{
+		// Method begins at RVA 0xba0c
+		// Header size: 12
+		// Code size: 156 (0x9c)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Metadata.Complate/Variable,
+			[1] class Sims3.Metadata.Complate/TexturePart,
+			[2] class Sims3.Metadata.Complate/TexturePart,
+			[3] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/Variable>,
+			[4] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/TexturePart>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/Variable> Sims3.Metadata.Complate::mVariables
+		IL_0006: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/Variable>::GetEnumerator()
+		IL_000b: stloc.3
+		.try
+		{
+			IL_000c: br.s IL_0028
+			// loop start (head: IL_0028)
+				IL_000e: ldloca.s 3
+				IL_0010: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/Variable>::get_Current()
+				IL_0015: stloc.0
+				IL_0016: ldarg.0
+				IL_0017: ldloc.0
+				IL_0018: callvirt instance string Sims3.Metadata.Complate/Variable::get_Name()
+				IL_001d: ldloc.0
+				IL_001e: callvirt instance string Sims3.Metadata.Complate/Variable::get_Value()
+				IL_0023: call instance void Sims3.Metadata.Complate::set_Item(string, string)
+
+				IL_0028: ldloca.s 3
+				IL_002a: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/Variable>::MoveNext()
+				IL_002f: brtrue.s IL_000e
+			// end loop
+
+			IL_0031: leave.s IL_0041
+		} // end .try
+		finally
+		{
+			IL_0033: ldloca.s 3
+			IL_0035: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/Variable>
+			IL_003b: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0040: endfinally
+		} // end handler
+
+		IL_0041: ldarg.0
+		IL_0042: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart> Sims3.Metadata.Complate::mProcessedParts
+		IL_0047: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart>::Clear()
+		IL_004c: ldarg.0
+		IL_004d: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart> Sims3.Metadata.Complate::mParts
+		IL_0052: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart>::GetEnumerator()
+		IL_0057: stloc.s 4
+		.try
+		{
+			IL_0059: br.s IL_0082
+			// loop start (head: IL_0082)
+				IL_005b: ldloca.s 4
+				IL_005d: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/TexturePart>::get_Current()
+				IL_0062: stloc.1
+				IL_0063: ldloc.1
+				IL_0064: callvirt instance object Sims3.Metadata.Complate/TexturePart::Clone()
+				IL_0069: castclass Sims3.Metadata.Complate/TexturePart
+				IL_006e: stloc.2
+				IL_006f: ldloc.2
+				IL_0070: ldarg.0
+				IL_0071: callvirt instance void Sims3.Metadata.Complate/TexturePart::Process(class Sims3.Metadata.Complate)
+				IL_0076: ldarg.0
+				IL_0077: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart> Sims3.Metadata.Complate::mProcessedParts
+				IL_007c: ldloc.2
+				IL_007d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart>::Add(!0)
+
+				IL_0082: ldloca.s 4
+				IL_0084: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/TexturePart>::MoveNext()
+				IL_0089: brtrue.s IL_005b
+			// end loop
+
+			IL_008b: leave.s IL_009b
+		} // end .try
+		finally
+		{
+			IL_008d: ldloca.s 4
+			IL_008f: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/TexturePart>
+			IL_0095: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_009a: endfinally
+		} // end handler
+
+		IL_009b: ret
+	} // end of method Complate::Process
+
+// Original MethodDef 0x06000322 Sims3.Metadata.Complate::ProcessString
+	.method public hidebysig 
+		instance string ProcessString (
+			string source
+		) cil managed 
+	{
+		// Method begins at RVA 0xbad0
+		// Header size: 12
+		// Code size: 271 (0x10f)
+		.maxstack 5
+		.locals init (
+			[0] class [mscorlib]System.Text.StringBuilder,
+			[1] string,
+			[2] int32,
+			[3] int32,
+			[4] string,
+			[5] string,
+			[6] int32,
+			[7] string,
+			[8] float64
+		)
+
+		IL_0000: newobj instance void [mscorlib]System.Text.StringBuilder::.ctor()
+		IL_0005: stloc.0
+		IL_0006: ldarg.1
+		IL_0007: stloc.1
+		IL_0008: ldloc.1
+		IL_0009: ldstr "($"
+		IL_000e: callvirt instance int32 [mscorlib]System.String::IndexOf(string)
+		IL_0013: stloc.2
+		IL_0014: br.s IL_007f
+		// loop start (head: IL_007f)
+			IL_0016: ldloc.1
+			IL_0017: ldstr ")"
+			IL_001c: ldloc.2
+			IL_001d: callvirt instance int32 [mscorlib]System.String::IndexOf(string, int32)
+			IL_0022: stloc.3
+			IL_0023: ldloc.1
+			IL_0024: ldloc.2
+			IL_0025: ldc.i4.2
+			IL_0026: add
+			IL_0027: ldloc.3
+			IL_0028: ldloc.2
+			IL_0029: sub
+			IL_002a: ldc.i4.2
+			IL_002b: sub
+			IL_002c: callvirt instance string [mscorlib]System.String::Substring(int32, int32)
+			IL_0031: stloc.s 4
+			IL_0033: ldarg.0
+			IL_0034: ldloc.s 4
+			IL_0036: call instance string Sims3.Metadata.Complate::get_Item(string)
+			IL_003b: stloc.s 5
+			IL_003d: ldloc.0
+			IL_003e: ldc.i4.0
+			IL_003f: callvirt instance void [mscorlib]System.Text.StringBuilder::set_Length(int32)
+			IL_0044: ldloc.0
+			IL_0045: ldloc.1
+			IL_0046: ldc.i4.0
+			IL_0047: ldloc.2
+			IL_0048: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(string, int32, int32)
+			IL_004d: pop
+			IL_004e: ldloc.0
+			IL_004f: ldloc.s 5
+			IL_0051: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(string)
+			IL_0056: pop
+			IL_0057: ldloc.3
+			IL_0058: ldc.i4.1
+			IL_0059: add
+			IL_005a: stloc.3
+			IL_005b: ldloc.0
+			IL_005c: ldloc.1
+			IL_005d: ldloc.3
+			IL_005e: ldloc.1
+			IL_005f: callvirt instance int32 [mscorlib]System.String::get_Length()
+			IL_0064: ldloc.3
+			IL_0065: sub
+			IL_0066: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(string, int32, int32)
+			IL_006b: pop
+			IL_006c: ldloc.0
+			IL_006d: callvirt instance string [mscorlib]System.Object::ToString()
+			IL_0072: stloc.1
+			IL_0073: ldloc.1
+			IL_0074: ldstr "($"
+			IL_0079: callvirt instance int32 [mscorlib]System.String::IndexOf(string)
+			IL_007e: stloc.2
+
+			IL_007f: ldloc.2
+			IL_0080: ldc.i4.m1
+			IL_0081: bne.un.s IL_0016
+		// end loop
+
+		IL_0083: ldloc.1
+		IL_0084: ldstr "{"
+		IL_0089: callvirt instance int32 [mscorlib]System.String::IndexOf(string)
+		IL_008e: stloc.2
+		IL_008f: br.s IL_0109
+		// loop start (head: IL_0109)
+			IL_0091: ldloc.1
+			IL_0092: ldstr "}"
+			IL_0097: ldloc.2
+			IL_0098: callvirt instance int32 [mscorlib]System.String::IndexOf(string, int32)
+			IL_009d: stloc.s 6
+			IL_009f: ldloc.1
+			IL_00a0: ldloc.2
+			IL_00a1: ldc.i4.1
+			IL_00a2: add
+			IL_00a3: ldloc.s 6
+			IL_00a5: ldloc.2
+			IL_00a6: sub
+			IL_00a7: ldc.i4.1
+			IL_00a8: sub
+			IL_00a9: callvirt instance string [mscorlib]System.String::Substring(int32, int32)
+			IL_00ae: stloc.s 7
+			IL_00b0: ldloc.s 7
+			IL_00b2: call float64 Sims3.Metadata.MathParse::Parse(string)
+			IL_00b7: stloc.s 8
+			IL_00b9: ldloc.0
+			IL_00ba: ldc.i4.0
+			IL_00bb: callvirt instance void [mscorlib]System.Text.StringBuilder::set_Length(int32)
+			IL_00c0: ldloc.0
+			IL_00c1: ldloc.1
+			IL_00c2: ldc.i4.0
+			IL_00c3: ldloc.2
+			IL_00c4: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(string, int32, int32)
+			IL_00c9: pop
+			IL_00ca: ldloc.0
+			IL_00cb: ldloca.s 8
+			IL_00cd: ldstr "0.#######;-0.#######;0"
+			IL_00d2: call instance string [mscorlib]System.Double::ToString(string)
+			IL_00d7: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(string)
+			IL_00dc: pop
+			IL_00dd: ldloc.s 6
+			IL_00df: ldc.i4.1
+			IL_00e0: add
+			IL_00e1: stloc.s 6
+			IL_00e3: ldloc.0
+			IL_00e4: ldloc.1
+			IL_00e5: ldloc.s 6
+			IL_00e7: ldloc.1
+			IL_00e8: callvirt instance int32 [mscorlib]System.String::get_Length()
+			IL_00ed: ldloc.s 6
+			IL_00ef: sub
+			IL_00f0: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(string, int32, int32)
+			IL_00f5: pop
+			IL_00f6: ldloc.0
+			IL_00f7: callvirt instance string [mscorlib]System.Object::ToString()
+			IL_00fc: stloc.1
+			IL_00fd: ldloc.1
+			IL_00fe: ldstr "{"
+			IL_0103: callvirt instance int32 [mscorlib]System.String::IndexOf(string)
+			IL_0108: stloc.2
+
+			IL_0109: ldloc.2
+			IL_010a: ldc.i4.m1
+			IL_010b: bne.un.s IL_0091
+		// end loop
+
+		IL_010d: ldloc.1
+		IL_010e: ret
+	} // end of method Complate::ProcessString
+
+// Original MethodDef 0x06000330 Sims3.Metadata.Complate::MakeName
+	.method private hidebysig 
+		instance string MakeName (
+			class Sims3.Metadata.Complate/TexturePart part,
+			class Sims3.Metadata.Complate/TextureDestination dest
+		) cil managed 
+	{
+		// Method begins at RVA 0xbe80
+		// Header size: 12
+		// Code size: 81 (0x51)
+		.maxstack 4
+		.locals init (
+			[0] string
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance string Sims3.Metadata.Complate::get_Name()
+		IL_0006: stloc.0
+		IL_0007: ldarg.1
+		IL_0008: ldsfld string Sims3.Metadata.Complate::kPartAttribute
+		IL_000d: callvirt instance bool Sims3.Metadata.Complate/TexturePart::HasDetail(string)
+		IL_0012: brfalse.s IL_002b
+
+		IL_0014: ldloc.0
+		IL_0015: ldstr "_"
+		IL_001a: ldarg.1
+		IL_001b: ldsfld string Sims3.Metadata.Complate::kPartAttribute
+		IL_0020: callvirt instance string Sims3.Metadata.Complate/TexturePart::get_Item(string)
+		IL_0025: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_002a: stloc.0
+
+		IL_002b: ldarg.2
+		IL_002c: ldsfld string Sims3.Metadata.Complate::kTextureNameAttribute
+		IL_0031: callvirt instance bool Sims3.Metadata.Complate/TextureDestination::HasDetail(string)
+		IL_0036: brfalse.s IL_004f
+
+		IL_0038: ldloc.0
+		IL_0039: ldstr "_"
+		IL_003e: ldarg.2
+		IL_003f: ldsfld string Sims3.Metadata.Complate::kTextureNameAttribute
+		IL_0044: callvirt instance string Sims3.Metadata.Complate/TextureDestination::get_Item(string)
+		IL_0049: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_004e: stloc.0
+
+		IL_004f: ldloc.0
+		IL_0050: ret
+	} // end of method Complate::MakeName
+
+// Original MethodDef 0x06000334 Sims3.Metadata.Complate::CreateTextureCompositors
+	.method public hidebysig 
+		instance class [mscorlib]System.Collections.Hashtable CreateTextureCompositors (
+			uint32 groupId
+		) cil managed 
+	{
+		// Method begins at RVA 0xc068
+		// Header size: 12
+		// Code size: 118 (0x76)
+		.maxstack 4
+		.locals init (
+			[0] class [mscorlib]System.Collections.Hashtable,
+			[1] class Sims3.Metadata.Complate/TexturePart,
+			[2] class Sims3.Metadata.Complate/TextureDestination,
+			[3] string,
+			[4] class Sims3.Metadata.TextureCompositor,
+			[5] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/TexturePart>,
+			[6] class Sims3.Metadata.Complate/TextureDestination[],
+			[7] int32
+		)
+
+		IL_0000: newobj instance void [mscorlib]System.Collections.Hashtable::.ctor()
+		IL_0005: stloc.0
+		IL_0006: ldarg.0
+		IL_0007: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart> Sims3.Metadata.Complate::mProcessedParts
+		IL_000c: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart>::GetEnumerator()
+		IL_0011: stloc.s 5
+		.try
+		{
+			IL_0013: br.s IL_005b
+			// loop start (head: IL_005b)
+				IL_0015: ldloca.s 5
+				IL_0017: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/TexturePart>::get_Current()
+				IL_001c: stloc.1
+				IL_001d: ldloc.1
+				IL_001e: callvirt instance class Sims3.Metadata.Complate/TextureDestination[] Sims3.Metadata.Complate/TexturePart::get_Destinations()
+				IL_0023: stloc.s 6
+				IL_0025: ldc.i4.0
+				IL_0026: stloc.s 7
+				IL_0028: br.s IL_0053
+				// loop start (head: IL_0053)
+					IL_002a: ldloc.s 6
+					IL_002c: ldloc.s 7
+					IL_002e: ldelem.ref
+					IL_002f: stloc.2
+					IL_0030: ldarg.0
+					IL_0031: ldloc.1
+					IL_0032: ldloc.2
+					IL_0033: call instance string Sims3.Metadata.Complate::MakeName(class Sims3.Metadata.Complate/TexturePart, class Sims3.Metadata.Complate/TextureDestination)
+					IL_0038: stloc.3
+					IL_0039: ldarg.0
+					IL_003a: ldloc.1
+					IL_003b: ldloc.2
+					IL_003c: ldarg.1
+					IL_003d: call instance class Sims3.Metadata.TextureCompositor Sims3.Metadata.Complate::CreateTextureCompositor(class Sims3.Metadata.Complate/TexturePart, class Sims3.Metadata.Complate/TextureDestination, uint32)
+					IL_0042: stloc.s 4
+					IL_0044: ldloc.0
+					IL_0045: ldloc.3
+					IL_0046: ldloc.s 4
+					IL_0048: callvirt instance void [mscorlib]System.Collections.Hashtable::set_Item(object, object)
+					IL_004d: ldloc.s 7
+					IL_004f: ldc.i4.1
+					IL_0050: add
+					IL_0051: stloc.s 7
+
+					IL_0053: ldloc.s 7
+					IL_0055: ldloc.s 6
+					IL_0057: ldlen
+					IL_0058: conv.i4
+					IL_0059: blt.s IL_002a
+				// end loop
+
+				IL_005b: ldloca.s 5
+				IL_005d: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/TexturePart>::MoveNext()
+				IL_0062: brtrue.s IL_0015
+			// end loop
+
+			IL_0064: leave.s IL_0074
+		} // end .try
+		finally
+		{
+			IL_0066: ldloca.s 5
+			IL_0068: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Metadata.Complate/TexturePart>
+			IL_006e: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0073: endfinally
+		} // end handler
+
+		IL_0074: ldloc.0
+		IL_0075: ret
+	} // end of method Complate::CreateTextureCompositors
+
+// Original MethodDef 0x06000335 Sims3.Metadata.Complate::CreateTextureCompositor
+	.method public hidebysig 
+		instance class Sims3.Metadata.TextureCompositor CreateTextureCompositor (
+			class Sims3.Metadata.Complate/TexturePart part,
+			class Sims3.Metadata.Complate/TextureDestination destTexture,
+			uint32 groupId
+		) cil managed 
+	{
+		// Method begins at RVA 0xc0fc
+		// Header size: 12
+		// Code size: 398 (0x18e)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Metadata.TextureCompositor,
+			[1] string,
+			[2] class Sims3.Metadata.Complate/TextureStep,
+			[3] class Sims3.Metadata.ITextureStep,
+			[4] class Sims3.Metadata.Complate/TextureStep[],
+			[5] int32
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: brtrue.s IL_0025
+
+		IL_0003: ldarg.0
+		IL_0004: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart> Sims3.Metadata.Complate::mProcessedParts
+		IL_0009: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart>::get_Count()
+		IL_000e: brtrue.s IL_0012
+
+		IL_0010: ldnull
+		IL_0011: ret
+
+		IL_0012: ldarg.0
+		IL_0013: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart> Sims3.Metadata.Complate::mProcessedParts
+		IL_0018: ldc.i4.0
+		IL_0019: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Metadata.Complate/TexturePart>::get_Item(int32)
+		IL_001e: starg.s part
+		IL_0020: ldarg.1
+		IL_0021: brtrue.s IL_0025
+
+		IL_0023: ldnull
+		IL_0024: ret
+
+		IL_0025: ldarg.2
+		IL_0026: brtrue.s IL_0037
+
+		IL_0028: ldarg.1
+		IL_0029: callvirt instance class Sims3.Metadata.Complate/TextureDestination[] Sims3.Metadata.Complate/TexturePart::get_Destinations()
+		IL_002e: ldc.i4.0
+		IL_002f: ldelem.ref
+		IL_0030: starg.s destTexture
+		IL_0032: ldarg.2
+		IL_0033: brtrue.s IL_0037
+
+		IL_0035: ldnull
+		IL_0036: ret
+
+		IL_0037: newobj instance void Sims3.Metadata.TextureCompositor::.ctor()
+		IL_003c: stloc.0
+		IL_003d: ldarg.1
+		IL_003e: ldsfld string Sims3.Metadata.Complate::kPartAttribute
+		IL_0043: callvirt instance string Sims3.Metadata.Complate/TexturePart::get_Item(string)
+		IL_0048: callvirt instance string [mscorlib]System.String::ToLower()
+		IL_004d: stloc.1
+		IL_004e: ldloc.1
+		IL_004f: callvirt instance int32 [mscorlib]System.String::get_Length()
+		IL_0054: ldc.i4.0
+		IL_0055: ble IL_0138
+		.try
+		{
+			IL_005a: ldloc.0
+			IL_005b: ldtoken [SimIFace]Sims3.SimIFace.CAS.CASPartFlags
+			IL_0060: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+			IL_0065: ldloc.1
+			IL_0066: ldc.i4.1
+			IL_0067: call object [mscorlib]System.Enum::Parse(class [mscorlib]System.Type, string, bool)
+			IL_006c: unbox.any [SimIFace]Sims3.SimIFace.CAS.CASPartFlags
+			IL_0071: callvirt instance void Sims3.Metadata.TextureCompositor::set_PartType(valuetype [SimIFace]Sims3.SimIFace.CAS.CASPartFlags)
+			IL_0076: leave IL_0138
+		} // end .try
+		catch [mscorlib]System.ArgumentException
+		{
+			IL_007b: pop
+			IL_007c: ldloc.1
+			IL_007d: ldstr "body"
+			IL_0082: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_0087: brtrue.s IL_00ca
+
+			IL_0089: ldloc.1
+			IL_008a: ldstr "bottom"
+			IL_008f: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_0094: brtrue.s IL_00ca
+
+			IL_0096: ldloc.1
+			IL_0097: ldstr "shoes"
+			IL_009c: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_00a1: brtrue.s IL_00ca
+
+			IL_00a3: ldloc.1
+			IL_00a4: ldstr "top"
+			IL_00a9: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_00ae: brtrue.s IL_00ca
+
+			IL_00b0: ldloc.1
+			IL_00b1: ldstr "lowerbody"
+			IL_00b6: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_00bb: brtrue.s IL_00ca
+
+			IL_00bd: ldloc.1
+			IL_00be: ldstr "upperbody"
+			IL_00c3: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_00c8: brfalse.s IL_00d3
+
+			IL_00ca: ldloc.0
+			IL_00cb: ldc.i4.8
+			IL_00cc: callvirt instance void Sims3.Metadata.TextureCompositor::set_PartType(valuetype [SimIFace]Sims3.SimIFace.CAS.CASPartFlags)
+			IL_00d1: br.s IL_0133
+
+			IL_00d3: ldloc.1
+			IL_00d4: ldstr "accessory"
+			IL_00d9: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_00de: brfalse.s IL_00ea
+
+			IL_00e0: ldloc.0
+			IL_00e1: ldc.i4.s 16
+			IL_00e3: callvirt instance void Sims3.Metadata.TextureCompositor::set_PartType(valuetype [SimIFace]Sims3.SimIFace.CAS.CASPartFlags)
+			IL_00e8: br.s IL_0133
+
+			IL_00ea: ldloc.1
+			IL_00eb: ldstr "face"
+			IL_00f0: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_00f5: brfalse.s IL_0100
+
+			IL_00f7: ldloc.0
+			IL_00f8: ldc.i4.4
+			IL_00f9: callvirt instance void Sims3.Metadata.TextureCompositor::set_PartType(valuetype [SimIFace]Sims3.SimIFace.CAS.CASPartFlags)
+			IL_00fe: br.s IL_0133
+
+			IL_0100: ldloc.1
+			IL_0101: ldstr "hair"
+			IL_0106: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_010b: brfalse.s IL_0116
+
+			IL_010d: ldloc.0
+			IL_010e: ldc.i4.1
+			IL_010f: callvirt instance void Sims3.Metadata.TextureCompositor::set_PartType(valuetype [SimIFace]Sims3.SimIFace.CAS.CASPartFlags)
+			IL_0114: br.s IL_0133
+
+			IL_0116: ldloc.1
+			IL_0117: ldstr "scalp"
+			IL_011c: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_0121: brfalse.s IL_012c
+
+			IL_0123: ldloc.0
+			IL_0124: ldc.i4.2
+			IL_0125: callvirt instance void Sims3.Metadata.TextureCompositor::set_PartType(valuetype [SimIFace]Sims3.SimIFace.CAS.CASPartFlags)
+			IL_012a: br.s IL_0133
+
+			IL_012c: ldloc.0
+			IL_012d: ldc.i4.0
+			IL_012e: callvirt instance void Sims3.Metadata.TextureCompositor::set_PartType(valuetype [SimIFace]Sims3.SimIFace.CAS.CASPartFlags)
+
+			IL_0133: leave.s IL_0138
+		} // end handler
+		catch [mscorlib]System.Exception
+		{
+			IL_0135: pop
+			IL_0136: leave.s IL_0138
+		} // end handler
+
+		IL_0138: ldloc.0
+		IL_0139: ldarg.0
+		IL_013a: callvirt instance void Sims3.Metadata.TextureCompositor::set_SourceComplate(class Sims3.Metadata.Complate)
+		IL_013f: ldloc.0
+		IL_0140: ldarg.1
+		IL_0141: callvirt instance void Sims3.Metadata.TextureCompositor::set_SourceTexturePart(class Sims3.Metadata.Complate/TexturePart)
+		IL_0146: ldloc.0
+		IL_0147: ldarg.2
+		IL_0148: callvirt instance void Sims3.Metadata.TextureCompositor::set_SourceTextureDest(class Sims3.Metadata.Complate/TextureDestination)
+		IL_014d: ldloc.0
+		IL_014e: ldarg.0
+		IL_014f: ldfld valuetype Sims3.Metadata.TextureCompositor/PatternSize Sims3.Metadata.Complate::mPatternSize
+		IL_0154: callvirt instance void Sims3.Metadata.TextureCompositor::set_TargetSize(valuetype Sims3.Metadata.TextureCompositor/PatternSize)
+		IL_0159: ldarg.2
+		IL_015a: callvirt instance class Sims3.Metadata.Complate/TextureStep[] Sims3.Metadata.Complate/TextureDestination::get_Steps()
+		IL_015f: stloc.s 4
+		IL_0161: ldc.i4.0
+		IL_0162: stloc.s 5
+		IL_0164: br.s IL_0184
+		// loop start (head: IL_0184)
+			IL_0166: ldloc.s 4
+			IL_0168: ldloc.s 5
+			IL_016a: ldelem.ref
+			IL_016b: stloc.2
+			IL_016c: ldloc.2
+			IL_016d: ldarg.3
+			IL_016e: callvirt instance class Sims3.Metadata.ITextureStep Sims3.Metadata.Complate/TextureStep::CreateTextureStep(uint32)
+			IL_0173: stloc.3
+			IL_0174: ldloc.3
+			IL_0175: brfalse.s IL_017e
+
+			IL_0177: ldloc.0
+			IL_0178: ldloc.3
+			IL_0179: callvirt instance void Sims3.Metadata.TextureCompositor::AddStep(class Sims3.Metadata.ITextureStep)
+
+			IL_017e: ldloc.s 5
+			IL_0180: ldc.i4.1
+			IL_0181: add
+			IL_0182: stloc.s 5
+
+			IL_0184: ldloc.s 5
+			IL_0186: ldloc.s 4
+			IL_0188: ldlen
+			IL_0189: conv.i4
+			IL_018a: blt.s IL_0166
+		// end loop
+
+		IL_018c: ldloc.0
+		IL_018d: ret
+	} // end of method Complate::CreateTextureCompositor
+
+// Original MethodDef 0x0600033c Sims3.Metadata.Complate::ProcessPreset
+	.method public hidebysig static 
+		string ProcessPreset (
+			string xml,
+			class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate> complateLookup
+		) cil managed 
+	{
+		// Method begins at RVA 0xc7c4
+		// Header size: 12
+		// Code size: 250 (0xfa)
+		.maxstack 4
+		.locals init (
+			[0] string,
+			[1] class [System.Xml]System.Xml.XmlTextReader,
+			[2] string,
+			[3] string,
+			[4] class Sims3.Metadata.Complate,
+			[5] string
+		)
+
+		IL_0000: ldsfld string [mscorlib]System.String::Empty
+		IL_0005: stloc.0
+		.try
+		{
+			IL_0006: ldarg.0
+			IL_0007: ldc.i4.s 9
+			IL_0009: ldnull
+			IL_000a: newobj instance void [System.Xml]System.Xml.XmlTextReader::.ctor(string, valuetype [System.Xml]System.Xml.XmlNodeType, class [System.Xml]System.Xml.XmlParserContext)
+			IL_000f: stloc.1
+			IL_0010: ldloc.1
+			IL_0011: ldc.i4.2
+			IL_0012: callvirt instance void [System.Xml]System.Xml.XmlTextReader::set_WhitespaceHandling(valuetype [System.Xml]System.Xml.WhitespaceHandling)
+			IL_0017: br IL_00d9
+			// loop start (head: IL_00d9)
+				IL_001c: ldloc.1
+				IL_001d: ldstr "complate"
+				IL_0022: callvirt instance bool [System.Xml]System.Xml.XmlReader::IsStartElement(string)
+				IL_0027: brfalse IL_00d9
+
+				IL_002c: ldloc.1
+				IL_002d: callvirt instance bool [System.Xml]System.Xml.XmlReader::get_HasAttributes()
+				IL_0032: brtrue.s IL_003c
+
+				IL_0034: ldloc.0
+				IL_0035: stloc.s 5
+				IL_0037: leave IL_00f7
+
+				IL_003c: ldsfld string [mscorlib]System.String::Empty
+				IL_0041: stloc.2
+				IL_0042: ldsfld string [mscorlib]System.String::Empty
+				IL_0047: stloc.3
+				IL_0048: br.s IL_007e
+				// loop start (head: IL_007e)
+					IL_004a: ldloc.1
+					IL_004b: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Name()
+					IL_0050: ldsfld string Sims3.Metadata.Complate::kNameAttribute
+					IL_0055: call bool [mscorlib]System.String::op_Equality(string, string)
+					IL_005a: brfalse.s IL_0065
+
+					IL_005c: ldloc.1
+					IL_005d: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Value()
+					IL_0062: stloc.2
+					IL_0063: br.s IL_007e
+
+					IL_0065: ldloc.1
+					IL_0066: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Name()
+					IL_006b: ldsfld string Sims3.Metadata.Complate::kResourceKeyAttribute
+					IL_0070: call bool [mscorlib]System.String::op_Equality(string, string)
+					IL_0075: brfalse.s IL_007e
+
+					IL_0077: ldloc.1
+					IL_0078: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Value()
+					IL_007d: stloc.3
+
+					IL_007e: ldloc.1
+					IL_007f: callvirt instance bool [System.Xml]System.Xml.XmlReader::MoveToNextAttribute()
+					IL_0084: brtrue.s IL_004a
+				// end loop
+
+				IL_0086: ldloc.1
+				IL_0087: callvirt instance bool [System.Xml]System.Xml.XmlReader::MoveToElement()
+				IL_008c: pop
+				IL_008d: ldloc.2
+				IL_008e: ldstr "rgbMaskStandard"
+				IL_0093: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_0098: brfalse.s IL_00a0
+
+				IL_009a: ldstr "ObjectRgbMask"
+				IL_009f: stloc.2
+
+				IL_00a0: ldloc.2
+				IL_00a1: ldloc.3
+				IL_00a2: call class Sims3.Metadata.Complate Sims3.Metadata.Complate::FromXml(string, string)
+				IL_00a7: stloc.s 4
+				IL_00a9: ldloc.s 4
+				IL_00ab: brtrue.s IL_00b8
+
+				IL_00ad: ldarg.1
+				IL_00ae: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::Clear()
+				IL_00b3: ldloc.0
+				IL_00b4: stloc.s 5
+				IL_00b6: leave.s IL_00f7
+
+				IL_00b8: ldloc.s 4
+				IL_00ba: ldloc.1
+				IL_00bb: ldarg.1
+				IL_00bc: call bool Sims3.Metadata.Complate::ProcessPresetValues(class Sims3.Metadata.Complate, class [System.Xml]System.Xml.XmlTextReader, class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>)
+				IL_00c1: brtrue.s IL_00ce
+
+				IL_00c3: ldarg.1
+				IL_00c4: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::Clear()
+				IL_00c9: ldloc.0
+				IL_00ca: stloc.s 5
+				IL_00cc: leave.s IL_00f7
+
+				IL_00ce: ldarg.1
+				IL_00cf: ldloc.2
+				IL_00d0: ldloc.s 4
+				IL_00d2: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::set_Item(!0, !1)
+				IL_00d7: ldloc.2
+				IL_00d8: stloc.0
+
+				IL_00d9: ldloc.1
+				IL_00da: callvirt instance bool [System.Xml]System.Xml.XmlReader::Read()
+				IL_00df: brtrue IL_001c
+			// end loop
+
+			IL_00e4: leave.s IL_00f5
+		} // end .try
+		catch [mscorlib]System.Exception
+		{
+			IL_00e6: pop
+			IL_00e7: ldarg.1
+			IL_00e8: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::Clear()
+			IL_00ed: ldsfld string [mscorlib]System.String::Empty
+			IL_00f2: stloc.0
+			IL_00f3: leave.s IL_00f5
+		} // end handler
+
+		IL_00f5: ldloc.0
+		IL_00f6: ret
+
+		IL_00f7: ldloc.s 5
+		IL_00f9: ret
+	} // end of method Complate::ProcessPreset
+
+// Original MethodDef 0x0600033d Sims3.Metadata.Complate::ProcessPresetValues
+	.method private hidebysig static 
+		bool ProcessPresetValues (
+			class Sims3.Metadata.Complate comp,
+			class [System.Xml]System.Xml.XmlTextReader xmlReader,
+			class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate> complateLookup
+		) cil managed 
+	{
+		// Method begins at RVA 0xc8dc
+		// Header size: 12
+		// Code size: 430 (0x1ae)
+		.maxstack 3
+		.locals init (
+			[0] int32,
+			[1] string,
+			[2] string,
+			[3] string,
+			[4] string,
+			[5] string,
+			[6] class Sims3.Metadata.Complate,
+			[7] class Sims3.Metadata.Complate/Variable,
+			[8] class Sims3.Metadata.Complate/Variable[],
+			[9] int32
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance int32 [System.Xml]System.Xml.XmlReader::get_Depth()
+		IL_0006: ldc.i4.1
+		IL_0007: add
+		IL_0008: stloc.0
+		IL_0009: br IL_016b
+		// loop start (head: IL_016b)
+			IL_000e: ldarg.1
+			IL_000f: callvirt instance int32 [System.Xml]System.Xml.XmlReader::get_Depth()
+			IL_0014: ldloc.0
+			IL_0015: blt IL_0176
+
+			IL_001a: ldarg.1
+			IL_001b: ldstr "value"
+			IL_0020: callvirt instance bool [System.Xml]System.Xml.XmlReader::IsStartElement(string)
+			IL_0025: brfalse.s IL_008f
+
+			IL_0027: ldarg.1
+			IL_0028: callvirt instance bool [System.Xml]System.Xml.XmlReader::get_HasAttributes()
+			IL_002d: brtrue.s IL_0031
+
+			IL_002f: ldc.i4.0
+			IL_0030: ret
+
+			IL_0031: ldsfld string [mscorlib]System.String::Empty
+			IL_0036: stloc.1
+			IL_0037: ldsfld string [mscorlib]System.String::Empty
+			IL_003c: stloc.2
+			IL_003d: br.s IL_0073
+			// loop start (head: IL_0073)
+				IL_003f: ldarg.1
+				IL_0040: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Name()
+				IL_0045: ldstr "key"
+				IL_004a: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_004f: brfalse.s IL_005a
+
+				IL_0051: ldarg.1
+				IL_0052: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Value()
+				IL_0057: stloc.1
+				IL_0058: br.s IL_0073
+
+				IL_005a: ldarg.1
+				IL_005b: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Name()
+				IL_0060: ldstr "value"
+				IL_0065: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_006a: brfalse.s IL_0073
+
+				IL_006c: ldarg.1
+				IL_006d: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Value()
+				IL_0072: stloc.2
+
+				IL_0073: ldarg.1
+				IL_0074: callvirt instance bool [System.Xml]System.Xml.XmlReader::MoveToNextAttribute()
+				IL_0079: brtrue.s IL_003f
+			// end loop
+
+			IL_007b: ldarg.0
+			IL_007c: ldloc.1
+			IL_007d: ldloc.2
+			IL_007e: callvirt instance void Sims3.Metadata.Complate::set_Item(string, string)
+			IL_0083: ldarg.1
+			IL_0084: callvirt instance bool [System.Xml]System.Xml.XmlReader::MoveToElement()
+			IL_0089: pop
+			IL_008a: br IL_016b
+
+			IL_008f: ldarg.1
+			IL_0090: ldstr "pattern"
+			IL_0095: callvirt instance bool [System.Xml]System.Xml.XmlReader::IsStartElement(string)
+			IL_009a: brfalse IL_016b
+
+			IL_009f: ldarg.1
+			IL_00a0: callvirt instance bool [System.Xml]System.Xml.XmlReader::get_HasAttributes()
+			IL_00a5: brtrue.s IL_00a9
+
+			IL_00a7: ldc.i4.0
+			IL_00a8: ret
+
+			IL_00a9: ldsfld string [mscorlib]System.String::Empty
+			IL_00ae: stloc.3
+			IL_00af: ldsfld string [mscorlib]System.String::Empty
+			IL_00b4: stloc.s 4
+			IL_00b6: ldsfld string [mscorlib]System.String::Empty
+			IL_00bb: stloc.s 5
+			IL_00bd: br.s IL_0123
+			// loop start (head: IL_0123)
+				IL_00bf: ldarg.1
+				IL_00c0: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Name()
+				IL_00c5: ldsfld string Sims3.Metadata.Complate::kNameAttribute
+				IL_00ca: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_00cf: brfalse.s IL_00ed
+
+				IL_00d1: ldarg.1
+				IL_00d2: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Value()
+				IL_00d7: stloc.3
+				IL_00d8: ldloc.3
+				IL_00d9: ldstr "rgbMaskStandard"
+				IL_00de: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_00e3: brfalse.s IL_0123
+
+				IL_00e5: ldstr "ObjectRgbMask"
+				IL_00ea: stloc.3
+				IL_00eb: br.s IL_0123
+
+				IL_00ed: ldarg.1
+				IL_00ee: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Name()
+				IL_00f3: ldsfld string Sims3.Metadata.Complate::kResourceKeyAttribute
+				IL_00f8: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_00fd: brfalse.s IL_0109
+
+				IL_00ff: ldarg.1
+				IL_0100: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Value()
+				IL_0105: stloc.s 4
+				IL_0107: br.s IL_0123
+
+				IL_0109: ldarg.1
+				IL_010a: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Name()
+				IL_010f: ldstr "variable"
+				IL_0114: call bool [mscorlib]System.String::op_Equality(string, string)
+				IL_0119: brfalse.s IL_0123
+
+				IL_011b: ldarg.1
+				IL_011c: callvirt instance string [System.Xml]System.Xml.XmlReader::get_Value()
+				IL_0121: stloc.s 5
+
+				IL_0123: ldarg.1
+				IL_0124: callvirt instance bool [System.Xml]System.Xml.XmlReader::MoveToNextAttribute()
+				IL_0129: brtrue.s IL_00bf
+			// end loop
+
+			IL_012b: ldarg.1
+			IL_012c: callvirt instance bool [System.Xml]System.Xml.XmlReader::MoveToElement()
+			IL_0131: pop
+			IL_0132: ldloc.3
+			IL_0133: ldloc.s 4
+			IL_0135: call class Sims3.Metadata.Complate Sims3.Metadata.Complate::FromXml(string, string)
+			IL_013a: stloc.s 6
+			IL_013c: ldloc.s 6
+			IL_013e: brtrue.s IL_0157
+
+			IL_0140: ldsfld string Sims3.Metadata.Complate::kFallbackPattern
+			IL_0145: ldsfld string Sims3.Metadata.Complate::kFallbackPatternKey
+			IL_014a: call class Sims3.Metadata.Complate Sims3.Metadata.Complate::FromXml(string, string)
+			IL_014f: stloc.s 6
+			IL_0151: ldloc.s 6
+			IL_0153: brtrue.s IL_0157
+
+			IL_0155: ldc.i4.0
+			IL_0156: ret
+
+			IL_0157: ldloc.s 6
+			IL_0159: ldarg.1
+			IL_015a: ldarg.2
+			IL_015b: call bool Sims3.Metadata.Complate::ProcessPresetValues(class Sims3.Metadata.Complate, class [System.Xml]System.Xml.XmlTextReader, class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>)
+			IL_0160: pop
+			IL_0161: ldarg.2
+			IL_0162: ldloc.s 5
+			IL_0164: ldloc.s 6
+			IL_0166: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::set_Item(!0, !1)
+
+			IL_016b: ldarg.1
+			IL_016c: callvirt instance bool [System.Xml]System.Xml.XmlReader::Read()
+			IL_0171: brtrue IL_000e
+		// end loop
+
+		IL_0176: ldarg.0
+		IL_0177: callvirt instance class Sims3.Metadata.Complate/Variable[] Sims3.Metadata.Complate::get_Variables()
+		IL_017c: stloc.s 8
+		IL_017e: ldc.i4.0
+		IL_017f: stloc.s 9
+		IL_0181: br.s IL_01a4
+		// loop start (head: IL_01a4)
+			IL_0183: ldloc.s 8
+			IL_0185: ldloc.s 9
+			IL_0187: ldelem.ref
+			IL_0188: stloc.s 7
+			IL_018a: ldloc.s 7
+			IL_018c: ldarg.0
+			IL_018d: ldloc.s 7
+			IL_018f: callvirt instance string Sims3.Metadata.Complate/Variable::get_Name()
+			IL_0194: callvirt instance string Sims3.Metadata.Complate::get_Item(string)
+			IL_0199: callvirt instance void Sims3.Metadata.Complate/Variable::set_Value(string)
+			IL_019e: ldloc.s 9
+			IL_01a0: ldc.i4.1
+			IL_01a1: add
+			IL_01a2: stloc.s 9
+
+			IL_01a4: ldloc.s 9
+			IL_01a6: ldloc.s 8
+			IL_01a8: ldlen
+			IL_01a9: conv.i4
+			IL_01aa: blt.s IL_0183
+		// end loop
+
+		IL_01ac: ldc.i4.1
+		IL_01ad: ret
+	} // end of method Complate::ProcessPresetValues
+
+// Original MethodDef 0x0600033e Sims3.Metadata.Complate::ProcessPreset
+	.method public hidebysig static 
+		string ProcessPreset (
+			class [System.Xml]System.Xml.XmlDocument presetDoc,
+			class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate> complateLookup
+		) cil managed 
+	{
+		// Method begins at RVA 0xca98
+		// Header size: 12
+		// Code size: 190 (0xbe)
+		.maxstack 3
+		.locals init (
+			[0] string,
+			[1] class [System.Xml]System.Xml.XmlElement,
+			[2] class [System.Xml]System.Xml.XmlNode,
+			[3] class [System.Xml]System.Xml.XmlElement,
+			[4] string,
+			[5] string,
+			[6] class Sims3.Metadata.Complate
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::Clear()
+		IL_0006: ldsfld string [mscorlib]System.String::Empty
+		IL_000b: stloc.0
+		IL_000c: ldarg.0
+		IL_000d: callvirt instance class [System.Xml]System.Xml.XmlElement [System.Xml]System.Xml.XmlDocument::get_DocumentElement()
+		IL_0012: stloc.1
+		IL_0013: ldloc.1
+		IL_0014: brtrue.s IL_0018
+
+		IL_0016: ldloc.0
+		IL_0017: ret
+
+		IL_0018: ldloc.1
+		IL_0019: callvirt instance class [System.Xml]System.Xml.XmlNode [System.Xml]System.Xml.XmlNode::get_FirstChild()
+		IL_001e: stloc.2
+		IL_001f: br IL_00b6
+		// loop start (head: IL_00b6)
+			IL_0024: ldloc.2
+			IL_0025: isinst [System.Xml]System.Xml.XmlElement
+			IL_002a: stloc.3
+			IL_002b: ldloc.3
+			IL_002c: brfalse.s IL_0040
+
+			IL_002e: ldloc.3
+			IL_002f: callvirt instance string [System.Xml]System.Xml.XmlNode::get_Name()
+			IL_0034: ldstr "complate"
+			IL_0039: call bool [mscorlib]System.String::op_Inequality(string, string)
+			IL_003e: brfalse.s IL_0049
+
+			IL_0040: ldloc.2
+			IL_0041: callvirt instance class [System.Xml]System.Xml.XmlNode [System.Xml]System.Xml.XmlNode::get_NextSibling()
+			IL_0046: stloc.2
+			IL_0047: br.s IL_00b6
+
+			IL_0049: ldloc.3
+			IL_004a: ldsfld string Sims3.Metadata.Complate::kNameAttribute
+			IL_004f: callvirt instance string [System.Xml]System.Xml.XmlElement::GetAttribute(string)
+			IL_0054: stloc.s 4
+			IL_0056: ldloc.3
+			IL_0057: ldsfld string Sims3.Metadata.Complate::kResourceKeyAttribute
+			IL_005c: callvirt instance string [System.Xml]System.Xml.XmlElement::GetAttribute(string)
+			IL_0061: stloc.s 5
+			IL_0063: ldloc.s 4
+			IL_0065: ldstr "rgbMaskStandard"
+			IL_006a: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_006f: brfalse.s IL_0078
+
+			IL_0071: ldstr "ObjectRgbMask"
+			IL_0076: stloc.s 4
+
+			IL_0078: ldloc.s 4
+			IL_007a: ldloc.s 5
+			IL_007c: call class Sims3.Metadata.Complate Sims3.Metadata.Complate::FromXml(string, string)
+			IL_0081: stloc.s 6
+			IL_0083: ldloc.s 6
+			IL_0085: brtrue.s IL_008f
+
+			IL_0087: ldarg.1
+			IL_0088: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::Clear()
+			IL_008d: ldloc.0
+			IL_008e: ret
+
+			IL_008f: ldloc.s 6
+			IL_0091: ldloc.3
+			IL_0092: ldarg.1
+			IL_0093: call bool Sims3.Metadata.Complate::ProcessPresetValues(class Sims3.Metadata.Complate, class [System.Xml]System.Xml.XmlElement, class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>)
+			IL_0098: brtrue.s IL_00a2
+
+			IL_009a: ldarg.1
+			IL_009b: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::Clear()
+			IL_00a0: ldloc.0
+			IL_00a1: ret
+
+			IL_00a2: ldarg.1
+			IL_00a3: ldloc.s 4
+			IL_00a5: ldloc.s 6
+			IL_00a7: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::set_Item(!0, !1)
+			IL_00ac: ldloc.s 4
+			IL_00ae: stloc.0
+			IL_00af: ldloc.2
+			IL_00b0: callvirt instance class [System.Xml]System.Xml.XmlNode [System.Xml]System.Xml.XmlNode::get_NextSibling()
+			IL_00b5: stloc.2
+
+			IL_00b6: ldloc.2
+			IL_00b7: brtrue IL_0024
+		// end loop
+
+		IL_00bc: ldloc.0
+		IL_00bd: ret
+	} // end of method Complate::ProcessPreset
+
+// Original MethodDef 0x0600033f Sims3.Metadata.Complate::ProcessPresetValues
+	.method private hidebysig static 
+		bool ProcessPresetValues (
+			class Sims3.Metadata.Complate comp,
+			class [System.Xml]System.Xml.XmlElement compElement,
+			class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate> complateLookup
+		) cil managed 
+	{
+		// Method begins at RVA 0xcb64
+		// Header size: 12
+		// Code size: 294 (0x126)
+		.maxstack 3
+		.locals init (
+			[0] class [System.Xml]System.Xml.XmlNode,
+			[1] class [System.Xml]System.Xml.XmlElement,
+			[2] string,
+			[3] string,
+			[4] string,
+			[5] string,
+			[6] string,
+			[7] class Sims3.Metadata.Complate,
+			[8] class Sims3.Metadata.Complate/Variable,
+			[9] class Sims3.Metadata.Complate/Variable[],
+			[10] int32
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance class [System.Xml]System.Xml.XmlNode [System.Xml]System.Xml.XmlNode::get_FirstChild()
+		IL_0006: stloc.0
+		IL_0007: br IL_00e8
+		// loop start (head: IL_00e8)
+			IL_000c: ldloc.0
+			IL_000d: isinst [System.Xml]System.Xml.XmlElement
+			IL_0012: stloc.1
+			IL_0013: ldloc.1
+			IL_0014: brtrue.s IL_0022
+
+			IL_0016: ldloc.0
+			IL_0017: callvirt instance class [System.Xml]System.Xml.XmlNode [System.Xml]System.Xml.XmlNode::get_NextSibling()
+			IL_001c: stloc.0
+			IL_001d: br IL_00e8
+
+			IL_0022: ldloc.1
+			IL_0023: callvirt instance string [System.Xml]System.Xml.XmlNode::get_Name()
+			IL_0028: ldstr "value"
+			IL_002d: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_0032: brfalse.s IL_0059
+
+			IL_0034: ldloc.1
+			IL_0035: ldstr "key"
+			IL_003a: callvirt instance string [System.Xml]System.Xml.XmlElement::GetAttribute(string)
+			IL_003f: stloc.2
+			IL_0040: ldloc.1
+			IL_0041: ldstr "value"
+			IL_0046: callvirt instance string [System.Xml]System.Xml.XmlElement::GetAttribute(string)
+			IL_004b: stloc.3
+			IL_004c: ldarg.0
+			IL_004d: ldloc.2
+			IL_004e: ldloc.3
+			IL_004f: callvirt instance void Sims3.Metadata.Complate::set_Item(string, string)
+			IL_0054: br IL_00e1
+
+			IL_0059: ldloc.1
+			IL_005a: callvirt instance string [System.Xml]System.Xml.XmlNode::get_Name()
+			IL_005f: ldstr "pattern"
+			IL_0064: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_0069: brfalse.s IL_00e1
+
+			IL_006b: ldloc.1
+			IL_006c: ldsfld string Sims3.Metadata.Complate::kNameAttribute
+			IL_0071: callvirt instance string [System.Xml]System.Xml.XmlElement::GetAttribute(string)
+			IL_0076: stloc.s 4
+			IL_0078: ldloc.1
+			IL_0079: ldsfld string Sims3.Metadata.Complate::kResourceKeyAttribute
+			IL_007e: callvirt instance string [System.Xml]System.Xml.XmlElement::GetAttribute(string)
+			IL_0083: stloc.s 5
+			IL_0085: ldloc.1
+			IL_0086: ldstr "variable"
+			IL_008b: callvirt instance string [System.Xml]System.Xml.XmlElement::GetAttribute(string)
+			IL_0090: stloc.s 6
+			IL_0092: ldloc.s 4
+			IL_0094: ldstr "rgbMaskStandard"
+			IL_0099: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_009e: brfalse.s IL_00a7
+
+			IL_00a0: ldstr "ObjectRgbMask"
+			IL_00a5: stloc.s 4
+
+			IL_00a7: ldloc.s 4
+			IL_00a9: ldloc.s 5
+			IL_00ab: call class Sims3.Metadata.Complate Sims3.Metadata.Complate::FromXml(string, string)
+			IL_00b0: stloc.s 7
+			IL_00b2: ldloc.s 7
+			IL_00b4: brtrue.s IL_00cd
+
+			IL_00b6: ldsfld string Sims3.Metadata.Complate::kFallbackPattern
+			IL_00bb: ldsfld string Sims3.Metadata.Complate::kFallbackPatternKey
+			IL_00c0: call class Sims3.Metadata.Complate Sims3.Metadata.Complate::FromXml(string, string)
+			IL_00c5: stloc.s 7
+			IL_00c7: ldloc.s 7
+			IL_00c9: brtrue.s IL_00cd
+
+			IL_00cb: ldc.i4.0
+			IL_00cc: ret
+
+			IL_00cd: ldloc.s 7
+			IL_00cf: ldloc.1
+			IL_00d0: ldarg.2
+			IL_00d1: call bool Sims3.Metadata.Complate::ProcessPresetValues(class Sims3.Metadata.Complate, class [System.Xml]System.Xml.XmlElement, class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>)
+			IL_00d6: pop
+			IL_00d7: ldarg.2
+			IL_00d8: ldloc.s 6
+			IL_00da: ldloc.s 7
+			IL_00dc: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Metadata.Complate>::set_Item(!0, !1)
+
+			IL_00e1: ldloc.0
+			IL_00e2: callvirt instance class [System.Xml]System.Xml.XmlNode [System.Xml]System.Xml.XmlNode::get_NextSibling()
+			IL_00e7: stloc.0
+
+			IL_00e8: ldloc.0
+			IL_00e9: brtrue IL_000c
+		// end loop
+
+		IL_00ee: ldarg.0
+		IL_00ef: callvirt instance class Sims3.Metadata.Complate/Variable[] Sims3.Metadata.Complate::get_Variables()
+		IL_00f4: stloc.s 9
+		IL_00f6: ldc.i4.0
+		IL_00f7: stloc.s 10
+		IL_00f9: br.s IL_011c
+		// loop start (head: IL_011c)
+			IL_00fb: ldloc.s 9
+			IL_00fd: ldloc.s 10
+			IL_00ff: ldelem.ref
+			IL_0100: stloc.s 8
+			IL_0102: ldloc.s 8
+			IL_0104: ldarg.0
+			IL_0105: ldloc.s 8
+			IL_0107: callvirt instance string Sims3.Metadata.Complate/Variable::get_Name()
+			IL_010c: callvirt instance string Sims3.Metadata.Complate::get_Item(string)
+			IL_0111: callvirt instance void Sims3.Metadata.Complate/Variable::set_Value(string)
+			IL_0116: ldloc.s 10
+			IL_0118: ldc.i4.1
+			IL_0119: add
+			IL_011a: stloc.s 10
+
+			IL_011c: ldloc.s 10
+			IL_011e: ldloc.s 9
+			IL_0120: ldlen
+			IL_0121: conv.i4
+			IL_0122: blt.s IL_00fb
+		// end loop
+
+		IL_0124: ldc.i4.1
+		IL_0125: ret
+	} // end of method Complate::ProcessPresetValues
+
+// Original MethodDef 0x06000361 Sims3.Metadata.Complate+TextureStep::Process
+		.method public hidebysig 
+			instance void Process (
+				class Sims3.Metadata.Complate parent
+			) cil managed 
+		{
+			// Method begins at RVA 0xd8ec
+			// Header size: 12
+			// Code size: 93 (0x5d)
+			.maxstack 3
+			.locals init (
+				[0] class [mscorlib]System.Collections.ArrayList,
+				[1] string,
+				[2] string,
+				[3] class [mscorlib]System.Collections.IEnumerator,
+				[4] class [mscorlib]System.IDisposable
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [mscorlib]System.Collections.Hashtable Sims3.Metadata.Complate/TextureStep::mDetails
+			IL_0006: callvirt instance class [mscorlib]System.Collections.ICollection [mscorlib]System.Collections.Hashtable::get_Keys()
+			IL_000b: newobj instance void [mscorlib]System.Collections.ArrayList::.ctor(class [mscorlib]System.Collections.ICollection)
+			IL_0010: stloc.0
+			IL_0011: ldloc.0
+			IL_0012: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Collections.ArrayList::GetEnumerator()
+			IL_0017: stloc.3
+			.try
+			{
+				IL_0018: br.s IL_003e
+				// loop start (head: IL_003e)
+					IL_001a: ldloc.3
+					IL_001b: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+					IL_0020: castclass [mscorlib]System.String
+					IL_0025: stloc.1
+					IL_0026: ldarg.0
+					IL_0027: ldloc.1
+					IL_0028: call instance string Sims3.Metadata.Complate/TextureStep::get_Item(string)
+					IL_002d: stloc.2
+					IL_002e: ldarg.1
+					IL_002f: ldloc.2
+					IL_0030: callvirt instance string Sims3.Metadata.Complate::ProcessString(string)
+					IL_0035: stloc.2
+					IL_0036: ldarg.0
+					IL_0037: ldloc.1
+					IL_0038: ldloc.2
+					IL_0039: call instance void Sims3.Metadata.Complate/TextureStep::set_Item(string, string)
+
+					IL_003e: ldloc.3
+					IL_003f: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+					IL_0044: brtrue.s IL_001a
+				// end loop
+
+				IL_0046: leave.s IL_005c
+			} // end .try
+			finally
+			{
+				IL_0048: ldloc.3
+				IL_0049: isinst [mscorlib]System.IDisposable
+				IL_004e: stloc.s 4
+				IL_0050: ldloc.s 4
+				IL_0052: brfalse.s IL_005b
+
+				IL_0054: ldloc.s 4
+				IL_0056: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+				IL_005b: endfinally
+			} // end handler
+
+			IL_005c: ret
+		} // end of method TextureStep::Process
+
+// Original MethodDef 0x06000362 Sims3.Metadata.Complate+TextureStep::CreateTextureStep
+		.method public hidebysig 
+			instance class Sims3.Metadata.ITextureStep CreateTextureStep (
+				uint32 groupId
+			) cil managed 
+		{
+			// Method begins at RVA 0xd968
+			// Header size: 12
+			// Code size: 131 (0x83)
+			.maxstack 3
+			.locals init (
+				[0] string,
+				[1] bool,
+				[2] class [mscorlib]System.Type,
+				[3] class Sims3.Metadata.ITextureStep
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldsfld string Sims3.Metadata.Complate::kEnabledAttribute
+			IL_0006: call instance string Sims3.Metadata.Complate/TextureStep::get_Item(string)
+			IL_000b: stloc.0
+			IL_000c: ldloc.0
+			IL_000d: ldsfld string [mscorlib]System.String::Empty
+			IL_0012: call bool [mscorlib]System.String::op_Inequality(string, string)
+			IL_0017: brfalse.s IL_002a
+
+			IL_0019: ldc.i4.0
+			IL_001a: stloc.1
+			IL_001b: ldloc.0
+			IL_001c: ldloca.s 1
+			IL_001e: call bool [mscorlib]System.Boolean::TryParse(string, bool&)
+			IL_0023: brfalse.s IL_0028
+
+			IL_0025: ldloc.1
+			IL_0026: brtrue.s IL_002a
+
+			IL_0028: ldnull
+			IL_0029: ret
+
+			IL_002a: ldsfld class [mscorlib]System.Collections.Hashtable Sims3.Metadata.Complate/TextureStep::sTypeTable
+			IL_002f: ldarg.0
+			IL_0030: ldsfld string Sims3.Metadata.Complate::kTypeAttribute
+			IL_0035: call instance string Sims3.Metadata.Complate/TextureStep::get_Item(string)
+			IL_003a: callvirt instance object [mscorlib]System.Collections.Hashtable::get_Item(object)
+			IL_003f: isinst [mscorlib]System.Type
+			IL_0044: stloc.2
+			IL_0045: ldloc.2
+			IL_0046: brtrue.s IL_004a
+
+			IL_0048: ldnull
+			IL_0049: ret
+
+			IL_004a: ldloc.2
+			IL_004b: call object [mscorlib]System.Activator::CreateInstance(class [mscorlib]System.Type)
+			IL_0050: isinst Sims3.Metadata.ITextureStep
+			IL_0055: stloc.3
+			IL_0056: ldloc.3
+			IL_0057: brtrue.s IL_0079
+
+			IL_0059: ldstr "TextureStep "
+			IL_005e: ldarg.0
+			IL_005f: ldsfld string Sims3.Metadata.Complate::kTypeAttribute
+			IL_0064: call instance string Sims3.Metadata.Complate/TextureStep::get_Item(string)
+			IL_0069: ldstr " failed to construct."
+			IL_006e: call string [mscorlib]System.String::Concat(string, string, string)
+			IL_0073: newobj instance void [mscorlib]System.Exception::.ctor(string)
+			IL_0078: throw
+
+			IL_0079: ldloc.3
+			IL_007a: ldarg.0
+			IL_007b: ldarg.1
+			IL_007c: callvirt instance void Sims3.Metadata.ITextureStep::Init(class Sims3.Metadata.Complate/TextureStep, uint32)
+			IL_0081: ldloc.3
+			IL_0082: ret
+		} // end of method TextureStep::CreateTextureStep
+
+// Original MethodDef 0x0600036b Sims3.Metadata.Complate+TextureDestination::Process
+		.method public hidebysig 
+			instance void Process (
+				class Sims3.Metadata.Complate parent
+			) cil managed 
+		{
+			// Method begins at RVA 0xdaf8
+			// Header size: 12
+			// Code size: 164 (0xa4)
+			.maxstack 3
+			.locals init (
+				[0] class [mscorlib]System.Collections.ArrayList,
+				[1] string,
+				[2] string,
+				[3] class Sims3.Metadata.Complate/TextureStep,
+				[4] class [mscorlib]System.Collections.IEnumerator,
+				[5] class [mscorlib]System.IDisposable,
+				[6] class [mscorlib]System.Collections.IEnumerator,
+				[7] class [mscorlib]System.IDisposable
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [mscorlib]System.Collections.Hashtable Sims3.Metadata.Complate/TextureDestination::mDetails
+			IL_0006: callvirt instance class [mscorlib]System.Collections.ICollection [mscorlib]System.Collections.Hashtable::get_Keys()
+			IL_000b: newobj instance void [mscorlib]System.Collections.ArrayList::.ctor(class [mscorlib]System.Collections.ICollection)
+			IL_0010: stloc.0
+			IL_0011: ldloc.0
+			IL_0012: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Collections.ArrayList::GetEnumerator()
+			IL_0017: stloc.s 4
+			.try
+			{
+				IL_0019: br.s IL_0040
+				// loop start (head: IL_0040)
+					IL_001b: ldloc.s 4
+					IL_001d: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+					IL_0022: castclass [mscorlib]System.String
+					IL_0027: stloc.1
+					IL_0028: ldarg.0
+					IL_0029: ldloc.1
+					IL_002a: call instance string Sims3.Metadata.Complate/TextureDestination::get_Item(string)
+					IL_002f: stloc.2
+					IL_0030: ldarg.1
+					IL_0031: ldloc.2
+					IL_0032: callvirt instance string Sims3.Metadata.Complate::ProcessString(string)
+					IL_0037: stloc.2
+					IL_0038: ldarg.0
+					IL_0039: ldloc.1
+					IL_003a: ldloc.2
+					IL_003b: call instance void Sims3.Metadata.Complate/TextureDestination::set_Item(string, string)
+
+					IL_0040: ldloc.s 4
+					IL_0042: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+					IL_0047: brtrue.s IL_001b
+				// end loop
+
+				IL_0049: leave.s IL_0060
+			} // end .try
+			finally
+			{
+				IL_004b: ldloc.s 4
+				IL_004d: isinst [mscorlib]System.IDisposable
+				IL_0052: stloc.s 5
+				IL_0054: ldloc.s 5
+				IL_0056: brfalse.s IL_005f
+
+				IL_0058: ldloc.s 5
+				IL_005a: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+				IL_005f: endfinally
+			} // end handler
+
+			IL_0060: ldarg.0
+			IL_0061: ldfld class [mscorlib]System.Collections.ArrayList Sims3.Metadata.Complate/TextureDestination::mSteps
+			IL_0066: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Collections.ArrayList::GetEnumerator()
+			IL_006b: stloc.s 6
+			.try
+			{
+				IL_006d: br.s IL_0083
+				// loop start (head: IL_0083)
+					IL_006f: ldloc.s 6
+					IL_0071: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+					IL_0076: castclass Sims3.Metadata.Complate/TextureStep
+					IL_007b: stloc.3
+					IL_007c: ldloc.3
+					IL_007d: ldarg.1
+					IL_007e: callvirt instance void Sims3.Metadata.Complate/TextureStep::Process(class Sims3.Metadata.Complate)
+
+					IL_0083: ldloc.s 6
+					IL_0085: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+					IL_008a: brtrue.s IL_006f
+				// end loop
+
+				IL_008c: leave.s IL_00a3
+			} // end .try
+			finally
+			{
+				IL_008e: ldloc.s 6
+				IL_0090: isinst [mscorlib]System.IDisposable
+				IL_0095: stloc.s 7
+				IL_0097: ldloc.s 7
+				IL_0099: brfalse.s IL_00a2
+
+				IL_009b: ldloc.s 7
+				IL_009d: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+				IL_00a2: endfinally
+			} // end handler
+
+			IL_00a3: ret
+		} // end of method TextureDestination::Process
+
+// Original MethodDef 0x06000373 Sims3.Metadata.Complate+TexturePart::Process
+		.method public hidebysig 
+			instance void Process (
+				class Sims3.Metadata.Complate parent
+			) cil managed 
+		{
+			// Method begins at RVA 0xdcdc
+			// Header size: 12
+			// Code size: 164 (0xa4)
+			.maxstack 3
+			.locals init (
+				[0] class [mscorlib]System.Collections.ArrayList,
+				[1] string,
+				[2] string,
+				[3] class Sims3.Metadata.Complate/TextureDestination,
+				[4] class [mscorlib]System.Collections.IEnumerator,
+				[5] class [mscorlib]System.IDisposable,
+				[6] class [mscorlib]System.Collections.IEnumerator,
+				[7] class [mscorlib]System.IDisposable
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [mscorlib]System.Collections.Hashtable Sims3.Metadata.Complate/TexturePart::mDetails
+			IL_0006: callvirt instance class [mscorlib]System.Collections.ICollection [mscorlib]System.Collections.Hashtable::get_Keys()
+			IL_000b: newobj instance void [mscorlib]System.Collections.ArrayList::.ctor(class [mscorlib]System.Collections.ICollection)
+			IL_0010: stloc.0
+			IL_0011: ldloc.0
+			IL_0012: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Collections.ArrayList::GetEnumerator()
+			IL_0017: stloc.s 4
+			.try
+			{
+				IL_0019: br.s IL_0040
+				// loop start (head: IL_0040)
+					IL_001b: ldloc.s 4
+					IL_001d: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+					IL_0022: castclass [mscorlib]System.String
+					IL_0027: stloc.1
+					IL_0028: ldarg.0
+					IL_0029: ldloc.1
+					IL_002a: call instance string Sims3.Metadata.Complate/TexturePart::get_Item(string)
+					IL_002f: stloc.2
+					IL_0030: ldarg.1
+					IL_0031: ldloc.2
+					IL_0032: callvirt instance string Sims3.Metadata.Complate::ProcessString(string)
+					IL_0037: stloc.2
+					IL_0038: ldarg.0
+					IL_0039: ldloc.1
+					IL_003a: ldloc.2
+					IL_003b: call instance void Sims3.Metadata.Complate/TexturePart::set_Item(string, string)
+
+					IL_0040: ldloc.s 4
+					IL_0042: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+					IL_0047: brtrue.s IL_001b
+				// end loop
+
+				IL_0049: leave.s IL_0060
+			} // end .try
+			finally
+			{
+				IL_004b: ldloc.s 4
+				IL_004d: isinst [mscorlib]System.IDisposable
+				IL_0052: stloc.s 5
+				IL_0054: ldloc.s 5
+				IL_0056: brfalse.s IL_005f
+
+				IL_0058: ldloc.s 5
+				IL_005a: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+				IL_005f: endfinally
+			} // end handler
+
+			IL_0060: ldarg.0
+			IL_0061: ldfld class [mscorlib]System.Collections.ArrayList Sims3.Metadata.Complate/TexturePart::mDestinations
+			IL_0066: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Collections.ArrayList::GetEnumerator()
+			IL_006b: stloc.s 6
+			.try
+			{
+				IL_006d: br.s IL_0083
+				// loop start (head: IL_0083)
+					IL_006f: ldloc.s 6
+					IL_0071: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+					IL_0076: castclass Sims3.Metadata.Complate/TextureDestination
+					IL_007b: stloc.3
+					IL_007c: ldloc.3
+					IL_007d: ldarg.1
+					IL_007e: callvirt instance void Sims3.Metadata.Complate/TextureDestination::Process(class Sims3.Metadata.Complate)
+
+					IL_0083: ldloc.s 6
+					IL_0085: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+					IL_008a: brtrue.s IL_006f
+				// end loop
+
+				IL_008c: leave.s IL_00a3
+			} // end .try
+			finally
+			{
+				IL_008e: ldloc.s 6
+				IL_0090: isinst [mscorlib]System.IDisposable
+				IL_0095: stloc.s 7
+				IL_0097: ldloc.s 7
+				IL_0099: brfalse.s IL_00a2
+
+				IL_009b: ldloc.s 7
+				IL_009d: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+				IL_00a2: endfinally
+			} // end handler
+
+			IL_00a3: ret
+		} // end of method TexturePart::Process
+
+// Original MethodDef 0x0600037f Sims3.Metadata.MathParse::ProcessPair
+	.method private hidebysig static 
+		float64 ProcessPair (
+			string lval,
+			string rval,
+			int32 op
+		) cil managed 
+	{
+		// Method begins at RVA 0xdf2c
+		// Header size: 12
+		// Code size: 67 (0x43)
+		.maxstack 2
+		.locals init (
+			[0] float64,
+			[1] float64,
+			[2] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call float64 [mscorlib]System.Double::Parse(string)
+		IL_0006: stloc.0
+		IL_0007: ldarg.1
+		IL_0008: call float64 [mscorlib]System.Double::Parse(string)
+		IL_000d: stloc.1
+		IL_000e: ldarg.2
+		IL_000f: stloc.2
+		IL_0010: ldloc.2
+		IL_0011: switch (IL_0028, IL_002c, IL_0030, IL_0034)
+
+		IL_0026: br.s IL_0038
+
+		IL_0028: ldloc.0
+		IL_0029: ldloc.1
+		IL_002a: add
+		IL_002b: ret
+
+		IL_002c: ldloc.0
+		IL_002d: ldloc.1
+		IL_002e: sub
+		IL_002f: ret
+
+		IL_0030: ldloc.0
+		IL_0031: ldloc.1
+		IL_0032: div
+		IL_0033: ret
+
+		IL_0034: ldloc.0
+		IL_0035: ldloc.1
+		IL_0036: mul
+		IL_0037: ret
+
+		IL_0038: ldstr "Unknown op!"
+		IL_003d: newobj instance void [mscorlib]System.Exception::.ctor(string)
+		IL_0042: throw
+	} // end of method MathParse::ProcessPair
+
+// Original MethodDef 0x06000380 Sims3.Metadata.MathParse::ProcessOps
+	.method private hidebysig static 
+		float64 ProcessOps (
+			class [mscorlib]System.Collections.ArrayList ops,
+			class [mscorlib]System.Collections.ArrayList vals
+		) cil managed 
+	{
+		// Method begins at RVA 0xdf7c
+		// Header size: 12
+		// Code size: 235 (0xeb)
+		.maxstack 3
+		.locals init (
+			[0] int32,
+			[1] int32,
+			[2] string,
+			[3] string,
+			[4] float64,
+			[5] int32,
+			[6] string,
+			[7] string,
+			[8] float64
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: br.s IL_0067
+		// loop start (head: IL_0067)
+			IL_0004: ldarg.0
+			IL_0005: ldloc.0
+			IL_0006: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+			IL_000b: unbox.any [mscorlib]System.Int32
+			IL_0010: stloc.1
+			IL_0011: ldloc.1
+			IL_0012: brfalse.s IL_0018
+
+			IL_0014: ldloc.1
+			IL_0015: ldc.i4.1
+			IL_0016: bne.un.s IL_001e
+
+			IL_0018: ldloc.0
+			IL_0019: ldc.i4.1
+			IL_001a: add
+			IL_001b: stloc.0
+			IL_001c: br.s IL_0067
+
+			IL_001e: ldarg.1
+			IL_001f: ldloc.0
+			IL_0020: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+			IL_0025: castclass [mscorlib]System.String
+			IL_002a: stloc.2
+			IL_002b: ldarg.1
+			IL_002c: ldloc.0
+			IL_002d: ldc.i4.1
+			IL_002e: add
+			IL_002f: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+			IL_0034: castclass [mscorlib]System.String
+			IL_0039: stloc.3
+			IL_003a: ldloc.2
+			IL_003b: ldloc.3
+			IL_003c: ldloc.1
+			IL_003d: call float64 Sims3.Metadata.MathParse::ProcessPair(string, string, int32)
+			IL_0042: stloc.s 4
+			IL_0044: ldarg.0
+			IL_0045: ldloc.0
+			IL_0046: callvirt instance void [mscorlib]System.Collections.ArrayList::RemoveAt(int32)
+			IL_004b: ldarg.1
+			IL_004c: ldloc.0
+			IL_004d: callvirt instance void [mscorlib]System.Collections.ArrayList::RemoveAt(int32)
+			IL_0052: ldarg.1
+			IL_0053: ldloc.0
+			IL_0054: callvirt instance void [mscorlib]System.Collections.ArrayList::RemoveAt(int32)
+			IL_0059: ldarg.1
+			IL_005a: ldloc.0
+			IL_005b: ldloca.s 4
+			IL_005d: call instance string [mscorlib]System.Double::ToString()
+			IL_0062: callvirt instance void [mscorlib]System.Collections.ArrayList::Insert(int32, object)
+
+			IL_0067: ldloc.0
+			IL_0068: ldarg.0
+			IL_0069: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+			IL_006e: blt.s IL_0004
+		// end loop
+
+		IL_0070: ldc.i4.0
+		IL_0071: stloc.0
+		IL_0072: br.s IL_00d0
+		// loop start (head: IL_00d0)
+			IL_0074: ldarg.0
+			IL_0075: ldloc.0
+			IL_0076: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+			IL_007b: unbox.any [mscorlib]System.Int32
+			IL_0080: stloc.s 5
+			IL_0082: ldarg.1
+			IL_0083: ldloc.0
+			IL_0084: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+			IL_0089: castclass [mscorlib]System.String
+			IL_008e: stloc.s 6
+			IL_0090: ldarg.1
+			IL_0091: ldloc.0
+			IL_0092: ldc.i4.1
+			IL_0093: add
+			IL_0094: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+			IL_0099: castclass [mscorlib]System.String
+			IL_009e: stloc.s 7
+			IL_00a0: ldloc.s 6
+			IL_00a2: ldloc.s 7
+			IL_00a4: ldloc.s 5
+			IL_00a6: call float64 Sims3.Metadata.MathParse::ProcessPair(string, string, int32)
+			IL_00ab: stloc.s 8
+			IL_00ad: ldarg.0
+			IL_00ae: ldloc.0
+			IL_00af: callvirt instance void [mscorlib]System.Collections.ArrayList::RemoveAt(int32)
+			IL_00b4: ldarg.1
+			IL_00b5: ldloc.0
+			IL_00b6: callvirt instance void [mscorlib]System.Collections.ArrayList::RemoveAt(int32)
+			IL_00bb: ldarg.1
+			IL_00bc: ldloc.0
+			IL_00bd: callvirt instance void [mscorlib]System.Collections.ArrayList::RemoveAt(int32)
+			IL_00c2: ldarg.1
+			IL_00c3: ldloc.0
+			IL_00c4: ldloca.s 8
+			IL_00c6: call instance string [mscorlib]System.Double::ToString()
+			IL_00cb: callvirt instance void [mscorlib]System.Collections.ArrayList::Insert(int32, object)
+
+			IL_00d0: ldloc.0
+			IL_00d1: ldarg.0
+			IL_00d2: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+			IL_00d7: blt.s IL_0074
+		// end loop
+
+		IL_00d9: ldarg.1
+		IL_00da: ldc.i4.0
+		IL_00db: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+		IL_00e0: castclass [mscorlib]System.String
+		IL_00e5: call float64 [mscorlib]System.Double::Parse(string)
+		IL_00ea: ret
+	} // end of method MathParse::ProcessOps
+
+// Original MethodDef 0x06000381 Sims3.Metadata.MathParse::ProcessVectors
+	.method public hidebysig static 
+		string ProcessVectors (
+			string input
+		) cil managed 
+	{
+		// Method begins at RVA 0xe074
+		// Header size: 12
+		// Code size: 233 (0xe9)
+		.maxstack 4
+		.locals init (
+			[0] int32,
+			[1] string,
+			[2] int32,
+			[3] int32,
+			[4] class [mscorlib]System.Collections.ArrayList,
+			[5] int32,
+			[6] int32,
+			[7] bool,
+			[8] string
+		)
+
+		IL_0000: ldc.i4.m1
+		IL_0001: stloc.0
+		IL_0002: ldarg.0
+		IL_0003: stloc.1
+		IL_0004: ldloc.1
+		IL_0005: ldstr "vectorSel("
+		IL_000a: callvirt instance int32 [mscorlib]System.String::IndexOf(string)
+		IL_000f: stloc.2
+		IL_0010: ldloc.1
+		IL_0011: ldstr ")"
+		IL_0016: callvirt instance int32 [mscorlib]System.String::IndexOf(string)
+		IL_001b: stloc.3
+		IL_001c: br IL_00dc
+		// loop start (head: IL_00dc)
+			IL_0021: newobj instance void [mscorlib]System.Collections.ArrayList::.ctor()
+			IL_0026: stloc.s 4
+			IL_0028: ldloc.2
+			IL_0029: ldstr "vectorSel("
+			IL_002e: callvirt instance int32 [mscorlib]System.String::get_Length()
+			IL_0033: add
+			IL_0034: stloc.s 5
+			// loop start (head: IL_0036)
+				IL_0036: ldloc.1
+				IL_0037: ldc.i4.s 44
+				IL_0039: ldloc.s 5
+				IL_003b: callvirt instance int32 [mscorlib]System.String::IndexOf(char, int32)
+				IL_0040: stloc.s 6
+				IL_0042: ldc.i4.0
+				IL_0043: stloc.s 7
+				IL_0045: ldloc.s 6
+				IL_0047: ldc.i4.m1
+				IL_0048: beq.s IL_004f
+
+				IL_004a: ldloc.s 6
+				IL_004c: ldloc.3
+				IL_004d: ble.s IL_0055
+
+				IL_004f: ldloc.3
+				IL_0050: stloc.s 6
+				IL_0052: ldc.i4.1
+				IL_0053: stloc.s 7
+
+				IL_0055: ldloc.1
+				IL_0056: ldloc.s 5
+				IL_0058: ldloc.s 6
+				IL_005a: ldloc.s 5
+				IL_005c: sub
+				IL_005d: callvirt instance string [mscorlib]System.String::Substring(int32, int32)
+				IL_0062: stloc.s 8
+				IL_0064: ldloc.s 7
+				IL_0066: brfalse.s IL_0072
+
+				IL_0068: ldloc.s 8
+				IL_006a: call int32 [mscorlib]System.Int32::Parse(string)
+				IL_006f: stloc.0
+				IL_0070: br.s IL_007c
+
+				IL_0072: ldloc.s 4
+				IL_0074: ldloc.s 8
+				IL_0076: callvirt instance int32 [mscorlib]System.Collections.ArrayList::Add(object)
+				IL_007b: pop
+
+				IL_007c: ldloc.s 6
+				IL_007e: ldc.i4.1
+				IL_007f: add
+				IL_0080: stloc.s 5
+				IL_0082: ldloc.s 5
+				IL_0084: ldloc.3
+				IL_0085: blt.s IL_0036
+			// end loop
+			IL_0087: ldloc.0
+			IL_0088: ldc.i4.m1
+			IL_0089: beq.s IL_00b9
+
+			IL_008b: ldloc.0
+			IL_008c: ldloc.s 4
+			IL_008e: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+			IL_0093: bge.s IL_00b9
+
+			IL_0095: ldloc.1
+			IL_0096: ldloc.2
+			IL_0097: ldloc.3
+			IL_0098: ldloc.2
+			IL_0099: sub
+			IL_009a: ldc.i4.1
+			IL_009b: add
+			IL_009c: callvirt instance string [mscorlib]System.String::Remove(int32, int32)
+			IL_00a1: stloc.1
+			IL_00a2: ldloc.1
+			IL_00a3: ldloc.2
+			IL_00a4: ldloc.s 4
+			IL_00a6: ldloc.0
+			IL_00a7: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+			IL_00ac: castclass [mscorlib]System.String
+			IL_00b1: callvirt instance string [mscorlib]System.String::Insert(int32, string)
+			IL_00b6: stloc.1
+			IL_00b7: br.s IL_00c4
+
+			IL_00b9: ldstr "vectorSel has an invalid selector"
+			IL_00be: newobj instance void [mscorlib]System.Exception::.ctor(string)
+			IL_00c3: throw
+
+			IL_00c4: ldloc.1
+			IL_00c5: ldstr "vectorSel("
+			IL_00ca: callvirt instance int32 [mscorlib]System.String::IndexOf(string)
+			IL_00cf: stloc.2
+			IL_00d0: ldloc.1
+			IL_00d1: ldstr ")"
+			IL_00d6: callvirt instance int32 [mscorlib]System.String::IndexOf(string)
+			IL_00db: stloc.3
+
+			IL_00dc: ldloc.2
+			IL_00dd: ldc.i4.m1
+			IL_00de: beq.s IL_00e7
+
+			IL_00e0: ldloc.3
+			IL_00e1: ldc.i4.m1
+			IL_00e2: bne.un IL_0021
+		// end loop
+
+		IL_00e7: ldloc.1
+		IL_00e8: ret
+	} // end of method MathParse::ProcessVectors
+
+// Original MethodDef 0x06000382 Sims3.Metadata.MathParse::Parse
+	.method public hidebysig static 
+		float64 Parse (
+			string expression
+		) cil managed 
+	{
+		// Method begins at RVA 0xe16c
+		// Header size: 12
+		// Code size: 532 (0x214)
+		.maxstack 4
+		.locals init (
+			[0] class [mscorlib]System.Collections.ArrayList,
+			[1] class [mscorlib]System.Collections.ArrayList,
+			[2] class [mscorlib]System.Text.StringBuilder,
+			[3] class [mscorlib]System.Text.StringBuilder,
+			[4] class [mscorlib]System.Text.StringBuilder,
+			[5] float64,
+			[6] int32,
+			[7] bool,
+			[8] char,
+			[9] int32,
+			[10] int32,
+			[11] int32,
+			[12] string
+		)
+
+		IL_0000: newobj instance void [mscorlib]System.Collections.ArrayList::.ctor()
+		IL_0005: stloc.0
+		IL_0006: newobj instance void [mscorlib]System.Collections.ArrayList::.ctor()
+		IL_000b: stloc.1
+		IL_000c: newobj instance void [mscorlib]System.Text.StringBuilder::.ctor()
+		IL_0011: stloc.2
+		IL_0012: newobj instance void [mscorlib]System.Text.StringBuilder::.ctor()
+		IL_0017: stloc.3
+		IL_0018: newobj instance void [mscorlib]System.Text.StringBuilder::.ctor()
+		IL_001d: stloc.s 4
+		IL_001f: ldarg.0
+		IL_0020: call string Sims3.Metadata.MathParse::ProcessVectors(string)
+		IL_0025: starg.s expression
+		IL_0027: br IL_0180
+		// loop start (head: IL_0180)
+			IL_002c: ldc.i4.m1
+			IL_002d: stloc.s 6
+			IL_002f: ldloc.s 4
+			IL_0031: ldc.i4.0
+			IL_0032: callvirt instance void [mscorlib]System.Text.StringBuilder::set_Length(int32)
+			IL_0037: ldloc.s 4
+			IL_0039: ldarg.0
+			IL_003a: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(string)
+			IL_003f: pop
+			IL_0040: ldloc.s 4
+			IL_0042: ldstr " "
+			IL_0047: ldstr ""
+			IL_004c: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Replace(string, string)
+			IL_0051: pop
+			IL_0052: ldloc.2
+			IL_0053: ldc.i4.0
+			IL_0054: callvirt instance void [mscorlib]System.Text.StringBuilder::set_Length(int32)
+			IL_0059: ldloc.3
+			IL_005a: ldc.i4.0
+			IL_005b: callvirt instance void [mscorlib]System.Text.StringBuilder::set_Length(int32)
+			IL_0060: ldc.i4.0
+			IL_0061: stloc.s 7
+			IL_0063: br.s IL_00d2
+			// loop start (head: IL_00d2)
+				IL_0065: ldloc.s 6
+				IL_0067: ldc.i4.m1
+				IL_0068: beq.s IL_007a
+
+				IL_006a: ldloc.3
+				IL_006b: ldloc.s 4
+				IL_006d: callvirt instance string [mscorlib]System.Object::ToString()
+				IL_0072: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(string)
+				IL_0077: pop
+				IL_0078: br.s IL_00dc
+
+				IL_007a: ldloc.s 4
+				IL_007c: ldc.i4.0
+				IL_007d: callvirt instance char [mscorlib]System.Text.StringBuilder::get_Chars(int32)
+				IL_0082: stloc.s 8
+				IL_0084: ldloc.s 4
+				IL_0086: ldc.i4.0
+				IL_0087: ldc.i4.1
+				IL_0088: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Remove(int32, int32)
+				IL_008d: pop
+				IL_008e: ldloc.s 8
+				IL_0090: ldc.i4.s 40
+				IL_0092: bne.un.s IL_0099
+
+				IL_0094: ldc.i4.1
+				IL_0095: stloc.s 7
+				IL_0097: br.s IL_00d2
+
+				IL_0099: ldloc.s 8
+				IL_009b: ldc.i4.s 41
+				IL_009d: bne.un.s IL_00a4
+
+				IL_009f: ldc.i4.0
+				IL_00a0: stloc.s 7
+				IL_00a2: br.s IL_00d2
+
+				IL_00a4: ldsfld char[] Sims3.Metadata.MathParse::sOpsChars
+				IL_00a9: ldloc.s 8
+				IL_00ab: call int32 [mscorlib]System.Array::IndexOf<char>(!!0[], !!0)
+				IL_00b0: stloc.s 6
+				IL_00b2: ldloc.s 6
+				IL_00b4: ldc.i4.m1
+				IL_00b5: bne.un.s IL_00c2
+
+				IL_00b7: ldloc.2
+				IL_00b8: ldloc.s 8
+				IL_00ba: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(char)
+				IL_00bf: pop
+				IL_00c0: br.s IL_00d2
+
+				IL_00c2: ldloc.s 7
+				IL_00c4: brfalse.s IL_00d2
+
+				IL_00c6: ldc.i4.m1
+				IL_00c7: stloc.s 6
+				IL_00c9: ldloc.2
+				IL_00ca: ldloc.s 8
+				IL_00cc: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Append(char)
+				IL_00d1: pop
+
+				IL_00d2: ldloc.s 4
+				IL_00d4: callvirt instance int32 [mscorlib]System.Text.StringBuilder::get_Length()
+				IL_00d9: ldc.i4.0
+				IL_00da: bgt.s IL_0065
+			// end loop
+
+			IL_00dc: ldc.i4.0
+			IL_00dd: stloc.s 9
+			IL_00df: ldloc.2
+			IL_00e0: callvirt instance int32 [mscorlib]System.Text.StringBuilder::get_Length()
+			IL_00e5: ldc.i4.1
+			IL_00e6: sub
+			IL_00e7: stloc.s 10
+			IL_00e9: br.s IL_012a
+			// loop start (head: IL_012a)
+				IL_00eb: ldsfld char[] Sims3.Metadata.MathParse::sOpsChars
+				IL_00f0: ldloc.2
+				IL_00f1: ldloc.s 10
+				IL_00f3: callvirt instance char [mscorlib]System.Text.StringBuilder::get_Chars(int32)
+				IL_00f8: call int32 [mscorlib]System.Array::IndexOf<char>(!!0[], !!0)
+				IL_00fd: stloc.s 11
+				IL_00ff: ldloc.s 11
+				IL_0101: ldc.i4.1
+				IL_0102: bne.un.s IL_0116
+
+				IL_0104: ldloc.s 9
+				IL_0106: ldc.i4.1
+				IL_0107: add
+				IL_0108: stloc.s 9
+				IL_010a: ldloc.2
+				IL_010b: ldloc.s 10
+				IL_010d: ldc.i4.1
+				IL_010e: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Remove(int32, int32)
+				IL_0113: pop
+				IL_0114: br.s IL_0124
+
+				IL_0116: ldloc.s 11
+				IL_0118: brtrue.s IL_0124
+
+				IL_011a: ldloc.2
+				IL_011b: ldloc.s 10
+				IL_011d: ldc.i4.1
+				IL_011e: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Remove(int32, int32)
+				IL_0123: pop
+
+				IL_0124: ldloc.s 10
+				IL_0126: ldc.i4.1
+				IL_0127: sub
+				IL_0128: stloc.s 10
+
+				IL_012a: ldloc.s 10
+				IL_012c: ldc.i4.0
+				IL_012d: bge.s IL_00eb
+			// end loop
+
+			IL_012f: ldloc.s 9
+			IL_0131: ldc.i4.2
+			IL_0132: rem
+			IL_0133: brfalse.s IL_013f
+
+			IL_0135: ldloc.2
+			IL_0136: ldc.i4.0
+			IL_0137: ldc.i4.s 45
+			IL_0139: callvirt instance class [mscorlib]System.Text.StringBuilder [mscorlib]System.Text.StringBuilder::Insert(int32, char)
+			IL_013e: pop
+
+			IL_013f: ldloc.2
+			IL_0140: callvirt instance string [mscorlib]System.Object::ToString()
+			IL_0145: stloc.s 12
+			IL_0147: ldloc.s 12
+			IL_0149: ldsfld string [mscorlib]System.String::Empty
+			IL_014e: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_0153: brfalse.s IL_015c
+
+			IL_0155: ldstr "0"
+			IL_015a: stloc.s 12
+
+			IL_015c: ldloc.0
+			IL_015d: ldloc.s 12
+			IL_015f: callvirt instance int32 [mscorlib]System.Collections.ArrayList::Add(object)
+			IL_0164: pop
+			IL_0165: ldloc.s 6
+			IL_0167: ldc.i4.m1
+			IL_0168: beq.s IL_0178
+
+			IL_016a: ldloc.1
+			IL_016b: ldloc.s 6
+			IL_016d: box [mscorlib]System.Int32
+			IL_0172: callvirt instance int32 [mscorlib]System.Collections.ArrayList::Add(object)
+			IL_0177: pop
+
+			IL_0178: ldloc.3
+			IL_0179: callvirt instance string [mscorlib]System.Object::ToString()
+			IL_017e: starg.s expression
+
+			IL_0180: ldarg.0
+			IL_0181: callvirt instance int32 [mscorlib]System.String::get_Length()
+			IL_0186: ldc.i4.0
+			IL_0187: bgt IL_002c
+		// end loop
+
+		IL_018c: ldloc.0
+		IL_018d: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+		IL_0192: brtrue.s IL_01a1
+
+		IL_0194: ldc.r8 0.0
+		IL_019d: stloc.s 5
+		IL_019f: br.s IL_0211
+
+		IL_01a1: ldloc.0
+		IL_01a2: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+		IL_01a7: ldc.i4.1
+		IL_01a8: bne.un.s IL_01d2
+
+		IL_01aa: ldloc.1
+		IL_01ab: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+		IL_01b0: brfalse.s IL_01bd
+
+		IL_01b2: ldstr "Must have a rval to parse!"
+		IL_01b7: newobj instance void [mscorlib]System.Exception::.ctor(string)
+		IL_01bc: throw
+
+		IL_01bd: ldloc.0
+		IL_01be: ldc.i4.0
+		IL_01bf: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+		IL_01c4: castclass [mscorlib]System.String
+		IL_01c9: call float64 [mscorlib]System.Double::Parse(string)
+		IL_01ce: stloc.s 5
+		IL_01d0: br.s IL_0211
+
+		IL_01d2: ldloc.1
+		IL_01d3: callvirt instance int32 [mscorlib]System.Collections.ArrayList::get_Count()
+		IL_01d8: ldc.i4.1
+		IL_01d9: bne.un.s IL_0208
+
+		IL_01db: ldloc.0
+		IL_01dc: ldc.i4.0
+		IL_01dd: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+		IL_01e2: castclass [mscorlib]System.String
+		IL_01e7: ldloc.0
+		IL_01e8: ldc.i4.1
+		IL_01e9: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+		IL_01ee: castclass [mscorlib]System.String
+		IL_01f3: ldloc.1
+		IL_01f4: ldc.i4.0
+		IL_01f5: callvirt instance object [mscorlib]System.Collections.ArrayList::get_Item(int32)
+		IL_01fa: unbox.any [mscorlib]System.Int32
+		IL_01ff: call float64 Sims3.Metadata.MathParse::ProcessPair(string, string, int32)
+		IL_0204: stloc.s 5
+		IL_0206: br.s IL_0211
+
+		IL_0208: ldloc.1
+		IL_0209: ldloc.0
+		IL_020a: call float64 Sims3.Metadata.MathParse::ProcessOps(class [mscorlib]System.Collections.ArrayList, class [mscorlib]System.Collections.ArrayList)
+		IL_020f: stloc.s 5
+
+		IL_0211: ldloc.s 5
+		IL_0213: ret
+	} // end of method MathParse::Parse

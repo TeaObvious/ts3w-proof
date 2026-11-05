@@ -1,0 +1,944 @@
+ASSEMBLY UI SHA256 d38676dc2b953c03f3d764b7c2d531c1f2a08c0232580b40a8880c188f659b89 MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+
+0x06000007 Sims3.UI.WindowBase::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0a000012 0x01000001::.ctor
+IL_0006: ldarg.0
+IL_0007: ldarg.1
+IL_0008: stfld 0x04000001 Sims3.UI.WindowBase::mWinHandle
+IL_000d: ldarg.0
+IL_000e: ldarg.0
+IL_000f: newobj 0x06000125 EffectsList::.ctor
+IL_0014: stfld 0x04000005 Sims3.UI.WindowBase::mEffectList
+IL_0019: ldarg.0
+IL_001a: newobj 0x0a000013 0x1b00001e::.ctor
+IL_001f: stfld 0x04000002 Sims3.UI.WindowBase::mCustomControlPropertyDelegates
+IL_0024: ret
+
+0x06000008 Sims3.UI.WindowBase::Revive(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: stfld 0x04000001 Sims3.UI.WindowBase::mWinHandle
+IL_0007: ldarg.0
+IL_0008: ldarg.0
+IL_0009: newobj 0x06000125 EffectsList::.ctor
+IL_000e: stfld 0x04000005 Sims3.UI.WindowBase::mEffectList
+IL_0013: ldarg.0
+IL_0014: newobj 0x0a000013 0x1b00001e::.ctor
+IL_0019: stfld 0x04000002 Sims3.UI.WindowBase::mCustomControlPropertyDelegates
+IL_001e: ret
+
+0x06000009 Sims3.UI.WindowBase::Finalize()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.1
+IL_0002: call 0x06000092 Sims3.UI.WindowBase::Dispose
+IL_0007: leave.s 16
+IL_0009: ldarg.0
+IL_000a: call 0x0a000014 0x01000001::Finalize
+IL_000f: endfinally
+IL_0010: ret
+EH [{"flags": 2, "try_offset": 0, "try_length": 9, "handler_offset": 9, "handler_length": 7, "class_token": null, "filter_offset": null}]
+
+0x0600007a Sims3.UI.WindowBase::get_EffectList()->class:176 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000005 Sims3.UI.WindowBase::mEffectList
+IL_0006: ret
+
+0x06000092 Sims3.UI.WindowBase::Dispose(bool)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000001 Sims3.UI.WindowBase::mWinHandle
+IL_0006: brfalse.s 81
+IL_0008: ldarg.0
+IL_0009: call 0x0600127e Sims3.UI.UIManager::DestroyWindow
+IL_000e: ldarg.0
+IL_000f: ldc.i4.0
+IL_0010: stfld 0x04000001 Sims3.UI.WindowBase::mWinHandle
+IL_0015: ldarg.0
+IL_0016: ldnull
+IL_0017: stfld 0x04000002 Sims3.UI.WindowBase::mCustomControlPropertyDelegates
+IL_001c: ldarg.0
+IL_001d: ldnull
+IL_001e: stfld 0x04000005 Sims3.UI.WindowBase::mEffectList
+IL_0023: ldarg.0
+IL_0024: ldc.i4.0
+IL_0025: stfld 0x04000004 Sims3.UI.WindowBase::mInitCalled
+IL_002a: ldarg.0
+IL_002b: ldnull
+IL_002c: stfld 0x04000003 Sims3.UI.WindowBase::InitComplete
+IL_0031: ldarg.0
+IL_0032: call 0x06001275 Sims3.UI.UIManager::ReturnToPool
+IL_0037: stloc.0
+IL_0038: ldloc.0
+IL_0039: brfalse.s 69
+IL_003b: ldarg.1
+IL_003c: brfalse.s 69
+IL_003e: ldarg.0
+IL_003f: call 0x0a000031 0x010000c0::ReRegisterForFinalize
+IL_0044: ret
+IL_0045: ldloc.0
+IL_0046: brtrue.s 81
+IL_0048: ldarg.1
+IL_0049: brtrue.s 81
+IL_004b: ldarg.0
+IL_004c: call 0x0a000032 0x010000c0::SuppressFinalize
+IL_0051: ret
+
+0x06000093 Sims3.UI.WindowBase::Dispose()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.0
+IL_0002: call 0x06000092 Sims3.UI.WindowBase::Dispose
+IL_0007: ret
+
+0x06000125 EffectsList::.ctor(class:12)->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.m1
+IL_0002: stfld 0x0400004a EffectsList::curIndex
+IL_0007: ldarg.0
+IL_0008: call 0x0a000012 0x01000001::.ctor
+IL_000d: ldarg.0
+IL_000e: ldarg.1
+IL_000f: stfld 0x04000049 EffectsList::mWin
+IL_0014: ret
+
+0x06000126 EffectsList::Add(object)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000049 EffectsList::mWin
+IL_0006: ldc.i4.0
+IL_0007: ldc.i4.0
+IL_0008: ldarg.1
+IL_0009: isinst 0x0200024c
+IL_000e: call 0x060012ac Sims3.UI.UIManager::EffectListGeneric
+IL_0013: pop
+IL_0014: ret
+
+0x06000127 EffectsList::Clear()->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000049 EffectsList::mWin
+IL_0006: ldc.i4.2
+IL_0007: ldc.i4.0
+IL_0008: ldnull
+IL_0009: call 0x060012ac Sims3.UI.UIManager::EffectListGeneric
+IL_000e: pop
+IL_000f: ret
+
+0x06000128 EffectsList::Contains(object)->bool present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000049 EffectsList::mWin
+IL_0006: ldc.i4.4
+IL_0007: ldc.i4.0
+IL_0008: ldarg.1
+IL_0009: isinst 0x0200024c
+IL_000e: call 0x060012ac Sims3.UI.UIManager::EffectListGeneric
+IL_0013: ldc.i4.0
+IL_0014: ceq
+IL_0016: ldc.i4.0
+IL_0017: ceq
+IL_0019: ret
+
+0x06000129 EffectsList::Remove(object)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000049 EffectsList::mWin
+IL_0006: ldc.i4.1
+IL_0007: ldc.i4.0
+IL_0008: ldarg.1
+IL_0009: isinst 0x0200024c
+IL_000e: call 0x060012ac Sims3.UI.UIManager::EffectListGeneric
+IL_0013: pop
+IL_0014: ret
+
+0x0600012a EffectsList::get_Item(i4)->object present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000049 EffectsList::mWin
+IL_0006: ldc.i4.3
+IL_0007: ldarg.1
+IL_0008: ldnull
+IL_0009: call 0x060012ac Sims3.UI.UIManager::EffectListGeneric
+IL_000e: call 0x060012b4 Sims3.UI.UIManager::EffectWrapperFromHandle
+IL_0013: ret
+
+0x0600012b EffectsList::CopyTo(class:125,i4)->void present
+IL_0000: ldarg.2
+IL_0001: stloc.0
+IL_0002: ldarg.0
+IL_0003: call 0x0600012f EffectsList::GetEnumerator
+IL_0008: stloc.2
+IL_0009: br.s 35
+IL_000b: ldloc.2
+IL_000c: callvirt 0x0a000037 0x01000005::get_Current
+IL_0011: castclass 0x0200024c
+IL_0016: stloc.1
+IL_0017: ldarg.1
+IL_0018: ldloc.1
+IL_0019: ldloc.0
+IL_001a: callvirt 0x0a000038 0x0100001f::SetValue
+IL_001f: ldloc.0
+IL_0020: ldc.i4.1
+IL_0021: add
+IL_0022: stloc.0
+IL_0023: ldloc.2
+IL_0024: callvirt 0x0a000039 0x01000005::MoveNext
+IL_0029: brtrue.s 11
+IL_002b: leave.s 62
+IL_002d: ldloc.2
+IL_002e: isinst 0x01000002
+IL_0033: stloc.3
+IL_0034: ldloc.3
+IL_0035: brfalse.s 61
+IL_0037: ldloc.3
+IL_0038: callvirt 0x0a00003a 0x01000002::Dispose
+IL_003d: endfinally
+IL_003e: ret
+EH [{"flags": 2, "try_offset": 9, "try_length": 36, "handler_offset": 45, "handler_length": 17, "class_token": null, "filter_offset": null}]
+
+0x0600012c EffectsList::get_Count()->i4 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000049 EffectsList::mWin
+IL_0006: ldc.i4.5
+IL_0007: ldc.i4.0
+IL_0008: ldnull
+IL_0009: call 0x060012ac Sims3.UI.UIManager::EffectListGeneric
+IL_000e: ret
+
+0x0600012d EffectsList::get_IsSynchronized()->bool present
+IL_0000: ldc.i4.0
+IL_0001: ret
+
+0x0600012e EffectsList::get_SyncRoot()->object present
+IL_0000: ldnull
+IL_0001: ret
+
+0x0600012f EffectsList::GetEnumerator()->class:21 present
+IL_0000: ldarg.0
+IL_0001: ret
+
+0x06000130 EffectsList::get_Current()->object present
+IL_0000: ldarg.0
+IL_0001: ldarg.0
+IL_0002: ldfld 0x0400004a EffectsList::curIndex
+IL_0007: call 0x0600012a EffectsList::get_Item
+IL_000c: ret
+
+0x06000131 EffectsList::MoveNext()->bool present
+IL_0000: ldarg.0
+IL_0001: dup
+IL_0002: ldfld 0x0400004a EffectsList::curIndex
+IL_0007: ldc.i4.1
+IL_0008: add
+IL_0009: stfld 0x0400004a EffectsList::curIndex
+IL_000e: ldarg.0
+IL_000f: ldfld 0x0400004a EffectsList::curIndex
+IL_0014: ldarg.0
+IL_0015: call 0x0600012c EffectsList::get_Count
+IL_001a: bge.s 30
+IL_001c: ldc.i4.1
+IL_001d: ret
+IL_001e: ldarg.0
+IL_001f: ldc.i4.m1
+IL_0020: stfld 0x0400004a EffectsList::curIndex
+IL_0025: ldc.i4.0
+IL_0026: ret
+
+0x06000132 EffectsList::Reset()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.m1
+IL_0002: stfld 0x0400004a EffectsList::curIndex
+IL_0007: ret
+
+0x060012a8 Sims3.UI.UIManager::NewEffect(valuetype:2356)->u4 present
+IL_0000: ldsfld 0x040013a1 Sims3.UI.UIManager::gUIMgr
+IL_0005: ldarg.0
+IL_0006: callvirt 0x0a0004da 0x01000064::NewEffect
+IL_000b: ret
+
+0x060012a9 Sims3.UI.UIManager::DestroyEffect(class:2352)->void present
+IL_0000: ldsfld 0x040013a1 Sims3.UI.UIManager::gUIMgr
+IL_0005: ldarg.0
+IL_0006: callvirt 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_000b: callvirt 0x0a0004db 0x01000064::DestroyEffect
+IL_0010: ret
+
+0x060012aa Sims3.UI.UIManager::TriggerEffect(class:2352,bool)->void present
+IL_0000: ldsfld 0x040013a1 Sims3.UI.UIManager::gUIMgr
+IL_0005: ldarg.0
+IL_0006: callvirt 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_000b: ldarg.1
+IL_000c: callvirt 0x0a0004dc 0x01000064::TriggerEffect
+IL_0011: ret
+
+0x060012ab Sims3.UI.UIManager::ResetEffect(class:2352,bool)->void present
+IL_0000: ldsfld 0x040013a1 Sims3.UI.UIManager::gUIMgr
+IL_0005: ldarg.0
+IL_0006: callvirt 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_000b: ldarg.1
+IL_000c: callvirt 0x0a0004dd 0x01000064::ResetEffect
+IL_0011: ret
+
+0x060012ac Sims3.UI.UIManager::EffectListGeneric(class:12,valuetype:172,i4,class:2352)->i4 present
+IL_0000: ldsfld 0x040013a1 Sims3.UI.UIManager::gUIMgr
+IL_0005: ldarg.0
+IL_0006: callvirt 0x06000005 Sims3.UI.WindowBase::get_WinHandle
+IL_000b: ldarg.1
+IL_000c: ldarg.2
+IL_000d: ldarg.3
+IL_000e: ldnull
+IL_000f: call 0x06001376 Sims3.UI.EffectBase::op_Inequality
+IL_0014: brtrue.s 25
+IL_0016: ldc.i4.0
+IL_0017: br.s 31
+IL_0019: ldarg.3
+IL_001a: callvirt 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_001f: callvirt 0x0a0004de 0x01000064::EffectListGeneric
+IL_0024: ret
+
+0x060012b4 Sims3.UI.UIManager::EffectWrapperFromHandle(u4)->class:2352 present
+IL_0000: ldsfld 0x040013a1 Sims3.UI.UIManager::gUIMgr
+IL_0005: ldarg.0
+IL_0006: callvirt 0x0a0004a0 0x01000064::GetClassID
+IL_000b: stloc.0
+IL_000c: ldloc.0
+IL_000d: ldc.i4 797686605
+IL_0012: bgt.un.s 46
+IL_0014: ldloc.0
+IL_0015: ldc.i4 65805300
+IL_001a: beq.s 137
+IL_001c: ldloc.0
+IL_001d: ldc.i4 136551502
+IL_0022: beq.s 151
+IL_0024: ldloc.0
+IL_0025: ldc.i4 797686605
+IL_002a: beq.s 123
+IL_002c: br.s 158
+IL_002e: ldloc.0
+IL_002f: ldc.i4 1865116972
+IL_0034: bgt.un.s 72
+IL_0036: ldloc.0
+IL_0037: ldc.i4 1329442562
+IL_003c: beq.s 116
+IL_003e: ldloc.0
+IL_003f: ldc.i4 1865116972
+IL_0044: beq.s 102
+IL_0046: br.s 158
+IL_0048: ldloc.0
+IL_0049: ldc.i4 -1606688290
+IL_004e: beq.s 144
+IL_0050: ldloc.0
+IL_0051: ldc.i4 -819254572
+IL_0056: sub
+IL_0057: switch 2
+IL_0064: br.s 158
+IL_0066: ldarg.0
+IL_0067: newobj 0x060032fd Sims3.UI.FadeEffect::.ctor
+IL_006c: ret
+IL_006d: ldarg.0
+IL_006e: newobj 0x06001379 Sims3.UI.GlideEffect::.ctor
+IL_0073: ret
+IL_0074: ldarg.0
+IL_0075: newobj 0x060018e9 Sims3.UI.InflateEffect::.ctor
+IL_007a: ret
+IL_007b: ldarg.0
+IL_007c: newobj 0x06001ddb Sims3.UI.ModulateEffect::.ctor
+IL_0081: ret
+IL_0082: ldarg.0
+IL_0083: newobj 0x06002886 Sims3.UI.RotateEffect::.ctor
+IL_0088: ret
+IL_0089: ldarg.0
+IL_008a: newobj 0x06002c9f Sims3.UI.GrowEffect::.ctor
+IL_008f: ret
+IL_0090: ldarg.0
+IL_0091: newobj 0x060035d7 Sims3.UI.GlowModulateEffect::.ctor
+IL_0096: ret
+IL_0097: ldarg.0
+IL_0098: newobj 0x060035dd Sims3.UI.BiStateControllerEffect::.ctor
+IL_009d: ret
+IL_009e: ldnull
+IL_009f: ret
+
+0x0600135d Sims3.UI.EffectBase::get_EffectHandle()->u4 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ret
+
+0x0600135e Sims3.UI.EffectBase::.ctor(valuetype:2356)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0a000012 0x01000001::.ctor
+IL_0006: ldarg.0
+IL_0007: ldarg.1
+IL_0008: call 0x060012a8 Sims3.UI.UIManager::NewEffect
+IL_000d: stfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0012: ret
+
+0x0600135f Sims3.UI.EffectBase::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0a000012 0x01000001::.ctor
+IL_0006: ldarg.0
+IL_0007: ldarg.1
+IL_0008: stfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_000d: ret
+
+0x06001360 Sims3.UI.EffectBase::Finalize()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.1
+IL_0002: call 0x06001377 Sims3.UI.EffectBase::Dispose
+IL_0007: leave.s 16
+IL_0009: ldarg.0
+IL_000a: call 0x0a000014 0x01000001::Finalize
+IL_000f: endfinally
+IL_0010: ret
+EH [{"flags": 2, "try_offset": 0, "try_length": 9, "handler_offset": 9, "handler_length": 7, "class_token": null, "filter_offset": null}]
+
+0x06001361 Sims3.UI.EffectBase::get_Duration()->r4 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218112
+IL_000b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0010: ret
+
+0x06001362 Sims3.UI.EffectBase::set_Duration(r4)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218112
+IL_000b: ldarg.1
+IL_000c: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0011: ret
+
+0x06001363 Sims3.UI.EffectBase::get_Delay()->r4 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218120
+IL_000b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0010: ret
+
+0x06001364 Sims3.UI.EffectBase::set_Delay(r4)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218120
+IL_000b: ldarg.1
+IL_000c: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0011: ret
+
+0x06001365 Sims3.UI.EffectBase::get_EndDelay()->r4 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218121
+IL_000b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0010: ret
+
+0x06001366 Sims3.UI.EffectBase::set_EndDelay(r4)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218121
+IL_000b: ldarg.1
+IL_000c: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0011: ret
+
+0x06001367 Sims3.UI.EffectBase::get_TriggerType()->valuetype:2364 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218113
+IL_000b: call 0x06001291 Sims3.UI.UIManager::GetUInt32Property
+IL_0010: ret
+
+0x06001368 Sims3.UI.EffectBase::set_TriggerType(valuetype:2364)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218113
+IL_000b: ldarg.1
+IL_000c: call 0x06001290 Sims3.UI.UIManager::SetUInt32Property
+IL_0011: ret
+
+0x06001369 Sims3.UI.EffectBase::get_InterpolationType()->valuetype:2368 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218114
+IL_000b: call 0x06001291 Sims3.UI.UIManager::GetUInt32Property
+IL_0010: ret
+
+0x0600136a Sims3.UI.EffectBase::set_InterpolationType(valuetype:2368)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218114
+IL_000b: ldarg.1
+IL_000c: call 0x06001290 Sims3.UI.UIManager::SetUInt32Property
+IL_0011: ret
+
+0x0600136b Sims3.UI.EffectBase::get_EaseTimes()->valuetype:89 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218115
+IL_000b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0010: ldarg.0
+IL_0011: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0016: ldc.i4 1328218116
+IL_001b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0020: newobj 0x0a000042 0x01000016::.ctor
+IL_0025: ret
+
+0x0600136c Sims3.UI.EffectBase::set_EaseTimes(valuetype:89)->void present
+IL_0000: ldarga.s 1
+IL_0002: ldfld 0x0a000029 0x01000016::x
+IL_0007: stloc.0
+IL_0008: ldarga.s 1
+IL_000a: ldfld 0x0a00002a 0x01000016::y
+IL_000f: stloc.1
+IL_0010: ldloc.0
+IL_0011: ldc.r4 0
+IL_0016: call 0x0a00025c 0x010000bf::Max
+IL_001b: stloc.0
+IL_001c: ldloc.1
+IL_001d: ldc.r4 0
+IL_0022: call 0x0a00025c 0x010000bf::Max
+IL_0027: stloc.1
+IL_0028: ldloc.0
+IL_0029: ldc.r4 1
+IL_002e: call 0x0a00022b 0x010000bf::Min
+IL_0033: stloc.0
+IL_0034: ldloc.1
+IL_0035: ldc.r4 1
+IL_003a: call 0x0a00022b 0x010000bf::Min
+IL_003f: stloc.1
+IL_0040: ldloc.0
+IL_0041: ldloc.1
+IL_0042: add
+IL_0043: stloc.2
+IL_0044: ldloc.2
+IL_0045: ldc.r4 1
+IL_004a: ble.un.s 84
+IL_004c: ldloc.0
+IL_004d: ldloc.2
+IL_004e: div
+IL_004f: stloc.0
+IL_0050: ldloc.1
+IL_0051: ldloc.2
+IL_0052: div
+IL_0053: stloc.1
+IL_0054: ldarg.0
+IL_0055: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_005a: ldc.i4 1328218115
+IL_005f: ldloc.0
+IL_0060: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0065: ldarg.0
+IL_0066: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_006b: ldc.i4 1328218116
+IL_0070: ldloc.1
+IL_0071: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0076: ret
+
+0x0600136d Sims3.UI.EffectBase::get_Damping()->r4 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218117
+IL_000b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0010: ret
+
+0x0600136e Sims3.UI.EffectBase::set_Damping(r4)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218117
+IL_000b: ldarg.1
+IL_000c: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0011: ret
+
+0x0600136f Sims3.UI.EffectBase::get_GroupID()->u4 present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218122
+IL_000b: call 0x06001291 Sims3.UI.UIManager::GetUInt32Property
+IL_0010: ret
+
+0x06001370 Sims3.UI.EffectBase::set_GroupID(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: ldc.i4 1328218122
+IL_000b: ldarg.1
+IL_000c: call 0x06001290 Sims3.UI.UIManager::SetUInt32Property
+IL_0011: ret
+
+0x06001371 Sims3.UI.EffectBase::TriggerEffect(bool)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x060012aa Sims3.UI.UIManager::TriggerEffect
+IL_0007: ret
+
+0x06001372 Sims3.UI.EffectBase::ResetEffect(bool)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x060012ab Sims3.UI.UIManager::ResetEffect
+IL_0007: ret
+
+0x06001373 Sims3.UI.EffectBase::Equals(object)->bool present
+IL_0000: ldarg.1
+IL_0001: brtrue.s 5
+IL_0003: ldc.i4.0
+IL_0004: ret
+IL_0005: ldarg.1
+IL_0006: isinst 0x0200024c
+IL_000b: stloc.0
+IL_000c: ldloc.0
+IL_000d: brtrue.s 17
+IL_000f: ldc.i4.0
+IL_0010: ret
+IL_0011: ldarg.0
+IL_0012: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0017: ldloc.0
+IL_0018: callvirt 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_001d: ceq
+IL_001f: ret
+
+0x06001374 Sims3.UI.EffectBase::GetHashCode()->i4 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ret
+
+0x06001375 Sims3.UI.EffectBase::op_Equality(class:2352,class:2352)->bool present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0a000030 0x01000001::ReferenceEquals
+IL_0007: brfalse.s 11
+IL_0009: ldc.i4.1
+IL_000a: ret
+IL_000b: ldarg.0
+IL_000c: brfalse.s 17
+IL_000e: ldarg.1
+IL_000f: brtrue.s 19
+IL_0011: ldc.i4.0
+IL_0012: ret
+IL_0013: ldarg.0
+IL_0014: callvirt 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0019: ldarg.1
+IL_001a: callvirt 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_001f: ceq
+IL_0021: ret
+
+0x06001376 Sims3.UI.EffectBase::op_Inequality(class:2352,class:2352)->bool present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x06001375 Sims3.UI.EffectBase::op_Equality
+IL_0007: ldc.i4.0
+IL_0008: ceq
+IL_000a: ret
+
+0x06001377 Sims3.UI.EffectBase::Dispose(bool)->void present
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0006: brfalse.s 21
+IL_0008: ldarg.0
+IL_0009: call 0x060012a9 Sims3.UI.UIManager::DestroyEffect
+IL_000e: ldarg.0
+IL_000f: ldc.i4.0
+IL_0010: stfld 0x04001426 Sims3.UI.EffectBase::mEffectHandle
+IL_0015: ldarg.1
+IL_0016: brtrue.s 30
+IL_0018: ldarg.0
+IL_0019: call 0x0a000032 0x010000c0::SuppressFinalize
+IL_001e: ret
+
+0x06001378 Sims3.UI.EffectBase::Dispose()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.0
+IL_0002: call 0x06001377 Sims3.UI.EffectBase::Dispose
+IL_0007: ret
+
+0x06001379 Sims3.UI.GlideEffect::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0600135f Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x0600137a Sims3.UI.GlideEffect::.ctor()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.1
+IL_0002: call 0x0600135e Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x0600137b Sims3.UI.GlideEffect::get_Offset()->valuetype:89 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283648
+IL_000b: call 0x06001297 Sims3.UI.UIManager::GetVector2Property
+IL_0010: ret
+
+0x0600137c Sims3.UI.GlideEffect::set_Offset(valuetype:89)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283648
+IL_000b: ldarg.1
+IL_000c: call 0x06001296 Sims3.UI.UIManager::SetVector2Property
+IL_0011: ret
+
+0x060018e9 Sims3.UI.InflateEffect::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0600135f Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x060018ea Sims3.UI.InflateEffect::.ctor()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.2
+IL_0002: call 0x0600135e Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x060018eb Sims3.UI.InflateEffect::get_Scale()->r4 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283648
+IL_000b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0010: ret
+
+0x060018ec Sims3.UI.InflateEffect::set_Scale(r4)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283648
+IL_000b: ldarg.1
+IL_000c: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0011: ret
+
+0x06001ddb Sims3.UI.ModulateEffect::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0600135f Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x06001ddc Sims3.UI.ModulateEffect::.ctor()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.3
+IL_0002: call 0x0600135e Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x06001ddd Sims3.UI.ModulateEffect::get_Color1()->valuetype:113 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283648
+IL_000b: call 0x0600128f Sims3.UI.UIManager::GetColorProperty
+IL_0010: ret
+
+0x06001dde Sims3.UI.ModulateEffect::set_Color1(valuetype:113)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283648
+IL_000b: ldarg.1
+IL_000c: call 0x0600128e Sims3.UI.UIManager::SetColorProperty
+IL_0011: ret
+
+0x06001ddf Sims3.UI.ModulateEffect::get_Color2()->valuetype:113 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283649
+IL_000b: call 0x0600128f Sims3.UI.UIManager::GetColorProperty
+IL_0010: ret
+
+0x06001de0 Sims3.UI.ModulateEffect::set_Color2(valuetype:113)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283649
+IL_000b: ldarg.1
+IL_000c: call 0x0600128e Sims3.UI.UIManager::SetColorProperty
+IL_0011: ret
+
+0x06002886 Sims3.UI.RotateEffect::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0600135f Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x06002887 Sims3.UI.RotateEffect::.ctor()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.4
+IL_0002: call 0x0600135e Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x06002888 Sims3.UI.RotateEffect::get_RotationAxis()->valuetype:129 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283904
+IL_000b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0010: ldarg.0
+IL_0011: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0016: ldc.i4 1328283905
+IL_001b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0020: ldarg.0
+IL_0021: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0026: ldc.i4 1328283906
+IL_002b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0030: newobj 0x0a0001d2 0x01000020::.ctor
+IL_0035: ret
+
+0x06002889 Sims3.UI.RotateEffect::set_RotationAxis(valuetype:129)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283904
+IL_000b: ldarga.s 1
+IL_000d: ldfld 0x0a0001e5 0x01000020::x
+IL_0012: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0017: ldarg.0
+IL_0018: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_001d: ldc.i4 1328283905
+IL_0022: ldarga.s 1
+IL_0024: ldfld 0x0a000051 0x01000020::y
+IL_0029: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_002e: ldarg.0
+IL_002f: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0034: ldc.i4 1328283906
+IL_0039: ldarga.s 1
+IL_003b: ldfld 0x0a0001e6 0x01000020::z
+IL_0040: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0045: ret
+
+0x0600288a Sims3.UI.RotateEffect::get_Angle()->r4 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283907
+IL_000b: call 0x06001293 Sims3.UI.UIManager::GetFloatProperty
+IL_0010: ret
+
+0x0600288b Sims3.UI.RotateEffect::set_Angle(r4)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 1328283907
+IL_000b: ldarg.1
+IL_000c: call 0x06001292 Sims3.UI.UIManager::SetFloatProperty
+IL_0011: ret
+
+0x06002c9f Sims3.UI.GrowEffect::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0600135f Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x06002ca0 Sims3.UI.GrowEffect::.ctor()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.5
+IL_0002: call 0x0600135e Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x06002ca1 Sims3.UI.GrowEffect::get_BoundChangeRect()->valuetype:109 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 711786496
+IL_000b: call 0x06001295 Sims3.UI.UIManager::GetRectProperty
+IL_0010: ret
+
+0x06002ca2 Sims3.UI.GrowEffect::set_BoundChangeRect(valuetype:109)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 711786496
+IL_000b: ldarg.1
+IL_000c: call 0x06001294 Sims3.UI.UIManager::SetRectProperty
+IL_0011: ret
+
+0x060032fd Sims3.UI.FadeEffect::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0600135f Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x060032fe Sims3.UI.FadeEffect::.ctor()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.0
+IL_0002: call 0x0600135e Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x060035d7 Sims3.UI.GlowModulateEffect::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0600135f Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x060035d8 Sims3.UI.GlowModulateEffect::.ctor()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.6
+IL_0002: call 0x0600135e Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x060035d9 Sims3.UI.GlowModulateEffect::get_Color1()->valuetype:113 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 -1606688512
+IL_000b: call 0x0600128f Sims3.UI.UIManager::GetColorProperty
+IL_0010: ret
+
+0x060035da Sims3.UI.GlowModulateEffect::set_Color1(valuetype:113)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 -1606688512
+IL_000b: ldarg.1
+IL_000c: call 0x0600128e Sims3.UI.UIManager::SetColorProperty
+IL_0011: ret
+
+0x060035db Sims3.UI.GlowModulateEffect::get_Color2()->valuetype:113 present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 -1606688511
+IL_000b: call 0x0600128f Sims3.UI.UIManager::GetColorProperty
+IL_0010: ret
+
+0x060035dc Sims3.UI.GlowModulateEffect::set_Color2(valuetype:113)->void present
+IL_0000: ldarg.0
+IL_0001: call 0x0600135d Sims3.UI.EffectBase::get_EffectHandle
+IL_0006: ldc.i4 -1606688511
+IL_000b: ldarg.1
+IL_000c: call 0x0600128e Sims3.UI.UIManager::SetColorProperty
+IL_0011: ret
+
+0x060035dd Sims3.UI.BiStateControllerEffect::.ctor(u4)->void present
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: call 0x0600135f Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+
+0x060035de Sims3.UI.BiStateControllerEffect::.ctor()->void present
+IL_0000: ldarg.0
+IL_0001: ldc.i4.7
+IL_0002: call 0x0600135e Sims3.UI.EffectBase::.ctor
+IL_0007: ret
+ASSEMBLY ScriptCore SHA256 1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115 MVID da71f9d5-3a90-44c6-8f98-5bafd2fca18a
+
+0x06000e3e ScriptCore.UIManager::UIManager_NewEffectImpl(u4)->u4 absent
+
+0x06000e3f ScriptCore.UIManager::UIManager_DestroyEffectImpl(u4)->void absent
+
+0x06000e40 ScriptCore.UIManager::UIManager_TriggerEffectImpl(u4,bool)->void absent
+
+0x06000e41 ScriptCore.UIManager::UIManager_ResetEffectImpl(u4,bool)->void absent
+
+0x06000e42 ScriptCore.UIManager::UIManager_EffectListGenericImpl(u4,u4,i4,u4)->i4 absent
+
+0x06000eaf ScriptCore.UIManager::NewEffect(u4)->u4 present
+IL_0000: ldarg.1
+IL_0001: call 0x06000e3e ScriptCore.UIManager::UIManager_NewEffectImpl
+IL_0006: ret
+
+0x06000eb0 ScriptCore.UIManager::DestroyEffect(u4)->void present
+IL_0000: ldarg.1
+IL_0001: call 0x06000e3f ScriptCore.UIManager::UIManager_DestroyEffectImpl
+IL_0006: ret
+
+0x06000eb1 ScriptCore.UIManager::TriggerEffect(u4,bool)->void present
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: call 0x06000e40 ScriptCore.UIManager::UIManager_TriggerEffectImpl
+IL_0007: ret
+
+0x06000eb2 ScriptCore.UIManager::ResetEffect(u4,bool)->void present
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: call 0x06000e41 ScriptCore.UIManager::UIManager_ResetEffectImpl
+IL_0007: ret
+
+0x06000eb3 ScriptCore.UIManager::EffectListGeneric(u4,u4,i4,u4)->i4 present
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: ldarg.3
+IL_0003: ldarg.s 4
+IL_0005: call 0x06000e42 ScriptCore.UIManager::UIManager_EffectListGenericImpl
+IL_000a: ret
+ASSEMBLY SimIFace SHA256 6ddedb668e1b6da037e346cd5cf6f500f37407dca633b428e7ec410daa00fcb2 MVID e4365bd8-6054-4cb5-8702-c69b1c102ce9
+
+0x0600027a Sims3.SimIFace.IUIManager::NewEffect(u4)->u4 absent
+
+0x0600027b Sims3.SimIFace.IUIManager::DestroyEffect(u4)->void absent
+
+0x0600027c Sims3.SimIFace.IUIManager::TriggerEffect(u4,bool)->void absent
+
+0x0600027d Sims3.SimIFace.IUIManager::ResetEffect(u4,bool)->void absent
+
+0x0600027e Sims3.SimIFace.IUIManager::EffectListGeneric(u4,u4,i4,u4)->i4 absent

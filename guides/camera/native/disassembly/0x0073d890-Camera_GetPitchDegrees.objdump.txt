@@ -1,0 +1,38 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_GetPitchDegrees
+# Entry: 0x0073d890; bounded stop: 0x0073d8d0; next Ghidra entry: 0x0073d8d0
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073d890 <.text+0x33c890>:
+  73d890:	e8 3b c3 22 00       	call   0x969bd0
+  73d895:	85 c0                	test   eax,eax
+  73d897:	74 2f                	je     0x73d8c8
+  73d899:	8b c8                	mov    ecx,eax
+  73d89b:	e8 50 47 7e 00       	call   0xf21ff0
+  73d8a0:	85 c0                	test   eax,eax
+  73d8a2:	74 24                	je     0x73d8c8
+  73d8a4:	8b c8                	mov    ecx,eax
+  73d8a6:	e8 35 65 dd ff       	call   0x513de0
+  73d8ab:	85 c0                	test   eax,eax
+  73d8ad:	74 19                	je     0x73d8c8
+  73d8af:	8b 10                	mov    edx,DWORD PTR [eax]
+  73d8b1:	8b c8                	mov    ecx,eax
+  73d8b3:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73d8b6:	68 89 dd 0f 11       	push   0x110fdd89
+  73d8bb:	ff d0                	call   eax
+  73d8bd:	85 c0                	test   eax,eax
+  73d8bf:	74 07                	je     0x73d8c8
+  73d8c1:	8b c8                	mov    ecx,eax
+  73d8c3:	e9 e8 35 23 00       	jmp    0x970eb0
+  73d8c8:	d9 ee                	fldz
+  73d8ca:	c3                   	ret
+  73d8cb:	cc                   	int3
+  73d8cc:	cc                   	int3
+  73d8cd:	cc                   	int3
+  73d8ce:	cc                   	int3
+  73d8cf:	cc                   	int3

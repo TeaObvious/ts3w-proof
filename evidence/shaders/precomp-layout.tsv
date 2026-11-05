@@ -1,0 +1,8 @@
+file_offset	marker	observed_value	interpretation
+0x00000000	SPKG	version=2	Package signature and version read by ShaderPackage_ReadSPKG
+0x00000008	SHDB	payload_bytes=36040859	Bytecode database chunk; next marker at 0x0225f0ab
+0x00000010	LINK	record_count=15689	Observed VSHD=7671 and PSHD=8018 markers in SHDB payload
+0x0225f0ab	SMDB	SMPS_count=54	Sampler-preset database read by ShaderSamplerDatabase_ReadSMPS
+0x0225faa7	SETS	SSET_count=237	Shader-set records read by ShaderPackage_ReadSSETSets
+0x0228f008	SHDS	SBLK_count=604	Shader-definition blocks read by ShaderPackage_ReadSBLKDefinitions
+0x05852fbf	END 	file_bytes=92614595	Final marker at end of the original PC 1.67 precompiled file

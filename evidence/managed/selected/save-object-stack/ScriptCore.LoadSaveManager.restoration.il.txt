@@ -1,0 +1,133 @@
+// Complete PC1.67 original CIL; central managed README identifies the original assembly.
+// Tokens are module-local. Decoded operands retain tokens; TypeSpecification labels are not recovered generic signatures.
+
+// ScriptCore.LoadSaveManager::LoadObjectStack; MethodDef0x0600020B; RVA0x0000439C
+// raw CLI signature 00020212812808; maxstack 3; locals token 11000029; initlocals True
+// Original IL bytes (69): 7E440000042C110316320D037E440000046F9C060006320902177DA0000004162A7E440000040312006F9E0600062C13062D0902177DA0000004162A02067D9F000004172A
+IL_0000: ldsfld 0x04000044 ScriptCore.LoadSaveManager::sTaskStates
+IL_0005: brfalse.s IL_0018
+IL_0007: ldarg.1
+IL_0008: ldc.i4.0
+IL_0009: blt.s IL_0018
+IL_000B: ldarg.1
+IL_000C: ldsfld 0x04000044 ScriptCore.LoadSaveManager::sTaskStates
+IL_0011: callvirt 0x0600069C ScriptCore.TaskStateCollection::get_Count
+IL_0016: blt.s IL_0021
+IL_0018: ldarg.0
+IL_0019: ldc.i4.1
+IL_001A: stfld 0x040000A0 ScriptCore.ScriptProxy::mResetSavedObject
+IL_001F: ldc.i4.0
+IL_0020: ret
+IL_0021: ldsfld 0x04000044 ScriptCore.LoadSaveManager::sTaskStates
+IL_0026: ldarg.1
+IL_0027: ldloca.s 0
+IL_0029: callvirt 0x0600069E ScriptCore.TaskStateCollection::TakeState
+IL_002E: brfalse.s IL_0043
+IL_0030: ldloc.0
+IL_0031: brtrue.s IL_003C
+IL_0033: ldarg.0
+IL_0034: ldc.i4.1
+IL_0035: stfld 0x040000A0 ScriptCore.ScriptProxy::mResetSavedObject
+IL_003A: ldc.i4.0
+IL_003B: ret
+IL_003C: ldarg.0
+IL_003D: ldloc.0
+IL_003E: stfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_0043: ldc.i4.1
+IL_0044: ret
+
+// ScriptCore.LoadSaveManager::RestoreObjectStack; MethodDef0x0600020C; RVA0x000043F0
+// raw CLI signature 0001020b; maxstack 3; locals token 1100002A; initlocals True
+// Original IL bytes (83): 285905000602731800000A6F7A050006754A0000020A062D02162A067B9F0000042C2E067B9F000004066FC30600060C1202281700000A6F910600060B067B9F0000046F9206000606147D9F000004072A162A
+IL_0000: call 0x06000559 ScriptCore.Simulator::get_Instance
+IL_0005: ldarg.0
+IL_0006: newobj 0x0A000018 Sims3.SimIFace.ObjectGuid::.ctor
+IL_000B: callvirt 0x0600057A ScriptCore.Simulator::GetProxyPreInit
+IL_0010: isinst 0x0200004A ScriptCore.ScriptProxy
+IL_0015: stloc.0
+IL_0016: ldloc.0
+IL_0017: brtrue.s IL_001B
+IL_0019: ldc.i4.0
+IL_001A: ret
+IL_001B: ldloc.0
+IL_001C: ldfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_0021: brfalse.s IL_0051
+IL_0023: ldloc.0
+IL_0024: ldfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_0029: ldloc.0
+IL_002A: callvirt 0x060006C3 ScriptCore.ScriptProxy::get_ObjectId
+IL_002F: stloc.2
+IL_0030: ldloca.s 2
+IL_0032: call 0x0A000017 Sims3.SimIFace.ObjectGuid::get_Value
+IL_0037: callvirt 0x06000691 ScriptCore.SavedTaskContext::Restore
+IL_003C: stloc.1
+IL_003D: ldloc.0
+IL_003E: ldfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_0043: callvirt 0x06000692 ScriptCore.SavedTaskContext::Dispose
+IL_0048: ldloc.0
+IL_0049: ldnull
+IL_004A: stfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_004F: ldloc.1
+IL_0050: ret
+IL_0051: ldc.i4.0
+IL_0052: ret
+
+// ScriptCore.LoadSaveManager::SendObjectFailedEvent; MethodDef0x0600020E; RVA0x00004494
+// raw CLI signature 000102128128; maxstack 2; locals token 1100002C; initlocals True
+// Original IL bytes (66): 7E380000047B410000040A062C30066F6500000A0D1613042B1D0911049A747D0000010B07026F6E00000A2C04170CDE0F1104175813041104098E6932DC162A082A
+IL_0000: ldsfld 0x04000038 ScriptCore.LoadSaveManager::sInstance
+IL_0005: ldfld 0x04000041 ScriptCore.LoadSaveManager::ObjectStackLoadFailed
+IL_000A: stloc.0
+IL_000B: ldloc.0
+IL_000C: brfalse.s IL_003E
+IL_000E: ldloc.0
+IL_000F: callvirt 0x0A000065 System.Delegate::GetInvocationList
+IL_0014: stloc.3
+IL_0015: ldc.i4.0
+IL_0016: stloc.s 4
+IL_0018: br.s IL_0037
+IL_001A: ldloc.3
+IL_001B: ldloc.s 4
+IL_001D: ldelem.ref
+IL_001E: castclass 0x0100007D Sims3.SimIFace.ObjectStackLoadFailedHandler
+IL_0023: stloc.1
+IL_0024: ldloc.1
+IL_0025: ldarg.0
+IL_0026: callvirt 0x0A00006E Sims3.SimIFace.ObjectStackLoadFailedHandler::Invoke
+IL_002B: brfalse.s IL_0031
+IL_002D: ldc.i4.1
+IL_002E: stloc.2
+IL_002F: leave.s IL_0040
+IL_0031: ldloc.s 4
+IL_0033: ldc.i4.1
+IL_0034: add
+IL_0035: stloc.s 4
+IL_0037: ldloc.s 4
+IL_0039: ldloc.3
+IL_003A: ldlen
+IL_003B: conv.i4
+IL_003C: blt.s IL_001A
+IL_003E: ldc.i4.0
+IL_003F: ret
+IL_0040: ldloc.2
+IL_0041: ret
+
+// ScriptCore.LoadSaveManager::RequestTaskRestore; MethodDef0x0600021C; RVA0x00004820
+// raw CLI signature 000101128104; maxstack 2; locals token 11000034; initlocals True
+// Original IL bytes (54): 1200FE15200000021200285400000A0B1201281700000A7D460000041200027D470000047E380000047B3A00000412006F210200062A
+IL_0000: ldloca.s 0
+IL_0002: initobj 0x02000020 .TaskRestoreRequest
+IL_0008: ldloca.s 0
+IL_000A: call 0x0A000054 Sims3.SimIFace.Simulator::get_CurrentTask
+IL_000F: stloc.1
+IL_0010: ldloca.s 1
+IL_0012: call 0x0A000017 Sims3.SimIFace.ObjectGuid::get_Value
+IL_0017: stfld 0x04000046 .TaskRestoreRequest::mObjectId
+IL_001C: ldloca.s 0
+IL_001E: ldarg.0
+IL_001F: stfld 0x04000047 .TaskRestoreRequest::mContext
+IL_0024: ldsfld 0x04000038 ScriptCore.LoadSaveManager::sInstance
+IL_0029: ldfld 0x0400003A ScriptCore.LoadSaveManager::mTask
+IL_002E: ldloca.s 0
+IL_0030: callvirt 0x06000221 ScriptCore.LoadSaveManagerTask::Add
+IL_0035: ret

@@ -1,0 +1,3645 @@
+{
+  "schemaVersion": 1,
+  "sourceExe": "TS3W.exe",
+  "domain": "loading",
+  "selectionRule": null,
+  "exportBoundary": "start at verified registration pointer; stop at next saved Ghidra entry or 2048 bytes, whichever is earlier; may not be complete function body",
+  "rows": [
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_CASPartLoadImpl",
+      "address": "0x005a8ee0",
+      "registrationRecordAddress": "0x01156548",
+      "registrationRecordHex": "e08e5a007412fe00",
+      "registrationRecordFileOffset": 13985096,
+      "registrationNameStringAddress": "0x00fe1274",
+      "registrationNameStringFileOffset": 12456564,
+      "registrationNameStringNulHex": "536372697074436f72652e4341535574696c733a3a4341535574696c735f434153506172744c6f6164496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.CASUtils::CASUtils_CASPartLoadImpl(Sims3.SimIFace.ResourceKey)->Sims3.SimIFace.CAS.CASPart",
+      "managedToken": "0x06000346",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000346",
+        "returnType": "Sims3.SimIFace.CAS.CASPart",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "key",
+            "type": "Sims3.SimIFace.ResourceKey",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "CASUtils_CASPartLoadImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 1740512,
+      "byteExportLength": 64,
+      "endExclusive": "0x005a8f20",
+      "nextKnownGhidraEntry": "0x005a8f20",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x5a7e90"
+      ],
+      "rawBytes": "native/bytes/005a8ee0.bin",
+      "rawDisassembly": "native/disassembly/005a8ee0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_FacialBlendLoadImpl",
+      "address": "0x005a8f20",
+      "registrationRecordAddress": "0x01156550",
+      "registrationRecordHex": "208f5a00a412fe00",
+      "registrationRecordFileOffset": 13985104,
+      "registrationNameStringAddress": "0x00fe12a4",
+      "registrationNameStringFileOffset": 12456612,
+      "registrationNameStringNulHex": "536372697074436f72652e4341535574696c733a3a4341535574696c735f46616369616c426c656e644c6f6164496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.CASUtils::CASUtils_FacialBlendLoadImpl(Sims3.SimIFace.ResourceKey)->System.UInt32",
+      "managedToken": "0x06000347",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000347",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "key",
+            "type": "Sims3.SimIFace.ResourceKey",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "CASUtils_FacialBlendLoadImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 1740576,
+      "byteExportLength": 160,
+      "endExclusive": "0x005a8fc0",
+      "nextKnownGhidraEntry": "0x005a8fc0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4afe80",
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/005a8f20.bin",
+      "rawDisassembly": "native/disassembly/005a8f20.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_CompoundBlendLoadImpl",
+      "address": "0x005a9060",
+      "registrationRecordAddress": "0x01156580",
+      "registrationRecordHex": "60905a000814fe00",
+      "registrationRecordFileOffset": 13985152,
+      "registrationNameStringAddress": "0x00fe1408",
+      "registrationNameStringFileOffset": 12456968,
+      "registrationNameStringNulHex": "536372697074436f72652e4341535574696c733a3a4341535574696c735f436f6d706f756e64426c656e644c6f6164496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.CASUtils::CASUtils_CompoundBlendLoadImpl(Sims3.SimIFace.ResourceKey)->System.UInt32",
+      "managedToken": "0x0600034D",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600034D",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "key",
+            "type": "Sims3.SimIFace.ResourceKey",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "CASUtils_CompoundBlendLoadImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 1740896,
+      "byteExportLength": 160,
+      "endExclusive": "0x005a9100",
+      "nextKnownGhidraEntry": "0x005a9100",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4afe80",
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/005a9060.bin",
+      "rawDisassembly": "native/disassembly/005a9060.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_BlendUnitLoadImpl",
+      "address": "0x005a8fc0",
+      "registrationRecordAddress": "0x011565b8",
+      "registrationRecordHex": "c08f5a009815fe00",
+      "registrationRecordFileOffset": 13985208,
+      "registrationNameStringAddress": "0x00fe1598",
+      "registrationNameStringFileOffset": 12457368,
+      "registrationNameStringNulHex": "536372697074436f72652e4341535574696c733a3a4341535574696c735f426c656e64556e69744c6f6164496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.CASUtils::CASUtils_BlendUnitLoadImpl(Sims3.SimIFace.ResourceKey)->System.UInt32",
+      "managedToken": "0x06000351",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000351",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "key",
+            "type": "Sims3.SimIFace.ResourceKey",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "CASUtils_BlendUnitLoadImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 1740736,
+      "byteExportLength": 160,
+      "endExclusive": "0x005a9060",
+      "nextKnownGhidraEntry": "0x005a9060",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4afe80",
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/005a8fc0.bin",
+      "rawDisassembly": "native/disassembly/005a8fc0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_SimOutfitLoadImpl",
+      "address": "0x005a9100",
+      "registrationRecordAddress": "0x01156600",
+      "registrationRecordHex": "00915a009817fe00",
+      "registrationRecordFileOffset": 13985280,
+      "registrationNameStringAddress": "0x00fe1798",
+      "registrationNameStringFileOffset": 12457880,
+      "registrationNameStringNulHex": "536372697074436f72652e4341535574696c733a3a4341535574696c735f53696d4f75746669744c6f6164496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.CASUtils::CASUtils_SimOutfitLoadImpl(Sims3.SimIFace.ResourceKey)->System.UInt32",
+      "managedToken": "0x0600035D",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600035D",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "key",
+            "type": "Sims3.SimIFace.ResourceKey",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "CASUtils_SimOutfitLoadImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 1741056,
+      "byteExportLength": 160,
+      "endExclusive": "0x005a91a0",
+      "nextKnownGhidraEntry": "0x005a91a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4afe80",
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/005a9100.bin",
+      "rawDisassembly": "native/disassembly/005a9100.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CacheManager::CacheManager_ClearCache",
+      "address": "0x0073cfd0",
+      "registrationRecordAddress": "0x0115ebf8",
+      "registrationRecordHex": "d0cf730014070001",
+      "registrationRecordFileOffset": 14019576,
+      "registrationNameStringAddress": "0x01000714",
+      "registrationNameStringFileOffset": 12584724,
+      "registrationNameStringNulHex": "536372697074436f72652e43616368654d616e616765723a3a43616368654d616e616765725f436c656172436163686500",
+      "managedSignature": "ScriptCore:ScriptCore.CacheManager::CacheManager_ClearCache()->System.Void",
+      "managedToken": "0x06000DA1",
+      "managedPInvokeModule": "Sims3Common",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000DA1",
+        "returnType": "System.Void",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common",
+          "entryPoint": "CacheManager_ClearCache",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3395536,
+      "byteExportLength": 16,
+      "endExclusive": "0x0073cfe0",
+      "nextKnownGhidraEntry": "0x0073cfe0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawBytes": "native/bytes/0073cfd0.bin",
+      "rawDisassembly": "native/disassembly/0073cfd0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CacheManager::CacheManager_IsCachingAllowed",
+      "address": "0x0073c790",
+      "registrationRecordAddress": "0x0115ec00",
+      "registrationRecordHex": "90c7730048070001",
+      "registrationRecordFileOffset": 14019584,
+      "registrationNameStringAddress": "0x01000748",
+      "registrationNameStringFileOffset": 12584776,
+      "registrationNameStringNulHex": "536372697074436f72652e43616368654d616e616765723a3a43616368654d616e616765725f497343616368696e67416c6c6f77656400",
+      "managedSignature": "ScriptCore:ScriptCore.CacheManager::CacheManager_IsCachingAllowed(System.String)->System.Boolean",
+      "managedToken": "0x06000D9C",
+      "managedPInvokeModule": "Sims3Common",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000D9C",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "databaseName",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common",
+          "entryPoint": "CacheManager_IsCachingAllowed",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3393424,
+      "byteExportLength": 256,
+      "endExclusive": "0x0073c890",
+      "nextKnownGhidraEntry": "0x0073c890",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4afe80",
+        "0x4e44e0",
+        "0x769390",
+        "0x7d00c0"
+      ],
+      "rawBytes": "native/bytes/0073c790.bin",
+      "rawDisassembly": "native/disassembly/0073c790.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CacheManager::CacheManager_ReadCachedData",
+      "address": "0x0073cf50",
+      "registrationRecordAddress": "0x0115ec08",
+      "registrationRecordHex": "50cf730080070001",
+      "registrationRecordFileOffset": 14019592,
+      "registrationNameStringAddress": "0x01000780",
+      "registrationNameStringFileOffset": 12584832,
+      "registrationNameStringNulHex": "536372697074436f72652e43616368654d616e616765723a3a43616368654d616e616765725f526561644361636865644461746100",
+      "managedSignature": "ScriptCore:ScriptCore.CacheManager::CacheManager_ReadCachedData(System.String,System.Byte[]&)->System.Boolean",
+      "managedToken": "0x06000D9D",
+      "managedPInvokeModule": "Sims3Common",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000D9D",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "tagStr",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "data",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "Out, HasFieldMarshal",
+            "attributesValue": 8194,
+            "marshalDescriptorHex": "1D",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common",
+          "entryPoint": "CacheManager_ReadCachedData",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3395408,
+      "byteExportLength": 32,
+      "endExclusive": "0x0073cf70",
+      "nextKnownGhidraEntry": "0x0073cf70",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x73c9e0"
+      ],
+      "rawBytes": "native/bytes/0073cf50.bin",
+      "rawDisassembly": "native/disassembly/0073cf50.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CacheManager::CacheManager_ReadCachedDataAsStream",
+      "address": "0x0073cf70",
+      "registrationRecordAddress": "0x0115ec10",
+      "registrationRecordHex": "70cf7300b8070001",
+      "registrationRecordFileOffset": 14019600,
+      "registrationNameStringAddress": "0x010007b8",
+      "registrationNameStringFileOffset": 12584888,
+      "registrationNameStringNulHex": "536372697074436f72652e43616368654d616e616765723a3a43616368654d616e616765725f5265616443616368656444617461417353747265616d00",
+      "managedSignature": "ScriptCore:ScriptCore.CacheManager::CacheManager_ReadCachedDataAsStream(System.String)->System.UInt32",
+      "managedToken": "0x06000D9E",
+      "managedPInvokeModule": "Sims3Common",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000D9E",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "tagStr",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common",
+          "entryPoint": "CacheManager_ReadCachedDataAsStream",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3395440,
+      "byteExportLength": 32,
+      "endExclusive": "0x0073cf90",
+      "nextKnownGhidraEntry": "0x0073cf90",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x73cb20"
+      ],
+      "rawBytes": "native/bytes/0073cf70.bin",
+      "rawDisassembly": "native/disassembly/0073cf70.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CacheManager::CacheManager_ReadDatabaseChecksum",
+      "address": "0x0073c890",
+      "registrationRecordAddress": "0x0115ec18",
+      "registrationRecordHex": "90c87300f8070001",
+      "registrationRecordFileOffset": 14019608,
+      "registrationNameStringAddress": "0x010007f8",
+      "registrationNameStringFileOffset": 12584952,
+      "registrationNameStringNulHex": "536372697074436f72652e43616368654d616e616765723a3a43616368654d616e616765725f526561644461746162617365436865636b73756d00",
+      "managedSignature": "ScriptCore:ScriptCore.CacheManager::CacheManager_ReadDatabaseChecksum(System.String,System.UInt64&,System.UInt64&,System.Int32&)->System.Boolean",
+      "managedToken": "0x06000DA2",
+      "managedPInvokeModule": "Sims3Common",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000DA2",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "databaseName",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "checksum",
+            "type": "System.UInt64&",
+            "metadataPresent": true,
+            "attributes": "Out",
+            "attributesValue": 2,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 3,
+            "name": "dataSize",
+            "type": "System.UInt64&",
+            "metadataPresent": true,
+            "attributes": "Out",
+            "attributesValue": 2,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 4,
+            "name": "recordCount",
+            "type": "System.Int32&",
+            "metadataPresent": true,
+            "attributes": "Out",
+            "attributesValue": 2,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common",
+          "entryPoint": "CacheManager_ReadDatabaseChecksum",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3393680,
+      "byteExportLength": 336,
+      "endExclusive": "0x0073c9e0",
+      "nextKnownGhidraEntry": "0x0073c9e0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4afe80",
+        "0x4dd980",
+        "0x4ddab0",
+        "0x769390",
+        "0x7d00c0",
+        "0x7d7990",
+        "0x7d79f0",
+        "0x7d93e0"
+      ],
+      "rawBytes": "native/bytes/0073c890.bin",
+      "rawDisassembly": "native/disassembly/0073c890.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CacheManager::CacheManager_WriteCachedData",
+      "address": "0x0073cf90",
+      "registrationRecordAddress": "0x0115ec20",
+      "registrationRecordHex": "90cf730034080001",
+      "registrationRecordFileOffset": 14019616,
+      "registrationNameStringAddress": "0x01000834",
+      "registrationNameStringFileOffset": 12585012,
+      "registrationNameStringNulHex": "536372697074436f72652e43616368654d616e616765723a3a43616368654d616e616765725f57726974654361636865644461746100",
+      "managedSignature": "ScriptCore:ScriptCore.CacheManager::CacheManager_WriteCachedData(System.String,System.Byte[],System.UInt32)->System.Void",
+      "managedToken": "0x06000D9F",
+      "managedPInvokeModule": "Sims3Common",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000D9F",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "tagStr",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "data",
+            "type": "System.Byte[]",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 3,
+            "name": "length",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common",
+          "entryPoint": "CacheManager_WriteCachedData",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3395472,
+      "byteExportLength": 32,
+      "endExclusive": "0x0073cfb0",
+      "nextKnownGhidraEntry": "0x0073cfb0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x73cc30"
+      ],
+      "rawBytes": "native/bytes/0073cf90.bin",
+      "rawDisassembly": "native/disassembly/0073cf90.asm.txt"
+    },
+    {
+      "name": "ScriptCore.CacheManager::CacheManager_WriteCachedDataFromStream",
+      "address": "0x0073cfb0",
+      "registrationRecordAddress": "0x0115ec28",
+      "registrationRecordHex": "b0cf730070080001",
+      "registrationRecordFileOffset": 14019624,
+      "registrationNameStringAddress": "0x01000870",
+      "registrationNameStringFileOffset": 12585072,
+      "registrationNameStringNulHex": "536372697074436f72652e43616368654d616e616765723a3a43616368654d616e616765725f57726974654361636865644461746146726f6d53747265616d00",
+      "managedSignature": "ScriptCore:ScriptCore.CacheManager::CacheManager_WriteCachedDataFromStream(System.String,System.UInt32)->System.Void",
+      "managedToken": "0x06000DA0",
+      "managedPInvokeModule": "Sims3Common",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000DA0",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "tagStr",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "streamHandle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common",
+          "entryPoint": "CacheManager_WriteCachedDataFromStream",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3395504,
+      "byteExportLength": 32,
+      "endExclusive": "0x0073cfd0",
+      "nextKnownGhidraEntry": "0x0073cfd0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x73cd40"
+      ],
+      "rawBytes": "native/bytes/0073cfb0.bin",
+      "rawDisassembly": "native/disassembly/0073cfb0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DataFactory::DataFactory_GetPrototypeResourceImpl",
+      "address": "0x00740030",
+      "registrationRecordAddress": "0x0115edf0",
+      "registrationRecordHex": "30007400d4150001",
+      "registrationRecordFileOffset": 14020080,
+      "registrationNameStringAddress": "0x010015d4",
+      "registrationNameStringFileOffset": 12588500,
+      "registrationNameStringNulHex": "536372697074436f72652e44617461466163746f72793a3a44617461466163746f72795f47657450726f746f747970655265736f75726365496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DataFactory::DataFactory_GetPrototypeResourceImpl(System.UInt64,System.UInt32,System.UInt32)->System.IntPtr",
+      "managedToken": "0x060005D8",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060005D8",
+        "returnType": "System.IntPtr",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "instanceId",
+            "type": "System.UInt64",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "groupId",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 3,
+            "name": "typeId",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DataFactory_GetPrototypeResourceImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3407920,
+      "byteExportLength": 48,
+      "endExclusive": "0x00740060",
+      "nextKnownGhidraEntry": "0x00740060",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00740030.bin",
+      "rawDisassembly": "native/disassembly/00740030.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DataFactory::DataFactory_GetDataClassResourceImpl",
+      "address": "0x00740060",
+      "registrationRecordAddress": "0x0115edf8",
+      "registrationRecordHex": "6000740014160001",
+      "registrationRecordFileOffset": 14020088,
+      "registrationNameStringAddress": "0x01001614",
+      "registrationNameStringFileOffset": 12588564,
+      "registrationNameStringNulHex": "536372697074436f72652e44617461466163746f72793a3a44617461466163746f72795f47657444617461436c6173735265736f75726365496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DataFactory::DataFactory_GetDataClassResourceImpl(System.IntPtr)->System.IntPtr",
+      "managedToken": "0x060005D9",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060005D9",
+        "returnType": "System.IntPtr",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "prototypeResource",
+            "type": "System.IntPtr",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DataFactory_GetDataClassResourceImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3407968,
+      "byteExportLength": 32,
+      "endExclusive": "0x00740080",
+      "nextKnownGhidraEntry": "0x00740080",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00740060.bin",
+      "rawDisassembly": "native/disassembly/00740060.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DataFactory::DataFactory_ReleasePrototypeResourceImpl",
+      "address": "0x00740080",
+      "registrationRecordAddress": "0x0115ee00",
+      "registrationRecordHex": "8000740058160001",
+      "registrationRecordFileOffset": 14020096,
+      "registrationNameStringAddress": "0x01001658",
+      "registrationNameStringFileOffset": 12588632,
+      "registrationNameStringNulHex": "536372697074436f72652e44617461466163746f72793a3a44617461466163746f72795f52656c6561736550726f746f747970655265736f75726365496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DataFactory::DataFactory_ReleasePrototypeResourceImpl(System.IntPtr)->System.Void",
+      "managedToken": "0x060005DA",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060005DA",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "prototypeResource",
+            "type": "System.IntPtr",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DataFactory_ReleasePrototypeResourceImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3408000,
+      "byteExportLength": 32,
+      "endExclusive": "0x007400a0",
+      "nextKnownGhidraEntry": "0x007400a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00740080.bin",
+      "rawDisassembly": "native/disassembly/00740080.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DataFactory::DataFactory_ReleaseDataClassResourceImpl",
+      "address": "0x007400a0",
+      "registrationRecordAddress": "0x0115ee08",
+      "registrationRecordHex": "a0007400a0160001",
+      "registrationRecordFileOffset": 14020104,
+      "registrationNameStringAddress": "0x010016a0",
+      "registrationNameStringFileOffset": 12588704,
+      "registrationNameStringNulHex": "536372697074436f72652e44617461466163746f72793a3a44617461466163746f72795f52656c6561736544617461436c6173735265736f75726365496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DataFactory::DataFactory_ReleaseDataClassResourceImpl(System.IntPtr)->System.Void",
+      "managedToken": "0x060005DB",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060005DB",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "dataClassResource",
+            "type": "System.IntPtr",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DataFactory_ReleaseDataClassResourceImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3408032,
+      "byteExportLength": 32,
+      "endExclusive": "0x007400c0",
+      "nextKnownGhidraEntry": "0x007400c0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/007400a0.bin",
+      "rawDisassembly": "native/disassembly/007400a0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DataFactory::DataFactory_GetDataClassNameImpl",
+      "address": "0x007400c0",
+      "registrationRecordAddress": "0x0115ee10",
+      "registrationRecordHex": "c0007400e4160001",
+      "registrationRecordFileOffset": 14020112,
+      "registrationNameStringAddress": "0x010016e4",
+      "registrationNameStringFileOffset": 12588772,
+      "registrationNameStringNulHex": "536372697074436f72652e44617461466163746f72793a3a44617461466163746f72795f47657444617461436c6173734e616d65496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DataFactory::DataFactory_GetDataClassNameImpl(System.IntPtr)->System.String",
+      "managedToken": "0x060005DC",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060005DC",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "dataClassResource",
+            "type": "System.IntPtr",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DataFactory_GetDataClassNameImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3408064,
+      "byteExportLength": 32,
+      "endExclusive": "0x007400e0",
+      "nextKnownGhidraEntry": "0x007400e0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/007400c0.bin",
+      "rawDisassembly": "native/disassembly/007400c0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DataFactory::DataFactory_GetDataClassAssemblyNameImpl",
+      "address": "0x007400e0",
+      "registrationRecordAddress": "0x0115ee18",
+      "registrationRecordHex": "e000740020170001",
+      "registrationRecordFileOffset": 14020120,
+      "registrationNameStringAddress": "0x01001720",
+      "registrationNameStringFileOffset": 12588832,
+      "registrationNameStringNulHex": "536372697074436f72652e44617461466163746f72793a3a44617461466163746f72795f47657444617461436c617373417373656d626c794e616d65496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DataFactory::DataFactory_GetDataClassAssemblyNameImpl(System.IntPtr)->System.String",
+      "managedToken": "0x060005DD",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060005DD",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "dataClassResource",
+            "type": "System.IntPtr",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DataFactory_GetDataClassAssemblyNameImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3408096,
+      "byteExportLength": 32,
+      "endExclusive": "0x00740100",
+      "nextKnownGhidraEntry": "0x00740100",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/007400e0.bin",
+      "rawDisassembly": "native/disassembly/007400e0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DataFactory::DataFactory_GetXMLStringFromPrototypeResourceImpl",
+      "address": "0x00740100",
+      "registrationRecordAddress": "0x0115ee20",
+      "registrationRecordHex": "0001740068170001",
+      "registrationRecordFileOffset": 14020128,
+      "registrationNameStringAddress": "0x01001768",
+      "registrationNameStringFileOffset": 12588904,
+      "registrationNameStringNulHex": "536372697074436f72652e44617461466163746f72793a3a44617461466163746f72795f476574584d4c537472696e6746726f6d50726f746f747970655265736f75726365496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DataFactory::DataFactory_GetXMLStringFromPrototypeResourceImpl(System.IntPtr)->System.String",
+      "managedToken": "0x060005DE",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060005DE",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "prototypeResource",
+            "type": "System.IntPtr",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DataFactory_GetXMLStringFromPrototypeResourceImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3408128,
+      "byteExportLength": 32,
+      "endExclusive": "0x00740120",
+      "nextKnownGhidraEntry": "0x00740120",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00740100.bin",
+      "rawDisassembly": "native/disassembly/00740100.asm.txt"
+    },
+    {
+      "name": "ScriptCore.World::World_LoadHeightMapRelatedDataImpl",
+      "address": "0x00787420",
+      "registrationRecordAddress": "0x01163c18",
+      "registrationRecordHex": "20747800085d0101",
+      "registrationRecordFileOffset": 14040088,
+      "registrationNameStringAddress": "0x01015d08",
+      "registrationNameStringFileOffset": 12672264,
+      "registrationNameStringNulHex": "536372697074436f72652e576f726c643a3a576f726c645f4c6f61644865696768744d617052656c6174656444617461496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.World::World_LoadHeightMapRelatedDataImpl(System.Boolean)->System.Void",
+      "managedToken": "0x06000788",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000788",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "bKeepLoaded",
+            "type": "System.Boolean",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "World_LoadHeightMapRelatedDataImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3699744,
+      "byteExportLength": 32,
+      "endExclusive": "0x00787440",
+      "nextKnownGhidraEntry": "0x00787440",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0xc63370"
+      ],
+      "rawBytes": "native/bytes/00787420.bin",
+      "rawDisassembly": "native/disassembly/00787420.asm.txt"
+    },
+    {
+      "name": "ScriptCore.World::World_UnloadHeightMapRelatedDataImpl",
+      "address": "0x00787440",
+      "registrationRecordAddress": "0x01163c20",
+      "registrationRecordHex": "40747800405d0101",
+      "registrationRecordFileOffset": 14040096,
+      "registrationNameStringAddress": "0x01015d40",
+      "registrationNameStringFileOffset": 12672320,
+      "registrationNameStringNulHex": "536372697074436f72652e576f726c643a3a576f726c645f556e6c6f61644865696768744d617052656c6174656444617461496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.World::World_UnloadHeightMapRelatedDataImpl(System.Boolean)->System.Void",
+      "managedToken": "0x06000789",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000789",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "bForceRelease",
+            "type": "System.Boolean",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "World_UnloadHeightMapRelatedDataImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3699776,
+      "byteExportLength": 32,
+      "endExclusive": "0x00787460",
+      "nextKnownGhidraEntry": "0x00787460",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0xc63410"
+      ],
+      "rawBytes": "native/bytes/00787440.bin",
+      "rawDisassembly": "native/disassembly/00787440.asm.txt"
+    },
+    {
+      "name": "ScriptCore.World::World_LoadTickImpl",
+      "address": "0x00789220",
+      "registrationRecordAddress": "0x01163db8",
+      "registrationRecordHex": "209278004c670101",
+      "registrationRecordFileOffset": 14040504,
+      "registrationNameStringAddress": "0x0101674c",
+      "registrationNameStringFileOffset": 12674892,
+      "registrationNameStringNulHex": "536372697074436f72652e576f726c643a3a576f726c645f4c6f61645469636b496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.World::World_LoadTickImpl()->System.Void",
+      "managedToken": "0x060008A8",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060008A8",
+        "returnType": "System.Void",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "World_LoadTickImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 3707424,
+      "byteExportLength": 5,
+      "endExclusive": "0x00789225",
+      "nextKnownGhidraEntry": "0x00789230",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawDisassembly": "../../evidence/native/functions/00789220_ScriptCore_World_World_LoadTickImpl.asm",
+      "exportBoundary": "complete_ghidra_function_body_envelope",
+      "pseudocode": "../../evidence/native/functions/00789220_ScriptCore_World_World_LoadTickImpl.c"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetImportsFolderImpl",
+      "address": "0x00996bd0",
+      "registrationRecordAddress": "0x01181640",
+      "registrationRecordHex": "d06b9900c0a50401",
+      "registrationRecordFileOffset": 14161472,
+      "registrationNameStringAddress": "0x0104a5c0",
+      "registrationNameStringFileOffset": 12887488,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f476574496d706f727473466f6c646572496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetImportsFolderImpl()->System.String",
+      "managedToken": "0x060000E5",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000E5",
+        "returnType": "System.String",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetImportsFolderImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5860304,
+      "byteExportLength": 144,
+      "endExclusive": "0x00996c60",
+      "nextKnownGhidraEntry": "0x00996c60",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00996bd0.bin",
+      "rawDisassembly": "native/disassembly/00996bd0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_InstallContentImpl",
+      "address": "0x009950b0",
+      "registrationRecordAddress": "0x01181648",
+      "registrationRecordHex": "b050990004a60401",
+      "registrationRecordFileOffset": 14161480,
+      "registrationNameStringAddress": "0x0104a604",
+      "registrationNameStringFileOffset": 12887556,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f496e7374616c6c436f6e74656e74496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_InstallContentImpl(System.String)->System.UInt32",
+      "managedToken": "0x060000E6",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000E6",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageFile",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "In, HasFieldMarshal",
+            "attributesValue": 8193,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_InstallContentImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5853360,
+      "byteExportLength": 160,
+      "endExclusive": "0x00995150",
+      "nextKnownGhidraEntry": "0x00995150",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4ede30",
+        "0x4ee170",
+        "0x769390",
+        "0x982e60",
+        "0x98e840",
+        "0x990350"
+      ],
+      "rawBytes": "native/bytes/009950b0.bin",
+      "rawDisassembly": "native/disassembly/009950b0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_UnInstallContentImpl",
+      "address": "0x00995150",
+      "registrationRecordAddress": "0x01181650",
+      "registrationRecordHex": "5051990048a60401",
+      "registrationRecordFileOffset": 14161488,
+      "registrationNameStringAddress": "0x0104a648",
+      "registrationNameStringFileOffset": 12887624,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f556e496e7374616c6c436f6e74656e74496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_UnInstallContentImpl(System.String)->System.UInt32",
+      "managedToken": "0x060000E7",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000E7",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageId",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "In, HasFieldMarshal",
+            "attributesValue": 8193,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_UnInstallContentImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5853520,
+      "byteExportLength": 128,
+      "endExclusive": "0x009951d0",
+      "nextKnownGhidraEntry": "0x009951d0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x5020a0",
+        "0x769390",
+        "0x982e60",
+        "0x98f000",
+        "0x9b0c60",
+        "0x9b0ca0"
+      ],
+      "rawBytes": "native/bytes/00995150.bin",
+      "rawDisassembly": "native/disassembly/00995150.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_ImportInventoryImpl",
+      "address": "0x009959a0",
+      "registrationRecordAddress": "0x01181660",
+      "registrationRecordHex": "a0599900d0a60401",
+      "registrationRecordFileOffset": 14161504,
+      "registrationNameStringAddress": "0x0104a6d0",
+      "registrationNameStringFileOffset": 12887760,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f496d706f7274496e76656e746f7279496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_ImportInventoryImpl(System.UInt64,System.Byte[]&,System.UInt64[]&,System.Byte[]&)->System.Boolean",
+      "managedToken": "0x0600009C",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600009C",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "id",
+            "type": "System.UInt64",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "pKeyTable",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 3,
+            "name": "pIdTable",
+            "type": "System.UInt64[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 4,
+            "name": "pScriptData",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_ImportInventoryImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5855648,
+      "byteExportLength": 944,
+      "endExclusive": "0x00995d50",
+      "nextKnownGhidraEntry": "0x00995d50",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4dd980",
+        "0x4e44e0",
+        "0x769390",
+        "0x7d7900",
+        "0x7d7990",
+        "0x7d79f0",
+        "0x7d7a70",
+        "0x7d8470",
+        "0x7d8490",
+        "0x7d9500",
+        "0x7d9930",
+        "0x935560",
+        "0x937570",
+        "0x939030",
+        "0x982c40",
+        "0x982e60",
+        "0x994ff0",
+        "0x995750",
+        "0x995830",
+        "0x99a9f0",
+        "0x9aff40"
+      ],
+      "rawBytes": "native/bytes/009959a0.bin",
+      "rawDisassembly": "native/disassembly/009959a0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_ImportLotContentsImpl",
+      "address": "0x00995d50",
+      "registrationRecordAddress": "0x01181678",
+      "registrationRecordHex": "505d990098a70401",
+      "registrationRecordFileOffset": 14161528,
+      "registrationNameStringAddress": "0x0104a798",
+      "registrationNameStringFileOffset": 12887960,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f496d706f72744c6f74436f6e74656e7473496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_ImportLotContentsImpl(System.UInt64,System.UInt64,System.UInt16&,System.UInt16&,System.Byte[]&,System.UInt64[]&,System.Byte[]&)->System.Boolean",
+      "managedToken": "0x060000A3",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000A3",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "id",
+            "type": "System.UInt64",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "lotId",
+            "type": "System.UInt64",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 3,
+            "name": "rot",
+            "type": "System.UInt16&",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 4,
+            "name": "pos",
+            "type": "System.UInt16&",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 5,
+            "name": "pKeyTable",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 6,
+            "name": "pIdTable",
+            "type": "System.UInt64[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 7,
+            "name": "pScriptData",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_ImportLotContentsImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5856592,
+      "byteExportLength": 672,
+      "endExclusive": "0x00995ff0",
+      "nextKnownGhidraEntry": "0x00995ff0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4dd980",
+        "0x4e44e0",
+        "0x769390",
+        "0x7d7900",
+        "0x7d7990",
+        "0x7d79f0",
+        "0x7d7a70",
+        "0x7d8470",
+        "0x7d8490",
+        "0x7d84c0",
+        "0x7d9500",
+        "0x7d9930",
+        "0x994ff0",
+        "0x995750",
+        "0x995830",
+        "0x99a9f0",
+        "0xad4180"
+      ],
+      "rawBytes": "native/bytes/00995d50.bin",
+      "rawDisassembly": "native/disassembly/00995d50.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_ImportSimDescriptionImpl",
+      "address": "0x00996110",
+      "registrationRecordAddress": "0x01181688",
+      "registrationRecordHex": "1061990028a80401",
+      "registrationRecordFileOffset": 14161544,
+      "registrationNameStringAddress": "0x0104a828",
+      "registrationNameStringFileOffset": 12888104,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f496d706f727453696d4465736372697074696f6e496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_ImportSimDescriptionImpl(Sims3.SimIFace.ResourceKey,System.Byte[]&,System.UInt64[]&,System.Byte[]&)->System.Boolean",
+      "managedToken": "0x060000AA",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000AA",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "key",
+            "type": "Sims3.SimIFace.ResourceKey",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "pKeyTable",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 3,
+            "name": "pIdTable",
+            "type": "System.UInt64[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 4,
+            "name": "pScriptData",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_ImportSimDescriptionImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5857552,
+      "byteExportLength": 560,
+      "endExclusive": "0x00996340",
+      "nextKnownGhidraEntry": "0x00996340",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x455b30",
+        "0x4afe80",
+        "0x4df4c0",
+        "0x769390",
+        "0x76c0e0",
+        "0x7d7990",
+        "0x7d8a00",
+        "0x7d93e0",
+        "0xad6310"
+      ],
+      "rawBytes": "native/bytes/00996110.bin",
+      "rawDisassembly": "native/disassembly/00996110.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetImportedSimResourceKeys",
+      "address": "0x00996340",
+      "registrationRecordAddress": "0x01181690",
+      "registrationRecordHex": "4063990070a80401",
+      "registrationRecordFileOffset": 14161552,
+      "registrationNameStringAddress": "0x0104a870",
+      "registrationNameStringFileOffset": 12888176,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f476574496d706f7274656453696d5265736f757263654b65797300",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetImportedSimResourceKeys(System.Byte[]&,System.Boolean)->System.Int32",
+      "managedToken": "0x060000AB",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000AB",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "pKeyTable",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "getTravelImports",
+            "type": "System.Boolean",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetImportedSimResourceKeys",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5858112,
+      "byteExportLength": 368,
+      "endExclusive": "0x009964b0",
+      "nextKnownGhidraEntry": "0x009964b0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4afe80",
+        "0x4dee00",
+        "0x4df4c0",
+        "0x4e44e0",
+        "0x769390",
+        "0x7d7990",
+        "0x7d8a00",
+        "0x7d93e0",
+        "0x7d9500"
+      ],
+      "rawBytes": "native/bytes/00996340.bin",
+      "rawDisassembly": "native/disassembly/00996340.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_SetPackageEnabledImpl",
+      "address": "0x00995440",
+      "registrationRecordAddress": "0x011816a0",
+      "registrationRecordHex": "40549900f8a80401",
+      "registrationRecordFileOffset": 14161568,
+      "registrationNameStringAddress": "0x0104a8f8",
+      "registrationNameStringFileOffset": 12888312,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f5365745061636b616765456e61626c6564496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_SetPackageEnabledImpl(Sims3.SimIFace.PackageId,System.Boolean)->System.UInt32",
+      "managedToken": "0x060000AF",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000AF",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageId",
+            "type": "Sims3.SimIFace.PackageId",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "bEnabled",
+            "type": "System.Boolean",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_SetPackageEnabledImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5854272,
+      "byteExportLength": 80,
+      "endExclusive": "0x00995490",
+      "nextKnownGhidraEntry": "0x00995490",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x500c90",
+        "0x76bff0",
+        "0x982e60",
+        "0x988490"
+      ],
+      "rawBytes": "native/bytes/00995440.bin",
+      "rawDisassembly": "native/disassembly/00995440.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetPackageNameImpl",
+      "address": "0x009970a0",
+      "registrationRecordAddress": "0x011816a8",
+      "registrationRecordHex": "a07099003ca90401",
+      "registrationRecordFileOffset": 14161576,
+      "registrationNameStringAddress": "0x0104a93c",
+      "registrationNameStringFileOffset": 12888380,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f4765745061636b6167654e616d65496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetPackageNameImpl(Sims3.SimIFace.PackageId)->System.String",
+      "managedToken": "0x060000B0",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000B0",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageId",
+            "type": "Sims3.SimIFace.PackageId",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetPackageNameImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5861536,
+      "byteExportLength": 256,
+      "endExclusive": "0x009971a0",
+      "nextKnownGhidraEntry": "0x009971a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390",
+        "0x76bff0",
+        "0x982e60",
+        "0x988920"
+      ],
+      "rawBytes": "native/bytes/009970a0.bin",
+      "rawDisassembly": "native/disassembly/009970a0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_ImportLotContentsFromExportBinImpl",
+      "address": "0x00996670",
+      "registrationRecordAddress": "0x011816c8",
+      "registrationRecordHex": "7066990068aa0401",
+      "registrationRecordFileOffset": 14161608,
+      "registrationNameStringAddress": "0x0104aa68",
+      "registrationNameStringFileOffset": 12888680,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f496d706f72744c6f74436f6e74656e747346726f6d4578706f727442696e496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_ImportLotContentsFromExportBinImpl(System.String,System.UInt64&)->System.UInt64",
+      "managedToken": "0x060000A7",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000A7",
+        "returnType": "System.UInt64",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageFile",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "In, HasFieldMarshal",
+            "attributesValue": 8193,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "oldLotContentId",
+            "type": "System.UInt64&",
+            "metadataPresent": true,
+            "attributes": "In, Out",
+            "attributesValue": 3,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_ImportLotContentsFromExportBinImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5858928,
+      "byteExportLength": 304,
+      "endExclusive": "0x009967a0",
+      "nextKnownGhidraEntry": "0x009967a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x769390",
+        "0x7d7920",
+        "0x7d7990",
+        "0x9a1600",
+        "0x9a1670",
+        "0x9a2eb0",
+        "0xad5b30"
+      ],
+      "rawBytes": "native/bytes/00996670.bin",
+      "rawDisassembly": "native/disassembly/00996670.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetExportBinPackageNamesImpl",
+      "address": "0x00996fb0",
+      "registrationRecordAddress": "0x011816d0",
+      "registrationRecordHex": "b06f9900b8aa0401",
+      "registrationRecordFileOffset": 14161616,
+      "registrationNameStringAddress": "0x0104aab8",
+      "registrationNameStringFileOffset": 12888760,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f4765744578706f727442696e5061636b6167654e616d6573496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetExportBinPackageNamesImpl()->System.String",
+      "managedToken": "0x06000106",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000106",
+        "returnType": "System.String",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetExportBinPackageNamesImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5861296,
+      "byteExportLength": 240,
+      "endExclusive": "0x009970a0",
+      "nextKnownGhidraEntry": "0x009970a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390",
+        "0x9a4920"
+      ],
+      "rawBytes": "native/bytes/00996fb0.bin",
+      "rawDisassembly": "native/disassembly/00996fb0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_RefreshExportBin",
+      "address": "0x009953f0",
+      "registrationRecordAddress": "0x011816d8",
+      "registrationRecordHex": "f053990004ab0401",
+      "registrationRecordFileOffset": 14161624,
+      "registrationNameStringAddress": "0x0104ab04",
+      "registrationNameStringFileOffset": 12888836,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f526566726573684578706f727442696e00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_RefreshExportBin()->System.Void",
+      "managedToken": "0x0600010C",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600010C",
+        "returnType": "System.Void",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_RefreshExportBin",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5854192,
+      "byteExportLength": 80,
+      "endExclusive": "0x00995440",
+      "nextKnownGhidraEntry": "0x00995440",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawBytes": "native/bytes/009953f0.bin",
+      "rawDisassembly": "native/disassembly/009953f0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetFirstFilename",
+      "address": "0x009971a0",
+      "registrationRecordAddress": "0x011816e0",
+      "registrationRecordHex": "a071990044ab0401",
+      "registrationRecordFileOffset": 14161632,
+      "registrationNameStringAddress": "0x0104ab44",
+      "registrationNameStringFileOffset": 12888900,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f476574466972737446696c656e616d6500",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetFirstFilename()->System.String",
+      "managedToken": "0x060000EC",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000EC",
+        "returnType": "System.String",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetFirstFilename",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5861792,
+      "byteExportLength": 288,
+      "endExclusive": "0x009972c0",
+      "nextKnownGhidraEntry": "0x009972c0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x408d60",
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390",
+        "0x9b06b0",
+        "0x9b0c60"
+      ],
+      "rawBytes": "native/bytes/009971a0.bin",
+      "rawDisassembly": "native/disassembly/009971a0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetNextFilename",
+      "address": "0x009972c0",
+      "registrationRecordAddress": "0x011816e8",
+      "registrationRecordHex": "c072990084ab0401",
+      "registrationRecordFileOffset": 14161640,
+      "registrationNameStringAddress": "0x0104ab84",
+      "registrationNameStringFileOffset": 12888964,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f4765744e65787446696c656e616d6500",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetNextFilename()->System.String",
+      "managedToken": "0x060000ED",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000ED",
+        "returnType": "System.String",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetNextFilename",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5862080,
+      "byteExportLength": 240,
+      "endExclusive": "0x009973b0",
+      "nextKnownGhidraEntry": "0x009973b0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x408d60",
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390",
+        "0x9b06d0",
+        "0x9b0c60"
+      ],
+      "rawBytes": "native/bytes/009972c0.bin",
+      "rawDisassembly": "native/disassembly/009972c0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetFirstPackageId",
+      "address": "0x00995530",
+      "registrationRecordAddress": "0x011816f0",
+      "registrationRecordHex": "30559900c0ab0401",
+      "registrationRecordFileOffset": 14161648,
+      "registrationNameStringAddress": "0x0104abc0",
+      "registrationNameStringFileOffset": 12889024,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f47657446697273745061636b616765496400",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetFirstPackageId(Sims3.SimIFace.PackageId&)->System.Boolean",
+      "managedToken": "0x060000E8",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000E8",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageId",
+            "type": "Sims3.SimIFace.PackageId&",
+            "metadataPresent": true,
+            "attributes": "In, Out",
+            "attributesValue": 3,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetFirstPackageId",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5854512,
+      "byteExportLength": 112,
+      "endExclusive": "0x009955a0",
+      "nextKnownGhidraEntry": "0x009955a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x500c00",
+        "0x76c020",
+        "0x9b05d0",
+        "0x9b0c60"
+      ],
+      "rawBytes": "native/bytes/00995530.bin",
+      "rawDisassembly": "native/disassembly/00995530.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetNextPackageId",
+      "address": "0x009955a0",
+      "registrationRecordAddress": "0x011816f8",
+      "registrationRecordHex": "a055990000ac0401",
+      "registrationRecordFileOffset": 14161656,
+      "registrationNameStringAddress": "0x0104ac00",
+      "registrationNameStringFileOffset": 12889088,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f4765744e6578745061636b616765496400",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetNextPackageId(Sims3.SimIFace.PackageId&)->System.Boolean",
+      "managedToken": "0x060000E9",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000E9",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageId",
+            "type": "Sims3.SimIFace.PackageId&",
+            "metadataPresent": true,
+            "attributes": "In, Out",
+            "attributesValue": 3,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetNextPackageId",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5854624,
+      "byteExportLength": 112,
+      "endExclusive": "0x00995610",
+      "nextKnownGhidraEntry": "0x00995610",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x500c00",
+        "0x76c020",
+        "0x9b05f0",
+        "0x9b0c60"
+      ],
+      "rawBytes": "native/bytes/009955a0.bin",
+      "rawDisassembly": "native/disassembly/009955a0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetFirstPackageEnableData",
+      "address": "0x00995610",
+      "registrationRecordAddress": "0x01181700",
+      "registrationRecordHex": "1056990040ac0401",
+      "registrationRecordFileOffset": 14161664,
+      "registrationNameStringAddress": "0x0104ac40",
+      "registrationNameStringFileOffset": 12889152,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f47657446697273745061636b616765456e61626c654461746100",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetFirstPackageEnableData(Sims3.SimIFace.PackageId&,System.Boolean&)->System.Boolean",
+      "managedToken": "0x060000EA",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000EA",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageId",
+            "type": "Sims3.SimIFace.PackageId&",
+            "metadataPresent": true,
+            "attributes": "In, Out",
+            "attributesValue": 3,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "enableState",
+            "type": "System.Boolean&",
+            "metadataPresent": true,
+            "attributes": "In, Out, HasFieldMarshal",
+            "attributesValue": 8195,
+            "marshalDescriptorHex": "03",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetFirstPackageEnableData",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5854736,
+      "byteExportLength": 112,
+      "endExclusive": "0x00995680",
+      "nextKnownGhidraEntry": "0x00995680",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x500c00",
+        "0x76c020",
+        "0x9b0620",
+        "0x9b0c60"
+      ],
+      "rawBytes": "native/bytes/00995610.bin",
+      "rawDisassembly": "native/disassembly/00995610.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetNextPackageEnableData",
+      "address": "0x00995680",
+      "registrationRecordAddress": "0x01181708",
+      "registrationRecordHex": "8056990088ac0401",
+      "registrationRecordFileOffset": 14161672,
+      "registrationNameStringAddress": "0x0104ac88",
+      "registrationNameStringFileOffset": 12889224,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f4765744e6578745061636b616765456e61626c654461746100",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetNextPackageEnableData(Sims3.SimIFace.PackageId&,System.Boolean&)->System.Boolean",
+      "managedToken": "0x060000EB",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000EB",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageId",
+            "type": "Sims3.SimIFace.PackageId&",
+            "metadataPresent": true,
+            "attributes": "In, Out",
+            "attributesValue": 3,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "enableState",
+            "type": "System.Boolean&",
+            "metadataPresent": true,
+            "attributes": "In, Out, HasFieldMarshal",
+            "attributesValue": 8195,
+            "marshalDescriptorHex": "03",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetNextPackageEnableData",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5854848,
+      "byteExportLength": 112,
+      "endExclusive": "0x009956f0",
+      "nextKnownGhidraEntry": "0x009956f0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x500c00",
+        "0x76c020",
+        "0x9b0660",
+        "0x9b0c60"
+      ],
+      "rawBytes": "native/bytes/00995680.bin",
+      "rawDisassembly": "native/disassembly/00995680.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_ImportHouseholdContentsImpl",
+      "address": "0x00997520",
+      "registrationRecordAddress": "0x01181770",
+      "registrationRecordHex": "20759900f0af0401",
+      "registrationRecordFileOffset": 14161776,
+      "registrationNameStringAddress": "0x0104aff0",
+      "registrationNameStringFileOffset": 12890096,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f496d706f7274486f757365686f6c64436f6e74656e7473496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_ImportHouseholdContentsImpl(System.UInt64,System.Byte[]&,System.UInt64[]&,System.Byte[]&)->System.Boolean",
+      "managedToken": "0x0600009F",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600009F",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "id",
+            "type": "System.UInt64",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 2,
+            "name": "pKeyTable",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 3,
+            "name": "pIdTable",
+            "type": "System.UInt64[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D15",
+            "constant": null,
+            "customAttributes": []
+          },
+          {
+            "sequence": 4,
+            "name": "pScriptData",
+            "type": "System.Byte[]&",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "1D11",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_ImportHouseholdContentsImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5862688,
+      "byteExportLength": 784,
+      "endExclusive": "0x00997830",
+      "nextKnownGhidraEntry": "0x00997830",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4e44e0",
+        "0x572500",
+        "0x769390",
+        "0x7d6890",
+        "0x7d6be0",
+        "0x7d73f0",
+        "0x7d7600",
+        "0x7d7900",
+        "0x7d7990",
+        "0x7d9500",
+        "0x995070",
+        "0x995750",
+        "0x995830",
+        "0x99a9f0",
+        "0x9a16e0",
+        "0x9afbf0",
+        "0x9afc10",
+        "0xad4920"
+      ],
+      "rawBytes": "native/bytes/00997520.bin",
+      "rawDisassembly": "native/disassembly/00997520.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_ImportHouseholdContentsFromExportBinImpl",
+      "address": "0x009967a0",
+      "registrationRecordAddress": "0x01181788",
+      "registrationRecordHex": "a0679900c0b00401",
+      "registrationRecordFileOffset": 14161800,
+      "registrationNameStringAddress": "0x0104b0c0",
+      "registrationNameStringFileOffset": 12890304,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f496d706f7274486f757365686f6c64436f6e74656e747346726f6d4578706f727442696e496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_ImportHouseholdContentsFromExportBinImpl(System.String)->System.UInt64",
+      "managedToken": "0x060000A8",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000A8",
+        "returnType": "System.UInt64",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "packageFile",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "In, HasFieldMarshal",
+            "attributesValue": 8193,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_ImportHouseholdContentsFromExportBinImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5859232,
+      "byteExportLength": 304,
+      "endExclusive": "0x009968d0",
+      "nextKnownGhidraEntry": "0x009968d0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x769390",
+        "0x7d7920",
+        "0x7d7990",
+        "0x9a1600",
+        "0x9a1670",
+        "0x9a2eb0",
+        "0xad6150"
+      ],
+      "rawBytes": "native/bytes/009967a0.bin",
+      "rawDisassembly": "native/disassembly/009967a0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_ImportHouseholdContentsFromTravelBinImpl",
+      "address": "0x00995ff0",
+      "registrationRecordAddress": "0x01181790",
+      "registrationRecordHex": "f05f990018b10401",
+      "registrationRecordFileOffset": 14161808,
+      "registrationNameStringAddress": "0x0104b118",
+      "registrationNameStringFileOffset": 12890392,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f496d706f7274486f757365686f6c64436f6e74656e747346726f6d54726176656c42696e496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_ImportHouseholdContentsFromTravelBinImpl()->System.UInt64",
+      "managedToken": "0x060000A9",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x060000A9",
+        "returnType": "System.UInt64",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_ImportHouseholdContentsFromTravelBinImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5857264,
+      "byteExportLength": 144,
+      "endExclusive": "0x00996080",
+      "nextKnownGhidraEntry": "0x00996080",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390",
+        "0x7d7920",
+        "0x7d7990",
+        "0x9a19e0",
+        "0xad6150"
+      ],
+      "rawBytes": "native/bytes/00995ff0.bin",
+      "rawDisassembly": "native/disassembly/00995ff0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_DeleteExportBinPackageImpl",
+      "address": "0x00996550",
+      "registrationRecordAddress": "0x011817a0",
+      "registrationRecordHex": "50659900b0b10401",
+      "registrationRecordFileOffset": 14161824,
+      "registrationNameStringAddress": "0x0104b1b0",
+      "registrationNameStringFileOffset": 12890544,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f44656c6574654578706f727442696e5061636b616765496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_DeleteExportBinPackageImpl(System.String)->System.Boolean",
+      "managedToken": "0x06000108",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000108",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "package",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "In, HasFieldMarshal",
+            "attributesValue": 8193,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_DeleteExportBinPackageImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5858640,
+      "byteExportLength": 144,
+      "endExclusive": "0x009965e0",
+      "nextKnownGhidraEntry": "0x009965e0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x769390",
+        "0x9a3090"
+      ],
+      "rawBytes": "native/bytes/00996550.bin",
+      "rawDisassembly": "native/disassembly/00996550.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_HideExportBinPackageImpl",
+      "address": "0x009965e0",
+      "registrationRecordAddress": "0x011817a8",
+      "registrationRecordHex": "e0659900f8b10401",
+      "registrationRecordFileOffset": 14161832,
+      "registrationNameStringAddress": "0x0104b1f8",
+      "registrationNameStringFileOffset": 12890616,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f486964654578706f727442696e5061636b616765496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_HideExportBinPackageImpl(System.String)->System.Boolean",
+      "managedToken": "0x06000109",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000109",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "package",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "In, HasFieldMarshal",
+            "attributesValue": 8193,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_HideExportBinPackageImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5858784,
+      "byteExportLength": 144,
+      "endExclusive": "0x00996670",
+      "nextKnownGhidraEntry": "0x00996670",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x769390",
+        "0x9a3d60"
+      ],
+      "rawBytes": "native/bytes/009965e0.bin",
+      "rawDisassembly": "native/disassembly/009965e0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_UnhideAllExportBinPackagesImpl",
+      "address": "0x00995210",
+      "registrationRecordAddress": "0x011817b0",
+      "registrationRecordHex": "1052990040b20401",
+      "registrationRecordFileOffset": 14161840,
+      "registrationNameStringAddress": "0x0104b240",
+      "registrationNameStringFileOffset": 12890688,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f556e68696465416c6c4578706f727442696e5061636b61676573496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_UnhideAllExportBinPackagesImpl()->System.Boolean",
+      "managedToken": "0x0600010A",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600010A",
+        "returnType": "System.Boolean",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_UnhideAllExportBinPackagesImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5853712,
+      "byteExportLength": 32,
+      "endExclusive": "0x00995230",
+      "nextKnownGhidraEntry": "0x00995230",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawBytes": "native/bytes/00995210.bin",
+      "rawDisassembly": "native/disassembly/00995210.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_IsAnyExportBinPackageHiddenImpl",
+      "address": "0x00995230",
+      "registrationRecordAddress": "0x011817b8",
+      "registrationRecordHex": "3052990090b20401",
+      "registrationRecordFileOffset": 14161848,
+      "registrationNameStringAddress": "0x0104b290",
+      "registrationNameStringFileOffset": 12890768,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f4973416e794578706f727442696e5061636b61676548696464656e496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_IsAnyExportBinPackageHiddenImpl()->System.Boolean",
+      "managedToken": "0x0600010B",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600010B",
+        "returnType": "System.Boolean",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_IsAnyExportBinPackageHiddenImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5853744,
+      "byteExportLength": 32,
+      "endExclusive": "0x00995250",
+      "nextKnownGhidraEntry": "0x00995250",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawBytes": "native/bytes/00995230.bin",
+      "rawDisassembly": "native/disassembly/00995230.asm.txt"
+    },
+    {
+      "name": "ScriptCore.DownloadContent::DownloadContent_GetExportBinPackageInfoImpl",
+      "address": "0x00996c60",
+      "registrationRecordAddress": "0x011817c0",
+      "registrationRecordHex": "606c9900e0b20401",
+      "registrationRecordFileOffset": 14161856,
+      "registrationNameStringAddress": "0x0104b2e0",
+      "registrationNameStringFileOffset": 12890848,
+      "registrationNameStringNulHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f4765744578706f727442696e5061636b616765496e666f496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.DownloadContent::DownloadContent_GetExportBinPackageInfoImpl(System.String)->System.String",
+      "managedToken": "0x06000107",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000107",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "package",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "In, HasFieldMarshal",
+            "attributesValue": 8193,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "DownloadContent_GetExportBinPackageInfoImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 5860448,
+      "byteExportLength": 368,
+      "endExclusive": "0x00996dd0",
+      "nextKnownGhidraEntry": "0x00996dd0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390",
+        "0x9a3e10"
+      ],
+      "rawBytes": "native/bytes/00996c60.bin",
+      "rawDisassembly": "native/disassembly/00996c60.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CreateWorldFileSearchImpl",
+      "address": "0x00ec4c80",
+      "registrationRecordAddress": "0x011970a0",
+      "registrationRecordHex": "804cec008c3a0f01",
+      "registrationRecordFileOffset": 14250144,
+      "registrationNameStringAddress": "0x010f3a8c",
+      "registrationNameStringFileOffset": 13580940,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f437265617465576f726c6446696c65536561726368496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CreateWorldFileSearchImpl(System.UInt32)->System.UInt32",
+      "managedToken": "0x06000224",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000224",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "searchtype",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CreateWorldFileSearchImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11291776,
+      "byteExportLength": 96,
+      "endExclusive": "0x00ec4ce0",
+      "nextKnownGhidraEntry": "0x00ec4ce0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4e4500",
+        "0x769390",
+        "0xec3a40"
+      ],
+      "rawBytes": "native/bytes/00ec4c80.bin",
+      "rawDisassembly": "native/disassembly/00ec4c80.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_WorldFileSearchCompleteImpl",
+      "address": "0x00ec1200",
+      "registrationRecordAddress": "0x011970a8",
+      "registrationRecordHex": "0012ec00c83a0f01",
+      "registrationRecordFileOffset": 14250152,
+      "registrationNameStringAddress": "0x010f3ac8",
+      "registrationNameStringFileOffset": 13581000,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f576f726c6446696c65536561726368436f6d706c657465496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_WorldFileSearchCompleteImpl(System.UInt32)->System.Boolean",
+      "managedToken": "0x06000225",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000225",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_WorldFileSearchCompleteImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276800,
+      "byteExportLength": 48,
+      "endExclusive": "0x00ec1230",
+      "nextKnownGhidraEntry": "0x00ec1230",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec1200.bin",
+      "rawDisassembly": "native/disassembly/00ec1200.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_WorldFileSearchMoveNextImpl",
+      "address": "0x00ec2220",
+      "registrationRecordAddress": "0x011970b0",
+      "registrationRecordHex": "2022ec00043b0f01",
+      "registrationRecordFileOffset": 14250160,
+      "registrationNameStringAddress": "0x010f3b04",
+      "registrationNameStringFileOffset": 13581060,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f576f726c6446696c655365617263684d6f76654e657874496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_WorldFileSearchMoveNextImpl(System.UInt32)->System.Boolean",
+      "managedToken": "0x06000226",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000226",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_WorldFileSearchMoveNextImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11280928,
+      "byteExportLength": 64,
+      "endExclusive": "0x00ec2260",
+      "nextKnownGhidraEntry": "0x00ec2260",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec2220.bin",
+      "rawDisassembly": "native/disassembly/00ec2220.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_WorldFileSearchGetCurrentImpl",
+      "address": "0x00ec3210",
+      "registrationRecordAddress": "0x011970b8",
+      "registrationRecordHex": "1032ec00403b0f01",
+      "registrationRecordFileOffset": 14250168,
+      "registrationNameStringAddress": "0x010f3b40",
+      "registrationNameStringFileOffset": 13581120,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f576f726c6446696c6553656172636847657443757272656e74496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_WorldFileSearchGetCurrentImpl(System.UInt32)->System.String",
+      "managedToken": "0x06000227",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000227",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_WorldFileSearchGetCurrentImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11285008,
+      "byteExportLength": 256,
+      "endExclusive": "0x00ec3310",
+      "nextKnownGhidraEntry": "0x00ec3310",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec3210.bin",
+      "rawDisassembly": "native/disassembly/00ec3210.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_WorldFileSearchFreeSearchImpl",
+      "address": "0x00ec4dc0",
+      "registrationRecordAddress": "0x011970c0",
+      "registrationRecordHex": "c04dec00803b0f01",
+      "registrationRecordFileOffset": 14250176,
+      "registrationNameStringAddress": "0x010f3b80",
+      "registrationNameStringFileOffset": 13581184,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f576f726c6446696c6553656172636846726565536561726368496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_WorldFileSearchFreeSearchImpl(System.UInt32)->System.Void",
+      "managedToken": "0x06000228",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000228",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_WorldFileSearchFreeSearchImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11292096,
+      "byteExportLength": 128,
+      "endExclusive": "0x00ec4e40",
+      "nextKnownGhidraEntry": "0x00ec4e40",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x456ec0",
+        "0x4e44e0",
+        "0x769390",
+        "0xca0570"
+      ],
+      "rawBytes": "native/bytes/00ec4dc0.bin",
+      "rawDisassembly": "native/disassembly/00ec4dc0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CreateCSVFileImpl",
+      "address": "0x00ec4e40",
+      "registrationRecordAddress": "0x011970c8",
+      "registrationRecordHex": "404eec00c03b0f01",
+      "registrationRecordFileOffset": 14250184,
+      "registrationNameStringAddress": "0x010f3bc0",
+      "registrationNameStringFileOffset": 13581248,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43726561746543535646696c65496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CreateCSVFileImpl(System.String)->System.UInt32",
+      "managedToken": "0x06000229",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000229",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "filePath",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CreateCSVFileImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11292224,
+      "byteExportLength": 112,
+      "endExclusive": "0x00ec4eb0",
+      "nextKnownGhidraEntry": "0x00ec4eb0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4e4500",
+        "0x769390",
+        "0x7cb580",
+        "0x889bd0"
+      ],
+      "rawBytes": "native/bytes/00ec4e40.bin",
+      "rawDisassembly": "native/disassembly/00ec4e40.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CSVFileMoveNextImpl",
+      "address": "0x00ec1230",
+      "registrationRecordAddress": "0x011970d0",
+      "registrationRecordHex": "3012ec00f43b0f01",
+      "registrationRecordFileOffset": 14250192,
+      "registrationNameStringAddress": "0x010f3bf4",
+      "registrationNameStringFileOffset": 13581300,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43535646696c654d6f76654e657874496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CSVFileMoveNextImpl(System.UInt32)->System.Boolean",
+      "managedToken": "0x0600022A",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600022A",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CSVFileMoveNextImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276848,
+      "byteExportLength": 64,
+      "endExclusive": "0x00ec1270",
+      "nextKnownGhidraEntry": "0x00ec1270",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec1230.bin",
+      "rawDisassembly": "native/disassembly/00ec1230.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CSVFileGetLabelsImpl",
+      "address": "0x00ec34a0",
+      "registrationRecordAddress": "0x011970d8",
+      "registrationRecordHex": "a034ec00283c0f01",
+      "registrationRecordFileOffset": 14250200,
+      "registrationNameStringAddress": "0x010f3c28",
+      "registrationNameStringFileOffset": 13581352,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43535646696c654765744c6162656c73496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CSVFileGetLabelsImpl(System.UInt32)->System.String",
+      "managedToken": "0x0600022D",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600022D",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CSVFileGetLabelsImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11285664,
+      "byteExportLength": 400,
+      "endExclusive": "0x00ec3630",
+      "nextKnownGhidraEntry": "0x00ec3630",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390",
+        "0x7c9ba0"
+      ],
+      "rawBytes": "native/bytes/00ec34a0.bin",
+      "rawDisassembly": "native/disassembly/00ec34a0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CSVFileSetToBeginImpl",
+      "address": "0x00ec1270",
+      "registrationRecordAddress": "0x011970e0",
+      "registrationRecordHex": "7012ec00603c0f01",
+      "registrationRecordFileOffset": 14250208,
+      "registrationNameStringAddress": "0x010f3c60",
+      "registrationNameStringFileOffset": 13581408,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43535646696c65536574546f426567696e496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CSVFileSetToBeginImpl(System.UInt32)->System.Boolean",
+      "managedToken": "0x0600022B",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600022B",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CSVFileSetToBeginImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276912,
+      "byteExportLength": 64,
+      "endExclusive": "0x00ec12b0",
+      "nextKnownGhidraEntry": "0x00ec12b0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec1270.bin",
+      "rawDisassembly": "native/disassembly/00ec1270.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CSVFileGetCurrentImpl",
+      "address": "0x00ec3310",
+      "registrationRecordAddress": "0x011970e8",
+      "registrationRecordHex": "1033ec00983c0f01",
+      "registrationRecordFileOffset": 14250216,
+      "registrationNameStringAddress": "0x010f3c98",
+      "registrationNameStringFileOffset": 13581464,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43535646696c6547657443757272656e74496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CSVFileGetCurrentImpl(System.UInt32)->System.String",
+      "managedToken": "0x0600022C",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600022C",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CSVFileGetCurrentImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11285264,
+      "byteExportLength": 400,
+      "endExclusive": "0x00ec34a0",
+      "nextKnownGhidraEntry": "0x00ec34a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec3310.bin",
+      "rawDisassembly": "native/disassembly/00ec3310.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_DeleteCSVFileImpl",
+      "address": "0x00ec12b0",
+      "registrationRecordAddress": "0x011970f0",
+      "registrationRecordHex": "b012ec00d03c0f01",
+      "registrationRecordFileOffset": 14250224,
+      "registrationNameStringAddress": "0x010f3cd0",
+      "registrationNameStringFileOffset": 13581520,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f44656c65746543535646696c65496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_DeleteCSVFileImpl(System.UInt32)->System.Void",
+      "managedToken": "0x0600022E",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600022E",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_DeleteCSVFileImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276976,
+      "byteExportLength": 80,
+      "endExclusive": "0x00ec1300",
+      "nextKnownGhidraEntry": "0x00ec1300",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec12b0.bin",
+      "rawDisassembly": "native/disassembly/00ec12b0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CreateCSVFile_ListImpl",
+      "address": "0x00ec4eb0",
+      "registrationRecordAddress": "0x011970f8",
+      "registrationRecordHex": "b04eec00043d0f01",
+      "registrationRecordFileOffset": 14250232,
+      "registrationNameStringAddress": "0x010f3d04",
+      "registrationNameStringFileOffset": 13581572,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43726561746543535646696c655f4c697374496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CreateCSVFile_ListImpl(System.String)->System.UInt32",
+      "managedToken": "0x0600022F",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x0600022F",
+        "returnType": "System.UInt32",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "filePath",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CreateCSVFile_ListImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11292336,
+      "byteExportLength": 608,
+      "endExclusive": "0x00ec5110",
+      "nextKnownGhidraEntry": "0x00ec5110",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x405910",
+        "0x408d60",
+        "0x40b590",
+        "0x4e44e0",
+        "0x4e4500",
+        "0x4f3b50",
+        "0x769390",
+        "0x7cb580",
+        "0x88c5b0",
+        "0x9d3b90",
+        "0x9f0a90"
+      ],
+      "rawBytes": "native/bytes/00ec4eb0.bin",
+      "rawDisassembly": "native/disassembly/00ec4eb0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CSVFileMoveNext_ListImpl",
+      "address": "0x00ec1230",
+      "registrationRecordAddress": "0x01197100",
+      "registrationRecordHex": "3012ec003c3d0f01",
+      "registrationRecordFileOffset": 14250240,
+      "registrationNameStringAddress": "0x010f3d3c",
+      "registrationNameStringFileOffset": 13581628,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43535646696c654d6f76654e6578745f4c697374496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CSVFileMoveNext_ListImpl(System.UInt32)->System.Boolean",
+      "managedToken": "0x06000230",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000230",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CSVFileMoveNext_ListImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276848,
+      "byteExportLength": 64,
+      "endExclusive": "0x00ec1270",
+      "nextKnownGhidraEntry": "0x00ec1270",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec1230.bin",
+      "rawDisassembly": "native/disassembly/00ec1230.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CSVFileSetToBegin_ListImpl",
+      "address": "0x00ec1270",
+      "registrationRecordAddress": "0x01197108",
+      "registrationRecordHex": "7012ec00783d0f01",
+      "registrationRecordFileOffset": 14250248,
+      "registrationNameStringAddress": "0x010f3d78",
+      "registrationNameStringFileOffset": 13581688,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43535646696c65536574546f426567696e5f4c697374496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CSVFileSetToBegin_ListImpl(System.UInt32)->System.Boolean",
+      "managedToken": "0x06000231",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000231",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CSVFileSetToBegin_ListImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276912,
+      "byteExportLength": 64,
+      "endExclusive": "0x00ec12b0",
+      "nextKnownGhidraEntry": "0x00ec12b0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec1270.bin",
+      "rawDisassembly": "native/disassembly/00ec1270.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_CSVFileGetCurrent_ListImpl",
+      "address": "0x00ec3310",
+      "registrationRecordAddress": "0x01197110",
+      "registrationRecordHex": "1033ec00b43d0f01",
+      "registrationRecordFileOffset": 14250256,
+      "registrationNameStringAddress": "0x010f3db4",
+      "registrationNameStringFileOffset": 13581748,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f43535646696c6547657443757272656e745f4c697374496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_CSVFileGetCurrent_ListImpl(System.UInt32)->System.String",
+      "managedToken": "0x06000232",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000232",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_CSVFileGetCurrent_ListImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11285264,
+      "byteExportLength": 400,
+      "endExclusive": "0x00ec34a0",
+      "nextKnownGhidraEntry": "0x00ec34a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x40b590",
+        "0x4e44e0",
+        "0x4f5760",
+        "0x4f59c0",
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec3310.bin",
+      "rawDisassembly": "native/disassembly/00ec3310.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_DeleteCSVFile_ListImpl",
+      "address": "0x00ec12b0",
+      "registrationRecordAddress": "0x01197118",
+      "registrationRecordHex": "b012ec00f03d0f01",
+      "registrationRecordFileOffset": 14250264,
+      "registrationNameStringAddress": "0x010f3df0",
+      "registrationNameStringFileOffset": 13581808,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f44656c65746543535646696c655f4c697374496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_DeleteCSVFile_ListImpl(System.UInt32)->System.Void",
+      "managedToken": "0x06000233",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000233",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "handle",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_DeleteCSVFile_ListImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276976,
+      "byteExportLength": 80,
+      "endExclusive": "0x00ec1300",
+      "nextKnownGhidraEntry": "0x00ec1300",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390"
+      ],
+      "rawBytes": "native/bytes/00ec12b0.bin",
+      "rawDisassembly": "native/disassembly/00ec12b0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_TransitionToLoadWorldImpl",
+      "address": "0x00ec1300",
+      "registrationRecordAddress": "0x01197120",
+      "registrationRecordHex": "0013ec00283e0f01",
+      "registrationRecordFileOffset": 14250272,
+      "registrationNameStringAddress": "0x010f3e28",
+      "registrationNameStringFileOffset": 13581864,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f5472616e736974696f6e546f4c6f6164576f726c64496d706c00",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_TransitionToLoadWorldImpl(System.String)->System.Void",
+      "managedToken": "0x06000234",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000234",
+        "returnType": "System.Void",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "worldFile",
+            "type": "System.String",
+            "metadataPresent": true,
+            "attributes": "HasFieldMarshal",
+            "attributesValue": 8192,
+            "marshalDescriptorHex": "15",
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_TransitionToLoadWorldImpl",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11277056,
+      "byteExportLength": 48,
+      "endExclusive": "0x00ec1330",
+      "nextKnownGhidraEntry": "0x00ec1330",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x769390",
+        "0xec7650"
+      ],
+      "rawBytes": "native/bytes/00ec1300.bin",
+      "rawDisassembly": "native/disassembly/00ec1300.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_GetModFilesCount",
+      "address": "0x00ec1770",
+      "registrationRecordAddress": "0x011972a0",
+      "registrationRecordHex": "7017ec0020480f01",
+      "registrationRecordFileOffset": 14250656,
+      "registrationNameStringAddress": "0x010f4820",
+      "registrationNameStringFileOffset": 13584416,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f4765744d6f6446696c6573436f756e7400",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_GetModFilesCount()->System.UInt32",
+      "managedToken": "0x06000266",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000266",
+        "returnType": "System.UInt32",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_GetModFilesCount",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11278192,
+      "byteExportLength": 16,
+      "endExclusive": "0x00ec1780",
+      "nextKnownGhidraEntry": "0x00ec1780",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawBytes": "native/bytes/00ec1770.bin",
+      "rawDisassembly": "native/disassembly/00ec1770.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_GetModFilesName",
+      "address": "0x00ec39a0",
+      "registrationRecordAddress": "0x011972a8",
+      "registrationRecordHex": "a039ec0054480f01",
+      "registrationRecordFileOffset": 14250664,
+      "registrationNameStringAddress": "0x010f4854",
+      "registrationNameStringFileOffset": 13584468,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f4765744d6f6446696c65734e616d6500",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_GetModFilesName(System.UInt32)->System.String",
+      "managedToken": "0x06000267",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000267",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "idx",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_GetModFilesName",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11286944,
+      "byteExportLength": 16,
+      "endExclusive": "0x00ec39b0",
+      "nextKnownGhidraEntry": "0x00ec39b0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawBytes": "native/bytes/00ec39a0.bin",
+      "rawDisassembly": "native/disassembly/00ec39a0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_GetWorldName",
+      "address": "0x00ec11b0",
+      "registrationRecordAddress": "0x01197310",
+      "registrationRecordHex": "b011ec00f84a0f01",
+      "registrationRecordFileOffset": 14250768,
+      "registrationNameStringAddress": "0x010f4af8",
+      "registrationNameStringFileOffset": 13585144,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f476574576f726c644e616d6500",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_GetWorldName()->Sims3.SimIFace.WorldName",
+      "managedToken": "0x06000274",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000274",
+        "returnType": "Sims3.SimIFace.WorldName",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_GetWorldName",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276720,
+      "byteExportLength": 32,
+      "endExclusive": "0x00ec11d0",
+      "nextKnownGhidraEntry": "0x00ec11d0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawBytes": "native/bytes/00ec11b0.bin",
+      "rawDisassembly": "native/disassembly/00ec11b0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_GetWorldType",
+      "address": "0x00ec11d0",
+      "registrationRecordAddress": "0x01197318",
+      "registrationRecordHex": "d011ec00284b0f01",
+      "registrationRecordFileOffset": 14250776,
+      "registrationNameStringAddress": "0x010f4b28",
+      "registrationNameStringFileOffset": 13585192,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f476574576f726c645479706500",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_GetWorldType()->Sims3.SimIFace.WorldType",
+      "managedToken": "0x06000275",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000275",
+        "returnType": "Sims3.SimIFace.WorldType",
+        "parameters": [],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_GetWorldType",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276752,
+      "byteExportLength": 48,
+      "endExclusive": "0x00ec1200",
+      "nextKnownGhidraEntry": "0x00ec1200",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [],
+      "rawBytes": "native/bytes/00ec11d0.bin",
+      "rawDisassembly": "native/disassembly/00ec11d0.asm.txt"
+    },
+    {
+      "name": "ScriptCore.GameUtils::GameUtils_IsWorldInstalled",
+      "address": "0x00ec1180",
+      "registrationRecordAddress": "0x01197338",
+      "registrationRecordHex": "8011ec00004c0f01",
+      "registrationRecordFileOffset": 14250808,
+      "registrationNameStringAddress": "0x010f4c00",
+      "registrationNameStringFileOffset": 13585408,
+      "registrationNameStringNulHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f4973576f726c64496e7374616c6c656400",
+      "managedSignature": "ScriptCore:ScriptCore.GameUtils::GameUtils_IsWorldInstalled(System.UInt32)->System.Boolean",
+      "managedToken": "0x06000279",
+      "managedPInvokeModule": "Sims3Common.dll",
+      "managedDeclaration": {
+        "assemblyName": "ScriptCore",
+        "token": "0x06000279",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "sequence": 1,
+            "name": "id",
+            "type": "System.UInt32",
+            "metadataPresent": true,
+            "attributes": "None",
+            "attributesValue": 0,
+            "marshalDescriptorHex": null,
+            "constant": null,
+            "customAttributes": []
+          }
+        ],
+        "pinvoke": {
+          "module": "Sims3Common.dll",
+          "entryPoint": "GameUtils_IsWorldInstalled",
+          "attributes": "CallingConventionWinApi",
+          "attributesValue": 256
+        }
+      },
+      "fileOffset": 11276672,
+      "byteExportLength": 48,
+      "endExclusive": "0x00ec11b0",
+      "nextKnownGhidraEntry": "0x00ec11b0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0xaa99c0",
+        "0xaae430"
+      ],
+      "rawBytes": "native/bytes/00ec1180.bin",
+      "rawDisassembly": "native/disassembly/00ec1180.asm.txt"
+    }
+  ]
+}

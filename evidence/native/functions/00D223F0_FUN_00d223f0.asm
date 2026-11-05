@@ -1,0 +1,681 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 /TS3W.exe owned ranges [(13771760, 13772185), (13772192, 13772902)]; 1135 owned bytes/332 instructions. Internal unowned gaps excluded. All bytes/starts checked against authoritative pristine PE.
+
+ECX undoable plus eight physical stack words/RET20hex. Seeded float third argument is actually consumed by low-byte test atD2262A; raw flags pointer is input word5; last physical input is signed propagation cutoff, not a height. Lot+180 maxlevel is MOVed as integer, despite misleading generated float temporary/casts. Captures every upper prior height before initial D22100/D221D0 writes. Upper levels <=cutoff use prior height plus initial delta; higher levels use AB02D0 stride plus preceding resulting height. Level1 may raise preceding ground to water height first, and special lot predicates408/40C or byte4B0 select further sea-height paths. No original public numerical enum/type for those lot fields is inferred. Rule bit3 is set/cleared by low-byte mode, bit2 added, CB0710 errors/context null. Break preserves earlier writes. Native journal/callback/allocator destruction and current host partial propagation are not equivalent.
+
+ORIGINAL OWNED BYTES
+00d223f0: 83 ec 30
+00d223f3: 57
+00d223f4: 8b f9
+00d223f6: 8b 47 50
+00d223f9: 85 c0
+00d223fb: 0f 84 5e 04 00 00
+00d22401: 8b 88 90 02 00 00
+00d22407: 8b 41 24
+00d2240a: 56
+00d2240b: 8b 74 24 3c
+00d2240f: 0f be 56 02
+00d22413: 2b 51 10
+00d22416: 0f be 0e
+00d22419: 0f af 50 04
+00d2241d: 03 d1
+00d2241f: 0f af 50 08
+00d22423: 0f be 4e 01
+00d22427: 8b 40 10
+00d2242a: 03 d1
+00d2242c: f3 0f 10 04 90
+00d22431: 0f 2e 44 24 40
+00d22436: 9f
+00d22437: f6 c4 44
+00d2243a: 8b 44 24 4c
+00d2243e: 7a 0e
+00d22440: 8b 08
+00d22442: c1 e9 12
+00d22445: f6 c1 01
+00d22448: 0f 85 10 04 00 00
+00d2244e: 8b 10
+00d22450: 53
+00d22451: 55
+00d22452: 89 54 24 14
+00d22456: e8 75 de d8 ff
+00d2245b: d9 5c 24 18
+00d2245f: 0f b6 1e
+00d22462: 8a 56 02
+00d22465: 8b 4f 50
+00d22468: 8b a9 90 02 00 00
+00d2246e: 8b 81 80 01 00 00
+00d22474: 88 5c 24 44
+00d22478: 0f b6 5e 01
+00d2247c: 88 5c 24 54
+00d22480: 0f be da
+00d22483: 2b 5d 10
+00d22486: f3 0f 10 44 24 48
+00d2248c: 89 44 24 1c
+00d22490: 8b 45 24
+00d22493: 0f af 58 04
+00d22497: 0f be 6c 24 44
+00d2249c: 03 dd
+00d2249e: 0f af 58 08
+00d224a2: 0f be 6c 24 54
+00d224a7: 8b 40 10
+00d224aa: 03 dd
+00d224ac: 84 d2
+00d224ae: f3 0f 5c 04 98
+00d224b3: f3 0f 11 44 24 20
+00d224b9: 0f 85 82 00 00 00
+00d224bf: 83 b9 7c 01 00 00 00
+00d224c6: 7d 79
+00d224c8: 8a 4c 24 44
+00d224cc: 8a 46 02
+00d224cf: 8a 54 24 54
+00d224d3: 2c 01
+00d224d5: 88 4c 24 44
+00d224d9: 6a 00
+00d224db: 8d 4c 24 48
+00d224df: 88 44 24 4a
+00d224e3: 8b 47 50
+00d224e6: 51
+00d224e7: 50
+00d224e8: 88 54 24 51
+00d224ec: e8 1f 93 de ff
+00d224f1: 83 c4 0c
+00d224f4: 84 c0
+00d224f6: 75 49
+00d224f8: 8b 47 50
+00d224fb: 8d 54 24 44
+00d224ff: 52
+00d22500: 50
+00d22501: e8 4a d3 dd ff
+00d22506: 83 c4 08
+00d22509: 84 c0
+00d2250b: 74 0a
+00d2250d: f3 0f 10 05 f8 98 f9 00
+00d22515: eb 06
+00d22517: f3 0f 10 44 24 18
+00d2251d: d9 ee
+00d2251f: f3 0f 10 4c 24 48
+00d22525: 83 ec 08
+00d22528: d9 5c 24 04
+00d2252c: f3 0f 5c c8
+00d22530: 8d 44 24 4c
+00d22534: f3 0f 11 0c 24
+00d22539: 50
+00d2253a: 8b cf
+00d2253c: e8 bf fb ff ff
+00d22541: 8b 6c 24 1c
+00d22545: 33 c0
+00d22547: 89 44 24 30
+00d2254b: 89 44 24 34
+00d2254f: 89 44 24 28
+00d22553: 89 44 24 2c
+00d22557: 89 44 24 30
+00d2255b: 88 44 24 34
+00d2255f: 89 44 24 38
+00d22563: 0f b6 06
+00d22566: 88 44 24 10
+00d2256a: 8a 46 02
+00d2256d: 04 01
+00d2256f: 8d 4c 24 28
+00d22573: 88 44 24 12
+00d22577: 0f be c0
+00d2257a: 3b c5
+00d2257c: 8b d1
+00d2257e: 89 4c 24 28
+00d22582: 8a 4e 01
+00d22585: c7 44 24 3c 6c 68 08 01
+00d2258d: 89 54 24 2c
+00d22591: 88 4c 24 11
+00d22595: 7f 69
+00d22597: eb 07
+00d225a0: 8b 57 50
+00d225a3: 8b 92 90 02 00 00
+00d225a9: 8b 4a 24
+00d225ac: 89 44 24 44
+00d225b0: 2b 42 10
+00d225b3: 0f be 54 24 10
+00d225b8: 0f af 41 04
+00d225bc: 03 c2
+00d225be: 0f af 41 08
+00d225c2: 0f be 54 24 11
+00d225c7: 8b 49 10
+00d225ca: 03 c2
+00d225cc: f3 0f 10 04 81
+00d225d1: 8d 54 24 44
+00d225d5: 52
+00d225d6: 8d 4c 24 28
+00d225da: f3 0f 11 44 24 58
+00d225e0: e8 5b f8 ff ff
+00d225e5: f3 0f 10 44 24 54
+00d225eb: f3 0f 11 00
+00d225ef: 8a 44 24 12
+00d225f3: 04 01
+00d225f5: 88 44 24 12
+00d225f9: 0f be c0
+00d225fc: 3b c5
+00d225fe: 7e a0
+00d22600: d9 44 24 50
+00d22604: 83 ec 08
+00d22607: d9 5c 24 04
+00d2260b: 8b cf
+00d2260d: d9 44 24 50
+00d22611: d9 1c 24
+00d22614: 56
+00d22615: e8 e6 fa ff ff
+00d2261a: d9 44 24 48
+00d2261e: 51
+00d2261f: d9 1c 24
+00d22622: 56
+00d22623: 8b cf
+00d22625: e8 a6 fb ff ff
+00d2262a: 80 7c 24 4c 00
+00d2262f: 8b 5c 24 14
+00d22633: 75 05
+00d22635: 83 cb 08
+00d22638: eb 03
+00d2263a: 83 e3 f7
+00d2263d: 0f b6 06
+00d22640: 8a 4e 01
+00d22643: f3 0f 10 44 24 48
+00d22649: 88 44 24 10
+00d2264d: 8a 46 02
+00d22650: 04 01
+00d22652: 0f be d0
+00d22655: 83 cb 04
+00d22658: 3b d5
+00d2265a: f3 0f 11 44 24 48
+00d22660: 88 4c 24 11
+00d22664: 88 44 24 12
+00d22668: 0f 8f b5 01 00 00
+00d2266e: 8b ff
+00d22670: 3c 01
+00d22672: 75 3b
+00d22674: 8b 4f 50
+00d22677: 8b 89 94 02 00 00
+00d2267d: 85 c9
+00d2267f: 74 2e
+00d22681: 0f be 56 01
+00d22685: 0f be 06
+00d22688: 52
+00d22689: 50
+00d2268a: e8 91 7d dc ff
+00d2268f: 8a 44 24 12
+00d22693: d9 54 24 44
+00d22697: d9 44 24 48
+00d2269b: d9 c9
+00d2269d: df f1
+00d2269f: dd d8
+00d226a1: 76 0c
+00d226a3: f3 0f 10 44 24 44
+00d226a9: f3 0f 11 44 24 48
+00d226af: 0f be c0
+00d226b2: 3b 44 24 60
+00d226b6: 7f 24
+00d226b8: 8d 4c 24 44
+00d226bc: 51
+00d226bd: 8d 4c 24 28
+00d226c1: 89 44 24 48
+00d226c5: e8 76 f7 ff ff
+00d226ca: f3 0f 10 00
+00d226ce: f3 0f 58 44 24 20
+00d226d4: f3 0f 11 44 24 4c
+00d226da: eb 0d
+00d226dc: e8 ef db d8 ff
+00d226e1: d8 44 24 48
+00d226e5: d9 5c 24 4c
+00d226e9: 80 7c 24 12 01
+00d226ee: 0f 85 92 00 00 00
+00d226f4: 8b 4f 50
+00d226f7: 83 b9 08 04 00 00 01
+00d226fe: 75 56
+00d22700: 83 b9 0c 04 00 00 50
+00d22707: 75 4d
+00d22709: e8 82 f3 d8 ff
+00d2270e: d9 54 24 44
+00d22712: f3 0f 10 44 24 48
+00d22718: d9 5c 24 1c
+00d2271c: f3 0f 58 05 7c 48 04 01
+00d22724: 8b 4c 24 1c
+00d22728: 0f 28 c8
+00d2272b: f3 0f 5c 4c 24 44
+00d22731: f3 0f 11 4c 24 54
+00d22737: 8b 44 24 54
+00d2273b: c1 f8 1f
+00d2273e: 8b d0
+00d22740: f7 d2
+00d22742: f3 0f 11 44 24 50
+00d22748: 23 54 24 50
+00d2274c: 23 c8
+00d2274e: 0b d1
+00d22750: 89 54 24 4c
+00d22754: eb 30
+00d22756: 80 b9 b0 04 00 00 00
+00d2275d: 74 4f
+00d2275f: e8 2c f3 d8 ff
+00d22764: d8 05 28 66 08 01
+00d2276a: d9 54 24 44
+00d2276e: d9 44 24 4c
+00d22772: d9 c9
+00d22774: df f1
+00d22776: dd d8
+00d22778: 76 0c
+00d2277a: f3 0f 10 44 24 44
+00d22780: f3 0f 11 44 24 4c
+00d22786: 80 7c 24 12 00
+00d2278b: 75 21
+00d2278d: 8d 54 24 44
+00d22791: 52
+00d22792: 8d 4c 24 28
+00d22796: c7 44 24 48 00 00 00 00
+00d2279e: e8 9d f6 ff ff
+00d227a3: f3 0f 10 44 24 4c
+00d227a9: 0f 2f 00
+00d227ac: 76 75
+00d227ae: d9 44 24 4c
+00d227b2: 8b 47 50
+00d227b5: 6a 00
+00d227b7: 6a 00
+00d227b9: 6a 00
+00d227bb: 53
+00d227bc: 51
+00d227bd: 8d 4c 24 24
+00d227c1: d9 1c 24
+00d227c4: 51
+00d227c5: 50
+00d227c6: e8 45 df f8 ff
+00d227cb: 83 c4 1c
+00d227ce: 84 c0
+00d227d0: 74 51
+00d227d2: d9 ee
+00d227d4: 83 ec 08
+00d227d7: d9 5c 24 04
+00d227db: 8d 54 24 18
+00d227df: d9 44 24 54
+00d227e3: 8b cf
+00d227e5: d9 1c 24
+00d227e8: 52
+00d227e9: e8 12 f9 ff ff
+00d227ee: d9 44 24 4c
+00d227f2: 51
+00d227f3: 8d 44 24 14
+00d227f7: d9 1c 24
+00d227fa: 50
+00d227fb: 8b cf
+00d227fd: e8 ce f9 ff ff
+00d22802: 8a 44 24 12
+00d22806: f3 0f 10 44 24 4c
+00d2280c: 04 01
+00d2280e: 0f be c8
+00d22811: 3b cd
+00d22813: f3 0f 11 44 24 48
+00d22819: 88 44 24 12
+00d2281d: 0f 8e 4d fe ff ff
+00d22823: 80 7e 02 ff
+00d22827: 8b 4f 50
+00d2282a: 0f 9d c2
+00d2282d: 52
+00d2282e: 6a 01
+00d22830: e8 0b e1 d8 ff
+00d22835: 8b 74 24 30
+00d22839: 85 f6
+00d2283b: 5d
+00d2283c: 5b
+00d2283d: 74 1f
+00d2283f: 90
+00d22840: 8b 06
+00d22842: 50
+00d22843: 8d 4c 24 20
+00d22847: e8 64 f1 b8 ff
+00d2284c: 8b 7e 04
+00d2284f: 56
+00d22850: e8 8b 1c 7c ff
+00d22855: 83 c4 04
+00d22858: 85 ff
+00d2285a: 8b f7
+00d2285c: 75 e2
+00d2285e: 5e
+00d2285f: 5f
+00d22860: 83 c4 30
+00d22863: c2 20 00
+
+GHIDRA OWNED LISTING
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: FUN_00d223f0
+Entry Point: 00d223f0
+
+00d223f0: SUB ESP, 0x30
+00d223f3: PUSH EDI
+00d223f4: MOV EDI, ECX
+00d223f6: MOV EAX, dword ptr [EDI + 0x50]
+00d223f9: TEST EAX, EAX
+00d223fb: JZ 0x00d2285f
+00d22401: MOV ECX, dword ptr [EAX + 0x290]
+00d22407: MOV EAX, dword ptr [ECX + 0x24]
+00d2240a: PUSH ESI
+00d2240b: MOV ESI, dword ptr [ESP + 0x3c]
+00d2240f: MOVSX EDX, byte ptr [ESI + 0x2]
+00d22413: SUB EDX, dword ptr [ECX + 0x10]
+00d22416: MOVSX ECX, byte ptr [ESI]
+00d22419: IMUL EDX, dword ptr [EAX + 0x4]
+00d2241d: ADD EDX, ECX
+00d2241f: IMUL EDX, dword ptr [EAX + 0x8]
+00d22423: MOVSX ECX, byte ptr [ESI + 0x1]
+00d22427: MOV EAX, dword ptr [EAX + 0x10]
+00d2242a: ADD EDX, ECX
+00d2242c: MOVSS XMM0, dword ptr [EAX + EDX*0x4]
+00d22431: UCOMISS XMM0, dword ptr [ESP + 0x40]
+00d22436: LAHF
+00d22437: TEST AH, 0x44
+00d2243a: MOV EAX, dword ptr [ESP + 0x4c]
+00d2243e: JP 0x00d2244e
+00d22440: MOV ECX, dword ptr [EAX]
+00d22442: SHR ECX, 0x12
+00d22445: TEST CL, 0x1
+00d22448: JNZ 0x00d2285e
+00d2244e: MOV EDX, dword ptr [EAX]
+00d22450: PUSH EBX
+00d22451: PUSH EBP
+00d22452: MOV dword ptr [ESP + 0x14], EDX
+00d22456: CALL 0x00ab02d0
+00d2245b: FSTP float ptr [ESP + 0x18]
+00d2245f: MOVZX EBX, byte ptr [ESI]
+00d22462: MOV DL, byte ptr [ESI + 0x2]
+00d22465: MOV ECX, dword ptr [EDI + 0x50]
+00d22468: MOV EBP, dword ptr [ECX + 0x290]
+00d2246e: MOV EAX, dword ptr [ECX + 0x180]
+00d22474: MOV byte ptr [ESP + 0x44], BL
+00d22478: MOVZX EBX, byte ptr [ESI + 0x1]
+00d2247c: MOV byte ptr [ESP + 0x54], BL
+00d22480: MOVSX EBX, DL
+00d22483: SUB EBX, dword ptr [EBP + 0x10]
+00d22486: MOVSS XMM0, dword ptr [ESP + 0x48]
+00d2248c: MOV dword ptr [ESP + 0x1c], EAX
+00d22490: MOV EAX, dword ptr [EBP + 0x24]
+00d22493: IMUL EBX, dword ptr [EAX + 0x4]
+00d22497: MOVSX EBP, byte ptr [ESP + 0x44]
+00d2249c: ADD EBX, EBP
+00d2249e: IMUL EBX, dword ptr [EAX + 0x8]
+00d224a2: MOVSX EBP, byte ptr [ESP + 0x54]
+00d224a7: MOV EAX, dword ptr [EAX + 0x10]
+00d224aa: ADD EBX, EBP
+00d224ac: TEST DL, DL
+00d224ae: SUBSS XMM0, dword ptr [EAX + EBX*0x4]
+00d224b3: MOVSS dword ptr [ESP + 0x20], XMM0
+00d224b9: JNZ 0x00d22541
+00d224bf: CMP dword ptr [ECX + 0x17c], 0x0
+00d224c6: JGE 0x00d22541
+00d224c8: MOV CL, byte ptr [ESP + 0x44]
+00d224cc: MOV AL, byte ptr [ESI + 0x2]
+00d224cf: MOV DL, byte ptr [ESP + 0x54]
+00d224d3: SUB AL, 0x1
+00d224d5: MOV byte ptr [ESP + 0x44], CL
+00d224d9: PUSH 0x0
+00d224db: LEA ECX, [ESP + 0x48]
+00d224df: MOV byte ptr [ESP + 0x4a], AL
+00d224e3: MOV EAX, dword ptr [EDI + 0x50]
+00d224e6: PUSH ECX
+00d224e7: PUSH EAX
+00d224e8: MOV byte ptr [ESP + 0x51], DL
+00d224ec: CALL 0x00b0b810
+00d224f1: ADD ESP, 0xc
+00d224f4: TEST AL, AL
+00d224f6: JNZ 0x00d22541
+00d224f8: MOV EAX, dword ptr [EDI + 0x50]
+00d224fb: LEA EDX, [ESP + 0x44]
+00d224ff: PUSH EDX
+00d22500: PUSH EAX
+00d22501: CALL 0x00aff850
+00d22506: ADD ESP, 0x8
+00d22509: TEST AL, AL
+00d2250b: JZ 0x00d22517
+00d2250d: MOVSS XMM0, dword ptr [0x00f998f8]
+00d22515: JMP 0x00d2251d
+00d22517: MOVSS XMM0, dword ptr [ESP + 0x18]
+00d2251d: FLDZ
+00d2251f: MOVSS XMM1, dword ptr [ESP + 0x48]
+00d22525: SUB ESP, 0x8
+00d22528: FSTP float ptr [ESP + 0x4]
+00d2252c: SUBSS XMM1, XMM0
+00d22530: LEA EAX, [ESP + 0x4c]
+00d22534: MOVSS dword ptr [ESP], XMM1
+00d22539: PUSH EAX
+00d2253a: MOV ECX, EDI
+00d2253c: CALL 0x00d22100
+00d22541: MOV EBP, dword ptr [ESP + 0x1c]
+00d22545: XOR EAX, EAX
+00d22547: MOV dword ptr [ESP + 0x30], EAX
+00d2254b: MOV dword ptr [ESP + 0x34], EAX
+00d2254f: MOV dword ptr [ESP + 0x28], EAX
+00d22553: MOV dword ptr [ESP + 0x2c], EAX
+00d22557: MOV dword ptr [ESP + 0x30], EAX
+00d2255b: MOV byte ptr [ESP + 0x34], AL
+00d2255f: MOV dword ptr [ESP + 0x38], EAX
+00d22563: MOVZX EAX, byte ptr [ESI]
+00d22566: MOV byte ptr [ESP + 0x10], AL
+00d2256a: MOV AL, byte ptr [ESI + 0x2]
+00d2256d: ADD AL, 0x1
+00d2256f: LEA ECX, [ESP + 0x28]
+00d22573: MOV byte ptr [ESP + 0x12], AL
+00d22577: MOVSX EAX, AL
+00d2257a: CMP EAX, EBP
+00d2257c: MOV EDX, ECX
+00d2257e: MOV dword ptr [ESP + 0x28], ECX
+00d22582: MOV CL, byte ptr [ESI + 0x1]
+00d22585: MOV dword ptr [ESP + 0x3c], 0x108686c
+00d2258d: MOV dword ptr [ESP + 0x2c], EDX
+00d22591: MOV byte ptr [ESP + 0x11], CL
+00d22595: JG 0x00d22600
+00d22597: JMP 0x00d225a0
+00d225a0: MOV EDX, dword ptr [EDI + 0x50]
+00d225a3: MOV EDX, dword ptr [EDX + 0x290]
+00d225a9: MOV ECX, dword ptr [EDX + 0x24]
+00d225ac: MOV dword ptr [ESP + 0x44], EAX
+00d225b0: SUB EAX, dword ptr [EDX + 0x10]
+00d225b3: MOVSX EDX, byte ptr [ESP + 0x10]
+00d225b8: IMUL EAX, dword ptr [ECX + 0x4]
+00d225bc: ADD EAX, EDX
+00d225be: IMUL EAX, dword ptr [ECX + 0x8]
+00d225c2: MOVSX EDX, byte ptr [ESP + 0x11]
+00d225c7: MOV ECX, dword ptr [ECX + 0x10]
+00d225ca: ADD EAX, EDX
+00d225cc: MOVSS XMM0, dword ptr [ECX + EAX*0x4]
+00d225d1: LEA EDX, [ESP + 0x44]
+00d225d5: PUSH EDX
+00d225d6: LEA ECX, [ESP + 0x28]
+00d225da: MOVSS dword ptr [ESP + 0x58], XMM0
+00d225e0: CALL 0x00d21e40
+00d225e5: MOVSS XMM0, dword ptr [ESP + 0x54]
+00d225eb: MOVSS dword ptr [EAX], XMM0
+00d225ef: MOV AL, byte ptr [ESP + 0x12]
+00d225f3: ADD AL, 0x1
+00d225f5: MOV byte ptr [ESP + 0x12], AL
+00d225f9: MOVSX EAX, AL
+00d225fc: CMP EAX, EBP
+00d225fe: JLE 0x00d225a0
+00d22600: FLD float ptr [ESP + 0x50]
+00d22604: SUB ESP, 0x8
+00d22607: FSTP float ptr [ESP + 0x4]
+00d2260b: MOV ECX, EDI
+00d2260d: FLD float ptr [ESP + 0x50]
+00d22611: FSTP float ptr [ESP]
+00d22614: PUSH ESI
+00d22615: CALL 0x00d22100
+00d2261a: FLD float ptr [ESP + 0x48]
+00d2261e: PUSH ECX
+00d2261f: FSTP float ptr [ESP]
+00d22622: PUSH ESI
+00d22623: MOV ECX, EDI
+00d22625: CALL 0x00d221d0
+00d2262a: CMP byte ptr [ESP + 0x4c], 0x0
+00d2262f: MOV EBX, dword ptr [ESP + 0x14]
+00d22633: JNZ 0x00d2263a
+00d22635: OR EBX, 0x8
+00d22638: JMP 0x00d2263d
+00d2263a: AND EBX, 0xfffffff7
+00d2263d: MOVZX EAX, byte ptr [ESI]
+00d22640: MOV CL, byte ptr [ESI + 0x1]
+00d22643: MOVSS XMM0, dword ptr [ESP + 0x48]
+00d22649: MOV byte ptr [ESP + 0x10], AL
+00d2264d: MOV AL, byte ptr [ESI + 0x2]
+00d22650: ADD AL, 0x1
+00d22652: MOVSX EDX, AL
+00d22655: OR EBX, 0x4
+00d22658: CMP EDX, EBP
+00d2265a: MOVSS dword ptr [ESP + 0x48], XMM0
+00d22660: MOV byte ptr [ESP + 0x11], CL
+00d22664: MOV byte ptr [ESP + 0x12], AL
+00d22668: JG 0x00d22823
+00d2266e: MOV EDI, EDI
+00d22670: CMP AL, 0x1
+00d22672: JNZ 0x00d226af
+00d22674: MOV ECX, dword ptr [EDI + 0x50]
+00d22677: MOV ECX, dword ptr [ECX + 0x294]
+00d2267d: TEST ECX, ECX
+00d2267f: JZ 0x00d226af
+00d22681: MOVSX EDX, byte ptr [ESI + 0x1]
+00d22685: MOVSX EAX, byte ptr [ESI]
+00d22688: PUSH EDX
+00d22689: PUSH EAX
+00d2268a: CALL 0x00aea420
+00d2268f: MOV AL, byte ptr [ESP + 0x12]
+00d22693: FST float ptr [ESP + 0x44]
+00d22697: FLD float ptr [ESP + 0x48]
+00d2269b: FXCH
+00d2269d: FCOMIP ST0, ST1
+00d2269f: FSTP ST0
+00d226a1: JBE 0x00d226af
+00d226a3: MOVSS XMM0, dword ptr [ESP + 0x44]
+00d226a9: MOVSS dword ptr [ESP + 0x48], XMM0
+00d226af: MOVSX EAX, AL
+00d226b2: CMP EAX, dword ptr [ESP + 0x60]
+00d226b6: JG 0x00d226dc
+00d226b8: LEA ECX, [ESP + 0x44]
+00d226bc: PUSH ECX
+00d226bd: LEA ECX, [ESP + 0x28]
+00d226c1: MOV dword ptr [ESP + 0x48], EAX
+00d226c5: CALL 0x00d21e40
+00d226ca: MOVSS XMM0, dword ptr [EAX]
+00d226ce: ADDSS XMM0, dword ptr [ESP + 0x20]
+00d226d4: MOVSS dword ptr [ESP + 0x4c], XMM0
+00d226da: JMP 0x00d226e9
+00d226dc: CALL 0x00ab02d0
+00d226e1: FADD float ptr [ESP + 0x48]
+00d226e5: FSTP float ptr [ESP + 0x4c]
+00d226e9: CMP byte ptr [ESP + 0x12], 0x1
+00d226ee: JNZ 0x00d22786
+00d226f4: MOV ECX, dword ptr [EDI + 0x50]
+00d226f7: CMP dword ptr [ECX + 0x408], 0x1
+00d226fe: JNZ 0x00d22756
+00d22700: CMP dword ptr [ECX + 0x40c], 0x50
+00d22707: JNZ 0x00d22756
+00d22709: CALL 0x00ab1a90
+00d2270e: FST float ptr [ESP + 0x44]
+00d22712: MOVSS XMM0, dword ptr [ESP + 0x48]
+00d22718: FSTP float ptr [ESP + 0x1c]
+00d2271c: ADDSS XMM0, dword ptr [0x0104487c]
+00d22724: MOV ECX, dword ptr [ESP + 0x1c]
+00d22728: MOVAPS XMM1, XMM0
+00d2272b: SUBSS XMM1, dword ptr [ESP + 0x44]
+00d22731: MOVSS dword ptr [ESP + 0x54], XMM1
+00d22737: MOV EAX, dword ptr [ESP + 0x54]
+00d2273b: SAR EAX, 0x1f
+00d2273e: MOV EDX, EAX
+00d22740: NOT EDX
+00d22742: MOVSS dword ptr [ESP + 0x50], XMM0
+00d22748: AND EDX, dword ptr [ESP + 0x50]
+00d2274c: AND ECX, EAX
+00d2274e: OR EDX, ECX
+00d22750: MOV dword ptr [ESP + 0x4c], EDX
+00d22754: JMP 0x00d22786
+00d22756: CMP byte ptr [ECX + 0x4b0], 0x0
+00d2275d: JZ 0x00d227ae
+00d2275f: CALL 0x00ab1a90
+00d22764: FADD float ptr [0x01086628]
+00d2276a: FST float ptr [ESP + 0x44]
+00d2276e: FLD float ptr [ESP + 0x4c]
+00d22772: FXCH
+00d22774: FCOMIP ST0, ST1
+00d22776: FSTP ST0
+00d22778: JBE 0x00d22786
+00d2277a: MOVSS XMM0, dword ptr [ESP + 0x44]
+00d22780: MOVSS dword ptr [ESP + 0x4c], XMM0
+00d22786: CMP byte ptr [ESP + 0x12], 0x0
+00d2278b: JNZ 0x00d227ae
+00d2278d: LEA EDX, [ESP + 0x44]
+00d22791: PUSH EDX
+00d22792: LEA ECX, [ESP + 0x28]
+00d22796: MOV dword ptr [ESP + 0x48], 0x0
+00d2279e: CALL 0x00d21e40
+00d227a3: MOVSS XMM0, dword ptr [ESP + 0x4c]
+00d227a9: COMISS XMM0, dword ptr [EAX]
+00d227ac: JBE 0x00d22823
+00d227ae: FLD float ptr [ESP + 0x4c]
+00d227b2: MOV EAX, dword ptr [EDI + 0x50]
+00d227b5: PUSH 0x0
+00d227b7: PUSH 0x0
+00d227b9: PUSH 0x0
+00d227bb: PUSH EBX
+00d227bc: PUSH ECX
+00d227bd: LEA ECX, [ESP + 0x24]
+00d227c1: FSTP float ptr [ESP]
+00d227c4: PUSH ECX
+00d227c5: PUSH EAX
+00d227c6: CALL 0x00cb0710
+00d227cb: ADD ESP, 0x1c
+00d227ce: TEST AL, AL
+00d227d0: JZ 0x00d22823
+00d227d2: FLDZ
+00d227d4: SUB ESP, 0x8
+00d227d7: FSTP float ptr [ESP + 0x4]
+00d227db: LEA EDX, [ESP + 0x18]
+00d227df: FLD float ptr [ESP + 0x54]
+00d227e3: MOV ECX, EDI
+00d227e5: FSTP float ptr [ESP]
+00d227e8: PUSH EDX
+00d227e9: CALL 0x00d22100
+00d227ee: FLD float ptr [ESP + 0x4c]
+00d227f2: PUSH ECX
+00d227f3: LEA EAX, [ESP + 0x14]
+00d227f7: FSTP float ptr [ESP]
+00d227fa: PUSH EAX
+00d227fb: MOV ECX, EDI
+00d227fd: CALL 0x00d221d0
+00d22802: MOV AL, byte ptr [ESP + 0x12]
+00d22806: MOVSS XMM0, dword ptr [ESP + 0x4c]
+00d2280c: ADD AL, 0x1
+00d2280e: MOVSX ECX, AL
+00d22811: CMP ECX, EBP
+00d22813: MOVSS dword ptr [ESP + 0x48], XMM0
+00d22819: MOV byte ptr [ESP + 0x12], AL
+00d2281d: JLE 0x00d22670
+00d22823: CMP byte ptr [ESI + 0x2], 0xff
+00d22827: MOV ECX, dword ptr [EDI + 0x50]
+00d2282a: SETGE DL
+00d2282d: PUSH EDX
+00d2282e: PUSH 0x1
+00d22830: CALL 0x00ab0940
+00d22835: MOV ESI, dword ptr [ESP + 0x30]
+00d22839: TEST ESI, ESI
+00d2283b: POP EBP
+00d2283c: POP EBX
+00d2283d: JZ 0x00d2285e
+00d2283f: NOP
+00d22840: MOV EAX, dword ptr [ESI]
+00d22842: PUSH EAX
+00d22843: LEA ECX, [ESP + 0x20]
+00d22847: CALL 0x008b19b0
+00d2284c: MOV EDI, dword ptr [ESI + 0x4]
+00d2284f: PUSH ESI
+00d22850: CALL 0x004e44e0
+00d22855: ADD ESP, 0x4
+00d22858: TEST EDI, EDI
+00d2285a: MOV ESI, EDI
+00d2285c: JNZ 0x00d22840
+00d2285e: POP ESI
+00d2285f: POP EDI
+00d22860: ADD ESP, 0x30
+00d22863: RET 0x20
+
+Total instructions: 332

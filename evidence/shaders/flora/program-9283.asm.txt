@@ -1,0 +1,15 @@
+Original PC1.67 Shaders_Win32.precomp; program 9283, zero-based LINK slot 9282; payload offset 0x00cc6d95; 168 original bytes.
+Shader-relative offsets, not native TS3W.exe addresses. All DWORD tokens retained; mnemonics are analyst-decoded.
+0000: ps_2_0 ; ffff0200
+0004: dcl 0x80000000, t1.xyz ; 0200001f,80000000,b0270001
+0010: dcl 0x80000000, v0.xyzw ; 0200001f,80000000,900f0000
+001c: dcl 0x80000000, v1.xyz ; 0200001f,80000000,90070001
+0028: dcl 0x90000000, s0.xyzw ; 0200001f,90000000,a00f0800
+0034: tex_pp r0.xyzw, t1.xyzw, s0.xyzw ; 03000042,802f0000,b0e40001,a0e40800
+0044: mov_pp r1.xyz, v1.xyzw ; 02000001,80270001,90e40001
+0050: mad_pp r1.xyz, r0.xyzw, -r1.xyzw, v0.xyzw ; 04000004,80270001,80e40000,81e40001,90e40000
+0064: mul_pp r1.xyz, r1.xyzw, v0.wwww ; 03000005,80270001,80e40001,90ff0000
+0074: mad_pp r0.xyz, r0.xyzw, v1.xyzw, r1.xyzw ; 04000004,80270000,80e40000,90e40001,80e40001
+0088: add_pp r0.w, -r0.wwww, t1.zzzz ; 03000002,80280000,81ff0000,b0aa0001
+0098: mov_pp oC0.xyzw, r0.xyzw ; 02000001,802f0800,80e40000
+00a4: end ; 0000ffff

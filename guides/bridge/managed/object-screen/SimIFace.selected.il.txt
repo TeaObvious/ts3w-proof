@@ -1,0 +1,26 @@
+
+.bodyless 0x06000459 Sims3.SimIFace.IWorld::IsObjectOnScreen {"raw_length":6,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":1,"return_type":"bool","parameter_types":["valuetype:2460"],"field_type":null,"issue":null}
+
+.method 0x06000663 Sims3.SimIFace.World::IsObjectOnScreen RVA=0xab75 signature={"raw_length":6,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":1,"return_type":"bool","parameter_types":["valuetype:2460"],"field_type":null,"issue":null}
+ IL_0000: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_0005: brfalse.s      19
+ IL_0007: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_000c: ldarg.0         ;
+ IL_000d: callvirt       0x06000459 ; Sims3.SimIFace.IWorld::IsObjectOnScreen
+ IL_0012: ret             ;
+ IL_0013: ldc.i4.0        ;
+ IL_0014: ret             ;
+
+.method 0x06000664 Sims3.SimIFace.World::IsObjectOnScreen RVA=0xab8b signature={"raw_length":6,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":1,"return_type":"bool","parameter_types":["class:500"],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: brfalse.s      28
+ IL_0003: ldarg.0         ;
+ IL_0004: callvirt       0x06000354 ; Sims3.SimIFace.IHasScriptProxy::get_Proxy
+ IL_0009: brfalse.s      28
+ IL_000b: ldarg.0         ;
+ IL_000c: callvirt       0x06000354 ; Sims3.SimIFace.IHasScriptProxy::get_Proxy
+ IL_0011: callvirt       0x060001f2 ; Sims3.SimIFace.ITask::get_ObjectId
+ IL_0016: call           0x06000663 ; Sims3.SimIFace.World::IsObjectOnScreen
+ IL_001b: ret             ;
+ IL_001c: ldc.i4.0        ;
+ IL_001d: ret             ;

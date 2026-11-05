@@ -1,0 +1,24 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3PipelineHelper.dll; complete Ghidra function body 10004120..1000416e; CAW_TextureEngineConstruct
+10004120: 56  PUSH ESI
+10004121: 8bf1  MOV ESI,ECX
+10004123: c706184c3a10  MOV dword ptr [ESI],0x103a4c18
+10004129: c7460400000000  MOV dword ptr [ESI + 0x4],0x0
+10004130: b801000000  MOV EAX,0x1
+10004135: 8d4e08  LEA ECX,[ESI + 0x8]
+10004138: 8701  XCHG dword ptr [ECX],EAX
+1000413a: e841dd0500  CALL 0x10061e80
+1000413f: e81cdd0500  CALL 0x10061e60
+10004144: 803d800f4c1000  CMP byte ptr [0x104c0f80],0x0
+1000414b: 7514  JNZ 0x10004161
+1000414d: 6844804710  PUSH 0x10478044
+10004152: c605800f4c1001  MOV byte ptr [0x104c0f80],0x1
+10004159: e872ac0500  CALL 0x1005edd0
+1000415e: 83c404  ADD ESP,0x4
+10004161: e8dadc0500  CALL 0x10061e40
+10004166: e8f5ac0700  CALL 0x1007ee60
+1000416b: 8bc6  MOV EAX,ESI
+1000416d: 5e  POP ESI
+1000416e: c3  RET

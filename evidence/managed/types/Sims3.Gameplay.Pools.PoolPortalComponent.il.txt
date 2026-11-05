@@ -1,0 +1,1201 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; complete type Sims3.Gameplay.Pools.PoolPortalComponent.
+// Analyst annotations describe static contracts; IL remains authoritative for decompiler artifacts.
+
+.class public auto ansi Sims3.Gameplay.Pools.PoolPortalComponent
+	extends Sims3.Gameplay.ObjectComponents.PortalComponent
+{
+	// Nested Types
+	.class nested public auto ansi sealed RoutingSlotGroup
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup Inside = int32(0)
+		.field public static literal valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup Outside = int32(1)
+
+	} // end of class RoutingSlotGroup
+
+
+	// Fields
+	.field private static literal string kOutsideRoutingSlotPrefix = "RoutingSlot_Pool_Outside"
+	.field private static literal string kInsideRoutingSlotPrefix = "RoutingSlot_Pool_Inside"
+	.field private static literal uint32 kNumPreHashedSlots = uint32(32)
+	.field public class Sims3.Gameplay.Pools.PoolPortalObject OwnerPoolPortalObject
+	.field private static valuetype [SimIFace]Sims3.SimIFace.Slot[] sPreHashedSlotsInside
+	.field private static valuetype [SimIFace]Sims3.SimIFace.Slot[] sPreHashedSlotsOutside
+	.field private static float32 kPoolWallOutsideOffset
+	.field private static float32 kPoolWallInsideOffset
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x531562
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::.ctor()
+		IL_0006: ret
+	} // end of method PoolPortalComponent::.ctor
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x53156c
+		// Header size: 12
+		// Code size: 125 (0x7d)
+		.maxstack 4
+		.locals init (
+			[0] uint32
+		)
+
+		IL_0000: ldc.r4 0.2
+		IL_0005: stsfld float32 Sims3.Gameplay.Pools.PoolPortalComponent::kPoolWallOutsideOffset
+		IL_000a: ldc.r4 0.45
+		IL_000f: stsfld float32 Sims3.Gameplay.Pools.PoolPortalComponent::kPoolWallInsideOffset
+		IL_0014: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsInside
+		IL_0019: brtrue.s IL_007c
+
+		IL_001b: ldc.i4.s 32
+		IL_001d: conv.u
+		IL_001e: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_0023: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsInside
+		IL_0028: ldc.i4.s 32
+		IL_002a: conv.u
+		IL_002b: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_0030: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsOutside
+		IL_0035: ldc.i4.0
+		IL_0036: stloc.0
+		IL_0037: br.s IL_0077
+		// loop start (head: IL_0077)
+			IL_0039: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsInside
+			IL_003e: ldloc.0
+			IL_003f: conv.u
+			IL_0040: ldstr "RoutingSlot_Pool_Inside"
+			IL_0045: ldloc.0
+			IL_0046: box [mscorlib]System.UInt32
+			IL_004b: call string [mscorlib]System.String::Concat(object, object)
+			IL_0050: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0055: stelem.i4
+			IL_0056: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsOutside
+			IL_005b: ldloc.0
+			IL_005c: conv.u
+			IL_005d: ldstr "RoutingSlot_Pool_Outside"
+			IL_0062: ldloc.0
+			IL_0063: box [mscorlib]System.UInt32
+			IL_0068: call string [mscorlib]System.String::Concat(object, object)
+			IL_006d: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0072: stelem.i4
+			IL_0073: ldloc.0
+			IL_0074: ldc.i4.1
+			IL_0075: add
+			IL_0076: stloc.0
+
+			IL_0077: ldloc.0
+			IL_0078: ldc.i4.s 32
+			IL_007a: blt.un.s IL_0039
+		// end loop
+
+		IL_007c: ret
+	} // end of method PoolPortalComponent::.cctor
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			class Sims3.Gameplay.Abstracts.GameObject o
+		) cil managed 
+	{
+		// Method begins at RVA 0x5315f5
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::.ctor(class Sims3.Gameplay.Abstracts.GameObject)
+		IL_0007: ldarg.0
+		IL_0008: ldarg.1
+		IL_0009: isinst Sims3.Gameplay.Pools.PoolPortalObject
+		IL_000e: stfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+		IL_0013: ret
+	} // end of method PoolPortalComponent::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x53160a
+		// Header size: 1
+		// Code size: 32 (0x20)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+		IL_0006: brfalse.s IL_0019
+
+		IL_0008: ldarg.0
+		IL_0009: ldarg.0
+		IL_000a: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+		IL_000f: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.Pools.PoolPortalObject::get_AddPortalsCallback()
+		IL_0014: stfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+
+		IL_0019: ldarg.0
+		IL_001a: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::OnStartup()
+		IL_001f: ret
+	} // end of method PoolPortalComponent::OnStartup
+
+	.method public hidebysig 
+		instance bool RouteToSlotGroup (
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup slotGroup
+		) cil managed 
+	{
+		// Method begins at RVA 0x53162c
+		// Header size: 12
+		// Code size: 65 (0x41)
+		.maxstack 5
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[1] class [SimIFace]Sims3.SimIFace.Route
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.2
+		IL_0002: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::GetRoutingSlotsForGroup(valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup)
+		IL_0007: stloc.0
+		IL_0008: ldloc.0
+		IL_0009: ldlen
+		IL_000a: conv.i4
+		IL_000b: ldc.i4.0
+		IL_000c: ble.s IL_003f
+
+		IL_000e: ldarg.0
+		IL_000f: ldarg.1
+		IL_0010: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.ObjectComponents.PortalComponent::ComponentCreateRoute(class Sims3.Gameplay.Actors.Sim)
+		IL_0015: stloc.1
+		IL_0016: ldloc.1
+		IL_0017: ldarg.0
+		IL_0018: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_001d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0022: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetPreferredPortal(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0027: ldloc.1
+		IL_0028: ldarg.0
+		IL_0029: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_002e: ldloc.0
+		IL_002f: ldnull
+		IL_0030: ldc.i4.1
+		IL_0031: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::PlanToSlot(class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot[], float32[], bool)
+		IL_0036: pop
+		IL_0037: ldarg.1
+		IL_0038: ldloc.1
+		IL_0039: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::DoRoute(class [SimIFace]Sims3.SimIFace.Route)
+		IL_003e: ret
+
+		IL_003f: ldc.i4.0
+		IL_0040: ret
+	} // end of method PoolPortalComponent::RouteToSlotGroup
+
+	.method public hidebysig virtual 
+		instance valuetype Sims3.Gameplay.ObjectComponents.PortalObjectType GetPortalObjectType () cil managed 
+	{
+		// Method begins at RVA 0x531679
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PoolPortalComponent::GetPortalObjectType
+
+	.method family hidebysig specialname virtual 
+		instance bool get_AddToUseListDuringTraversal () cil managed 
+	{
+		// Method begins at RVA 0x53167c
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PoolPortalComponent::get_AddToUseListDuringTraversal
+
+	.method family hidebysig specialname virtual 
+		instance bool get_RemoveFromUseListAfterTraversal () cil managed 
+	{
+		// Method begins at RVA 0x53167f
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0006: isinst Sims3.Gameplay.Pools.Pool
+		IL_000b: ldnull
+		IL_000c: cgt.un
+		IL_000e: ldc.i4.0
+		IL_000f: ceq
+		IL_0011: ret
+	} // end of method PoolPortalComponent::get_RemoveFromUseListAfterTraversal
+
+	.method public hidebysig specialname virtual 
+		instance bool get_CanUseUmbrella () cil managed 
+	{
+		// Method begins at RVA 0x531692
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.0
+		IL_0001: ret
+	} // end of method PoolPortalComponent::get_CanUseUmbrella
+
+	.method public hidebysig virtual 
+		instance uint32 GetNumLanes () cil managed 
+	{
+		// Method begins at RVA 0x531695
+		// Header size: 1
+		// Code size: 16 (0x10)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0006: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Abstracts.GameObject::GetRoutingSlots()
+		IL_000b: ldlen
+		IL_000c: conv.i4
+		IL_000d: ldc.i4.2
+		IL_000e: div
+		IL_000f: ret
+	} // end of method PoolPortalComponent::GetNumLanes
+
+	.method public hidebysig virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot[] GetSlotsForLaneIndex (
+			uint32 laneIndex
+		) cil managed 
+	{
+		// Method begins at RVA 0x5316a8
+		// Header size: 12
+		// Code size: 57 (0x39)
+		.maxstack 4
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+		)
+
+		IL_0000: ldc.i4.2
+		IL_0001: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: ldc.i4.0
+		IL_0009: ldstr "RoutingSlot_Pool_Outside"
+		IL_000e: ldarg.1
+		IL_000f: box [mscorlib]System.UInt32
+		IL_0014: call string [mscorlib]System.String::Concat(object, object)
+		IL_0019: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+		IL_001e: stelem.i4
+		IL_001f: ldloc.0
+		IL_0020: ldc.i4.1
+		IL_0021: ldstr "RoutingSlot_Pool_Inside"
+		IL_0026: ldarg.1
+		IL_0027: box [mscorlib]System.UInt32
+		IL_002c: call string [mscorlib]System.String::Concat(object, object)
+		IL_0031: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+		IL_0036: stelem.i4
+		IL_0037: ldloc.0
+		IL_0038: ret
+	} // end of method PoolPortalComponent::GetSlotsForLaneIndex
+
+	.method public hidebysig virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot> GetStartSlotsForApproachingSim (
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 preferredPos,
+			bool& preferredLaneSelected
+		) cil managed 
+	{
+		// Method begins at RVA 0x5316f0
+		// Header size: 12
+		// Code size: 32 (0x20)
+		.maxstack 2
+		.locals init (
+			[0] valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance class Sims3.Gameplay.ActorSystems.Posture Sims3.Gameplay.Actors.Sim::get_Posture()
+		IL_0006: isinst Sims3.Gameplay.Pools.SwimmingInPool
+		IL_000b: brfalse.s IL_0011
+
+		IL_000d: ldc.i4.0
+		IL_000e: stloc.0
+		IL_000f: br.s IL_0013
+
+		IL_0011: ldc.i4.1
+		IL_0012: stloc.0
+
+		IL_0013: ldarg.0
+		IL_0014: ldloc.0
+		IL_0015: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::GetRoutingSlotsForGroup(valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup)
+		IL_001a: newobj instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+		IL_001f: ret
+	} // end of method PoolPortalComponent::GetStartSlotsForApproachingSim
+
+	.method public hidebysig 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot[] GetRoutingSlotsForGroup (
+			valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup slotGroup
+		) cil managed 
+	{
+		// Method begins at RVA 0x53171c
+		// Header size: 12
+		// Code size: 133 (0x85)
+		.maxstack 3
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[1] string,
+			[2] uint32,
+			[3] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[4] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid,
+			[5] uint32,
+			[6] valuetype [SimIFace]Sims3.SimIFace.Slot
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: brtrue.s IL_0011
+
+		IL_0003: ldstr "RoutingSlot_Pool_Inside"
+		IL_0008: stloc.1
+		IL_0009: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsInside
+		IL_000e: stloc.0
+		IL_000f: br.s IL_001d
+
+		IL_0011: ldstr "RoutingSlot_Pool_Outside"
+		IL_0016: stloc.1
+		IL_0017: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsOutside
+		IL_001c: stloc.0
+
+		IL_001d: ldarg.0
+		IL_001e: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_0023: stloc.2
+		IL_0024: ldloc.2
+		IL_0025: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_002a: stloc.3
+		IL_002b: ldarg.0
+		IL_002c: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0031: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0036: stloc.s 4
+		IL_0038: ldc.i4.0
+		IL_0039: stloc.s 5
+		IL_003b: br.s IL_007e
+		// loop start (head: IL_007e)
+			IL_003d: ldloc.s 5
+			IL_003f: ldc.i4.s 32
+			IL_0041: blt.un.s IL_0057
+
+			IL_0043: ldloc.1
+			IL_0044: ldloc.s 5
+			IL_0046: box [mscorlib]System.UInt32
+			IL_004b: call string [mscorlib]System.String::Concat(object, object)
+			IL_0050: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0055: br.s IL_005c
+
+			IL_0057: ldloc.0
+			IL_0058: ldloc.s 5
+			IL_005a: conv.u
+			IL_005b: ldelem.u4
+
+			IL_005c: stloc.s 6
+			IL_005e: ldloc.s 4
+			IL_0060: ldloc.s 6
+			IL_0062: call bool [SimIFace]Sims3.SimIFace.Slots::IsSlotEnabled(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, uint32)
+			IL_0067: brfalse.s IL_0072
+
+			IL_0069: ldloc.3
+			IL_006a: ldloc.s 5
+			IL_006c: conv.u
+			IL_006d: ldloc.s 6
+			IL_006f: stelem.i4
+			IL_0070: br.s IL_0078
+
+			IL_0072: ldloc.3
+			IL_0073: ldloc.s 5
+			IL_0075: conv.u
+			IL_0076: ldc.i4.0
+			IL_0077: stelem.i4
+
+			IL_0078: ldloc.s 5
+			IL_007a: ldc.i4.1
+			IL_007b: add
+			IL_007c: stloc.s 5
+
+			IL_007e: ldloc.s 5
+			IL_0080: ldloc.2
+			IL_0081: blt.un.s IL_003d
+		// end loop
+
+		IL_0083: ldloc.3
+		IL_0084: ret
+	} // end of method PoolPortalComponent::GetRoutingSlotsForGroup
+
+	.method public hidebysig 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot GetValidSlotFromGroup (
+			valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup group
+		) cil managed 
+	{
+		// Method begins at RVA 0x5317b0
+		// Header size: 12
+		// Code size: 112 (0x70)
+		.maxstack 3
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[1] string,
+			[2] uint32,
+			[3] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid,
+			[4] uint32,
+			[5] valuetype [SimIFace]Sims3.SimIFace.Slot
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: brtrue.s IL_0011
+
+		IL_0003: ldstr "RoutingSlot_Pool_Inside"
+		IL_0008: stloc.1
+		IL_0009: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsInside
+		IL_000e: stloc.0
+		IL_000f: br.s IL_001d
+
+		IL_0011: ldstr "RoutingSlot_Pool_Outside"
+		IL_0016: stloc.1
+		IL_0017: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::sPreHashedSlotsOutside
+		IL_001c: stloc.0
+
+		IL_001d: ldarg.0
+		IL_001e: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_0023: stloc.2
+		IL_0024: ldarg.0
+		IL_0025: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_002a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_002f: stloc.3
+		IL_0030: ldc.i4.0
+		IL_0031: stloc.s 4
+		IL_0033: br.s IL_0069
+		// loop start (head: IL_0069)
+			IL_0035: ldloc.s 4
+			IL_0037: ldc.i4.s 32
+			IL_0039: blt.un.s IL_004f
+
+			IL_003b: ldloc.1
+			IL_003c: ldloc.s 4
+			IL_003e: box [mscorlib]System.UInt32
+			IL_0043: call string [mscorlib]System.String::Concat(object, object)
+			IL_0048: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_004d: br.s IL_0054
+
+			IL_004f: ldloc.0
+			IL_0050: ldloc.s 4
+			IL_0052: conv.u
+			IL_0053: ldelem.u4
+
+			IL_0054: stloc.s 5
+			IL_0056: ldloc.3
+			IL_0057: ldloc.s 5
+			IL_0059: call bool [SimIFace]Sims3.SimIFace.Slots::IsSlotEnabled(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, uint32)
+			IL_005e: brfalse.s IL_0063
+
+			IL_0060: ldloc.s 5
+			IL_0062: ret
+
+			IL_0063: ldloc.s 4
+			IL_0065: ldc.i4.1
+			IL_0066: add
+			IL_0067: stloc.s 4
+
+			IL_0069: ldloc.s 4
+			IL_006b: ldloc.2
+			IL_006c: blt.un.s IL_0035
+		// end loop
+
+		IL_006e: ldc.i4.0
+		IL_006f: ret
+	} // end of method PoolPortalComponent::GetValidSlotFromGroup
+
+	.method public hidebysig 
+		instance valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup GetRoutingSlotGroupForSlot (
+			valuetype [SimIFace]Sims3.SimIFace.Slot slot
+		) cil managed 
+	{
+		// Method begins at RVA 0x53182c
+		// Header size: 12
+		// Code size: 45 (0x2d)
+		.maxstack 2
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[1] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[2] valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup,
+			[3] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[4] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Pools.PoolPortalComponent::GetRoutingSlotsForGroup(valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup)
+		IL_0007: stloc.0
+		IL_0008: ldloc.0
+		IL_0009: stloc.3
+		IL_000a: ldc.i4.0
+		IL_000b: stloc.s 4
+		IL_000d: br.s IL_0022
+		// loop start (head: IL_0022)
+			IL_000f: ldloc.3
+			IL_0010: ldloc.s 4
+			IL_0012: ldelem.u4
+			IL_0013: stloc.1
+			IL_0014: ldarg.1
+			IL_0015: ldloc.1
+			IL_0016: bne.un.s IL_001c
+
+			IL_0018: ldc.i4.1
+			IL_0019: stloc.2
+			IL_001a: leave.s IL_002b
+
+			IL_001c: ldloc.s 4
+			IL_001e: ldc.i4.1
+			IL_001f: add
+			IL_0020: stloc.s 4
+
+			IL_0022: ldloc.s 4
+			IL_0024: ldloc.3
+			IL_0025: ldlen
+			IL_0026: conv.i4
+			IL_0027: blt.s IL_000f
+		// end loop
+
+		IL_0029: ldc.i4.0
+		IL_002a: ret
+
+		IL_002b: ldloc.2
+		IL_002c: ret
+	} // end of method PoolPortalComponent::GetRoutingSlotGroupForSlot
+
+	.method private hidebysig 
+		instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus SpecialSlotClearTest (
+			valuetype [SimIFace]Sims3.SimIFace.Slot slot,
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x531868
+		// Header size: 12
+		// Code size: 157 (0x9d)
+		.maxstack 6
+		.locals init (
+			[0] valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Matrix44,
+			[2] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[3] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[4] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid,
+			[5] valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance valuetype Sims3.Gameplay.Pools.PoolPortalComponent/RoutingSlotGroup Sims3.Gameplay.Pools.PoolPortalComponent::GetRoutingSlotGroupForSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0007: stloc.0
+		IL_0008: ldarg.0
+		IL_0009: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_000e: ldarg.1
+		IL_000f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Matrix44 Sims3.Gameplay.Abstracts.GameObject::GetMatrixOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0014: stloc.1
+		IL_0015: ldloca.s 1
+		IL_0017: ldflda valuetype [SimIFace]Sims3.SimIFace.Vector4 [SimIFace]Sims3.SimIFace.Matrix44::pos
+		IL_001c: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector4::get_V3()
+		IL_0021: stloc.2
+		IL_0022: ldloc.0
+		IL_0023: ldc.i4.1
+		IL_0024: bne.un.s IL_0045
+
+		IL_0026: ldloc.2
+		IL_0027: ldloca.s 1
+		IL_0029: ldflda valuetype [SimIFace]Sims3.SimIFace.Vector4 [SimIFace]Sims3.SimIFace.Matrix44::'at'
+		IL_002e: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector4::get_V3()
+		IL_0033: ldsfld float32 Sims3.Gameplay.Pools.PoolPortalComponent::kPoolWallOutsideOffset
+		IL_0038: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_003d: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0042: stloc.3
+		IL_0043: br.s IL_0062
+
+		IL_0045: ldloc.2
+		IL_0046: ldloca.s 1
+		IL_0048: ldflda valuetype [SimIFace]Sims3.SimIFace.Vector4 [SimIFace]Sims3.SimIFace.Matrix44::'at'
+		IL_004d: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector4::get_V3()
+		IL_0052: ldsfld float32 Sims3.Gameplay.Pools.PoolPortalComponent::kPoolWallInsideOffset
+		IL_0057: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_005c: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0061: stloc.3
+
+		IL_0062: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_0067: stloc.s 4
+		IL_0069: ldc.i4.0
+		IL_006a: stloc.s 5
+		IL_006c: ldarg.2
+		IL_006d: brfalse.s IL_0084
+
+		IL_006f: ldarg.2
+		IL_0070: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0075: stloc.s 4
+		IL_0077: ldarg.2
+		IL_0078: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_007d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_0082: stloc.s 5
+
+		IL_0084: ldloc.2
+		IL_0085: ldloc.3
+		IL_0086: ldc.i4.4
+		IL_0087: conv.i8
+		IL_0088: ldarg.0
+		IL_0089: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_008e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0093: ldloc.s 4
+		IL_0095: ldloc.s 5
+		IL_0097: call valuetype [SimIFace]Sims3.SimIFace.BlockedStatus [SimIFace]Sims3.SimIFace.Route::RoutingBlockerCheck2d(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags)
+		IL_009c: ret
+	} // end of method PoolPortalComponent::SpecialSlotClearTest
+
+	.method public hidebysig virtual 
+		instance bool OnPortalStart (
+			class Sims3.Gameplay.Actors.Sim s
+		) cil managed 
+	{
+		// Method begins at RVA 0x531914
+		// Header size: 12
+		// Code size: 541 (0x21d)
+		.maxstack 5
+		.locals init (
+			[0] class Sims3.Gameplay.Abstracts.GameObject,
+			[1] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo,
+			[2] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[3] uint32,
+			[4] class Sims3.Gameplay.ActorSystems.OccultImaginaryFriend,
+			[5] bool,
+			[6] valuetype Sims3.Gameplay.ActorSystems.BuffNames[]
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0006: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_ToddlerOrBelow()
+		IL_000b: brfalse.s IL_0020
+
+		IL_000d: ldarg.1
+		IL_000e: ldarg.0
+		IL_000f: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0014: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey Sims3.Gameplay.Abstracts.GameObject::GetThoughtBalloonThumbnailKey()
+		IL_0019: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure(valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey)
+		IL_001e: ldc.i4.0
+		IL_001f: ret
+
+		IL_0020: ldarg.1
+		IL_0021: callvirt instance class Sims3.Gameplay.ActorSystems.Children.CarryingChildPosture Sims3.Gameplay.Actors.Sim::get_CarryingChildPosture()
+		IL_0026: brfalse.s IL_0040
+
+		IL_0028: ldarg.1
+		IL_0029: ldarg.1
+		IL_002a: callvirt instance class Sims3.Gameplay.ActorSystems.Children.CarryingChildPosture Sims3.Gameplay.Actors.Sim::get_CarryingChildPosture()
+		IL_002f: callvirt instance class Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.ActorSystems.Posture::get_Container()
+		IL_0034: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey Sims3.Gameplay.Interfaces.IGameObject::GetThoughtBalloonThumbnailKey()
+		IL_0039: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure(valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey)
+		IL_003e: ldc.i4.0
+		IL_003f: ret
+
+		IL_0040: ldarg.1
+		IL_0041: callvirt instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Actors.Sim::GetObjectInLeftHand()
+		IL_0046: brtrue.s IL_0050
+
+		IL_0048: ldarg.1
+		IL_0049: callvirt instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Actors.Sim::GetObjectInRightHand()
+		IL_004e: br.s IL_0056
+
+		IL_0050: ldarg.1
+		IL_0051: callvirt instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Actors.Sim::GetObjectInLeftHand()
+
+		IL_0056: stloc.0
+		IL_0057: ldloc.0
+		IL_0058: brfalse.s IL_0068
+
+		IL_005a: ldarg.1
+		IL_005b: ldloc.0
+		IL_005c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey Sims3.Gameplay.Abstracts.GameObject::GetThoughtBalloonThumbnailKey()
+		IL_0061: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure(valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey)
+		IL_0066: ldc.i4.0
+		IL_0067: ret
+
+		IL_0068: ldarg.0
+		IL_0069: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+		IL_006e: isinst Sims3.Gameplay.Interfaces.IBuildableFountain
+		IL_0073: brfalse.s IL_007d
+
+		IL_0075: ldarg.1
+		IL_0076: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure()
+		IL_007b: ldc.i4.0
+		IL_007c: ret
+
+		IL_007d: ldarg.0
+		IL_007e: ldarg.1
+		IL_007f: ldloca.s 1
+		IL_0081: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneInfo(class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo&)
+		IL_0086: brfalse IL_0218
+
+		IL_008b: ldarg.0
+		IL_008c: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+		IL_0091: ldloca.s 1
+		IL_0093: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0098: ldc.i4.1
+		IL_0099: ldelem.u4
+		IL_009a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_009f: ldarg.0
+		IL_00a0: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+		IL_00a5: ldloca.s 1
+		IL_00a7: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_00ac: ldc.i4.0
+		IL_00ad: ldelem.u4
+		IL_00ae: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_00b3: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_00b8: stloc.2
+		IL_00b9: ldloca.s 2
+		IL_00bb: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Zero
+		IL_00c0: call instance bool [SimIFace]Sims3.SimIFace.Vector3::IsSimilarTo(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_00c5: brfalse.s IL_00cf
+
+		IL_00c7: ldarg.1
+		IL_00c8: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure()
+		IL_00cd: ldc.i4.0
+		IL_00ce: ret
+
+		IL_00cf: ldloca.s 1
+		IL_00d1: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_00d6: ldc.i4.0
+		IL_00d7: ldelem.u4
+		IL_00d8: stloc.3
+		.try
+		{
+			IL_00d9: ldloca.s 2
+			IL_00db: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+			IL_00e0: ldc.r4 0.0
+			IL_00e5: bge.un IL_0191
+
+			IL_00ea: ldarg.0
+			IL_00eb: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+			IL_00f0: ldloc.3
+			IL_00f1: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::EnableFootprint(uint32)
+			IL_00f6: pop
+			IL_00f7: ldarg.0
+			IL_00f8: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+			IL_00fd: ldarg.1
+			IL_00fe: ldloca.s 1
+			IL_0100: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_0105: ldc.i4.0
+			IL_0106: ldelem.u4
+			IL_0107: ldloca.s 1
+			IL_0109: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_010e: ldc.i4.1
+			IL_010f: ldelem.u4
+			IL_0110: callvirt instance bool Sims3.Gameplay.Pools.PoolPortalObject::GetIn(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0115: brfalse.s IL_0189
+
+			IL_0117: ldarg.1
+			IL_0118: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsHuman()
+			IL_011d: brfalse.s IL_0181
+
+			IL_011f: ldarg.1
+			IL_0120: ldloca.s 4
+			IL_0122: call bool Sims3.Gameplay.ActorSystems.OccultImaginaryFriend::TryGetOccultFromSim(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.ActorSystems.OccultImaginaryFriend&)
+			IL_0127: brfalse.s IL_0132
+
+			IL_0129: ldloc.s 4
+			IL_012b: callvirt instance bool Sims3.Gameplay.ActorSystems.OccultImaginaryFriend::get_IsReal()
+			IL_0130: brfalse.s IL_0181
+
+			IL_0132: ldarg.1
+			IL_0133: callvirt instance class Sims3.Gameplay.ActorSystems.BuffManager Sims3.Gameplay.Actors.Sim::get_BuffManager()
+			IL_0138: ldc.i4.2
+			IL_0139: newarr Sims3.Gameplay.ActorSystems.BuffNames
+			IL_013e: stloc.s 6
+			IL_0140: ldloc.s 6
+			IL_0142: ldc.i4.0
+			IL_0143: ldc.i8 -5175480303478028432 // 0xb82d0015b9294770
+			IL_014c: stelem.i8
+			IL_014d: ldloc.s 6
+			IL_014f: ldc.i4.1
+			IL_0150: ldc.i8 -5175480303478028400 // 0xb82d0015b9294790
+			IL_0159: stelem.i8
+			IL_015a: ldloc.s 6
+			IL_015c: callvirt instance bool Sims3.Gameplay.ActorSystems.BuffManager::HasAnyElement(valuetype Sims3.Gameplay.ActorSystems.BuffNames[])
+			IL_0161: brfalse.s IL_0181
+
+			IL_0163: ldarg.1
+			IL_0164: callvirt instance class Sims3.Gameplay.ActorSystems.BuffManager Sims3.Gameplay.Actors.Sim::get_BuffManager()
+			IL_0169: ldc.i8 -199002660597179872 // 0xfd3d002271bf5a20
+			IL_0172: ldc.i8 -8359806666160896184 // 0x8bfc002118898748
+			IL_017b: callvirt instance bool Sims3.Gameplay.ActorSystems.BuffManager::AddElement(valuetype Sims3.Gameplay.ActorSystems.BuffNames, valuetype Sims3.Gameplay.ActorSystems.Origin)
+			IL_0180: pop
+
+			IL_0181: ldc.i4.1
+			IL_0182: stloc.s 5
+			IL_0184: leave IL_021a
+
+			IL_0189: ldc.i4.0
+			IL_018a: stloc.s 5
+			IL_018c: leave IL_021a
+
+			IL_0191: ldloca.s 1
+			IL_0193: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_0198: ldc.i4.1
+			IL_0199: ldelem.u4
+			IL_019a: stloc.3
+			IL_019b: ldarg.0
+			IL_019c: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+			IL_01a1: ldloc.3
+			IL_01a2: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::EnableFootprint(uint32)
+			IL_01a7: pop
+			IL_01a8: ldarg.1
+			IL_01a9: callvirt instance class Sims3.Gameplay.ActorSystems.BuffManager Sims3.Gameplay.Actors.Sim::get_BuffManager()
+			IL_01ae: ldc.i8 -199002660597179872 // 0xfd3d002271bf5a20
+			IL_01b7: callvirt instance void Sims3.Gameplay.ActorSystems.BuffManager::RemoveElement(valuetype Sims3.Gameplay.ActorSystems.BuffNames)
+			IL_01bc: ldarg.0
+			IL_01bd: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+			IL_01c2: ldarg.1
+			IL_01c3: ldloca.s 1
+			IL_01c5: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_01ca: ldc.i4.0
+			IL_01cb: ldelem.u4
+			IL_01cc: ldloca.s 1
+			IL_01ce: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_01d3: ldc.i4.1
+			IL_01d4: ldelem.u4
+			IL_01d5: callvirt instance bool Sims3.Gameplay.Pools.PoolPortalObject::GetOut(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_01da: brfalse.s IL_0205
+
+			IL_01dc: ldarg.1
+			IL_01dd: callvirt instance void Sims3.Gameplay.Actors.Sim::LoopIdle()
+			IL_01e2: ldarg.1
+			IL_01e3: ldc.i8 344525470744996480
+			IL_01ec: callvirt instance bool Sims3.Gameplay.Actors.Sim::HasTrait(valuetype Sims3.Gameplay.ActorSystems.TraitNames)
+			IL_01f1: brfalse.s IL_0200
+
+			IL_01f3: ldarg.1
+			IL_01f4: ldc.i4 143
+			IL_01f9: ldc.i4.2
+			IL_01fa: callvirt instance bool Sims3.Gameplay.Actors.Sim::PlayReaction(valuetype Sims3.Gameplay.ActorSystems.ReactionTypes, valuetype Sims3.Gameplay.ActorSystems.ReactionSpeed)
+			IL_01ff: pop
+
+			IL_0200: ldc.i4.1
+			IL_0201: stloc.s 5
+			IL_0203: leave.s IL_021a
+
+			IL_0205: ldc.i4.0
+			IL_0206: stloc.s 5
+			IL_0208: leave.s IL_021a
+		} // end .try
+		finally
+		{
+			IL_020a: ldarg.0
+			IL_020b: ldfld class Sims3.Gameplay.Pools.PoolPortalObject Sims3.Gameplay.Pools.PoolPortalComponent::OwnerPoolPortalObject
+			IL_0210: ldloc.3
+			IL_0211: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+			IL_0216: pop
+			IL_0217: endfinally
+		} // end handler
+
+		IL_0218: ldc.i4.1
+		IL_0219: ret
+
+		IL_021a: ldloc.s 5
+		IL_021c: ret
+	} // end of method PoolPortalComponent::OnPortalStart
+
+	.method public hidebysig virtual 
+		instance class [SimIFace]Sims3.SimIFace.Route ComponentCreateRoute (
+			class Sims3.Gameplay.Actors.Sim s
+		) cil managed 
+	{
+		// Method begins at RVA 0x531b5c
+		// Header size: 12
+		// Code size: 48 (0x30)
+		.maxstack 3
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.Route
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.Abstracts.GameObject::CreateRoute()
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: ldc.i4 262144
+		IL_000d: conv.i8
+		IL_000e: ldc.i4.1
+		IL_000f: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetOption(valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool)
+		IL_0014: ldloc.0
+		IL_0015: ldc.i4 65536
+		IL_001a: conv.i8
+		IL_001b: ldc.i4.0
+		IL_001c: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetOption(valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool)
+		IL_0021: ldloc.0
+		IL_0022: ldc.i4 131072
+		IL_0027: conv.i8
+		IL_0028: ldc.i4.0
+		IL_0029: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetOption(valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool)
+		IL_002e: ldloc.0
+		IL_002f: ret
+	} // end of method PoolPortalComponent::ComponentCreateRoute
+
+	.method public hidebysig 
+		instance string DebugGetNameOfSlot (
+			valuetype [SimIFace]Sims3.SimIFace.Slot s
+		) cil managed 
+	{
+		// Method begins at RVA 0x531b98
+		// Header size: 12
+		// Code size: 107 (0x6b)
+		.maxstack 3
+		.locals init (
+			[0] uint32,
+			[1] uint32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_0006: stloc.0
+		IL_0007: ldc.i4.0
+		IL_0008: stloc.1
+		IL_0009: br.s IL_0061
+		// loop start (head: IL_0061)
+			IL_000b: ldarg.1
+			IL_000c: ldstr "RoutingSlot_Pool_Outside"
+			IL_0011: ldloc.1
+			IL_0012: box [mscorlib]System.UInt32
+			IL_0017: call string [mscorlib]System.String::Concat(object, object)
+			IL_001c: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0021: bne.un.s IL_0034
+
+			IL_0023: ldstr "RoutingSlot_Pool_Outside"
+			IL_0028: ldloc.1
+			IL_0029: box [mscorlib]System.UInt32
+			IL_002e: call string [mscorlib]System.String::Concat(object, object)
+			IL_0033: ret
+
+			IL_0034: ldarg.1
+			IL_0035: ldstr "RoutingSlot_Pool_Inside"
+			IL_003a: ldloc.1
+			IL_003b: box [mscorlib]System.UInt32
+			IL_0040: call string [mscorlib]System.String::Concat(object, object)
+			IL_0045: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_004a: bne.un.s IL_005d
+
+			IL_004c: ldstr "RoutingSlot_Pool_Inside"
+			IL_0051: ldloc.1
+			IL_0052: box [mscorlib]System.UInt32
+			IL_0057: call string [mscorlib]System.String::Concat(object, object)
+			IL_005c: ret
+
+			IL_005d: ldloc.1
+			IL_005e: ldc.i4.1
+			IL_005f: add
+			IL_0060: stloc.1
+
+			IL_0061: ldloc.1
+			IL_0062: ldloc.0
+			IL_0063: blt.un.s IL_000b
+		// end loop
+
+		IL_0065: ldstr "<Unknown>"
+		IL_006a: ret
+	} // end of method PoolPortalComponent::DebugGetNameOfSlot
+
+	.method public hidebysig virtual 
+		instance bool IsLaneUnobstructed (
+			valuetype [SimIFace]Sims3.SimIFace.Slot[] laneSlots,
+			class Sims3.Gameplay.Actors.Sim s,
+			bool checkForSims,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption routeOptions
+		) cil managed 
+	{
+		// Method begins at RVA 0x531c10
+		// Header size: 12
+		// Code size: 49 (0x31)
+		.maxstack 5
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.BlockedStatus,
+			[1] valuetype [SimIFace]Sims3.SimIFace.BlockedStatus
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: ldarg.s routeOptions
+		IL_0006: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::IsLaneUnobstructed(valuetype [SimIFace]Sims3.SimIFace.Slot[], class Sims3.Gameplay.Actors.Sim, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption)
+		IL_000b: brtrue.s IL_000f
+
+		IL_000d: ldc.i4.0
+		IL_000e: ret
+
+		IL_000f: ldarg.0
+		IL_0010: ldarg.1
+		IL_0011: ldc.i4.0
+		IL_0012: ldelem.u4
+		IL_0013: ldarg.2
+		IL_0014: call instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus Sims3.Gameplay.Pools.PoolPortalComponent::SpecialSlotClearTest(valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Actors.Sim)
+		IL_0019: stloc.0
+		IL_001a: ldarg.0
+		IL_001b: ldarg.1
+		IL_001c: ldc.i4.1
+		IL_001d: ldelem.u4
+		IL_001e: ldarg.2
+		IL_001f: call instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus Sims3.Gameplay.Pools.PoolPortalComponent::SpecialSlotClearTest(valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Actors.Sim)
+		IL_0024: stloc.1
+		IL_0025: ldloc.0
+		IL_0026: ldc.i4.3
+		IL_0027: beq.s IL_002d
+
+		IL_0029: ldloc.1
+		IL_002a: ldc.i4.3
+		IL_002b: bne.un.s IL_002f
+
+		IL_002d: ldc.i4.0
+		IL_002e: ret
+
+		IL_002f: ldc.i4.1
+		IL_0030: ret
+	} // end of method PoolPortalComponent::IsLaneUnobstructed
+
+	.method family hidebysig virtual 
+		instance bool DoAdditionalLaneChecks (
+			bool bPreferedLane,
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo laneInfo
+		) cil managed 
+	{
+		// Method begins at RVA 0x531c50
+		// Header size: 12
+		// Code size: 209 (0xd1)
+		.maxstack 4
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.BlockedStatus,
+			[1] valuetype [SimIFace]Sims3.SimIFace.BlockedStatus,
+			[2] class Sims3.Gameplay.Core.Lot
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarga.s laneInfo
+		IL_0003: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0008: ldc.i4.0
+		IL_0009: ldelem.u4
+		IL_000a: ldarg.2
+		IL_000b: call instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus Sims3.Gameplay.Pools.PoolPortalComponent::SpecialSlotClearTest(valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Actors.Sim)
+		IL_0010: stloc.0
+		IL_0011: ldarg.0
+		IL_0012: ldarga.s laneInfo
+		IL_0014: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0019: ldc.i4.1
+		IL_001a: ldelem.u4
+		IL_001b: ldarg.2
+		IL_001c: call instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus Sims3.Gameplay.Pools.PoolPortalComponent::SpecialSlotClearTest(valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Actors.Sim)
+		IL_0021: stloc.1
+		IL_0022: ldloc.0
+		IL_0023: ldc.i4.3
+		IL_0024: beq.s IL_002a
+
+		IL_0026: ldloc.1
+		IL_0027: ldc.i4.3
+		IL_0028: bne.un.s IL_002c
+
+		IL_002a: ldc.i4.0
+		IL_002b: ret
+
+		IL_002c: ldarg.0
+		IL_002d: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0032: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0037: stloc.2
+		IL_0038: ldloc.2
+		IL_0039: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot::get_CommercialLotSubType()
+		IL_003e: ldc.i4.s 81
+		IL_0040: bne.un.s IL_0082
+
+		IL_0042: ldarg.2
+		IL_0043: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsSelectable()
+		IL_0048: brfalse.s IL_0082
+
+		IL_004a: ldloc.2
+		IL_004b: ldarg.2
+		IL_004c: callvirt instance bool Sims3.Gameplay.Core.Lot::IsCheckedInResort(class Sims3.Gameplay.Actors.Sim)
+		IL_0051: brtrue.s IL_0082
+
+		IL_0053: ldarg.2
+		IL_0054: callvirt instance class Sims3.Gameplay.ActorSystems.Posture Sims3.Gameplay.Actors.Sim::get_Posture()
+		IL_0059: isinst Sims3.Gameplay.Pools.SwimmingInPool
+		IL_005e: brtrue.s IL_0082
+
+		IL_0060: ldarg.2
+		IL_0061: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+		IL_0066: callvirt instance class Sims3.Gameplay.RealEstate.RealEstateManager Sims3.Gameplay.CAS.Household::get_RealEstateManager()
+		IL_006b: brfalse.s IL_0082
+
+		IL_006d: ldarg.2
+		IL_006e: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+		IL_0073: callvirt instance class Sims3.Gameplay.RealEstate.RealEstateManager Sims3.Gameplay.CAS.Household::get_RealEstateManager()
+		IL_0078: ldloc.2
+		IL_0079: callvirt instance class Sims3.Gameplay.RealEstate.PropertyData Sims3.Gameplay.RealEstate.RealEstateManager::FindVenueProperty(class Sims3.Gameplay.Core.Lot)
+		IL_007e: brtrue.s IL_0082
+
+		IL_0080: ldc.i4.0
+		IL_0081: ret
+
+		IL_0082: ldarg.1
+		IL_0083: brfalse.s IL_00cf
+
+		IL_0085: ldloc.0
+		IL_0086: brtrue.s IL_008b
+
+		IL_0088: ldloc.1
+		IL_0089: brfalse.s IL_00cf
+
+		IL_008b: ldarg.2
+		IL_008c: ldarg.0
+		IL_008d: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0092: ldarga.s laneInfo
+		IL_0094: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0099: ldc.i4.0
+		IL_009a: ldelem.u4
+		IL_009b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_00a0: ldc.r4 1
+		IL_00a5: ldc.i4.1
+		IL_00a6: callvirt instance bool Sims3.Gameplay.Actors.Sim::PushSims(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32, bool)
+		IL_00ab: pop
+		IL_00ac: ldarg.2
+		IL_00ad: ldarg.0
+		IL_00ae: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_00b3: ldarga.s laneInfo
+		IL_00b5: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_00ba: ldc.i4.1
+		IL_00bb: ldelem.u4
+		IL_00bc: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_00c1: ldc.r4 1
+		IL_00c6: ldc.i4.1
+		IL_00c7: callvirt instance bool Sims3.Gameplay.Actors.Sim::PushSims(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32, bool)
+		IL_00cc: pop
+		IL_00cd: ldc.i4.1
+		IL_00ce: ret
+
+		IL_00cf: ldc.i4.1
+		IL_00d0: ret
+	} // end of method PoolPortalComponent::DoAdditionalLaneChecks
+
+	// Properties
+	.property instance bool AddToUseListDuringTraversal()
+	{
+		.get instance bool Sims3.Gameplay.Pools.PoolPortalComponent::get_AddToUseListDuringTraversal()
+	}
+	.property instance bool RemoveFromUseListAfterTraversal()
+	{
+		.get instance bool Sims3.Gameplay.Pools.PoolPortalComponent::get_RemoveFromUseListAfterTraversal()
+	}
+	.property instance bool CanUseUmbrella()
+	{
+		.get instance bool Sims3.Gameplay.Pools.PoolPortalComponent::get_CanUseUmbrella()
+	}
+
+} // end of class Sims3.Gameplay.Pools.PoolPortalComponent

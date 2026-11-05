@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x060004A5.
+// Assembly: CSHostWrap; type: Sims3.CSHost.WorldWrap.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/WorldWrap.cs:76
+	[DllImport("Sims3Common.dll")]
+	private static extern int WorldWrap_InitFromImage(IntPtr pWorldAsVoid, [In][MarshalAs(UnmanagedType.LPWStr)] string imageFilePath, float heightScale, float gridScale, [In][MarshalAs(UnmanagedType.LPWStr)] string baseLayerTexture, uint terrainType, ResourceKey baseLayerTextureKey);

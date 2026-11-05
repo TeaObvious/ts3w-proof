@@ -1,0 +1,41 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* Verified PC 1.67 registration table at 0x01181648 (original PC 1.67 TS3W.exe).
+   ScriptCore.DownloadContent::DownloadContent_InstallContentImpl [assembly=ScriptCore
+   token=0x060000E6; packageFile: System.String; return=System.UInt32]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+_GUID * ScriptCore_DownloadContent__DownloadContent_InstallContentImpl(undefined4 param_1)
+
+{
+  int *piVar1;
+  LPCWSTR pWVar2;
+  void *this;
+  int iVar3;
+  _GUID *p_Var4;
+  undefined1 auStack_414 [1044];
+  
+  piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
+  if (piVar1 != (int *)0x0) {
+    pWVar2 = (LPCWSTR)(**(code **)(*piVar1 + 0x58))(param_1);
+    FUN_004ee170(auStack_414,(ushort *)pWVar2);
+    FUN_004ede30(auStack_414,&stack0xfffff9ec,0x100);
+    this = (void *)FUN_00982e60();
+    if (this != (void *)0x0) {
+      iVar3 = _wcsicmp((wchar_t *)&stack0xfffff9ec,(wchar_t *)PTR_DAT_01181544);
+      if (iVar3 == 0) {
+        p_Var4 = FUN_00990350(this,pWVar2);
+        return p_Var4;
+      }
+      p_Var4 = (_GUID *)FUN_0098e840(this,pWVar2,(int *)0x0);
+      return p_Var4;
+    }
+  }
+  return (_GUID *)0x1;
+}
+

@@ -1,0 +1,110 @@
+// Original ScriptCore.dll 0x060005e4 RVA 0x800c; complete actual ILSpy IL.
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x800c
+		// Header size: 12
+		// Code size: 41 (0x29)
+		.maxstack 3
+		.locals init (
+			[0] class [mscorlib]System.Type[],
+			[1] class [mscorlib]System.Reflection.ConstructorInfo
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: newarr [mscorlib]System.Type
+		IL_0006: stloc.0
+		IL_0007: ldtoken ScriptCore.EventQueue
+		IL_000c: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_0011: ldloc.0
+		IL_0012: call instance class [mscorlib]System.Reflection.ConstructorInfo [mscorlib]System.Type::GetConstructor(class [mscorlib]System.Type[])
+		IL_0017: stloc.1
+		IL_0018: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain()
+		IL_001d: ldstr "EventQueueCtor"
+		IL_0022: ldloc.1
+		IL_0023: callvirt instance void [mscorlib]System.AppDomain::SetData(string, object)
+		IL_0028: ret
+	} // end of method EventQueueInitializer::.cctor
+
+// Original ScriptCore.dll 0x06000d79 RVA 0x10d34; complete actual ILSpy IL.
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x10d34
+		// Header size: 1
+		// Code size: 45 (0x2d)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void ScriptCore.CallbackObject::.ctor()
+		IL_0006: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain()
+		IL_000b: ldstr "SacsProxy"
+		IL_0010: ldarg.0
+		IL_0011: callvirt instance void [mscorlib]System.AppDomain::SetData(string, object)
+		IL_0016: call class ScriptCore.LoadSaveManager ScriptCore.LoadSaveManager::get_Instance()
+		IL_001b: ldarg.0
+		IL_001c: ldftn instance void ScriptCore.SACS::ObjectGroupSaving(class [SimIFace]Sims3.SimIFace.IScriptObjectGroup)
+		IL_0022: newobj instance void [SimIFace]Sims3.SimIFace.ObjectGroupSavingHandler::.ctor(object, native int)
+		IL_0027: callvirt instance void ScriptCore.LoadSaveManager::add_ObjectGroupSaving(class [SimIFace]Sims3.SimIFace.ObjectGroupSavingHandler)
+		IL_002c: ret
+	} // end of method SACS::.ctor
+
+// Original ScriptCore.dll 0x06000ff5 RVA 0x128d9; complete actual ILSpy IL.
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x128d9
+		// Header size: 1
+		// Code size: 23 (0x17)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [mscorlib]System.Object::.ctor()
+		IL_0006: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain()
+		IL_000b: ldstr "LookAtMgr"
+		IL_0010: ldarg.0
+		IL_0011: callvirt instance void [mscorlib]System.AppDomain::SetData(string, object)
+		IL_0016: ret
+	} // end of method LookAtMgr::.ctor
+
+// Original ScriptCore.dll 0x06000ff6 RVA 0x128f1; complete actual ILSpy IL.
+	.method public final hidebysig newslot virtual 
+		instance class [SimIFace]Sims3.SimIFace.ILookAtTask CreateLookAtTask (
+			class [SimIFace]Sims3.SimIFace.IScriptProxy simObj,
+			int32 priority,
+			valuetype [SimIFace]Sims3.SimIFace.LookAtJointFilter jointFilter
+		) cil managed 
+	{
+		// Method begins at RVA 0x128f1
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: newobj instance void ScriptCore.LookAtTask::.ctor(class [SimIFace]Sims3.SimIFace.IScriptProxy, int32, valuetype [SimIFace]Sims3.SimIFace.LookAtJointFilter)
+		IL_0008: ret
+	} // end of method LookAtMgr::CreateLookAtTask
+
+// Original ScriptCore.dll 0x06001040 RVA 0x12a80; complete actual ILSpy IL.
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x12a80
+		// Header size: 1
+		// Code size: 41 (0x29)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [mscorlib]System.Object::.ctor()
+		IL_0006: ldarg.0
+		IL_0007: ldftn instance class [SimIFace]Sims3.SimIFace.IFastBaseStreamWriter ScriptCore.StreamHost::CreateFastBaseStreamWriter(uint32)
+		IL_000d: newobj instance void [SimIFace]Sims3.SimIFace.FastStreamWriter/FastBaseStreamWriterCreator::.ctor(object, native int)
+		IL_0012: stsfld class [SimIFace]Sims3.SimIFace.FastStreamWriter/FastBaseStreamWriterCreator [SimIFace]Sims3.SimIFace.FastStreamWriter::sFastBaseStreamWriterCreator
+		IL_0017: ldarg.0
+		IL_0018: ldftn instance class [SimIFace]Sims3.SimIFace.IFastBaseStreamReader ScriptCore.StreamHost::CreateFastBaseStreamReader(uint32, uint8[])
+		IL_001e: newobj instance void [SimIFace]Sims3.SimIFace.FastStreamReader/FastBaseStreamReaderCreator::.ctor(object, native int)
+		IL_0023: stsfld class [SimIFace]Sims3.SimIFace.FastStreamReader/FastBaseStreamReaderCreator [SimIFace]Sims3.SimIFace.FastStreamReader::sFastBaseStreamReaderCreator
+		IL_0028: ret
+	} // end of method StreamHost::.ctor

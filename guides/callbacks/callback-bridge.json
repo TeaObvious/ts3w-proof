@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "evidence": "Exact native registration row plus pristine ScriptCore MethodDef token and static IL callsite",
+  "caveat": "Outbound managed callsites and registration names alone do not prove inbound dispatch or native ABI",
+  "bridgeCount": 8,
+  "bridges": [
+    {
+      "registrationName": "ScriptCore.Animation::Animation_SetPMAAnimationFinishedCallback",
+      "kind": "delegate-registration",
+      "nativeVA": "0x0073a250",
+      "registrationRecordVA": "0x0115eb90",
+      "managedTokens": [
+        "0x06000DC5"
+      ],
+      "directManagedCallsites": [
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x06000DDC",
+          "callerName": "ScriptCore.Animation::SetPMAAnimationFinishedCallback",
+          "ilOffset": "0x0001",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x06000DC5",
+          "resolution": "same-assembly-token"
+        }
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Animation::Animation_SetMissingAnimationCallback",
+      "kind": "registered-no-op",
+      "nativeVA": "0x004b40c0",
+      "registrationRecordVA": "0x0115ebb8",
+      "managedTokens": [
+        "0x06000DCA"
+      ],
+      "directManagedCallsites": []
+    },
+    {
+      "registrationName": "ScriptCore.CameraController::Camera_RegisterCallbackMethod",
+      "kind": "named-method-registration",
+      "nativeVA": "0x0073e7a0",
+      "registrationRecordVA": "0x0115ec38",
+      "managedTokens": [
+        "0x060006E9"
+      ],
+      "directManagedCallsites": [
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x06000716",
+          "callerName": "ScriptCore.CameraController::RegisterCallbackMethod",
+          "ilOffset": "0x0003",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x060006E9",
+          "resolution": "same-assembly-token"
+        }
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.LoadSaveManager::LoadSaveManager_SaveWorld",
+      "kind": "delegate-save-request",
+      "nativeVA": "0x00743880",
+      "registrationRecordVA": "0x011611f8",
+      "managedTokens": [
+        "0x060001D5"
+      ],
+      "directManagedCallsites": [
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x060001FB",
+          "callerName": "ScriptCore.LoadSaveManager::SaveWorld",
+          "ilOffset": "0x0025",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x060001D5",
+          "resolution": "same-assembly-token"
+        }
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.World::World_RegisterCallbackMethodImpl",
+      "kind": "named-method-registration",
+      "nativeVA": "0x00796550",
+      "registrationRecordVA": "0x01163228",
+      "managedTokens": [
+        "0x06000742"
+      ],
+      "directManagedCallsites": [
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x060008B7",
+          "callerName": "ScriptCore.World::RegisterCallbackMethod",
+          "ilOffset": "0x0003",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x06000742",
+          "resolution": "same-assembly-token"
+        }
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.World::World_RegisterCallbackDelegateImpl",
+      "kind": "delegate-registration",
+      "nativeVA": "0x00786580",
+      "registrationRecordVA": "0x01163230",
+      "managedTokens": [
+        "0x06000743"
+      ],
+      "directManagedCallsites": [
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x060008B8",
+          "callerName": "ScriptCore.World::RegisterCallbackDelegate",
+          "ilOffset": "0x0002",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x06000743",
+          "resolution": "same-assembly-token"
+        }
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SoundFinishedCallbackImpl",
+      "kind": "sound-finished-delegate-registration",
+      "nativeVA": "0x00863330",
+      "registrationRecordVA": "0x011677b8",
+      "managedTokens": [
+        "0x060011E1"
+      ],
+      "directManagedCallsites": [
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x060011F5",
+          "callerName": "ScriptCore.Audio::StartSoundById",
+          "ilOffset": "0x0005",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x060011E1",
+          "resolution": "same-assembly-token"
+        },
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x060011F6",
+          "callerName": "ScriptCore.Audio::StartSound",
+          "ilOffset": "0x000C",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x060011E1",
+          "resolution": "same-assembly-token"
+        },
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x060011FC",
+          "callerName": "ScriptCore.Audio::StartObjectSound",
+          "ilOffset": "0x0014",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x060011E1",
+          "resolution": "same-assembly-token"
+        },
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x060011FE",
+          "callerName": "ScriptCore.Audio::StartObjectSoundWithFlags",
+          "ilOffset": "0x0015",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x060011E1",
+          "resolution": "same-assembly-token"
+        }
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SetEventModifiersImpl",
+      "kind": "audio-modifier-delegate-registration",
+      "nativeVA": "0x00863750",
+      "registrationRecordVA": "0x011677c8",
+      "managedTokens": [
+        "0x060011E6"
+      ],
+      "directManagedCallsites": [
+        {
+          "callerAssembly": "ScriptCore",
+          "callerToken": "0x06001201",
+          "callerName": "ScriptCore.Audio::SetEventModifiers",
+          "ilOffset": "0x0005",
+          "opcode": "call",
+          "targetAssembly": "ScriptCore",
+          "targetToken": "0x060011E6",
+          "resolution": "same-assembly-token"
+        }
+      ]
+    }
+  ]
+}

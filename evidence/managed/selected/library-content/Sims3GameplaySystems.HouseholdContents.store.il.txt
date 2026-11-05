@@ -1,0 +1,101 @@
+// Original PC1.67 packaged retail members; complete selected method bodies. Central identities apply.
+// Raw CIL tokens/signatures qualify unresolved generics; compiler-generated child/lambda bodies are separate.
+
+// Sims3.Gameplay.Core.HouseholdContents::StoreInventory MethodDef0x06008FD3 RVA0x0027C004
+// Signature 00010b12c0004c00; maxstack2; locals11001A03; initlocalsTrue
+// Complete raw CIL (23 bytes): 73A204000A0A02066F1B800006020628F926000A0B072A
+IL_0000: newobj 0x0A0004A2 Sims3.SimIFace.CustomContent.ObjectIdTable::.ctor
+IL_0005: stloc.0
+IL_0006: ldarg.0
+IL_0007: ldloc.0
+IL_0008: callvirt 0x0600801B Sims3.Gameplay.Inventory::AddToObjectIdTable
+IL_000D: ldarg.0
+IL_000E: ldloc.0
+IL_000F: call 0x0A0026F9 Sims3.SimIFace.CustomContent.DownloadContent::StoreInventory
+IL_0014: stloc.1
+IL_0015: ldloc.1
+IL_0016: ret
+
+// Sims3.Gameplay.Core.HouseholdContents::ExportContent MethodDef0x06008FD6 RVA0x0027C078
+// Signature 20030212836d128371128375; maxstack4; locals11001A04; initlocalsTrue
+// Complete raw CIL (160 bytes): 05208C3A6D846F9400000A0A027B5D4B00040304066F8ABE000626056F9500000A140A05202809D368027B5E4B00048E696F9300000A26027B5E4B00048E698DEC0200010B160C027B5E4B000413061613072B3511061107960D09166A3303162B05206B71DDB4130412050911041628A206000A07082517580C0311056FCE0C000A9E110717581307110711068E6932C30520D765B0A3076FFD12000A26172A
+IL_0000: ldarg.3
+IL_0001: ldc.i4 -2073216372
+IL_0006: callvirt 0x0A000094 Sims3.SimIFace.IPropertyStreamWriter::CreateChild
+IL_000B: stloc.0
+IL_000C: ldarg.0
+IL_000D: ldfld 0x04004B5D Sims3.Gameplay.Core.HouseholdContents::mHousehold
+IL_0012: ldarg.1
+IL_0013: ldarg.2
+IL_0014: ldloc.0
+IL_0015: callvirt 0x0600BE8A Sims3.Gameplay.CAS.Household::ExportContent
+IL_001A: pop
+IL_001B: ldarg.3
+IL_001C: callvirt 0x0A000095 Sims3.SimIFace.IPropertyStreamWriter::CommitChild
+IL_0021: ldnull
+IL_0022: stloc.0
+IL_0023: ldarg.3
+IL_0024: ldc.i4 1758660904
+IL_0029: ldarg.0
+IL_002A: ldfld 0x04004B5E Sims3.Gameplay.Core.HouseholdContents::mInventories
+IL_002F: ldlen
+IL_0030: conv.i4
+IL_0031: callvirt 0x0A000093 Sims3.SimIFace.IPropertyStreamWriter::WriteInt32
+IL_0036: pop
+IL_0037: ldarg.0
+IL_0038: ldfld 0x04004B5E Sims3.Gameplay.Core.HouseholdContents::mInventories
+IL_003D: ldlen
+IL_003E: conv.i4
+IL_003F: newarr 0x010002EC System.Int32
+IL_0044: stloc.1
+IL_0045: ldc.i4.0
+IL_0046: stloc.2
+IL_0047: ldarg.0
+IL_0048: ldfld 0x04004B5E Sims3.Gameplay.Core.HouseholdContents::mInventories
+IL_004D: stloc.s 6
+IL_004F: ldc.i4.0
+IL_0050: stloc.s 7
+IL_0052: br.s IL_0089
+IL_0054: ldloc.s 6
+IL_0056: ldloc.s 7
+IL_0058: ldelem.i8
+IL_0059: stloc.3
+IL_005A: ldloc.3
+IL_005B: ldc.i4.0
+IL_005C: conv.i8
+IL_005D: bne.un.s IL_0062
+IL_005F: ldc.i4.0
+IL_0060: br.s IL_0067
+IL_0062: ldc.i4 -1260555925
+IL_0067: stloc.s 4
+IL_0069: ldloca.s 5
+IL_006B: ldloc.3
+IL_006C: ldloc.s 4
+IL_006E: ldc.i4.0
+IL_006F: call 0x0A0006A2 Sims3.SimIFace.ResourceKey::.ctor
+IL_0074: ldloc.1
+IL_0075: ldloc.2
+IL_0076: dup
+IL_0077: ldc.i4.1
+IL_0078: add
+IL_0079: stloc.2
+IL_007A: ldarg.1
+IL_007B: ldloc.s 5
+IL_007D: callvirt 0x0A000CCE Sims3.SimIFace.CustomContent.ResKeyTable::AddKey
+IL_0082: stelem.i4
+IL_0083: ldloc.s 7
+IL_0085: ldc.i4.1
+IL_0086: add
+IL_0087: stloc.s 7
+IL_0089: ldloc.s 7
+IL_008B: ldloc.s 6
+IL_008D: ldlen
+IL_008E: conv.i4
+IL_008F: blt.s IL_0054
+IL_0091: ldarg.3
+IL_0092: ldc.i4 -1548720681
+IL_0097: ldloc.1
+IL_0098: callvirt 0x0A0012FD Sims3.SimIFace.IPropertyStreamWriter::WriteInt32
+IL_009D: pop
+IL_009E: ldc.i4.1
+IL_009F: ret

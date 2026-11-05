@@ -1,0 +1,41 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+		.method public hidebysig virtual 
+			instance class Sims3.Gameplay.ActorSystems.Posture OnReset (
+				class Sims3.Gameplay.Interfaces.IGameObject objectBeingReset
+			) cil managed 
+		{
+			// Method begins at RVA 0x6b1a8
+			// Header size: 12
+			// Code size: 50 (0x32)
+			.maxstack 2
+			.locals init (
+				[0] bool
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Actors.Sim/StandingPosture::mActor
+			IL_0006: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_000b: call bool [SimIFace]Sims3.SimIFace.Objects::IsValid(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0010: brtrue.s IL_0014
+
+			IL_0012: ldnull
+			IL_0013: ret
+
+			IL_0014: ldarg.0
+			IL_0015: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.ActorSystems.Posture::CurrentStateMachine
+			IL_001a: ldnull
+			IL_001b: ceq
+			IL_001d: ldc.i4.0
+			IL_001e: ceq
+			IL_0020: stloc.0
+			IL_0021: ldarg.0
+			IL_0022: call instance void Sims3.Gameplay.Actors.Sim/StandingPosture::StartLowLODIdle()
+			IL_0027: ldloc.0
+			IL_0028: brfalse.s IL_0030
+
+			IL_002a: ldarg.0
+			IL_002b: call instance void Sims3.Gameplay.Actors.Sim/StandingPosture::StartHighLODIdle()
+
+			IL_0030: ldnull
+			IL_0031: ret
+		} // end of method StandingPosture::OnReset

@@ -1,0 +1,81 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00803c60 <.text+0x402c60>:
+  803c60:	53                   	push   ebx
+  803c61:	56                   	push   esi
+  803c62:	8b 74 24 0c          	mov    esi,DWORD PTR [esp+0xc]
+  803c66:	57                   	push   edi
+  803c67:	56                   	push   esi
+  803c68:	8b d9                	mov    ebx,ecx
+  803c6a:	e8 91 ff ff ff       	call   0x803c00
+  803c6f:	8b f8                	mov    edi,eax
+  803c71:	85 ff                	test   edi,edi
+  803c73:	0f 84 c3 00 00 00    	je     0x803d3c
+  803c79:	8b 47 08             	mov    eax,DWORD PTR [edi+0x8]
+  803c7c:	85 c0                	test   eax,eax
+  803c7e:	89 44 24 10          	mov    DWORD PTR [esp+0x10],eax
+  803c82:	0f 84 c3 00 00 00    	je     0x803d4b
+  803c88:	83 7c 24 14 00       	cmp    DWORD PTR [esp+0x14],0x0
+  803c8d:	75 28                	jne    0x803cb7
+  803c8f:	80 7b 3c 00          	cmp    BYTE PTR [ebx+0x3c],0x0
+  803c93:	74 17                	je     0x803cac
+  803c95:	83 7f 10 00          	cmp    DWORD PTR [edi+0x10],0x0
+  803c99:	75 06                	jne    0x803ca1
+  803c9b:	83 7f 1c 00          	cmp    DWORD PTR [edi+0x1c],0x0
+  803c9f:	74 0b                	je     0x803cac
+  803ca1:	c6 43 3c 00          	mov    BYTE PTR [ebx+0x3c],0x0
+  803ca5:	c7 43 40 00 00 00 00 	mov    DWORD PTR [ebx+0x40],0x0
+  803cac:	8b cf                	mov    ecx,edi
+  803cae:	e8 bd cf ff ff       	call   0x800c70
+  803cb3:	6a 00                	push   0x0
+  803cb5:	eb 6e                	jmp    0x803d25
+  803cb7:	8b 73 10             	mov    esi,DWORD PTR [ebx+0x10]
+  803cba:	55                   	push   ebp
+  803cbb:	8b 6b 14             	mov    ebp,DWORD PTR [ebx+0x14]
+  803cbe:	3b f5                	cmp    esi,ebp
+  803cc0:	74 22                	je     0x803ce4
+  803cc2:	8b 46 04             	mov    eax,DWORD PTR [esi+0x4]
+  803cc5:	3b c7                	cmp    eax,edi
+  803cc7:	74 14                	je     0x803cdd
+  803cc9:	85 c0                	test   eax,eax
+  803ccb:	74 10                	je     0x803cdd
+  803ccd:	8b 40 08             	mov    eax,DWORD PTR [eax+0x8]
+  803cd0:	85 c0                	test   eax,eax
+  803cd2:	74 09                	je     0x803cdd
+  803cd4:	6a 00                	push   0x0
+  803cd6:	8b c8                	mov    ecx,eax
+  803cd8:	e8 93 db d7 ff       	call   0x581870
+  803cdd:	83 c6 08             	add    esi,0x8
+  803ce0:	3b f5                	cmp    esi,ebp
+  803ce2:	75 de                	jne    0x803cc2
+  803ce4:	a1 84 d4 1d 01       	mov    eax,ds:0x11dd484
+  803ce9:	8b 4c 24 18          	mov    ecx,DWORD PTR [esp+0x18]
+  803ced:	50                   	push   eax
+  803cee:	e8 6d 05 13 00       	call   0x934260
+  803cf3:	8b 0d fc a0 1e 01    	mov    ecx,DWORD PTR ds:0x11ea0fc
+  803cf9:	8b 7c 24 18          	mov    edi,DWORD PTR [esp+0x18]
+  803cfd:	51                   	push   ecx
+  803cfe:	8b cf                	mov    ecx,edi
+  803d00:	8b f0                	mov    esi,eax
+  803d02:	e8 59 05 13 00       	call   0x934260
+  803d07:	85 f6                	test   esi,esi
+  803d09:	5d                   	pop    ebp
+  803d0a:	74 18                	je     0x803d24
+  803d0c:	85 c0                	test   eax,eax
+  803d0e:	75 14                	jne    0x803d24
+  803d10:	8b 56 08             	mov    edx,DWORD PTR [esi+0x8]
+  803d13:	8b 42 20             	mov    eax,DWORD PTR [edx+0x20]
+  803d16:	8d 4e 08             	lea    ecx,[esi+0x8]
+  803d19:	ff d0                	call   eax
+  803d1b:	85 c0                	test   eax,eax
+  803d1d:	0f 95 c0             	setne  al
+  803d20:	84 c0                	test   al,al
+  803d22:	74 0a                	je     0x803d2e
+  803d24:	57                   	push   edi
+  803d25:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+  803d29:	e8 72 e5 d7 ff       	call   0x5822a0
+  803d2e:	8d 4b              	lea    ecx,[ebx+0x44]

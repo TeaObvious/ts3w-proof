@@ -1,0 +1,163 @@
+// Actual ILSpy rendering; static analysis, no target code executed. Native and nested/lambda dependencies remain bounded.
+using Sims3.SimIFace;
+
+private void OnSelection(UIBinInfo lotInfo)
+{
+	if (lotInfo.HouseholdId == ulong.MaxValue)
+	{
+		if (mInfo == null || mFrom == InfoSource.Unknown)
+		{
+			return;
+		}
+		LotValidity lotValidity = mModel.GetLotValidity(lotInfo.LotId);
+		mModel.CenterCamera(lotInfo.LotId);
+		if (mInfo.LotId != ulong.MaxValue)
+		{
+			if (lotValidity == LotValidity.Valid)
+			{
+				mPlacing = true;
+				EditTownController.Instance.ShowUI(show: false);
+				UIManager.DarkenBackground(darken: true);
+				Responder.Instance.DisableQuit();
+				Simulator.AddObject(new OneShotFunctionWithParams(PlaceLotTask, lotInfo));
+			}
+			else if (!mModel.LotContentsWillFit(mInfo, lotInfo.LotId))
+			{
+				Simulator.AddObject(new OneShotFunctionWithParams(WarnTooBig, lotInfo));
+			}
+			else
+			{
+				Simulator.AddObject(new OneShotFunctionWithParams(WarnLotGeneric, lotInfo));
+			}
+		}
+		else
+		{
+			if (mInfo.HouseholdId == ulong.MaxValue)
+			{
+				return;
+			}
+			switch (lotValidity)
+			{
+			case LotValidity.Valid:
+				mPlacing = true;
+				ConfirmPurchase(lotInfo);
+				break;
+			case LotValidity.Unavailable:
+				if (mInfo.HouseholdFunds < lotInfo.LotWorth)
+				{
+					Simulator.AddObject(new OneShotFunctionWithParams(WarnInsufficientFunds, lotInfo));
+				}
+				break;
+			}
+		}
+	}
+	else if (mInfo.LotId == ulong.MaxValue)
+	{
+		if (mFrom == InfoSource.Clipboard)
+		{
+			mModel.CenterCamera(lotInfo.LotId);
+			EditTownController.Instance.MergeHouseholds(mInfo, lotInfo);
+		}
+		else
+		{
+			mModel.CenterCamera(lotInfo.LotId);
+			Simulator.AddObject(new OneShotFunctionWithParams(PlaceHouseholdTask, lotInfo));
+		}
+	}
+}
+
+using Sims3.SimIFace.CustomContent;
+
+private void PlaceLotTask(object obj)
+{
+	if (obj is UIBinInfo uIBinInfo)
+	{
+		LotRotationAngle angle = LotRotationAngle.kLotRotateAuto;
+		LotPosition position = LotPosition.kLotPositionCenter;
+		ulong houseboatLotId = uIBinInfo.LotId;
+		int lotWorth = uIBinInfo.LotWorth;
+		if (!CreateHouseboatLotIfNecessary(uIBinInfo, ref houseboatLotId, ref lotWorth))
+		{
+			mPlacing = false;
+			EditTownController.Instance.ShowUI(show: true);
+			UIManager.DarkenBackground(darken: false);
+			return;
+		}
+		int rotationCount = 0;
+		if (!mModel.LotIsEmpty(houseboatLotId) && !AcceptCancelDialog.Show(Responder.Instance.LocalizationModel.LocalizeString("Ui/Caption/GameEntry/PlaceEPLotsWizard:BulldozePrompt")))
+		{
+			DestroyHouseboatLotIfNecessary(uIBinInfo);
+			mPlacing = false;
+			EditTownController.Instance.ShowUI(show: true);
+			EditTownLibraryPanel.Instance.Visible = false;
+			UIManager.DarkenBackground(darken: false);
+			Responder.Instance.EnableQuit();
+			return;
+		}
+		if (mModel.BeginPlaceLotContents(mInfo, houseboatLotId, out rotationCount))
+		{
+			if (mInfo.HouseholdId != ulong.MaxValue && !mModel.PayForLot(mInfo, houseboatLotId))
+			{
+				DestroyHouseboatLotIfNecessary(uIBinInfo);
+				WarnInsufficientFunds(uIBinInfo);
+				return;
+			}
+			mModel.UpdateRoutingData();
+			mModel.PlaceLotContents(ref angle, ref position, bShowProgressDialog: true);
+			EditTownPlaceDialog.Show(houseboatLotId, rotationCount, cancellable: true, uIBinInfo.IsHouseboatLot || uIBinInfo.IsPortLot);
+			EditTownPlaceDialog.ReturnType returnType = EditTownPlaceDialog.Update(ref angle, ref position);
+			while (true)
+			{
+				switch (returnType)
+				{
+				case EditTownPlaceDialog.ReturnType.Rotate:
+					goto IL_013b;
+				case EditTownPlaceDialog.ReturnType.Accept:
+					if (mInfo.HouseholdId != ulong.MaxValue)
+					{
+						if (mFrom == InfoSource.Clipboard)
+						{
+							mModel.PlaceFromGameBin(mInfo, houseboatLotId, PlaceAction.MoveIn);
+						}
+						else
+						{
+							mModel.PlaceFromExportBin(mInfo, houseboatLotId, PlaceAction.MoveIn);
+						}
+					}
+					mModel.EndPlaceLotContents();
+					if (mModel.IsPlaceLotsWizardFlow)
+					{
+						SimpleMessageDialog.Show(null, Responder.Instance.LocalizationModel.LocalizeString("Ui/Caption/GameEntry/PlaceEPLotsWizard:Placed_" + mInfo.CommercialLotSubType));
+					}
+					mPlacingLot++;
+					break;
+				default:
+					mModel.CancelPlaceLotContents();
+					DestroyHouseboatLotIfNecessary(uIBinInfo);
+					break;
+				}
+				break;
+				IL_013b:
+				mModel.PlaceLotContents(ref angle, ref position, bShowProgressDialog: true);
+				returnType = EditTownPlaceDialog.Update(ref angle, ref position);
+			}
+			mModel.SetCurrentSelection(null, InfoSource.Unknown);
+			EditTownPlaceDialog.Hide();
+		}
+	}
+	if (!GetWizardLotToPlace())
+	{
+		EditTownTool.CurrentTool = EditTownDefaultTool.Instance;
+	}
+	mPlacing = false;
+}
+
+using Sims3.SimIFace;
+
+private void WarnLotGeneric(object obj)
+{
+	ILocalizationModel localizationModel = Responder.Instance.LocalizationModel;
+	string messageText = localizationModel.LocalizeString("Ui/Caption/GameEntry/EditTown:LotGenericWarning");
+	SimpleMessageDialog.Show(null, messageText, ModalDialog.PauseMode.PauseSimulator, new Vector2(-1f, -1f), "ui_error", "ui_hardwindow_close");
+}
+

@@ -1,0 +1,25 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method public hidebysig 
+		instance void DoReset () cil managed 
+	{
+		// Method begins at RVA 0x323525
+		// Header size: 1
+		// Code size: 42 (0x2a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.ActorSystems.PetSittingOnGroundPosture::DisposeStateMachine()
+		IL_0006: ldarg.0
+		IL_0007: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.PetSittingOnGroundPosture::mActor
+		IL_000c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0011: call bool [SimIFace]Sims3.SimIFace.Objects::IsValid(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0016: brfalse.s IL_001e
+
+		IL_0018: ldarg.0
+		IL_0019: call instance void Sims3.Gameplay.ActorSystems.PetSittingOnGroundPosture::AcquireStateMachine()
+
+		IL_001e: ldarg.0
+		IL_001f: ldfld class Sims3.Gameplay.ActorSystems.PostureSwitcher Sims3.Gameplay.ActorSystems.PetSittingOnGroundPosture::mPostureSwitcher
+		IL_0024: callvirt instance void Sims3.Gameplay.ActorSystems.PostureSwitcher::StopMonitoring()
+		IL_0029: ret
+	} // end of method PetSittingOnGroundPosture::DoReset

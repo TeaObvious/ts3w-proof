@@ -1,0 +1,76 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioEmitter_Construct
+Entry Point: 008a1b40
+
+008a1b40: PUSH ESI
+008a1b41: MOV ESI, ECX
+008a1b43: MOV dword ptr [ESI], 0x1053bf0
+008a1b49: MOV dword ptr [ESI + 0x4], 0xffd288
+008a1b50: MOV dword ptr [ESI + 0x8], 0x102bba4
+008a1b57: XOR EAX, EAX
+008a1b59: LEA ECX, [ESI + 0xc]
+008a1b5c: XCHG dword ptr [ECX], EAX
+008a1b5e: LEA ECX, [ESI + 0x10]
+008a1b61: MOV dword ptr [ESI], 0x1032570
+008a1b67: MOV dword ptr [ESI + 0x4], 0x1032560
+008a1b6e: MOV dword ptr [ESI + 0x8], 0x103255c
+008a1b75: CALL 0x008aa430
+008a1b7a: FLDZ
+008a1b7c: MOVSS XMM0, dword ptr [0x00f998f8]
+008a1b84: XORPS XMM1, XMM1
+008a1b87: XOR EAX, EAX
+008a1b89: MOV dword ptr [ESI + 0x370], EAX
+008a1b8f: MOV dword ptr [ESI + 0x374], EAX
+008a1b95: MOV dword ptr [ESI + 0x378], EAX
+008a1b9b: MOVSS XMM2, dword ptr [0x00f998f4]
+008a1ba3: MOV byte ptr [ESI + 0x37c], AL
+008a1ba9: MOV dword ptr [ESI + 0x380], EAX
+008a1baf: MOV dword ptr [ESI + 0x384], EAX
+008a1bb5: MOV dword ptr [ESI + 0x388], EAX
+008a1bbb: MOV dword ptr [ESI + 0x38c], EAX
+008a1bc1: MOV dword ptr [ESI + 0x390], EAX
+008a1bc7: MOV dword ptr [ESI + 0x394], EAX
+008a1bcd: MOV dword ptr [ESI + 0x3a4], 0x1032608
+008a1bd7: MOV dword ptr [ESI + 0x3a0], 0x11c8e56
+008a1be1: MOV ECX, 0x11c8e54
+008a1be6: MOV dword ptr [ESI + 0x398], ECX
+008a1bec: MOV dword ptr [ESI + 0x39c], ECX
+008a1bf2: FSTP double ptr [ESI + 0x3b8]
+008a1bf8: MOV dword ptr [ESI + 0x3a8], EAX
+008a1bfe: MOV dword ptr [ESI + 0x3c0], EAX
+008a1c04: MOV byte ptr [ESI + 0x3c8], AL
+008a1c0a: MOV byte ptr [ESI + 0x3c9], AL
+008a1c10: MOVSS dword ptr [ESI + 0x3cc], XMM0
+008a1c18: MOVSS dword ptr [ESI + 0x3d0], XMM0
+008a1c20: MOV dword ptr [ESI + 0x3b0], 0x2ea8fb98
+008a1c2a: MOV dword ptr [ESI + 0x3c4], 0x2
+008a1c34: MOVSS dword ptr [ESI + 0x3d4], XMM1
+008a1c3c: MOVSS dword ptr [ESI + 0x3d8], XMM1
+008a1c44: MOVSS dword ptr [ESI + 0x3dc], XMM1
+008a1c4c: MOVSS dword ptr [ESI + 0x3e0], XMM1
+008a1c54: MOVSS dword ptr [ESI + 0x3e4], XMM0
+008a1c5c: MOVSS dword ptr [ESI + 0x3e8], XMM0
+008a1c64: MOVSS dword ptr [ESI + 0x3f0], XMM0
+008a1c6c: MOVSS dword ptr [ESI + 0x3f4], XMM0
+008a1c74: MOVSS dword ptr [ESI + 0x3f8], XMM0
+008a1c7c: MOVSS XMM0, dword ptr [0x00fab218]
+008a1c84: MOV dword ptr [ESI + 0x40c], EAX
+008a1c8a: MOV dword ptr [ESI + 0x410], EAX
+008a1c90: MOV dword ptr [ESI + 0x414], EAX
+008a1c96: MOV dword ptr [ESI + 0x418], EAX
+008a1c9c: MOV dword ptr [ESI + 0x41c], EAX
+008a1ca2: MOV dword ptr [ESI + 0x420], EAX
+008a1ca8: MOV dword ptr [ESI + 0x424], EAX
+008a1cae: MOVSS dword ptr [ESI + 0x3ec], XMM2
+008a1cb6: MOVSS dword ptr [ESI + 0x3fc], XMM1
+008a1cbe: MOVSS dword ptr [ESI + 0x400], XMM0
+008a1cc6: MOVSS dword ptr [ESI + 0x404], XMM0
+008a1cce: MOVSS dword ptr [ESI + 0x408], XMM0
+008a1cd6: MOV dword ptr [ESI + 0x428], EAX
+008a1cdc: MOV dword ptr [ESI + 0x4e8], EAX
+008a1ce2: MOV EAX, ESI
+008a1ce4: POP ESI
+008a1ce5: RET
+
+Total instructions: 69

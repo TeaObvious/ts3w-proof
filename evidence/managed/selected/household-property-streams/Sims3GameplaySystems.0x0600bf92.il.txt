@@ -1,0 +1,75 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+		.method public final hidebysig newslot virtual 
+			instance bool ExportContent (
+				class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+				class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+				class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+			) cil managed 
+		{
+			// Method begins at RVA 0x3703cc
+			// Header size: 12
+			// Code size: 99 (0x63)
+			.maxstack 4
+			.locals init (
+				[0] uint32,
+				[1] class Sims3.Gameplay.CAS.SimDescription,
+				[2] class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter,
+				[3] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+			)
+
+			IL_0000: ldarg.3
+			IL_0001: ldc.i4 -373727227 // 0xe9b96005
+			IL_0006: ldarg.0
+			IL_0007: call instance int32 Sims3.Gameplay.CAS.Household/Members::get_Count()
+			IL_000c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+			IL_0011: pop
+			IL_0012: ldc.i4.0
+			IL_0013: stloc.0
+			IL_0014: ldarg.0
+			IL_0015: call instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household/Members::get_AllSimDescriptionList()
+			IL_001a: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::GetEnumerator()
+			IL_001f: stloc.3
+			.try
+			{
+				IL_0020: br.s IL_0048
+				// loop start (head: IL_0048)
+					IL_0022: ldloca.s 3
+					IL_0024: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::get_Current()
+					IL_0029: stloc.1
+					IL_002a: ldarg.3
+					IL_002b: ldloc.0
+					IL_002c: dup
+					IL_002d: ldc.i4.1
+					IL_002e: add
+					IL_002f: stloc.0
+					IL_0030: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+					IL_0035: stloc.2
+					IL_0036: ldloc.1
+					IL_0037: ldarg.1
+					IL_0038: ldarg.2
+					IL_0039: ldloc.2
+					IL_003a: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+					IL_003f: pop
+					IL_0040: ldarg.3
+					IL_0041: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+					IL_0046: ldnull
+					IL_0047: stloc.2
+
+					IL_0048: ldloca.s 3
+					IL_004a: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::MoveNext()
+					IL_004f: brtrue.s IL_0022
+				// end loop
+
+				IL_0051: leave.s IL_0061
+			} // end .try
+			finally
+			{
+				IL_0053: ldloca.s 3
+				IL_0055: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+				IL_005b: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0060: endfinally
+			} // end handler
+
+			IL_0061: ldc.i4.1
+			IL_0062: ret
+		} // end of method Members::ExportContent

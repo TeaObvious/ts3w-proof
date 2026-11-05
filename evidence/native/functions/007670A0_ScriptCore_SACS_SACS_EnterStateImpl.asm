@@ -1,0 +1,43 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x007670a0 (ScriptCore.SACS::SACS_EnterStateImpl)
+Paired Ghidra pseudocode: 007670A0_ScriptCore_SACS_SACS_EnterStateImpl.c
+Window: [0x007670a0, 0x007670d0) (48 bytes; stop exclusive)
+Next defined Ghidra entry: 0x007670d0
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+007670a0: e8 eb 22 00 00 8b 4c 24 04 8b 10 8b 92 cc 00 00
+007670b0: 00 51 8b c8 ff d2 85 c0 74 11 8b 4c 24 0c 8b 54
+007670c0: 24 08 51 52 8b c8 e8 95 cc 09 00 c3 cc cc cc cc
+
+LINEAR DISASSEMBLY
+007670a0 <.text+0x3660a0>:
+  7670a0:	e8 eb 22 00 00                                  	call   0x769390
+  7670a5:	8b 4c 24 04                                     	mov    ecx,DWORD PTR [esp+0x4]
+  7670a9:	8b 10                                           	mov    edx,DWORD PTR [eax]
+  7670ab:	8b 92 cc 00 00 00                               	mov    edx,DWORD PTR [edx+0xcc]
+  7670b1:	51                                              	push   ecx
+  7670b2:	8b c8                                           	mov    ecx,eax
+  7670b4:	ff d2                                           	call   edx
+  7670b6:	85 c0                                           	test   eax,eax
+  7670b8:	74 11                                           	je     0x7670cb
+  7670ba:	8b 4c 24 0c                                     	mov    ecx,DWORD PTR [esp+0xc]
+  7670be:	8b 54 24 08                                     	mov    edx,DWORD PTR [esp+0x8]
+  7670c2:	51                                              	push   ecx
+  7670c3:	52                                              	push   edx
+  7670c4:	8b c8                                           	mov    ecx,eax
+  7670c6:	e8 95 cc 09 00                                  	call   0x803d60
+  7670cb:	c3                                              	ret
+  7670cc:	cc                                              	int3
+  7670cd:	cc                                              	int3
+  7670ce:	cc                                              	int3
+  7670cf:	cc                                              	int3

@@ -1,0 +1,1745 @@
+.class public auto ansi beforefieldinit Sims3.Gameplay.Objects.TombObjects.FloorSwitch
+	extends Sims3.Gameplay.Objects.TombObjects.HideableTombObject
+	implements [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ISandsOfUnderstandingable,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent
+{
+	// Nested Types
+	.class nested private auto ansi sealed beforefieldinit StandOn
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.FloorSwitch target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x2786f2
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_CurrentlyPressed()
+				IL_0006: brtrue.s IL_000f
+
+				IL_0008: ldarg.2
+				IL_0009: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+				IL_000e: ret
+
+				IL_000f: ldc.i4.0
+				IL_0010: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x278704
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private bool mCurrentlySteppingOnSwitch
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x2784dc
+			// Header size: 12
+			// Code size: 315 (0x13b)
+			.maxstack 6
+			.locals init (
+				[0] float32,
+				[1] object[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_0006: ldsfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kFearBuffThresholdStandOnSwitch
+			IL_000b: call bool [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffFear::CanSimDoFearGatingAction(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, int32)
+			IL_0010: brtrue.s IL_0068
+
+			IL_0012: ldarg.0
+			IL_0013: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_0018: ldarg.0
+			IL_0019: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_001e: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+			IL_0023: ldstr "Gameplay/Objects/TombObjects/FloorSwitch:FearRefuseTNS"
+			IL_0028: ldc.i4.1
+			IL_0029: newarr [mscorlib]System.Object
+			IL_002e: stloc.1
+			IL_002f: ldloc.1
+			IL_0030: ldc.i4.0
+			IL_0031: ldarg.0
+			IL_0032: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_0037: stelem.ref
+			IL_0038: ldloc.1
+			IL_0039: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_003e: ldc.i4.4
+			IL_003f: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+			IL_0044: ldarg.0
+			IL_0045: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_004a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_004f: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0054: pop
+			IL_0055: ldarg.0
+			IL_0056: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_005b: ldstr "a_fearModdlet_refuse_x"
+			IL_0060: ldc.i4.1
+			IL_0061: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::PlaySoloAnimation(string, bool)
+			IL_0066: ldc.i4.0
+			IL_0067: ret
+
+			IL_0068: ldarg.0
+			IL_0069: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_006e: ldarg.0
+			IL_006f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_0074: ldc.i4 824351308
+			IL_0079: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::RouteToSlotAndCheckInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_007e: brfalse.s IL_008d
+
+			IL_0080: ldarg.0
+			IL_0081: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_0086: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+			IL_008b: brtrue.s IL_008f
+
+			IL_008d: ldc.i4.0
+			IL_008e: ret
+
+			IL_008f: ldarg.0
+			IL_0090: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_0095: ldarg.0
+			IL_0096: ldstr "FloorSwitch"
+			IL_009b: ldstr "Enter"
+			IL_00a0: ldstr "x"
+			IL_00a5: ldstr "floorSwitch"
+			IL_00aa: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string, string)
+			IL_00af: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kJumpOnChanceBase
+			IL_00b4: stloc.0
+			IL_00b5: ldarg.0
+			IL_00b6: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_00bb: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_TraitManager()
+			IL_00c0: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitNames[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kJumpOnTraits
+			IL_00c5: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitManager::HasAnyElement(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitNames[])
+			IL_00ca: brfalse.s IL_00d2
+
+			IL_00cc: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kJumpOnChanceTrait
+			IL_00d1: stloc.0
+
+			IL_00d2: ldarg.0
+			IL_00d3: ldstr "JumpOn"
+			IL_00d8: ldloc.0
+			IL_00d9: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_00de: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, bool)
+			IL_00e3: ldarg.0
+			IL_00e4: ldc.i4.s 110
+			IL_00e6: ldarg.0
+			IL_00e7: ldftn instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::ToggleVFX(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_00ed: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_00f2: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddPersistentScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_00f7: ldarg.0
+			IL_00f8: ldstr "Stay Standing On Switch"
+			IL_00fd: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0102: ldc.i4.s 72
+			IL_0104: ldarg.0
+			IL_0105: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_010a: call void [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Lessons, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_010f: ldarg.0
+			IL_0110: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_0115: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_IsTemporary()
+			IL_011a: brfalse.s IL_0128
+
+			IL_011c: ldarg.0
+			IL_011d: ldc.i4 -5652481 // 0xffa9bfff
+			IL_0122: call instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::DoLoop(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_0127: pop
+
+			IL_0128: ldarg.0
+			IL_0129: ldstr "Exit"
+			IL_012e: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0133: ldarg.0
+			IL_0134: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_0139: ldc.i4.1
+			IL_013a: ret
+		} // end of method StandOn::Run
+
+		.method private hidebysig 
+			instance void ToggleVFX (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x278624
+			// Header size: 12
+			// Code size: 95 (0x5f)
+			.maxstack 3
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::mCurrentlySteppingOnSwitch
+			IL_0006: brtrue.s IL_003d
+
+			IL_0008: ldarg.0
+			IL_0009: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_000e: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0013: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription::TombStats
+			IL_0018: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking::IncrementSwitchesStoodUpon()
+			IL_001d: ldarg.0
+			IL_001e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_0023: ldarg.0
+			IL_0024: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_0029: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::PushSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_002e: pop
+			IL_002f: ldarg.0
+			IL_0030: ldc.i4.1
+			IL_0031: ldc.r4 0.0
+			IL_0036: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetPriority(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionPriorityLevel, float32)
+			IL_003b: br.s IL_004f
+
+			IL_003d: ldarg.0
+			IL_003e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_0043: ldarg.0
+			IL_0044: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_0049: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ReleaseSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_004e: pop
+
+			IL_004f: ldarg.0
+			IL_0050: ldarg.0
+			IL_0051: ldfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::mCurrentlySteppingOnSwitch
+			IL_0056: ldc.i4.0
+			IL_0057: ceq
+			IL_0059: stfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::mCurrentlySteppingOnSwitch
+			IL_005e: ret
+		} // end of method StandOn::ToggleVFX
+
+		.method public hidebysig virtual 
+			instance void Cleanup () cil managed 
+		{
+			// Method begins at RVA 0x278690
+			// Header size: 12
+			// Code size: 66 (0x42)
+			.maxstack 4
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+			IL_0006: brfalse.s IL_0020
+
+			IL_0008: ldarg.0
+			IL_0009: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+			IL_000e: ldarg.0
+			IL_000f: ldftn instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::ToggleVFX(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_0015: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_001a: callvirt instance bool [SimIFace]Sims3.SimIFace.StateMachineClient::RemoveEventHandler(class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_001f: pop
+
+			IL_0020: ldarg.0
+			IL_0021: ldfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::mCurrentlySteppingOnSwitch
+			IL_0026: brfalse.s IL_0041
+
+			IL_0028: ldarg.0
+			IL_0029: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_002e: ldarg.0
+			IL_002f: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Actor
+			IL_0034: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ReleaseSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0039: pop
+			IL_003a: ldarg.0
+			IL_003b: ldc.i4.0
+			IL_003c: stfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::mCurrentlySteppingOnSwitch
+
+			IL_0041: ret
+		} // end of method StandOn::Cleanup
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x2786ea
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::.ctor()
+			IL_0006: ret
+		} // end of method StandOn::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x2786de
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::Singleton
+			IL_000a: ret
+		} // end of method StandOn::.cctor
+
+	} // end of class StandOn
+
+	.class nested private auto ansi sealed beforefieldinit ToggleVisualStyle
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch/ToggleVisualStyle>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method public hidebysig virtual 
+				instance string GetInteractionName (
+					valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+				) cil managed 
+			{
+				// Method begins at RVA 0x27875a
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "InteractionName"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.FloorSwitch/ToggleVisualStyle::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.FloorSwitch target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x27876c
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x27876f
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch/ToggleVisualStyle>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/FloorSwitch/ToggleVisualStyle"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x27870c
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombObjects/FloorSwitch/ToggleVisualStyle:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method ToggleVisualStyle::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x27871f
+			// Header size: 1
+			// Code size: 38 (0x26)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_000c: ldfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mbUseAlternateModel
+			IL_0011: ldc.i4.0
+			IL_0012: ceq
+			IL_0014: stfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mbUseAlternateModel
+			IL_0019: ldarg.0
+			IL_001a: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::Target
+			IL_001f: callvirt instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::UpdateVisualState()
+			IL_0024: ldc.i4.1
+			IL_0025: ret
+		} // end of method ToggleVisualStyle::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x278752
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>::.ctor()
+			IL_0006: ret
+		} // end of method ToggleVisualStyle::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x278746
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch/ToggleVisualStyle/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.FloorSwitch/ToggleVisualStyle::Singleton
+			IL_000a: ret
+		} // end of method ToggleVisualStyle::.cctor
+
+	} // end of class ToggleVisualStyle
+
+
+	// Fields
+	.field private static literal string kSwitchGlowVFXName = "ep1FloorSwitchGlow"
+	.field private static literal string kSwitchShowVFXName = "ep1FloorSwitchReveal"
+	.field private static literal string kModelDefault = "switchFloor"
+	.field private static literal string kModelAlternate = "switchFloorStatue"
+	.field private static literal string kMaterialStateOffDefault = "switchFloorOff"
+	.field private static literal string kMaterialStateOnDefault = "switchFloorOn"
+	.field private static literal string kMaterialStateOffAlternate = "switchFloorStatueOff"
+	.field private static literal string kMaterialStateOnAlternate = "switchFloorStatueOn"
+	.field private static literal string kSoundStepOnDefault = "floor_switch_on"
+	.field private static literal string kSoundStepOff = "floor_switch_off"
+	.field private static literal string kSoundStepOnAlternate = "floor_switch_on_statue"
+	.field private static literal string kSoundAppear = "floor_switch_appear"
+	.field private static literal string kSoundDisappear = "floor_switch_disappear"
+	.field private static literal uint32 kCurrentlyPressed = uint32(142619494)
+	.field private static literal uint32 kNumPresses = uint32(147274329)
+	.field private static literal uint32 kUseAlternateModel = uint32(146845013)
+	.field private static literal string kWorldBuilderDataName = "FloorSwitch"
+	.field public static uint32 kPlacementFootprint
+	.field private static float32[] kColorTemporary
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 6e 52 61 6e 67 65 3a 20 33 20 66 6c 6f 61
+		74 73 20 5b 30 2c 31 5d 2e 20 52 47 42 20 63 6f
+		6c 6f 72 20 74 68 65 20 56 46 58 20 61 6e 64 20
+		6d 6f 64 65 6c 20 77 69 6c 6c 20 62 65 20 77 68
+		65 6e 20 74 68 69 73 20 73 77 69 74 63 68 20 69
+		73 20 61 20 74 65 6d 70 6f 72 61 72 69 6c 79 2d
+		61 63 74 69 76 61 74 65 64 20 73 77 69 74 63 68
+		2e 00 00
+	)
+	.field private static float32[] kColorPermanent
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 6e 52 61 6e 67 65 3a 20 33 20 66 6c 6f 61
+		74 73 20 5b 30 2c 31 5d 2e 20 52 47 42 20 63 6f
+		6c 6f 72 20 74 68 65 20 56 46 58 20 61 6e 64 20
+		6d 6f 64 65 6c 20 77 69 6c 6c 20 62 65 20 77 68
+		65 6e 20 74 68 69 73 20 73 77 69 74 63 68 20 69
+		73 20 61 20 70 65 72 6d 61 6e 65 6e 74 6c 79 2d
+		61 63 74 69 76 61 74 65 64 20 73 77 69 74 63 68
+		2e 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static float32 kTintTransitionTime
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 6c 52 61 6e 67 65 3a 20 30 2c 20 6f 72 20
+		70 6f 73 69 74 69 76 65 20 66 6c 6f 61 74 2e 20
+		54 72 61 6e 73 69 74 69 6f 6e 20 74 69 6d 65 20
+		28 69 6e 20 72 65 61 6c 20 73 65 63 6f 6e 64 73
+		3f 29 20 6f 66 20 6f 62 6a 65 63 74 20 74 69 6e
+		74 2e 20 53 65 74 20 74 6f 20 30 20 66 6f 72 20
+		69 6e 73 74 61 6e 74 20 73 77 69 74 63 68 2e 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static int32 kFearBuffThresholdStandOnSwitch
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 80 81 52 61 6e 67 65 3a 20 4e 65 67 61 74
+		69 76 65 20 69 6e 74 65 67 65 72 2e 20 49 66 20
+		61 20 53 69 6d 20 68 61 73 20 61 20 66 65 61 72
+		20 62 75 66 66 20 77 69 74 68 20 61 20 67 72 65
+		61 74 65 72 20 73 74 72 65 6e 67 74 68 20 74 68
+		61 6e 20 74 68 69 73 20 76 61 6c 75 65 2c 20 74
+		68 65 79 20 77 69 6c 6c 20 6e 6f 74 20 73 74 61
+		6e 64 20 6f 6e 20 66 6c 6f 6f 72 20 73 77 69 74
+		63 68 65 73 2e 00 00
+	)
+	.field private static float32 kJumpOnChanceBase
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 35 52 61 6e 67 65 3a 20 46 6c 6f 61 74 20
+		5b 30 2c 31 5d 2e 20 42 61 73 65 20 63 68 61 6e
+		63 65 20 6f 66 20 6a 75 6d 70 69 6e 67 20 6f 6e
+		20 73 77 69 74 63 68 2e 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static float32 kJumpOnChanceTrait
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 4d 52 61 6e 67 65 3a 20 46 6c 6f 61 74 20
+		5b 30 2c 31 5d 2e 20 43 68 61 6e 63 65 20 66 6f
+		72 20 73 69 6d 73 20 77 69 74 68 20 6b 4a 75 6d
+		70 4f 6e 54 72 61 69 74 73 20 74 6f 20 6a 75 6d
+		70 20 6f 6e 20 74 68 65 20 73 77 69 74 63 68 2e
+		00 00
+	)
+	.field private static valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitNames[] kJumpOnTraits
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 4a 4c 69 73 74 20 6f 66 20 74 72 61 69 74
+		73 20 74 68 61 74 20 6d 61 6b 65 73 20 74 68 65
+		20 73 69 6d 20 6d 6f 72 65 20 6c 69 6b 65 6c 79
+		20 74 6f 20 6a 75 6d 70 20 6f 6e 20 74 68 65 20
+		66 6c 6f 6f 72 20 73 77 69 74 63 68 2e 00 00
+	)
+	.field private int32 mNumPresses
+	.field private class [SimIFace]Sims3.SimIFace.VisualEffect mSwitchActiveVFX
+	.field private bool mbUseAlternateModel
+	.field private static initonly string[] kWorldBuilderDataKeyRemap
+
+	// Methods
+	.method private hidebysig specialname 
+		instance bool get_CurrentlyPressed () cil managed 
+	{
+		// Method begins at RVA 0x277d51
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0006: ldc.i4.0
+		IL_0007: cgt
+		IL_0009: ret
+	} // end of method FloorSwitch::get_CurrentlyPressed
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x277d5c
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::.ctor()
+		IL_0006: ret
+	} // end of method FloorSwitch::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x277d64
+		// Header size: 12
+		// Code size: 102 (0x66)
+		.maxstack 5
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnStartup()
+		IL_0006: ldarg.0
+		IL_0007: ldsfld uint32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kPlacementFootprint
+		IL_000c: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+		IL_0011: pop
+		IL_0012: ldarg.0
+		IL_0013: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_0018: brfalse.s IL_0065
+
+		IL_001a: ldarg.0
+		IL_001b: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_IsTemporary()
+		IL_0020: brfalse.s IL_0044
+
+		IL_0022: ldarg.0
+		IL_0023: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_0028: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_002d: ldc.i4.0
+		IL_002e: ldelem.r4
+		IL_002f: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_0034: ldc.i4.1
+		IL_0035: ldelem.r4
+		IL_0036: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_003b: ldc.i4.2
+		IL_003c: ldelem.r4
+		IL_003d: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::SetEffectColorScale(float32, float32, float32)
+		IL_0042: pop
+		IL_0043: ret
+
+		IL_0044: ldarg.0
+		IL_0045: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_004a: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_004f: ldc.i4.0
+		IL_0050: ldelem.r4
+		IL_0051: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_0056: ldc.i4.1
+		IL_0057: ldelem.r4
+		IL_0058: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_005d: ldc.i4.2
+		IL_005e: ldelem.r4
+		IL_005f: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::SetEffectColorScale(float32, float32, float32)
+		IL_0064: pop
+
+		IL_0065: ret
+	} // end of method FloorSwitch::OnStartup
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x277dd6
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0007: ldarg.1
+		IL_0008: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.FloorSwitch/ToggleVisualStyle::Singleton
+		IL_000d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0012: ret
+	} // end of method FloorSwitch::AddBuildBuyInteractions
+
+	.method public hidebysig virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> GetAllInteractionsForActor (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor s
+		) cil managed 
+	{
+		// Method begins at RVA 0x277dec
+		// Header size: 12
+		// Code size: 31 (0x1f)
+		.maxstack 6
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.0
+		IL_0003: ldarg.1
+		IL_0004: call instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetAllInteractionsForActor(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor)
+		IL_0009: ldc.i4.1
+		IL_000a: newarr [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition
+		IL_000f: stloc.0
+		IL_0010: ldloc.0
+		IL_0011: ldc.i4.0
+		IL_0012: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::Singleton
+		IL_0017: stelem.ref
+		IL_0018: ldloc.0
+		IL_0019: call instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::BuildInteractions(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_001e: ret
+	} // end of method FloorSwitch::GetAllInteractionsForActor
+
+	.method public hidebysig virtual 
+		instance bool HasAnyInteraction (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor actor,
+			valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+		) cil managed 
+	{
+		// Method begins at RVA 0x277e18
+		// Header size: 12
+		// Code size: 37 (0x25)
+		.maxstack 6
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldc.i4.1
+		IL_0004: newarr [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition
+		IL_0009: stloc.0
+		IL_000a: ldloc.0
+		IL_000b: ldc.i4.0
+		IL_000c: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.FloorSwitch/StandOn::Singleton
+		IL_0011: stelem.ref
+		IL_0012: ldloc.0
+		IL_0013: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::TestInteractions(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_0018: brfalse.s IL_001c
+
+		IL_001a: ldc.i4.1
+		IL_001b: ret
+
+		IL_001c: ldarg.0
+		IL_001d: ldarg.1
+		IL_001e: ldarg.2
+		IL_001f: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::HasAnyInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+		IL_0024: ret
+	} // end of method FloorSwitch::HasAnyInteraction
+
+	.method public hidebysig virtual 
+		instance void Dispose () cil managed 
+	{
+		// Method begins at RVA 0x277e49
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::Dispose()
+		IL_0006: ldarg.0
+		IL_0007: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::StopEffects()
+		IL_000c: ret
+	} // end of method FloorSwitch::Dispose
+
+	.method public hidebysig virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x277e57
+		// Header size: 1
+		// Code size: 63 (0x3f)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnAddTombObjectComponent(class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent)
+		IL_0007: ldarg.1
+		IL_0008: ldc.i4.4
+		IL_0009: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_000e: ldarg.1
+		IL_000f: ldc.i4.5
+		IL_0010: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0015: ldarg.1
+		IL_0016: ldc.i4 146053545
+		IL_001b: ldarg.0
+		IL_001c: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ResetSwitchStateBehavior(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0022: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0027: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_002c: ldarg.1
+		IL_002d: ldarg.0
+		IL_002e: ldftn instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ResetSwitchState()
+		IL_0034: newobj instance void [SimIFace]Sims3.SimIFace.VoidEventHandler::.ctor(object, native int)
+		IL_0039: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterOnTombObjectComponentChangedCallback(class [SimIFace]Sims3.SimIFace.VoidEventHandler)
+		IL_003e: ret
+	} // end of method FloorSwitch::OnAddTombObjectComponent
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x277e98
+		// Header size: 12
+		// Code size: 48 (0x30)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 147274329
+		IL_0010: ldarg.0
+		IL_0011: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0016: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_001b: pop
+		IL_001c: ldarg.3
+		IL_001d: ldc.i4 146845013
+		IL_0022: ldarg.0
+		IL_0023: ldfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mbUseAlternateModel
+		IL_0028: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_002d: pop
+		IL_002e: ldloc.0
+		IL_002f: ret
+	} // end of method FloorSwitch::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x277ed4
+		// Header size: 12
+		// Code size: 100 (0x64)
+		.maxstack 4
+		.locals init (
+			[0] bool,
+			[1] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0009: stloc.0
+		IL_000a: ldc.i4.0
+		IL_000b: stloc.1
+		IL_000c: ldarg.3
+		IL_000d: ldc.i4 142619494
+		IL_0012: ldloca.s 1
+		IL_0014: ldc.i4.0
+		IL_0015: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_001a: brfalse.s IL_0028
+
+		IL_001c: ldloc.1
+		IL_001d: brfalse.s IL_0028
+
+		IL_001f: ldarg.0
+		IL_0020: ldc.i4.1
+		IL_0021: stfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0026: br.s IL_003b
+
+		IL_0028: ldarg.3
+		IL_0029: ldc.i4 147274329
+		IL_002e: ldarg.0
+		IL_002f: ldflda int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0034: ldc.i4.0
+		IL_0035: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadInt32(uint32, int32&, int32)
+		IL_003a: pop
+
+		IL_003b: ldarg.3
+		IL_003c: ldc.i4 146845013
+		IL_0041: ldarg.0
+		IL_0042: ldflda bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mbUseAlternateModel
+		IL_0047: ldc.i4.0
+		IL_0048: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_004d: pop
+		IL_004e: ldarg.0
+		IL_004f: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_CurrentlyPressed()
+		IL_0054: brfalse.s IL_005c
+
+		IL_0056: ldarg.0
+		IL_0057: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::StartEffects()
+
+		IL_005c: ldarg.0
+		IL_005d: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::UpdateVisualState()
+		IL_0062: ldloc.0
+		IL_0063: ret
+	} // end of method FloorSwitch::ImportContent
+
+	.method public hidebysig virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x277f44
+		// Header size: 1
+		// Code size: 63 (0x3f)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::SaveWorldBuilderData()
+		IL_0006: ldstr "FloorSwitch"
+		IL_000b: ldarg.0
+		IL_000c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0011: ldstr "UseAlternateModel"
+		IL_0016: ldarg.0
+		IL_0017: ldfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mbUseAlternateModel
+		IL_001c: ldc.i4.0
+		IL_001d: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0022: ldstr "FloorSwitch"
+		IL_0027: ldarg.0
+		IL_0028: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_002d: ldstr "NumPresses"
+		IL_0032: ldarg.0
+		IL_0033: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0038: ldc.i4.0
+		IL_0039: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<int32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_003e: ret
+	} // end of method FloorSwitch::SaveWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x277f84
+		// Header size: 12
+		// Code size: 140 (0x8c)
+		.maxstack 5
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::LoadWorldBuilderData()
+		IL_0006: ldsfld string[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kWorldBuilderDataKeyRemap
+		IL_000b: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::SetKeyRemap(string[])
+		IL_0010: ldstr "FloorSwitch"
+		IL_0015: ldarg.0
+		IL_0016: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_001b: ldstr "UseAlternateModel"
+		IL_0020: ldarg.0
+		IL_0021: ldflda bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mbUseAlternateModel
+		IL_0026: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_002b: pop
+		IL_002c: ldstr "FloorSwitch"
+		IL_0031: ldarg.0
+		IL_0032: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0037: ldstr "NumPresses"
+		IL_003c: ldarg.0
+		IL_003d: ldflda int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0042: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<int32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0047: brtrue.s IL_006b
+
+		IL_0049: ldarg.0
+		IL_004a: ldstr "FloorSwitch"
+		IL_004f: ldarg.0
+		IL_0050: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0055: ldstr "CurrentlyPressed"
+		IL_005a: ldc.i4.0
+		IL_005b: call !!0 [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0)
+		IL_0060: brtrue.s IL_0065
+
+		IL_0062: ldc.i4.0
+		IL_0063: br.s IL_0066
+
+		IL_0065: ldc.i4.1
+
+		IL_0066: stfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+
+		IL_006b: ldarg.0
+		IL_006c: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0071: ldc.i4.0
+		IL_0072: ble.s IL_0085
+
+		IL_0074: ldarg.0
+		IL_0075: ldftn instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ActivateSwitch()
+		IL_007b: newobj instance void [SimIFace]Sims3.SimIFace.VoidEventHandler::.ctor(object, native int)
+		IL_0080: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::add_PostLoadWorldBuilderData(class [SimIFace]Sims3.SimIFace.VoidEventHandler)
+
+		IL_0085: ldarg.0
+		IL_0086: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::UpdateVisualState()
+		IL_008b: ret
+	} // end of method FloorSwitch::LoadWorldBuilderData
+
+	.method family hidebysig specialname virtual 
+		instance string get_AppearDisappearEffectName () cil managed 
+	{
+		// Method begins at RVA 0x27801c
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldstr "ep1FloorSwitchReveal"
+		IL_0005: ret
+	} // end of method FloorSwitch::get_AppearDisappearEffectName
+
+	.method family hidebysig specialname virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Vector3 get_AppearDisappearEffectPosition () cil managed 
+	{
+		// Method begins at RVA 0x278023
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0006: ret
+	} // end of method FloorSwitch::get_AppearDisappearEffectPosition
+
+	.method family hidebysig virtual 
+		instance void UpdateOpacity () cil managed 
+	{
+		// Method begins at RVA 0x27802c
+		// Header size: 12
+		// Code size: 88 (0x58)
+		.maxstack 5
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::UpdateOpacity()
+		IL_0006: ldarg.0
+		IL_0007: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_CurrentlyPressed()
+		IL_000c: brfalse.s IL_0057
+
+		IL_000e: ldarg.0
+		IL_000f: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_IsTemporary()
+		IL_0014: brfalse.s IL_0037
+
+		IL_0016: ldarg.0
+		IL_0017: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_001c: ldc.i4.0
+		IL_001d: ldelem.r4
+		IL_001e: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_0023: ldc.i4.1
+		IL_0024: ldelem.r4
+		IL_0025: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_002a: ldc.i4.2
+		IL_002b: ldelem.r4
+		IL_002c: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kTintTransitionTime
+		IL_0031: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetColorTint(float32, float32, float32, float32)
+		IL_0036: ret
+
+		IL_0037: ldarg.0
+		IL_0038: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_003d: ldc.i4.0
+		IL_003e: ldelem.r4
+		IL_003f: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_0044: ldc.i4.1
+		IL_0045: ldelem.r4
+		IL_0046: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_004b: ldc.i4.2
+		IL_004c: ldelem.r4
+		IL_004d: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kTintTransitionTime
+		IL_0052: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetColorTint(float32, float32, float32, float32)
+
+		IL_0057: ret
+	} // end of method FloorSwitch::UpdateOpacity
+
+	.method family hidebysig virtual 
+		instance void ShowWithEffects () cil managed 
+	{
+		// Method begins at RVA 0x278090
+		// Header size: 1
+		// Code size: 25 (0x19)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: ldstr "floor_switch_appear"
+		IL_000b: ldc.i4.0
+		IL_000c: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+		IL_0011: pop
+		IL_0012: ldarg.0
+		IL_0013: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::ShowWithEffects()
+		IL_0018: ret
+	} // end of method FloorSwitch::ShowWithEffects
+
+	.method family hidebysig virtual 
+		instance void HideWithEffects () cil managed 
+	{
+		// Method begins at RVA 0x2780aa
+		// Header size: 1
+		// Code size: 25 (0x19)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: ldstr "floor_switch_disappear"
+		IL_000b: ldc.i4.0
+		IL_000c: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+		IL_0011: pop
+		IL_0012: ldarg.0
+		IL_0013: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::HideWithEffects()
+		IL_0018: ret
+	} // end of method FloorSwitch::HideWithEffects
+
+	.method family hidebysig virtual 
+		instance void OnShow () cil managed 
+	{
+		// Method begins at RVA 0x2780c4
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnShow()
+		IL_0006: ldarg.0
+		IL_0007: ldnull
+		IL_0008: call bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::CheckForPushableStatueEffects(class Sims3.Gameplay.Objects.TombObjects.FloorSwitch, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_000d: pop
+		IL_000e: ret
+	} // end of method FloorSwitch::OnShow
+
+	.method family hidebysig virtual 
+		instance void OnHide () cil managed 
+	{
+		// Method begins at RVA 0x2780d4
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnHide()
+		IL_0006: ldarg.0
+		IL_0007: ldc.i4.1
+		IL_0008: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::DeactivateSwitch(bool)
+		IL_000d: pop
+		IL_000e: ret
+	} // end of method FloorSwitch::OnHide
+
+	.method public final hidebysig newslot virtual 
+		instance bool CanTurnOnUnderstandingGlowNow () cil managed 
+	{
+		// Method begins at RVA 0x2780e4
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method FloorSwitch::CanTurnOnUnderstandingGlowNow
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldUnderstandingGlowBePositive () cil managed 
+	{
+		// Method begins at RVA 0x2780e7
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method FloorSwitch::ShouldUnderstandingGlowBePositive
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldConsumeSandsOfUnderstanding () cil managed 
+	{
+		// Method begins at RVA 0x2780ea
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_CurrentlyPressed()
+		IL_0006: ldc.i4.0
+		IL_0007: ceq
+		IL_0009: ret
+	} // end of method FloorSwitch::ShouldConsumeSandsOfUnderstanding
+
+	.method public final hidebysig newslot virtual 
+		instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback GetOnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x2780f5
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldftn instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::OnGlowCallback()
+		IL_0007: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback::.ctor(object, native int)
+		IL_000c: ret
+	} // end of method FloorSwitch::GetOnGlowCallback
+
+	.method private hidebysig 
+		instance void OnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x278103
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Appear()
+		IL_0006: pop
+		IL_0007: ret
+	} // end of method FloorSwitch::OnGlowCallback
+
+	.method public hidebysig 
+		instance bool PushSwitch () cil managed 
+	{
+		// Method begins at RVA 0x27810c
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::PushSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: ret
+	} // end of method FloorSwitch::PushSwitch
+
+	.method public hidebysig 
+		instance bool PushSwitch (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x278118
+		// Header size: 12
+		// Code size: 45 (0x2d)
+		.maxstack 3
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_CurrentlyPressed()
+		IL_0006: stloc.0
+		IL_0007: ldarg.0
+		IL_0008: dup
+		IL_0009: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_000e: ldc.i4.1
+		IL_000f: add
+		IL_0010: stfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0015: ldloc.0
+		IL_0016: brfalse.s IL_001a
+
+		IL_0018: ldc.i4.0
+		IL_0019: ret
+
+		IL_001a: ldarg.0
+		IL_001b: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0020: brfalse.s IL_002b
+
+		IL_0022: ldarg.0
+		IL_0023: ldarg.1
+		IL_0024: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ActivateSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0029: ldc.i4.1
+		IL_002a: ret
+
+		IL_002b: ldc.i4.0
+		IL_002c: ret
+	} // end of method FloorSwitch::PushSwitch
+
+	.method public hidebysig 
+		instance bool ReleaseSwitch () cil managed 
+	{
+		// Method begins at RVA 0x278151
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ReleaseSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: ret
+	} // end of method FloorSwitch::ReleaseSwitch
+
+	.method public hidebysig 
+		instance bool ReleaseSwitch (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x27815c
+		// Header size: 12
+		// Code size: 36 (0x24)
+		.maxstack 3
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldarg.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_IsTemporary()
+		IL_0008: brtrue.s IL_0011
+
+		IL_000a: call bool [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_IsBuildBuyLikeState()
+		IL_000f: brfalse.s IL_0022
+
+		IL_0011: ldarg.0
+		IL_0012: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0017: brfalse.s IL_0022
+
+		IL_0019: ldarg.0
+		IL_001a: ldc.i4.0
+		IL_001b: ldarg.1
+		IL_001c: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::DeactivateSwitch(bool, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0021: stloc.0
+
+		IL_0022: ldloc.0
+		IL_0023: ret
+	} // end of method FloorSwitch::ReleaseSwitch
+
+	.method public hidebysig 
+		instance void ResetSwitchState () cil managed 
+	{
+		// Method begins at RVA 0x27818c
+		// Header size: 12
+		// Code size: 58 (0x3a)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.PushableStatue[],
+			[1] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::StopEffects()
+		IL_0006: ldarg.0
+		IL_0007: ldc.i4.0
+		IL_0008: stfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_000d: ldarg.0
+		IL_000e: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::UpdateVisualState()
+		IL_0013: ldarg.0
+		IL_0014: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0019: ldc.r4 1.2
+		IL_001e: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.PushableStatue>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0023: stloc.0
+		IL_0024: ldc.i4.0
+		IL_0025: stloc.1
+		IL_0026: br.s IL_0033
+		// loop start (head: IL_0033)
+			IL_0028: ldarg.0
+			IL_0029: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::PushSwitch()
+			IL_002e: pop
+			IL_002f: ldloc.1
+			IL_0030: ldc.i4.1
+			IL_0031: add
+			IL_0032: stloc.1
+
+			IL_0033: ldloc.1
+			IL_0034: ldloc.0
+			IL_0035: ldlen
+			IL_0036: conv.i4
+			IL_0037: blt.s IL_0028
+		// end loop
+
+		IL_0039: ret
+	} // end of method FloorSwitch::ResetSwitchState
+
+	.method public hidebysig 
+		instance bool ResetSwitchStateBehavior (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x2781d2
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ResetSwitchState()
+		IL_0006: ldc.i4.1
+		IL_0007: ret
+	} // end of method FloorSwitch::ResetSwitchStateBehavior
+
+	.method private hidebysig specialname 
+		instance bool get_IsTemporary () cil managed 
+	{
+		// Method begins at RVA 0x2781db
+		// Header size: 1
+		// Code size: 23 (0x17)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_0006: brfalse.s IL_0015
+
+		IL_0008: ldarg.0
+		IL_0009: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_000e: ldc.i4.5
+		IL_000f: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::IsTriggerLinkedToAnyActivatedBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0014: ret
+
+		IL_0015: ldc.i4.0
+		IL_0016: ret
+	} // end of method FloorSwitch::get_IsTemporary
+
+	.method private hidebysig 
+		instance void ActivateSwitch () cil managed 
+	{
+		// Method begins at RVA 0x2781f3
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ActivateSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: ret
+	} // end of method FloorSwitch::ActivateSwitch
+
+	.method private hidebysig 
+		instance void ActivateSwitch (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x2781fc
+		// Header size: 12
+		// Code size: 67 (0x43)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mbUseAlternateModel
+		IL_0006: brfalse.s IL_001c
+
+		IL_0008: ldarg.0
+		IL_0009: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000e: ldstr "floor_switch_on_statue"
+		IL_0013: ldc.i4.0
+		IL_0014: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+		IL_0019: pop
+		IL_001a: br.s IL_002e
+
+		IL_001c: ldarg.0
+		IL_001d: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0022: ldstr "floor_switch_on"
+		IL_0027: ldc.i4.0
+		IL_0028: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+		IL_002d: pop
+
+		IL_002e: ldarg.0
+		IL_002f: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::StartEffects()
+		IL_0034: ldarg.0
+		IL_0035: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_003a: ldc.i4.4
+		IL_003b: ldarg.1
+		IL_003c: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0041: pop
+		IL_0042: ret
+	} // end of method FloorSwitch::ActivateSwitch
+
+	.method private hidebysig 
+		instance void UpdateVisualState () cil managed 
+	{
+		// Method begins at RVA 0x27824b
+		// Header size: 1
+		// Code size: 54 (0x36)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mbUseAlternateModel
+		IL_0006: brfalse.s IL_001f
+
+		IL_0008: ldarg.0
+		IL_0009: ldstr "switchFloorStatue"
+		IL_000e: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetModel(string)
+		IL_0013: ldarg.0
+		IL_0014: ldstr "switchFloorStatueOff"
+		IL_0019: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetMaterial(string)
+		IL_001e: ret
+
+		IL_001f: ldarg.0
+		IL_0020: ldstr "switchFloor"
+		IL_0025: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetModel(string)
+		IL_002a: ldarg.0
+		IL_002b: ldstr "switchFloorOff"
+		IL_0030: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetMaterial(string)
+		IL_0035: ret
+	} // end of method FloorSwitch::UpdateVisualState
+
+	.method private hidebysig 
+		instance void StartEffects () cil managed 
+	{
+		// Method begins at RVA 0x278284
+		// Header size: 12
+		// Code size: 204 (0xcc)
+		.maxstack 5
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_0006: brtrue IL_00cb
+
+		IL_000b: ldarg.0
+		IL_000c: ldstr "ep1FloorSwitchGlow"
+		IL_0011: call class [SimIFace]Sims3.SimIFace.VisualEffect [SimIFace]Sims3.SimIFace.VisualEffect::Create(string)
+		IL_0016: stfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_001b: ldarg.0
+		IL_001c: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_IsTemporary()
+		IL_0021: brfalse.s IL_0066
+
+		IL_0023: ldarg.0
+		IL_0024: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_0029: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_002e: ldc.i4.0
+		IL_002f: ldelem.r4
+		IL_0030: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_0035: ldc.i4.1
+		IL_0036: ldelem.r4
+		IL_0037: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_003c: ldc.i4.2
+		IL_003d: ldelem.r4
+		IL_003e: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::SetEffectColorScale(float32, float32, float32)
+		IL_0043: pop
+		IL_0044: ldarg.0
+		IL_0045: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_004a: ldc.i4.0
+		IL_004b: ldelem.r4
+		IL_004c: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_0051: ldc.i4.1
+		IL_0052: ldelem.r4
+		IL_0053: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_0058: ldc.i4.2
+		IL_0059: ldelem.r4
+		IL_005a: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kTintTransitionTime
+		IL_005f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetColorTint(float32, float32, float32, float32)
+		IL_0064: br.s IL_00a7
+
+		IL_0066: ldarg.0
+		IL_0067: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_006c: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_0071: ldc.i4.0
+		IL_0072: ldelem.r4
+		IL_0073: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_0078: ldc.i4.1
+		IL_0079: ldelem.r4
+		IL_007a: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_007f: ldc.i4.2
+		IL_0080: ldelem.r4
+		IL_0081: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::SetEffectColorScale(float32, float32, float32)
+		IL_0086: pop
+		IL_0087: ldarg.0
+		IL_0088: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_008d: ldc.i4.0
+		IL_008e: ldelem.r4
+		IL_008f: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_0094: ldc.i4.1
+		IL_0095: ldelem.r4
+		IL_0096: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_009b: ldc.i4.2
+		IL_009c: ldelem.r4
+		IL_009d: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kTintTransitionTime
+		IL_00a2: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetColorTint(float32, float32, float32, float32)
+
+		IL_00a7: ldarg.0
+		IL_00a8: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_00ad: ldarg.0
+		IL_00ae: ldc.i4 831137836
+		IL_00b3: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::ParentTo(class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_00b8: pop
+		IL_00b9: ldarg.0
+		IL_00ba: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_00bf: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::Start()
+		IL_00c4: pop
+		IL_00c5: ldarg.0
+		IL_00c6: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::UpdateVisualState()
+
+		IL_00cb: ret
+	} // end of method FloorSwitch::StartEffects
+
+	.method private hidebysig 
+		instance bool DeactivateSwitch (
+			bool bForce
+		) cil managed 
+	{
+		// Method begins at RVA 0x27835c
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldnull
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::DeactivateSwitch(bool, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0008: ret
+	} // end of method FloorSwitch::DeactivateSwitch
+
+	.method private hidebysig 
+		instance bool DeactivateSwitch (
+			bool bForce,
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x278368
+		// Header size: 12
+		// Code size: 91 (0x5b)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0006: ldc.i4.1
+		IL_0007: beq.s IL_0015
+
+		IL_0009: ldarg.0
+		IL_000a: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_000f: ldc.i4.0
+		IL_0010: ble.s IL_0042
+
+		IL_0012: ldarg.1
+		IL_0013: brfalse.s IL_0042
+
+		IL_0015: ldarg.0
+		IL_0016: ldc.i4.0
+		IL_0017: stfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_001c: ldarg.0
+		IL_001d: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0022: ldstr "floor_switch_off"
+		IL_0027: ldc.i4.0
+		IL_0028: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+		IL_002d: pop
+		IL_002e: ldarg.0
+		IL_002f: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::StopEffects()
+		IL_0034: ldarg.0
+		IL_0035: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_003a: ldc.i4.5
+		IL_003b: ldarg.2
+		IL_003c: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0041: ret
+
+		IL_0042: ldarg.0
+		IL_0043: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0048: ldc.i4.0
+		IL_0049: ble.s IL_0059
+
+		IL_004b: ldarg.0
+		IL_004c: dup
+		IL_004d: ldfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+		IL_0052: ldc.i4.1
+		IL_0053: sub
+		IL_0054: stfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mNumPresses
+
+		IL_0059: ldc.i4.0
+		IL_005a: ret
+	} // end of method FloorSwitch::DeactivateSwitch
+
+	.method private hidebysig 
+		instance void StopEffects () cil managed 
+	{
+		// Method begins at RVA 0x2783d0
+		// Header size: 12
+		// Code size: 72 (0x48)
+		.maxstack 5
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_0006: brfalse.s IL_0027
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_000e: ldc.i4.0
+		IL_000f: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::Stop(valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+		IL_0014: pop
+		IL_0015: ldarg.0
+		IL_0016: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+		IL_001b: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::Dispose()
+		IL_0020: ldarg.0
+		IL_0021: ldnull
+		IL_0022: stfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.FloorSwitch::mSwitchActiveVFX
+
+		IL_0027: ldarg.0
+		IL_0028: call instance void Sims3.Gameplay.Objects.TombObjects.FloorSwitch::UpdateVisualState()
+		IL_002d: ldarg.0
+		IL_002e: ldc.r4 1
+		IL_0033: ldc.r4 1
+		IL_0038: ldc.r4 1
+		IL_003d: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kTintTransitionTime
+		IL_0042: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetColorTint(float32, float32, float32, float32)
+		IL_0047: ret
+	} // end of method FloorSwitch::StopEffects
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x278424
+		// Header size: 12
+		// Code size: 170 (0xaa)
+		.maxstack 3
+		.locals init (
+			[0] float32[],
+			[1] float32[],
+			[2] valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitNames[],
+			[3] string[],
+			[4] uint32
+		)
+
+		IL_0000: ldstr "switchFloor_ftp_placementShape"
+		IL_0005: call uint32 [SimIFace]Sims3.SimIFace.ResourceUtils::HashString32(string)
+		IL_000a: stsfld uint32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kPlacementFootprint
+		IL_000f: ldc.i4.3
+		IL_0010: newarr [mscorlib]System.Single
+		IL_0015: stloc.0
+		IL_0016: ldloc.0
+		IL_0017: ldc.i4.0
+		IL_0018: ldc.r4 1
+		IL_001d: stelem.r4
+		IL_001e: ldloc.0
+		IL_001f: stsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorTemporary
+		IL_0024: ldc.i4.3
+		IL_0025: newarr [mscorlib]System.Single
+		IL_002a: stloc.1
+		IL_002b: ldloc.1
+		IL_002c: ldc.i4.1
+		IL_002d: ldc.r4 1
+		IL_0032: stelem.r4
+		IL_0033: ldloc.1
+		IL_0034: stsfld float32[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kColorPermanent
+		IL_0039: ldc.r4 0.5
+		IL_003e: stsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kTintTransitionTime
+		IL_0043: ldc.i4.s -45
+		IL_0045: stsfld int32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kFearBuffThresholdStandOnSwitch
+		IL_004a: ldc.r4 0.05
+		IL_004f: stsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kJumpOnChanceBase
+		IL_0054: ldc.r4 0.1
+		IL_0059: stsfld float32 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kJumpOnChanceTrait
+		IL_005e: ldc.i4.2
+		IL_005f: newarr [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitNames
+		IL_0064: stloc.2
+		IL_0065: ldloc.2
+		IL_0066: ldc.i4.0
+		IL_0067: ldc.i8 -5175480303478029360 // 0xb82d0015b92943d0
+		IL_0070: stelem.i8
+		IL_0071: ldloc.2
+		IL_0072: ldc.i4.1
+		IL_0073: ldc.i8 -5175480303478029856 // 0xb82d0015b92941e0
+		IL_007c: stelem.i8
+		IL_007d: ldloc.2
+		IL_007e: stsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitNames[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kJumpOnTraits
+		IL_0083: ldc.i4.2
+		IL_0084: newarr [mscorlib]System.String
+		IL_0089: stloc.3
+		IL_008a: ldloc.3
+		IL_008b: ldc.i4.0
+		IL_008c: ldc.i4 146845013
+		IL_0091: stloc.s 4
+		IL_0093: ldloca.s 4
+		IL_0095: call instance string [mscorlib]System.UInt32::ToString()
+		IL_009a: stelem.ref
+		IL_009b: ldloc.3
+		IL_009c: ldc.i4.1
+		IL_009d: ldstr "UseAlternateModel"
+		IL_00a2: stelem.ref
+		IL_00a3: ldloc.3
+		IL_00a4: stsfld string[] Sims3.Gameplay.Objects.TombObjects.FloorSwitch::kWorldBuilderDataKeyRemap
+		IL_00a9: ret
+	} // end of method FloorSwitch::.cctor
+
+	// Properties
+	.property instance bool CurrentlyPressed()
+	{
+		.get instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_CurrentlyPressed()
+	}
+	.property instance string AppearDisappearEffectName()
+	{
+		.get instance string Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_AppearDisappearEffectName()
+	}
+	.property instance valuetype [SimIFace]Sims3.SimIFace.Vector3 AppearDisappearEffectPosition()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_AppearDisappearEffectPosition()
+	}
+	.property instance bool IsTemporary()
+	{
+		.get instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::get_IsTemporary()
+	}
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.FloorSwitch

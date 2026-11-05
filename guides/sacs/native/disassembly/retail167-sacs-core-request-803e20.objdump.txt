@@ -1,0 +1,303 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00803e20 <.text+0x402e20>:
+  803e20:	83 ec 20             	sub    esp,0x20
+  803e23:	53                   	push   ebx
+  803e24:	55                   	push   ebp
+  803e25:	8b 6c 24 30          	mov    ebp,DWORD PTR [esp+0x30]
+  803e29:	83 cb ff             	or     ebx,0xffffffff
+  803e2c:	81 fd c8 5b 29 66    	cmp    ebp,0x66295bc8
+  803e32:	57                   	push   edi
+  803e33:	8b f9                	mov    edi,ecx
+  803e35:	75 10                	jne    0x803e47
+  803e37:	e8 74 d1 ff ff       	call   0x800fb0
+  803e3c:	5f                   	pop    edi
+  803e3d:	5d                   	pop    ebp
+  803e3e:	33 c0                	xor    eax,eax
+  803e40:	5b                   	pop    ebx
+  803e41:	83 c4 20             	add    esp,0x20
+  803e44:	c2 14 00             	ret    0x14
+  803e47:	8b 44 24 30          	mov    eax,DWORD PTR [esp+0x30]
+  803e4b:	85 c0                	test   eax,eax
+  803e4d:	56                   	push   esi
+  803e4e:	0f 85 c7 00 00 00    	jne    0x803f1b
+  803e54:	38 47 3c             	cmp    BYTE PTR [edi+0x3c],al
+  803e57:	0f 85 c4 00 00 00    	jne    0x803f21
+  803e5d:	8b 47 14             	mov    eax,DWORD PTR [edi+0x14]
+  803e60:	8b 77 10             	mov    esi,DWORD PTR [edi+0x10]
+  803e63:	33 db                	xor    ebx,ebx
+  803e65:	3b f0                	cmp    esi,eax
+  803e67:	89 44 24 34          	mov    DWORD PTR [esp+0x34],eax
+  803e6b:	74 3d                	je     0x803eaa
+  803e6d:	8b 6c 24 3c          	mov    ebp,DWORD PTR [esp+0x3c]
+  803e71:	8b 46 04             	mov    eax,DWORD PTR [esi+0x4]
+  803e74:	83 78 10 00          	cmp    DWORD PTR [eax+0x10],0x0
+  803e78:	75 06                	jne    0x803e80
+  803e7a:	83 78 1c 00          	cmp    DWORD PTR [eax+0x1c],0x0
+  803e7e:	74 1d                	je     0x803e9d
+  803e80:	8b 44 24 40          	mov    eax,DWORD PTR [esp+0x40]
+  803e84:	8b 4c 24 38          	mov    ecx,DWORD PTR [esp+0x38]
+  803e88:	8b 16                	mov    edx,DWORD PTR [esi]
+  803e8a:	6a 00                	push   0x0
+  803e8c:	50                   	push   eax
+  803e8d:	55                   	push   ebp
+  803e8e:	51                   	push   ecx
+  803e8f:	52                   	push   edx
+  803e90:	8b cf                	mov    ecx,edi
+  803e92:	e8 89 ff ff ff       	call   0x803e20
+  803e97:	85 c0                	test   eax,eax
+  803e99:	74 02                	je     0x803e9d
+  803e9b:	8b d8                	mov    ebx,eax
+  803e9d:	83 c6 08             	add    esi,0x8
+  803ea0:	3b 74 24 34          	cmp    esi,DWORD PTR [esp+0x34]
+  803ea4:	75 cb                	jne    0x803e71
+  803ea6:	85 db                	test   ebx,ebx
+  803ea8:	7c 0e                	jl     0x803eb8
+  803eaa:	80 bf 45 01 00 00 00 	cmp    BYTE PTR [edi+0x145],0x0
+  803eb1:	74 05                	je     0x803eb8
+  803eb3:	bb f4 ff ff ff       	mov    ebx,0xfffffff4
+  803eb8:	80 7c 24 44 00       	cmp    BYTE PTR [esp+0x44],0x0
+  803ebd:	74 50                	je     0x803f0f
+  803ebf:	8b 4c 24 40          	mov    ecx,DWORD PTR [esp+0x40]
+  803ec3:	85 c9                	test   ecx,ecx
+  803ec5:	74 48                	je     0x803f0f
+  803ec7:	85 db                	test   ebx,ebx
+  803ec9:	74 44                	je     0x803f0f
+  803ecb:	8b 11                	mov    edx,DWORD PTR [ecx]
+  803ecd:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  803ed0:	ff d0                	call   eax
+  803ed2:	8b f0                	mov    esi,eax
+  803ed4:	8b fa                	mov    edi,edx
+  803ed6:	8b ce                	mov    ecx,esi
+  803ed8:	0b cf                	or     ecx,edi
+  803eda:	74 33                	je     0x803f0f
+  803edc:	8d 54 24 44          	lea    edx,[esp+0x44]
+  803ee0:	52                   	push   edx
+  803ee1:	8d 4c 24 14          	lea    ecx,[esp+0x14]
+  803ee5:	89 5c 24 48          	mov    DWORD PTR [esp+0x48],ebx
+  803ee9:	e8 52 24 cf ff       	call   0x4f6340
+  803eee:	e8 9d 54 f6 ff       	call   0x769390
+  803ef3:	8b 10                	mov    edx,DWORD PTR [eax]
+  803ef5:	8b 92 24 01 00 00    	mov    edx,DWORD PTR [edx+0x124]
+  803efb:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  803eff:	51                   	push   ecx
+  803f00:	57                   	push   edi
+  803f01:	56                   	push   esi
+  803f02:	8b c8                	mov    ecx,eax
+  803f04:	ff d2                	call   edx
+  803f06:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  803f0a:	e8 11 19 cf ff       	call   0x4f5820
+  803f0f:	5e                   	pop    esi
+  803f10:	5f                   	pop    edi
+  803f11:	5d                   	pop    ebp
+  803f12:	8b c3                	mov    eax,ebx
+  803f14:	5b                   	pop    ebx
+  803f15:	83 c4 20             	add    esp,0x20
+  803f18:	c2 14 00             	ret    0x14
+  803f1b:	80 7f 3c 00          	cmp    BYTE PTR [edi+0x3c],0x0
+  803f1f:	74 09                	je     0x803f2a
+  803f21:	85 c0                	test   eax,eax
+  803f23:	75 05                	jne    0x803f2a
+  803f25:	8b 77 40             	mov    esi,DWORD PTR [edi+0x40]
+  803f28:	eb 08                	jmp    0x803f32
+  803f2a:	50                   	push   eax
+  803f2b:	e8 d0 fc ff ff       	call   0x803c00
+  803f30:	8b f0                	mov    esi,eax
+  803f32:	85 f6                	test   esi,esi
+  803f34:	75 08                	jne    0x803f3e
+  803f36:	8d 5e fb             	lea    ebx,[esi-0x5]
+  803f39:	e9 7a ff ff ff       	jmp    0x803eb8
+  803f3e:	85 ed                	test   ebp,ebp
+  803f40:	75 61                	jne    0x803fa3
+  803f42:	8b 6e 28             	mov    ebp,DWORD PTR [esi+0x28]
+  803f45:	85 ed                	test   ebp,ebp
+  803f47:	74 50                	je     0x803f99
+  803f49:	8b 5d 28             	mov    ebx,DWORD PTR [ebp+0x28]
+  803f4c:	6a 24                	push   0x24
+  803f4e:	e8 5d e8 f3 ff       	call   0x7427b0
+  803f53:	83 c4 04             	add    esp,0x4
+  803f56:	85 c0                	test   eax,eax
+  803f58:	74 1b                	je     0x803f75
+  803f5a:	8b 8e a8 00 00 00    	mov    ecx,DWORD PTR [esi+0xa8]
+  803f60:	53                   	push   ebx
+  803f61:	51                   	push   ecx
+  803f62:	68 20 12 02 01       	push   0x1021220
+  803f67:	53                   	push   ebx
+  803f68:	6a 09                	push   0x9
+  803f6a:	50                   	push   eax
+  803f6b:	e8 30 e1 ff ff       	call   0x8020a0
+  803f70:	83 c4 18             	add    esp,0x18
+  803f73:	eb 02                	jmp    0x803f77
+  803f75:	33 c0                	xor    eax,eax
+  803f77:	50                   	push   eax
+  803f78:	8b cf                	mov    ecx,edi
+  803f7a:	e8 61 d9 ff ff       	call   0x8018e0
+  803f7f:	8b 44 24 40          	mov    eax,DWORD PTR [esp+0x40]
+  803f83:	8b 4c 24 3c          	mov    ecx,DWORD PTR [esp+0x3c]
+  803f87:	50                   	push   eax
+  803f88:	51                   	push   ecx
+  803f89:	55                   	push   ebp
+  803f8a:	56                   	push   esi
+  803f8b:	8b cf                	mov    ecx,edi
+  803f8d:	e8 4e ea ff ff       	call   0x8029e0
+  803f92:	33 db                	xor    ebx,ebx
+  803f94:	e9 11 ff ff ff       	jmp    0x803eaa
+  803f99:	bb fd ff ff ff       	mov    ebx,0xfffffffd
+  803f9e:	e9 15 ff ff ff       	jmp    0x803eb8
+  803fa3:	83 7e 10 00          	cmp    DWORD PTR [esi+0x10],0x0
+  803fa7:	75 0a                	jne    0x803fb3
+  803fa9:	83 7e 1c 00          	cmp    DWORD PTR [esi+0x1c],0x0
+  803fad:	0f 84 05 ff ff ff    	je     0x803eb8
+  803fb3:	8b 4f 0c             	mov    ecx,DWORD PTR [edi+0xc]
+  803fb6:	85 c9                	test   ecx,ecx
+  803fb8:	74 df                	je     0x803f99
+  803fba:	55                   	push   ebp
+  803fbb:	e8 20 98 ff ff       	call   0x7fd7e0
+  803fc0:	85 c0                	test   eax,eax
+  803fc2:	74 d5                	je     0x803f99
+  803fc4:	8b 54 24 40          	mov    edx,DWORD PTR [esp+0x40]
+  803fc8:	8b 4c 24 3c          	mov    ecx,DWORD PTR [esp+0x3c]
+  803fcc:	52                   	push   edx
+  803fcd:	51                   	push   ecx
+  803fce:	50                   	push   eax
+  803fcf:	56                   	push   esi
+  803fd0:	8b cf                	mov    ecx,edi
+  803fd2:	e8 09 ea ff ff       	call   0x8029e0
+  803fd7:	33 db                	xor    ebx,ebx
+  803fd9:	e9 cc fe ff ff       	jmp    0x803eaa
+  803fde:	cc                   	int3
+  803fdf:	cc                   	int3
+  803fe0:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+  803fe4:	85 c0                	test   eax,eax
+  803fe6:	55                   	push   ebp
+  803fe7:	8b e9                	mov    ebp,ecx
+  803fe9:	75 6e                	jne    0x804059
+  803feb:	8b 4d 14             	mov    ecx,DWORD PTR [ebp+0x14]
+  803fee:	56                   	push   esi
+  803fef:	57                   	push   edi
+  803ff0:	8b 7d 10             	mov    edi,DWORD PTR [ebp+0x10]
+  803ff3:	b0 01                	mov    al,0x1
+  803ff5:	89 4c 24 10          	mov    DWORD PTR [esp+0x10],ecx
+  803ff9:	8d a4 24 00 00 00 00 	lea    esp,[esp+0x0]
+  804000:	3b 7c 24 10          	cmp    edi,DWORD PTR [esp+0x10]
+  804004:	74 4d                	je     0x804053
+  804006:	84 c0                	test   al,al
+  804008:	74 40                	je     0x80404a
+  80400a:	8b 77 04             	mov    esi,DWORD PTR [edi+0x4]
+  80400d:	85 f6                	test   esi,esi
+  80400f:	74 39                	je     0x80404a
+  804011:	8b 56 6c             	mov    edx,DWORD PTR [esi+0x6c]
+  804014:	83 fa 04             	cmp    edx,0x4
+  804017:	8d 46 6c             	lea    eax,[esi+0x6c]
+  80401a:	74 2e                	je     0x80404a
+  80401c:	b9 06 00 00 00       	mov    ecx,0x6
+  804021:	87 08                	xchg   DWORD PTR [eax],ecx
+  804023:	8b 46 78             	mov    eax,DWORD PTR [esi+0x78]
+  804026:	85 c0                	test   eax,eax
+  804028:	74 1c                	je     0x804046
+  80402a:	8b 40 38             	mov    eax,DWORD PTR [eax+0x38]
+  80402d:	85 c0                	test   eax,eax
+  80402f:	74 0e                	je     0x80403f
+  804031:	56                   	push   esi
+  804032:	8d 55 44             	lea    edx,[ebp+0x44]
+  804035:	52                   	push   edx
+  804036:	6a 03                	push   0x3
+  804038:	8b c8                	mov    ecx,eax
+  80403a:	e8 11 0b ff ff       	call   0x7f4b50
+  80403f:	c7 46 78 00 00 00 00 	mov    DWORD PTR [esi+0x78],0x0
+  804046:	b0 01                	mov    al,0x1
+  804048:	eb 02                	jmp    0x80404c
+  80404a:	32 c0                	xor    al,al
+  80404c:	83 c7 08             	add    edi,0x8
+  80404f:	84 c0                	test   al,al
+  804051:	75 ad                	jne    0x804000
+  804053:	5f                   	pop    edi
+  804054:	5e                   	pop    esi
+  804055:	5d                   	pop    ebp
+  804056:	c2 04 00             	ret    0x4
+  804059:	50                   	push   eax
+  80405a:	e8 a1 fb ff ff       	call   0x803c00
+  80405f:	85 c0                	test   eax,eax
+  804061:	74 0c                	je     0x80406f
+  804063:	50                   	push   eax
+  804064:	8b cd                	mov    ecx,ebp
+  804066:	e8 35 dc ff ff       	call   0x801ca0
+  80406b:	5d                   	pop    ebp
+  80406c:	c2 04 00             	ret    0x4
+  80406f:	32 c0                	xor    al,al
+  804071:	5d                   	pop    ebp
+  804072:	c2 04 00             	ret    0x4
+  804075:	cc                   	int3
+  804076:	cc                   	int3
+  804077:	cc                   	int3
+  804078:	cc                   	int3
+  804079:	cc                   	int3
+  80407a:	cc                   	int3
+  80407b:	cc                   	int3
+  80407c:	cc                   	int3
+  80407d:	cc                   	int3
+  80407e:	cc                   	int3
+  80407f:	cc                   	int3
+  804080:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+  804084:	85 c0                	test   eax,eax
+  804086:	75 2c                	jne    0x8040b4
+  804088:	8b 41 10             	mov    eax,DWORD PTR [ecx+0x10]
+  80408b:	8b 51 14             	mov    edx,DWORD PTR [ecx+0x14]
+  80408e:	3b c2                	cmp    eax,edx
+  804090:	74 3b                	je     0x8040cd
+  804092:	56                   	push   esi
+  804093:	8b 48 04             	mov    ecx,DWORD PTR [eax+0x4]
+  804096:	85 c9                	test   ecx,ecx
+  804098:	74 0f                	je     0x8040a9
+  80409a:	8b 71 6c             	mov    esi,DWORD PTR [ecx+0x6c]
+  80409d:	83 c1 6c             	add    ecx,0x6c
+  8040a0:	83 fe 06             	cmp    esi,0x6
+  8040a3:	75 04                	jne    0x8040a9
+  8040a5:	33 f6                	xor    esi,esi
+  8040a7:	87 31                	xchg   DWORD PTR [ecx],esi
+  8040a9:	83 c0 08             	add    eax,0x8
+  8040ac:	3b c2                	cmp    eax,edx
+  8040ae:	75 e3                	jne    0x804093
+  8040b0:	5e                   	pop    esi
+  8040b1:	c2 04 00             	ret    0x4
+  8040b4:	50                   	push   eax
+  8040b5:	e8 46 fb ff ff       	call   0x803c00
+  8040ba:	85 c0                	test   eax,eax
+  8040bc:	74 0f                	je     0x8040cd
+  8040be:	8b 48 6c             	mov    ecx,DWORD PTR [eax+0x6c]
+  8040c1:	83 c0 6c             	add    eax,0x6c
+  8040c4:	83 f9 06             	cmp    ecx,0x6
+  8040c7:	75 04                	jne    0x8040cd
+  8040c9:	33 d2                	xor    edx,edx
+  8040cb:	87 10                	xchg   DWORD PTR [eax],edx
+  8040cd:	c2 04 00             	ret    0x4
+  8040d0:	51                   	push   ecx
+  8040d1:	56                   	push   esi
+  8040d2:	8b f1                	mov    esi,ecx
+  8040d4:	80 be 47 01 00 00 00 	cmp    BYTE PTR [esi+0x147],0x0
+  8040db:	74 23                	je     0x804100
+  8040dd:	c6 86 47 01 00 00 00 	mov    BYTE PTR [esi+0x147],0x0
+  8040e4:	c6 86 46 01 00 00 01 	mov    BYTE PTR [esi+0x146],0x1
+  8040eb:	8b 0d 40 9d 1d 01    	mov    ecx,DWORD PTR ds:0x11d9d40
+  8040f1:	85 c9                	test   ecx,ecx
+  8040f3:	74 08                	je     0x8040fd
+  8040f5:	6a 01                	push   0x1
+  8040f7:	56                   	push   esi
+  8040f8:	e8 83 8e ff ff       	call   0x7fcf80
+  8040fd:	5e                   	pop    esi
+  8040fe:	59                   	pop    ecx
+  8040ff:	c3                   	ret
+  804100:	8b 86 1c 01 00 00    	mov    eax,DWORD PTR [esi+0x11c]
+  804106:	3b 86 20 01 00 00    	cmp    eax,DWORD PTR [esi+0x120]
+  80410c:	53                   	push   ebx
+  80410d:	55                   	push   ebp
+  80410e:	57                   	push   edi
+  80410f:	0f 85 81 01 00 00    	jne    0x804296
+  804115:	8d 4e 44             	lea    ecx,[esi+0x44]
+  804118:	e8 73 fe fe ff       	call   0x7f3f90
+  80411d:	84 c0                	test   al,al
+  80411f:	0f                   	.byte 0xf

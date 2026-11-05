@@ -1,0 +1,39 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_EnableNHoodPlopMode
+# Entry: 0x0073e170; bounded stop: 0x0073e1b0; next Ghidra entry: 0x0073e1b0
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073e170 <.text+0x33d170>:
+  73e170:	e8 5b ba 22 00       	call   0x969bd0
+  73e175:	85 c0                	test   eax,eax
+  73e177:	74 2f                	je     0x73e1a8
+  73e179:	8b c8                	mov    ecx,eax
+  73e17b:	e8 70 3e 7e 00       	call   0xf21ff0
+  73e180:	85 c0                	test   eax,eax
+  73e182:	74 24                	je     0x73e1a8
+  73e184:	8b c8                	mov    ecx,eax
+  73e186:	e8 55 5c dd ff       	call   0x513de0
+  73e18b:	85 c0                	test   eax,eax
+  73e18d:	74 19                	je     0x73e1a8
+  73e18f:	8b 10                	mov    edx,DWORD PTR [eax]
+  73e191:	8b c8                	mov    ecx,eax
+  73e193:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73e196:	68 89 dd 0f 11       	push   0x110fdd89
+  73e19b:	ff d0                	call   eax
+  73e19d:	85 c0                	test   eax,eax
+  73e19f:	74 07                	je     0x73e1a8
+  73e1a1:	8b c8                	mov    ecx,eax
+  73e1a3:	e9 08 1f 23 00       	jmp    0x9700b0
+  73e1a8:	c3                   	ret
+  73e1a9:	cc                   	int3
+  73e1aa:	cc                   	int3
+  73e1ab:	cc                   	int3
+  73e1ac:	cc                   	int3
+  73e1ad:	cc                   	int3
+  73e1ae:	cc                   	int3
+  73e1af:	cc                   	int3

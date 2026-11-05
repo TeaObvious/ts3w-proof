@@ -1,0 +1,56 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined4 FUN_00726170(void * this, int * param_1, undefined4 * param_2, undefined4 param_3, undefined4 param_4)
+Owned ranges: [[00726170, 007261d2]]
+
+00726170  53  PUSH EBX
+00726171  56  PUSH ESI
+00726172  57  PUSH EDI
+00726173  8bf9  MOV EDI,ECX
+00726175  8b07  MOV EAX,dword ptr [EDI]
+00726177  8b5034  MOV EDX,dword ptr [EAX + 0x34]
+0072617a  ffd2  CALL EDX
+0072617c  8b5c2410  MOV EBX,dword ptr [ESP + 0x10]
+00726180  8bf0  MOV ESI,EAX
+00726182  85f6  TEST ESI,ESI
+00726184  742e  JZ 0x007261b4
+00726186  8b06  MOV EAX,dword ptr [ESI]
+00726188  8b10  MOV EDX,dword ptr [EAX]
+0072618a  8bce  MOV ECX,ESI
+0072618c  ffd2  CALL EDX
+0072618e  85db  TEST EBX,EBX
+00726190  7433  JZ 0x007261c5
+00726192  8b4c241c  MOV ECX,dword ptr [ESP + 0x1c]
+00726196  8b542418  MOV EDX,dword ptr [ESP + 0x18]
+0072619a  8b07  MOV EAX,dword ptr [EDI]
+0072619c  8b4024  MOV EAX,dword ptr [EAX + 0x24]
+0072619f  51  PUSH ECX
+007261a0  52  PUSH EDX
+007261a1  56  PUSH ESI
+007261a2  53  PUSH EBX
+007261a3  8bcf  MOV ECX,EDI
+007261a5  ffd0  CALL EAX
+007261a7  84c0  TEST AL,AL
+007261a9  751a  JNZ 0x007261c5
+007261ab  8b16  MOV EDX,dword ptr [ESI]
+007261ad  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+007261b0  8bce  MOV ECX,ESI
+007261b2  ffd0  CALL EAX
+007261b4  8b13  MOV EDX,dword ptr [EBX]
+007261b6  8b4220  MOV EAX,dword ptr [EDX + 0x20]
+007261b9  8bcb  MOV ECX,EBX
+007261bb  ffd0  CALL EAX
+007261bd  5f  POP EDI
+007261be  5e  POP ESI
+007261bf  32c0  XOR AL,AL
+007261c1  5b  POP EBX
+007261c2  c21000  RET 0x10
+007261c5  8b4c2414  MOV ECX,dword ptr [ESP + 0x14]
+007261c9  5f  POP EDI
+007261ca  8931  MOV dword ptr [ECX],ESI
+007261cc  5e  POP ESI
+007261cd  b001  MOV AL,0x1
+007261cf  5b  POP EBX
+007261d0  c21000  RET 0x10

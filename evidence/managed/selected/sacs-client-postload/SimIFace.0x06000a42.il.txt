@@ -1,0 +1,104 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method public hidebysig static 
+		class Sims3.SimIFace.StateMachineClient Acquire (
+			valuetype Sims3.SimIFace.ObjectGuid hostObjectId,
+			string stateMachineName,
+			valuetype Sims3.SimIFace.AnimationPriority overridePriority,
+			bool allowYield
+		) cil managed 
+	{
+		// Method begins at RVA 0xf978
+		// Header size: 12
+		// Code size: 195 (0xc3)
+		.maxstack 6
+		.locals init (
+			[0] valuetype Sims3.SimIFace.ResourceKey,
+			[1] uint32,
+			[2] class Sims3.SimIFace.IEventQueue,
+			[3] class Sims3.SimIFace.StateMachineClient,
+			[4] uint32
+		)
+
+		IL_0000: ldloca.s 0
+		IL_0002: ldarg.1
+		IL_0003: call uint64 Sims3.SimIFace.ResourceUtils::HashString64(string)
+		IL_0008: ldc.i4 47570707
+		IL_000d: ldc.i4.0
+		IL_000e: call instance void Sims3.SimIFace.ResourceKey::.ctor(uint64, uint32, uint32)
+		IL_0013: call class Sims3.SimIFace.ISacsProxy Sims3.SimIFace.SacsProxy::get_Instance()
+		IL_0018: ldarg.3
+		IL_0019: ldarg.0
+		IL_001a: ldloc.0
+		IL_001b: ldarg.2
+		IL_001c: callvirt instance uint32 Sims3.SimIFace.ISacsProxy::AcquireDriver(bool, valuetype Sims3.SimIFace.ObjectGuid, valuetype Sims3.SimIFace.ResourceKey, int32)
+		IL_0021: stloc.1
+		IL_0022: ldloc.1
+		IL_0023: stloc.s 4
+		IL_0025: ldloc.s 4
+		IL_0027: ldc.i4.0
+		IL_0028: beq.s IL_007c
+
+		IL_002a: ldloc.s 4
+		IL_002c: ldc.i4.s -13
+		IL_002e: sub
+		IL_002f: switch (IL_0073, IL_0087, IL_0087, IL_006a, IL_0052, IL_005d, IL_0068)
+
+		IL_0050: br.s IL_0087
+
+		IL_0052: ldstr "Host object was not found."
+		IL_0057: newobj instance void Sims3.SimIFace.SacsErrorException::.ctor(string)
+		IL_005c: throw
+
+		IL_005d: ldstr "Host object does not have a SacsComponent."
+		IL_0062: newobj instance void Sims3.SimIFace.SacsErrorException::.ctor(string)
+		IL_0067: throw
+
+		IL_0068: ldnull
+		IL_0069: ret
+
+		IL_006a: ldarg.0
+		IL_006b: ldarg.1
+		IL_006c: ldarg.2
+		IL_006d: call class Sims3.SimIFace.StateMachineClient Sims3.SimIFace.StateMachineClient::Acquire(valuetype Sims3.SimIFace.ObjectGuid, string, valuetype Sims3.SimIFace.AnimationPriority)
+		IL_0072: ret
+
+		IL_0073: ldarg.0
+		IL_0074: ldarg.1
+		IL_0075: ldarg.2
+		IL_0076: call class Sims3.SimIFace.StateMachineClient Sims3.SimIFace.StateMachineClient::Acquire(valuetype Sims3.SimIFace.ObjectGuid, string, valuetype Sims3.SimIFace.AnimationPriority)
+		IL_007b: ret
+
+		IL_007c: ldstr "You have broken SACS / In a new and unique way / Congratulations."
+		IL_0081: newobj instance void Sims3.SimIFace.SacsErrorException::.ctor(string)
+		IL_0086: throw
+
+		IL_0087: call class Sims3.SimIFace.IEventQueue Sims3.SimIFace.EventQueueHost::CreateEventQueue()
+		IL_008c: stloc.2
+		IL_008d: ldloc.2
+		IL_008e: brfalse.s IL_00b0
+
+		IL_0090: call class Sims3.SimIFace.ISacsProxy Sims3.SimIFace.SacsProxy::get_Instance()
+		IL_0095: ldloc.1
+		IL_0096: ldloc.2
+		IL_0097: callvirt instance uint32 Sims3.SimIFace.IEventQueue::get_Handle()
+		IL_009c: callvirt instance void Sims3.SimIFace.ISacsProxy::SetEventQueue(uint32, uint32)
+		IL_00a1: call class Sims3.SimIFace.ISacsProxy Sims3.SimIFace.SacsProxy::get_Instance()
+		IL_00a6: ldloc.1
+		IL_00a7: ldc.i4.0
+		IL_00a8: ldc.i4.2
+		IL_00a9: ldc.i4.0
+		IL_00aa: ldc.i4.1
+		IL_00ab: callvirt instance void Sims3.SimIFace.ISacsProxy::UpdateEventFilter(uint32, uint32, uint32, uint32, valuetype Sims3.SimIFace.SACS.EventKeyOperation)
+
+		IL_00b0: ldarg.1
+		IL_00b1: ldloc.1
+		IL_00b2: ldarg.0
+		IL_00b3: ldloc.2
+		IL_00b4: newobj instance void Sims3.SimIFace.StateMachineClient::.ctor(string, uint32, valuetype Sims3.SimIFace.ObjectGuid, class Sims3.SimIFace.IEventQueue)
+		IL_00b9: stloc.3
+		IL_00ba: ldloc.3
+		IL_00bb: ldc.i4.1
+		IL_00bc: callvirt instance void Sims3.SimIFace.StateMachineClient::set_HandleEventsAsynchronously(bool)
+		IL_00c1: ldloc.3
+		IL_00c2: ret
+	} // end of method StateMachineClient::Acquire

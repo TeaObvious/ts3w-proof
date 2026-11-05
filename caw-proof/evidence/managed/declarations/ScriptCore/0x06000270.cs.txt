@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000270.
+// Assembly: ScriptCore; type: ScriptCore.EATrace.
+// Decompiled C# source: ScriptCore/ScriptCore/EATrace.cs:13
+	[DllImport("Sims3Common.dll")]
+	private static extern int EATrace_LogImpl(int level, [MarshalAs(UnmanagedType.LPWStr)] string pGroup, [MarshalAs(UnmanagedType.LPWStr)] string pMessage, [MarshalAs(UnmanagedType.LPWStr)] string pFile, int line, [MarshalAs(UnmanagedType.LPWStr)] string pMethod);

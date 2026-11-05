@@ -1,0 +1,451 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; selected original metadata and complete method IL.
+	.method public hidebysig virtual 
+		instance void Startup () cil managed 
+	{
+		// Method begins at RVA 0xe1898
+		// Header size: 12
+		// Code size: 1027 (0x403)
+		.maxstack 5
+		.locals init (
+			[0] bool,
+			[1] bool,
+			[2] bool,
+			[3] bool,
+			[4] uint32,
+			[5] bool,
+			[6] class Sims3.Gameplay.Actors.Sim,
+			[7] class Sims3.Gameplay.CAS.Household,
+			[8] class Sims3.Gameplay.CAS.SimDescription,
+			[9] class Sims3.Gameplay.ActorSystems.BuffMummysCurse/BuffInstanceMummysCurse,
+			[10] class Sims3.Gameplay.Actors.Sim,
+			[11] class Sims3.Gameplay.ActorSystems.OccultManager,
+			[12] string,
+			[13] class [UI]Sims3.UI.ILocalizationModel,
+			[14] string,
+			[15] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>,
+			[16] class [mscorlib]System.Collections.Generic.IEnumerator`1<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldc.i4.0
+		IL_0003: stloc.1
+		IL_0004: ldc.i4.0
+		IL_0005: call void [UI]Sims3.UI.UIManager::BlackBackground(bool)
+		IL_000a: ldarg.0
+		IL_000b: call instance void Sims3.Gameplay.InWorldSubState::Startup()
+		IL_0010: ldarg.0
+		IL_0011: ldc.i4.1
+		IL_0012: call instance void Sims3.Gameplay.LiveModeState::ShowUI(bool)
+		IL_0017: call bool [SimIFace]Sims3.SimIFace.CameraController::IsMapViewModeEnabled()
+		IL_001c: brfalse.s IL_0030
+
+		IL_001e: call class Sims3.Gameplay.Tutorial.TutorialModel Sims3.Gameplay.Tutorial.TutorialModel::get_Singleton()
+		IL_0023: callvirt instance bool Sims3.Gameplay.Tutorial.TutorialModel::IsTutorialRunning()
+		IL_0028: brtrue.s IL_0030
+
+		IL_002a: ldc.i4.1
+		IL_002b: call void [SimIFace]Sims3.SimIFace.CameraController::EnableCameraMapView(bool)
+
+		IL_0030: call void [UI]Sims3.UI.CAS.CASExitLoadScreen::Close()
+		IL_0035: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+		IL_003a: brfalse.s IL_006d
+
+		IL_003c: ldc.i4.1
+		IL_003d: stloc.0
+		IL_003e: call valuetype [SimIFace]Sims3.SimIFace.WorldType [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorldType()
+		IL_0043: ldc.i4.4
+		IL_0044: bne.un.s IL_0068
+
+		IL_0046: call bool Sims3.Gameplay.TimeTravel.CauseEffectService::get_IsDystopiaWorld()
+		IL_004b: brfalse.s IL_0058
+
+		IL_004d: call bool Sims3.Gameplay.TimeTravel.CauseEffectService::get_IsDystopiaWorldExperienced()
+		IL_0052: brtrue.s IL_0058
+
+		IL_0054: ldc.i4.1
+		IL_0055: stloc.1
+		IL_0056: br.s IL_0068
+
+		IL_0058: call bool Sims3.Gameplay.TimeTravel.CauseEffectService::get_IsUtopiaWorld()
+		IL_005d: brfalse.s IL_0068
+
+		IL_005f: call bool Sims3.Gameplay.TimeTravel.CauseEffectService::get_IsUtopiaWorldExperienced()
+		IL_0064: brtrue.s IL_0068
+
+		IL_0066: ldc.i4.1
+		IL_0067: stloc.1
+
+		IL_0068: call void Sims3.Gameplay.GameStates::OnArrivalAtVacationWorld()
+
+		IL_006d: ldsfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.GameStates::sNextSimToSelect
+		IL_0072: brfalse.s IL_0085
+
+		IL_0074: ldsfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.GameStates::sNextSimToSelect
+		IL_0079: call bool Sims3.Gameplay.Core.PlumbBob::ForceSelectActor(class Sims3.Gameplay.Actors.Sim)
+		IL_007e: pop
+		IL_007f: ldnull
+		IL_0080: stsfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.GameStates::sNextSimToSelect
+
+		IL_0085: ldc.i4.0
+		IL_0086: stloc.2
+		IL_0087: call class [UI]Sims3.UI.LoadingScreenController [UI]Sims3.UI.LoadingScreenController::get_Instance()
+		IL_008c: ldnull
+		IL_008d: call bool [UI]Sims3.UI.WindowBase::op_Inequality(class [UI]Sims3.UI.WindowBase, class [UI]Sims3.UI.WindowBase)
+		IL_0092: brfalse IL_0181
+
+		IL_0097: call bool Sims3.Gameplay.GameStates::get_IsPerfTestRunning()
+		IL_009c: brtrue.s IL_00b6
+
+		IL_009e: ldstr "campos"
+		IL_00a3: call string [SimIFace]Sims3.SimIFace.CommandLine::FindSwitch(string)
+		IL_00a8: brtrue.s IL_00b6
+
+		IL_00aa: ldstr "camtarget"
+		IL_00af: call string [SimIFace]Sims3.SimIFace.CommandLine::FindSwitch(string)
+		IL_00b4: brfalse.s IL_00c6
+
+		IL_00b6: ldc.i4.1
+		IL_00b7: call void [SimIFace]Sims3.SimIFace.GameUtils::EnableSceneDraw(bool)
+		IL_00bc: call void [UI]Sims3.UI.LoadingScreenController::Unload()
+		IL_00c1: br IL_019f
+
+		IL_00c6: ldc.i4.0
+		IL_00c7: stloc.3
+		IL_00c8: ldloc.0
+		IL_00c9: brtrue.s IL_00d1
+
+		IL_00cb: ldloc.3
+		IL_00cc: brfalse IL_0169
+
+		IL_00d1: call uint32 [SimIFace]Sims3.SimIFace.CameraController::GetCustomFlyThroughIndex()
+		IL_00d6: stloc.s 4
+		IL_00d8: call bool Sims3.Gameplay.GameStates::get_IsNewGame()
+		IL_00dd: brtrue.s IL_00e2
+
+		IL_00df: ldloc.1
+		IL_00e0: brfalse.s IL_0157
+
+		IL_00e2: ldloc.s 4
+		IL_00e4: brfalse.s IL_0157
+
+		IL_00e6: ldarg.0
+		IL_00e7: ldc.i4.1
+		IL_00e8: ldc.i4.0
+		IL_00e9: call instance void Sims3.Gameplay.LiveModeState::WaitForLotLoad(bool, bool)
+		IL_00ee: ldarg.0
+		IL_00ef: ldc.i4.0
+		IL_00f0: call instance void Sims3.Gameplay.LiveModeState::ShowUI(bool)
+		IL_00f5: ldarg.0
+		IL_00f6: ldc.i4.0
+		IL_00f7: call instance void Sims3.Gameplay.LiveModeState::ShowMaptags(bool)
+		IL_00fc: ldc.i4.8
+		IL_00fd: call void Sims3.Gameplay.Core.AudioManager::set_MusicMode(valuetype Sims3.Gameplay.Core.MusicMode)
+		IL_0102: ldsfld class [SimIFace]Sims3.SimIFace.CameraController/CameraFlyThroughFinishedHandler [SimIFace]Sims3.SimIFace.CameraController::OnCameraFlyThroughFinishedCallback
+		IL_0107: ldarg.0
+		IL_0108: ldftn instance void Sims3.Gameplay.LiveModeState::OnCameraFlyThroughFinishedEvent(uint32)
+		IL_010e: newobj instance void [SimIFace]Sims3.SimIFace.CameraController/CameraFlyThroughFinishedHandler::.ctor(object, native int)
+		IL_0113: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Combine(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+		IL_0118: castclass [SimIFace]Sims3.SimIFace.CameraController/CameraFlyThroughFinishedHandler
+		IL_011d: stsfld class [SimIFace]Sims3.SimIFace.CameraController/CameraFlyThroughFinishedHandler [SimIFace]Sims3.SimIFace.CameraController::OnCameraFlyThroughFinishedCallback
+		IL_0122: ldloc.s 4
+		IL_0124: ldc.i4.0
+		IL_0125: call void [SimIFace]Sims3.SimIFace.CameraController::StartFlyThrough(uint32, bool)
+		IL_012a: ldc.i4.1
+		IL_012b: stloc.2
+		IL_012c: ldc.i4.1
+		IL_012d: call void [SimIFace]Sims3.SimIFace.GameUtils::EnableSceneDraw(bool)
+		IL_0132: call void [UI]Sims3.UI.LoadingScreenController::Unload()
+		IL_0137: br.s IL_0148
+		// loop start (head: IL_0148)
+			IL_0139: ldarg.0
+			IL_013a: ldc.r8 0.0
+			IL_0143: call instance void Sims3.Gameplay.LiveModeState::Sleep(float64)
+
+			IL_0148: call class [UI]Sims3.UI.LoadingScreenController [UI]Sims3.UI.LoadingScreenController::get_Instance()
+			IL_014d: ldnull
+			IL_014e: call bool [UI]Sims3.UI.WindowBase::op_Inequality(class [UI]Sims3.UI.WindowBase, class [UI]Sims3.UI.WindowBase)
+			IL_0153: brtrue.s IL_0139
+		// end loop
+
+		IL_0155: br.s IL_019f
+
+		IL_0157: ldarg.0
+		IL_0158: ldc.i4.1
+		IL_0159: ldc.i4.1
+		IL_015a: call instance void Sims3.Gameplay.LiveModeState::WaitForLotLoad(bool, bool)
+		IL_015f: ldc.i4.1
+		IL_0160: ldc.i4.1
+		IL_0161: ldc.i4.1
+		IL_0162: call void Sims3.Gameplay.Core.Camera::SetView(valuetype [UI]Sims3.UI.CameraView, bool, bool)
+		IL_0167: br.s IL_019f
+
+		IL_0169: call bool Sims3.Gameplay.Core.Camera::RestorePersistedState()
+		IL_016e: pop
+		IL_016f: ldarg.0
+		IL_0170: ldc.i4.0
+		IL_0171: ldc.i4.1
+		IL_0172: call instance void Sims3.Gameplay.LiveModeState::WaitForLotLoad(bool, bool)
+		IL_0177: ldc.i4.1
+		IL_0178: ldc.i4.1
+		IL_0179: ldc.i4.1
+		IL_017a: call void Sims3.Gameplay.Core.Camera::SetView(valuetype [UI]Sims3.UI.CameraView, bool, bool)
+		IL_017f: br.s IL_019f
+
+		IL_0181: ldloc.0
+		IL_0182: brfalse.s IL_019f
+
+		IL_0184: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsUniversityWorld()
+		IL_0189: ldc.i4.0
+		IL_018a: ceq
+		IL_018c: stloc.s 5
+		IL_018e: ldarg.0
+		IL_018f: ldloc.s 5
+		IL_0191: ldc.i4.1
+		IL_0192: call instance void Sims3.Gameplay.LiveModeState::WaitForLotLoad(bool, bool)
+		IL_0197: ldc.i4.1
+		IL_0198: ldc.i4.1
+		IL_0199: ldc.i4.1
+		IL_019a: call void Sims3.Gameplay.Core.Camera::SetView(valuetype [UI]Sims3.UI.CameraView, bool, bool)
+
+		IL_019f: ldc.i4 200
+		IL_01a4: ldc.i4.0
+		IL_01a5: conv.i8
+		IL_01a6: ldc.i4.0
+		IL_01a7: ldc.i4.0
+		IL_01a8: newobj instance void [SimIFace]Sims3.SimIFace.ResourceKey::.ctor(uint64, uint32, uint32)
+		IL_01ad: call void [SimIFace]Sims3.SimIFace.UserToolUtils::UserToolGeneric(uint32, valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+		IL_01b2: ldloc.2
+		IL_01b3: brtrue.s IL_01ba
+
+		IL_01b5: call void [SimIFace]Sims3.SimIFace.GameUtils::Unpause()
+
+		IL_01ba: call valuetype Sims3.Gameplay.Core.MusicMode Sims3.Gameplay.Core.AudioManager::get_MusicMode()
+		IL_01bf: ldc.i4.8
+		IL_01c0: beq.s IL_01c8
+
+		IL_01c2: ldc.i4.0
+		IL_01c3: call void Sims3.Gameplay.Core.AudioManager::set_MusicMode(valuetype Sims3.Gameplay.Core.MusicMode)
+
+		IL_01c8: call void Sims3.Gameplay.InWorldSubState::EdgeScrollCheck()
+		IL_01cd: call void Sims3.Gameplay.InWorldSubState::OpportunityDialogCheck()
+		IL_01d2: call void Sims3.Gameplay.DreamsAndPromises.DreamsAndPromisesManager::ValidateLifetimeWishes()
+		IL_01d7: call void Sims3.Gameplay.ActorSystems.LifeEventManager::ValidatePendingLifeEvents()
+		IL_01dc: ldc.i4 131072
+		IL_01e1: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsInstalled(valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+		IL_01e6: brfalse.s IL_01f7
+
+		IL_01e8: ldc.i4 190
+		IL_01ed: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Actors.Sim::get_ActiveActor()
+		IL_01f2: call void Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype Sims3.Gameplay.Tutorial.Lessons, class Sims3.Gameplay.Actors.Sim)
+
+		IL_01f7: call valuetype [SimIFace]Sims3.SimIFace.WorldType [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorldType()
+		IL_01fc: brtrue.s IL_020a
+
+		IL_01fe: ldc.i4.s 64
+		IL_0200: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Actors.Sim::get_ActiveActor()
+		IL_0205: call void Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype Sims3.Gameplay.Tutorial.Lessons, class Sims3.Gameplay.Actors.Sim)
+
+		IL_020a: call bool Sims3.Gameplay.ActiveCareer.ActiveCareer::get_ActiveCareerShowGeneralLesson()
+		IL_020f: brfalse.s IL_021d
+
+		IL_0211: ldc.i4.s 92
+		IL_0213: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Actors.Sim::get_ActiveActor()
+		IL_0218: call void Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype Sims3.Gameplay.Tutorial.Lessons, class Sims3.Gameplay.Actors.Sim)
+
+		IL_021d: ldc.i4 131
+		IL_0222: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Actors.Sim::get_ActiveActor()
+		IL_0227: call void Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype Sims3.Gameplay.Tutorial.Lessons, class Sims3.Gameplay.Actors.Sim)
+		IL_022c: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+		IL_0231: stloc.s 6
+		IL_0233: ldloc.s 6
+		IL_0235: brfalse IL_02f4
+
+		IL_023a: ldloc.s 6
+		IL_023c: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Actors.Sim::get_LotHome()
+		IL_0241: callvirt instance bool Sims3.Gameplay.Core.Lot::get_HasVirtualResidentialSlots()
+		IL_0246: brfalse.s IL_0251
+
+		IL_0248: ldc.i4.s 111
+		IL_024a: ldloc.s 6
+		IL_024c: call void Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype Sims3.Gameplay.Tutorial.Lessons, class Sims3.Gameplay.Actors.Sim)
+
+		IL_0251: ldloc.s 6
+		IL_0253: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+		IL_0258: stloc.s 7
+		IL_025a: ldloc.s 7
+		IL_025c: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_SimDescriptions()
+		IL_0261: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::GetEnumerator()
+		IL_0266: stloc.s 15
+		.try
+		{
+			IL_0268: br.s IL_028f
+			// loop start (head: IL_028f)
+				IL_026a: ldloca.s 15
+				IL_026c: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::get_Current()
+				IL_0271: stloc.s 8
+				IL_0273: ldloc.s 8
+				IL_0275: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_Child()
+				IL_027a: brtrue.s IL_0285
+
+				IL_027c: ldloc.s 8
+				IL_027e: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_Teen()
+				IL_0283: brfalse.s IL_028f
+
+				IL_0285: ldc.i4.s 122
+				IL_0287: ldnull
+				IL_0288: call void Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype Sims3.Gameplay.Tutorial.Lessons, class Sims3.Gameplay.Actors.Sim)
+				IL_028d: br.s IL_0298
+
+				IL_028f: ldloca.s 15
+				IL_0291: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::MoveNext()
+				IL_0296: brtrue.s IL_026a
+			// end loop
+
+			IL_0298: leave.s IL_02a8
+		} // end .try
+		finally
+		{
+			IL_029a: ldloca.s 15
+			IL_029c: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+			IL_02a2: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_02a7: endfinally
+		} // end handler
+
+		IL_02a8: ldloc.s 6
+		IL_02aa: callvirt instance class Sims3.Gameplay.ActorSystems.BuffManager Sims3.Gameplay.Actors.Sim::get_BuffManager()
+		IL_02af: ldc.i8 7794043383340960048
+		IL_02b8: callvirt instance class Sims3.Gameplay.ActorSystems.BuffInstance Sims3.Gameplay.ActorSystems.BuffManager::GetElement(valuetype Sims3.Gameplay.ActorSystems.BuffNames)
+		IL_02bd: isinst Sims3.Gameplay.ActorSystems.BuffMummysCurse/BuffInstanceMummysCurse
+		IL_02c2: stloc.s 9
+		IL_02c4: ldloc.s 9
+		IL_02c6: brfalse.s IL_02d5
+
+		IL_02c8: ldloc.s 9
+		IL_02ca: ldfld int32 Sims3.Gameplay.ActorSystems.BuffMummysCurse/BuffInstanceMummysCurse::CurseStage
+		IL_02cf: ldc.i4.0
+		IL_02d0: call void Sims3.Gameplay.ActorSystems.BuffMummysCurse::SetCursedScreenFX(int32, bool)
+
+		IL_02d5: ldloc.s 6
+		IL_02d7: callvirt instance class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.Actors.Sim::get_CareerManager()
+		IL_02dc: brfalse.s IL_02ea
+
+		IL_02de: ldloc.s 6
+		IL_02e0: callvirt instance class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.Actors.Sim::get_CareerManager()
+		IL_02e5: callvirt instance void Sims3.Gameplay.Careers.CareerManager::UpdateCareerUI()
+
+		IL_02ea: call class Sims3.Gameplay.UI.Responder Sims3.Gameplay.UI.Responder::get_Instance()
+		IL_02ef: callvirt instance void Sims3.Gameplay.UI.Responder::TrySpawnWeatherStone()
+
+		IL_02f4: call void Sims3.Gameplay.GameStates::SetupPostMoveData()
+		IL_02f9: call void Sims3.Gameplay.GameStates::ClearMovingData()
+		IL_02fe: ldarg.0
+		IL_02ff: call instance void Sims3.Gameplay.InWorldSubState::MovingWorldsWizardCheck()
+		IL_0304: ldarg.0
+		IL_0305: call instance void Sims3.Gameplay.InWorldSubState::PlaceLotWizardCheck()
+		IL_030a: call class [mscorlib]System.Collections.Generic.IList`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Core.LotManager::get_Actors()
+		IL_030f: callvirt instance class [mscorlib]System.Collections.Generic.IEnumerator`1<!0> class [mscorlib]System.Collections.Generic.IEnumerable`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+		IL_0314: stloc.s 16
+		.try
+		{
+			IL_0316: br.s IL_0335
+			// loop start (head: IL_0335)
+				IL_0318: ldloc.s 16
+				IL_031a: callvirt instance !0 class [mscorlib]System.Collections.Generic.IEnumerator`1<class Sims3.Gameplay.Actors.Sim>::get_Current()
+				IL_031f: stloc.s 10
+				IL_0321: ldloc.s 10
+				IL_0323: callvirt instance class Sims3.Gameplay.ActorSystems.OccultManager Sims3.Gameplay.Actors.Sim::get_OccultManager()
+				IL_0328: stloc.s 11
+				IL_032a: ldloc.s 11
+				IL_032c: brfalse.s IL_0335
+
+				IL_032e: ldloc.s 11
+				IL_0330: callvirt instance void Sims3.Gameplay.ActorSystems.OccultManager::RestoreOccultIfNecessary()
+
+				IL_0335: ldloc.s 16
+				IL_0337: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+				IL_033c: brtrue.s IL_0318
+			// end loop
+
+			IL_033e: leave.s IL_034c
+		} // end .try
+		finally
+		{
+			IL_0340: ldloc.s 16
+			IL_0342: brfalse.s IL_034b
+
+			IL_0344: ldloc.s 16
+			IL_0346: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+			IL_034b: endfinally
+		} // end handler
+
+		IL_034c: ldarg.0
+		IL_034d: ldfld bool Sims3.Gameplay.LiveModeState::mNeedToForceSave
+		IL_0352: brfalse IL_0402
+
+		IL_0357: ldarg.0
+		IL_0358: ldc.i4.0
+		IL_0359: stfld bool Sims3.Gameplay.LiveModeState::mNeedToForceSave
+		IL_035e: call class Sims3.Gameplay.UI.Responder Sims3.Gameplay.UI.Responder::get_Instance()
+		IL_0363: callvirt instance class [UI]Sims3.UI.IOptionsModel Sims3.Gameplay.UI.Responder::get_OptionsModel()
+		IL_0368: callvirt instance string [UI]Sims3.UI.IOptionsModel::get_SaveName()
+		IL_036d: stloc.s 12
+		IL_036f: call class Sims3.Gameplay.UI.Responder Sims3.Gameplay.UI.Responder::get_Instance()
+		IL_0374: callvirt instance class [UI]Sims3.UI.ILocalizationModel Sims3.Gameplay.UI.Responder::get_LocalizationModel()
+		IL_0379: stloc.s 13
+		// loop start (head: IL_037b)
+			IL_037b: ldloc.s 13
+			IL_037d: ldstr "Gameplay/Passport/Passport:ForceSaveTitle"
+			IL_0382: ldc.i4.0
+			IL_0383: newarr [mscorlib]System.Object
+			IL_0388: callvirt instance string [UI]Sims3.UI.ILocalizationModel::LocalizeString(string, object[])
+			IL_038d: ldloc.s 13
+			IL_038f: ldstr "Ui/Caption/Moving:ForceGameSaveText"
+			IL_0394: ldc.i4.0
+			IL_0395: newarr [mscorlib]System.Object
+			IL_039a: callvirt instance string [UI]Sims3.UI.ILocalizationModel::LocalizeString(string, object[])
+			IL_039f: ldsfld string [mscorlib]System.String::Empty
+			IL_03a4: ldc.i4.s 9
+			IL_03a6: call string [UI]Sims3.UI.StringInputDialog::Show(string, string, string, valuetype [UI]Sims3.UI.StringInputDialog/Validation)
+			IL_03ab: stloc.s 12
+			IL_03ad: ldarg.0
+			IL_03ae: ldloc.s 12
+			IL_03b0: call instance bool Sims3.Gameplay.LiveModeState::SaveFileNameExists(string)
+			IL_03b5: brfalse.s IL_03e2
+
+			IL_03b7: ldloc.s 13
+			IL_03b9: ldstr "Ui/Caption/Options:SaveConfirm"
+			IL_03be: ldc.i4.0
+			IL_03bf: newarr [mscorlib]System.Object
+			IL_03c4: callvirt instance string [UI]Sims3.UI.ILocalizationModel::LocalizeString(string, object[])
+			IL_03c9: stloc.s 14
+			IL_03cb: ldloc.s 14
+			IL_03cd: ldc.i4.1
+			IL_03ce: call bool [UI]Sims3.UI.AcceptCancelDialog::Show(string, bool)
+			IL_03d3: brtrue.s IL_03da
+
+			IL_03d5: ldnull
+			IL_03d6: stloc.s 12
+			IL_03d8: br.s IL_03e2
+
+			IL_03da: ldloc.s 12
+			IL_03dc: call bool [SimIFace]Sims3.SimIFace.GameUtils::DeleteSaveFile(string)
+			IL_03e1: pop
+
+			IL_03e2: ldloc.s 12
+			IL_03e4: brfalse.s IL_037b
+
+			IL_03e6: ldloc.s 12
+			IL_03e8: ldsfld string [mscorlib]System.String::Empty
+			IL_03ed: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_03f2: brtrue.s IL_037b
+		// end loop
+		IL_03f4: ldarg.0
+		IL_03f5: ldloc.s 12
+		IL_03f7: call instance void Sims3.Gameplay.LiveModeState::SetForcedFilenameForSave_OnMovingWorlds(string)
+		IL_03fc: ldarg.0
+		IL_03fd: call instance void Sims3.Gameplay.LiveModeState::SaveWhenModalExits()
+
+		IL_0402: ret
+	} // end of method LiveModeState::Startup

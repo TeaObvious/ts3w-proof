@@ -1,0 +1,78 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00b5c120 to next catalog entry 0x00b5c1d0; may include padding or data.
+  b5c120:	56                   	push   esi
+  b5c121:	8b 74 24 08          	mov    esi,DWORD PTR [esp+0x8]
+  b5c125:	80 7e 14 00          	cmp    BYTE PTR [esi+0x14],0x0
+  b5c129:	57                   	push   edi
+  b5c12a:	8b f9                	mov    edi,ecx
+  b5c12c:	75 07                	jne    0xb5c135
+  b5c12e:	5f                   	pop    edi
+  b5c12f:	32 c0                	xor    al,al
+  b5c131:	5e                   	pop    esi
+  b5c132:	c2 04 00             	ret    0x4
+  b5c135:	57                   	push   edi
+  b5c136:	8b ce                	mov    ecx,esi
+  b5c138:	e8 83 c7 c7 ff       	call   0x7d88c0
+  b5c13d:	8b 4e 08             	mov    ecx,DWORD PTR [esi+0x8]
+  b5c140:	8d 47 10             	lea    eax,[edi+0x10]
+  b5c143:	50                   	push   eax
+  b5c144:	51                   	push   ecx
+  b5c145:	e8 16 17 98 ff       	call   0x4dd860
+  b5c14a:	83 c4 08             	add    esp,0x8
+  b5c14d:	8b ce                	mov    ecx,esi
+  b5c14f:	50                   	push   eax
+  b5c150:	e8 9b b8 c7 ff       	call   0x7d79f0
+  b5c155:	8b 46 08             	mov    eax,DWORD PTR [esi+0x8]
+  b5c158:	8d 57 11             	lea    edx,[edi+0x11]
+  b5c15b:	52                   	push   edx
+  b5c15c:	50                   	push   eax
+  b5c15d:	e8 fe 16 98 ff       	call   0x4dd860
+  b5c162:	83 c4 08             	add    esp,0x8
+  b5c165:	8b ce                	mov    ecx,esi
+  b5c167:	50                   	push   eax
+  b5c168:	e8 83 b8 c7 ff       	call   0x7d79f0
+  b5c16d:	8b 56 08             	mov    edx,DWORD PTR [esi+0x8]
+  b5c170:	8d 4f 12             	lea    ecx,[edi+0x12]
+  b5c173:	51                   	push   ecx
+  b5c174:	52                   	push   edx
+  b5c175:	e8 e6 16 98 ff       	call   0x4dd860
+  b5c17a:	83 c4 08             	add    esp,0x8
+  b5c17d:	8b ce                	mov    ecx,esi
+  b5c17f:	50                   	push   eax
+  b5c180:	e8 6b b8 c7 ff       	call   0x7d79f0
+  b5c185:	8b 46 10             	mov    eax,DWORD PTR [esi+0x10]
+  b5c188:	8b 56 08             	mov    edx,DWORD PTR [esi+0x8]
+  b5c18b:	50                   	push   eax
+  b5c18c:	8d 4f 14             	lea    ecx,[edi+0x14]
+  b5c18f:	51                   	push   ecx
+  b5c190:	52                   	push   edx
+  b5c191:	e8 ea 17 98 ff       	call   0x4dd980
+  b5c196:	83 c4 0c             	add    esp,0xc
+  b5c199:	8b ce                	mov    ecx,esi
+  b5c19b:	50                   	push   eax
+  b5c19c:	e8 4f b8 c7 ff       	call   0x7d79f0
+  b5c1a1:	8b 46 10             	mov    eax,DWORD PTR [esi+0x10]
+  b5c1a4:	8b 4e 08             	mov    ecx,DWORD PTR [esi+0x8]
+  b5c1a7:	50                   	push   eax
+  b5c1a8:	6a 04                	push   0x4
+  b5c1aa:	83 c7 18             	add    edi,0x18
+  b5c1ad:	57                   	push   edi
+  b5c1ae:	51                   	push   ecx
+  b5c1af:	e8 8c 18 98 ff       	call   0x4dda40
+  b5c1b4:	83 c4 10             	add    esp,0x10
+  b5c1b7:	8b ce                	mov    ecx,esi
+  b5c1b9:	50                   	push   eax
+  b5c1ba:	e8 31 b8 c7 ff       	call   0x7d79f0
+  b5c1bf:	8a 46 14             	mov    al,BYTE PTR [esi+0x14]
+  b5c1c2:	5f                   	pop    edi
+  b5c1c3:	5e                   	pop    esi
+  b5c1c4:	c2 04 00             	ret    0x4
+  b5c1c7:	cc                   	int3
+  b5c1c8:	cc                   	int3
+  b5c1c9:	cc                   	int3
+  b5c1ca:	cc                   	int3
+  b5c1cb:	cc                   	int3
+  b5c1cc:	cc                   	int3
+  b5c1cd:	cc                   	int3
+  b5c1ce:	cc                   	int3
+  b5c1cf:	cc                   	int3

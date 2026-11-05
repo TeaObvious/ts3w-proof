@@ -1,0 +1,16 @@
+	.method public hidebysig static 
+		void LoadWorld () cil managed 
+	{
+		// Method begins at RVA 0x206ef2
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+		IL_0005: brtrue.s IL_000d
+
+		IL_0007: ldc.i4.2
+		IL_0008: call void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)
+
+		IL_000d: ret
+	} // end of method AudioManager::LoadWorld

@@ -1,0 +1,34 @@
+// Selected complete original Sims3.UI.UIManager members; actual ILSpy output, no reconstruction.
+// Original PC1.67 UI.dll SHA256 d38676dc2b953c03f3d764b7c2d531c1f2a08c0232580b40a8880c188f659b89
+// MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2. Complete original CIL is paired separately.
+
+	public static bool IsCustomControl(WindowBase win)
+	{
+		if (win != null)
+		{
+			return GetCustomControlID(win) != 0;
+		}
+		return false;
+	}
+
+	internal static uint GetCustomControlID(WindowBase win)
+	{
+		if (!(win != null))
+		{
+			return 0u;
+		}
+		return gUIMgr.GetCustomControlID(win.WinHandle);
+	}
+
+	internal static void SetFlagProperty(uint handle, uint flagsetPropID, uint flagMask, bool value)
+	{
+		uint uInt32Property = gUIMgr.GetUInt32Property(handle, flagsetPropID);
+		uint value2 = (value ? (uInt32Property | flagMask) : (uInt32Property & ~flagMask));
+		gUIMgr.SetUInt32Property(handle, flagsetPropID, value2);
+	}
+
+	internal static bool GetFlagProperty(uint handle, uint flagsetPropID, uint flagMask)
+	{
+		uint uInt32Property = gUIMgr.GetUInt32Property(handle, flagsetPropID);
+		return (uInt32Property & flagMask) != 0;
+	}

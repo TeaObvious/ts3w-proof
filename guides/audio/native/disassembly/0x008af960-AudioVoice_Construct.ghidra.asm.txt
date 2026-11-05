@@ -1,0 +1,197 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioVoice_Construct
+Entry Point: 008af960
+
+008af960: PUSH ECX
+008af961: PUSH EBX
+008af962: PUSH EBP
+008af963: PUSH ESI
+008af964: MOV ESI, ECX
+008af966: MOV dword ptr [ESI], 0xffd288
+008af96c: MOV dword ptr [ESI + 0x4], 0x1028abc
+008af973: PUSH EDI
+008af974: MOV dword ptr [ESI + 0x8], 0x102bba4
+008af97b: XOR EAX, EAX
+008af97d: LEA ECX, [ESI + 0xc]
+008af980: XCHG dword ptr [ECX], EAX
+008af982: XORPS XMM0, XMM0
+008af985: MOV dword ptr [ESI], 0x103b948
+008af98b: MOV dword ptr [ESI + 0x4], 0x102b238
+008af992: MOV dword ptr [ESI + 0x8], 0x103b944
+008af999: MOV dword ptr [ESI + 0x24], 0x102a27c
+008af9a0: MOVSS XMM1, dword ptr [0x00f998f8]
+008af9a8: MOVSS XMM2, dword ptr [0x00fab218]
+008af9b0: XOR EBX, EBX
+008af9b2: MOV EBP, 0x11c8e54
+008af9b7: MOV dword ptr [ESI + 0x18], EBP
+008af9ba: MOV dword ptr [ESI + 0x1c], EBP
+008af9bd: MOV EAX, 0x11c8e55
+008af9c2: MOV dword ptr [ESI + 0x20], EAX
+008af9c5: MOV dword ptr [ESI + 0x34], 0x103ba74
+008af9cc: MOV dword ptr [ESI + 0x28], EBP
+008af9cf: MOV dword ptr [ESI + 0x2c], EBP
+008af9d2: MOV dword ptr [ESI + 0x30], EAX
+008af9d5: MOV dword ptr [ESI + 0x38], EBX
+008af9d8: MOV dword ptr [ESI + 0x3c], EBX
+008af9db: MOV dword ptr [ESI + 0x40], EBX
+008af9de: MOV dword ptr [ESI + 0x48], EBX
+008af9e1: MOV dword ptr [ESI + 0x4c], EBX
+008af9e4: MOV dword ptr [ESI + 0x50], EBX
+008af9e7: MOV dword ptr [ESI + 0x58], EBX
+008af9ea: MOVSS dword ptr [ESI + 0x7c], XMM2
+008af9ef: MOVSS XMM2, dword ptr [0x00fbba84]
+008af9f7: MOVSS dword ptr [ESI + 0x80], XMM2
+008af9ff: MOVSS XMM2, dword ptr [0x0103b8ec]
+008afa07: MOVSS dword ptr [ESI + 0x5c], XMM0
+008afa0c: MOVSS dword ptr [ESI + 0x60], XMM0
+008afa11: MOVSS dword ptr [ESI + 0x64], XMM1
+008afa16: MOVSS dword ptr [ESI + 0x68], XMM0
+008afa1b: MOVSS dword ptr [ESI + 0x6c], XMM0
+008afa20: MOVSS dword ptr [ESI + 0x70], XMM1
+008afa25: MOVSS dword ptr [ESI + 0x74], XMM0
+008afa2a: MOVSS dword ptr [ESI + 0x78], XMM0
+008afa2f: MOVSS dword ptr [ESI + 0x84], XMM1
+008afa37: MOVSS dword ptr [ESI + 0x88], XMM0
+008afa3f: MOVSS dword ptr [ESI + 0x8c], XMM2
+008afa47: MOVSS dword ptr [ESI + 0x90], XMM0
+008afa4f: MOVSS dword ptr [ESI + 0x94], XMM1
+008afa57: MOVSS dword ptr [ESI + 0x98], XMM1
+008afa5f: MOVSS dword ptr [ESI + 0x9c], XMM1
+008afa67: MOVSS dword ptr [ESI + 0xa0], XMM0
+008afa6f: MOVSS dword ptr [ESI + 0xa4], XMM0
+008afa77: MOVSS dword ptr [ESI + 0xa8], XMM0
+008afa7f: MOV byte ptr [ESI + 0xac], BL
+008afa85: MOV byte ptr [ESI + 0xad], BL
+008afa8b: MOV byte ptr [ESI + 0xae], BL
+008afa91: MOV byte ptr [ESI + 0xaf], 0x1
+008afa98: MOV byte ptr [ESI + 0xb0], BL
+008afa9e: MOV dword ptr [ESI + 0xb4], EBX
+008afaa4: MOVSS XMM2, dword ptr [0x011db08c]
+008afaac: MOVSS dword ptr [ESI + 0xb8], XMM2
+008afab4: MOVSS XMM2, dword ptr [0x011db090]
+008afabc: MOVSS dword ptr [ESI + 0xbc], XMM2
+008afac4: MOVSS XMM2, dword ptr [0x011db094]
+008afacc: MOVSS dword ptr [ESI + 0xc0], XMM2
+008afad4: MOVSS XMM2, dword ptr [0x011db08c]
+008afadc: MOVSS dword ptr [ESI + 0xc4], XMM2
+008afae4: MOVSS XMM2, dword ptr [0x011db090]
+008afaec: MOVSS dword ptr [ESI + 0xc8], XMM2
+008afaf4: MOVSS XMM2, dword ptr [0x011db094]
+008afafc: MOVSS dword ptr [ESI + 0xcc], XMM2
+008afb04: MOV byte ptr [ESI + 0xd0], BL
+008afb0a: MOVSS XMM2, dword ptr [0x011db08c]
+008afb12: MOVSS dword ptr [ESI + 0xd4], XMM2
+008afb1a: MOVSS XMM2, dword ptr [0x011db090]
+008afb22: MOVSS dword ptr [ESI + 0xd8], XMM2
+008afb2a: MOVSS XMM2, dword ptr [0x011db094]
+008afb32: MOVSS dword ptr [ESI + 0xdc], XMM2
+008afb3a: LEA EDI, [ESI + 0xf4]
+008afb40: MOV ECX, EDI
+008afb42: MOVSS dword ptr [ESI + 0xe0], XMM1
+008afb4a: MOVSS dword ptr [ESI + 0xe4], XMM1
+008afb52: MOVSS dword ptr [ESI + 0xe8], XMM0
+008afb5a: MOV dword ptr [ESI + 0xec], EBX
+008afb60: MOV dword ptr [ESI + 0xf0], EBX
+008afb66: CALL 0x0089f750
+008afb6b: LEA EDX, [ESP + 0x13]
+008afb6f: PUSH EDX
+008afb70: LEA EAX, [ESP + 0x17]
+008afb74: PUSH EAX
+008afb75: LEA ECX, [ESI + 0x108]
+008afb7b: CALL 0x008aec70
+008afb80: XORPS XMM0, XMM0
+008afb83: MOV dword ptr [ESI + 0x2e8], EBX
+008afb89: MOV dword ptr [ESI + 0x2ec], EBX
+008afb8f: MOV dword ptr [ESI + 0x2fc], 0xf9997c
+008afb99: LEA EAX, [ESI + 0x304]
+008afb9f: MOV dword ptr [ESI + 0x300], EAX
+008afba5: MOV dword ptr [ESI + 0x2f4], EAX
+008afbab: MOV dword ptr [ESI + 0x2f0], EAX
+008afbb1: MOV dword ptr [ESI + 0x2fc], 0xf9aac8
+008afbbb: LEA ECX, [ESP + 0x13]
+008afbbf: PUSH ECX
+008afbc0: ADD EAX, 0x28
+008afbc3: MOV dword ptr [ESI + 0x2f8], EAX
+008afbc9: LEA EDX, [ESP + 0x17]
+008afbcd: PUSH EDX
+008afbce: LEA ECX, [ESI + 0x348]
+008afbd4: MOV dword ptr [ESI + 0x32c], EBX
+008afbda: MOVSS dword ptr [ESI + 0x330], XMM0
+008afbe2: MOVSS dword ptr [ESI + 0x334], XMM0
+008afbea: MOVSS dword ptr [ESI + 0x338], XMM0
+008afbf2: MOV dword ptr [ESI + 0x33c], 0x2
+008afbfc: MOV dword ptr [ESI + 0x340], 0xee8347b0
+008afc06: MOV dword ptr [ESI + 0x344], 0xffffffff
+008afc10: CALL 0x008aec70
+008afc15: LEA EAX, [ESP + 0x13]
+008afc19: PUSH EAX
+008afc1a: LEA ECX, [ESP + 0x17]
+008afc1e: PUSH ECX
+008afc1f: LEA ECX, [ESI + 0x528]
+008afc25: CALL 0x008aed80
+008afc2a: LEA EDX, [ESP + 0x13]
+008afc2e: PUSH EDX
+008afc2f: LEA EAX, [ESP + 0x17]
+008afc33: PUSH EAX
+008afc34: LEA ECX, [ESI + 0x898]
+008afc3a: CALL 0x008aec70
+008afc3f: FLDZ
+008afc41: XORPS XMM0, XMM0
+008afc44: MOV dword ptr [ESI + 0xa80], 0x103ba60
+008afc4e: MOVSS XMM1, dword ptr [0x00f998f8]
+008afc56: LEA EAX, [ESI + 0xa78]
+008afc5c: MOV dword ptr [EAX], EAX
+008afc5e: MOV dword ptr [EAX + 0x4], EAX
+008afc61: MOV dword ptr [ESI + 0xa84], EBX
+008afc67: MOV byte ptr [ESI + 0xaa4], BL
+008afc6d: MOVSS dword ptr [ESI + 0xab4], XMM0
+008afc75: MOVSS dword ptr [ESI + 0xab8], XMM0
+008afc7d: XOR EAX, EAX
+008afc7f: MOV dword ptr [ESI + 0xa88], EAX
+008afc85: MOV dword ptr [ESI + 0xa8c], EAX
+008afc8b: MOV dword ptr [ESI + 0xa90], EAX
+008afc91: MOV dword ptr [ESI + 0xa94], EAX
+008afc97: MOV dword ptr [ESI + 0xa98], EAX
+008afc9d: MOV dword ptr [ESI + 0xa9c], EAX
+008afca3: MOVSS dword ptr [ESI + 0xaac], XMM1
+008afcab: MOVSS dword ptr [ESI + 0xab0], XMM0
+008afcb3: MOV dword ptr [ESI + 0xaa0], EBX
+008afcb9: FSTP double ptr [ESI + 0xac0]
+008afcbf: MOVSS dword ptr [ESI + 0xac8], XMM0
+008afcc7: MOV byte ptr [ESI + 0xacc], BL
+008afccd: MOV byte ptr [ESI + 0xacd], BL
+008afcd3: MOV dword ptr [ESI + 0xad0], 0xffffffff
+008afcdd: MOV dword ptr [ESI + 0xad4], EBX
+008afce3: MOV dword ptr [ESI + 0xad8], 0x1
+008afced: MOV dword ptr [ESI + 0xadc], EBX
+008afcf3: LEA ECX, [ESI + 0xae0]
+008afcf9: CALL 0x008aa430
+008afcfe: LEA ECX, [ESI + 0xe40]
+008afd04: CALL 0x008aa430
+008afd09: LEA ECX, [ESI + 0x11a0]
+008afd0f: CALL 0x008aa430
+008afd14: LEA ECX, [ESI + 0x1500]
+008afd1a: CALL 0x008aa430
+008afd1f: MOV dword ptr [ESI + 0x186c], 0x6
+008afd29: MOV dword ptr [ESI + 0x1894], 0x103ba48
+008afd33: MOV dword ptr [ESI + 0x1888], EBP
+008afd39: MOV dword ptr [ESI + 0x188c], EBP
+008afd3f: MOV dword ptr [ESI + 0x1890], 0x11c8e55
+008afd49: MOV dword ptr [ESI + 0x1898], 0x3
+008afd53: MOV dword ptr [ESI + 0xadc], EBX
+008afd59: MOV EDX, dword ptr [EDI]
+008afd5b: MOV EAX, dword ptr [EDX]
+008afd5d: MOV ECX, EDI
+008afd5f: MOV dword ptr [ESI + 0x14], EBX
+008afd62: MOV dword ptr [ESI + 0x10], EBX
+008afd65: CALL EAX
+008afd67: POP EDI
+008afd68: MOV EAX, ESI
+008afd6a: POP ESI
+008afd6b: POP EBP
+008afd6c: POP EBX
+008afd6d: POP ECX
+008afd6e: RET
+
+Total instructions: 190

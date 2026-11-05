@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000C07.
+// Assembly: ScriptCore; type: ScriptCore.World.
+// Decompiled C# source: ScriptCore/ScriptCore/World.cs:377
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool World_FindGoodLocationForSpecialLotObject(ulong objId, ulong refObjId, ulong lotId, ref Vector3 outPos, ref Quaternion outOrient);

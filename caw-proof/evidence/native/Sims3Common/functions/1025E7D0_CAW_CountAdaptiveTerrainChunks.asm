@@ -1,0 +1,59 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 1025e7d0..1025e847; CAW_CountAdaptiveTerrainChunks
+1025e7d0: 51  PUSH ECX
+1025e7d1: 53  PUSH EBX
+1025e7d2: 55  PUSH EBP
+1025e7d3: 56  PUSH ESI
+1025e7d4: 8bf1  MOV ESI,ECX
+1025e7d6: 8b4608  MOV EAX,dword ptr [ESI + 0x8]
+1025e7d9: 33d2  XOR EDX,EDX
+1025e7db: f77620  DIV dword ptr [ESI + 0x20]
+1025e7de: 57  PUSH EDI
+1025e7df: 33c9  XOR ECX,ECX
+1025e7e1: 33ff  XOR EDI,EDI
+1025e7e3: 33db  XOR EBX,EBX
+1025e7e5: 894c2410  MOV dword ptr [ESP + 0x10],ECX
+1025e7e9: 8be8  MOV EBP,EAX
+1025e7eb: 0fafe8  IMUL EBP,EAX
+1025e7ee: 85ed  TEST EBP,EBP
+1025e7f0: 7648  JBE 0x1025e83a
+1025e7f2: 8bce  MOV ECX,ESI
+1025e7f4: 895e24  MOV dword ptr [ESI + 0x24],EBX
+1025e7f7: e814feffff  CALL 0x1025e610
+1025e7fc: 8b461c  MOV EAX,dword ptr [ESI + 0x1c]
+1025e7ff: 037e18  ADD EDI,dword ptr [ESI + 0x18]
+1025e802: 01442410  ADD dword ptr [ESP + 0x10],EAX
+1025e806: 3b442418  CMP EAX,dword ptr [ESP + 0x18]
+1025e80a: 7719  JA 0x1025e825
+1025e80c: 83c301  ADD EBX,0x1
+1025e80f: 3bdd  CMP EBX,EBP
+1025e811: 72df  JC 0x1025e7f2
+1025e813: 8b442410  MOV EAX,dword ptr [ESP + 0x10]
+1025e817: 897e18  MOV dword ptr [ESI + 0x18],EDI
+1025e81a: 5f  POP EDI
+1025e81b: 89461c  MOV dword ptr [ESI + 0x1c],EAX
+1025e81e: 5e  POP ESI
+1025e81f: 5d  POP EBP
+1025e820: 5b  POP EBX
+1025e821: 59  POP ECX
+1025e822: c20400  RET 0x4
+1025e825: b800000001  MOV EAX,0x1000000
+1025e82a: 5f  POP EDI
+1025e82b: 8bc8  MOV ECX,EAX
+1025e82d: 894618  MOV dword ptr [ESI + 0x18],EAX
+1025e830: 894e1c  MOV dword ptr [ESI + 0x1c],ECX
+1025e833: 5e  POP ESI
+1025e834: 5d  POP EBP
+1025e835: 5b  POP EBX
+1025e836: 59  POP ECX
+1025e837: c20400  RET 0x4
+1025e83a: 897e18  MOV dword ptr [ESI + 0x18],EDI
+1025e83d: 5f  POP EDI
+1025e83e: 894e1c  MOV dword ptr [ESI + 0x1c],ECX
+1025e841: 5e  POP ESI
+1025e842: 5d  POP EBP
+1025e843: 5b  POP EBX
+1025e844: 59  POP ECX
+1025e845: c20400  RET 0x4

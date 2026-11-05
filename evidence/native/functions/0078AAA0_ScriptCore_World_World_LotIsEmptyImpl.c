@@ -1,0 +1,53 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* Verified PC 1.67 registration table at 0x01163358 (original PC 1.67 TS3W.exe).
+   ScriptCore.World::World_LotIsEmptyImpl [assembly=ScriptCore token=0x06000768; lotId:
+   System.UInt64; return=System.Boolean]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+uint ScriptCore_World__World_LotIsEmptyImpl(int param_1,int param_2)
+
+{
+  undefined4 *puVar1;
+  uint *puVar2;
+  void *this;
+  uint in_EAX;
+  int *piVar3;
+  uint uVar4;
+  uint *puVar5;
+  undefined4 *puVar6;
+  
+  if (DAT_011edbc4 == (void *)0x0) {
+    return in_EAX & 0xffffff00;
+  }
+  piVar3 = FUN_00c62810(DAT_011edbc4,param_1,param_2,(int *)0x0);
+  uVar4 = 0;
+  if ((piVar3 != (int *)0x0) &&
+     (uVar4 = FUN_00b01c70((int)piVar3,'\0'), this = DAT_011ee034, (char)uVar4 != '\0')) {
+    if (DAT_011ee034 == (void *)0x0) {
+      return uVar4 & 0xffffff00;
+    }
+    puVar5 = (uint *)FUN_00c6dc50((int)piVar3);
+    puVar6 = (undefined4 *)*puVar5;
+    puVar1 = (undefined4 *)puVar5[1];
+    while( true ) {
+      if (puVar6 == puVar1) {
+        return CONCAT31((int3)((uint)puVar5 >> 8),1);
+      }
+      puVar2 = (uint *)*puVar6;
+      puVar5 = puVar2;
+      if (((((puVar2[0xb] & DAT_011ea0f8) == 0) && (puVar5 = puVar2 + 6, puVar2[8] == 0x319e4f1d))
+          && (puVar5 = (uint *)FUN_00c8ebb0(this,puVar5), puVar5 != (uint *)0x0)) &&
+         ((puVar5[0x19] & 1) != 0)) break;
+      puVar6 = puVar6 + 1;
+    }
+    return (uint)puVar5 & 0xffffff00;
+  }
+  return uVar4 & 0xffffff00;
+}
+

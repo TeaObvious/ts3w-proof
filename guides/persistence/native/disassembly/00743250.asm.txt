@@ -1,0 +1,92 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00743250 <.text+0x342250>:
+  743250:	83 ec 14             	sub    esp,0x14
+  743253:	57                   	push   edi
+  743254:	8b 7c 24 1c          	mov    edi,DWORD PTR [esp+0x1c]
+  743258:	85 ff                	test   edi,edi
+  74325a:	75 07                	jne    0x743263
+  74325c:	33 c0                	xor    eax,eax
+  74325e:	5f                   	pop    edi
+  74325f:	83 c4 14             	add    esp,0x14
+  743262:	c3                   	ret
+  743263:	56                   	push   esi
+  743264:	e8 27 61 02 00       	call   0x769390
+  743269:	8b f0                	mov    esi,eax
+  74326b:	85 f6                	test   esi,esi
+  74326d:	74 16                	je     0x743285
+  74326f:	8b 06                	mov    eax,DWORD PTR [esi]
+  743271:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  743274:	57                   	push   edi
+  743275:	8b ce                	mov    ecx,esi
+  743277:	ff d2                	call   edx
+  743279:	8b f8                	mov    edi,eax
+  74327b:	85 ff                	test   edi,edi
+  74327d:	74 06                	je     0x743285
+  74327f:	66 83 3f 00          	cmp    WORD PTR [edi],0x0
+  743283:	75 08                	jne    0x74328d
+  743285:	5e                   	pop    esi
+  743286:	33 c0                	xor    eax,eax
+  743288:	5f                   	pop    edi
+  743289:	83 c4 14             	add    esp,0x14
+  74328c:	c3                   	ret
+  74328d:	53                   	push   ebx
+  74328e:	e8 2d 67 36 00       	call   0xaa99c0
+  743293:	8b d8                	mov    ebx,eax
+  743295:	85 db                	test   ebx,ebx
+  743297:	74 3d                	je     0x7432d6
+  743299:	8d 44 24 0c          	lea    eax,[esp+0xc]
+  74329d:	50                   	push   eax
+  74329e:	57                   	push   edi
+  74329f:	8d 4c 24 18          	lea    ecx,[esp+0x18]
+  7432a3:	c7 44 24 14 4c 26 00 	mov    DWORD PTR [esp+0x14],0x100264c
+  7432aa:	01 
+  7432ab:	e8 d0 85 cc ff       	call   0x40b880
+  7432b0:	8d 4c 24 24          	lea    ecx,[esp+0x24]
+  7432b4:	51                   	push   ecx
+  7432b5:	8d 54 24 14          	lea    edx,[esp+0x14]
+  7432b9:	52                   	push   edx
+  7432ba:	8b cb                	mov    ecx,ebx
+  7432bc:	c7 44 24 2c 00 00 00 	mov    DWORD PTR [esp+0x2c],0x0
+  7432c3:	00 
+  7432c4:	e8 97 81 36 00       	call   0xaab460
+  7432c9:	84 c0                	test   al,al
+  7432cb:	75 12                	jne    0x7432df
+  7432cd:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  7432d1:	e8 1a c6 da ff       	call   0x4ef8f0
+  7432d6:	5b                   	pop    ebx
+  7432d7:	5e                   	pop    esi
+  7432d8:	33 c0                	xor    eax,eax
+  7432da:	5f                   	pop    edi
+  7432db:	83 c4 14             	add    esp,0x14
+  7432de:	c3                   	ret
+  7432df:	8b 4c 24 24          	mov    ecx,DWORD PTR [esp+0x24]
+  7432e3:	8b 06                	mov    eax,DWORD PTR [esi]
+  7432e5:	8b 90 c8 00 00 00    	mov    edx,DWORD PTR [eax+0xc8]
+  7432eb:	6a 40                	push   0x40
+  7432ed:	51                   	push   ecx
+  7432ee:	8b ce                	mov    ecx,esi
+  7432f0:	ff d2                	call   edx
+  7432f2:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  7432f6:	8b f0                	mov    esi,eax
+  7432f8:	e8 f3 c5 da ff       	call   0x4ef8f0
+  7432fd:	5b                   	pop    ebx
+  7432fe:	8b c6                	mov    eax,esi
+  743300:	5e                   	pop    esi
+  743301:	5f                   	pop    edi
+  743302:	83 c4 14             	add    esp,0x14
+  743305:	c3                   	ret
+  743306:	cc                   	int3
+  743307:	cc                   	int3
+  743308:	cc                   	int3
+  743309:	cc                   	int3
+  74330a:	cc                   	int3
+  74330b:	cc                   	int3
+  74330c:	cc                   	int3
+  74330d:	cc                   	int3
+  74330e:	cc                   	int3
+  74330f:	cc                   	int3

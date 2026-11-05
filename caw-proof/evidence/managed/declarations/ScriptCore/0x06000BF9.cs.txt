@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000BF9.
+// Assembly: ScriptCore; type: ScriptCore.World.
+// Decompiled C# source: ScriptCore/ScriptCore/World.cs:323
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool World_FindPlaceOnRoad(ulong objId, ref Vector3 pos, uint option, ref Vector3 outPos, ref Quaternion outOrient);

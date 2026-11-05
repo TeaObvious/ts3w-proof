@@ -1,0 +1,123 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined4 UserToolUtils_GetProductImpl(uint param_1, uint param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5)
+Owned ranges: [[00ce61d0, 00ce6313]]
+
+00ce61d0  83ec10  SUB ESP,0x10
+00ce61d3  56  PUSH ESI
+00ce61d4  57  PUSH EDI
+00ce61d5  e8b631a8ff  CALL 0x00769390
+00ce61da  8b0d34e01e01  MOV ECX,dword ptr [0x011ee034]
+00ce61e0  85c9  TEST ECX,ECX
+00ce61e2  8bf8  MOV EDI,EAX
+00ce61e4  0f8422010000  JZ 0x00ce630c
+00ce61ea  85ff  TEST EDI,EDI
+00ce61ec  0f841a010000  JZ 0x00ce630c
+00ce61f2  8b442420  MOV EAX,dword ptr [ESP + 0x20]
+00ce61f6  8b542424  MOV EDX,dword ptr [ESP + 0x24]
+00ce61fa  89442408  MOV dword ptr [ESP + 0x8],EAX
+00ce61fe  8b44242c  MOV EAX,dword ptr [ESP + 0x2c]
+00ce6202  89442410  MOV dword ptr [ESP + 0x10],EAX
+00ce6206  8b44241c  MOV EAX,dword ptr [ESP + 0x1c]
+00ce620a  83f808  CMP EAX,0x8
+00ce620d  8954240c  MOV dword ptr [ESP + 0xc],EDX
+00ce6211  8b542428  MOV EDX,dword ptr [ESP + 0x28]
+00ce6215  89542414  MOV dword ptr [ESP + 0x14],EDX
+00ce6219  743c  JZ 0x00ce6257
+00ce621b  83f814  CMP EAX,0x14
+00ce621e  7605  JBE 0x00ce6225
+00ce6220  83f817  CMP EAX,0x17
+00ce6223  7532  JNZ 0x00ce6257
+00ce6225  8d542408  LEA EDX,[ESP + 0x8]
+00ce6229  52  PUSH EDX
+00ce622a  50  PUSH EAX
+00ce622b  e89096faff  CALL 0x00c8f8c0
+00ce6230  8bf0  MOV ESI,EAX
+00ce6232  85f6  TEST ESI,ESI
+00ce6234  0f84d2000000  JZ 0x00ce630c
+00ce623a  8b06  MOV EAX,dword ptr [ESI]
+00ce623c  8b10  MOV EDX,dword ptr [EAX]
+00ce623e  8bce  MOV ECX,ESI
+00ce6240  ffd2  CALL EDX
+00ce6242  8b07  MOV EAX,dword ptr [EDI]
+00ce6244  8b90c8000000  MOV EDX,dword ptr [EAX + 0xc8]
+00ce624a  6a45  PUSH 0x45
+00ce624c  56  PUSH ESI
+00ce624d  8bcf  MOV ECX,EDI
+00ce624f  ffd2  CALL EDX
+00ce6251  5f  POP EDI
+00ce6252  5e  POP ESI
+00ce6253  83c410  ADD ESP,0x10
+00ce6256  c3  RET
+00ce6257  83c0f8  ADD EAX,-0x8
+00ce625a  83f818  CMP EAX,0x18
+00ce625d  0f87a9000000  JA 0x00ce630c
+00ce6263  0fb6802863ce00  MOVZX EAX,byte ptr [EAX + 0xce6328]
+00ce626a  ff24851463ce00  JMP dword ptr [EAX*0x4 + 0xce6314]
+00ce6271  6a01  PUSH 0x1
+00ce6273  8d54240c  LEA EDX,[ESP + 0xc]
+00ce6277  52  PUSH EDX
+00ce6278  6a04  PUSH 0x4
+00ce627a  e8f187faff  CALL 0x00c8ea70
+00ce627f  8bf0  MOV ESI,EAX
+00ce6281  85f6  TEST ESI,ESI
+00ce6283  0f8483000000  JZ 0x00ce630c
+00ce6289  8b06  MOV EAX,dword ptr [ESI]
+00ce628b  8b10  MOV EDX,dword ptr [EAX]
+00ce628d  8bce  MOV ECX,ESI
+00ce628f  ffd2  CALL EDX
+00ce6291  8b07  MOV EAX,dword ptr [EDI]
+00ce6293  8b90c8000000  MOV EDX,dword ptr [EAX + 0xc8]
+00ce6299  6a45  PUSH 0x45
+00ce629b  56  PUSH ESI
+00ce629c  8bcf  MOV ECX,EDI
+00ce629e  ffd2  CALL EDX
+00ce62a0  5f  POP EDI
+00ce62a1  5e  POP ESI
+00ce62a2  83c410  ADD ESP,0x10
+00ce62a5  c3  RET
+00ce62a6  6a01  PUSH 0x1
+00ce62a8  8d44240c  LEA EAX,[ESP + 0xc]
+00ce62ac  50  PUSH EAX
+00ce62ad  e8ae84faff  CALL 0x00c8e760
+00ce62b2  8bf0  MOV ESI,EAX
+00ce62b4  85f6  TEST ESI,ESI
+00ce62b6  7454  JZ 0x00ce630c
+00ce62b8  83bee000000000  CMP dword ptr [ESI + 0xe0],0x0
+00ce62bf  754b  JNZ 0x00ce630c
+00ce62c1  8b16  MOV EDX,dword ptr [ESI]
+00ce62c3  8b02  MOV EAX,dword ptr [EDX]
+00ce62c5  8bce  MOV ECX,ESI
+00ce62c7  ffd0  CALL EAX
+00ce62c9  8b17  MOV EDX,dword ptr [EDI]
+00ce62cb  8b82c8000000  MOV EAX,dword ptr [EDX + 0xc8]
+00ce62d1  6a45  PUSH 0x45
+00ce62d3  56  PUSH ESI
+00ce62d4  8bcf  MOV ECX,EDI
+00ce62d6  ffd0  CALL EAX
+00ce62d8  5f  POP EDI
+00ce62d9  5e  POP ESI
+00ce62da  83c410  ADD ESP,0x10
+00ce62dd  c3  RET
+00ce62de  6a01  PUSH 0x1
+00ce62e0  8d54240c  LEA EDX,[ESP + 0xc]
+00ce62e4  52  PUSH EDX
+00ce62e5  e87684faff  CALL 0x00c8e760
+00ce62ea  8bf0  MOV ESI,EAX
+00ce62ec  85f6  TEST ESI,ESI
+00ce62ee  741c  JZ 0x00ce630c
+00ce62f0  83bee000000000  CMP dword ptr [ESI + 0xe0],0x0
+00ce62f7  e938ffffff  JMP 0x00ce6234
+00ce62fc  8d442408  LEA EAX,[ESP + 0x8]
+00ce6300  50  PUSH EAX
+00ce6301  e8da8afaff  CALL 0x00c8ede0
+00ce6306  8bf0  MOV ESI,EAX
+00ce6308  85f6  TEST ESI,ESI
+00ce630a  75b5  JNZ 0x00ce62c1
+00ce630c  5f  POP EDI
+00ce630d  33c0  XOR EAX,EAX
+00ce630f  5e  POP ESI
+00ce6310  83c410  ADD ESP,0x10
+00ce6313  c3  RET

@@ -1,0 +1,25 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: Sims3/CSHost/World.cs
+// Each selected method is complete. Other members are omitted.
+
+	public Lot CreateNewLot(ref tNewLotDescription lotDesc)
+	{
+		if (mWorldWrap != null)
+		{
+			LotWrap lotWrap = mWorldWrap.CreateNewLot(ref lotDesc);
+			if (lotWrap != null)
+			{
+				return new Lot(lotWrap, this);
+			}
+		}
+		return null;
+	}
+
+// [Next selected original method]
+
+	public void DeleteNewLot(Lot newLot)
+	{
+		if (mWorldWrap != null && TryEdit())
+		{
+			mWorldWrap.DeleteNewLot(newLot.GetWrapObject() as LotWrap);
+		}
+	}

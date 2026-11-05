@@ -1,0 +1,62 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+00ec25f0  83ec20  SUB ESP,0x20
+00ec25f3  57  PUSH EDI
+00ec25f4  e8a76d8aff  CALL 0x007693a0
+00ec25f9  8bf8  MOV EDI,EAX
+00ec25fb  85ff  TEST EDI,EDI
+00ec25fd  0f848e000000  JZ 0x00ec2691
+00ec2603  b801000000  MOV EAX,0x1
+00ec2608  56  PUSH ESI
+00ec2609  6a38  PUSH 0x38
+00ec260b  c744240cf4a6fb00  MOV dword ptr [ESP + 0xc],0xfba6f4
+00ec2613  8844241c  MOV byte ptr [ESP + 0x1c],AL
+00ec2617  6689442416  MOV word ptr [ESP + 0x16],AX
+00ec261c  66c74424140000  MOV word ptr [ESP + 0x14],0x0
+00ec2623  e8f8878aff  CALL 0x0076ae20
+00ec2628  83c404  ADD ESP,0x4
+00ec262b  85c0  TEST EAX,EAX
+00ec262d  7467  JZ 0x00ec2696
+00ec262f  8d4c2408  LEA ECX,[ESP + 0x8]
+00ec2633  51  PUSH ECX
+00ec2634  8b4c2430  MOV ECX,dword ptr [ESP + 0x30]
+00ec2638  8b510c  MOV EDX,dword ptr [ECX + 0xc]
+00ec263b  8b4908  MOV ECX,dword ptr [ECX + 0x8]
+00ec263e  52  PUSH EDX
+00ec263f  51  PUSH ECX
+00ec2640  8bc8  MOV ECX,EAX
+00ec2642  e879b76eff  CALL 0x005addc0
+00ec2647  8bf0  MOV ESI,EAX
+00ec2649  85f6  TEST ESI,ESI
+00ec264b  7409  JZ 0x00ec2656
+00ec264d  8b16  MOV EDX,dword ptr [ESI]
+00ec264f  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+00ec2652  8bce  MOV ECX,ESI
+00ec2654  ffd0  CALL EAX
+00ec2656  8b17  MOV EDX,dword ptr [EDI]
+00ec2658  8b421c  MOV EAX,dword ptr [EDX + 0x1c]
+00ec265b  6a00  PUSH 0x0
+00ec265d  6a00  PUSH 0x0
+00ec265f  56  PUSH ESI
+00ec2660  68f0900203  PUSH 0x30290f0
+00ec2665  8bcf  MOV ECX,EDI
+00ec2667  ffd0  CALL EAX
+00ec2669  85f6  TEST ESI,ESI
+00ec266b  7409  JZ 0x00ec2676
+00ec266d  8b16  MOV EDX,dword ptr [ESI]
+00ec266f  8b4208  MOV EAX,dword ptr [EDX + 0x8]
+00ec2672  8bce  MOV ECX,ESI
+00ec2674  ffd0  CALL EAX
+00ec2676  f644241004  TEST byte ptr [ESP + 0x10],0x4
+00ec267b  c7442408f4a6fb00  MOV dword ptr [ESP + 0x8],0xfba6f4
+00ec2683  5e  POP ESI
+00ec2684  740b  JZ 0x00ec2691
+00ec2686  6a00  PUSH 0x0
+00ec2688  8d4c2408  LEA ECX,[ESP + 0x8]
+00ec268c  e8cf3063ff  CALL 0x004f5760
+00ec2691  5f  POP EDI
+00ec2692  83c420  ADD ESP,0x20
+00ec2695  c3  RET
+00ec2696  33f6  XOR ESI,ESI
+00ec2698  ebbc  JMP 0x00ec2656

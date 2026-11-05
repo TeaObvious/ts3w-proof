@@ -1,0 +1,74 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined LotSettings_LoadToolTunables(void * this)
+Owned ranges: [[00ab0b60, 00ab0c51]]
+
+00ab0b60  81ec94040000  SUB ESP,0x494
+00ab0b66  56  PUSH ESI
+00ab0b67  8bf1  MOV ESI,ECX
+00ab0b69  8d4c2404  LEA ECX,[ESP + 0x4]
+00ab0b6d  e8aef5d1ff  CALL 0x007d0120
+00ab0b72  6a00  PUSH 0x0
+00ab0b74  68605f0601  PUSH 0x1065f60
+00ab0b79  8d4c240c  LEA ECX,[ESP + 0xc]
+00ab0b7d  e8eef7d1ff  CALL 0x007d0370
+00ab0b82  84c0  TEST AL,AL
+00ab0b84  0f84b4000000  JZ 0x00ab0c3e
+00ab0b8a  8d4604  LEA EAX,[ESI + 0x4]
+00ab0b8d  50  PUSH EAX
+00ab0b8e  681026fa00  PUSH 0xfa2610
+00ab0b93  68305f0601  PUSH 0x1065f30
+00ab0b98  8d4c2410  LEA ECX,[ESP + 0x10]
+00ab0b9c  681c5f0601  PUSH 0x1065f1c
+00ab0ba1  51  PUSH ECX
+00ab0ba2  e8c9eca3ff  CALL 0x004ef870
+00ab0ba7  8d5608  LEA EDX,[ESI + 0x8]
+00ab0baa  52  PUSH EDX
+00ab0bab  681026fa00  PUSH 0xfa2610
+00ab0bb0  68f05e0601  PUSH 0x1065ef0
+00ab0bb5  8d442424  LEA EAX,[ESP + 0x24]
+00ab0bb9  68dc5e0601  PUSH 0x1065edc
+00ab0bbe  50  PUSH EAX
+00ab0bbf  e8aceca3ff  CALL 0x004ef870
+00ab0bc4  8d4e0c  LEA ECX,[ESI + 0xc]
+00ab0bc7  51  PUSH ECX
+00ab0bc8  681026fa00  PUSH 0xfa2610
+00ab0bcd  68ac5e0601  PUSH 0x1065eac
+00ab0bd2  8d542438  LEA EDX,[ESP + 0x38]
+00ab0bd6  68805e0601  PUSH 0x1065e80
+00ab0bdb  52  PUSH EDX
+00ab0bdc  e88feca3ff  CALL 0x004ef870
+00ab0be1  8d4610  LEA EAX,[ESI + 0x10]
+00ab0be4  50  PUSH EAX
+00ab0be5  681026fa00  PUSH 0xfa2610
+00ab0bea  68585e0601  PUSH 0x1065e58
+00ab0bef  8d4c244c  LEA ECX,[ESP + 0x4c]
+00ab0bf3  68445e0601  PUSH 0x1065e44
+00ab0bf8  51  PUSH ECX
+00ab0bf9  e8f2eba3ff  CALL 0x004ef7f0
+00ab0bfe  83c450  ADD ESP,0x50
+00ab0c01  8d5614  LEA EDX,[ESI + 0x14]
+00ab0c04  52  PUSH EDX
+00ab0c05  681026fa00  PUSH 0xfa2610
+00ab0c0a  68245e0601  PUSH 0x1065e24
+00ab0c0f  8d442410  LEA EAX,[ESP + 0x10]
+00ab0c13  68f45d0601  PUSH 0x1065df4
+00ab0c18  50  PUSH EAX
+00ab0c19  e8d2eba3ff  CALL 0x004ef7f0
+00ab0c1e  8d4e18  LEA ECX,[ESI + 0x18]
+00ab0c21  51  PUSH ECX
+00ab0c22  686c05fc00  PUSH 0xfc056c
+00ab0c27  68c45d0601  PUSH 0x1065dc4
+00ab0c2c  8d542424  LEA EDX,[ESP + 0x24]
+00ab0c30  68f45d0601  PUSH 0x1065df4
+00ab0c35  52  PUSH EDX
+00ab0c36  e8b5eba3ff  CALL 0x004ef7f0
+00ab0c3b  83c428  ADD ESP,0x28
+00ab0c3e  8d4c2404  LEA ECX,[ESP + 0x4]
+00ab0c42  c60601  MOV byte ptr [ESI],0x1
+00ab0c45  e806f6d1ff  CALL 0x007d0250
+00ab0c4a  5e  POP ESI
+00ab0c4b  81c494040000  ADD ESP,0x494
+00ab0c51  c3  RET

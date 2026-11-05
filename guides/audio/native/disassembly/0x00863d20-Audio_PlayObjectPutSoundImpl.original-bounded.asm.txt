@@ -1,0 +1,41 @@
+Reference: original PC 1.67 TS3W.exe SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+Registration: ScriptCore.Audio::Audio_PlayObjectPutSoundImpl
+PE VA interval: [0x00863d20, 0x00863d50)
+Original file interval: [0x463d20, 0x463d50)
+Span SHA-256: da536c9844c1d12598d87d0dbcb9d95fc6b686d79cdd4d03b76c4149d330c014
+Boundary: next function entry in retained Ghidra listing; this is a bounded linear decode, not independently proven exact function body.
+Decoder: GNU objdump -D -Mintel; control-flow paths must be checked before behavioral claims.
+
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00863d20 <.text+0x462d20>:
+  863d20:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+  863d24:	8b 4c 24 0c          	mov    ecx,DWORD PTR [esp+0xc]
+  863d28:	8b 54 24 08          	mov    edx,DWORD PTR [esp+0x8]
+  863d2c:	68 80 8f 02 01       	push   0x1028f80
+  863d31:	50                   	push   eax
+  863d32:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+  863d36:	51                   	push   ecx
+  863d37:	52                   	push   edx
+  863d38:	50                   	push   eax
+  863d39:	e8 f2 fb ff ff       	call   0x863930
+  863d3e:	83 c4 14             	add    esp,0x14
+  863d41:	c3                   	ret
+  863d42:	cc                   	int3
+  863d43:	cc                   	int3
+  863d44:	cc                   	int3
+  863d45:	cc                   	int3
+  863d46:	cc                   	int3
+  863d47:	cc                   	int3
+  863d48:	cc                   	int3
+  863d49:	cc                   	int3
+  863d4a:	cc                   	int3
+  863d4b:	cc                   	int3
+  863d4c:	cc                   	int3
+  863d4d:	cc                   	int3
+  863d4e:	cc                   	int3
+  863d4f:	cc                   	int3

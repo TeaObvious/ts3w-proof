@@ -1,0 +1,305 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Supplemental helper: MainCamera_BeginSmoothRecall at 0x00974300
+# Bounded stop: 0x009746e0; next Ghidra entry: 0x009746e0; this is not a body-size claim.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00974300 <.text+0x573300>:
+  974300:	55                   	push   ebp
+  974301:	8b ec                	mov    ebp,esp
+  974303:	83 e4 f0             	and    esp,0xfffffff0
+  974306:	83 ec 74             	sub    esp,0x74
+  974309:	53                   	push   ebx
+  97430a:	56                   	push   esi
+  97430b:	8b f1                	mov    esi,ecx
+  97430d:	80 be b6 08 00 00 00 	cmp    BYTE PTR [esi+0x8b6],0x0
+  974314:	57                   	push   edi
+  974315:	0f 85 b1 03 00 00    	jne    0x9746cc
+  97431b:	8b 86 f0 05 00 00    	mov    eax,DWORD PTR [esi+0x5f0]
+  974321:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+  974324:	8d be f0 05 00 00    	lea    edi,[esi+0x5f0]
+  97432a:	8b cf                	mov    ecx,edi
+  97432c:	ff d2                	call   edx
+  97432e:	84 c0                	test   al,al
+  974330:	8b df                	mov    ebx,edi
+  974332:	75 06                	jne    0x97433a
+  974334:	8d 9e 70 05 00 00    	lea    ebx,[esi+0x570]
+  97433a:	8b 03                	mov    eax,DWORD PTR [ebx]
+  97433c:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+  97433f:	8b cb                	mov    ecx,ebx
+  974341:	ff d2                	call   edx
+  974343:	84 c0                	test   al,al
+  974345:	74 60                	je     0x9743a7
+  974347:	8b 03                	mov    eax,DWORD PTR [ebx]
+  974349:	8b 50 28             	mov    edx,DWORD PTR [eax+0x28]
+  97434c:	8d 4c 24 50          	lea    ecx,[esp+0x50]
+  974350:	51                   	push   ecx
+  974351:	8b cb                	mov    ecx,ebx
+  974353:	ff d2                	call   edx
+  974355:	0f 28 44 24 50       	movaps xmm0,XMMWORD PTR [esp+0x50]
+  97435a:	8b 45 0c             	mov    eax,DWORD PTR [ebp+0xc]
+  97435d:	0f c6 c0 20          	shufps xmm0,xmm0,0x20
+  974361:	0f 28 c8             	movaps xmm1,xmm0
+  974364:	0f 28 00             	movaps xmm0,XMMWORD PTR [eax]
+  974367:	0f c6 c0 20          	shufps xmm0,xmm0,0x20
+  97436b:	0f c6 c0 08          	shufps xmm0,xmm0,0x8
+  97436f:	0f c6 c9 08          	shufps xmm1,xmm1,0x8
+  974373:	0f 5c c8             	subps  xmm1,xmm0
+  974376:	f3 0f 10 05 18 b2 fa 	movss  xmm0,DWORD PTR ds:0xfab218
+  97437d:	00 
+  97437e:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  974382:	0f 59 c1             	mulps  xmm0,xmm1
+  974385:	0f 5f c1             	maxps  xmm0,xmm1
+  974388:	f3 0f 10 0d ac 6c 04 	movss  xmm1,DWORD PTR ds:0x1046cac
+  97438f:	01 
+  974390:	0f c6 c9 00          	shufps xmm1,xmm1,0x0
+  974394:	0f c2 c1 02          	cmpleps xmm0,xmm1
+  974398:	0f 50 c8             	movmskps ecx,xmm0
+  97439b:	83 e1 03             	and    ecx,0x3
+  97439e:	80 f9 03             	cmp    cl,0x3
+  9743a1:	0f 84 25 03 00 00    	je     0x9746cc
+  9743a7:	80 7d 18 00          	cmp    BYTE PTR [ebp+0x18],0x0
+  9743ab:	74 07                	je     0x9743b4
+  9743ad:	8b ce                	mov    ecx,esi
+  9743af:	e8 fc f9 ff ff       	call   0x973db0
+  9743b4:	80 be 09 08 00 00 00 	cmp    BYTE PTR [esi+0x809],0x0
+  9743bb:	0f 28 8e 70 07 00 00 	movaps xmm1,XMMWORD PTR [esi+0x770]
+  9743c2:	0f 29 4c 24 40       	movaps XMMWORD PTR [esp+0x40],xmm1
+  9743c7:	0f 84 9c 00 00 00    	je     0x974469
+  9743cd:	80 7d 14 00          	cmp    BYTE PTR [ebp+0x14],0x0
+  9743d1:	74 1b                	je     0x9743ee
+  9743d3:	0f 57 c0             	xorps  xmm0,xmm0
+  9743d6:	c6 86 09 08 00 00 00 	mov    BYTE PTR [esi+0x809],0x0
+  9743dd:	c6 86 10 08 00 00 01 	mov    BYTE PTR [esi+0x810],0x1
+  9743e4:	f3 0f 11 86 14 08 00 	movss  DWORD PTR [esi+0x814],xmm0
+  9743eb:	00 
+  9743ec:	eb 7b                	jmp    0x974469
+  9743ee:	0f 28 86 80 07 00 00 	movaps xmm0,XMMWORD PTR [esi+0x780]
+  9743f5:	0f 5c c8             	subps  xmm1,xmm0
+  9743f8:	0f 59 c9             	mulps  xmm1,xmm1
+  9743fb:	0f 28 c1             	movaps xmm0,xmm1
+  9743fe:	0f c6 c1 02          	shufps xmm0,xmm1,0x2
+  974402:	0f 28 d1             	movaps xmm2,xmm1
+  974405:	0f c6 d1 01          	shufps xmm2,xmm1,0x1
+  974409:	0f 58 c2             	addps  xmm0,xmm2
+  97440c:	0f 58 c1             	addps  xmm0,xmm1
+  97440f:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  974413:	0f 51 c0             	sqrtps xmm0,xmm0
+  974416:	0f 29 44 24 60       	movaps XMMWORD PTR [esp+0x60],xmm0
+  97441b:	0f 28 86 d0 07 00 00 	movaps xmm0,XMMWORD PTR [esi+0x7d0]
+  974422:	0f 29 44 24 50       	movaps XMMWORD PTR [esp+0x50],xmm0
+  974427:	d9 44 24 54          	fld    DWORD PTR [esp+0x54]
+  97442b:	83 ec 08             	sub    esp,0x8
+  97442e:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  974432:	8d 54 24 58          	lea    edx,[esp+0x58]
+  974436:	d9 86 0c 08 00 00    	fld    DWORD PTR [esi+0x80c]
+  97443c:	d9 1c 24             	fstp   DWORD PTR [esp]
+  97443f:	52                   	push   edx
+  974440:	e8 db 91 00 00       	call   0x97d620
+  974445:	f3 0f 10 44 24 6c    	movss  xmm0,DWORD PTR [esp+0x6c]
+  97444b:	0f 28 4c 24 5c       	movaps xmm1,XMMWORD PTR [esp+0x5c]
+  974450:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  974454:	0f 59 c1             	mulps  xmm0,xmm1
+  974457:	0f 28 8e 80 07 00 00 	movaps xmm1,XMMWORD PTR [esi+0x780]
+  97445e:	0f 5c c8             	subps  xmm1,xmm0
+  974461:	83 c4 0c             	add    esp,0xc
+  974464:	0f 29 4c 24 40       	movaps XMMWORD PTR [esp+0x40],xmm1
+  974469:	8b 45 08             	mov    eax,DWORD PTR [ebp+0x8]
+  97446c:	0f 28 00             	movaps xmm0,XMMWORD PTR [eax]
+  97446f:	8b 4d 0c             	mov    ecx,DWORD PTR [ebp+0xc]
+  974472:	8a 9e b9 08 00 00    	mov    bl,BYTE PTR [esi+0x8b9]
+  974478:	8d 54 24 30          	lea    edx,[esp+0x30]
+  97447c:	0f 29 44 24 30       	movaps XMMWORD PTR [esp+0x30],xmm0
+  974481:	0f 28 01             	movaps xmm0,XMMWORD PTR [ecx]
+  974484:	52                   	push   edx
+  974485:	8d 44 24 24          	lea    eax,[esp+0x24]
+  974489:	50                   	push   eax
+  97448a:	8b ce                	mov    ecx,esi
+  97448c:	0f 29 44 24 28       	movaps XMMWORD PTR [esp+0x28],xmm0
+  974491:	e8 aa ea ff ff       	call   0x972f40
+  974496:	8b 4d 20             	mov    ecx,DWORD PTR [ebp+0x20]
+  974499:	51                   	push   ecx
+  97449a:	8d 54 24 34          	lea    edx,[esp+0x34]
+  97449e:	52                   	push   edx
+  97449f:	8d 44 24 28          	lea    eax,[esp+0x28]
+  9744a3:	50                   	push   eax
+  9744a4:	8b ce                	mov    ecx,esi
+  9744a6:	e8 25 e8 ff ff       	call   0x972cd0
+  9744ab:	dd d8                	fstp   st(0)
+  9744ad:	0f 28 86 80 07 00 00 	movaps xmm0,XMMWORD PTR [esi+0x780]
+  9744b4:	0f c6 c0 20          	shufps xmm0,xmm0,0x20
+  9744b8:	0f 28 c8             	movaps xmm1,xmm0
+  9744bb:	0f 28 44 24 20       	movaps xmm0,XMMWORD PTR [esp+0x20]
+  9744c0:	8d 86 80 07 00 00    	lea    eax,[esi+0x780]
+  9744c6:	0f c6 c0 20          	shufps xmm0,xmm0,0x20
+  9744ca:	0f c6 c0 08          	shufps xmm0,xmm0,0x8
+  9744ce:	0f c6 c9 08          	shufps xmm1,xmm1,0x8
+  9744d2:	0f 5c c1             	subps  xmm0,xmm1
+  9744d5:	0f 59 c0             	mulps  xmm0,xmm0
+  9744d8:	0f 28 c8             	movaps xmm1,xmm0
+  9744db:	0f c6 c8 55          	shufps xmm1,xmm0,0x55
+  9744df:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  9744e3:	0f 58 c8             	addps  xmm1,xmm0
+  9744e6:	0f 51 c1             	sqrtps xmm0,xmm1
+  9744e9:	0f 29 44 24 50       	movaps XMMWORD PTR [esp+0x50],xmm0
+  9744ee:	f3 0f 10 86 70 06 00 	movss  xmm0,DWORD PTR [esi+0x670]
+  9744f5:	00 
+  9744f6:	f3 0f 10 4c 24 50    	movss  xmm1,DWORD PTR [esp+0x50]
+  9744fc:	0f 2f c8             	comiss xmm1,xmm0
+  9744ff:	76 55                	jbe    0x974556
+  974501:	80 7d 1c 00          	cmp    BYTE PTR [ebp+0x1c],0x0
+  974505:	75 39                	jne    0x974540
+  974507:	84 db                	test   bl,bl
+  974509:	75 4b                	jne    0x974556
+  97450b:	d9 ee                	fldz
+  97450d:	8b 17                	mov    edx,DWORD PTR [edi]
+  97450f:	8b 52 08             	mov    edx,DWORD PTR [edx+0x8]
+  974512:	51                   	push   ecx
+  974513:	d9 1c 24             	fstp   DWORD PTR [esp]
+  974516:	8d 4c 24 24          	lea    ecx,[esp+0x24]
+  97451a:	51                   	push   ecx
+  97451b:	50                   	push   eax
+  97451c:	8d 44 24 3c          	lea    eax,[esp+0x3c]
+  974520:	50                   	push   eax
+  974521:	8d 4c 24 50          	lea    ecx,[esp+0x50]
+  974525:	51                   	push   ecx
+  974526:	8b cf                	mov    ecx,edi
+  974528:	ff d2                	call   edx
+  97452a:	8b 86 70 05 00 00    	mov    eax,DWORD PTR [esi+0x570]
+  974530:	8b 50 0c             	mov    edx,DWORD PTR [eax+0xc]
+  974533:	8d 8e 70 05 00 00    	lea    ecx,[esi+0x570]
+  974539:	ff d2                	call   edx
+  97453b:	e9 41 01 00 00       	jmp    0x974681
+  974540:	84 db                	test   bl,bl
+  974542:	75 12                	jne    0x974556
+  974544:	d9 44 24 50          	fld    DWORD PTR [esp+0x50]
+  974548:	51                   	push   ecx
+  974549:	8b cf                	mov    ecx,edi
+  97454b:	d9 1c 24             	fstp   DWORD PTR [esp]
+  97454e:	e8 0d db fe ff       	call   0x962060
+  974553:	d9 5d 10             	fstp   DWORD PTR [ebp+0x10]
+  974556:	8b 07                	mov    eax,DWORD PTR [edi]
+  974558:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+  97455b:	8b cf                	mov    ecx,edi
+  97455d:	ff d2                	call   edx
+  97455f:	f3 0f 10 86 c4 08 00 	movss  xmm0,DWORD PTR [esi+0x8c4]
+  974566:	00 
+  974567:	8a d8                	mov    bl,al
+  974569:	84 db                	test   bl,bl
+  97456b:	f3 0f 11 44 24 14    	movss  DWORD PTR [esp+0x14],xmm0
+  974571:	f3 0f 10 86 c8 08 00 	movss  xmm0,DWORD PTR [esi+0x8c8]
+  974578:	00 
+  974579:	f3 0f 11 44 24 18    	movss  DWORD PTR [esp+0x18],xmm0
+  97457f:	0f 84 97 00 00 00    	je     0x97461c
+  974585:	8b 07                	mov    eax,DWORD PTR [edi]
+  974587:	8b 50 24             	mov    edx,DWORD PTR [eax+0x24]
+  97458a:	8d 4c 24 60          	lea    ecx,[esp+0x60]
+  97458e:	51                   	push   ecx
+  97458f:	8b cf                	mov    ecx,edi
+  974591:	ff d2                	call   edx
+  974593:	89 44 24 1c          	mov    DWORD PTR [esp+0x1c],eax
+  974597:	8b 07                	mov    eax,DWORD PTR [edi]
+  974599:	8b 50 28             	mov    edx,DWORD PTR [eax+0x28]
+  97459c:	8d 4c 24 70          	lea    ecx,[esp+0x70]
+  9745a0:	51                   	push   ecx
+  9745a1:	8b cf                	mov    ecx,edi
+  9745a3:	ff d2                	call   edx
+  9745a5:	0f 28 08             	movaps xmm1,XMMWORD PTR [eax]
+  9745a8:	8b 44 24 1c          	mov    eax,DWORD PTR [esp+0x1c]
+  9745ac:	0f 28 00             	movaps xmm0,XMMWORD PTR [eax]
+  9745af:	0f 5c c8             	subps  xmm1,xmm0
+  9745b2:	0f 28 d1             	movaps xmm2,xmm1
+  9745b5:	0f 59 d1             	mulps  xmm2,xmm1
+  9745b8:	0f 28 c2             	movaps xmm0,xmm2
+  9745bb:	0f c6 c2 02          	shufps xmm0,xmm2,0x2
+  9745bf:	0f 28 da             	movaps xmm3,xmm2
+  9745c2:	0f c6 da 01          	shufps xmm3,xmm2,0x1
+  9745c6:	0f 58 c3             	addps  xmm0,xmm3
+  9745c9:	0f 58 c2             	addps  xmm0,xmm2
+  9745cc:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  9745d0:	0f 51 c0             	sqrtps xmm0,xmm0
+  9745d3:	0f 29 44 24 60       	movaps XMMWORD PTR [esp+0x60],xmm0
+  9745d8:	f3 0f 10 44 24 60    	movss  xmm0,DWORD PTR [esp+0x60]
+  9745de:	f3 0f 11 44 24 14    	movss  DWORD PTR [esp+0x14],xmm0
+  9745e4:	8d 4c 24 60          	lea    ecx,[esp+0x60]
+  9745e8:	f3 0f 10 c0          	movss  xmm0,xmm0
+  9745ec:	51                   	push   ecx
+  9745ed:	8d 54 24 54          	lea    edx,[esp+0x54]
+  9745f1:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  9745f5:	0f 5e c8             	divps  xmm1,xmm0
+  9745f8:	52                   	push   edx
+  9745f9:	0f 29 4c 24 68       	movaps XMMWORD PTR [esp+0x68],xmm1
+  9745fe:	e8 0d 91 00 00       	call   0x97d710
+  974603:	0f 28 44 24 58       	movaps xmm0,XMMWORD PTR [esp+0x58]
+  974608:	0f 29 44 24 68       	movaps XMMWORD PTR [esp+0x68],xmm0
+  97460d:	f3 0f 10 44 24 68    	movss  xmm0,DWORD PTR [esp+0x68]
+  974613:	83 c4 08             	add    esp,0x8
+  974616:	f3 0f 11 44 24 18    	movss  DWORD PTR [esp+0x18],xmm0
+  97461c:	d9 45 10             	fld    DWORD PTR [ebp+0x10]
+  97461f:	8b 96 70 05 00 00    	mov    edx,DWORD PTR [esi+0x570]
+  974625:	8b 52 08             	mov    edx,DWORD PTR [edx+0x8]
+  974628:	8d 8e 70 05 00 00    	lea    ecx,[esi+0x570]
+  97462e:	51                   	push   ecx
+  97462f:	d9 1c 24             	fstp   DWORD PTR [esp]
+  974632:	8d 44 24 24          	lea    eax,[esp+0x24]
+  974636:	50                   	push   eax
+  974637:	8d 86 80 07 00 00    	lea    eax,[esi+0x780]
+  97463d:	50                   	push   eax
+  97463e:	8d 44 24 3c          	lea    eax,[esp+0x3c]
+  974642:	50                   	push   eax
+  974643:	8d 44 24 50          	lea    eax,[esp+0x50]
+  974647:	50                   	push   eax
+  974648:	ff d2                	call   edx
+  97464a:	8b 07                	mov    eax,DWORD PTR [edi]
+  97464c:	8b 50 0c             	mov    edx,DWORD PTR [eax+0xc]
+  97464f:	8b cf                	mov    ecx,edi
+  974651:	ff d2                	call   edx
+  974653:	84 db                	test   bl,bl
+  974655:	74 2a                	je     0x974681
+  974657:	f3 0f 10 44 24 14    	movss  xmm0,DWORD PTR [esp+0x14]
+  97465d:	f3 0f 11 86 c4 08 00 	movss  DWORD PTR [esi+0x8c4],xmm0
+  974664:	00 
+  974665:	f3 0f 10 44 24 18    	movss  xmm0,DWORD PTR [esp+0x18]
+  97466b:	8b ce                	mov    ecx,esi
+  97466d:	c6 86 b2 08 00 00 00 	mov    BYTE PTR [esi+0x8b2],0x0
+  974674:	f3 0f 11 86 c8 08 00 	movss  DWORD PTR [esi+0x8c8],xmm0
+  97467b:	00 
+  97467c:	e8 7f f6 ff ff       	call   0x973d00
+  974681:	80 be b9 08 00 00 00 	cmp    BYTE PTR [esi+0x8b9],0x0
+  974688:	74 18                	je     0x9746a2
+  97468a:	f3 0f 10 05 9c 6c 04 	movss  xmm0,DWORD PTR ds:0x1046c9c
+  974691:	01 
+  974692:	f3 0f 11 86 c4 08 00 	movss  DWORD PTR [esi+0x8c4],xmm0
+  974699:	00 
+  97469a:	f3 0f 11 86 c8 08 00 	movss  DWORD PTR [esi+0x8c8],xmm0
+  9746a1:	00 
+  9746a2:	8d 44 24 20          	lea    eax,[esp+0x20]
+  9746a6:	50                   	push   eax
+  9746a7:	8d 4c 24 34          	lea    ecx,[esp+0x34]
+  9746ab:	51                   	push   ecx
+  9746ac:	8b 4e 0c             	mov    ecx,DWORD PTR [esi+0xc]
+  9746af:	0f 57 c0             	xorps  xmm0,xmm0
+  9746b2:	c6 86 b1 08 00 00 01 	mov    BYTE PTR [esi+0x8b1],0x1
+  9746b9:	c6 86 b2 08 00 00 01 	mov    BYTE PTR [esi+0x8b2],0x1
+  9746c0:	0f 29 86 e0 07 00 00 	movaps XMMWORD PTR [esi+0x7e0],xmm0
+  9746c7:	e8 14 c6 fe ff       	call   0x960ce0
+  9746cc:	5f                   	pop    edi
+  9746cd:	5e                   	pop    esi
+  9746ce:	5b                   	pop    ebx
+  9746cf:	8b e5                	mov    esp,ebp
+  9746d1:	5d                   	pop    ebp
+  9746d2:	c2 1c 00             	ret    0x1c
+  9746d5:	cc                   	int3
+  9746d6:	cc                   	int3
+  9746d7:	cc                   	int3
+  9746d8:	cc                   	int3
+  9746d9:	cc                   	int3
+  9746da:	cc                   	int3
+  9746db:	cc                   	int3
+  9746dc:	cc                   	int3
+  9746dd:	cc                   	int3
+  9746de:	cc                   	int3
+  9746df:	cc                   	int3

@@ -1,0 +1,114 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* Verified PC 1.67 registration table at 0x01167770 (original PC 1.67 TS3W.exe).
+   ScriptCore.Audio::Audio_StartSoundAtPositionImpl [assembly=ScriptCore token=0x060011D9; name:
+   System.String, position: Sims3.SimIFace.Vector3; return=System.UInt32]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+undefined4 __cdecl
+ScriptCore.Audio::Audio_StartSoundAtPositionImpl
+          (uint param_1,float param_2,undefined4 param_3,float param_4)
+
+{
+  int *piVar1;
+  ushort *puVar2;
+  undefined4 uVar3;
+  void *this;
+  uint uVar4;
+  void *this_00;
+  int *piVar5;
+  float fStack_118;
+  float fStack_114;
+  int iStack_110;
+  undefined4 uStack_10c;
+  undefined4 uStack_108;
+  float fVar6;
+  undefined4 uVar7;
+  int iVar8;
+  byte *pbVar9;
+  byte *pbStack_d8;
+  undefined4 uStack_d4;
+  undefined4 uStack_cc;
+  undefined8 uStack_c8;
+  undefined4 uStack_ac;
+  float fStack_a8;
+  undefined4 uStack_a4;
+  float fStack_a0;
+  float fStack_9c;
+  byte abStack_94 [144];
+  
+  if ((DAT_011d9c40 != 0) && (piVar5 = (int *)(DAT_011d9c40 + -0x27bd0), piVar5 != (int *)0x0)) {
+    piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
+    iVar8 = 0x80;
+    puVar2 = (ushort *)(**(code **)(*piVar1 + 0x58))();
+    uStack_108 = 0x8634ad;
+    FUN_004fdfa0(abStack_94,puVar2,param_1,iVar8);
+    pbVar9 = abStack_94;
+    uStack_c8 = (**(code **)(*piVar5 + 0x118))();
+    uVar3 = (**(code **)(*piVar5 + 0x28))();
+    fStack_a8 = param_2;
+    uStack_a4 = param_3;
+    fStack_a0 = param_4;
+    fStack_9c = param_2;
+    uStack_ac = uVar3;
+    if (DAT_011edbc4 == (void *)0x0) {
+      this = (void *)0x0;
+    }
+    else {
+      this = FUN_00c687d0(DAT_011edbc4,param_2,param_4);
+      if ((this != (void *)0x0) && (*(char *)((int)this + 0x444) != '\0')) {
+        FUN_00ab1b00(this,(float *)&stack0xffffff18);
+      }
+    }
+    uVar7 = 0x3475365;
+    (**(code **)(*piVar5 + 0x44))();
+    uStack_108 = 0x3475381;
+    uStack_10c = 0x8635e6;
+    fVar6 = (float)uStack_c8;
+    (**(code **)(*piVar5 + 0x50))();
+    iStack_110 = 0x3475385;
+    fStack_114 = 1.2325313e-38;
+    uStack_10c = uVar3;
+    (**(code **)(*piVar5 + 0x4c))();
+    fStack_114 = fVar6;
+    uStack_d4 = 0xffffffff;
+    fStack_118 = 5.8576773e-37;
+    fVar6 = fStack_114;
+    pbStack_d8 = pbVar9;
+    (**(code **)(*piVar5 + 0x48))();
+    (**(code **)(*piVar5 + 0x48))(0x3475395,uStack_cc);
+    (**(code **)(*piVar5 + 0x48))(0x3475398,uStack_108);
+    if (this == (void *)0x0) {
+      this_00 = (void *)0x0;
+    }
+    else {
+      this_00 = *(void **)((int)this + 0x298);
+    }
+    if (this_00 != (void *)0x0) {
+      fStack_118 = DAT_00fab218;
+      fStack_114 = DAT_00fab218;
+      iStack_110 = 0;
+      FUN_00adc860(this,(float *)&pbStack_d8,&fStack_118);
+      FUN_00b482c0(this_00,&fStack_118,0,1);
+      iVar8 = iStack_110;
+      uVar4 = FUN_00aff6a0(this,&fStack_118,1);
+      if ((char)uVar4 != '\0') {
+        iStack_110 = iStack_110 + 1;
+        iVar8 = iVar8 + 1;
+        FUN_00b482c0(*(void **)((int)this + 0x298),&fStack_118,0,1);
+      }
+      (**(code **)(*piVar5 + 0x58))(0x2081b4e6,this);
+      (**(code **)(*piVar5 + 0x48))(0x5dbed967,(float)(int)fVar6);
+      (**(code **)(*piVar5 + 0x48))(0x39ff78d1,(float)iVar8);
+    }
+    (**(code **)(*piVar5 + 0x68))();
+    return uVar7;
+  }
+  return 0;
+}
+

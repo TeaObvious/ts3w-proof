@@ -1,0 +1,69 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined RugRecord_RemapCompactCorners(void * this, int param_1)
+Owned ranges: [[00c087d0, 00c08876]]
+
+00c087d0  83ec10  SUB ESP,0x10
+00c087d3  53  PUSH EBX
+00c087d4  55  PUSH EBP
+00c087d5  56  PUSH ESI
+00c087d6  57  PUSH EDI
+00c087d7  8b7c2424  MOV EDI,dword ptr [ESP + 0x24]
+00c087db  8bf1  MOV ESI,ECX
+00c087dd  0fb64e19  MOVZX ECX,byte ptr [ESI + 0x19]
+00c087e1  0fb64618  MOVZX EAX,byte ptr [ESI + 0x18]
+00c087e5  0fb65e1a  MOVZX EBX,byte ptr [ESI + 0x1a]
+00c087e9  0fb66e1b  MOVZX EBP,byte ptr [ESI + 0x1b]
+00c087ed  8d542410  LEA EDX,[ESP + 0x10]
+00c087f1  52  PUSH EDX
+00c087f2  8d54241c  LEA EDX,[ESP + 0x1c]
+00c087f6  52  PUSH EDX
+00c087f7  51  PUSH ECX
+00c087f8  83c764  ADD EDI,0x64
+00c087fb  50  PUSH EAX
+00c087fc  8bcf  MOV ECX,EDI
+00c087fe  e8bda80a00  CALL 0x00cb30c0
+00c08803  8d442414  LEA EAX,[ESP + 0x14]
+00c08807  50  PUSH EAX
+00c08808  8d4c2420  LEA ECX,[ESP + 0x20]
+00c0880c  51  PUSH ECX
+00c0880d  55  PUSH EBP
+00c0880e  53  PUSH EBX
+00c0880f  8bcf  MOV ECX,EDI
+00c08811  e8aaa80a00  CALL 0x00cb30c0
+00c08816  8b442410  MOV EAX,dword ptr [ESP + 0x10]
+00c0881a  8b4c2414  MOV ECX,dword ptr [ESP + 0x14]
+00c0881e  3bc1  CMP EAX,ECX
+00c08820  8d6c2414  LEA EBP,[ESP + 0x14]
+00c08824  7c04  JL 0x00c0882a
+00c08826  8d6c2410  LEA EBP,[ESP + 0x10]
+00c0882a  8b7c2418  MOV EDI,dword ptr [ESP + 0x18]
+00c0882e  8b5c241c  MOV EBX,dword ptr [ESP + 0x1c]
+00c08832  3bfb  CMP EDI,EBX
+00c08834  8d54241c  LEA EDX,[ESP + 0x1c]
+00c08838  7c04  JL 0x00c0883e
+00c0883a  8d542418  LEA EDX,[ESP + 0x18]
+00c0883e  3bc8  CMP ECX,EAX
+00c08840  8d4c2414  LEA ECX,[ESP + 0x14]
+00c08844  7c04  JL 0x00c0884a
+00c08846  8d4c2410  LEA ECX,[ESP + 0x10]
+00c0884a  3bdf  CMP EBX,EDI
+00c0884c  8d44241c  LEA EAX,[ESP + 0x1c]
+00c08850  7c04  JL 0x00c08856
+00c08852  8d442418  LEA EAX,[ESP + 0x18]
+00c08856  0fb600  MOVZX EAX,byte ptr [EAX]
+00c08859  8a09  MOV CL,byte ptr [ECX]
+00c0885b  8a12  MOV DL,byte ptr [EDX]
+00c0885d  884618  MOV byte ptr [ESI + 0x18],AL
+00c08860  0fb64500  MOVZX EAX,byte ptr [EBP]
+00c08864  5f  POP EDI
+00c08865  884e19  MOV byte ptr [ESI + 0x19],CL
+00c08868  88561a  MOV byte ptr [ESI + 0x1a],DL
+00c0886b  88461b  MOV byte ptr [ESI + 0x1b],AL
+00c0886e  5e  POP ESI
+00c0886f  5d  POP EBP
+00c08870  5b  POP EBX
+00c08871  83c410  ADD ESP,0x10
+00c08874  c20400  RET 0x4

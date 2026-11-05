@@ -1,0 +1,36 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_SetTutorialMode
+# Entry: 0x0073e230; bounded stop: 0x0073e270; next Ghidra entry: 0x0073e270
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073e230 <.text+0x33d230>:
+  73e230:	e8 9b b9 22 00       	call   0x969bd0
+  73e235:	85 c0                	test   eax,eax
+  73e237:	74 34                	je     0x73e26d
+  73e239:	8b c8                	mov    ecx,eax
+  73e23b:	e8 b0 3d 7e 00       	call   0xf21ff0
+  73e240:	85 c0                	test   eax,eax
+  73e242:	74 29                	je     0x73e26d
+  73e244:	8b c8                	mov    ecx,eax
+  73e246:	e8 95 5b dd ff       	call   0x513de0
+  73e24b:	85 c0                	test   eax,eax
+  73e24d:	74 1e                	je     0x73e26d
+  73e24f:	8b 10                	mov    edx,DWORD PTR [eax]
+  73e251:	8b c8                	mov    ecx,eax
+  73e253:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73e256:	68 89 dd 0f 11       	push   0x110fdd89
+  73e25b:	ff d0                	call   eax
+  73e25d:	85 c0                	test   eax,eax
+  73e25f:	74 0c                	je     0x73e26d
+  73e261:	8b 4c 24 04          	mov    ecx,DWORD PTR [esp+0x4]
+  73e265:	51                   	push   ecx
+  73e266:	8b c8                	mov    ecx,eax
+  73e268:	e8 33 1e 23 00       	call   0x9700a0
+  73e26d:	c3                   	ret
+  73e26e:	cc                   	int3
+  73e26f:	cc                   	int3

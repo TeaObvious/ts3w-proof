@@ -1,0 +1,31 @@
+// Original PC1.67 packaged retail members; complete selected method bodies. Central identities apply.
+// Raw CIL tokens/signatures qualify unresolved generics; compiler-generated child/lambda bodies are separate.
+
+// ScriptCore.DownloadContent::StoreInventory MethodDef0x060000C8 RVA0x00002C9C
+// Signature 20020b12816112817d; maxstack5; locals1100000D; initlocalsTrue
+// Complete raw CIL (42 bytes): 020312010F02120028E10000062D03166A2A076F2200000A046F2300000A066F2100000A289B0000062A
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: ldloca.s 1
+IL_0004: ldarga.s 2
+IL_0006: ldloca.s 0
+IL_0008: call 0x060000E1 ScriptCore.DownloadContent::ExportManagedContent
+IL_000D: brtrue.s IL_0012
+IL_000F: ldc.i4.0
+IL_0010: conv.i8
+IL_0011: ret
+IL_0012: ldloc.1
+IL_0013: callvirt 0x0A000022 Sims3.SimIFace.CustomContent.ResKeyTable::get_ByteArray
+IL_0018: ldarg.2
+IL_0019: callvirt 0x0A000023 Sims3.SimIFace.CustomContent.ObjectIdTable::get_ObjectIdArray
+IL_001E: ldloc.0
+IL_001F: callvirt 0x0A000021 System.IO.MemoryStream::ToArray
+IL_0024: call 0x0600009B ScriptCore.DownloadContent::DownloadContent_StoreInventoryImpl
+IL_0029: ret
+
+// ScriptCore.DownloadContent::DeleteInventory MethodDef0x060000CE RVA0x00002D75
+// Signature 2001020b; maxstack8; locals11000000; initlocalsFalse
+// Complete raw CIL (7 bytes): 03289D0000062A
+IL_0000: ldarg.1
+IL_0001: call 0x0600009D ScriptCore.DownloadContent::DownloadContent_DeleteInventoryImpl
+IL_0006: ret

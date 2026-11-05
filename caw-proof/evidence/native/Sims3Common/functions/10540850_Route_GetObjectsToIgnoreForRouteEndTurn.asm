@@ -1,0 +1,33 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Sims3Common.dll CAW 1.22.10 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x10540850 (Route_GetObjectsToIgnoreForRouteEndTurn)
+Paired Ghidra pseudocode: 10540850_Route_GetObjectsToIgnoreForRouteEndTurn.c
+Window: [0x10540850, 0x10540860) (16 bytes; stop exclusive)
+Next defined Ghidra entry: 0x10540860
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+10540850: e9 8b d8 ff ff cc cc cc cc cc cc cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+10540850 <.text+0x53f850>:
+10540850:	e9 8b d8 ff ff                                  	jmp    0x1053e0e0
+10540855:	cc                                              	int3
+10540856:	cc                                              	int3
+10540857:	cc                                              	int3
+10540858:	cc                                              	int3
+10540859:	cc                                              	int3
+1054085a:	cc                                              	int3
+1054085b:	cc                                              	int3
+1054085c:	cc                                              	int3
+1054085d:	cc                                              	int3
+1054085e:	cc                                              	int3
+1054085f:	cc                                              	int3

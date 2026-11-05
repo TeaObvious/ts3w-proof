@@ -1,0 +1,772 @@
+{
+  "source": "TS3W.exe",
+  "method": "registration bytes plus original PE bounded GNU objdump disassembly",
+  "recordCount": 27,
+  "scriptCoreAudioTable": {
+    "class": "ScriptCore.Audio",
+    "start": "0x01167750",
+    "end": "0x01167810",
+    "count": 25,
+    "sentinelAddress": "0x01167818",
+    "sentinelHex": "0000000000000000",
+    "getterAddresses": [
+      "0x00864420"
+    ],
+    "descriptorVtables": [
+      {
+        "vtableAddress": "0x01028f10",
+        "getterSlotAddress": "0x01028f20",
+        "typeNameGetterAddress": "0x00863080",
+        "literalTypeNameGetter": true
+      }
+    ],
+    "selectedDescriptorVtables": [
+      {
+        "vtableAddress": "0x01028f10",
+        "getterSlotAddress": "0x01028f20",
+        "typeNameGetterAddress": "0x00863080",
+        "literalTypeNameGetter": true
+      }
+    ],
+    "getterBytesHex": "8b442404c70050771601c20400",
+    "typeNameGetterBytesHex": "b8fc8e0201c3",
+    "typeNameVa": "0x01028efc",
+    "typeNameAsciiVerified": "Audio"
+  },
+  "records": [
+    {
+      "registrationName": "ScriptCore.RouteManager::RouteManager_SetRouteSoundSpec",
+      "entryVa": "0x00758450",
+      "upperBoundExclusive": "0x00758500",
+      "sourceFileOffset": 3507280,
+      "boundedByteLength": 176,
+      "recordVa": "0x01161d48",
+      "recordFileOffset": 14032200,
+      "recordHex": "50847500cc780001",
+      "registrationNameVa": "0x010078cc",
+      "registrationNameAsciiVerified": "ScriptCore.RouteManager::RouteManager_SetRouteSoundSpec",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600107A",
+          "signatureKey": "ScriptCore:ScriptCore.RouteManager::RouteManager_SetRouteSoundSpec(System.UInt64,System.String,System.String)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "RouteManager_SetRouteSoundSpec",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00758450-RouteManager_SetRouteSoundSpec.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.UIManager::UIManager_GetCustomMusicInfoImpl",
+      "entryVa": "0x00783e50",
+      "upperBoundExclusive": "0x00784120",
+      "sourceFileOffset": 3685968,
+      "boundedByteLength": 720,
+      "recordVa": "0x011630d8",
+      "recordFileOffset": 14037208,
+      "recordHex": "503e7800f0120101",
+      "registrationNameVa": "0x010112f0",
+      "registrationNameAsciiVerified": "ScriptCore.UIManager::UIManager_GetCustomMusicInfoImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000E56",
+          "signatureKey": "ScriptCore:ScriptCore.UIManager::UIManager_GetCustomMusicInfoImpl(System.UInt32)->System.String",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "UIManager_GetCustomMusicInfoImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00783e50-UIManager_GetCustomMusicInfoImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_InitWorldImpl",
+      "entryVa": "0x00863090",
+      "upperBoundExclusive": "0x008630b0",
+      "sourceFileOffset": 4599952,
+      "boundedByteLength": 32,
+      "recordVa": "0x01167750",
+      "recordFileOffset": 14055248,
+      "recordHex": "90308600bc8f0201",
+      "registrationNameVa": "0x01028fbc",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_InitWorldImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011D5",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_InitWorldImpl()->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_InitWorldImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863090-Audio_InitWorldImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_ShutdownWorldImpl",
+      "entryVa": "0x008630b0",
+      "upperBoundExclusive": "0x008630d0",
+      "sourceFileOffset": 4599984,
+      "boundedByteLength": 32,
+      "recordVa": "0x01167758",
+      "recordFileOffset": 14055256,
+      "recordHex": "b0308600e48f0201",
+      "registrationNameVa": "0x01028fe4",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_ShutdownWorldImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011D6",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_ShutdownWorldImpl()->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_ShutdownWorldImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x008630b0-Audio_ShutdownWorldImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundImpl",
+      "entryVa": "0x008630d0",
+      "upperBoundExclusive": "0x00863190",
+      "sourceFileOffset": 4600016,
+      "boundedByteLength": 192,
+      "recordVa": "0x01167760",
+      "recordFileOffset": 14055264,
+      "recordHex": "d030860010900201",
+      "registrationNameVa": "0x01029010",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StartSoundImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011D7",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StartSoundImpl(System.String)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StartSoundImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x008630d0-Audio_StartSoundImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundMP3Impl",
+      "entryVa": "0x00863190",
+      "upperBoundExclusive": "0x00863270",
+      "sourceFileOffset": 4600208,
+      "boundedByteLength": 224,
+      "recordVa": "0x01167768",
+      "recordFileOffset": 14055272,
+      "recordHex": "9031860038900201",
+      "registrationNameVa": "0x01029038",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StartSoundMP3Impl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011D8",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StartSoundMP3Impl(System.String)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StartSoundMP3Impl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863190-Audio_StartSoundMP3Impl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundAtPositionImpl",
+      "entryVa": "0x00863460",
+      "upperBoundExclusive": "0x00863750",
+      "sourceFileOffset": 4600928,
+      "boundedByteLength": 752,
+      "recordVa": "0x01167770",
+      "recordFileOffset": 14055280,
+      "recordHex": "6034860064900201",
+      "registrationNameVa": "0x01029064",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StartSoundAtPositionImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011D9",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StartSoundAtPositionImpl(System.String,Sims3.SimIFace.Vector3)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StartSoundAtPositionImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863460-Audio_StartSoundAtPositionImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_CreateSoundImpl",
+      "entryVa": "0x00863270",
+      "upperBoundExclusive": "0x00863330",
+      "sourceFileOffset": 4600432,
+      "boundedByteLength": 192,
+      "recordVa": "0x01167778",
+      "recordFileOffset": 14055288,
+      "recordHex": "7032860098900201",
+      "registrationNameVa": "0x01029098",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_CreateSoundImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011DA",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_CreateSoundImpl(System.String)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_CreateSoundImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863270-Audio_CreateSoundImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundByIdImpl",
+      "entryVa": "0x00862ee0",
+      "upperBoundExclusive": "0x00862f20",
+      "sourceFileOffset": 4599520,
+      "boundedByteLength": 64,
+      "recordVa": "0x01167780",
+      "recordFileOffset": 14055296,
+      "recordHex": "e02e8600c0900201",
+      "registrationNameVa": "0x010290c0",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StartSoundByIdImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011DB",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StartSoundByIdImpl(System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StartSoundByIdImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00862ee0-Audio_StartSoundByIdImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopSoundImpl",
+      "entryVa": "0x00862f20",
+      "upperBoundExclusive": "0x00862f40",
+      "sourceFileOffset": 4599584,
+      "boundedByteLength": 32,
+      "recordVa": "0x01167788",
+      "recordFileOffset": 14055304,
+      "recordHex": "202f8600ec900201",
+      "registrationNameVa": "0x010290ec",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StopSoundImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011DE",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StopSoundImpl(System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StopSoundImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00862f20-Audio_StopSoundImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopAllObjectSoundImpl",
+      "entryVa": "0x00863c20",
+      "upperBoundExclusive": "0x00863c94",
+      "sourceFileOffset": 4602912,
+      "boundedByteLength": 116,
+      "recordVa": "0x01167790",
+      "recordFileOffset": 14055312,
+      "recordHex": "203c860014910201",
+      "registrationNameVa": "0x01029114",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StopAllObjectSoundImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E3",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StopAllObjectSoundImpl(System.UInt64)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StopAllObjectSoundImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "../../evidence/native/functions/00863C20_ScriptCore_Audio_Audio_StopAllObjectSoundImpl.asm",
+      "bodyBoundaryStatus": "complete reviewed function body through terminal RET; following INT3 excluded",
+      "pseudocode": "../../evidence/native/functions/00863C20_ScriptCore_Audio_Audio_StopAllObjectSoundImpl.c"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_MuteAllObjectSoundsImpl",
+      "entryVa": "0x00863ca0",
+      "upperBoundExclusive": "0x00863d20",
+      "sourceFileOffset": 4603040,
+      "boundedByteLength": 128,
+      "recordVa": "0x01167798",
+      "recordFileOffset": 14055320,
+      "recordHex": "a03c860044910201",
+      "registrationNameVa": "0x01029144",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_MuteAllObjectSoundsImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011DD",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_MuteAllObjectSoundsImpl(System.UInt64,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_MuteAllObjectSoundsImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863ca0-Audio_MuteAllObjectSoundsImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SetSoundPropertyImpl",
+      "entryVa": "0x00862f40",
+      "upperBoundExclusive": "0x00862f60",
+      "sourceFileOffset": 4599616,
+      "boundedByteLength": 32,
+      "recordVa": "0x011677a0",
+      "recordFileOffset": 14055328,
+      "recordHex": "402f860074910201",
+      "registrationNameVa": "0x01029174",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_SetSoundPropertyImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011DC",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_SetSoundPropertyImpl(System.UInt32,System.UInt32,System.Single)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_SetSoundPropertyImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00862f40-Audio_SetSoundPropertyImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartObjectSoundImpl",
+      "entryVa": "0x00863a10",
+      "upperBoundExclusive": "0x00863ad7",
+      "sourceFileOffset": 4602384,
+      "boundedByteLength": 199,
+      "recordVa": "0x011677a8",
+      "recordFileOffset": 14055336,
+      "recordHex": "103a8600a4910201",
+      "registrationNameVa": "0x010291a4",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StartObjectSoundImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011DF",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StartObjectSoundImpl(System.UInt64,System.String,System.Boolean)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StartObjectSoundImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "../../evidence/native/functions/00863A10_ScriptCore_Audio_Audio_StartObjectSoundImpl.asm",
+      "bodyBoundaryStatus": "complete reviewed function body through terminal RET; following INT3 excluded",
+      "pseudocode": "../../evidence/native/functions/00863A10_ScriptCore_Audio_Audio_StartObjectSoundImpl.c"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartObjectSoundWithFlagsImpl",
+      "entryVa": "0x00863ae0",
+      "upperBoundExclusive": "0x00863b9e",
+      "sourceFileOffset": 4602592,
+      "boundedByteLength": 190,
+      "recordVa": "0x011677b0",
+      "recordFileOffset": 14055344,
+      "recordHex": "e03a8600d4910201",
+      "registrationNameVa": "0x010291d4",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StartObjectSoundWithFlagsImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E0",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StartObjectSoundWithFlagsImpl(System.UInt64,System.String,System.UInt32)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StartObjectSoundWithFlagsImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "../../evidence/native/functions/00863AE0_ScriptCore_Audio_Audio_StartObjectSoundWithFlagsImpl.asm",
+      "bodyBoundaryStatus": "complete reviewed function body through terminal RET; following INT3 excluded",
+      "pseudocode": "../../evidence/native/functions/00863AE0_ScriptCore_Audio_Audio_StartObjectSoundWithFlagsImpl.c"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SoundFinishedCallbackImpl",
+      "entryVa": "0x00863330",
+      "upperBoundExclusive": "0x00863353",
+      "sourceFileOffset": 4600624,
+      "boundedByteLength": 35,
+      "recordVa": "0x011677b8",
+      "recordFileOffset": 14055352,
+      "recordHex": "303386000c920201",
+      "registrationNameVa": "0x0102920c",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_SoundFinishedCallbackImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E1",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_SoundFinishedCallbackImpl(System.UInt32,System.Delegate)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_SoundFinishedCallbackImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "../../evidence/native/functions/00863330_ScriptCore_Audio_Audio_SoundFinishedCallbackImpl.asm",
+      "bodyBoundaryStatus": "full reviewed Ghidra function-body envelope; exclusive end follows RET",
+      "decompilerPseudocode": "../../evidence/native/functions/00863330_ScriptCore_Audio_Audio_SoundFinishedCallbackImpl.c"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopObjectSoundImpl",
+      "entryVa": "0x00863ba0",
+      "upperBoundExclusive": "0x00863c17",
+      "sourceFileOffset": 4602784,
+      "boundedByteLength": 119,
+      "recordVa": "0x011677c0",
+      "recordFileOffset": 14055360,
+      "recordHex": "a03b860040920201",
+      "registrationNameVa": "0x01029240",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StopObjectSoundImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E2",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StopObjectSoundImpl(System.UInt64,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StopObjectSoundImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "../../evidence/native/functions/00863BA0_ScriptCore_Audio_Audio_StopObjectSoundImpl.asm",
+      "bodyBoundaryStatus": "complete reviewed function body through terminal RET; following INT3 excluded",
+      "pseudocode": "../../evidence/native/functions/00863BA0_ScriptCore_Audio_Audio_StopObjectSoundImpl.c"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SetEventModifiersImpl",
+      "entryVa": "0x00863750",
+      "upperBoundExclusive": "0x00863930",
+      "sourceFileOffset": 4601680,
+      "boundedByteLength": 480,
+      "recordVa": "0x011677c8",
+      "recordFileOffset": 14055368,
+      "recordHex": "503786006c920201",
+      "registrationNameVa": "0x0102926c",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_SetEventModifiersImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E6",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_SetEventModifiersImpl(System.Delegate,System.Delegate,System.Delegate,System.Delegate)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_SetEventModifiersImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863750-Audio_SetEventModifiersImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_PauseGroupImpl",
+      "entryVa": "0x00862f60",
+      "upperBoundExclusive": "0x00862fc0",
+      "sourceFileOffset": 4599648,
+      "boundedByteLength": 96,
+      "recordVa": "0x011677d0",
+      "recordFileOffset": 14055376,
+      "recordHex": "602f86009c920201",
+      "registrationNameVa": "0x0102929c",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_PauseGroupImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E7",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_PauseGroupImpl(System.UInt32,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_PauseGroupImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00862f60-Audio_PauseGroupImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopGroupImpl",
+      "entryVa": "0x00862fc0",
+      "upperBoundExclusive": "0x00863020",
+      "sourceFileOffset": 4599744,
+      "boundedByteLength": 96,
+      "recordVa": "0x011677d8",
+      "recordFileOffset": 14055384,
+      "recordHex": "c02f8600c4920201",
+      "registrationNameVa": "0x010292c4",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StopGroupImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E8",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StopGroupImpl(System.UInt32,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StopGroupImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00862fc0-Audio_StopGroupImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_EnableGroupImpl",
+      "entryVa": "0x00863020",
+      "upperBoundExclusive": "0x00863090",
+      "sourceFileOffset": 4599840,
+      "boundedByteLength": 112,
+      "recordVa": "0x011677e0",
+      "recordFileOffset": 14055392,
+      "recordHex": "20308600ec920201",
+      "registrationNameVa": "0x010292ec",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_EnableGroupImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E9",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_EnableGroupImpl(System.UInt32,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_EnableGroupImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863020-Audio_EnableGroupImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_PlayObjectPutSoundImpl",
+      "entryVa": "0x00863d20",
+      "upperBoundExclusive": "0x00863d50",
+      "sourceFileOffset": 4603168,
+      "boundedByteLength": 48,
+      "recordVa": "0x011677e8",
+      "recordFileOffset": 14055400,
+      "recordHex": "203d860014930201",
+      "registrationNameVa": "0x01029314",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_PlayObjectPutSoundImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E4",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_PlayObjectPutSoundImpl(System.UInt64,System.UInt64)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_PlayObjectPutSoundImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863d20-Audio_PlayObjectPutSoundImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_PlayObjectGetSoundImpl",
+      "entryVa": "0x00863d50",
+      "upperBoundExclusive": "0x00863d80",
+      "sourceFileOffset": 4603216,
+      "boundedByteLength": 48,
+      "recordVa": "0x011677f0",
+      "recordFileOffset": 14055408,
+      "recordHex": "503d860044930201",
+      "registrationNameVa": "0x01029344",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_PlayObjectGetSoundImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011E5",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_PlayObjectGetSoundImpl(System.UInt64,System.UInt64)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_PlayObjectGetSoundImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863d50-Audio_PlayObjectGetSoundImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundArrayImpl",
+      "entryVa": "0x00864100",
+      "upperBoundExclusive": "0x00864300",
+      "sourceFileOffset": 4604160,
+      "boundedByteLength": 512,
+      "recordVa": "0x011677f8",
+      "recordFileOffset": 14055416,
+      "recordHex": "0041860074930201",
+      "registrationNameVa": "0x01029374",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StartSoundArrayImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011EA",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StartSoundArrayImpl(System.String,System.String,System.UInt64[])->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StartSoundArrayImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00864100-Audio_StartSoundArrayImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_UpdateSoundArrayImpl",
+      "entryVa": "0x00864300",
+      "upperBoundExclusive": "0x00864420",
+      "sourceFileOffset": 4604672,
+      "boundedByteLength": 288,
+      "recordVa": "0x01167800",
+      "recordFileOffset": 14055424,
+      "recordHex": "00438600a0930201",
+      "registrationNameVa": "0x010293a0",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_UpdateSoundArrayImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011EB",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_UpdateSoundArrayImpl(System.UInt32,System.String,System.UInt64[])->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_UpdateSoundArrayImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00864300-Audio_UpdateSoundArrayImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopSoundArrayImpl",
+      "entryVa": "0x00863360",
+      "upperBoundExclusive": "0x008633b0",
+      "sourceFileOffset": 4600672,
+      "boundedByteLength": 80,
+      "recordVa": "0x01167808",
+      "recordFileOffset": 14055432,
+      "recordHex": "60338600d0930201",
+      "registrationNameVa": "0x010293d0",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_StopSoundArrayImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011EC",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_StopSoundArrayImpl(System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_StopSoundArrayImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x00863360-Audio_StopSoundArrayImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SetSoundArrayGainImpl",
+      "entryVa": "0x008633b0",
+      "upperBoundExclusive": "0x00863420",
+      "sourceFileOffset": 4600752,
+      "boundedByteLength": 112,
+      "recordVa": "0x01167810",
+      "recordFileOffset": 14055440,
+      "recordHex": "b0338600fc930201",
+      "registrationNameVa": "0x010293fc",
+      "registrationNameAsciiVerified": "ScriptCore.Audio::Audio_SetSoundArrayGainImpl",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060011ED",
+          "signatureKey": "ScriptCore:ScriptCore.Audio::Audio_SetSoundArrayGainImpl(System.UInt32,System.Single)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Audio_SetSoundArrayGainImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "disassembly": "native/disassembly/0x008633b0-Audio_SetSoundArrayGainImpl.original-bounded.asm.txt",
+      "bodyBoundaryStatus": "upper bound from next Ghidra function entry; exact end unproven"
+    }
+  ]
+}

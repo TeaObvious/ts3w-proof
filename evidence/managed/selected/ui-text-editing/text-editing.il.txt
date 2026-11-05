@@ -1,0 +1,157 @@
+UI.dll MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+
+060032ab Sims3.UI.TextEdit::.ctor RVA=00132aef bytes=15 raw=02032807000006021628d43200062a
+ IL_0000: ldarg.0
+ IL_0001: ldarg.1
+ IL_0002: call 0x06000007 .ctor
+ IL_0007: ldarg.0
+ IL_0008: ldc.i4.0
+ IL_0009: call 0x060032d4 set_UndoHistorySize
+ IL_000e: ret
+
+060032ad Sims3.UI.TextEdit::add_TextChange RVA=00132b07 bytes=13 raw=0220d852159b03282800002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x9b1552d8
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b000028
+ IL_000c: ret
+
+060032ae Sims3.UI.TextEdit::remove_TextChange RVA=00132b15 bytes=13 raw=0220d852159b03282900002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x9b1552d8
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b000029
+ IL_000c: ret
+
+060032af Sims3.UI.TextEdit::add_TextValidate RVA=00132b23 bytes=13 raw=0220da52159b03282a00002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x9b1552da
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b00002a
+ IL_000c: ret
+
+060032b0 Sims3.UI.TextEdit::remove_TextValidate RVA=00132b31 bytes=13 raw=0220da52159b03282b00002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x9b1552da
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b00002b
+ IL_000c: ret
+
+060032b1 Sims3.UI.TextEdit::add_TextAccept RVA=00132b3f bytes=10 raw=021f1603282c00002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4.s 22
+ IL_0003: ldarg.1
+ IL_0004: call 0x2b00002c
+ IL_0009: ret
+
+060032b2 Sims3.UI.TextEdit::remove_TextAccept RVA=00132b4a bytes=10 raw=021f1603282d00002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4.s 22
+ IL_0003: ldarg.1
+ IL_0004: call 0x2b00002d
+ IL_0009: ret
+
+060032b3 Sims3.UI.TextEdit::add_TextEditError RVA=00132b55 bytes=13 raw=0220db52159b03282e00002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x9b1552db
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b00002e
+ IL_000c: ret
+
+060032b4 Sims3.UI.TextEdit::remove_TextEditError RVA=00132b63 bytes=13 raw=0220db52159b03282f00002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x9b1552db
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b00002f
+ IL_000c: ret
+
+060032b5 Sims3.UI.TextEdit::add_TextEditTab RVA=00132b71 bytes=13 raw=0220dc52159b03280100002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x9b1552dc
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b000001
+ IL_000c: ret
+
+060032b6 Sims3.UI.TextEdit::remove_TextEditTab RVA=00132b7f bytes=13 raw=0220dc52159b03280200002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x9b1552dc
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b000002
+ IL_000c: ret
+
+060032b7 Sims3.UI.TextEdit::get_ReadOnly RVA=00132b8d bytes=18 raw=022805000006203017f10f17288d1200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11730
+ IL_000b: ldc.i4.1
+ IL_000c: call 0x0600128d GetFlagProperty
+ IL_0011: ret
+
+060032b8 Sims3.UI.TextEdit::set_ReadOnly RVA=00132ba0 bytes=19 raw=022805000006203017f10f1703288c1200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11730
+ IL_000b: ldc.i4.1
+ IL_000c: ldarg.1
+ IL_000d: call 0x0600128c SetFlagProperty
+ IL_0012: ret
+
+060032cd Sims3.UI.TextEdit::get_MaxTextLength RVA=00132d42 bytes=17 raw=022805000006203517f10f28911200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11735
+ IL_000b: call 0x06001291 GetUInt32Property
+ IL_0010: ret
+
+060032ce Sims3.UI.TextEdit::set_MaxTextLength RVA=00132d54 bytes=18 raw=022805000006203517f10f0328901200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11735
+ IL_000b: ldarg.1
+ IL_000c: call 0x06001290 SetUInt32Property
+ IL_0011: ret
+
+060032cf Sims3.UI.TextEdit::get_CursorIndex RVA=00132d67 bytes=17 raw=022805000006203617f10f28911200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11736
+ IL_000b: call 0x06001291 GetUInt32Property
+ IL_0010: ret
+
+060032d0 Sims3.UI.TextEdit::set_CursorIndex RVA=00132d79 bytes=18 raw=022805000006203617f10f0328901200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11736
+ IL_000b: ldarg.1
+ IL_000c: call 0x06001290 SetUInt32Property
+ IL_0011: ret
+
+060032d1 Sims3.UI.TextEdit::get_AnchorIndex RVA=00132d8c bytes=17 raw=022805000006203717f10f28911200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11737
+ IL_000b: call 0x06001291 GetUInt32Property
+ IL_0010: ret
+
+060032d2 Sims3.UI.TextEdit::set_AnchorIndex RVA=00132d9e bytes=18 raw=022805000006203717f10f0328901200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11737
+ IL_000b: ldarg.1
+ IL_000c: call 0x06001290 SetUInt32Property
+ IL_0011: ret
+
+060032d3 Sims3.UI.TextEdit::get_UndoHistorySize RVA=00132db1 bytes=17 raw=022805000006203817f10f28911200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11738
+ IL_000b: call 0x06001291 GetUInt32Property
+ IL_0010: ret
+
+060032d4 Sims3.UI.TextEdit::set_UndoHistorySize RVA=00132dc3 bytes=18 raw=022805000006203817f10f0328901200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x0ff11738
+ IL_000b: ldarg.1
+ IL_000c: call 0x06001290 SetUInt32Property
+ IL_0011: ret

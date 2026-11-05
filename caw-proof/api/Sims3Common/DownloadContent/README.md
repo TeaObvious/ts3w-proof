@@ -1,0 +1,67 @@
+# Sims3Common: DownloadContent
+
+61 original CAW 1.22.10 PE named exports.
+
+| Export | Ordinal | Address | Managed imports |
+| --- | ---: | --- | ---: |
+| [DownloadContent_AcceptSendMeYourSimInvite](0355.md) | 355 | `0x10787330` | 1 |
+| [DownloadContent_CreateHostMySimInvite](0356.md) | 356 | `0x10786f60` | 1 |
+| [DownloadContent_DeleteCustomSim](0357.md) | 357 | `0x10784320` | 1 |
+| [DownloadContent_DeleteExportBinPackageImpl](0358.md) | 358 | `0x10785560` | 1 |
+| [DownloadContent_DeleteHouseholdContentsImpl](0359.md) | 359 | `0x10784400` | 1 |
+| [DownloadContent_DeleteInventoryImpl](0360.md) | 360 | `0x10784480` | 1 |
+| [DownloadContent_DeleteLotContentsImpl](0361.md) | 361 | `0x107844a0` | 1 |
+| [DownloadContent_DownloadChallenges](0362.md) | 362 | `0x10784990` | 1 |
+| [DownloadContent_ExportContentImpl](0363.md) | 363 | `0x10786cd0` | 1 |
+| [DownloadContent_ExportHouseholdImpl](0364.md) | 364 | `0x10785a60` | 1 |
+| [DownloadContent_ExportLotContentsToExportBinImpl](0365.md) | 365 | `0x10785de0` | 1 |
+| [DownloadContent_ExportLotContentsToTravelBinImpl](0366.md) | 366 | `0x10785090` | 1 |
+| [DownloadContent_ExportLotImpl](0367.md) | 367 | `0x107858e0` | 1 |
+| [DownloadContent_ExportResourceImpl](0368.md) | 368 | `0x107863c0` | 1 |
+| [DownloadContent_GenerateGUIDImpl](0369.md) | 369 | `0x10784470` | 1 |
+| [DownloadContent_GetBaseGameId](0370.md) | 370 | `0x107842a0` | 1 |
+| [DownloadContent_GetChallengeManifestEntry](0371.md) | 371 | `0x10985640` | 1 |
+| [DownloadContent_GetContentSourceImpl](0372.md) | 372 | `0x107843e0` | 1 |
+| [DownloadContent_GetExportBinPackageInfoImpl](0373.md) | 373 | `0x10785c70` | 1 |
+| [DownloadContent_GetExportBinPackageNamesImpl](0374.md) | 374 | `0x10785fc0` | 1 |
+| [DownloadContent_GetFirstFilename](0375.md) | 375 | `0x107861b0` | 1 |
+| [DownloadContent_GetFirstPackageEnableData](0376.md) | 376 | `0x107846e0` | 1 |
+| [DownloadContent_GetFirstPackageId](0377.md) | 377 | `0x10784600` | 1 |
+| [DownloadContent_GetImportedSimResourceKeys](0378.md) | 378 | `0x10785350` | 1 |
+| [DownloadContent_GetImportsFolderImpl](0379.md) | 379 | `0x10785be0` | 1 |
+| [DownloadContent_GetLocalKeyFromSourceKey](0380.md) | 380 | `0x10784560` | 1 |
+| [DownloadContent_GetNextFilename](0381.md) | 381 | `0x107862d0` | 1 |
+| [DownloadContent_GetNextPackageEnableData](0382.md) | 382 | `0x10784750` | 1 |
+| [DownloadContent_GetNextPackageId](0383.md) | 383 | `0x10784670` | 1 |
+| [DownloadContent_GetNumChallengeManifestEntries](0384.md) | 384 | `0x10784940` | 1 |
+| [DownloadContent_GetPackageNameImpl](0385.md) | 385 | `0x107860b0` | 1 |
+| [DownloadContent_HideExportBinPackageImpl](0386.md) | 386 | `0x107855f0` | 1 |
+| [DownloadContent_ImportHouseholdContentsFromExportBinImpl](0387.md) | 387 | `0x107857b0` | 1 |
+| [DownloadContent_ImportHouseholdContentsFromTravelBinImpl](0388.md) | 388 | `0x10785000` | 1 |
+| [DownloadContent_ImportHouseholdContentsImpl](0389.md) | 389 | `0x10786530` | 1 |
+| [DownloadContent_ImportInventoryImpl](0390.md) | 390 | `0x107849b0` | 1 |
+| [DownloadContent_ImportLotContentsFromExportBinImpl](0391.md) | 391 | `0x10785680` | 1 |
+| [DownloadContent_ImportLotContentsImpl](0392.md) | 392 | `0x10784d60` | 1 |
+| [DownloadContent_ImportSimDescriptionImpl](0393.md) | 393 | `0x10785120` | 1 |
+| [DownloadContent_InitImpl](0394.md) | 394 | `0x107854c0` | 1 |
+| [DownloadContent_InstallContentImpl](0395.md) | 395 | `0x10784180` | 1 |
+| [DownloadContent_IsAnyExportBinPackageHiddenImpl](0396.md) | 396 | `0x10784300` | 1 |
+| [DownloadContent_IsCustomContentEnabled](0397.md) | 397 | `0x107847e0` | 1 |
+| [DownloadContent_IsCustomContentImpl](0398.md) | 398 | `0x107843a0` | 1 |
+| [DownloadContent_IsDevBuild](0399.md) | 399 | `0x10784800` | 1 |
+| [DownloadContent_LoadNewlyDownloadedChallenges](0400.md) | 400 | `0x10786840` | 1 |
+| [DownloadContent_ManifestContainsChallengeGuid](0401.md) | 401 | `0x10784960` | 1 |
+| [DownloadContent_RefreshChallengeManifest](0402.md) | 402 | `0x10985620` | 1 |
+| [DownloadContent_RefreshExportBin](0403.md) | 403 | `0x107844c0` | 1 |
+| [DownloadContent_SaveCustomSim](0404.md) | 404 | `0x10786ba0` | 1 |
+| [DownloadContent_SaveTravelSim](0405.md) | 405 | `0x10786c20` | 1 |
+| [DownloadContent_SetExportMode](0406.md) | 406 | `0x10784380` | 1 |
+| [DownloadContent_SetPackageEnabledImpl](0407.md) | 407 | `0x10784510` | 1 |
+| [DownloadContent_SetSimSaveMode](0408.md) | 408 | `0x10784360` | 1 |
+| [DownloadContent_SetSimSavedCallbackImpl](0409.md) | 409 | `0x107847c0` | 1 |
+| [DownloadContent_ShutdownImpl](0410.md) | 410 | `0x1055e150` | 1 |
+| [DownloadContent_StoreHouseholdContentsImpl](0411.md) | 411 | `0x10787600` | 1 |
+| [DownloadContent_StoreInventoryImpl](0412.md) | 412 | `0x10787910` | 1 |
+| [DownloadContent_StoreLotContentsImpl](0413.md) | 413 | `0x10788000` | 1 |
+| [DownloadContent_UnInstallContentImpl](0414.md) | 414 | `0x10784220` | 1 |
+| [DownloadContent_UnhideAllExportBinPackagesImpl](0415.md) | 415 | `0x107842e0` | 1 |

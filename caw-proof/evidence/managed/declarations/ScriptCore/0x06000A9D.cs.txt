@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000A9D.
+// Assembly: ScriptCore; type: ScriptCore.UserToolUtils.
+// Decompiled C# source: ScriptCore/ScriptCore/UserToolUtils.cs:149
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalType = "ScriptCore.StringFromVariantMarshaler")]
+	private static extern ulong[] UserToolUtils_GetFeaturedCASItemsListFilteredImpl(uint bodyPart, uint outfitTypeFlags, uint ageGenderFlags, uint numNonSetItems, bool isHat);

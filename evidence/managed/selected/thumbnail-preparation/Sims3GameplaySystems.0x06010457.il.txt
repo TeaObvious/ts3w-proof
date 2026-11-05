@@ -1,0 +1,390 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig static 
+		bool ThumbnailManager_OnPrepareObject (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid templateId,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid targetId,
+			int32 index,
+			uint32 uintVal1,
+			uint32 uintVal2,
+			valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize size,
+			uint32 prepareType,
+			uint32 uintVal3
+		) cil managed 
+	{
+		// Method begins at RVA 0x499f58
+		// Header size: 12
+		// Code size: 826 (0x33a)
+		.maxstack 5
+		.locals init (
+			[0] class Sims3.Gameplay.Actors.Sim,
+			[1] valuetype [SimIFace]Sims3.SimIFace.ResourceKey,
+			[2] bool,
+			[3] int32,
+			[4] int32,
+			[5] valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags,
+			[6] bool,
+			[7] valuetype [SimIFace]Sims3.SimIFace.ResourceKey,
+			[8] class [SimIFace]Sims3.SimIFace.IScriptProxy,
+			[9] object,
+			[10] class Sims3.Gameplay.Actors.Sim,
+			[11] uint32,
+			[12] class [SimIFace]Sims3.SimIFace.CAS.SimOutfit,
+			[13] valuetype [SimIFace]Sims3.SimIFace.PrepareType
+		)
+
+		IL_0000: ldarg.s prepareType
+		IL_0002: stloc.s 13
+		IL_0004: ldloc.s 13
+		IL_0006: ldc.i4.2
+		IL_0007: sub
+		IL_0008: switch (IL_0036, IL_00e9, IL_00c2, IL_0043, IL_008d, IL_00b5, IL_00a1, IL_00cf, IL_00dc)
+
+		IL_0031: br IL_014e
+
+		IL_0036: ldarga.s templateId
+		IL_0038: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_003d: call bool Sims3.Gameplay.Core.ThumbnailHelper::PrepareHouseholdForThumbnail(uint64)
+		IL_0042: ret
+
+		IL_0043: ldarga.s templateId
+		IL_0045: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_004a: newobj instance void [SimIFace]Sims3.SimIFace.ObjectGuid::.ctor(uint64)
+		IL_004f: call class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.GameObject::GetObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0054: isinst Sims3.Gameplay.Actors.Sim
+		IL_0059: stloc.0
+		IL_005a: ldloc.0
+		IL_005b: brfalse.s IL_0079
+
+		IL_005d: ldloc.0
+		IL_005e: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsHorse()
+		IL_0063: brfalse.s IL_0079
+
+		IL_0065: ldarga.s templateId
+		IL_0067: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_006c: ldarga.s targetId
+		IL_006e: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0073: call bool Sims3.Gameplay.Core.ThumbnailHelper::PrepareEquestrianRaceSimsForThumbnail(uint64, uint64)
+		IL_0078: ret
+
+		IL_0079: ldarga.s templateId
+		IL_007b: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0080: ldarga.s targetId
+		IL_0082: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0087: call bool Sims3.Gameplay.Core.ThumbnailHelper::PreparePromSimsForThumbnail(uint64, uint64)
+		IL_008c: ret
+
+		IL_008d: ldarga.s templateId
+		IL_008f: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0094: ldarga.s targetId
+		IL_0096: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_009b: call bool Sims3.Gameplay.Core.ThumbnailHelper::PreparePhotoBoothSimsForThumbnail(uint64, uint64)
+		IL_00a0: ret
+
+		IL_00a1: ldarga.s templateId
+		IL_00a3: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_00a8: ldarga.s targetId
+		IL_00aa: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_00af: call bool Sims3.Gameplay.Core.ThumbnailHelper::PrepareSelfPhotoSimsForThumbnail(uint64, uint64)
+		IL_00b4: ret
+
+		IL_00b5: ldarga.s templateId
+		IL_00b7: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_00bc: call bool Sims3.Gameplay.Core.ThumbnailHelper::PrepareThumbnailForSimsUsingObject(uint64)
+		IL_00c1: ret
+
+		IL_00c2: ldarga.s templateId
+		IL_00c4: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_00c9: call bool Sims3.Gameplay.Core.ThumbnailHelper::PrepareLotForThumbnail(uint64)
+		IL_00ce: ret
+
+		IL_00cf: ldarga.s targetId
+		IL_00d1: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_00d6: call bool Sims3.Gameplay.Core.ThumbnailHelper::PrepareSculptureSimForThumbnail(uint64)
+		IL_00db: ret
+
+		IL_00dc: ldarga.s templateId
+		IL_00de: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_00e3: call bool Sims3.Gameplay.Core.ThumbnailHelper::PrepareServoBotArenaSimsForThumbnail(uint64)
+		IL_00e8: ret
+
+		IL_00e9: ldloca.s 1
+		IL_00eb: ldarga.s targetId
+		IL_00ed: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_00f2: ldarga.s templateId
+		IL_00f4: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_00f9: conv.u4
+		IL_00fa: ldarg.3
+		IL_00fb: call instance void [SimIFace]Sims3.SimIFace.ResourceKey::.ctor(uint64, uint32, uint32)
+		IL_0100: ldarg.s uintVal2
+		IL_0102: ldc.i4.0
+		IL_0103: ceq
+		IL_0105: ldc.i4.0
+		IL_0106: ceq
+		IL_0108: stloc.2
+		IL_0109: ldarg.2
+		IL_010a: stloc.3
+		IL_010b: ldc.i4.m1
+		IL_010c: stloc.s 4
+		IL_010e: ldloca.s 1
+		IL_0110: ldfld uint32 [SimIFace]Sims3.SimIFace.ResourceKey::TypeId
+		IL_0115: ldc.i4 -559770340 // 0xdea2951c
+		IL_011a: beq.s IL_0141
+
+		IL_011c: ldarg.2
+		IL_011d: ldc.i4 256
+		IL_0122: blt.s IL_012c
+
+		IL_0124: ldarg.2
+		IL_0125: ldc.i4 768
+		IL_012a: ble.s IL_0141
+
+		IL_012c: ldloc.3
+		IL_012d: ldc.i4.s -4
+		IL_012f: ble.s IL_0133
+
+		IL_0131: ldc.i4.m1
+		IL_0132: stloc.3
+
+		IL_0133: ldarg.2
+		IL_0134: ldc.i4.6
+		IL_0135: blt.s IL_0141
+
+		IL_0137: ldarg.2
+		IL_0138: ldc.i4.s 32
+		IL_013a: bge.s IL_0141
+
+		IL_013c: ldarg.2
+		IL_013d: ldc.i4.5
+		IL_013e: sub
+		IL_013f: stloc.s 4
+
+		IL_0141: ldloc.1
+		IL_0142: ldloc.3
+		IL_0143: ldloc.s 4
+		IL_0145: ldloc.2
+		IL_0146: ldarg.s size
+		IL_0148: call bool Sims3.Gameplay.Core.ThumbnailHelper::SetupForSimThumbnailUsingSimBuilder(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, int32, int32, bool, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+		IL_014d: ret
+
+		IL_014e: ldarga.s templateId
+		IL_0150: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0155: ldc.i4 55242443
+		IL_015a: conv.i8
+		IL_015b: beq.s IL_01a8
+
+		IL_015d: ldarga.s templateId
+		IL_015f: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0164: ldc.i4 56144010
+		IL_0169: conv.i8
+		IL_016a: beq.s IL_01a8
+
+		IL_016c: ldarga.s templateId
+		IL_016e: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0173: ldc.i4 -1814542271 // 0x93d84841
+		IL_0178: conv.u8
+		IL_0179: beq.s IL_01a8
+
+		IL_017b: ldarga.s templateId
+		IL_017d: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0182: ldc.i4 85848797
+		IL_0187: conv.i8
+		IL_0188: beq.s IL_01a8
+
+		IL_018a: ldarga.s templateId
+		IL_018c: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0191: ldc.i4 1919433749
+		IL_0196: conv.i8
+		IL_0197: beq.s IL_01a8
+
+		IL_0199: ldarga.s templateId
+		IL_019b: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_01a0: ldc.i4 55925672
+		IL_01a5: conv.i8
+		IL_01a6: bne.un.s IL_01eb
+
+		IL_01a8: ldarg.3
+		IL_01a9: stloc.s 5
+		IL_01ab: ldarg.s uintVal2
+		IL_01ad: ldc.i4.0
+		IL_01ae: ceq
+		IL_01b0: ldc.i4.0
+		IL_01b1: ceq
+		IL_01b3: stloc.s 6
+		IL_01b5: ldloca.s 7
+		IL_01b7: ldarga.s targetId
+		IL_01b9: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_01be: ldarga.s templateId
+		IL_01c0: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_01c5: conv.u4
+		IL_01c6: ldarg.s uintVal3
+		IL_01c8: call instance void [SimIFace]Sims3.SimIFace.ResourceKey::.ctor(uint64, uint32, uint32)
+		IL_01cd: ldloc.s 6
+		IL_01cf: brfalse.s IL_01de
+
+		IL_01d1: ldloc.s 7
+		IL_01d3: ldarg.2
+		IL_01d4: ldloc.s 5
+		IL_01d6: ldarg.s size
+		IL_01d8: call bool Sims3.Gameplay.Core.ThumbnailHelper::SetupForCASThumbnailUsingCASSimbuilder(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, int32, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+		IL_01dd: ret
+
+		IL_01de: ldloc.s 7
+		IL_01e0: ldarg.2
+		IL_01e1: ldloc.s 5
+		IL_01e3: ldarg.s size
+		IL_01e5: call bool Sims3.Gameplay.Core.ThumbnailHelper::SetupForCASThumbnailUsingSeparateSimbuilder(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, int32, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+		IL_01ea: ret
+
+		IL_01eb: ldarg.0
+		IL_01ec: call class [SimIFace]Sims3.SimIFace.IScriptProxy [SimIFace]Sims3.SimIFace.Simulator::GetProxyPreInit(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_01f1: stloc.s 8
+		IL_01f3: ldloc.s 8
+		IL_01f5: brtrue.s IL_01f9
+
+		IL_01f7: ldc.i4.0
+		IL_01f8: ret
+
+		IL_01f9: ldloc.s 8
+		IL_01fb: callvirt instance class [SimIFace]Sims3.SimIFace.IScriptLogic [SimIFace]Sims3.SimIFace.IScriptProxy::get_Target()
+		IL_0200: stloc.s 9
+		IL_0202: ldloc.s 9
+		IL_0204: brtrue.s IL_0208
+
+		IL_0206: ldc.i4.0
+		IL_0207: ret
+
+		IL_0208: ldloc.s 9
+		IL_020a: isinst Sims3.Gameplay.Actors.Sim
+		IL_020f: stloc.s 10
+		IL_0211: ldloc.s 10
+		IL_0213: brfalse IL_0338
+
+		IL_0218: ldarg.2
+		IL_0219: ldc.i4.6
+		IL_021a: blt.s IL_0261
+
+		IL_021c: ldarg.2
+		IL_021d: ldc.i4.s 32
+		IL_021f: bge.s IL_0261
+
+		IL_0221: ldloc.s 10
+		IL_0223: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0228: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsEP11Bot()
+		IL_022d: brtrue.s IL_024d
+
+		IL_022f: ldarg.2
+		IL_0230: call valuetype Sims3.Gameplay.CAS.SimDescription/DeathType Sims3.Gameplay.CAS.SimDescription::GetDeathTypeFromMoodID(valuetype [UI]Sims3.UI.Hud.MoodID)
+		IL_0235: stloc.s 11
+		IL_0237: ldarg.1
+		IL_0238: ldloc.s 11
+		IL_023a: ldloc.s 10
+		IL_023c: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0241: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_0246: call void [SimIFace]Sims3.SimIFace.World::ObjectSetGhostState(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, uint32, uint32)
+		IL_024b: br.s IL_0261
+
+		IL_024d: ldarg.1
+		IL_024e: ldc.i4.s 23
+		IL_0250: ldloc.s 10
+		IL_0252: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0257: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_025c: call void [SimIFace]Sims3.SimIFace.World::ObjectSetGhostState(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, uint32, uint32)
+
+		IL_0261: ldloc.s 10
+		IL_0263: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0268: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsVampire()
+		IL_026d: brfalse.s IL_027a
+
+		IL_026f: ldarg.1
+		IL_0270: ldc.i4.2
+		IL_0271: ldnull
+		IL_0272: call bool [SimIFace]Sims3.SimIFace.World::ObjectSetVisualOverride(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.eVisualOverrideTypes, float32[])
+		IL_0277: pop
+		IL_0278: br.s IL_02aa
+
+		IL_027a: ldloc.s 10
+		IL_027c: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0281: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsWerewolf()
+		IL_0286: brfalse.s IL_0293
+
+		IL_0288: ldarg.1
+		IL_0289: ldc.i4.5
+		IL_028a: ldnull
+		IL_028b: call bool [SimIFace]Sims3.SimIFace.World::ObjectSetVisualOverride(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.eVisualOverrideTypes, float32[])
+		IL_0290: pop
+		IL_0291: br.s IL_02aa
+
+		IL_0293: ldloc.s 10
+		IL_0295: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_029a: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsGenie()
+		IL_029f: brfalse.s IL_02aa
+
+		IL_02a1: ldarg.1
+		IL_02a2: ldc.i4.4
+		IL_02a3: ldnull
+		IL_02a4: call bool [SimIFace]Sims3.SimIFace.World::ObjectSetVisualOverride(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.eVisualOverrideTypes, float32[])
+		IL_02a9: pop
+
+		IL_02aa: ldloc.s 10
+		IL_02ac: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_02b1: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsAlien()
+		IL_02b6: brfalse.s IL_02c1
+
+		IL_02b8: ldarg.1
+		IL_02b9: ldc.i4.6
+		IL_02ba: ldnull
+		IL_02bb: call bool [SimIFace]Sims3.SimIFace.World::ObjectSetVisualOverride(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.eVisualOverrideTypes, float32[])
+		IL_02c0: pop
+
+		IL_02c1: ldloc.s 10
+		IL_02c3: callvirt instance class Sims3.Gameplay.Services.Service Sims3.Gameplay.Actors.Sim::get_Service()
+		IL_02c8: brfalse.s IL_02de
+
+		IL_02ca: ldloc.s 10
+		IL_02cc: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_02d1: ldc.i4 256
+		IL_02d6: ldc.i4.0
+		IL_02d7: callvirt instance class [SimIFace]Sims3.SimIFace.CAS.SimOutfit Sims3.Gameplay.CAS.SimDescriptionCore::GetOutfit(valuetype [SimIFace]Sims3.SimIFace.CAS.OutfitCategories, int32)
+		IL_02dc: br.s IL_02ec
+
+		IL_02de: ldloc.s 10
+		IL_02e0: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_02e5: ldc.i4.2
+		IL_02e6: ldc.i4.0
+		IL_02e7: callvirt instance class [SimIFace]Sims3.SimIFace.CAS.SimOutfit Sims3.Gameplay.CAS.SimDescriptionCore::GetOutfit(valuetype [SimIFace]Sims3.SimIFace.CAS.OutfitCategories, int32)
+
+		IL_02ec: stloc.s 12
+		IL_02ee: ldloc.s 12
+		IL_02f0: brfalse.s IL_0338
+
+		IL_02f2: ldloc.s 12
+		IL_02f4: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags [SimIFace]Sims3.SimIFace.CAS.SimOutfit::get_AgeGenderSpecies()
+		IL_02f9: ldc.i4.s 127
+		IL_02fb: and
+		IL_02fc: ldloc.s 10
+		IL_02fe: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0303: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_Age()
+		IL_0308: bne.un.s IL_0338
+
+		IL_030a: ldloc.s 12
+		IL_030c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.CAS.SimOutfit::get_Key()
+		IL_0311: ldarg.1
+		IL_0312: call void [SimIFace]Sims3.SimIFace.CAS.CASUtils::SetOutfitInGameObject(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0317: ldarg.2
+		IL_0318: ldloc.s 12
+		IL_031a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags [SimIFace]Sims3.SimIFace.CAS.SimOutfit::get_AgeGenderSpecies()
+		IL_031f: ldc.i4.s 127
+		IL_0321: and
+		IL_0322: ldloc.s 12
+		IL_0324: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags [SimIFace]Sims3.SimIFace.CAS.SimOutfit::get_AgeGenderSpecies()
+		IL_0329: ldc.i4 52992
+		IL_032e: and
+		IL_032f: ldc.i4.0
+		IL_0330: ldc.i4.0
+		IL_0331: call void Sims3.Gameplay.Core.ThumbnailHelper::SelectSimPose(int32, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, uint32, bool)
+		IL_0336: ldc.i4.1
+		IL_0337: ret
+
+		IL_0338: ldc.i4.0
+		IL_0339: ret
+	} // end of method ThumbnailHelper::ThumbnailManager_OnPrepareObject

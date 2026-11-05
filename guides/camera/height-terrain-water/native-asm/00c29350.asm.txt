@@ -1,0 +1,203 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00c29350 to next catalog entry 0x00c295c0; may include padding or data.
+  c29350:	55                   	push   ebp
+  c29351:	8b ec                	mov    ebp,esp
+  c29353:	83 e4 f0             	and    esp,0xfffffff0
+  c29356:	8b 55 0c             	mov    edx,DWORD PTR [ebp+0xc]
+  c29359:	83 ec 24             	sub    esp,0x24
+  c2935c:	53                   	push   ebx
+  c2935d:	8b d9                	mov    ebx,ecx
+  c2935f:	8b 4d 08             	mov    ecx,DWORD PTR [ebp+0x8]
+  c29362:	8b 83 cc 00 00 00    	mov    eax,DWORD PTR [ebx+0xcc]
+  c29368:	c1 f9 08             	sar    ecx,0x8
+  c2936b:	56                   	push   esi
+  c2936c:	c1 fa 08             	sar    edx,0x8
+  c2936f:	3b c8                	cmp    ecx,eax
+  c29371:	57                   	push   edi
+  c29372:	0f 83 35 02 00 00    	jae    0xc295ad
+  c29378:	3b 93 d0 00 00 00    	cmp    edx,DWORD PTR [ebx+0xd0]
+  c2937e:	0f 83 29 02 00 00    	jae    0xc295ad
+  c29384:	0f af c2             	imul   eax,edx
+  c29387:	03 c1                	add    eax,ecx
+  c29389:	8b 8b bc 00 00 00    	mov    ecx,DWORD PTR [ebx+0xbc]
+  c2938f:	8b 34 81             	mov    esi,DWORD PTR [ecx+eax*4]
+  c29392:	85 f6                	test   esi,esi
+  c29394:	0f 84 13 02 00 00    	je     0xc295ad
+  c2939a:	8b 4e 38             	mov    ecx,DWORD PTR [esi+0x38]
+  c2939d:	85 c9                	test   ecx,ecx
+  c2939f:	74 0c                	je     0xc293ad
+  c293a1:	e8 8a 97 a5 ff       	call   0x682b30
+  c293a6:	c7 46 38 00 00 00 00 	mov    DWORD PTR [esi+0x38],0x0
+  c293ad:	8b 7e 30             	mov    edi,DWORD PTR [esi+0x30]
+  c293b0:	8b 4d 10             	mov    ecx,DWORD PTR [ebp+0x10]
+  c293b3:	3b cf                	cmp    ecx,edi
+  c293b5:	74 20                	je     0xc293d7
+  c293b7:	85 c9                	test   ecx,ecx
+  c293b9:	74 09                	je     0xc293c4
+  c293bb:	8b 11                	mov    edx,DWORD PTR [ecx]
+  c293bd:	8b 02                	mov    eax,DWORD PTR [edx]
+  c293bf:	ff d0                	call   eax
+  c293c1:	8b 4d 10             	mov    ecx,DWORD PTR [ebp+0x10]
+  c293c4:	85 ff                	test   edi,edi
+  c293c6:	89 4e 30             	mov    DWORD PTR [esi+0x30],ecx
+  c293c9:	74 0c                	je     0xc293d7
+  c293cb:	8b 17                	mov    edx,DWORD PTR [edi]
+  c293cd:	8b 42 04             	mov    eax,DWORD PTR [edx+0x4]
+  c293d0:	8b cf                	mov    ecx,edi
+  c293d2:	ff d0                	call   eax
+  c293d4:	8b 4d 10             	mov    ecx,DWORD PTR [ebp+0x10]
+  c293d7:	8b 46 34             	mov    eax,DWORD PTR [esi+0x34]
+  c293da:	8b 7d 14             	mov    edi,DWORD PTR [ebp+0x14]
+  c293dd:	3b f8                	cmp    edi,eax
+  c293df:	89 44 24 18          	mov    DWORD PTR [esp+0x18],eax
+  c293e3:	74 26                	je     0xc2940b
+  c293e5:	85 ff                	test   edi,edi
+  c293e7:	74 0f                	je     0xc293f8
+  c293e9:	8b 17                	mov    edx,DWORD PTR [edi]
+  c293eb:	8b 02                	mov    eax,DWORD PTR [edx]
+  c293ed:	8b cf                	mov    ecx,edi
+  c293ef:	ff d0                	call   eax
+  c293f1:	8b 44 24 18          	mov    eax,DWORD PTR [esp+0x18]
+  c293f5:	8b 4d 10             	mov    ecx,DWORD PTR [ebp+0x10]
+  c293f8:	85 c0                	test   eax,eax
+  c293fa:	89 7e 34             	mov    DWORD PTR [esi+0x34],edi
+  c293fd:	74 0c                	je     0xc2940b
+  c293ff:	8b 10                	mov    edx,DWORD PTR [eax]
+  c29401:	8b c8                	mov    ecx,eax
+  c29403:	8b 42 04             	mov    eax,DWORD PTR [edx+0x4]
+  c29406:	ff d0                	call   eax
+  c29408:	8b 4d 10             	mov    ecx,DWORD PTR [ebp+0x10]
+  c2940b:	85 c9                	test   ecx,ecx
+  c2940d:	0f 84 a4 00 00 00    	je     0xc294b7
+  c29413:	f3 0f 10 4e 14       	movss  xmm1,DWORD PTR [esi+0x14]
+  c29418:	f3 0f 10 46 10       	movss  xmm0,DWORD PTR [esi+0x10]
+  c2941d:	8b 4d 18             	mov    ecx,DWORD PTR [ebp+0x18]
+  c29420:	6a 00                	push   0x0
+  c29422:	6a 00                	push   0x0
+  c29424:	6a 00                	push   0x0
+  c29426:	6a 00                	push   0x0
+  c29428:	68 08 7a 07 01       	push   0x1077a08
+  c2942d:	f3 0f 11 4c 24 3c    	movss  DWORD PTR [esp+0x3c],xmm1
+  c29433:	0f 57 c9             	xorps  xmm1,xmm1
+  c29436:	6a 00                	push   0x0
+  c29438:	f3 0f 11 44 24 44    	movss  DWORD PTR [esp+0x44],xmm0
+  c2943e:	f3 0f 11 4c 24 3c    	movss  DWORD PTR [esp+0x3c],xmm1
+  c29444:	0f 28 09             	movaps xmm1,XMMWORD PTR [ecx]
+  c29447:	f3 0f 11 44 24 38    	movss  DWORD PTR [esp+0x38],xmm0
+  c2944d:	0f 28 44 24 38       	movaps xmm0,XMMWORD PTR [esp+0x38]
+  c29452:	6a 10                	push   0x10
+  c29454:	0f 58 c1             	addps  xmm0,xmm1
+  c29457:	6a 70                	push   0x70
+  c29459:	0f 29 46 20          	movaps XMMWORD PTR [esi+0x20],xmm0
+  c2945d:	e8 be b0 8b ff       	call   0x4e4520
+  c29462:	8b d8                	mov    ebx,eax
+  c29464:	83 c4 20             	add    esp,0x20
+  c29467:	85 db                	test   ebx,ebx
+  c29469:	74 16                	je     0xc29481
+  c2946b:	8b cb                	mov    ecx,ebx
+  c2946d:	e8 ee 97 a5 ff       	call   0x682c60
+  c29472:	c7 03 bc 0a ff 00    	mov    DWORD PTR [ebx],0xff0abc
+  c29478:	c7 43 60 00 00 00 00 	mov    DWORD PTR [ebx+0x60],0x0
+  c2947f:	eb 02                	jmp    0xc29483
+  c29481:	33 db                	xor    ebx,ebx
+  c29483:	8b cb                	mov    ecx,ebx
+  c29485:	e8 96 96 a5 ff       	call   0x682b20
+  c2948a:	8b 56 30             	mov    edx,DWORD PTR [esi+0x30]
+  c2948d:	52                   	push   edx
+  c2948e:	8b cb                	mov    ecx,ebx
+  c29490:	e8 fb 4b a5 ff       	call   0x67e090
+  c29495:	8b 43 34             	mov    eax,DWORD PTR [ebx+0x34]
+  c29498:	25 00 00 ff ff       	and    eax,0xffff0000
+  c2949d:	83 c0 01             	add    eax,0x1
+  c294a0:	89 43 34             	mov    DWORD PTR [ebx+0x34],eax
+  c294a3:	0f 28 46 20          	movaps xmm0,XMMWORD PTR [esi+0x20]
+  c294a7:	0f 29 43 10          	movaps XMMWORD PTR [ebx+0x10],xmm0
+  c294ab:	89 5e 38             	mov    DWORD PTR [esi+0x38],ebx
+  c294ae:	5f                   	pop    edi
+  c294af:	5e                   	pop    esi
+  c294b0:	5b                   	pop    ebx
+  c294b1:	8b e5                	mov    esp,ebp
+  c294b3:	5d                   	pop    ebp
+  c294b4:	c2 14 00             	ret    0x14
+  c294b7:	8b 4b 08             	mov    ecx,DWORD PTR [ebx+0x8]
+  c294ba:	e8 81 d6 e7 ff       	call   0xaa6b40
+  c294bf:	8b 4b 08             	mov    ecx,DWORD PTR [ebx+0x8]
+  c294c2:	8b f8                	mov    edi,eax
+  c294c4:	89 7c 24 1c          	mov    DWORD PTR [esp+0x1c],edi
+  c294c8:	e8 d3 8d 91 ff       	call   0x5422a0
+  c294cd:	8b 4e 04             	mov    ecx,DWORD PTR [esi+0x4]
+  c294d0:	8b 16                	mov    edx,DWORD PTR [esi]
+  c294d2:	6a 00                	push   0x0
+  c294d4:	89 44 24 1c          	mov    DWORD PTR [esp+0x1c],eax
+  c294d8:	6a 00                	push   0x0
+  c294da:	8b c1                	mov    eax,ecx
+  c294dc:	0f af c7             	imul   eax,edi
+  c294df:	03 44 24 20          	add    eax,DWORD PTR [esp+0x20]
+  c294e3:	6a 00                	push   0x0
+  c294e5:	6a 00                	push   0x0
+  c294e7:	68 e0 79 07 01       	push   0x10779e0
+  c294ec:	f3 0f 2a c9          	cvtsi2ss xmm1,ecx
+  c294f0:	f3 0f 2a c2          	cvtsi2ss xmm0,edx
+  c294f4:	f3 0f 11 4c 24 3c    	movss  DWORD PTR [esp+0x3c],xmm1
+  c294fa:	0f 57 c9             	xorps  xmm1,xmm1
+  c294fd:	6a 00                	push   0x0
+  c294ff:	f3 0f 11 44 24 44    	movss  DWORD PTR [esp+0x44],xmm0
+  c29505:	f3 0f 11 4c 24 3c    	movss  DWORD PTR [esp+0x3c],xmm1
+  c2950b:	f3 0f 11 44 24 38    	movss  DWORD PTR [esp+0x38],xmm0
+  c29511:	0f 28 44 24 38       	movaps xmm0,XMMWORD PTR [esp+0x38]
+  c29516:	6a 10                	push   0x10
+  c29518:	68 a0 00 00 00       	push   0xa0
+  c2951d:	8d 3c 50             	lea    edi,[eax+edx*2]
+  c29520:	0f 29 46 20          	movaps XMMWORD PTR [esi+0x20],xmm0
+  c29524:	e8 f7 af 8b ff       	call   0x4e4520
+  c29529:	83 c4 20             	add    esp,0x20
+  c2952c:	85 c0                	test   eax,eax
+  c2952e:	74 1b                	je     0xc2954b
+  c29530:	8b 4c 24 1c          	mov    ecx,DWORD PTR [esp+0x1c]
+  c29534:	68 01 01 00 00       	push   0x101
+  c29539:	68 01 01 00 00       	push   0x101
+  c2953e:	51                   	push   ecx
+  c2953f:	57                   	push   edi
+  c29540:	8b c8                	mov    ecx,eax
+  c29542:	e8 a9 f0 ff ff       	call   0xc285f0
+  c29547:	8b f8                	mov    edi,eax
+  c29549:	eb 02                	jmp    0xc2954d
+  c2954b:	33 ff                	xor    edi,edi
+  c2954d:	f3 0f 10 43 28       	movss  xmm0,DWORD PTR [ebx+0x28]
+  c29552:	f3 0f 10 4b 24       	movss  xmm1,DWORD PTR [ebx+0x24]
+  c29557:	f3 0f 11 44 24 2c    	movss  DWORD PTR [esp+0x2c],xmm0
+  c2955d:	f3 0f 11 44 24 28    	movss  DWORD PTR [esp+0x28],xmm0
+  c29563:	f3 0f 11 4c 24 24    	movss  DWORD PTR [esp+0x24],xmm1
+  c29569:	f3 0f 11 44 24 20    	movss  DWORD PTR [esp+0x20],xmm0
+  c2956f:	0f 28 44 24 20       	movaps xmm0,XMMWORD PTR [esp+0x20]
+  c29574:	8d 54 24 20          	lea    edx,[esp+0x20]
+  c29578:	52                   	push   edx
+  c29579:	8b cf                	mov    ecx,edi
+  c2957b:	0f 29 44 24 24       	movaps XMMWORD PTR [esp+0x24],xmm0
+  c29580:	e8 cb ad a5 ff       	call   0x684350
+  c29585:	0f 28 46 20          	movaps xmm0,XMMWORD PTR [esi+0x20]
+  c29589:	68 ff ff ff 7f       	push   0x7fffffff
+  c2958e:	68 01 01 00 00       	push   0x101
+  c29593:	68 01 01 00 00       	push   0x101
+  c29598:	8b cf                	mov    ecx,edi
+  c2959a:	0f 29 47 10          	movaps XMMWORD PTR [edi+0x10],xmm0
+  c2959e:	e8 0d 96 a5 ff       	call   0x682bb0
+  c295a3:	8b cf                	mov    ecx,edi
+  c295a5:	e8 76 95 a5 ff       	call   0x682b20
+  c295aa:	89 7e 38             	mov    DWORD PTR [esi+0x38],edi
+  c295ad:	5f                   	pop    edi
+  c295ae:	5e                   	pop    esi
+  c295af:	5b                   	pop    ebx
+  c295b0:	8b e5                	mov    esp,ebp
+  c295b2:	5d                   	pop    ebp
+  c295b3:	c2 14 00             	ret    0x14
+  c295b6:	cc                   	int3
+  c295b7:	cc                   	int3
+  c295b8:	cc                   	int3
+  c295b9:	cc                   	int3
+  c295ba:	cc                   	int3
+  c295bb:	cc                   	int3
+  c295bc:	cc                   	int3
+  c295bd:	cc                   	int3
+  c295be:	cc                   	int3
+  c295bf:	cc                   	int3

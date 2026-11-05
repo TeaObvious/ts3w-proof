@@ -1,0 +1,11 @@
+HONEST bounded existing Listing, not function/C; window16B
+raw=8d41f885c074ee8d4150c20400cccccc
+00ce022f 8d41f8 LEA EAX,[ECX + -0x8]
+00ce0232 85c0 TEST EAX,EAX
+00ce0234 74ee JZ 0x00ce0224
+  EXISTING_FLOW 00ce0224 type=CONDITIONAL_JUMP
+00ce0236 8d4150 LEA EAX,[ECX + 0x50]
+00ce0239 c20400 RET 0x4
+00ce023c cc DATA ?? CCh
+00ce023d cc DATA ?? CCh
+00ce023e cc DATA ?? CCh

@@ -1,0 +1,161 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_00d7e1a0:
+
+
+/* WARNING: Removing unreachable block (ram,0x00d7e345) */
+/* WARNING: Removing unreachable block (ram,0x00d7e35b) */
+/* WARNING: Removing unreachable block (ram,0x00d7e375) */
+/* WARNING: Removing unreachable block (ram,0x00d7e388) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3ae) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3a2) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3b2) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3c1) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3c5) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3ca) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3cd) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3d1) */
+/* WARNING: Removing unreachable block (ram,0x00d7e3e7) */
+/* WARNING: Removing unreachable block (ram,0x00d7e42d) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void __fastcall FUN_00d7e1a0(undefined4 *param_1)
+
+{
+  undefined **ppuVar1;
+  char cVar2;
+  int iVar3;
+  byte *pbVar4;
+  int unaff_EBX;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
+  void *unaff_EBP;
+  uint *puVar7;
+  undefined **ppuVar8;
+  undefined4 *puStack_858;
+  uint *local_848;
+  uint *local_844;
+  uint *local_840;
+  undefined4 local_83c;
+  undefined *local_838;
+  undefined *local_834;
+  char *local_830;
+  undefined *puStack_82c;
+  undefined **ppuStack_828;
+  byte *pbStack_820;
+  undefined **local_81c;
+  undefined **local_818;
+  undefined4 local_810;
+  undefined4 local_80c;
+  undefined4 local_808;
+  char *local_804;
+  
+  puVar5 = (undefined4 *)0x0;
+  local_848 = (uint *)0x0;
+  local_844 = (uint *)0x108c9d4;
+  local_840 = (uint *)FUN_004afe80();
+  local_804 = "Scripting/MonoEngine/ScriptKeys";
+  local_830 = "Scripting/MonoEngine/ScriptKeys";
+  local_810 = 0;
+  local_80c = 0;
+  local_808 = 0;
+  local_81c = &PTR_LAB_00fd92b0;
+  local_818 = (undefined **)0x73faa07;
+  local_83c = 0;
+  local_838 = (undefined *)0x0;
+  local_834 = (undefined *)0x0;
+  (**(code **)(*local_840 + 0x20))(&local_810,&local_81c,0);
+  ppuVar1 = local_818;
+  iVar3 = 0;
+  if (local_81c != local_818) {
+    puVar6 = (undefined4 *)0x0;
+    ppuVar8 = local_81c;
+    do {
+      local_838 = *ppuVar8;
+      local_834 = ppuVar8[1];
+      puStack_82c = ppuVar8[3];
+      local_830 = (char *)0x8646069;
+      iVar3 = (**(code **)(_DAT_00000000 + 0x44))(&local_838);
+      puVar5 = puVar6;
+      if (iVar3 == 0) {
+        pbVar4 = FUN_00d7ca30(unaff_EBP,(uint *)ppuVar8);
+        puVar7 = local_844;
+        if (pbVar4 != (byte *)0x0) {
+          if (puVar6 < param_1) {
+            puStack_858 = puVar6 + 1;
+            puVar5 = puStack_858;
+            if (puVar6 != (undefined4 *)0x0) {
+              *puVar6 = pbVar4;
+            }
+          }
+          else {
+            FUN_00982420(&stack0xfffff7a4,puVar6,(undefined4 *)&stack0xfffff79c);
+            puVar5 = puStack_858;
+            puVar7 = local_844;
+          }
+        }
+      }
+      else if (local_844 < local_840) {
+        puVar7 = local_844 + 4;
+        if (local_844 != (uint *)0x0) {
+          *local_844 = (uint)*ppuVar8;
+          local_844[1] = (uint)ppuVar8[1];
+          local_844[2] = (uint)ppuVar8[2];
+          local_844[3] = (uint)ppuVar8[3];
+        }
+      }
+      else {
+        FUN_00cca0b0(&local_848,local_844,ppuVar8);
+        puVar7 = local_844;
+      }
+      local_844 = puVar7;
+      ppuVar8 = ppuVar8 + 4;
+      puVar6 = puVar5;
+      iVar3 = unaff_EBX;
+    } while (ppuVar8 != ppuVar1);
+  }
+  puVar6 = puVar5;
+  puVar7 = local_848;
+  if (local_848 != local_844) {
+    do {
+      puStack_82c = (undefined *)puVar7[3];
+      local_838 = (undefined *)*puVar7;
+      local_834 = (undefined *)puVar7[1];
+      local_830 = (char *)0x8646069;
+      cVar2 = (**(code **)(_DAT_00000000 + 0xc))(&local_838,&stack0xfffff79c,0,0,0,0);
+      puVar5 = puVar6;
+      if ((cVar2 == '\0') &&
+         (pbStack_820 = FUN_00d7ca30(unaff_EBP,puVar7), pbStack_820 != (byte *)0x0)) {
+        if (puVar6 < param_1) {
+          puStack_858 = puVar6 + 1;
+          puVar5 = puStack_858;
+          if (puVar6 != (undefined4 *)0x0) {
+            *puVar6 = pbStack_820;
+          }
+        }
+        else {
+          FUN_00982420(&stack0xfffff7a4,puVar6,&pbStack_820);
+          puVar5 = puStack_858;
+        }
+      }
+      puVar7 = puVar7 + 4;
+      puVar6 = puVar5;
+      iVar3 = unaff_EBX;
+    } while (puVar7 != local_844);
+  }
+  puVar7 = local_848;
+  FUN_00d79ee0(unaff_EBP,iVar3,(int)puVar5 - iVar3 >> 2);
+  ppuStack_828 = &PTR_LAB_00fb3ccc;
+  if (puVar7 != (uint *)0x0) {
+    FUN_004e44e0((int)puVar7);
+  }
+  if (local_81c != (undefined **)0x0) {
+    FUN_004e44e0((int)local_81c);
+  }
+  if (iVar3 != 0) {
+    FUN_004e44e0(iVar3);
+  }
+  return;
+}
+
+

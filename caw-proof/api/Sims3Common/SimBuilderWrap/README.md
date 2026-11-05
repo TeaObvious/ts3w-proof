@@ -1,0 +1,62 @@
+# Sims3Common: SimBuilderWrap
+
+56 original CAW 1.22.10 PE named exports.
+
+| Export | Ordinal | Address | Managed imports |
+| --- | ---: | --- | ---: |
+| [SimBuilderWrap_AddPart](2314.md) | 2314 | `0x109902a0` | 1 |
+| [SimBuilderWrap_ApplyBoneDeltas](2315.md) | 2315 | `0x1098ffb0` | 1 |
+| [SimBuilderWrap_BuildModel](2316.md) | 2316 | `0x1098fe50` | 1 |
+| [SimBuilderWrap_ClearParts](2317.md) | 2317 | `0x1098fe40` | 1 |
+| [SimBuilderWrap_Create](2318.md) | 2318 | `0x1098fda0` | 1 |
+| [SimBuilderWrap_ForceTextureUpdate](2319.md) | 2319 | `0x10990080` | 1 |
+| [SimBuilderWrap_Free](2320.md) | 2320 | `0x109900d0` | 1 |
+| [SimBuilderWrap_GetAgeGenderSpecies](2321.md) | 2321 | `0x1098fdd0` | 1 |
+| [SimBuilderWrap_GetBlendAmount](2322.md) | 2322 | `0x10990b20` | 1 |
+| [SimBuilderWrap_GetBlendKey](2323.md) | 2323 | `0x10990b70` | 1 |
+| [SimBuilderWrap_GetBoneDelta](2324.md) | 2324 | `0x10990bb0` | 1 |
+| [SimBuilderWrap_GetHairBaseColor](2325.md) | 2325 | `0x10990900` | 1 |
+| [SimBuilderWrap_GetHairHaloHighColor](2326.md) | 2326 | `0x10990a40` | 1 |
+| [SimBuilderWrap_GetHairHaloLowColor](2327.md) | 2327 | `0x109909a0` | 1 |
+| [SimBuilderWrap_GetModel](2328.md) | 2328 | `0x10990320` | 1 |
+| [SimBuilderWrap_GetMorphWeightA](2329.md) | 2329 | `0x10990e60` | 1 |
+| [SimBuilderWrap_GetMorphWeightB](2330.md) | 2330 | `0x1098ff40` | 1 |
+| [SimBuilderWrap_GetMorphWeightC](2331.md) | 2331 | `0x1098ff50` | 1 |
+| [SimBuilderWrap_GetMorphWeightD](2332.md) | 2332 | `0x1098ff60` | 1 |
+| [SimBuilderWrap_GetNumBlends](2333.md) | 2333 | `0x10990cc0` | 1 |
+| [SimBuilderWrap_GetNumParts](2334.md) | 2334 | `0x10990ca0` | 1 |
+| [SimBuilderWrap_GetObjectId](2335.md) | 2335 | `0x1098ff70` | 1 |
+| [SimBuilderWrap_GetPartKey](2336.md) | 2336 | `0x10990ae0` | 1 |
+| [SimBuilderWrap_GetPartTexture](2337.md) | 2337 | `0x1098fe70` | 1 |
+| [SimBuilderWrap_GetSkinTone](2338.md) | 2338 | `0x1098fdf0` | 1 |
+| [SimBuilderWrap_GetSkinToneIndex](2339.md) | 2339 | `0x1098fe30` | 1 |
+| [SimBuilderWrap_GetTextureBuilderIndex](2340.md) | 2340 | `0x109764f0` | 1 |
+| [SimBuilderWrap_GetTextureSize](2341.md) | 2341 | `0x1098fe90` | 1 |
+| [SimBuilderWrap_GetUseCompression](2342.md) | 2342 | `0x10990040` | 1 |
+| [SimBuilderWrap_GetWaitForTextures](2343.md) | 2343 | `0x10a62e50` | 1 |
+| [SimBuilderWrap_LoadOutfit](2344.md) | 2344 | `0x10990020` | 1 |
+| [SimBuilderWrap_ProcessModelBuilder](2345.md) | 2345 | `0x1098fe60` | 1 |
+| [SimBuilderWrap_RemovePart](2346.md) | 2346 | `0x109902e0` | 1 |
+| [SimBuilderWrap_SaveOutfit](2347.md) | 2347 | `0x1098ffc0` | 1 |
+| [SimBuilderWrap_SetAgeGenderSpecies](2348.md) | 2348 | `0x1098fde0` | 1 |
+| [SimBuilderWrap_SetFacialBlend](2349.md) | 2349 | `0x10990330` | 1 |
+| [SimBuilderWrap_SetFurParameterBool](2350.md) | 2350 | `0x109903f0` | 1 |
+| [SimBuilderWrap_SetFurParameterFloat](2351.md) | 2351 | `0x10990480` | 1 |
+| [SimBuilderWrap_SetFurParameterFloat2](2352.md) | 2352 | `0x10990500` | 1 |
+| [SimBuilderWrap_SetFurParameterFloat3](2353.md) | 2353 | `0x109905c0` | 1 |
+| [SimBuilderWrap_SetFurParameterFloat4](2354.md) | 2354 | `0x109906c0` | 1 |
+| [SimBuilderWrap_SetFurParameterTexture](2355.md) | 2355 | `0x109907f0` | 1 |
+| [SimBuilderWrap_SetHairBaseColor](2356.md) | 2356 | `0x10990120` | 1 |
+| [SimBuilderWrap_SetHairHaloHighColor](2357.md) | 2357 | `0x10990220` | 1 |
+| [SimBuilderWrap_SetHairHaloLowColor](2358.md) | 2358 | `0x109901a0` | 1 |
+| [SimBuilderWrap_SetMorphWeightA](2359.md) | 2359 | `0x1098fec0` | 1 |
+| [SimBuilderWrap_SetMorphWeightB](2360.md) | 2360 | `0x1098fee0` | 1 |
+| [SimBuilderWrap_SetMorphWeightC](2361.md) | 2361 | `0x1098ff00` | 1 |
+| [SimBuilderWrap_SetMorphWeightD](2362.md) | 2362 | `0x1098ff20` | 1 |
+| [SimBuilderWrap_SetObjectId](2363.md) | 2363 | `0x1098ff90` | 1 |
+| [SimBuilderWrap_SetSkinTone](2364.md) | 2364 | `0x109900f0` | 1 |
+| [SimBuilderWrap_SetSkinToneIndex](2365.md) | 2365 | `0x1098fe10` | 1 |
+| [SimBuilderWrap_SetTextureBuilderIndex](2366.md) | 2366 | `0x10520700` | 1 |
+| [SimBuilderWrap_SetTextureSize](2367.md) | 2367 | `0x1098fea0` | 1 |
+| [SimBuilderWrap_SetUseCompression](2368.md) | 2368 | `0x10990050` | 1 |
+| [SimBuilderWrap_SetWaitForTextures](2369.md) | 2369 | `0x109900c0` | 1 |

@@ -1,0 +1,33 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+005a7bc0 <.text+0x1a6bc0>:
+  5a7bc0:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+  5a7bc4:	8b 4c 24 0c          	mov    ecx,DWORD PTR [esp+0xc]
+  5a7bc8:	8b 54 24 08          	mov    edx,DWORD PTR [esp+0x8]
+  5a7bcc:	83 ec 10             	sub    esp,0x10
+  5a7bcf:	50                   	push   eax
+  5a7bd0:	51                   	push   ecx
+  5a7bd1:	52                   	push   edx
+  5a7bd2:	8d 44 24 0c          	lea    eax,[esp+0xc]
+  5a7bd6:	50                   	push   eax
+  5a7bd7:	e8 74 e7 ff ff       	call   0x5a6350
+  5a7bdc:	8b 4c 24 24          	mov    ecx,DWORD PTR [esp+0x24]
+  5a7be0:	8b 10                	mov    edx,DWORD PTR [eax]
+  5a7be2:	89 11                	mov    DWORD PTR [ecx],edx
+  5a7be4:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+  5a7be7:	89 51 04             	mov    DWORD PTR [ecx+0x4],edx
+  5a7bea:	8b 50 08             	mov    edx,DWORD PTR [eax+0x8]
+  5a7bed:	8b 40 0c             	mov    eax,DWORD PTR [eax+0xc]
+  5a7bf0:	89 51 08             	mov    DWORD PTR [ecx+0x8],edx
+  5a7bf3:	89 41 0c             	mov    DWORD PTR [ecx+0xc],eax
+  5a7bf6:	8b c1                	mov    eax,ecx
+  5a7bf8:	83 c4 20             	add    esp,0x20
+  5a7bfb:	c3                   	ret
+  5a7bfc:	cc                   	int3
+  5a7bfd:	cc                   	int3
+  5a7bfe:	cc                   	int3
+  5a7bff:	cc                   	int3

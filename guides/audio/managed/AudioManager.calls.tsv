@@ -1,0 +1,60 @@
+from_method	from_member	il_offset	opcode	target_token	typed_target	resolution
+0x060077d0	set_MusicMode	IL_0001	call	0x060077d9	void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)	same-assembly-MethodDef
+0x060077d1	Init	IL_0001	ldftn	0x060077d8	void Sims3.Gameplay.Core.AudioManager::SongComplete(uint32, uint64, uint32)	same-assembly-MethodDef
+0x060077d1	Init	IL_0007	newobj	0x0a0020f1	instance void [SimIFace]Sims3.SimIFace.Sound/SoundFinished::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d1	Init	IL_0012	ldftn	0x060077d6	void Sims3.Gameplay.Core.AudioManager::GameSpeedChangedCallback(valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed, bool)	same-assembly-MethodDef
+0x060077d1	Init	IL_0018	newobj	0x0a0020f2	instance void [UI]Sims3.UI.GameSpeedChangedCallback::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d1	Init	IL_001d	call	0x0600be59	void Sims3.Gameplay.Gameflow::add_GameSpeedChanged(class [UI]Sims3.UI.GameSpeedChangedCallback)	same-assembly-MethodDef
+0x060077d1	Init	IL_0023	ldftn	0x060077d7	void Sims3.Gameplay.Core.AudioManager::OnCameraMapViewEnabledEvent(bool)	same-assembly-MethodDef
+0x060077d1	Init	IL_0029	newobj	0x0a0017fe	instance void [SimIFace]Sims3.SimIFace.CameraController/CameraMapViewEnabledHandler::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d1	Init	IL_002e	call	0x0a0017ff	void [SimIFace]Sims3.SimIFace.CameraController::add_OnCameraMapViewEnabledCallback(class [SimIFace]Sims3.SimIFace.CameraController/CameraMapViewEnabledHandler)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d1	Init	IL_0047	call	0x0a0020f3	void [SimIFace]Sims3.SimIFace.Audio::SetEventModifiers(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate, class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d1	Init	IL_004d	call	0x060077d9	void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)	same-assembly-MethodDef
+0x060077d2	Shutdown	IL_0001	call	0x060077d9	void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)	same-assembly-MethodDef
+0x060077d2	Shutdown	IL_0007	ldftn	0x060077d6	void Sims3.Gameplay.Core.AudioManager::GameSpeedChangedCallback(valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed, bool)	same-assembly-MethodDef
+0x060077d2	Shutdown	IL_000d	newobj	0x0a0020f2	instance void [UI]Sims3.UI.GameSpeedChangedCallback::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d2	Shutdown	IL_0012	call	0x0600be5a	void Sims3.Gameplay.Gameflow::remove_GameSpeedChanged(class [UI]Sims3.UI.GameSpeedChangedCallback)	same-assembly-MethodDef
+0x060077d2	Shutdown	IL_0018	ldftn	0x060077d7	void Sims3.Gameplay.Core.AudioManager::OnCameraMapViewEnabledEvent(bool)	same-assembly-MethodDef
+0x060077d2	Shutdown	IL_001e	newobj	0x0a0017fe	instance void [SimIFace]Sims3.SimIFace.CameraController/CameraMapViewEnabledHandler::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d2	Shutdown	IL_0023	call	0x0a0020f4	void [SimIFace]Sims3.SimIFace.CameraController::remove_OnCameraMapViewEnabledCallback(class [SimIFace]Sims3.SimIFace.CameraController/CameraMapViewEnabledHandler)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d2	Shutdown	IL_002c	call	0x0a0020f3	void [SimIFace]Sims3.SimIFace.Audio::SetEventModifiers(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate, class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d3	LoadWorld	IL_0000	call	0x060033c2	bool Sims3.Gameplay.GameStates::get_IsTravelling()	same-assembly-MethodDef
+0x060077d3	LoadWorld	IL_0008	call	0x060077d9	void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)	same-assembly-MethodDef
+0x060077d4	EnterWorld	IL_0000	call	0x060033c2	bool Sims3.Gameplay.GameStates::get_IsTravelling()	same-assembly-MethodDef
+0x060077d4	EnterWorld	IL_0008	call	0x060077d9	void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)	same-assembly-MethodDef
+0x060077d4	EnterWorld	IL_000d	call	0x0a0020f5	bool [SimIFace]Sims3.SimIFace.Audio::InitWorld()	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d5	ExitWorld	IL_0006	call	0x0a0020f6	void [SimIFace]Sims3.SimIFace.Audio::StopGroup(uint32, bool)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d5	ExitWorld	IL_0011	call	0x0a0020f6	void [SimIFace]Sims3.SimIFace.Audio::StopGroup(uint32, bool)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d5	ExitWorld	IL_001c	call	0x0a0020f6	void [SimIFace]Sims3.SimIFace.Audio::StopGroup(uint32, bool)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d5	ExitWorld	IL_0027	call	0x0a0020f6	void [SimIFace]Sims3.SimIFace.Audio::StopGroup(uint32, bool)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d5	ExitWorld	IL_002c	call	0x060033c2	bool Sims3.Gameplay.GameStates::get_IsTravelling()	same-assembly-MethodDef
+0x060077d5	ExitWorld	IL_0034	call	0x060077d9	void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)	same-assembly-MethodDef
+0x060077d5	ExitWorld	IL_0039	call	0x0a0020f7	void [SimIFace]Sims3.SimIFace.Audio::ShutdownWorld()	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_0016	call	0x0a00120b	void [SimIFace]Sims3.SimIFace.Audio::PauseGroup(uint32, bool)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_0021	call	0x0a00120b	void [SimIFace]Sims3.SimIFace.Audio::PauseGroup(uint32, bool)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_003e	call	0x0a00120b	void [SimIFace]Sims3.SimIFace.Audio::PauseGroup(uint32, bool)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_0049	call	0x0a00120b	void [SimIFace]Sims3.SimIFace.Audio::PauseGroup(uint32, bool)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_0082	call	0x0a0009d4	bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_0097	call	0x0a0009d4	bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_00ad	call	0x0a0009d4	bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_00c2	call	0x0a0009d4	bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_00d8	call	0x0a0009d4	bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d6	GameSpeedChangedCallback	IL_00ed	call	0x0a0009d4	bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d7	OnCameraMapViewEnabledEvent	IL_0000	call	0x0600341a	bool Sims3.Gameplay.GameStates::get_IsPlayFlowState()	same-assembly-MethodDef
+0x060077d7	OnCameraMapViewEnabledEvent	IL_0013	call	0x060077d9	void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)	same-assembly-MethodDef
+0x060077d7	OnCameraMapViewEnabledEvent	IL_0022	call	0x060077d9	void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)	same-assembly-MethodDef
+0x060077d8	SongComplete	IL_001d	call	0x0a0020f8	uint32 [SimIFace]Sims3.SimIFace.Audio::StartSound(string, class [mscorlib]System.Delegate)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d8	SongComplete	IL_003a	call	0x0a0020f8	uint32 [SimIFace]Sims3.SimIFace.Audio::StartSound(string, class [mscorlib]System.Delegate)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d9	SetMusicMode	IL_00b2	call	0x0a000088	valuetype [SimIFace]Sims3.SimIFace.WorldName [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorld()	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d9	SetMusicMode	IL_0142	call	0x0a000088	valuetype [SimIFace]Sims3.SimIFace.WorldName [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorld()	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d9	SetMusicMode	IL_01c0	call	0x0a0020f9	bool [SimIFace]Sims3.SimIFace.Audio::StopSound(uint32)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d9	SetMusicMode	IL_01d2	call	0x0a0001f8	bool [mscorlib]System.String::op_Inequality(string, string)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077d9	SetMusicMode	IL_01df	call	0x0a0020f8	uint32 [SimIFace]Sims3.SimIFace.Audio::StartSound(string, class [mscorlib]System.Delegate)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077db	.cctor	IL_0013	ldftn	0x060010e2	void Sims3.Gameplay.Actors.Sim::AudioEventModifier(uint64, string&, float32&, float32&, uint32&)	same-assembly-MethodDef
+0x060077db	.cctor	IL_0019	newobj	0x0a0020fa	instance void [SimIFace]Sims3.SimIFace.AudioEventSimModifier::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077db	.cctor	IL_0024	ldftn	0x060010e3	void Sims3.Gameplay.Actors.Sim::AudioEventSkillModifier(uint64, string&, string&, int32&)	same-assembly-MethodDef
+0x060077db	.cctor	IL_002a	newobj	0x0a0020fb	instance void [SimIFace]Sims3.SimIFace.AudioEventSkillModifier::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077db	.cctor	IL_0035	ldftn	0x06000b13	void Sims3.Gameplay.Abstracts.GameObject::AudioEventQualityModifier(uint64, string&, int32&)	same-assembly-MethodDef
+0x060077db	.cctor	IL_003b	newobj	0x0a0020fc	instance void [SimIFace]Sims3.SimIFace.AudioEventQualityModifier::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded
+0x060077db	.cctor	IL_0046	ldftn	0x06000b14	bool Sims3.Gameplay.Abstracts.GameObject::AudioEventMaterialModifier(uint64, string&)	same-assembly-MethodDef
+0x060077db	.cctor	IL_004c	newobj	0x0a0020fd	instance void [SimIFace]Sims3.SimIFace.AudioEventMaterialModifier::.ctor(object, native int)	original-MemberRef-with-ILSpy-typed-signature; target-body-not-expanded

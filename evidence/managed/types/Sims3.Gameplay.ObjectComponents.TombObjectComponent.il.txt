@@ -1,0 +1,142 @@
+.class private auto ansi beforefieldinit Sims3.Gameplay.ObjectComponents.TombObjectComponent
+	extends [mscorlib]System.Object
+{
+	// Nested Types
+	.class nested assembly auto ansi beforefieldinit WorldBuilderSaveInfo
+		extends [mscorlib]System.Object
+		implements Sims3.Gameplay.WorldBuilderUtil.IWorldBuilderData
+	{
+		.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Fields
+		.field public class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo> Triggers
+		.field public class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/ActivatedBehaviorInfo> ActivatedBehaviors
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x2716d1
+			// Header size: 1
+			// Code size: 29 (0x1d)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo>::.ctor()
+			IL_0006: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo> Sims3.Gameplay.ObjectComponents.TombObjectComponent/WorldBuilderSaveInfo::Triggers
+			IL_000b: ldarg.0
+			IL_000c: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/ActivatedBehaviorInfo>::.ctor()
+			IL_0011: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/ActivatedBehaviorInfo> Sims3.Gameplay.ObjectComponents.TombObjectComponent/WorldBuilderSaveInfo::ActivatedBehaviors
+			IL_0016: ldarg.0
+			IL_0017: call instance void [mscorlib]System.Object::.ctor()
+			IL_001c: ret
+		} // end of method WorldBuilderSaveInfo::.ctor
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo> triggersLinkedToActivatedBehaviors,
+				class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/ActivatedBehaviorInfo> activatedBehaviors
+			) cil managed 
+		{
+			// Method begins at RVA 0x2716ef
+			// Header size: 1
+			// Code size: 53 (0x35)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo>::.ctor()
+			IL_0006: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo> Sims3.Gameplay.ObjectComponents.TombObjectComponent/WorldBuilderSaveInfo::Triggers
+			IL_000b: ldarg.0
+			IL_000c: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/ActivatedBehaviorInfo>::.ctor()
+			IL_0011: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/ActivatedBehaviorInfo> Sims3.Gameplay.ObjectComponents.TombObjectComponent/WorldBuilderSaveInfo::ActivatedBehaviors
+			IL_0016: ldarg.0
+			IL_0017: call instance void [mscorlib]System.Object::.ctor()
+			IL_001c: ldarg.0
+			IL_001d: ldarg.1
+			IL_001e: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo>::.ctor(class [mscorlib]System.Collections.Generic.IDictionary`2<!0, !1>)
+			IL_0023: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo> Sims3.Gameplay.ObjectComponents.TombObjectComponent/WorldBuilderSaveInfo::Triggers
+			IL_0028: ldarg.0
+			IL_0029: ldarg.2
+			IL_002a: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/ActivatedBehaviorInfo>::.ctor(class [mscorlib]System.Collections.Generic.IDictionary`2<!0, !1>)
+			IL_002f: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.TombObjectComponent/ActivatedBehaviorInfo> Sims3.Gameplay.ObjectComponents.TombObjectComponent/WorldBuilderSaveInfo::ActivatedBehaviors
+			IL_0034: ret
+		} // end of method WorldBuilderSaveInfo::.ctor
+
+	} // end of class WorldBuilderSaveInfo
+
+	.class nested assembly auto ansi beforefieldinit TriggerInfo
+		extends [mscorlib]System.Object
+	{
+		.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Fields
+		.field public class [mscorlib]System.Collections.Generic.List`1<valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior>> LinksToActivatedBehaviors
+		.field public string TNSText
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x271725
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior>>::.ctor()
+			IL_0006: stfld class [mscorlib]System.Collections.Generic.List`1<valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior>> Sims3.Gameplay.ObjectComponents.TombObjectComponent/TriggerInfo::LinksToActivatedBehaviors
+			IL_000b: ldarg.0
+			IL_000c: call instance void [mscorlib]System.Object::.ctor()
+			IL_0011: ret
+		} // end of method TriggerInfo::.ctor
+
+	} // end of class TriggerInfo
+
+	.class nested assembly auto ansi beforefieldinit ActivatedBehaviorInfo
+		extends [mscorlib]System.Object
+	{
+		.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Fields
+		.field public class Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback ActivatedBehaviorCallback
+		.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor(bool) = (
+			01 00 00 00 00
+		)
+		.field public string TNSText
+		.field public bool PlayCauseEffectFX
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x271738
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void [mscorlib]System.Object::.ctor()
+			IL_0006: ret
+		} // end of method ActivatedBehaviorInfo::.ctor
+
+	} // end of class ActivatedBehaviorInfo
+
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x2716c9
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [mscorlib]System.Object::.ctor()
+		IL_0006: ret
+	} // end of method TombObjectComponent::.ctor
+
+} // end of class Sims3.Gameplay.ObjectComponents.TombObjectComponent

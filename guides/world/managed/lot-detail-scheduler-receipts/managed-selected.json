@@ -1,0 +1,262 @@
+{
+  "format_version": 1,
+  "original": "The Sims 3 PC 1.67",
+  "container": {
+    "name": "scripts.package",
+    "sha256": "1fc5e1a7a43c4019595c817631efc9bb5bc3bdfd3925a2a3a65783ad8229a76c"
+  },
+  "resources": [
+    {
+      "name": "SimIFace",
+      "resource": "073FAA07:00000000:C356DF69B70ADD42",
+      "index_row": 0,
+      "offset": 426749,
+      "stored_bytes": 618013,
+      "memory_bytes": 618013,
+      "compression": 0,
+      "s3sa_version": 2,
+      "game_version": "0.2.0.209",
+      "envelope_sha256": "b110c11614dacdffa5ad0d9337ae23fd73dc914586efc92ebdc5da3b067c1f7a",
+      "assembly": {
+        "sha256": "6ddedb668e1b6da037e346cd5cf6f500f37407dca633b428e7ec410daa00fcb2",
+        "bytes": 618496,
+        "mvid": "e4365bd8-6054-4cb5-8702-c69b1c102ce9"
+      }
+    },
+    {
+      "name": "ScriptCore",
+      "resource": "073FAA07:00000000:78CF6CF5304D0C4F",
+      "index_row": 1,
+      "offset": 96,
+      "stored_bytes": 426653,
+      "memory_bytes": 426653,
+      "compression": 0,
+      "s3sa_version": 2,
+      "game_version": "0.2.0.209",
+      "envelope_sha256": "3069fcfd09c7532ba4813668ad3c1d1673eed3ec0692b3a435a4cdbf654a19f5",
+      "assembly": {
+        "sha256": "1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115",
+        "bytes": 430080,
+        "mvid": "da71f9d5-3a90-44c6-8f98-5bafd2fca18a"
+      }
+    }
+  ],
+  "token_identity": "Metadata tokens are scoped to the exact ScriptCore assembly SHA256 and MVID above.",
+  "ScriptCore_assembly": {
+    "name": "ScriptCore",
+    "version": "1.0.5129.30674",
+    "culture": "neutral",
+    "public_key": null
+  },
+  "methods": [
+    {
+      "token": "0x06000881",
+      "declaring_type": "ScriptCore.World",
+      "declaring_type_token": "0x0200004E",
+      "name": "World_WaitForDetailedLots",
+      "signature": "private static hidebysig pinvokeimpl void ScriptCore.World::World_WaitForDetailedLots(System.Delegate callback, uint64 lotId, uint32 maskFlags) internalcall",
+      "signature_blob": "0003011281a10b09",
+      "method_flags": "0x2091",
+      "implementation_flags": "0x0080",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "callback",
+          "flags": "0x2000"
+        },
+        {
+          "sequence": 2,
+          "name": "lotId",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "maskFlags",
+          "flags": "0x0000"
+        }
+      ],
+      "body": null,
+      "import": {
+        "module": "Sims3Common.dll",
+        "entry_point": "World_WaitForDetailedLots",
+        "mapping_flags": "0x0100",
+        "callback_marshal_blob": "1c",
+        "callback_marshal_type": "Interface"
+      },
+      "decompiled_source": {
+        "path": "../../../../evidence/managed/types/ScriptCore.World.cs",
+        "first_line": 1082,
+        "last_line": 1083
+      }
+    },
+    {
+      "token": "0x060009ED",
+      "declaring_type": "ScriptCore.World",
+      "declaring_type_token": "0x0200004E",
+      "name": "WaitForDetailedLots",
+      "signature": "public final virtual hidebysig newslot instance bool ScriptCore.World::WaitForDetailedLots() cil managed",
+      "signature_blob": "200002",
+      "method_flags": "0x01E6",
+      "implementation_flags": "0x0000",
+      "rva": "0x0000B658",
+      "parameters": [],
+      "body": {
+        "file_offset": 42584,
+        "header_format": "fat",
+        "header_bytes": "133003001c0000001d000011",
+        "header_size": 12,
+        "header_flags": "0x013",
+        "code_size": 28,
+        "max_stack": 3,
+        "init_locals": true,
+        "local_signature_token": "0x1100001D",
+        "local_signature_blob": "07011c",
+        "locals": [
+          {
+            "index": 0,
+            "type": "object"
+          }
+        ],
+        "extra_sections_present": false,
+        "exception_regions": [],
+        "instruction_count": 12,
+        "cil_source": "managed-selected-il.txt"
+      },
+      "decompiled_source": {
+        "path": "../../../../evidence/managed/types/ScriptCore.World.cs",
+        "first_line": 2934,
+        "last_line": 2940
+      },
+      "existing_cil_source": {
+        "path": "../../../../evidence/managed/callers.il.txt",
+        "first_line": 9618,
+        "last_line": 9630
+      }
+    },
+    {
+      "token": "0x0600015A",
+      "declaring_type": "ScriptCore.CallbackObject",
+      "declaring_type_token": "0x02000016",
+      "name": "get_CallbackDelegate",
+      "signature": "public hidebysig specialname instance System.Delegate ScriptCore.CallbackObject::get_CallbackDelegate() cil managed",
+      "signature_blob": "20001281a1",
+      "method_flags": "0x0886",
+      "implementation_flags": "0x0000",
+      "rva": "0x0000347D",
+      "parameters": [],
+      "body": {
+        "file_offset": 9341,
+        "header_format": "tiny",
+        "header_bytes": "1e",
+        "header_size": 1,
+        "header_flags": "0x002",
+        "code_size": 7,
+        "max_stack": 8,
+        "init_locals": false,
+        "local_signature_token": null,
+        "local_signature_blob": null,
+        "locals": [],
+        "extra_sections_present": false,
+        "exception_regions": [],
+        "instruction_count": 3,
+        "cil_source": "managed-selected-il.txt"
+      },
+      "decompiled_source": {
+        "path": "ScriptCore.CallbackObject.get_CallbackDelegate.cs.txt",
+        "kind": "exact unmodified decompiler member excerpt"
+      }
+    },
+    {
+      "token": "0x0600015F",
+      "declaring_type": "ScriptCore.CallbackObject",
+      "declaring_type_token": "0x02000016",
+      "name": "GetCallbackResult",
+      "signature": "public hidebysig instance object ScriptCore.CallbackObject::GetCallbackResult() cil managed",
+      "signature_blob": "20001c",
+      "method_flags": "0x0086",
+      "implementation_flags": "0x0000",
+      "rva": "0x0000368C",
+      "parameters": [],
+      "body": {
+        "file_offset": 9868,
+        "header_format": "fat",
+        "header_bytes": "13300200190000001b000011",
+        "header_size": 12,
+        "header_flags": "0x013",
+        "code_size": 25,
+        "max_stack": 2,
+        "init_locals": true,
+        "local_signature_token": "0x1100001B",
+        "local_signature_blob": "0701118141",
+        "locals": [
+          {
+            "index": 0,
+            "type": "Sims3.SimIFace.ObjectGuid"
+          }
+        ],
+        "extra_sections_present": false,
+        "exception_regions": [],
+        "instruction_count": 8,
+        "cil_source": "managed-selected-il.txt"
+      },
+      "decompiled_source": {
+        "path": "ScriptCore.CallbackObject.GetCallbackResult.cs.txt",
+        "kind": "exact unmodified decompiler member excerpt"
+      }
+    }
+  ],
+  "operand_names": {
+    "0x04000025": "ScriptCore.CallbackObject::mCallbackDelegate : ScriptCore.CallbackObject.SimCallback",
+    "0x0600015A": "instance System.Delegate ScriptCore.CallbackObject::get_CallbackDelegate()",
+    "0x0600015F": "instance object ScriptCore.CallbackObject::GetCallbackResult()",
+    "0x06000161": "instance object ScriptCore.CallbackObject::GetCallbackResult(object key)",
+    "0x06000881": "static void ScriptCore.World::World_WaitForDetailedLots(System.Delegate callback, uint64 lotId, uint32 maskFlags)",
+    "0x0A000054": "static Sims3.SimIFace.ObjectGuid Sims3.SimIFace.Simulator::get_CurrentTask()",
+    "0x0A000017": "instance uint64 Sims3.SimIFace.ObjectGuid::get_Value()",
+    "0x01000149": "System.UInt64",
+    "0x0100014D": "System.Boolean"
+  },
+  "body_totals": {
+    "complete_bodies": 3,
+    "CIL_bytes": 60,
+    "instructions": 23,
+    "internalcall_declarations": 1
+  },
+  "boundary": "The full 25-byte no-argument GetCallbackResult body calls overload 0x06000161. That overload and deeper simulator/callback scheduling, exception policy and native implementation dependencies are outside this selected body publication. SimIFace resource identity is recorded; no additional SimIFace method body is claimed.",
+  "referenced_members": [
+    {
+      "token": "0x04000025",
+      "owner": "ScriptCore.CallbackObject",
+      "name": "mCallbackDelegate",
+      "signature_blob": "06125c",
+      "field_flags": "0x0004",
+      "field_type": "ScriptCore.CallbackObject.SimCallback",
+      "field_type_token": "0x02000017"
+    },
+    {
+      "token": "0x0A000054",
+      "owner": "Sims3.SimIFace.Simulator",
+      "name": "get_CurrentTask",
+      "signature_blob": "0000118141",
+      "signature": "static Sims3.SimIFace.ObjectGuid get_CurrentTask()"
+    },
+    {
+      "token": "0x0A000017",
+      "owner": "Sims3.SimIFace.ObjectGuid",
+      "name": "get_Value",
+      "signature_blob": "20000b",
+      "signature": "instance uint64 get_Value()"
+    },
+    {
+      "token": "0x06000161",
+      "owner": "ScriptCore.CallbackObject",
+      "name": "GetCallbackResult",
+      "signature_blob": "20011c1c",
+      "method_flags": "0x0086",
+      "implementation_flags": "0x0000",
+      "signature": "public hidebysig instance object GetCallbackResult(object key)",
+      "body_in_this_publication": false
+    }
+  ]
+}

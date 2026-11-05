@@ -1,0 +1,45 @@
+Reference: original PC 1.67 TS3W.exe SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+Registration: ScriptCore.Audio::Audio_StartSoundByIdImpl
+PE VA interval: [0x00862ee0, 0x00862f20)
+Original file interval: [0x462ee0, 0x462f20)
+Span SHA-256: 53d96a8ab7158c9a02cee889ba79350d065fd6cf95f7051ab09cae054f7ed928
+Boundary: next function entry in retained Ghidra listing; this is a bounded linear decode, not independently proven exact function body.
+Decoder: GNU objdump -D -Mintel; control-flow paths must be checked before behavioral claims.
+
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00862ee0 <.text+0x461ee0>:
+  862ee0:	56                   	push   esi
+  862ee1:	e8 1a cf 04 00       	call   0x8afe00
+  862ee6:	8b f0                	mov    esi,eax
+  862ee8:	85 f6                	test   esi,esi
+  862eea:	74 2a                	je     0x862f16
+  862eec:	8b 06                	mov    eax,DWORD PTR [esi]
+  862eee:	8b 50 44             	mov    edx,DWORD PTR [eax+0x44]
+  862ef1:	68 65 53 47 03       	push   0x3475365
+  862ef6:	8b ce                	mov    ecx,esi
+  862ef8:	ff d2                	call   edx
+  862efa:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  862efe:	8b 06                	mov    eax,DWORD PTR [esi]
+  862f00:	8b 50 4c             	mov    edx,DWORD PTR [eax+0x4c]
+  862f03:	51                   	push   ecx
+  862f04:	68 85 53 47 03       	push   0x3475385
+  862f09:	8b ce                	mov    ecx,esi
+  862f0b:	ff d2                	call   edx
+  862f0d:	8b 06                	mov    eax,DWORD PTR [esi]
+  862f0f:	8b 50 68             	mov    edx,DWORD PTR [eax+0x68]
+  862f12:	8b ce                	mov    ecx,esi
+  862f14:	ff d2                	call   edx
+  862f16:	b0 01                	mov    al,0x1
+  862f18:	5e                   	pop    esi
+  862f19:	c3                   	ret
+  862f1a:	cc                   	int3
+  862f1b:	cc                   	int3
+  862f1c:	cc                   	int3
+  862f1d:	cc                   	int3
+  862f1e:	cc                   	int3
+  862f1f:	cc                   	int3

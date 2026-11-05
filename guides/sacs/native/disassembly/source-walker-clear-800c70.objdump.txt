@@ -1,0 +1,41 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00800c70 <.text+0x3ffc70>:
+  800c70:	53                   	push   ebx
+  800c71:	56                   	push   esi
+  800c72:	8b f1                	mov    esi,ecx
+  800c74:	33 db                	xor    ebx,ebx
+  800c76:	33 c9                	xor    ecx,ecx
+  800c78:	b8 40 00 00 00       	mov    eax,0x40
+  800c7d:	89 4e 24             	mov    DWORD PTR [esi+0x24],ecx
+  800c80:	8d 4e 2c             	lea    ecx,[esi+0x2c]
+  800c83:	88 5e 0c             	mov    BYTE PTR [esi+0xc],bl
+  800c86:	89 5e 10             	mov    DWORD PTR [esi+0x10],ebx
+  800c89:	89 5e 14             	mov    DWORD PTR [esi+0x14],ebx
+  800c8c:	89 5e 18             	mov    DWORD PTR [esi+0x18],ebx
+  800c8f:	89 5e 1c             	mov    DWORD PTR [esi+0x1c],ebx
+  800c92:	89 46 20             	mov    DWORD PTR [esi+0x20],eax
+  800c95:	89 5e 28             	mov    DWORD PTR [esi+0x28],ebx
+  800c98:	e8 33 fb 29 00       	call   0xaa07d0
+  800c9d:	88 5e 68             	mov    BYTE PTR [esi+0x68],bl
+  800ca0:	33 c0                	xor    eax,eax
+  800ca2:	8d 4e 6c             	lea    ecx,[esi+0x6c]
+  800ca5:	87 01                	xchg   DWORD PTR [ecx],eax
+  800ca7:	6a 01                	push   0x1
+  800ca9:	8b ce                	mov    ecx,esi
+  800cab:	88 5e 72             	mov    BYTE PTR [esi+0x72],bl
+  800cae:	88 5e 73             	mov    BYTE PTR [esi+0x73],bl
+  800cb1:	88 5e 70             	mov    BYTE PTR [esi+0x70],bl
+  800cb4:	88 5e 74             	mov    BYTE PTR [esi+0x74],bl
+  800cb7:	c6 46 71 01          	mov    BYTE PTR [esi+0x71],0x1
+  800cbb:	e8 e0 f9 ff ff       	call   0x8006a0
+  800cc0:	88 5e 71             	mov    BYTE PTR [esi+0x71],bl
+  800cc3:	5e                   	pop    esi
+  800cc4:	5b                   	pop    ebx
+  800cc5:	c3                   	ret
+  800cc6:	cc                   	int3
+  800cc7:	cc                   	int3

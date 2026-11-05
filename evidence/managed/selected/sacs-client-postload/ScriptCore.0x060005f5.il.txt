@@ -1,0 +1,53 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig 
+		instance void Dispose (
+			bool bFromDtor
+		) cil managed 
+	{
+		// Method begins at RVA 0x81a8
+		// Header size: 12
+		// Code size: 86 (0x56)
+		.maxstack 2
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.IScriptProxy
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid ScriptCore.EventQueue::mSleepingTask
+		IL_0006: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_000b: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0010: brfalse.s IL_0032
+
+		IL_0012: ldarg.0
+		IL_0013: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid ScriptCore.EventQueue::mSleepingTask
+		IL_0018: call class [SimIFace]Sims3.SimIFace.IScriptProxy [SimIFace]Sims3.SimIFace.Simulator::GetProxy(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_001d: stloc.0
+		IL_001e: ldloc.0
+		IL_001f: brfalse.s IL_0027
+
+		IL_0021: ldloc.0
+		IL_0022: callvirt instance void [SimIFace]Sims3.SimIFace.IScriptProxy::SetObjectToReset()
+
+		IL_0027: ldarg.0
+		IL_0028: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_002d: stfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid ScriptCore.EventQueue::mSleepingTask
+
+		IL_0032: ldarg.0
+		IL_0033: ldfld class ScriptCore.EventQueueHandle ScriptCore.EventQueue::mHandle
+		IL_0038: brfalse.s IL_004c
+
+		IL_003a: ldarg.0
+		IL_003b: ldfld class ScriptCore.EventQueueHandle ScriptCore.EventQueue::mHandle
+		IL_0040: callvirt instance void ScriptCore.NativeHandleWrapper::Dispose()
+		IL_0045: ldarg.0
+		IL_0046: ldnull
+		IL_0047: stfld class ScriptCore.EventQueueHandle ScriptCore.EventQueue::mHandle
+
+		IL_004c: ldarg.1
+		IL_004d: brtrue.s IL_0055
+
+		IL_004f: ldarg.0
+		IL_0050: call void [mscorlib]System.GC::SuppressFinalize(object)
+
+		IL_0055: ret
+	} // end of method EventQueue::Dispose

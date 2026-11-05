@@ -1,0 +1,51 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_DisableMapViewMode
+# Entry: 0x0073e0d0; bounded stop: 0x0073e130; next Ghidra entry: 0x0073e130
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073e0d0 <.text+0x33d0d0>:
+  73e0d0:	e8 fb ba 22 00       	call   0x969bd0
+  73e0d5:	85 c0                	test   eax,eax
+  73e0d7:	74 4b                	je     0x73e124
+  73e0d9:	8b c8                	mov    ecx,eax
+  73e0db:	e8 10 3f 7e 00       	call   0xf21ff0
+  73e0e0:	85 c0                	test   eax,eax
+  73e0e2:	74 40                	je     0x73e124
+  73e0e4:	8b c8                	mov    ecx,eax
+  73e0e6:	e8 f5 5c dd ff       	call   0x513de0
+  73e0eb:	85 c0                	test   eax,eax
+  73e0ed:	74 35                	je     0x73e124
+  73e0ef:	8b 10                	mov    edx,DWORD PTR [eax]
+  73e0f1:	8b c8                	mov    ecx,eax
+  73e0f3:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73e0f6:	68 89 dd 0f 11       	push   0x110fdd89
+  73e0fb:	ff d0                	call   eax
+  73e0fd:	85 c0                	test   eax,eax
+  73e0ff:	74 23                	je     0x73e124
+  73e101:	d9 44 24 0c          	fld    DWORD PTR [esp+0xc]
+  73e105:	6a 00                	push   0x0
+  73e107:	83 ec 0c             	sub    esp,0xc
+  73e10a:	d9 5c 24 08          	fstp   DWORD PTR [esp+0x8]
+  73e10e:	8b c8                	mov    ecx,eax
+  73e110:	d9 44 24 18          	fld    DWORD PTR [esp+0x18]
+  73e114:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  73e118:	d9 44 24 14          	fld    DWORD PTR [esp+0x14]
+  73e11c:	d9 1c 24             	fstp   DWORD PTR [esp]
+  73e11f:	e8 3c 5a 23 00       	call   0x973b60
+  73e124:	c3                   	ret
+  73e125:	cc                   	int3
+  73e126:	cc                   	int3
+  73e127:	cc                   	int3
+  73e128:	cc                   	int3
+  73e129:	cc                   	int3
+  73e12a:	cc                   	int3
+  73e12b:	cc                   	int3
+  73e12c:	cc                   	int3
+  73e12d:	cc                   	int3
+  73e12e:	cc                   	int3
+  73e12f:	cc                   	int3

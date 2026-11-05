@@ -1,0 +1,39 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioManager_SetVoicePropertyByHandle
+Entry Point: 008b5210
+
+008b5210: SUB ESP, 0x8
+008b5213: PUSH ESI
+008b5214: LEA ESI, [ECX + 0x33c]
+008b521a: LEA EAX, [ESP + 0x10]
+008b521e: PUSH EAX
+008b521f: LEA ECX, [ESP + 0x8]
+008b5223: PUSH ECX
+008b5224: MOV ECX, ESI
+008b5226: CALL 0x00a5b9b0
+008b522b: MOV EDX, dword ptr [ESI + 0x8]
+008b522e: MOV ECX, dword ptr [ESI + 0x4]
+008b5231: MOV EAX, dword ptr [ESP + 0x4]
+008b5235: CMP EAX, dword ptr [ECX + EDX*0x4]
+008b5238: POP ESI
+008b5239: JNZ 0x008b5243
+008b523b: XOR AL, AL
+008b523d: ADD ESP, 0x8
+008b5240: RET 0x10
+008b5243: MOV ECX, dword ptr [EAX + 0x4]
+008b5246: FLD float ptr [ESP + 0x14]
+008b524a: MOV EAX, dword ptr [ESP + 0x18]
+008b524e: MOV EDX, dword ptr [ECX]
+008b5250: MOV EDX, dword ptr [EDX + 0xc]
+008b5253: PUSH EAX
+008b5254: MOV EAX, dword ptr [ESP + 0x14]
+008b5258: PUSH ECX
+008b5259: FSTP float ptr [ESP]
+008b525c: PUSH EAX
+008b525d: CALL EDX
+008b525f: MOV AL, 0x1
+008b5261: ADD ESP, 0x8
+008b5264: RET 0x10
+
+Total instructions: 32

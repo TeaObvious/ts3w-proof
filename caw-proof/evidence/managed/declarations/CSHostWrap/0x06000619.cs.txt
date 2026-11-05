@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000619.
+// Assembly: CSHostWrap; type: Sims3.CSHost.Sims3Bundle.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/Sims3Bundle.cs:365
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.U1)]
+	private static extern bool Sims3Bundle_CreateBundle([In][MarshalAs(UnmanagedType.LPWStr)] string leadItem, int itemCount, [In][MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 1)] string[] bundleItems, [In][MarshalAs(UnmanagedType.LPWStr)] string outputFile, [In][MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.I4, SizeParamIndex = 1)] int[] superBundleFlags, [In][MarshalAs(UnmanagedType.Bool)] bool overwritePackages);

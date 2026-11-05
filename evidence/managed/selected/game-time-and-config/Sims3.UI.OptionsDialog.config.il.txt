@@ -1,0 +1,365 @@
+// Complete original PC1.67 selected CIL. Central managed README identifies pristine original assemblies.
+// Module-local tokens; TypeSpecification placeholders retain raw signature/token rather than an invented generic declaration.
+
+// Sims3.UI.OptionsDialog::SetupResolutionMenu; MethodDef0x0600025E; RVA0x00009F88
+// Raw CLI signature 2002010210118140; maxstack 5; local signature token 11000049 (RID0 means nil); initlocals True
+// Original IL bytes (993): 027B990100046FFD2F00066F083000060228C200000A7DB3010004032C717E2B00000A0A72350E0070120028C300000A2C6E06178DD8000001130B110B161F2C9D110B6FB200000A0B078E69173151027CB4010004FE1529000001027CB401000407169A28C400000A7DC500000A027CB401000407179A28C400000A7DC600000A027CB4010004167DBF00000A2B1102047C9802000428C700000A7DB4010004160C160D161304161305151306027BB3010004130C16130D2B6B110C110D8F290000017129000001130712077BC500000A08330A12077BC600000A092E3B12077BC500000A0C12077BC600000A0D027CB40100047BC500000A083317027CB40100047BC600000A093309110615330411041306110517581305110417581304110D1758130D110D110C8E69328D0211058DB40000017DB50100040211058DBB0000017DB601000416251305130416250D0C027BB3010004130E16130F380C020000110E110F8F290000017129000001130812087BC500000A08330D12087BC600000A093BD901000012087BC500000A0C12087BC600000A0D027BB5010004110511049E1202289B00000A72590E00701203289B00000A28B400000A130908766B09766B5B130A110A22ABAAAA3F226F12833A28C800000A2C13110972610E0070288900000A130938D6000000110A225555D53F226F12833A28C800000A2C131109726F0E0070288900000A130938B0000000110A220000A03F226F12833A28C800000A2C131109727D0E0070288900000A1309388A000000110A22398EE33F226F12833A28C800000A2C101109728B0E0070288900000A13092B67110A22CDCCCC3F226F12833A28C800000A2C101109729B0E0070288900000A13092B44110A220000C83F226F12833A28C800000A2C10110972AD0E0070288900000A13092B21110A22ABAAE23F226F12833A28C800000A2C0E110972BF0E0070288900000A1309082000040000341411090272D10E00702879020006288900000A1309027BB601000411051109A2027B990100046FFD2F0006027BB601000411059A146F0730000626027CB40100047BC500000A083349027CB40100047BC600000A09333B027B9901000402FE064502000673BB00000A6FEA2F0006027B9901000411056FF62F0006027B9901000402FE064502000673BB00000A6FE92F0006110517581305110417581304110F1758130F110F110E8E693FE9FDFFFF11061533031613060411067D8D0200040402047B8D020004027CB40100047BBF00000A047B9802000428600200067D8E02000402027BB3010004047B8D020004047B8E02000458E08F2900000171290000017DB4010004027B9B010004047B980200046FD80200062A
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000199 Sims3.UI.OptionsDialog::mResolutionMenu
+IL_0006: callvirt 0x06002FFD Sims3.UI.ComboBox::get_ValueList
+IL_000B: callvirt 0x06003008 .ComboBoxValueList::Clear
+IL_0010: ldarg.0
+IL_0011: call 0x0A0000C2 Sims3.SimIFace.DeviceConfig::GetResolutionList
+IL_0016: stfld 0x040001B3 Sims3.UI.OptionsDialog::mResolutionList
+IL_001B: ldarg.1
+IL_001C: brfalse.s IL_008F
+IL_001E: ldsfld 0x0A00002B System.String::Empty
+IL_0023: stloc.0
+IL_0024: ldstr 0x70000E35 "DefaultResolution"
+IL_0029: ldloca.s 0
+IL_002B: call 0x0A0000C3 Sims3.SimIFace.GameUtils::GetConfigValue
+IL_0030: brfalse.s IL_00A0
+IL_0032: ldloc.0
+IL_0033: ldc.i4.1
+IL_0034: newarr 0x010000D8 System.Char
+IL_0039: stloc.s 11
+IL_003B: ldloc.s 11
+IL_003D: ldc.i4.0
+IL_003E: ldc.i4.s 44
+IL_0040: stelem.i2
+IL_0041: ldloc.s 11
+IL_0043: callvirt 0x0A0000B2 System.String::Split
+IL_0048: stloc.1
+IL_0049: ldloc.1
+IL_004A: ldlen
+IL_004B: conv.i4
+IL_004C: ldc.i4.1
+IL_004D: ble.s IL_00A0
+IL_004F: ldarg.0
+IL_0050: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_0055: initobj 0x01000029 Sims3.SimIFace.Resolution
+IL_005B: ldarg.0
+IL_005C: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_0061: ldloc.1
+IL_0062: ldc.i4.0
+IL_0063: ldelem.ref
+IL_0064: call 0x0A0000C4 System.UInt32::Parse
+IL_0069: stfld 0x0A0000C5 Sims3.SimIFace.Resolution::mWidth
+IL_006E: ldarg.0
+IL_006F: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_0074: ldloc.1
+IL_0075: ldc.i4.1
+IL_0076: ldelem.ref
+IL_0077: call 0x0A0000C4 System.UInt32::Parse
+IL_007C: stfld 0x0A0000C6 Sims3.SimIFace.Resolution::mHeight
+IL_0081: ldarg.0
+IL_0082: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_0087: ldc.i4.0
+IL_0088: stfld 0x0A0000BF Sims3.SimIFace.Resolution::mRefresh
+IL_008D: br.s IL_00A0
+IL_008F: ldarg.0
+IL_0090: ldarg.2
+IL_0091: ldflda 0x04000298 .GraphicsData::mFullScreen
+IL_0096: call 0x0A0000C7 Sims3.SimIFace.DeviceConfig::GetCurrentResolution
+IL_009B: stfld 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_00A0: ldc.i4.0
+IL_00A1: stloc.2
+IL_00A2: ldc.i4.0
+IL_00A3: stloc.3
+IL_00A4: ldc.i4.0
+IL_00A5: stloc.s 4
+IL_00A7: ldc.i4.0
+IL_00A8: stloc.s 5
+IL_00AA: ldc.i4.m1
+IL_00AB: stloc.s 6
+IL_00AD: ldarg.0
+IL_00AE: ldfld 0x040001B3 Sims3.UI.OptionsDialog::mResolutionList
+IL_00B3: stloc.s 12
+IL_00B5: ldc.i4.0
+IL_00B6: stloc.s 13
+IL_00B8: br.s IL_0125
+IL_00BA: ldloc.s 12
+IL_00BC: ldloc.s 13
+IL_00BE: ldelema 0x01000029 Sims3.SimIFace.Resolution
+IL_00C3: ldobj 0x01000029 Sims3.SimIFace.Resolution
+IL_00C8: stloc.s 7
+IL_00CA: ldloca.s 7
+IL_00CC: ldfld 0x0A0000C5 Sims3.SimIFace.Resolution::mWidth
+IL_00D1: ldloc.2
+IL_00D2: bne.un.s IL_00DE
+IL_00D4: ldloca.s 7
+IL_00D6: ldfld 0x0A0000C6 Sims3.SimIFace.Resolution::mHeight
+IL_00DB: ldloc.3
+IL_00DC: beq.s IL_0119
+IL_00DE: ldloca.s 7
+IL_00E0: ldfld 0x0A0000C5 Sims3.SimIFace.Resolution::mWidth
+IL_00E5: stloc.2
+IL_00E6: ldloca.s 7
+IL_00E8: ldfld 0x0A0000C6 Sims3.SimIFace.Resolution::mHeight
+IL_00ED: stloc.3
+IL_00EE: ldarg.0
+IL_00EF: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_00F4: ldfld 0x0A0000C5 Sims3.SimIFace.Resolution::mWidth
+IL_00F9: ldloc.2
+IL_00FA: bne.un.s IL_0113
+IL_00FC: ldarg.0
+IL_00FD: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_0102: ldfld 0x0A0000C6 Sims3.SimIFace.Resolution::mHeight
+IL_0107: ldloc.3
+IL_0108: bne.un.s IL_0113
+IL_010A: ldloc.s 6
+IL_010C: ldc.i4.m1
+IL_010D: bne.un.s IL_0113
+IL_010F: ldloc.s 4
+IL_0111: stloc.s 6
+IL_0113: ldloc.s 5
+IL_0115: ldc.i4.1
+IL_0116: add
+IL_0117: stloc.s 5
+IL_0119: ldloc.s 4
+IL_011B: ldc.i4.1
+IL_011C: add
+IL_011D: stloc.s 4
+IL_011F: ldloc.s 13
+IL_0121: ldc.i4.1
+IL_0122: add
+IL_0123: stloc.s 13
+IL_0125: ldloc.s 13
+IL_0127: ldloc.s 12
+IL_0129: ldlen
+IL_012A: conv.i4
+IL_012B: blt.s IL_00BA
+IL_012D: ldarg.0
+IL_012E: ldloc.s 5
+IL_0130: newarr 0x010000B4 System.Int32
+IL_0135: stfld 0x040001B5 Sims3.UI.OptionsDialog::mResolutionMap
+IL_013A: ldarg.0
+IL_013B: ldloc.s 5
+IL_013D: newarr 0x010000BB System.String
+IL_0142: stfld 0x040001B6 Sims3.UI.OptionsDialog::mResolutionStrings
+IL_0147: ldc.i4.0
+IL_0148: dup
+IL_0149: stloc.s 5
+IL_014B: stloc.s 4
+IL_014D: ldc.i4.0
+IL_014E: dup
+IL_014F: stloc.3
+IL_0150: stloc.2
+IL_0151: ldarg.0
+IL_0152: ldfld 0x040001B3 Sims3.UI.OptionsDialog::mResolutionList
+IL_0157: stloc.s 14
+IL_0159: ldc.i4.0
+IL_015A: stloc.s 15
+IL_015C: br IL_036D
+IL_0161: ldloc.s 14
+IL_0163: ldloc.s 15
+IL_0165: ldelema 0x01000029 Sims3.SimIFace.Resolution
+IL_016A: ldobj 0x01000029 Sims3.SimIFace.Resolution
+IL_016F: stloc.s 8
+IL_0171: ldloca.s 8
+IL_0173: ldfld 0x0A0000C5 Sims3.SimIFace.Resolution::mWidth
+IL_0178: ldloc.2
+IL_0179: bne.un.s IL_0188
+IL_017B: ldloca.s 8
+IL_017D: ldfld 0x0A0000C6 Sims3.SimIFace.Resolution::mHeight
+IL_0182: ldloc.3
+IL_0183: beq IL_0361
+IL_0188: ldloca.s 8
+IL_018A: ldfld 0x0A0000C5 Sims3.SimIFace.Resolution::mWidth
+IL_018F: stloc.2
+IL_0190: ldloca.s 8
+IL_0192: ldfld 0x0A0000C6 Sims3.SimIFace.Resolution::mHeight
+IL_0197: stloc.3
+IL_0198: ldarg.0
+IL_0199: ldfld 0x040001B5 Sims3.UI.OptionsDialog::mResolutionMap
+IL_019E: ldloc.s 5
+IL_01A0: ldloc.s 4
+IL_01A2: stelem.i4
+IL_01A3: ldloca.s 2
+IL_01A5: call 0x0A00009B System.UInt32::ToString
+IL_01AA: ldstr 0x70000E59 " x "
+IL_01AF: ldloca.s 3
+IL_01B1: call 0x0A00009B System.UInt32::ToString
+IL_01B6: call 0x0A0000B4 System.String::Concat
+IL_01BB: stloc.s 9
+IL_01BD: ldloc.2
+IL_01BE: conv.r.un
+IL_01BF: conv.r4
+IL_01C0: ldloc.3
+IL_01C1: conv.r.un
+IL_01C2: conv.r4
+IL_01C3: div
+IL_01C4: stloc.s 10
+IL_01C6: ldloc.s 10
+IL_01C8: ldc.r4 1.3333334
+IL_01CD: ldc.r4 0.001
+IL_01D2: call 0x0A0000C8 Sims3.SimIFace.MathUtils::IsSimilar
+IL_01D7: brfalse.s IL_01EC
+IL_01D9: ldloc.s 9
+IL_01DB: ldstr 0x70000E61 " (4:3)"
+IL_01E0: call 0x0A000089 System.String::Concat
+IL_01E5: stloc.s 9
+IL_01E7: br IL_02C2
+IL_01EC: ldloc.s 10
+IL_01EE: ldc.r4 1.6666666
+IL_01F3: ldc.r4 0.001
+IL_01F8: call 0x0A0000C8 Sims3.SimIFace.MathUtils::IsSimilar
+IL_01FD: brfalse.s IL_0212
+IL_01FF: ldloc.s 9
+IL_0201: ldstr 0x70000E6F " (5:3)"
+IL_0206: call 0x0A000089 System.String::Concat
+IL_020B: stloc.s 9
+IL_020D: br IL_02C2
+IL_0212: ldloc.s 10
+IL_0214: ldc.r4 1.25
+IL_0219: ldc.r4 0.001
+IL_021E: call 0x0A0000C8 Sims3.SimIFace.MathUtils::IsSimilar
+IL_0223: brfalse.s IL_0238
+IL_0225: ldloc.s 9
+IL_0227: ldstr 0x70000E7D " (5:4)"
+IL_022C: call 0x0A000089 System.String::Concat
+IL_0231: stloc.s 9
+IL_0233: br IL_02C2
+IL_0238: ldloc.s 10
+IL_023A: ldc.r4 1.7777778
+IL_023F: ldc.r4 0.001
+IL_0244: call 0x0A0000C8 Sims3.SimIFace.MathUtils::IsSimilar
+IL_0249: brfalse.s IL_025B
+IL_024B: ldloc.s 9
+IL_024D: ldstr 0x70000E8B " (16:9)"
+IL_0252: call 0x0A000089 System.String::Concat
+IL_0257: stloc.s 9
+IL_0259: br.s IL_02C2
+IL_025B: ldloc.s 10
+IL_025D: ldc.r4 1.6
+IL_0262: ldc.r4 0.001
+IL_0267: call 0x0A0000C8 Sims3.SimIFace.MathUtils::IsSimilar
+IL_026C: brfalse.s IL_027E
+IL_026E: ldloc.s 9
+IL_0270: ldstr 0x70000E9B " (16:10)"
+IL_0275: call 0x0A000089 System.String::Concat
+IL_027A: stloc.s 9
+IL_027C: br.s IL_02C2
+IL_027E: ldloc.s 10
+IL_0280: ldc.r4 1.5625
+IL_0285: ldc.r4 0.001
+IL_028A: call 0x0A0000C8 Sims3.SimIFace.MathUtils::IsSimilar
+IL_028F: brfalse.s IL_02A1
+IL_0291: ldloc.s 9
+IL_0293: ldstr 0x70000EAD " (25:16)"
+IL_0298: call 0x0A000089 System.String::Concat
+IL_029D: stloc.s 9
+IL_029F: br.s IL_02C2
+IL_02A1: ldloc.s 10
+IL_02A3: ldc.r4 1.7708334
+IL_02A8: ldc.r4 0.001
+IL_02AD: call 0x0A0000C8 Sims3.SimIFace.MathUtils::IsSimilar
+IL_02B2: brfalse.s IL_02C2
+IL_02B4: ldloc.s 9
+IL_02B6: ldstr 0x70000EBF " (85:48)"
+IL_02BB: call 0x0A000089 System.String::Concat
+IL_02C0: stloc.s 9
+IL_02C2: ldloc.2
+IL_02C3: ldc.i4 1024
+IL_02C8: bge.un.s IL_02DE
+IL_02CA: ldloc.s 9
+IL_02CC: ldarg.0
+IL_02CD: ldstr 0x70000ED1 "Ui/Caption/Options:ResolutionStretched"
+IL_02D2: call 0x06000279 Sims3.UI.OptionsDialog::Localize
+IL_02D7: call 0x0A000089 System.String::Concat
+IL_02DC: stloc.s 9
+IL_02DE: ldarg.0
+IL_02DF: ldfld 0x040001B6 Sims3.UI.OptionsDialog::mResolutionStrings
+IL_02E4: ldloc.s 5
+IL_02E6: ldloc.s 9
+IL_02E8: stelem.ref
+IL_02E9: ldarg.0
+IL_02EA: ldfld 0x04000199 Sims3.UI.OptionsDialog::mResolutionMenu
+IL_02EF: callvirt 0x06002FFD Sims3.UI.ComboBox::get_ValueList
+IL_02F4: ldarg.0
+IL_02F5: ldfld 0x040001B6 Sims3.UI.OptionsDialog::mResolutionStrings
+IL_02FA: ldloc.s 5
+IL_02FC: ldelem.ref
+IL_02FD: ldnull
+IL_02FE: callvirt 0x06003007 .ComboBoxValueList::Add
+IL_0303: pop
+IL_0304: ldarg.0
+IL_0305: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_030A: ldfld 0x0A0000C5 Sims3.SimIFace.Resolution::mWidth
+IL_030F: ldloc.2
+IL_0310: bne.un.s IL_035B
+IL_0312: ldarg.0
+IL_0313: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_0318: ldfld 0x0A0000C6 Sims3.SimIFace.Resolution::mHeight
+IL_031D: ldloc.3
+IL_031E: bne.un.s IL_035B
+IL_0320: ldarg.0
+IL_0321: ldfld 0x04000199 Sims3.UI.OptionsDialog::mResolutionMenu
+IL_0326: ldarg.0
+IL_0327: ldftn 0x06000245 Sims3.UI.OptionsDialog::OnResolutionChange
+IL_032D: newobj 0x0A0000BB TypeSpecification::.ctor
+IL_0332: callvirt 0x06002FEA Sims3.UI.ComboBox::remove_SelectionChange
+IL_0337: ldarg.0
+IL_0338: ldfld 0x04000199 Sims3.UI.OptionsDialog::mResolutionMenu
+IL_033D: ldloc.s 5
+IL_033F: callvirt 0x06002FF6 Sims3.UI.ComboBox::set_CurrentSelection
+IL_0344: ldarg.0
+IL_0345: ldfld 0x04000199 Sims3.UI.OptionsDialog::mResolutionMenu
+IL_034A: ldarg.0
+IL_034B: ldftn 0x06000245 Sims3.UI.OptionsDialog::OnResolutionChange
+IL_0351: newobj 0x0A0000BB TypeSpecification::.ctor
+IL_0356: callvirt 0x06002FE9 Sims3.UI.ComboBox::add_SelectionChange
+IL_035B: ldloc.s 5
+IL_035D: ldc.i4.1
+IL_035E: add
+IL_035F: stloc.s 5
+IL_0361: ldloc.s 4
+IL_0363: ldc.i4.1
+IL_0364: add
+IL_0365: stloc.s 4
+IL_0367: ldloc.s 15
+IL_0369: ldc.i4.1
+IL_036A: add
+IL_036B: stloc.s 15
+IL_036D: ldloc.s 15
+IL_036F: ldloc.s 14
+IL_0371: ldlen
+IL_0372: conv.i4
+IL_0373: blt IL_0161
+IL_0378: ldloc.s 6
+IL_037A: ldc.i4.m1
+IL_037B: bne.un.s IL_0380
+IL_037D: ldc.i4.0
+IL_037E: stloc.s 6
+IL_0380: ldarg.2
+IL_0381: ldloc.s 6
+IL_0383: stfld 0x0400028D .GraphicsData::mResolution
+IL_0388: ldarg.2
+IL_0389: ldarg.0
+IL_038A: ldarg.2
+IL_038B: ldfld 0x0400028D .GraphicsData::mResolution
+IL_0390: ldarg.0
+IL_0391: ldflda 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_0396: ldfld 0x0A0000BF Sims3.SimIFace.Resolution::mRefresh
+IL_039B: ldarg.2
+IL_039C: ldfld 0x04000298 .GraphicsData::mFullScreen
+IL_03A1: call 0x06000260 Sims3.UI.OptionsDialog::FindRefresh
+IL_03A6: stfld 0x0400028E .GraphicsData::mRefresh
+IL_03AB: ldarg.0
+IL_03AC: ldarg.0
+IL_03AD: ldfld 0x040001B3 Sims3.UI.OptionsDialog::mResolutionList
+IL_03B2: ldarg.2
+IL_03B3: ldfld 0x0400028D .GraphicsData::mResolution
+IL_03B8: ldarg.2
+IL_03B9: ldfld 0x0400028E .GraphicsData::mRefresh
+IL_03BE: add
+IL_03BF: conv.u
+IL_03C0: ldelema 0x01000029 Sims3.SimIFace.Resolution
+IL_03C5: ldobj 0x01000029 Sims3.SimIFace.Resolution
+IL_03CA: stfld 0x040001B4 Sims3.UI.OptionsDialog::mResolution
+IL_03CF: ldarg.0
+IL_03D0: ldfld 0x0400019B Sims3.UI.OptionsDialog::mFullScreenButton
+IL_03D5: ldarg.2
+IL_03D6: ldfld 0x04000298 .GraphicsData::mFullScreen
+IL_03DB: callvirt 0x060002D8 Sims3.UI.Button::set_Selected
+IL_03E0: ret

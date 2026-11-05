@@ -1,0 +1,22 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig 
+		instance void DisposeStateMachine () cil managed 
+	{
+		// Method begins at RVA 0x323246
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.ActorSystems.Posture::CurrentStateMachine
+		IL_0006: brfalse.s IL_001a
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.ActorSystems.Posture::CurrentStateMachine
+		IL_000e: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::Dispose()
+		IL_0013: ldarg.0
+		IL_0014: ldnull
+		IL_0015: stfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.ActorSystems.Posture::CurrentStateMachine
+
+		IL_001a: ret
+	} // end of method PetSittingOnGroundPosture::DisposeStateMachine

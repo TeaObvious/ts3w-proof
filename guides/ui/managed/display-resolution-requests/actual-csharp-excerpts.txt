@@ -1,0 +1,267 @@
+// Actual decompiler excerpts; excerpt collection, not a compilable replacement.
+// Method bodies/text below are unmodified. Omitted siblings are outside this selection.
+
+// Sims3.UI.UIManager::ClearEventRegistry 0x06001207
+	public static void ClearEventRegistry()
+	{
+		if (mEventRegistry != null)
+		{
+			mEventRegistry.Clear();
+		}
+		if (mCustomControlInstanceDict != null)
+		{
+			mCustomControlInstanceDict.Clear();
+		}
+		if (mControlInstanceCache != null)
+		{
+			mControlInstanceCache.Clear();
+		}
+		if (mClassIDTypeMap != null)
+		{
+			mClassIDTypeMap.Clear();
+		}
+		if (mInstancePools != null)
+		{
+			mInstancePools.Clear();
+		}
+		if (mCustomControlConstructorRegistry != null)
+		{
+			foreach (uint key in mCustomControlConstructorRegistry.Keys)
+			{
+				gUIMgr.RegisterCustomControlFactory(key, register: false);
+			}
+			mCustomControlConstructorRegistry.Clear();
+		}
+		SetCurrentWindowBaseTooltip(null, uint.MaxValue);
+		gUIMgr.SetUICallbacks(null, null, null, null, null, null, null);
+	}
+
+
+// Sims3.UI.UIManager::ChangeResolution 0x06001238
+	public static void ChangeResolution(Resolution res, bool fullScreen)
+	{
+		gUIMgr.SetResolution(res.mWidth, res.mHeight, res.mRefresh, fullScreen);
+	}
+
+
+// Sims3.UI.UIManager::AcceptResolutionChange 0x06001239
+	public static void AcceptResolutionChange()
+	{
+		DeviceConfig.SaveOptions();
+		mRollbackRes = false;
+	}
+
+
+// Sims3.UI.UIManager::ToggleFullScreen 0x0600123a
+	public static void ToggleFullScreen()
+	{
+		if (!mIsTogglingFullScreen)
+		{
+			mIsTogglingFullScreen = true;
+			CommandSystem.ExecuteCommandString("fullscreen");
+		}
+	}
+
+
+// Sims3.UI.UIManager::UIResolutionChangedCallback 0x0600123b
+	private static void UIResolutionChangedCallback(uint oldWidth, uint oldHeight, uint oldRefresh, bool oldFullScreen, uint newWidth, uint newHeight, uint newRefresh, bool newFullScreen, uint newUIWidth, uint newUIHeight)
+	{
+		gUIMgr.UpdateResolution(newUIWidth, newUIHeight, newRefresh, newFullScreen);
+		SceneMgrWindow sceneWindow = GetSceneWindow();
+		if (sceneWindow != null)
+		{
+			sceneWindow.Area = new Rect(0f, 0f, newUIWidth, newUIHeight);
+		}
+		mRestoreRes = default;
+		mRestoreRes.mWidth = oldWidth;
+		mRestoreRes.mHeight = oldHeight;
+		mRestoreRes.mRefresh = oldRefresh;
+		mRestoreFullScreen = oldFullScreen;
+		if (!mRollbackRes)
+		{
+			Simulator.AddObject(new OneShotFunctionTask(RollbackDialogTask));
+		}
+		else
+		{
+			DeviceConfig.SaveOptions();
+		}
+		mRollbackRes = false;
+	}
+
+
+// Sims3.UI.UIManager::RollbackDialogTask 0x0600123c
+	private static void RollbackDialogTask()
+	{
+		if (!ResolutionRollback.Show())
+		{
+			mRollbackRes = true;
+			ChangeResolution(mRestoreRes, mRestoreFullScreen);
+		}
+		else
+		{
+			AcceptResolutionChange();
+		}
+		mIsTogglingFullScreen = false;
+	}
+
+
+// Sims3.UI.UIManager::.cctor 0x0600124a
+	static UIManager()
+	{
+		kMouseDragDistanceSquared = 50f;
+		mCustomControlInstanceDict = new Dictionary<uint, WindowBase>();
+		mTagRegistry = new Dictionary<WindowBase, object>();
+		mCreateTooltipCallbackRegistry = new Dictionary<WindowBase, WindowBase.CreateTooltipCallback>();
+		mClassIDTypeMap = new Dictionary<uint, Type>();
+		mInstancePools = new Dictionary<Type, Stack<WindowBase>>();
+		gUIMgr = null;
+		sDragDrop = null;
+		sbPreShutdown = false;
+		sDarkenBackground = null;
+		sDarkenCount = 0u;
+		mEventArgsConstructors = new Dictionary<uint, EventCreator>();
+		mWindowConstructors = new Dictionary<Type, WindowCreator>();
+		mCustomControlConstructorRegistry = new Dictionary<uint, ConstructorInfo>();
+		mRollbackRes = false;
+		mIsTogglingFullScreen = false;
+		mIsModal = false;
+		mTaskCount = 0u;
+		mModalStack = new WindowBase[8];
+		mModalStackPtr = 1;
+		gUIMgr = (IUIManager)AppDomain.CurrentDomain.GetData("UIManager");
+		bool flag = !InitUIManagerTask.sIsRunningUTFDesigner;
+		gUIMgr.RegisterShutdownCallback(Shutdown);
+		mUIEventCallbackDelegate = ProcessEventCallback;
+		mUILocaleChangedCallbackDelegate = UILocaleChangedCallback;
+		mUIResolutionChangedCallbackDelegate = UIResolutionChangedCallback;
+		mUIWindowShutdownCallbackDelegate = UIWindowShutdownCallback;
+		mUINewContentInstalledDelegate = UINewContentInstalled;
+		mUIInGameStoreDelegate = UIInGameStoreMessageCallback;
+		mUINewHotInstallDataCallback = UINewHotInstallData;
+		gUIMgr.SetUICallbacks(mUIEventCallbackDelegate, mUILocaleChangedCallbackDelegate, mUIResolutionChangedCallbackDelegate, mUIWindowShutdownCallbackDelegate, mUINewContentInstalledDelegate, mUIInGameStoreDelegate, mUINewHotInstallDataCallback);
+		mControlInstanceCache = new Cache<uint, WindowBase>(100);
+		mControlInstanceCache.CacheEntryErased += OnControlCacheEntryErased;
+		InitInstancePools();
+		mEventRegistry = new Dictionary<uint, WindowEventData>();
+		LoadCustomControls();
+		if (flag)
+		{
+			gUIMgr.InitUIHierarchy();
+			gUIMgr.InitUserToolHelper();
+			Simulator.AddObject(new TooltipManager());
+			Simulator.AddObject(new FeedbackBalloonManager());
+		}
+	}
+
+
+// Sims3.UI.UIManager::Shutdown 0x0600124c
+	public static void Shutdown()
+	{
+		ClearEventRegistry();
+	}
+
+
+// Sims3.UI.ResolutionRollback — complete actual type rendering
+using Sims3.SimIFace;
+
+namespace Sims3.UI;
+
+internal class ResolutionRollback : ModalDialog
+{
+	private enum ControlID : uint
+	{
+		kOKButton = 1u,
+		kCancelButton,
+		kTimeoutText
+	}
+
+	private const string kLayoutName = "ResolutionRollback";
+
+	private const int kWinExportID = 65536;
+
+	private const uint kTimeout = 15u;
+
+	private bool mResult;
+
+	private StopWatch mStopwatch;
+
+	private Text mTimeoutText;
+
+	public bool Result => mResult;
+
+	public static bool Show()
+	{
+		using ResolutionRollback resolutionRollback = new ResolutionRollback();
+		resolutionRollback.StartModal();
+		return resolutionRollback.Result;
+	}
+
+	public ResolutionRollback()
+		: base("ResolutionRollback", 65536, windowModal: true, PauseMode.PauseSimulator, null, triggersModal: true, UICategory.Dialogs)
+	{
+		if (mModalDialogWindow != null)
+		{
+			mModalDialogWindow.CenterInParent();
+			mStopwatch = StopWatch.Create(StopWatch.TickStyles.Seconds);
+			mStopwatch.Start();
+			mTimeoutText = mModalDialogWindow.GetChildByID(3u, recursive: false) as Text;
+			mModalDialogWindow.Tick += OnTick;
+			Button button = mModalDialogWindow.GetChildByID(1u, recursive: false) as Button;
+			if (button != null)
+			{
+				button.Click += OnButtonClick;
+			}
+			Button button2 = mModalDialogWindow.GetChildByID(2u, recursive: false) as Button;
+			if (button2 != null)
+			{
+				button2.Click += OnButtonClick;
+			}
+			OkayID = 1u;
+			CancelID = 2u;
+			SelectedID = 1u;
+		}
+	}
+
+	private void OnTick(WindowBase sender, UIEventArgs eventArgs)
+	{
+		if (mStopwatch == null)
+		{
+			return;
+		}
+		uint elapsedTime = mStopwatch.GetElapsedTime();
+		if (elapsedTime >= 15)
+		{
+			if (UIManager.GetModalWindow() == mModalDialogWindow)
+			{
+				EndDialog(2u);
+			}
+		}
+		else if (mTimeoutText != null)
+		{
+			mTimeoutText.Caption = 15 - elapsedTime + " " + Responder.Instance.LocalizationModel.LocalizeString("Ui/Caption/Options:Seconds");
+		}
+	}
+
+	private void OnButtonClick(WindowBase sender, UIButtonClickEventArgs eventArgs)
+	{
+		eventArgs.Handled = true;
+		EndDialog(sender.ID);
+	}
+
+	protected override bool OnEnd(uint endID)
+	{
+		mResult = endID == 1;
+		mModalDialogWindow.Tick -= OnTick;
+		if (mStopwatch != null)
+		{
+			mStopwatch.Stop();
+		}
+		return true;
+	}
+}
+
+
+// Sims3.SimIFace.UIResolutionChangedCallback — actual delegate rendering
+namespace Sims3.SimIFace;
+
+public delegate void UIResolutionChangedCallback(uint oldWidth, uint oldHeight, uint oldRefresh, bool oldFullScreen, uint newWidth, uint newHeight, uint newRefresh, bool newFullScreen, uint newUIWidth, uint newUIHeight);

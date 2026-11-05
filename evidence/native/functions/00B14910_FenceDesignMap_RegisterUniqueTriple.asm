@@ -1,0 +1,50 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: void FenceDesignMap_RegisterUniqueTriple(void * this, uint * tripleWords)
+Owned ranges: [[00b14910, 00b1496b]]
+
+00b14910  53  PUSH EBX
+00b14911  8b5978  MOV EBX,dword ptr [ECX + 0x78]
+00b14914  55  PUSH EBP
+00b14915  56  PUSH ESI
+00b14916  8b742410  MOV ESI,dword ptr [ESP + 0x10]
+00b1491a  8d6974  LEA EBP,[ECX + 0x74]
+00b1491d  57  PUSH EDI
+00b1491e  8b7d00  MOV EDI,dword ptr [EBP]
+00b14921  3bfb  CMP EDI,EBX
+00b14923  7417  JZ 0x00b1493c
+00b14925  56  PUSH ESI
+00b14926  8bcf  MOV ECX,EDI
+00b14928  e8531af5ff  CALL 0x00a66380
+00b1492d  84c0  TEST AL,AL
+00b1492f  7507  JNZ 0x00b14938
+00b14931  83c730  ADD EDI,0x30
+00b14934  3bfb  CMP EDI,EBX
+00b14936  75ed  JNZ 0x00b14925
+00b14938  3bfb  CMP EDI,EBX
+00b1493a  7529  JNZ 0x00b14965
+00b1493c  8b7d04  MOV EDI,dword ptr [EBP + 0x4]
+00b1493f  3b7d08  CMP EDI,dword ptr [EBP + 0x8]
+00b14942  7318  JNC 0x00b1495c
+00b14944  85ff  TEST EDI,EDI
+00b14946  8d4730  LEA EAX,[EDI + 0x30]
+00b14949  894504  MOV dword ptr [EBP + 0x4],EAX
+00b1494c  7417  JZ 0x00b14965
+00b1494e  b90c000000  MOV ECX,0xc
+00b14953  f3a5  MOVSD.REP ES:EDI,ESI
+00b14955  5f  POP EDI
+00b14956  5e  POP ESI
+00b14957  5d  POP EBP
+00b14958  5b  POP EBX
+00b14959  c20400  RET 0x4
+00b1495c  56  PUSH ESI
+00b1495d  57  PUSH EDI
+00b1495e  8bcd  MOV ECX,EBP
+00b14960  e8fbbe1800  CALL 0x00ca0860
+00b14965  5f  POP EDI
+00b14966  5e  POP ESI
+00b14967  5d  POP EBP
+00b14968  5b  POP EBX
+00b14969  c20400  RET 0x4

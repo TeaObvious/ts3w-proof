@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000422.
+// Assembly: ScriptCore; type: ScriptCore.CASUtils.
+// Decompiled C# source: ScriptCore/ScriptCore/CASUtils.cs:272
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalType = "ScriptCore.StringFromVariantMarshaler")]
+	private static extern string CASUtils_SimBuilderGetBoneDeltaImpl(uint handle, uint index, ref Vector3 position, ref Quaternion orientation, ref Vector3 scale);

@@ -1,0 +1,129 @@
+// Complete PC1.67 original CIL; central managed README identifies the original assembly.
+// Tokens are module-local. Decoded operands retain tokens; TypeSpecification labels are not recovered generic signatures.
+
+// ScriptCore.SavedTaskContext::Restore; MethodDef0x06000691; RVA0x00008B1C
+// raw CLI signature 2001020b; maxstack 3; locals token 1100005D; initlocals True
+// Original IL bytes (235): 160A2B2F02027C860000047B1C000004068F1100000228930600062C1002027B88000004069A28940600062D02162A0617580A06027C860000047B1C0000048E6932C103027C8600000428300100060B027B870000042C17027B870000046F40010006027C86000004167D1F000004072D02162A027B880000040C1203FE15130000021613042B5A0811049A1305120311047D200000041613062B38120311067D21000004110511069A1307110775130000022C1003091107A51300000228340100062B09030911072833010006110617581306110611058E6932C01104175813041104088E69329F172A
+IL_0000: ldc.i4.0
+IL_0001: stloc.0
+IL_0002: br.s IL_0033
+IL_0004: ldarg.0
+IL_0005: ldarg.0
+IL_0006: ldflda 0x04000086 ScriptCore.SavedTaskContext::mTaskContext
+IL_000B: ldfld 0x0400001C ScriptCore.TaskContext::mFrames
+IL_0010: ldloc.0
+IL_0011: ldelema 0x02000011 ScriptCore.TaskFrame
+IL_0016: call 0x06000693 ScriptCore.SavedTaskContext::Patch
+IL_001B: brfalse.s IL_002D
+IL_001D: ldarg.0
+IL_001E: ldarg.0
+IL_001F: ldfld 0x04000088 ScriptCore.SavedTaskContext::mFieldData
+IL_0024: ldloc.0
+IL_0025: ldelem.ref
+IL_0026: call 0x06000694 ScriptCore.SavedTaskContext::PatchObjects
+IL_002B: brtrue.s IL_002F
+IL_002D: ldc.i4.0
+IL_002E: ret
+IL_002F: ldloc.0
+IL_0030: ldc.i4.1
+IL_0031: add
+IL_0032: stloc.0
+IL_0033: ldloc.0
+IL_0034: ldarg.0
+IL_0035: ldflda 0x04000086 ScriptCore.SavedTaskContext::mTaskContext
+IL_003A: ldfld 0x0400001C ScriptCore.TaskContext::mFrames
+IL_003F: ldlen
+IL_0040: conv.i4
+IL_0041: blt.s IL_0004
+IL_0043: ldarg.1
+IL_0044: ldarg.0
+IL_0045: ldflda 0x04000086 ScriptCore.SavedTaskContext::mTaskContext
+IL_004A: call 0x06000130 ScriptCore.TaskControl::SetTaskContext
+IL_004F: stloc.1
+IL_0050: ldarg.0
+IL_0051: ldfld 0x04000087 ScriptCore.SavedTaskContext::mNativeYieldingCall
+IL_0056: brfalse.s IL_006F
+IL_0058: ldarg.0
+IL_0059: ldfld 0x04000087 ScriptCore.SavedTaskContext::mNativeYieldingCall
+IL_005E: callvirt 0x06000140 ScriptCore.NativeYieldingCall::Dispose
+IL_0063: ldarg.0
+IL_0064: ldflda 0x04000086 ScriptCore.SavedTaskContext::mTaskContext
+IL_0069: ldc.i4.0
+IL_006A: stfld 0x0400001F ScriptCore.TaskContext::mNativeYieldCall
+IL_006F: ldloc.1
+IL_0070: brtrue.s IL_0074
+IL_0072: ldc.i4.0
+IL_0073: ret
+IL_0074: ldarg.0
+IL_0075: ldfld 0x04000088 ScriptCore.SavedTaskContext::mFieldData
+IL_007A: stloc.2
+IL_007B: ldloca.s 3
+IL_007D: initobj 0x02000013 ScriptCore.TaskFieldReference
+IL_0083: ldc.i4.0
+IL_0084: stloc.s 4
+IL_0086: br.s IL_00E2
+IL_0088: ldloc.2
+IL_0089: ldloc.s 4
+IL_008B: ldelem.ref
+IL_008C: stloc.s 5
+IL_008E: ldloca.s 3
+IL_0090: ldloc.s 4
+IL_0092: stfld 0x04000020 ScriptCore.TaskFieldReference::mFrameIndex
+IL_0097: ldc.i4.0
+IL_0098: stloc.s 6
+IL_009A: br.s IL_00D4
+IL_009C: ldloca.s 3
+IL_009E: ldloc.s 6
+IL_00A0: stfld 0x04000021 ScriptCore.TaskFieldReference::mFieldIndex
+IL_00A5: ldloc.s 5
+IL_00A7: ldloc.s 6
+IL_00A9: ldelem.ref
+IL_00AA: stloc.s 7
+IL_00AC: ldloc.s 7
+IL_00AE: isinst 0x02000013 ScriptCore.TaskFieldReference
+IL_00B3: brfalse.s IL_00C5
+IL_00B5: ldarg.1
+IL_00B6: ldloc.3
+IL_00B7: ldloc.s 7
+IL_00B9: unbox.any 0x02000013 ScriptCore.TaskFieldReference
+IL_00BE: call 0x06000134 ScriptCore.TaskControl::SetFieldReference
+IL_00C3: br.s IL_00CE
+IL_00C5: ldarg.1
+IL_00C6: ldloc.3
+IL_00C7: ldloc.s 7
+IL_00C9: call 0x06000133 ScriptCore.TaskControl::SetFieldValue
+IL_00CE: ldloc.s 6
+IL_00D0: ldc.i4.1
+IL_00D1: add
+IL_00D2: stloc.s 6
+IL_00D4: ldloc.s 6
+IL_00D6: ldloc.s 5
+IL_00D8: ldlen
+IL_00D9: conv.i4
+IL_00DA: blt.s IL_009C
+IL_00DC: ldloc.s 4
+IL_00DE: ldc.i4.1
+IL_00DF: add
+IL_00E0: stloc.s 4
+IL_00E2: ldloc.s 4
+IL_00E4: ldloc.2
+IL_00E5: ldlen
+IL_00E6: conv.i4
+IL_00E7: blt.s IL_0088
+IL_00E9: ldc.i4.1
+IL_00EA: ret
+
+// ScriptCore.SavedTaskContext::Dispose; MethodDef0x06000692; RVA0x00008C13
+// raw CLI signature 200001; maxstack 8; locals token 11000000; initlocals False
+// Original IL bytes (32): 027B870000042C17027B870000046F40010006027C86000004167D1F0000042A
+IL_0000: ldarg.0
+IL_0001: ldfld 0x04000087 ScriptCore.SavedTaskContext::mNativeYieldingCall
+IL_0006: brfalse.s IL_001F
+IL_0008: ldarg.0
+IL_0009: ldfld 0x04000087 ScriptCore.SavedTaskContext::mNativeYieldingCall
+IL_000E: callvirt 0x06000140 ScriptCore.NativeYieldingCall::Dispose
+IL_0013: ldarg.0
+IL_0014: ldflda 0x04000086 ScriptCore.SavedTaskContext::mTaskContext
+IL_0019: ldc.i4.0
+IL_001A: stfld 0x0400001F ScriptCore.TaskContext::mNativeYieldCall
+IL_001F: ret

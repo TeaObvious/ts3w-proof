@@ -1,0 +1,32 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 108e4710..108e4754; CAW_ResourceNameHash32
+108e4710: 56  PUSH ESI
+108e4711: 57  PUSH EDI
+108e4712: 8b7c2410  MOV EDI,dword ptr [ESP + 0x10]
+108e4716: 85ff  TEST EDI,EDI
+108e4718: bec59d1c81  MOV ESI,0x811c9dc5
+108e471d: 7431  JZ 0x108e4750
+108e471f: 53  PUSH EBX
+108e4720: 8b5c2410  MOV EBX,dword ptr [ESP + 0x10]
+108e4724: 55  PUSH EBP
+108e4725: 8b2d28b5aa10  MOV EBP,dword ptr [0x10aab528]
+108e472b: eb03  JMP 0x108e4730
+108e4730: 0fb703  MOVZX EAX,word ptr [EBX]
+108e4733: 50  PUSH EAX
+108e4734: 83ef01  SUB EDI,0x1
+108e4737: ffd5  CALL EBP
+108e4739: 69f693010001  IMUL ESI,ESI,0x1000193
+108e473f: 0fb7c0  MOVZX EAX,AX
+108e4742: 83c404  ADD ESP,0x4
+108e4745: 33f0  XOR ESI,EAX
+108e4747: 83c302  ADD EBX,0x2
+108e474a: 85ff  TEST EDI,EDI
+108e474c: 75e2  JNZ 0x108e4730
+108e474e: 5d  POP EBP
+108e474f: 5b  POP EBX
+108e4750: 5f  POP EDI
+108e4751: 8bc6  MOV EAX,ESI
+108e4753: 5e  POP ESI
+108e4754: c3  RET

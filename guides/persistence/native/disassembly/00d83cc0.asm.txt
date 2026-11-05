@@ -1,0 +1,71 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00d83cc0 <.text+0x982cc0>:
+  d83cc0:	57                   	push   edi
+  d83cc1:	8b 7c 24 08          	mov    edi,DWORD PTR [esp+0x8]
+  d83cc5:	8b c7                	mov    eax,edi
+  d83cc7:	25 00 00 00 ff       	and    eax,0xff000000
+  d83ccc:	3d 00 00 00 41       	cmp    eax,0x41000000
+  d83cd1:	74 04                	je     0xd83cd7
+  d83cd3:	33 c0                	xor    eax,eax
+  d83cd5:	5f                   	pop    edi
+  d83cd6:	c3                   	ret
+  d83cd7:	e8 b4 56 9e ff       	call   0x769390
+  d83cdc:	85 c0                	test   eax,eax
+  d83cde:	74 05                	je     0xd83ce5
+  d83ce0:	83 c0 f8             	add    eax,0xfffffff8
+  d83ce3:	eb 02                	jmp    0xd83ce7
+  d83ce5:	33 c0                	xor    eax,eax
+  d83ce7:	8b 50 08             	mov    edx,DWORD PTR [eax+0x8]
+  d83cea:	56                   	push   esi
+  d83ceb:	8d 70 08             	lea    esi,[eax+0x8]
+  d83cee:	8b 82 cc 00 00 00    	mov    eax,DWORD PTR [edx+0xcc]
+  d83cf4:	57                   	push   edi
+  d83cf5:	8b ce                	mov    ecx,esi
+  d83cf7:	ff d0                	call   eax
+  d83cf9:	85 c0                	test   eax,eax
+  d83cfb:	74 33                	je     0xd83d30
+  d83cfd:	8b 4c 24 10          	mov    ecx,DWORD PTR [esp+0x10]
+  d83d01:	8b 10                	mov    edx,DWORD PTR [eax]
+  d83d03:	8b 52 04             	mov    edx,DWORD PTR [edx+0x4]
+  d83d06:	51                   	push   ecx
+  d83d07:	8b c8                	mov    ecx,eax
+  d83d09:	ff d2                	call   edx
+  d83d0b:	85 c0                	test   eax,eax
+  d83d0d:	74 21                	je     0xd83d30
+  d83d0f:	8b 10                	mov    edx,DWORD PTR [eax]
+  d83d11:	8b c8                	mov    ecx,eax
+  d83d13:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  d83d16:	68 e6 0c fb f5       	push   0xf5fb0ce6
+  d83d1b:	ff d0                	call   eax
+  d83d1d:	8b f8                	mov    edi,eax
+  d83d1f:	85 ff                	test   edi,edi
+  d83d21:	74 0d                	je     0xd83d30
+  d83d23:	8b 17                	mov    edx,DWORD PTR [edi]
+  d83d25:	8b 42 10             	mov    eax,DWORD PTR [edx+0x10]
+  d83d28:	8b cf                	mov    ecx,edi
+  d83d2a:	ff d0                	call   eax
+  d83d2c:	84 c0                	test   al,al
+  d83d2e:	75 05                	jne    0xd83d35
+  d83d30:	5e                   	pop    esi
+  d83d31:	33 c0                	xor    eax,eax
+  d83d33:	5f                   	pop    edi
+  d83d34:	c3                   	ret
+  d83d35:	8b 17                	mov    edx,DWORD PTR [edi]
+  d83d37:	8b 02                	mov    eax,DWORD PTR [edx]
+  d83d39:	8b cf                	mov    ecx,edi
+  d83d3b:	ff d0                	call   eax
+  d83d3d:	8b 16                	mov    edx,DWORD PTR [esi]
+  d83d3f:	8b 82 c8 00 00 00    	mov    eax,DWORD PTR [edx+0xc8]
+  d83d45:	6a 43                	push   0x43
+  d83d47:	57                   	push   edi
+  d83d48:	8b ce                	mov    ecx,esi
+  d83d4a:	ff d0                	call   eax
+  d83d4c:	5e                   	pop    esi
+  d83d4d:	5f                   	pop    edi
+  d83d4e:	c3                   	ret
+  d83d4f:	cc                   	int3

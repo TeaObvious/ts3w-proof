@@ -1,0 +1,49 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioCurve_LoadProperty
+Entry Point: 008aa3b0
+
+008aa3b0: SUB ESP, 0x18
+008aa3b3: XORPS XMM0, XMM0
+008aa3b6: PUSH ESI
+008aa3b7: PUSH 0x2
+008aa3b9: LEA EAX, [ESP + 0x10]
+008aa3bd: MOVSS dword ptr [ESP + 0x10], XMM0
+008aa3c3: MOVSS dword ptr [ESP + 0x14], XMM0
+008aa3c9: MOVSS XMM0, dword ptr [0x00f998f8]
+008aa3d1: PUSH EAX
+008aa3d2: MOV ESI, ECX
+008aa3d4: MOVSS dword ptr [ESP + 0x1c], XMM0
+008aa3da: MOVSS dword ptr [ESP + 0x20], XMM0
+008aa3e0: CALL 0x008a9f90
+008aa3e5: MOV ECX, dword ptr [ESP + 0x20]
+008aa3e9: TEST ECX, ECX
+008aa3eb: JNZ 0x008aa3f6
+008aa3ed: XOR AL, AL
+008aa3ef: POP ESI
+008aa3f0: ADD ESP, 0x18
+008aa3f3: RET 0x8
+008aa3f6: MOV EDX, dword ptr [ECX]
+008aa3f8: MOV EDX, dword ptr [EDX + 0x48]
+008aa3fb: LEA EAX, [ESP + 0x8]
+008aa3ff: PUSH EAX
+008aa400: LEA EAX, [ESP + 0x8]
+008aa404: PUSH EAX
+008aa405: MOV EAX, dword ptr [ESP + 0x2c]
+008aa409: PUSH EAX
+008aa40a: CALL EDX
+008aa40c: TEST AL, AL
+008aa40e: JZ 0x008aa3ed
+008aa410: MOV EAX, dword ptr [ESP + 0x4]
+008aa414: MOV ECX, dword ptr [ESP + 0x8]
+008aa418: SAR EAX, 0x1
+008aa41a: PUSH EAX
+008aa41b: PUSH ECX
+008aa41c: MOV ECX, ESI
+008aa41e: CALL 0x008a9f90
+008aa423: MOV AL, 0x1
+008aa425: POP ESI
+008aa426: ADD ESP, 0x18
+008aa429: RET 0x8
+
+Total instructions: 42

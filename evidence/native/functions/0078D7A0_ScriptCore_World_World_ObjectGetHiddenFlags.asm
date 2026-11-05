@@ -1,0 +1,49 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: uint World_ObjectGetHiddenFlags(uint objectIdLow, uint objectIdHigh)
+Owned ranges: [[0078d7a0, 0078d808]]
+
+0078d7a0  57  PUSH EDI
+0078d7a1  33ff  XOR EDI,EDI
+0078d7a3  e8c89d1a00  CALL 0x00937570
+0078d7a8  85c0  TEST EAX,EAX
+0078d7aa  7459  JZ 0x0078d805
+0078d7ac  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+0078d7b0  8b542408  MOV EDX,dword ptr [ESP + 0x8]
+0078d7b4  56  PUSH ESI
+0078d7b5  51  PUSH ECX
+0078d7b6  52  PUSH EDX
+0078d7b7  8bc8  MOV ECX,EAX
+0078d7b9  e8c2a71a00  CALL 0x00937f80
+0078d7be  8bf0  MOV ESI,EAX
+0078d7c0  85f6  TEST ESI,ESI
+0078d7c2  743c  JZ 0x0078d800
+0078d7c4  a1a8a21e01  MOV EAX,[0x011ea2a8]
+0078d7c9  50  PUSH EAX
+0078d7ca  8bce  MOV ECX,ESI
+0078d7cc  e88f6a1a00  CALL 0x00934260
+0078d7d1  85c0  TEST EAX,EAX
+0078d7d3  740b  JZ 0x0078d7e0
+0078d7d5  f6400801  TEST byte ptr [EAX + 0x8],0x1
+0078d7d9  7505  JNZ 0x0078d7e0
+0078d7db  bf01000000  MOV EDI,0x1
+0078d7e0  8b0da89f1e01  MOV ECX,dword ptr [0x011e9fa8]
+0078d7e6  51  PUSH ECX
+0078d7e7  8bce  MOV ECX,ESI
+0078d7e9  e8726a1a00  CALL 0x00934260
+0078d7ee  85c0  TEST EAX,EAX
+0078d7f0  740e  JZ 0x0078d800
+0078d7f2  8bc8  MOV ECX,EAX
+0078d7f4  e887711b00  CALL 0x00944980
+0078d7f9  84c0  TEST AL,AL
+0078d7fb  7503  JNZ 0x0078d800
+0078d7fd  83cf02  OR EDI,0x2
+0078d800  5e  POP ESI
+0078d801  8bc7  MOV EAX,EDI
+0078d803  5f  POP EDI
+0078d804  c3  RET
+0078d805  8bc7  MOV EAX,EDI
+0078d807  5f  POP EDI
+0078d808  c3  RET

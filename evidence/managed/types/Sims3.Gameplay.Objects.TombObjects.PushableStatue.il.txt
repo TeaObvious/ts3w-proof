@@ -1,0 +1,4101 @@
+.class public auto ansi beforefieldinit Sims3.Gameplay.Objects.TombObjects.PushableStatue
+	extends [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+	implements [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ISandsOfUnderstandingable,
+	           [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IPushableStatue,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject/IDoNotDuplicateOnClone
+{
+	// Nested Types
+	.class nested family auto ansi sealed MoveSetting
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting None = int32(0)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Secretly = int32(1)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Visibly = int32(2)
+
+	} // end of class MoveSetting
+
+	.class nested public auto ansi sealed RoutingSlot
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/RoutingSlot North = int32(0)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/RoutingSlot East = int32(1)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/RoutingSlot South = int32(2)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/RoutingSlot West = int32(3)
+
+	} // end of class RoutingSlot
+
+	.class nested private auto ansi beforefieldinit DirectionIndicator
+		extends [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+	{
+		// Methods
+		.method public hidebysig virtual 
+			instance void Dispose () cil managed 
+		{
+			// Method begins at RVA 0x2687f
+			// Header size: 1
+			// Code size: 21 (0x15)
+			.maxstack 8
+
+			IL_0000: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+			IL_0005: ldarg.0
+			IL_0006: bne.un.s IL_000e
+
+			IL_0008: ldnull
+			IL_0009: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+
+			IL_000e: ldarg.0
+			IL_000f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::Dispose()
+			IL_0014: ret
+		} // end of method DirectionIndicator::Dispose
+
+		.method public hidebysig 
+			instance void SetGeometryState (
+				bool canPush,
+				bool canPull
+			) cil managed 
+		{
+			// Method begins at RVA 0x26898
+			// Header size: 12
+			// Code size: 47 (0x2f)
+			.maxstack 2
+			.locals init (
+				[0] string
+			)
+
+			IL_0000: ldarg.1
+			IL_0001: brfalse.s IL_0016
+
+			IL_0003: ldarg.2
+			IL_0004: brfalse.s IL_000e
+
+			IL_0006: ldstr "2Directions"
+			IL_000b: stloc.0
+			IL_000c: br.s IL_0027
+
+			IL_000e: ldstr "DirectionA"
+			IL_0013: stloc.0
+			IL_0014: br.s IL_0027
+
+			IL_0016: ldarg.2
+			IL_0017: brfalse.s IL_0021
+
+			IL_0019: ldstr "DirectionB"
+			IL_001e: stloc.0
+			IL_001f: br.s IL_0027
+
+			IL_0021: ldstr "Stop"
+			IL_0026: stloc.0
+
+			IL_0027: ldarg.0
+			IL_0028: ldloc.0
+			IL_0029: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetGeometryState(string)
+			IL_002e: ret
+		} // end of method DirectionIndicator::SetGeometryState
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x268d3
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::.ctor()
+			IL_0006: ret
+		} // end of method DirectionIndicator::.ctor
+
+	} // end of class DirectionIndicator
+
+	.class nested family auto ansi sealed beforefieldinit BuildBuy_MakeSecretlyMovable
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeSecretlyMovable>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x26914
+				// Header size: 12
+				// Code size: 37 (0x25)
+				.maxstack 6
+				.locals init (
+					[0] object[]
+				)
+
+				IL_0000: ldc.i4.0
+				IL_0001: ldstr "InteractionName"
+				IL_0006: ldc.i4.1
+				IL_0007: newarr [mscorlib]System.Object
+				IL_000c: stloc.0
+				IL_000d: ldloc.0
+				IL_000e: ldc.i4.0
+				IL_000f: ldarg.2
+				IL_0010: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+				IL_0015: ldc.i4.1
+				IL_0016: ceq
+				IL_0018: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue::GetLocalizedTrueFalseString(bool)
+				IL_001d: stelem.ref
+				IL_001e: ldloc.0
+				IL_001f: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeSecretlyMovable::LocalizeString(bool, string, object[])
+				IL_0024: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x26945
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x26948
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeSecretlyMovable>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/PushableStatue/BuildBuy_MakeSecretlyMovable"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				bool isFemale,
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [3]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x268db
+			// Header size: 1
+			// Code size: 19 (0x13)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldstr "Gameplay/Objects/TombObjects/PushableStatue/BuildBuy_MakeSecretlyMovable:"
+			IL_0006: ldarg.1
+			IL_0007: call string [mscorlib]System.String::Concat(string, string)
+			IL_000c: ldarg.2
+			IL_000d: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_0012: ret
+		} // end of method BuildBuy_MakeSecretlyMovable::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x268ef
+			// Header size: 1
+			// Code size: 14 (0xe)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0006: ldc.i4.1
+			IL_0007: stfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+			IL_000c: ldc.i4.1
+			IL_000d: ret
+		} // end of method BuildBuy_MakeSecretlyMovable::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x2690a
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::.ctor()
+			IL_0006: ret
+		} // end of method BuildBuy_MakeSecretlyMovable::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x268fe
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeSecretlyMovable/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeSecretlyMovable::Singleton
+			IL_000a: ret
+		} // end of method BuildBuy_MakeSecretlyMovable::.cctor
+
+	} // end of class BuildBuy_MakeSecretlyMovable
+
+	.class nested family auto ansi sealed beforefieldinit BuildBuy_MakeVisiblyMovable
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeVisiblyMovable>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x26988
+				// Header size: 12
+				// Code size: 37 (0x25)
+				.maxstack 6
+				.locals init (
+					[0] object[]
+				)
+
+				IL_0000: ldc.i4.0
+				IL_0001: ldstr "InteractionName"
+				IL_0006: ldc.i4.1
+				IL_0007: newarr [mscorlib]System.Object
+				IL_000c: stloc.0
+				IL_000d: ldloc.0
+				IL_000e: ldc.i4.0
+				IL_000f: ldarg.2
+				IL_0010: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+				IL_0015: ldc.i4.2
+				IL_0016: ceq
+				IL_0018: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue::GetLocalizedTrueFalseString(bool)
+				IL_001d: stelem.ref
+				IL_001e: ldloc.0
+				IL_001f: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeVisiblyMovable::LocalizeString(bool, string, object[])
+				IL_0024: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x269b9
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x269bc
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeVisiblyMovable>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/PushableStatue/BuildBuy_MakeVisiblyMovable"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				bool isFemale,
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [3]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x26950
+			// Header size: 1
+			// Code size: 19 (0x13)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldstr "Gameplay/Objects/TombObjects/PushableStatue/BuildBuy_MakeVisiblyMovable:"
+			IL_0006: ldarg.1
+			IL_0007: call string [mscorlib]System.String::Concat(string, string)
+			IL_000c: ldarg.2
+			IL_000d: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_0012: ret
+		} // end of method BuildBuy_MakeVisiblyMovable::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x26964
+			// Header size: 1
+			// Code size: 14 (0xe)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0006: ldc.i4.2
+			IL_0007: stfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+			IL_000c: ldc.i4.1
+			IL_000d: ret
+		} // end of method BuildBuy_MakeVisiblyMovable::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x2697f
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::.ctor()
+			IL_0006: ret
+		} // end of method BuildBuy_MakeVisiblyMovable::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x26973
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeVisiblyMovable/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeVisiblyMovable::Singleton
+			IL_000a: ret
+		} // end of method BuildBuy_MakeVisiblyMovable::.cctor
+
+	} // end of class BuildBuy_MakeVisiblyMovable
+
+	.class nested family auto ansi sealed beforefieldinit BuildBuy_AllowSwitchActivation
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_AllowSwitchActivation>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x26a08
+				// Header size: 12
+				// Code size: 34 (0x22)
+				.maxstack 5
+				.locals init (
+					[0] object[]
+				)
+
+				IL_0000: ldc.i4.0
+				IL_0001: ldstr "InteractionName"
+				IL_0006: ldc.i4.1
+				IL_0007: newarr [mscorlib]System.Object
+				IL_000c: stloc.0
+				IL_000d: ldloc.0
+				IL_000e: ldc.i4.0
+				IL_000f: ldarg.2
+				IL_0010: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+				IL_0015: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue::GetLocalizedTrueFalseString(bool)
+				IL_001a: stelem.ref
+				IL_001b: ldloc.0
+				IL_001c: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_AllowSwitchActivation::LocalizeString(bool, string, object[])
+				IL_0021: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x26a36
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x26a39
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_AllowSwitchActivation>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/PushableStatue/BuildBuy_AllowSwitchActivation"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				bool isFemale,
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [3]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x269c4
+			// Header size: 1
+			// Code size: 19 (0x13)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldstr "Gameplay/Objects/TombObjects/PushableStatue/BuildBuy_AllowSwitchActivation:"
+			IL_0006: ldarg.1
+			IL_0007: call string [mscorlib]System.String::Concat(string, string)
+			IL_000c: ldarg.2
+			IL_000d: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_0012: ret
+		} // end of method BuildBuy_AllowSwitchActivation::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x269d8
+			// Header size: 1
+			// Code size: 27 (0x1b)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_000c: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+			IL_0011: ldc.i4.0
+			IL_0012: ceq
+			IL_0014: stfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+			IL_0019: ldc.i4.1
+			IL_001a: ret
+		} // end of method BuildBuy_AllowSwitchActivation::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x26a00
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::.ctor()
+			IL_0006: ret
+		} // end of method BuildBuy_AllowSwitchActivation::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x269f4
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_AllowSwitchActivation/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_AllowSwitchActivation::Singleton
+			IL_000a: ret
+		} // end of method BuildBuy_AllowSwitchActivation::.cctor
+
+	} // end of class BuildBuy_AllowSwitchActivation
+
+	.class nested private auto ansi sealed beforefieldinit Inspect
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x26c1e
+				// Header size: 1
+				// Code size: 10 (0xa)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+				IL_0006: ldc.i4.1
+				IL_0007: ceq
+				IL_0009: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x26c29
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/PushableStatue/Inspect"
+		.field private static initonly float32 kInspectTime
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 73 52 61 6e 67 65 3a 20 20 53 69 6d 20 4d
+			69 6e 75 74 65 73 2e 20 20 44 65 73 63 72 69 70
+			74 69 6f 6e 3a 20 20 4e 75 6d 62 65 72 20 6f 66
+			20 6d 69 6e 75 74 65 73 20 61 20 53 69 6d 20 69
+			6e 73 70 65 63 74 73 20 61 20 73 74 61 74 75 65
+			20 62 65 66 6f 72 65 20 64 69 73 63 6f 76 65 72
+			69 6e 67 20 69 66 20 69 74 20 69 73 20 70 75 73
+			68 61 62 6c 65 2e 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+		.field private static initonly uint64 kIconQuestionMarkHash
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x26a41
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombObjects/PushableStatue/Inspect:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method Inspect::LocalizeString
+
+		.method public hidebysig virtual 
+			instance void ConfigureInteraction () cil managed 
+		{
+			// Method begins at RVA 0x26a54
+			// Header size: 12
+			// Code size: 50 (0x32)
+			.maxstack 6
+			.locals init (
+				[0] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.TimedStage,
+				[1] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Stage[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::GetInteractionName()
+			IL_0006: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect::kInspectTime
+			IL_000b: ldc.i4.0
+			IL_000c: ldc.i4.1
+			IL_000d: ldc.i4.1
+			IL_000e: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.TimedStage::.ctor(string, float32, bool, bool, bool)
+			IL_0013: stloc.0
+			IL_0014: ldarg.0
+			IL_0015: ldc.i4.1
+			IL_0016: newarr [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Stage
+			IL_001b: stloc.1
+			IL_001c: ldloc.1
+			IL_001d: ldc.i4.0
+			IL_001e: ldloc.0
+			IL_001f: stelem.ref
+			IL_0020: ldloc.1
+			IL_0021: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Stage>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+			IL_0026: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::set_Stages(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Stage>)
+			IL_002b: ldarg.0
+			IL_002c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::ConfigureInteraction()
+			IL_0031: ret
+		} // end of method Inspect::ConfigureInteraction
+
+		.method public hidebysig virtual 
+			instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey GetIconKey () cil managed 
+		{
+			// Method begins at RVA 0x26a92
+			// Header size: 1
+			// Code size: 23 (0x17)
+			.maxstack 8
+
+			IL_0000: ldsfld uint64 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect::kIconQuestionMarkHash
+			IL_0005: ldc.i4 796721156
+			IL_000a: ldc.i4.0
+			IL_000b: newobj instance void [SimIFace]Sims3.SimIFace.ResourceKey::.ctor(uint64, uint32, uint32)
+			IL_0010: ldc.i4.1
+			IL_0011: newobj instance void [SimIFace]Sims3.SimIFace.ThumbnailKey::.ctor(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+			IL_0016: ret
+		} // end of method Inspect::GetIconKey
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x26aac
+			// Header size: 12
+			// Code size: 313 (0x139)
+			.maxstack 4
+			.locals init (
+				[0] int32,
+				[1] valuetype [SimIFace]Sims3.SimIFace.Slot,
+				[2] bool
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_000c: ldarg.0
+			IL_000d: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0012: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_0017: ldloca.s 0
+			IL_0019: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::RouteToSlotListAndCheckInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot[], int32&)
+			IL_001e: brtrue.s IL_0022
+
+			IL_0020: ldc.i4.0
+			IL_0021: ret
+
+			IL_0022: ldarg.0
+			IL_0023: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_0028: ldarg.0
+			IL_0029: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_002e: ldarg.0
+			IL_002f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StartStages()
+			IL_0034: ldarg.0
+			IL_0035: ldstr "pushableStatueInspect"
+			IL_003a: ldstr "Enter"
+			IL_003f: ldstr "x"
+			IL_0044: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_0049: ldarg.0
+			IL_004a: ldstr "statue"
+			IL_004f: ldarg.0
+			IL_0050: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0055: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_005a: ldarg.0
+			IL_005b: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0060: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_0065: ldloc.0
+			IL_0066: ldelem.u4
+			IL_0067: stloc.1
+			IL_0068: ldloc.1
+			IL_0069: ldc.i4 824351309
+			IL_006e: bne.un.s IL_0082
+
+			IL_0070: ldarg.0
+			IL_0071: ldstr "ikSuffix"
+			IL_0076: ldstr "01"
+			IL_007b: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, string)
+			IL_0080: br.s IL_00b4
+
+			IL_0082: ldloc.1
+			IL_0083: ldc.i4 824351310
+			IL_0088: bne.un.s IL_009c
+
+			IL_008a: ldarg.0
+			IL_008b: ldstr "ikSuffix"
+			IL_0090: ldstr "02"
+			IL_0095: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, string)
+			IL_009a: br.s IL_00b4
+
+			IL_009c: ldloc.1
+			IL_009d: ldc.i4 824351311
+			IL_00a2: bne.un.s IL_00b4
+
+			IL_00a4: ldarg.0
+			IL_00a5: ldstr "ikSuffix"
+			IL_00aa: ldstr "03"
+			IL_00af: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, string)
+
+			IL_00b4: ldarg.0
+			IL_00b5: ldstr "Inspect"
+			IL_00ba: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_00bf: ldarg.0
+			IL_00c0: ldc.i4 -5652481 // 0xffa9bfff
+			IL_00c5: call instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::DoLoop(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_00ca: stloc.2
+			IL_00cb: ldloc.2
+			IL_00cc: brfalse.s IL_00db
+
+			IL_00ce: ldarg.0
+			IL_00cf: ldstr "Exit_Success"
+			IL_00d4: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_00d9: br.s IL_00e6
+
+			IL_00db: ldarg.0
+			IL_00dc: ldstr "Exit_Stop"
+			IL_00e1: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+
+			IL_00e6: ldarg.0
+			IL_00e7: ldloc.2
+			IL_00e8: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_00ed: ldarg.0
+			IL_00ee: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_00f3: ldloc.2
+			IL_00f4: brfalse.s IL_012a
+
+			IL_00f6: ldarg.0
+			IL_00f7: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_00fc: ldstr "DiscoverTNS"
+			IL_0101: ldc.i4.0
+			IL_0102: newarr [mscorlib]System.Object
+			IL_0107: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect::LocalizeString(string, object[])
+			IL_010c: ldc.i4.3
+			IL_010d: ldarg.0
+			IL_010e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0113: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0118: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_011d: pop
+			IL_011e: ldarg.0
+			IL_011f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0124: ldc.i4.2
+			IL_0125: stfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+
+			IL_012a: ldc.i4.s 73
+			IL_012c: ldarg.0
+			IL_012d: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0132: call void [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Lessons, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0137: ldloc.2
+			IL_0138: ret
+		} // end of method Inspect::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x26c16
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::.ctor()
+			IL_0006: ret
+		} // end of method Inspect::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x26bf1
+			// Header size: 1
+			// Code size: 36 (0x24)
+			.maxstack 8
+
+			IL_0000: ldc.r4 5
+			IL_0005: stsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect::kInspectTime
+			IL_000a: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect/Definition::.ctor()
+			IL_000f: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect::Singleton
+			IL_0014: ldstr "misc_question_mark"
+			IL_0019: call uint64 [SimIFace]Sims3.SimIFace.ResourceUtils::HashString64(string)
+			IL_001e: stsfld uint64 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect::kIconQuestionMarkHash
+			IL_0023: ret
+		} // end of method Inspect::.cctor
+
+	} // end of class Inspect
+
+	.class nested private auto ansi sealed beforefieldinit Move
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionGameObjectHit`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>
+	{
+		// Nested Types
+		.class nested public auto ansi beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move>
+		{
+			// Fields
+			.field public bool Push
+			.field public bool Once
+			.field public bool All
+			.field private valuetype [SimIFace]Sims3.SimIFace.Slot HandleSlot
+
+			// Methods
+			.method family hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x2727f
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor (
+					bool push,
+					bool once,
+					bool all
+				) cil managed 
+			{
+				// Method begins at RVA 0x27287
+				// Header size: 1
+				// Code size: 28 (0x1c)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::.ctor()
+				IL_0006: ldarg.0
+				IL_0007: ldarg.1
+				IL_0008: stfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_000d: ldarg.0
+				IL_000e: ldarg.2
+				IL_000f: stfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Once
+				IL_0014: ldarg.0
+				IL_0015: ldarg.3
+				IL_0016: stfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::All
+				IL_001b: ret
+			} // end of method Definition::.ctor
+
+			.method public hidebysig virtual 
+				instance string GetInteractionName (
+					valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+				) cil managed 
+			{
+				// Method begins at RVA 0x272a4
+				// Header size: 12
+				// Code size: 72 (0x48)
+				.maxstack 3
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_0006: brtrue.s IL_000f
+
+				IL_0008: ldstr "Pull"
+				IL_000d: br.s IL_0014
+
+				IL_000f: ldstr "Push"
+
+				IL_0014: ldarg.0
+				IL_0015: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Once
+				IL_001a: brtrue.s IL_0032
+
+				IL_001c: ldarg.0
+				IL_001d: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::All
+				IL_0022: brtrue.s IL_002b
+
+				IL_0024: ldstr ""
+				IL_0029: br.s IL_0037
+
+				IL_002b: ldstr "All"
+				IL_0030: br.s IL_0037
+
+				IL_0032: ldstr "Once"
+
+				IL_0037: call string [mscorlib]System.String::Concat(string, string)
+				IL_003c: ldc.i4.0
+				IL_003d: newarr [mscorlib]System.Object
+				IL_0042: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::LocalizeString(string, object[])
+				IL_0047: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x272f8
+				// Header size: 1
+				// Code size: 27 (0x1b)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldc.i4.0
+				IL_0002: stfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::HandleSlot
+				IL_0007: ldarg.s results
+				IL_0009: ldarg.0
+				IL_000a: call instance class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Clone()
+				IL_000f: ldarg.3
+				IL_0010: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+				IL_0015: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+				IL_001a: ret
+			} // end of method Definition::AddInteractions
+
+			.method public hidebysig 
+				instance class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Clone () cil managed 
+			{
+				// Method begins at RVA 0x27314
+				// Header size: 1
+				// Code size: 24 (0x18)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_0006: ldarg.0
+				IL_0007: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Once
+				IL_000c: ldarg.0
+				IL_000d: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::All
+				IL_0012: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::.ctor(bool, bool, bool)
+				IL_0017: ret
+			} // end of method Definition::Clone
+
+			.method public hidebysig virtual 
+				instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionTestResult Test (
+					valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x27330
+				// Header size: 12
+				// Code size: 220 (0xdc)
+				.maxstack 6
+				.locals init (
+					[0] class Sims3.Gameplay.Objects.TombObjects.PushableStatue,
+					[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+					[2] class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile,
+					[3] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+					[4] class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor,
+					[5] bool
+				)
+
+				IL_0000: ldarg.1
+				IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Target()
+				IL_0006: isinst Sims3.Gameplay.Objects.TombObjects.PushableStatue
+				IL_000b: stloc.0
+				IL_000c: ldloc.0
+				IL_000d: brfalse.s IL_0018
+
+				IL_000f: ldloc.0
+				IL_0010: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+				IL_0015: ldc.i4.2
+				IL_0016: beq.s IL_001e
+
+				IL_0018: ldc.i4 128
+				IL_001d: ret
+
+				IL_001e: ldarg.0
+				IL_001f: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::HandleSlot
+				IL_0024: brtrue.s IL_003d
+
+				IL_0026: ldarg.0
+				IL_0027: ldloc.0
+				IL_0028: ldarg.1
+				IL_0029: call instance valuetype [SimIFace]Sims3.SimIFace.GameObjectHit [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Hit()
+				IL_002e: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.GameObjectHit::mPoint
+				IL_0033: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue::GetNearestRoutingSlot(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_0038: stfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::HandleSlot
+
+				IL_003d: ldloc.0
+				IL_003e: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InUse()
+				IL_0043: brfalse.s IL_0047
+
+				IL_0045: ldc.i4.0
+				IL_0046: ret
+
+				IL_0047: ldloc.0
+				IL_0048: ldloca.s 1
+				IL_004a: ldarg.0
+				IL_004b: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::HandleSlot
+				IL_0050: ldarg.1
+				IL_0051: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+				IL_0056: isinst [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim
+				IL_005b: ldarg.0
+				IL_005c: call instance string Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::GetJigName()
+				IL_0061: callvirt instance class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue::CreateStatueJig(valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Slot, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, string)
+				IL_0066: stloc.2
+				IL_0067: ldloc.2
+				IL_0068: brtrue.s IL_0070
+
+				IL_006a: ldc.i4 128
+				IL_006f: ret
+
+				IL_0070: ldloc.2
+				IL_0071: ldarg.0
+				IL_0072: call instance uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::GetFootprintToDisable()
+				IL_0077: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+				IL_007c: pop
+				IL_007d: ldloc.2
+				IL_007e: ldarg.0
+				IL_007f: call instance uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::GetFootprintToEnable()
+				IL_0084: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::EnableFootprint(uint32)
+				IL_0089: pop
+				IL_008a: ldarg.0
+				IL_008b: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_0090: ldloc.0
+				IL_0091: ldarg.0
+				IL_0092: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::HandleSlot
+				IL_0097: call valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::GetStatuesNewPosition(bool, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_009c: stloc.3
+				IL_009d: ldarg.1
+				IL_009e: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+				IL_00a3: stloc.s 4
+				IL_00a5: ldloc.s 4
+				IL_00a7: ldloc.0
+				IL_00a8: ldloc.2
+				IL_00a9: ldarg.0
+				IL_00aa: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::HandleSlot
+				IL_00af: ldloc.1
+				IL_00b0: ldloc.3
+				IL_00b1: call bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::TestJigPlacement(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_00b6: stloc.s 5
+				IL_00b8: ldloc.2
+				IL_00b9: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::Destroy()
+				IL_00be: ldloc.s 5
+				IL_00c0: brtrue.s IL_00d3
+
+				IL_00c2: ldarg.2
+				IL_00c3: ldarg.0
+				IL_00c4: ldftn instance string Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::CannotPushDueToObstacle()
+				IL_00ca: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+				IL_00cf: stind.ref
+				IL_00d0: ldc.i4.s 32
+				IL_00d2: ret
+
+				IL_00d3: ldarg.0
+				IL_00d4: ldarg.1
+				IL_00d5: ldarg.2
+				IL_00d6: call instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionTestResult class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move>::Test(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+				IL_00db: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance CreateInstance (
+					valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+				) cil managed 
+			{
+				// Method begins at RVA 0x27418
+				// Header size: 12
+				// Code size: 48 (0x30)
+				.maxstack 2
+				.locals init (
+					[0] class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move
+				)
+
+				IL_0000: ldarg.0
+				IL_0001: ldarg.1
+				IL_0002: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move>::CreateInstance(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+				IL_0007: isinst Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move
+				IL_000c: stloc.0
+				IL_000d: ldarg.1
+				IL_000e: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Target()
+				IL_0013: pop
+				IL_0014: ldloc.0
+				IL_0015: ldarg.0
+				IL_0016: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::HandleSlot
+				IL_001b: stfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::HandleSlot
+				IL_0020: ldloc.0
+				IL_0021: ldarg.0
+				IL_0022: stfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+				IL_0027: ldarg.0
+				IL_0028: ldc.i4.0
+				IL_0029: stfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::HandleSlot
+				IL_002e: ldloc.0
+				IL_002f: ret
+			} // end of method Definition::CreateInstance
+
+			.method public hidebysig 
+				instance string GetJigName () cil managed 
+			{
+				// Method begins at RVA 0x27454
+				// Header size: 1
+				// Code size: 36 (0x24)
+				.maxstack 8
+
+				IL_0000: ldstr "PushableStatue"
+				IL_0005: ldarg.0
+				IL_0006: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_000b: brtrue.s IL_0014
+
+				IL_000d: ldstr "Pull"
+				IL_0012: br.s IL_0019
+
+				IL_0014: ldstr "Push"
+
+				IL_0019: ldstr "Jig"
+				IL_001e: call string [mscorlib]System.String::Concat(string, string, string)
+				IL_0023: ret
+			} // end of method Definition::GetJigName
+
+			.method public hidebysig 
+				instance uint32 GetFootprintToEnable () cil managed 
+			{
+				// Method begins at RVA 0x27479
+				// Header size: 1
+				// Code size: 20 (0x14)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_0006: brtrue.s IL_000e
+
+				IL_0008: ldsfld uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::sPullJigFootprintHash
+				IL_000d: ret
+
+				IL_000e: ldsfld uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::sPushJigFootprintHash
+				IL_0013: ret
+			} // end of method Definition::GetFootprintToEnable
+
+			.method public hidebysig 
+				instance uint32 GetFootprintToDisable () cil managed 
+			{
+				// Method begins at RVA 0x2748e
+				// Header size: 1
+				// Code size: 20 (0x14)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_0006: brtrue.s IL_000e
+
+				IL_0008: ldsfld uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::sPushJigFootprintHash
+				IL_000d: ret
+
+				IL_000e: ldsfld uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::sPullJigFootprintHash
+				IL_0013: ret
+			} // end of method Definition::GetFootprintToDisable
+
+			.method public hidebysig 
+				instance string GetStateMachineName () cil managed 
+			{
+				// Method begins at RVA 0x274a3
+				// Header size: 1
+				// Code size: 31 (0x1f)
+				.maxstack 8
+
+				IL_0000: ldstr "PushableStatue"
+				IL_0005: ldarg.0
+				IL_0006: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_000b: brtrue.s IL_0014
+
+				IL_000d: ldstr "Pull"
+				IL_0012: br.s IL_0019
+
+				IL_0014: ldstr "Push"
+
+				IL_0019: call string [mscorlib]System.String::Concat(string, string)
+				IL_001e: ret
+			} // end of method Definition::GetStateMachineName
+
+			.method public hidebysig 
+				instance string GetMoveStateName () cil managed 
+			{
+				// Method begins at RVA 0x274c3
+				// Header size: 1
+				// Code size: 20 (0x14)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_0006: brtrue.s IL_000e
+
+				IL_0008: ldstr "Pull"
+				IL_000d: ret
+
+				IL_000e: ldstr "Push"
+				IL_0013: ret
+			} // end of method Definition::GetMoveStateName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.PushableStatue target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x274d8
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method private hidebysig 
+				instance string CannotPushDueToObstacle () cil managed 
+			{
+				// Method begins at RVA 0x274db
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "CannotPushTooltip"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::CannotPushDueToObstacle
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/PushableStatue/Push"
+		.field private class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile mJig
+		.field private static float32 kAthleticSkillPointsGainedForOnePush
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private static bool kIsSkillMeterVisible
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field public static initonly class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Push
+		.field public static initonly class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition PushOnce
+		.field public static initonly class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition PushAll
+		.field public static initonly class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Pull
+		.field public static initonly class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition PullOnce
+		.field public static initonly class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition PullAll
+		.field private class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Def
+		.field private valuetype [SimIFace]Sims3.SimIFace.Slot HandleSlot
+		.field private valuetype [SimIFace]Sims3.SimIFace.Vector3 mOriginalSimPosition
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x26c31
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombObjects/PushableStatue/Push:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method Move::LocalizeString
+
+		.method private hidebysig static 
+			bool TestJigPlacement (
+				class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor actor,
+				class Sims3.Gameplay.Objects.TombObjects.PushableStatue statue,
+				class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile jig,
+				valuetype [SimIFace]Sims3.SimIFace.Slot handleSlot,
+				valuetype [SimIFace]Sims3.SimIFace.Vector3 jigForwardVector,
+				valuetype [SimIFace]Sims3.SimIFace.Vector3 statueNewPosition
+			) cil managed 
+		{
+			// Method begins at RVA 0x26c44
+			// Header size: 12
+			// Code size: 165 (0xa5)
+			.maxstack 5
+			.locals init (
+				[0] bool,
+				[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[2] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[3] valuetype [SimIFace]Sims3.SimIFace.Vector3
+			)
+
+			IL_0000: ldc.i4.1
+			IL_0001: stloc.0
+			IL_0002: ldarg.1
+			IL_0003: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_0008: stloc.1
+			IL_0009: ldarg.1
+			IL_000a: ldarg.3
+			IL_000b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0010: stloc.2
+			IL_0011: ldloc.2
+			IL_0012: ldarg.s statueNewPosition
+			IL_0014: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0019: ldloc.1
+			IL_001a: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_001f: stloc.3
+			IL_0020: ldarg.0
+			IL_0021: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.PushableStatue::sAllowIntersectionWith
+			IL_0026: ldloc.0
+			IL_0027: brfalse.s IL_003e
+
+			IL_0029: ldarg.2
+			IL_002a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_002f: ldc.i4 576
+			IL_0034: ldloc.1
+			IL_0035: ldarg.s jigForwardVector
+			IL_0037: call bool [SimIFace]Sims3.SimIFace.World::TestObjectPlacement(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.TestObjectPlacementBooleans, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_003c: br.s IL_003f
+
+			IL_003e: ldc.i4.0
+
+			IL_003f: stloc.0
+			IL_0040: ldloc.0
+			IL_0041: brfalse.s IL_005d
+
+			IL_0043: ldarg.1
+			IL_0044: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0049: ldc.i4 512
+			IL_004e: ldarg.s statueNewPosition
+			IL_0050: ldarg.1
+			IL_0051: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+			IL_0056: call bool [SimIFace]Sims3.SimIFace.World::TestObjectPlacement(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.TestObjectPlacementBooleans, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_005b: br.s IL_005e
+
+			IL_005d: ldc.i4.0
+
+			IL_005e: stloc.0
+			IL_005f: ldloc.0
+			IL_0060: brfalse.s IL_007c
+
+			IL_0062: ldarg.0
+			IL_0063: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject::get_ObjectId()
+			IL_0068: ldc.i4 576
+			IL_006d: ldloc.2
+			IL_006e: ldarg.1
+			IL_006f: ldarg.3
+			IL_0070: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetForwardOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0075: call bool [SimIFace]Sims3.SimIFace.World::TestObjectPlacement(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.TestObjectPlacementBooleans, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_007a: br.s IL_007d
+
+			IL_007c: ldc.i4.0
+
+			IL_007d: stloc.0
+			IL_007e: ldloc.0
+			IL_007f: brfalse.s IL_009b
+
+			IL_0081: ldarg.0
+			IL_0082: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject::get_ObjectId()
+			IL_0087: ldc.i4 576
+			IL_008c: ldloc.3
+			IL_008d: ldarg.1
+			IL_008e: ldarg.3
+			IL_008f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetForwardOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0094: call bool [SimIFace]Sims3.SimIFace.World::TestObjectPlacement(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.TestObjectPlacementBooleans, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0099: br.s IL_009c
+
+			IL_009b: ldc.i4.0
+
+			IL_009c: stloc.0
+			IL_009d: ldnull
+			IL_009e: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.PushableStatue::sAllowIntersectionWith
+			IL_00a3: ldloc.0
+			IL_00a4: ret
+		} // end of method Move::TestJigPlacement
+
+		.method public hidebysig 
+			instance void ShowMoveEffect (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x26cf8
+			// Header size: 12
+			// Code size: 34 (0x22)
+			.maxstack 4
+			.locals init (
+				[0] string
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0006: callvirt instance string Sims3.Gameplay.Objects.TombObjects.PushableStatue::VisualEffectOfStatueMove()
+			IL_000b: stloc.0
+			IL_000c: ldloc.0
+			IL_000d: brfalse.s IL_0021
+
+			IL_000f: ldloc.0
+			IL_0010: ldarg.0
+			IL_0011: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0016: ldc.i4 831137836
+			IL_001b: ldc.i4.0
+			IL_001c: call void [SimIFace]Sims3.SimIFace.VisualEffect::FireOneShotEffect(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+
+			IL_0021: ret
+		} // end of method Move::ShowMoveEffect
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x26d28
+			// Header size: 12
+			// Code size: 728 (0x2d8)
+			.maxstack 6
+			.locals init (
+				[0] class [SimIFace]Sims3.SimIFace.Route,
+				[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[2] bool,
+				[3] class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill,
+				[4] object[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0006: ldsfld int32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kFearBuffThresholdPushPullStatue
+			IL_000b: call bool [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffFear::CanSimDoFearGatingAction(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, int32)
+			IL_0010: brtrue.s IL_006b
+
+			IL_0012: ldarg.0
+			IL_0013: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0018: ldarg.0
+			IL_0019: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_001e: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+			IL_0023: ldstr "Gameplay/Objects/TombObjects/PushableStatue:FearRefuseTNS"
+			IL_0028: ldc.i4.1
+			IL_0029: newarr [mscorlib]System.Object
+			IL_002e: stloc.s 4
+			IL_0030: ldloc.s 4
+			IL_0032: ldc.i4.0
+			IL_0033: ldarg.0
+			IL_0034: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0039: stelem.ref
+			IL_003a: ldloc.s 4
+			IL_003c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_0041: ldc.i4.4
+			IL_0042: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+			IL_0047: ldarg.0
+			IL_0048: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_004d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0052: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0057: pop
+			IL_0058: ldarg.0
+			IL_0059: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_005e: ldstr "a_fearModdlet_refuse_x"
+			IL_0063: ldc.i4.1
+			IL_0064: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::PlaySoloAnimation(string, bool)
+			IL_0069: ldc.i4.0
+			IL_006a: ret
+
+			IL_006b: ldarg.0
+			IL_006c: ldarg.0
+			IL_006d: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::HandleSlot
+			IL_0072: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PlaceJig(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0077: brtrue.s IL_007b
+
+			IL_0079: ldc.i4.0
+			IL_007a: ret
+
+			IL_007b: ldarg.0
+			IL_007c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0081: callvirt instance class [SimIFace]Sims3.SimIFace.Route [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::CreateRoute()
+			IL_0086: stloc.0
+			IL_0087: ldloc.0
+			IL_0088: ldarg.0
+			IL_0089: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_008e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0093: callvirt instance void [SimIFace]Sims3.SimIFace.Route::AddObjectToIgnoreForRoute(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0098: ldloc.0
+			IL_0099: ldc.i4 65536
+			IL_009e: conv.i8
+			IL_009f: ldc.i4.0
+			IL_00a0: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetOption(valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool)
+			IL_00a5: ldloc.0
+			IL_00a6: ldc.i4 262144
+			IL_00ab: conv.i8
+			IL_00ac: ldc.i4.1
+			IL_00ad: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetOption(valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool)
+			IL_00b2: ldloc.0
+			IL_00b3: ldarg.0
+			IL_00b4: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_00b9: ldarg.0
+			IL_00ba: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::HandleSlot
+			IL_00bf: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::PlanToSlot(class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_00c4: pop
+			IL_00c5: ldarg.0
+			IL_00c6: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_00cb: ldloc.0
+			IL_00cc: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DoRoute(class [SimIFace]Sims3.SimIFace.Route)
+			IL_00d1: brfalse.s IL_00e0
+
+			IL_00d3: ldarg.0
+			IL_00d4: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_00d9: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InUse()
+			IL_00de: brfalse.s IL_00e2
+
+			IL_00e0: ldc.i4.0
+			IL_00e1: ret
+
+			IL_00e2: ldarg.0
+			IL_00e3: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_00e8: ldarg.0
+			IL_00e9: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_00ee: ldarg.0
+			IL_00ef: ldarg.0
+			IL_00f0: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+			IL_00f5: callvirt instance string Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::GetStateMachineName()
+			IL_00fa: ldstr "Enter"
+			IL_00ff: ldstr "x"
+			IL_0104: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_0109: ldarg.0
+			IL_010a: ldstr "jig"
+			IL_010f: ldarg.0
+			IL_0110: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_0115: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_011a: br IL_02ae
+			// loop start (head: IL_02ae)
+				IL_011f: ldarg.0
+				IL_0120: ldc.i4.s 101
+				IL_0122: ldarg.0
+				IL_0123: ldftn instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::ShowMoveEffect(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+				IL_0129: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+				IL_012e: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+				IL_0133: ldarg.0
+				IL_0134: ldarg.0
+				IL_0135: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_013a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+				IL_013f: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mOriginalSimPosition
+				IL_0144: ldarg.0
+				IL_0145: ldstr "Hold"
+				IL_014a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+				IL_014f: ldarg.0
+				IL_0150: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_0155: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::HasExitReason()
+				IL_015a: brtrue IL_02be
+
+				IL_015f: ldarg.0
+				IL_0160: ldarg.0
+				IL_0161: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+				IL_0166: callvirt instance string Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::GetMoveStateName()
+				IL_016b: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+				IL_0170: ldarg.0
+				IL_0171: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+				IL_0176: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+				IL_017b: ldc.i4 145016584
+				IL_0180: ldarg.0
+				IL_0181: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_0186: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+				IL_018b: pop
+				IL_018c: ldarg.0
+				IL_018d: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+				IL_0192: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+				IL_0197: ldarg.0
+				IL_0198: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+				IL_019d: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+				IL_01a2: brtrue.s IL_01ab
+
+				IL_01a4: ldc.i4 145016583
+				IL_01a9: br.s IL_01b0
+
+				IL_01ab: ldc.i4 145016582
+
+				IL_01b0: ldarg.0
+				IL_01b1: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_01b6: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+				IL_01bb: pop
+				IL_01bc: ldarg.0
+				IL_01bd: ldstr "Hold"
+				IL_01c2: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+				IL_01c7: ldarg.0
+				IL_01c8: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::GetStatuesNewPosition()
+				IL_01cd: stloc.1
+				IL_01ce: ldc.i4.0
+				IL_01cf: stloc.2
+				IL_01d0: ldloc.2
+				IL_01d1: ldarg.0
+				IL_01d2: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+				IL_01d7: ldarg.0
+				IL_01d8: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_01dd: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::CheckForEffectsOldPosition(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+				IL_01e2: or
+				IL_01e3: stloc.2
+				IL_01e4: ldarg.0
+				IL_01e5: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+				IL_01ea: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::UnParent()
+				IL_01ef: pop
+				IL_01f0: ldarg.0
+				IL_01f1: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+				IL_01f6: ldloc.1
+				IL_01f7: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_01fc: ldloc.2
+				IL_01fd: ldarg.0
+				IL_01fe: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+				IL_0203: ldloc.1
+				IL_0204: ldarg.0
+				IL_0205: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_020a: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::CheckForEffectsNewPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+				IL_020f: or
+				IL_0210: stloc.2
+				IL_0211: ldarg.0
+				IL_0212: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+				IL_0217: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::All
+				IL_021c: brtrue.s IL_023b
+
+				IL_021e: ldloc.2
+				IL_021f: brtrue.s IL_022e
+
+				IL_0221: ldarg.0
+				IL_0222: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+				IL_0227: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Once
+				IL_022c: brfalse.s IL_023b
+
+				IL_022e: ldarg.0
+				IL_022f: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_0234: ldc.i4.s 64
+				IL_0236: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::AddExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+
+				IL_023b: ldarg.0
+				IL_023c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_0241: ldarg.0
+				IL_0242: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+				IL_0247: ldarg.0
+				IL_0248: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::HandleSlot
+				IL_024d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_0252: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_0257: ldarg.0
+				IL_0258: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_025d: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SkillManager()
+				IL_0262: ldc.i4.2
+				IL_0263: conv.i8
+				IL_0264: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager::AddElement(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillNames)
+				IL_0269: stloc.3
+				IL_026a: ldloc.3
+				IL_026b: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::kAthleticSkillPointsGainedForOnePush
+				IL_0270: ldsfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::kIsSkillMeterVisible
+				IL_0275: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill::AddPoints(float32, bool)
+				IL_027a: pop
+				IL_027b: ldarg.0
+				IL_027c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_0281: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::HasExitReason()
+				IL_0286: brtrue.s IL_02ae
+
+				IL_0288: ldarg.0
+				IL_0289: ldarg.0
+				IL_028a: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::HandleSlot
+				IL_028f: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PlaceJig(valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_0294: brfalse.s IL_02be
+
+				IL_0296: ldarg.0
+				IL_0297: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+				IL_029c: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::All
+				IL_02a1: brtrue.s IL_02ae
+
+				IL_02a3: ldarg.0
+				IL_02a4: ldstr "Breathe"
+				IL_02a9: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+
+				IL_02ae: ldarg.0
+				IL_02af: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+				IL_02b4: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::HasExitReason()
+				IL_02b9: brfalse IL_011f
+			// end loop
+
+			IL_02be: ldarg.0
+			IL_02bf: ldstr "Exit"
+			IL_02c4: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_02c9: ldarg.0
+			IL_02ca: ldc.i4.1
+			IL_02cb: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_02d0: ldarg.0
+			IL_02d1: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_02d6: ldc.i4.1
+			IL_02d7: ret
+		} // end of method Move::Run
+
+		.method private hidebysig 
+			instance bool PlaceJig (
+				valuetype [SimIFace]Sims3.SimIFace.Slot targetSlot
+			) cil managed 
+		{
+			// Method begins at RVA 0x2700c
+			// Header size: 12
+			// Code size: 272 (0x110)
+			.maxstack 6
+			.locals init (
+				[0] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[1] bool,
+				[2] valuetype [SimIFace]Sims3.SimIFace.Vector3
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_0006: brtrue.s IL_002f
+
+			IL_0008: ldarg.0
+			IL_0009: ldarg.0
+			IL_000a: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_000f: ldloca.s 0
+			IL_0011: ldarg.1
+			IL_0012: ldarg.0
+			IL_0013: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0018: ldarg.0
+			IL_0019: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+			IL_001e: callvirt instance string Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::GetJigName()
+			IL_0023: callvirt instance class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue::CreateStatueJig(valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Slot, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, string)
+			IL_0028: stfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_002d: br.s IL_003b
+
+			IL_002f: ldarg.0
+			IL_0030: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_0035: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+			IL_003a: stloc.0
+
+			IL_003b: ldarg.0
+			IL_003c: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_0041: brtrue.s IL_0045
+
+			IL_0043: ldc.i4.0
+			IL_0044: ret
+
+			IL_0045: ldarg.0
+			IL_0046: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_004b: ldarg.0
+			IL_004c: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+			IL_0051: callvirt instance uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::GetFootprintToDisable()
+			IL_0056: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+			IL_005b: pop
+			IL_005c: ldarg.0
+			IL_005d: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0062: ldarg.0
+			IL_0063: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0068: ldarg.0
+			IL_0069: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_006e: ldarg.0
+			IL_006f: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::HandleSlot
+			IL_0074: ldloc.0
+			IL_0075: ldarg.0
+			IL_0076: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::GetStatuesNewPosition()
+			IL_007b: call bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::TestJigPlacement(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0080: stloc.1
+			IL_0081: ldloc.1
+			IL_0082: brtrue.s IL_0086
+
+			IL_0084: ldc.i4.0
+			IL_0085: ret
+
+			IL_0086: ldarg.0
+			IL_0087: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_008c: call bool [SimIFace]Sims3.SimIFace.AnimationUtil::StopAllAnimation(class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_0091: pop
+			IL_0092: ldarg.0
+			IL_0093: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_0098: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ResetBindPose()
+			IL_009d: ldarg.0
+			IL_009e: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_00a3: ldarg.0
+			IL_00a4: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_00a9: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_00ae: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00b3: ldarg.0
+			IL_00b4: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_00b9: ldloc.0
+			IL_00ba: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetForward(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00bf: ldarg.0
+			IL_00c0: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_00c5: ldc.r4 0.0
+			IL_00ca: ldc.r4 0.0
+			IL_00cf: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+			IL_00d4: ldarg.0
+			IL_00d5: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_00da: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddToWorld()
+			IL_00df: ldarg.0
+			IL_00e0: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_00e5: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+			IL_00ea: stloc.2
+			IL_00eb: ldarg.0
+			IL_00ec: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_00f1: ldarg.0
+			IL_00f2: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_00f7: ldc.i4 -1474234202 // 0xa820f8a6
+			IL_00fc: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ParentToSlot(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0101: pop
+			IL_0102: ldarg.0
+			IL_0103: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0108: ldloc.2
+			IL_0109: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetForward(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_010e: ldc.i4.1
+			IL_010f: ret
+		} // end of method Move::PlaceJig
+
+		.method public hidebysig 
+			instance valuetype [SimIFace]Sims3.SimIFace.Vector3 GetEstimatedStatueOffset () cil managed 
+		{
+			// Method begins at RVA 0x27128
+			// Header size: 1
+			// Code size: 42 (0x2a)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0006: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Parent()
+			IL_000b: brtrue.s IL_0013
+
+			IL_000d: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Zero
+			IL_0012: ret
+
+			IL_0013: ldarg.0
+			IL_0014: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Actor
+			IL_0019: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_001e: ldarg.0
+			IL_001f: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mOriginalSimPosition
+			IL_0024: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0029: ret
+		} // end of method Move::GetEstimatedStatueOffset
+
+		.method private hidebysig 
+			instance valuetype [SimIFace]Sims3.SimIFace.Vector3 GetStatuesNewPosition () cil managed 
+		{
+			// Method begins at RVA 0x27153
+			// Header size: 1
+			// Code size: 29 (0x1d)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Def
+			IL_0006: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Push
+			IL_000b: ldarg.0
+			IL_000c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_0011: ldarg.0
+			IL_0012: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::HandleSlot
+			IL_0017: call valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::GetStatuesNewPosition(bool, class Sims3.Gameplay.Objects.TombObjects.PushableStatue, valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_001c: ret
+		} // end of method Move::GetStatuesNewPosition
+
+		.method private hidebysig static 
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 GetStatuesNewPosition (
+				bool push,
+				class Sims3.Gameplay.Objects.TombObjects.PushableStatue Target,
+				valuetype [SimIFace]Sims3.SimIFace.Slot HandleSlot
+			) cil managed 
+		{
+			// Method begins at RVA 0x27174
+			// Header size: 12
+			// Code size: 94 (0x5e)
+			.maxstack 3
+			.locals init (
+				[0] valuetype [SimIFace]Sims3.SimIFace.Slot
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: brfalse.s IL_0056
+
+			IL_0003: ldarg.2
+			IL_0004: ldarg.1
+			IL_0005: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_000a: ldc.i4.0
+			IL_000b: ldelem.u4
+			IL_000c: bne.un.s IL_0019
+
+			IL_000e: ldarg.1
+			IL_000f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_0014: ldc.i4.2
+			IL_0015: ldelem.u4
+			IL_0016: stloc.0
+			IL_0017: br.s IL_004e
+
+			IL_0019: ldarg.2
+			IL_001a: ldarg.1
+			IL_001b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_0020: ldc.i4.1
+			IL_0021: ldelem.u4
+			IL_0022: bne.un.s IL_002f
+
+			IL_0024: ldarg.1
+			IL_0025: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_002a: ldc.i4.3
+			IL_002b: ldelem.u4
+			IL_002c: stloc.0
+			IL_002d: br.s IL_004e
+
+			IL_002f: ldarg.2
+			IL_0030: ldarg.1
+			IL_0031: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_0036: ldc.i4.2
+			IL_0037: ldelem.u4
+			IL_0038: bne.un.s IL_0045
+
+			IL_003a: ldarg.1
+			IL_003b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_0040: ldc.i4.0
+			IL_0041: ldelem.u4
+			IL_0042: stloc.0
+			IL_0043: br.s IL_004e
+
+			IL_0045: ldarg.1
+			IL_0046: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+			IL_004b: ldc.i4.1
+			IL_004c: ldelem.u4
+			IL_004d: stloc.0
+
+			IL_004e: ldarg.1
+			IL_004f: ldloc.0
+			IL_0050: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0055: ret
+
+			IL_0056: ldarg.1
+			IL_0057: ldarg.2
+			IL_0058: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_005d: ret
+		} // end of method Move::GetStatuesNewPosition
+
+		.method public hidebysig virtual 
+			instance void Cleanup () cil managed 
+		{
+			// Method begins at RVA 0x271de
+			// Header size: 1
+			// Code size: 45 (0x2d)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_0006: brfalse.s IL_0026
+
+			IL_0008: ldarg.0
+			IL_0009: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::Target
+			IL_000e: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::UnParent()
+			IL_0013: pop
+			IL_0014: ldarg.0
+			IL_0015: ldfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+			IL_001a: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::Destroy()
+			IL_001f: ldarg.0
+			IL_0020: ldnull
+			IL_0021: stfld class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::mJig
+
+			IL_0026: ldarg.0
+			IL_0027: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::Cleanup()
+			IL_002c: ret
+		} // end of method Move::Cleanup
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x27277
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionGameObjectHit`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.PushableStatue>::.ctor()
+			IL_0006: ret
+		} // end of method Move::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x2720c
+			// Header size: 12
+			// Code size: 95 (0x5f)
+			.maxstack 4
+
+			IL_0000: ldc.r4 5
+			IL_0005: stsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::kAthleticSkillPointsGainedForOnePush
+			IL_000a: ldc.i4.1
+			IL_000b: stsfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::kIsSkillMeterVisible
+			IL_0010: ldc.i4.1
+			IL_0011: ldc.i4.0
+			IL_0012: ldc.i4.0
+			IL_0013: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::.ctor(bool, bool, bool)
+			IL_0018: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Push
+			IL_001d: ldc.i4.1
+			IL_001e: ldc.i4.1
+			IL_001f: ldc.i4.0
+			IL_0020: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::.ctor(bool, bool, bool)
+			IL_0025: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PushOnce
+			IL_002a: ldc.i4.1
+			IL_002b: ldc.i4.0
+			IL_002c: ldc.i4.1
+			IL_002d: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::.ctor(bool, bool, bool)
+			IL_0032: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PushAll
+			IL_0037: ldc.i4.0
+			IL_0038: ldc.i4.0
+			IL_0039: ldc.i4.0
+			IL_003a: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::.ctor(bool, bool, bool)
+			IL_003f: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Pull
+			IL_0044: ldc.i4.0
+			IL_0045: ldc.i4.1
+			IL_0046: ldc.i4.0
+			IL_0047: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::.ctor(bool, bool, bool)
+			IL_004c: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PullOnce
+			IL_0051: ldc.i4.0
+			IL_0052: ldc.i4.0
+			IL_0053: ldc.i4.1
+			IL_0054: newobj instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::.ctor(bool, bool, bool)
+			IL_0059: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PullAll
+			IL_005e: ret
+		} // end of method Move::.cctor
+
+	} // end of class Move
+
+
+	// Fields
+	.field private static literal float32 kSearchRadiusFloorSwitch = float32(0.8)
+	.field private static literal float32 kSearchRadiusTombTrap = float32(1.45)
+	.field private static literal uint32 kAbleToActivateSwitch = uint32(144544850)
+	.field private static literal uint32 kMoveSetting = uint32(144544867)
+	.field private static literal string kWorldBuilderDataName = "PushableStatue"
+	.field private static initonly string sLocalizationKey
+	.field private static int32 kInvalidMoveSetting
+	.field family bool mAbleToActivateSwitch
+	.field family valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting mMoveSetting
+	.field private static valuetype [SimIFace]Sims3.SimIFace.Slot[] mRoutingSlots
+	.field private static valuetype [SimIFace]Sims3.SimIFace.Slot[] mContainmentSlots
+	.field public static string sPullJigFootprintName
+	.field public static string sPushJigFootprintName
+	.field public static uint32 sPullJigFootprintHash
+	.field public static uint32 sPushJigFootprintHash
+	.field private valuetype [SimIFace]Sims3.SimIFace.Vector3 mHandToolOldPosition
+	.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor(bool) = (
+		01 00 00 00 00
+	)
+	.field private static int32 kFearBuffThresholdPushPullStatue
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 80 81 52 61 6e 67 65 3a 20 4e 65 67 61 74
+		69 76 65 20 69 6e 74 65 67 65 72 2e 20 49 66 20
+		61 20 53 69 6d 20 68 61 73 20 61 20 66 65 61 72
+		20 62 75 66 66 20 77 69 74 68 20 61 20 67 72 65
+		61 74 65 72 20 73 74 72 65 6e 67 74 68 20 74 68
+		61 6e 20 74 68 69 73 20 76 61 6c 75 65 2c 20 74
+		68 65 79 20 77 69 6c 6c 20 6e 6f 74 20 70 75 73
+		68 20 6f 72 20 70 75 6c 6c 20 74 68 65 20 73 74
+		61 74 75 65 2e 00 00
+	)
+	.field private static float32 kDirectionIndicatorFadeDelayTime
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 59 4e 75 6d 62 65 72 20 6f 66 20 53 69 6d
+		20 6d 69 6e 75 74 65 73 20 62 65 66 6f 72 65 20
+		74 68 65 20 69 6e 64 69 63 61 74 6f 72 20 73 74
+		61 72 74 73 20 66 61 64 69 6e 67 20 61 66 74 65
+		72 20 74 68 65 20 6d 6f 75 73 65 20 6c 65 61 76
+		65 73 20 61 20 73 74 61 74 75 65 2e 00 00
+	)
+	.field private static float32 kDirectionIndicatorFadeOutTime
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 56 4e 75 6d 62 65 72 20 6f 66 20 53 69 6d
+		20 6d 69 6e 75 74 65 73 20 74 68 65 20 69 6e 64
+		69 63 61 74 6f 72 20 74 61 6b 65 73 20 74 6f 20
+		66 61 64 65 20 6f 75 74 20 61 66 74 65 72 20 74
+		68 65 20 6d 6f 75 73 65 20 6c 65 61 76 65 73 20
+		61 20 73 74 61 74 75 65 2e 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static float32 kDirectionIndicatorDestroyDelayTime
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 3f 4e 75 6d 62 65 72 20 6f 66 20 53 69 6d
+		20 6d 69 6e 75 74 65 73 20 62 65 66 6f 72 65 20
+		74 68 65 20 63 61 63 68 65 64 20 69 6e 64 69 63
+		61 74 6f 72 20 69 73 20 64 65 73 74 72 6f 79 65
+		64 2e 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[] sInteractionDefinitions
+	.field private static class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator sDirectionIndicator
+	.custom instance void [SimIFace]Sims3.SimIFace.PersistableStaticAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle sDirectionIndicatorFadeAlarm
+	.custom instance void [SimIFace]Sims3.SimIFace.PersistableStaticAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle sDirectionIndicatorDisposeAlarm
+	.custom instance void [SimIFace]Sims3.SimIFace.PersistableStaticAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject sAllowIntersectionWith
+	.field private static initonly string[] kWorldBuilderDataKeyRemap
+
+	// Methods
+	.method private hidebysig static 
+		string LocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x25aee
+		// Header size: 1
+		// Code size: 23 (0x17)
+		.maxstack 8
+
+		IL_0000: ldsfld string Sims3.Gameplay.Objects.TombObjects.PushableStatue::sLocalizationKey
+		IL_0005: ldstr ":"
+		IL_000a: ldarg.0
+		IL_000b: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_0010: ldarg.1
+		IL_0011: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0016: ret
+	} // end of method PushableStatue::LocalizeString
+
+	.method private hidebysig static 
+		string GetLocalizedTrueFalseString (
+			bool b
+		) cil managed 
+	{
+		// Method begins at RVA 0x25b06
+		// Header size: 1
+		// Code size: 37 (0x25)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: brfalse.s IL_0014
+
+		IL_0003: ldstr "Gameplay/Objects/Unrstone:True"
+		IL_0008: ldc.i4.0
+		IL_0009: newarr [mscorlib]System.Object
+		IL_000e: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0013: ret
+
+		IL_0014: ldstr "Gameplay/Objects/Unrstone:False"
+		IL_0019: ldc.i4.0
+		IL_001a: newarr [mscorlib]System.Object
+		IL_001f: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0024: ret
+	} // end of method PushableStatue::GetLocalizedTrueFalseString
+
+	.method public hidebysig specialname 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot[] get_RoutingSlots () cil managed 
+	{
+		// Method begins at RVA 0x25b2c
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::mRoutingSlots
+		IL_0005: ret
+	} // end of method PushableStatue::get_RoutingSlots
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x25b33
+		// Header size: 1
+		// Code size: 25 (0x19)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+		IL_0007: ldarg.0
+		IL_0008: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+		IL_000d: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue::mHandToolOldPosition
+		IL_0012: ldarg.0
+		IL_0013: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::.ctor()
+		IL_0018: ret
+	} // end of method PushableStatue::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnCreation () cil managed 
+	{
+		// Method begins at RVA 0x25b4d
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::OnCreation()
+		IL_0006: ret
+	} // end of method PushableStatue::OnCreation
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x25b55
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: newarr [mscorlib]System.Object
+		IL_0007: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent>(object[])
+		IL_000c: pop
+		IL_000d: ldarg.0
+		IL_000e: ldc.i4.0
+		IL_000f: newarr [mscorlib]System.Object
+		IL_0014: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_0019: pop
+		IL_001a: ret
+	} // end of method PushableStatue::OnStartup
+
+	.method public final hidebysig newslot virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x25b71
+		// Header size: 1
+		// Code size: 45 (0x2d)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4 145016582
+		IL_0006: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_000b: ldarg.1
+		IL_000c: ldc.i4 145016583
+		IL_0011: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0016: ldarg.1
+		IL_0017: ldc.i4 145016584
+		IL_001c: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0021: ldarg.1
+		IL_0022: ldc.i4 145016746
+		IL_0027: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_002c: ret
+	} // end of method PushableStatue::OnAddTombObjectComponent
+
+	.method public final hidebysig newslot virtual 
+		instance bool CanTurnOnUnderstandingGlowNow () cil managed 
+	{
+		// Method begins at RVA 0x25b9f
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PushableStatue::CanTurnOnUnderstandingGlowNow
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldUnderstandingGlowBePositive () cil managed 
+	{
+		// Method begins at RVA 0x25ba2
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PushableStatue::ShouldUnderstandingGlowBePositive
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldConsumeSandsOfUnderstanding () cil managed 
+	{
+		// Method begins at RVA 0x25ba5
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+		IL_0006: ldc.i4.2
+		IL_0007: ceq
+		IL_0009: ldc.i4.0
+		IL_000a: ceq
+		IL_000c: ret
+	} // end of method PushableStatue::ShouldConsumeSandsOfUnderstanding
+
+	.method public final hidebysig newslot virtual 
+		instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback GetOnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x25bb3
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldftn instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue::OnGlowCallback()
+		IL_0007: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback::.ctor(object, native int)
+		IL_000c: ret
+	} // end of method PushableStatue::GetOnGlowCallback
+
+	.method private hidebysig 
+		instance void OnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x25bc1
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.2
+		IL_0002: stfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+		IL_0007: ret
+	} // end of method PushableStatue::OnGlowCallback
+
+	.method public hidebysig 
+		instance string VisualEffectOfStatueMove () cil managed 
+	{
+		// Method begins at RVA 0x25bcc
+		// Header size: 12
+		// Code size: 187 (0xbb)
+		.maxstack 2
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.TerrainType,
+			[1] string,
+			[2] string,
+			[3] string
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0006: call valuetype [SimIFace]Sims3.SimIFace.TerrainType [SimIFace]Sims3.SimIFace.World::GetTerrainType(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_000b: stloc.0
+		IL_000c: ldarg.0
+		IL_000d: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Core.Lot [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0012: callvirt instance uint64 [Sims3GameplaySystems]Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_0017: ldarg.0
+		IL_0018: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_001d: call string [SimIFace]Sims3.SimIFace.World::GetFloorSurfaceType(uint64, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0022: stloc.1
+		IL_0023: ldloc.0
+		IL_0024: ldc.i4.s 16
+		IL_0026: bne.un.s IL_006e
+
+		IL_0028: ldloc.1
+		IL_0029: call string Sims3.Gameplay.Objects.TombObjects.PushableStatue::RemoveDigits(string)
+		IL_002e: stloc.1
+		IL_002f: ldloc.1
+		IL_0030: dup
+		IL_0031: stloc.2
+		IL_0032: brfalse.s IL_006e
+
+		IL_0034: ldloc.2
+		IL_0035: ldstr "Default"
+		IL_003a: call bool [mscorlib]System.String::op_Equality(string, string)
+		IL_003f: brtrue.s IL_0068
+
+		IL_0041: ldloc.2
+		IL_0042: ldstr "Footpath"
+		IL_0047: call bool [mscorlib]System.String::op_Equality(string, string)
+		IL_004c: brtrue.s IL_0068
+
+		IL_004e: ldloc.2
+		IL_004f: ldstr "Mud"
+		IL_0054: call bool [mscorlib]System.String::op_Equality(string, string)
+		IL_0059: brtrue.s IL_0068
+
+		IL_005b: ldloc.2
+		IL_005c: ldstr "Mulch"
+		IL_0061: call bool [mscorlib]System.String::op_Equality(string, string)
+		IL_0066: brfalse.s IL_006e
+
+		IL_0068: ldstr "Grass"
+		IL_006d: stloc.1
+
+		IL_006e: ldloc.1
+		IL_006f: dup
+		IL_0070: stloc.3
+		IL_0071: brfalse.s IL_00b5
+
+		IL_0073: ldloc.3
+		IL_0074: ldstr "Grass"
+		IL_0079: call bool [mscorlib]System.String::op_Equality(string, string)
+		IL_007e: brtrue.s IL_00a9
+
+		IL_0080: ldloc.3
+		IL_0081: ldstr "Sand"
+		IL_0086: call bool [mscorlib]System.String::op_Equality(string, string)
+		IL_008b: brtrue.s IL_00af
+
+		IL_008d: ldloc.3
+		IL_008e: ldstr "Gravel"
+		IL_0093: call bool [mscorlib]System.String::op_Equality(string, string)
+		IL_0098: brtrue.s IL_00b5
+
+		IL_009a: ldloc.3
+		IL_009b: ldstr "Generic"
+		IL_00a0: call bool [mscorlib]System.String::op_Equality(string, string)
+		IL_00a5: brtrue.s IL_00b5
+
+		IL_00a7: br.s IL_00b5
+
+		IL_00a9: ldstr "ep1PushableStatueGrass"
+		IL_00ae: ret
+
+		IL_00af: ldstr "ep1PushableStatueSand"
+		IL_00b4: ret
+
+		IL_00b5: ldstr "ep1PushableStatueDirt"
+		IL_00ba: ret
+	} // end of method PushableStatue::VisualEffectOfStatueMove
+
+	.method private hidebysig static 
+		string RemoveDigits (
+			string surface
+		) cil managed 
+	{
+		// Method begins at RVA 0x25c94
+		// Header size: 12
+		// Code size: 182 (0xb6)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: ldstr "0"
+		IL_0006: ldstr ""
+		IL_000b: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_0010: starg.s surface
+		IL_0012: ldarg.0
+		IL_0013: ldstr "1"
+		IL_0018: ldstr ""
+		IL_001d: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_0022: starg.s surface
+		IL_0024: ldarg.0
+		IL_0025: ldstr "2"
+		IL_002a: ldstr ""
+		IL_002f: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_0034: starg.s surface
+		IL_0036: ldarg.0
+		IL_0037: ldstr "3"
+		IL_003c: ldstr ""
+		IL_0041: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_0046: starg.s surface
+		IL_0048: ldarg.0
+		IL_0049: ldstr "4"
+		IL_004e: ldstr ""
+		IL_0053: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_0058: starg.s surface
+		IL_005a: ldarg.0
+		IL_005b: ldstr "5"
+		IL_0060: ldstr ""
+		IL_0065: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_006a: starg.s surface
+		IL_006c: ldarg.0
+		IL_006d: ldstr "6"
+		IL_0072: ldstr ""
+		IL_0077: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_007c: starg.s surface
+		IL_007e: ldarg.0
+		IL_007f: ldstr "7"
+		IL_0084: ldstr ""
+		IL_0089: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_008e: starg.s surface
+		IL_0090: ldarg.0
+		IL_0091: ldstr "8"
+		IL_0096: ldstr ""
+		IL_009b: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_00a0: starg.s surface
+		IL_00a2: ldarg.0
+		IL_00a3: ldstr "9"
+		IL_00a8: ldstr ""
+		IL_00ad: callvirt instance string [mscorlib]System.String::Replace(string, string)
+		IL_00b2: starg.s surface
+		IL_00b4: ldarg.0
+		IL_00b5: ret
+	} // end of method PushableStatue::RemoveDigits
+
+	.method public hidebysig virtual 
+		instance void OnHover (
+			class [UI]Sims3.UI.UIMouseEventArgs eventArgs,
+			valuetype [SimIFace]Sims3.SimIFace.GameObjectHit gameObjectHit
+		) cil managed 
+	{
+		// Method begins at RVA 0x25d58
+		// Header size: 12
+		// Code size: 245 (0xf5)
+		.maxstack 8
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim,
+			[1] bool,
+			[2] bool,
+			[3] bool,
+			[4] valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters,
+			[5] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[6] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[7] float32,
+			[8] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[9] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[10] float32,
+			[11] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[12] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::OnHover(class [UI]Sims3.UI.UIMouseEventArgs, valuetype [SimIFace]Sims3.SimIFace.GameObjectHit)
+		IL_0008: call bool [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_IsLiveState()
+		IL_000d: brtrue.s IL_0015
+
+		IL_000f: call void Sims3.Gameplay.Objects.TombObjects.PushableStatue::DestroyDirectionIndicator()
+		IL_0014: ret
+
+		IL_0015: ldarg.0
+		IL_0016: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+		IL_001b: ldc.i4.2
+		IL_001c: beq.s IL_0024
+
+		IL_001e: call void Sims3.Gameplay.Objects.TombObjects.PushableStatue::FadeDirectionIndicator()
+		IL_0023: ret
+
+		IL_0024: call class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_ActiveActor()
+		IL_0029: stloc.0
+		IL_002a: ldloc.0
+		IL_002b: brtrue.s IL_0033
+
+		IL_002d: call void Sims3.Gameplay.Objects.TombObjects.PushableStatue::FadeDirectionIndicator()
+		IL_0032: ret
+
+		IL_0033: ldarga.s gameObjectHit
+		IL_0035: ldarg.0
+		IL_0036: ldarga.s gameObjectHit
+		IL_0038: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.GameObjectHit::mPoint
+		IL_003d: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue::OffsetHitPoint(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0042: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.GameObjectHit::mPoint
+		IL_0047: ldc.i4.0
+		IL_0048: stloc.1
+		IL_0049: ldloca.s 4
+		IL_004b: ldnull
+		IL_004c: ldloc.0
+		IL_004d: ldc.i4.3
+		IL_004e: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionPriority::.ctor(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionPriorityLevel)
+		IL_0053: ldc.i4.0
+		IL_0054: ldc.i4.1
+		IL_0055: ldarg.2
+		IL_0056: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionPriority, bool, bool, valuetype [SimIFace]Sims3.SimIFace.GameObjectHit)
+		IL_005b: stobj [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters
+		IL_0060: ldarg.0
+		IL_0061: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PushOnce
+		IL_0066: ldloca.s 4
+		IL_0068: ldloca.s 1
+		IL_006a: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::TestInteraction(class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&, bool&)
+		IL_006f: stloc.2
+		IL_0070: ldarg.0
+		IL_0071: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PullOnce
+		IL_0076: ldloca.s 4
+		IL_0078: ldloca.s 1
+		IL_007a: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::TestInteraction(class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&, bool&)
+		IL_007f: stloc.3
+		IL_0080: ldloc.1
+		IL_0081: brtrue.s IL_0089
+
+		IL_0083: call void Sims3.Gameplay.Objects.TombObjects.PushableStatue::FadeDirectionIndicator()
+		IL_0088: ret
+
+		IL_0089: ldarga.s gameObjectHit
+		IL_008b: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.GameObjectHit::mPoint
+		IL_0090: stloc.s 5
+		IL_0092: ldc.i4.0
+		IL_0093: stloc.s 6
+		IL_0095: ldc.r4 3.4028235E+38
+		IL_009a: stloc.s 7
+		IL_009c: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::mContainmentSlots
+		IL_00a1: stloc.s 11
+		IL_00a3: ldc.i4.0
+		IL_00a4: stloc.s 12
+		IL_00a6: br.s IL_00e2
+		// loop start (head: IL_00e2)
+			IL_00a8: ldloc.s 11
+			IL_00aa: ldloc.s 12
+			IL_00ac: ldelem.u4
+			IL_00ad: stloc.s 8
+			IL_00af: ldarg.0
+			IL_00b0: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_00b5: ldloc.s 8
+			IL_00b7: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Slots::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, uint32)
+			IL_00bc: ldloc.s 5
+			IL_00be: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00c3: stloc.s 9
+			IL_00c5: ldloca.s 9
+			IL_00c7: call instance float32 [SimIFace]Sims3.SimIFace.Vector3::LengthSqr()
+			IL_00cc: stloc.s 10
+			IL_00ce: ldloc.s 10
+			IL_00d0: ldloc.s 7
+			IL_00d2: bge.un.s IL_00dc
+
+			IL_00d4: ldloc.s 8
+			IL_00d6: stloc.s 6
+			IL_00d8: ldloc.s 10
+			IL_00da: stloc.s 7
+
+			IL_00dc: ldloc.s 12
+			IL_00de: ldc.i4.1
+			IL_00df: add
+			IL_00e0: stloc.s 12
+
+			IL_00e2: ldloc.s 12
+			IL_00e4: ldloc.s 11
+			IL_00e6: ldlen
+			IL_00e7: conv.i4
+			IL_00e8: blt.s IL_00a8
+		// end loop
+
+		IL_00ea: ldarg.0
+		IL_00eb: ldloc.s 6
+		IL_00ed: ldloc.2
+		IL_00ee: ldloc.3
+		IL_00ef: call instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue::ShowDirectionIndicator(valuetype [SimIFace]Sims3.SimIFace.Slot, bool, bool)
+		IL_00f4: ret
+	} // end of method PushableStatue::OnHover
+
+	.method public hidebysig virtual 
+		instance void OnUnHover (
+			class [UI]Sims3.UI.UIMouseEventArgs eventArgs,
+			valuetype [SimIFace]Sims3.SimIFace.GameObjectHit gameObjectHit
+		) cil managed 
+	{
+		// Method begins at RVA 0x25e5c
+		// Header size: 12
+		// Code size: 40 (0x28)
+		.maxstack 3
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::OnUnHover(class [UI]Sims3.UI.UIMouseEventArgs, valuetype [SimIFace]Sims3.SimIFace.GameObjectHit)
+		IL_0008: ldarga.s gameObjectHit
+		IL_000a: ldfld uint64 [SimIFace]Sims3.SimIFace.GameObjectHit::mId
+		IL_000f: newobj instance void [SimIFace]Sims3.SimIFace.ObjectGuid::.ctor(uint64)
+		IL_0014: call class [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0019: stloc.0
+		IL_001a: ldloc.0
+		IL_001b: isinst Sims3.Gameplay.Objects.TombObjects.PushableStatue
+		IL_0020: brtrue.s IL_0027
+
+		IL_0022: call void Sims3.Gameplay.Objects.TombObjects.PushableStatue::FadeDirectionIndicator()
+
+		IL_0027: ret
+	} // end of method PushableStatue::OnUnHover
+
+	.method private hidebysig 
+		instance bool TestInteraction (
+			class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition def,
+			valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters,
+			bool& hasAnyInteraction
+		) cil managed 
+	{
+		// Method begins at RVA 0x25e90
+		// Header size: 12
+		// Code size: 59 (0x3b)
+		.maxstack 4
+		.locals init (
+			[0] bool,
+			[1] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldnull
+		IL_0003: stloc.1
+		IL_0004: ldarg.2
+		IL_0005: ldarg.1
+		IL_0006: callvirt instance class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition::Clone()
+		IL_000b: ldarg.0
+		IL_000c: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+		IL_0011: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters::SetInteractionObjectPair(class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair)
+		IL_0016: ldarg.2
+		IL_0017: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_InteractionDefinition()
+		IL_001c: ldarg.2
+		IL_001d: ldloca.s 1
+		IL_001f: callvirt instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionTestResult [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition::Test(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+		IL_0024: call bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.IUtil::IsPass(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionTestResult)
+		IL_0029: brtrue.s IL_002e
+
+		IL_002b: ldloc.1
+		IL_002c: brfalse.s IL_0039
+
+		IL_002e: ldarg.3
+		IL_002f: dup
+		IL_0030: ldind.i1
+		IL_0031: pop
+		IL_0032: ldc.i4.1
+		IL_0033: stind.i1
+		IL_0034: ldloc.1
+		IL_0035: ldnull
+		IL_0036: ceq
+		IL_0038: stloc.0
+
+		IL_0039: ldloc.0
+		IL_003a: ret
+	} // end of method PushableStatue::TestInteraction
+
+	.method private hidebysig 
+		instance void ShowDirectionIndicator (
+			valuetype [SimIFace]Sims3.SimIFace.Slot slot,
+			bool canPush,
+			bool canPull
+		) cil managed 
+	{
+		// Method begins at RVA 0x25ed8
+		// Header size: 12
+		// Code size: 285 (0x11d)
+		.maxstack 7
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: call bool [Sims3GameplaySystems]Sims3.Gameplay.Utilities.VideoGrabHelper::get_InUse()
+		IL_0005: brfalse.s IL_0008
+
+		IL_0007: ret
+
+		IL_0008: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_000d: brtrue.s IL_0023
+
+		IL_000f: ldstr "PushableStatueDirectionIndicator"
+		IL_0014: call class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.GlobalFunctions::CreateObjectOutOfWorld(string)
+		IL_0019: isinst Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator
+		IL_001e: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+
+		IL_0023: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_0028: ldarg.2
+		IL_0029: ldarg.3
+		IL_002a: callvirt instance void Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator::SetGeometryState(bool, bool)
+		IL_002f: ldloca.s 0
+		IL_0031: ldc.r4 0.0
+		IL_0036: ldc.r4 -0.34
+		IL_003b: ldc.r4 0.0
+		IL_0040: newobj instance void [SimIFace]Sims3.SimIFace.Vector3::.ctor(float32, float32, float32)
+		IL_0045: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_004a: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::UnitX
+		IL_004f: stloc.1
+		IL_0050: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_0055: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_005a: ldarg.0
+		IL_005b: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0060: ldarg.1
+		IL_0061: ldc.i4.0
+		IL_0062: ldloca.s 0
+		IL_0064: ldloca.s 1
+		IL_0066: ldc.r4 -1.5707964
+		IL_006b: call valuetype [SimIFace]Sims3.SimIFace.TransformParentingReturnCode [SimIFace]Sims3.SimIFace.Slots::AttachToSlot(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, uint32, bool, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Vector3&, float32)
+		IL_0070: pop
+		IL_0071: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_0076: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddToWorld()
+		IL_007b: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_0080: ldc.r4 1
+		IL_0085: ldc.r4 0.0
+		IL_008a: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+		IL_008f: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorDisposeAlarm
+		IL_0094: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_0099: call bool [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::op_Equality(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_009e: brfalse.s IL_00c5
+
+		IL_00a0: ldarg.0
+		IL_00a1: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kDirectionIndicatorDestroyDelayTime
+		IL_00a6: ldc.i4.1
+		IL_00a7: ldnull
+		IL_00a8: ldftn void Sims3.Gameplay.Objects.TombObjects.PushableStatue::DestroyDirectionIndicator()
+		IL_00ae: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmTimerCallback::.ctor(object, native int)
+		IL_00b3: ldstr "DestroyDirectionIndicator"
+		IL_00b8: ldc.i4.0
+		IL_00b9: call instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddAlarm(float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit, class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmTimerCallback, string, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmType)
+		IL_00be: stsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorDisposeAlarm
+		IL_00c3: br.s IL_00d6
+
+		IL_00c5: ldarg.0
+		IL_00c6: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorDisposeAlarm
+		IL_00cb: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kDirectionIndicatorDestroyDelayTime
+		IL_00d0: ldc.i4.1
+		IL_00d1: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetNewAlarmTime(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle, float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit)
+
+		IL_00d6: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorFadeAlarm
+		IL_00db: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_00e0: call bool [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::op_Equality(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_00e5: brfalse.s IL_010b
+
+		IL_00e7: ldarg.0
+		IL_00e8: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kDirectionIndicatorFadeDelayTime
+		IL_00ed: ldc.i4.1
+		IL_00ee: ldnull
+		IL_00ef: ldftn void Sims3.Gameplay.Objects.TombObjects.PushableStatue::FadeDirectionIndicator()
+		IL_00f5: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmTimerCallback::.ctor(object, native int)
+		IL_00fa: ldstr "FadeDirectionIndicator"
+		IL_00ff: ldc.i4.0
+		IL_0100: call instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddAlarm(float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit, class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmTimerCallback, string, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmType)
+		IL_0105: stsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorFadeAlarm
+		IL_010a: ret
+
+		IL_010b: ldarg.0
+		IL_010c: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorFadeAlarm
+		IL_0111: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kDirectionIndicatorFadeDelayTime
+		IL_0116: ldc.i4.1
+		IL_0117: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetNewAlarmTime(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle, float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit)
+		IL_011c: ret
+	} // end of method PushableStatue::ShowDirectionIndicator
+
+	.method private hidebysig static 
+		void FadeDirectionIndicator () cil managed 
+	{
+		// Method begins at RVA 0x26004
+		// Header size: 12
+		// Code size: 70 (0x46)
+		.maxstack 3
+
+		IL_0000: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_0005: brfalse.s IL_001b
+
+		IL_0007: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_000c: ldc.r4 0.0
+		IL_0011: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kDirectionIndicatorFadeOutTime
+		IL_0016: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+
+		IL_001b: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorFadeAlarm
+		IL_0020: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_0025: call bool [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::op_Inequality(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_002a: brfalse.s IL_0045
+
+		IL_002c: call class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmManager [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmManager::get_Global()
+		IL_0031: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorFadeAlarm
+		IL_0036: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmManager::RemoveAlarm(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_003b: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_0040: stsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorFadeAlarm
+
+		IL_0045: ret
+	} // end of method PushableStatue::FadeDirectionIndicator
+
+	.method private hidebysig static 
+		void DestroyDirectionIndicator () cil managed 
+	{
+		// Method begins at RVA 0x26058
+		// Header size: 12
+		// Code size: 66 (0x42)
+		.maxstack 2
+
+		IL_0000: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_0005: brfalse.s IL_0017
+
+		IL_0007: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+		IL_000c: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::Destroy()
+		IL_0011: ldnull
+		IL_0012: stsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/DirectionIndicator Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicator
+
+		IL_0017: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorDisposeAlarm
+		IL_001c: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_0021: call bool [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::op_Inequality(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_0026: brfalse.s IL_0041
+
+		IL_0028: call class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmManager [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmManager::get_Global()
+		IL_002d: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorDisposeAlarm
+		IL_0032: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmManager::RemoveAlarm(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_0037: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_003c: stsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorDisposeAlarm
+
+		IL_0041: ret
+	} // end of method PushableStatue::DestroyDirectionIndicator
+
+	.method public hidebysig virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> GetAllInteractionsForActor (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor s
+		) cil managed 
+	{
+		// Method begins at RVA 0x260a6
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.0
+		IL_0003: ldarg.1
+		IL_0004: call instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetAllInteractionsForActor(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor)
+		IL_0009: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::sInteractionDefinitions
+		IL_000e: call instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::BuildInteractions(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_0013: ret
+	} // end of method PushableStatue::GetAllInteractionsForActor
+
+	.method public hidebysig virtual 
+		instance bool HasAnyInteraction (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor actor,
+			valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+		) cil managed 
+	{
+		// Method begins at RVA 0x260bb
+		// Header size: 1
+		// Code size: 26 (0x1a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::sInteractionDefinitions
+		IL_0008: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::TestInteractions(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_000d: brfalse.s IL_0011
+
+		IL_000f: ldc.i4.1
+		IL_0010: ret
+
+		IL_0011: ldarg.0
+		IL_0012: ldarg.1
+		IL_0013: ldarg.2
+		IL_0014: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::HasAnyInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+		IL_0019: ret
+	} // end of method PushableStatue::HasAnyInteraction
+
+	.method public hidebysig virtual 
+		instance bool HandToolAllowIntersection (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject objectToIntersect,
+			valuetype [SimIFace]Sims3.SimIFace.Matrix44 testMatrix,
+			bool bThisObjectShifted
+		) cil managed 
+	{
+		// Method begins at RVA 0x260d8
+		// Header size: 12
+		// Code size: 66 (0x42)
+		.maxstack 4
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+		)
+
+		IL_0000: call bool [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_IsLiveState()
+		IL_0005: brfalse.s IL_001a
+
+		IL_0007: ldarg.1
+		IL_0008: isinst [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+		IL_000d: stloc.0
+		IL_000e: ldloc.0
+		IL_000f: ldc.i4.s 21
+		IL_0011: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::CheckObjectPlacement(valuetype [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyProductType)
+		IL_0016: brfalse.s IL_001a
+
+		IL_0018: ldc.i4.1
+		IL_0019: ret
+
+		IL_001a: ldarg.1
+		IL_001b: isinst [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.Door
+		IL_0020: brfalse.s IL_0024
+
+		IL_0022: ldc.i4.1
+		IL_0023: ret
+
+		IL_0024: ldarg.1
+		IL_0025: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.PushableStatue::sAllowIntersectionWith
+		IL_002a: bne.un.s IL_002e
+
+		IL_002c: ldc.i4.1
+		IL_002d: ret
+
+		IL_002e: ldarg.1
+		IL_002f: isinst [Sims3GameplaySystems]Sims3.Gameplay.Objects.TreasureSpawnPoint
+		IL_0034: brfalse.s IL_0038
+
+		IL_0036: ldc.i4.1
+		IL_0037: ret
+
+		IL_0038: ldarg.0
+		IL_0039: ldarg.1
+		IL_003a: ldarg.2
+		IL_003b: ldarg.3
+		IL_003c: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::HandToolAllowIntersection(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Matrix44, bool)
+		IL_0041: ret
+	} // end of method PushableStatue::HandToolAllowIntersection
+
+	.method public hidebysig virtual 
+		instance void OnHandToolPickup (
+			valuetype [SimIFace]Sims3.SimIFace.ePickupTypeHandTool pickupType
+		) cil managed 
+	{
+		// Method begins at RVA 0x26126
+		// Header size: 1
+		// Code size: 21 (0x15)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4.1
+		IL_0002: beq.s IL_0014
+
+		IL_0004: ldarg.1
+		IL_0005: ldc.i4.2
+		IL_0006: beq.s IL_0014
+
+		IL_0008: ldarg.0
+		IL_0009: ldarg.0
+		IL_000a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_000f: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue::mHandToolOldPosition
+
+		IL_0014: ret
+	} // end of method PushableStatue::OnHandToolPickup
+
+	.method public hidebysig virtual 
+		instance void OnHandToolPlacement () cil managed 
+	{
+		// Method begins at RVA 0x2613c
+		// Header size: 12
+		// Code size: 85 (0x55)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue::mHandToolOldPosition
+		IL_0006: ldarg.0
+		IL_0007: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_000c: call bool [SimIFace]Sims3.SimIFace.Vector3::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0011: brfalse.s IL_0054
+
+		IL_0013: ldarg.0
+		IL_0014: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue::mHandToolOldPosition
+		IL_0019: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+		IL_001e: call bool [SimIFace]Sims3.SimIFace.Vector3::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0023: brfalse.s IL_0042
+
+		IL_0025: ldarg.0
+		IL_0026: ldarg.0
+		IL_0027: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue::mHandToolOldPosition
+		IL_002c: call class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim [Sims3GameplaySystems]Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+		IL_0031: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::CheckForEffectsOldPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0036: pop
+		IL_0037: ldarg.0
+		IL_0038: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+		IL_003d: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue::mHandToolOldPosition
+
+		IL_0042: ldarg.0
+		IL_0043: ldarg.0
+		IL_0044: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0049: call class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim [Sims3GameplaySystems]Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+		IL_004e: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::CheckForEffectsNewPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0053: pop
+
+		IL_0054: ret
+	} // end of method PushableStatue::OnHandToolPlacement
+
+	.method public hidebysig virtual 
+		instance bool PackForMovingOverride () cil managed 
+	{
+		// Method begins at RVA 0x2619d
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PushableStatue::PackForMovingOverride
+
+	.method public hidebysig virtual 
+		instance void AddToWorld () cil managed 
+	{
+		// Method begins at RVA 0x261a0
+		// Header size: 1
+		// Code size: 21 (0x15)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddToWorld()
+		IL_0006: ldarg.0
+		IL_0007: ldarg.0
+		IL_0008: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_000d: ldnull
+		IL_000e: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::CheckForEffectsNewPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0013: pop
+		IL_0014: ret
+	} // end of method PushableStatue::AddToWorld
+
+	.method public hidebysig virtual 
+		instance void RemoveFromWorld () cil managed 
+	{
+		// Method begins at RVA 0x261b6
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::RemoveFromWorld()
+		IL_0006: ldarg.0
+		IL_0007: ldnull
+		IL_0008: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::CheckForEffectsOldPosition(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_000d: pop
+		IL_000e: ret
+	} // end of method PushableStatue::RemoveFromWorld
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot GetNearestRoutingSlot (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 hitPos
+		) cil managed 
+	{
+		// Method begins at RVA 0x261c6
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue::OffsetHitPoint(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0007: starg.s hitPos
+		IL_0009: ldarg.0
+		IL_000a: ldarg.1
+		IL_000b: call instance valuetype [SimIFace]Sims3.SimIFace.Slot [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetNearestRoutingSlot(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0010: ret
+	} // end of method PushableStatue::GetNearestRoutingSlot
+
+	.method private hidebysig 
+		instance valuetype [SimIFace]Sims3.SimIFace.Vector3 OffsetHitPoint (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 hitPos
+		) cil managed 
+	{
+		// Method begins at RVA 0x261d8
+		// Header size: 12
+		// Code size: 93 (0x5d)
+		.maxstack 2
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim,
+			[1] class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move,
+			[2] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InUse()
+		IL_0006: brfalse.s IL_005b
+
+		IL_0008: ldarg.0
+		IL_0009: call instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim> [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ActorsUsingMe()
+		IL_000e: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+		IL_0013: stloc.2
+		.try
+		{
+			IL_0014: br.s IL_0042
+			// loop start (head: IL_0042)
+				IL_0016: ldloca.s 2
+				IL_0018: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>::get_Current()
+				IL_001d: stloc.0
+				IL_001e: ldloc.0
+				IL_001f: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.InteractionQueue [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+				IL_0024: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.InteractionQueue::get_RunningInteraction()
+				IL_0029: isinst Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move
+				IL_002e: stloc.1
+				IL_002f: ldloc.1
+				IL_0030: brfalse.s IL_0042
+
+				IL_0032: ldarg.1
+				IL_0033: ldloc.1
+				IL_0034: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::GetEstimatedStatueOffset()
+				IL_0039: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_003e: starg.s hitPos
+				IL_0040: br.s IL_004b
+
+				IL_0042: ldloca.s 2
+				IL_0044: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>::MoveNext()
+				IL_0049: brtrue.s IL_0016
+			// end loop
+
+			IL_004b: leave.s IL_005b
+		} // end .try
+		finally
+		{
+			IL_004d: ldloca.s 2
+			IL_004f: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim>
+			IL_0055: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_005a: endfinally
+		} // end handler
+
+		IL_005b: ldarg.1
+		IL_005c: ret
+	} // end of method PushableStatue::OffsetHitPoint
+
+	.method public hidebysig 
+		instance class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile CreateStatueJig (
+			[out] valuetype [SimIFace]Sims3.SimIFace.Vector3& forwardVector,
+			valuetype [SimIFace]Sims3.SimIFace.Slot targetSlot,
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+			string jigName
+		) cil managed 
+	{
+		// Method begins at RVA 0x26254
+		// Header size: 12
+		// Code size: 153 (0x99)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Zero
+		IL_0006: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_000b: ldarg.s jigName
+		IL_000d: call class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.GlobalFunctions::CreateObjectOutOfWorld(string)
+		IL_0012: isinst Sims3.Gameplay.Objects.TombObjects.PushableStatueReservedTile
+		IL_0017: stloc.0
+		IL_0018: ldloc.0
+		IL_0019: brtrue.s IL_001d
+
+		IL_001b: ldnull
+		IL_001c: ret
+
+		IL_001d: ldloc.0
+		IL_001e: ldarg.3
+		IL_001f: callvirt instance void Sims3.Gameplay.Objects.Miscellaneous.ReservedTile::AddIgnorePlacementObject(class [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject)
+		IL_0024: ldloc.0
+		IL_0025: ldarg.0
+		IL_0026: callvirt instance void Sims3.Gameplay.Objects.Miscellaneous.ReservedTile::AddIgnorePlacementObject(class [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject)
+		IL_002b: ldarg.2
+		IL_002c: ldarg.0
+		IL_002d: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+		IL_0032: ldc.i4.0
+		IL_0033: ldelem.u4
+		IL_0034: bne.un.s IL_0049
+
+		IL_0036: ldarg.1
+		IL_0037: ldarg.0
+		IL_0038: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_SideVector()
+		IL_003d: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_UnaryNegation(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0042: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_0047: br.s IL_0097
+
+		IL_0049: ldarg.2
+		IL_004a: ldarg.0
+		IL_004b: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+		IL_0050: ldc.i4.2
+		IL_0051: ldelem.u4
+		IL_0052: bne.un.s IL_0062
+
+		IL_0054: ldarg.1
+		IL_0055: ldarg.0
+		IL_0056: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_SideVector()
+		IL_005b: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_0060: br.s IL_0097
+
+		IL_0062: ldarg.2
+		IL_0063: ldarg.0
+		IL_0064: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+		IL_0069: ldc.i4.1
+		IL_006a: ldelem.u4
+		IL_006b: bne.un.s IL_0080
+
+		IL_006d: ldarg.1
+		IL_006e: ldarg.0
+		IL_006f: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+		IL_0074: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_UnaryNegation(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0079: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_007e: br.s IL_0097
+
+		IL_0080: ldarg.2
+		IL_0081: ldarg.0
+		IL_0082: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+		IL_0087: ldc.i4.3
+		IL_0088: ldelem.u4
+		IL_0089: bne.un.s IL_0097
+
+		IL_008b: ldarg.1
+		IL_008c: ldarg.0
+		IL_008d: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+		IL_0092: stobj [SimIFace]Sims3.SimIFace.Vector3
+
+		IL_0097: ldloc.0
+		IL_0098: ret
+	} // end of method PushableStatue::CreateStatueJig
+
+	.method public hidebysig static 
+		bool CheckForPushableStatueEffects (
+			class Sims3.Gameplay.Objects.TombObjects.FloorSwitch floorSwitch,
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x262fc
+		// Header size: 12
+		// Code size: 108 (0x6c)
+		.maxstack 3
+		.locals init (
+			[0] bool,
+			[1] class Sims3.Gameplay.Objects.TombObjects.PushableStatue[],
+			[2] class Sims3.Gameplay.Objects.TombObjects.PushableStatue,
+			[3] class Sims3.Gameplay.Objects.TombObjects.PushableStatue[],
+			[4] int32,
+			[5] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldarg.0
+		IL_0003: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0008: ldc.r4 5
+		IL_000d: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.PushableStatue>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0012: stloc.1
+		IL_0013: ldloc.1
+		IL_0014: stloc.3
+		IL_0015: ldc.i4.0
+		IL_0016: stloc.s 4
+		IL_0018: br.s IL_0063
+		// loop start (head: IL_0063)
+			IL_001a: ldloc.3
+			IL_001b: ldloc.s 4
+			IL_001d: ldelem.ref
+			IL_001e: stloc.2
+			IL_001f: ldloc.2
+			IL_0020: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_0025: ldarg.0
+			IL_0026: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_002b: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0030: stloc.s 5
+			IL_0032: ldloca.s 5
+			IL_0034: call instance float32 [SimIFace]Sims3.SimIFace.Vector3::LengthSqr()
+			IL_0039: ldc.r4 0.64000005
+			IL_003e: bge.un.s IL_005d
+
+			IL_0040: ldarg.0
+			IL_0041: ldarg.1
+			IL_0042: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::PushSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0047: brfalse.s IL_005d
+
+			IL_0049: ldc.i4.1
+			IL_004a: stloc.0
+			IL_004b: ldloc.2
+			IL_004c: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_0051: ldc.i4 145016746
+			IL_0056: ldarg.1
+			IL_0057: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_005c: pop
+
+			IL_005d: ldloc.s 4
+			IL_005f: ldc.i4.1
+			IL_0060: add
+			IL_0061: stloc.s 4
+
+			IL_0063: ldloc.s 4
+			IL_0065: ldloc.3
+			IL_0066: ldlen
+			IL_0067: conv.i4
+			IL_0068: blt.s IL_001a
+		// end loop
+
+		IL_006a: ldloc.0
+		IL_006b: ret
+	} // end of method PushableStatue::CheckForPushableStatueEffects
+
+	.method public hidebysig static 
+		bool CheckForPushableStatueEffects (
+			class Sims3.Gameplay.Objects.TombObjects.TombTrap trap,
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x26374
+		// Header size: 12
+		// Code size: 146 (0x92)
+		.maxstack 3
+		.locals init (
+			[0] bool,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[2] class Sims3.Gameplay.Objects.TombObjects.PushableStatue[],
+			[3] class Sims3.Gameplay.Objects.TombObjects.PushableStatue,
+			[4] class Sims3.Gameplay.Objects.TombObjects.PushableStatue[],
+			[5] int32,
+			[6] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldarg.0
+		IL_0003: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0008: stloc.1
+		IL_0009: ldarg.0
+		IL_000a: isinst Sims3.Gameplay.Objects.TombObjects.WallTrap
+		IL_000f: brfalse.s IL_0028
+
+		IL_0011: ldloc.1
+		IL_0012: ldarg.0
+		IL_0013: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+		IL_0018: ldc.r4 0.5
+		IL_001d: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0022: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0027: stloc.1
+
+		IL_0028: ldloc.1
+		IL_0029: ldc.r4 5
+		IL_002e: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.PushableStatue>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0033: stloc.2
+		IL_0034: ldloc.2
+		IL_0035: stloc.s 4
+		IL_0037: ldc.i4.0
+		IL_0038: stloc.s 5
+		IL_003a: br.s IL_0088
+		// loop start (head: IL_0088)
+			IL_003c: ldloc.s 4
+			IL_003e: ldloc.s 5
+			IL_0040: ldelem.ref
+			IL_0041: stloc.3
+			IL_0042: ldloc.3
+			IL_0043: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_0048: ldarg.0
+			IL_0049: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_004e: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0053: stloc.s 6
+			IL_0055: ldloca.s 6
+			IL_0057: call instance float32 [SimIFace]Sims3.SimIFace.Vector3::LengthSqr()
+			IL_005c: ldc.r4 2.1025002
+			IL_0061: bge.un.s IL_0082
+
+			IL_0063: ldarg.0
+			IL_0064: ldarg.1
+			IL_0065: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TombTrap::CoverByStatue(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_006a: brfalse.s IL_0090
+
+			IL_006c: ldc.i4.1
+			IL_006d: stloc.0
+			IL_006e: ldloc.3
+			IL_006f: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_0074: ldc.i4 145016746
+			IL_0079: ldarg.1
+			IL_007a: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_007f: pop
+			IL_0080: br.s IL_0090
+
+			IL_0082: ldloc.s 5
+			IL_0084: ldc.i4.1
+			IL_0085: add
+			IL_0086: stloc.s 5
+
+			IL_0088: ldloc.s 5
+			IL_008a: ldloc.s 4
+			IL_008c: ldlen
+			IL_008d: conv.i4
+			IL_008e: blt.s IL_003c
+		// end loop
+
+		IL_0090: ldloc.0
+		IL_0091: ret
+	} // end of method PushableStatue::CheckForPushableStatueEffects
+
+	.method private hidebysig 
+		instance bool CheckForEffectsNewPosition (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 newPos,
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x26414
+		// Header size: 12
+		// Code size: 304 (0x130)
+		.maxstack 3
+		.locals init (
+			[0] bool,
+			[1] class Sims3.Gameplay.Objects.TombObjects.FloorSwitch[],
+			[2] class Sims3.Gameplay.Objects.TombObjects.FloorSwitch,
+			[3] class Sims3.Gameplay.Objects.TombObjects.FloorTrap[],
+			[4] class Sims3.Gameplay.Objects.TombObjects.TombTrap,
+			[5] class Sims3.Gameplay.Objects.TombObjects.WallTrap[],
+			[6] class Sims3.Gameplay.Objects.TombObjects.TombTrap,
+			[7] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[8] class Sims3.Gameplay.Objects.TombObjects.FloorSwitch[],
+			[9] int32,
+			[10] class Sims3.Gameplay.Objects.TombObjects.FloorTrap[],
+			[11] int32,
+			[12] class Sims3.Gameplay.Objects.TombObjects.WallTrap[],
+			[13] int32,
+			[14] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldarg.0
+		IL_0003: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+		IL_0008: brfalse.s IL_0057
+
+		IL_000a: ldarg.1
+		IL_000b: ldc.r4 0.8
+		IL_0010: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0015: stloc.1
+		IL_0016: ldloc.1
+		IL_0017: stloc.s 8
+		IL_0019: ldc.i4.0
+		IL_001a: stloc.s 9
+		IL_001c: br.s IL_004f
+		// loop start (head: IL_004f)
+			IL_001e: ldloc.s 8
+			IL_0020: ldloc.s 9
+			IL_0022: ldelem.ref
+			IL_0023: stloc.2
+			IL_0024: ldloc.2
+			IL_0025: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InWorld()
+			IL_002a: brfalse.s IL_0049
+
+			IL_002c: ldloc.2
+			IL_002d: ldarg.2
+			IL_002e: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::PushSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0033: brfalse.s IL_0049
+
+			IL_0035: ldc.i4.1
+			IL_0036: stloc.0
+			IL_0037: ldarg.0
+			IL_0038: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_003d: ldc.i4 145016746
+			IL_0042: ldarg.2
+			IL_0043: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0048: pop
+
+			IL_0049: ldloc.s 9
+			IL_004b: ldc.i4.1
+			IL_004c: add
+			IL_004d: stloc.s 9
+
+			IL_004f: ldloc.s 9
+			IL_0051: ldloc.s 8
+			IL_0053: ldlen
+			IL_0054: conv.i4
+			IL_0055: blt.s IL_001e
+		// end loop
+
+		IL_0057: ldarg.1
+		IL_0058: ldc.r4 1.45
+		IL_005d: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.FloorTrap>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0062: stloc.3
+		IL_0063: ldloc.3
+		IL_0064: stloc.s 10
+		IL_0066: ldc.i4.0
+		IL_0067: stloc.s 11
+		IL_0069: br.s IL_009d
+		// loop start (head: IL_009d)
+			IL_006b: ldloc.s 10
+			IL_006d: ldloc.s 11
+			IL_006f: ldelem.ref
+			IL_0070: stloc.s 4
+			IL_0072: ldloc.s 4
+			IL_0074: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InWorld()
+			IL_0079: brfalse.s IL_0097
+
+			IL_007b: ldloc.s 4
+			IL_007d: ldarg.2
+			IL_007e: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TombTrap::CoverByStatue(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0083: brfalse.s IL_0097
+
+			IL_0085: ldarg.0
+			IL_0086: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_008b: ldc.i4 145016746
+			IL_0090: ldarg.2
+			IL_0091: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0096: pop
+
+			IL_0097: ldloc.s 11
+			IL_0099: ldc.i4.1
+			IL_009a: add
+			IL_009b: stloc.s 11
+
+			IL_009d: ldloc.s 11
+			IL_009f: ldloc.s 10
+			IL_00a1: ldlen
+			IL_00a2: conv.i4
+			IL_00a3: blt.s IL_006b
+		// end loop
+
+		IL_00a5: ldarg.1
+		IL_00a6: ldc.r4 5
+		IL_00ab: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.WallTrap>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_00b0: stloc.s 5
+		IL_00b2: ldloc.s 5
+		IL_00b4: stloc.s 12
+		IL_00b6: ldc.i4.0
+		IL_00b7: stloc.s 13
+		IL_00b9: br.s IL_0126
+		// loop start (head: IL_0126)
+			IL_00bb: ldloc.s 12
+			IL_00bd: ldloc.s 13
+			IL_00bf: ldelem.ref
+			IL_00c0: stloc.s 6
+			IL_00c2: ldloc.s 6
+			IL_00c4: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_00c9: ldloc.s 6
+			IL_00cb: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+			IL_00d0: ldc.r4 0.5
+			IL_00d5: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+			IL_00da: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00df: stloc.s 7
+			IL_00e1: ldloc.s 7
+			IL_00e3: ldarg.1
+			IL_00e4: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00e9: stloc.s 14
+			IL_00eb: ldloca.s 14
+			IL_00ed: call instance float32 [SimIFace]Sims3.SimIFace.Vector3::LengthSqr()
+			IL_00f2: ldc.r4 2.1025002
+			IL_00f7: bge.un.s IL_0120
+
+			IL_00f9: ldloc.s 6
+			IL_00fb: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InWorld()
+			IL_0100: brfalse.s IL_0120
+
+			IL_0102: ldloc.s 6
+			IL_0104: ldarg.2
+			IL_0105: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TombTrap::CoverByStatue(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_010a: brfalse.s IL_0120
+
+			IL_010c: ldc.i4.1
+			IL_010d: stloc.0
+			IL_010e: ldarg.0
+			IL_010f: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_0114: ldc.i4 145016746
+			IL_0119: ldarg.2
+			IL_011a: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_011f: pop
+
+			IL_0120: ldloc.s 13
+			IL_0122: ldc.i4.1
+			IL_0123: add
+			IL_0124: stloc.s 13
+
+			IL_0126: ldloc.s 13
+			IL_0128: ldloc.s 12
+			IL_012a: ldlen
+			IL_012b: conv.i4
+			IL_012c: blt.s IL_00bb
+		// end loop
+
+		IL_012e: ldloc.0
+		IL_012f: ret
+	} // end of method PushableStatue::CheckForEffectsNewPosition
+
+	.method private hidebysig 
+		instance bool CheckForEffectsOldPosition (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x26550
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.0
+		IL_0002: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0007: ldarg.1
+		IL_0008: call instance bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::CheckForEffectsOldPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_000d: ret
+	} // end of method PushableStatue::CheckForEffectsOldPosition
+
+	.method private hidebysig 
+		instance bool CheckForEffectsOldPosition (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 position,
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x26560
+		// Header size: 12
+		// Code size: 84 (0x54)
+		.maxstack 3
+		.locals init (
+			[0] bool,
+			[1] class Sims3.Gameplay.Objects.TombObjects.FloorSwitch[],
+			[2] class Sims3.Gameplay.Objects.TombObjects.FloorSwitch,
+			[3] class Sims3.Gameplay.Objects.TombObjects.FloorSwitch[],
+			[4] int32
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldarg.0
+		IL_0003: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+		IL_0008: brfalse.s IL_0052
+
+		IL_000a: ldarg.1
+		IL_000b: ldc.r4 0.8
+		IL_0010: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.FloorSwitch>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0015: stloc.1
+		IL_0016: ldloc.1
+		IL_0017: stloc.3
+		IL_0018: ldc.i4.0
+		IL_0019: stloc.s 4
+		IL_001b: br.s IL_004b
+		// loop start (head: IL_004b)
+			IL_001d: ldloc.3
+			IL_001e: ldloc.s 4
+			IL_0020: ldelem.ref
+			IL_0021: stloc.2
+			IL_0022: ldloc.2
+			IL_0023: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InWorld()
+			IL_0028: brfalse.s IL_0045
+
+			IL_002a: ldloc.2
+			IL_002b: ldarg.2
+			IL_002c: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.FloorSwitch::ReleaseSwitch(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0031: brfalse.s IL_0045
+
+			IL_0033: ldarg.0
+			IL_0034: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_0039: ldc.i4 145016746
+			IL_003e: ldarg.2
+			IL_003f: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0044: pop
+
+			IL_0045: ldloc.s 4
+			IL_0047: ldc.i4.1
+			IL_0048: add
+			IL_0049: stloc.s 4
+
+			IL_004b: ldloc.s 4
+			IL_004d: ldloc.3
+			IL_004e: ldlen
+			IL_004f: conv.i4
+			IL_0050: blt.s IL_001d
+		// end loop
+
+		IL_0052: ldloc.0
+		IL_0053: ret
+	} // end of method PushableStatue::CheckForEffectsOldPosition
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x265c0
+		// Header size: 1
+		// Code size: 46 (0x2e)
+		.maxstack 8
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 144544850
+		IL_0006: ldarg.0
+		IL_0007: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+		IL_000c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0011: pop
+		IL_0012: ldarg.3
+		IL_0013: ldc.i4 144544867
+		IL_0018: ldarg.0
+		IL_0019: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+		IL_001e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0023: pop
+		IL_0024: ldarg.0
+		IL_0025: ldarg.1
+		IL_0026: ldarg.2
+		IL_0027: ldarg.3
+		IL_0028: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_002d: ret
+	} // end of method PushableStatue::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x265f0
+		// Header size: 12
+		// Code size: 88 (0x58)
+		.maxstack 4
+		.locals init (
+			[0] int32
+		)
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 144544850
+		IL_0006: ldarg.0
+		IL_0007: ldflda bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+		IL_000c: ldc.i4.1
+		IL_000d: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_0012: pop
+		IL_0013: ldarg.3
+		IL_0014: ldc.i4 144544867
+		IL_0019: ldloca.s 0
+		IL_001b: ldsfld int32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kInvalidMoveSetting
+		IL_0020: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadInt32(uint32, int32&, int32)
+		IL_0025: pop
+		IL_0026: ldloc.0
+		IL_0027: ldsfld int32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kInvalidMoveSetting
+		IL_002c: beq.s IL_0045
+
+		IL_002e: ldtoken Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting
+		IL_0033: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_0038: ldloc.0
+		IL_0039: box [mscorlib]System.Int32
+		IL_003e: call bool [mscorlib]System.Enum::IsDefined(class [mscorlib]System.Type, object)
+		IL_0043: brtrue.s IL_0047
+
+		IL_0045: ldc.i4.0
+		IL_0046: ret
+
+		IL_0047: ldarg.0
+		IL_0048: ldloc.0
+		IL_0049: stfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+		IL_004e: ldarg.0
+		IL_004f: ldarg.1
+		IL_0050: ldarg.2
+		IL_0051: ldarg.3
+		IL_0052: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0057: ret
+	} // end of method PushableStatue::ImportContent
+
+	.method public final hidebysig newslot virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x26654
+		// Header size: 1
+		// Code size: 57 (0x39)
+		.maxstack 8
+
+		IL_0000: ldstr "PushableStatue"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "AbleToActivateSwitch"
+		IL_0010: ldarg.0
+		IL_0011: ldfld bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+		IL_0016: ldc.i4.1
+		IL_0017: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_001c: ldstr "PushableStatue"
+		IL_0021: ldarg.0
+		IL_0022: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0027: ldstr "MoveSetting"
+		IL_002c: ldarg.0
+		IL_002d: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+		IL_0032: ldc.i4.0
+		IL_0033: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0038: ret
+	} // end of method PushableStatue::SaveWorldBuilderData
+
+	.method public final hidebysig newslot virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x26690
+		// Header size: 12
+		// Code size: 67 (0x43)
+		.maxstack 4
+
+		IL_0000: ldsfld string[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::kWorldBuilderDataKeyRemap
+		IL_0005: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::SetKeyRemap(string[])
+		IL_000a: ldstr "PushableStatue"
+		IL_000f: ldarg.0
+		IL_0010: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0015: ldstr "AbleToActivateSwitch"
+		IL_001a: ldarg.0
+		IL_001b: ldflda bool Sims3.Gameplay.Objects.TombObjects.PushableStatue::mAbleToActivateSwitch
+		IL_0020: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0025: pop
+		IL_0026: ldstr "PushableStatue"
+		IL_002b: ldarg.0
+		IL_002c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0031: ldstr "MoveSetting"
+		IL_0036: ldarg.0
+		IL_0037: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting Sims3.Gameplay.Objects.TombObjects.PushableStatue::mMoveSetting
+		IL_003c: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<valuetype Sims3.Gameplay.Objects.TombObjects.PushableStatue/MoveSetting>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0041: pop
+		IL_0042: ret
+	} // end of method PushableStatue::LoadWorldBuilderData
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x266df
+		// Header size: 1
+		// Code size: 41 (0x29)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeSecretlyMovable::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.1
+		IL_000c: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_MakeVisiblyMovable::Singleton
+		IL_0011: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0016: ldarg.1
+		IL_0017: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.PushableStatue/BuildBuy_AllowSwitchActivation::Singleton
+		IL_001c: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0021: ldarg.0
+		IL_0022: ldarg.1
+		IL_0023: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0028: ret
+	} // end of method PushableStatue::AddBuildBuyInteractions
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x2670c
+		// Header size: 12
+		// Code size: 359 (0x167)
+		.maxstack 3
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[1] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[2] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[],
+			[3] string[],
+			[4] uint32,
+			[5] uint32
+		)
+
+		IL_0000: ldstr "Sims3.Gameplay.Objects.TombObjects"
+		IL_0005: ldc.i4.6
+		IL_0006: callvirt instance string [mscorlib]System.String::Substring(int32)
+		IL_000b: ldc.i4.s 46
+		IL_000d: ldc.i4.s 47
+		IL_000f: callvirt instance string [mscorlib]System.String::Replace(char, char)
+		IL_0014: ldstr "/PushableStatue"
+		IL_0019: call string [mscorlib]System.String::Concat(string, string)
+		IL_001e: stsfld string Sims3.Gameplay.Objects.TombObjects.PushableStatue::sLocalizationKey
+		IL_0023: ldc.i4 -2147483648 // 0x80000000
+		IL_0028: stsfld int32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kInvalidMoveSetting
+		IL_002d: ldc.i4.4
+		IL_002e: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_0033: stloc.0
+		IL_0034: ldloc.0
+		IL_0035: ldc.i4.0
+		IL_0036: ldc.i4 824351308
+		IL_003b: stelem.i4
+		IL_003c: ldloc.0
+		IL_003d: ldc.i4.1
+		IL_003e: ldc.i4 824351309
+		IL_0043: stelem.i4
+		IL_0044: ldloc.0
+		IL_0045: ldc.i4.2
+		IL_0046: ldc.i4 824351310
+		IL_004b: stelem.i4
+		IL_004c: ldloc.0
+		IL_004d: ldc.i4.3
+		IL_004e: ldc.i4 824351311
+		IL_0053: stelem.i4
+		IL_0054: ldloc.0
+		IL_0055: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::mRoutingSlots
+		IL_005a: ldc.i4.4
+		IL_005b: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_0060: stloc.1
+		IL_0061: ldloc.1
+		IL_0062: ldc.i4.0
+		IL_0063: ldc.i4 -1474234202 // 0xa820f8a6
+		IL_0068: stelem.i4
+		IL_0069: ldloc.1
+		IL_006a: ldc.i4.1
+		IL_006b: ldc.i4 -1474234201 // 0xa820f8a7
+		IL_0070: stelem.i4
+		IL_0071: ldloc.1
+		IL_0072: ldc.i4.2
+		IL_0073: ldc.i4 -1474234204 // 0xa820f8a4
+		IL_0078: stelem.i4
+		IL_0079: ldloc.1
+		IL_007a: ldc.i4.3
+		IL_007b: ldc.i4 -1474234203 // 0xa820f8a5
+		IL_0080: stelem.i4
+		IL_0081: ldloc.1
+		IL_0082: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::mContainmentSlots
+		IL_0087: ldstr "pushableStatuePull_footprintShape"
+		IL_008c: stsfld string Sims3.Gameplay.Objects.TombObjects.PushableStatue::sPullJigFootprintName
+		IL_0091: ldstr "pushableStatuePush_footprintShape"
+		IL_0096: stsfld string Sims3.Gameplay.Objects.TombObjects.PushableStatue::sPushJigFootprintName
+		IL_009b: ldstr "pushableStatuePull_footprintShape"
+		IL_00a0: call uint32 [SimIFace]Sims3.SimIFace.ResourceUtils::HashString32(string)
+		IL_00a5: stsfld uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::sPullJigFootprintHash
+		IL_00aa: ldstr "pushableStatuePush_footprintShape"
+		IL_00af: call uint32 [SimIFace]Sims3.SimIFace.ResourceUtils::HashString32(string)
+		IL_00b4: stsfld uint32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::sPushJigFootprintHash
+		IL_00b9: ldc.i4.s -45
+		IL_00bb: stsfld int32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kFearBuffThresholdPushPullStatue
+		IL_00c0: ldc.r4 2
+		IL_00c5: stsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kDirectionIndicatorFadeDelayTime
+		IL_00ca: ldc.r4 2
+		IL_00cf: stsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kDirectionIndicatorFadeOutTime
+		IL_00d4: ldc.r4 30
+		IL_00d9: stsfld float32 Sims3.Gameplay.Objects.TombObjects.PushableStatue::kDirectionIndicatorDestroyDelayTime
+		IL_00de: ldc.i4.5
+		IL_00df: newarr [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition
+		IL_00e4: stloc.2
+		IL_00e5: ldloc.2
+		IL_00e6: ldc.i4.0
+		IL_00e7: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Inspect::Singleton
+		IL_00ec: stelem.ref
+		IL_00ed: ldloc.2
+		IL_00ee: ldc.i4.1
+		IL_00ef: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Push
+		IL_00f4: stelem.ref
+		IL_00f5: ldloc.2
+		IL_00f6: ldc.i4.2
+		IL_00f7: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PushOnce
+		IL_00fc: stelem.ref
+		IL_00fd: ldloc.2
+		IL_00fe: ldc.i4.3
+		IL_00ff: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::Pull
+		IL_0104: stelem.ref
+		IL_0105: ldloc.2
+		IL_0106: ldc.i4.4
+		IL_0107: ldsfld class Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move/Definition Sims3.Gameplay.Objects.TombObjects.PushableStatue/Move::PullOnce
+		IL_010c: stelem.ref
+		IL_010d: ldloc.2
+		IL_010e: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::sInteractionDefinitions
+		IL_0113: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_0118: stsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorFadeAlarm
+		IL_011d: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_0122: stsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.PushableStatue::sDirectionIndicatorDisposeAlarm
+		IL_0127: ldc.i4.4
+		IL_0128: newarr [mscorlib]System.String
+		IL_012d: stloc.3
+		IL_012e: ldloc.3
+		IL_012f: ldc.i4.0
+		IL_0130: ldc.i4 144544850
+		IL_0135: stloc.s 4
+		IL_0137: ldloca.s 4
+		IL_0139: call instance string [mscorlib]System.UInt32::ToString()
+		IL_013e: stelem.ref
+		IL_013f: ldloc.3
+		IL_0140: ldc.i4.1
+		IL_0141: ldstr "AbleToActivateSwitch"
+		IL_0146: stelem.ref
+		IL_0147: ldloc.3
+		IL_0148: ldc.i4.2
+		IL_0149: ldc.i4 144544867
+		IL_014e: stloc.s 5
+		IL_0150: ldloca.s 5
+		IL_0152: call instance string [mscorlib]System.UInt32::ToString()
+		IL_0157: stelem.ref
+		IL_0158: ldloc.3
+		IL_0159: ldc.i4.3
+		IL_015a: ldstr "MoveSetting"
+		IL_015f: stelem.ref
+		IL_0160: ldloc.3
+		IL_0161: stsfld string[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::kWorldBuilderDataKeyRemap
+		IL_0166: ret
+	} // end of method PushableStatue::.cctor
+
+	// Properties
+	.property instance valuetype [SimIFace]Sims3.SimIFace.Slot[] RoutingSlots()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.PushableStatue::get_RoutingSlots()
+	}
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.PushableStatue

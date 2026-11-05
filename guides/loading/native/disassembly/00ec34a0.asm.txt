@@ -1,0 +1,140 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00ec34a0 <.text+0xac24a0>:
+  ec34a0:	83 ec 64             	sub    esp,0x64
+  ec34a3:	53                   	push   ebx
+  ec34a4:	56                   	push   esi
+  ec34a5:	57                   	push   edi
+  ec34a6:	e8 e5 5e 8a ff       	call   0x769390
+  ec34ab:	8b 5c 24 74          	mov    ebx,DWORD PTR [esp+0x74]
+  ec34af:	8b f8                	mov    edi,eax
+  ec34b1:	8b c3                	mov    eax,ebx
+  ec34b3:	25 00 00 00 ff       	and    eax,0xff000000
+  ec34b8:	33 f6                	xor    esi,esi
+  ec34ba:	3d 00 00 00 40       	cmp    eax,0x40000000
+  ec34bf:	74 04                	je     0xec34c5
+  ec34c1:	33 db                	xor    ebx,ebx
+  ec34c3:	eb 14                	jmp    0xec34d9
+  ec34c5:	e8 c6 5e 8a ff       	call   0x769390
+  ec34ca:	8b 10                	mov    edx,DWORD PTR [eax]
+  ec34cc:	8b c8                	mov    ecx,eax
+  ec34ce:	8b 82 cc 00 00 00    	mov    eax,DWORD PTR [edx+0xcc]
+  ec34d4:	53                   	push   ebx
+  ec34d5:	ff d0                	call   eax
+  ec34d7:	8b d8                	mov    ebx,eax
+  ec34d9:	3b fe                	cmp    edi,esi
+  ec34db:	0f 84 90 00 00 00    	je     0xec3571
+  ec34e1:	3b de                	cmp    ebx,esi
+  ec34e3:	0f 85 88 00 00 00    	jne    0xec3571
+  ec34e9:	68 c4 a6 fb 00       	push   0xfba6c4
+  ec34ee:	8d 4c 24 24          	lea    ecx,[esp+0x24]
+  ec34f2:	89 74 24 24          	mov    DWORD PTR [esp+0x24],esi
+  ec34f6:	89 74 24 28          	mov    DWORD PTR [esp+0x28],esi
+  ec34fa:	89 74 24 2c          	mov    DWORD PTR [esp+0x2c],esi
+  ec34fe:	c7 44 24 30 f0 3b 00 	mov    DWORD PTR [esp+0x30],0x1003bf0
+  ec3505:	01 
+  ec3506:	e8 85 80 54 ff       	call   0x40b590
+  ec350b:	6a 01                	push   0x1
+  ec350d:	6a 10                	push   0x10
+  ec350f:	8d 4c 24 28          	lea    ecx,[esp+0x28]
+  ec3513:	51                   	push   ecx
+  ec3514:	6a 09                	push   0x9
+  ec3516:	bb f4 a6 fb 00       	mov    ebx,0xfba6f4
+  ec351b:	6a 13                	push   0x13
+  ec351d:	8d 4c 24 44          	lea    ecx,[esp+0x44]
+  ec3521:	89 5c 24 44          	mov    DWORD PTR [esp+0x44],ebx
+  ec3525:	66 89 74 24 4c       	mov    WORD PTR [esp+0x4c],si
+  ec352a:	66 89 74 24 4e       	mov    WORD PTR [esp+0x4e],si
+  ec352f:	e8 8c 24 63 ff       	call   0x4f59c0
+  ec3534:	8b 17                	mov    edx,DWORD PTR [edi]
+  ec3536:	8b 52 50             	mov    edx,DWORD PTR [edx+0x50]
+  ec3539:	8d 44 24 74          	lea    eax,[esp+0x74]
+  ec353d:	50                   	push   eax
+  ec353e:	8d 4c 24 34          	lea    ecx,[esp+0x34]
+  ec3542:	51                   	push   ecx
+  ec3543:	8b cf                	mov    ecx,edi
+  ec3545:	89 74 24 7c          	mov    DWORD PTR [esp+0x7c],esi
+  ec3549:	ff d2                	call   edx
+  ec354b:	f6 44 24 38 04       	test   BYTE PTR [esp+0x38],0x4
+  ec3550:	8b 7c 24 74          	mov    edi,DWORD PTR [esp+0x74]
+  ec3554:	89 5c 24 30          	mov    DWORD PTR [esp+0x30],ebx
+  ec3558:	74 0a                	je     0xec3564
+  ec355a:	56                   	push   esi
+  ec355b:	8d 4c 24 34          	lea    ecx,[esp+0x34]
+  ec355f:	e8 fc 21 63 ff       	call   0x4f5760
+  ec3564:	8b 4c 24 28          	mov    ecx,DWORD PTR [esp+0x28]
+  ec3568:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+  ec356c:	e9 94 00 00 00       	jmp    0xec3605
+  ec3571:	68 c4 a6 fb 00       	push   0xfba6c4
+  ec3576:	8d 4c 24 14          	lea    ecx,[esp+0x14]
+  ec357a:	89 74 24 14          	mov    DWORD PTR [esp+0x14],esi
+  ec357e:	89 74 24 18          	mov    DWORD PTR [esp+0x18],esi
+  ec3582:	89 74 24 1c          	mov    DWORD PTR [esp+0x1c],esi
+  ec3586:	c7 44 24 20 f0 3b 00 	mov    DWORD PTR [esp+0x20],0x1003bf0
+  ec358d:	01 
+  ec358e:	e8 fd 7f 54 ff       	call   0x40b590
+  ec3593:	68 00 e0 00 00       	push   0xe000
+  ec3598:	8d 54 24 14          	lea    edx,[esp+0x14]
+  ec359c:	52                   	push   edx
+  ec359d:	8b cb                	mov    ecx,ebx
+  ec359f:	e8 fc 65 90 ff       	call   0x7c9ba0
+  ec35a4:	6a 01                	push   0x1
+  ec35a6:	6a 10                	push   0x10
+  ec35a8:	8d 44 24 18          	lea    eax,[esp+0x18]
+  ec35ac:	50                   	push   eax
+  ec35ad:	6a 09                	push   0x9
+  ec35af:	bb f4 a6 fb 00       	mov    ebx,0xfba6f4
+  ec35b4:	6a 13                	push   0x13
+  ec35b6:	8d 4c 24 64          	lea    ecx,[esp+0x64]
+  ec35ba:	89 5c 24 64          	mov    DWORD PTR [esp+0x64],ebx
+  ec35be:	66 89 74 24 6c       	mov    WORD PTR [esp+0x6c],si
+  ec35c3:	66 89 74 24 6e       	mov    WORD PTR [esp+0x6e],si
+  ec35c8:	e8 f3 23 63 ff       	call   0x4f59c0
+  ec35cd:	8d 44 24 0c          	lea    eax,[esp+0xc]
+  ec35d1:	89 74 24 0c          	mov    DWORD PTR [esp+0xc],esi
+  ec35d5:	8b 17                	mov    edx,DWORD PTR [edi]
+  ec35d7:	8b 52 50             	mov    edx,DWORD PTR [edx+0x50]
+  ec35da:	50                   	push   eax
+  ec35db:	8d 4c 24 54          	lea    ecx,[esp+0x54]
+  ec35df:	51                   	push   ecx
+  ec35e0:	8b cf                	mov    ecx,edi
+  ec35e2:	ff d2                	call   edx
+  ec35e4:	f6 44 24 58 04       	test   BYTE PTR [esp+0x58],0x4
+  ec35e9:	8b 7c 24 0c          	mov    edi,DWORD PTR [esp+0xc]
+  ec35ed:	89 5c 24 50          	mov    DWORD PTR [esp+0x50],ebx
+  ec35f1:	74 0a                	je     0xec35fd
+  ec35f3:	56                   	push   esi
+  ec35f4:	8d 4c 24 54          	lea    ecx,[esp+0x54]
+  ec35f8:	e8 63 21 63 ff       	call   0x4f5760
+  ec35fd:	8b 4c 24 18          	mov    ecx,DWORD PTR [esp+0x18]
+  ec3601:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+  ec3605:	2b c8                	sub    ecx,eax
+  ec3607:	83 e1 fe             	and    ecx,0xfffffffe
+  ec360a:	83 f9 02             	cmp    ecx,0x2
+  ec360d:	7e 0d                	jle    0xec361c
+  ec360f:	3b c6                	cmp    eax,esi
+  ec3611:	74 09                	je     0xec361c
+  ec3613:	50                   	push   eax
+  ec3614:	e8 c7 0e 62 ff       	call   0x4e44e0
+  ec3619:	83 c4 04             	add    esp,0x4
+  ec361c:	8b c7                	mov    eax,edi
+  ec361e:	5f                   	pop    edi
+  ec361f:	5e                   	pop    esi
+  ec3620:	5b                   	pop    ebx
+  ec3621:	83 c4 64             	add    esp,0x64
+  ec3624:	c3                   	ret
+  ec3625:	cc                   	int3
+  ec3626:	cc                   	int3
+  ec3627:	cc                   	int3
+  ec3628:	cc                   	int3
+  ec3629:	cc                   	int3
+  ec362a:	cc                   	int3
+  ec362b:	cc                   	int3
+  ec362c:	cc                   	int3
+  ec362d:	cc                   	int3
+  ec362e:	cc                   	int3
+  ec362f:	cc                   	int3

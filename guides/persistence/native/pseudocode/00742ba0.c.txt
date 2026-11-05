@@ -1,0 +1,30 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function ScriptCore.LoadSaveManager::LoadSaveManager_SaveNativeObject:
+
+
+/* Verified PC 1.67 registration table at 0x01161228 (original PC 1.67 TS3W.exe).
+   ScriptCore.LoadSaveManager::LoadSaveManager_SaveNativeObject [assembly=ScriptCore
+   token=0x060001DB; nativeReader: System.UInt32, objectHandle: System.UInt32; return=System.Int32]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+undefined4 __cdecl ScriptCore.LoadSaveManager::LoadSaveManager_SaveNativeObject(uint param_1)
+
+{
+  int *piVar1;
+  undefined4 uVar2;
+  
+  if ((param_1 >> 0x18 == 0x42) || (param_1 >> 0x18 == 0x44)) {
+    piVar1 = (int *)SACS_GetManager();
+    piVar1 = (int *)(**(code **)(*piVar1 + 0xcc))(param_1);
+    if (piVar1 != (int *)0x0) {
+      uVar2 = (**(code **)(*piVar1 + 4))(param_1);
+      return uVar2;
+    }
+  }
+  return 0xffffffff;
+}
+
+

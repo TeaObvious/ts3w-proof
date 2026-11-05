@@ -1,0 +1,100 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x005a8fc0 (ScriptCore.CASUtils::CASUtils_BlendUnitLoadImpl)
+Paired Ghidra pseudocode: 005A8FC0_ScriptCore_CASUtils_CASUtils_BlendUnitLoadImpl.c
+Window: [0x005a8fc0, 0x005a9060) (160 bytes; stop exclusive)
+Next defined Ghidra entry: 0x005a9060
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+005a8fc0: 83 ec 14 e8 b8 6e f0 ff 8b 4c 24 20 8b 54 24 24
+005a8fd0: 6a 00 89 4c 24 08 8b 4c 24 1c 6a 00 6a 00 89 4c
+005a8fe0: 24 18 89 54 24 14 8b 54 24 28 6a 00 8d 4c 24 10
+005a8ff0: 51 89 54 24 24 8b 10 8b 52 0c 8d 4c 24 18 51 8b
+005a9000: c8 ff d2 84 c0 75 06 33 c0 83 c4 14 c3 8b 0c 24
+005a9010: 85 c9 56 74 16 8b 01 8b 50 0c 68 68 d6 30 55 ff
+005a9020: d2 8b f0 85 f6 75 12 8b 4c 24 04 8b 01 8b 50 04
+005a9030: ff d2 33 c0 5e 83 c4 14 c3 e8 52 03 1c 00 8b 10
+005a9040: 6a 35 8b c8 8b 82 c8 00 00 00 56 ff d0 5e 83 c4
+005a9050: 14 c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+005a8fc0 <.text+0x1a7fc0>:
+  5a8fc0:	83 ec 14                                        	sub    esp,0x14
+  5a8fc3:	e8 b8 6e f0 ff                                  	call   0x4afe80
+  5a8fc8:	8b 4c 24 20                                     	mov    ecx,DWORD PTR [esp+0x20]
+  5a8fcc:	8b 54 24 24                                     	mov    edx,DWORD PTR [esp+0x24]
+  5a8fd0:	6a 00                                           	push   0x0
+  5a8fd2:	89 4c 24 08                                     	mov    DWORD PTR [esp+0x8],ecx
+  5a8fd6:	8b 4c 24 1c                                     	mov    ecx,DWORD PTR [esp+0x1c]
+  5a8fda:	6a 00                                           	push   0x0
+  5a8fdc:	6a 00                                           	push   0x0
+  5a8fde:	89 4c 24 18                                     	mov    DWORD PTR [esp+0x18],ecx
+  5a8fe2:	89 54 24 14                                     	mov    DWORD PTR [esp+0x14],edx
+  5a8fe6:	8b 54 24 28                                     	mov    edx,DWORD PTR [esp+0x28]
+  5a8fea:	6a 00                                           	push   0x0
+  5a8fec:	8d 4c 24 10                                     	lea    ecx,[esp+0x10]
+  5a8ff0:	51                                              	push   ecx
+  5a8ff1:	89 54 24 24                                     	mov    DWORD PTR [esp+0x24],edx
+  5a8ff5:	8b 10                                           	mov    edx,DWORD PTR [eax]
+  5a8ff7:	8b 52 0c                                        	mov    edx,DWORD PTR [edx+0xc]
+  5a8ffa:	8d 4c 24 18                                     	lea    ecx,[esp+0x18]
+  5a8ffe:	51                                              	push   ecx
+  5a8fff:	8b c8                                           	mov    ecx,eax
+  5a9001:	ff d2                                           	call   edx
+  5a9003:	84 c0                                           	test   al,al
+  5a9005:	75 06                                           	jne    0x5a900d
+  5a9007:	33 c0                                           	xor    eax,eax
+  5a9009:	83 c4 14                                        	add    esp,0x14
+  5a900c:	c3                                              	ret
+  5a900d:	8b 0c 24                                        	mov    ecx,DWORD PTR [esp]
+  5a9010:	85 c9                                           	test   ecx,ecx
+  5a9012:	56                                              	push   esi
+  5a9013:	74 16                                           	je     0x5a902b
+  5a9015:	8b 01                                           	mov    eax,DWORD PTR [ecx]
+  5a9017:	8b 50 0c                                        	mov    edx,DWORD PTR [eax+0xc]
+  5a901a:	68 68 d6 30 55                                  	push   0x5530d668
+  5a901f:	ff d2                                           	call   edx
+  5a9021:	8b f0                                           	mov    esi,eax
+  5a9023:	85 f6                                           	test   esi,esi
+  5a9025:	75 12                                           	jne    0x5a9039
+  5a9027:	8b 4c 24 04                                     	mov    ecx,DWORD PTR [esp+0x4]
+  5a902b:	8b 01                                           	mov    eax,DWORD PTR [ecx]
+  5a902d:	8b 50 04                                        	mov    edx,DWORD PTR [eax+0x4]
+  5a9030:	ff d2                                           	call   edx
+  5a9032:	33 c0                                           	xor    eax,eax
+  5a9034:	5e                                              	pop    esi
+  5a9035:	83 c4 14                                        	add    esp,0x14
+  5a9038:	c3                                              	ret
+  5a9039:	e8 52 03 1c 00                                  	call   0x769390
+  5a903e:	8b 10                                           	mov    edx,DWORD PTR [eax]
+  5a9040:	6a 35                                           	push   0x35
+  5a9042:	8b c8                                           	mov    ecx,eax
+  5a9044:	8b 82 c8 00 00 00                               	mov    eax,DWORD PTR [edx+0xc8]
+  5a904a:	56                                              	push   esi
+  5a904b:	ff d0                                           	call   eax
+  5a904d:	5e                                              	pop    esi
+  5a904e:	83 c4 14                                        	add    esp,0x14
+  5a9051:	c3                                              	ret
+  5a9052:	cc                                              	int3
+  5a9053:	cc                                              	int3
+  5a9054:	cc                                              	int3
+  5a9055:	cc                                              	int3
+  5a9056:	cc                                              	int3
+  5a9057:	cc                                              	int3
+  5a9058:	cc                                              	int3
+  5a9059:	cc                                              	int3
+  5a905a:	cc                                              	int3
+  5a905b:	cc                                              	int3
+  5a905c:	cc                                              	int3
+  5a905d:	cc                                              	int3
+  5a905e:	cc                                              	int3
+  5a905f:	cc                                              	int3

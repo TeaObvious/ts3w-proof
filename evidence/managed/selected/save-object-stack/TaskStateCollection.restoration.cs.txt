@@ -1,0 +1,171 @@
+// Analyst: TakeState returns false only for an already-null slot; InvalidSavedTaskContext is consumed as true/null. WriteTask records full frame offsets/fields/evaluation values, not an interaction method restart.
+public bool TakeState(int index, out SavedTaskContext ctx)
+{
+	SavedTaskContext savedTaskContext = mSavedTaskContexts[index];
+	if (savedTaskContext == null)
+	{
+		ctx = null;
+		return false;
+	}
+	if (savedTaskContext == InvalidSavedTaskContext)
+	{
+		savedTaskContext = null;
+	}
+	mSavedTaskContexts[index] = null;
+	ctx = savedTaskContext;
+	return true;
+}
+
+using System;
+using System.Reflection;
+using Sims3.SimIFace;
+
+private WriteTaskResult WriteTask(FastStreamWriter writer, IPersistWriter persistWriter, ulong taskId)
+{
+	if (!TaskControl.GetTaskContext(taskId, methodsOnly: false, out var context))
+	{
+		return WriteTaskResult.Failed;
+	}
+	if (context.mFrames == null)
+	{
+		return WriteTaskResult.NotSleeping;
+	}
+	using (NativeYieldingCall nativeYieldingCall = new NativeYieldingCall(context.mNativeYieldCall))
+	{
+		if (nativeYieldingCall.Valid ? (!nativeYieldingCall.CanBeSaved) : (context.mSleepTicks == -2))
+		{
+			return WriteTaskResult.Failed;
+		}
+		Persist.WriteCompressedInt(writer, context.mSleepTicks);
+		if (!persistWriter.WriteReference(context.mYieldCallback))
+		{
+			return WriteTaskResult.Failed;
+		}
+		int num = -1;
+		if (nativeYieldingCall.Valid)
+		{
+			num = TaskControl.SaveNativeYieldObject(LoadSaveManager.CurrentNativeWriter.Handle, nativeYieldingCall);
+			if (num < 0)
+			{
+				return WriteTaskResult.Failed;
+			}
+		}
+		Persist.WriteCompressedInt(writer, num);
+		MethodInfo obj = null;
+		if (context.mYieldedMethodHandle.Value != IntPtr.Zero)
+		{
+			obj = (MethodInfo)MethodBase.GetMethodFromHandle(context.mYieldedMethodHandle);
+		}
+		persistWriter.WriteReference(obj);
+	}
+	Persist.WriteCompressedUint(writer, (uint)context.mFrames.Length);
+	TaskFieldReference taskFieldReference = default;
+	taskFieldReference.mFrameIndex = 0;
+	TaskFrame[] mFrames = context.mFrames;
+	for (int i = 0; i < mFrames.Length; i++)
+	{
+		TaskFrame taskFrame = mFrames[i];
+		_ = (MethodInfo)MethodBase.GetMethodFromHandle(taskFrame.mMethodHandle);
+		if (!GetMethodId(taskFrame.mMethodHandle, out var id))
+		{
+			return WriteTaskResult.Failed;
+		}
+		Persist.WriteCompressedUint(writer, id);
+		Persist.WriteCompressedUint(writer, taskFrame.mIPOffset);
+		Persist.WriteCompressedUint(writer, taskFrame.mSPOffset);
+		Persist.WriteCompressedUint(writer, taskFrame.mVTSPOffset);
+		Persist.WriteCompressedUint(writer, taskFrame.mRetValOffset);
+		Persist.WriteCompressedUint(writer, taskFrame.mArgsOffset);
+		object obj2 = taskFrame.mThisObj;
+		if (obj2 is IStackMarshalable stackMarshalable)
+		{
+			object obj3 = stackMarshalable.ConvertToStackReference();
+			if (obj3 == null)
+			{
+				return WriteTaskResult.Failed;
+			}
+			obj2 = obj3;
+		}
+		if (!persistWriter.WriteTypedField(obj2))
+		{
+			return WriteTaskResult.Failed;
+		}
+		Persist.WriteCompressedUint(writer, (uint)taskFrame.mFields.Length);
+		taskFieldReference.mFieldIndex = 0;
+		TaskFieldInfo[] mFields = taskFrame.mFields;
+		for (int j = 0; j < mFields.Length; j++)
+		{
+			TaskFieldInfo taskFieldInfo = mFields[j];
+			Type typeFromHandle = Type.GetTypeFromHandle(taskFieldInfo.mTypeHandle);
+			object outArray;
+			if (typeFromHandle.IsByRef)
+			{
+				TaskFieldReference fieldRef = taskFieldReference;
+				if (!TaskControl.ResolveFieldReference(taskId, ref fieldRef))
+				{
+					return WriteTaskResult.Failed;
+				}
+				outArray = fieldRef;
+			}
+			else
+			{
+				outArray = TaskControl.GetFieldValue(taskId, taskFieldReference);
+				if (outArray is Array array && !MarshalArray(ref outArray, array))
+				{
+					return WriteTaskResult.Failed;
+				}
+				if (outArray is IStackMarshalable stackMarshalable2)
+				{
+					object obj4 = stackMarshalable2.ConvertToStackReference();
+					if (obj4 == null)
+					{
+						return WriteTaskResult.Failed;
+					}
+					outArray = obj4;
+				}
+			}
+			if (!persistWriter.WriteTypedField(outArray))
+			{
+				return WriteTaskResult.Failed;
+			}
+			taskFieldReference.mFieldIndex++;
+		}
+		object[] mEvalStack = taskFrame.mEvalStack;
+		if (mEvalStack == null)
+		{
+			Persist.WriteCompressedUint(writer, 0u);
+		}
+		else
+		{
+			Persist.WriteCompressedUint(writer, (uint)mEvalStack.Length);
+			for (int k = 0; k < mEvalStack.Length; k++)
+			{
+				object outArray2 = mEvalStack[k];
+				if (obj2 is Array array2)
+				{
+					if (!MarshalArray(ref outArray2, array2))
+					{
+						return WriteTaskResult.Failed;
+					}
+					outArray2 = array2;
+				}
+				if (outArray2 is IStackMarshalable stackMarshalable3)
+				{
+					object obj5 = stackMarshalable3.ConvertToStackReference();
+					if (obj5 == null)
+					{
+						return WriteTaskResult.Failed;
+					}
+					outArray2 = obj5;
+				}
+				if (!persistWriter.WriteTypedField(outArray2))
+				{
+					return WriteTaskResult.Failed;
+				}
+			}
+		}
+		taskFieldReference.mFrameIndex++;
+	}
+	return WriteTaskResult.OK;
+}
+

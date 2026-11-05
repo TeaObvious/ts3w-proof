@@ -1,0 +1,2511 @@
+.class public auto ansi abstract beforefieldinit Sims3.Gameplay.Abstracts.NonAnimatedDoor
+	extends Sims3.Gameplay.Abstracts.CommonDoor
+{
+	// Nested Types
+	.class nested public auto ansi beforefieldinit NonAnimatedDoorPortalComponent
+		extends Sims3.Gameplay.ObjectComponents.PortalComponent
+	{
+		// Fields
+		.field private initonly float32 kDogOffsetEntry
+		.field private initonly float32 kDogOffsetExit
+
+		// Methods
+		.method public hidebysig specialname 
+			instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor get_Owner () cil managed 
+		{
+			// Method begins at RVA 0x1c80b8
+			// Header size: 1
+			// Code size: 12 (0xc)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0006: isinst Sims3.Gameplay.Abstracts.NonAnimatedDoor
+			IL_000b: ret
+		} // end of method NonAnimatedDoorPortalComponent::get_Owner
+
+		.method family hidebysig specialname virtual 
+			instance bool get_AddToUseListDuringTraversal () cil managed 
+		{
+			// Method begins at RVA 0x1c80c5
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method NonAnimatedDoorPortalComponent::get_AddToUseListDuringTraversal
+
+		.method family hidebysig specialname virtual 
+			instance bool get_RemoveFromUseListAfterTraversal () cil managed 
+		{
+			// Method begins at RVA 0x1c80c8
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method NonAnimatedDoorPortalComponent::get_RemoveFromUseListAfterTraversal
+
+		.method public hidebysig specialname virtual 
+			instance bool get_CanUseUmbrella () cil managed 
+		{
+			// Method begins at RVA 0x1c80cb
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ret
+		} // end of method NonAnimatedDoorPortalComponent::get_CanUseUmbrella
+
+		.method family hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x1c80ce
+			// Header size: 1
+			// Code size: 29 (0x1d)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldc.r4 0.066
+			IL_0006: stfld float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::kDogOffsetEntry
+			IL_000b: ldarg.0
+			IL_000c: ldc.r4 0.271
+			IL_0011: stfld float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::kDogOffsetExit
+			IL_0016: ldarg.0
+			IL_0017: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::.ctor()
+			IL_001c: ret
+		} // end of method NonAnimatedDoorPortalComponent::.ctor
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				class Sims3.Gameplay.Abstracts.GameObject owner
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c80ec
+			// Header size: 1
+			// Code size: 48 (0x30)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldc.r4 0.066
+			IL_0006: stfld float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::kDogOffsetEntry
+			IL_000b: ldarg.0
+			IL_000c: ldc.r4 0.271
+			IL_0011: stfld float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::kDogOffsetExit
+			IL_0016: ldarg.0
+			IL_0017: ldarg.1
+			IL_0018: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::.ctor(class Sims3.Gameplay.Abstracts.GameObject)
+			IL_001d: ldarg.0
+			IL_001e: ldarg.0
+			IL_001f: ldftn instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::AddPortalsComponentCallback()
+			IL_0025: newobj instance void Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback::.ctor(object, native int)
+			IL_002a: stfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+			IL_002f: ret
+		} // end of method NonAnimatedDoorPortalComponent::.ctor
+
+		.method private hidebysig 
+			instance void AddPortalsComponentCallback () cil managed 
+		{
+			// Method begins at RVA 0x1c811d
+			// Header size: 1
+			// Code size: 20 (0x14)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0006: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+			IL_000b: brfalse.s IL_0013
+
+			IL_000d: ldarg.0
+			IL_000e: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::AddPortals()
+
+			IL_0013: ret
+		} // end of method NonAnimatedDoorPortalComponent::AddPortalsComponentCallback
+
+		.method public hidebysig 
+			instance void AddPortals () cil managed 
+		{
+			// Method begins at RVA 0x1c8134
+			// Header size: 12
+			// Code size: 366 (0x16e)
+			.maxstack 8
+			.locals init (
+				[0] uint32,
+				[1] uint32,
+				[2] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+				[3] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[4] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[5] valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags,
+				[6] class [SimIFace]Sims3.SimIFace.PortalHandle,
+				[7] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[8] valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags,
+				[9] valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags,
+				[10] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+				[11] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[12] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[13] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[14] valuetype [SimIFace]Sims3.SimIFace.Vector3
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+			IL_0006: stloc.0
+			IL_0007: ldc.i4.0
+			IL_0008: stloc.1
+			IL_0009: br IL_0166
+			// loop start (head: IL_0166)
+				IL_000e: ldarg.0
+				IL_000f: ldloc.1
+				IL_0010: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent::GetSlotsForLaneIndex(uint32)
+				IL_0015: stloc.2
+				IL_0016: ldarg.0
+				IL_0017: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_001c: ldloc.2
+				IL_001d: ldc.i4.0
+				IL_001e: ldelem.u4
+				IL_001f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_0024: stloc.3
+				IL_0025: ldarg.0
+				IL_0026: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_002b: ldloc.2
+				IL_002c: ldc.i4.1
+				IL_002d: ldelem.u4
+				IL_002e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_0033: stloc.s 4
+				IL_0035: ldc.i4 -1058566145 // 0xc0e78fff
+				IL_003a: conv.i8
+				IL_003b: stloc.s 5
+				IL_003d: ldarg.0
+				IL_003e: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_0043: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+				IL_0048: ldloc.3
+				IL_0049: ldloc.s 4
+				IL_004b: ldarg.0
+				IL_004c: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_0051: callvirt instance float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalCost()
+				IL_0056: ldc.i4 47144
+				IL_005b: ldc.i4.0
+				IL_005c: ldloc.s 5
+				IL_005e: call class [SimIFace]Sims3.SimIFace.PortalHandle [SimIFace]Sims3.SimIFace.Route::AddPortal(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, float32, valuetype [SimIFace]Sims3.SimIFace.PortalType, valuetype [SimIFace]Sims3.SimIFace.RoutePortalFlags, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags)
+				IL_0063: stloc.s 6
+				IL_0065: ldloc.s 4
+				IL_0067: ldloc.3
+				IL_0068: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_006d: stloc.s 7
+				IL_006f: ldloca.s 7
+				IL_0071: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Normalize()
+				IL_0076: stloc.s 7
+				IL_0078: ldc.i4 1574784
+				IL_007d: conv.i8
+				IL_007e: stloc.s 8
+				IL_0080: ldarg.0
+				IL_0081: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_0086: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+				IL_008b: ldloc.s 6
+				IL_008d: ldloc.3
+				IL_008e: ldloc.s 7
+				IL_0090: ldarg.0
+				IL_0091: ldfld float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::kDogOffsetEntry
+				IL_0096: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+				IL_009b: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_00a0: ldloc.s 4
+				IL_00a2: ldloc.s 7
+				IL_00a4: ldarg.0
+				IL_00a5: ldfld float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::kDogOffsetExit
+				IL_00aa: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+				IL_00af: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_00b4: ldloc.s 4
+				IL_00b6: ldloc.s 7
+				IL_00b8: ldarg.0
+				IL_00b9: ldfld float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::kDogOffsetEntry
+				IL_00be: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+				IL_00c3: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_00c8: ldloc.3
+				IL_00c9: ldloc.s 7
+				IL_00cb: ldarg.0
+				IL_00cc: ldfld float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::kDogOffsetExit
+				IL_00d1: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+				IL_00d6: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+				IL_00db: ldloc.s 8
+				IL_00dd: call bool [SimIFace]Sims3.SimIFace.Route::AddPortalLocationVariation(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class [SimIFace]Sims3.SimIFace.PortalHandle, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags)
+				IL_00e2: pop
+				IL_00e3: ldarg.0
+				IL_00e4: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_00e9: isinst Sims3.Gameplay.Abstracts.IBarnDoor
+				IL_00ee: brfalse.s IL_0162
+
+				IL_00f0: ldc.i4 16803712
+				IL_00f5: conv.i8
+				IL_00f6: stloc.s 9
+				IL_00f8: ldarg.0
+				IL_00f9: ldloc.1
+				IL_00fa: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::GetHorseSlotsForLaneIndex(uint32)
+				IL_00ff: stloc.s 10
+				IL_0101: ldarg.0
+				IL_0102: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_0107: ldloc.s 10
+				IL_0109: ldc.i4.0
+				IL_010a: ldelem.u4
+				IL_010b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_0110: stloc.s 11
+				IL_0112: ldarg.0
+				IL_0113: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_0118: ldloc.s 10
+				IL_011a: ldc.i4.1
+				IL_011b: ldelem.u4
+				IL_011c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_0121: stloc.s 12
+				IL_0123: ldarg.0
+				IL_0124: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_0129: ldloc.s 10
+				IL_012b: ldc.i4.2
+				IL_012c: ldelem.u4
+				IL_012d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_0132: stloc.s 13
+				IL_0134: ldarg.0
+				IL_0135: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_013a: ldloc.s 10
+				IL_013c: ldc.i4.3
+				IL_013d: ldelem.u4
+				IL_013e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+				IL_0143: stloc.s 14
+				IL_0145: ldarg.0
+				IL_0146: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+				IL_014b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+				IL_0150: ldloc.s 6
+				IL_0152: ldloc.s 11
+				IL_0154: ldloc.s 12
+				IL_0156: ldloc.s 13
+				IL_0158: ldloc.s 14
+				IL_015a: ldloc.s 9
+				IL_015c: call bool [SimIFace]Sims3.SimIFace.Route::AddPortalLocationVariation(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class [SimIFace]Sims3.SimIFace.PortalHandle, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags)
+				IL_0161: pop
+
+				IL_0162: ldloc.1
+				IL_0163: ldc.i4.1
+				IL_0164: add
+				IL_0165: stloc.1
+
+				IL_0166: ldloc.1
+				IL_0167: ldloc.0
+				IL_0168: blt.un IL_000e
+			// end loop
+
+			IL_016d: ret
+		} // end of method NonAnimatedDoorPortalComponent::AddPortals
+
+		.method public hidebysig 
+			instance void RemovePortals () cil managed 
+		{
+			// Method begins at RVA 0x1c82ae
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0006: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_000b: call bool [SimIFace]Sims3.SimIFace.Route::RemovePortals(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0010: pop
+			IL_0011: ret
+		} // end of method NonAnimatedDoorPortalComponent::RemovePortals
+
+		.method public hidebysig virtual 
+			instance uint32 GetNumLanes () cil managed 
+		{
+			// Method begins at RVA 0x1c82c1
+			// Header size: 1
+			// Code size: 16 (0x10)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0006: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Abstracts.GameObject::GetRoutingSlots()
+			IL_000b: ldlen
+			IL_000c: conv.i4
+			IL_000d: ldc.i4.2
+			IL_000e: div
+			IL_000f: ret
+		} // end of method NonAnimatedDoorPortalComponent::GetNumLanes
+
+		.method public hidebysig virtual 
+			instance valuetype Sims3.Gameplay.ObjectComponents.PortalObjectType GetPortalObjectType () cil managed 
+		{
+			// Method begins at RVA 0x1c82d2
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ret
+		} // end of method NonAnimatedDoorPortalComponent::GetPortalObjectType
+
+		.method public hidebysig virtual 
+			instance valuetype [SimIFace]Sims3.SimIFace.Slot[] GetSlotsForLaneIndex (
+				uint32 laneIndex
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c82d8
+			// Header size: 12
+			// Code size: 71 (0x47)
+			.maxstack 3
+			.locals init (
+				[0] string,
+				[1] string,
+				[2] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+			)
+
+			IL_0000: ldstr "RoutingSlot_Door"
+			IL_0005: ldarg.1
+			IL_0006: box [mscorlib]System.UInt32
+			IL_000b: ldstr "_Front"
+			IL_0010: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_0015: stloc.0
+			IL_0016: ldstr "RoutingSlot_Door"
+			IL_001b: ldarg.1
+			IL_001c: box [mscorlib]System.UInt32
+			IL_0021: ldstr "_Rear"
+			IL_0026: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_002b: stloc.1
+			IL_002c: ldc.i4.2
+			IL_002d: newarr [SimIFace]Sims3.SimIFace.Slot
+			IL_0032: stloc.2
+			IL_0033: ldloc.2
+			IL_0034: ldc.i4.0
+			IL_0035: ldloc.0
+			IL_0036: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_003b: stelem.i4
+			IL_003c: ldloc.2
+			IL_003d: ldc.i4.1
+			IL_003e: ldloc.1
+			IL_003f: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0044: stelem.i4
+			IL_0045: ldloc.2
+			IL_0046: ret
+		} // end of method NonAnimatedDoorPortalComponent::GetSlotsForLaneIndex
+
+		.method public hidebysig 
+			instance valuetype [SimIFace]Sims3.SimIFace.Slot[] GetHorseSlotsForLaneIndex (
+				uint32 laneIndex
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c832c
+			// Header size: 12
+			// Code size: 139 (0x8b)
+			.maxstack 3
+			.locals init (
+				[0] string,
+				[1] string,
+				[2] string,
+				[3] string,
+				[4] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+			)
+
+			IL_0000: ldstr "RoutingSlot_Door"
+			IL_0005: ldarg.1
+			IL_0006: box [mscorlib]System.UInt32
+			IL_000b: ldstr "_Horse_FrontEntry"
+			IL_0010: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_0015: stloc.0
+			IL_0016: ldstr "RoutingSlot_Door"
+			IL_001b: ldarg.1
+			IL_001c: box [mscorlib]System.UInt32
+			IL_0021: ldstr "_Horse_RearExit"
+			IL_0026: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_002b: stloc.1
+			IL_002c: ldstr "RoutingSlot_Door"
+			IL_0031: ldarg.1
+			IL_0032: box [mscorlib]System.UInt32
+			IL_0037: ldstr "_Horse_RearEntry"
+			IL_003c: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_0041: stloc.2
+			IL_0042: ldstr "RoutingSlot_Door"
+			IL_0047: ldarg.1
+			IL_0048: box [mscorlib]System.UInt32
+			IL_004d: ldstr "_Horse_FrontExit"
+			IL_0052: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_0057: stloc.3
+			IL_0058: ldc.i4.4
+			IL_0059: newarr [SimIFace]Sims3.SimIFace.Slot
+			IL_005e: stloc.s 4
+			IL_0060: ldloc.s 4
+			IL_0062: ldc.i4.0
+			IL_0063: ldloc.0
+			IL_0064: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0069: stelem.i4
+			IL_006a: ldloc.s 4
+			IL_006c: ldc.i4.1
+			IL_006d: ldloc.1
+			IL_006e: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0073: stelem.i4
+			IL_0074: ldloc.s 4
+			IL_0076: ldc.i4.2
+			IL_0077: ldloc.2
+			IL_0078: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_007d: stelem.i4
+			IL_007e: ldloc.s 4
+			IL_0080: ldc.i4.3
+			IL_0081: ldloc.3
+			IL_0082: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0087: stelem.i4
+			IL_0088: ldloc.s 4
+			IL_008a: ret
+		} // end of method NonAnimatedDoorPortalComponent::GetHorseSlotsForLaneIndex
+
+		.method public hidebysig virtual 
+			instance class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot> GetStartSlotsForApproachingSim (
+				class Sims3.Gameplay.Actors.Sim s,
+				valuetype [SimIFace]Sims3.SimIFace.Vector3 preferredPos,
+				bool& preferredLaneSelected
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c83c4
+			// Header size: 12
+			// Code size: 100 (0x64)
+			.maxstack 3
+			.locals init (
+				[0] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+				[1] valuetype [SimIFace]Sims3.SimIFace.Slot,
+				[2] bool,
+				[3] uint32,
+				[4] class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>,
+				[5] uint32,
+				[6] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldc.i4.0
+			IL_0002: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent::GetSlotsForLaneIndex(uint32)
+			IL_0007: stloc.0
+			IL_0008: ldarg.0
+			IL_0009: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_000e: ldarg.2
+			IL_000f: ldloc.0
+			IL_0010: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Abstracts.GameObject::GetNearestSlot(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Slot[])
+			IL_0015: stloc.1
+			IL_0016: ldloc.1
+			IL_0017: ldloc.0
+			IL_0018: ldc.i4.0
+			IL_0019: ldelem.u4
+			IL_001a: ceq
+			IL_001c: stloc.2
+			IL_001d: ldarg.0
+			IL_001e: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+			IL_0023: stloc.3
+			IL_0024: ldloc.3
+			IL_0025: newobj instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::.ctor(int32)
+			IL_002a: stloc.s 4
+			IL_002c: ldc.i4.0
+			IL_002d: stloc.s 5
+			IL_002f: br.s IL_005c
+			// loop start (head: IL_005c)
+				IL_0031: ldarg.0
+				IL_0032: ldloc.s 5
+				IL_0034: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent::GetSlotsForLaneIndex(uint32)
+				IL_0039: stloc.s 6
+				IL_003b: ldloc.2
+				IL_003c: brfalse.s IL_004b
+
+				IL_003e: ldloc.s 4
+				IL_0040: ldloc.s 6
+				IL_0042: ldc.i4.0
+				IL_0043: ldelem.u4
+				IL_0044: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::Add(!0)
+				IL_0049: br.s IL_0056
+
+				IL_004b: ldloc.s 4
+				IL_004d: ldloc.s 6
+				IL_004f: ldc.i4.1
+				IL_0050: ldelem.u4
+				IL_0051: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::Add(!0)
+
+				IL_0056: ldloc.s 5
+				IL_0058: ldc.i4.1
+				IL_0059: add
+				IL_005a: stloc.s 5
+
+				IL_005c: ldloc.s 5
+				IL_005e: ldloc.3
+				IL_005f: blt.un.s IL_0031
+			// end loop
+
+			IL_0061: ldloc.s 4
+			IL_0063: ret
+		} // end of method NonAnimatedDoorPortalComponent::GetStartSlotsForApproachingSim
+
+		.method public hidebysig virtual 
+			instance bool IsLaneUnobstructed (
+				valuetype [SimIFace]Sims3.SimIFace.Slot[] laneSlots,
+				class Sims3.Gameplay.Actors.Sim s,
+				bool checkForSims,
+				valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption routeOptions
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c8434
+			// Header size: 1
+			// Code size: 51 (0x33)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0006: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+			IL_000b: brtrue.s IL_0027
+
+			IL_000d: ldarg.0
+			IL_000e: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0013: ldarg.2
+			IL_0014: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsActorUsingMe(class Sims3.Gameplay.Actors.Sim)
+			IL_0019: brfalse.s IL_0027
+
+			IL_001b: ldarg.0
+			IL_001c: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0021: ldarg.2
+			IL_0022: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::RemoveFromUseList(class Sims3.Gameplay.Actors.Sim)
+
+			IL_0027: ldarg.0
+			IL_0028: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_002d: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+			IL_0032: ret
+		} // end of method NonAnimatedDoorPortalComponent::IsLaneUnobstructed
+
+		.method public hidebysig virtual 
+			instance bool LockRoutingLane (
+				class Sims3.Gameplay.Actors.Sim s,
+				valuetype [SimIFace]Sims3.SimIFace.Vector3 preferredPos,
+				bool checkForSims,
+				valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption routeOptions,
+				[out] bool& preferredLaneSelected
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c8468
+			// Header size: 1
+			// Code size: 29 (0x1d)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldarg.1
+			IL_0002: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::IsFullyBlocked(class Sims3.Gameplay.Actors.Sim)
+			IL_0007: brfalse.s IL_000f
+
+			IL_0009: ldarg.s preferredLaneSelected
+			IL_000b: ldc.i4.0
+			IL_000c: stind.i1
+			IL_000d: ldc.i4.0
+			IL_000e: ret
+
+			IL_000f: ldarg.0
+			IL_0010: ldarg.1
+			IL_0011: ldarg.2
+			IL_0012: ldarg.3
+			IL_0013: ldarg.s routeOptions
+			IL_0015: ldarg.s preferredLaneSelected
+			IL_0017: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::LockRoutingLane(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Vector3, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool&)
+			IL_001c: ret
+		} // end of method NonAnimatedDoorPortalComponent::LockRoutingLane
+
+		.method public hidebysig virtual 
+			instance bool OnPortalStart (
+				class Sims3.Gameplay.Actors.Sim s
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c8486
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method NonAnimatedDoorPortalComponent::OnPortalStart
+
+		.method family hidebysig virtual 
+			instance bool OnPortalStop (
+				class Sims3.Gameplay.Actors.Sim s
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c8489
+			// Header size: 1
+			// Code size: 52 (0x34)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0006: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsAutoshut()
+			IL_000b: brfalse.s IL_0026
+
+			IL_000d: ldarg.0
+			IL_000e: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0013: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanClose()
+			IL_0018: brfalse.s IL_0026
+
+			IL_001a: ldarg.0
+			IL_001b: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0020: ldarg.1
+			IL_0021: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::CloseWhenAble(class Sims3.Gameplay.Actors.Sim)
+
+			IL_0026: ldarg.0
+			IL_0027: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_002c: ldarg.1
+			IL_002d: callvirt instance void Sims3.Gameplay.Abstracts.CommonDoor::OnWalkedThrough(class Sims3.Gameplay.Actors.Sim)
+			IL_0032: ldc.i4.1
+			IL_0033: ret
+		} // end of method NonAnimatedDoorPortalComponent::OnPortalStop
+
+		.method family hidebysig virtual 
+			instance bool DoAdditionalLaneChecks (
+				bool bPreferedLane,
+				class Sims3.Gameplay.Actors.Sim s,
+				valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo laneInfo
+			) cil managed 
+		{
+			// Method begins at RVA 0x1c84c0
+			// Header size: 12
+			// Code size: 347 (0x15b)
+			.maxstack 9
+			.locals init (
+				[0] bool,
+				[1] bool,
+				[2] valuetype [SimIFace]Sims3.SimIFace.BlockedStatus,
+				[3] valuetype [SimIFace]Sims3.SimIFace.BlockedStatus,
+				[4] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>,
+				[5] int32
+			)
+
+			IL_0000: ldc.i4.0
+			IL_0001: stloc.0
+			IL_0002: ldc.i4.0
+			IL_0003: stloc.1
+			IL_0004: ldarg.2
+			IL_0005: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsHuman()
+			IL_000a: brfalse.s IL_0048
+
+			IL_000c: ldarg.0
+			IL_000d: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_0012: ldarg.2
+			IL_0013: ldarga.s laneInfo
+			IL_0015: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_001a: ldc.i4.0
+			IL_001b: ldelem.u4
+			IL_001c: ldarg.2
+			IL_001d: ldc.i4.1
+			IL_001e: ldc.i4.0
+			IL_001f: conv.i8
+			IL_0020: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsRoutingSlotObstructed(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Abstracts.GameObject, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption)
+			IL_0025: brtrue.s IL_0042
+
+			IL_0027: ldarg.0
+			IL_0028: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_002d: ldarg.2
+			IL_002e: ldarga.s laneInfo
+			IL_0030: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_0035: ldc.i4.1
+			IL_0036: ldelem.u4
+			IL_0037: ldarg.2
+			IL_0038: ldc.i4.1
+			IL_0039: ldc.i4.0
+			IL_003a: conv.i8
+			IL_003b: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsRoutingSlotObstructed(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Abstracts.GameObject, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption)
+			IL_0040: br.s IL_0043
+
+			IL_0042: ldc.i4.1
+
+			IL_0043: stloc.0
+			IL_0044: ldc.i4.0
+			IL_0045: stloc.1
+			IL_0046: br.s IL_00b1
+
+			IL_0048: ldarg.0
+			IL_0049: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_004e: ldarg.2
+			IL_004f: ldarga.s laneInfo
+			IL_0051: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_0056: ldc.i4.0
+			IL_0057: ldelem.u4
+			IL_0058: ldarg.2
+			IL_0059: ldc.i4.1
+			IL_005a: ldc.i4.0
+			IL_005b: conv.i8
+			IL_005c: ldarg.2
+			IL_005d: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0062: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+			IL_0067: ldc.i4.0
+			IL_0068: ldloca.s 2
+			IL_006a: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsRoutingSlotObstructed(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Abstracts.GameObject, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool, valuetype [SimIFace]Sims3.SimIFace.BlockedStatus&)
+			IL_006f: pop
+			IL_0070: ldloc.2
+			IL_0071: ldc.i4.1
+			IL_0072: bgt.s IL_00a7
+
+			IL_0074: ldc.i4.0
+			IL_0075: stloc.3
+			IL_0076: ldarg.0
+			IL_0077: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_007c: ldarg.2
+			IL_007d: ldarga.s laneInfo
+			IL_007f: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_0084: ldc.i4.1
+			IL_0085: ldelem.u4
+			IL_0086: ldarg.2
+			IL_0087: ldc.i4.1
+			IL_0088: ldc.i4.0
+			IL_0089: conv.i8
+			IL_008a: ldarg.2
+			IL_008b: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0090: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+			IL_0095: ldc.i4.1
+			IL_0096: ldloca.s 3
+			IL_0098: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsRoutingSlotObstructed(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Abstracts.GameObject, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool, valuetype [SimIFace]Sims3.SimIFace.BlockedStatus&)
+			IL_009d: brfalse.s IL_00a7
+
+			IL_009f: ldloc.2
+			IL_00a0: ldloc.3
+			IL_00a1: call int32 [mscorlib]System.Math::Max(int32, int32)
+			IL_00a6: stloc.2
+
+			IL_00a7: ldloc.2
+			IL_00a8: ldc.i4.1
+			IL_00a9: ceq
+			IL_00ab: stloc.0
+			IL_00ac: ldloc.2
+			IL_00ad: ldc.i4.1
+			IL_00ae: cgt
+			IL_00b0: stloc.1
+
+			IL_00b1: ldloc.0
+			IL_00b2: brfalse IL_0154
+
+			IL_00b7: ldarg.0
+			IL_00b8: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_00bd: ldarga.s laneInfo
+			IL_00bf: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_00c4: ldc.i4.0
+			IL_00c5: ldelem.u4
+			IL_00c6: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_00cb: ldc.r4 0.5
+			IL_00d0: call !!0[] Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Actors.Sim>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+			IL_00d5: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+			IL_00da: stloc.s 4
+			IL_00dc: ldloc.s 4
+			IL_00de: ldarg.0
+			IL_00df: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+			IL_00e4: ldarga.s laneInfo
+			IL_00e6: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_00eb: ldc.i4.1
+			IL_00ec: ldelem.u4
+			IL_00ed: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_00f2: ldc.r4 0.5
+			IL_00f7: call !!0[] Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Actors.Sim>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+			IL_00fc: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::AddRange(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+			IL_0101: ldc.i4.0
+			IL_0102: stloc.s 5
+			IL_0104: br.s IL_0132
+			// loop start (head: IL_0132)
+				IL_0106: ldloc.s 4
+				IL_0108: ldloc.s 5
+				IL_010a: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Item(int32)
+				IL_010f: brfalse.s IL_0121
+
+				IL_0111: ldloc.s 4
+				IL_0113: ldloc.s 5
+				IL_0115: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Item(int32)
+				IL_011a: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsRouting()
+				IL_011f: brfalse.s IL_012c
+
+				IL_0121: ldloc.s 4
+				IL_0123: ldloc.s 5
+				IL_0125: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::RemoveAt(int32)
+				IL_012a: br.s IL_0132
+
+				IL_012c: ldloc.s 5
+				IL_012e: ldc.i4.1
+				IL_012f: add
+				IL_0130: stloc.s 5
+
+				IL_0132: ldloc.s 5
+				IL_0134: ldloc.s 4
+				IL_0136: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+				IL_013b: blt.s IL_0106
+			// end loop
+
+			IL_013d: ldarg.2
+			IL_013e: ldloc.s 4
+			IL_0140: call float32 Sims3.Gameplay.Actors.SimRoutingComponent::get_PushSimsAwayDistanceMin()
+			IL_0145: call float32 Sims3.Gameplay.Actors.SimRoutingComponent::get_PushSimsAwayDistanceMax()
+			IL_014a: ldc.i4.1
+			IL_014b: ldc.i4.1
+			IL_014c: call bool Sims3.Gameplay.ObjectComponents.RoutingComponent::PushSimsStatic(class Sims3.Gameplay.Actors.Sim, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>, float32, float32, bool, bool)
+			IL_0151: pop
+			IL_0152: br.s IL_0159
+
+			IL_0154: ldloc.1
+			IL_0155: brfalse.s IL_0159
+
+			IL_0157: ldc.i4.0
+			IL_0158: ret
+
+			IL_0159: ldc.i4.1
+			IL_015a: ret
+		} // end of method NonAnimatedDoorPortalComponent::DoAdditionalLaneChecks
+
+		// Properties
+		.property instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Owner()
+		{
+			.get instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_Owner()
+		}
+		.property instance bool AddToUseListDuringTraversal()
+		{
+			.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_AddToUseListDuringTraversal()
+		}
+		.property instance bool RemoveFromUseListAfterTraversal()
+		{
+			.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_RemoveFromUseListAfterTraversal()
+		}
+		.property instance bool CanUseUmbrella()
+		{
+			.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::get_CanUseUmbrella()
+		}
+
+	} // end of class NonAnimatedDoorPortalComponent
+
+	.class nested private auto ansi sealed beforefieldinit OpenAndClose
+		extends class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor/OpenAndClose>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Abstracts.NonAnimatedDoor target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x1c8664
+				// Header size: 1
+				// Code size: 42 (0x2a)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+				IL_0006: brfalse.s IL_0019
+
+				IL_0008: ldstr "Gameplay/Abstracts/Doors:Close"
+				IL_000d: ldc.i4.0
+				IL_000e: newarr [mscorlib]System.Object
+				IL_0013: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+				IL_0018: ret
+
+				IL_0019: ldstr "Gameplay/Abstracts/Doors:Open"
+				IL_001e: ldc.i4.0
+				IL_001f: newarr [mscorlib]System.Object
+				IL_0024: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+				IL_0029: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Abstracts.NonAnimatedDoor target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x1c8690
+				// Header size: 12
+				// Code size: 67 (0x43)
+				.maxstack 2
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+				IL_0006: brfalse.s IL_0012
+
+				IL_0008: ldarg.2
+				IL_0009: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanClose()
+				IL_000e: brtrue.s IL_0012
+
+				IL_0010: ldc.i4.0
+				IL_0011: ret
+
+				IL_0012: ldarg.2
+				IL_0013: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+				IL_0018: brtrue.s IL_0024
+
+				IL_001a: ldarg.2
+				IL_001b: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanOpen()
+				IL_0020: brtrue.s IL_0024
+
+				IL_0022: ldc.i4.0
+				IL_0023: ret
+
+				IL_0024: ldarg.2
+				IL_0025: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsMoving()
+				IL_002a: brfalse.s IL_002e
+
+				IL_002c: ldc.i4.0
+				IL_002d: ret
+
+				IL_002e: ldarg.2
+				IL_002f: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::get_InUse()
+				IL_0034: brfalse.s IL_0041
+
+				IL_0036: ldarg.s greyedOutTooltipCallback
+				IL_0038: ldarg.2
+				IL_0039: callvirt instance class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_InUseGreyedOutTooltip()
+				IL_003e: stind.ref
+				IL_003f: ldc.i4.0
+				IL_0040: ret
+
+				IL_0041: ldc.i4.1
+				IL_0042: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x1c86df
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor/OpenAndClose>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x1c8627
+			// Header size: 1
+			// Code size: 40 (0x28)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>::Target
+			IL_0006: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+			IL_000b: brfalse.s IL_001a
+
+			IL_000d: ldarg.0
+			IL_000e: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>::Target
+			IL_0013: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::Close()
+			IL_0018: br.s IL_0026
+
+			IL_001a: ldarg.0
+			IL_001b: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>::Target
+			IL_0020: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::Open()
+			IL_0025: pop
+
+			IL_0026: ldc.i4.1
+			IL_0027: ret
+		} // end of method OpenAndClose::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x1c865c
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>::.ctor()
+			IL_0006: ret
+		} // end of method OpenAndClose::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x1c8650
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/OpenAndClose/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Abstracts.NonAnimatedDoor/OpenAndClose::Singleton
+			IL_000a: ret
+		} // end of method OpenAndClose::.cctor
+
+	} // end of class OpenAndClose
+
+	.class nested private auto ansi sealed beforefieldinit ToggleAutoShut
+		extends class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>
+	{
+		// Nested Types
+		.class nested private auto ansi beforefieldinit DebugDefinition
+			extends class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Abstracts.NonAnimatedDoor target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x1c8721
+				// Header size: 1
+				// Code size: 42 (0x2a)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsAutoshut()
+				IL_0006: brfalse.s IL_0019
+
+				IL_0008: ldstr "AutoshutOff"
+				IL_000d: ldc.i4.0
+				IL_000e: newarr [mscorlib]System.Object
+				IL_0013: call string Sims3.Gameplay.Abstracts.Door::LocalizeString(string, object[])
+				IL_0018: ret
+
+				IL_0019: ldstr "AutoshutOn"
+				IL_001e: ldc.i4.0
+				IL_001f: newarr [mscorlib]System.Object
+				IL_0024: call string Sims3.Gameplay.Abstracts.Door::LocalizeString(string, object[])
+				IL_0029: ret
+			} // end of method DebugDefinition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Abstracts.NonAnimatedDoor target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x1c874c
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method DebugDefinition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x1c874f
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut>::.ctor()
+				IL_0006: ret
+			} // end of method DebugDefinition::.ctor
+
+		} // end of class DebugDefinition
+
+		.class nested private auto ansi beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.ImmediateInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Abstracts.NonAnimatedDoor target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x1c8757
+				// Header size: 1
+				// Code size: 42 (0x2a)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsAutoshut()
+				IL_0006: brfalse.s IL_0019
+
+				IL_0008: ldstr "AutoshutOff"
+				IL_000d: ldc.i4.0
+				IL_000e: newarr [mscorlib]System.Object
+				IL_0013: call string Sims3.Gameplay.Abstracts.Door::LocalizeString(string, object[])
+				IL_0018: ret
+
+				IL_0019: ldstr "AutoshutOn"
+				IL_001e: ldc.i4.0
+				IL_001f: newarr [mscorlib]System.Object
+				IL_0024: call string Sims3.Gameplay.Abstracts.Door::LocalizeString(string, object[])
+				IL_0029: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Abstracts.NonAnimatedDoor target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x1c8782
+				// Header size: 1
+				// Code size: 23 (0x17)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+				IL_0006: ldarg.1
+				IL_0007: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Interfaces.IActor::get_LotHome()
+				IL_000c: beq.s IL_0010
+
+				IL_000e: ldc.i4.0
+				IL_000f: ret
+
+				IL_0010: ldarg.2
+				IL_0011: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanAutoshut()
+				IL_0016: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x1c879a
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition DebugSingleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x1c86e7
+			// Header size: 1
+			// Code size: 27 (0x1b)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>::Target
+			IL_000c: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsAutoshut()
+			IL_0011: ldc.i4.0
+			IL_0012: ceq
+			IL_0014: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::set_IsAutoshut(bool)
+			IL_0019: ldc.i4.1
+			IL_001a: ret
+		} // end of method ToggleAutoShut::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x1c8719
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Abstracts.NonAnimatedDoor>::.ctor()
+			IL_0006: ret
+		} // end of method ToggleAutoShut::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x1c8703
+			// Header size: 1
+			// Code size: 21 (0x15)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut::Singleton
+			IL_000a: newobj instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut/DebugDefinition::.ctor()
+			IL_000f: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut::DebugSingleton
+			IL_0014: ret
+		} // end of method ToggleAutoShut::.cctor
+
+	} // end of class ToggleAutoShut
+
+
+	// Fields
+	.field private static literal uint32 kNonAnimatedDoorIsAutoShut = uint32(3602696444)
+	.field private static initonly valuetype [SimIFace]Sims3.SimIFace.Slot kSlotOnFront
+	.field private static initonly valuetype [SimIFace]Sims3.SimIFace.Slot kSlotOnRear
+	.field private static class Sims3.Gameplay.Interactions.InteractionDefinition[] sInteractionDefinitions
+	.field private bool mIsAutoshut
+	.field private class Sims3.Gameplay.OneShotFunction mTryToCloseOneShot
+	.field family class Sims3.Gameplay.Actors.Sim mSimCausingAutoshut
+	.field private bool mIsOpen
+	.field private bool mIsMoving
+
+	// Methods
+	.method public hidebysig specialname 
+		instance bool get_IsAutoshut () cil managed 
+	{
+		// Method begins at RVA 0x1c7a97
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsAutoshut
+		IL_0006: ret
+	} // end of method NonAnimatedDoor::get_IsAutoshut
+
+	.method public hidebysig specialname 
+		instance void set_IsAutoshut (
+			bool 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7a9f
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsAutoshut
+		IL_0007: ret
+	} // end of method NonAnimatedDoor::set_IsAutoshut
+
+	.method family hidebysig specialname newslot virtual 
+		instance bool get_CanAutoshut () cil managed 
+	{
+		// Method begins at RVA 0x1c7aa8
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.0
+		IL_0001: ret
+	} // end of method NonAnimatedDoor::get_CanAutoshut
+
+	.method family hidebysig specialname virtual 
+		instance bool get_CanBeLocked () cil managed 
+	{
+		// Method begins at RVA 0x1c7aab
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0006: ldc.i4.0
+		IL_0007: ceq
+		IL_0009: ret
+	} // end of method NonAnimatedDoor::get_CanBeLocked
+
+	.method family hidebysig specialname virtual 
+		instance bool get_CanGoThrough () cil managed 
+	{
+		// Method begins at RVA 0x1c7ab6
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0006: ret
+	} // end of method NonAnimatedDoor::get_CanGoThrough
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance bool get_CanClose () cil managed 
+	{
+	} // end of method NonAnimatedDoor::get_CanClose
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance bool get_CanOpen () cil managed 
+	{
+	} // end of method NonAnimatedDoor::get_CanOpen
+
+	.method public hidebysig specialname 
+		instance bool get_IsOpen () cil managed 
+	{
+		// Method begins at RVA 0x1c7abe
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0006: ret
+	} // end of method NonAnimatedDoor::get_IsOpen
+
+	.method public hidebysig specialname 
+		instance bool get_IsMoving () cil managed 
+	{
+		// Method begins at RVA 0x1c7ac6
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsMoving
+		IL_0006: ret
+	} // end of method NonAnimatedDoor::get_IsMoving
+
+	.method public hidebysig specialname newslot abstract virtual 
+		instance string get_StateMachineName () cil managed 
+	{
+	} // end of method NonAnimatedDoor::get_StateMachineName
+
+	.method public hidebysig specialname newslot abstract virtual 
+		instance string get_StateMachineActorName () cil managed 
+	{
+	} // end of method NonAnimatedDoor::get_StateMachineActorName
+
+	.method public hidebysig specialname newslot abstract virtual 
+		instance string get_OpenGeoState () cil managed 
+	{
+	} // end of method NonAnimatedDoor::get_OpenGeoState
+
+	.method public hidebysig specialname newslot abstract virtual 
+		instance string get_ClosedGeoState () cil managed 
+	{
+	} // end of method NonAnimatedDoor::get_ClosedGeoState
+
+	.method public hidebysig specialname newslot abstract virtual 
+		instance float32 get_PortalCost () cil managed 
+	{
+	} // end of method NonAnimatedDoor::get_PortalCost
+
+	.method public hidebysig specialname 
+		instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent get_PortalComponent () cil managed 
+	{
+		// Method begins at RVA 0x1c7ace
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+		IL_0006: isinst Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent
+		IL_000b: ret
+	} // end of method NonAnimatedDoor::get_PortalComponent
+
+	.method public hidebysig specialname newslot virtual 
+		instance class [UI]Sims3.SimIFace.GreyedOutTooltipCallback get_InUseGreyedOutTooltip () cil managed 
+	{
+		// Method begins at RVA 0x1c7adb
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldnull
+		IL_0001: ret
+	} // end of method NonAnimatedDoor::get_InUseGreyedOutTooltip
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7ade
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut::DebugSingleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void Sims3.Gameplay.Abstracts.CommonDoor::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0012: ret
+	} // end of method NonAnimatedDoor::AddBuildBuyInteractions
+
+	.method family hidebysig virtual 
+		instance void AddDebugInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition> debugInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7af2
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut::DebugSingleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void Sims3.Gameplay.Abstracts.CommonDoor::AddDebugInteractions(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0012: ret
+	} // end of method NonAnimatedDoor::AddDebugInteractions
+
+	.method public hidebysig virtual 
+		instance void OnCreation () cil managed 
+	{
+		// Method begins at RVA 0x1c7b06
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnClose()
+		IL_0006: ret
+	} // end of method NonAnimatedDoor::OnCreation
+
+	.method public hidebysig virtual 
+		instance void OnLoad () cil managed 
+	{
+		// Method begins at RVA 0x1c7b0e
+		// Header size: 1
+		// Code size: 45 (0x2d)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+		IL_0006: brfalse.s IL_0026
+
+		IL_0008: ldarg.0
+		IL_0009: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+		IL_000e: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::RemovePortals()
+		IL_0013: ldarg.0
+		IL_0014: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0019: brfalse.s IL_0026
+
+		IL_001b: ldarg.0
+		IL_001c: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+		IL_0021: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::AddPortals()
+
+		IL_0026: ldarg.0
+		IL_0027: call instance void Sims3.Gameplay.Abstracts.GameObject::OnLoad()
+		IL_002c: ret
+	} // end of method NonAnimatedDoor::OnLoad
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x1c7b3c
+		// Header size: 1
+		// Code size: 41 (0x29)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.CommonDoor::OnStartup()
+		IL_0006: ldarg.0
+		IL_0007: ldc.i4.0
+		IL_0008: newarr [mscorlib]System.Object
+		IL_000d: call instance bool Sims3.Gameplay.Abstracts.GameObject::AddComponent<class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent>(object[])
+		IL_0012: pop
+		IL_0013: ldarg.0
+		IL_0014: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0019: brfalse.s IL_0022
+
+		IL_001b: ldarg.0
+		IL_001c: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnOpen()
+		IL_0021: ret
+
+		IL_0022: ldarg.0
+		IL_0023: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnClose()
+		IL_0028: ret
+	} // end of method NonAnimatedDoor::OnStartup
+
+	.method public hidebysig virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x1c7b66
+		// Header size: 1
+		// Code size: 35 (0x23)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.CommonDoor::LoadWorldBuilderData()
+		IL_0006: ldstr "SecretDoor"
+		IL_000b: ldarg.0
+		IL_000c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0011: ldstr "mIsAutoshut"
+		IL_0016: ldarg.0
+		IL_0017: ldflda bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsAutoshut
+		IL_001c: call bool Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0021: pop
+		IL_0022: ret
+	} // end of method NonAnimatedDoor::LoadWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x1c7b8a
+		// Header size: 1
+		// Code size: 35 (0x23)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.CommonDoor::SaveWorldBuilderData()
+		IL_0006: ldstr "SecretDoor"
+		IL_000b: ldarg.0
+		IL_000c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0011: ldstr "mIsAutoshut"
+		IL_0016: ldarg.0
+		IL_0017: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsAutoshut
+		IL_001c: ldc.i4.0
+		IL_001d: call void Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0022: ret
+	} // end of method NonAnimatedDoor::SaveWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7bb0
+		// Header size: 12
+		// Code size: 37 (0x25)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool Sims3.Gameplay.Abstracts.CommonDoor::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 -692270852 // 0xd6bcc8fc
+		IL_0010: ldarg.0
+		IL_0011: ldflda bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsAutoshut
+		IL_0016: ldc.i4.0
+		IL_0017: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_001c: pop
+		IL_001d: ldarg.0
+		IL_001e: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnClose()
+		IL_0023: ldloc.0
+		IL_0024: ret
+	} // end of method NonAnimatedDoor::ImportContent
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7be4
+		// Header size: 12
+		// Code size: 30 (0x1e)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool Sims3.Gameplay.Abstracts.CommonDoor::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 -692270852 // 0xd6bcc8fc
+		IL_0010: ldarg.0
+		IL_0011: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsAutoshut
+		IL_0016: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_001b: pop
+		IL_001c: ldloc.0
+		IL_001d: ret
+	} // end of method NonAnimatedDoor::ExportContent
+
+	.method public hidebysig virtual 
+		instance void Dispose () cil managed 
+	{
+		// Method begins at RVA 0x1c7c0e
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.OneShotFunction Sims3.Gameplay.Abstracts.NonAnimatedDoor::mTryToCloseOneShot
+		IL_0006: brfalse.s IL_001a
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld class Sims3.Gameplay.OneShotFunction Sims3.Gameplay.Abstracts.NonAnimatedDoor::mTryToCloseOneShot
+		IL_000e: callvirt instance void Sims3.Gameplay.Abstracts.ScriptObject::Destroy()
+		IL_0013: ldarg.0
+		IL_0014: ldnull
+		IL_0015: stfld class Sims3.Gameplay.OneShotFunction Sims3.Gameplay.Abstracts.NonAnimatedDoor::mTryToCloseOneShot
+
+		IL_001a: ldarg.0
+		IL_001b: ldnull
+		IL_001c: stfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Abstracts.NonAnimatedDoor::mSimCausingAutoshut
+		IL_0021: ldarg.0
+		IL_0022: call instance void Sims3.Gameplay.Abstracts.CommonDoor::Dispose()
+		IL_0027: ret
+	} // end of method NonAnimatedDoor::Dispose
+
+	.method public hidebysig virtual 
+		instance valuetype Sims3.Gameplay.ObjectComponents.PortalRestriction IsAllowedThrough (
+			int32 srcRoomId,
+			int32 destRoomId,
+			class Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7c37
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0006: brtrue.s IL_000a
+
+		IL_0008: ldc.i4.2
+		IL_0009: ret
+
+		IL_000a: ldc.i4.0
+		IL_000b: ret
+	} // end of method NonAnimatedDoor::IsAllowedThrough
+
+	.method public hidebysig virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot> GetRoutingSlotsOnSide (
+			valuetype Sims3.Gameplay.Abstracts.CommonDoor/tSide side
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7c44
+		// Header size: 12
+		// Code size: 101 (0x65)
+		.maxstack 4
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>,
+			[1] uint32,
+			[2] uint32
+		)
+
+		IL_0000: newobj instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::.ctor()
+		IL_0005: stloc.0
+		IL_0006: ldarg.0
+		IL_0007: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+		IL_000c: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_0011: stloc.1
+		IL_0012: ldc.i4.0
+		IL_0013: stloc.2
+		IL_0014: br.s IL_005f
+		// loop start (head: IL_005f)
+			IL_0016: ldarg.1
+			IL_0017: brtrue.s IL_003b
+
+			IL_0019: ldloc.0
+			IL_001a: ldstr "RoutingSlot_Door"
+			IL_001f: ldloc.2
+			IL_0020: box [mscorlib]System.UInt32
+			IL_0025: ldstr "_Front"
+			IL_002a: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_002f: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0034: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::Add(!0)
+			IL_0039: br.s IL_005b
+
+			IL_003b: ldloc.0
+			IL_003c: ldstr "RoutingSlot_Door"
+			IL_0041: ldloc.2
+			IL_0042: box [mscorlib]System.UInt32
+			IL_0047: ldstr "_Rear"
+			IL_004c: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_0051: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0056: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::Add(!0)
+
+			IL_005b: ldloc.2
+			IL_005c: ldc.i4.1
+			IL_005d: add
+			IL_005e: stloc.2
+
+			IL_005f: ldloc.2
+			IL_0060: ldloc.1
+			IL_0061: blt.un.s IL_0016
+		// end loop
+
+		IL_0063: ldloc.0
+		IL_0064: ret
+	} // end of method NonAnimatedDoor::GetRoutingSlotsOnSide
+
+	.method public hidebysig virtual 
+		instance bool GetSideOfDoorInRoom (
+			int32 roomId,
+			[out] valuetype Sims3.Gameplay.Abstracts.CommonDoor/tSide& side
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7cb8
+		// Header size: 12
+		// Code size: 96 (0x60)
+		.maxstack 2
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.LotLocation
+		)
+
+		IL_0000: ldarg.2
+		IL_0001: ldc.i4.0
+		IL_0002: stind.i4
+		IL_0003: ldarg.0
+		IL_0004: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+		IL_0009: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_000e: brtrue.s IL_0012
+
+		IL_0010: ldc.i4.0
+		IL_0011: ret
+
+		IL_0012: ldloca.s 0
+		IL_0014: initobj [SimIFace]Sims3.SimIFace.LotLocation
+		IL_001a: ldarg.0
+		IL_001b: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Abstracts.NonAnimatedDoor::kSlotOnFront
+		IL_0020: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0025: ldloca.s 0
+		IL_0027: call uint64 [SimIFace]Sims3.SimIFace.World::GetLotLocation(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.LotLocation&)
+		IL_002c: pop
+		IL_002d: ldloca.s 0
+		IL_002f: ldfld int16 [SimIFace]Sims3.SimIFace.LotLocation::mRoom
+		IL_0034: ldarg.1
+		IL_0035: bne.un.s IL_003c
+
+		IL_0037: ldarg.2
+		IL_0038: ldc.i4.0
+		IL_0039: stind.i4
+		IL_003a: ldc.i4.1
+		IL_003b: ret
+
+		IL_003c: ldarg.0
+		IL_003d: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Abstracts.NonAnimatedDoor::kSlotOnRear
+		IL_0042: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0047: ldloca.s 0
+		IL_0049: call uint64 [SimIFace]Sims3.SimIFace.World::GetLotLocation(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.LotLocation&)
+		IL_004e: pop
+		IL_004f: ldloca.s 0
+		IL_0051: ldfld int16 [SimIFace]Sims3.SimIFace.LotLocation::mRoom
+		IL_0056: ldarg.1
+		IL_0057: bne.un.s IL_005e
+
+		IL_0059: ldarg.2
+		IL_005a: ldc.i4.1
+		IL_005b: stind.i4
+		IL_005c: ldc.i4.1
+		IL_005d: ret
+
+		IL_005e: ldc.i4.0
+		IL_005f: ret
+	} // end of method NonAnimatedDoor::GetSideOfDoorInRoom
+
+	.method public hidebysig virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> GetAllInteractionsForActor (
+			class Sims3.Gameplay.Interfaces.IActor s
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7d24
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.0
+		IL_0003: ldarg.1
+		IL_0004: call instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> Sims3.Gameplay.Abstracts.CommonDoor::GetAllInteractionsForActor(class Sims3.Gameplay.Interfaces.IActor)
+		IL_0009: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Abstracts.NonAnimatedDoor::sInteractionDefinitions
+		IL_000e: call instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> Sims3.Gameplay.Abstracts.GameObject::BuildInteractions(class Sims3.Gameplay.Interfaces.IActor, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>, class Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_0013: ret
+	} // end of method NonAnimatedDoor::GetAllInteractionsForActor
+
+	.method public hidebysig virtual 
+		instance bool HasAnyInteraction (
+			class Sims3.Gameplay.Interfaces.IActor actor,
+			valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7d39
+		// Header size: 1
+		// Code size: 26 (0x1a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Abstracts.NonAnimatedDoor::sInteractionDefinitions
+		IL_0008: call instance bool Sims3.Gameplay.Abstracts.GameObject::TestInteractions(class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_000d: brfalse.s IL_0011
+
+		IL_000f: ldc.i4.1
+		IL_0010: ret
+
+		IL_0011: ldarg.0
+		IL_0012: ldarg.1
+		IL_0013: ldarg.2
+		IL_0014: call instance bool Sims3.Gameplay.Abstracts.CommonDoor::HasAnyInteraction(class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+		IL_0019: ret
+	} // end of method NonAnimatedDoor::HasAnyInteraction
+
+	.method public hidebysig virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Vector3[] GetPortalOpenings () cil managed 
+	{
+		// Method begins at RVA 0x1c7d54
+		// Header size: 12
+		// Code size: 132 (0x84)
+		.maxstack 5
+		.locals init (
+			[0] uint32,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3[],
+			[2] uint32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+		IL_0006: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_000b: stloc.0
+		IL_000c: ldc.i4.2
+		IL_000d: ldloc.0
+		IL_000e: mul
+		IL_000f: conv.u
+		IL_0010: newarr [SimIFace]Sims3.SimIFace.Vector3
+		IL_0015: stloc.1
+		IL_0016: ldc.i4.0
+		IL_0017: stloc.2
+		IL_0018: br.s IL_007e
+		// loop start (head: IL_007e)
+			IL_001a: ldloc.1
+			IL_001b: ldc.i4.2
+			IL_001c: ldloc.2
+			IL_001d: mul
+			IL_001e: conv.u
+			IL_001f: ldelema [SimIFace]Sims3.SimIFace.Vector3
+			IL_0024: ldarg.0
+			IL_0025: ldstr "RoutingSlot_Door"
+			IL_002a: ldloc.2
+			IL_002b: box [mscorlib]System.UInt32
+			IL_0030: ldstr "_Front"
+			IL_0035: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_003a: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_003f: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0044: stobj [SimIFace]Sims3.SimIFace.Vector3
+			IL_0049: ldloc.1
+			IL_004a: ldc.i4.2
+			IL_004b: ldloc.2
+			IL_004c: mul
+			IL_004d: ldc.i4.1
+			IL_004e: add
+			IL_004f: conv.u
+			IL_0050: ldelema [SimIFace]Sims3.SimIFace.Vector3
+			IL_0055: ldarg.0
+			IL_0056: ldstr "RoutingSlot_Door"
+			IL_005b: ldloc.2
+			IL_005c: box [mscorlib]System.UInt32
+			IL_0061: ldstr "_Rear"
+			IL_0066: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_006b: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0070: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0075: stobj [SimIFace]Sims3.SimIFace.Vector3
+			IL_007a: ldloc.2
+			IL_007b: ldc.i4.1
+			IL_007c: add
+			IL_007d: stloc.2
+
+			IL_007e: ldloc.2
+			IL_007f: ldloc.0
+			IL_0080: blt.un.s IL_001a
+		// end loop
+
+		IL_0082: ldloc.1
+		IL_0083: ret
+	} // end of method NonAnimatedDoor::GetPortalOpenings
+
+	.method private hidebysig 
+		instance void AnimateDoor (
+			bool open
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7de4
+		// Header size: 12
+		// Code size: 165 (0xa5)
+		.maxstack 5
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.StateMachineClient
+		)
+
+		IL_0000: br.s IL_0009
+		// loop start (head: IL_0009)
+			IL_0002: ldc.i4.s 10
+			IL_0004: call void [SimIFace]Sims3.SimIFace.Simulator::Sleep(uint32)
+
+			IL_0009: ldarg.0
+			IL_000a: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsMoving
+			IL_000f: brtrue.s IL_0002
+		// end loop
+
+		IL_0011: ldarg.0
+		IL_0012: ldc.i4.1
+		IL_0013: stfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsMoving
+		IL_0018: ldarg.0
+		IL_0019: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnStartMoving()
+		.try
+		{
+			.try
+			{
+				IL_001e: ldarg.0
+				IL_001f: ldarg.0
+				IL_0020: callvirt instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_StateMachineName()
+				IL_0025: call class [SimIFace]Sims3.SimIFace.StateMachineClient [SimIFace]Sims3.SimIFace.StateMachineClient::Acquire(class [SimIFace]Sims3.SimIFace.IHasScriptProxy, string)
+				IL_002a: stloc.0
+				IL_002b: ldarg.0
+				IL_002c: ldarg.1
+				IL_002d: ldloc.0
+				IL_002e: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::AddEventHandlers(bool, class [SimIFace]Sims3.SimIFace.StateMachineClient)
+				IL_0033: ldloc.0
+				IL_0034: ldarg.0
+				IL_0035: callvirt instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_StateMachineActorName()
+				IL_003a: ldarg.0
+				IL_003b: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+				IL_0040: ldloc.0
+				IL_0041: ldarg.0
+				IL_0042: callvirt instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_StateMachineActorName()
+				IL_0047: ldarg.1
+				IL_0048: brfalse.s IL_0051
+
+				IL_004a: ldstr "Closed"
+				IL_004f: br.s IL_0056
+
+				IL_0051: ldstr "Open"
+
+				IL_0056: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::EnterState(string, string)
+				IL_005b: ldloc.0
+				IL_005c: ldc.i4.1
+				IL_005d: ldarg.0
+				IL_005e: callvirt instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_StateMachineActorName()
+				IL_0063: ldarg.1
+				IL_0064: brtrue.s IL_006d
+
+				IL_0066: ldstr "Closed"
+				IL_006b: br.s IL_0072
+
+				IL_006d: ldstr "Open"
+
+				IL_0072: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::RequestState(bool, string, string)
+				IL_0077: ldloc.0
+				IL_0078: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::Dispose()
+				IL_007d: leave.s IL_009a
+			} // end .try
+			catch [SimIFace]Sims3.SimIFace.ResetException
+			{
+				IL_007f: pop
+				IL_0080: rethrow
+			} // end handler
+			catch [mscorlib]System.Object
+			{
+				IL_0082: pop
+				IL_0083: ldarg.1
+				IL_0084: brfalse.s IL_0090
+
+				IL_0086: ldarg.0
+				IL_0087: ldnull
+				IL_0088: ldnull
+				IL_0089: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnOpen(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+				IL_008e: br.s IL_0098
+
+				IL_0090: ldarg.0
+				IL_0091: ldnull
+				IL_0092: ldnull
+				IL_0093: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnClose(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+
+				IL_0098: leave.s IL_009a
+			} // end handler
+
+			IL_009a: leave.s IL_00a4
+		} // end .try
+		finally
+		{
+			IL_009c: ldarg.0
+			IL_009d: ldc.i4.0
+			IL_009e: stfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsMoving
+			IL_00a3: endfinally
+		} // end handler
+
+		IL_00a4: ret
+	} // end of method NonAnimatedDoor::AnimateDoor
+
+	.method family hidebysig newslot virtual 
+		instance void AddEventHandlers (
+			bool isOpening,
+			class [SimIFace]Sims3.SimIFace.StateMachineClient smc
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7ec0
+		// Header size: 12
+		// Code size: 68 (0x44)
+		.maxstack 5
+
+		IL_0000: ldarg.1
+		IL_0001: brfalse.s IL_0018
+
+		IL_0003: ldarg.2
+		IL_0004: ldc.i4.s 100
+		IL_0006: ldarg.0
+		IL_0007: ldftn instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnOpen(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_000d: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_0012: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_0017: ret
+
+		IL_0018: ldarg.2
+		IL_0019: ldc.i4.s 100
+		IL_001b: ldarg.0
+		IL_001c: ldftn instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnClose(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_0022: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_0027: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_002c: ldarg.2
+		IL_002d: ldc.i4 226
+		IL_0032: ldarg.0
+		IL_0033: ldftn instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnDoneMoving(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_0039: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_003e: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_0043: ret
+	} // end of method NonAnimatedDoor::AddEventHandlers
+
+	.method family hidebysig newslot virtual 
+		instance bool ShouldOpen () cil managed 
+	{
+		// Method begins at RVA 0x1c7f10
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method NonAnimatedDoor::ShouldOpen
+
+	.method family hidebysig newslot virtual 
+		instance bool ShouldClose () cil managed 
+	{
+		// Method begins at RVA 0x1c7f13
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method NonAnimatedDoor::ShouldClose
+
+	.method public hidebysig 
+		instance void Close () cil managed 
+	{
+		// Method begins at RVA 0x1c7f16
+		// Header size: 1
+		// Code size: 24 (0x18)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0006: brfalse.s IL_0017
+
+		IL_0008: ldarg.0
+		IL_0009: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::ShouldClose()
+		IL_000e: brfalse.s IL_0017
+
+		IL_0010: ldarg.0
+		IL_0011: ldc.i4.0
+		IL_0012: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::AnimateDoor(bool)
+
+		IL_0017: ret
+	} // end of method NonAnimatedDoor::Close
+
+	.method public hidebysig 
+		instance void CloseWhenAble () cil managed 
+	{
+		// Method begins at RVA 0x1c7f2f
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::CloseWhenAble(class Sims3.Gameplay.Actors.Sim)
+		IL_0007: ret
+	} // end of method NonAnimatedDoor::CloseWhenAble
+
+	.method public hidebysig 
+		instance void CloseWhenAble (
+			class Sims3.Gameplay.Actors.Sim simCausingAutoshut
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7f38
+		// Header size: 1
+		// Code size: 51 (0x33)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.OneShotFunction Sims3.Gameplay.Abstracts.NonAnimatedDoor::mTryToCloseOneShot
+		IL_0006: brtrue.s IL_0032
+
+		IL_0008: ldarg.0
+		IL_0009: ldarg.1
+		IL_000a: stfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Abstracts.NonAnimatedDoor::mSimCausingAutoshut
+		IL_000f: ldarg.0
+		IL_0010: ldarg.0
+		IL_0011: ldftn instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::TryToClose()
+		IL_0017: newobj instance void Sims3.Gameplay.Function::.ctor(object, native int)
+		IL_001c: newobj instance void Sims3.Gameplay.OneShotFunction::.ctor(class Sims3.Gameplay.Function)
+		IL_0021: stfld class Sims3.Gameplay.OneShotFunction Sims3.Gameplay.Abstracts.NonAnimatedDoor::mTryToCloseOneShot
+		IL_0026: ldarg.0
+		IL_0027: ldfld class Sims3.Gameplay.OneShotFunction Sims3.Gameplay.Abstracts.NonAnimatedDoor::mTryToCloseOneShot
+		IL_002c: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Simulator::AddObject(object)
+		IL_0031: pop
+
+		IL_0032: ret
+	} // end of method NonAnimatedDoor::CloseWhenAble
+
+	.method family hidebysig 
+		instance void TryToClose () cil managed 
+	{
+		// Method begins at RVA 0x1c7f6c
+		// Header size: 12
+		// Code size: 56 (0x38)
+		.maxstack 2
+		.locals init (
+			[0] int32
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: br.s IL_0025
+		// loop start (head: IL_0025)
+			IL_0004: ldarg.0
+			IL_0005: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::get_InUse()
+			IL_000a: brtrue.s IL_001e
+
+			IL_000c: ldarg.0
+			IL_000d: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::Close()
+			IL_0012: ldarg.0
+			IL_0013: call instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+			IL_0018: brfalse.s IL_0029
+
+			IL_001a: ldloc.0
+			IL_001b: ldc.i4.1
+			IL_001c: add
+			IL_001d: stloc.0
+
+			IL_001e: ldc.i4.s 10
+			IL_0020: call void [SimIFace]Sims3.SimIFace.Simulator::Sleep(uint32)
+
+			IL_0025: ldloc.0
+			IL_0026: ldc.i4.3
+			IL_0027: blt.s IL_0004
+		// end loop
+
+		IL_0029: ldarg.0
+		IL_002a: ldnull
+		IL_002b: stfld class Sims3.Gameplay.OneShotFunction Sims3.Gameplay.Abstracts.NonAnimatedDoor::mTryToCloseOneShot
+		IL_0030: ldarg.0
+		IL_0031: ldnull
+		IL_0032: stfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Abstracts.NonAnimatedDoor::mSimCausingAutoshut
+		IL_0037: ret
+	} // end of method NonAnimatedDoor::TryToClose
+
+	.method public hidebysig 
+		instance bool Open () cil managed 
+	{
+		// Method begins at RVA 0x1c7fb0
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0006: brtrue.s IL_0019
+
+		IL_0008: ldarg.0
+		IL_0009: callvirt instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::ShouldOpen()
+		IL_000e: brfalse.s IL_0019
+
+		IL_0010: ldarg.0
+		IL_0011: ldc.i4.1
+		IL_0012: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::AnimateDoor(bool)
+		IL_0017: ldc.i4.1
+		IL_0018: ret
+
+		IL_0019: ldc.i4.0
+		IL_001a: ret
+	} // end of method NonAnimatedDoor::Open
+
+	.method family hidebysig newslot virtual 
+		instance void OnClose () cil managed 
+	{
+		// Method begins at RVA 0x1c7fcc
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.0
+		IL_0002: callvirt instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_ClosedGeoState()
+		IL_0007: call instance void Sims3.Gameplay.Abstracts.GameObject::SetGeometryState(string)
+		IL_000c: ret
+	} // end of method NonAnimatedDoor::OnClose
+
+	.method private hidebysig 
+		instance void OnClose (
+			class [SimIFace]Sims3.SimIFace.StateMachineClient sender,
+			class [SimIFace]Sims3.SimIFace.IEvent evt
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c7fda
+		// Header size: 1
+		// Code size: 31 (0x1f)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: stfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0007: ldarg.0
+		IL_0008: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+		IL_000d: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::RemovePortals()
+		IL_0012: ldarg.0
+		IL_0013: call instance void Sims3.Gameplay.Abstracts.CommonDoor::OnPortalRestrictionChanged()
+		IL_0018: ldarg.0
+		IL_0019: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnClose()
+		IL_001e: ret
+	} // end of method NonAnimatedDoor::OnClose
+
+	.method family hidebysig newslot virtual 
+		instance void OnOpen () cil managed 
+	{
+		// Method begins at RVA 0x1c7ffa
+		// Header size: 1
+		// Code size: 43 (0x2b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.0
+		IL_0002: callvirt instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_OpenGeoState()
+		IL_0007: call instance void Sims3.Gameplay.Abstracts.GameObject::SetGeometryState(string)
+		IL_000c: ldarg.0
+		IL_000d: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0012: callvirt instance class Sims3.Gameplay.Controllers.TombRoomManager Sims3.Gameplay.Core.Lot::get_TombRoomManager()
+		IL_0017: brfalse.s IL_002a
+
+		IL_0019: ldarg.0
+		IL_001a: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_001f: callvirt instance class Sims3.Gameplay.Controllers.TombRoomManager Sims3.Gameplay.Core.Lot::get_TombRoomManager()
+		IL_0024: ldarg.0
+		IL_0025: callvirt instance void Sims3.Gameplay.Controllers.TombRoomManager::NotifyDoorChanged(class Sims3.Gameplay.Abstracts.CommonDoor)
+
+		IL_002a: ret
+	} // end of method NonAnimatedDoor::OnOpen
+
+	.method private hidebysig 
+		instance void OnOpen (
+			class [SimIFace]Sims3.SimIFace.StateMachineClient sender,
+			class [SimIFace]Sims3.SimIFace.IEvent evt
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c8026
+		// Header size: 1
+		// Code size: 31 (0x1f)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::mIsOpen
+		IL_0007: ldarg.0
+		IL_0008: call instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+		IL_000d: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent::AddPortals()
+		IL_0012: ldarg.0
+		IL_0013: call instance void Sims3.Gameplay.Abstracts.CommonDoor::OnPortalRestrictionChanged()
+		IL_0018: ldarg.0
+		IL_0019: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnOpen()
+		IL_001e: ret
+	} // end of method NonAnimatedDoor::OnOpen
+
+	.method family hidebysig newslot virtual 
+		instance void OnStartMoving () cil managed 
+	{
+		// Method begins at RVA 0x1c8046
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method NonAnimatedDoor::OnStartMoving
+
+	.method private hidebysig 
+		instance void OnDoneMoving (
+			class [SimIFace]Sims3.SimIFace.StateMachineClient sender,
+			class [SimIFace]Sims3.SimIFace.IEvent evt
+		) cil managed 
+	{
+		// Method begins at RVA 0x1c8048
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnDoneMoving()
+		IL_0006: ret
+	} // end of method NonAnimatedDoor::OnDoneMoving
+
+	.method family hidebysig newslot virtual 
+		instance void OnDoneMoving () cil managed 
+	{
+		// Method begins at RVA 0x1c8050
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method NonAnimatedDoor::OnDoneMoving
+
+	.method public hidebysig 
+		instance void SetOpen () cil managed 
+	{
+		// Method begins at RVA 0x1c8052
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: ldnull
+		IL_0003: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnOpen(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_0008: ret
+	} // end of method NonAnimatedDoor::SetOpen
+
+	.method public hidebysig 
+		instance void SetClose () cil managed 
+	{
+		// Method begins at RVA 0x1c805c
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: ldnull
+		IL_0003: call instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::OnClose(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_0008: ret
+	} // end of method NonAnimatedDoor::SetClose
+
+	.method family hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x1c80b0
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.CommonDoor::.ctor()
+		IL_0006: ret
+	} // end of method NonAnimatedDoor::.ctor
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x1c8068
+		// Header size: 12
+		// Code size: 60 (0x3c)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Gameplay.Interactions.InteractionDefinition[]
+		)
+
+		IL_0000: ldstr "RoutingSlot_Door0_Front"
+		IL_0005: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+		IL_000a: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Abstracts.NonAnimatedDoor::kSlotOnFront
+		IL_000f: ldstr "RoutingSlot_Door0_Rear"
+		IL_0014: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+		IL_0019: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Abstracts.NonAnimatedDoor::kSlotOnRear
+		IL_001e: ldc.i4.2
+		IL_001f: newarr Sims3.Gameplay.Interactions.InteractionDefinition
+		IL_0024: stloc.0
+		IL_0025: ldloc.0
+		IL_0026: ldc.i4.0
+		IL_0027: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Abstracts.NonAnimatedDoor/OpenAndClose::Singleton
+		IL_002c: stelem.ref
+		IL_002d: ldloc.0
+		IL_002e: ldc.i4.1
+		IL_002f: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Abstracts.NonAnimatedDoor/ToggleAutoShut::Singleton
+		IL_0034: stelem.ref
+		IL_0035: ldloc.0
+		IL_0036: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition[] Sims3.Gameplay.Abstracts.NonAnimatedDoor::sInteractionDefinitions
+		IL_003b: ret
+	} // end of method NonAnimatedDoor::.cctor
+
+	// Properties
+	.property instance bool IsAutoshut()
+	{
+		.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsAutoshut()
+		.set instance void Sims3.Gameplay.Abstracts.NonAnimatedDoor::set_IsAutoshut(bool)
+	}
+	.property instance bool CanAutoshut()
+	{
+		.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanAutoshut()
+	}
+	.property instance bool CanBeLocked()
+	{
+		.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanBeLocked()
+	}
+	.property instance bool CanGoThrough()
+	{
+		.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanGoThrough()
+	}
+	.property instance bool CanClose()
+	{
+		.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanClose()
+	}
+	.property instance bool CanOpen()
+	{
+		.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_CanOpen()
+	}
+	.property instance bool IsOpen()
+	{
+		.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsOpen()
+	}
+	.property instance bool IsMoving()
+	{
+		.get instance bool Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_IsMoving()
+	}
+	.property instance string StateMachineName()
+	{
+		.get instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_StateMachineName()
+	}
+	.property instance string StateMachineActorName()
+	{
+		.get instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_StateMachineActorName()
+	}
+	.property instance string OpenGeoState()
+	{
+		.get instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_OpenGeoState()
+	}
+	.property instance string ClosedGeoState()
+	{
+		.get instance string Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_ClosedGeoState()
+	}
+	.property instance float32 PortalCost()
+	{
+		.get instance float32 Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalCost()
+	}
+	.property instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent PortalComponent()
+	{
+		.get instance class Sims3.Gameplay.Abstracts.NonAnimatedDoor/NonAnimatedDoorPortalComponent Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_PortalComponent()
+	}
+	.property instance class [UI]Sims3.SimIFace.GreyedOutTooltipCallback InUseGreyedOutTooltip()
+	{
+		.get instance class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Abstracts.NonAnimatedDoor::get_InUseGreyedOutTooltip()
+	}
+
+} // end of class Sims3.Gameplay.Abstracts.NonAnimatedDoor

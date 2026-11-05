@@ -1,0 +1,82 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 10141f00..10141fb7; CAW_RoadSnapExcludeSelfInSecondArray
+10141f00: 53  PUSH EBX
+10141f01: 8b5c2408  MOV EBX,dword ptr [ESP + 0x8]
+10141f05: 56  PUSH ESI
+10141f06: 8b33  MOV ESI,dword ptr [EBX]
+10141f08: 3b7304  CMP ESI,dword ptr [EBX + 0x4]
+10141f0b: 57  PUSH EDI
+10141f0c: 742b  JZ 0x10141f39
+10141f0e: 8bff  MOV EDI,EDI
+10141f10: 8b3e  MOV EDI,dword ptr [ESI]
+10141f12: d9442420  FLD float ptr [ESP + 0x20]
+10141f16: 8b07  MOV EAX,dword ptr [EDI]
+10141f18: 8b542418  MOV EDX,dword ptr [ESP + 0x18]
+10141f1c: 8b4020  MOV EAX,dword ptr [EAX + 0x20]
+10141f1f: 8d4c2410  LEA ECX,[ESP + 0x10]
+10141f23: 51  PUSH ECX
+10141f24: 51  PUSH ECX
+10141f25: d91c24  FSTP float ptr [ESP]
+10141f28: 52  PUSH EDX
+10141f29: 8bcf  MOV ECX,EDI
+10141f2b: ffd0  CALL EAX
+10141f2d: 84c0  TEST AL,AL
+10141f2f: 7556  JNZ 0x10141f87
+10141f31: 83c604  ADD ESI,0x4
+10141f34: 3b7304  CMP ESI,dword ptr [EBX + 0x4]
+10141f37: 75d7  JNZ 0x10141f10
+10141f39: 8b5c2414  MOV EBX,dword ptr [ESP + 0x14]
+10141f3d: 8b3b  MOV EDI,dword ptr [EBX]
+10141f3f: 3b7b04  CMP EDI,dword ptr [EBX + 0x4]
+10141f42: 55  PUSH EBP
+10141f43: 7439  JZ 0x10141f7e
+10141f45: 8b6c2420  MOV EBP,dword ptr [ESP + 0x20]
+10141f49: 8da42400000000  LEA ESP,[ESP]
+10141f50: 8b37  MOV ESI,dword ptr [EDI]
+10141f52: 396e08  CMP dword ptr [ESI + 0x8],EBP
+10141f55: 741f  JZ 0x10141f76
+10141f57: d9442424  FLD float ptr [ESP + 0x24]
+10141f5b: 8b16  MOV EDX,dword ptr [ESI]
+10141f5d: 8b5220  MOV EDX,dword ptr [EDX + 0x20]
+10141f60: 8d442414  LEA EAX,[ESP + 0x14]
+10141f64: 50  PUSH EAX
+10141f65: 51  PUSH ECX
+10141f66: 8b4c2424  MOV ECX,dword ptr [ESP + 0x24]
+10141f6a: d91c24  FSTP float ptr [ESP]
+10141f6d: 51  PUSH ECX
+10141f6e: 8bce  MOV ECX,ESI
+10141f70: ffd2  CALL EDX
+10141f72: 84c0  TEST AL,AL
+10141f74: 7529  JNZ 0x10141f9f
+10141f76: 83c704  ADD EDI,0x4
+10141f79: 3b7b04  CMP EDI,dword ptr [EBX + 0x4]
+10141f7c: 75d2  JNZ 0x10141f50
+10141f7e: 5d  POP EBP
+10141f7f: 5f  POP EDI
+10141f80: 5e  POP ESI
+10141f81: 32c0  XOR AL,AL
+10141f83: 5b  POP EBX
+10141f84: c21c00  RET 0x1c
+10141f87: 8b4c2424  MOV ECX,dword ptr [ESP + 0x24]
+10141f8b: 8b442410  MOV EAX,dword ptr [ESP + 0x10]
+10141f8f: 8b542428  MOV EDX,dword ptr [ESP + 0x28]
+10141f93: 8939  MOV dword ptr [ECX],EDI
+10141f95: 5f  POP EDI
+10141f96: 5e  POP ESI
+10141f97: 8902  MOV dword ptr [EDX],EAX
+10141f99: b001  MOV AL,0x1
+10141f9b: 5b  POP EBX
+10141f9c: c21c00  RET 0x1c
+10141f9f: 8b442428  MOV EAX,dword ptr [ESP + 0x28]
+10141fa3: 8b4c242c  MOV ECX,dword ptr [ESP + 0x2c]
+10141fa7: 8b542414  MOV EDX,dword ptr [ESP + 0x14]
+10141fab: 5d  POP EBP
+10141fac: 8930  MOV dword ptr [EAX],ESI
+10141fae: 5f  POP EDI
+10141faf: 5e  POP ESI
+10141fb0: 8911  MOV dword ptr [ECX],EDX
+10141fb2: b001  MOV AL,0x1
+10141fb4: 5b  POP EBX
+10141fb5: c21c00  RET 0x1c

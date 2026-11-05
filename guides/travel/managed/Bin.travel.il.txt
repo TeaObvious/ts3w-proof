@@ -1,0 +1,323 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; selected original metadata and complete method IL.
+	.method public hidebysig static 
+		void ExportHouseholdForTravel (
+			class Sims3.Gameplay.CAS.Household household
+		) cil managed 
+	{
+		// Method begins at RVA 0x27c870
+		// Header size: 12
+		// Code size: 95 (0x5f)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Actors.Sim,
+			[1] uint64,
+			[2] class Sims3.Gameplay.Core.HouseholdContents,
+			[3] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.CAS.Household::get_AllActors()
+		IL_0006: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+		IL_000b: stloc.3
+		.try
+		{
+			IL_000c: br.s IL_001c
+			// loop start (head: IL_001c)
+				IL_000e: ldloca.s 3
+				IL_0010: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current()
+				IL_0015: stloc.0
+				IL_0016: ldloc.0
+				IL_0017: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetObjectToReset()
+
+				IL_001c: ldloca.s 3
+				IL_001e: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::MoveNext()
+				IL_0023: brtrue.s IL_000e
+			// end loop
+
+			IL_0025: leave.s IL_0035
+		} // end .try
+		finally
+		{
+			IL_0027: ldloca.s 3
+			IL_0029: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+			IL_002f: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0034: endfinally
+		} // end handler
+
+		IL_0035: ldc.i4.0
+		IL_0036: call void [SimIFace]Sims3.SimIFace.Simulator::Sleep(uint32)
+		IL_003b: call uint64 [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::GenerateGUID()
+		IL_0040: stloc.1
+		IL_0041: ldarg.0
+		IL_0042: newobj instance void Sims3.Gameplay.Core.HouseholdContents::.ctor(class Sims3.Gameplay.CAS.Household)
+		IL_0047: stloc.2
+		IL_0048: ldloc.2
+		IL_0049: ldloc.1
+		IL_004a: callvirt instance void Sims3.Gameplay.Core.HouseholdContents::set_ContentId(uint64)
+		IL_004f: ldloc.2
+		IL_0050: ldloc.1
+		IL_0051: call bool [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::StoreHouseholdContents(class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent, uint64)
+		IL_0056: brfalse.s IL_005e
+
+		IL_0058: ldloc.1
+		IL_0059: call void [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::ExportLotContentsToTravelBin(uint64)
+
+		IL_005e: ret
+	} // end of method Bin::ExportHouseholdForTravel
+	.method public hidebysig static 
+		class Sims3.Gameplay.Core.HouseholdContents ImportHouseholdForTravel () cil managed 
+	{
+		// Method begins at RVA 0x27c8ec
+		// Header size: 12
+		// Code size: 37 (0x25)
+		.maxstack 2
+		.locals init (
+			[0] uint64,
+			[1] class Sims3.Gameplay.Core.HouseholdContents
+		)
+
+		IL_0000: call uint64 [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::ImportHouseholdContentsFromTravelBin()
+		IL_0005: stloc.0
+		IL_0006: ldloc.0
+		IL_0007: ldc.i4.0
+		IL_0008: conv.i8
+		IL_0009: beq.s IL_0023
+
+		IL_000b: newobj instance void Sims3.Gameplay.Core.HouseholdContents::.ctor()
+		IL_0010: stloc.1
+		IL_0011: ldloc.1
+		IL_0012: ldloc.0
+		IL_0013: call bool [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::ImportHouseholdContents(class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent, uint64)
+		IL_0018: brfalse.s IL_0023
+
+		IL_001a: ldloc.1
+		IL_001b: ldloc.0
+		IL_001c: callvirt instance void Sims3.Gameplay.Core.HouseholdContents::set_ContentId(uint64)
+		IL_0021: ldloc.1
+		IL_0022: ret
+
+		IL_0023: ldnull
+		IL_0024: ret
+	} // end of method Bin::ImportHouseholdForTravel
+	.method assembly hidebysig static 
+		void ImportSim (
+			class Sims3.Gameplay.CAS.SimDescription desc,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 simPos,
+			uint64 inventoryIndex
+		) cil managed 
+	{
+		// Method begins at RVA 0x27d4dc
+		// Header size: 12
+		// Code size: 149 (0x95)
+		.maxstack 4
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.CAS.OutfitCategories,
+			[1] class [SimIFace]Sims3.SimIFace.CAS.SimOutfit,
+			[2] class Sims3.Gameplay.Actors.Sim
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance float32 Sims3.Gameplay.CAS.SimDescriptionCore::get_Weight()
+		IL_0006: ldc.r4 0.0
+		IL_000b: bge.un.s IL_0027
+
+		IL_000d: ldarg.0
+		IL_000e: ldc.r4 0.0
+		IL_0013: ldarg.0
+		IL_0014: callvirt instance float32 Sims3.Gameplay.CAS.SimDescriptionCore::get_Fitness()
+		IL_0019: ldarg.0
+		IL_001a: callvirt instance float32 Sims3.Gameplay.CAS.SimDescriptionCore::get_Weight()
+		IL_001f: neg
+		IL_0020: callvirt instance void Sims3.Gameplay.CAS.SimDescription::ChangeBodyShape(float32, float32, float32)
+		IL_0025: br.s IL_003e
+
+		IL_0027: ldarg.0
+		IL_0028: ldarg.0
+		IL_0029: callvirt instance float32 Sims3.Gameplay.CAS.SimDescriptionCore::get_Weight()
+		IL_002e: ldarg.0
+		IL_002f: callvirt instance float32 Sims3.Gameplay.CAS.SimDescriptionCore::get_Fitness()
+		IL_0034: ldc.r4 0.0
+		IL_0039: callvirt instance void Sims3.Gameplay.CAS.SimDescription::ChangeBodyShape(float32, float32, float32)
+
+		IL_003e: ldarg.0
+		IL_003f: callvirt instance void Sims3.Gameplay.CAS.SimDescription::PushAgingEnabledToAgingManager()
+		IL_0044: ldc.i4.2
+		IL_0045: stloc.0
+		IL_0046: ldarg.0
+		IL_0047: callvirt instance class Sims3.Gameplay.ActorSystems.TraitManager Sims3.Gameplay.CAS.SimDescriptionCore::get_TraitManager()
+		IL_004c: ldc.i8 -5175480303478029328 // 0xb82d0015b92943f0
+		IL_0055: callvirt instance bool Sims3.Gameplay.ActorSystems.TraitManager::HasElement(valuetype Sims3.Gameplay.ActorSystems.TraitNames)
+		IL_005a: brfalse.s IL_005e
+
+		IL_005c: ldc.i4.8
+		IL_005d: stloc.0
+
+		IL_005e: ldarg.0
+		IL_005f: ldloc.0
+		IL_0060: ldc.i4.0
+		IL_0061: callvirt instance class [SimIFace]Sims3.SimIFace.CAS.SimOutfit Sims3.Gameplay.CAS.SimDescriptionCore::GetOutfit(valuetype [SimIFace]Sims3.SimIFace.CAS.OutfitCategories, int32)
+		IL_0066: stloc.1
+		IL_0067: ldarg.0
+		IL_0068: callvirt instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_006d: stloc.2
+		IL_006e: ldloc.2
+		IL_006f: brtrue.s IL_0080
+
+		IL_0071: ldarg.0
+		IL_0072: ldarg.1
+		IL_0073: ldloc.1
+		IL_0074: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.CAS.SimOutfit::get_Key()
+		IL_0079: ldc.i4.0
+		IL_007a: callvirt instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::Instantiate(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.ResourceKey, bool)
+		IL_007f: stloc.2
+
+		IL_0080: ldarg.2
+		IL_0081: ldloc.2
+		IL_0082: callvirt instance class Sims3.Gameplay.Inventory Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+		IL_0087: call void Sims3.Gameplay.Core.Bin::ImportInventory(uint64, class Sims3.Gameplay.Inventory)
+		IL_008c: ldloc.2
+		IL_008d: ldc.i4.0
+		IL_008e: ldc.i4.0
+		IL_008f: callvirt instance void Sims3.Gameplay.Actors.Sim::GrantSpecialObjects(bool, bool)
+		IL_0094: ret
+	} // end of method Bin::ImportSim
+	.method assembly hidebysig static 
+		void ImportHouseholdInventories (
+			class Sims3.Gameplay.Core.HouseholdContents contents,
+			class Sims3.Gameplay.CAS.Household household,
+			uint32 fridgeIdx
+		) cil managed 
+	{
+		// Method begins at RVA 0x27d57d
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldc.i4.1
+		IL_0004: call void Sims3.Gameplay.Core.Bin::ImportHouseholdInventories(class Sims3.Gameplay.Core.HouseholdContents, class Sims3.Gameplay.CAS.Household, uint32, bool)
+		IL_0009: ret
+	} // end of method Bin::ImportHouseholdInventories
+	.method assembly hidebysig static 
+		void ImportHouseholdInventories (
+			class Sims3.Gameplay.Core.HouseholdContents contents,
+			class Sims3.Gameplay.CAS.Household household,
+			uint32 fridgeIdx,
+			bool bImportFridgeInventory
+		) cil managed 
+	{
+		// Method begins at RVA 0x27d588
+		// Header size: 12
+		// Code size: 87 (0x57)
+		.maxstack 2
+		.locals init (
+			[0] uint64,
+			[1] uint32,
+			[2] uint64
+		)
+
+		IL_0000: ldarg.2
+		IL_0001: conv.u8
+		IL_0002: ldarg.0
+		IL_0003: callvirt instance uint64[] Sims3.Gameplay.Core.HouseholdContents::get_Inventories()
+		IL_0008: ldlen
+		IL_0009: conv.i4
+		IL_000a: conv.i8
+		IL_000b: bge.s IL_004a
+
+		IL_000d: ldarg.3
+		IL_000e: brfalse.s IL_002b
+
+		IL_0010: ldarg.0
+		IL_0011: callvirt instance uint64[] Sims3.Gameplay.Core.HouseholdContents::get_Inventories()
+		IL_0016: ldarg.2
+		IL_0017: conv.u
+		IL_0018: ldelem.i8
+		IL_0019: stloc.0
+		IL_001a: ldloc.0
+		IL_001b: ldarg.1
+		IL_001c: callvirt instance class Sims3.Gameplay.Objects.FoodObjects.SharedFridgeInventory Sims3.Gameplay.CAS.Household::get_SharedFridgeInventory()
+		IL_0021: callvirt instance class Sims3.Gameplay.Inventory Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+		IL_0026: call void Sims3.Gameplay.Core.Bin::ImportInventory(uint64, class Sims3.Gameplay.Inventory)
+
+		IL_002b: ldarg.2
+		IL_002c: ldc.i4.1
+		IL_002d: add
+		IL_002e: stloc.1
+		IL_002f: ldarg.0
+		IL_0030: callvirt instance uint64[] Sims3.Gameplay.Core.HouseholdContents::get_Inventories()
+		IL_0035: ldloc.1
+		IL_0036: conv.u
+		IL_0037: ldelem.i8
+		IL_0038: stloc.2
+		IL_0039: ldloc.2
+		IL_003a: ldarg.1
+		IL_003b: callvirt instance class Sims3.Gameplay.SharedFamilyInventory Sims3.Gameplay.CAS.Household::get_SharedFamilyInventory()
+		IL_0040: callvirt instance class Sims3.Gameplay.Inventory Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+		IL_0045: call void Sims3.Gameplay.Core.Bin::ImportInventory(uint64, class Sims3.Gameplay.Inventory)
+
+		IL_004a: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+		IL_004f: brfalse.s IL_0056
+
+		IL_0051: call void Sims3.Gameplay.GameStates::ApplyInventoryUrnstoneMerging()
+
+		IL_0056: ret
+	} // end of method Bin::ImportHouseholdInventories
+	.method private hidebysig static 
+		void ImportInventory (
+			uint64 inventoryIndex,
+			class Sims3.Gameplay.Inventory inventory
+		) cil managed 
+	{
+		// Method begins at RVA 0x27d5eb
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: conv.i8
+		IL_0003: beq.s IL_0027
+
+		IL_0005: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+		IL_000a: brfalse.s IL_0020
+
+		IL_000c: ldarg.1
+		IL_000d: call void Sims3.Gameplay.GameStates::AddUrnstonePendingRemovals(class Sims3.Gameplay.Inventory)
+		IL_0012: ldarg.0
+		IL_0013: ldarg.1
+		IL_0014: call void Sims3.Gameplay.Core.Bin::ImportInventoryInternal(uint64, class Sims3.Gameplay.Inventory)
+		IL_0019: ldarg.1
+		IL_001a: call void Sims3.Gameplay.GameStates::AddUrnstonePendingAdditions(class Sims3.Gameplay.Inventory)
+		IL_001f: ret
+
+		IL_0020: ldarg.0
+		IL_0021: ldarg.1
+		IL_0022: call void Sims3.Gameplay.Core.Bin::ImportInventoryInternal(uint64, class Sims3.Gameplay.Inventory)
+
+		IL_0027: ret
+	} // end of method Bin::ImportInventory
+	.method private hidebysig static 
+		void ImportInventoryInternal (
+			uint64 inventoryIndex,
+			class Sims3.Gameplay.Inventory inventory
+		) cil managed 
+	{
+		// Method begins at RVA 0x27d614
+		// Header size: 1
+		// Code size: 22 (0x16)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance void Sims3.Gameplay.Inventory::DestroyItems()
+		IL_0006: ldarg.0
+		IL_0007: ldarg.1
+		IL_0008: call bool [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::ImportInventory(uint64, class [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent)
+		IL_000d: pop
+		IL_000e: ldarg.0
+		IL_000f: call bool [SimIFace]Sims3.SimIFace.CustomContent.DownloadContent::DeleteInventory(uint64)
+		IL_0014: pop
+		IL_0015: ret
+	} // end of method Bin::ImportInventoryInternal

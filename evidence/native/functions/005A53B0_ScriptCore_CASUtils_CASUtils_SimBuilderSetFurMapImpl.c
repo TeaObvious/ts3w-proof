@@ -1,0 +1,34 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* Verified PC 1.67 registration table at 0x01156368 (original PC 1.67 TS3W.exe).
+   ScriptCore.CASUtils::CASUtils_SimBuilderSetFurMapImpl [assembly=ScriptCore token=0x06000312;
+   handle: System.UInt32, value: Sims3.SimIFace.ResourceKey; return=System.Void]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+void __cdecl
+ScriptCore.CASUtils::CASUtils_SimBuilderSetFurMapImpl
+          (uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  int *piVar1;
+  int iVar2;
+  
+  if ((param_1 & 0xff000000) == 0x35000000) {
+    piVar1 = (int *)GetGlobalInterfacePointer_11D5BBC();
+    iVar2 = (**(code **)(*piVar1 + 0xcc))(param_1);
+    if (iVar2 != 0) {
+      *(uint *)(iVar2 + 0x1c) = *(uint *)(iVar2 + 0x1c) | 0x20000;
+      *(undefined4 *)(iVar2 + 0x270) = param_3;
+      *(undefined4 *)(iVar2 + 0x274) = param_4;
+      *(uint *)(iVar2 + 0x278) = param_1;
+      *(undefined4 *)(iVar2 + 0x27c) = param_2;
+    }
+  }
+  return;
+}
+

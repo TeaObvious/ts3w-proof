@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000A12.
+// Assembly: ScriptCore; type: ScriptCore.EAText.
+// Decompiled C# source: ScriptCore/ScriptCore/EAText.cs:33
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalType = "ScriptCore.StringFromVariantMarshaler")]
+	private static extern string EAText_GetTimeString(int hour, int minute, int second, [MarshalAs(UnmanagedType.I1)] bool useTwelveHourClock);

@@ -1,0 +1,105 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: Version_ReadFirstLineToken
+Paired actual annotated Ghidra pseudocode: 007D9CA0_Version_ReadFirstLineToken.c
+Owned ranges: [[007d9ca0, 007d9de7]]
+Envelope bytes=328
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+007d9ca0  b860120000  MOV EAX,0x1260
+007d9ca5  e8965b7a00  CALL 0x00f7f840
+007d9caa  8b842464120000  MOV EAX,dword ptr [ESP + 0x1264]
+007d9cb1  50  PUSH EAX
+007d9cb2  8d4c243c  LEA ECX,[ESP + 0x3c]
+007d9cb6  e8851ed0ff  CALL 0x004dbb40
+007d9cbb  8d4c2438  LEA ECX,[ESP + 0x38]
+007d9cbf  e88c18d0ff  CALL 0x004db550
+007d9cc4  6a00  PUSH 0x0
+007d9cc6  6a01  PUSH 0x1
+007d9cc8  6a03  PUSH 0x3
+007d9cca  6a01  PUSH 0x1
+007d9ccc  8d4c2448  LEA ECX,[ESP + 0x48]
+007d9cd0  e8bb19d0ff  CALL 0x004db690
+007d9cd5  84c0  TEST AL,AL
+007d9cd7  8d4c2438  LEA ECX,[ESP + 0x38]
+007d9cdb  0f84f9000000  JZ 0x007d9dda
+007d9ce1  6a00  PUSH 0x0
+007d9ce3  51  PUSH ECX
+007d9ce4  6afe  PUSH -0x2
+007d9ce6  6800100000  PUSH 0x1000
+007d9ceb  8d4c2410  LEA ECX,[ESP + 0x10]
+007d9cef  e82c4ed0ff  CALL 0x004deb20
+007d9cf4  6800100000  PUSH 0x1000
+007d9cf9  8d942464020000  LEA EDX,[ESP + 0x264]
+007d9d00  52  PUSH EDX
+007d9d01  8d442408  LEA EAX,[ESP + 0x8]
+007d9d05  50  PUSH EAX
+007d9d06  c684246c02000000  MOV byte ptr [ESP + 0x26c],0x0
+007d9d0e  e8fd3fd0ff  CALL 0x004ddd10
+007d9d13  83c40c  ADD ESP,0xc
+007d9d16  83f8ff  CMP EAX,-0x1
+007d9d19  0f84af000000  JZ 0x007d9dce
+007d9d1f  3d00100000  CMP EAX,0x1000
+007d9d24  0f83a4000000  JNC 0x007d9dce
+007d9d2a  83f801  CMP EAX,0x1
+007d9d2d  0f829b000000  JC 0x007d9dce
+007d9d33  8b8c2468120000  MOV ECX,dword ptr [ESP + 0x1268]
+007d9d3a  85c9  TEST ECX,ECX
+007d9d3c  8d842460020000  LEA EAX,[ESP + 0x260]
+007d9d43  7415  JZ 0x007d9d5a
+007d9d45  803900  CMP byte ptr [ECX],0x0
+007d9d48  7410  JZ 0x007d9d5a
+007d9d4a  51  PUSH ECX
+007d9d4b  8bc8  MOV ECX,EAX
+007d9d4d  51  PUSH ECX
+007d9d4e  e8ed46d2ff  CALL 0x004fe440
+007d9d53  83c408  ADD ESP,0x8
+007d9d56  85c0  TEST EAX,EAX
+007d9d58  7474  JZ 0x007d9dce
+007d9d5a  80bc247012000000  CMP byte ptr [ESP + 0x1270],0x0
+007d9d62  7421  JZ 0x007d9d85
+007d9d64  8a08  MOV CL,byte ptr [EAX]
+007d9d66  84c9  TEST CL,CL
+007d9d68  741b  JZ 0x007d9d85
+007d9d6a  b210  MOV DL,0x10
+007d9d6c  8d642400  LEA ESP,[ESP]
+007d9d70  0fbec9  MOVSX ECX,CL
+007d9d73  849130da1401  TEST byte ptr [ECX + 0x114da30],DL
+007d9d79  750a  JNZ 0x007d9d85
+007d9d7b  8a4801  MOV CL,byte ptr [EAX + 0x1]
+007d9d7e  83c001  ADD EAX,0x1
+007d9d81  84c9  TEST CL,CL
+007d9d83  75eb  JNZ 0x007d9d70
+007d9d85  8a08  MOV CL,byte ptr [EAX]
+007d9d87  84c9  TEST CL,CL
+007d9d89  8bd0  MOV EDX,EAX
+007d9d8b  7419  JZ 0x007d9da6
+007d9d8d  8d4900  LEA ECX,[ECX]
+007d9d90  0fbec9  MOVSX ECX,CL
+007d9d93  f68130da140106  TEST byte ptr [ECX + 0x114da30],0x6
+007d9d9a  750a  JNZ 0x007d9da6
+007d9d9c  8a4a01  MOV CL,byte ptr [EDX + 0x1]
+007d9d9f  83c201  ADD EDX,0x1
+007d9da2  84c9  TEST CL,CL
+007d9da4  75ea  JNZ 0x007d9d90
+007d9da6  8b8c246c120000  MOV ECX,dword ptr [ESP + 0x126c]
+007d9dad  52  PUSH EDX
+007d9dae  50  PUSH EAX
+007d9daf  e85cbbc2ff  CALL 0x00405910
+007d9db4  8d0c24  LEA ECX,[ESP]
+007d9db7  e8d44dd0ff  CALL 0x004deb90
+007d9dbc  8d4c2438  LEA ECX,[ESP + 0x38]
+007d9dc0  e8db1dd0ff  CALL 0x004dbba0
+007d9dc5  b001  MOV AL,0x1
+007d9dc7  81c460120000  ADD ESP,0x1260
+007d9dcd  c3  RET
+007d9dce  8d0c24  LEA ECX,[ESP]
+007d9dd1  e8ba4dd0ff  CALL 0x004deb90
+007d9dd6  8d4c2438  LEA ECX,[ESP + 0x38]
+007d9dda  e8c11dd0ff  CALL 0x004dbba0
+007d9ddf  32c0  XOR AL,AL
+007d9de1  81c460120000  ADD ESP,0x1260
+007d9de7  c3  RET
+Owned instructions=94 owned bytes=328 gap/nonowned bytes=0

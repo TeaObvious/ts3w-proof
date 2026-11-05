@@ -1,0 +1,118 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function ScriptCore.PersistImports::Serializer_ReadFastFields:
+
+
+/* Verified PC 1.67 registration table at 0x0108d120 (original PC 1.67 TS3W.exe).
+   ScriptCore.PersistImports::Serializer_ReadFastFields [assembly=ScriptCore token=0x06000CAE; obj:
+   System.Object, fastFields: ScriptCore.PersistFastField[], fastStreamHandle: System.UInt32;
+   return=System.Int32]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+undefined1 __cdecl
+ScriptCore_PersistImports__Serializer_ReadFastFields(int param_1,int param_2,uint param_3)
+
+{
+  int iVar1;
+  bool bVar2;
+  byte bVar3;
+  int *piVar4;
+  uint uVar5;
+  int iVar6;
+  undefined4 *puVar7;
+  undefined1 uStack_29;
+  ushort auStack_28 [2];
+  uint uStack_24;
+  uint uStack_20;
+  undefined4 uStack_1c;
+  undefined1 auStack_18 [8];
+  int *piStack_10;
+  undefined1 uStack_4;
+  
+  piVar4 = (int *)FUN_00774e80(param_3);
+  if (piVar4 == (int *)0x0) {
+    return 0;
+  }
+  FUN_007d93e0(auStack_18,piVar4,1);
+  iVar6 = *(int *)(param_2 + 8);
+  if (param_1 == 0) {
+    if (0 < iVar6) {
+      puVar7 = (undefined4 *)(param_2 + 0x10);
+      do {
+        if ((int)puVar7[1] < 0) goto switchD_00d83167_caseD_4;
+        switch(*puVar7) {
+        case 2:
+        case 3:
+        case 0xb:
+          bVar3 = FUN_004dd890(piStack_10,&uStack_29);
+          break;
+        default:
+          goto switchD_00d83167_caseD_4;
+        case 7:
+        case 10:
+        case 0xf:
+          uVar5 = FUN_004ddab0(piStack_10,&uStack_20);
+          bVar3 = (byte)uVar5;
+          break;
+        case 8:
+        case 0xd:
+          FUN_0056d0e0(auStack_18,auStack_28);
+          goto switchD_00d83167_caseD_4;
+        case 9:
+        case 0xc:
+        case 0xe:
+          uVar5 = FUN_004dd980(piStack_10,&uStack_24);
+          bVar3 = (byte)uVar5;
+        }
+        FUN_007d79f0(auStack_18,bVar3);
+switchD_00d83167_caseD_4:
+        puVar7 = puVar7 + 2;
+        iVar6 = iVar6 + -1;
+      } while (iVar6 != 0);
+    }
+  }
+  else if (0 < iVar6) {
+    puVar7 = (undefined4 *)(param_2 + 0x10);
+    do {
+      iVar1 = puVar7[1];
+      if (-1 < iVar1) {
+        switch(*puVar7) {
+        case 2:
+        case 3:
+        case 0xb:
+          bVar2 = FUN_004dd890(piStack_10,&uStack_29);
+          FUN_007d79f0(auStack_18,bVar2);
+          *(undefined1 *)(iVar1 + param_1) = uStack_29;
+          break;
+        case 7:
+        case 10:
+        case 0xf:
+          uVar5 = FUN_004ddab0(piStack_10,&uStack_20);
+          FUN_007d79f0(auStack_18,(byte)uVar5);
+          *(uint *)(iVar1 + param_1) = uStack_20;
+          *(undefined4 *)(iVar1 + 4 + param_1) = uStack_1c;
+          break;
+        case 8:
+        case 0xd:
+          FUN_0056d0e0(auStack_18,auStack_28);
+          *(ushort *)(iVar1 + param_1) = auStack_28[0];
+          break;
+        case 9:
+        case 0xc:
+        case 0xe:
+          uVar5 = FUN_004dd980(piStack_10,&uStack_24);
+          FUN_007d79f0(auStack_18,(byte)uVar5);
+          *(uint *)(iVar1 + param_1) = uStack_24;
+        }
+      }
+      puVar7 = puVar7 + 2;
+      iVar6 = iVar6 + -1;
+    } while (iVar6 != 0);
+  }
+  FUN_007d7990((int)auStack_18);
+  return uStack_4;
+}
+
+

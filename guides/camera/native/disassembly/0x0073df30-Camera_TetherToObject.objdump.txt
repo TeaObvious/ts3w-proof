@@ -1,0 +1,49 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_TetherToObject
+# Entry: 0x0073df30; bounded stop: 0x0073df80; next Ghidra entry: 0x0073df80
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073df30 <.text+0x33cf30>:
+  73df30:	e8 9b bc 22 00       	call   0x969bd0
+  73df35:	85 c0                	test   eax,eax
+  73df37:	74 39                	je     0x73df72
+  73df39:	8b c8                	mov    ecx,eax
+  73df3b:	e8 b0 40 7e 00       	call   0xf21ff0
+  73df40:	85 c0                	test   eax,eax
+  73df42:	74 2e                	je     0x73df72
+  73df44:	8b c8                	mov    ecx,eax
+  73df46:	e8 95 5e dd ff       	call   0x513de0
+  73df4b:	85 c0                	test   eax,eax
+  73df4d:	74 23                	je     0x73df72
+  73df4f:	8b 10                	mov    edx,DWORD PTR [eax]
+  73df51:	8b c8                	mov    ecx,eax
+  73df53:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73df56:	68 89 dd 0f 11       	push   0x110fdd89
+  73df5b:	ff d0                	call   eax
+  73df5d:	85 c0                	test   eax,eax
+  73df5f:	74 11                	je     0x73df72
+  73df61:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  73df65:	8b 54 24 04          	mov    edx,DWORD PTR [esp+0x4]
+  73df69:	51                   	push   ecx
+  73df6a:	52                   	push   edx
+  73df6b:	8b c8                	mov    ecx,eax
+  73df6d:	e8 1e 74 23 00       	call   0x975390
+  73df72:	c3                   	ret
+  73df73:	cc                   	int3
+  73df74:	cc                   	int3
+  73df75:	cc                   	int3
+  73df76:	cc                   	int3
+  73df77:	cc                   	int3
+  73df78:	cc                   	int3
+  73df79:	cc                   	int3
+  73df7a:	cc                   	int3
+  73df7b:	cc                   	int3
+  73df7c:	cc                   	int3
+  73df7d:	cc                   	int3
+  73df7e:	cc                   	int3
+  73df7f:	cc                   	int3

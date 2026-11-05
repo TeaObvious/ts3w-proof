@@ -1,0 +1,314 @@
+UI.dll MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+
+0600125b Sims3.UI.UIManager::RetrieveWindowInstance RVA=0006555c bytes=241 maxStack=7 flags=3013 localSignature=11000321
+Raw complete method header 13300700f100000021030011
+Raw complete CIL 140a7e9b1300040212006f8304000a260614288f00000639cd00000003285912000639c2000000140b7ea01300040312016f8404000a260739b2000000076f8504000a163119076f8604000a0a0614288f0000062de706026f080000062b617eb11300040312026f8704000a2d4a0372389400701f2814178d170000011304110416d0b8000001281500000aa21104146f8804000a0dd02c020002281500000a09288904000a742c0200020c7eb113000403086f8a04000a08026fc81200060a061428900000062c267e9b13000402066f8b04000a0614fe0657120006734800000a6f2c0000062b0606287e120006062a
+ IL_0000: 14                   ldnull
+ IL_0001: 0a                   stloc.0
+ IL_0002: 7e9b130004           ldsfld 9b130004 mControlInstanceCache
+ IL_0007: 02                   ldarg.0
+ IL_0008: 1200                 ldloca.s 00
+ IL_000a: 6f8304000a           callvirt 8304000a TryGetValue
+ IL_000f: 26                   pop
+ IL_0010: 06                   ldloc.0
+ IL_0011: 14                   ldnull
+ IL_0012: 288f000006           call 8f000006 op_Equality
+ IL_0017: 39cd000000           brfalse cd000000
+ IL_001c: 03                   ldarg.1
+ IL_001d: 2859120006           call 59120006 IsPoolableType
+ IL_0022: 39c2000000           brfalse c2000000
+ IL_0027: 14                   ldnull
+ IL_0028: 0b                   stloc.1
+ IL_0029: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_002e: 03                   ldarg.1
+ IL_002f: 1201                 ldloca.s 01
+ IL_0031: 6f8404000a           callvirt 8404000a TryGetValue
+ IL_0036: 26                   pop
+ IL_0037: 07                   ldloc.1
+ IL_0038: 39b2000000           brfalse b2000000
+ IL_003d: 07                   ldloc.1
+ IL_003e: 6f8504000a           callvirt 8504000a get_Count
+ IL_0043: 16                   ldc.i4.0
+ IL_0044: 3119                 ble.s 19
+ IL_0046: 07                   ldloc.1
+ IL_0047: 6f8604000a           callvirt 8604000a Pop
+ IL_004c: 0a                   stloc.0
+ IL_004d: 06                   ldloc.0
+ IL_004e: 14                   ldnull
+ IL_004f: 288f000006           call 8f000006 op_Equality
+ IL_0054: 2de7                 brtrue.s e7
+ IL_0056: 06                   ldloc.0
+ IL_0057: 02                   ldarg.0
+ IL_0058: 6f08000006           callvirt 08000006 Revive
+ IL_005d: 2b61                 br.s 61
+ IL_005f: 7eb1130004           ldsfld b1130004 mWindowConstructors
+ IL_0064: 03                   ldarg.1
+ IL_0065: 1202                 ldloca.s 02
+ IL_0067: 6f8704000a           callvirt 8704000a TryGetValue
+ IL_006c: 2d4a                 brtrue.s 4a
+ IL_006e: 03                   ldarg.1
+ IL_006f: 7238940070           ldstr 38940070
+ IL_0074: 1f28                 ldc.i4.s 28
+ IL_0076: 14                   ldnull
+ IL_0077: 17                   ldc.i4.1
+ IL_0078: 8d17000001           newarr 17000001
+ IL_007d: 1304                 stloc.s 04
+ IL_007f: 1104                 ldloc.s 04
+ IL_0081: 16                   ldc.i4.0
+ IL_0082: d0b8000001           ldtoken b8000001
+ IL_0087: 281500000a           call 1500000a GetTypeFromHandle
+ IL_008c: a2                   stelem.ref
+ IL_008d: 1104                 ldloc.s 04
+ IL_008f: 14                   ldnull
+ IL_0090: 6f8804000a           callvirt 8804000a GetMethod
+ IL_0095: 0d                   stloc.3
+ IL_0096: d02c020002           ldtoken 2c020002
+ IL_009b: 281500000a           call 1500000a GetTypeFromHandle
+ IL_00a0: 09                   ldloc.3
+ IL_00a1: 288904000a           call 8904000a CreateDelegate
+ IL_00a6: 742c020002           castclass 2c020002
+ IL_00ab: 0c                   stloc.2
+ IL_00ac: 7eb1130004           ldsfld b1130004 mWindowConstructors
+ IL_00b1: 03                   ldarg.1
+ IL_00b2: 08                   ldloc.2
+ IL_00b3: 6f8a04000a           callvirt 8a04000a Add
+ IL_00b8: 08                   ldloc.2
+ IL_00b9: 02                   ldarg.0
+ IL_00ba: 6fc8120006           callvirt c8120006 Invoke
+ IL_00bf: 0a                   stloc.0
+ IL_00c0: 06                   ldloc.0
+ IL_00c1: 14                   ldnull
+ IL_00c2: 2890000006           call 90000006 op_Inequality
+ IL_00c7: 2c26                 brfalse.s 26
+ IL_00c9: 7e9b130004           ldsfld 9b130004 mControlInstanceCache
+ IL_00ce: 02                   ldarg.0
+ IL_00cf: 06                   ldloc.0
+ IL_00d0: 6f8b04000a           callvirt 8b04000a Add
+ IL_00d5: 06                   ldloc.0
+ IL_00d6: 14                   ldnull
+ IL_00d7: fe0657120006         ldftn 57120006 OnWinDetach
+ IL_00dd: 734800000a           newobj 4800000a .ctor
+ IL_00e2: 6f2c000006           callvirt 2c000006 add_Detach
+ IL_00e7: 2b06                 br.s 06
+ IL_00e9: 06                   ldloc.0
+ IL_00ea: 287e120006           call 7e120006 DestroyWindow
+ IL_00ef: 06                   ldloc.0
+ IL_00f0: 2a                   ret
+
+0600126c Sims3.UI.UIManager::DestroyLayout RVA=00065adc bytes=17 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 46
+Raw complete CIL 7ea1130004026f193800066f9604000a2a
+ IL_0000: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f19380006           callvirt 19380006 get_LayoutHandle
+ IL_000b: 6f9604000a           callvirt 9604000a DestroyLayout
+ IL_0010: 2a                   ret
+
+0600126d Sims3.UI.UIManager::ShutdownLayout RVA=00065aee bytes=17 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 46
+Raw complete CIL 7ea1130004026f193800066f9704000a2a
+ IL_0000: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f19380006           callvirt 19380006 get_LayoutHandle
+ IL_000b: 6f9704000a           callvirt 9704000a ShutdownLayout
+ IL_0010: 2a                   ret
+
+06001276 Sims3.UI.UIManager::WrapperFromHandle RVA=00065c0c bytes=282 maxStack=4 flags=3013 localSignature=11000325
+Raw complete method header 133004001a01000025030011
+Raw complete CIL 7ea1130004026f9f04000a0a062d2e7e9f1300047ea1130004026fa004000a12016fa104000a2c080207285b1200062a7ea1130004026f5904000a142a140c7e9c1300040212026fa204000a260814288f00000639b90000007eb21300040612036fa304000a2c4109178d010000011306110616028cb8000001a211066fa404000a7503000002130411041428900000062c167e9c13000411046f0500000611046fa504000a11042a1413057ea1130004026fa004000a13071107202841aa032e141107203841aa032e151107204841aa032e162b1c02730103000613052b120273cd02000613052b0802739b010006130511051428900000062c137e9c13000411056f0500000611056fa504000a11052a08287e120006082a
+ IL_0000: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f9f04000a           callvirt 9f04000a GetCustomControlID
+ IL_000b: 0a                   stloc.0
+ IL_000c: 06                   ldloc.0
+ IL_000d: 2d2e                 brtrue.s 2e
+ IL_000f: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_0014: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0019: 02                   ldarg.0
+ IL_001a: 6fa004000a           callvirt a004000a GetClassID
+ IL_001f: 1201                 ldloca.s 01
+ IL_0021: 6fa104000a           callvirt a104000a TryGetValue
+ IL_0026: 2c08                 brfalse.s 08
+ IL_0028: 02                   ldarg.0
+ IL_0029: 07                   ldloc.1
+ IL_002a: 285b120006           call 5b120006 RetrieveWindowInstance
+ IL_002f: 2a                   ret
+ IL_0030: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0035: 02                   ldarg.0
+ IL_0036: 6f5904000a           callvirt 5904000a DestroyWindow
+ IL_003b: 14                   ldnull
+ IL_003c: 2a                   ret
+ IL_003d: 14                   ldnull
+ IL_003e: 0c                   stloc.2
+ IL_003f: 7e9c130004           ldsfld 9c130004 mCustomControlInstanceDict
+ IL_0044: 02                   ldarg.0
+ IL_0045: 1202                 ldloca.s 02
+ IL_0047: 6fa204000a           callvirt a204000a TryGetValue
+ IL_004c: 26                   pop
+ IL_004d: 08                   ldloc.2
+ IL_004e: 14                   ldnull
+ IL_004f: 288f000006           call 8f000006 op_Equality
+ IL_0054: 39b9000000           brfalse b9000000
+ IL_0059: 7eb2130004           ldsfld b2130004 mCustomControlConstructorRegistry
+ IL_005e: 06                   ldloc.0
+ IL_005f: 1203                 ldloca.s 03
+ IL_0061: 6fa304000a           callvirt a304000a TryGetValue
+ IL_0066: 2c41                 brfalse.s 41
+ IL_0068: 09                   ldloc.3
+ IL_0069: 17                   ldc.i4.1
+ IL_006a: 8d01000001           newarr 01000001
+ IL_006f: 1306                 stloc.s 06
+ IL_0071: 1106                 ldloc.s 06
+ IL_0073: 16                   ldc.i4.0
+ IL_0074: 02                   ldarg.0
+ IL_0075: 8cb8000001           box b8000001
+ IL_007a: a2                   stelem.ref
+ IL_007b: 1106                 ldloc.s 06
+ IL_007d: 6fa404000a           callvirt a404000a Invoke
+ IL_0082: 7503000002           isinst 03000002
+ IL_0087: 1304                 stloc.s 04
+ IL_0089: 1104                 ldloc.s 04
+ IL_008b: 14                   ldnull
+ IL_008c: 2890000006           call 90000006 op_Inequality
+ IL_0091: 2c16                 brfalse.s 16
+ IL_0093: 7e9c130004           ldsfld 9c130004 mCustomControlInstanceDict
+ IL_0098: 1104                 ldloc.s 04
+ IL_009a: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_009f: 1104                 ldloc.s 04
+ IL_00a1: 6fa504000a           callvirt a504000a Add
+ IL_00a6: 1104                 ldloc.s 04
+ IL_00a8: 2a                   ret
+ IL_00a9: 14                   ldnull
+ IL_00aa: 1305                 stloc.s 05
+ IL_00ac: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_00b1: 02                   ldarg.0
+ IL_00b2: 6fa004000a           callvirt a004000a GetClassID
+ IL_00b7: 1307                 stloc.s 07
+ IL_00b9: 1107                 ldloc.s 07
+ IL_00bb: 202841aa03           ldc.i4 2841aa03
+ IL_00c0: 2e14                 beq.s 14
+ IL_00c2: 1107                 ldloc.s 07
+ IL_00c4: 203841aa03           ldc.i4 3841aa03
+ IL_00c9: 2e15                 beq.s 15
+ IL_00cb: 1107                 ldloc.s 07
+ IL_00cd: 204841aa03           ldc.i4 4841aa03
+ IL_00d2: 2e16                 beq.s 16
+ IL_00d4: 2b1c                 br.s 1c
+ IL_00d6: 02                   ldarg.0
+ IL_00d7: 7301030006           newobj 01030006 .ctor
+ IL_00dc: 1305                 stloc.s 05
+ IL_00de: 2b12                 br.s 12
+ IL_00e0: 02                   ldarg.0
+ IL_00e1: 73cd020006           newobj cd020006 .ctor
+ IL_00e6: 1305                 stloc.s 05
+ IL_00e8: 2b08                 br.s 08
+ IL_00ea: 02                   ldarg.0
+ IL_00eb: 739b010006           newobj 9b010006 .ctor
+ IL_00f0: 1305                 stloc.s 05
+ IL_00f2: 1105                 ldloc.s 05
+ IL_00f4: 14                   ldnull
+ IL_00f5: 2890000006           call 90000006 op_Inequality
+ IL_00fa: 2c13                 brfalse.s 13
+ IL_00fc: 7e9c130004           ldsfld 9c130004 mCustomControlInstanceDict
+ IL_0101: 1105                 ldloc.s 05
+ IL_0103: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_0108: 1105                 ldloc.s 05
+ IL_010a: 6fa504000a           callvirt a504000a Add
+ IL_010f: 1105                 ldloc.s 05
+ IL_0111: 2a                   ret
+ IL_0112: 08                   ldloc.2
+ IL_0113: 287e120006           call 7e120006 DestroyWindow
+ IL_0118: 08                   ldloc.2
+ IL_0119: 2a                   ret
+
+0600127a Sims3.UI.UIManager::GetWindowByExportID RVA=00065d7e bytes=23 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 5e
+Raw complete CIL 7ea1130004026f19380006036fa804000a28761200062a
+ IL_0000: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f19380006           callvirt 19380006 get_LayoutHandle
+ IL_000b: 03                   ldarg.1
+ IL_000c: 6fa804000a           callvirt a804000a GetWindowByExportID
+ IL_0011: 2876120006           call 76120006 WrapperFromHandle
+ IL_0016: 2a                   ret
+
+0600127e Sims3.UI.UIManager::DestroyWindow RVA=00065df2 bytes=17 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 46
+Raw complete CIL 7ea1130004026f050000066f5904000a2a
+ IL_0000: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_000b: 6f5904000a           callvirt 5904000a DestroyWindow
+ IL_0010: 2a                   ret
+
+06003819 Sims3.UI.Layout::get_LayoutHandle RVA=0015a561 bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 027b2e3f00042a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 7b2e3f0004           ldfld 2e3f0004 mLayoutHandle
+ IL_0006: 2a                   ret
+
+0600381a Sims3.UI.Layout::.ctor RVA=0015a569 bytes=14 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 3a
+Raw complete CIL 02281200000a02037d2e3f00042a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 281200000a           call 1200000a .ctor
+ IL_0006: 02                   ldarg.0
+ IL_0007: 03                   ldarg.1
+ IL_0008: 7d2e3f0004           stfld 2e3f0004 mLayoutHandle
+ IL_000d: 2a                   ret
+
+0600381b Sims3.UI.Layout::Finalize RVA=0015a578 bytes=17 maxStack=2 flags=300b localSignature=00000000
+Raw complete method header 0b3002001100000000000000
+Raw complete CIL 0217281f380006de0702281400000adc2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 17                   ldc.i4.1
+ IL_0002: 281f380006           call 1f380006 Dispose
+ IL_0007: de07                 leave.s 07
+ IL_0009: 02                   ldarg.0
+ IL_000a: 281400000a           call 1400000a Finalize
+ IL_000f: dc                   endfinally
+ IL_0010: 2a                   ret
+Raw complete EH section 01100000020000000909000700000000
+
+0600381c Sims3.UI.Layout::GetWindowByExportID RVA=0015a5a8 bytes=8 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 22
+Raw complete CIL 0203287a1200062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 03                   ldarg.1
+ IL_0002: 287a120006           call 7a120006 GetWindowByExportID
+ IL_0007: 2a                   ret
+
+0600381d Sims3.UI.Layout::Shutdown RVA=0015a5b1 bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 02286d1200062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 286d120006           call 6d120006 ShutdownLayout
+ IL_0006: 2a                   ret
+
+0600381e Sims3.UI.Layout::Dispose RVA=0015a5b9 bytes=8 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 22
+Raw complete CIL 0216281f3800062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 16                   ldc.i4.0
+ IL_0002: 281f380006           call 1f380006 Dispose
+ IL_0007: 2a                   ret
+
+0600381f Sims3.UI.Layout::Dispose RVA=0015a5c2 bytes=31 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 7e
+Raw complete CIL 027b2e3f00042c1602286c12000602167d2e3f0004032d0602283200000a2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 7b2e3f0004           ldfld 2e3f0004 mLayoutHandle
+ IL_0006: 2c16                 brfalse.s 16
+ IL_0008: 02                   ldarg.0
+ IL_0009: 286c120006           call 6c120006 DestroyLayout
+ IL_000e: 02                   ldarg.0
+ IL_000f: 16                   ldc.i4.0
+ IL_0010: 7d2e3f0004           stfld 2e3f0004 mLayoutHandle
+ IL_0015: 03                   ldarg.1
+ IL_0016: 2d06                 brtrue.s 06
+ IL_0018: 02                   ldarg.0
+ IL_0019: 283200000a           call 3200000a SuppressFinalize
+ IL_001e: 2a                   ret
+
+SELECTED complete_methods=13 CIL_bytes=689

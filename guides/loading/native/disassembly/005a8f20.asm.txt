@@ -1,0 +1,77 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+005a8f20 <.text+0x1a7f20>:
+  5a8f20:	83 ec 14             	sub    esp,0x14
+  5a8f23:	e8 58 6f f0 ff       	call   0x4afe80
+  5a8f28:	8b 4c 24 20          	mov    ecx,DWORD PTR [esp+0x20]
+  5a8f2c:	8b 54 24 24          	mov    edx,DWORD PTR [esp+0x24]
+  5a8f30:	6a 00                	push   0x0
+  5a8f32:	89 4c 24 08          	mov    DWORD PTR [esp+0x8],ecx
+  5a8f36:	8b 4c 24 1c          	mov    ecx,DWORD PTR [esp+0x1c]
+  5a8f3a:	6a 00                	push   0x0
+  5a8f3c:	6a 00                	push   0x0
+  5a8f3e:	89 4c 24 18          	mov    DWORD PTR [esp+0x18],ecx
+  5a8f42:	89 54 24 14          	mov    DWORD PTR [esp+0x14],edx
+  5a8f46:	8b 54 24 28          	mov    edx,DWORD PTR [esp+0x28]
+  5a8f4a:	6a 00                	push   0x0
+  5a8f4c:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  5a8f50:	51                   	push   ecx
+  5a8f51:	89 54 24 24          	mov    DWORD PTR [esp+0x24],edx
+  5a8f55:	8b 10                	mov    edx,DWORD PTR [eax]
+  5a8f57:	8b 52 0c             	mov    edx,DWORD PTR [edx+0xc]
+  5a8f5a:	8d 4c 24 18          	lea    ecx,[esp+0x18]
+  5a8f5e:	51                   	push   ecx
+  5a8f5f:	8b c8                	mov    ecx,eax
+  5a8f61:	ff d2                	call   edx
+  5a8f63:	84 c0                	test   al,al
+  5a8f65:	75 06                	jne    0x5a8f6d
+  5a8f67:	33 c0                	xor    eax,eax
+  5a8f69:	83 c4 14             	add    esp,0x14
+  5a8f6c:	c3                   	ret
+  5a8f6d:	8b 0c 24             	mov    ecx,DWORD PTR [esp]
+  5a8f70:	85 c9                	test   ecx,ecx
+  5a8f72:	56                   	push   esi
+  5a8f73:	74 16                	je     0x5a8f8b
+  5a8f75:	8b 01                	mov    eax,DWORD PTR [ecx]
+  5a8f77:	8b 50 0c             	mov    edx,DWORD PTR [eax+0xc]
+  5a8f7a:	68 6a 3c 59 03       	push   0x3593c6a
+  5a8f7f:	ff d2                	call   edx
+  5a8f81:	8b f0                	mov    esi,eax
+  5a8f83:	85 f6                	test   esi,esi
+  5a8f85:	75 12                	jne    0x5a8f99
+  5a8f87:	8b 4c 24 04          	mov    ecx,DWORD PTR [esp+0x4]
+  5a8f8b:	8b 01                	mov    eax,DWORD PTR [ecx]
+  5a8f8d:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+  5a8f90:	ff d2                	call   edx
+  5a8f92:	33 c0                	xor    eax,eax
+  5a8f94:	5e                   	pop    esi
+  5a8f95:	83 c4 14             	add    esp,0x14
+  5a8f98:	c3                   	ret
+  5a8f99:	e8 f2 03 1c 00       	call   0x769390
+  5a8f9e:	8b 10                	mov    edx,DWORD PTR [eax]
+  5a8fa0:	6a 35                	push   0x35
+  5a8fa2:	8b c8                	mov    ecx,eax
+  5a8fa4:	8b 82 c8 00 00 00    	mov    eax,DWORD PTR [edx+0xc8]
+  5a8faa:	56                   	push   esi
+  5a8fab:	ff d0                	call   eax
+  5a8fad:	5e                   	pop    esi
+  5a8fae:	83 c4 14             	add    esp,0x14
+  5a8fb1:	c3                   	ret
+  5a8fb2:	cc                   	int3
+  5a8fb3:	cc                   	int3
+  5a8fb4:	cc                   	int3
+  5a8fb5:	cc                   	int3
+  5a8fb6:	cc                   	int3
+  5a8fb7:	cc                   	int3
+  5a8fb8:	cc                   	int3
+  5a8fb9:	cc                   	int3
+  5a8fba:	cc                   	int3
+  5a8fbb:	cc                   	int3
+  5a8fbc:	cc                   	int3
+  5a8fbd:	cc                   	int3
+  5a8fbe:	cc                   	int3
+  5a8fbf:	cc                   	int3

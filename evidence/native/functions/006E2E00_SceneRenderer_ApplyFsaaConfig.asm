@@ -1,0 +1,40 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67; SceneRenderer_ApplyFsaaConfig; owned ranges [[006e2e00, 006e2e5b]]
+006e2e00	a1b00a1501	MOV EAX,[0x01150ab0]
+006e2e05	53	PUSH EBX
+006e2e06	56	PUSH ESI
+006e2e07	57	PUSH EDI
+006e2e08	6a00	PUSH 0x0
+006e2e0a	682ccefc00	PUSH 0xfcce2c
+006e2e0f	50	PUSH EAX
+006e2e10	8bd9	MOV EBX,ECX
+006e2e12	e8e980eaff	CALL 0x0058af00
+006e2e17	83c40c	ADD ESP,0xc
+006e2e1a	8bf8	MOV EDI,EAX
+006e2e1c	e8efbaf2ff	CALL 0x0060e910
+006e2e21	8bf0	MOV ESI,EAX
+006e2e23	3b7e38	CMP EDI,dword ptr [ESI + 0x38]
+006e2e26	741e	JZ 0x006e2e46
+006e2e28	57	PUSH EDI
+006e2e29	8bce	MOV ECX,ESI
+006e2e2b	e810bef2ff	CALL 0x0060ec40
+006e2e30	3b4638	CMP EAX,dword ptr [ESI + 0x38]
+006e2e33	7411	JZ 0x006e2e46
+006e2e35	6a01	PUSH 0x1
+006e2e37	50	PUSH EAX
+006e2e38	8bce	MOV ECX,ESI
+006e2e3a	e861bef2ff	CALL 0x0060eca0
+006e2e3f	8bce	MOV ECX,ESI
+006e2e41	e89aeef2ff	CALL 0x00611ce0
+006e2e46	6a00	PUSH 0x0
+006e2e48	8bcb	MOV ECX,EBX
+006e2e4a	e8a1e7ffff	CALL 0x006e15f0
+006e2e4f	6a00	PUSH 0x0
+006e2e51	8bcb	MOV ECX,EBX
+006e2e53	e828f5ffff	CALL 0x006e2380
+006e2e58	5f	POP EDI
+006e2e59	5e	POP ESI
+006e2e5a	5b	POP EBX
+006e2e5b	c3	RET

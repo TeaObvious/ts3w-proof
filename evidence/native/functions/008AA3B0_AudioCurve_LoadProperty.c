@@ -1,0 +1,47 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* Verified PC 1.67: seeds an identity curve, queries the requested tuning property, and replaces
+   the knots when the property is present; returns false when loading fails. This routine's fallback
+   is not an inverted attenuation curve. Raw instruction proof:
+   008AA3B0_AudioCurve_LoadProperty.asm.
+   original PC 1.67 TS3W.exe. */
+
+int __thiscall AudioCurve_LoadProperty(void *this,int *param_1,undefined4 param_2)
+
+{
+  char extraout_AL;
+  uint3 extraout_var;
+  uint3 uVar1;
+  uint3 extraout_var_00;
+  undefined3 extraout_var_01;
+  undefined1 *puVar2;
+  undefined1 *puVar3;
+  undefined1 local_18 [4];
+  undefined1 local_14 [4];
+  undefined4 local_10;
+  undefined4 local_c;
+  undefined4 local_8;
+  undefined4 local_4;
+  
+  local_10 = 0;
+  local_c = 0;
+  local_8 = DAT_00f998f8;
+  local_4 = DAT_00f998f8;
+  FUN_008a9f90(this,(int)&local_10,2);
+  uVar1 = extraout_var;
+  if (param_1 != (int *)0x0) {
+    puVar3 = local_14;
+    puVar2 = local_18;
+    (**(code **)(*param_1 + 0x48))(param_2);
+    uVar1 = extraout_var_00;
+    if (extraout_AL != '\0') {
+      FUN_008a9f90(this,(int)puVar3,(int)puVar2 >> 1);
+      return CONCAT31(extraout_var_01,1);
+    }
+  }
+  return (uint)uVar1 << 8;
+}
+

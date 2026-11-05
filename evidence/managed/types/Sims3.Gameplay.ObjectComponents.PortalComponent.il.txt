@@ -1,0 +1,2531 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; complete type Sims3.Gameplay.ObjectComponents.PortalComponent.
+// Analyst annotations describe static contracts; IL remains authoritative for decompiler artifacts.
+
+.class public auto ansi abstract beforefieldinit Sims3.Gameplay.ObjectComponents.PortalComponent
+	extends Sims3.Gameplay.Abstracts.StaticObjectComponent
+{
+	// Nested Types
+	.class nested public auto ansi sealed LaneInfoFlags
+		extends [mscorlib]System.Enum
+	{
+		.custom instance void [mscorlib]System.FlagsAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags None = int32(0)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags ForcePortalPlan = int32(1)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags PlanToSlotNotPosition = int32(2)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags PortalPlanIgnoresPortalObject = int32(4)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags ElevatorDoor = int32(8)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags NoLanesAvailableFailsRoute = int32(16)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags NoLanesAvailableSkipsAdditionalLaneChecks = int32(32)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Default = int32(4)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags IrregularLane = int32(3)
+
+	} // end of class LaneInfoFlags
+
+	.class nested public sequential ansi sealed beforefieldinit LaneInfo
+		extends [mscorlib]System.ValueType
+	{
+		// Fields
+		.field public uint32 mLaneIndex
+		.field public valuetype [SimIFace]Sims3.SimIFace.Slot[] mLaneSlots
+		.field public valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags mLaneFlags
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				uint32 index,
+				valuetype [SimIFace]Sims3.SimIFace.Slot[] slots,
+				valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags 'flags'
+			) cil managed 
+		{
+			// Method begins at RVA 0x17d7ac
+			// Header size: 1
+			// Code size: 22 (0x16)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldarg.1
+			IL_0002: stfld uint32 Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneIndex
+			IL_0007: ldarg.0
+			IL_0008: ldarg.2
+			IL_0009: stfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_000e: ldarg.0
+			IL_000f: ldarg.3
+			IL_0010: stfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+			IL_0015: ret
+		} // end of method LaneInfo::.ctor
+
+		.method public hidebysig 
+			instance void DEBUG_CheckLaneFlags (
+				class Sims3.Gameplay.Abstracts.GameObject portalObject
+			) cil managed 
+		{
+			// Method begins at RVA 0x17d7c3
+			// Header size: 1
+			// Code size: 1 (0x1)
+			.maxstack 8
+
+			IL_0000: ret
+		} // end of method LaneInfo::DEBUG_CheckLaneFlags
+
+		.method public hidebysig specialname 
+			instance bool get_IrregularLane () cil managed 
+		{
+			// Method begins at RVA 0x17d7c5
+			// Header size: 1
+			// Code size: 15 (0xf)
+			.maxstack 8
+
+			IL_0000: ldc.i4.3
+			IL_0001: ldarg.0
+			IL_0002: ldfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+			IL_0007: ldc.i4.1
+			IL_0008: and
+			IL_0009: ceq
+			IL_000b: ldc.i4.0
+			IL_000c: ceq
+			IL_000e: ret
+		} // end of method LaneInfo::get_IrregularLane
+
+		.method public hidebysig specialname 
+			instance bool get_ForcePortalPlan () cil managed 
+		{
+			// Method begins at RVA 0x17d7d5
+			// Header size: 1
+			// Code size: 15 (0xf)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ldarg.0
+			IL_0002: ldfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+			IL_0007: ldc.i4.1
+			IL_0008: and
+			IL_0009: ceq
+			IL_000b: ldc.i4.0
+			IL_000c: ceq
+			IL_000e: ret
+		} // end of method LaneInfo::get_ForcePortalPlan
+
+		.method public hidebysig specialname 
+			instance bool get_PlanToSlotNotPosition () cil managed 
+		{
+			// Method begins at RVA 0x17d7e5
+			// Header size: 1
+			// Code size: 15 (0xf)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ldarg.0
+			IL_0002: ldfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+			IL_0007: ldc.i4.2
+			IL_0008: and
+			IL_0009: ceq
+			IL_000b: ldc.i4.0
+			IL_000c: ceq
+			IL_000e: ret
+		} // end of method LaneInfo::get_PlanToSlotNotPosition
+
+		.method public hidebysig specialname 
+			instance bool get_PortalPlanIgnoresPortalObject () cil managed 
+		{
+			// Method begins at RVA 0x17d7f5
+			// Header size: 1
+			// Code size: 15 (0xf)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ldarg.0
+			IL_0002: ldfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+			IL_0007: ldc.i4.4
+			IL_0008: and
+			IL_0009: ceq
+			IL_000b: ldc.i4.0
+			IL_000c: ceq
+			IL_000e: ret
+		} // end of method LaneInfo::get_PortalPlanIgnoresPortalObject
+
+		.method public hidebysig specialname 
+			instance bool get_ElevatorDoor () cil managed 
+		{
+			// Method begins at RVA 0x17d805
+			// Header size: 1
+			// Code size: 15 (0xf)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ldarg.0
+			IL_0002: ldfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+			IL_0007: ldc.i4.8
+			IL_0008: and
+			IL_0009: ceq
+			IL_000b: ldc.i4.0
+			IL_000c: ceq
+			IL_000e: ret
+		} // end of method LaneInfo::get_ElevatorDoor
+
+		.method public hidebysig specialname 
+			instance bool get_NoLanesAvailableFailsRoute () cil managed 
+		{
+			// Method begins at RVA 0x17d815
+			// Header size: 1
+			// Code size: 16 (0x10)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ldarg.0
+			IL_0002: ldfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+			IL_0007: ldc.i4.s 16
+			IL_0009: and
+			IL_000a: ceq
+			IL_000c: ldc.i4.0
+			IL_000d: ceq
+			IL_000f: ret
+		} // end of method LaneInfo::get_NoLanesAvailableFailsRoute
+
+		.method public hidebysig specialname 
+			instance bool get_NoLanesAvailableSkipsAdditionalLaneChecks () cil managed 
+		{
+			// Method begins at RVA 0x17d826
+			// Header size: 1
+			// Code size: 16 (0x10)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ldarg.0
+			IL_0002: ldfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+			IL_0007: ldc.i4.s 32
+			IL_0009: and
+			IL_000a: ceq
+			IL_000c: ldc.i4.0
+			IL_000d: ceq
+			IL_000f: ret
+		} // end of method LaneInfo::get_NoLanesAvailableSkipsAdditionalLaneChecks
+
+		// Properties
+		.property instance bool IrregularLane()
+		{
+			.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_IrregularLane()
+		}
+		.property instance bool ForcePortalPlan()
+		{
+			.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_ForcePortalPlan()
+		}
+		.property instance bool PlanToSlotNotPosition()
+		{
+			.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_PlanToSlotNotPosition()
+		}
+		.property instance bool PortalPlanIgnoresPortalObject()
+		{
+			.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_PortalPlanIgnoresPortalObject()
+		}
+		.property instance bool ElevatorDoor()
+		{
+			.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_ElevatorDoor()
+		}
+		.property instance bool NoLanesAvailableFailsRoute()
+		{
+			.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_NoLanesAvailableFailsRoute()
+		}
+		.property instance bool NoLanesAvailableSkipsAdditionalLaneChecks()
+		{
+			.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_NoLanesAvailableSkipsAdditionalLaneChecks()
+		}
+
+	} // end of class LaneInfo
+
+	.class nested private auto ansi sealed LaneStatus
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneStatus None = int32(0)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneStatus OnAtPortalObjectEventReceived = int32(1)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneStatus OnCompletedPortalObjectEventReceived = int32(2)
+
+	} // end of class LaneStatus
+
+	.class nested public auto ansi sealed AddPortalsCallback
+		extends [mscorlib]System.MulticastDelegate
+	{
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				object 'object',
+				native int 'method'
+			) runtime managed 
+		{
+		} // end of method AddPortalsCallback::.ctor
+
+		.method public hidebysig newslot virtual 
+			instance void Invoke () runtime managed 
+		{
+		} // end of method AddPortalsCallback::Invoke
+
+		.method public hidebysig newslot virtual 
+			instance class [mscorlib]System.IAsyncResult BeginInvoke (
+				class [mscorlib]System.AsyncCallback callback,
+				object 'object'
+			) runtime managed 
+		{
+		} // end of method AddPortalsCallback::BeginInvoke
+
+		.method public hidebysig newslot virtual 
+			instance void EndInvoke (
+				class [mscorlib]System.IAsyncResult result
+			) runtime managed 
+		{
+		} // end of method AddPortalsCallback::EndInvoke
+
+	} // end of class AddPortalsCallback
+
+	.class nested family auto ansi sealed PortalAddInitTime
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/PortalAddInitTime None = int32(0)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/PortalAddInitTime OnCreation = int32(1)
+		.field public static literal valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/PortalAddInitTime OnStartup = int32(2)
+
+	} // end of class PortalAddInitTime
+
+	.class nested private auto ansi beforefieldinit AcquireLaneRouteAction
+		extends Sims3.Gameplay.Routing.RouteAction
+	{
+		// Fields
+		.field private class Sims3.Gameplay.Actors.Sim mRoutingSim
+		.field private class Sims3.Gameplay.Abstracts.GameObject mPortalObject
+		.field private class [SimIFace]Sims3.SimIFace.Route mRoute
+		.field private valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult mActionResult
+
+		// Methods
+		.method public hidebysig specialname virtual 
+			instance class Sims3.Gameplay.Abstracts.GameObject get_RoutingObject () cil managed 
+		{
+			// Method begins at RVA 0x17d837
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0006: ret
+		} // end of method AcquireLaneRouteAction::get_RoutingObject
+
+		.method private hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x17d83f
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void Sims3.Gameplay.Routing.RouteAction::.ctor()
+			IL_0006: ret
+		} // end of method AcquireLaneRouteAction::.ctor
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				class Sims3.Gameplay.Actors.Sim routingSim,
+				class Sims3.Gameplay.Abstracts.GameObject portalObject,
+				class [SimIFace]Sims3.SimIFace.Route route
+			) cil managed 
+		{
+			// Method begins at RVA 0x17d847
+			// Header size: 1
+			// Code size: 28 (0x1c)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void Sims3.Gameplay.Routing.RouteAction::.ctor()
+			IL_0006: ldarg.0
+			IL_0007: ldarg.1
+			IL_0008: stfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_000d: ldarg.0
+			IL_000e: ldarg.2
+			IL_000f: stfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mPortalObject
+			IL_0014: ldarg.0
+			IL_0015: ldarg.3
+			IL_0016: stfld class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoute
+			IL_001b: ret
+		} // end of method AcquireLaneRouteAction::.ctor
+
+		.method public hidebysig virtual 
+			instance valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult PerformAction () cil managed 
+		{
+			// Method begins at RVA 0x17d864
+			// Header size: 1
+			// Code size: 61 (0x3d)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0006: callvirt instance class Sims3.Gameplay.Actors.SimRoutingComponent Sims3.Gameplay.Actors.Sim::get_SimRoutingComponent()
+			IL_000b: callvirt instance void Sims3.Gameplay.Actors.SimRoutingComponent::EnableDynamicFootprint()
+			IL_0010: ldarg.0
+			IL_0011: ldc.i4.0
+			IL_0012: stfld valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mActionResult
+			IL_0017: ldarg.0
+			IL_0018: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::AcquireLane()
+			IL_001d: brfalse.s IL_0026
+
+			IL_001f: ldarg.0
+			IL_0020: ldc.i4.1
+			IL_0021: stfld valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mActionResult
+
+			IL_0026: ldarg.0
+			IL_0027: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_002c: callvirt instance class Sims3.Gameplay.Actors.SimRoutingComponent Sims3.Gameplay.Actors.Sim::get_SimRoutingComponent()
+			IL_0031: callvirt instance void Sims3.Gameplay.Actors.SimRoutingComponent::DisableDynamicFootprint()
+			IL_0036: ldarg.0
+			IL_0037: ldfld valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mActionResult
+			IL_003c: ret
+		} // end of method AcquireLaneRouteAction::PerformAction
+
+		.method private hidebysig 
+			instance bool WaitInLine (
+				class Sims3.Gameplay.Objects.Elevator.ElevatorDoors elevatorDoors
+			) cil managed 
+		{
+			// Method begins at RVA 0x17d8a4
+			// Header size: 12
+			// Code size: 260 (0x104)
+			.maxstack 6
+
+			IL_0000: ldarg.1
+			IL_0001: brfalse IL_0102
+
+			IL_0006: ldarg.1
+			IL_0007: ldfld class Sims3.Gameplay.ActorSystems.SimQueue Sims3.Gameplay.Objects.Elevator.ElevatorDoors::Line
+			IL_000c: ldarg.0
+			IL_000d: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0012: callvirt instance void Sims3.Gameplay.ActorSystems.SimQueue::RemoveFromQueue(class Sims3.Gameplay.Actors.Sim)
+			IL_0017: ldarg.1
+			IL_0018: callvirt instance class Sims3.Gameplay.Objects.Elevator.ElevatorInterior Sims3.Gameplay.Objects.Elevator.ElevatorDoors::get_InteriorObj()
+			IL_001d: brfalse.s IL_0068
+
+			IL_001f: ldarg.1
+			IL_0020: callvirt instance class Sims3.Gameplay.Objects.Elevator.ElevatorInterior Sims3.Gameplay.Objects.Elevator.ElevatorDoors::get_InteriorObj()
+			IL_0025: callvirt instance class Sims3.Gameplay.Objects.Elevator.ElevatorInterior/ElevatorPortalComponent Sims3.Gameplay.Objects.Elevator.ElevatorInterior::get_ElevatorPortal()
+			IL_002a: callvirt instance bool Sims3.Gameplay.Objects.Elevator.ElevatorInterior/ElevatorPortalComponent::ElevatorHasEnoughSimsToTeleportSkip()
+			IL_002f: brfalse.s IL_0068
+
+			IL_0031: ldarg.1
+			IL_0032: callvirt instance class Sims3.Gameplay.Objects.Elevator.ElevatorDoors/ElevatorDoorsPortalComponent Sims3.Gameplay.Objects.Elevator.ElevatorDoors::get_ElevatorDoorsPortal()
+			IL_0037: ldarg.0
+			IL_0038: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_003d: callvirt instance bool Sims3.Gameplay.Objects.Elevator.ElevatorDoors/ElevatorDoorsPortalComponent::TryTeleportSkip(class Sims3.Gameplay.Actors.Sim)
+			IL_0042: brfalse.s IL_0068
+
+			IL_0044: ldarg.0
+			IL_0045: ldc.i4.3
+			IL_0046: stfld valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mActionResult
+			IL_004b: ldarg.0
+			IL_004c: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0051: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+			IL_0056: callvirt instance void Sims3.Gameplay.ObjectComponents.RoutingComponent::ClearQueuedActions()
+			IL_005b: ldarg.0
+			IL_005c: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0061: callvirt instance void Sims3.Gameplay.Actors.Sim::ClearExitReasons()
+			IL_0066: ldc.i4.0
+			IL_0067: ret
+
+			IL_0068: ldarg.1
+			IL_0069: ldfld class Sims3.Gameplay.ActorSystems.SimQueue Sims3.Gameplay.Objects.Elevator.ElevatorDoors::Line
+			IL_006e: ldarg.0
+			IL_006f: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0074: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Actors.Sim::get_CurrentInteraction()
+			IL_0079: ldarg.1
+			IL_007a: ldc.i4 1536
+			IL_007f: ldc.i4 -4603905 // 0xffb9bfff
+			IL_0084: call float32 Sims3.Gameplay.Objects.Elevator.ElevatorInterior::get_ElevatorSimQueueWaitBeforeTeleportSkipTime()
+			IL_0089: callvirt instance bool Sims3.Gameplay.ActorSystems.SimQueue::WaitForTurn(class Sims3.Gameplay.Interactions.InteractionInstance, class Sims3.Gameplay.Interfaces.IGameObject, valuetype Sims3.Gameplay.ActorSystems.SimQueue/WaitBehavior, valuetype Sims3.Gameplay.Actors.ExitReason, float32)
+			IL_008e: brtrue.s IL_0102
+
+			IL_0090: ldarg.0
+			IL_0091: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0096: ldc.i4.1
+			IL_0097: callvirt instance bool Sims3.Gameplay.Actors.Sim::HasExitReason(valuetype Sims3.Gameplay.Actors.ExitReason)
+			IL_009c: brfalse.s IL_00d5
+
+			IL_009e: ldarg.1
+			IL_009f: callvirt instance class Sims3.Gameplay.Objects.Elevator.ElevatorDoors/ElevatorDoorsPortalComponent Sims3.Gameplay.Objects.Elevator.ElevatorDoors::get_ElevatorDoorsPortal()
+			IL_00a4: ldarg.0
+			IL_00a5: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_00aa: callvirt instance bool Sims3.Gameplay.Objects.Elevator.ElevatorDoors/ElevatorDoorsPortalComponent::TryTeleportSkip(class Sims3.Gameplay.Actors.Sim)
+			IL_00af: brfalse.s IL_00f7
+
+			IL_00b1: ldarg.0
+			IL_00b2: ldc.i4.3
+			IL_00b3: stfld valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mActionResult
+			IL_00b8: ldarg.0
+			IL_00b9: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_00be: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+			IL_00c3: callvirt instance void Sims3.Gameplay.ObjectComponents.RoutingComponent::ClearQueuedActions()
+			IL_00c8: ldarg.0
+			IL_00c9: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_00ce: callvirt instance void Sims3.Gameplay.Actors.Sim::ClearExitReasons()
+			IL_00d3: ldc.i4.0
+			IL_00d4: ret
+
+			IL_00d5: ldarg.0
+			IL_00d6: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_00db: ldc.i4 1048576
+			IL_00e0: callvirt instance bool Sims3.Gameplay.Actors.Sim::HasExitReason(valuetype Sims3.Gameplay.Actors.ExitReason)
+			IL_00e5: brfalse.s IL_00f7
+
+			IL_00e7: ldarg.0
+			IL_00e8: ldc.i4.1
+			IL_00e9: call instance void Sims3.Gameplay.Routing.RouteAction::AddFailureExplanation(valuetype Sims3.Gameplay.Routing.RouteAction/FailureExplanation)
+			IL_00ee: ldarg.0
+			IL_00ef: ldc.i4.1
+			IL_00f0: stfld valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mActionResult
+			IL_00f5: ldc.i4.0
+			IL_00f6: ret
+
+			IL_00f7: ldarg.0
+			IL_00f8: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_00fd: callvirt instance void Sims3.Gameplay.Actors.Sim::ClearExitReasons()
+
+			IL_0102: ldc.i4.1
+			IL_0103: ret
+		} // end of method AcquireLaneRouteAction::WaitInLine
+
+		.method private hidebysig 
+			instance bool AcquireLane () cil managed 
+		{
+			// Method begins at RVA 0x17d9b4
+			// Header size: 12
+			// Code size: 485 (0x1e5)
+			.maxstack 6
+			.locals init (
+				[0] bool,
+				[1] bool,
+				[2] class Sims3.Gameplay.Objects.Elevator.ElevatorDoors,
+				[3] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[4] class Sims3.Gameplay.Routing.PortalAction,
+				[5] float32,
+				[6] valuetype Sims3.Gameplay.Actors.ExitReason,
+				[7] class [SimIFace]Sims3.SimIFace.Route,
+				[8] float32,
+				[9] float32
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0006: brfalse.s IL_0025
+
+			IL_0008: ldarg.0
+			IL_0009: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mPortalObject
+			IL_000e: brfalse.s IL_0025
+
+			IL_0010: ldarg.0
+			IL_0011: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mPortalObject
+			IL_0016: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+			IL_001b: brfalse.s IL_0025
+
+			IL_001d: ldarg.0
+			IL_001e: ldfld class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoute
+			IL_0023: brtrue.s IL_0027
+
+			IL_0025: ldc.i4.0
+			IL_0026: ret
+
+			IL_0027: ldc.i4.0
+			IL_0028: ldarg.0
+			IL_0029: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mPortalObject
+			IL_002e: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+			IL_0033: ldc.i4.0
+			IL_0034: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneFlagsForLaneIndex(uint32)
+			IL_0039: ldc.i4.8
+			IL_003a: and
+			IL_003b: ceq
+			IL_003d: ldc.i4.0
+			IL_003e: ceq
+			IL_0040: stloc.1
+			IL_0041: ldnull
+			IL_0042: stloc.2
+			IL_0043: ldloc.1
+			IL_0044: brfalse.s IL_0052
+
+			IL_0046: ldarg.0
+			IL_0047: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mPortalObject
+			IL_004c: isinst Sims3.Gameplay.Objects.Elevator.ElevatorDoors
+			IL_0051: stloc.2
+
+			IL_0052: ldloc.2
+			IL_0053: brfalse.s IL_008a
+
+			IL_0055: ldloc.2
+			IL_0056: callvirt instance class Sims3.Gameplay.Objects.Elevator.ElevatorInterior Sims3.Gameplay.Objects.Elevator.ElevatorDoors::get_InteriorObj()
+			IL_005b: brfalse.s IL_0079
+
+			IL_005d: ldloc.2
+			IL_005e: callvirt instance class Sims3.Gameplay.Objects.Elevator.ElevatorInterior Sims3.Gameplay.Objects.Elevator.ElevatorDoors::get_InteriorObj()
+			IL_0063: callvirt instance class Sims3.Gameplay.Objects.Elevator.ElevatorInterior/ElevatorPortalComponent Sims3.Gameplay.Objects.Elevator.ElevatorInterior::get_ElevatorPortal()
+			IL_0068: ldarg.0
+			IL_0069: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_006e: callvirt instance bool Sims3.Gameplay.Objects.Elevator.ElevatorInterior/ElevatorPortalComponent::IsSimInElevator(class Sims3.Gameplay.Actors.Sim)
+			IL_0073: brfalse.s IL_0079
+
+			IL_0075: ldnull
+			IL_0076: stloc.2
+			IL_0077: br.s IL_008a
+
+			IL_0079: ldarg.0
+			IL_007a: ldloc.2
+			IL_007b: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::WaitInLine(class Sims3.Gameplay.Objects.Elevator.ElevatorDoors)
+			IL_0080: brtrue.s IL_008a
+
+			IL_0082: ldc.i4.0
+			IL_0083: call void [SimIFace]Sims3.SimIFace.Simulator::Sleep(uint32)
+			IL_0088: ldc.i4.0
+			IL_0089: ret
+
+			IL_008a: ldarg.0
+			IL_008b: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0090: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+			IL_0095: stloc.3
+			IL_0096: ldarg.0
+			IL_0097: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_009c: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+			IL_00a1: ldarg.0
+			IL_00a2: callvirt instance class Sims3.Gameplay.Routing.RouteAction Sims3.Gameplay.ObjectComponents.RoutingComponent::GetRouteActionAfter(class Sims3.Gameplay.Routing.RouteAction)
+			IL_00a7: isinst Sims3.Gameplay.Routing.PortalAction
+			IL_00ac: stloc.s 4
+			IL_00ae: ldloc.s 4
+			IL_00b0: brfalse.s IL_00ba
+
+			IL_00b2: ldloc.s 4
+			IL_00b4: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Routing.PortalAction::get_PortalStartPos()
+			IL_00b9: stloc.3
+
+			IL_00ba: ldarg.0
+			IL_00bb: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mPortalObject
+			IL_00c0: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+			IL_00c5: ldarg.0
+			IL_00c6: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_00cb: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::IsFullyBlocked(class Sims3.Gameplay.Actors.Sim)
+			IL_00d0: brfalse.s IL_00e8
+
+			IL_00d2: ldloc.2
+			IL_00d3: brfalse.s IL_00e6
+
+			IL_00d5: ldloc.2
+			IL_00d6: ldfld class Sims3.Gameplay.ActorSystems.SimQueue Sims3.Gameplay.Objects.Elevator.ElevatorDoors::Line
+			IL_00db: ldarg.0
+			IL_00dc: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_00e1: callvirt instance void Sims3.Gameplay.ActorSystems.SimQueue::RemoveFromQueue(class Sims3.Gameplay.Actors.Sim)
+
+			IL_00e6: ldc.i4.0
+			IL_00e7: ret
+
+			IL_00e8: ldarg.0
+			IL_00e9: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mPortalObject
+			IL_00ee: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+			IL_00f3: ldarg.0
+			IL_00f4: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_00f9: ldloc.3
+			IL_00fa: ldc.i4.0
+			IL_00fb: ldc.i4.0
+			IL_00fc: conv.i8
+			IL_00fd: ldloca.s 0
+			IL_00ff: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::LockRoutingLane(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Vector3, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool&)
+			IL_0104: brfalse.s IL_011c
+
+			IL_0106: ldloc.2
+			IL_0107: brfalse.s IL_011a
+
+			IL_0109: ldloc.2
+			IL_010a: ldfld class Sims3.Gameplay.ActorSystems.SimQueue Sims3.Gameplay.Objects.Elevator.ElevatorDoors::Line
+			IL_010f: ldarg.0
+			IL_0110: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0115: callvirt instance void Sims3.Gameplay.ActorSystems.SimQueue::RemoveFromQueue(class Sims3.Gameplay.Actors.Sim)
+
+			IL_011a: ldc.i4.1
+			IL_011b: ret
+
+			IL_011c: ldc.r4 20
+			IL_0121: stloc.s 5
+			IL_0123: ldc.i4 2592
+			IL_0128: stloc.s 6
+			IL_012a: ldloc.1
+			IL_012b: brfalse.s IL_0153
+
+			IL_012d: call float32 Sims3.Gameplay.Objects.Elevator.ElevatorInterior::get_ElevatorGiveUpTime()
+			IL_0132: stloc.s 5
+			IL_0134: ldarg.0
+			IL_0135: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_013a: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+			IL_013f: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.ObjectComponents.RoutingComponent::GetCurrentRoute()
+			IL_0144: stloc.s 7
+			IL_0146: ldloc.s 7
+			IL_0148: brfalse.s IL_0153
+
+			IL_014a: ldloc.s 7
+			IL_014c: callvirt instance int32 [SimIFace]Sims3.SimIFace.Route::get_ExitReasonsInterrupt()
+			IL_0151: stloc.s 6
+
+			IL_0153: ldarg.0
+			IL_0154: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_0159: callvirt instance void Sims3.Gameplay.Actors.Sim::LoopIdle()
+			IL_015e: ldc.i4.1
+			IL_015f: call float32 Sims3.Gameplay.Utilities.SimClock::ElapsedTime(valuetype Sims3.Gameplay.Utilities.TimeUnit)
+			IL_0164: stloc.s 8
+			IL_0166: br.s IL_01bb
+			// loop start (head: IL_01bb)
+				IL_0168: ldloc.2
+				IL_0169: brfalse.s IL_0176
+
+				IL_016b: ldarg.0
+				IL_016c: ldloc.2
+				IL_016d: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::WaitInLine(class Sims3.Gameplay.Objects.Elevator.ElevatorDoors)
+				IL_0172: brtrue.s IL_0176
+
+				IL_0174: ldc.i4.0
+				IL_0175: ret
+
+				IL_0176: ldc.i4.1
+				IL_0177: call float32 Sims3.Gameplay.Utilities.SimClock::ElapsedTime(valuetype Sims3.Gameplay.Utilities.TimeUnit)
+				IL_017c: stloc.s 9
+				IL_017e: ldloc.s 9
+				IL_0180: ldloc.s 8
+				IL_0182: sub
+				IL_0183: ldloc.s 5
+				IL_0185: bge.s IL_01cf
+
+				IL_0187: ldarg.0
+				IL_0188: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mPortalObject
+				IL_018d: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+				IL_0192: ldarg.0
+				IL_0193: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+				IL_0198: ldloc.3
+				IL_0199: ldc.i4.0
+				IL_019a: ldc.i4.0
+				IL_019b: conv.i8
+				IL_019c: ldloca.s 0
+				IL_019e: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::LockRoutingLane(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Vector3, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool&)
+				IL_01a3: brfalse.s IL_01bb
+
+				IL_01a5: ldloc.2
+				IL_01a6: brfalse.s IL_01b9
+
+				IL_01a8: ldloc.2
+				IL_01a9: ldfld class Sims3.Gameplay.ActorSystems.SimQueue Sims3.Gameplay.Objects.Elevator.ElevatorDoors::Line
+				IL_01ae: ldarg.0
+				IL_01af: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+				IL_01b4: callvirt instance void Sims3.Gameplay.ActorSystems.SimQueue::RemoveFromQueue(class Sims3.Gameplay.Actors.Sim)
+
+				IL_01b9: ldc.i4.1
+				IL_01ba: ret
+
+				IL_01bb: ldarg.0
+				IL_01bc: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+				IL_01c1: ldc.r4 0.25
+				IL_01c6: ldloc.s 6
+				IL_01c8: callvirt instance bool Sims3.Gameplay.Actors.Sim::WaitForExitReason(float32, valuetype Sims3.Gameplay.Actors.ExitReason)
+				IL_01cd: brfalse.s IL_0168
+			// end loop
+
+			IL_01cf: ldloc.2
+			IL_01d0: brfalse.s IL_01e3
+
+			IL_01d2: ldloc.2
+			IL_01d3: ldfld class Sims3.Gameplay.ActorSystems.SimQueue Sims3.Gameplay.Objects.Elevator.ElevatorDoors::Line
+			IL_01d8: ldarg.0
+			IL_01d9: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::mRoutingSim
+			IL_01de: callvirt instance void Sims3.Gameplay.ActorSystems.SimQueue::RemoveFromQueue(class Sims3.Gameplay.Actors.Sim)
+
+			IL_01e3: ldc.i4.0
+			IL_01e4: ret
+		} // end of method AcquireLaneRouteAction::AcquireLane
+
+		// Properties
+		.property instance class Sims3.Gameplay.Abstracts.GameObject RoutingObject()
+		{
+			.get instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::get_RoutingObject()
+		}
+
+	} // end of class AcquireLaneRouteAction
+
+
+	// Fields
+	.field private static literal float32 kMinWalkAwayRadius = float32(0.75)
+	.field private static literal float32 kMaxWalkAwayRadius = float32(3)
+	.field private static literal float32 kWaitingAreaConeAngle = float32(45)
+	.field private class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> mLockedLaneIndices
+	.field family class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback mAddPortalsCallback
+	.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor(bool) = (
+		01 00 00 00 00
+	)
+	.field private static class [mscorlib]System.Predicate`1<valuetype [SimIFace]Sims3.SimIFace.Slot> '<>9__CachedAnonymousMethodDelegate1'
+	.custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = (
+		01 00 00 00
+	)
+
+	// Methods
+	.method public hidebysig specialname virtual 
+		instance class [mscorlib]System.Type get_BaseType () cil managed 
+	{
+		// Method begins at RVA 0x17cda0
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: ldtoken Sims3.Gameplay.ObjectComponents.PortalComponent
+		IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_000a: ret
+	} // end of method PortalComponent::get_BaseType
+
+	.method public hidebysig specialname 
+		instance bool get_NoLanesAvailableFailsRoute () cil managed 
+	{
+		// Method begins at RVA 0x17cdac
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldc.i4.0
+		IL_0001: ldarg.0
+		IL_0002: ldc.i4.0
+		IL_0003: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneFlagsForLaneIndex(uint32)
+		IL_0008: ldc.i4.s 16
+		IL_000a: and
+		IL_000b: ceq
+		IL_000d: ldc.i4.0
+		IL_000e: ceq
+		IL_0010: ret
+	} // end of method PortalComponent::get_NoLanesAvailableFailsRoute
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x17cdbe
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::.ctor()
+		IL_0006: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_000b: ldarg.0
+		IL_000c: call instance void Sims3.Gameplay.Abstracts.StaticObjectComponent::.ctor()
+		IL_0011: ret
+	} // end of method PortalComponent::.ctor
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			class Sims3.Gameplay.Abstracts.GameObject o
+		) cil managed 
+	{
+		// Method begins at RVA 0x17cdd1
+		// Header size: 1
+		// Code size: 25 (0x19)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::.ctor()
+		IL_0006: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void Sims3.Gameplay.Abstracts.StaticObjectComponent::.ctor(class Sims3.Gameplay.Abstracts.GameObject)
+		IL_0012: ldarg.0
+		IL_0013: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::RefreshDebugHoverText()
+		IL_0018: ret
+	} // end of method PortalComponent::.ctor
+
+	.method family hidebysig specialname newslot virtual 
+		instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/PortalAddInitTime get_ShouldAddPortalAtInit () cil managed 
+	{
+		// Method begins at RVA 0x17cdeb
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.0
+		IL_0001: ret
+	} // end of method PortalComponent::get_ShouldAddPortalAtInit
+
+	.method public hidebysig virtual 
+		instance void OnCreation () cil managed 
+	{
+		// Method begins at RVA 0x17cdee
+		// Header size: 1
+		// Code size: 58 (0x3a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/PortalAddInitTime Sims3.Gameplay.ObjectComponents.PortalComponent::get_ShouldAddPortalAtInit()
+		IL_0006: ldc.i4.1
+		IL_0007: bne.un.s IL_0033
+
+		IL_0009: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.World::HandToolGetObjectHeld()
+		IL_000e: ldarg.0
+		IL_000f: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0014: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0019: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_001e: brfalse.s IL_0033
+
+		IL_0020: ldarg.0
+		IL_0021: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_0026: brfalse.s IL_0033
+
+		IL_0028: ldarg.0
+		IL_0029: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_002e: callvirt instance void Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback::Invoke()
+
+		IL_0033: ldarg.0
+		IL_0034: call instance void Sims3.Gameplay.Abstracts.ObjectComponent::OnCreation()
+		IL_0039: ret
+	} // end of method PortalComponent::OnCreation
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x17ce29
+		// Header size: 1
+		// Code size: 58 (0x3a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/PortalAddInitTime Sims3.Gameplay.ObjectComponents.PortalComponent::get_ShouldAddPortalAtInit()
+		IL_0006: ldc.i4.2
+		IL_0007: bne.un.s IL_0033
+
+		IL_0009: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.World::HandToolGetObjectHeld()
+		IL_000e: ldarg.0
+		IL_000f: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0014: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0019: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_001e: brfalse.s IL_0033
+
+		IL_0020: ldarg.0
+		IL_0021: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_0026: brfalse.s IL_0033
+
+		IL_0028: ldarg.0
+		IL_0029: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_002e: callvirt instance void Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback::Invoke()
+
+		IL_0033: ldarg.0
+		IL_0034: call instance void Sims3.Gameplay.Abstracts.ObjectComponent::OnStartup()
+		IL_0039: ret
+	} // end of method PortalComponent::OnStartup
+
+	.method private hidebysig static 
+		void InvokeAddPortalsCallback (
+			uint64 objectId
+		) cil managed 
+	{
+		// Method begins at RVA 0x17ce64
+		// Header size: 12
+		// Code size: 60 (0x3c)
+		.maxstack 2
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.IScriptProxy,
+			[1] class Sims3.Gameplay.Abstracts.GameObject,
+			[2] class Sims3.Gameplay.ObjectComponents.PortalComponent
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: newobj instance void [SimIFace]Sims3.SimIFace.ObjectGuid::.ctor(uint64)
+		IL_0006: call class [SimIFace]Sims3.SimIFace.IScriptProxy [SimIFace]Sims3.SimIFace.Simulator::GetProxy(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_000b: stloc.0
+		IL_000c: ldloc.0
+		IL_000d: brfalse.s IL_003b
+
+		IL_000f: ldloc.0
+		IL_0010: callvirt instance class [SimIFace]Sims3.SimIFace.IScriptLogic [SimIFace]Sims3.SimIFace.IScriptProxy::get_Target()
+		IL_0015: isinst Sims3.Gameplay.Abstracts.GameObject
+		IL_001a: stloc.1
+		IL_001b: ldloc.1
+		IL_001c: brfalse.s IL_003b
+
+		IL_001e: ldloc.1
+		IL_001f: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+		IL_0024: stloc.2
+		IL_0025: ldloc.2
+		IL_0026: brfalse.s IL_003b
+
+		IL_0028: ldloc.2
+		IL_0029: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_002e: brfalse.s IL_003b
+
+		IL_0030: ldloc.2
+		IL_0031: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_0036: callvirt instance void Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback::Invoke()
+
+		IL_003b: ret
+	} // end of method PortalComponent::InvokeAddPortalsCallback
+
+	.method public hidebysig virtual 
+		instance void Dispose () cil managed 
+	{
+		// Method begins at RVA 0x17ceac
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::ClearRouteActionDelegates()
+		IL_0006: ldarg.0
+		IL_0007: call instance void Sims3.Gameplay.Abstracts.ObjectComponent::Dispose()
+		IL_000c: ret
+	} // end of method PortalComponent::Dispose
+
+	.method public hidebysig virtual 
+		instance void OnReset () cil managed 
+	{
+		// Method begins at RVA 0x17ceba
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::ClearRouteActionDelegates()
+		IL_0006: ldarg.0
+		IL_0007: call instance void Sims3.Gameplay.Abstracts.ObjectComponent::OnReset()
+		IL_000c: ret
+	} // end of method PortalComponent::OnReset
+
+	.method private hidebysig 
+		instance void ClearRouteActionDelegates () cil managed 
+	{
+		// Method begins at RVA 0x17cec8
+		// Header size: 12
+		// Code size: 84 (0x54)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.Actors.Sim,
+			[1] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0006: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::get_ActorsUsingMe()
+		IL_000b: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+		IL_0010: stloc.1
+		.try
+		{
+			IL_0011: br.s IL_003a
+			// loop start (head: IL_003a)
+				IL_0013: ldloca.s 1
+				IL_0015: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current()
+				IL_001a: stloc.0
+				IL_001b: ldloc.0
+				IL_001c: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+				IL_0021: brfalse.s IL_003a
+
+				IL_0023: ldloc.0
+				IL_0024: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+				IL_0029: ldarg.0
+				IL_002a: ldftn instance void Sims3.Gameplay.ObjectComponents.PortalComponent::OnSimRouteActionsFinished(class Sims3.Gameplay.Abstracts.GameObject, bool)
+				IL_0030: newobj instance void Sims3.Gameplay.ObjectComponents.RoutingComponent/RouteActionsFinishedDelegate::.ctor(object, native int)
+				IL_0035: callvirt instance void Sims3.Gameplay.ObjectComponents.RoutingComponent::remove_OnRouteActionsFinished(class Sims3.Gameplay.ObjectComponents.RoutingComponent/RouteActionsFinishedDelegate)
+
+				IL_003a: ldloca.s 1
+				IL_003c: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::MoveNext()
+				IL_0041: brtrue.s IL_0013
+			// end loop
+
+			IL_0043: leave.s IL_0053
+		} // end .try
+		finally
+		{
+			IL_0045: ldloca.s 1
+			IL_0047: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+			IL_004d: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0052: endfinally
+		} // end handler
+
+		IL_0053: ret
+	} // end of method PortalComponent::ClearRouteActionDelegates
+
+	.method private hidebysig 
+		instance void RefreshDebugHoverText () cil managed 
+	{
+		// Method begins at RVA 0x17cf38
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method PortalComponent::RefreshDebugHoverText
+
+	.method public hidebysig 
+		instance void OnHandToolPickup (
+			valuetype [SimIFace]Sims3.SimIFace.ePickupTypeHandTool pickupType
+		) cil managed 
+	{
+		// Method begins at RVA 0x17cf3a
+		// Header size: 1
+		// Code size: 34 (0x22)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_0006: brfalse.s IL_0021
+
+		IL_0008: ldarg.0
+		IL_0009: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_000e: brfalse.s IL_0021
+
+		IL_0010: ldarg.0
+		IL_0011: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0016: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_001b: call bool [SimIFace]Sims3.SimIFace.Route::RemovePortals(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0020: pop
+
+		IL_0021: ret
+	} // end of method PortalComponent::OnHandToolPickup
+
+	.method public hidebysig 
+		instance void OnHandToolPlacement () cil managed 
+	{
+		// Method begins at RVA 0x17cf5d
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_0006: brfalse.s IL_0013
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+		IL_000e: callvirt instance void Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback::Invoke()
+
+		IL_0013: ret
+	} // end of method PortalComponent::OnHandToolPlacement
+
+	.method public hidebysig newslot virtual 
+		instance bool LockRoutingLane (
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 preferredPos,
+			bool checkForSims,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption routeOptions,
+			[out] bool& preferredLaneSelected
+		) cil managed 
+	{
+		// Method begins at RVA 0x17cf74
+		// Header size: 12
+		// Code size: 105 (0x69)
+		.maxstack 7
+		.locals init (
+			[0] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldloca.s 0
+		IL_0004: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneInfo(class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo&)
+		IL_0009: brfalse.s IL_0011
+
+		IL_000b: ldarg.s preferredLaneSelected
+		IL_000d: ldc.i4.0
+		IL_000e: stind.i1
+		IL_000f: ldc.i4.1
+		IL_0010: ret
+
+		IL_0011: ldarg.0
+		IL_0012: ldarg.1
+		IL_0013: ldarg.2
+		IL_0014: ldarg.3
+		IL_0015: ldarg.s routeOptions
+		IL_0017: ldloca.s 0
+		IL_0019: ldarg.s preferredLaneSelected
+		IL_001b: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::GetFreeRoutingLane(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Vector3, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo&, bool&)
+		IL_0020: brfalse.s IL_0061
+
+		IL_0022: ldarg.0
+		IL_0023: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_0028: ldarg.1
+		IL_0029: ldloc.0
+		IL_002a: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::Add(!0, !1)
+		IL_002f: ldarg.0
+		IL_0030: ldarg.1
+		IL_0031: ldloc.0
+		IL_0032: callvirt instance void Sims3.Gameplay.ObjectComponents.PortalComponent::OnLaneLocked(class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo)
+		IL_0037: ldarg.0
+		IL_0038: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::get_AddToUseListDuringTraversal()
+		IL_003d: brfalse.s IL_0059
+
+		IL_003f: ldarg.0
+		IL_0040: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0045: ldarg.1
+		IL_0046: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsActorUsingMe(class Sims3.Gameplay.Actors.Sim)
+		IL_004b: brtrue.s IL_0059
+
+		IL_004d: ldarg.0
+		IL_004e: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0053: ldarg.1
+		IL_0054: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::AddToUseList(class Sims3.Gameplay.Actors.Sim)
+
+		IL_0059: ldarg.0
+		IL_005a: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::RefreshDebugHoverText()
+		IL_005f: ldc.i4.1
+		IL_0060: ret
+
+		IL_0061: ldarg.0
+		IL_0062: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::RefreshDebugHoverText()
+		IL_0067: ldc.i4.0
+		IL_0068: ret
+	} // end of method PortalComponent::LockRoutingLane
+
+	.method private hidebysig 
+		instance bool GetFreeRoutingLane (
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 preferredPos,
+			bool checkForSims,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption routeOptions,
+			[out] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo& laneInfo,
+			[out] bool& preferredLaneSelected
+		) cil managed 
+	{
+		// Method begins at RVA 0x17cff0
+		// Header size: 12
+		// Code size: 612 (0x264)
+		.maxstack 5
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>,
+			[1] class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>,
+			[2] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[3] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[4] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[5] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[6] uint32,
+			[7] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[8] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[9] uint32,
+			[10] bool,
+			[11] valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>,
+			[12] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo,
+			[13] valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>,
+			[14] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo,
+			[15] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[16] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[17] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[18] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+		)
+
+		IL_0000: ldarg.s preferredLaneSelected
+		IL_0002: ldc.i4.1
+		IL_0003: stind.i1
+		IL_0004: ldarg.0
+		IL_0005: ldarg.1
+		IL_0006: ldarg.2
+		IL_0007: ldarg.s preferredLaneSelected
+		IL_0009: callvirt instance class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot> Sims3.Gameplay.ObjectComponents.PortalComponent::GetStartSlotsForApproachingSim(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Vector3, bool&)
+		IL_000e: stloc.0
+		IL_000f: ldloc.0
+		IL_0010: newobj instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+		IL_0015: stloc.1
+		IL_0016: ldc.i4.0
+		IL_0017: stloc.2
+		IL_0018: ldc.i4.0
+		IL_0019: stloc.3
+		IL_001a: ldc.i4.0
+		IL_001b: stloc.s 4
+		IL_001d: ldc.i4.0
+		IL_001e: stloc.s 5
+		IL_0020: ldc.i4.m1
+		IL_0021: stloc.s 6
+		IL_0023: ldloc.1
+		IL_0024: ldsfld class [mscorlib]System.Predicate`1<valuetype [SimIFace]Sims3.SimIFace.Slot> Sims3.Gameplay.ObjectComponents.PortalComponent::'<>9__CachedAnonymousMethodDelegate1'
+		IL_0029: brtrue.s IL_003c
+
+		IL_002b: ldnull
+		IL_002c: ldftn bool Sims3.Gameplay.ObjectComponents.PortalComponent::'<GetFreeRoutingLane>b__0'(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0032: newobj instance void class [mscorlib]System.Predicate`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::.ctor(object, native int)
+		IL_0037: stsfld class [mscorlib]System.Predicate`1<valuetype [SimIFace]Sims3.SimIFace.Slot> Sims3.Gameplay.ObjectComponents.PortalComponent::'<>9__CachedAnonymousMethodDelegate1'
+
+		IL_003c: ldsfld class [mscorlib]System.Predicate`1<valuetype [SimIFace]Sims3.SimIFace.Slot> Sims3.Gameplay.ObjectComponents.PortalComponent::'<>9__CachedAnonymousMethodDelegate1'
+		IL_0041: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::RemoveAll(class [mscorlib]System.Predicate`1<!0>)
+		IL_0046: pop
+		IL_0047: br IL_0188
+		// loop start (head: IL_0188)
+			IL_004c: ldarg.0
+			IL_004d: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0052: ldarg.1
+			IL_0053: ldc.i4.0
+			IL_0054: ldarg.2
+			IL_0055: ldloc.1
+			IL_0056: callvirt instance !0[] class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::ToArray()
+			IL_005b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Abstracts.GameObject::GetNearestSlot(class Sims3.Gameplay.Actors.Sim, bool, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Slot[])
+			IL_0060: stloc.s 7
+			IL_0062: ldarg.0
+			IL_0063: ldloc.s 7
+			IL_0065: call instance valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.ObjectComponents.PortalComponent::GetPairedSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_006a: stloc.s 8
+			IL_006c: ldarg.0
+			IL_006d: ldloc.s 7
+			IL_006f: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneIndexFromSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0074: stloc.s 9
+			IL_0076: ldc.i4.1
+			IL_0077: stloc.s 10
+			IL_0079: ldarg.0
+			IL_007a: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+			IL_007f: callvirt instance valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::GetEnumerator()
+			IL_0084: stloc.s 13
+			.try
+			{
+				IL_0086: br.s IL_00ca
+				// loop start (head: IL_00ca)
+					IL_0088: ldloca.s 13
+					IL_008a: call instance valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<!0, !1> valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::get_Current()
+					IL_008f: stloc.s 11
+					IL_0091: ldloca.s 11
+					IL_0093: call instance !1 valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::get_Value()
+					IL_0098: ldfld uint32 Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneIndex
+					IL_009d: ldloc.s 9
+					IL_009f: bne.un.s IL_00ca
+
+					IL_00a1: ldloca.s 11
+					IL_00a3: call instance !1 valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::get_Value()
+					IL_00a8: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+					IL_00ad: ldc.i4.0
+					IL_00ae: ldelem.u4
+					IL_00af: ldloc.s 7
+					IL_00b1: bne.un.s IL_00c5
+
+					IL_00b3: ldloca.s 11
+					IL_00b5: call instance !1 valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::get_Value()
+					IL_00ba: stloc.s 14
+					IL_00bc: ldloca.s 14
+					IL_00be: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_ElevatorDoor()
+					IL_00c3: brfalse.s IL_00d3
+
+					IL_00c5: ldc.i4.0
+					IL_00c6: stloc.s 10
+					IL_00c8: br.s IL_00d3
+
+					IL_00ca: ldloca.s 13
+					IL_00cc: call instance bool valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::MoveNext()
+					IL_00d1: brtrue.s IL_0088
+				// end loop
+
+				IL_00d3: leave.s IL_00e3
+			} // end .try
+			finally
+			{
+				IL_00d5: ldloca.s 13
+				IL_00d7: constrained. valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>
+				IL_00dd: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_00e2: endfinally
+			} // end handler
+
+			IL_00e3: ldloca.s 12
+			IL_00e5: ldloc.s 9
+			IL_00e7: ldc.i4.2
+			IL_00e8: newarr [SimIFace]Sims3.SimIFace.Slot
+			IL_00ed: stloc.s 15
+			IL_00ef: ldloc.s 15
+			IL_00f1: ldc.i4.0
+			IL_00f2: ldloc.s 7
+			IL_00f4: stelem.i4
+			IL_00f5: ldloc.s 15
+			IL_00f7: ldc.i4.1
+			IL_00f8: ldloc.s 8
+			IL_00fa: stelem.i4
+			IL_00fb: ldloc.s 15
+			IL_00fd: ldarg.0
+			IL_00fe: ldloc.s 9
+			IL_0100: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneFlagsForLaneIndex(uint32)
+			IL_0105: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::.ctor(uint32, valuetype [SimIFace]Sims3.SimIFace.Slot[], valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags)
+			IL_010a: ldloc.s 10
+			IL_010c: brfalse.s IL_0134
+
+			IL_010e: ldarg.0
+			IL_010f: ldarg.s preferredLaneSelected
+			IL_0111: ldind.i1
+			IL_0112: ldarg.1
+			IL_0113: ldloc.s 12
+			IL_0115: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::DoAdditionalLaneChecks(bool, class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo)
+			IL_011a: brtrue.s IL_0134
+
+			IL_011c: ldc.i4.0
+			IL_011d: stloc.s 10
+			IL_011f: ldloca.s 12
+			IL_0121: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_NoLanesAvailableSkipsAdditionalLaneChecks()
+			IL_0126: brfalse.s IL_0134
+
+			IL_0128: ldloc.s 4
+			IL_012a: brtrue.s IL_0134
+
+			IL_012c: ldloc.s 7
+			IL_012e: stloc.s 4
+			IL_0130: ldloc.s 8
+			IL_0132: stloc.s 5
+
+			IL_0134: ldloc.s 10
+			IL_0136: brfalse.s IL_0169
+
+			IL_0138: ldarg.0
+			IL_0139: ldc.i4.2
+			IL_013a: newarr [SimIFace]Sims3.SimIFace.Slot
+			IL_013f: stloc.s 16
+			IL_0141: ldloc.s 16
+			IL_0143: ldc.i4.0
+			IL_0144: ldloc.s 7
+			IL_0146: stelem.i4
+			IL_0147: ldloc.s 16
+			IL_0149: ldc.i4.1
+			IL_014a: ldloc.s 8
+			IL_014c: stelem.i4
+			IL_014d: ldloc.s 16
+			IL_014f: ldarg.1
+			IL_0150: ldc.i4.1
+			IL_0151: ldc.i4.0
+			IL_0152: conv.i8
+			IL_0153: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::IsLaneUnobstructed(valuetype [SimIFace]Sims3.SimIFace.Slot[], class Sims3.Gameplay.Actors.Sim, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption)
+			IL_0158: brtrue.s IL_0169
+
+			IL_015a: ldc.i4.0
+			IL_015b: stloc.s 10
+			IL_015d: ldloc.s 4
+			IL_015f: brtrue.s IL_0169
+
+			IL_0161: ldloc.s 7
+			IL_0163: stloc.s 4
+			IL_0165: ldloc.s 8
+			IL_0167: stloc.s 5
+
+			IL_0169: ldloc.s 10
+			IL_016b: brtrue.s IL_017c
+
+			IL_016d: ldloc.1
+			IL_016e: ldloc.s 7
+			IL_0170: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::Remove(!0)
+			IL_0175: pop
+			IL_0176: ldarg.s preferredLaneSelected
+			IL_0178: ldc.i4.0
+			IL_0179: stind.i1
+			IL_017a: br.s IL_0188
+
+			IL_017c: ldloc.s 7
+			IL_017e: stloc.2
+			IL_017f: ldloc.s 9
+			IL_0181: stloc.s 6
+			IL_0183: ldloc.s 8
+			IL_0185: stloc.3
+			IL_0186: br.s IL_0197
+
+			IL_0188: ldloc.1
+			IL_0189: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::get_Count()
+			IL_018e: ldc.i4.0
+			IL_018f: ble.s IL_0197
+
+			IL_0191: ldloc.2
+			IL_0192: brfalse IL_004c
+		// end loop
+
+		IL_0197: ldloc.2
+		IL_0198: brtrue IL_0222
+
+		IL_019d: ldloc.s 4
+		IL_019f: brfalse.s IL_01f0
+
+		IL_01a1: ldarg.s laneInfo
+		IL_01a3: ldarg.0
+		IL_01a4: ldloc.s 4
+		IL_01a6: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneIndexFromSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_01ab: stfld uint32 Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneIndex
+		IL_01b0: ldarg.s laneInfo
+		IL_01b2: ldc.i4.2
+		IL_01b3: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_01b8: stloc.s 17
+		IL_01ba: ldloc.s 17
+		IL_01bc: ldc.i4.0
+		IL_01bd: ldloc.s 4
+		IL_01bf: stelem.i4
+		IL_01c0: ldloc.s 17
+		IL_01c2: ldc.i4.1
+		IL_01c3: ldloc.s 5
+		IL_01c5: stelem.i4
+		IL_01c6: ldloc.s 17
+		IL_01c8: stfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_01cd: ldarg.s laneInfo
+		IL_01cf: ldarg.0
+		IL_01d0: ldarg.s laneInfo
+		IL_01d2: ldfld uint32 Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneIndex
+		IL_01d7: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneFlagsForLaneIndex(uint32)
+		IL_01dc: stfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+		IL_01e1: ldarg.s laneInfo
+		IL_01e3: ldarg.0
+		IL_01e4: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_01e9: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::DEBUG_CheckLaneFlags(class Sims3.Gameplay.Abstracts.GameObject)
+		IL_01ee: ldc.i4.1
+		IL_01ef: ret
+
+		IL_01f0: ldarg.s laneInfo
+		IL_01f2: ldc.i4.m1
+		IL_01f3: stfld uint32 Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneIndex
+		IL_01f8: ldarg.s laneInfo
+		IL_01fa: ldc.i4.0
+		IL_01fb: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_0200: stfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0205: ldarg.s laneInfo
+		IL_0207: ldarg.0
+		IL_0208: ldc.i4.m1
+		IL_0209: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneFlagsForLaneIndex(uint32)
+		IL_020e: stfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+		IL_0213: ldarg.s laneInfo
+		IL_0215: ldarg.0
+		IL_0216: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_021b: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::DEBUG_CheckLaneFlags(class Sims3.Gameplay.Abstracts.GameObject)
+		IL_0220: ldc.i4.0
+		IL_0221: ret
+
+		IL_0222: ldarg.s laneInfo
+		IL_0224: ldloc.s 6
+		IL_0226: stfld uint32 Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneIndex
+		IL_022b: ldarg.s laneInfo
+		IL_022d: ldc.i4.2
+		IL_022e: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_0233: stloc.s 18
+		IL_0235: ldloc.s 18
+		IL_0237: ldc.i4.0
+		IL_0238: ldloc.2
+		IL_0239: stelem.i4
+		IL_023a: ldloc.s 18
+		IL_023c: ldc.i4.1
+		IL_023d: ldloc.3
+		IL_023e: stelem.i4
+		IL_023f: ldloc.s 18
+		IL_0241: stfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0246: ldarg.s laneInfo
+		IL_0248: ldarg.0
+		IL_0249: ldloc.s 6
+		IL_024b: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneFlagsForLaneIndex(uint32)
+		IL_0250: stfld valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneFlags
+		IL_0255: ldarg.s laneInfo
+		IL_0257: ldarg.0
+		IL_0258: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_025d: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::DEBUG_CheckLaneFlags(class Sims3.Gameplay.Abstracts.GameObject)
+		IL_0262: ldc.i4.1
+		IL_0263: ret
+	} // end of method PortalComponent::GetFreeRoutingLane
+
+	.method family hidebysig newslot virtual 
+		instance bool DoAdditionalLaneChecks (
+			bool bPreferedLane,
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo laneInfo
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d270
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PortalComponent::DoAdditionalLaneChecks
+
+	.method public hidebysig 
+		instance bool WaitForLaneAndPlantToItRouteInterruptCallback (
+			class Sims3.Gameplay.Actors.Sim s,
+			class [SimIFace]Sims3.SimIFace.Route interruptedPath
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d274
+		// Header size: 12
+		// Code size: 233 (0xe9)
+		.maxstack 13
+		.locals init (
+			[0] class Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction,
+			[1] class [SimIFace]Sims3.SimIFace.Route,
+			[2] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[3] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[4] float32,
+			[5] class Sims3.Gameplay.Routing.FollowRouteAction,
+			[6] int32[]
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.0
+		IL_0002: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0007: ldarg.2
+		IL_0008: newobj instance void Sims3.Gameplay.ObjectComponents.PortalComponent/AcquireLaneRouteAction::.ctor(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Abstracts.GameObject, class [SimIFace]Sims3.SimIFace.Route)
+		IL_000d: stloc.0
+		IL_000e: ldarg.0
+		IL_000f: ldc.i4.0
+		IL_0010: callvirt instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneFlagsForLaneIndex(uint32)
+		IL_0015: ldc.i4.8
+		IL_0016: and
+		IL_0017: brfalse.s IL_002a
+
+		IL_0019: ldarg.1
+		IL_001a: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+		IL_001f: ldloc.0
+		IL_0020: callvirt instance void Sims3.Gameplay.ObjectComponents.RoutingComponent::InsertRouteActionNext(class Sims3.Gameplay.Routing.RouteAction)
+		IL_0025: br IL_00e7
+
+		IL_002a: ldarg.0
+		IL_002b: ldarg.1
+		IL_002c: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.ObjectComponents.PortalComponent::ComponentCreateRoute(class Sims3.Gameplay.Actors.Sim)
+		IL_0031: stloc.1
+		IL_0032: ldarg.0
+		IL_0033: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0038: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_003d: ldarg.1
+		IL_003e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0043: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0048: stloc.2
+		IL_0049: ldarg.0
+		IL_004a: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_004f: ldarg.0
+		IL_0050: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0055: ldarg.1
+		IL_0056: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_005b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Abstracts.GameObject::GetNearestRoutingSlot(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0060: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetSideOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0065: stloc.3
+		IL_0066: ldloc.2
+		IL_0067: ldloc.3
+		IL_0068: call float32 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_006d: stloc.s 4
+		IL_006f: ldloc.s 4
+		IL_0071: ldc.r4 0.0
+		IL_0076: blt.un.s IL_0084
+
+		IL_0078: ldloc.3
+		IL_0079: ldc.r4 -1
+		IL_007e: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0083: stloc.3
+
+		IL_0084: ldloc.1
+		IL_0085: ldnull
+		IL_0086: ldarg.1
+		IL_0087: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_008c: ldc.r4 0.75
+		IL_0091: ldc.r4 3
+		IL_0096: ldloc.3
+		IL_0097: ldc.r4 45
+		IL_009c: ldc.i4.1
+		IL_009d: ldc.i4.0
+		IL_009e: ldarg.1
+		IL_009f: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_00a4: callvirt instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_00a9: ldc.i4.1
+		IL_00aa: newarr [mscorlib]System.Int32
+		IL_00af: stloc.s 6
+		IL_00b1: ldloc.s 6
+		IL_00b3: ldc.i4.0
+		IL_00b4: ldarg.1
+		IL_00b5: callvirt instance int32 Sims3.Gameplay.Abstracts.GameObject::get_RoomId()
+		IL_00ba: stelem.i4
+		IL_00bb: ldloc.s 6
+		IL_00bd: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::PlanToPointRadialRange(class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Vector3, float32, float32, valuetype [SimIFace]Sims3.SimIFace.Vector3, float32, valuetype [SimIFace]Sims3.SimIFace.RouteDistancePreference, valuetype [SimIFace]Sims3.SimIFace.RouteOrientationPreference, uint64, int32[])
+		IL_00c2: pop
+		IL_00c3: ldarg.1
+		IL_00c4: ldloc.1
+		IL_00c5: newobj instance void Sims3.Gameplay.Routing.BasicFollowRouteAction::.ctor(class Sims3.Gameplay.Abstracts.GameObject, class [SimIFace]Sims3.SimIFace.Route)
+		IL_00ca: stloc.s 5
+		IL_00cc: ldarg.1
+		IL_00cd: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+		IL_00d2: ldloc.s 5
+		IL_00d4: callvirt instance void Sims3.Gameplay.ObjectComponents.RoutingComponent::InsertRouteActionNext(class Sims3.Gameplay.Routing.RouteAction)
+		IL_00d9: ldarg.1
+		IL_00da: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+		IL_00df: ldloc.s 5
+		IL_00e1: ldloc.0
+		IL_00e2: callvirt instance void Sims3.Gameplay.ObjectComponents.RoutingComponent::InsertRouteActionAfter(class Sims3.Gameplay.Routing.RouteAction, class Sims3.Gameplay.Routing.RouteAction)
+
+		IL_00e7: ldc.i4.1
+		IL_00e8: ret
+	} // end of method PortalComponent::WaitForLaneAndPlantToItRouteInterruptCallback
+
+	.method public hidebysig newslot virtual 
+		instance void OnLaneLocked (
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo laneInfo
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d369
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method PortalComponent::OnLaneLocked
+
+	.method public hidebysig newslot virtual 
+		instance void OnLaneUnlocked (
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo laneInfo
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d36b
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method PortalComponent::OnLaneUnlocked
+
+	.method public hidebysig newslot virtual 
+		instance void OnAllLanesUnlocked () cil managed 
+	{
+		// Method begins at RVA 0x17d36d
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method PortalComponent::OnAllLanesUnlocked
+
+	.method public hidebysig newslot virtual 
+		instance bool OnApproachingPortalObject (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d36f
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PortalComponent::OnApproachingPortalObject
+
+	.method public hidebysig newslot virtual 
+		instance bool CancelApproachingPortalObject (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d372
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PortalComponent::CancelApproachingPortalObject
+
+	.method public hidebysig newslot virtual 
+		instance void OnPortalActionReset (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d375
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method PortalComponent::OnPortalActionReset
+
+	.method public hidebysig 
+		instance void OnSimRouteActionsFinished (
+			class Sims3.Gameplay.Abstracts.GameObject routingObject,
+			bool routeSuccess
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d378
+		// Header size: 12
+		// Code size: 75 (0x4b)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.Actors.Sim
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: isinst Sims3.Gameplay.Actors.Sim
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: brfalse.s IL_004a
+
+		IL_000a: ldarg.0
+		IL_000b: ldloc.0
+		IL_000c: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::FreeRoutingLane(class Sims3.Gameplay.Actors.Sim)
+		IL_0011: ldarg.0
+		IL_0012: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::get_AddToUseListDuringTraversal()
+		IL_0017: brfalse.s IL_0033
+
+		IL_0019: ldarg.0
+		IL_001a: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_001f: ldloc.0
+		IL_0020: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsActorUsingMe(class Sims3.Gameplay.Actors.Sim)
+		IL_0025: brfalse.s IL_0033
+
+		IL_0027: ldarg.0
+		IL_0028: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_002d: ldloc.0
+		IL_002e: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::RemoveFromUseList(class Sims3.Gameplay.Actors.Sim)
+
+		IL_0033: ldloc.0
+		IL_0034: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+		IL_0039: ldarg.0
+		IL_003a: ldftn instance void Sims3.Gameplay.ObjectComponents.PortalComponent::OnSimRouteActionsFinished(class Sims3.Gameplay.Abstracts.GameObject, bool)
+		IL_0040: newobj instance void Sims3.Gameplay.ObjectComponents.RoutingComponent/RouteActionsFinishedDelegate::.ctor(object, native int)
+		IL_0045: callvirt instance void Sims3.Gameplay.ObjectComponents.RoutingComponent::remove_OnRouteActionsFinished(class Sims3.Gameplay.ObjectComponents.RoutingComponent/RouteActionsFinishedDelegate)
+
+		IL_004a: ret
+	} // end of method PortalComponent::OnSimRouteActionsFinished
+
+	.method public hidebysig 
+		instance void FreeAllRoutingLanes () cil managed 
+	{
+		// Method begins at RVA 0x17d3cf
+		// Header size: 1
+		// Code size: 35 (0x23)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance void Sims3.Gameplay.ObjectComponents.PortalComponent::OnAllLanesUnlocked()
+		IL_0006: ldarg.0
+		IL_0007: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_000c: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::Clear()
+		IL_0011: ldarg.0
+		IL_0012: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0017: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::ClearUseList()
+		IL_001c: ldarg.0
+		IL_001d: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::RefreshDebugHoverText()
+		IL_0022: ret
+	} // end of method PortalComponent::FreeAllRoutingLanes
+
+	.method public hidebysig 
+		instance void FreeRoutingLane (
+			class Sims3.Gameplay.Actors.Sim s
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d3f4
+		// Header size: 12
+		// Code size: 158 (0x9e)
+		.maxstack 4
+		.locals init (
+			[0] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo,
+			[1] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::ContainsKey(!0)
+		IL_000c: brfalse IL_0097
+
+		IL_0011: ldarg.0
+		IL_0012: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_0017: ldarg.1
+		IL_0018: ldloca.s 0
+		IL_001a: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::TryGetValue(!0, !1&)
+		IL_001f: brfalse.s IL_0029
+
+		IL_0021: ldarg.0
+		IL_0022: ldarg.1
+		IL_0023: ldloc.0
+		IL_0024: callvirt instance void Sims3.Gameplay.ObjectComponents.PortalComponent::OnLaneUnlocked(class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo)
+
+		IL_0029: ldarg.0
+		IL_002a: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_002f: ldarg.1
+		IL_0030: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::Remove(!0)
+		IL_0035: stloc.1
+		IL_0036: ldloc.1
+		IL_0037: brfalse.s IL_006f
+
+		IL_0039: ldarg.0
+		IL_003a: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::get_RemoveFromUseListAfterTraversal()
+		IL_003f: brtrue.s IL_006c
+
+		IL_0041: ldarg.0
+		IL_0042: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0047: isinst Sims3.Gameplay.Pools.Pool
+		IL_004c: brfalse.s IL_0069
+
+		IL_004e: ldarg.1
+		IL_004f: callvirt instance class Sims3.Gameplay.ActorSystems.Posture Sims3.Gameplay.Actors.Sim::get_Posture()
+		IL_0054: isinst Sims3.Gameplay.Pools.SwimmingInPool
+		IL_0059: brtrue.s IL_0069
+
+		IL_005b: ldarg.0
+		IL_005c: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0061: ldarg.1
+		IL_0062: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsActorUsingMe(class Sims3.Gameplay.Actors.Sim)
+		IL_0067: br.s IL_0070
+
+		IL_0069: ldc.i4.0
+		IL_006a: br.s IL_0070
+
+		IL_006c: ldc.i4.1
+		IL_006d: br.s IL_0070
+
+		IL_006f: ldc.i4.0
+
+		IL_0070: stloc.1
+		IL_0071: ldloc.1
+		IL_0072: brfalse.s IL_0080
+
+		IL_0074: ldarg.0
+		IL_0075: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_007a: ldarg.1
+		IL_007b: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::RemoveFromUseList(class Sims3.Gameplay.Actors.Sim)
+
+		IL_0080: ldarg.1
+		IL_0081: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+		IL_0086: ldarg.0
+		IL_0087: ldftn instance void Sims3.Gameplay.ObjectComponents.PortalComponent::OnSimRouteActionsFinished(class Sims3.Gameplay.Abstracts.GameObject, bool)
+		IL_008d: newobj instance void Sims3.Gameplay.ObjectComponents.RoutingComponent/RouteActionsFinishedDelegate::.ctor(object, native int)
+		IL_0092: callvirt instance void Sims3.Gameplay.ObjectComponents.RoutingComponent::remove_OnRouteActionsFinished(class Sims3.Gameplay.ObjectComponents.RoutingComponent/RouteActionsFinishedDelegate)
+
+		IL_0097: ldarg.0
+		IL_0098: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::RefreshDebugHoverText()
+		IL_009d: ret
+	} // end of method PortalComponent::FreeRoutingLane
+
+	.method public hidebysig newslot virtual 
+		instance bool GetLaneInfo (
+			class Sims3.Gameplay.Actors.Sim s,
+			[out] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo& lane
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d49e
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_0006: ldarg.1
+		IL_0007: ldarg.2
+		IL_0008: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::TryGetValue(!0, !1&)
+		IL_000d: ret
+	} // end of method PortalComponent::GetLaneInfo
+
+	.method family hidebysig 
+		instance uint32 GetSimLaneIndex (
+			class Sims3.Gameplay.Actors.Sim s
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d4b0
+		// Header size: 12
+		// Code size: 26 (0x1a)
+		.maxstack 3
+		.locals init (
+			[0] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo> Sims3.Gameplay.ObjectComponents.PortalComponent::mLockedLaneIndices
+		IL_0006: ldarg.1
+		IL_0007: ldloca.s 0
+		IL_0009: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo>::TryGetValue(!0, !1&)
+		IL_000e: brfalse.s IL_0018
+
+		IL_0010: ldloca.s 0
+		IL_0012: ldfld uint32 Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneIndex
+		IL_0017: ret
+
+		IL_0018: ldc.i4.m1
+		IL_0019: ret
+	} // end of method PortalComponent::GetSimLaneIndex
+
+	.method public hidebysig 
+		instance class [SimIFace]Sims3.SimIFace.Route GetPathToLane (
+			class Sims3.Gameplay.Actors.Sim sim,
+			valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo& laneInfo
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d4d8
+		// Header size: 12
+		// Code size: 123 (0x7b)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.Route,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.ObjectComponents.PortalComponent::ComponentCreateRoute(class Sims3.Gameplay.Actors.Sim)
+		IL_0007: stloc.0
+		IL_0008: ldloc.0
+		IL_0009: brfalse.s IL_0079
+
+		IL_000b: ldloc.0
+		IL_000c: ldc.i4 2097152
+		IL_0011: conv.i8
+		IL_0012: ldc.i4.0
+		IL_0013: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetOption(valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool)
+		IL_0018: ldarg.2
+		IL_0019: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_PortalPlanIgnoresPortalObject()
+		IL_001e: brfalse.s IL_0031
+
+		IL_0020: ldloc.0
+		IL_0021: ldarg.0
+		IL_0022: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0027: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_002c: callvirt instance void [SimIFace]Sims3.SimIFace.Route::AddObjectToIgnoreForRoute(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+
+		IL_0031: ldarg.2
+		IL_0032: call instance bool Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::get_PlanToSlotNotPosition()
+		IL_0037: brfalse.s IL_0051
+
+		IL_0039: ldloc.0
+		IL_003a: ldarg.0
+		IL_003b: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0040: ldarg.2
+		IL_0041: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0046: ldc.i4.0
+		IL_0047: ldelem.u4
+		IL_0048: ldc.i4.1
+		IL_0049: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::PlanToSlot(class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot, bool)
+		IL_004e: pop
+		IL_004f: br.s IL_0079
+
+		IL_0051: ldarg.0
+		IL_0052: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0057: ldarg.2
+		IL_0058: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_005d: ldc.i4.0
+		IL_005e: ldelem.u4
+		IL_005f: ldarg.1
+		IL_0060: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0065: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_006a: ldc.i4.0
+		IL_006b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+		IL_0070: stloc.1
+		IL_0071: ldloc.0
+		IL_0072: ldloc.1
+		IL_0073: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::PlanToPoint(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0078: pop
+
+		IL_0079: ldloc.0
+		IL_007a: ret
+	} // end of method PortalComponent::GetPathToLane
+
+	.method public hidebysig 
+		instance class [SimIFace]Sims3.SimIFace.Route GetPathThroughLane (
+			class Sims3.Gameplay.Actors.Sim sim,
+			valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo& laneInfo
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d560
+		// Header size: 12
+		// Code size: 116 (0x74)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.Route,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[2] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.ObjectComponents.PortalComponent::ComponentCreateRoute(class Sims3.Gameplay.Actors.Sim)
+		IL_0007: stloc.0
+		IL_0008: ldloc.0
+		IL_0009: brfalse.s IL_0072
+
+		IL_000b: ldloc.0
+		IL_000c: ldc.i4 2097152
+		IL_0011: conv.i8
+		IL_0012: ldc.i4.0
+		IL_0013: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetOption(valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool)
+		IL_0018: ldloc.0
+		IL_0019: ldarg.0
+		IL_001a: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_001f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0024: callvirt instance void [SimIFace]Sims3.SimIFace.Route::AddObjectToIgnoreForRoute(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0029: ldarg.0
+		IL_002a: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_002f: ldarg.2
+		IL_0030: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0035: ldc.i4.0
+		IL_0036: ldelem.u4
+		IL_0037: ldarg.1
+		IL_0038: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_003d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_0042: ldc.i4.0
+		IL_0043: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+		IL_0048: stloc.1
+		IL_0049: ldarg.0
+		IL_004a: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_004f: ldarg.2
+		IL_0050: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0055: ldc.i4.1
+		IL_0056: ldelem.u4
+		IL_0057: ldarg.1
+		IL_0058: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_005d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_0062: ldc.i4.1
+		IL_0063: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+		IL_0068: stloc.2
+		IL_0069: ldloc.0
+		IL_006a: ldloc.1
+		IL_006b: ldloc.2
+		IL_006c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::PlanToPointFromPoint(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0071: pop
+
+		IL_0072: ldloc.0
+		IL_0073: ret
+	} // end of method PortalComponent::GetPathThroughLane
+
+	.method public hidebysig 
+		instance bool PushSimsAtPortalDestRouteInterruptCallback (
+			class Sims3.Gameplay.Actors.Sim s,
+			class [SimIFace]Sims3.SimIFace.Route interruptedPath
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d5e0
+		// Header size: 12
+		// Code size: 151 (0x97)
+		.maxstack 4
+		.locals init (
+			[0] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo,
+			[1] class [SimIFace]Sims3.SimIFace.BridgeOrigin,
+			[2] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldloca.s 0
+		IL_0004: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneInfo(class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo&)
+		IL_0009: brfalse IL_0095
+
+		IL_000e: ldarg.1
+		IL_000f: callvirt instance void Sims3.Gameplay.Actors.Sim::LoopIdle()
+		IL_0014: ldarg.1
+		IL_0015: ldarg.0
+		IL_0016: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_001b: ldloca.s 0
+		IL_001d: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_0022: ldc.i4.1
+		IL_0023: ldelem.u4
+		IL_0024: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0029: ldc.r4 0.6
+		IL_002e: callvirt instance bool Sims3.Gameplay.Actors.Sim::PushSims(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_0033: pop
+		IL_0034: ldarg.1
+		IL_0035: callvirt instance class [SimIFace]Sims3.SimIFace.BridgeOrigin Sims3.Gameplay.Actors.Sim::get_BridgeOrigin()
+		IL_003a: stloc.1
+		IL_003b: ldarg.1
+		IL_003c: ldnull
+		IL_003d: callvirt instance void Sims3.Gameplay.Actors.Sim::set_BridgeOrigin(class [SimIFace]Sims3.SimIFace.BridgeOrigin)
+		IL_0042: ldloc.1
+		IL_0043: brfalse.s IL_004b
+
+		IL_0045: ldloc.1
+		IL_0046: callvirt instance void [SimIFace]Sims3.SimIFace.BridgeOrigin::MakeRequest()
+
+		IL_004b: ldarg.1
+		IL_004c: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+		IL_0051: ldarg.0
+		IL_0052: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0057: ldloca.s 0
+		IL_0059: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+		IL_005e: ldc.i4.1
+		IL_005f: ldelem.u4
+		IL_0060: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0065: ldc.r4 0.6
+		IL_006a: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.ObjectComponents.RoutingComponent::GetPushableSimsAtPos(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_006f: stloc.2
+		IL_0070: ldloc.2
+		IL_0071: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+		IL_0076: ldc.i4.0
+		IL_0077: ble.s IL_0095
+
+		IL_0079: ldarg.2
+		IL_007a: callvirt instance bool [SimIFace]Sims3.SimIFace.Route::get_DoRouteFail()
+		IL_007f: brfalse.s IL_0093
+
+		IL_0081: ldarg.1
+		IL_0082: ldloc.2
+		IL_0083: ldc.i4.0
+		IL_0084: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Item(int32)
+		IL_0089: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey Sims3.Gameplay.Abstracts.GameObject::GetThoughtBalloonThumbnailKey()
+		IL_008e: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure(valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey)
+
+		IL_0093: ldc.i4.0
+		IL_0094: ret
+
+		IL_0095: ldc.i4.1
+		IL_0096: ret
+	} // end of method PortalComponent::PushSimsAtPortalDestRouteInterruptCallback
+
+	.method public hidebysig 
+		instance bool OnPortalCompleted (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d684
+		// Header size: 12
+		// Code size: 17 (0x11)
+		.maxstack 2
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::OnPortalStop(class Sims3.Gameplay.Actors.Sim)
+		IL_0007: stloc.0
+		IL_0008: ldarg.0
+		IL_0009: ldarg.1
+		IL_000a: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::FreeRoutingLane(class Sims3.Gameplay.Actors.Sim)
+		IL_000f: ldloc.0
+		IL_0010: ret
+	} // end of method PortalComponent::OnPortalCompleted
+
+	.method public hidebysig newslot virtual 
+		instance uint32 GetLaneIndexFromSlot (
+			valuetype [SimIFace]Sims3.SimIFace.Slot routingSlot
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d6a4
+		// Header size: 12
+		// Code size: 43 (0x2b)
+		.maxstack 3
+		.locals init (
+			[0] uint32,
+			[1] uint32,
+			[2] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_0006: stloc.0
+		IL_0007: ldc.i4.0
+		IL_0008: stloc.1
+		IL_0009: br.s IL_0025
+		// loop start (head: IL_0025)
+			IL_000b: ldarg.0
+			IL_000c: ldloc.1
+			IL_000d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent::GetSlotsForLaneIndex(uint32)
+			IL_0012: stloc.2
+			IL_0013: ldarg.1
+			IL_0014: ldloc.2
+			IL_0015: ldc.i4.0
+			IL_0016: ldelem.u4
+			IL_0017: beq.s IL_001f
+
+			IL_0019: ldarg.1
+			IL_001a: ldloc.2
+			IL_001b: ldc.i4.1
+			IL_001c: ldelem.u4
+			IL_001d: bne.un.s IL_0021
+
+			IL_001f: ldloc.1
+			IL_0020: ret
+
+			IL_0021: ldloc.1
+			IL_0022: ldc.i4.1
+			IL_0023: add
+			IL_0024: stloc.1
+
+			IL_0025: ldloc.1
+			IL_0026: ldloc.0
+			IL_0027: blt.un.s IL_000b
+		// end loop
+
+		IL_0029: ldc.i4.m1
+		IL_002a: ret
+	} // end of method PortalComponent::GetLaneIndexFromSlot
+
+	.method public hidebysig 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot GetPairedSlot (
+			valuetype [SimIFace]Sims3.SimIFace.Slot routingSlot
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d6dc
+		// Header size: 12
+		// Code size: 36 (0x24)
+		.maxstack 3
+		.locals init (
+			[0] uint32,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneIndexFromSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0007: stloc.0
+		IL_0008: ldloc.0
+		IL_0009: ldc.i4.m1
+		IL_000a: beq.s IL_0022
+
+		IL_000c: ldarg.0
+		IL_000d: ldloc.0
+		IL_000e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent::GetSlotsForLaneIndex(uint32)
+		IL_0013: stloc.1
+		IL_0014: ldarg.1
+		IL_0015: ldloc.1
+		IL_0016: ldc.i4.0
+		IL_0017: ldelem.u4
+		IL_0018: bne.un.s IL_001e
+
+		IL_001a: ldloc.1
+		IL_001b: ldc.i4.1
+		IL_001c: ldelem.u4
+		IL_001d: ret
+
+		IL_001e: ldloc.1
+		IL_001f: ldc.i4.0
+		IL_0020: ldelem.u4
+		IL_0021: ret
+
+		IL_0022: ldc.i4.0
+		IL_0023: ret
+	} // end of method PortalComponent::GetPairedSlot
+
+	.method public hidebysig newslot abstract virtual 
+		instance valuetype Sims3.Gameplay.ObjectComponents.PortalObjectType GetPortalObjectType () cil managed 
+	{
+	} // end of method PortalComponent::GetPortalObjectType
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance bool get_AddToUseListDuringTraversal () cil managed 
+	{
+	} // end of method PortalComponent::get_AddToUseListDuringTraversal
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance bool get_RemoveFromUseListAfterTraversal () cil managed 
+	{
+	} // end of method PortalComponent::get_RemoveFromUseListAfterTraversal
+
+	.method family hidebysig newslot virtual 
+		instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfoFlags GetLaneFlagsForLaneIndex (
+			uint32 laneIndex
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d70c
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.4
+		IL_0001: ret
+	} // end of method PortalComponent::GetLaneFlagsForLaneIndex
+
+	.method public hidebysig newslot abstract virtual 
+		instance uint32 GetNumLanes () cil managed 
+	{
+	} // end of method PortalComponent::GetNumLanes
+
+	.method public hidebysig newslot abstract virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot[] GetSlotsForLaneIndex (
+			uint32 laneIndex
+		) cil managed 
+	{
+	} // end of method PortalComponent::GetSlotsForLaneIndex
+
+	.method public hidebysig newslot abstract virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot> GetStartSlotsForApproachingSim (
+			class Sims3.Gameplay.Actors.Sim s,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 preferredPos,
+			bool& preferredLaneSelected
+		) cil managed 
+	{
+	} // end of method PortalComponent::GetStartSlotsForApproachingSim
+
+	.method public hidebysig newslot abstract virtual 
+		instance bool OnPortalStart (
+			class Sims3.Gameplay.Actors.Sim s
+		) cil managed 
+	{
+	} // end of method PortalComponent::OnPortalStart
+
+	.method family hidebysig newslot virtual 
+		instance bool OnPortalStop (
+			class Sims3.Gameplay.Actors.Sim s
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d70f
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PortalComponent::OnPortalStop
+
+	.method public hidebysig specialname newslot abstract virtual 
+		instance bool get_CanUseUmbrella () cil managed 
+	{
+	} // end of method PortalComponent::get_CanUseUmbrella
+
+	.method public hidebysig specialname newslot virtual 
+		instance bool get_UseStartAnimWhenExitingPortal () cil managed 
+	{
+		// Method begins at RVA 0x17d712
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method PortalComponent::get_UseStartAnimWhenExitingPortal
+
+	.method public hidebysig newslot virtual 
+		instance bool IsLaneUnobstructed (
+			valuetype [SimIFace]Sims3.SimIFace.Slot[] laneSlots,
+			class Sims3.Gameplay.Actors.Sim s,
+			bool checkForSims,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption routeOptions
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d718
+		// Header size: 12
+		// Code size: 70 (0x46)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0006: ldarg.2
+		IL_0007: ldarg.1
+		IL_0008: ldc.i4.0
+		IL_0009: ldelem.u4
+		IL_000a: ldarg.2
+		IL_000b: ldarg.3
+		IL_000c: ldarg.s routeOptions
+		IL_000e: ldarg.2
+		IL_000f: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0014: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_0019: ldc.i4.0
+		IL_001a: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsRoutingSlotObstructed(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Abstracts.GameObject, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+		IL_001f: brtrue.s IL_0044
+
+		IL_0021: ldarg.0
+		IL_0022: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+		IL_0027: ldarg.2
+		IL_0028: ldarg.1
+		IL_0029: ldc.i4.1
+		IL_002a: ldelem.u4
+		IL_002b: ldarg.2
+		IL_002c: ldarg.3
+		IL_002d: ldarg.s routeOptions
+		IL_002f: ldarg.2
+		IL_0030: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0035: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_003a: ldc.i4.1
+		IL_003b: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsRoutingSlotObstructed(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Abstracts.GameObject, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+		IL_0040: ldc.i4.0
+		IL_0041: ceq
+		IL_0043: ret
+
+		IL_0044: ldc.i4.0
+		IL_0045: ret
+	} // end of method PortalComponent::IsLaneUnobstructed
+
+	.method public hidebysig newslot virtual 
+		instance bool IsFullyBlocked (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d76c
+		// Header size: 12
+		// Code size: 44 (0x2c)
+		.maxstack 5
+		.locals init (
+			[0] uint32,
+			[1] uint32,
+			[2] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_0006: stloc.0
+		IL_0007: ldc.i4.0
+		IL_0008: stloc.1
+		IL_0009: br.s IL_0026
+		// loop start (head: IL_0026)
+			IL_000b: ldarg.0
+			IL_000c: ldloc.1
+			IL_000d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent::GetSlotsForLaneIndex(uint32)
+			IL_0012: stloc.2
+			IL_0013: ldarg.0
+			IL_0014: ldloc.2
+			IL_0015: ldarg.1
+			IL_0016: ldc.i4.0
+			IL_0017: ldc.i4.0
+			IL_0018: conv.i8
+			IL_0019: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::IsLaneUnobstructed(valuetype [SimIFace]Sims3.SimIFace.Slot[], class Sims3.Gameplay.Actors.Sim, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption)
+			IL_001e: brfalse.s IL_0022
+
+			IL_0020: ldc.i4.0
+			IL_0021: ret
+
+			IL_0022: ldloc.1
+			IL_0023: ldc.i4.1
+			IL_0024: add
+			IL_0025: stloc.1
+
+			IL_0026: ldloc.1
+			IL_0027: ldloc.0
+			IL_0028: blt.un.s IL_000b
+		// end loop
+
+		IL_002a: ldc.i4.1
+		IL_002b: ret
+	} // end of method PortalComponent::IsFullyBlocked
+
+	.method public hidebysig newslot virtual 
+		instance class [SimIFace]Sims3.SimIFace.Route ComponentCreateRoute (
+			class Sims3.Gameplay.Actors.Sim s
+		) cil managed 
+	{
+		// Method begins at RVA 0x17d7a4
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.Abstracts.GameObject::CreateRoute()
+		IL_0006: ret
+	} // end of method PortalComponent::ComponentCreateRoute
+
+	.method private hidebysig static 
+		bool '<GetFreeRoutingLane>b__0' (
+			valuetype [SimIFace]Sims3.SimIFace.Slot slot
+		) cil managed 
+	{
+		.custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Method begins at RVA 0x17cfe9
+		// Header size: 1
+		// Code size: 5 (0x5)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: ceq
+		IL_0004: ret
+	} // end of method PortalComponent::'<GetFreeRoutingLane>b__0'
+
+	// Properties
+	.property instance class [mscorlib]System.Type BaseType()
+	{
+		.get instance class [mscorlib]System.Type Sims3.Gameplay.ObjectComponents.PortalComponent::get_BaseType()
+	}
+	.property instance bool NoLanesAvailableFailsRoute()
+	{
+		.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::get_NoLanesAvailableFailsRoute()
+	}
+	.property instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/PortalAddInitTime ShouldAddPortalAtInit()
+	{
+		.get instance valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/PortalAddInitTime Sims3.Gameplay.ObjectComponents.PortalComponent::get_ShouldAddPortalAtInit()
+	}
+	.property instance bool AddToUseListDuringTraversal()
+	{
+		.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::get_AddToUseListDuringTraversal()
+	}
+	.property instance bool RemoveFromUseListAfterTraversal()
+	{
+		.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::get_RemoveFromUseListAfterTraversal()
+	}
+	.property instance bool CanUseUmbrella()
+	{
+		.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::get_CanUseUmbrella()
+	}
+	.property instance bool UseStartAnimWhenExitingPortal()
+	{
+		.get instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::get_UseStartAnimWhenExitingPortal()
+	}
+
+} // end of class Sims3.Gameplay.ObjectComponents.PortalComponent

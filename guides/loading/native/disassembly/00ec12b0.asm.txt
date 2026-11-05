@@ -1,0 +1,42 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00ec12b0 <.text+0xac02b0>:
+  ec12b0:	57                   	push   edi
+  ec12b1:	8b 7c 24 08          	mov    edi,DWORD PTR [esp+0x8]
+  ec12b5:	8b c7                	mov    eax,edi
+  ec12b7:	25 00 00 00 ff       	and    eax,0xff000000
+  ec12bc:	3d 00 00 00 40       	cmp    eax,0x40000000
+  ec12c1:	75 36                	jne    0xec12f9
+  ec12c3:	56                   	push   esi
+  ec12c4:	e8 c7 80 8a ff       	call   0x769390
+  ec12c9:	8b 10                	mov    edx,DWORD PTR [eax]
+  ec12cb:	8b c8                	mov    ecx,eax
+  ec12cd:	8b 82 cc 00 00 00    	mov    eax,DWORD PTR [edx+0xcc]
+  ec12d3:	57                   	push   edi
+  ec12d4:	ff d0                	call   eax
+  ec12d6:	8b f0                	mov    esi,eax
+  ec12d8:	85 f6                	test   esi,esi
+  ec12da:	74 1c                	je     0xec12f8
+  ec12dc:	e8 af 80 8a ff       	call   0x769390
+  ec12e1:	8b 10                	mov    edx,DWORD PTR [eax]
+  ec12e3:	8b c8                	mov    ecx,eax
+  ec12e5:	8b 82 d8 00 00 00    	mov    eax,DWORD PTR [edx+0xd8]
+  ec12eb:	57                   	push   edi
+  ec12ec:	ff d0                	call   eax
+  ec12ee:	8b 16                	mov    edx,DWORD PTR [esi]
+  ec12f0:	8b 02                	mov    eax,DWORD PTR [edx]
+  ec12f2:	6a 01                	push   0x1
+  ec12f4:	8b ce                	mov    ecx,esi
+  ec12f6:	ff d0                	call   eax
+  ec12f8:	5e                   	pop    esi
+  ec12f9:	5f                   	pop    edi
+  ec12fa:	c3                   	ret
+  ec12fb:	cc                   	int3
+  ec12fc:	cc                   	int3
+  ec12fd:	cc                   	int3
+  ec12fe:	cc                   	int3
+  ec12ff:	cc                   	int3

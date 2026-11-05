@@ -1,0 +1,24 @@
+// Actual ILSpy selected-member renderings in metadata order, not a compilable original class.
+// Sims3.UI.WindowBase::get_Enabled 0x0600003E, Sims3.UI.WindowBase::op_Equality 0x0600008F, Sims3.UI.WindowBase::op_Inequality 0x06000090
+{
+	return UIManager.GetFlagProperty(WinHandle, 4005670912u, 2u);
+}
+
+public static bool operator ==(WindowBase a, WindowBase b)
+{
+	if (object.ReferenceEquals(a, b))
+	{
+		return true;
+	}
+	if ((object)a == null || (object)b == null)
+	{
+		return false;
+	}
+	return a.WinHandle == b.WinHandle;
+}
+
+public static bool operator !=(WindowBase a, WindowBase b)
+{
+	return !(a == b);
+}
+

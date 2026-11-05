@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000B82.
+// Assembly: ScriptCore; type: ScriptCore.CacheManager.
+// Decompiled C# source: ScriptCore/ScriptCore/CacheManager.cs:31
+	[DllImport("Sims3Common")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool CacheManager_ReadCachedData([MarshalAs(UnmanagedType.LPWStr)] string tagStr, [MarshalAs(UnmanagedType.SafeArray)] out byte[] data);

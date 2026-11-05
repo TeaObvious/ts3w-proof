@@ -1,0 +1,26 @@
+Reference: original PC 1.67 TS3W.exe SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+Registration: ScriptCore.Audio::Audio_InitWorldImpl
+PE VA interval: [0x00863090, 0x008630b0)
+Original file interval: [0x463090, 0x4630b0)
+Span SHA-256: fd10fcff12e8387421ff7c6c4dbc08d10b3a2bccb31b27a27ad9de303096d3de
+Boundary: next function entry in retained Ghidra listing; this is a bounded linear decode, not independently proven exact function body.
+Decoder: GNU objdump -D -Mintel; control-flow paths must be checked before behavioral claims.
+
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00863090 <.text+0x462090>:
+  863090:	a1 40 9c 1d 01       	mov    eax,ds:0x11d9c40
+  863095:	85 c0                	test   eax,eax
+  863097:	74 14                	je     0x8630ad
+  863099:	8d 88 30 84 fd ff    	lea    ecx,[eax-0x27bd0]
+  86309f:	85 c9                	test   ecx,ecx
+  8630a1:	74 0a                	je     0x8630ad
+  8630a3:	8b 01                	mov    eax,DWORD PTR [ecx]
+  8630a5:	8b 90 48 02 00 00    	mov    edx,DWORD PTR [eax+0x248]
+  8630ab:	ff e2                	jmp    edx
+  8630ad:	32 c0                	xor    al,al
+  8630af:	c3                   	ret

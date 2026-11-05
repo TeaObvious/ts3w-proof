@@ -1,0 +1,259 @@
+// Original PC 1.67 SimIFace.dll; complete original type.
+.class public sequential ansi sealed beforefieldinit Sims3.SimIFace.LotLocation
+	extends [mscorlib]System.ValueType
+	implements class [mscorlib]System.IComparable`1<valuetype Sims3.SimIFace.LotLocation>
+{
+	.custom instance void [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::.ctor(bool) = (
+		01 00 00 00 00
+	)
+	// Fields
+	.field public int32 mX
+	.field public int32 mZ
+	.field public int8 mLevel
+	.field public int16 mRoom
+	.field public static initonly valuetype Sims3.SimIFace.LotLocation Invalid
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			int32 x,
+			int32 z,
+			int8 level,
+			int16 room
+		) cil managed 
+	{
+		// Method begins at RVA 0x9013
+		// Header size: 1
+		// Code size: 30 (0x1e)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_0007: ldarg.0
+		IL_0008: ldarg.2
+		IL_0009: stfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_000e: ldarg.0
+		IL_000f: ldarg.3
+		IL_0010: stfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_0015: ldarg.0
+		IL_0016: ldarg.s room
+		IL_0018: stfld int16 Sims3.SimIFace.LotLocation::mRoom
+		IL_001d: ret
+	} // end of method LotLocation::.ctor
+
+	.method public hidebysig specialname static 
+		bool op_Equality (
+			valuetype Sims3.SimIFace.LotLocation a,
+			valuetype Sims3.SimIFace.LotLocation b
+		) cil managed 
+	{
+		// Method begins at RVA 0x9032
+		// Header size: 1
+		// Code size: 51 (0x33)
+		.maxstack 8
+
+		IL_0000: ldarga.s a
+		IL_0002: ldfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_0007: ldarga.s b
+		IL_0009: ldfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_000e: bne.un.s IL_0031
+
+		IL_0010: ldarga.s a
+		IL_0012: ldfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_0017: ldarga.s b
+		IL_0019: ldfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_001e: bne.un.s IL_0031
+
+		IL_0020: ldarga.s a
+		IL_0022: ldfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_0027: ldarga.s b
+		IL_0029: ldfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_002e: ceq
+		IL_0030: ret
+
+		IL_0031: ldc.i4.0
+		IL_0032: ret
+	} // end of method LotLocation::op_Equality
+
+	.method public hidebysig specialname static 
+		bool op_Inequality (
+			valuetype Sims3.SimIFace.LotLocation a,
+			valuetype Sims3.SimIFace.LotLocation b
+		) cil managed 
+	{
+		// Method begins at RVA 0x9066
+		// Header size: 1
+		// Code size: 54 (0x36)
+		.maxstack 8
+
+		IL_0000: ldarga.s a
+		IL_0002: ldfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_0007: ldarga.s b
+		IL_0009: ldfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_000e: bne.un.s IL_0034
+
+		IL_0010: ldarga.s a
+		IL_0012: ldfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_0017: ldarga.s b
+		IL_0019: ldfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_001e: bne.un.s IL_0034
+
+		IL_0020: ldarga.s a
+		IL_0022: ldfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_0027: ldarga.s b
+		IL_0029: ldfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_002e: ceq
+		IL_0030: ldc.i4.0
+		IL_0031: ceq
+		IL_0033: ret
+
+		IL_0034: ldc.i4.1
+		IL_0035: ret
+	} // end of method LotLocation::op_Inequality
+
+	.method public hidebysig virtual 
+		instance bool Equals (
+			object obj
+		) cil managed 
+	{
+		// Method begins at RVA 0x90a0
+		// Header size: 12
+		// Code size: 49 (0x31)
+		.maxstack 2
+		.locals init (
+			[0] valuetype Sims3.SimIFace.LotLocation
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: brfalse.s IL_001b
+
+		IL_0003: ldarg.0
+		IL_0004: ldobj Sims3.SimIFace.LotLocation
+		IL_0009: box Sims3.SimIFace.LotLocation
+		IL_000e: call instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+		IL_0013: ldarg.1
+		IL_0014: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+		IL_0019: beq.s IL_001d
+
+		IL_001b: ldc.i4.0
+		IL_001c: ret
+
+		IL_001d: ldarg.1
+		IL_001e: unbox.any Sims3.SimIFace.LotLocation
+		IL_0023: stloc.0
+		IL_0024: ldloc.0
+		IL_0025: ldarg.0
+		IL_0026: ldobj Sims3.SimIFace.LotLocation
+		IL_002b: call bool Sims3.SimIFace.LotLocation::op_Equality(valuetype Sims3.SimIFace.LotLocation, valuetype Sims3.SimIFace.LotLocation)
+		IL_0030: ret
+	} // end of method LotLocation::Equals
+
+	.method public hidebysig virtual 
+		instance int32 GetHashCode () cil managed 
+	{
+		// Method begins at RVA 0x90dd
+		// Header size: 1
+		// Code size: 36 (0x24)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldflda int32 Sims3.SimIFace.LotLocation::mX
+		IL_0006: call instance int32 [mscorlib]System.Int32::GetHashCode()
+		IL_000b: ldarg.0
+		IL_000c: ldflda int32 Sims3.SimIFace.LotLocation::mZ
+		IL_0011: call instance int32 [mscorlib]System.Int32::GetHashCode()
+		IL_0016: xor
+		IL_0017: ldarg.0
+		IL_0018: ldflda int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_001d: call instance int32 [mscorlib]System.SByte::GetHashCode()
+		IL_0022: xor
+		IL_0023: ret
+	} // end of method LotLocation::GetHashCode
+
+	.method public final hidebysig newslot virtual 
+		instance int32 CompareTo (
+			valuetype Sims3.SimIFace.LotLocation other
+		) cil managed 
+	{
+		// Method begins at RVA 0x9104
+		// Header size: 12
+		// Code size: 104 (0x68)
+		.maxstack 2
+
+		IL_0000: ldarga.s other
+		IL_0002: ldfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_0007: ldarg.0
+		IL_0008: ldfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_000d: ble.s IL_0011
+
+		IL_000f: ldc.i4.1
+		IL_0010: ret
+
+		IL_0011: ldarga.s other
+		IL_0013: ldfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_0018: ldarg.0
+		IL_0019: ldfld int8 Sims3.SimIFace.LotLocation::mLevel
+		IL_001e: bge.s IL_0022
+
+		IL_0020: ldc.i4.m1
+		IL_0021: ret
+
+		IL_0022: ldarga.s other
+		IL_0024: ldfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_0029: ldarg.0
+		IL_002a: ldfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_002f: ble.s IL_0033
+
+		IL_0031: ldc.i4.1
+		IL_0032: ret
+
+		IL_0033: ldarga.s other
+		IL_0035: ldfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_003a: ldarg.0
+		IL_003b: ldfld int32 Sims3.SimIFace.LotLocation::mZ
+		IL_0040: bge.s IL_0044
+
+		IL_0042: ldc.i4.m1
+		IL_0043: ret
+
+		IL_0044: ldarga.s other
+		IL_0046: ldfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_004b: ldarg.0
+		IL_004c: ldfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_0051: ble.s IL_0055
+
+		IL_0053: ldc.i4.1
+		IL_0054: ret
+
+		IL_0055: ldarga.s other
+		IL_0057: ldfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_005c: ldarg.0
+		IL_005d: ldfld int32 Sims3.SimIFace.LotLocation::mX
+		IL_0062: bge.s IL_0066
+
+		IL_0064: ldc.i4.m1
+		IL_0065: ret
+
+		IL_0066: ldc.i4.0
+		IL_0067: ret
+	} // end of method LotLocation::CompareTo
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x9178
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldc.i4.m1
+		IL_0001: ldc.i4.m1
+		IL_0002: ldc.i4.0
+		IL_0003: ldc.i4.0
+		IL_0004: newobj instance void Sims3.SimIFace.LotLocation::.ctor(int32, int32, int8, int16)
+		IL_0009: stsfld valuetype Sims3.SimIFace.LotLocation Sims3.SimIFace.LotLocation::Invalid
+		IL_000e: ret
+	} // end of method LotLocation::.cctor
+
+} // end of class Sims3.SimIFace.LotLocation

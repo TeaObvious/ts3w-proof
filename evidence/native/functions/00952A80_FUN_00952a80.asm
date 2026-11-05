@@ -1,0 +1,201 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; existing FUN_00952a80, complete owned Listing.
+Inclusive metadata range[00952a80,00952c68]; 489ownedbytes/153instructions. No gaps/padding/data included.
+Explicit /TS3W.exe serialreadonlyMCP and pristinePE/independentdecode; noDBmutator/save.
+
+ORIGINAL ENVELOPE BYTES
+00952a80: 55 8b ec 83 e4 f0 83 ec 34 53 56 57 8b f9 8b 4d
+00952a90: 0c 6a 06 e8 b8 fe fd ff 8b 75 08 8b 4e 10 8b 87
+00952aa0: 94 00 00 00 8b 56 08 51 50 52 e8 b1 b5 b8 ff 83
+00952ab0: c4 0c 8b ce 50 e8 36 4f e8 ff 80 7e 14 00 75 0b
+00952ac0: 32 c0 5f 5e 5b 8b e5 5d c2 08 00 8b 4e 10 8b 87
+00952ad0: 00 01 00 00 8b 56 08 51 50 52 e8 91 b4 b8 ff 83
+00952ae0: c4 0c 8b ce 50 e8 06 4f e8 ff 80 7e 14 00 74 d0
+00952af0: 8b 4e 10 8b 87 e8 00 00 00 8b 56 08 51 50 52 e8
+00952b00: 6c b4 b8 ff 83 c4 0c 8b ce 50 e8 e1 4e e8 ff 80
+00952b10: 7e 14 00 74 ab 0f 57 c0 0f 29 44 24 20 f3 0f 10
+00952b20: 05 f8 98 f9 00 f3 0f 11 44 24 1c 0f 57 c0 f3 0f
+00952b30: 11 44 24 18 f3 0f 11 44 24 14 f3 0f 11 44 24 10
+00952b40: 0f 28 44 24 10 8d 5f 08 8b cb c6 44 24 0c 00 0f
+00952b50: 29 44 24 30 e8 17 95 c1 ff 85 c0 74 2f 8b cb e8
+00952b60: 0c 95 c1 ff 8b 10 8b c8 8b 42 04 68 f6 fa fa 06
+00952b70: ff d0 85 c0 74 16 8d 4c 24 30 51 8d 54 24 24 52
+00952b80: 8b c8 c6 44 24 14 01 e8 34 f9 ff ff 8b 44 24 0c
+00952b90: 8b 4e 08 50 51 e8 66 b2 b8 ff 83 c4 08 8b ce 50
+00952ba0: e8 4b 4e e8 ff 80 7e 14 00 0f 84 11 ff ff ff 80
+00952bb0: 7c 24 0c 00 74 2c 8d 54 24 20 52 8b ce e8 ce 4f
+00952bc0: e8 ff 80 7e 14 00 0f 84 f4 fe ff ff 8d 44 24 30
+00952bd0: 50 8b ce e8 78 50 e8 ff 80 7e 14 00 0f 84 de fe
+00952be0: ff ff d9 87 e0 00 00 00 51 8b ce d9 1c 24 e8 bd
+00952bf0: 36 c1 ff 80 7e 14 00 0f 84 c3 fe ff ff 0f b6 8f
+00952c00: 04 01 00 00 51 8b ce e8 a4 d1 c4 ff 80 7e 14 00
+00952c10: 0f 84 aa fe ff ff 0f b6 97 05 01 00 00 52 8b ce
+00952c20: e8 8b d1 c4 ff 80 7e 14 00 0f 84 91 fe ff ff 0f
+00952c30: b7 87 06 01 00 00 50 8b ce e8 d2 c1 c6 ff 80 7e
+00952c40: 14 00 0f 84 78 fe ff ff d9 87 08 01 00 00 51 8b
+00952c50: ce d9 1c 24 e8 57 36 c1 ff 80 7e 14 00 5f 5e 0f
+00952c60: 95 c0 5b 8b e5 5d c2 08 00
+
+GHIDRA OWNED LISTING
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: FUN_00952a80
+Entry Point: 00952a80
+
+00952a80: PUSH EBP
+00952a81: MOV EBP, ESP
+00952a83: AND ESP, 0xfffffff0
+00952a86: SUB ESP, 0x34
+00952a89: PUSH EBX
+00952a8a: PUSH ESI
+00952a8b: PUSH EDI
+00952a8c: MOV EDI, ECX
+00952a8e: MOV ECX, dword ptr [EBP + 0xc]
+00952a91: PUSH 0x6
+00952a93: CALL 0x00932950
+00952a98: MOV ESI, dword ptr [EBP + 0x8]
+00952a9b: MOV ECX, dword ptr [ESI + 0x10]
+00952a9e: MOV EAX, dword ptr [EDI + 0x94]
+00952aa4: MOV EDX, dword ptr [ESI + 0x8]
+00952aa7: PUSH ECX
+00952aa8: PUSH EAX
+00952aa9: PUSH EDX
+00952aaa: CALL 0x004de060
+00952aaf: ADD ESP, 0xc
+00952ab2: MOV ECX, ESI
+00952ab4: PUSH EAX
+00952ab5: CALL 0x007d79f0
+00952aba: CMP byte ptr [ESI + 0x14], 0x0
+00952abe: JNZ 0x00952acb
+00952ac0: XOR AL, AL
+00952ac2: POP EDI
+00952ac3: POP ESI
+00952ac4: POP EBX
+00952ac5: MOV ESP, EBP
+00952ac7: POP EBP
+00952ac8: RET 0x8
+00952acb: MOV ECX, dword ptr [ESI + 0x10]
+00952ace: MOV EAX, dword ptr [EDI + 0x100]
+00952ad4: MOV EDX, dword ptr [ESI + 0x8]
+00952ad7: PUSH ECX
+00952ad8: PUSH EAX
+00952ad9: PUSH EDX
+00952ada: CALL 0x004ddf70
+00952adf: ADD ESP, 0xc
+00952ae2: MOV ECX, ESI
+00952ae4: PUSH EAX
+00952ae5: CALL 0x007d79f0
+00952aea: CMP byte ptr [ESI + 0x14], 0x0
+00952aee: JZ 0x00952ac0
+00952af0: MOV ECX, dword ptr [ESI + 0x10]
+00952af3: MOV EAX, dword ptr [EDI + 0xe8]
+00952af9: MOV EDX, dword ptr [ESI + 0x8]
+00952afc: PUSH ECX
+00952afd: PUSH EAX
+00952afe: PUSH EDX
+00952aff: CALL 0x004ddf70
+00952b04: ADD ESP, 0xc
+00952b07: MOV ECX, ESI
+00952b09: PUSH EAX
+00952b0a: CALL 0x007d79f0
+00952b0f: CMP byte ptr [ESI + 0x14], 0x0
+00952b13: JZ 0x00952ac0
+00952b15: XORPS XMM0, XMM0
+00952b18: MOVAPS xmmword ptr [ESP + 0x20], XMM0
+00952b1d: MOVSS XMM0, dword ptr [0x00f998f8]
+00952b25: MOVSS dword ptr [ESP + 0x1c], XMM0
+00952b2b: XORPS XMM0, XMM0
+00952b2e: MOVSS dword ptr [ESP + 0x18], XMM0
+00952b34: MOVSS dword ptr [ESP + 0x14], XMM0
+00952b3a: MOVSS dword ptr [ESP + 0x10], XMM0
+00952b40: MOVAPS XMM0, xmmword ptr [ESP + 0x10]
+00952b45: LEA EBX, [EDI + 0x8]
+00952b48: MOV ECX, EBX
+00952b4a: MOV byte ptr [ESP + 0xc], 0x0
+00952b4f: MOVAPS xmmword ptr [ESP + 0x30], XMM0
+00952b54: CALL 0x0056c070
+00952b59: TEST EAX, EAX
+00952b5b: JZ 0x00952b8c
+00952b5d: MOV ECX, EBX
+00952b5f: CALL 0x0056c070
+00952b64: MOV EDX, dword ptr [EAX]
+00952b66: MOV ECX, EAX
+00952b68: MOV EAX, dword ptr [EDX + 0x4]
+00952b6b: PUSH 0x6fafaf6
+00952b70: CALL EAX
+00952b72: TEST EAX, EAX
+00952b74: JZ 0x00952b8c
+00952b76: LEA ECX, [ESP + 0x30]
+00952b7a: PUSH ECX
+00952b7b: LEA EDX, [ESP + 0x24]
+00952b7f: PUSH EDX
+00952b80: MOV ECX, EAX
+00952b82: MOV byte ptr [ESP + 0x14], 0x1
+00952b87: CALL 0x009524c0
+00952b8c: MOV EAX, dword ptr [ESP + 0xc]
+00952b90: MOV ECX, dword ptr [ESI + 0x8]
+00952b93: PUSH EAX
+00952b94: PUSH ECX
+00952b95: CALL 0x004dde00
+00952b9a: ADD ESP, 0x8
+00952b9d: MOV ECX, ESI
+00952b9f: PUSH EAX
+00952ba0: CALL 0x007d79f0
+00952ba5: CMP byte ptr [ESI + 0x14], 0x0
+00952ba9: JZ 0x00952ac0
+00952baf: CMP byte ptr [ESP + 0xc], 0x0
+00952bb4: JZ 0x00952be2
+00952bb6: LEA EDX, [ESP + 0x20]
+00952bba: PUSH EDX
+00952bbb: MOV ECX, ESI
+00952bbd: CALL 0x007d7b90
+00952bc2: CMP byte ptr [ESI + 0x14], 0x0
+00952bc6: JZ 0x00952ac0
+00952bcc: LEA EAX, [ESP + 0x30]
+00952bd0: PUSH EAX
+00952bd1: MOV ECX, ESI
+00952bd3: CALL 0x007d7c50
+00952bd8: CMP byte ptr [ESI + 0x14], 0x0
+00952bdc: JZ 0x00952ac0
+00952be2: FLD float ptr [EDI + 0xe0]
+00952be8: PUSH ECX
+00952be9: MOV ECX, ESI
+00952beb: FSTP float ptr [ESP]
+00952bee: CALL 0x005662b0
+00952bf3: CMP byte ptr [ESI + 0x14], 0x0
+00952bf7: JZ 0x00952ac0
+00952bfd: MOVZX ECX, byte ptr [EDI + 0x104]
+00952c04: PUSH ECX
+00952c05: MOV ECX, ESI
+00952c07: CALL 0x0059fdb0
+00952c0c: CMP byte ptr [ESI + 0x14], 0x0
+00952c10: JZ 0x00952ac0
+00952c16: MOVZX EDX, byte ptr [EDI + 0x105]
+00952c1d: PUSH EDX
+00952c1e: MOV ECX, ESI
+00952c20: CALL 0x0059fdb0
+00952c25: CMP byte ptr [ESI + 0x14], 0x0
+00952c29: JZ 0x00952ac0
+00952c2f: MOVZX EAX, word ptr [EDI + 0x106]
+00952c36: PUSH EAX
+00952c37: MOV ECX, ESI
+00952c39: CALL 0x005bee10
+00952c3e: CMP byte ptr [ESI + 0x14], 0x0
+00952c42: JZ 0x00952ac0
+00952c48: FLD float ptr [EDI + 0x108]
+00952c4e: PUSH ECX
+00952c4f: MOV ECX, ESI
+00952c51: FSTP float ptr [ESP]
+00952c54: CALL 0x005662b0
+00952c59: CMP byte ptr [ESI + 0x14], 0x0
+00952c5d: POP EDI
+00952c5e: POP ESI
+00952c5f: SETNZ AL
+00952c62: POP EBX
+00952c63: MOV ESP, EBP
+00952c65: POP EBP
+00952c66: RET 0x8
+
+Total instructions: 153

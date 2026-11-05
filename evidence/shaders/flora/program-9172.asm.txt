@@ -1,0 +1,25 @@
+Original PC1.67 Shaders_Win32.precomp; program 9172, zero-based LINK slot 9171; payload offset 0x00ca78b4; 312 original bytes.
+Shader-relative offsets, not native TS3W.exe addresses. All DWORD tokens retained; mnemonics are analyst-decoded.
+0000: ps_2_0 ; ffff0200
+0004: dcl 0x80000000, t1.xyzw ; 0200001f,80000000,b02f0001
+0010: dcl 0x80000000, t2.xy ; 0200001f,80000000,b0230002
+001c: dcl 0x80000000, t4.xyz ; 0200001f,80000000,b0270004
+0028: dcl 0x80000000, v0.xyzw ; 0200001f,80000000,900f0000
+0034: dcl 0x80000000, v1.xyzw ; 0200001f,80000000,900f0001
+0040: dcl 0x90000000, s0.xyzw ; 0200001f,90000000,a00f0800
+004c: dcl 0x90000000, s1.xyzw ; 0200001f,90000000,a00f0801
+0058: tex_pp r1.xyzw, t2.xyzw, s1.xyzw ; 03000042,802f0001,b0e40002,a0e40801
+0068: tex_pp r0.xyzw, t1.xyzw, s0.xyzw ; 03000042,802f0000,b0e40001,a0e40800
+0078: mov_sat_pp r1.w, t1.wwww ; 02000001,80380001,b0ff0001
+0084: mul_pp r2.xyz, r1.wwww, v0.xyzw ; 03000005,80270002,80ff0001,90e40000
+0094: mov_sat_pp r1.w, t1.zzzz ; 02000001,80380001,b0aa0001
+00a0: mad_pp r2.xyz, r1.wwww, c0.xyzw, r2.xyzw ; 04000004,80270002,80ff0001,a0e40000,80e40002
+00b4: add_pp r2.xyz, r2.xyzw, t4.xyzw ; 03000002,80270002,80e40002,b0e40004
+00c4: mov_pp r1.w, c1.xxxx ; 02000001,80280001,a0000001
+00d0: mad_pp r2.xyz, r2.xyzw, r1.wwww, c2.xyzw ; 04000004,80270002,80e40002,80ff0001,a0e40002
+00e4: mul_pp r0.xyz, r1.xyzw, r0.xyzw ; 03000005,80270000,80e40001,80e40000
+00f4: mul_sat_pp r1.xyz, r2.xyzw, r0.xyzw ; 03000005,80370001,80e40002,80e40000
+0104: add_pp r0.w, -r0.wwww, v0.wwww ; 03000002,80280000,81ff0000,90ff0000
+0114: lrp_pp r0.xyz, v1.wwww, v1.xyzw, r1.xyzw ; 04000012,80270000,90ff0001,90e40001,80e40001
+0128: mov_pp oC0.xyzw, r0.xyzw ; 02000001,802f0800,80e40000
+0134: end ; 0000ffff

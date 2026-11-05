@@ -1,0 +1,28 @@
+// Pristine PC1.67 Sims3GameplaySystems.dll; identity and package key in the material-state guide.
+// Analyst: Builds daily alarms; ChangeVisualState calls SetMaterial, appends the suffix, and dispatches virtual custom effects. The base path does not call SetGeometryState. Subclass custom effects remain an extension point.
+using Sims3.Gameplay.Utilities;
+
+public VisualStateChange(RabbitHole hole, string materialName, float cTime, string alarmString)
+{
+	mRabbitHole = hole;
+	mMaterialName = materialName;
+	mTime = cTime;
+	mName = alarmString;
+	mHandle = hole.AddAlarmDay(mTime, DaysOfTheWeek.All, ChangeVisualState, mName, AlarmType.NeverPersisted);
+}
+private VisualStateChange()
+{
+}
+public void ChangeVisualState()
+{
+	string text = mRabbitHole.VisualStateSuffix();
+	if (mMaterialName == "Default" && !string.IsNullOrEmpty(text))
+	{
+		mRabbitHole.SetMaterial(text);
+	}
+	else
+	{
+		mRabbitHole.SetMaterial(mMaterialName + text);
+	}
+	mRabbitHole.DoCustomStateChangeEffects(mMaterialName);
+}

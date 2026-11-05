@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06001183.
+// Assembly: ScriptCore; type: ScriptCore.DownloadContent.
+// Decompiled C# source: ScriptCore/ScriptCore/DownloadContent.cs:86
+	[DllImport("Sims3Common.dll")]
+	private static extern ulong DownloadContent_StoreLotContentsImpl(ulong lotId, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI1)] byte[] pKeyTable, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI8)] ulong[] pIdTable, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI1)] byte[] pScriptData, long exportDateTime);

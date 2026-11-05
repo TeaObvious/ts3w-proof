@@ -1,0 +1,48 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Supplemental helper: MainCamera_GetBasePosition at 0x0096fef0
+# Bounded stop: 0x0096ff40; next Ghidra entry: 0x0096ff40; this is not a body-size claim.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0096fef0 <.text+0x56eef0>:
+  96fef0:	55                   	push   ebp
+  96fef1:	8b ec                	mov    ebp,esp
+  96fef3:	83 e4 f0             	and    esp,0xfffffff0
+  96fef6:	8b 45 08             	mov    eax,DWORD PTR [ebp+0x8]
+  96fef9:	0f 28 81 70 07 00 00 	movaps xmm0,XMMWORD PTR [ecx+0x770]
+  96ff00:	0f 29 00             	movaps XMMWORD PTR [eax],xmm0
+  96ff03:	8b e5                	mov    esp,ebp
+  96ff05:	5d                   	pop    ebp
+  96ff06:	c2 04 00             	ret    0x4
+  96ff09:	cc                   	int3
+  96ff0a:	cc                   	int3
+  96ff0b:	cc                   	int3
+  96ff0c:	cc                   	int3
+  96ff0d:	cc                   	int3
+  96ff0e:	cc                   	int3
+  96ff0f:	cc                   	int3
+  96ff10:	80 7c 24 08 00       	cmp    BYTE PTR [esp+0x8],0x0
+  96ff15:	74 0d                	je     0x96ff24
+  96ff17:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+  96ff1b:	09 81 80 08 00 00    	or     DWORD PTR [ecx+0x880],eax
+  96ff21:	c2 08 00             	ret    0x8
+  96ff24:	8b 54 24 04          	mov    edx,DWORD PTR [esp+0x4]
+  96ff28:	f7 d2                	not    edx
+  96ff2a:	21 91 80 08 00 00    	and    DWORD PTR [ecx+0x880],edx
+  96ff30:	c2 08 00             	ret    0x8
+  96ff33:	cc                   	int3
+  96ff34:	cc                   	int3
+  96ff35:	cc                   	int3
+  96ff36:	cc                   	int3
+  96ff37:	cc                   	int3
+  96ff38:	cc                   	int3
+  96ff39:	cc                   	int3
+  96ff3a:	cc                   	int3
+  96ff3b:	cc                   	int3
+  96ff3c:	cc                   	int3
+  96ff3d:	cc                   	int3
+  96ff3e:	cc                   	int3
+  96ff3f:	cc                   	int3

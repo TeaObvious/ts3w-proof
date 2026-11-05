@@ -1,0 +1,20 @@
+Original PC1.67 shader bytecode slice; LINK7206, bytes0088..0173.
+Shader-relative offsets, not TS3W.exe addresses. Tokens verified against original archive.
+PP markers preserve original destination modifier bits; this slice does not emulate precision.
+
+0088: tex r0.xyzw{dstmod2}, v0.xyzw, s2.xyzw ; 03000042,802f0000,90e40000,a0e40802
+0098: mov r0.xy{dstmod2}, r0.wzzw ; 02000001,80230000,80eb0000
+00a4: tex r1.xyzw{dstmod2}, v3.xyzw, s2.xyzw ; 03000042,802f0001,90e40003,a0e40802
+00b4: mov r0.zw{dstmod2}, r1.xyzw ; 02000001,802c0000,80e40001
+00c0: mad r2.xyzw{dstmod2}, c14.xxxx, r0.xyzw, c14.yyyy ; 04000004,802f0002,a000000e,80e40000,a055000e
+00d4: dp2add r0.x{dstmod2}, r2.xyzw, r2.xyzw, c14.zzzz ; 0400005a,80210000,80e40002,80e40002,a0aa000e
+00e8: dp2add r0.y{dstmod2}, r2.wzzw, r2.wzzw, c14.zzzz ; 0400005a,80220000,80eb0002,80eb0002,a0aa000e
+00fc: add r0.xy{dstmod2}, -r0.xyzw, c14.wwww ; 03000002,80230000,81e40000,a0ff000e
+010c: rsq r1.x{dstmod2}, r0.xxxx ; 02000007,80210001,80000000
+0118: rsq r1.y{dstmod2}, r0.yyyy ; 02000007,80220001,80550000
+0124: rcp r0.y{dstmod2}, r1.xxxx ; 02000006,80220000,80000001
+0130: rcp r1.y{dstmod2}, r1.yyyy ; 02000006,80220001,80550001
+013c: mov r0.xz{dstmod2}, r2.xyyw ; 02000001,80250000,80d40002
+0148: mov r1.xz{dstmod2}, r2.wyzw ; 02000001,80250001,80e70002
+0154: add r1.xyz{dstmod2}, r0.xyzw, r1.xyzw ; 03000002,80270001,80e40000,80e40001
+0164: mul r1.xy{dstmod2}, r1.xyzw, c13.xxxx ; 03000005,80230001,80e40001,a000000d

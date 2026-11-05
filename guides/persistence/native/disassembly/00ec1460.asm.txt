@@ -1,0 +1,62 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00ec1460 <.text+0xac0460>:
+  ec1460:	53                   	push   ebx
+  ec1461:	56                   	push   esi
+  ec1462:	57                   	push   edi
+  ec1463:	e8 58 85 be ff       	call   0xaa99c0
+  ec1468:	8b d8                	mov    ebx,eax
+  ec146a:	e8 21 7f 8a ff       	call   0x769390
+  ec146f:	85 db                	test   ebx,ebx
+  ec1471:	8b f0                	mov    esi,eax
+  ec1473:	74 37                	je     0xec14ac
+  ec1475:	85 f6                	test   esi,esi
+  ec1477:	74 33                	je     0xec14ac
+  ec1479:	8b 4c 24 10          	mov    ecx,DWORD PTR [esp+0x10]
+  ec147d:	8b 06                	mov    eax,DWORD PTR [esi]
+  ec147f:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  ec1482:	51                   	push   ecx
+  ec1483:	8b ce                	mov    ecx,esi
+  ec1485:	ff d2                	call   edx
+  ec1487:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+  ec148b:	8b f8                	mov    edi,eax
+  ec148d:	8b 06                	mov    eax,DWORD PTR [esi]
+  ec148f:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  ec1492:	51                   	push   ecx
+  ec1493:	8b ce                	mov    ecx,esi
+  ec1495:	ff d2                	call   edx
+  ec1497:	85 ff                	test   edi,edi
+  ec1499:	74 11                	je     0xec14ac
+  ec149b:	85 c0                	test   eax,eax
+  ec149d:	74 0d                	je     0xec14ac
+  ec149f:	50                   	push   eax
+  ec14a0:	57                   	push   edi
+  ec14a1:	8b cb                	mov    ecx,ebx
+  ec14a3:	e8 b8 86 be ff       	call   0xaa9b60
+  ec14a8:	5f                   	pop    edi
+  ec14a9:	5e                   	pop    esi
+  ec14aa:	5b                   	pop    ebx
+  ec14ab:	c3                   	ret
+  ec14ac:	5f                   	pop    edi
+  ec14ad:	5e                   	pop    esi
+  ec14ae:	32 c0                	xor    al,al
+  ec14b0:	5b                   	pop    ebx
+  ec14b1:	c3                   	ret
+  ec14b2:	cc                   	int3
+  ec14b3:	cc                   	int3
+  ec14b4:	cc                   	int3
+  ec14b5:	cc                   	int3
+  ec14b6:	cc                   	int3
+  ec14b7:	cc                   	int3
+  ec14b8:	cc                   	int3
+  ec14b9:	cc                   	int3
+  ec14ba:	cc                   	int3
+  ec14bb:	cc                   	int3
+  ec14bc:	cc                   	int3
+  ec14bd:	cc                   	int3
+  ec14be:	cc                   	int3
+  ec14bf:	cc                   	int3

@@ -1,0 +1,47 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method public final hidebysig newslot virtual 
+		instance bool ReadString (
+			uint32 key,
+			[out] string& 'value',
+			string defaultValue
+		) cil managed 
+	{
+		// Method begins at RVA 0x8085
+		// Header size: 1
+		// Code size: 55 (0x37)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldc.i4 353985943
+		IL_0007: xor
+		IL_0008: call instance bool Sims3.SimIFace.PropertyStreamReader::SeekToEntry(uint32)
+		IL_000d: brfalse.s IL_0032
+
+		IL_000f: ldarg.0
+		IL_0010: ldfld uint16 Sims3.SimIFace.PropertyStreamReader::mVersion
+		IL_0015: ldc.i4.1
+		IL_0016: ble.s IL_0023
+
+		IL_0018: ldarg.0
+		IL_0019: ldarg.2
+		IL_001a: call instance bool Sims3.SimIFace.PropertyStreamReader::ReadString(string&)
+		IL_001f: brfalse.s IL_0032
+
+		IL_0021: ldc.i4.1
+		IL_0022: ret
+
+		IL_0023: ldarg.2
+		IL_0024: ldarg.0
+		IL_0025: ldfld class [mscorlib]System.IO.BinaryReader Sims3.SimIFace.PropertyStreamReader::mStream
+		IL_002a: callvirt instance string [mscorlib]System.IO.BinaryReader::ReadString()
+		IL_002f: stind.ref
+		IL_0030: ldc.i4.1
+		IL_0031: ret
+
+		IL_0032: ldarg.2
+		IL_0033: ldarg.3
+		IL_0034: stind.ref
+		IL_0035: ldc.i4.0
+		IL_0036: ret
+	} // end of method PropertyStreamReader::ReadString

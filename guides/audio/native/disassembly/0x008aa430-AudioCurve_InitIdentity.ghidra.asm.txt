@@ -1,0 +1,33 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioCurve_InitIdentity
+Entry Point: 008aa430
+
+008aa430: SUB ESP, 0x10
+008aa433: XORPS XMM0, XMM0
+008aa436: PUSH ESI
+008aa437: MOV ESI, ECX
+008aa439: LEA EAX, [ESI + 0x14]
+008aa43c: MOV dword ptr [ESI + 0x10], EAX
+008aa43f: MOV dword ptr [ESI + 0xc], 0xf9997c
+008aa446: MOV dword ptr [ESI + 0x4], EAX
+008aa449: MOV dword ptr [ESI], EAX
+008aa44b: ADD EAX, 0x348
+008aa450: MOV dword ptr [ESI + 0x8], EAX
+008aa453: PUSH 0x2
+008aa455: LEA EAX, [ESP + 0x8]
+008aa459: MOVSS dword ptr [ESP + 0x8], XMM0
+008aa45f: MOVSS dword ptr [ESP + 0xc], XMM0
+008aa465: MOVSS XMM0, dword ptr [0x00f998f8]
+008aa46d: PUSH EAX
+008aa46e: MOV dword ptr [ESI + 0xc], 0xf9aac8
+008aa475: MOV dword ptr [ESI + 0x35c], 0x0
+008aa47f: MOVSS dword ptr [ESP + 0x14], XMM0
+008aa485: MOVSS dword ptr [ESP + 0x18], XMM0
+008aa48b: CALL 0x008a9f90
+008aa490: MOV EAX, ESI
+008aa492: POP ESI
+008aa493: ADD ESP, 0x10
+008aa496: RET
+
+Total instructions: 26

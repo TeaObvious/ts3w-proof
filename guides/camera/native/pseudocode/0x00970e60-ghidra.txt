@@ -1,0 +1,31 @@
+# GhidrAssist read-only decompiler export
+# Original TS3W.exe PC 1.67
+# Diagnostic pseudocode; raw instruction and stack evidence governs.
+
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_00970e60:
+
+
+float10 __fastcall FUN_00970e60(int param_1)
+
+{
+  float fVar1;
+  float fVar3;
+  float fVar4;
+  undefined1 auVar2 [16];
+  undefined4 local_20;
+  
+  fVar1 = *(float *)(param_1 + 0x770) - *(float *)(param_1 + 0x780);
+  fVar3 = *(float *)(param_1 + 0x774) - *(float *)(param_1 + 0x784);
+  fVar4 = *(float *)(param_1 + 0x778) - *(float *)(param_1 + 0x788);
+  auVar2._0_4_ = fVar4 * fVar4 + fVar3 * fVar3 + fVar1 * fVar1;
+  auVar2._4_4_ = auVar2._0_4_;
+  auVar2._8_4_ = auVar2._0_4_;
+  auVar2._12_4_ = auVar2._0_4_;
+  auVar2 = sqrtps(auVar2,auVar2);
+  local_20 = auVar2._0_4_;
+  return (float10)local_20;
+}
+
+

@@ -1,0 +1,47 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00d83bd0 <.text+0x982bd0>:
+  d83bd0:	56                   	push   esi
+  d83bd1:	8b 74 24 08          	mov    esi,DWORD PTR [esp+0x8]
+  d83bd5:	8b c6                	mov    eax,esi
+  d83bd7:	25 00 00 00 ff       	and    eax,0xff000000
+  d83bdc:	3d 00 00 00 43       	cmp    eax,0x43000000
+  d83be1:	75 2d                	jne    0xd83c10
+  d83be3:	e8 a8 57 9e ff       	call   0x769390
+  d83be8:	85 c0                	test   eax,eax
+  d83bea:	74 05                	je     0xd83bf1
+  d83bec:	83 c0 f8             	add    eax,0xfffffff8
+  d83bef:	eb 02                	jmp    0xd83bf3
+  d83bf1:	33 c0                	xor    eax,eax
+  d83bf3:	8b 50 08             	mov    edx,DWORD PTR [eax+0x8]
+  d83bf6:	8d 48 08             	lea    ecx,[eax+0x8]
+  d83bf9:	8b 82 d8 00 00 00    	mov    eax,DWORD PTR [edx+0xd8]
+  d83bff:	56                   	push   esi
+  d83c00:	ff d0                	call   eax
+  d83c02:	85 c0                	test   eax,eax
+  d83c04:	74 0a                	je     0xd83c10
+  d83c06:	8b 10                	mov    edx,DWORD PTR [eax]
+  d83c08:	8b c8                	mov    ecx,eax
+  d83c0a:	8b 42 04             	mov    eax,DWORD PTR [edx+0x4]
+  d83c0d:	5e                   	pop    esi
+  d83c0e:	ff e0                	jmp    eax
+  d83c10:	5e                   	pop    esi
+  d83c11:	c3                   	ret
+  d83c12:	cc                   	int3
+  d83c13:	cc                   	int3
+  d83c14:	cc                   	int3
+  d83c15:	cc                   	int3
+  d83c16:	cc                   	int3
+  d83c17:	cc                   	int3
+  d83c18:	cc                   	int3
+  d83c19:	cc                   	int3
+  d83c1a:	cc                   	int3
+  d83c1b:	cc                   	int3
+  d83c1c:	cc                   	int3
+  d83c1d:	cc                   	int3
+  d83c1e:	cc                   	int3
+  d83c1f:	cc                   	int3

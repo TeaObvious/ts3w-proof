@@ -1,0 +1,38 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0xfa90
+		// Header size: 12
+		// Code size: 92 (0x5c)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.SimIFace.StateMachineClient::mUseActorBridgeOrigins
+		IL_0007: ldarg.0
+		IL_0008: ldc.r4 -1
+		IL_000d: stfld float32 Sims3.SimIFace.StateMachineClient::mTimeoutTime
+		IL_0012: ldarg.0
+		IL_0013: ldc.r4 -1
+		IL_0018: stfld float32 Sims3.SimIFace.StateMachineClient::mTimeoutIntervalInTicks
+		IL_001d: ldarg.0
+		IL_001e: ldc.i4.0
+		IL_001f: newobj instance void Sims3.SimIFace.StateMachineClient/DriverHandleWrapper::.ctor(uint32)
+		IL_0024: stfld valuetype Sims3.SimIFace.StateMachineClient/DriverHandleWrapper Sims3.SimIFace.StateMachineClient::mDriver
+		IL_0029: ldarg.0
+		IL_002a: ldsfld valuetype Sims3.SimIFace.ObjectGuid Sims3.SimIFace.Simulator::kBadObjectGuid
+		IL_002f: stfld valuetype Sims3.SimIFace.ObjectGuid Sims3.SimIFace.StateMachineClient::mScriptHandle
+		IL_0034: ldarg.0
+		IL_0035: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, valuetype Sims3.SimIFace.ObjectGuid>::.ctor()
+		IL_003a: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, valuetype Sims3.SimIFace.ObjectGuid> Sims3.SimIFace.StateMachineClient::mActorNames
+		IL_003f: ldarg.0
+		IL_0040: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.SimIFace.IHasBridgeOrigin>::.ctor()
+		IL_0045: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.SimIFace.IHasBridgeOrigin> Sims3.SimIFace.StateMachineClient::mActors
+		IL_004a: ldarg.0
+		IL_004b: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, object>::.ctor()
+		IL_0050: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, object> Sims3.SimIFace.StateMachineClient::mVirtualAddRefs
+		IL_0055: ldarg.0
+		IL_0056: call instance void [mscorlib]System.Object::.ctor()
+		IL_005b: ret
+	} // end of method StateMachineClient::.ctor

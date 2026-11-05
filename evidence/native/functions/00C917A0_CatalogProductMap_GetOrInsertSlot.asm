@@ -1,0 +1,73 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: pointer CatalogProductMap_GetOrInsertSlot(void * this, uint * toolType)
+Owned ranges: [[00c917a0, 00c91839]]
+
+00c917a0  83ec10  SUB ESP,0x10
+00c917a3  53  PUSH EBX
+00c917a4  8b5c2418  MOV EBX,dword ptr [ESP + 0x18]
+00c917a8  55  PUSH EBP
+00c917a9  56  PUSH ESI
+00c917aa  57  PUSH EDI
+00c917ab  8bf9  MOV EDI,ECX
+00c917ad  0fb64710  MOVZX EAX,byte ptr [EDI + 0x10]
+00c917b1  8b7704  MOV ESI,dword ptr [EDI + 0x4]
+00c917b4  8b2f  MOV EBP,dword ptr [EDI]
+00c917b6  50  PUSH EAX
+00c917b7  53  PUSH EBX
+00c917b8  56  PUSH ESI
+00c917b9  55  PUSH EBP
+00c917ba  e8316592ff  CALL 0x005b7cf0
+00c917bf  83c410  ADD ESP,0x10
+00c917c2  3bc6  CMP EAX,ESI
+00c917c4  7406  JZ 0x00c917cc
+00c917c6  8b0b  MOV ECX,dword ptr [EBX]
+00c917c8  3b08  CMP ECX,dword ptr [EAX]
+00c917ca  7361  JNC 0x00c9182d
+00c917cc  3bc6  CMP EAX,ESI
+00c917ce  8b1b  MOV EBX,dword ptr [EBX]
+00c917d0  895c2410  MOV dword ptr [ESP + 0x10],EBX
+00c917d4  c744241400000000  MOV dword ptr [ESP + 0x14],0x0
+00c917dc  7404  JZ 0x00c917e2
+00c917de  3b18  CMP EBX,dword ptr [EAX]
+00c917e0  7309  JNC 0x00c917eb
+00c917e2  3bc5  CMP EAX,EBP
+00c917e4  741c  JZ 0x00c91802
+00c917e6  3958f8  CMP dword ptr [EAX + -0x8],EBX
+00c917e9  7217  JC 0x00c91802
+00c917eb  8d542410  LEA EDX,[ESP + 0x10]
+00c917ef  52  PUSH EDX
+00c917f0  8d44241c  LEA EAX,[ESP + 0x1c]
+00c917f4  50  PUSH EAX
+00c917f5  8bcf  MOV ECX,EDI
+00c917f7  e8a4e3ffff  CALL 0x00c8fba0
+00c917fc  8b742418  MOV ESI,dword ptr [ESP + 0x18]
+00c91800  eb0f  JMP 0x00c91811
+00c91802  8d4c2410  LEA ECX,[ESP + 0x10]
+00c91806  51  PUSH ECX
+00c91807  50  PUSH EAX
+00c91808  8bcf  MOV ECX,EDI
+00c9180a  e8b1ddffff  CALL 0x00c8f5c0
+00c9180f  8bf0  MOV ESI,EAX
+00c91811  8b4c2414  MOV ECX,dword ptr [ESP + 0x14]
+00c91815  85c9  TEST ECX,ECX
+00c91817  7407  JZ 0x00c91820
+00c91819  8b11  MOV EDX,dword ptr [ECX]
+00c9181b  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+00c9181e  ffd0  CALL EAX
+00c91820  5f  POP EDI
+00c91821  8d4604  LEA EAX,[ESI + 0x4]
+00c91824  5e  POP ESI
+00c91825  5d  POP EBP
+00c91826  5b  POP EBX
+00c91827  83c410  ADD ESP,0x10
+00c9182a  c20400  RET 0x4
+00c9182d  5f  POP EDI
+00c9182e  5e  POP ESI
+00c9182f  5d  POP EBP
+00c91830  83c004  ADD EAX,0x4
+00c91833  5b  POP EBX
+00c91834  83c410  ADD ESP,0x10
+00c91837  c20400  RET 0x4

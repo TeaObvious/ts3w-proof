@@ -1,0 +1,62 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig static 
+		bool PrepareHouseholdForThumbnail (
+			uint64 householdId
+		) cil managed 
+	{
+		// Method begins at RVA 0x49c210
+		// Header size: 12
+		// Code size: 73 (0x49)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.CAS.Household,
+			[1] class Sims3.Gameplay.CAS.Household,
+			[2] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.Household>
+		)
+
+		IL_0000: ldnull
+		IL_0001: stloc.0
+		IL_0002: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.Household> Sims3.Gameplay.CAS.Household::sHouseholdList
+		IL_0007: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.Household>::GetEnumerator()
+		IL_000c: stloc.2
+		.try
+		{
+			IL_000d: br.s IL_0024
+			// loop start (head: IL_0024)
+				IL_000f: ldloca.s 2
+				IL_0011: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.Household>::get_Current()
+				IL_0016: stloc.1
+				IL_0017: ldloc.1
+				IL_0018: callvirt instance uint64 Sims3.Gameplay.CAS.Household::get_HouseholdId()
+				IL_001d: ldarg.0
+				IL_001e: bne.un.s IL_0024
+
+				IL_0020: ldloc.1
+				IL_0021: stloc.0
+				IL_0022: br.s IL_002d
+
+				IL_0024: ldloca.s 2
+				IL_0026: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.Household>::MoveNext()
+				IL_002b: brtrue.s IL_000f
+			// end loop
+
+			IL_002d: leave.s IL_003d
+		} // end .try
+		finally
+		{
+			IL_002f: ldloca.s 2
+			IL_0031: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.Household>
+			IL_0037: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_003c: endfinally
+		} // end handler
+
+		IL_003d: ldloc.0
+		IL_003e: brfalse.s IL_0047
+
+		IL_0040: ldloc.0
+		IL_0041: call bool Sims3.Gameplay.Core.ThumbnailHelper::PrepareCASHouseholdForThumbnail(class Sims3.Gameplay.CAS.Household)
+		IL_0046: ret
+
+		IL_0047: ldc.i4.0
+		IL_0048: ret
+	} // end of method ThumbnailHelper::PrepareHouseholdForThumbnail

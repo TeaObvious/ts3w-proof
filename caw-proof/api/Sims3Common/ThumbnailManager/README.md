@@ -1,0 +1,65 @@
+# Sims3Common: ThumbnailManager
+
+59 original CAW 1.22.10 PE named exports.
+
+| Export | Ordinal | Address | Managed imports |
+| --- | ---: | --- | ---: |
+| [ThumbnailManager_AddBoneDeltaFromBuilder](1025.md) | 1025 | `0x10569a50` | 1 |
+| [ThumbnailManager_AddDisplacement](1026.md) | 1026 | `0x10569ca0` | 1 |
+| [ThumbnailManager_AddModel](1027.md) | 1027 | `0x105699e0` | 1 |
+| [ThumbnailManager_AddNameSpace](1028.md) | 1028 | `0x10569950` | 1 |
+| [ThumbnailManager_AddOccultState](1029.md) | 1029 | `0x10569970` | 1 |
+| [ThumbnailManager_AddPose](1030.md) | 1030 | `0x10569920` | 1 |
+| [ThumbnailManager_AddRig](1031.md) | 1031 | `0x105699b0` | 1 |
+| [ThumbnailManager_AddRotation](1032.md) | 1032 | `0x10569990` | 1 |
+| [ThumbnailManager_AddSimBuilder](1033.md) | 1033 | `0x10569a20` | 1 |
+| [ThumbnailManager_CloneObject](1034.md) | 1034 | `0x10569c30` | 1 |
+| [ThumbnailManager_CreateNotifier](2504.md) | 2504 | `0x109948c0` | 1 |
+| [ThumbnailManager_CreateThumbnailResource](2505.md) | 2505 | `0x10994690` | 1 |
+| [ThumbnailManager_ExportModelThumbnail](2506.md) | 2506 | `0x10995330` | 1 |
+| [ThumbnailManager_ExportObjectThumbnail](2507.md) | 2507 | `0x109954a0` | 1 |
+| [ThumbnailManager_ExportPatternThumbnail](2508.md) | 2508 | `0x10994ee0` | 1 |
+| [ThumbnailManager_ExportProductFenceThumbnail](2509.md) | 2509 | `0x10995890` | 1 |
+| [ThumbnailManager_ExportProductPatternThumbnail](2510.md) | 2510 | `0x10995630` | 1 |
+| [ThumbnailManager_GenerateHouseholdSimThumbnail](1035.md) | 1035 | `0x1056aa80` | 1 |
+| [ThumbnailManager_GenerateHouseholdThumbnail](1036.md) | 1036 | `0x1056a290` | 1 |
+| [ThumbnailManager_GenerateLotThumbnails](1037.md) | 1037 | `0x10569fb0` | 1 |
+| [ThumbnailManager_GenerateLotThumbnailsForGroup](1038.md) | 1038 | `0x1056a120` | 1 |
+| [ThumbnailManager_GeneratePhotoBoothPicture](1039.md) | 1039 | `0x1056a820` | 1 |
+| [ThumbnailManager_GeneratePromPicture](1040.md) | 1040 | `0x1056a530` | 1 |
+| [ThumbnailManager_GenerateSculpture](1041.md) | 1041 | `0x1056ad50` | 1 |
+| [ThumbnailManager_GenerateSelfPhotoPicture](1042.md) | 1042 | `0x1056a950` | 1 |
+| [ThumbnailManager_GenerateServoBotArenaPicture](1043.md) | 1043 | `0x1056ac20` | 1 |
+| [ThumbnailManager_GenerateThumbnailForSimsUsingObject](1044.md) | 1044 | `0x1056a400` | 1 |
+| [ThumbnailManager_GenerateTravelSimThumbnail](1045.md) | 1045 | `0x10569bd0` | 1 |
+| [ThumbnailManager_GetModelThumbnail](2511.md) | 2511 | `0x109951d0` | 1 |
+| [ThumbnailManager_GetPregenerationStatus](1046.md) | 1046 | `0x105698c0` | 1 |
+| [ThumbnailManager_GetThumbnailResourceType](2512.md) | 2512 | `0x10994720` | 1 |
+| [ThumbnailManager_InvalidateHouseholdSimThumbnail](1047.md) | 1047 | `0x10569af0` | 1 |
+| [ThumbnailManager_InvalidateHouseholdThumbnail](1048.md) | 1048 | `0x10569ac0` | 1 |
+| [ThumbnailManager_InvalidateLotThumbnails](1049.md) | 1049 | `0x10569b70` | 1 |
+| [ThumbnailManager_InvalidateLotThumbnailsForGroup](1050.md) | 1050 | `0x10569ba0` | 1 |
+| [ThumbnailManager_InvalidateThumbnail](1051.md) | 1051 | `0x1056b320` | 1 |
+| [ThumbnailManager_IsCheatSaveSimFaceEnabled](1052.md) | 1052 | `0x10569b50` | 1 |
+| [ThumbnailManager_KeyExistsInDB](1053.md) | 1053 | `0x1056b260` | 1 |
+| [ThumbnailManager_LookupBBPreviewBound](1054.md) | 1054 | `0x10569ec0` | 1 |
+| [ThumbnailManager_NotifierFinished](2513.md) | 2513 | `0x10994670` | 1 |
+| [ThumbnailManager_NotifierSucceeded](2514.md) | 2514 | `0x10994680` | 1 |
+| [ThumbnailManager_NotifyPreparationCompleted](1055.md) | 1055 | `0x105698b0` | 1 |
+| [ThumbnailManager_ReleaseNotifier](2515.md) | 2515 | `0x10994660` | 1 |
+| [ThumbnailManager_ReleaseThumbnailResource](2516.md) | 2516 | `0x103db030` | 1 |
+| [ThumbnailManager_RemoveCASPartData](2517.md) | 2517 | `0x10994800` | 1 |
+| [ThumbnailManager_SaveSimFaceThumbnail](1056.md) | 1056 | `0x1056ae80` | 1 |
+| [ThumbnailManager_SetCASPartData](2518.md) | 2518 | `0x109947c0` | 1 |
+| [ThumbnailManager_SetCallbacks](1057.md) | 1057 | `0x10569890` | 1 |
+| [ThumbnailManager_SetCheatSaveSimFace](1058.md) | 1058 | `0x10569b30` | 1 |
+| [ThumbnailManager_SetDefaultBoneDeltasFromSimBuilder](2519.md) | 2519 | `0x109947a0` | 1 |
+| [ThumbnailManager_SetDefaultPoseKey](2520.md) | 2520 | `0x10994740` | 1 |
+| [ThumbnailManager_SetDefaultRigKey](2521.md) | 2521 | `0x10994770` | 1 |
+| [ThumbnailManager_SetHouseholdCamera](1059.md) | 1059 | `0x10569c80` | 1 |
+| [ThumbnailManager_SetLotView](1060.md) | 1060 | `0x10569c50` | 1 |
+| [ThumbnailManager_SetPatternThumbnailCompositor](2522.md) | 2522 | `0x109946f0` | 1 |
+| [ThumbnailManager_SetPatternThumbnailSize](2523.md) | 2523 | `0x109946d0` | 1 |
+| [ThumbnailManager_SetSceneObject](1061.md) | 1061 | `0x10569aa0` | 1 |
+| [ThumbnailManager_StitchPhotoboothPictures](1062.md) | 1062 | `0x1056a660` | 1 |
+| [ThumbnailManager_UpdateDirtyLotThumbnails](1063.md) | 1063 | `0x1056afd0` | 1 |

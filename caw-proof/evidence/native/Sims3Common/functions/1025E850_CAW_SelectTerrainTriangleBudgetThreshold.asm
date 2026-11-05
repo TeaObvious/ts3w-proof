@@ -1,0 +1,65 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 1025e850..1025e908; CAW_SelectTerrainTriangleBudgetThreshold
+1025e850: 8b442408  MOV EAX,dword ptr [ESP + 0x8]
+1025e854: 81ecd0000000  SUB ESP,0xd0
+1025e85a: 53  PUSH EBX
+1025e85b: 55  PUSH EBP
+1025e85c: 56  PUSH ESI
+1025e85d: 8bf1  MOV ESI,ECX
+1025e85f: 33ed  XOR EBP,EBP
+1025e861: ba01000000  MOV EDX,0x1
+1025e866: 3bc2  CMP EAX,EDX
+1025e868: 57  PUSH EDI
+1025e869: 894620  MOV dword ptr [ESI + 0x20],EAX
+1025e86c: 896e10  MOV dword ptr [ESI + 0x10],EBP
+1025e86f: 760e  JBE 0x1025e87f
+1025e871: 015610  ADD dword ptr [ESI + 0x10],EDX
+1025e874: 8b4e10  MOV ECX,dword ptr [ESI + 0x10]
+1025e877: 8bfa  MOV EDI,EDX
+1025e879: d3e7  SHL EDI,CL
+1025e87b: 3bf8  CMP EDI,EAX
+1025e87d: 72f2  JC 0x1025e871
+1025e87f: bbffff0000  MOV EBX,0xffff
+1025e884: 896c2410  MOV dword ptr [ESP + 0x10],EBP
+1025e888: 8d7c2420  LEA EDI,[ESP + 0x20]
+1025e88c: 8d642400  LEA ESP,[ESP]
+1025e890: 8b9424ec000000  MOV EDX,dword ptr [ESP + 0xec]
+1025e897: 0fb7cb  MOVZX ECX,BX
+1025e89a: 0fb7c5  MOVZX EAX,BP
+1025e89d: 03c1  ADD EAX,ECX
+1025e89f: d1f8  SAR EAX,0x1
+1025e8a1: 52  PUSH EDX
+1025e8a2: 8bce  MOV ECX,ESI
+1025e8a4: 66894604  MOV word ptr [ESI + 0x4],AX
+1025e8a8: e823ffffff  CALL 0x1025e7d0
+1025e8ad: 0fb74e04  MOVZX ECX,word ptr [ESI + 0x4]
+1025e8b1: 8b461c  MOV EAX,dword ptr [ESI + 0x1c]
+1025e8b4: 3b8424e4000000  CMP EAX,dword ptr [ESP + 0xe4]
+1025e8bb: 66894c2418  MOV word ptr [ESP + 0x18],CX
+1025e8c0: 66896c241a  MOV word ptr [ESP + 0x1a],BP
+1025e8c5: 66895c241c  MOV word ptr [ESP + 0x1c],BX
+1025e8ca: 760a  JBE 0x1025e8d6
+1025e8cc: 663be9  CMP BP,CX
+1025e8cf: 7420  JZ 0x1025e8f1
+1025e8d1: 0fb7e9  MOVZX EBP,CX
+1025e8d4: eb08  JMP 0x1025e8de
+1025e8d6: 663bd9  CMP BX,CX
+1025e8d9: 7416  JZ 0x1025e8f1
+1025e8db: 0fb7d9  MOVZX EBX,CX
+1025e8de: 8b442410  MOV EAX,dword ptr [ESP + 0x10]
+1025e8e2: 83c001  ADD EAX,0x1
+1025e8e5: 83c70c  ADD EDI,0xc
+1025e8e8: 83f810  CMP EAX,0x10
+1025e8eb: 89442410  MOV dword ptr [ESP + 0x10],EAX
+1025e8ef: 729f  JC 0x1025e890
+1025e8f1: 0fb74604  MOVZX EAX,word ptr [ESI + 0x4]
+1025e8f5: 5f  POP EDI
+1025e8f6: 5e  POP ESI
+1025e8f7: 89442408  MOV dword ptr [ESP + 0x8],EAX
+1025e8fb: 5d  POP EBP
+1025e8fc: 5b  POP EBX
+1025e8fd: db0424  FILD dword ptr [ESP]
+1025e900: 81c4d0000000  ADD ESP,0xd0
+1025e906: c20c00  RET 0xc

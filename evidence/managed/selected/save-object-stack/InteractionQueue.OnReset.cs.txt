@@ -1,0 +1,42 @@
+// Original GameplaySystems MethodDef060092A0. Analyst: resets flags, collects transition/running entries, stops a snapshot of queued work up to three passes, cleans remaining collected entries, then clears the queue. Calls may throw; this is not successful stack restoration.
+using System.Collections.Generic;
+using Sims3.Gameplay.Interactions;
+
+public void OnReset()
+{
+	mIsHeadInteractionLocked = false;
+	mIsHeadInteractionActive = false;
+	List<InteractionInstance> list = new List<InteractionInstance>();
+	if (mCurrentTransitionInteraction != null)
+	{
+		list.Add(mCurrentTransitionInteraction);
+		mCurrentTransitionInteraction = null;
+	}
+	if (mBabyOrToddlerTransitionTargetInteraction != null)
+	{
+		list.Add(mBabyOrToddlerTransitionTargetInteraction);
+		mBabyOrToddlerTransitionTargetInteraction = null;
+	}
+	while (mRunningInteractions.Count > 0)
+	{
+		list.Add(mRunningInteractions.Pop());
+	}
+	int num = 0;
+	while (mInteractionList.Count > 0 && num < 3)
+	{
+		List<InteractionInstance> list2 = new List<InteractionInstance>(mInteractionList);
+		foreach (InteractionInstance item in list2)
+		{
+			ImmediatelyStopInteraction(item.Id);
+			list.Remove(item);
+		}
+		foreach (InteractionInstance item2 in list)
+		{
+			item2.Cleanup();
+		}
+		list.Clear();
+		num++;
+	}
+	mInteractionList.Clear();
+}
+

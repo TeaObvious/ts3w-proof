@@ -1,0 +1,71 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined1 SimComponent_ReadOutfitReferences(void * this, void * param_1, int param_2)
+Owned ranges: [[0094f030, 0094f0d1]]
+
+0094f030  53  PUSH EBX
+0094f031  8b5c240c  MOV EBX,dword ptr [ESP + 0xc]
+0094f035  55  PUSH EBP
+0094f036  0fb76b06  MOVZX EBP,word ptr [EBX + 0x6]
+0094f03a  6683fd0e  CMP BP,0xe
+0094f03e  56  PUSH ESI
+0094f03f  8b742410  MOV ESI,dword ptr [ESP + 0x10]
+0094f043  57  PUSH EDI
+0094f044  8bf9  MOV EDI,ECX
+0094f046  7230  JC 0x0094f078
+0094f048  8b4610  MOV EAX,dword ptr [ESI + 0x10]
+0094f04b  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+0094f04e  50  PUSH EAX
+0094f04f  8d4c2418  LEA ECX,[ESP + 0x18]
+0094f053  51  PUSH ECX
+0094f054  52  PUSH EDX
+0094f055  e886e8b8ff  CALL 0x004dd8e0
+0094f05a  83c40c  ADD ESP,0xc
+0094f05d  8bce  MOV ECX,ESI
+0094f05f  50  PUSH EAX
+0094f060  e88b89e8ff  CALL 0x007d79f0
+0094f065  8d4710  LEA EAX,[EDI + 0x10]
+0094f068  50  PUSH EAX
+0094f069  8d4c2418  LEA ECX,[ESP + 0x18]
+0094f06d  51  PUSH ECX
+0094f06e  8b4b10  MOV ECX,dword ptr [EBX + 0x10]
+0094f071  e81a81e8ff  CALL 0x007d7190
+0094f076  eb1c  JMP 0x0094f094
+0094f078  8b5610  MOV EDX,dword ptr [ESI + 0x10]
+0094f07b  8b4e08  MOV ECX,dword ptr [ESI + 0x8]
+0094f07e  52  PUSH EDX
+0094f07f  8d4710  LEA EAX,[EDI + 0x10]
+0094f082  50  PUSH EAX
+0094f083  51  PUSH ECX
+0094f084  e8d786e8ff  CALL 0x007d7760
+0094f089  83c40c  ADD ESP,0xc
+0094f08c  8bce  MOV ECX,ESI
+0094f08e  50  PUSH EAX
+0094f08f  e85c89e8ff  CALL 0x007d79f0
+0094f094  6683fd14  CMP BP,0x14
+0094f098  722e  JC 0x0094f0c8
+0094f09a  8b5610  MOV EDX,dword ptr [ESI + 0x10]
+0094f09d  8b4e08  MOV ECX,dword ptr [ESI + 0x8]
+0094f0a0  52  PUSH EDX
+0094f0a1  8d442418  LEA EAX,[ESP + 0x18]
+0094f0a5  50  PUSH EAX
+0094f0a6  51  PUSH ECX
+0094f0a7  e834e8b8ff  CALL 0x004dd8e0
+0094f0ac  83c40c  ADD ESP,0xc
+0094f0af  8bce  MOV ECX,ESI
+0094f0b1  50  PUSH EAX
+0094f0b2  e83989e8ff  CALL 0x007d79f0
+0094f0b7  8b4b10  MOV ECX,dword ptr [EBX + 0x10]
+0094f0ba  83c720  ADD EDI,0x20
+0094f0bd  57  PUSH EDI
+0094f0be  8d542418  LEA EDX,[ESP + 0x18]
+0094f0c2  52  PUSH EDX
+0094f0c3  e8c880e8ff  CALL 0x007d7190
+0094f0c8  8a4614  MOV AL,byte ptr [ESI + 0x14]
+0094f0cb  5f  POP EDI
+0094f0cc  5e  POP ESI
+0094f0cd  5d  POP EBP
+0094f0ce  5b  POP EBX
+0094f0cf  c20800  RET 0x8

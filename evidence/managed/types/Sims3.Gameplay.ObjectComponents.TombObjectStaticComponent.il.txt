@@ -1,0 +1,366 @@
+.class public auto ansi beforefieldinit Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent
+	extends Sims3.Gameplay.Abstracts.StaticObjectComponent
+	implements Sims3.Gameplay.ObjectComponents.ITombObjectComponent
+{
+	// Fields
+	.field private class Sims3.Gameplay.ObjectComponents.TombObjectData mTombObjectData
+
+	// Methods
+	.method private hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x26da43
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.StaticObjectComponent::.ctor()
+		IL_0006: ret
+	} // end of method TombObjectStaticComponent::.ctor
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			class Sims3.Gameplay.Abstracts.GameObject o
+		) cil managed 
+	{
+		// Method begins at RVA 0x26da4b
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void Sims3.Gameplay.Abstracts.StaticObjectComponent::.ctor(class Sims3.Gameplay.Abstracts.GameObject)
+		IL_0007: ldarg.0
+		IL_0008: ldarg.1
+		IL_0009: newobj instance void Sims3.Gameplay.ObjectComponents.TombObjectData::.ctor(class Sims3.Gameplay.Abstracts.GameObject)
+		IL_000e: stfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0013: ret
+	} // end of method TombObjectStaticComponent::.ctor
+
+	.method public final hidebysig specialname newslot virtual 
+		instance class Sims3.Gameplay.ObjectComponents.TombObjectData get_TombObjectData () cil managed 
+	{
+		// Method begins at RVA 0x26da60
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ret
+	} // end of method TombObjectStaticComponent::get_TombObjectData
+
+	.method public hidebysig specialname virtual 
+		instance class [mscorlib]System.Type get_BaseType () cil managed 
+	{
+		// Method begins at RVA 0x26da68
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: ldtoken Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent
+		IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_000a: ret
+	} // end of method TombObjectStaticComponent::get_BaseType
+
+	.method public final hidebysig newslot virtual 
+		instance void RegisterTrigger (
+			valuetype Sims3.Gameplay.ObjectComponents.Trigger trigger
+		) cil managed 
+	{
+		// Method begins at RVA 0x26da74
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance void Sims3.Gameplay.ObjectComponents.TombObjectData::RegisterTrigger(valuetype Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_000c: ret
+	} // end of method TombObjectStaticComponent::RegisterTrigger
+
+	.method public final hidebysig newslot virtual 
+		instance void RegisterBehavior (
+			valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior activatedBehavior,
+			class Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback callback
+		) cil managed 
+	{
+		// Method begins at RVA 0x26da82
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: ldarg.2
+		IL_0008: callvirt instance void Sims3.Gameplay.ObjectComponents.TombObjectData::RegisterBehavior(valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_000d: ret
+	} // end of method TombObjectStaticComponent::RegisterBehavior
+
+	.method public final hidebysig newslot virtual 
+		instance bool ActivateTrigger (
+			valuetype Sims3.Gameplay.ObjectComponents.Trigger trigger,
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x26da91
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: ldarg.2
+		IL_0008: callvirt instance bool Sims3.Gameplay.ObjectComponents.TombObjectData::ActivateTrigger(valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.Actors.Sim)
+		IL_000d: ret
+	} // end of method TombObjectStaticComponent::ActivateTrigger
+
+	.method public final hidebysig newslot virtual 
+		instance bool DeactivateTrigger (
+			valuetype Sims3.Gameplay.ObjectComponents.Trigger trigger,
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x26daa0
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: ldarg.2
+		IL_0008: callvirt instance bool Sims3.Gameplay.ObjectComponents.TombObjectData::DeactivateTrigger(valuetype Sims3.Gameplay.ObjectComponents.Trigger, class Sims3.Gameplay.Actors.Sim)
+		IL_000d: ret
+	} // end of method TombObjectStaticComponent::DeactivateTrigger
+
+	.method public final hidebysig newslot virtual 
+		instance bool IsTriggerLinkedToAnyActivatedBehavior (
+			valuetype Sims3.Gameplay.ObjectComponents.Trigger trigger
+		) cil managed 
+	{
+		// Method begins at RVA 0x26daaf
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance bool Sims3.Gameplay.ObjectComponents.TombObjectData::IsTriggerLinkedToAnyActivatedBehavior(valuetype Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_000c: ret
+	} // end of method TombObjectStaticComponent::IsTriggerLinkedToAnyActivatedBehavior
+
+	.method public final hidebysig newslot virtual 
+		instance bool IsActivatedBehaviorLinkedFromObjectType<class (Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent) T> (
+			valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior[] activatedBehaviors
+		) cil managed 
+	{
+		.param [1]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x26dabd
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance bool Sims3.Gameplay.ObjectComponents.TombObjectData::IsActivatedBehaviorLinkedFromObjectType<!!T>(valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior[])
+		IL_000c: ret
+	} // end of method TombObjectStaticComponent::IsActivatedBehaviorLinkedFromObjectType
+
+	.method public final hidebysig newslot virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior> GetLinkedActivatedBehaviors () cil managed 
+	{
+		// Method begins at RVA 0x26dacb
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::get_TombObjectData()
+		IL_0006: callvirt instance class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior> Sims3.Gameplay.ObjectComponents.TombObjectData::GetLinkedActivatedBehaviors()
+		IL_000b: ret
+	} // end of method TombObjectStaticComponent::GetLinkedActivatedBehaviors
+
+	.method public final hidebysig newslot virtual 
+		instance void RegisterOnTombObjectComponentChangedCallback (
+			class [SimIFace]Sims3.SimIFace.VoidEventHandler callback
+		) cil managed 
+	{
+		// Method begins at RVA 0x26dad8
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance void Sims3.Gameplay.ObjectComponents.TombObjectData::add_TombObjectComponentChanged(class [SimIFace]Sims3.SimIFace.VoidEventHandler)
+		IL_000c: ret
+	} // end of method TombObjectStaticComponent::RegisterOnTombObjectComponentChangedCallback
+
+	.method public final hidebysig newslot virtual 
+		instance void OnHover () cil managed 
+	{
+		// Method begins at RVA 0x26dae6
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: callvirt instance void Sims3.Gameplay.ObjectComponents.TombObjectData::OnHover()
+		IL_000b: ret
+	} // end of method TombObjectStaticComponent::OnHover
+
+	.method public final hidebysig specialname newslot virtual 
+		instance string get_AdventureKey () cil managed 
+	{
+		// Method begins at RVA 0x26daf3
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: callvirt instance string Sims3.Gameplay.ObjectComponents.TombObjectData::get_AdventureKey()
+		IL_000b: ret
+	} // end of method TombObjectStaticComponent::get_AdventureKey
+
+	.method public final hidebysig specialname newslot virtual 
+		instance void set_AdventureKey (
+			string 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x26db00
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance void Sims3.Gameplay.ObjectComponents.TombObjectData::set_AdventureKey(string)
+		IL_000c: ret
+	} // end of method TombObjectStaticComponent::set_AdventureKey
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x26db0e
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.0
+		IL_0007: callvirt instance void Sims3.Gameplay.ObjectComponents.TombObjectData::OnAddTombObjectComponent(class Sims3.Gameplay.ObjectComponents.ITombObjectComponent)
+		IL_000c: ldarg.0
+		IL_000d: call instance void Sims3.Gameplay.Abstracts.ObjectComponent::OnStartup()
+		IL_0012: ret
+	} // end of method TombObjectStaticComponent::OnStartup
+
+	.method public hidebysig virtual 
+		instance void Dispose () cil managed 
+	{
+		// Method begins at RVA 0x26db22
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.ObjectComponent::Dispose()
+		IL_0006: ldarg.0
+		IL_0007: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_000c: callvirt instance void Sims3.Gameplay.ObjectComponents.TombObjectData::Dispose()
+		IL_0011: ret
+	} // end of method TombObjectStaticComponent::Dispose
+
+	.method public hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x26db35
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance void Sims3.Gameplay.ObjectComponents.TombObjectData::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_000c: ldarg.0
+		IL_000d: ldarg.1
+		IL_000e: call instance void Sims3.Gameplay.Abstracts.ObjectComponent::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0013: ret
+	} // end of method TombObjectStaticComponent::AddBuildBuyInteractions
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x26db4a
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: callvirt instance bool Sims3.Gameplay.ObjectComponents.TombObjectData::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_000e: ret
+	} // end of method TombObjectStaticComponent::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x26db5a
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::mTombObjectData
+		IL_0006: ldarg.1
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: callvirt instance bool Sims3.Gameplay.ObjectComponents.TombObjectData::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_000e: ret
+	} // end of method TombObjectStaticComponent::ImportContent
+
+	// Properties
+	.property instance class Sims3.Gameplay.ObjectComponents.TombObjectData TombObjectData()
+	{
+		.get instance class Sims3.Gameplay.ObjectComponents.TombObjectData Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::get_TombObjectData()
+	}
+	.property instance class [mscorlib]System.Type BaseType()
+	{
+		.get instance class [mscorlib]System.Type Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::get_BaseType()
+	}
+	.property instance string AdventureKey()
+	{
+		.get instance string Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::get_AdventureKey()
+		.set instance void Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent::set_AdventureKey(string)
+	}
+
+} // end of class Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent

@@ -1,0 +1,79 @@
+[Context] Operating on: TS3W.exe | Total open programs: 3
+
+Decompiled function FUN_00a8eb80:
+
+
+uint __thiscall FUN_00a8eb80(void *this,float *param_1,float *param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  float *pfVar3;
+  char cVar4;
+  uint uVar5;
+  char cVar6;
+  float fVar7;
+  float10 fVar8;
+  char local_18;
+  char local_17;
+  undefined1 local_16;
+  float local_14;
+  float local_10;
+  float local_c;
+  float local_8;
+  float local_4;
+  
+  local_14 = *param_1;
+  local_10 = param_1[1];
+  if ((((local_14 < 0.0) || ((float)*(int *)(*(int *)((int)this + 4) + 0x174) < local_14)) ||
+      (local_10 < 0.0)) || ((float)*(int *)(*(int *)((int)this + 4) + 0x178) < local_10)) {
+    return (uint)param_1 & 0xffffff00;
+  }
+  fVar7 = *(float *)((int)this + 0x14);
+  if ((int)param_1[2] < (int)*(float *)((int)this + 0x14)) {
+    fVar7 = param_1[2];
+  }
+  if (0 < (int)fVar7) {
+    iVar1 = *(int *)((int)this + 0xc);
+    iVar2 = *(int *)((int)this + 8);
+    param_1 = (float *)CONCAT31(param_1._1_3_,(char)(int)local_14);
+    cVar4 = (char)(int)local_10;
+    do {
+      local_18 = (char)param_1;
+      local_16 = SUB41(fVar7,0);
+      if ((char)param_1 == iVar2) {
+        local_18 = (char)param_1 + -1;
+      }
+      local_17 = cVar4;
+      if (cVar4 == iVar1) {
+        local_17 = cVar4 + -1;
+      }
+      uVar5 = FUN_00a8e170(this,(ushort *)&local_18,0xf,1);
+    } while (((char)uVar5 == '\0') && (fVar7 = (float)((int)fVar7 + -1), 0 < (int)fVar7));
+  }
+  pfVar3 = param_1;
+  if ((int)fVar7 < 0) {
+    cVar4 = (char)(int)local_14;
+    cVar6 = (char)(int)local_10;
+    param_1._0_2_ = CONCAT11(cVar6,cVar4);
+    param_1._3_1_ = SUB41(pfVar3,3);
+    param_1._0_3_ = CONCAT12(SUB41(fVar7,0),param_1._0_2_);
+    if ((int)cVar4 == *(int *)((int)this + 8)) {
+      param_1 = (float *)CONCAT31(param_1._1_3_,cVar4 + -1);
+    }
+    if ((int)cVar6 == *(int *)((int)this + 0xc)) {
+      param_1._0_2_ = CONCAT11(cVar6 + -1,(char)param_1);
+    }
+    uVar5 = FUN_00a8e170(this,(ushort *)&param_1,0xf,1);
+    if ((char)uVar5 == '\0') {
+      return uVar5;
+    }
+  }
+  local_c = local_14;
+  local_8 = local_10;
+  local_4 = fVar7;
+  fVar8 = FUN_00a8c690(this,&local_c);
+  *param_2 = (float)fVar8;
+  return CONCAT31((int3)((uint)param_2 >> 8),1);
+}
+

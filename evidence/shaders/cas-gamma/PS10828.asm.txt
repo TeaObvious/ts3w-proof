@@ -1,0 +1,19 @@
+Original PC1.67 complete PSHD program10828 (zero-based slot10827), ps_2_0.
+Shader-relative offsets; these are not TS3W.exe addresses or a Ghidra native listing.
+All184bytes retained as original DWORD tokens; mnemonics are analyst-decoded SM2 instructions.
+Live CAS PASS selection and c0 production are not established by this program body.
+
+0000: ps_2_0 ; ffff0200
+0004: def c1, 0, 0, 0, 0 ; 05000051,a00f0001,00000000,00000000,00000000,00000000
+001c: dcl t0.xy ; 0200001f,80000000,b0030000
+0028: dcl_2d s0 ; 0200001f,90000000,a00f0800
+0034: texld r0, t0, s0 ; 03000042,800f0000,b0e40000,a0e40800
+0044: mad r1.xyz, c0, r0, r0 ; 04000004,80070001,a0e40000,80e40000,80e40000
+0058: add r0.xyz, r0, c0 ; 03000002,80070000,80e40000,a0e40000
+0068: rcp r0.x, r0.x ; 02000006,80010000,80000000
+0074: rcp r0.y, r0.y ; 02000006,80020000,80550000
+0080: rcp r0.z, r0.z ; 02000006,80040000,80aa0000
+008c: mul r0.xyz, r1, r0 ; 03000005,80070000,80e40001,80e40000
+009c: mov r0.w, c1.x ; 02000001,80080000,a0000001
+00a8: mov oC0, r0 ; 02000001,800f0800,80e40000
+00b4: end ; 0000ffff

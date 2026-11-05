@@ -1,0 +1,32 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: void * Object_GetComponentByMask(void * this, uint requestedMask)
+Owned ranges: [[00934260, 009342ae]]
+
+00934260  8b512c  MOV EDX,dword ptr [ECX + 0x2c]
+00934263  8b442404  MOV EAX,dword ptr [ESP + 0x4]
+00934267  85d0  TEST EAX,EDX
+00934269  743f  JZ 0x009342aa
+0093426b  83c0ff  ADD EAX,-0x1
+0093426e  23c2  AND EAX,EDX
+00934270  8bd0  MOV EDX,EAX
+00934272  d1ea  SHR EDX,0x1
+00934274  81e255555555  AND EDX,0x55555555
+0093427a  2bc2  SUB EAX,EDX
+0093427c  8bd0  MOV EDX,EAX
+0093427e  2533333333  AND EAX,0x33333333
+00934283  c1ea02  SHR EDX,0x2
+00934286  81e233333333  AND EDX,0x33333333
+0093428c  03d0  ADD EDX,EAX
+0093428e  8bc2  MOV EAX,EDX
+00934290  c1e804  SHR EAX,0x4
+00934293  03c2  ADD EAX,EDX
+00934295  250f0f0f0f  AND EAX,0xf0f0f0f
+0093429a  69c001010101  IMUL EAX,EAX,0x1010101
+009342a0  c1e818  SHR EAX,0x18
+009342a3  8b448134  MOV EAX,dword ptr [ECX + EAX*0x4 + 0x34]
+009342a7  c20400  RET 0x4
+009342aa  33c0  XOR EAX,EAX
+009342ac  c20400  RET 0x4

@@ -1,0 +1,49 @@
+// Pristine PC1.67 Sims3GameplaySystems.dll; identity and package key in the material-state guide.
+// Analyst: SetMaterial uses overlay=true and transitionTime=0. GeometryState has a separate World entry; the material wrappers do not call it.
+Pristine PC1.67 selected managed method bodies; metadata tokens and complete decoded IL instructions. Analyst scope: material/visual-state calls; no runtime claim.
+
+// token 0x06000938; RVA 0x00029403
+System.Void Sims3.Gameplay.Abstracts.GameObject::SetMaterial(System.String)
+.maxstack 8; code size 19
+// Original IL bytes: 0228E708000603220000000017286604000A2A
+IL_0000: ldarg.0
+IL_0001: call Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+IL_0006: ldarg.1
+IL_0007: ldc.r4 0
+IL_000c: ldc.i4.1
+IL_000d: call System.Void Sims3.SimIFace.World::ObjectSetMaterial(Sims3.SimIFace.ObjectGuid,System.String,System.Single,System.Boolean)
+IL_0012: ret
+
+// token 0x06000939; RVA 0x00029417
+System.Void Sims3.Gameplay.Abstracts.GameObject::SetMaterialTransitionToOverlay(System.String,System.Single)
+.maxstack 8; code size 15
+// Original IL bytes: 0228E7080006030417286604000A2A
+IL_0000: ldarg.0
+IL_0001: call Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+IL_0006: ldarg.1
+IL_0007: ldarg.2
+IL_0008: ldc.i4.1
+IL_0009: call System.Void Sims3.SimIFace.World::ObjectSetMaterial(Sims3.SimIFace.ObjectGuid,System.String,System.Single,System.Boolean)
+IL_000e: ret
+
+// token 0x0600093A; RVA 0x00029427
+System.Void Sims3.Gameplay.Abstracts.GameObject::SetMaterialTransitionFromOverlay(System.String,System.Single)
+.maxstack 8; code size 15
+// Original IL bytes: 0228E7080006030416286604000A2A
+IL_0000: ldarg.0
+IL_0001: call Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+IL_0006: ldarg.1
+IL_0007: ldarg.2
+IL_0008: ldc.i4.0
+IL_0009: call System.Void Sims3.SimIFace.World::ObjectSetMaterial(Sims3.SimIFace.ObjectGuid,System.String,System.Single,System.Boolean)
+IL_000e: ret
+
+// token 0x06000B07; RVA 0x0002FF4F
+System.Void Sims3.Gameplay.Abstracts.GameObject::SetGeometryState(System.String)
+.maxstack 8; code size 13
+// Original IL bytes: 0228E708000603281905000A2A
+IL_0000: ldarg.0
+IL_0001: call Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+IL_0006: ldarg.1
+IL_0007: call System.Void Sims3.SimIFace.World::ObjectSetGeometryVisibilityState(Sims3.SimIFace.ObjectGuid,System.String)
+IL_000c: ret

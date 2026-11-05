@@ -1,0 +1,27 @@
+[
+  {
+    "token": "060005C9",
+    "name": "OnObjectLotUpdate",
+    "rva": 39767,
+    "signature": "0004010b0b0808",
+    "maxStack": 8,
+    "localSignature": "11000000",
+    "initLocals": false,
+    "il": "7ec70600042c1d7ec70600047eb00600046f3800000a0203040573ab0700066f1b00000a2a",
+    "instructions": [
+      "IL_0000: ldsfld 0x040006C7 Sims3.SimIFace.World::sOnObjectLotUpdateEventHandler",
+      "IL_0005: brfalse.s IL_0024",
+      "IL_0007: ldsfld 0x040006C7 Sims3.SimIFace.World::sOnObjectLotUpdateEventHandler",
+      "IL_000C: ldsfld 0x040006B0 Sims3.SimIFace.World::gWorld",
+      "IL_0011: callvirt 0x0A000038 System.Object::GetType",
+      "IL_0016: ldarg.0",
+      "IL_0017: ldarg.1",
+      "IL_0018: ldarg.2",
+      "IL_0019: ldarg.3",
+      "IL_001A: newobj 0x060007AB .OnObjectLotUpdateEventArgs::.ctor",
+      "IL_001F: callvirt 0x0A00001B System.EventHandler::Invoke",
+      "IL_0024: ret"
+    ],
+    "exceptions": []
+  }
+]

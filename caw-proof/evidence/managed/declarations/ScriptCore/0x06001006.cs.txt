@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06001006.
+// Assembly: ScriptCore; type: ScriptCore.GameUtils.
+// Decompiled C# source: ScriptCore/ScriptCore/GameUtils.cs:160
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalType = "ScriptCore.StringFromVariantMarshaler")]
+	private static extern string GameUtils_GetConfigStringValue([MarshalAs(UnmanagedType.LPWStr)] string key, [MarshalAs(UnmanagedType.LPWStr)] string defaultValue);

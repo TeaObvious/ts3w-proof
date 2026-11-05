@@ -1,0 +1,21 @@
+// Analyst: Actual original rendering; context/lock gates and event dispatch remain with managed Gameflow, not the native time hook.
+using Sims3.SimIFace;
+
+private static float GetTimeRateForGameSpeed(GameSpeed speed)
+{
+	float num = speed switch
+	{
+		GameSpeed.Pause => 0f, 
+		GameSpeed.Normal => kNormalTimeRate * 1f, 
+		GameSpeed.Double => kDoubleTimeRate * 1f, 
+		GameSpeed.Triple => kTripleTimeRate * 1f, 
+		GameSpeed.Skip => kSkipTimeRate * 1f, 
+		_ => kNormalTimeRate * 1f, 
+	};
+	if (SlowMotion)
+	{
+		num *= kSlowMotionMultiplier;
+	}
+	return num;
+}
+

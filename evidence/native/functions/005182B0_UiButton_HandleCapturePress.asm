@@ -1,0 +1,51 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body.
+Actual annotated Ghidra pseudocode: 005182B0_UiButton_HandleCapturePress.c
+Owned ranges: [[005182b0, 0051831c]]
+
+005182b0  56  PUSH ESI
+005182b1  8bf1  MOV ESI,ECX
+005182b3  85f6  TEST ESI,ESI
+005182b5  57  PUSH EDI
+005182b6  7405  JZ 0x005182bd
+005182b8  8d7e04  LEA EDI,[ESI + 0x4]
+005182bb  eb02  JMP 0x005182bf
+005182bd  33ff  XOR EDI,EDI
+005182bf  8b4e30  MOV ECX,dword ptr [ESI + 0x30]
+005182c2  8b01  MOV EAX,dword ptr [ECX]
+005182c4  8b5060  MOV EDX,dword ptr [EAX + 0x60]
+005182c7  6a01  PUSH 0x1
+005182c9  ffd2  CALL EDX
+005182cb  3bc7  CMP EAX,EDI
+005182cd  7412  JZ 0x005182e1
+005182cf  8b4e30  MOV ECX,dword ptr [ESI + 0x30]
+005182d2  8b01  MOV EAX,dword ptr [ECX]
+005182d4  8b4064  MOV EAX,dword ptr [EAX + 0x64]
+005182d7  6a00  PUSH 0x0
+005182d9  8d5604  LEA EDX,[ESI + 0x4]
+005182dc  52  PUSH EDX
+005182dd  6a01  PUSH 0x1
+005182df  ffd0  CALL EAX
+005182e1  8b4678  MOV EAX,dword ptr [ESI + 0x78]
+005182e4  a802  TEST AL,0x2
+005182e6  752e  JNZ 0x00518316
+005182e8  a808  TEST AL,0x8
+005182ea  742a  JZ 0x00518316
+005182ec  8b9650020000  MOV EDX,dword ptr [ESI + 0x250]
+005182f2  8b4228  MOV EAX,dword ptr [EDX + 0x28]
+005182f5  8d8e50020000  LEA ECX,[ESI + 0x250]
+005182fb  6a01  PUSH 0x1
+005182fd  6a02  PUSH 0x2
+005182ff  ffd0  CALL EAX
+00518301  f6865c02000001  TEST byte ptr [ESI + 0x25c],0x1
+00518308  740c  JZ 0x00518316
+0051830a  8b16  MOV EDX,dword ptr [ESI]
+0051830c  8b82a4000000  MOV EAX,dword ptr [EDX + 0xa4]
+00518312  8bce  MOV ECX,ESI
+00518314  ffd0  CALL EAX
+00518316  5f  POP EDI
+00518317  b001  MOV AL,0x1
+00518319  5e  POP ESI
+0051831a  c21000  RET 0x10

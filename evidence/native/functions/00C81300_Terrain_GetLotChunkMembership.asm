@@ -1,0 +1,87 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function envelope.
+Actual Ghidra function: Terrain_GetLotChunkMembership
+Paired annotated actual pseudocode: 00C81300_Terrain_GetLotChunkMembership.c
+Owned ranges: [[00c81300, 00c813ce]]
+
+GHIDRA LISTING (original bytes)
+00c81300  83ec14  SUB ESP,0x14
+00c81303  8b442418  MOV EAX,dword ptr [ESP + 0x18]
+00c81307  8b504c  MOV EDX,dword ptr [EAX + 0x4c]
+00c8130a  56  PUSH ESI
+00c8130b  57  PUSH EDI
+00c8130c  8bf9  MOV EDI,ECX
+00c8130e  8b4848  MOV ECX,dword ptr [EAX + 0x48]
+00c81311  894c2414  MOV dword ptr [ESP + 0x14],ECX
+00c81315  8d442414  LEA EAX,[ESP + 0x14]
+00c81319  50  PUSH EAX
+00c8131a  8d4c240c  LEA ECX,[ESP + 0xc]
+00c8131e  8db778010000  LEA ESI,[EDI + 0x178]
+00c81324  51  PUSH ECX
+00c81325  8bce  MOV ECX,ESI
+00c81327  89542420  MOV dword ptr [ESP + 0x20],EDX
+00c8132b  e850d3a9ff  CALL 0x0071e680
+00c81330  8b00  MOV EAX,dword ptr [EAX]
+00c81332  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+00c81335  8b4e04  MOV ECX,dword ptr [ESI + 0x4]
+00c81338  3b0491  CMP EAX,dword ptr [ECX + EDX*0x4]
+00c8133b  740b  JZ 0x00c81348
+00c8133d  5f  POP EDI
+00c8133e  83c008  ADD EAX,0x8
+00c81341  5e  POP ESI
+00c81342  83c414  ADD ESP,0x14
+00c81345  c20400  RET 0x4
+00c81348  53  PUSH EBX
+00c81349  c644240c00  MOV byte ptr [ESP + 0xc],0x0
+00c8134e  8b54240c  MOV EDX,dword ptr [ESP + 0xc]
+00c81352  52  PUSH EDX
+00c81353  8d44241c  LEA EAX,[ESP + 0x1c]
+00c81357  50  PUSH EAX
+00c81358  8d4c2414  LEA ECX,[ESP + 0x14]
+00c8135c  51  PUSH ECX
+00c8135d  8bce  MOV ECX,ESI
+00c8135f  e89cf4ffff  CALL 0x00c80800
+00c81364  8b5c240c  MOV EBX,dword ptr [ESP + 0xc]
+00c81368  8b87b4000000  MOV EAX,dword ptr [EDI + 0xb4]
+00c8136e  8bb7b0000000  MOV ESI,dword ptr [EDI + 0xb0]
+00c81374  83c308  ADD EBX,0x8
+00c81377  3bf0  CMP ESI,EAX
+00c81379  89442418  MOV dword ptr [ESP + 0x18],EAX
+00c8137d  7445  JZ 0x00c813c4
+00c8137f  55  PUSH EBP
+00c81380  8b542428  MOV EDX,dword ptr [ESP + 0x28]
+00c81384  8b2e  MOV EBP,dword ptr [ESI]
+00c81386  52  PUSH EDX
+00c81387  55  PUSH EBP
+00c81388  8bcf  MOV ECX,EDI
+00c8138a  896c2418  MOV dword ptr [ESP + 0x18],EBP
+00c8138e  e80dd5ffff  CALL 0x00c7e8a0
+00c81393  84c0  TEST AL,AL
+00c81395  7423  JZ 0x00c813ba
+00c81397  8b4304  MOV EAX,dword ptr [EBX + 0x4]
+00c8139a  3b4308  CMP EAX,dword ptr [EBX + 0x8]
+00c8139d  730e  JNC 0x00c813ad
+00c8139f  85c0  TEST EAX,EAX
+00c813a1  8d4804  LEA ECX,[EAX + 0x4]
+00c813a4  894b04  MOV dword ptr [EBX + 0x4],ECX
+00c813a7  7411  JZ 0x00c813ba
+00c813a9  8928  MOV dword ptr [EAX],EBP
+00c813ab  eb0d  JMP 0x00c813ba
+00c813ad  8d542410  LEA EDX,[ESP + 0x10]
+00c813b1  52  PUSH EDX
+00c813b2  50  PUSH EAX
+00c813b3  8bcb  MOV ECX,EBX
+00c813b5  e86610d0ff  CALL 0x00982420
+00c813ba  83c604  ADD ESI,0x4
+00c813bd  3b74241c  CMP ESI,dword ptr [ESP + 0x1c]
+00c813c1  75bd  JNZ 0x00c81380
+00c813c3  5d  POP EBP
+00c813c4  8bc3  MOV EAX,EBX
+00c813c6  5b  POP EBX
+00c813c7  5f  POP EDI
+00c813c8  5e  POP ESI
+00c813c9  83c414  ADD ESP,0x14
+00c813cc  c20400  RET 0x4
+Owned instructions=77 owned bytes=207 envelope bytes=207

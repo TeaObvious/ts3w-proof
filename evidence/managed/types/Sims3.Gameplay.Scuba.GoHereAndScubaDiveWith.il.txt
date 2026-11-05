@@ -1,0 +1,718 @@
+.class public auto ansi sealed beforefieldinit Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith
+	extends Sims3.Gameplay.Interactions.TerrainInteraction
+	implements Sims3.Gameplay.Objects.Vehicles.ITransitionForcesGetOutIntoWater
+{
+	// Nested Types
+	.class nested public auto ansi sealed beforefieldinit Definition
+		extends class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain, class Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith>
+	{
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Test (
+				class Sims3.Gameplay.Actors.Sim actor,
+				class Sims3.Gameplay.Core.Terrain target,
+				bool isAutonomous,
+				class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+			) cil managed 
+		{
+			// Method begins at RVA 0x45c284
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method Definition::Test
+
+		.method public hidebysig virtual 
+			instance valuetype Sims3.Gameplay.Interactions.InteractionTestResult Test (
+				valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters,
+				class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+			) cil managed 
+		{
+			// Method begins at RVA 0x45c288
+			// Header size: 12
+			// Code size: 140 (0x8c)
+			.maxstack 3
+			.locals init (
+				[0] valuetype Sims3.Gameplay.Interactions.InteractionTestResult,
+				[1] class Sims3.Gameplay.Core.Lot,
+				[2] class Sims3.Gameplay.Actors.Sim
+			)
+
+			IL_0000: ldarg.1
+			IL_0001: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_0006: isinst Sims3.Gameplay.Actors.Sim
+			IL_000b: ldarg.1
+			IL_000c: call instance valuetype [SimIFace]Sims3.SimIFace.GameObjectHit Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Hit()
+			IL_0011: call bool Sims3.Gameplay.Scuba.ScubaDiving::ScubaHitTest(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.GameObjectHit)
+			IL_0016: brfalse.s IL_0086
+
+			IL_0018: ldarg.0
+			IL_0019: ldarg.1
+			IL_001a: ldarg.2
+			IL_001b: call instance valuetype Sims3.Gameplay.Interactions.InteractionTestResult class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain, class Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith>::Test(valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+			IL_0020: dup
+			IL_0021: stloc.0
+			IL_0022: call bool Sims3.Gameplay.Interactions.InteractionDefinitionUtilities::IsPass(valuetype Sims3.Gameplay.Interactions.InteractionTestResult)
+			IL_0027: brfalse.s IL_0084
+
+			IL_0029: ldarg.1
+			IL_002a: call instance valuetype [SimIFace]Sims3.SimIFace.GameObjectHit Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Hit()
+			IL_002f: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.GameObjectHit::mPoint
+			IL_0034: call class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::GetLotAtPoint(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0039: stloc.1
+			IL_003a: ldarg.1
+			IL_003b: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_0040: isinst Sims3.Gameplay.Actors.Sim
+			IL_0045: stloc.2
+			IL_0046: ldloc.1
+			IL_0047: brfalse.s IL_0086
+
+			IL_0049: ldloc.2
+			IL_004a: brfalse.s IL_0086
+
+			IL_004c: ldloc.2
+			IL_004d: callvirt instance bool Sims3.Gameplay.Actors.Sim::IsInGroupingSituation()
+			IL_0052: brtrue.s IL_0063
+
+			IL_0054: ldloc.2
+			IL_0055: ldloc.1
+			IL_0056: call class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith/Definition::GetValidDivers(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot)
+			IL_005b: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+			IL_0060: ldc.i4.0
+			IL_0061: ble.s IL_0086
+
+			IL_0063: ldarg.1
+			IL_0064: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_0069: isinst Sims3.Gameplay.Actors.Sim
+			IL_006e: ldarg.1
+			IL_006f: call instance valuetype [SimIFace]Sims3.SimIFace.GameObjectHit Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Hit()
+			IL_0074: ldarg.2
+			IL_0075: call bool Sims3.Gameplay.Scuba.ScubaDiving::ScubaHitTestTooltips(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.GameObjectHit, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+			IL_007a: brtrue.s IL_0082
+
+			IL_007c: ldc.i4 128
+			IL_0081: ret
+
+			IL_0082: ldc.i4.0
+			IL_0083: ret
+
+			IL_0084: ldloc.0
+			IL_0085: ret
+
+			IL_0086: ldc.i4 128
+			IL_008b: ret
+		} // end of method Definition::Test
+
+		.method family hidebysig virtual 
+			instance string GetInteractionName (
+				class Sims3.Gameplay.Actors.Sim actor,
+				class Sims3.Gameplay.Core.Terrain target,
+				class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+			) cil managed 
+		{
+			// Method begins at RVA 0x45c320
+			// Header size: 12
+			// Code size: 143 (0x8f)
+			.maxstack 3
+			.locals init (
+				[0] bool,
+				[1] bool,
+				[2] string
+			)
+
+			IL_0000: ldarg.1
+			IL_0001: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0006: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsMatureMermaid()
+			IL_000b: brfalse.s IL_0028
+
+			IL_000d: ldstr "MermaidDiveWith"
+			IL_0012: ldc.i4.0
+			IL_0013: newarr [mscorlib]System.Object
+			IL_0018: call string Sims3.Gameplay.Scuba.ScubaDiving::LocalizeString(string, object[])
+			IL_001d: call string Sims3.Gameplay.Utilities.Localization::get_Ellipsis()
+			IL_0022: call string [mscorlib]System.String::Concat(string, string)
+			IL_0027: ret
+
+			IL_0028: ldc.i4.0
+			IL_0029: stloc.0
+			IL_002a: ldc.i4.0
+			IL_002b: stloc.1
+			IL_002c: ldsfld string [mscorlib]System.String::Empty
+			IL_0031: stloc.2
+			IL_0032: ldarg.1
+			IL_0033: ldloca.s 1
+			IL_0035: callvirt instance bool Sims3.Gameplay.Actors.Sim::IsInGroupOrPackSituation(bool&)
+			IL_003a: pop
+			IL_003b: ldarg.1
+			IL_003c: ldloca.s 0
+			IL_003e: callvirt instance bool Sims3.Gameplay.Actors.Sim::IsInGroupOrDateSituation(bool&)
+			IL_0043: brfalse.s IL_0074
+
+			IL_0045: ldloc.0
+			IL_0046: brfalse.s IL_0050
+
+			IL_0048: ldstr "ScubaDiveWithDate"
+			IL_004d: stloc.2
+			IL_004e: br.s IL_0061
+
+			IL_0050: ldloc.1
+			IL_0051: brfalse.s IL_005b
+
+			IL_0053: ldstr "ScubaDiveWithPack"
+			IL_0058: stloc.2
+			IL_0059: br.s IL_0061
+
+			IL_005b: ldstr "ScubaDiveWithGroup"
+			IL_0060: stloc.2
+
+			IL_0061: ldarg.1
+			IL_0062: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsFemale()
+			IL_0067: ldloc.2
+			IL_0068: ldc.i4.0
+			IL_0069: newarr [mscorlib]System.Object
+			IL_006e: call string Sims3.Gameplay.Situations.GroupingSituation::LocalizeString(bool, string, object[])
+			IL_0073: ret
+
+			IL_0074: ldstr "Gameplay/Actors/Sim/ScubaDiveWith:InteractionName"
+			IL_0079: ldc.i4.0
+			IL_007a: newarr [mscorlib]System.Object
+			IL_007f: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0084: call string Sims3.Gameplay.Utilities.Localization::get_Ellipsis()
+			IL_0089: call string [mscorlib]System.String::Concat(string, string)
+			IL_008e: ret
+		} // end of method Definition::GetInteractionName
+
+		.method public hidebysig 
+			instance string PublicGetInteractionName (
+				class Sims3.Gameplay.Actors.Sim actor,
+				class Sims3.Gameplay.Core.Terrain target,
+				class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+			) cil managed 
+		{
+			// Method begins at RVA 0x45c3bb
+			// Header size: 1
+			// Code size: 10 (0xa)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldarg.1
+			IL_0002: ldarg.2
+			IL_0003: ldarg.3
+			IL_0004: callvirt instance string class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain, class Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith>::GetInteractionName(!0, !1, class Sims3.Gameplay.Autonomy.InteractionObjectPair)
+			IL_0009: ret
+		} // end of method Definition::PublicGetInteractionName
+
+		.method public hidebysig virtual 
+			instance void PopulatePieMenuPicker (
+				valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters,
+				[out] class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/TabInfo>& listObjs,
+				[out] class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/HeaderInfo>& headers,
+				[out] int32& NumSelectableRows
+			) cil managed 
+		{
+			// Method begins at RVA 0x45c3c8
+			// Header size: 12
+			// Code size: 73 (0x49)
+			.maxstack 6
+			.locals init (
+				[0] class Sims3.Gameplay.Actors.Sim,
+				[1] class Sims3.Gameplay.Core.Lot
+			)
+
+			IL_0000: ldarg.1
+			IL_0001: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_0006: isinst Sims3.Gameplay.Actors.Sim
+			IL_000b: stloc.0
+			IL_000c: ldloc.0
+			IL_000d: callvirt instance bool Sims3.Gameplay.Actors.Sim::IsInGroupingSituation()
+			IL_0012: brtrue.s IL_003e
+
+			IL_0014: ldarg.1
+			IL_0015: call instance valuetype [SimIFace]Sims3.SimIFace.GameObjectHit Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Hit()
+			IL_001a: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.GameObjectHit::mPoint
+			IL_001f: call class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::GetLotAtPoint(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0024: stloc.1
+			IL_0025: ldloc.1
+			IL_0026: brfalse.s IL_003e
+
+			IL_0028: ldarg.s NumSelectableRows
+			IL_002a: ldc.i4.m1
+			IL_002b: stind.i4
+			IL_002c: ldarg.0
+			IL_002d: ldarg.1
+			IL_002e: ldarg.2
+			IL_002f: ldarg.3
+			IL_0030: ldloc.0
+			IL_0031: ldloc.1
+			IL_0032: call class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith/Definition::GetValidDivers(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot)
+			IL_0037: ldc.i4.0
+			IL_0038: call instance void class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain, class Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith>::PopulateSimPicker(valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/TabInfo>&, class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/HeaderInfo>&, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>, bool)
+			IL_003d: ret
+
+			IL_003e: ldarg.2
+			IL_003f: ldnull
+			IL_0040: stind.ref
+			IL_0041: ldarg.3
+			IL_0042: ldnull
+			IL_0043: stind.ref
+			IL_0044: ldarg.s NumSelectableRows
+			IL_0046: ldc.i4.0
+			IL_0047: stind.i4
+			IL_0048: ret
+		} // end of method Definition::PopulatePieMenuPicker
+
+		.method public hidebysig static 
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> GetValidDivers (
+				class Sims3.Gameplay.Actors.Sim sim,
+				class Sims3.Gameplay.Core.Lot diveLot
+			) cil managed 
+		{
+			// Method begins at RVA 0x45c420
+			// Header size: 12
+			// Code size: 288 (0x120)
+			.maxstack 3
+			.locals init (
+				[0] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>,
+				[1] class Sims3.Gameplay.Actors.Sim,
+				[2] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback,
+				[3] int32,
+				[4] class Sims3.Gameplay.Actors.Sim,
+				[5] class Sims3.Gameplay.ActorSystems.OccultImaginaryFriend,
+				[6] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+			IL_0006: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.CAS.Household::get_AllActors()
+			IL_000b: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+			IL_0010: stloc.0
+			IL_0011: ldarg.0
+			IL_0012: callvirt instance class Sims3.Gameplay.Socializing.SocialComponent Sims3.Gameplay.Actors.Sim::get_SocialComponent()
+			IL_0017: ldsfld float32 Sims3.Gameplay.Core.Terrain/GoHereWith::kLikingValueToBeEligibleForGoHereWith
+			IL_001c: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Socializing.SocialComponent::GetRelationshipsWithLikingAbove(float32)
+			IL_0021: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+			IL_0026: stloc.s 6
+			.try
+			{
+				IL_0028: br.s IL_0042
+				// loop start (head: IL_0042)
+					IL_002a: ldloca.s 6
+					IL_002c: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current()
+					IL_0031: stloc.1
+					IL_0032: ldloc.0
+					IL_0033: ldloc.1
+					IL_0034: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::Contains(!0)
+					IL_0039: brtrue.s IL_0042
+
+					IL_003b: ldloc.0
+					IL_003c: ldloc.1
+					IL_003d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::Add(!0)
+
+					IL_0042: ldloca.s 6
+					IL_0044: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::MoveNext()
+					IL_0049: brtrue.s IL_002a
+				// end loop
+
+				IL_004b: leave.s IL_005b
+			} // end .try
+			finally
+			{
+				IL_004d: ldloca.s 6
+				IL_004f: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+				IL_0055: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_005a: endfinally
+			} // end handler
+
+			IL_005b: ldnull
+			IL_005c: stloc.2
+			IL_005d: ldc.i4.0
+			IL_005e: stloc.3
+			IL_005f: br IL_0112
+			// loop start (head: IL_0112)
+				IL_0064: ldloc.0
+				IL_0065: ldloc.3
+				IL_0066: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Item(int32)
+				IL_006b: stloc.s 4
+				IL_006d: ldloc.s 4
+				IL_006f: ldarg.0
+				IL_0070: beq IL_0105
+
+				IL_0075: ldloc.s 4
+				IL_0077: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_SimInRabbitHolePosture()
+				IL_007c: brtrue IL_0105
+
+				IL_0081: ldloc.s 4
+				IL_0083: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+				IL_0088: ldarg.0
+				IL_0089: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+				IL_008e: beq.s IL_009f
+
+				IL_0090: ldarg.0
+				IL_0091: ldloc.s 4
+				IL_0093: callvirt instance float32 Sims3.Gameplay.Abstracts.GameObject::GetDistanceToObject(class Sims3.Gameplay.Interfaces.IGameObject)
+				IL_0098: ldsfld float32 Sims3.Gameplay.Core.Terrain/GoHereWith::kMaxDistanceForGoHereWith
+				IL_009d: bgt.s IL_0105
+
+				IL_009f: ldloc.s 4
+				IL_00a1: ldarg.1
+				IL_00a2: call bool Sims3.Gameplay.Scuba.ScubaDiving::ScubaTest(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot)
+				IL_00a7: brfalse.s IL_0105
+
+				IL_00a9: ldloc.s 4
+				IL_00ab: ldarg.1
+				IL_00ac: ldloca.s 2
+				IL_00ae: call bool Sims3.Gameplay.Scuba.ScubaDiving::ScubaTestTooltips(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+				IL_00b3: brfalse.s IL_0105
+
+				IL_00b5: ldloc.s 4
+				IL_00b7: callvirt instance class Sims3.Gameplay.Services.Service Sims3.Gameplay.Actors.Sim::get_Service()
+				IL_00bc: brtrue.s IL_0105
+
+				IL_00be: ldloc.s 4
+				IL_00c0: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+				IL_00c5: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_HasActiveRole()
+				IL_00ca: brfalse.s IL_00df
+
+				IL_00cc: ldloc.s 4
+				IL_00ce: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+				IL_00d3: ldfld class Sims3.Gameplay.Roles.Role Sims3.Gameplay.CAS.SimDescription::AssignedRole
+				IL_00d8: callvirt instance bool Sims3.Gameplay.Roles.Role::TestForUserDirectedOnly()
+				IL_00dd: brtrue.s IL_0105
+
+				IL_00df: ldloc.s 4
+				IL_00e1: callvirt instance bool Sims3.Gameplay.Actors.Sim::IsInGroupingSituation()
+				IL_00e6: brtrue.s IL_0105
+
+				IL_00e8: ldloc.s 4
+				IL_00ea: ldloca.s 5
+				IL_00ec: call bool Sims3.Gameplay.ActorSystems.OccultImaginaryFriend::TryGetOccultFromSim(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.ActorSystems.OccultImaginaryFriend&)
+				IL_00f1: brfalse.s IL_00fc
+
+				IL_00f3: ldloc.s 5
+				IL_00f5: callvirt instance bool Sims3.Gameplay.ActorSystems.OccultImaginaryFriend::get_IsReal()
+				IL_00fa: brfalse.s IL_0105
+
+				IL_00fc: ldloc.s 4
+				IL_00fe: call bool Sims3.Gameplay.ChildAndTeenUpdates.Punishment::IsSimGrounded(class Sims3.Gameplay.Actors.Sim)
+				IL_0103: brfalse.s IL_010e
+
+				IL_0105: ldloc.0
+				IL_0106: ldloc.3
+				IL_0107: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::RemoveAt(int32)
+				IL_010c: br.s IL_0112
+
+				IL_010e: ldloc.3
+				IL_010f: ldc.i4.1
+				IL_0110: add
+				IL_0111: stloc.3
+
+				IL_0112: ldloc.3
+				IL_0113: ldloc.0
+				IL_0114: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+				IL_0119: blt IL_0064
+			// end loop
+
+			IL_011e: ldloc.0
+			IL_011f: ret
+		} // end of method Definition::GetValidDivers
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x45c55c
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain, class Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith>::.ctor()
+			IL_0006: ret
+		} // end of method Definition::.ctor
+
+	} // end of class Definition
+
+
+	// Fields
+	.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+	// Methods
+	.method public hidebysig virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey GetIconKey () cil managed 
+	{
+		// Method begins at RVA 0x45c03c
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldstr "w_go_scuba_diving"
+		IL_0005: ldc.i4 262144
+		IL_000a: call uint32 [SimIFace]Sims3.SimIFace.ResourceUtils::ProductVersionToGroupId(valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+		IL_000f: call valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.ResourceKey::CreatePNGKey(string, uint32)
+		IL_0014: ldc.i4.2
+		IL_0015: newobj instance void [SimIFace]Sims3.SimIFace.ThumbnailKey::.ctor(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+		IL_001a: ret
+	} // end of method GoHereAndScubaDiveWith::GetIconKey
+
+	.method public hidebysig 
+		instance void SetDestination (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 dest
+		) cil managed 
+	{
+		// Method begins at RVA 0x45c058
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interactions.TerrainInteraction::Destination
+		IL_0007: ret
+	} // end of method GoHereAndScubaDiveWith::SetDestination
+
+	.method family hidebysig virtual 
+		instance bool Run () cil managed 
+	{
+		// Method begins at RVA 0x45c064
+		// Header size: 12
+		// Code size: 314 (0x13a)
+		.maxstack 10
+		.locals init (
+			[0] float32,
+			[1] float32,
+			[2] class Sims3.Gameplay.Interactions.InteractionDefinition,
+			[3] class Sims3.Gameplay.Core.Terrain/GoHereWith,
+			[4] class Sims3.Gameplay.Objects.Vehicles.BoatHere,
+			[5] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_0006: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_000b: ldarg.0
+		IL_000c: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interactions.TerrainInteraction::Destination
+		IL_0011: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0016: stloc.s 5
+		IL_0018: ldloca.s 5
+		IL_001a: call instance float32 [SimIFace]Sims3.SimIFace.Vector3::LengthSqr()
+		IL_001f: stloc.0
+		IL_0020: ldsfld float32 Sims3.Gameplay.Objects.Vehicles.Boat::kDistanceToDestinationSoSimWillBoat
+		IL_0025: stloc.1
+		IL_0026: ldloc.1
+		IL_0027: ldloc.1
+		IL_0028: mul
+		IL_0029: stloc.1
+		IL_002a: ldloc.0
+		IL_002b: ldloc.1
+		IL_002c: bge.un.s IL_0039
+
+		IL_002e: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Pools.SwimHereWith::SwimWithSingleton
+		IL_0033: stloc.2
+		IL_0034: br IL_00ca
+
+		IL_0039: ldarg.0
+		IL_003a: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_003f: callvirt instance class Sims3.Gameplay.ActorSystems.Posture Sims3.Gameplay.Actors.Sim::get_Posture()
+		IL_0044: isinst Sims3.Gameplay.Objects.Vehicles.SittingInBoat
+		IL_0049: brfalse.s IL_00c4
+
+		IL_004b: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Vehicles.BoatHere::BoatSingleton
+		IL_0050: ldarg.0
+		IL_0051: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Target
+		IL_0056: ldarg.0
+		IL_0057: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_005c: ldarg.0
+		IL_005d: call instance valuetype Sims3.Gameplay.Interactions.InteractionPriority Sims3.Gameplay.Interactions.InteractionInstance::GetPriority()
+		IL_0062: ldarg.0
+		IL_0063: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_Autonomous()
+		IL_0068: ldarg.0
+		IL_0069: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_CancellableByPlayer()
+		IL_006e: ldnull
+		IL_006f: ldarg.0
+		IL_0070: ldftn instance void Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith::Completed(class Sims3.Gameplay.Actors.Sim, float32)
+		IL_0076: newobj instance void Sims3.Gameplay.Autonomy.Callback::.ctor(object, native int)
+		IL_007b: ldnull
+		IL_007c: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstanceWithCallbacks(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool, class Sims3.Gameplay.Autonomy.Callback, class Sims3.Gameplay.Autonomy.Callback, class Sims3.Gameplay.Autonomy.Callback)
+		IL_0081: isinst Sims3.Gameplay.Objects.Vehicles.BoatHere
+		IL_0086: stloc.s 4
+		IL_0088: ldloc.s 4
+		IL_008a: ldarg.0
+		IL_008b: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interactions.TerrainInteraction::Destination
+		IL_0090: ldc.i4.2
+		IL_0091: callvirt instance void Sims3.Gameplay.Core.Terrain/GoHere::SetDestination(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype Sims3.Gameplay.Core.Terrain/GoHere/DestinationType)
+		IL_0096: ldloc.s 4
+		IL_0098: ldarg.0
+		IL_0099: ldfld valuetype [SimIFace]Sims3.SimIFace.GameObjectHit class Sims3.Gameplay.Interactions.InteractionGameObjectHit`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Hit
+		IL_009e: stfld valuetype [SimIFace]Sims3.SimIFace.GameObjectHit class Sims3.Gameplay.Interactions.InteractionGameObjectHit`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Hit
+		IL_00a3: ldloc.s 4
+		IL_00a5: ldarg.0
+		IL_00a6: call instance class [mscorlib]System.Collections.Generic.List`1<object> Sims3.Gameplay.Interactions.InteractionInstance::get_SelectedObjects()
+		IL_00ab: callvirt instance void Sims3.Gameplay.Interactions.InteractionInstance::set_SelectedObjects(class [mscorlib]System.Collections.Generic.List`1<object>)
+		IL_00b0: ldarg.0
+		IL_00b1: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_00b6: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+		IL_00bb: ldarg.0
+		IL_00bc: ldloc.s 4
+		IL_00be: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::TryPushAsContinuation(class Sims3.Gameplay.Interactions.InteractionInstance, class Sims3.Gameplay.Interactions.InteractionInstance)
+		IL_00c3: ret
+
+		IL_00c4: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.Vehicles.BoatHereWith::BoatHereSingleton
+		IL_00c9: stloc.2
+
+		IL_00ca: ldloc.2
+		IL_00cb: ldarg.0
+		IL_00cc: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Target
+		IL_00d1: ldarg.0
+		IL_00d2: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_00d7: ldarg.0
+		IL_00d8: call instance valuetype Sims3.Gameplay.Interactions.InteractionPriority Sims3.Gameplay.Interactions.InteractionInstance::GetPriority()
+		IL_00dd: ldarg.0
+		IL_00de: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_Autonomous()
+		IL_00e3: ldarg.0
+		IL_00e4: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_CancellableByPlayer()
+		IL_00e9: ldnull
+		IL_00ea: ldarg.0
+		IL_00eb: ldftn instance void Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith::Completed(class Sims3.Gameplay.Actors.Sim, float32)
+		IL_00f1: newobj instance void Sims3.Gameplay.Autonomy.Callback::.ctor(object, native int)
+		IL_00f6: ldnull
+		IL_00f7: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstanceWithCallbacks(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool, class Sims3.Gameplay.Autonomy.Callback, class Sims3.Gameplay.Autonomy.Callback, class Sims3.Gameplay.Autonomy.Callback)
+		IL_00fc: isinst Sims3.Gameplay.Core.Terrain/GoHereWith
+		IL_0101: stloc.3
+		IL_0102: ldloc.3
+		IL_0103: ldarg.0
+		IL_0104: call instance class [mscorlib]System.Collections.Generic.List`1<object> Sims3.Gameplay.Interactions.InteractionInstance::get_SelectedObjects()
+		IL_0109: callvirt instance void Sims3.Gameplay.Interactions.InteractionInstance::set_SelectedObjects(class [mscorlib]System.Collections.Generic.List`1<object>)
+		IL_010e: ldloc.3
+		IL_010f: ldarg.0
+		IL_0110: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interactions.TerrainInteraction::Destination
+		IL_0115: ldc.i4.2
+		IL_0116: callvirt instance void Sims3.Gameplay.Core.Terrain/GoHere::SetDestination(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype Sims3.Gameplay.Core.Terrain/GoHere/DestinationType)
+		IL_011b: ldloc.3
+		IL_011c: ldarg.0
+		IL_011d: ldfld valuetype [SimIFace]Sims3.SimIFace.GameObjectHit class Sims3.Gameplay.Interactions.InteractionGameObjectHit`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Hit
+		IL_0122: stfld valuetype [SimIFace]Sims3.SimIFace.GameObjectHit class Sims3.Gameplay.Interactions.InteractionGameObjectHit`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Hit
+		IL_0127: ldarg.0
+		IL_0128: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_012d: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+		IL_0132: ldarg.0
+		IL_0133: ldloc.3
+		IL_0134: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::TryPushAsContinuation(class Sims3.Gameplay.Interactions.InteractionInstance, class Sims3.Gameplay.Interactions.InteractionInstance)
+		IL_0139: ret
+	} // end of method GoHereAndScubaDiveWith::Run
+
+	.method private hidebysig 
+		instance void Completed (
+			class Sims3.Gameplay.Actors.Sim s,
+			float32 x
+		) cil managed 
+	{
+		// Method begins at RVA 0x45c1ac
+		// Header size: 12
+		// Code size: 165 (0xa5)
+		.maxstack 6
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>,
+			[1] class Sims3.Gameplay.Actors.Sim,
+			[2] class Sims3.Gameplay.Interactions.InteractionInstance,
+			[3] class Sims3.Gameplay.Interactions.InteractionInstance,
+			[4] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_0006: ldarg.0
+		IL_0007: call instance class [mscorlib]System.Collections.Generic.List`1<object> Sims3.Gameplay.Interactions.InteractionInstance::get_SelectedObjects()
+		IL_000c: call class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Core.Terrain/GoHereWith::GetFollowersFromSelectedObjects(class Sims3.Gameplay.Actors.Sim, class [mscorlib]System.Collections.Generic.List`1<object>)
+		IL_0011: stloc.0
+		IL_0012: ldloc.0
+		IL_0013: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+		IL_0018: stloc.s 4
+		.try
+		{
+			IL_001a: br.s IL_0050
+			// loop start (head: IL_0050)
+				IL_001c: ldloca.s 4
+				IL_001e: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current()
+				IL_0023: stloc.1
+				IL_0024: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Scuba.ScubaDive::Singleton
+				IL_0029: ldloc.1
+				IL_002a: ldloc.1
+				IL_002b: ldarg.0
+				IL_002c: call instance valuetype Sims3.Gameplay.Interactions.InteractionPriority Sims3.Gameplay.Interactions.InteractionInstance::GetPriority()
+				IL_0031: ldarg.0
+				IL_0032: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_Autonomous()
+				IL_0037: ldarg.0
+				IL_0038: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_CancellableByPlayer()
+				IL_003d: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstance(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+				IL_0042: stloc.2
+				IL_0043: ldloc.1
+				IL_0044: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+				IL_0049: ldloc.2
+				IL_004a: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::AddNext(class Sims3.Gameplay.Interactions.InteractionInstance)
+				IL_004f: pop
+
+				IL_0050: ldloca.s 4
+				IL_0052: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::MoveNext()
+				IL_0057: brtrue.s IL_001c
+			// end loop
+
+			IL_0059: leave.s IL_0069
+		} // end .try
+		finally
+		{
+			IL_005b: ldloca.s 4
+			IL_005d: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+			IL_0063: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0068: endfinally
+		} // end handler
+
+		IL_0069: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Scuba.ScubaDive::Singleton
+		IL_006e: ldarg.0
+		IL_006f: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_0074: ldarg.0
+		IL_0075: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_007a: ldarg.0
+		IL_007b: call instance valuetype Sims3.Gameplay.Interactions.InteractionPriority Sims3.Gameplay.Interactions.InteractionInstance::GetPriority()
+		IL_0080: ldarg.0
+		IL_0081: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_Autonomous()
+		IL_0086: ldarg.0
+		IL_0087: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_CancellableByPlayer()
+		IL_008c: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstance(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+		IL_0091: stloc.3
+		IL_0092: ldarg.0
+		IL_0093: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Actor
+		IL_0098: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+		IL_009d: ldloc.3
+		IL_009e: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::AddNext(class Sims3.Gameplay.Interactions.InteractionInstance)
+		IL_00a3: pop
+		IL_00a4: ret
+	} // end of method GoHereAndScubaDiveWith::Completed
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x45c27c
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Interactions.TerrainInteraction::.ctor()
+		IL_0006: ret
+	} // end of method GoHereAndScubaDiveWith::.ctor
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x45c270
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: newobj instance void Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith/Definition::.ctor()
+		IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith::Singleton
+		IL_000a: ret
+	} // end of method GoHereAndScubaDiveWith::.cctor
+
+} // end of class Sims3.Gameplay.Scuba.GoHereAndScubaDiveWith

@@ -1,0 +1,73 @@
+[Context] Operating on: TS3W.exe | Total open programs: 3
+
+Decompiled function FUN_00ab7b30:
+
+
+float10 __thiscall
+FUN_00ab7b30(void *param_1,float param_2,float param_3,undefined4 param_4,char param_5)
+
+{
+  char cVar1;
+  uint uVar3;
+  float local_2c;
+  float local_28;
+  float local_24;
+  float local_20;
+  float fStack_1c;
+  undefined4 uStack_18;
+  undefined4 uVar2;
+  
+  if (*(char *)((int)param_1 + 0x358) != '\0') {
+    if (param_5 == '\0') {
+      if ((float10)0.001 < ABS((float10)*(float *)((int)param_1 + 0x360) - (float10)-100.0)) {
+        return (float10)*(float *)((int)param_1 + 0x360);
+      }
+    }
+    else if ((float10)0.001 < ABS((float10)*(float *)((int)param_1 + 0x35c) - (float10)-100.0)) {
+      return (float10)*(float *)((int)param_1 + 0x35c);
+    }
+  }
+  local_2c = -100.0;
+  FUN_00ab6e40(param_1,param_2,param_3,&local_28,&local_24);
+  if (local_28 < 0.0) {
+    local_28 = DAT_01183e8c + local_28;
+  }
+  if ((float)*(int *)((int)param_1 + 0x174) < local_28) {
+    local_28 = local_28 - DAT_01183e8c;
+  }
+  if (local_24 < 0.0) {
+    local_24 = DAT_01183e8c + local_24;
+  }
+  if ((float)*(int *)((int)param_1 + 0x178) < local_24) {
+    local_24 = local_24 - DAT_01183e8c;
+  }
+  if ((((0.0 <= local_28) && (local_28 <= (float)*(int *)((int)param_1 + 0x174))) &&
+      (0.0 <= local_24)) && (local_24 <= (float)*(int *)((int)param_1 + 0x178))) {
+    uStack_18 = param_4;
+    local_20 = local_28;
+    fStack_1c = local_24;
+    if (param_5 == '\0') {
+      uVar3 = FUN_00a8eb80(*(void **)((int)param_1 + 0x290),&local_20,&local_2c);
+      cVar1 = (char)uVar3;
+    }
+    else {
+      uVar2 = FUN_00a96720(*(void **)((int)param_1 + 0x290),&local_20,&local_2c);
+      cVar1 = (char)uVar2;
+    }
+    if (cVar1 == '\0') {
+      local_2c = -100.0;
+    }
+    else {
+      local_2c = *(float *)((int)param_1 + 0x194) + local_2c;
+    }
+  }
+  if (*(char *)((int)param_1 + 0x358) != '\0') {
+    if (param_5 != '\0') {
+      *(float *)((int)param_1 + 0x35c) = local_2c;
+      return (float10)local_2c;
+    }
+    *(float *)((int)param_1 + 0x360) = local_2c;
+  }
+  return (float10)local_2c;
+}
+

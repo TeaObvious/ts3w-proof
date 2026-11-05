@@ -1,0 +1,48 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: int SACS_LookupDestinationWalker_803c00(void * this, int param_1)
+Owned ranges: [[00803c00, 00803c57]]
+
+00803c00  53  PUSH EBX
+00803c01  8b5c2408  MOV EBX,dword ptr [ESP + 0x8]
+00803c05  56  PUSH ESI
+00803c06  8bf1  MOV ESI,ECX
+00803c08  8b4610  MOV EAX,dword ptr [ESI + 0x10]
+00803c0b  8b4e14  MOV ECX,dword ptr [ESI + 0x14]
+00803c0e  3bc1  CMP EAX,ECX
+00803c10  57  PUSH EDI
+00803c11  740b  JZ 0x00803c1e
+00803c13  3918  CMP dword ptr [EAX],EBX
+00803c15  740b  JZ 0x00803c22
+00803c17  83c008  ADD EAX,0x8
+00803c1a  3bc1  CMP EAX,ECX
+00803c1c  75f5  JNZ 0x00803c13
+00803c1e  33ff  XOR EDI,EDI
+00803c20  eb07  JMP 0x00803c29
+00803c22  8b7804  MOV EDI,dword ptr [EAX + 0x4]
+00803c25  85ff  TEST EDI,EDI
+00803c27  7527  JNZ 0x00803c50
+00803c29  8b4e0c  MOV ECX,dword ptr [ESI + 0xc]
+00803c2c  85c9  TEST ECX,ECX
+00803c2e  7420  JZ 0x00803c50
+00803c30  53  PUSH EBX
+00803c31  e8ea9bffff  CALL 0x007fd820
+00803c36  85c0  TEST EAX,EAX
+00803c38  7416  JZ 0x00803c50
+00803c3a  50  PUSH EAX
+00803c3b  8bce  MOV ECX,ESI
+00803c3d  e8befeffff  CALL 0x00803b00
+00803c42  53  PUSH EBX
+00803c43  8bce  MOV ECX,ESI
+00803c45  e896c3ffff  CALL 0x007fffe0
+00803c4a  5f  POP EDI
+00803c4b  5e  POP ESI
+00803c4c  5b  POP EBX
+00803c4d  c20400  RET 0x4
+00803c50  8bc7  MOV EAX,EDI
+00803c52  5f  POP EDI
+00803c53  5e  POP ESI
+00803c54  5b  POP EBX
+00803c55  c20400  RET 0x4

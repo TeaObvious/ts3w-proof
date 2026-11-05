@@ -1,0 +1,389 @@
+// Original PC1.67 Sims3Metadata acquisition/cache/step parsing: eight complete additional method bodies.
+// Same pristine packaged DLL/MVID/resource key as central README. Direct original PE body byte comparison.
+// Metadata/CIL reader output; raw signatures/tokens retain unresolved generic/local declaration scope.
+// Full original C# type is types/Sims3.Metadata.Complate.cs; compiler-generated/nested dependencies separate.
+
+// Original MethodDef0x0600030C Sims3.Metadata.Complate::GetCachedComplate RVA0x0000AD60
+// CLI signature 000202114910128170; maxstack 8; locals token 11000000; initlocals False
+// Complete raw CIL (32 bytes): 7EC901000402036FB000000A2C100303506F40030006755C00000251172A162A
+IL_0000: ldsfld 0x040001C9 Sims3.Metadata.Complate::sComplateCache
+IL_0005: ldarg.0
+IL_0006: ldarg.1
+IL_0007: callvirt 0x0A0000B0 TypeSpecification::TryGetValue
+IL_000C: brfalse.s IL_001E
+IL_000E: ldarg.1
+IL_000F: ldarg.1
+IL_0010: ldind.ref
+IL_0011: callvirt 0x06000340 Sims3.Metadata.Complate::Clone
+IL_0016: isinst 0x0200005C Sims3.Metadata.Complate
+IL_001B: stind.ref
+IL_001C: ldc.i4.1
+IL_001D: ret
+IL_001E: ldc.i4.0
+IL_001F: ret
+
+// Original MethodDef0x0600030D Sims3.Metadata.Complate::SetCachedComplate RVA0x0000AD81
+// CLI signature 0002011149128170; maxstack 8; locals token 11000000; initlocals False
+// Complete raw CIL (23 bytes): 7EC901000402036F40030006755C0000026FB100000A2A
+IL_0000: ldsfld 0x040001C9 Sims3.Metadata.Complate::sComplateCache
+IL_0005: ldarg.0
+IL_0006: ldarg.1
+IL_0007: callvirt 0x06000340 Sims3.Metadata.Complate::Clone
+IL_000C: isinst 0x0200005C Sims3.Metadata.Complate
+IL_0011: callvirt 0x0A0000B1 TypeSpecification::set_Item
+IL_0016: ret
+
+// Original MethodDef0x0600033A Sims3.Metadata.Complate::FromXml RVA0x0000C6A0
+// CLI signature 00011281701149; maxstack 3; locals token 1100007D; initlocals True
+// Complete raw CIL (74 bytes): 140A021200280C0300062C02062A140B0228AD00000A0B072C08076F6B00000A2D02142A73110300060A06728B0C00707EA90100046F1303000606076F150300060206280D030006062A
+IL_0000: ldnull
+IL_0001: stloc.0
+IL_0002: ldarg.0
+IL_0003: ldloca.s 0
+IL_0005: call 0x0600030C Sims3.Metadata.Complate::GetCachedComplate
+IL_000A: brfalse.s IL_000E
+IL_000C: ldloc.0
+IL_000D: ret
+IL_000E: ldnull
+IL_000F: stloc.1
+IL_0010: ldarg.0
+IL_0011: call 0x0A0000AD Sims3.SimIFace.Simulator::LoadXMLString
+IL_0016: stloc.1
+IL_0017: ldloc.1
+IL_0018: brfalse.s IL_0022
+IL_001A: ldloc.1
+IL_001B: callvirt 0x0A00006B System.String::get_Length
+IL_0020: brtrue.s IL_0024
+IL_0022: ldnull
+IL_0023: ret
+IL_0024: newobj 0x06000311 Sims3.Metadata.Complate::.ctor
+IL_0029: stloc.0
+IL_002A: ldloc.0
+IL_002B: ldstr 0x70000C8B "assetRoot"
+IL_0030: ldsfld 0x040001A9 Sims3.Metadata.Complate::kAssetRoot
+IL_0035: callvirt 0x06000313 Sims3.Metadata.Complate::set_Item
+IL_003A: ldloc.0
+IL_003B: ldloc.1
+IL_003C: callvirt 0x06000315 Sims3.Metadata.Complate::Parse
+IL_0041: ldarg.0
+IL_0042: ldloc.0
+IL_0043: call 0x0600030D Sims3.Metadata.Complate::SetCachedComplate
+IL_0048: ldloc.0
+IL_0049: ret
+
+// Original MethodDef0x0600033B Sims3.Metadata.Complate::FromXml RVA0x0000C6F8
+// CLI signature 00021281700e0e; maxstack 4; locals token 1100007E; initlocals True
+// Complete raw CIL (189 bytes): 140A1201FE1512000001032C70036F6B00000A16316703178D5500000113041104161F3A9D11046F5C00000A0C082C4D088E691A33471201FE1512000001120108179A1F10285F00000A7D1B00000A120108189A1F10285F00000A7D1C00000A120108199A1F10285E00000A7D1D00000A07283A0300060A062C02062A140D021628A500000A0B071200280C0300062C02062A0728AD00000A0D092C08096F6B00000A2D02142A73110300060A06096F150300060706280D030006062A
+IL_0000: ldnull
+IL_0001: stloc.0
+IL_0002: ldloca.s 1
+IL_0004: initobj 0x01000012 Sims3.SimIFace.ResourceKey
+IL_000A: ldarg.1
+IL_000B: brfalse.s IL_007D
+IL_000D: ldarg.1
+IL_000E: callvirt 0x0A00006B System.String::get_Length
+IL_0013: ldc.i4.0
+IL_0014: ble.s IL_007D
+IL_0016: ldarg.1
+IL_0017: ldc.i4.1
+IL_0018: newarr 0x01000055 System.Char
+IL_001D: stloc.s 4
+IL_001F: ldloc.s 4
+IL_0021: ldc.i4.0
+IL_0022: ldc.i4.s 58
+IL_0024: stelem.i2
+IL_0025: ldloc.s 4
+IL_0027: callvirt 0x0A00005C System.String::Split
+IL_002C: stloc.2
+IL_002D: ldloc.2
+IL_002E: brfalse.s IL_007D
+IL_0030: ldloc.2
+IL_0031: ldlen
+IL_0032: conv.i4
+IL_0033: ldc.i4.4
+IL_0034: bne.un.s IL_007D
+IL_0036: ldloca.s 1
+IL_0038: initobj 0x01000012 Sims3.SimIFace.ResourceKey
+IL_003E: ldloca.s 1
+IL_0040: ldloc.2
+IL_0041: ldc.i4.1
+IL_0042: ldelem.ref
+IL_0043: ldc.i4.s 16
+IL_0045: call 0x0A00005F System.Convert::ToUInt32
+IL_004A: stfld 0x0A00001B Sims3.SimIFace.ResourceKey::TypeId
+IL_004F: ldloca.s 1
+IL_0051: ldloc.2
+IL_0052: ldc.i4.2
+IL_0053: ldelem.ref
+IL_0054: ldc.i4.s 16
+IL_0056: call 0x0A00005F System.Convert::ToUInt32
+IL_005B: stfld 0x0A00001C Sims3.SimIFace.ResourceKey::GroupId
+IL_0060: ldloca.s 1
+IL_0062: ldloc.2
+IL_0063: ldc.i4.3
+IL_0064: ldelem.ref
+IL_0065: ldc.i4.s 16
+IL_0067: call 0x0A00005E System.Convert::ToUInt64
+IL_006C: stfld 0x0A00001D Sims3.SimIFace.ResourceKey::InstanceId
+IL_0071: ldloc.1
+IL_0072: call 0x0600033A Sims3.Metadata.Complate::FromXml
+IL_0077: stloc.0
+IL_0078: ldloc.0
+IL_0079: brfalse.s IL_007D
+IL_007B: ldloc.0
+IL_007C: ret
+IL_007D: ldnull
+IL_007E: stloc.3
+IL_007F: ldarg.0
+IL_0080: ldc.i4.0
+IL_0081: call 0x0A0000A5 Sims3.SimIFace.ResourceKey::CreateXMLKey
+IL_0086: stloc.1
+IL_0087: ldloc.1
+IL_0088: ldloca.s 0
+IL_008A: call 0x0600030C Sims3.Metadata.Complate::GetCachedComplate
+IL_008F: brfalse.s IL_0093
+IL_0091: ldloc.0
+IL_0092: ret
+IL_0093: ldloc.1
+IL_0094: call 0x0A0000AD Sims3.SimIFace.Simulator::LoadXMLString
+IL_0099: stloc.3
+IL_009A: ldloc.3
+IL_009B: brfalse.s IL_00A5
+IL_009D: ldloc.3
+IL_009E: callvirt 0x0A00006B System.String::get_Length
+IL_00A3: brtrue.s IL_00A7
+IL_00A5: ldnull
+IL_00A6: ret
+IL_00A7: newobj 0x06000311 Sims3.Metadata.Complate::.ctor
+IL_00AC: stloc.0
+IL_00AD: ldloc.0
+IL_00AE: ldloc.3
+IL_00AF: callvirt 0x06000315 Sims3.Metadata.Complate::Parse
+IL_00B4: ldloc.1
+IL_00B5: ldloc.0
+IL_00B6: call 0x0600030D Sims3.Metadata.Complate::SetCachedComplate
+IL_00BB: ldloc.0
+IL_00BC: ret
+
+// Original MethodDef0x06000340 Sims3.Metadata.Complate::Clone RVA0x0000CC98
+// CLI signature 20001c; maxstack 3; locals token 11000083; initlocals True
+// Complete raw CIL (227 bytes): 73110300060A06027BCE0100047DCE01000406027BCF0100047DCF01000406027BD10100047DD101000406027BD20100047DD201000406027BD00100047DD001000406027BD30100047DD301000406027BD40100047DD401000406027BD50100047DD5010004160B027BCC0100046F9201000A0C2B25067BCC010004027BCC010004076F9301000A6F7403000675610000026F7301000A0717580B070832D7160D027BCD0100046F9201000A13042B25067BCD010004027BCD010004096F9301000A6F7403000675610000026F7301000A0917580D09110432D606026F31030006062A
+IL_0000: newobj 0x06000311 Sims3.Metadata.Complate::.ctor
+IL_0005: stloc.0
+IL_0006: ldloc.0
+IL_0007: ldarg.0
+IL_0008: ldfld 0x040001CE Sims3.Metadata.Complate::mConverter
+IL_000D: stfld 0x040001CE Sims3.Metadata.Complate::mConverter
+IL_0012: ldloc.0
+IL_0013: ldarg.0
+IL_0014: ldfld 0x040001CF Sims3.Metadata.Complate::mGameEditor
+IL_0019: stfld 0x040001CF Sims3.Metadata.Complate::mGameEditor
+IL_001E: ldloc.0
+IL_001F: ldarg.0
+IL_0020: ldfld 0x040001D1 Sims3.Metadata.Complate::mCategory
+IL_0025: stfld 0x040001D1 Sims3.Metadata.Complate::mCategory
+IL_002A: ldloc.0
+IL_002B: ldarg.0
+IL_002C: ldfld 0x040001D2 Sims3.Metadata.Complate::mSoundMaterial
+IL_0031: stfld 0x040001D2 Sims3.Metadata.Complate::mSoundMaterial
+IL_0036: ldloc.0
+IL_0037: ldarg.0
+IL_0038: ldfld 0x040001D0 Sims3.Metadata.Complate::mName
+IL_003D: stfld 0x040001D0 Sims3.Metadata.Complate::mName
+IL_0042: ldloc.0
+IL_0043: ldarg.0
+IL_0044: ldfld 0x040001D3 Sims3.Metadata.Complate::mKey
+IL_0049: stfld 0x040001D3 Sims3.Metadata.Complate::mKey
+IL_004E: ldloc.0
+IL_004F: ldarg.0
+IL_0050: ldfld 0x040001D4 Sims3.Metadata.Complate::mType
+IL_0055: stfld 0x040001D4 Sims3.Metadata.Complate::mType
+IL_005A: ldloc.0
+IL_005B: ldarg.0
+IL_005C: ldfld 0x040001D5 Sims3.Metadata.Complate::mPatternSize
+IL_0061: stfld 0x040001D5 Sims3.Metadata.Complate::mPatternSize
+IL_0066: ldc.i4.0
+IL_0067: stloc.1
+IL_0068: ldarg.0
+IL_0069: ldfld 0x040001CC Sims3.Metadata.Complate::mParts
+IL_006E: callvirt 0x0A000192 TypeSpecification::get_Count
+IL_0073: stloc.2
+IL_0074: br.s IL_009B
+IL_0076: ldloc.0
+IL_0077: ldfld 0x040001CC Sims3.Metadata.Complate::mParts
+IL_007C: ldarg.0
+IL_007D: ldfld 0x040001CC Sims3.Metadata.Complate::mParts
+IL_0082: ldloc.1
+IL_0083: callvirt 0x0A000193 TypeSpecification::get_Item
+IL_0088: callvirt 0x06000374 .TexturePart::Clone
+IL_008D: isinst 0x02000061 .TexturePart
+IL_0092: callvirt 0x0A000173 TypeSpecification::Add
+IL_0097: ldloc.1
+IL_0098: ldc.i4.1
+IL_0099: add
+IL_009A: stloc.1
+IL_009B: ldloc.1
+IL_009C: ldloc.2
+IL_009D: blt.s IL_0076
+IL_009F: ldc.i4.0
+IL_00A0: stloc.3
+IL_00A1: ldarg.0
+IL_00A2: ldfld 0x040001CD Sims3.Metadata.Complate::mProcessedParts
+IL_00A7: callvirt 0x0A000192 TypeSpecification::get_Count
+IL_00AC: stloc.s 4
+IL_00AE: br.s IL_00D5
+IL_00B0: ldloc.0
+IL_00B1: ldfld 0x040001CD Sims3.Metadata.Complate::mProcessedParts
+IL_00B6: ldarg.0
+IL_00B7: ldfld 0x040001CD Sims3.Metadata.Complate::mProcessedParts
+IL_00BC: ldloc.3
+IL_00BD: callvirt 0x0A000193 TypeSpecification::get_Item
+IL_00C2: callvirt 0x06000374 .TexturePart::Clone
+IL_00C7: isinst 0x02000061 .TexturePart
+IL_00CC: callvirt 0x0A000173 TypeSpecification::Add
+IL_00D1: ldloc.3
+IL_00D2: ldc.i4.1
+IL_00D3: add
+IL_00D4: stloc.3
+IL_00D5: ldloc.3
+IL_00D6: ldloc.s 4
+IL_00D8: blt.s IL_00B0
+IL_00DA: ldloc.0
+IL_00DB: ldarg.0
+IL_00DC: callvirt 0x06000331 Sims3.Metadata.Complate::CopyData
+IL_00E1: ldloc.0
+IL_00E2: ret
+
+// Original MethodDef0x0600031E Sims3.Metadata.Complate::ParseTextureStep RVA0x0000B948
+// CLI signature 200112817c1280b9; maxstack 3; locals token 1100006F; initlocals True
+// Complete raw CIL (51 bytes): 735E0300060A036F9800000A2C232B1206036F9900000A036F9A00000A6F60030006036F9B00000A2DE6036F9C00000A26062A
+IL_0000: newobj 0x0600035E .TextureStep::.ctor
+IL_0005: stloc.0
+IL_0006: ldarg.1
+IL_0007: callvirt 0x0A000098 System.Xml.XmlReader::get_HasAttributes
+IL_000C: brfalse.s IL_0031
+IL_000E: br.s IL_0022
+IL_0010: ldloc.0
+IL_0011: ldarg.1
+IL_0012: callvirt 0x0A000099 System.Xml.XmlReader::get_Name
+IL_0017: ldarg.1
+IL_0018: callvirt 0x0A00009A System.Xml.XmlReader::get_Value
+IL_001D: callvirt 0x06000360 .TextureStep::set_Item
+IL_0022: ldarg.1
+IL_0023: callvirt 0x0A00009B System.Xml.XmlReader::MoveToNextAttribute
+IL_0028: brtrue.s IL_0010
+IL_002A: ldarg.1
+IL_002B: callvirt 0x0A00009C System.Xml.XmlReader::MoveToElement
+IL_0030: pop
+IL_0031: ldloc.0
+IL_0032: ret
+
+// Original MethodDef0x0600031F Sims3.Metadata.Complate::ParseTextureStep RVA0x0000B988
+// CLI signature 200112817c128091; maxstack 3; locals token 11000070; initlocals True
+// Complete raw CIL (87 bytes): 735E0300060A036F7501000A2C47036F7501000A6F7B01000A0C2B1E086F8500000A74920000010B06076F1A01000A076F7701000A6F60030006086F3800000A2DDADE110875450000010D092C06096F2200000ADC062A
+IL_0000: newobj 0x0600035E .TextureStep::.ctor
+IL_0005: stloc.0
+IL_0006: ldarg.1
+IL_0007: callvirt 0x0A000175 System.Xml.XmlNode::get_Attributes
+IL_000C: brfalse.s IL_0055
+IL_000E: ldarg.1
+IL_000F: callvirt 0x0A000175 System.Xml.XmlNode::get_Attributes
+IL_0014: callvirt 0x0A00017B System.Xml.XmlNamedNodeMap::GetEnumerator
+IL_0019: stloc.2
+IL_001A: br.s IL_003A
+IL_001C: ldloc.2
+IL_001D: callvirt 0x0A000085 System.Collections.IEnumerator::get_Current
+IL_0022: castclass 0x01000092 System.Xml.XmlAttribute
+IL_0027: stloc.1
+IL_0028: ldloc.0
+IL_0029: ldloc.1
+IL_002A: callvirt 0x0A00011A System.Xml.XmlNode::get_Name
+IL_002F: ldloc.1
+IL_0030: callvirt 0x0A000177 System.Xml.XmlNode::get_Value
+IL_0035: callvirt 0x06000360 .TextureStep::set_Item
+IL_003A: ldloc.2
+IL_003B: callvirt 0x0A000038 System.Collections.IEnumerator::MoveNext
+IL_0040: brtrue.s IL_001C
+IL_0042: leave.s IL_0055
+IL_0044: ldloc.2
+IL_0045: isinst 0x01000045 System.IDisposable
+IL_004A: stloc.3
+IL_004B: ldloc.3
+IL_004C: brfalse.s IL_0054
+IL_004E: ldloc.3
+IL_004F: callvirt 0x0A000022 System.IDisposable::Dispose
+IL_0054: endfinally
+IL_0055: ldloc.0
+IL_0056: ret
+// Exception region {"FilterOffset": -1, "HandlerLength": 17, "HandlerOffset": 68, "TryLength": 42, "TryOffset": 26, "catchType": "00000000", "kind": "Finally"}
+
+// Original MethodDef0x06000346 Sims3.Metadata.Complate::.cctor RVA0x0000D31C
+// CLI signature 000001; maxstack 1; locals token 11000000; initlocals False
+// Complete raw CIL (331 bytes): 72A518007080A901000472AB18007080AA01000472C718007080AB01000472D118007080AC01000472E318007080AD01000472F718007080AE010004720F19007080AF010004721B19007080B0010004723319007080B1010004723D19007080B2010004724D19007080B3010004726719007080B4010004727919007080B5010004728319007080B6010004729719007080B701000472A919007080B801000472BF19007080B901000472DB19007080BA01000472E519007080BB01000472FD19007080BC01000472131A007080BD010004722B1A007080BE01000472391A007080BF01000472930E007080C001000472491A007080C1010004725B1A007080C2010004727B1A007080C3010004728D1A007080C4010004729F1A007080C501000472E902007080C601000472B11A007080C701000472D31A007080C801000473D000000A80C90100042A
+IL_0000: ldstr 0x700018A5 "X:"
+IL_0005: stsfld 0x040001A9 Sims3.Metadata.Complate::kAssetRoot
+IL_000A: ldstr 0x700018AB "typeConverter"
+IL_000F: stsfld 0x040001AA Sims3.Metadata.Complate::kTypeConverterAttribute
+IL_0014: ldstr 0x700018C7 "name"
+IL_0019: stsfld 0x040001AB Sims3.Metadata.Complate::kNameAttribute
+IL_001E: ldstr 0x700018D1 "namehash"
+IL_0023: stsfld 0x040001AC Sims3.Metadata.Complate::kNameHashAttribute
+IL_0028: ldstr 0x700018E3 "variables"
+IL_002D: stsfld 0x040001AD Sims3.Metadata.Complate::kNodeVariables
+IL_0032: ldstr 0x700018F7 "texturePart"
+IL_0037: stsfld 0x040001AE Sims3.Metadata.Complate::kNodeTexturePart
+IL_003C: ldstr 0x7000190F "param"
+IL_0041: stsfld 0x040001AF Sims3.Metadata.Complate::kNodeParam
+IL_0046: ldstr 0x7000191B "destination"
+IL_004B: stsfld 0x040001B0 Sims3.Metadata.Complate::kNodeDestination
+IL_0050: ldstr 0x70001933 "step"
+IL_0055: stsfld 0x040001B1 Sims3.Metadata.Complate::kNodeStep
+IL_005A: ldstr 0x7000193D "default"
+IL_005F: stsfld 0x040001B2 Sims3.Metadata.Complate::kDefaultAttribute
+IL_0064: ldstr 0x7000194D "currentValue"
+IL_0069: stsfld 0x040001B3 Sims3.Metadata.Complate::kCurrentValueAttribute
+IL_006E: ldstr 0x70001967 "readOnly"
+IL_0073: stsfld 0x040001B4 Sims3.Metadata.Complate::kReadOnlyAttribute
+IL_0078: ldstr 0x70001979 "type"
+IL_007D: stsfld 0x040001B5 Sims3.Metadata.Complate::kTypeAttribute
+IL_0082: ldstr 0x70001983 "uiVisible"
+IL_0087: stsfld 0x040001B6 Sims3.Metadata.Complate::kUIVisibleAttribute
+IL_008C: ldstr 0x70001997 "uiEditor"
+IL_0091: stsfld 0x040001B7 Sims3.Metadata.Complate::kUIEditorAttribute
+IL_0096: ldstr 0x700019A9 "uiCategory"
+IL_009B: stsfld 0x040001B8 Sims3.Metadata.Complate::kUICategoryAttribute
+IL_00A0: ldstr 0x700019BF "uiDescription"
+IL_00A5: stsfld 0x040001B9 Sims3.Metadata.Complate::kUIDescriptionAttribute
+IL_00AA: ldstr 0x700019DB "part"
+IL_00AF: stsfld 0x040001BA Sims3.Metadata.Complate::kPartAttribute
+IL_00B4: ldstr 0x700019E5 "textureName"
+IL_00B9: stsfld 0x040001BB Sims3.Metadata.Complate::kTextureNameAttribute
+IL_00BE: ldstr 0x700019FD "gameEditor"
+IL_00C3: stsfld 0x040001BC Sims3.Metadata.Complate::kGameEditorAttribute
+IL_00C8: ldstr 0x70001A13 "patternSize"
+IL_00CD: stsfld 0x040001BD Sims3.Metadata.Complate::kPatternSizeAttribute
+IL_00D2: ldstr 0x70001A2B "linked"
+IL_00D7: stsfld 0x040001BE Sims3.Metadata.Complate::kLinkedAttribute
+IL_00DC: ldstr 0x70001A39 "enabled"
+IL_00E1: stsfld 0x040001BF Sims3.Metadata.Complate::kEnabledAttribute
+IL_00E6: ldstr 0x70000E93 "reskey"
+IL_00EB: stsfld 0x040001C0 Sims3.Metadata.Complate::kResourceKeyAttribute
+IL_00F0: ldstr 0x70001A49 "category"
+IL_00F5: stsfld 0x040001C1 Sims3.Metadata.Complate::kCategoryAttribute
+IL_00FA: ldstr 0x70001A5B "surfaceMaterial"
+IL_00FF: stsfld 0x040001C2 Sims3.Metadata.Complate::kSoundMaterialAttribute
+IL_0104: ldstr 0x70001A7B "filename"
+IL_0109: stsfld 0x040001C3 Sims3.Metadata.Complate::kFilenameAttribute
+IL_010E: ldstr 0x70001A8D "minValue"
+IL_0113: stsfld 0x040001C4 Sims3.Metadata.Complate::kMinValueAttribute
+IL_0118: ldstr 0x70001A9F "maxValue"
+IL_011D: stsfld 0x040001C5 Sims3.Metadata.Complate::kMaxValueAttribute
+IL_0122: ldstr 0x700002E9 "reverseMap"
+IL_0127: stsfld 0x040001C6 Sims3.Metadata.Complate::kReverseMap
+IL_012C: ldstr 0x70001AB1 "solidColor_1.xml"
+IL_0131: stsfld 0x040001C7 Sims3.Metadata.Complate::kFallbackPattern
+IL_0136: ldstr 0x70001AD3 "key:0333406C:00000000:71D5EFB6C391BC17"
+IL_013B: stsfld 0x040001C8 Sims3.Metadata.Complate::kFallbackPatternKey
+IL_0140: newobj 0x0A0000D0 TypeSpecification::.ctor
+IL_0145: stsfld 0x040001C9 Sims3.Metadata.Complate::sComplateCache
+IL_014A: ret

@@ -1,0 +1,67 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67; ModelComponent_RepublishCurrentResource; owned ranges [[0094bde0, 0094bea2]]
+0094bde0	83ec34	SUB ESP,0x34
+0094bde3	56	PUSH ESI
+0094bde4	8bf1	MOV ESI,ECX
+0094bde6	837e1000	CMP dword ptr [ESI + 0x10],0x0
+0094bdea	0f84aa000000	JZ 0x0094be9a
+0094bdf0	8b4e3c	MOV ECX,dword ptr [ESI + 0x3c]
+0094bdf3	2b4e38	SUB ECX,dword ptr [ESI + 0x38]
+0094bdf6	8d4644	LEA EAX,[ESI + 0x44]
+0094bdf9	c1f902	SAR ECX,0x2
+0094bdfc	50	PUSH EAX
+0094bdfd	51	PUSH ECX
+0094bdfe	8d4c2430	LEA ECX,[ESP + 0x30]
+0094be02	e829054000	CALL 0x00d4c330
+0094be07	8b542404	MOV EDX,dword ptr [ESP + 0x4]
+0094be0b	8b463c	MOV EAX,dword ptr [ESI + 0x3c]
+0094be0e	8b4e38	MOV ECX,dword ptr [ESI + 0x38]
+0094be11	52	PUSH EDX
+0094be12	8b54242c	MOV EDX,dword ptr [ESP + 0x2c]
+0094be16	52	PUSH EDX
+0094be17	50	PUSH EAX
+0094be18	51	PUSH ECX
+0094be19	8d442414	LEA EAX,[ESP + 0x14]
+0094be1d	50	PUSH EAX
+0094be1e	e85d9ef5ff	CALL 0x008a5c80
+0094be23	8b4c2418	MOV ECX,dword ptr [ESP + 0x18]
+0094be27	8b5618	MOV EDX,dword ptr [ESI + 0x18]
+0094be2a	8b461c	MOV EAX,dword ptr [ESI + 0x1c]
+0094be2d	894c2440	MOV dword ptr [ESP + 0x40],ECX
+0094be31	8b4e20	MOV ECX,dword ptr [ESI + 0x20]
+0094be34	83c414	ADD ESP,0x14
+0094be37	80be80000000ff	CMP byte ptr [ESI + 0x80],0xff
+0094be3e	894c2420	MOV dword ptr [ESP + 0x20],ECX
+0094be42	8b4e2c	MOV ECX,dword ptr [ESI + 0x2c]
+0094be45	894c240c	MOV dword ptr [ESP + 0xc],ECX
+0094be49	89542418	MOV dword ptr [ESP + 0x18],EDX
+0094be4d	8b5624	MOV EDX,dword ptr [ESI + 0x24]
+0094be50	0f95c1	SETNZ CL
+0094be53	8944241c	MOV dword ptr [ESP + 0x1c],EAX
+0094be57	8b4628	MOV EAX,dword ptr [ESI + 0x28]
+0094be5a	89542424	MOV dword ptr [ESP + 0x24],EDX
+0094be5e	8b5630	MOV EDX,dword ptr [ESI + 0x30]
+0094be61	89442408	MOV dword ptr [ESP + 0x8],EAX
+0094be65	8b4634	MOV EAX,dword ptr [ESI + 0x34]
+0094be68	51	PUSH ECX
+0094be69	89542414	MOV dword ptr [ESP + 0x14],EDX
+0094be6d	8b564c	MOV EDX,dword ptr [ESI + 0x4c]
+0094be70	52	PUSH EDX
+0094be71	8944241c	MOV dword ptr [ESP + 0x1c],EAX
+0094be75	8d442410	LEA EAX,[ESP + 0x10]
+0094be79	50	PUSH EAX
+0094be7a	8d4c2424	LEA ECX,[ESP + 0x24]
+0094be7e	51	PUSH ECX
+0094be7f	8d5608	LEA EDX,[ESI + 0x8]
+0094be82	52	PUSH EDX
+0094be83	8bce	MOV ECX,ESI
+0094be85	c7462000000000	MOV dword ptr [ESI + 0x20],0x0
+0094be8c	e84ff5ffff	CALL 0x0094b3e0
+0094be91	8d4c2428	LEA ECX,[ESP + 0x28]
+0094be95	e8b6afcdff	CALL 0x00626e50
+0094be9a	b001	MOV AL,0x1
+0094be9c	5e	POP ESI
+0094be9d	83c434	ADD ESP,0x34
+0094bea0	c20400	RET 0x4

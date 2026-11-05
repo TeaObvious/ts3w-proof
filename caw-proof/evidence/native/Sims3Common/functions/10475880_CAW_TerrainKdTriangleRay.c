@@ -1,0 +1,109 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* 
+   
+   Original CAW 1.22.10 Sims3Common.dll: Moller-Trumbore triangle test over three signed-short
+   triples. All cross products and dot sums are binary32 SIMD; dot accumulation is Z then Y then X.
+   Requires abs(det)>2^-23, u>=-1e-5,u<=1.00001,v>=-1e-5,u+v<=1.00001 and distance>=0. Writes raw
+   cross(edge1,edge2) normal; no per-triangle normalization. Analyst-assigned helper names are not
+   recovered original symbols. Original instructions govern decompiler ABI/register artifacts. */
+
+undefined4
+CAW_TerrainKdTriangleRay(int param_1,ushort *param_2,float *param_3,float *param_4,float *param_5)
+
+{
+  short *psVar1;
+  short *psVar2;
+  short *psVar3;
+  float fVar4;
+  float fVar5;
+  float *pfVar6;
+  int iVar7;
+  int iVar8;
+  int iVar9;
+  float fVar10;
+  float fVar11;
+  float fVar12;
+  float fVar13;
+  float fVar14;
+  float fVar15;
+  float fVar16;
+  float fVar17;
+  float fVar18;
+  float fVar19;
+  float fVar20;
+  undefined1 auVar21 [16];
+  undefined1 auVar22 [16];
+  undefined1 auVar23 [16];
+  float fVar24;
+  float fVar25;
+  float fVar26;
+  
+  psVar1 = (short *)(param_1 + (uint)param_2[1] * 6);
+  psVar2 = (short *)(param_1 + (uint)param_2[2] * 6);
+  psVar3 = (short *)(param_1 + (uint)*param_2 * 6);
+  iVar8 = (int)*psVar3;
+  fVar10 = (float)(*psVar1 - iVar8);
+  iVar9 = (int)psVar3[2];
+  pfVar6 = (float *)(int)psVar3[1];
+  fVar16 = (float)(*(short *)(param_1 + 4 + (uint)param_2[1] * 6) - iVar9);
+  fVar17 = (float)((int)psVar1[1] - (int)pfVar6);
+  fVar11 = (float)(*psVar2 - iVar8);
+  fVar18 = (float)(psVar2[2] - iVar9);
+  fVar20 = *param_4;
+  fVar4 = param_4[1];
+  fVar5 = param_4[2];
+  fVar19 = (float)((int)psVar2[1] - (int)pfVar6);
+  fVar24 = fVar4 * fVar18 - fVar5 * fVar19;
+  fVar25 = fVar5 * fVar11 - fVar20 * fVar18;
+  fVar26 = fVar20 * fVar19 - fVar4 * fVar11;
+  fVar12 = fVar26 * fVar16 + fVar25 * fVar17 + fVar24 * fVar10;
+  auVar21._0_4_ = DAT_10aae184 * fVar12;
+  auVar21._4_4_ = DAT_10aae184 * fVar12;
+  auVar21._8_4_ = DAT_10aae184 * fVar12;
+  auVar21._12_4_ = DAT_10aae184 * fVar12;
+  auVar22._4_4_ = fVar12;
+  auVar22._0_4_ = fVar12;
+  auVar22._8_4_ = fVar12;
+  auVar22._12_4_ = fVar12;
+  auVar22 = maxps(auVar21,auVar22);
+  auVar23._4_4_ = -(uint)(auVar22._4_4_ <= DAT_10b0b5d0);
+  auVar23._0_4_ = -(uint)(auVar22._0_4_ <= DAT_10b0b5d0);
+  auVar23._8_4_ = -(uint)(auVar22._8_4_ <= DAT_10b0b5d0);
+  auVar23._12_4_ = -(uint)(auVar22._12_4_ <= DAT_10b0b5d0);
+  iVar7 = movmskps((int)psVar2[1] - (int)pfVar6,auVar23);
+  if (iVar7 != 0xf) {
+    fVar12 = DAT_10acb0d4 / fVar12;
+    fVar13 = *param_3 - (float)iVar8;
+    fVar14 = param_3[1] - (float)(int)pfVar6;
+    fVar15 = param_3[2] - (float)iVar9;
+    fVar24 = (fVar15 * fVar26 + fVar14 * fVar25 + fVar13 * fVar24) * fVar12;
+    pfVar6 = param_3;
+    if (DAT_10b0b5f0 <= fVar24) {
+      if (fVar24 <= DAT_10b0b5ec) {
+        fVar25 = fVar14 * fVar16 - fVar15 * fVar17;
+        fVar26 = fVar15 * fVar10 - fVar13 * fVar16;
+        fVar13 = fVar13 * fVar17 - fVar14 * fVar10;
+        fVar20 = (fVar5 * fVar13 + fVar4 * fVar26 + fVar20 * fVar25) * fVar12;
+        if (DAT_10b0b5f0 <= fVar20) {
+          if (fVar20 + fVar24 <= DAT_10b0b5ec) {
+            fVar12 = (fVar13 * fVar18 + fVar26 * fVar19 + fVar25 * fVar11) * fVar12;
+            if (DAT_10aae18c <= fVar12) {
+              *param_5 = fVar12;
+              param_5[4] = fVar17 * fVar18 - fVar16 * fVar19;
+              param_5[5] = fVar16 * fVar11 - fVar10 * fVar18;
+              param_5[6] = fVar10 * fVar19 - fVar17 * fVar11;
+              param_5[7] = fVar10 * fVar11 - fVar10 * fVar11;
+              return CONCAT31((int3)((uint)param_5 >> 8),1);
+            }
+          }
+        }
+      }
+    }
+  }
+  return (uint)pfVar6 & 0xffffff00;
+}
+

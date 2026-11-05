@@ -1,0 +1,73 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: SACS_CreateDriverForComponent_767370
+Paired actual annotated Ghidra pseudocode: 00767370_SACS_CreateDriverForComponent_767370.c
+Owned ranges: [[00767370, 0076740d]]
+Envelope bytes=158
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+00767370  56  PUSH ESI
+00767371  57  PUSH EDI
+00767372  6a00  PUSH 0x0
+00767374  6a00  PUSH 0x0
+00767376  6a00  PUSH 0x0
+00767378  6a00  PUSH 0x0
+0076737a  68547e0001  PUSH 0x1007e54
+0076737f  684c010000  PUSH 0x14c
+00767384  e877d1d7ff  CALL 0x004e4500
+00767389  8b7c2428  MOV EDI,dword ptr [ESP + 0x28]
+0076738d  83c418  ADD ESP,0x18
+00767390  85c0  TEST EAX,EAX
+00767392  7476  JZ 0x0076740a
+00767394  6a01  PUSH 0x1
+00767396  57  PUSH EDI
+00767397  8bc8  MOV ECX,EAX
+00767399  e862d70900  CALL 0x00804b00
+0076739e  8bf0  MOV ESI,EAX
+007673a0  85f6  TEST ESI,ESI
+007673a2  740a  JZ 0x007673ae
+007673a4  8b4608  MOV EAX,dword ptr [ESI + 0x8]
+007673a7  8b10  MOV EDX,dword ptr [EAX]
+007673a9  8d4e08  LEA ECX,[ESI + 0x8]
+007673ac  ffd2  CALL EDX
+007673ae  807c241800  CMP byte ptr [ESP + 0x18],0x0
+007673b3  7409  JZ 0x007673be
+007673b5  8b07  MOV EAX,dword ptr [EDI]
+007673b7  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+007673ba  8bcf  MOV ECX,EDI
+007673bc  ffd2  CALL EDX
+007673be  8b442414  MOV EAX,dword ptr [ESP + 0x14]
+007673c2  85c0  TEST EAX,EAX
+007673c4  7c03  JL 0x007673c9
+007673c6  894638  MOV dword ptr [ESI + 0x38],EAX
+007673c9  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+007673cd  56  PUSH ESI
+007673ce  e8dd611e00  CALL 0x0094d5b0
+007673d3  8b4608  MOV EAX,dword ptr [ESI + 0x8]
+007673d6  8b10  MOV EDX,dword ptr [EAX]
+007673d8  8d7e08  LEA EDI,[ESI + 0x8]
+007673db  8bcf  MOV ECX,EDI
+007673dd  ffd2  CALL EDX
+007673df  8bce  MOV ECX,ESI
+007673e1  e88ab90900  CALL 0x00802d70
+007673e6  e8a51f0000  CALL 0x00769390
+007673eb  8b10  MOV EDX,dword ptr [EAX]
+007673ed  6a20  PUSH 0x20
+007673ef  8bc8  MOV ECX,EAX
+007673f1  8b82c8000000  MOV EAX,dword ptr [EDX + 0xc8]
+007673f7  56  PUSH ESI
+007673f8  ffd0  CALL EAX
+007673fa  8b17  MOV EDX,dword ptr [EDI]
+007673fc  8bf0  MOV ESI,EAX
+007673fe  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+00767401  8bcf  MOV ECX,EDI
+00767403  ffd0  CALL EAX
+00767405  5f  POP EDI
+00767406  8bc6  MOV EAX,ESI
+00767408  5e  POP ESI
+00767409  c3  RET
+0076740a  33f6  XOR ESI,ESI
+0076740c  eba0  JMP 0x007673ae
+Owned instructions=62 owned bytes=158 gap/nonowned bytes=0

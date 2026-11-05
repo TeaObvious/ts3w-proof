@@ -1,0 +1,1788 @@
+.class public auto ansi beforefieldinit Sims3.Gameplay.Objects.TombRoomMarker
+	extends Sims3.Gameplay.Abstracts.GameObject
+	implements Sims3.Gameplay.Interfaces.IBuildBuyListener,
+	           Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData,
+	           Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           Sims3.Gameplay.Interfaces.IGameObject,
+	           Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent,
+	           [SimIFace]Sims3.SimIFace.IPersistPostLoad
+{
+	// Nested Types
+	.class nested private auto ansi sealed beforefieldinit ToggleFog
+		extends class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field public valuetype Sims3.Gameplay.Controllers.FogStatus FogStatus
+			.field private static class [UI]Sims3.SimIFace.GreyedOutTooltipCallback '<>9__CachedAnonymousMethodDelegate1'
+			.custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = (
+				01 00 00 00
+			)
+
+			// Methods
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x343794
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+			.method private hidebysig specialname rtspecialname 
+				instance void .ctor (
+					valuetype Sims3.Gameplay.Controllers.FogStatus fogStatus
+				) cil managed 
+			{
+				// Method begins at RVA 0x34379c
+				// Header size: 1
+				// Code size: 14 (0xe)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog>::.ctor()
+				IL_0006: ldarg.0
+				IL_0007: ldarg.1
+				IL_0008: stfld valuetype Sims3.Gameplay.Controllers.FogStatus Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::FogStatus
+				IL_000d: ret
+			} // end of method Definition::.ctor
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x3437bd
+				// Header size: 1
+				// Code size: 55 (0x37)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+				IL_0006: ldfld valuetype Sims3.Gameplay.Controllers.FogStatus Sims3.Gameplay.Controllers.TombRoomInfo::FogStatus
+				IL_000b: ldarg.0
+				IL_000c: ldfld valuetype Sims3.Gameplay.Controllers.FogStatus Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::FogStatus
+				IL_0011: bne.un.s IL_0035
+
+				IL_0013: ldarg.s greyedOutTooltipCallback
+				IL_0015: ldsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::'<>9__CachedAnonymousMethodDelegate1'
+				IL_001a: brtrue.s IL_002d
+
+				IL_001c: ldnull
+				IL_001d: ldftn string Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::'<Test>b__0'()
+				IL_0023: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+				IL_0028: stsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::'<>9__CachedAnonymousMethodDelegate1'
+
+				IL_002d: ldsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::'<>9__CachedAnonymousMethodDelegate1'
+				IL_0032: stind.ref
+				IL_0033: ldc.i4.0
+				IL_0034: ret
+
+				IL_0035: ldc.i4.1
+				IL_0036: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x3437f5
+				// Header size: 1
+				// Code size: 38 (0x26)
+				.maxstack 8
+
+				IL_0000: ldstr "FogStatus"
+				IL_0005: ldarg.0
+				IL_0006: ldfld valuetype Sims3.Gameplay.Controllers.FogStatus Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::FogStatus
+				IL_000b: box Sims3.Gameplay.Controllers.FogStatus
+				IL_0010: callvirt instance string [mscorlib]System.Object::ToString()
+				IL_0015: call string [mscorlib]System.String::Concat(string, string)
+				IL_001a: ldc.i4.0
+				IL_001b: newarr [mscorlib]System.Object
+				IL_0020: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_0025: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x34381c
+				// Header size: 12
+				// Code size: 84 (0x54)
+				.maxstack 4
+				.locals init (
+					[0] valuetype Sims3.Gameplay.Controllers.FogStatus,
+					[1] class Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition,
+					[2] class [mscorlib]System.Collections.IEnumerator,
+					[3] class [mscorlib]System.IDisposable
+				)
+
+				IL_0000: ldtoken Sims3.Gameplay.Controllers.FogStatus
+				IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+				IL_000a: call class [mscorlib]System.Array [mscorlib]System.Enum::GetValues(class [mscorlib]System.Type)
+				IL_000f: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Array::GetEnumerator()
+				IL_0014: stloc.2
+				.try
+				{
+					IL_0015: br.s IL_0038
+					// loop start (head: IL_0038)
+						IL_0017: ldloc.2
+						IL_0018: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+						IL_001d: unbox.any Sims3.Gameplay.Controllers.FogStatus
+						IL_0022: stloc.0
+						IL_0023: ldloc.0
+						IL_0024: newobj instance void Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::.ctor(valuetype Sims3.Gameplay.Controllers.FogStatus)
+						IL_0029: stloc.1
+						IL_002a: ldarg.s results
+						IL_002c: ldloc.1
+						IL_002d: ldarg.3
+						IL_002e: newobj instance void Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class Sims3.Gameplay.Interactions.InteractionDefinition, class Sims3.Gameplay.Interfaces.IGameObject)
+						IL_0033: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+
+						IL_0038: ldloc.2
+						IL_0039: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+						IL_003e: brtrue.s IL_0017
+					// end loop
+
+					IL_0040: leave.s IL_0053
+				} // end .try
+				finally
+				{
+					IL_0042: ldloc.2
+					IL_0043: isinst [mscorlib]System.IDisposable
+					IL_0048: stloc.3
+					IL_0049: ldloc.3
+					IL_004a: brfalse.s IL_0052
+
+					IL_004c: ldloc.3
+					IL_004d: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+					IL_0052: endfinally
+				} // end handler
+
+				IL_0053: ret
+			} // end of method Definition::AddInteractions
+
+			.method public hidebysig virtual 
+				instance string[] GetPath (
+					bool isFemale
+				) cil managed 
+			{
+				// Method begins at RVA 0x34388c
+				// Header size: 12
+				// Code size: 47 (0x2f)
+				.maxstack 4
+				.locals init (
+					[0] string[]
+				)
+
+				IL_0000: ldc.i4.2
+				IL_0001: newarr [mscorlib]System.String
+				IL_0006: stloc.0
+				IL_0007: ldloc.0
+				IL_0008: ldc.i4.0
+				IL_0009: ldstr "FogOfExplorationPathName"
+				IL_000e: ldc.i4.0
+				IL_000f: newarr [mscorlib]System.Object
+				IL_0014: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_0019: stelem.ref
+				IL_001a: ldloc.0
+				IL_001b: ldc.i4.1
+				IL_001c: ldstr "PathName"
+				IL_0021: ldc.i4.0
+				IL_0022: newarr [mscorlib]System.Object
+				IL_0027: call string Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog::LocalizeString(string, object[])
+				IL_002c: stelem.ref
+				IL_002d: ldloc.0
+				IL_002e: ret
+			} // end of method Definition::GetPath
+
+			.method private hidebysig static 
+				string '<Test>b__0' () cil managed 
+			{
+				.custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = (
+					01 00 00 00
+				)
+				// Method begins at RVA 0x3437ab
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "AlreadySelectedTooltip"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::'<Test>b__0'
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombRoomMarker/ToggleFog"
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x34373a
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombRoomMarker/ToggleFog:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method ToggleFog::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x343750
+			// Header size: 12
+			// Code size: 36 (0x24)
+			.maxstack 2
+			.locals init (
+				[0] valuetype Sims3.Gameplay.Controllers.FogStatus
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Interactions.InteractionInstance::get_InteractionDefinition()
+			IL_0006: isinst Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition
+			IL_000b: ldfld valuetype Sims3.Gameplay.Controllers.FogStatus Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::FogStatus
+			IL_0010: stloc.0
+			IL_0011: ldarg.0
+			IL_0012: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_0017: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+			IL_001c: ldloc.0
+			IL_001d: stfld valuetype Sims3.Gameplay.Controllers.FogStatus Sims3.Gameplay.Controllers.TombRoomInfo::FogStatus
+			IL_0022: ldc.i4.1
+			IL_0023: ret
+		} // end of method ToggleFog::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x34378c
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::.ctor()
+			IL_0006: ret
+		} // end of method ToggleFog::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x343780
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog::Singleton
+			IL_000a: ret
+		} // end of method ToggleFog::.cctor
+
+	} // end of class ToggleFog
+
+	.class nested private auto ansi sealed beforefieldinit ResetFogForCurrentHousehold
+		extends class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed FogResetScope
+			extends [mscorlib]System.Enum
+		{
+			// Fields
+			.field public specialname rtspecialname int32 value__
+			.field public static literal valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope Room = int32(0)
+			.field public static literal valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope Lot = int32(1)
+			.field public static literal valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope World = int32(2)
+
+		} // end of class FogResetScope
+
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field public valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope FogResetScope
+
+			// Methods
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x343a4c
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+			.method private hidebysig specialname rtspecialname 
+				instance void .ctor (
+					valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope fogResetScope
+				) cil managed 
+			{
+				// Method begins at RVA 0x343a54
+				// Header size: 1
+				// Code size: 14 (0xe)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold>::.ctor()
+				IL_0006: ldarg.0
+				IL_0007: ldarg.1
+				IL_0008: stfld valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/Definition::FogResetScope
+				IL_000d: ret
+			} // end of method Definition::.ctor
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x343a63
+				// Header size: 1
+				// Code size: 12 (0xc)
+				.maxstack 8
+
+				IL_0000: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+				IL_0005: ldnull
+				IL_0006: ceq
+				IL_0008: ldc.i4.0
+				IL_0009: ceq
+				IL_000b: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x343a70
+				// Header size: 12
+				// Code size: 84 (0x54)
+				.maxstack 2
+				.locals init (
+					[0] valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope
+				)
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/Definition::FogResetScope
+				IL_0006: stloc.0
+				IL_0007: ldloc.0
+				IL_0008: switch (IL_001b, IL_002c, IL_003d)
+
+				IL_0019: br.s IL_004e
+
+				IL_001b: ldstr "RoomInteractionName"
+				IL_0020: ldc.i4.0
+				IL_0021: newarr [mscorlib]System.Object
+				IL_0026: call string Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold::LocalizeString(string, object[])
+				IL_002b: ret
+
+				IL_002c: ldstr "LotInteractionName"
+				IL_0031: ldc.i4.0
+				IL_0032: newarr [mscorlib]System.Object
+				IL_0037: call string Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold::LocalizeString(string, object[])
+				IL_003c: ret
+
+				IL_003d: ldstr "WorldInteractionName"
+				IL_0042: ldc.i4.0
+				IL_0043: newarr [mscorlib]System.Object
+				IL_0048: call string Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold::LocalizeString(string, object[])
+				IL_004d: ret
+
+				IL_004e: ldstr ""
+				IL_0053: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x343ad0
+				// Header size: 12
+				// Code size: 84 (0x54)
+				.maxstack 4
+				.locals init (
+					[0] valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope,
+					[1] class Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/Definition,
+					[2] class [mscorlib]System.Collections.IEnumerator,
+					[3] class [mscorlib]System.IDisposable
+				)
+
+				IL_0000: ldtoken Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope
+				IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+				IL_000a: call class [mscorlib]System.Array [mscorlib]System.Enum::GetValues(class [mscorlib]System.Type)
+				IL_000f: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Array::GetEnumerator()
+				IL_0014: stloc.2
+				.try
+				{
+					IL_0015: br.s IL_0038
+					// loop start (head: IL_0038)
+						IL_0017: ldloc.2
+						IL_0018: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+						IL_001d: unbox.any Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope
+						IL_0022: stloc.0
+						IL_0023: ldloc.0
+						IL_0024: newobj instance void Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/Definition::.ctor(valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope)
+						IL_0029: stloc.1
+						IL_002a: ldarg.s results
+						IL_002c: ldloc.1
+						IL_002d: ldarg.3
+						IL_002e: newobj instance void Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class Sims3.Gameplay.Interactions.InteractionDefinition, class Sims3.Gameplay.Interfaces.IGameObject)
+						IL_0033: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+
+						IL_0038: ldloc.2
+						IL_0039: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+						IL_003e: brtrue.s IL_0017
+					// end loop
+
+					IL_0040: leave.s IL_0053
+				} // end .try
+				finally
+				{
+					IL_0042: ldloc.2
+					IL_0043: isinst [mscorlib]System.IDisposable
+					IL_0048: stloc.3
+					IL_0049: ldloc.3
+					IL_004a: brfalse.s IL_0052
+
+					IL_004c: ldloc.3
+					IL_004d: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+					IL_0052: endfinally
+				} // end handler
+
+				IL_0053: ret
+			} // end of method Definition::AddInteractions
+
+			.method public hidebysig virtual 
+				instance string[] GetPath (
+					bool isFemale
+				) cil managed 
+			{
+				// Method begins at RVA 0x343b40
+				// Header size: 12
+				// Code size: 47 (0x2f)
+				.maxstack 4
+				.locals init (
+					[0] string[]
+				)
+
+				IL_0000: ldc.i4.2
+				IL_0001: newarr [mscorlib]System.String
+				IL_0006: stloc.0
+				IL_0007: ldloc.0
+				IL_0008: ldc.i4.0
+				IL_0009: ldstr "FogOfExplorationPathName"
+				IL_000e: ldc.i4.0
+				IL_000f: newarr [mscorlib]System.Object
+				IL_0014: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_0019: stelem.ref
+				IL_001a: ldloc.0
+				IL_001b: ldc.i4.1
+				IL_001c: ldstr "PathName"
+				IL_0021: ldc.i4.0
+				IL_0022: newarr [mscorlib]System.Object
+				IL_0027: call string Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold::LocalizeString(string, object[])
+				IL_002c: stelem.ref
+				IL_002d: ldloc.0
+				IL_002e: ret
+			} // end of method Definition::GetPath
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombRoomMarker/ResetFogForCurrentHousehold"
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x3438c7
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombRoomMarker/ResetFogForCurrentHousehold:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method ResetFogForCurrentHousehold::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x3438dc
+			// Header size: 12
+			// Code size: 317 (0x13d)
+			.maxstack 3
+			.locals init (
+				[0] class Sims3.Gameplay.Core.Lot,
+				[1] class Sims3.Gameplay.Objects.TombRoomMarker,
+				[2] class Sims3.Gameplay.Objects.TombRoomMarker,
+				[3] valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope,
+				[4] valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<uint64, class Sims3.Gameplay.Core.Lot>,
+				[5] class Sims3.Gameplay.Objects.TombRoomMarker[],
+				[6] int32,
+				[7] class Sims3.Gameplay.Objects.TombRoomMarker[],
+				[8] int32
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Interactions.InteractionInstance::get_InteractionDefinition()
+			IL_0006: isinst Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/Definition
+			IL_000b: ldfld valuetype Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/FogResetScope Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/Definition::FogResetScope
+			IL_0010: stloc.3
+			IL_0011: ldloc.3
+			IL_0012: switch (IL_0028, IL_00f5, IL_004d)
+
+			IL_0023: br IL_013b
+
+			IL_0028: ldarg.0
+			IL_0029: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_002e: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+			IL_0033: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+			IL_0038: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_003d: callvirt instance class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.CAS.SimDescription::get_HouseholdMembers()
+			IL_0042: ldc.i4.0
+			IL_0043: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetWhetherOrNotHouseholdHasBeenToThisRoom(class [mscorlib]System.Collections.Generic.List`1<uint64>, bool)
+			IL_0048: br IL_013b
+
+			IL_004d: call class [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection<uint64, class Sims3.Gameplay.Core.Lot> Sims3.Gameplay.Core.LotManager::get_Lots()
+			IL_0052: callvirt instance valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection<uint64, class Sims3.Gameplay.Core.Lot>::GetEnumerator()
+			IL_0057: stloc.s 4
+			.try
+			{
+				IL_0059: br.s IL_0094
+				// loop start (head: IL_0094)
+					IL_005b: ldloca.s 4
+					IL_005d: call instance !1 valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<uint64, class Sims3.Gameplay.Core.Lot>::get_Current()
+					IL_0062: stloc.0
+					IL_0063: ldloc.0
+					IL_0064: callvirt instance class Sims3.Gameplay.Controllers.TombRoomManager Sims3.Gameplay.Core.Lot::get_TombRoomManager()
+					IL_0069: brfalse.s IL_0094
+
+					IL_006b: ldloc.0
+					IL_006c: ldarg.0
+					IL_006d: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+					IL_0072: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+					IL_0077: beq.s IL_0094
+
+					IL_0079: ldloc.0
+					IL_007a: callvirt instance class Sims3.Gameplay.Controllers.TombRoomManager Sims3.Gameplay.Core.Lot::get_TombRoomManager()
+					IL_007f: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+					IL_0084: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+					IL_0089: callvirt instance class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.CAS.SimDescription::get_HouseholdMembers()
+					IL_008e: ldc.i4.0
+					IL_008f: callvirt instance void Sims3.Gameplay.Controllers.TombRoomManager::SetWhetherOrNotHouseholdHasBeenToThisLot(class [mscorlib]System.Collections.Generic.List`1<uint64>, bool)
+
+					IL_0094: ldloca.s 4
+					IL_0096: call instance bool valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<uint64, class Sims3.Gameplay.Core.Lot>::MoveNext()
+					IL_009b: brtrue.s IL_005b
+				// end loop
+
+				IL_009d: leave.s IL_00ad
+			} // end .try
+			finally
+			{
+				IL_009f: ldloca.s 4
+				IL_00a1: constrained. valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<uint64, class Sims3.Gameplay.Core.Lot>
+				IL_00a7: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_00ac: endfinally
+			} // end handler
+
+			IL_00ad: ldarg.0
+			IL_00ae: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_00b3: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+			IL_00b8: callvirt instance !!0[] Sims3.Gameplay.Core.Lot::GetObjects<class Sims3.Gameplay.Objects.TombRoomMarker>()
+			IL_00bd: stloc.s 5
+			IL_00bf: ldc.i4.0
+			IL_00c0: stloc.s 6
+			IL_00c2: br.s IL_00eb
+			// loop start (head: IL_00eb)
+				IL_00c4: ldloc.s 5
+				IL_00c6: ldloc.s 6
+				IL_00c8: ldelem.ref
+				IL_00c9: stloc.1
+				IL_00ca: ldloc.1
+				IL_00cb: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+				IL_00d0: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+				IL_00d5: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+				IL_00da: callvirt instance class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.CAS.SimDescription::get_HouseholdMembers()
+				IL_00df: ldc.i4.0
+				IL_00e0: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetWhetherOrNotHouseholdHasBeenToThisRoom(class [mscorlib]System.Collections.Generic.List`1<uint64>, bool)
+				IL_00e5: ldloc.s 6
+				IL_00e7: ldc.i4.1
+				IL_00e8: add
+				IL_00e9: stloc.s 6
+
+				IL_00eb: ldloc.s 6
+				IL_00ed: ldloc.s 5
+				IL_00ef: ldlen
+				IL_00f0: conv.i4
+				IL_00f1: blt.s IL_00c4
+			// end loop
+
+			IL_00f3: br.s IL_013b
+
+			IL_00f5: ldarg.0
+			IL_00f6: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_00fb: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+			IL_0100: callvirt instance !!0[] Sims3.Gameplay.Core.Lot::GetObjects<class Sims3.Gameplay.Objects.TombRoomMarker>()
+			IL_0105: stloc.s 7
+			IL_0107: ldc.i4.0
+			IL_0108: stloc.s 8
+			IL_010a: br.s IL_0133
+			// loop start (head: IL_0133)
+				IL_010c: ldloc.s 7
+				IL_010e: ldloc.s 8
+				IL_0110: ldelem.ref
+				IL_0111: stloc.2
+				IL_0112: ldloc.2
+				IL_0113: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+				IL_0118: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+				IL_011d: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+				IL_0122: callvirt instance class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.CAS.SimDescription::get_HouseholdMembers()
+				IL_0127: ldc.i4.0
+				IL_0128: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetWhetherOrNotHouseholdHasBeenToThisRoom(class [mscorlib]System.Collections.Generic.List`1<uint64>, bool)
+				IL_012d: ldloc.s 8
+				IL_012f: ldc.i4.1
+				IL_0130: add
+				IL_0131: stloc.s 8
+
+				IL_0133: ldloc.s 8
+				IL_0135: ldloc.s 7
+				IL_0137: ldlen
+				IL_0138: conv.i4
+				IL_0139: blt.s IL_010c
+			// end loop
+
+			IL_013b: ldc.i4.1
+			IL_013c: ret
+		} // end of method ResetFogForCurrentHousehold::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x343a44
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::.ctor()
+			IL_0006: ret
+		} // end of method ResetFogForCurrentHousehold::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x343a38
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold::Singleton
+			IL_000a: ret
+		} // end of method ResetFogForCurrentHousehold::.cctor
+
+	} // end of class ResetFogForCurrentHousehold
+
+	.class nested private auto ansi sealed beforefieldinit SetTombType
+		extends class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/SetTombType>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field public valuetype Sims3.Gameplay.Controllers.TombType TombType
+			.field private static class [UI]Sims3.SimIFace.GreyedOutTooltipCallback '<>9__CachedAnonymousMethodDelegate3'
+			.custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = (
+				01 00 00 00
+			)
+
+			// Methods
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x343bc0
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/SetTombType>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+			.method private hidebysig specialname rtspecialname 
+				instance void .ctor (
+					valuetype Sims3.Gameplay.Controllers.TombType tombType
+				) cil managed 
+			{
+				// Method begins at RVA 0x343bc8
+				// Header size: 1
+				// Code size: 14 (0xe)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/SetTombType>::.ctor()
+				IL_0006: ldarg.0
+				IL_0007: ldarg.1
+				IL_0008: stfld valuetype Sims3.Gameplay.Controllers.TombType Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::TombType
+				IL_000d: ret
+			} // end of method Definition::.ctor
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x343be9
+				// Header size: 1
+				// Code size: 55 (0x37)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+				IL_0006: ldfld valuetype Sims3.Gameplay.Controllers.TombType Sims3.Gameplay.Controllers.TombRoomInfo::TombType
+				IL_000b: ldarg.0
+				IL_000c: ldfld valuetype Sims3.Gameplay.Controllers.TombType Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::TombType
+				IL_0011: bne.un.s IL_0035
+
+				IL_0013: ldarg.s greyedOutTooltipCallback
+				IL_0015: ldsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::'<>9__CachedAnonymousMethodDelegate3'
+				IL_001a: brtrue.s IL_002d
+
+				IL_001c: ldnull
+				IL_001d: ldftn string Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::'<Test>b__2'()
+				IL_0023: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+				IL_0028: stsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::'<>9__CachedAnonymousMethodDelegate3'
+
+				IL_002d: ldsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::'<>9__CachedAnonymousMethodDelegate3'
+				IL_0032: stind.ref
+				IL_0033: ldc.i4.0
+				IL_0034: ret
+
+				IL_0035: ldc.i4.1
+				IL_0036: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x343c21
+				// Header size: 1
+				// Code size: 38 (0x26)
+				.maxstack 8
+
+				IL_0000: ldstr "TombType"
+				IL_0005: ldarg.0
+				IL_0006: ldfld valuetype Sims3.Gameplay.Controllers.TombType Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::TombType
+				IL_000b: box Sims3.Gameplay.Controllers.TombType
+				IL_0010: callvirt instance string [mscorlib]System.Object::ToString()
+				IL_0015: call string [mscorlib]System.String::Concat(string, string)
+				IL_001a: ldc.i4.0
+				IL_001b: newarr [mscorlib]System.Object
+				IL_0020: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_0025: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x343c48
+				// Header size: 12
+				// Code size: 88 (0x58)
+				.maxstack 4
+				.locals init (
+					[0] valuetype Sims3.Gameplay.Controllers.TombType,
+					[1] class Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition,
+					[2] class [mscorlib]System.Collections.IEnumerator,
+					[3] class [mscorlib]System.IDisposable
+				)
+
+				IL_0000: ldtoken Sims3.Gameplay.Controllers.TombType
+				IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+				IL_000a: call class [mscorlib]System.Array [mscorlib]System.Enum::GetValues(class [mscorlib]System.Type)
+				IL_000f: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Array::GetEnumerator()
+				IL_0014: stloc.2
+				.try
+				{
+					IL_0015: br.s IL_003c
+					// loop start (head: IL_003c)
+						IL_0017: ldloc.2
+						IL_0018: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+						IL_001d: unbox.any Sims3.Gameplay.Controllers.TombType
+						IL_0022: stloc.0
+						IL_0023: ldloc.0
+						IL_0024: ldc.i4.5
+						IL_0025: beq.s IL_003c
+
+						IL_0027: ldloc.0
+						IL_0028: newobj instance void Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::.ctor(valuetype Sims3.Gameplay.Controllers.TombType)
+						IL_002d: stloc.1
+						IL_002e: ldarg.s results
+						IL_0030: ldloc.1
+						IL_0031: ldarg.3
+						IL_0032: newobj instance void Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class Sims3.Gameplay.Interactions.InteractionDefinition, class Sims3.Gameplay.Interfaces.IGameObject)
+						IL_0037: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+
+						IL_003c: ldloc.2
+						IL_003d: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+						IL_0042: brtrue.s IL_0017
+					// end loop
+
+					IL_0044: leave.s IL_0057
+				} // end .try
+				finally
+				{
+					IL_0046: ldloc.2
+					IL_0047: isinst [mscorlib]System.IDisposable
+					IL_004c: stloc.3
+					IL_004d: ldloc.3
+					IL_004e: brfalse.s IL_0056
+
+					IL_0050: ldloc.3
+					IL_0051: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+					IL_0056: endfinally
+				} // end handler
+
+				IL_0057: ret
+			} // end of method Definition::AddInteractions
+
+			.method public hidebysig virtual 
+				instance string[] GetPath (
+					bool isFemale
+				) cil managed 
+			{
+				// Method begins at RVA 0x343cbc
+				// Header size: 12
+				// Code size: 28 (0x1c)
+				.maxstack 4
+				.locals init (
+					[0] string[]
+				)
+
+				IL_0000: ldc.i4.1
+				IL_0001: newarr [mscorlib]System.String
+				IL_0006: stloc.0
+				IL_0007: ldloc.0
+				IL_0008: ldc.i4.0
+				IL_0009: ldstr "TombTypePathName"
+				IL_000e: ldc.i4.0
+				IL_000f: newarr [mscorlib]System.Object
+				IL_0014: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_0019: stelem.ref
+				IL_001a: ldloc.0
+				IL_001b: ret
+			} // end of method Definition::GetPath
+
+			.method private hidebysig static 
+				string '<Test>b__2' () cil managed 
+			{
+				.custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = (
+					01 00 00 00
+				)
+				// Method begins at RVA 0x343bd7
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "AlreadySelectedTooltip"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::'<Test>b__2'
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x343b7c
+			// Header size: 12
+			// Code size: 36 (0x24)
+			.maxstack 2
+			.locals init (
+				[0] valuetype Sims3.Gameplay.Controllers.TombType
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Interactions.InteractionInstance::get_InteractionDefinition()
+			IL_0006: isinst Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition
+			IL_000b: ldfld valuetype Sims3.Gameplay.Controllers.TombType Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::TombType
+			IL_0010: stloc.0
+			IL_0011: ldarg.0
+			IL_0012: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_0017: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+			IL_001c: ldloc.0
+			IL_001d: stfld valuetype Sims3.Gameplay.Controllers.TombType Sims3.Gameplay.Controllers.TombRoomInfo::TombType
+			IL_0022: ldc.i4.1
+			IL_0023: ret
+		} // end of method SetTombType::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x343bb8
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::.ctor()
+			IL_0006: ret
+		} // end of method SetTombType::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x343bac
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombRoomMarker/SetTombType/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/SetTombType::Singleton
+			IL_000a: ret
+		} // end of method SetTombType::.cctor
+
+	} // end of class SetTombType
+
+	.class nested private auto ansi sealed beforefieldinit ShowConflictingMarkers
+		extends class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/ShowConflictingMarkers>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x343d23
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x343d26
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "InteractionName"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombRoomMarker/ShowConflictingMarkers::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::GetInteractionName
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x343d38
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/ShowConflictingMarkers>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombRoomMarker/ShowConflictingMarkers"
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x343ce4
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombRoomMarker/ShowConflictingMarkers:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method ShowConflictingMarkers::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x343cf7
+			// Header size: 1
+			// Code size: 23 (0x17)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_0006: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+			IL_000b: callvirt instance class Sims3.Gameplay.Controllers.TombRoomManager Sims3.Gameplay.Core.Lot::get_TombRoomManager()
+			IL_0010: callvirt instance void Sims3.Gameplay.Controllers.TombRoomManager::CheckForAndDrawConflictingTombRoomMarkers()
+			IL_0015: ldc.i4.1
+			IL_0016: ret
+		} // end of method ShowConflictingMarkers::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x343d1b
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombRoomMarker>::.ctor()
+			IL_0006: ret
+		} // end of method ShowConflictingMarkers::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x343d0f
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombRoomMarker/ShowConflictingMarkers/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/ShowConflictingMarkers::Singleton
+			IL_000a: ret
+		} // end of method ShowConflictingMarkers::.cctor
+
+	} // end of class ShowConflictingMarkers
+
+	.class nested private auto ansi sealed beforefieldinit SetAsFinalRoom
+		extends class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombRoomMarker>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/SetAsFinalRoom>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x343dd3
+				// Header size: 1
+				// Code size: 57 (0x39)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+				IL_0006: callvirt instance bool Sims3.Gameplay.Controllers.TombRoomInfo::get_IsFinalRoom()
+				IL_000b: brfalse.s IL_001e
+
+				IL_000d: ldstr "UnsetFinalRoom"
+				IL_0012: ldc.i4.0
+				IL_0013: newarr [mscorlib]System.Object
+				IL_0018: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_001d: ret
+
+				IL_001e: ldstr "SetFinalRoom"
+				IL_0023: ldc.i4.0
+				IL_0024: newarr [mscorlib]System.Object
+				IL_0029: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+				IL_002e: call string Sims3.Gameplay.Utilities.Localization::get_Ellipsis()
+				IL_0033: call string [mscorlib]System.String::Concat(string, string)
+				IL_0038: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombRoomMarker target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x343e0d
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x343e10
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombRoomMarker, class Sims3.Gameplay.Objects.TombRoomMarker/SetAsFinalRoom>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x343d40
+			// Header size: 12
+			// Code size: 115 (0x73)
+			.maxstack 5
+			.locals init (
+				[0] string
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_0006: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+			IL_000b: callvirt instance bool Sims3.Gameplay.Controllers.TombRoomInfo::get_IsFinalRoom()
+			IL_0010: brfalse.s IL_0025
+
+			IL_0012: ldarg.0
+			IL_0013: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_0018: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+			IL_001d: ldc.i4.0
+			IL_001e: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetFinalRoom(bool)
+			IL_0023: br.s IL_0071
+
+			IL_0025: ldarg.0
+			IL_0026: callvirt instance string Sims3.Gameplay.Interactions.InteractionInstance::GetInteractionName()
+			IL_002b: ldstr "SetFinalRoomDialogPrompt"
+			IL_0030: ldc.i4.0
+			IL_0031: newarr [mscorlib]System.Object
+			IL_0036: call string Sims3.Gameplay.Objects.TombRoomMarker::LocalizeString(string, object[])
+			IL_003b: ldarg.0
+			IL_003c: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_0041: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+			IL_0046: callvirt instance string Sims3.Gameplay.Controllers.TombRoomInfo::get_TnsText()
+			IL_004b: ldc.i4.0
+			IL_004c: ldc.i4 512
+			IL_0051: call string [UI]Sims3.UI.StringInputDialog::Show(string, string, string, bool, int32)
+			IL_0056: stloc.0
+			IL_0057: ldloc.0
+			IL_0058: call bool [mscorlib]System.String::IsNullOrEmpty(string)
+			IL_005d: brtrue.s IL_0071
+
+			IL_005f: ldarg.0
+			IL_0060: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombRoomMarker>::Target
+			IL_0065: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+			IL_006a: ldc.i4.1
+			IL_006b: ldloc.0
+			IL_006c: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetFinalRoom(bool, string)
+
+			IL_0071: ldc.i4.1
+			IL_0072: ret
+		} // end of method SetAsFinalRoom::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x343dcb
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombRoomMarker>::.ctor()
+			IL_0006: ret
+		} // end of method SetAsFinalRoom::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x343dbf
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombRoomMarker/SetAsFinalRoom/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/SetAsFinalRoom::Singleton
+			IL_000a: ret
+		} // end of method SetAsFinalRoom::.cctor
+
+	} // end of class SetAsFinalRoom
+
+
+	// Fields
+	.field private static literal string sLocalizationKey = "Gameplay/Objects/TombRoomMarker"
+	.field family static literal string kWorldBuilderSystemName = "TombRoomMarker"
+	.field public class Sims3.Gameplay.Controllers.TombRoomInfo TombRoomInfo
+
+	// Methods
+	.method private hidebysig static 
+		string LocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x343513
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldstr "Gameplay/Objects/TombRoomMarker:"
+		IL_0005: ldarg.0
+		IL_0006: call string [mscorlib]System.String::Concat(string, string)
+		IL_000b: ldarg.1
+		IL_000c: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0011: ret
+	} // end of method TombRoomMarker::LocalizeString
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x343526
+		// Header size: 1
+		// Code size: 30 (0x1e)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: newobj instance void Sims3.Gameplay.Controllers.TombRoomInfo::.ctor()
+		IL_0006: stfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_000b: ldarg.0
+		IL_000c: call instance void Sims3.Gameplay.Abstracts.GameObject::.ctor()
+		IL_0011: ldarg.0
+		IL_0012: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_0017: ldarg.0
+		IL_0018: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetOwner(class Sims3.Gameplay.Objects.TombRoomMarker)
+		IL_001d: ret
+	} // end of method TombRoomMarker::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnCreation () cil managed 
+	{
+		// Method begins at RVA 0x343545
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.GameObject::OnCreation()
+		IL_0006: ldarg.0
+		IL_0007: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_000c: ldarg.0
+		IL_000d: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetOwner(class Sims3.Gameplay.Objects.TombRoomMarker)
+		IL_0012: ret
+	} // end of method TombRoomMarker::OnCreation
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x343559
+		// Header size: 1
+		// Code size: 39 (0x27)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.GameObject::OnStartup()
+		IL_0006: ldarg.0
+		IL_0007: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000c: call bool [SimIFace]Sims3.SimIFace.Objects::IsValid(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0011: brfalse.s IL_0019
+
+		IL_0013: ldarg.0
+		IL_0014: callvirt instance void Sims3.Gameplay.Objects.TombRoomMarker::SetFlagsAndSeed()
+
+		IL_0019: ldarg.0
+		IL_001a: ldc.i4.0
+		IL_001b: newarr [mscorlib]System.Object
+		IL_0020: call instance bool Sims3.Gameplay.Abstracts.GameObject::AddComponent<class Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_0025: pop
+		IL_0026: ret
+	} // end of method TombRoomMarker::OnStartup
+
+	.method family hidebysig newslot virtual 
+		instance void SetFlagsAndSeed () cil managed 
+	{
+		// Method begins at RVA 0x343581
+		// Header size: 1
+		// Code size: 35 (0x23)
+		.maxstack 8
+
+		IL_0000: call bool Sims3.Gameplay.GameStates::get_IsBuildBuyLikeState()
+		IL_0005: brfalse.s IL_000f
+
+		IL_0007: ldarg.0
+		IL_0008: ldc.i4.2
+		IL_0009: call instance void Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_000e: ret
+
+		IL_000f: ldarg.0
+		IL_0010: ldc.i4.m1
+		IL_0011: call instance void Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0016: ldarg.0
+		IL_0017: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_001c: ldc.i4.1
+		IL_001d: call void [SimIFace]Sims3.SimIFace.World::SetRoomMarkerSeed(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.RoomMarkerTypes)
+		IL_0022: ret
+	} // end of method TombRoomMarker::SetFlagsAndSeed
+
+	.method family hidebysig virtual 
+		instance void AddDebugInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition> debugInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x3435a5
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void Sims3.Gameplay.Abstracts.GameObject::AddDebugInteractions(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0007: ldarg.1
+		IL_0008: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog::Singleton
+		IL_000d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0012: ret
+	} // end of method TombRoomMarker::AddDebugInteractions
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x3435b9
+		// Header size: 1
+		// Code size: 63 (0x3f)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void Sims3.Gameplay.Abstracts.GameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0007: ldarg.1
+		IL_0008: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/ToggleFog::Singleton
+		IL_000d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0012: ldarg.1
+		IL_0013: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/ResetFogForCurrentHousehold::Singleton
+		IL_0018: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_001d: ldarg.1
+		IL_001e: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/ShowConflictingMarkers::Singleton
+		IL_0023: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0028: ldarg.1
+		IL_0029: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/SetTombType::Singleton
+		IL_002e: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0033: ldarg.1
+		IL_0034: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombRoomMarker/SetAsFinalRoom::Singleton
+		IL_0039: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_003e: ret
+	} // end of method TombRoomMarker::AddBuildBuyInteractions
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x3435f9
+		// Header size: 1
+		// Code size: 25 (0x19)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_0006: ldarg.1
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: callvirt instance bool Sims3.Gameplay.Controllers.TombRoomInfo::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_000e: pop
+		IL_000f: ldarg.0
+		IL_0010: ldarg.1
+		IL_0011: ldarg.2
+		IL_0012: ldarg.3
+		IL_0013: call instance bool Sims3.Gameplay.Abstracts.GameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0018: ret
+	} // end of method TombRoomMarker::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x343613
+		// Header size: 1
+		// Code size: 43 (0x2b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_0006: ldarg.1
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: callvirt instance bool Sims3.Gameplay.Controllers.TombRoomInfo::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_000e: pop
+		IL_000f: ldarg.0
+		IL_0010: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_0015: ldarg.0
+		IL_0016: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetOwner(class Sims3.Gameplay.Objects.TombRoomMarker)
+		IL_001b: ldarg.0
+		IL_001c: callvirt instance void Sims3.Gameplay.Objects.TombRoomMarker::SetFlagsAndSeed()
+		IL_0021: ldarg.0
+		IL_0022: ldarg.1
+		IL_0023: ldarg.2
+		IL_0024: ldarg.3
+		IL_0025: call instance bool Sims3.Gameplay.Abstracts.GameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_002a: ret
+	} // end of method TombRoomMarker::ImportContent
+
+	.method public hidebysig newslot virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x34363f
+		// Header size: 1
+		// Code size: 29 (0x1d)
+		.maxstack 8
+
+		IL_0000: ldstr "TombRoomMarker"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "TombRoomInfo"
+		IL_0010: ldarg.0
+		IL_0011: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_0016: ldnull
+		IL_0017: call void Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<class Sims3.Gameplay.Controllers.TombRoomInfo>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_001c: ret
+	} // end of method TombRoomMarker::SaveWorldBuilderData
+
+	.method public hidebysig newslot virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x34365d
+		// Header size: 1
+		// Code size: 41 (0x29)
+		.maxstack 8
+
+		IL_0000: ldstr "TombRoomMarker"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "TombRoomInfo"
+		IL_0010: ldarg.0
+		IL_0011: ldflda class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_0016: call bool Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<class Sims3.Gameplay.Controllers.TombRoomInfo>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_001b: pop
+		IL_001c: ldarg.0
+		IL_001d: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_0022: ldarg.0
+		IL_0023: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetOwner(class Sims3.Gameplay.Objects.TombRoomMarker)
+		IL_0028: ret
+	} // end of method TombRoomMarker::LoadWorldBuilderData
+
+	.method public final hidebysig newslot virtual 
+		instance void OnAddTombObjectComponent (
+			class Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x343687
+		// Header size: 1
+		// Code size: 24 (0x18)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4 145381143
+		IL_0006: ldarg.0
+		IL_0007: ldftn instance bool Sims3.Gameplay.Objects.TombRoomMarker::UnfogRoom(class Sims3.Gameplay.Actors.Sim)
+		IL_000d: newobj instance void Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0012: callvirt instance void Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0017: ret
+	} // end of method TombRoomMarker::OnAddTombObjectComponent
+
+	.method public final hidebysig newslot virtual 
+		instance void OnEnterBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x3436a0
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombRoomMarker::UpdateVisualState()
+		IL_0006: ret
+	} // end of method TombRoomMarker::OnEnterBuildBuyMode
+
+	.method public final hidebysig newslot virtual 
+		instance void OnExitBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x3436a8
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombRoomMarker::UpdateVisualState()
+		IL_0006: ret
+	} // end of method TombRoomMarker::OnExitBuildBuyMode
+
+	.method public hidebysig 
+		instance bool UnfogRoom (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x3436b0
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+		IL_0005: brfalse.s IL_0026
+
+		IL_0007: ldarg.0
+		IL_0008: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_000d: callvirt instance class Sims3.Gameplay.Controllers.TombRoomManager Sims3.Gameplay.Core.Lot::get_TombRoomManager()
+		IL_0012: brfalse.s IL_0026
+
+		IL_0014: ldarg.0
+		IL_0015: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_001a: callvirt instance class Sims3.Gameplay.Controllers.TombRoomManager Sims3.Gameplay.Core.Lot::get_TombRoomManager()
+		IL_001f: ldarg.0
+		IL_0020: callvirt instance bool Sims3.Gameplay.Controllers.TombRoomManager::UnfogRoomContainingObject(class Sims3.Gameplay.Interfaces.IGameObject)
+		IL_0025: ret
+
+		IL_0026: ldc.i4.0
+		IL_0027: ret
+	} // end of method TombRoomMarker::UnfogRoom
+
+	.method public hidebysig virtual 
+		instance void OnHandToolPlacement () cil managed 
+	{
+		// Method begins at RVA 0x3436d9
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: ldc.i4.1
+		IL_0007: call void [SimIFace]Sims3.SimIFace.World::SetRoomMarkerSeed(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.RoomMarkerTypes)
+		IL_000c: ret
+	} // end of method TombRoomMarker::OnHandToolPlacement
+
+	.method public hidebysig virtual 
+		instance void OnHandToolPickup (
+			valuetype [SimIFace]Sims3.SimIFace.ePickupTypeHandTool pickupType
+		) cil managed 
+	{
+		// Method begins at RVA 0x3436e7
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: ldc.i4.1
+		IL_0007: call void [SimIFace]Sims3.SimIFace.World::ClearRoomMarkerSeed(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.RoomMarkerTypes)
+		IL_000c: ret
+	} // end of method TombRoomMarker::OnHandToolPickup
+
+	.method public hidebysig virtual 
+		instance void OnHandToolDeleted () cil managed 
+	{
+		// Method begins at RVA 0x3436f5
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: ldc.i4.1
+		IL_0007: call void [SimIFace]Sims3.SimIFace.World::ClearRoomMarkerSeed(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.RoomMarkerTypes)
+		IL_000c: ret
+	} // end of method TombRoomMarker::OnHandToolDeleted
+
+	.method private hidebysig 
+		instance void UpdateVisualState () cil managed 
+	{
+		// Method begins at RVA 0x343703
+		// Header size: 1
+		// Code size: 31 (0x1f)
+		.maxstack 8
+
+		IL_0000: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_NextInWorldStateId()
+		IL_0005: ldc.i4.1
+		IL_0006: beq.s IL_0010
+
+		IL_0008: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_NextInWorldStateId()
+		IL_000d: ldc.i4.2
+		IL_000e: bne.un.s IL_0017
+
+		IL_0010: ldarg.0
+		IL_0011: callvirt instance void Sims3.Gameplay.Objects.TombRoomMarker::UpdateVisibilityForBuildBuy()
+		IL_0016: ret
+
+		IL_0017: ldarg.0
+		IL_0018: ldc.i4.m1
+		IL_0019: call instance void Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_001e: ret
+	} // end of method TombRoomMarker::UpdateVisualState
+
+	.method public hidebysig newslot virtual 
+		instance void UpdateVisibilityForBuildBuy () cil managed 
+	{
+		// Method begins at RVA 0x343723
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.2
+		IL_0002: call instance void Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0007: ret
+	} // end of method TombRoomMarker::UpdateVisibilityForBuildBuy
+
+	.method public final hidebysig newslot virtual 
+		instance void PersistPostLoad () cil managed 
+	{
+		// Method begins at RVA 0x34372c
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Controllers.TombRoomInfo Sims3.Gameplay.Objects.TombRoomMarker::TombRoomInfo
+		IL_0006: ldarg.0
+		IL_0007: callvirt instance void Sims3.Gameplay.Controllers.TombRoomInfo::SetOwner(class Sims3.Gameplay.Objects.TombRoomMarker)
+		IL_000c: ret
+	} // end of method TombRoomMarker::PersistPostLoad
+
+} // end of class Sims3.Gameplay.Objects.TombRoomMarker

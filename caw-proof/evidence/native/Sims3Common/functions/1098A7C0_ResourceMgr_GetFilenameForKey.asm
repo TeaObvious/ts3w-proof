@@ -1,0 +1,54 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 1098a7c0..1098a84c; ResourceMgr_GetFilenameForKey
+1098a7c0: 83ec30  SUB ESP,0x30
+1098a7c3: 8b442434  MOV EAX,dword ptr [ESP + 0x34]
+1098a7c7: 8b08  MOV ECX,dword ptr [EAX]
+1098a7c9: 8b5004  MOV EDX,dword ptr [EAX + 0x4]
+1098a7cc: 894c2408  MOV dword ptr [ESP + 0x8],ECX
+1098a7d0: 8b4808  MOV ECX,dword ptr [EAX + 0x8]
+1098a7d3: 8954240c  MOV dword ptr [ESP + 0xc],EDX
+1098a7d7: 8b500c  MOV EDX,dword ptr [EAX + 0xc]
+1098a7da: 8d0424  LEA EAX,[ESP]
+1098a7dd: 890c24  MOV dword ptr [ESP],ECX
+1098a7e0: 50  PUSH EAX
+1098a7e1: 8d4c2424  LEA ECX,[ESP + 0x24]
+1098a7e5: 51  PUSH ECX
+1098a7e6: 8954240c  MOV dword ptr [ESP + 0xc],EDX
+1098a7ea: e8a11ec4ff  CALL 0x105cc690
+1098a7ef: 50  PUSH EAX
+1098a7f0: 8d54241c  LEA EDX,[ESP + 0x1c]
+1098a7f4: 52  PUSH EDX
+1098a7f5: e8f6c6f9ff  CALL 0x10926ef0
+1098a7fa: 8b4c2438  MOV ECX,dword ptr [ESP + 0x38]
+1098a7fe: 8b442430  MOV EAX,dword ptr [ESP + 0x30]
+1098a802: 2bc8  SUB ECX,EAX
+1098a804: 83c410  ADD ESP,0x10
+1098a807: 83f901  CMP ECX,0x1
+1098a80a: 7e0d  JLE 0x1098a819
+1098a80c: 85c0  TEST EAX,EAX
+1098a80e: 7409  JZ 0x1098a819
+1098a810: 50  PUSH EAX
+1098a811: e87ae6f8ff  CALL 0x10918e90
+1098a816: 83c404  ADD ESP,0x4
+1098a819: 8b542410  MOV EDX,dword ptr [ESP + 0x10]
+1098a81d: 56  PUSH ESI
+1098a81e: 52  PUSH EDX
+1098a81f: ff15c4b6aa10  CALL dword ptr [0x10aab6c4]
+1098a825: 8b4c241c  MOV ECX,dword ptr [ESP + 0x1c]
+1098a829: 8bf0  MOV ESI,EAX
+1098a82b: 8b442414  MOV EAX,dword ptr [ESP + 0x14]
+1098a82f: 2bc8  SUB ECX,EAX
+1098a831: 83e1fe  AND ECX,0xfffffffe
+1098a834: 83f902  CMP ECX,0x2
+1098a837: 7e0d  JLE 0x1098a846
+1098a839: 85c0  TEST EAX,EAX
+1098a83b: 7409  JZ 0x1098a846
+1098a83d: 50  PUSH EAX
+1098a83e: e84de6f8ff  CALL 0x10918e90
+1098a843: 83c404  ADD ESP,0x4
+1098a846: 8bc6  MOV EAX,ESI
+1098a848: 5e  POP ESI
+1098a849: 83c430  ADD ESP,0x30
+1098a84c: c3  RET

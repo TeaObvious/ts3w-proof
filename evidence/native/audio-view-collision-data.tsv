@@ -1,0 +1,18 @@
+address	bytes	original_hex	meaning
+00f998f8	4	0000803f	binary32 +1.0: identity, range comparisons and SSE arithmetic
+00f9b5b4	4	0000003f	binary32 +0.5 used in SSE normalization refinement
+00fab218	4	000080bf	binary32 -1.0 used in vector/quaternion arithmetic
+0102a7a4	4	00008037	binary32 2^-16: filtered-query direction component tolerance
+0106e6ec	4	0ad7233c	binary32 0.009999999776482582: advance past rejected hit
+00ff0e68	4	00000034	binary32 2^-23: lower-three absolute segment component gate
+00ff0c50	4	caf24971	binary32 bits0x7149F2CA: initial collision distance about1e30
+01065d80	4	f304b53f	binary32 sqrt2 approximation in quaternion-to-matrix rows
+011b0670	16	00000000000000000000000000000000	Original16-byte zero vector referenced by selected SSE paths
+00686f50	24	236f6800296f68002f6f6800356f6800416f68003b6f6800	Six little-endian targets for query codes11..16; target order distinguishes codes15/16
+00b99244	120	7c8ab900458ab900d489b900ea8ab900b38ab9000b8ab900928bb900cc8bb900068cb9000d8cb900478cb900bb8cb900818cb900f58cb900b991b900b991b9002f8db900a78db900de8db9004c8eb900158eb900838eb900bd8eb900f78eb9006b8fb900318fb900a58fb9001d90b9009590b9000d91b900	Thirty original little-endian roof-constructor switch targets; constructors remain child boundaries
+00f99948	4	0000804f	binary32 2^32 referenced in signed/unsigned conversion paths
+0103fd88	4	00000040	binary32 +2.0 referenced by selected roof geometry arithmetic
+010f4ccc	4	00000000	Original binary32 zero referenced by selected paths
+01070bb4	4	db0f49bf	Original binary32 bits0xBF490FDB referenced by roof creation
+01070bb8	31	4c6f7452656e64657265722f526f6f66436f6c6c6973696f6e536861706500	Original allocation label LotRenderer/RoofCollisionShape with NUL
+01070ea4	32	4c6f742f526f6f664d616e616765722f4372656174696e674e6577526f6f6600	Original allocation label Lot/RoofManager/CreatingNewRoof with NUL

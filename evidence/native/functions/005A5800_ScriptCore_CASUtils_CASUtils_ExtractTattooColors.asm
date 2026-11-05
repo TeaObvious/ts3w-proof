@@ -1,0 +1,33 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x005a5800 (ScriptCore.CASUtils::CASUtils_ExtractTattooColors)
+Paired Ghidra pseudocode: 005A5800_ScriptCore_CASUtils_CASUtils_ExtractTattooColors.c
+Window: [0x005a5800, 0x005a5810) (16 bytes; stop exclusive)
+Next defined Ghidra entry: 0x005a5810
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+005a5800: e9 3b 16 05 00 cc cc cc cc cc cc cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+005a5800 <.text+0x1a4800>:
+  5a5800:	e9 3b 16 05 00                                  	jmp    0x5f6e40
+  5a5805:	cc                                              	int3
+  5a5806:	cc                                              	int3
+  5a5807:	cc                                              	int3
+  5a5808:	cc                                              	int3
+  5a5809:	cc                                              	int3
+  5a580a:	cc                                              	int3
+  5a580b:	cc                                              	int3
+  5a580c:	cc                                              	int3
+  5a580d:	cc                                              	int3
+  5a580e:	cc                                              	int3
+  5a580f:	cc                                              	int3

@@ -1,0 +1,131 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 actual Ghidra-owned Listing; analyst-assigned name XmlCursor_OnStartElement
+Owned ranges: [[00471470, 004714b9] [004714c0, 004715bd]]
+Signature: void __cdecl XmlCursor_OnStartElement(void * cursor, ushort * name, ushort * * attributes)
+Physical ABI: cdecl stack+4 userData(cursor),+8 UTF16 lexical name,+C NUL-ended UTF16 name/value pointer array; void; plain RET.
+
+00471470  55  PUSH EBP
+00471471  8b6c2408  MOV EBP,dword ptr [ESP + 0x8]
+00471475  8b4520  MOV EAX,dword ptr [EBP + 0x20]
+00471478  2b4524  SUB EAX,dword ptr [EBP + 0x24]
+0047147b  56  PUSH ESI
+0047147c  83e830  SUB EAX,0x30
+0047147f  57  PUSH EDI
+00471480  8d7d18  LEA EDI,[EBP + 0x18]
+00471483  790d  JNS 0x00471492
+00471485  6a30  PUSH 0x30
+00471487  8bcf  MOV ECX,EDI
+00471489  e8f2760700  CALL 0x004e8b80
+0047148e  84c0  TEST AL,AL
+00471490  7419  JZ 0x004714ab
+00471492  8b770c  MOV ESI,dword ptr [EDI + 0xc]
+00471495  85f6  TEST ESI,ESI
+00471497  8d4630  LEA EAX,[ESI + 0x30]
+0047149a  89470c  MOV dword ptr [EDI + 0xc],EAX
+0047149d  894710  MOV dword ptr [EDI + 0x10],EAX
+004714a0  7409  JZ 0x004714ab
+004714a2  c7460401000000  MOV dword ptr [ESI + 0x4],0x1 ; Create token-kind1; owned body excludes six bytes714BA..714BF.
+004714a9  eb02  JMP 0x004714ad
+004714ab  33f6  XOR ESI,ESI
+004714ad  8b442418  MOV EAX,dword ptr [ESP + 0x18]
+004714b1  53  PUSH EBX
+004714b2  33db  XOR EBX,EBX
+004714b4  3918  CMP dword ptr [EAX],EBX
+004714b6  7411  JZ 0x004714c9
+004714b8  eb06  JMP 0x004714c0
+004714c0  83c301  ADD EBX,0x1
+004714c3  833c9800  CMP dword ptr [EAX + EBX*0x4],0x0
+004714c7  75f7  JNZ 0x004714c0
+004714c9  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+004714cd  8bc3  MOV EAX,EBX
+004714cf  99  CDQ
+004714d0  2bc2  SUB EAX,EDX
+004714d2  d1f8  SAR EAX,0x1
+004714d4  51  PUSH ECX
+004714d5  8bcd  MOV ECX,EBP
+004714d7  894628  MOV dword ptr [ESI + 0x28],EAX
+004714da  e891feffff  CALL 0x00471370 ; Copy callback name unchanged through CopyUtf16ToArena.
+004714df  33c9  XOR ECX,ECX
+004714e1  894608  MOV dword ptr [ESI + 0x8],EAX ; Store returned raw name at token+8. Namespace prefixes are retained by the selected non-namespace parser path.
+004714e4  8bc3  MOV EAX,EBX
+004714e6  ba04000000  MOV EDX,0x4
+004714eb  f7e2  MUL EDX
+004714ed  0f90c1  SETO CL
+004714f0  c7460c00000000  MOV dword ptr [ESI + 0xc],0x0
+004714f7  f7d9  NEG ECX
+004714f9  0bc8  OR ECX,EAX
+004714fb  83c107  ADD ECX,0x7
+004714fe  83e1f8  AND ECX,0xfffffff8
+00471501  8bc1  MOV EAX,ECX
+00471503  8b4f08  MOV ECX,dword ptr [EDI + 0x8]
+00471506  2b4f0c  SUB ECX,dword ptr [EDI + 0xc]
+00471509  89442414  MOV dword ptr [ESP + 0x14],EAX
+0047150d  2bc8  SUB ECX,EAX
+0047150f  7914  JNS 0x00471525
+00471511  50  PUSH EAX
+00471512  8bcf  MOV ECX,EDI
+00471514  e867760700  CALL 0x004e8b80
+00471519  84c0  TEST AL,AL
+0047151b  7504  JNZ 0x00471521
+0047151d  33c9  XOR ECX,ECX
+0047151f  eb0f  JMP 0x00471530
+00471521  8b442414  MOV EAX,dword ptr [ESP + 0x14]
+00471525  8b4f0c  MOV ECX,dword ptr [EDI + 0xc]
+00471528  03c1  ADD EAX,ECX
+0047152a  89470c  MOV dword ptr [EDI + 0xc],EAX
+0047152d  894710  MOV dword ptr [EDI + 0x10],EAX
+00471530  33ff  XOR EDI,EDI
+00471532  85db  TEST EBX,EBX
+00471534  894e24  MOV dword ptr [ESI + 0x24],ECX
+00471537  7e23  JLE 0x0047155c
+00471539  8da42400000000  LEA ESP,[ESP]
+00471540  8b54241c  MOV EDX,dword ptr [ESP + 0x1c]
+00471544  8b04ba  MOV EAX,dword ptr [EDX + EDI*0x4]
+00471547  50  PUSH EAX
+00471548  8bcd  MOV ECX,EBP
+0047154a  e821feffff  CALL 0x00471370 ; Copy all delivered attribute name/value strings without interpreting them.
+0047154f  8b4e24  MOV ECX,dword ptr [ESI + 0x24]
+00471552  8904b9  MOV dword ptr [ECX + EDI*0x4],EAX
+00471555  83c701  ADD EDI,0x1
+00471558  3bfb  CMP EDI,EBX
+0047155a  7ce4  JL 0x00471540
+0047155c  c70600000000  MOV dword ptr [ESI],0x0
+00471562  8b5500  MOV EDX,dword ptr [EBP]
+00471565  52  PUSH EDX
+00471566  e845850400  CALL 0x004b9ab0
+0047156b  894614  MOV dword ptr [ESI + 0x14],EAX
+0047156e  8b4500  MOV EAX,dword ptr [EBP]
+00471571  50  PUSH EAX
+00471572  e889850400  CALL 0x004b9b00
+00471577  894618  MOV dword ptr [ESI + 0x18],EAX
+0047157a  8b4d00  MOV ECX,dword ptr [EBP]
+0047157d  51  PUSH ECX
+0047157e  e8ed840400  CALL 0x004b9a70
+00471583  89461c  MOV dword ptr [ESI + 0x1c],EAX
+00471586  8b5500  MOV EDX,dword ptr [EBP]
+00471589  52  PUSH EDX
+0047158a  e801850400  CALL 0x004b9a90
+0047158f  894620  MOV dword ptr [ESI + 0x20],EAX
+00471592  8b450c  MOV EAX,dword ptr [EBP + 0xc]
+00471595  894610  MOV dword ptr [ESI + 0x10],EAX
+00471598  8b4544  MOV EAX,dword ptr [EBP + 0x44]
+0047159b  83c410  ADD ESP,0x10
+0047159e  85c0  TEST EAX,EAX
+004715a0  5b  POP EBX
+004715a1  740d  JZ 0x004715b0
+004715a3  8930  MOV dword ptr [EAX],ESI ; Append new token to cursor tail; empty queue instead sets both head and tail.
+004715a5  83450c01  ADD dword ptr [EBP + 0xc],0x1
+004715a9  5f  POP EDI
+004715aa  897544  MOV dword ptr [EBP + 0x44],ESI
+004715ad  5e  POP ESI
+004715ae  5d  POP EBP
+004715af  c3  RET
+004715b0  83450c01  ADD dword ptr [EBP + 0xc],0x1
+004715b4  5f  POP EDI
+004715b5  897540  MOV dword ptr [EBP + 0x40],ESI
+004715b8  897544  MOV dword ptr [EBP + 0x44],ESI
+004715bb  5e  POP ESI
+004715bc  5d  POP EBP
+004715bd  c3  RET

@@ -1,0 +1,62 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined1 StreamContext_ReadResourceKeyVector(void * this, void * param_1)
+Owned ranges: [[007d9930, 007d99ad]]
+
+007d9930  51  PUSH ECX
+007d9931  53  PUSH EBX
+007d9932  55  PUSH EBP
+007d9933  56  PUSH ESI
+007d9934  8b742414  MOV ESI,dword ptr [ESP + 0x14]
+007d9938  8b4610  MOV EAX,dword ptr [ESI + 0x10]
+007d993b  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+007d993e  8be9  MOV EBP,ECX
+007d9940  50  PUSH EAX
+007d9941  8d4c2410  LEA ECX,[ESP + 0x10]
+007d9945  51  PUSH ECX
+007d9946  33db  XOR EBX,EBX
+007d9948  52  PUSH EDX
+007d9949  895c2418  MOV dword ptr [ESP + 0x18],EBX
+007d994d  e82e40d0ff  CALL 0x004dd980
+007d9952  83c40c  ADD ESP,0xc
+007d9955  204614  AND byte ptr [ESI + 0x14],AL
+007d9958  744b  JZ 0x007d99a5
+007d995a  8b44240c  MOV EAX,dword ptr [ESP + 0xc]
+007d995e  6a10  PUSH 0x10
+007d9960  50  PUSH EAX
+007d9961  8bce  MOV ECX,ESI
+007d9963  e898e0ffff  CALL 0x007d7a00
+007d9968  84c0  TEST AL,AL
+007d996a  7439  JZ 0x007d99a5
+007d996c  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+007d9970  57  PUSH EDI
+007d9971  51  PUSH ECX
+007d9972  8bcd  MOV ECX,EBP
+007d9974  e827fffbff  CALL 0x007998a0
+007d9979  33ff  XOR EDI,EDI
+007d997b  395c2410  CMP dword ptr [ESP + 0x10],EBX
+007d997f  7619  JBE 0x007d999a
+007d9981  8b5500  MOV EDX,dword ptr [EBP]
+007d9984  03d3  ADD EDX,EBX
+007d9986  52  PUSH EDX
+007d9987  8bce  MOV ECX,ESI
+007d9989  e882ebd8ff  CALL 0x00568510
+007d998e  83c701  ADD EDI,0x1
+007d9991  83c310  ADD EBX,0x10
+007d9994  3b7c2410  CMP EDI,dword ptr [ESP + 0x10]
+007d9998  72e7  JC 0x007d9981
+007d999a  8a4614  MOV AL,byte ptr [ESI + 0x14]
+007d999d  5f  POP EDI
+007d999e  5e  POP ESI
+007d999f  5d  POP EBP
+007d99a0  5b  POP EBX
+007d99a1  59  POP ECX
+007d99a2  c20400  RET 0x4
+007d99a5  5e  POP ESI
+007d99a6  5d  POP EBP
+007d99a7  32c0  XOR AL,AL
+007d99a9  5b  POP EBX
+007d99aa  59  POP ECX
+007d99ab  c20400  RET 0x4

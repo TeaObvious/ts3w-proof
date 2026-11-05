@@ -1,0 +1,985 @@
+.class public auto ansi beforefieldinit Sims3.Gameplay.Objects.TombObjects.WallLampLever
+	extends Sims3.Gameplay.Objects.Lighting.LightWallTorch
+	implements [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData
+{
+	// Nested Types
+	.class nested private auto ansi sealed beforefieldinit Inspect
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever, class Sims3.Gameplay.Objects.TombObjects.WallLampLever/Inspect>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.WallLampLever target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x273c7b
+				// Header size: 1
+				// Code size: 10 (0xa)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+				IL_0006: ldc.i4.0
+				IL_0007: ceq
+				IL_0009: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x273c86
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever, class Sims3.Gameplay.Objects.TombObjects.WallLampLever/Inspect>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method public hidebysig virtual 
+			instance void ConfigureInteraction () cil managed 
+		{
+			// Method begins at RVA 0x273aec
+			// Header size: 12
+			// Code size: 50 (0x32)
+			.maxstack 6
+			.locals init (
+				[0] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.TimedStage,
+				[1] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Stage[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::GetInteractionName()
+			IL_0006: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.WallLampLever::kInspectTime
+			IL_000b: ldc.i4.0
+			IL_000c: ldc.i4.1
+			IL_000d: ldc.i4.1
+			IL_000e: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.TimedStage::.ctor(string, float32, bool, bool, bool)
+			IL_0013: stloc.0
+			IL_0014: ldarg.0
+			IL_0015: ldc.i4.1
+			IL_0016: newarr [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Stage
+			IL_001b: stloc.1
+			IL_001c: ldloc.1
+			IL_001d: ldc.i4.0
+			IL_001e: ldloc.0
+			IL_001f: stelem.ref
+			IL_0020: ldloc.1
+			IL_0021: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Stage>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+			IL_0026: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::set_Stages(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Stage>)
+			IL_002b: ldarg.0
+			IL_002c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::ConfigureInteraction()
+			IL_0031: ret
+		} // end of method Inspect::ConfigureInteraction
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x273b2c
+			// Header size: 12
+			// Code size: 303 (0x12f)
+			.maxstack 6
+			.locals init (
+				[0] bool,
+				[1] string,
+				[2] class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance,
+				[3] object[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Actor
+			IL_000c: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::RouteToLever(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0011: brtrue.s IL_0015
+
+			IL_0013: ldc.i4.0
+			IL_0014: ret
+
+			IL_0015: ldarg.0
+			IL_0016: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_001b: ldarg.0
+			IL_001c: ldstr "WallLampLever"
+			IL_0021: ldstr "Enter"
+			IL_0026: ldstr "x"
+			IL_002b: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_0030: ldarg.0
+			IL_0031: ldstr "lamp"
+			IL_0036: ldarg.0
+			IL_0037: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_003c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_0041: ldarg.0
+			IL_0042: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StartStages()
+			IL_0047: ldarg.0
+			IL_0048: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_004d: ldarg.0
+			IL_004e: ldstr "InspectLoop"
+			IL_0053: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0058: ldarg.0
+			IL_0059: ldc.i4 -5652481 // 0xffa9bfff
+			IL_005e: call instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::DoLoop(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_0063: stloc.0
+			IL_0064: ldloc.0
+			IL_0065: brfalse IL_0115
+
+			IL_006a: ldarg.0
+			IL_006b: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_0070: ldc.i4.1
+			IL_0071: stfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+			IL_0076: ldarg.0
+			IL_0077: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_007c: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+			IL_0081: brfalse.s IL_00d2
+
+			IL_0083: ldarg.0
+			IL_0084: ldstr "FoundLever"
+			IL_0089: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_008e: ldstr "InspectLeverFound"
+			IL_0093: stloc.1
+			IL_0094: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/PullLever::Singleton
+			IL_0099: ldarg.0
+			IL_009a: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_009f: ldarg.0
+			IL_00a0: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Actor
+			IL_00a5: ldarg.0
+			IL_00a6: call instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionPriority [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::GetPriority()
+			IL_00ab: ldarg.0
+			IL_00ac: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_Autonomous()
+			IL_00b1: ldarg.0
+			IL_00b2: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_CancellableByPlayer()
+			IL_00b7: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstance(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+			IL_00bc: stloc.2
+			IL_00bd: ldarg.0
+			IL_00be: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Actor
+			IL_00c3: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.InteractionQueue [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+			IL_00c8: ldloc.2
+			IL_00c9: ldc.i4.0
+			IL_00ca: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.InteractionQueue::PushAsContinuation(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance, bool)
+			IL_00cf: pop
+			IL_00d0: br.s IL_00d8
+
+			IL_00d2: ldstr "InspectNoLever"
+			IL_00d7: stloc.1
+
+			IL_00d8: ldarg.0
+			IL_00d9: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Actor
+			IL_00de: ldloc.1
+			IL_00df: ldc.i4.2
+			IL_00e0: newarr [mscorlib]System.Object
+			IL_00e5: stloc.3
+			IL_00e6: ldloc.3
+			IL_00e7: ldc.i4.0
+			IL_00e8: ldarg.0
+			IL_00e9: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Actor
+			IL_00ee: stelem.ref
+			IL_00ef: ldloc.3
+			IL_00f0: ldc.i4.1
+			IL_00f1: ldarg.0
+			IL_00f2: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_00f7: stelem.ref
+			IL_00f8: ldloc.3
+			IL_00f9: call string Sims3.Gameplay.Objects.TombObjects.WallLampLever::LeverLocalizeString(string, object[])
+			IL_00fe: ldc.i4.3
+			IL_00ff: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+			IL_0104: ldarg.0
+			IL_0105: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Actor
+			IL_010a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_010f: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0114: pop
+
+			IL_0115: ldarg.0
+			IL_0116: ldloc.0
+			IL_0117: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_011c: ldarg.0
+			IL_011d: ldstr "Exit"
+			IL_0122: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0127: ldarg.0
+			IL_0128: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_012d: ldloc.0
+			IL_012e: ret
+		} // end of method Inspect::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x273c73
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::.ctor()
+			IL_0006: ret
+		} // end of method Inspect::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x273c67
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.WallLampLever/Inspect/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/Inspect::Singleton
+			IL_000a: ret
+		} // end of method Inspect::.cctor
+
+	} // end of class Inspect
+
+	.class nested private auto ansi sealed beforefieldinit PullLever
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever, class Sims3.Gameplay.Objects.TombObjects.WallLampLever/PullLever>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.WallLampLever target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x273d41
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+				IL_0006: brfalse.s IL_000f
+
+				IL_0008: ldarg.2
+				IL_0009: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+				IL_000e: ret
+
+				IL_000f: ldc.i4.0
+				IL_0010: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x273d53
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever, class Sims3.Gameplay.Objects.TombObjects.WallLampLever/PullLever>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x273c90
+			// Header size: 12
+			// Code size: 145 (0x91)
+			.maxstack 4
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Actor
+			IL_000c: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::RouteToLever(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0011: brtrue.s IL_0015
+
+			IL_0013: ldc.i4.0
+			IL_0014: ret
+
+			IL_0015: ldarg.0
+			IL_0016: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_001b: ldarg.0
+			IL_001c: ldstr "WallLampLever"
+			IL_0021: ldstr "Enter"
+			IL_0026: ldstr "x"
+			IL_002b: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_0030: ldarg.0
+			IL_0031: ldstr "lamp"
+			IL_0036: ldarg.0
+			IL_0037: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_003c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_0041: ldarg.0
+			IL_0042: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_0047: ldarg.0
+			IL_0048: ldstr "Pull"
+			IL_004d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0052: ldarg.0
+			IL_0053: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_0058: ldc.i4.1
+			IL_0059: stfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenPulled
+			IL_005e: ldarg.0
+			IL_005f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_0064: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_0069: ldc.i4.s 9
+			IL_006b: ldarg.0
+			IL_006c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Actor
+			IL_0071: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0076: pop
+			IL_0077: ldarg.0
+			IL_0078: ldc.i4.1
+			IL_0079: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_007e: ldarg.0
+			IL_007f: ldstr "Exit"
+			IL_0084: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0089: ldarg.0
+			IL_008a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_008f: ldc.i4.1
+			IL_0090: ret
+		} // end of method PullLever::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x273d39
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::.ctor()
+			IL_0006: ret
+		} // end of method PullLever::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x273d2d
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.WallLampLever/PullLever/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/PullLever::Singleton
+			IL_000a: ret
+		} // end of method PullLever::.cctor
+
+	} // end of class PullLever
+
+	.class nested private auto ansi sealed beforefieldinit SetIsLever
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever, class Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetIsLever>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x273d8b
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever, class Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetIsLever>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombObjects.WallLampLever target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x273d94
+				// Header size: 12
+				// Code size: 34 (0x22)
+				.maxstack 2
+				.locals init (
+					[0] string
+				)
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+				IL_0006: brtrue.s IL_000f
+
+				IL_0008: ldstr "SetLeverTrue"
+				IL_000d: br.s IL_0014
+
+				IL_000f: ldstr "SetLeverFalse"
+
+				IL_0014: stloc.0
+				IL_0015: ldloc.0
+				IL_0016: ldc.i4.0
+				IL_0017: newarr [mscorlib]System.Object
+				IL_001c: call string Sims3.Gameplay.Objects.TombObjects.WallLampLever::LeverLocalizeString(string, object[])
+				IL_0021: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombObjects.WallLampLever target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x273dc2
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x273d5b
+			// Header size: 1
+			// Code size: 27 (0x1b)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_000c: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+			IL_0011: ldc.i4.0
+			IL_0012: ceq
+			IL_0014: stfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+			IL_0019: ldc.i4.1
+			IL_001a: ret
+		} // end of method SetIsLever::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x273d83
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::.ctor()
+			IL_0006: ret
+		} // end of method SetIsLever::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x273d77
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetIsLever/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetIsLever::Singleton
+			IL_000a: ret
+		} // end of method SetIsLever::.cctor
+
+	} // end of class SetIsLever
+
+	.class nested private auto ansi sealed beforefieldinit SetInspected
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever, class Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetInspected>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x273df5
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever, class Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetInspected>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombObjects.WallLampLever target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x273e00
+				// Header size: 12
+				// Code size: 34 (0x22)
+				.maxstack 2
+				.locals init (
+					[0] string
+				)
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+				IL_0006: brtrue.s IL_000f
+
+				IL_0008: ldstr "SetInspected"
+				IL_000d: br.s IL_0014
+
+				IL_000f: ldstr "ClearInspected"
+
+				IL_0014: stloc.0
+				IL_0015: ldloc.0
+				IL_0016: ldc.i4.0
+				IL_0017: newarr [mscorlib]System.Object
+				IL_001c: call string Sims3.Gameplay.Objects.TombObjects.WallLampLever::LeverLocalizeString(string, object[])
+				IL_0021: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombObjects.WallLampLever target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x273e2e
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x273dc5
+			// Header size: 1
+			// Code size: 27 (0x1b)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::Target
+			IL_000c: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+			IL_0011: ldc.i4.0
+			IL_0012: ceq
+			IL_0014: stfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+			IL_0019: ldc.i4.1
+			IL_001a: ret
+		} // end of method SetInspected::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x273ded
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.WallLampLever>::.ctor()
+			IL_0006: ret
+		} // end of method SetInspected::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x273de1
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetInspected/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetInspected::Singleton
+			IL_000a: ret
+		} // end of method SetInspected::.cctor
+
+	} // end of class SetInspected
+
+
+	// Fields
+	.field private static literal uint32 kHasBeenInspected = uint32(144857090)
+	.field private static literal uint32 kIsLever = uint32(144857096)
+	.field private static literal uint32 kHasBeenPulled = uint32(144857103)
+	.field private static initonly string sLocalizationKey
+	.field private bool mHasBeenInspected
+	.field private bool mIsLever
+	.field private bool mHasBeenPulled
+	.field private static initonly float32 kInspectTime
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 56 4e 75 6d 62 65 72 20 6f 66 20 53 69 6d
+		20 6d 69 6e 75 74 65 73 20 61 20 53 69 6d 20 69
+		6e 73 70 65 63 74 73 20 61 20 77 61 6c 6c 20 6c
+		61 6d 70 20 62 65 66 6f 72 65 20 64 69 73 63 6f
+		76 65 72 69 6e 67 20 69 66 20 69 74 20 69 73 20
+		70 75 6c 6c 61 62 6c 65 2e 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.field private static initonly string[] kWorldBuilderDataKeyRemap
+
+	// Methods
+	.method private hidebysig static 
+		string LeverLocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x2738a3
+		// Header size: 1
+		// Code size: 23 (0x17)
+		.maxstack 8
+
+		IL_0000: ldsfld string Sims3.Gameplay.Objects.TombObjects.WallLampLever::sLocalizationKey
+		IL_0005: ldstr ":"
+		IL_000a: ldarg.0
+		IL_000b: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_0010: ldarg.1
+		IL_0011: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0016: ret
+	} // end of method WallLampLever::LeverLocalizeString
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x2738bb
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+		IL_0007: ldarg.0
+		IL_0008: call instance void Sims3.Gameplay.Objects.Lighting.LightWallTorch::.ctor()
+		IL_000d: ret
+	} // end of method WallLampLever::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x2738ca
+		// Header size: 1
+		// Code size: 55 (0x37)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.LightGameObject::OnStartup()
+		IL_0006: ldarg.0
+		IL_0007: ldc.i4.0
+		IL_0008: newarr [mscorlib]System.Object
+		IL_000d: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent>(object[])
+		IL_0012: pop
+		IL_0013: ldarg.0
+		IL_0014: ldc.i4.0
+		IL_0015: newarr [mscorlib]System.Object
+		IL_001a: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_001f: pop
+		IL_0020: ldarg.0
+		IL_0021: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/Inspect::Singleton
+		IL_0026: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition)
+		IL_002b: ldarg.0
+		IL_002c: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/PullLever::Singleton
+		IL_0031: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition)
+		IL_0036: ret
+	} // end of method WallLampLever::OnStartup
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x273902
+		// Header size: 1
+		// Code size: 30 (0x1e)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetIsLever::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.1
+		IL_000c: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.WallLampLever/SetInspected::Singleton
+		IL_0011: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0016: ldarg.0
+		IL_0017: ldarg.1
+		IL_0018: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.LightGameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_001d: ret
+	} // end of method WallLampLever::AddBuildBuyInteractions
+
+	.method public hidebysig virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x273921
+		// Header size: 1
+		// Code size: 16 (0x10)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4.s 9
+		IL_0003: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0008: ldarg.0
+		IL_0009: ldarg.1
+		IL_000a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.LightGameObject::OnAddTombObjectComponent(class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent)
+		IL_000f: ret
+	} // end of method WallLampLever::OnAddTombObjectComponent
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x273934
+		// Header size: 12
+		// Code size: 64 (0x40)
+		.maxstack 4
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 144857090
+		IL_0006: ldarg.0
+		IL_0007: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+		IL_000c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0011: pop
+		IL_0012: ldarg.3
+		IL_0013: ldc.i4 144857096
+		IL_0018: ldarg.0
+		IL_0019: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+		IL_001e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0023: pop
+		IL_0024: ldarg.3
+		IL_0025: ldc.i4 144857103
+		IL_002a: ldarg.0
+		IL_002b: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenPulled
+		IL_0030: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0035: pop
+		IL_0036: ldarg.0
+		IL_0037: ldarg.1
+		IL_0038: ldarg.2
+		IL_0039: ldarg.3
+		IL_003a: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.LightGameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_003f: ret
+	} // end of method WallLampLever::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x273980
+		// Header size: 12
+		// Code size: 67 (0x43)
+		.maxstack 4
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 144857090
+		IL_0006: ldarg.0
+		IL_0007: ldflda bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+		IL_000c: ldc.i4.0
+		IL_000d: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_0012: pop
+		IL_0013: ldarg.3
+		IL_0014: ldc.i4 144857096
+		IL_0019: ldarg.0
+		IL_001a: ldflda bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+		IL_001f: ldc.i4.0
+		IL_0020: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_0025: pop
+		IL_0026: ldarg.3
+		IL_0027: ldc.i4 144857103
+		IL_002c: ldarg.0
+		IL_002d: ldflda bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenPulled
+		IL_0032: ldc.i4.0
+		IL_0033: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_0038: pop
+		IL_0039: ldarg.0
+		IL_003a: ldarg.1
+		IL_003b: ldarg.2
+		IL_003c: ldarg.3
+		IL_003d: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.LightGameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0042: ret
+	} // end of method WallLampLever::ImportContent
+
+	.method public hidebysig virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x2739cf
+		// Header size: 1
+		// Code size: 63 (0x3f)
+		.maxstack 8
+
+		IL_0000: ldstr "LightGameObject"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "IsLever"
+		IL_0010: ldarg.0
+		IL_0011: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+		IL_0016: ldc.i4.0
+		IL_0017: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_001c: ldstr "LightGameObject"
+		IL_0021: ldarg.0
+		IL_0022: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0027: ldstr "Inspected"
+		IL_002c: ldarg.0
+		IL_002d: ldfld bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+		IL_0032: ldc.i4.1
+		IL_0033: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0038: ldarg.0
+		IL_0039: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.LightGameObject::SaveWorldBuilderData()
+		IL_003e: ret
+	} // end of method WallLampLever::SaveWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x273a10
+		// Header size: 12
+		// Code size: 73 (0x49)
+		.maxstack 4
+
+		IL_0000: ldsfld string[] Sims3.Gameplay.Objects.TombObjects.WallLampLever::kWorldBuilderDataKeyRemap
+		IL_0005: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::SetKeyRemap(string[])
+		IL_000a: ldstr "LightGameObject"
+		IL_000f: ldarg.0
+		IL_0010: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0015: ldstr "IsLever"
+		IL_001a: ldarg.0
+		IL_001b: ldflda bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mIsLever
+		IL_0020: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0025: pop
+		IL_0026: ldstr "LightGameObject"
+		IL_002b: ldarg.0
+		IL_002c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0031: ldstr "Inspected"
+		IL_0036: ldarg.0
+		IL_0037: ldflda bool Sims3.Gameplay.Objects.TombObjects.WallLampLever::mHasBeenInspected
+		IL_003c: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0041: pop
+		IL_0042: ldarg.0
+		IL_0043: call instance void Sims3.Gameplay.Objects.Lighting.LightWallTorch::LoadWorldBuilderData()
+		IL_0048: ret
+	} // end of method WallLampLever::LoadWorldBuilderData
+
+	.method private hidebysig 
+		instance bool RouteToLever (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x273a65
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.0
+		IL_0002: ldc.i4 824351308
+		IL_0007: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::RouteToSlotAndCheckInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_000c: ret
+	} // end of method WallLampLever::RouteToLever
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x273a74
+		// Header size: 12
+		// Code size: 107 (0x6b)
+		.maxstack 3
+		.locals init (
+			[0] string[],
+			[1] uint32,
+			[2] uint32
+		)
+
+		IL_0000: ldstr "Sims3.Gameplay.Objects.TombObjects"
+		IL_0005: ldc.i4.6
+		IL_0006: callvirt instance string [mscorlib]System.String::Substring(int32)
+		IL_000b: ldc.i4.s 46
+		IL_000d: ldc.i4.s 47
+		IL_000f: callvirt instance string [mscorlib]System.String::Replace(char, char)
+		IL_0014: ldstr "/WallLampLever"
+		IL_0019: call string [mscorlib]System.String::Concat(string, string)
+		IL_001e: stsfld string Sims3.Gameplay.Objects.TombObjects.WallLampLever::sLocalizationKey
+		IL_0023: ldc.r4 5
+		IL_0028: stsfld float32 Sims3.Gameplay.Objects.TombObjects.WallLampLever::kInspectTime
+		IL_002d: ldc.i4.4
+		IL_002e: newarr [mscorlib]System.String
+		IL_0033: stloc.0
+		IL_0034: ldloc.0
+		IL_0035: ldc.i4.0
+		IL_0036: ldc.i4 144857096
+		IL_003b: stloc.1
+		IL_003c: ldloca.s 1
+		IL_003e: call instance string [mscorlib]System.UInt32::ToString()
+		IL_0043: stelem.ref
+		IL_0044: ldloc.0
+		IL_0045: ldc.i4.1
+		IL_0046: ldstr "IsLever"
+		IL_004b: stelem.ref
+		IL_004c: ldloc.0
+		IL_004d: ldc.i4.2
+		IL_004e: ldc.i4 144857090
+		IL_0053: stloc.2
+		IL_0054: ldloca.s 2
+		IL_0056: call instance string [mscorlib]System.UInt32::ToString()
+		IL_005b: stelem.ref
+		IL_005c: ldloc.0
+		IL_005d: ldc.i4.3
+		IL_005e: ldstr "Inspected"
+		IL_0063: stelem.ref
+		IL_0064: ldloc.0
+		IL_0065: stsfld string[] Sims3.Gameplay.Objects.TombObjects.WallLampLever::kWorldBuilderDataKeyRemap
+		IL_006a: ret
+	} // end of method WallLampLever::.cctor
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.WallLampLever

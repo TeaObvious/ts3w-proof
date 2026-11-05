@@ -1,0 +1,64 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00996080 <.text+0x595080>:
+  996080:	83 ec 1c             	sub    esp,0x1c
+  996083:	e8 08 33 dd ff       	call   0x769390
+  996088:	85 c0                	test   eax,eax
+  99608a:	74 75                	je     0x996101
+  99608c:	56                   	push   esi
+  99608d:	8b 35 a4 a6 1e 01    	mov    esi,DWORD PTR ds:0x11ea6a4
+  996093:	57                   	push   edi
+  996094:	8b 3d f8 c4 1e 01    	mov    edi,DWORD PTR ds:0x11ec4f8
+  99609a:	8b ce                	mov    ecx,esi
+  99609c:	e8 df b8 00 00       	call   0x9a1980
+  9960a1:	8d 44 24 08          	lea    eax,[esp+0x8]
+  9960a5:	50                   	push   eax
+  9960a6:	8b ce                	mov    ecx,esi
+  9960a8:	c7 44 24 0c 00 00 00 	mov    DWORD PTR [esp+0xc],0x0
+  9960af:	00 
+  9960b0:	e8 2b b9 00 00       	call   0x9a19e0
+  9960b5:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+  9960b9:	85 c0                	test   eax,eax
+  9960bb:	74 42                	je     0x9960ff
+  9960bd:	6a 01                	push   0x1
+  9960bf:	50                   	push   eax
+  9960c0:	8d 4c 24 14          	lea    ecx,[esp+0x14]
+  9960c4:	e8 57 18 e4 ff       	call   0x7d7920
+  9960c9:	8b 54 24 2c          	mov    edx,DWORD PTR [esp+0x2c]
+  9960cd:	8b 44 24 28          	mov    eax,DWORD PTR [esp+0x28]
+  9960d1:	6a 00                	push   0x0
+  9960d3:	6a 00                	push   0x0
+  9960d5:	8d 4c 24 14          	lea    ecx,[esp+0x14]
+  9960d9:	51                   	push   ecx
+  9960da:	52                   	push   edx
+  9960db:	50                   	push   eax
+  9960dc:	8b cf                	mov    ecx,edi
+  9960de:	e8 9d ed 13 00       	call   0xad4e80
+  9960e3:	8d 4c 24 0c          	lea    ecx,[esp+0xc]
+  9960e7:	e8 a4 18 e4 ff       	call   0x7d7990
+  9960ec:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+  9960f0:	85 c0                	test   eax,eax
+  9960f2:	74 0b                	je     0x9960ff
+  9960f4:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+  9960f7:	8d 48 04             	lea    ecx,[eax+0x4]
+  9960fa:	8b 42 04             	mov    eax,DWORD PTR [edx+0x4]
+  9960fd:	ff d0                	call   eax
+  9960ff:	5f                   	pop    edi
+  996100:	5e                   	pop    esi
+  996101:	83 c4 1c             	add    esp,0x1c
+  996104:	c3                   	ret
+  996105:	cc                   	int3
+  996106:	cc                   	int3
+  996107:	cc                   	int3
+  996108:	cc                   	int3
+  996109:	cc                   	int3
+  99610a:	cc                   	int3
+  99610b:	cc                   	int3
+  99610c:	cc                   	int3
+  99610d:	cc                   	int3
+  99610e:	cc                   	int3
+  99610f:	cc                   	int3

@@ -1,0 +1,90 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: ResourceKeyMap_InsertUnique
+Paired actual annotated Ghidra pseudocode: 00700890_ResourceKeyMap_InsertUnique.c
+Owned ranges: [[00700890, 00700957]]
+Envelope bytes=200
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+00700890  83ec08  SUB ESP,0x8
+00700893  53  PUSH EBX
+00700894  55  PUSH EBP
+00700895  8b6c2418  MOV EBP,dword ptr [ESP + 0x18]
+00700899  56  PUSH ESI
+0070089a  57  PUSH EDI
+0070089b  8b7d0c  MOV EDI,dword ptr [EBP + 0xc]
+0070089e  337d00  XOR EDI,dword ptr [EBP]
+007008a1  8bf1  MOV ESI,ECX
+007008a3  8b4e08  MOV ECX,dword ptr [ESI + 0x8]
+007008a6  33d2  XOR EDX,EDX
+007008a8  8bc7  MOV EAX,EDI
+007008aa  f7f1  DIV ECX
+007008ac  8b4604  MOV EAX,dword ptr [ESI + 0x4]
+007008af  57  PUSH EDI
+007008b0  55  PUSH EBP
+007008b1  8bda  MOV EBX,EDX
+007008b3  8b0c98  MOV ECX,dword ptr [EAX + EBX*0x4]
+007008b6  8d0498  LEA EAX,[EAX + EBX*0x4]
+007008b9  51  PUSH ECX
+007008ba  8bce  MOV ECX,ESI
+007008bc  8944242c  MOV dword ptr [ESP + 0x2c],EAX
+007008c0  e84b201b00  CALL 0x008b2910
+007008c5  85c0  TEST EAX,EAX
+007008c7  7572  JNZ 0x0070093b
+007008c9  8b560c  MOV EDX,dword ptr [ESI + 0xc]
+007008cc  8b4608  MOV EAX,dword ptr [ESI + 0x8]
+007008cf  6a01  PUSH 0x1
+007008d1  52  PUSH EDX
+007008d2  50  PUSH EAX
+007008d3  8d44241c  LEA EAX,[ESP + 0x1c]
+007008d7  50  PUSH EAX
+007008d8  8d4e10  LEA ECX,[ESI + 0x10]
+007008db  e8e005deff  CALL 0x004e0ec0
+007008e0  55  PUSH EBP
+007008e1  8bce  MOV ECX,ESI
+007008e3  e8f8232800  CALL 0x00982ce0
+007008e8  807c241000  CMP byte ptr [ESP + 0x10],0x0
+007008ed  8be8  MOV EBP,EAX
+007008ef  7414  JZ 0x00700905
+007008f1  8b4c2414  MOV ECX,dword ptr [ESP + 0x14]
+007008f5  33d2  XOR EDX,EDX
+007008f7  8bc7  MOV EAX,EDI
+007008f9  f7f1  DIV ECX
+007008fb  51  PUSH ECX
+007008fc  8bce  MOV ECX,ESI
+007008fe  8bda  MOV EBX,EDX
+00700900  e8cbd4ffff  CALL 0x006fddd0
+00700905  8b5604  MOV EDX,dword ptr [ESI + 0x4]
+00700908  8d0c9d00000000  LEA ECX,[EBX*0x4 + 0x0]
+0070090f  8b0411  MOV EAX,dword ptr [ECX + EDX*0x1]
+00700912  894518  MOV dword ptr [EBP + 0x18],EAX
+00700915  8b5604  MOV EDX,dword ptr [ESI + 0x4]
+00700918  8b44241c  MOV EAX,dword ptr [ESP + 0x1c]
+0070091c  892c11  MOV dword ptr [ECX + EDX*0x1],EBP
+0070091f  83460c01  ADD dword ptr [ESI + 0xc],0x1
+00700923  8b5604  MOV EDX,dword ptr [ESI + 0x4]
+00700926  5f  POP EDI
+00700927  5e  POP ESI
+00700928  8928  MOV dword ptr [EAX],EBP
+0070092a  03d1  ADD EDX,ECX
+0070092c  5d  POP EBP
+0070092d  895004  MOV dword ptr [EAX + 0x4],EDX
+00700930  c6400801  MOV byte ptr [EAX + 0x8],0x1
+00700934  5b  POP EBX
+00700935  83c408  ADD ESP,0x8
+00700938  c20c00  RET 0xc
+0070093b  8b4c241c  MOV ECX,dword ptr [ESP + 0x1c]
+0070093f  5f  POP EDI
+00700940  8901  MOV dword ptr [ECX],EAX
+00700942  8b44241c  MOV EAX,dword ptr [ESP + 0x1c]
+00700946  5e  POP ESI
+00700947  5d  POP EBP
+00700948  894104  MOV dword ptr [ECX + 0x4],EAX
+0070094b  c6410800  MOV byte ptr [ECX + 0x8],0x0
+0070094f  8bc1  MOV EAX,ECX
+00700951  5b  POP EBX
+00700952  83c408  ADD ESP,0x8
+00700955  c20c00  RET 0xc
+Owned instructions=79 owned bytes=200 gap/nonowned bytes=0

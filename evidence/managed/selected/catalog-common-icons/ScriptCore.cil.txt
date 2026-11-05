@@ -1,0 +1,39 @@
+Module MVID da71f9d5-3a90-44c6-8f98-5bafd2fca18a
+Original PC1.67 ScriptCore SHA256 1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115
+Metadata token=06000dfc flags=2091 implflags=0080 rawSignature=000d091181550b08091181d5021181b91181bd090909021181d1
+EXTERN 06000dfc ScriptCore.UIManager::UIManager_GetThumbnailImageImpl RVA0; no CIL body
+Metadata token=06000e6d flags=01e6 implflags=0000 rawSignature=2002091181c909
+
+06000e6d ScriptCore.UIManager::GetThumbnailImage RVA=00011a1c bytes=96 maxStack=13 flags=3003 localSignature=00000000
+Raw complete method header 03300d006000000000000000
+Raw complete CIL 0f017b5900000a0f017c5a00000a281700000a0f017b5b00000a0f017b3d02000a0f017b5c00000a0f017b3e02000a0f017b5d00000a0f017b5e00000a0f017bb300000a0f017bb400000a040f017b3f02000a0f017b4002000a28fc0d00062a
+ IL_0000: 0f01                 ldarga.s 01
+ IL_0002: 7b5900000a           ldfld 5900000a mDescKey
+ IL_0007: 0f01                 ldarga.s 01
+ IL_0009: 7c5a00000a           ldflda 5a00000a mTemplateObjectId
+ IL_000e: 281700000a           call 1700000a get_Value
+ IL_0013: 0f01                 ldarga.s 01
+ IL_0015: 7b5b00000a           ldfld 5b00000a mIndex
+ IL_001a: 0f01                 ldarga.s 01
+ IL_001c: 7b3d02000a           ldfld 3d02000a mAgeGender
+ IL_0021: 0f01                 ldarga.s 01
+ IL_0023: 7b5c00000a           ldfld 5c00000a mSize
+ IL_0028: 0f01                 ldarga.s 01
+ IL_002a: 7b3e02000a           ldfld 3e02000a mLiveUpdate
+ IL_002f: 0f01                 ldarga.s 01
+ IL_0031: 7b5d00000a           ldfld 5d00000a mCamera
+ IL_0036: 0f01                 ldarga.s 01
+ IL_0038: 7b5e00000a           ldfld 5e00000a mTechnique
+ IL_003d: 0f01                 ldarga.s 01
+ IL_003f: 7bb300000a           ldfld b300000a mGeometryState
+ IL_0044: 0f01                 ldarga.s 01
+ IL_0046: 7bb400000a           ldfld b400000a mMaterialState
+ IL_004b: 04                   ldarg.2
+ IL_004c: 0f01                 ldarga.s 01
+ IL_004e: 7b3f02000a           ldfld 3f02000a mDoNotCache
+ IL_0053: 0f01                 ldarga.s 01
+ IL_0055: 7b4002000a           ldfld 4002000a mAdditionalSizesToCache
+ IL_005a: 28fc0d0006           call fc0d0006 UIManager_GetThumbnailImageImpl
+ IL_005f: 2a                   ret
+
+SELECTED complete_methods=1 CIL_bytes=96

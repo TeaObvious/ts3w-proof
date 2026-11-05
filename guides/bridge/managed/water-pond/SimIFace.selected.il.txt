@@ -1,0 +1,153 @@
+
+.method 0x06000405 Sims3.SimIFace.PondInfo::.cctor RVA=0x9006 signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":0,"return_type":"void","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ldsflda        0x04000678 ; Sims3.SimIFace.PondInfo::Invalid
+ IL_0005: initobj        0x020000c4
+ IL_000b: ret             ;
+
+.bodyless 0x06000412 Sims3.SimIFace.IWorld::GetSeaLevel {"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":0,"return_type":"r4","parameter_types":[],"field_type":null,"issue":null}
+
+.bodyless 0x06000413 Sims3.SimIFace.IWorld::GetPondLevel {"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":3,"return_type":"bool","parameter_types":["r4","r4","r4&"],"field_type":null,"issue":null}
+
+.bodyless 0x06000473 Sims3.SimIFace.IWorld::FindPondRepresentativePositions {"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":2,"return_type":"bool","parameter_types":["u8","r4[]&"],"field_type":null,"issue":null}
+
+.bodyless 0x06000474 Sims3.SimIFace.IWorld::GetAllPondIds {"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":2,"return_type":"bool","parameter_types":["u8","u4[]&"],"field_type":null,"issue":null}
+
+.bodyless 0x06000475 Sims3.SimIFace.IWorld::GetPondInfo {"raw_length":9,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":3,"return_type":"bool","parameter_types":["u4","u8","valuetype:784&"],"field_type":null,"issue":null}
+
+.bodyless 0x06000476 Sims3.SimIFace.IWorld::GetPondAtPoint {"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":2,"return_type":"u4","parameter_types":["u8","valuetype:340"],"field_type":null,"issue":null}
+
+.bodyless 0x06000477 Sims3.SimIFace.IWorld::GetNumPonds {"raw_length":4,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":1,"return_type":"u4","parameter_types":["u8"],"field_type":null,"issue":null}
+
+.method 0x06000617 Sims3.SimIFace.World::GetSeaLevel RVA=0xa4b6 signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":0,"return_type":"r4","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_0005: callvirt       0x06000412 ; Sims3.SimIFace.IWorld::GetSeaLevel
+ IL_000a: ret             ;
+
+.method 0x06000618 Sims3.SimIFace.World::GetPondLevel RVA=0xa4c2 signature={"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":3,"return_type":"bool","parameter_types":["r4","r4","r4&"],"field_type":null,"issue":null}
+ IL_0000: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_0005: ldarg.0         ;
+ IL_0006: ldarg.1         ;
+ IL_0007: ldarg.2         ;
+ IL_0008: callvirt       0x06000413 ; Sims3.SimIFace.IWorld::GetPondLevel
+ IL_000d: ret             ;
+
+.method 0x06000681 Sims3.SimIFace.World::FindPondRepresentativePositions RVA=0xb578 signature={"raw_length":9,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":2,"return_type":"bool","parameter_types":["u8","valuetype:340[]&"],"field_type":null,"issue":null}
+ IL_0000: ldc.i4.3        ;
+ IL_0001: newarr         0x0100004e
+ IL_0006: stloc.0         ;
+ IL_0007: ldarg.1         ;
+ IL_0008: ldnull          ;
+ IL_0009: stind.ref       ;
+ IL_000a: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_000f: brfalse.s      122
+ IL_0011: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_0016: ldarg.0         ;
+ IL_0017: ldloca.s       0
+ IL_0019: callvirt       0x06000473 ; Sims3.SimIFace.IWorld::FindPondRepresentativePositions
+ IL_001e: brfalse.s      122
+ IL_0020: ldarg.1         ;
+ IL_0021: ldloc.0         ;
+ IL_0022: ldlen           ;
+ IL_0023: conv.i4         ;
+ IL_0024: ldc.i4.3        ;
+ IL_0025: div             ;
+ IL_0026: newarr         0x02000055
+ IL_002b: stind.ref       ;
+ IL_002c: ldc.i4.0        ;
+ IL_002d: stloc.1         ;
+ IL_002e: br.s           110
+ IL_0030: ldarg.1         ;
+ IL_0031: ldind.ref       ;
+ IL_0032: ldloc.1         ;
+ IL_0033: ldelema        0x02000055
+ IL_0038: ldloc.0         ;
+ IL_0039: ldc.i4.3        ;
+ IL_003a: ldloc.1         ;
+ IL_003b: mul             ;
+ IL_003c: ldelem.r4       ;
+ IL_003d: stfld          0x0400024f ; Sims3.SimIFace.Vector3::x
+ IL_0042: ldarg.1         ;
+ IL_0043: ldind.ref       ;
+ IL_0044: ldloc.1         ;
+ IL_0045: ldelema        0x02000055
+ IL_004a: ldloc.0         ;
+ IL_004b: ldc.i4.3        ;
+ IL_004c: ldloc.1         ;
+ IL_004d: mul             ;
+ IL_004e: ldc.i4.1        ;
+ IL_004f: add             ;
+ IL_0050: ldelem.r4       ;
+ IL_0051: stfld          0x04000250 ; Sims3.SimIFace.Vector3::y
+ IL_0056: ldarg.1         ;
+ IL_0057: ldind.ref       ;
+ IL_0058: ldloc.1         ;
+ IL_0059: ldelema        0x02000055
+ IL_005e: ldloc.0         ;
+ IL_005f: ldc.i4.3        ;
+ IL_0060: ldloc.1         ;
+ IL_0061: mul             ;
+ IL_0062: ldc.i4.2        ;
+ IL_0063: add             ;
+ IL_0064: ldelem.r4       ;
+ IL_0065: stfld          0x04000251 ; Sims3.SimIFace.Vector3::z
+ IL_006a: ldloc.1         ;
+ IL_006b: ldc.i4.1        ;
+ IL_006c: add             ;
+ IL_006d: stloc.1         ;
+ IL_006e: ldc.i4.3        ;
+ IL_006f: ldloc.1         ;
+ IL_0070: mul             ;
+ IL_0071: ldc.i4.2        ;
+ IL_0072: add             ;
+ IL_0073: ldloc.0         ;
+ IL_0074: ldlen           ;
+ IL_0075: conv.i4         ;
+ IL_0076: blt.s          48
+ IL_0078: ldc.i4.1        ;
+ IL_0079: ret             ;
+ IL_007a: ldc.i4.0        ;
+ IL_007b: ret             ;
+
+.method 0x06000682 Sims3.SimIFace.World::GetAllPondIds RVA=0xb600 signature={"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":2,"return_type":"bool","parameter_types":["u8","u4[]&"],"field_type":null,"issue":null}
+ IL_0000: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_0005: brfalse.s      20
+ IL_0007: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_000c: ldarg.0         ;
+ IL_000d: ldarg.1         ;
+ IL_000e: callvirt       0x06000474 ; Sims3.SimIFace.IWorld::GetAllPondIds
+ IL_0013: ret             ;
+ IL_0014: ldc.i4.0        ;
+ IL_0015: ret             ;
+
+.method 0x06000683 Sims3.SimIFace.World::GetPondInfo RVA=0xb617 signature={"raw_length":9,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":3,"return_type":"bool","parameter_types":["u4","u8","valuetype:784&"],"field_type":null,"issue":null}
+ IL_0000: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_0005: brfalse.s      21
+ IL_0007: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_000c: ldarg.0         ;
+ IL_000d: ldarg.1         ;
+ IL_000e: ldarg.2         ;
+ IL_000f: callvirt       0x06000475 ; Sims3.SimIFace.IWorld::GetPondInfo
+ IL_0014: ret             ;
+ IL_0015: ldc.i4.0        ;
+ IL_0016: ret             ;
+
+.method 0x06000684 Sims3.SimIFace.World::GetPondAtPoint RVA=0xb62f signature={"raw_length":7,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":2,"return_type":"u4","parameter_types":["u8","valuetype:340"],"field_type":null,"issue":null}
+ IL_0000: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_0005: brfalse.s      20
+ IL_0007: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_000c: ldarg.0         ;
+ IL_000d: ldarg.1         ;
+ IL_000e: callvirt       0x06000476 ; Sims3.SimIFace.IWorld::GetPondAtPoint
+ IL_0013: ret             ;
+ IL_0014: ldc.i4.0        ;
+ IL_0015: ret             ;
+
+.method 0x06000685 Sims3.SimIFace.World::GetNumPonds RVA=0xb646 signature={"raw_length":4,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":1,"return_type":"u4","parameter_types":["u8"],"field_type":null,"issue":null}
+ IL_0000: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_0005: brfalse.s      19
+ IL_0007: ldsfld         0x040006b0 ; Sims3.SimIFace.World::gWorld
+ IL_000c: ldarg.0         ;
+ IL_000d: callvirt       0x06000477 ; Sims3.SimIFace.IWorld::GetNumPonds
+ IL_0012: ret             ;
+ IL_0013: ldc.i4.0        ;
+ IL_0014: ret             ;

@@ -1,0 +1,109 @@
+// Actual ILSpy rendering; static analysis, no target code executed. Native and nested/lambda dependencies remain bounded.
+using System;
+using System.Collections.Generic;
+using Sims3.SimIFace;
+using Sims3.SimIFace.CustomContent;
+
+public bool ExportContent(ResKeyTable resKeyTable, ObjectIdTable objIdTable, IPropertyStreamWriter writer)
+{
+	List<uint> items = new List<uint>(NumItemsStored);
+	ApplyFuncToAllItems((InventoryItem item) =>
+	{
+		uint num = (uint)objIdTable.AddId(item.Object.ObjectId);
+		IPropertyStreamWriter propertyStreamWriter = writer.CreateChild(num);
+		bool flag;
+		try
+		{
+			flag = item.Object.ExportContent(resKeyTable, objIdTable, propertyStreamWriter);
+		}
+		catch (Exception)
+		{
+			flag = false;
+		}
+		if (!flag)
+		{
+			objIdTable.InvalidateId(item.Object.ObjectId);
+			writer.CancelChild(num);
+		}
+		else
+		{
+			items.Add(num);
+			if (propertyStreamWriter.Count > 0)
+			{
+				writer.CommitChild();
+			}
+			else
+			{
+				writer.CancelChild(num);
+			}
+		}
+	}, stackItemsCanChange: false);
+	writer.WriteUint32(2151963051u, items.ToArray());
+	return writer.WriteInt32(141312645u, mMaxInventoryCapacity);
+}
+
+using System;
+using Sims3.Gameplay.Abstracts;
+using Sims3.Gameplay.Controllers;
+using Sims3.Gameplay.Interfaces;
+using Sims3.Gameplay.Objects;
+using Sims3.SimIFace;
+using Sims3.SimIFace.CustomContent;
+
+public bool ImportContent(ResKeyTable resKeyTable, ObjectIdTable objIdTable, IPropertyStreamReader reader)
+{
+	DestroyItems();
+	Owner.InventoryComp.InventoryUIModel.ClearInvalidItemStacks();
+	if (!reader.ReadUint32(2151963051u, out var values))
+	{
+		return false;
+	}
+	uint[] array = values;
+	foreach (uint num in array)
+	{
+		IGameObject gameObject = GameObject.GetObject<IGameObject>(objIdTable[(int)num]);
+		if (gameObject == null)
+		{
+			continue;
+		}
+		IPropertyStreamReader child = reader.GetChild(num);
+		if (child != null)
+		{
+			bool flag = true;
+			try
+			{
+				if (gameObject is Urnstone urnstone)
+				{
+					flag = urnstone.ImportContent(resKeyTable, objIdTable, child, Owner);
+				}
+				else if (gameObject is IPhoneCell)
+				{
+					if (AmountIn<IPhoneCell>() == 1)
+					{
+						flag = false;
+					}
+				}
+				else
+				{
+					flag = gameObject.ImportContent(resKeyTable, objIdTable, child);
+				}
+			}
+			catch (Exception)
+			{
+				flag = false;
+			}
+			if (!flag)
+			{
+				gameObject.Destroy();
+				continue;
+			}
+		}
+		if (!TryToAdd(gameObject, testPurge: false))
+		{
+			gameObject.Destroy();
+		}
+	}
+	reader.ReadInt32(141312645u, out mMaxInventoryCapacity, 0);
+	return true;
+}
+

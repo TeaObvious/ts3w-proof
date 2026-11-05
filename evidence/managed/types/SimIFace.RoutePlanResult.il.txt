@@ -1,0 +1,103 @@
+// Original PC 1.67 SimIFace.dll; complete original type IL and metadata.
+.class public sequential ansi sealed beforefieldinit Sims3.SimIFace.RoutePlanResult
+	extends [mscorlib]System.ValueType
+{
+	.custom instance void [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::.ctor(bool) = (
+		01 00 00 00 00
+	)
+	// Fields
+	.field public valuetype Sims3.SimIFace.RoutePlanResultType mType
+	.field public uint32 mStartSlotNameHash
+	.field public uint32 mDestinationTag
+	.field public uint32 mDestSlotNameHash
+	.field public valuetype Sims3.SimIFace.Vector3 mDestination
+	.field public float32 mDistanceTotal
+	.field public uint64 mBlockerObjectId
+	.field public valuetype Sims3.SimIFace.RouteBlockerType mBlockerType
+	.field public valuetype Sims3.SimIFace.Vector3 mBlockerLocation
+	.field public uint32 mNumCandidatePointsGenerated
+	.field public uint32 mNumAcceptedPoints
+	.field public uint32 mNumRejectedPoints
+
+	// Methods
+	.method public hidebysig 
+		instance void MergeIn (
+			valuetype Sims3.SimIFace.RoutePlanResult appendPlanResult
+		) cil managed 
+	{
+		// Method begins at RVA 0x171bc
+		// Header size: 12
+		// Code size: 108 (0x6c)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: ldarga.s appendPlanResult
+		IL_0003: ldfld valuetype Sims3.SimIFace.Vector3 Sims3.SimIFace.RoutePlanResult::mBlockerLocation
+		IL_0008: stfld valuetype Sims3.SimIFace.Vector3 Sims3.SimIFace.RoutePlanResult::mBlockerLocation
+		IL_000d: ldarg.0
+		IL_000e: ldarga.s appendPlanResult
+		IL_0010: ldfld uint64 Sims3.SimIFace.RoutePlanResult::mBlockerObjectId
+		IL_0015: stfld uint64 Sims3.SimIFace.RoutePlanResult::mBlockerObjectId
+		IL_001a: ldarg.0
+		IL_001b: ldarga.s appendPlanResult
+		IL_001d: ldfld valuetype Sims3.SimIFace.RouteBlockerType Sims3.SimIFace.RoutePlanResult::mBlockerType
+		IL_0022: stfld valuetype Sims3.SimIFace.RouteBlockerType Sims3.SimIFace.RoutePlanResult::mBlockerType
+		IL_0027: ldarg.0
+		IL_0028: ldarga.s appendPlanResult
+		IL_002a: ldfld valuetype Sims3.SimIFace.Vector3 Sims3.SimIFace.RoutePlanResult::mDestination
+		IL_002f: stfld valuetype Sims3.SimIFace.Vector3 Sims3.SimIFace.RoutePlanResult::mDestination
+		IL_0034: ldarg.0
+		IL_0035: ldarga.s appendPlanResult
+		IL_0037: ldfld uint32 Sims3.SimIFace.RoutePlanResult::mDestSlotNameHash
+		IL_003c: stfld uint32 Sims3.SimIFace.RoutePlanResult::mDestSlotNameHash
+		IL_0041: ldarg.0
+		IL_0042: ldarg.0
+		IL_0043: ldfld float32 Sims3.SimIFace.RoutePlanResult::mDistanceTotal
+		IL_0048: ldarga.s appendPlanResult
+		IL_004a: ldfld float32 Sims3.SimIFace.RoutePlanResult::mDistanceTotal
+		IL_004f: add
+		IL_0050: stfld float32 Sims3.SimIFace.RoutePlanResult::mDistanceTotal
+		IL_0055: ldarg.0
+		IL_0056: ldfld valuetype Sims3.SimIFace.RoutePlanResultType Sims3.SimIFace.RoutePlanResult::mType
+		IL_005b: ldc.i4.1
+		IL_005c: bne.un.s IL_006b
+
+		IL_005e: ldarg.0
+		IL_005f: ldarga.s appendPlanResult
+		IL_0061: ldfld valuetype Sims3.SimIFace.RoutePlanResultType Sims3.SimIFace.RoutePlanResult::mType
+		IL_0066: stfld valuetype Sims3.SimIFace.RoutePlanResultType Sims3.SimIFace.RoutePlanResult::mType
+
+		IL_006b: ret
+	} // end of method RoutePlanResult::MergeIn
+
+	.method public hidebysig virtual 
+		instance string ToString () cil managed 
+	{
+		// Method begins at RVA 0x17234
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype Sims3.SimIFace.RoutePlanResultType Sims3.SimIFace.RoutePlanResult::mType
+		IL_0006: box Sims3.SimIFace.RoutePlanResultType
+		IL_000b: callvirt instance string [mscorlib]System.Object::ToString()
+		IL_0010: ret
+	} // end of method RoutePlanResult::ToString
+
+	.method public hidebysig 
+		instance bool Succeeded () cil managed 
+	{
+		// Method begins at RVA 0x17246
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype Sims3.SimIFace.RoutePlanResultType Sims3.SimIFace.RoutePlanResult::mType
+		IL_0006: ldc.i4.1
+		IL_0007: ceq
+		IL_0009: ret
+	} // end of method RoutePlanResult::Succeeded
+
+} // end of class Sims3.SimIFace.RoutePlanResult

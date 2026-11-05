@@ -1,0 +1,82 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+		.method public final hidebysig newslot virtual 
+			instance bool ImportContent (
+				class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+				class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+				class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+			) cil managed 
+		{
+			// Method begins at RVA 0x37044c
+			// Header size: 12
+			// Code size: 103 (0x67)
+			.maxstack 4
+			.locals init (
+				[0] int32,
+				[1] uint32,
+				[2] class [SimIFace]Sims3.SimIFace.IPropertyStreamReader,
+				[3] class Sims3.Gameplay.CAS.SimDescription
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household/Members::mAllSimDescriptions
+			IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::Clear()
+			.try
+			{
+				IL_000b: ldsfld bool Sims3.Gameplay.CAS.Household::IsTravelImport
+				IL_0010: ldc.i4.0
+				IL_0011: ceq
+				IL_0013: stsfld bool Sims3.Gameplay.CAS.Household::sRemapSimDescriptionIdsOnImport
+				IL_0018: ldarg.3
+				IL_0019: ldc.i4 -373727227 // 0xe9b96005
+				IL_001e: ldloca.s 0
+				IL_0020: ldc.i4.0
+				IL_0021: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadInt32(uint32, int32&, int32)
+				IL_0026: pop
+				IL_0027: ldc.i4.0
+				IL_0028: stloc.1
+				IL_0029: br.s IL_0056
+				// loop start (head: IL_0056)
+					IL_002b: ldarg.3
+					IL_002c: ldloc.1
+					IL_002d: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamReader [SimIFace]Sims3.SimIFace.IPropertyStreamReader::GetChild(uint32)
+					IL_0032: stloc.2
+					IL_0033: newobj instance void Sims3.Gameplay.CAS.SimDescription::.ctor()
+					IL_0038: stloc.3
+					IL_0039: ldloc.3
+					IL_003a: ldarg.1
+					IL_003b: ldarg.2
+					IL_003c: ldloc.2
+					IL_003d: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+					IL_0042: brfalse.s IL_0052
+
+					IL_0044: ldarg.0
+					IL_0045: ldloc.3
+					IL_0046: ldloc.3
+					IL_0047: callvirt instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+					IL_004c: call instance bool Sims3.Gameplay.CAS.Household/Members::Add(class Sims3.Gameplay.CAS.SimDescription, class Sims3.Gameplay.Interfaces.IActor)
+					IL_0051: pop
+
+					IL_0052: ldloc.1
+					IL_0053: ldc.i4.1
+					IL_0054: add
+					IL_0055: stloc.1
+
+					IL_0056: ldloc.1
+					IL_0057: conv.u8
+					IL_0058: ldloc.0
+					IL_0059: conv.i8
+					IL_005a: blt.s IL_002b
+				// end loop
+
+				IL_005c: leave.s IL_0065
+			} // end .try
+			finally
+			{
+				IL_005e: ldc.i4.0
+				IL_005f: stsfld bool Sims3.Gameplay.CAS.Household::sRemapSimDescriptionIdsOnImport
+				IL_0064: endfinally
+			} // end handler
+
+			IL_0065: ldc.i4.1
+			IL_0066: ret
+		} // end of method Members::ImportContent

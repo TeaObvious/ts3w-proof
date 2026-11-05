@@ -1,0 +1,111 @@
+UI.dll MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+
+0600003c Sims3.UI.WindowBase::get_Visible RVA=00002824 bytes=18 raw=0228050000062000b0c1ee17288d1200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b000
+ IL_000b: ldc.i4.1
+ IL_000c: call 0x0600128d GetFlagProperty
+ IL_0011: ret
+
+0600003d Sims3.UI.WindowBase::set_Visible RVA=00002837 bytes=19 raw=0228050000062000b0c1ee1703288c1200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b000
+ IL_000b: ldc.i4.1
+ IL_000c: ldarg.1
+ IL_000d: call 0x0600128c SetFlagProperty
+ IL_0012: ret
+
+0600003e Sims3.UI.WindowBase::get_Enabled RVA=0000284b bytes=18 raw=0228050000062000b0c1ee18288d1200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b000
+ IL_000b: ldc.i4.2
+ IL_000c: call 0x0600128d GetFlagProperty
+ IL_0011: ret
+
+0600003f Sims3.UI.WindowBase::set_Enabled RVA=0000285e bytes=19 raw=0228050000062000b0c1ee1803288c1200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b000
+ IL_000b: ldc.i4.2
+ IL_000c: ldarg.1
+ IL_000d: call 0x0600128c SetFlagProperty
+ IL_0012: ret
+
+06000057 Sims3.UI.WindowBase::get_Caption RVA=00002a85 bytes=17 raw=022805000006200ab0c1ee28991200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b00a
+ IL_000b: call 0x06001299 GetStringProperty
+ IL_0010: ret
+
+06000058 Sims3.UI.WindowBase::set_Caption RVA=00002a97 bytes=18 raw=022805000006200ab0c1ee0328981200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b00a
+ IL_000b: ldarg.1
+ IL_000c: call 0x06001298 SetStringProperty
+ IL_0011: ret
+
+06000059 Sims3.UI.WindowBase::get_TextStyle RVA=00002aaa bytes=17 raw=022805000006200eb0c1ee28911200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b00e
+ IL_000b: call 0x06001291 GetUInt32Property
+ IL_0010: ret
+
+0600005a Sims3.UI.WindowBase::set_TextStyle RVA=00002abc bytes=18 raw=022805000006200eb0c1ee0328901200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b00e
+ IL_000b: ldarg.1
+ IL_000c: call 0x06001290 SetUInt32Property
+ IL_0011: ret
+
+060002d1 Sims3.UI.Button::add_Click RVA=00011499 bytes=13 raw=0220f659722803281900002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x287259f6
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b000019
+ IL_000c: ret
+
+060002d2 Sims3.UI.Button::remove_Click RVA=000114a7 bytes=13 raw=0220f659722803281a00002b2a
+ IL_0000: ldarg.0
+ IL_0001: ldc.i4 0x287259f6
+ IL_0006: ldarg.1
+ IL_0007: call 0x2b00001a
+ IL_000c: ret
+
+060002db Sims3.UI.Button::get_Enabled RVA=0001154f bytes=7 raw=02283e0000062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x0600003e get_Enabled
+ IL_0006: ret
+
+060002dc Sims3.UI.Button::set_Enabled RVA=00011557 bytes=26 raw=0203283f0000060228050000062001d0c1ee1703288c1200062a
+ IL_0000: ldarg.0
+ IL_0001: ldarg.1
+ IL_0002: call 0x0600003f set_Enabled
+ IL_0007: ldarg.0
+ IL_0008: call 0x06000005 get_WinHandle
+ IL_000d: ldc.i4 0xeec1d001
+ IL_0012: ldc.i4.1
+ IL_0013: ldarg.1
+ IL_0014: call 0x0600128c SetFlagProperty
+ IL_0019: ret
+
+06001d3a Sims3.UI.Text::get_TextColor RVA=000b1e48 bytes=17 raw=02280500000620cdfc436f288f1200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x6f43fccd
+ IL_000b: call 0x0600128f GetColorProperty
+ IL_0010: ret
+
+06001d3b Sims3.UI.Text::set_TextColor RVA=000b1e5a bytes=18 raw=02280500000620cdfc436f03288e1200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0x6f43fccd
+ IL_000b: ldarg.1
+ IL_000c: call 0x0600128e SetColorProperty
+ IL_0011: ret

@@ -1,0 +1,44 @@
+Module MVID da71f9d5-3a90-44c6-8f98-5bafd2fca18a
+Original PC1.67 ScriptCore SHA256 1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115
+Metadata token=06000be7 flags=2091 implflags=0080 rawSignature=00070e09091009100b10091009100c
+EXTERN 06000be7 ScriptCore.UserToolUtils::UserToolUtils_ProductGenericImpl RVA0; no CIL body
+Metadata token=06000c29 flags=01e6 implflags=0000 rawSignature=20050e0909100910118155100c
+
+06000c29 ScriptCore.UserToolUtils::ProductGeneric RVA=0000c270 bytes=76 maxStack=7 flags=3013 localSignature=1100007c
+Raw complete method header 133007004c0000007c000011
+Raw complete CIL 0e047bdd00000a0a0e047b2400000a0b0e047b2500000a0c0304051200120112020e0528e70b00060d0e04067ddd00000a0e04077d2400000a0e04087d2500000a092d067e8600000a2a092a
+ IL_0000: 0e04                 ldarg.s 04
+ IL_0002: 7bdd00000a           ldfld dd00000a InstanceId
+ IL_0007: 0a                   stloc.0
+ IL_0008: 0e04                 ldarg.s 04
+ IL_000a: 7b2400000a           ldfld 2400000a GroupId
+ IL_000f: 0b                   stloc.1
+ IL_0010: 0e04                 ldarg.s 04
+ IL_0012: 7b2500000a           ldfld 2500000a TypeId
+ IL_0017: 0c                   stloc.2
+ IL_0018: 03                   ldarg.1
+ IL_0019: 04                   ldarg.2
+ IL_001a: 05                   ldarg.3
+ IL_001b: 1200                 ldloca.s 00
+ IL_001d: 1201                 ldloca.s 01
+ IL_001f: 1202                 ldloca.s 02
+ IL_0021: 0e05                 ldarg.s 05
+ IL_0023: 28e70b0006           call e70b0006 UserToolUtils_ProductGenericImpl
+ IL_0028: 0d                   stloc.3
+ IL_0029: 0e04                 ldarg.s 04
+ IL_002b: 06                   ldloc.0
+ IL_002c: 7ddd00000a           stfld dd00000a InstanceId
+ IL_0031: 0e04                 ldarg.s 04
+ IL_0033: 07                   ldloc.1
+ IL_0034: 7d2400000a           stfld 2400000a GroupId
+ IL_0039: 0e04                 ldarg.s 04
+ IL_003b: 08                   ldloc.2
+ IL_003c: 7d2500000a           stfld 2500000a TypeId
+ IL_0041: 09                   ldloc.3
+ IL_0042: 2d06                 brtrue.s 06
+ IL_0044: 7e8600000a           ldsfld 8600000a Empty
+ IL_0049: 2a                   ret
+ IL_004a: 09                   ldloc.3
+ IL_004b: 2a                   ret
+
+SELECTED complete_methods=1 CIL_bytes=76

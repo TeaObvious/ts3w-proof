@@ -1,0 +1,53 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: FUN_00862e60
+Entry Point: 00862e60
+
+00862e60: PUSH ESI
+00862e61: CALL 0x008afe00
+00862e66: MOV ESI, EAX
+00862e68: TEST ESI, ESI
+00862e6a: JZ 0x00862ed3
+00862e6c: MOV EAX, dword ptr [ESI]
+00862e6e: MOV EDX, dword ptr [EAX + 0x44]
+00862e71: PUSH 0x3475376
+00862e76: MOV ECX, ESI
+00862e78: CALL EDX
+00862e7a: MOV ECX, dword ptr [ESP + 0x8]
+00862e7e: MOV EAX, dword ptr [ESI]
+00862e80: MOV EDX, dword ptr [EAX + 0x4c]
+00862e83: PUSH ECX
+00862e84: PUSH 0x3475385
+00862e89: MOV ECX, ESI
+00862e8b: CALL EDX
+00862e8d: MOV ECX, dword ptr [ESP + 0xc]
+00862e91: MOV EAX, dword ptr [ESI]
+00862e93: MOV EDX, dword ptr [EAX + 0x4c]
+00862e96: PUSH ECX
+00862e97: PUSH 0x34753a7
+00862e9c: MOV ECX, ESI
+00862e9e: CALL EDX
+00862ea0: FLD float ptr [ESP + 0x10]
+00862ea4: MOV EAX, dword ptr [ESI]
+00862ea6: MOV EDX, dword ptr [EAX + 0x48]
+00862ea9: PUSH ECX
+00862eaa: FSTP float ptr [ESP]
+00862ead: PUSH 0x34753aa
+00862eb2: MOV ECX, ESI
+00862eb4: CALL EDX
+00862eb6: MOV ECX, dword ptr [ESP + 0x14]
+00862eba: MOV EAX, dword ptr [ESI]
+00862ebc: MOV EDX, dword ptr [EAX + 0x4c]
+00862ebf: PUSH ECX
+00862ec0: PUSH 0x34753ad
+00862ec5: MOV ECX, ESI
+00862ec7: CALL EDX
+00862ec9: MOV EAX, dword ptr [ESI]
+00862ecb: MOV EDX, dword ptr [EAX + 0x68]
+00862ece: MOV ECX, ESI
+00862ed0: POP ESI
+00862ed1: JMP EDX
+00862ed3: POP ESI
+00862ed4: RET
+
+Total instructions: 46

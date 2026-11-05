@@ -1,0 +1,59 @@
+# Sims3Common: WorldTerrainWrap
+
+53 original CAW 1.22.10 PE named exports.
+
+| Export | Ordinal | Address | Managed imports |
+| --- | ---: | --- | ---: |
+| [WorldTerrainWrap_AddPaintingLayer](2550.md) | 2550 | `0x10997680` | 1 |
+| [WorldTerrainWrap_AddRoadTextures](2551.md) | 2551 | `0x10997170` | 1 |
+| [WorldTerrainWrap_ApplyBrush](2552.md) | 2552 | `0x10996630` | 1 |
+| [WorldTerrainWrap_BackupCurrentHeightData](2553.md) | 2553 | `0x10996650` | 1 |
+| [WorldTerrainWrap_BackupUpdatedHeightData](2554.md) | 2554 | `0x10996670` | 1 |
+| [WorldTerrainWrap_BuildPaintingMaskFromConcavityMap](2555.md) | 2555 | `0x10996960` | 1 |
+| [WorldTerrainWrap_CanSnapRoadObjectToAnyEmptyPort](2556.md) | 2556 | `0x109974d0` | 1 |
+| [WorldTerrainWrap_ClearToBaseLayer](2557.md) | 2557 | `0x10996930` | 1 |
+| [WorldTerrainWrap_CreateRoadBridge](2558.md) | 2558 | `0x10996e20` | 1 |
+| [WorldTerrainWrap_CreateRoadIntersection](2559.md) | 2559 | `0x10996d50` | 1 |
+| [WorldTerrainWrap_CreateRoadSpline](2560.md) | 2560 | `0x10996c50` | 1 |
+| [WorldTerrainWrap_CreateSticker](2561.md) | 2561 | `0x10996dc0` | 1 |
+| [WorldTerrainWrap_GetBrushCount](2562.md) | 2562 | `0x109974c0` | 1 |
+| [WorldTerrainWrap_GetBrushID](2563.md) | 2563 | `0x10996610` | 1 |
+| [WorldTerrainWrap_GetBrushName](2564.md) | 2564 | `0x10996620` | 1 |
+| [WorldTerrainWrap_GetLODDistanceFactor](2565.md) | 2565 | `0x10996890` | 1 |
+| [WorldTerrainWrap_GetPaintingLayerName](2566.md) | 2566 | `0x10996a50` | 1 |
+| [WorldTerrainWrap_GetPaintingLayerTerrainType](2567.md) | 2567 | `0x10996a30` | 1 |
+| [WorldTerrainWrap_GetPaintingLayerTextureFilePath](2568.md) | 2568 | `0x10996a10` | 1 |
+| [WorldTerrainWrap_GetPaintingLayersCount](2569.md) | 2569 | `0x109969f0` | 1 |
+| [WorldTerrainWrap_GetParams](2570.md) | 2570 | `0x10996760` | 1 |
+| [WorldTerrainWrap_GetRoadBridge](2571.md) | 2571 | `0x10996e40` | 1 |
+| [WorldTerrainWrap_GetRoadBridgeSpline](2572.md) | 2572 | `0x10996e90` | 1 |
+| [WorldTerrainWrap_GetRoadName](2573.md) | 2573 | `0x10997420` | 1 |
+| [WorldTerrainWrap_GetRoadNormalMapFilePath](2574.md) | 2574 | `0x10997480` | 1 |
+| [WorldTerrainWrap_GetRoadOpacityMapFilePath](2575.md) | 2575 | `0x109974a0` | 1 |
+| [WorldTerrainWrap_GetRoadTextureArraySize](2576.md) | 2576 | `0x10996eb0` | 1 |
+| [WorldTerrainWrap_GetRoadTextureFilePath](2577.md) | 2577 | `0x10997460` | 1 |
+| [WorldTerrainWrap_GetRoadTextureIdx](2578.md) | 2578 | `0x10996eb0` | 1 |
+| [WorldTerrainWrap_GetRoadTextureSetRoadIntersections](2579.md) | 2579 | `0x109975d0` | 1 |
+| [WorldTerrainWrap_GetRoadTextureSetRoadSplines](2580.md) | 2580 | `0x10997520` | 1 |
+| [WorldTerrainWrap_InsertPaintingLayer](2581.md) | 2581 | `0x10997770` | 1 |
+| [WorldTerrainWrap_PickRoadObject](2582.md) | 2582 | `0x10996b40` | 1 |
+| [WorldTerrainWrap_ReadTerrainEditIniIfModified](2583.md) | 2583 | `0x10996750` | 1 |
+| [WorldTerrainWrap_RebuildDefaultBlends](2584.md) | 2584 | `0x109968f0` | 1 |
+| [WorldTerrainWrap_RedoHeightData](2585.md) | 2585 | `0x109966c0` | 1 |
+| [WorldTerrainWrap_RedoLayerPaint](2586.md) | 2586 | `0x10999000` | 1 |
+| [WorldTerrainWrap_RemovePaintingLayer](2587.md) | 2587 | `0x109969a0` | 1 |
+| [WorldTerrainWrap_RemoveRoadTextures](2588.md) | 2588 | `0x10997400` | 1 |
+| [WorldTerrainWrap_RemoveUndoStackLimit](2589.md) | 2589 | `0x10996720` | 1 |
+| [WorldTerrainWrap_SetLODDistanceFactor](2590.md) | 2590 | `0x10996870` | 1 |
+| [WorldTerrainWrap_SetParams](2591.md) | 2591 | `0x109967f0` | 1 |
+| [WorldTerrainWrap_SetRoadName](2592.md) | 2592 | `0x10997440` | 1 |
+| [WorldTerrainWrap_SetRoadTextureIdx](2593.md) | 2593 | `0x10996ee0` | 1 |
+| [WorldTerrainWrap_SetUndoStackLimit](2594.md) | 2594 | `0x109966f0` | 1 |
+| [WorldTerrainWrap_ShowPaintingMask](2595.md) | 2595 | `0x109968b0` | 1 |
+| [WorldTerrainWrap_UndoHeightData](2596.md) | 2596 | `0x10996690` | 1 |
+| [WorldTerrainWrap_UndoLayerPaint](2597.md) | 2597 | `0x10998fd0` | 1 |
+| [WorldTerrainWrap_Update](2598.md) | 2598 | `0x10996af0` | 1 |
+| [WorldTerrainWrap_UpdatePaintingLayer](2599.md) | 2599 | `0x10997860` | 1 |
+| [WorldTerrainWrap_UpdateRoadTextures](2600.md) | 2600 | `0x10996f00` | 1 |
+| [WorldTerrainWrap_WorldBuilderToWorldLayer](2601.md) | 2601 | `0x10996ab0` | 1 |
+| [WorldTerrainWrap_WorldToWorldBuilderLayer](2602.md) | 2602 | `0x10996a70` | 1 |

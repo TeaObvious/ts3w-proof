@@ -1,0 +1,29 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: CSHostWrap/Sims3/CSHost/WorldWrap.cs
+// Each selected declaration or method is complete. Other members are omitted.
+
+	[DllImport("Sims3Common.dll")]
+	private static extern int WorldWrap_Save(IntPtr pWorldAsVoid, [In][MarshalAs(UnmanagedType.LPWStr)] string saveFilePath, int endianType);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern int WorldWrap_Load(IntPtr pWorldAsVoid, [In][MarshalAs(UnmanagedType.LPWStr)] string loadFilePath);
+
+// [Next selected original declaration or method]
+
+	public bool Save(string saveFilePath, eEndianType endianType)
+	{
+		return WorldWrap_Save(mNativeObj, saveFilePath, (int)endianType) == 1;
+	}
+
+// [Next selected original declaration or method]
+
+	public bool Load(string loadFilePath)
+	{
+		if (WorldWrap_Load(mNativeObj, loadFilePath) == 1)
+		{
+			CreateWorldComponentWrappers();
+			return true;
+		}
+		return false;
+	}

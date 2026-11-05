@@ -1,0 +1,50 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: Sims3/CSHost/WorldTerrain.cs
+// Each selected method is complete. Other members are omitted.
+
+	public void ApplyBrush(ref HeightMapBrushParameters brushParams)
+	{
+		if (mTerrainWrap != null && TryEdit())
+		{
+			mTerrainWrap.ApplyBrush(ref brushParams);
+		}
+	}
+
+// [Next selected original method]
+
+	public void BackupCurrentHeightData()
+	{
+		if (mTerrainWrap != null && TryEdit())
+		{
+			mTerrainWrap.BackupCurrentHeightData();
+		}
+	}
+
+// [Next selected original method]
+
+	public void BackupUpdatedHeightData()
+	{
+		if (mTerrainWrap != null && TryEdit())
+		{
+			mTerrainWrap.BackupUpdatedHeightData();
+		}
+	}
+
+// [Next selected original method]
+
+	public void UndoHeightData()
+	{
+		if (mTerrainWrap != null && TryEdit())
+		{
+			mTerrainWrap.UndoHeightData();
+		}
+	}
+
+// [Next selected original method]
+
+	public void RedoHeightData()
+	{
+		if (mTerrainWrap != null && TryEdit())
+		{
+			mTerrainWrap.RedoHeightData();
+		}
+	}

@@ -1,0 +1,9 @@
+; Reviewed depth/cover instruction excerpt from PC 1.67 Shaders_Win32.precomp.
+; One-based VS3274; SHDB array index 3273; VSHD bytecode offset 4334386; bytecode bytes 1044; version fffe0300.
+; Offsets are bytecode-relative; trailing hex words preserve exact little-endian D3D9 tokens.
+0034: def c23.xyzw, 0.00390625,0.0,1.0,-1.0 ;05000051,a00f0017,3b800000,00000000,3f800000,bf800000
+00c4: mul r0.xzw, c23.xxxx, v0.xyzw ;03000005,800d0000,a0000017,90e40000
+00d4: mad r0.w, v0.yyyy, c23.xxxx, -r0.wwww ;04000004,80080000,90550000,a0000017,81ff0000
+00e8: mul o8.xy, r0.xzzw, c9.xyzw ;03000005,e0030008,80e80000,a0e40009
+00f8: mad r1.xyzw, v0.xyzx, c23.xxxy, c23.yyyz ;04000004,800f0001,90240000,a0400017,a0950017
+010c: add o5.x, r0.wwww, r0.wwww ;03000002,e0010005,80ff0000,80ff0000

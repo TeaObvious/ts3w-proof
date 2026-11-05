@@ -1,0 +1,39 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: int WorldCallback_FamilyFundsQueryAvailable(void)
+Owned ranges: [[00791370, 007913e5]]
+
+00791370  83ec40  SUB ESP,0x40
+00791373  6a00  PUSH 0x0
+00791375  6a00  PUSH 0x0
+00791377  8d442428  LEA EAX,[ESP + 0x28]
+0079137b  6a31  PUSH 0x31
+0079137d  50  PUSH EAX
+0079137e  c7442410f4a6fb00  MOV dword ptr [ESP + 0x10],0xfba6f4
+00791386  66c74424180000  MOV word ptr [ESP + 0x18],0x0
+0079138d  66c744241a0000  MOV word ptr [ESP + 0x1a],0x0
+00791394  e8d7e2ffff  CALL 0x0078f670
+00791399  83c410  ADD ESP,0x10
+0079139c  50  PUSH EAX
+0079139d  8d4c2404  LEA ECX,[ESP + 0x4]
+007913a1  e80a51d6ff  CALL 0x004f64b0
+007913a6  f644242804  TEST byte ptr [ESP + 0x28],0x4
+007913ab  c7442420f4a6fb00  MOV dword ptr [ESP + 0x20],0xfba6f4
+007913b3  740b  JZ 0x007913c0
+007913b5  6a00  PUSH 0x0
+007913b7  8d4c2424  LEA ECX,[ESP + 0x24]
+007913bb  e8a043d6ff  CALL 0x004f5760
+007913c0  f644240804  TEST byte ptr [ESP + 0x8],0x4
+007913c5  56  PUSH ESI
+007913c6  8b742414  MOV ESI,dword ptr [ESP + 0x14]
+007913ca  c7442404f4a6fb00  MOV dword ptr [ESP + 0x4],0xfba6f4
+007913d2  740b  JZ 0x007913df
+007913d4  6a00  PUSH 0x0
+007913d6  8d4c2408  LEA ECX,[ESP + 0x8]
+007913da  e88143d6ff  CALL 0x004f5760
+007913df  8bc6  MOV EAX,ESI
+007913e1  5e  POP ESI
+007913e2  83c440  ADD ESP,0x40
+007913e5  c3  RET

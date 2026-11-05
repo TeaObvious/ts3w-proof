@@ -1,0 +1,22 @@
+# animation-finished-use-a: retail TS3W.exe VA 0x0073A961-0x0073A993, file offset 0x33A961
+73a961:	8a 5c 24 48          	mov    bl,BYTE PTR [esp+0x48]
+  73a965:	84 db                	test   bl,bl
+  73a967:	74 2b                	je     0x73a994
+  73a969:	a1 34 4e 1d 01       	mov    eax,ds:0x11d4e34
+  73a96e:	85 c0                	test   eax,eax
+  73a970:	74 0d                	je     0x73a97f
+  73a972:	83 c0 04             	add    eax,0x4
+  73a975:	eb 0a                	jmp    0x73a981
+  73a977:	33 ff                	xor    edi,edi
+  73a979:	eb 82                	jmp    0x73a8fd
+  73a97b:	33 f6                	xor    esi,esi
+  73a97d:	eb e2                	jmp    0x73a961
+  73a97f:	33 c0                	xor    eax,eax
+  73a981:	85 f6                	test   esi,esi
+  73a983:	74 05                	je     0x73a98a
+  73a985:	8d 4e 0c             	lea    ecx,[esi+0xc]
+  73a988:	eb 02                	jmp    0x73a98c
+  73a98a:	33 c9                	xor    ecx,ecx
+  73a98c:	6a ff                	push   0xffffffff
+  73a98e:	50                   	push   eax
+  73a98f:	e8 ec c4 e3 ff       	call   0x576e80

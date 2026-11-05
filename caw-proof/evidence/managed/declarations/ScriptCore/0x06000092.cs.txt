@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000092.
+// Assembly: ScriptCore; type: ScriptCore.Audio.
+// Decompiled C# source: ScriptCore/ScriptCore/Audio.cs:79
+	[DllImport("Sims3Common.dll")]
+	private static extern uint Audio_StartSoundArrayImpl([MarshalAs(UnmanagedType.LPWStr)] string name, [MarshalAs(UnmanagedType.LPWStr)] string soundNames, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI8)] ulong[] objIds);

@@ -1,0 +1,75 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00d82f80 <.text+0x981f80>:
+  d82f80:	8b 54 24 04          	mov    edx,DWORD PTR [esp+0x4]
+  d82f84:	8d 4a 10             	lea    ecx,[edx+0x10]
+  d82f87:	8b 52 08             	mov    edx,DWORD PTR [edx+0x8]
+  d82f8a:	33 c0                	xor    eax,eax
+  d82f8c:	85 d2                	test   edx,edx
+  d82f8e:	7e 62                	jle    0xd82ff2
+  d82f90:	56                   	push   esi
+  d82f91:	57                   	push   edi
+  d82f92:	8b fa                	mov    edi,edx
+  d82f94:	8b 31                	mov    esi,DWORD PTR [ecx]
+  d82f96:	8b 51 04             	mov    edx,DWORD PTR [ecx+0x4]
+  d82f99:	83 c6 fe             	add    esi,0xfffffffe
+  d82f9c:	83 fe 0d             	cmp    esi,0xd
+  d82f9f:	77 3a                	ja     0xd82fdb
+  d82fa1:	0f b6 b6 08 30 d8 00 	movzx  esi,BYTE PTR [esi+0xd83008]
+  d82fa8:	ff 24 b5 f4 2f d8 00 	jmp    DWORD PTR [esi*4+0xd82ff4]
+  d82faf:	8b 52 08             	mov    edx,DWORD PTR [edx+0x8]
+  d82fb2:	89 51 04             	mov    DWORD PTR [ecx+0x4],edx
+  d82fb5:	83 c0 01             	add    eax,0x1
+  d82fb8:	eb 2e                	jmp    0xd82fe8
+  d82fba:	8b 52 08             	mov    edx,DWORD PTR [edx+0x8]
+  d82fbd:	89 51 04             	mov    DWORD PTR [ecx+0x4],edx
+  d82fc0:	83 c0 02             	add    eax,0x2
+  d82fc3:	eb 23                	jmp    0xd82fe8
+  d82fc5:	8b 52 08             	mov    edx,DWORD PTR [edx+0x8]
+  d82fc8:	89 51 04             	mov    DWORD PTR [ecx+0x4],edx
+  d82fcb:	83 c0 04             	add    eax,0x4
+  d82fce:	eb 18                	jmp    0xd82fe8
+  d82fd0:	8b 52 08             	mov    edx,DWORD PTR [edx+0x8]
+  d82fd3:	89 51 04             	mov    DWORD PTR [ecx+0x4],edx
+  d82fd6:	83 c0 08             	add    eax,0x8
+  d82fd9:	eb 0d                	jmp    0xd82fe8
+  d82fdb:	c7 01 00 00 00 00    	mov    DWORD PTR [ecx],0x0
+  d82fe1:	c7 41 04 ff ff ff ff 	mov    DWORD PTR [ecx+0x4],0xffffffff
+  d82fe8:	83 c1 08             	add    ecx,0x8
+  d82feb:	83 ef 01             	sub    edi,0x1
+  d82fee:	75 a4                	jne    0xd82f94
+  d82ff0:	5f                   	pop    edi
+  d82ff1:	5e                   	pop    esi
+  d82ff2:	c3                   	ret
+  d82ff3:	90                   	nop
+  d82ff4:	af                   	scas   eax,DWORD PTR es:[edi]
+  d82ff5:	2f                   	das
+  d82ff6:	d8 00                	fadd   DWORD PTR [eax]
+  d82ff8:	d0 2f                	shr    BYTE PTR [edi],1
+  d82ffa:	d8 00                	fadd   DWORD PTR [eax]
+  d82ffc:	ba 2f d8 00 c5       	mov    edx,0xc500d82f
+  d83001:	2f                   	das
+  d83002:	d8 00                	fadd   DWORD PTR [eax]
+  d83004:	db 2f                	fld    TBYTE PTR [edi]
+  d83006:	d8 00                	fadd   DWORD PTR [eax]
+  d83008:	00 00                	add    BYTE PTR [eax],al
+  d8300a:	04 04                	add    al,0x4
+  d8300c:	04 01                	add    al,0x1
+  d8300e:	02 03                	add    al,BYTE PTR [ebx]
+  d83010:	01 00                	add    DWORD PTR [eax],eax
+  d83012:	03 02                	add    eax,DWORD PTR [edx]
+  d83014:	03 01                	add    eax,DWORD PTR [ecx]
+  d83016:	cc                   	int3
+  d83017:	cc                   	int3
+  d83018:	cc                   	int3
+  d83019:	cc                   	int3
+  d8301a:	cc                   	int3
+  d8301b:	cc                   	int3
+  d8301c:	cc                   	int3
+  d8301d:	cc                   	int3
+  d8301e:	cc                   	int3
+  d8301f:	cc                   	int3

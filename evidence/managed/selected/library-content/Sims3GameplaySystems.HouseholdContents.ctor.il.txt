@@ -1,0 +1,38 @@
+// Original PC1.67 packaged retail members; complete selected method bodies. Central identities apply.
+// Raw CIL tokens/signatures qualify unresolved generics; compiler-generated child/lambda bodies are separate.
+
+// Sims3.Gameplay.Core.HouseholdContents::.ctor MethodDef0x06008FCD RVA0x0027BC15
+// Signature 200001; maxstack8; locals11000000; initlocalsFalse
+// Complete raw CIL (29 bytes): 0272DF0000707D604B00040272DF0000707D614B000402285400000A2A
+IL_0000: ldarg.0
+IL_0001: ldstr 0x700000DF ""
+IL_0006: stfld 0x04004B60 Sims3.Gameplay.Core.HouseholdContents::Description
+IL_000B: ldarg.0
+IL_000C: ldstr 0x700000DF ""
+IL_0011: stfld 0x04004B61 Sims3.Gameplay.Core.HouseholdContents::Name
+IL_0016: ldarg.0
+IL_0017: call 0x0A000054 System.Object::.ctor
+IL_001C: ret
+
+// Sims3.Gameplay.Core.HouseholdContents::.ctor MethodDef0x06008FCE RVA0x0027BC33
+// Signature 20010112c0006d0c; maxstack8; locals11000000; initlocalsFalse
+// Complete raw CIL (59 bytes): 0272DF0000707D604B00040272DF0000707D614B000402285400000A02037D5D4B00040228D28F000602027B5D4B00046F0ABF000628CC8F00062A
+IL_0000: ldarg.0
+IL_0001: ldstr 0x700000DF ""
+IL_0006: stfld 0x04004B60 Sims3.Gameplay.Core.HouseholdContents::Description
+IL_000B: ldarg.0
+IL_000C: ldstr 0x700000DF ""
+IL_0011: stfld 0x04004B61 Sims3.Gameplay.Core.HouseholdContents::Name
+IL_0016: ldarg.0
+IL_0017: call 0x0A000054 System.Object::.ctor
+IL_001C: ldarg.0
+IL_001D: ldarg.1
+IL_001E: stfld 0x04004B5D Sims3.Gameplay.Core.HouseholdContents::mHousehold
+IL_0023: ldarg.0
+IL_0024: call 0x06008FD2 Sims3.Gameplay.Core.HouseholdContents::CreateInventories
+IL_0029: ldarg.0
+IL_002A: ldarg.0
+IL_002B: ldfld 0x04004B5D Sims3.Gameplay.Core.HouseholdContents::mHousehold
+IL_0030: callvirt 0x0600BF0A Sims3.Gameplay.CAS.Household::get_HouseholdId
+IL_0035: call 0x06008FCC Sims3.Gameplay.Core.HouseholdContents::set_ContentId
+IL_003A: ret

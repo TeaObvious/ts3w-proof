@@ -33,10 +33,24 @@ Adressen, API-/Adress-/Callindizes, Namen, Paare und Links gemeinsam pflegen.
 Originalidentität zentral führen, keine redundanten öffentlichen Prüfsummenlisten.
 Die verbindlichen kanonischen Namen sind `Adresse_Funktionsname.c` und
 `Adresse_Funktionsname.asm`. Alle betroffenen erfassten Aufrufer müssen nach
-Namens-/Signaturpflege aus Ghidra neu exportiert sein. Keine veralteten
+Funktionsnamens-/Signaturpflege aus Ghidra neu exportiert sein. Keine veralteten
 `FUN_Adresse`-Aufrufe auf bereits bestätigte Ziele als final veröffentlichen.
-Belegte Parameter-/Variablennamen und Funktionsköpfe gehören in DB und Export;
-manuelle Symbolersetzung allein ist kein Nachweis dieser Synchronisation.
+Belegte Parameter-/Variablennamen und Funktionsköpfe gehören in die DB.
+Direkte Nutzerpräzisierung vom 05.11.2026: Die rückwirkende Anpassung bestehender
+C-Parameter-/Variablenmappings entfällt während der Forschung. Diese Darstellung
+wird beim abschließenden Gesamtexport aus Ghidra erneuert. Die Pflicht zur
+tatsächlichen DB-Pflege bleibt bestehen; manuelle Symbolersetzung allein ist
+kein Nachweis einer DB-/Export-Synchronisation.
+
+Der Nutzer hat die vollständige Übernahme des vorhandenen alten Proof-Bestands
+ausdrücklich beauftragt. Bestehende Originalbelege wiederverwenden, ihre
+Quellrevision und kanonischen Nachfolger erfassen und historische Export- und
+Annotationsgrenzen sichtbar lassen. Übernommene Fenster sind keine neu
+verifizierten vollständigen Körper. Fehlende Funktionsdefinitionen, Kopfkommentare
+oder aktuelle Funktionsbezüge bleiben konkret offene Arbeit, verhindern aber
+nicht den ehrlich gekennzeichneten Bestandsimport. Keine Neuentdeckung oder
+semantische Neubestätigung aller übernommenen Funktionen verlangen, bevor
+die vorhandenen Belege im Research-Repository nutzbar werden.
 
 ## Git-Transaktion
 

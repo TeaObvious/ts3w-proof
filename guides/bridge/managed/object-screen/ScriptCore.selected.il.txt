@@ -1,0 +1,8 @@
+
+.bodyless 0x06000783 ScriptCore.World::World_IsObjectOnScreenImpl {"raw_length":4,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":1,"return_type":"bool","parameter_types":["u8"],"field_type":null,"issue":null}
+
+.method 0x06000902 ScriptCore.World::IsObjectOnScreen RVA=0xa6ff signature={"raw_length":6,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":1,"return_type":"bool","parameter_types":["valuetype:321"],"field_type":null,"issue":null}
+ IL_0000: ldarga.s       1
+ IL_0002: ldfld          0x0a000019 ; Sims3.SimIFace.ObjectGuid::mValue
+ IL_0007: call           0x06000783 ; ScriptCore.World::World_IsObjectOnScreenImpl
+ IL_000c: ret             ;

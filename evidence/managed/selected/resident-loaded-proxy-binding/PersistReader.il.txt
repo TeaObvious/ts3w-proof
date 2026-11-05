@@ -1,0 +1,23 @@
+// Complete original PC1.67 ScriptCore.dll selected member; central managed README owns identity.
+	.method public hidebysig specialname 
+		instance object get_Item (
+			int32 index
+		) cil managed 
+	{
+		// Method begins at RVA 0xfa44
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld object[][] ScriptCore.PersistReader::mObjectTables
+		IL_0006: ldarg.1
+		IL_0007: ldc.i4.8
+		IL_0008: shr
+		IL_0009: ldelem.ref
+		IL_000a: ldarg.1
+		IL_000b: ldc.i4 255
+		IL_0010: and
+		IL_0011: ldelem.ref
+		IL_0012: ret
+	} // end of method PersistReader::get_Item

@@ -1,0 +1,11 @@
+// Analyst: Actual original rendering; context/lock gates and event dispatch remain with managed Gameflow, not the native time hook.
+public static bool GetConfigValue(string key, ref uint value)
+{
+	return gGameUtils.GetConfigValue(key, ref value);
+}
+
+public static bool GetConfigValue(string key, ref string value)
+{
+	return gGameUtils.GetConfigValue(key, ref value);
+}
+

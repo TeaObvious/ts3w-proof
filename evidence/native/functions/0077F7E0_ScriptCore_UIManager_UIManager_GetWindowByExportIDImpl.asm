@@ -1,0 +1,67 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body and owned-range envelope.
+Actual annotated Ghidra pseudocode: 0077F7E0_ScriptCore_UIManager_UIManager_GetWindowByExportIDImpl.c
+Owned ranges: [[0077f7e0, 0077f877]]
+
+0077f7e0  83ec08  SUB ESP,0x8
+0077f7e3  56  PUSH ESI
+0077f7e4  57  PUSH EDI
+0077f7e5  e8a69bfeff  CALL 0x00769390
+0077f7ea  8bf8  MOV EDI,EAX
+0077f7ec  8b442414  MOV EAX,dword ptr [ESP + 0x14]
+0077f7f0  8bc8  MOV ECX,EAX
+0077f7f2  81e1000000ff  AND ECX,0xff000000
+0077f7f8  81f900000030  CMP ECX,0x30000000
+0077f7fe  7570  JNZ 0x0077f870
+0077f800  8b17  MOV EDX,dword ptr [EDI]
+0077f802  50  PUSH EAX
+0077f803  8b82cc000000  MOV EAX,dword ptr [EDX + 0xcc]
+0077f809  8bcf  MOV ECX,EDI
+0077f80b  ffd0  CALL EAX
+0077f80d  85c0  TEST EAX,EAX
+0077f80f  745f  JZ 0x0077f870
+0077f811  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+0077f815  8d7044  LEA ESI,[EAX + 0x44]
+0077f818  8d542414  LEA EDX,[ESP + 0x14]
+0077f81c  52  PUSH EDX
+0077f81d  8d44240c  LEA EAX,[ESP + 0xc]
+0077f821  894c2418  MOV dword ptr [ESP + 0x18],ECX
+0077f825  50  PUSH EAX
+0077f826  8bce  MOV ECX,ESI
+0077f828  e883c12d00  CALL 0x00a5b9b0
+0077f82d  8b4e08  MOV ECX,dword ptr [ESI + 0x8]
+0077f830  8b5604  MOV EDX,dword ptr [ESI + 0x4]
+0077f833  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+0077f837  3b048a  CMP EAX,dword ptr [EDX + ECX*0x4]
+0077f83a  7434  JZ 0x0077f870
+0077f83c  8b7004  MOV ESI,dword ptr [EAX + 0x4]
+0077f83f  85f6  TEST ESI,ESI
+0077f841  742d  JZ 0x0077f870
+0077f843  8b06  MOV EAX,dword ptr [ESI]
+0077f845  8b10  MOV EDX,dword ptr [EAX]
+0077f847  53  PUSH EBX
+0077f848  8bce  MOV ECX,ESI
+0077f84a  ffd2  CALL EDX
+0077f84c  8b06  MOV EAX,dword ptr [ESI]
+0077f84e  8b500c  MOV EDX,dword ptr [EAX + 0xc]
+0077f851  8b1f  MOV EBX,dword ptr [EDI]
+0077f853  6a30  PUSH 0x30
+0077f855  681882eeee  PUSH 0xeeee8218
+0077f85a  8bce  MOV ECX,ESI
+0077f85c  ffd2  CALL EDX
+0077f85e  50  PUSH EAX
+0077f85f  8b83c8000000  MOV EAX,dword ptr [EBX + 0xc8]
+0077f865  8bcf  MOV ECX,EDI
+0077f867  ffd0  CALL EAX
+0077f869  5b  POP EBX
+0077f86a  5f  POP EDI
+0077f86b  5e  POP ESI
+0077f86c  83c408  ADD ESP,0x8
+0077f86f  c3  RET
+0077f870  5f  POP EDI
+0077f871  33c0  XOR EAX,EAX
+0077f873  5e  POP ESI
+0077f874  83c408  ADD ESP,0x8
+0077f877  c3  RET

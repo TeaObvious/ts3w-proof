@@ -18,7 +18,8 @@ The [native evidence index](../indexes/native-evidence.tsv) resolves the current
 - [Registered capture frontier](native-capture-frontier.md): 1,733 distinct native targets joined to 1,777 bindings, with qualified acquisition priorities and dependency edges.
 - [Bounded remaining-region data assertions](remaining-region-dispositions.md): four guarded dispatch-table intervals totaling 118 bytes; baseline regions and all unasserted pieces remain explicit.
 
-- [Preserve and reuse the historical native corpus](legacy-reuse.md): searchable 5,054-entry byte/union catalog, a bounded 90-entry name-freshness candidate set and an explicit adoption boundary. Existing canonical pairs remain authoritative successors; this catalog does not add 5,054 pairs.
+- [Retained complete proof corpus](../guides/reference/retained-proof-snapshot.md): the entire earlier proof, 5,037 added TS3W entries, 17 maintained successors, separate CAW/shader/managed evidence and a complete [old-to-current path map](../indexes/retained-proof-paths.tsv).
+- [Historical native reuse audit](legacy-reuse.md): searchable 5,054-entry byte/union catalog and bounded 90-entry name-freshness snapshot. Its original audit boundary remains historical; the subsequent corpus import is recorded separately.
 
 - [Bounded required instruction evidence](remaining-instruction-evidence.md): four exact assertions totaling 1,690 complement bytes for two singleton-entry continuations, with 20 parent bytes still unresolved; metadata ownership and the existing data assertions remain unchanged.
 

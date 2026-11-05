@@ -1,0 +1,105 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x00d83d50 (ScriptCore.TaskControl::TaskControl_SaveNativeYieldObject)
+Paired Ghidra pseudocode: 00D83D50_ScriptCore_TaskControl_TaskControl_SaveNativeYieldObject.c
+Window: [0x00d83d50, 0x00d83df0) (160 bytes; stop exclusive)
+Next defined Ghidra entry: 0x00d83df0
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+00d83d50: 57 8b 7c 24 08 8b c7 c1 e8 18 83 f8 42 74 0a 83
+00d83d60: f8 44 74 05 83 c8 ff 5f c3 53 8b 5c 24 10 8b c3
+00d83d70: 25 00 00 00 ff 3d 00 00 00 43 74 06 5b 83 c8 ff
+00d83d80: 5f c3 e8 09 56 9e ff 85 c0 74 05 83 c0 f8 eb 02
+00d83d90: 33 c0 8b 50 08 56 8d 70 08 8b 82 cc 00 00 00 57
+00d83da0: 8b ce ff d0 8b f8 85 ff 74 3a 8b 16 8b 82 cc 00
+00d83db0: 00 00 53 8b ce ff d0 8b f0 85 f6 74 27 8b 16 8b
+00d83dc0: 42 14 8b ce ff d0 84 c0 74 1a 56 e8 d0 fe ff ff
+00d83dd0: 83 c4 04 85 c0 74 0d 8b 17 50 8b 02 8b cf ff d0
+00d83de0: 5e 5b 5f c3 5e 5b 83 c8 ff 5f c3 cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+00d83d50 <.text+0x982d50>:
+  d83d50:	57                                              	push   edi
+  d83d51:	8b 7c 24 08                                     	mov    edi,DWORD PTR [esp+0x8]
+  d83d55:	8b c7                                           	mov    eax,edi
+  d83d57:	c1 e8 18                                        	shr    eax,0x18
+  d83d5a:	83 f8 42                                        	cmp    eax,0x42
+  d83d5d:	74 0a                                           	je     0xd83d69
+  d83d5f:	83 f8 44                                        	cmp    eax,0x44
+  d83d62:	74 05                                           	je     0xd83d69
+  d83d64:	83 c8 ff                                        	or     eax,0xffffffff
+  d83d67:	5f                                              	pop    edi
+  d83d68:	c3                                              	ret
+  d83d69:	53                                              	push   ebx
+  d83d6a:	8b 5c 24 10                                     	mov    ebx,DWORD PTR [esp+0x10]
+  d83d6e:	8b c3                                           	mov    eax,ebx
+  d83d70:	25 00 00 00 ff                                  	and    eax,0xff000000
+  d83d75:	3d 00 00 00 43                                  	cmp    eax,0x43000000
+  d83d7a:	74 06                                           	je     0xd83d82
+  d83d7c:	5b                                              	pop    ebx
+  d83d7d:	83 c8 ff                                        	or     eax,0xffffffff
+  d83d80:	5f                                              	pop    edi
+  d83d81:	c3                                              	ret
+  d83d82:	e8 09 56 9e ff                                  	call   0x769390
+  d83d87:	85 c0                                           	test   eax,eax
+  d83d89:	74 05                                           	je     0xd83d90
+  d83d8b:	83 c0 f8                                        	add    eax,0xfffffff8
+  d83d8e:	eb 02                                           	jmp    0xd83d92
+  d83d90:	33 c0                                           	xor    eax,eax
+  d83d92:	8b 50 08                                        	mov    edx,DWORD PTR [eax+0x8]
+  d83d95:	56                                              	push   esi
+  d83d96:	8d 70 08                                        	lea    esi,[eax+0x8]
+  d83d99:	8b 82 cc 00 00 00                               	mov    eax,DWORD PTR [edx+0xcc]
+  d83d9f:	57                                              	push   edi
+  d83da0:	8b ce                                           	mov    ecx,esi
+  d83da2:	ff d0                                           	call   eax
+  d83da4:	8b f8                                           	mov    edi,eax
+  d83da6:	85 ff                                           	test   edi,edi
+  d83da8:	74 3a                                           	je     0xd83de4
+  d83daa:	8b 16                                           	mov    edx,DWORD PTR [esi]
+  d83dac:	8b 82 cc 00 00 00                               	mov    eax,DWORD PTR [edx+0xcc]
+  d83db2:	53                                              	push   ebx
+  d83db3:	8b ce                                           	mov    ecx,esi
+  d83db5:	ff d0                                           	call   eax
+  d83db7:	8b f0                                           	mov    esi,eax
+  d83db9:	85 f6                                           	test   esi,esi
+  d83dbb:	74 27                                           	je     0xd83de4
+  d83dbd:	8b 16                                           	mov    edx,DWORD PTR [esi]
+  d83dbf:	8b 42 14                                        	mov    eax,DWORD PTR [edx+0x14]
+  d83dc2:	8b ce                                           	mov    ecx,esi
+  d83dc4:	ff d0                                           	call   eax
+  d83dc6:	84 c0                                           	test   al,al
+  d83dc8:	74 1a                                           	je     0xd83de4
+  d83dca:	56                                              	push   esi
+  d83dcb:	e8 d0 fe ff ff                                  	call   0xd83ca0
+  d83dd0:	83 c4 04                                        	add    esp,0x4
+  d83dd3:	85 c0                                           	test   eax,eax
+  d83dd5:	74 0d                                           	je     0xd83de4
+  d83dd7:	8b 17                                           	mov    edx,DWORD PTR [edi]
+  d83dd9:	50                                              	push   eax
+  d83dda:	8b 02                                           	mov    eax,DWORD PTR [edx]
+  d83ddc:	8b cf                                           	mov    ecx,edi
+  d83dde:	ff d0                                           	call   eax
+  d83de0:	5e                                              	pop    esi
+  d83de1:	5b                                              	pop    ebx
+  d83de2:	5f                                              	pop    edi
+  d83de3:	c3                                              	ret
+  d83de4:	5e                                              	pop    esi
+  d83de5:	5b                                              	pop    ebx
+  d83de6:	83 c8 ff                                        	or     eax,0xffffffff
+  d83de9:	5f                                              	pop    edi
+  d83dea:	c3                                              	ret
+  d83deb:	cc                                              	int3
+  d83dec:	cc                                              	int3
+  d83ded:	cc                                              	int3
+  d83dee:	cc                                              	int3
+  d83def:	cc                                              	int3

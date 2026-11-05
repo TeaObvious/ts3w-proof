@@ -1,0 +1,20 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_004a6be0:
+
+
+void * __thiscall FUN_004a6be0(void *this,undefined4 param_1,int param_2,undefined4 *param_3)
+
+{
+  undefined4 *this_00;
+  void *pvVar1;
+  
+  this_00 = FUN_004e4300(0x68,*(int **)((int)this + 0x10),"ResourceLoad/PackedFile/RecordRead");
+  if (this_00 != (undefined4 *)0x0) {
+    pvVar1 = FUN_004ae1b0(this_00,param_2,param_3,this);
+    return pvVar1;
+  }
+  return (void *)0x0;
+}
+
+

@@ -1,0 +1,171 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x00d83a80 (ScriptCore.TaskControl::TaskControl_GetMethodChecksum)
+Paired Ghidra pseudocode: 00D83A80_ScriptCore_TaskControl_TaskControl_GetMethodChecksum.c
+Window: [0x00d83a80, 0x00d83bd0) (336 bytes; stop exclusive)
+Next defined Ghidra entry: 0x00d83bd0
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+00d83a80: 56 8b 74 24 08 56 e8 e5 1b 10 00 83 c4 04 85 c0
+00d83a90: 75 3f f6 46 02 03 74 21 56 e8 72 e7 0c 00 8b f0
+00d83aa0: 83 c4 04 f7 46 44 00 01 00 00 75 11 56 e8 9e f3
+00d83ab0: 0c 00 83 c4 04 85 c0 74 04 32 c0 5e c3 8b 46 0c
+00d83ac0: 85 c0 74 f5 50 e8 a6 1b 10 00 83 c4 04 85 c0 74
+00d83ad0: e8 8b 4c 24 0c 53 55 c7 01 00 00 00 00 8b 28 83
+00d83ae0: fd 01 8b 50 04 57 be 1e 5d 0c 05 0f 8e a3 00 00
+00d83af0: 00 8a 1a 0f b6 cb 8a 89 f0 d2 08 01 33 ff 80 f9
+00d83b00: 08 b8 01 00 00 00 75 26 83 fd 02 0f 8c 90 00 00
+00d83b10: 00 80 fb f0 8a 4a 01 b8 f0 d3 08 01 74 05 b8 f0
+00d83b20: d4 08 01 0f b6 c9 8a 0c 01 b8 02 00 00 00 0f b6
+00d83b30: c9 83 c1 ff 83 f9 06 77 68 ff 24 8d a8 3b d8 00
+00d83b40: bf 04 00 00 00 eb 22 83 c0 01 eb 1d 83 c0 02 eb
+00d83b50: 18 83 c0 04 eb 13 83 c0 08 eb 0e 83 c0 04 83 fd
+00d83b60: 05 7c 06 8b 4a 01 8d 04 88 8d 0c 07 2b e9 78 31
+00d83b70: 85 c0 74 15 0f b6 0a 69 f6 93 01 00 01 83 e8 01
+00d83b80: 33 f1 83 c2 01 85 c0 75 eb 03 d7 83 fd 01 0f 8f
+00d83b90: 5d ff ff ff 8b 54 24 18 5f 5d 5b 89 32 b0 01 5e
+00d83ba0: c3 5f 5d 5b 32 c0 5e c3 69 3b d8 00 40 3b d8 00
+00d83bb0: 47 3b d8 00 4c 3b d8 00 51 3b d8 00 56 3b d8 00
+00d83bc0: 5b 3b d8 00 cc cc cc cc cc cc cc cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+00d83a80 <.text+0x982a80>:
+  d83a80:	56                                              	push   esi
+  d83a81:	8b 74 24 08                                     	mov    esi,DWORD PTR [esp+0x8]
+  d83a85:	56                                              	push   esi
+  d83a86:	e8 e5 1b 10 00                                  	call   0xe85670
+  d83a8b:	83 c4 04                                        	add    esp,0x4
+  d83a8e:	85 c0                                           	test   eax,eax
+  d83a90:	75 3f                                           	jne    0xd83ad1
+  d83a92:	f6 46 02 03                                     	test   BYTE PTR [esi+0x2],0x3
+  d83a96:	74 21                                           	je     0xd83ab9
+  d83a98:	56                                              	push   esi
+  d83a99:	e8 72 e7 0c 00                                  	call   0xe52210
+  d83a9e:	8b f0                                           	mov    esi,eax
+  d83aa0:	83 c4 04                                        	add    esp,0x4
+  d83aa3:	f7 46 44 00 01 00 00                            	test   DWORD PTR [esi+0x44],0x100
+  d83aaa:	75 11                                           	jne    0xd83abd
+  d83aac:	56                                              	push   esi
+  d83aad:	e8 9e f3 0c 00                                  	call   0xe52e50
+  d83ab2:	83 c4 04                                        	add    esp,0x4
+  d83ab5:	85 c0                                           	test   eax,eax
+  d83ab7:	74 04                                           	je     0xd83abd
+  d83ab9:	32 c0                                           	xor    al,al
+  d83abb:	5e                                              	pop    esi
+  d83abc:	c3                                              	ret
+  d83abd:	8b 46 0c                                        	mov    eax,DWORD PTR [esi+0xc]
+  d83ac0:	85 c0                                           	test   eax,eax
+  d83ac2:	74 f5                                           	je     0xd83ab9
+  d83ac4:	50                                              	push   eax
+  d83ac5:	e8 a6 1b 10 00                                  	call   0xe85670
+  d83aca:	83 c4 04                                        	add    esp,0x4
+  d83acd:	85 c0                                           	test   eax,eax
+  d83acf:	74 e8                                           	je     0xd83ab9
+  d83ad1:	8b 4c 24 0c                                     	mov    ecx,DWORD PTR [esp+0xc]
+  d83ad5:	53                                              	push   ebx
+  d83ad6:	55                                              	push   ebp
+  d83ad7:	c7 01 00 00 00 00                               	mov    DWORD PTR [ecx],0x0
+  d83add:	8b 28                                           	mov    ebp,DWORD PTR [eax]
+  d83adf:	83 fd 01                                        	cmp    ebp,0x1
+  d83ae2:	8b 50 04                                        	mov    edx,DWORD PTR [eax+0x4]
+  d83ae5:	57                                              	push   edi
+  d83ae6:	be 1e 5d 0c 05                                  	mov    esi,0x50c5d1e
+  d83aeb:	0f 8e a3 00 00 00                               	jle    0xd83b94
+  d83af1:	8a 1a                                           	mov    bl,BYTE PTR [edx]
+  d83af3:	0f b6 cb                                        	movzx  ecx,bl
+  d83af6:	8a 89 f0 d2 08 01                               	mov    cl,BYTE PTR [ecx+0x108d2f0]
+  d83afc:	33 ff                                           	xor    edi,edi
+  d83afe:	80 f9 08                                        	cmp    cl,0x8
+  d83b01:	b8 01 00 00 00                                  	mov    eax,0x1
+  d83b06:	75 26                                           	jne    0xd83b2e
+  d83b08:	83 fd 02                                        	cmp    ebp,0x2
+  d83b0b:	0f 8c 90 00 00 00                               	jl     0xd83ba1
+  d83b11:	80 fb f0                                        	cmp    bl,0xf0
+  d83b14:	8a 4a 01                                        	mov    cl,BYTE PTR [edx+0x1]
+  d83b17:	b8 f0 d3 08 01                                  	mov    eax,0x108d3f0
+  d83b1c:	74 05                                           	je     0xd83b23
+  d83b1e:	b8 f0 d4 08 01                                  	mov    eax,0x108d4f0
+  d83b23:	0f b6 c9                                        	movzx  ecx,cl
+  d83b26:	8a 0c 01                                        	mov    cl,BYTE PTR [ecx+eax*1]
+  d83b29:	b8 02 00 00 00                                  	mov    eax,0x2
+  d83b2e:	0f b6 c9                                        	movzx  ecx,cl
+  d83b31:	83 c1 ff                                        	add    ecx,0xffffffff
+  d83b34:	83 f9 06                                        	cmp    ecx,0x6
+  d83b37:	77 68                                           	ja     0xd83ba1
+  d83b39:	ff 24 8d a8 3b d8 00                            	jmp    DWORD PTR [ecx*4+0xd83ba8]
+  d83b40:	bf 04 00 00 00                                  	mov    edi,0x4
+  d83b45:	eb 22                                           	jmp    0xd83b69
+  d83b47:	83 c0 01                                        	add    eax,0x1
+  d83b4a:	eb 1d                                           	jmp    0xd83b69
+  d83b4c:	83 c0 02                                        	add    eax,0x2
+  d83b4f:	eb 18                                           	jmp    0xd83b69
+  d83b51:	83 c0 04                                        	add    eax,0x4
+  d83b54:	eb 13                                           	jmp    0xd83b69
+  d83b56:	83 c0 08                                        	add    eax,0x8
+  d83b59:	eb 0e                                           	jmp    0xd83b69
+  d83b5b:	83 c0 04                                        	add    eax,0x4
+  d83b5e:	83 fd 05                                        	cmp    ebp,0x5
+  d83b61:	7c 06                                           	jl     0xd83b69
+  d83b63:	8b 4a 01                                        	mov    ecx,DWORD PTR [edx+0x1]
+  d83b66:	8d 04 88                                        	lea    eax,[eax+ecx*4]
+  d83b69:	8d 0c 07                                        	lea    ecx,[edi+eax*1]
+  d83b6c:	2b e9                                           	sub    ebp,ecx
+  d83b6e:	78 31                                           	js     0xd83ba1
+  d83b70:	85 c0                                           	test   eax,eax
+  d83b72:	74 15                                           	je     0xd83b89
+  d83b74:	0f b6 0a                                        	movzx  ecx,BYTE PTR [edx]
+  d83b77:	69 f6 93 01 00 01                               	imul   esi,esi,0x1000193
+  d83b7d:	83 e8 01                                        	sub    eax,0x1
+  d83b80:	33 f1                                           	xor    esi,ecx
+  d83b82:	83 c2 01                                        	add    edx,0x1
+  d83b85:	85 c0                                           	test   eax,eax
+  d83b87:	75 eb                                           	jne    0xd83b74
+  d83b89:	03 d7                                           	add    edx,edi
+  d83b8b:	83 fd 01                                        	cmp    ebp,0x1
+  d83b8e:	0f 8f 5d ff ff ff                               	jg     0xd83af1
+  d83b94:	8b 54 24 18                                     	mov    edx,DWORD PTR [esp+0x18]
+  d83b98:	5f                                              	pop    edi
+  d83b99:	5d                                              	pop    ebp
+  d83b9a:	5b                                              	pop    ebx
+  d83b9b:	89 32                                           	mov    DWORD PTR [edx],esi
+  d83b9d:	b0 01                                           	mov    al,0x1
+  d83b9f:	5e                                              	pop    esi
+  d83ba0:	c3                                              	ret
+  d83ba1:	5f                                              	pop    edi
+  d83ba2:	5d                                              	pop    ebp
+  d83ba3:	5b                                              	pop    ebx
+  d83ba4:	32 c0                                           	xor    al,al
+  d83ba6:	5e                                              	pop    esi
+  d83ba7:	c3                                              	ret
+  d83ba8:	69 3b d8 00 40 3b                               	imul   edi,DWORD PTR [ebx],0x3b4000d8
+  d83bae:	d8 00                                           	fadd   DWORD PTR [eax]
+  d83bb0:	47                                              	inc    edi
+  d83bb1:	3b d8                                           	cmp    ebx,eax
+  d83bb3:	00 4c 3b d8                                     	add    BYTE PTR [ebx+edi*1-0x28],cl
+  d83bb7:	00 51 3b                                        	add    BYTE PTR [ecx+0x3b],dl
+  d83bba:	d8 00                                           	fadd   DWORD PTR [eax]
+  d83bbc:	56                                              	push   esi
+  d83bbd:	3b d8                                           	cmp    ebx,eax
+  d83bbf:	00 5b 3b                                        	add    BYTE PTR [ebx+0x3b],bl
+  d83bc2:	d8 00                                           	fadd   DWORD PTR [eax]
+  d83bc4:	cc                                              	int3
+  d83bc5:	cc                                              	int3
+  d83bc6:	cc                                              	int3
+  d83bc7:	cc                                              	int3
+  d83bc8:	cc                                              	int3
+  d83bc9:	cc                                              	int3
+  d83bca:	cc                                              	int3
+  d83bcb:	cc                                              	int3
+  d83bcc:	cc                                              	int3
+  d83bcd:	cc                                              	int3
+  d83bce:	cc                                              	int3
+  d83bcf:	cc                                              	int3

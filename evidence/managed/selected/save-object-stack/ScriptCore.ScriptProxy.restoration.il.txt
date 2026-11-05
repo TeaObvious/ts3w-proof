@@ -1,0 +1,70 @@
+// Complete PC1.67 original CIL; central managed README identifies the original assembly.
+// Tokens are module-local. Decoded operands retain tokens; TypeSpecification labels are not recovered generic signatures.
+
+// ScriptCore.ScriptProxy::SetObjectToReset; MethodDef0x060006D6; RVA0x0000A0AF
+// raw CLI signature 200001; maxstack 8; locals token 11000000; initlocals False
+// Original IL bytes (33): 027C9A000004281700000A166A2E11027C9A000004281700000A1728BF0600062A
+IL_0000: ldarg.0
+IL_0001: ldflda 0x0400009A ScriptCore.ScriptProxy::mObjectId
+IL_0006: call 0x0A000017 Sims3.SimIFace.ObjectGuid::get_Value
+IL_000B: ldc.i4.0
+IL_000C: conv.i8
+IL_000D: beq.s IL_0020
+IL_000F: ldarg.0
+IL_0010: ldflda 0x0400009A ScriptCore.ScriptProxy::mObjectId
+IL_0015: call 0x0A000017 Sims3.SimIFace.ObjectGuid::get_Value
+IL_001A: ldc.i4.1
+IL_001B: call 0x060006BF ScriptCore.ScriptProxy::ScriptProxy_SetResetState
+IL_0020: ret
+
+// ScriptCore.ScriptProxy::PreSimulate; MethodDef0x060006DA; RVA0x0000A10C
+// raw CLI signature 200001; maxstack 2; locals token 11000000; initlocals False
+// Original IL bytes (77): 027BA00000042C36027B9F0000042C12027B9F0000046F9206000602147D9F00000402280E0200062D2202167DA00000040228D606000617288200000A2A027B9F0000042C060228DB0600062A
+IL_0000: ldarg.0
+IL_0001: ldfld 0x040000A0 ScriptCore.ScriptProxy::mResetSavedObject
+IL_0006: brfalse.s IL_003E
+IL_0008: ldarg.0
+IL_0009: ldfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_000E: brfalse.s IL_0022
+IL_0010: ldarg.0
+IL_0011: ldfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_0016: callvirt 0x06000692 ScriptCore.SavedTaskContext::Dispose
+IL_001B: ldarg.0
+IL_001C: ldnull
+IL_001D: stfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_0022: ldarg.0
+IL_0023: call 0x0600020E ScriptCore.LoadSaveManager::SendObjectFailedEvent
+IL_0028: brtrue.s IL_004C
+IL_002A: ldarg.0
+IL_002B: ldc.i4.0
+IL_002C: stfld 0x040000A0 ScriptCore.ScriptProxy::mResetSavedObject
+IL_0031: ldarg.0
+IL_0032: call 0x060006D6 ScriptCore.ScriptProxy::SetObjectToReset
+IL_0037: ldc.i4.1
+IL_0038: call 0x0A000082 Sims3.SimIFace.Simulator::Sleep
+IL_003D: ret
+IL_003E: ldarg.0
+IL_003F: ldfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_0044: brfalse.s IL_004C
+IL_0046: ldarg.0
+IL_0047: call 0x060006DB ScriptCore.ScriptProxy::RestoreSavedTaskContext
+IL_004C: ret
+
+// ScriptCore.ScriptProxy::RestoreSavedTaskContext; MethodDef0x060006DB; RVA0x0000A168
+// raw CLI signature 200001; maxstack 2; locals token 11000029; initlocals True
+// Original IL bytes (36): 027B9F0000040A02147D9F000004062C1206281C02000615288200000A0228D40600062A
+IL_0000: ldarg.0
+IL_0001: ldfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_0006: stloc.0
+IL_0007: ldarg.0
+IL_0008: ldnull
+IL_0009: stfld 0x0400009F ScriptCore.ScriptProxy::mSavedTaskContext
+IL_000E: ldloc.0
+IL_000F: brfalse.s IL_0023
+IL_0011: ldloc.0
+IL_0012: call 0x0600021C ScriptCore.LoadSaveManager::RequestTaskRestore
+IL_0017: ldc.i4.m1
+IL_0018: call 0x0A000082 Sims3.SimIFace.Simulator::Sleep
+IL_001D: ldarg.0
+IL_001E: call 0x060006D4 ScriptCore.ScriptProxy::OnReset
+IL_0023: ret

@@ -1,0 +1,79 @@
+// Original PC1.67 packaged retail members; complete selected method bodies. Central identities apply.
+// Raw CIL tokens/signatures qualify unresolved generics; compiler-generated child/lambda bodies are separate.
+
+// Sims3.Gameplay.Core.Bin::ExportHouseholdForTravel MethodDef0x06008FFB RVA0x0027C870
+// Signature 00010112c0006d0c; maxstack2; locals11001A0B; initlocalsTrue
+// Complete raw CIL (95 bytes): 026F10BF00066FAE00000A0D2B0E120328AF00000A0A066FA5090006120328B500000A2DE9DE0E1203FE16FC09001B6F5B00000ADC16283800000A28FE26000A0B0273CE8F00060C08076FCC8F0006080728FF26000A2C0607280027000A2A
+IL_0000: ldarg.0
+IL_0001: callvirt 0x0600BF10 Sims3.Gameplay.CAS.Household::get_AllActors
+IL_0006: callvirt 0x0A0000AE TypeSpecification::GetEnumerator
+IL_000B: stloc.3
+IL_000C: br.s IL_001C
+IL_000E: ldloca.s 3
+IL_0010: call 0x0A0000AF TypeSpecification::get_Current
+IL_0015: stloc.0
+IL_0016: ldloc.0
+IL_0017: callvirt 0x060009A5 Sims3.Gameplay.Abstracts.GameObject::SetObjectToReset
+IL_001C: ldloca.s 3
+IL_001E: call 0x0A0000B5 TypeSpecification::MoveNext
+IL_0023: brtrue.s IL_000E
+IL_0025: leave.s IL_0035
+IL_0027: ldloca.s 3
+IL_0029: constrained. 0x1B0009FC TypeSpecification
+IL_002F: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_0034: endfinally
+IL_0035: ldc.i4.0
+IL_0036: call 0x0A000038 Sims3.SimIFace.Simulator::Sleep
+IL_003B: call 0x0A0026FE Sims3.SimIFace.CustomContent.DownloadContent::GenerateGUID
+IL_0040: stloc.1
+IL_0041: ldarg.0
+IL_0042: newobj 0x06008FCE Sims3.Gameplay.Core.HouseholdContents::.ctor
+IL_0047: stloc.2
+IL_0048: ldloc.2
+IL_0049: ldloc.1
+IL_004A: callvirt 0x06008FCC Sims3.Gameplay.Core.HouseholdContents::set_ContentId
+IL_004F: ldloc.2
+IL_0050: ldloc.1
+IL_0051: call 0x0A0026FF Sims3.SimIFace.CustomContent.DownloadContent::StoreHouseholdContents
+IL_0056: brfalse.s IL_005E
+IL_0058: ldloc.1
+IL_0059: call 0x0A002700 Sims3.SimIFace.CustomContent.DownloadContent::ExportLotContentsToTravelBin
+IL_005E: ret
+// EH {"FilterOffset": -1, "HandlerLength": 14, "HandlerOffset": 39, "TryLength": 27, "TryOffset": 12, "catchType": "00000000", "kind": "Finally"}
+
+// Sims3.Gameplay.Core.Bin::ImportHouseholdForTravel MethodDef0x06008FFC RVA0x0027C8EC
+// Signature 000012c0005444; maxstack2; locals11001A0C; initlocalsTrue
+// Complete raw CIL (37 bytes): 280127000A0A06166A2E1873CD8F00060B070628C226000A2C0907066FCC8F0006072A142A
+IL_0000: call 0x0A002701 Sims3.SimIFace.CustomContent.DownloadContent::ImportHouseholdContentsFromTravelBin
+IL_0005: stloc.0
+IL_0006: ldloc.0
+IL_0007: ldc.i4.0
+IL_0008: conv.i8
+IL_0009: beq.s IL_0023
+IL_000B: newobj 0x06008FCD Sims3.Gameplay.Core.HouseholdContents::.ctor
+IL_0010: stloc.1
+IL_0011: ldloc.1
+IL_0012: ldloc.0
+IL_0013: call 0x0A0026C2 Sims3.SimIFace.CustomContent.DownloadContent::ImportHouseholdContents
+IL_0018: brfalse.s IL_0023
+IL_001A: ldloc.1
+IL_001B: ldloc.0
+IL_001C: callvirt 0x06008FCC Sims3.Gameplay.Core.HouseholdContents::set_ContentId
+IL_0021: ldloc.1
+IL_0022: ret
+IL_0023: ldnull
+IL_0024: ret
+
+// Sims3.Gameplay.Core.Bin::ImportInventoryInternal MethodDef0x06009014 RVA0x0027D614
+// Signature 0002010b12c0004c00; maxstack8; locals11000000; initlocalsFalse
+// Complete raw CIL (22 bytes): 036FFF7F0006020328B526000A260228B626000A262A
+IL_0000: ldarg.1
+IL_0001: callvirt 0x06007FFF Sims3.Gameplay.Inventory::DestroyItems
+IL_0006: ldarg.0
+IL_0007: ldarg.1
+IL_0008: call 0x0A0026B5 Sims3.SimIFace.CustomContent.DownloadContent::ImportInventory
+IL_000D: pop
+IL_000E: ldarg.0
+IL_000F: call 0x0A0026B6 Sims3.SimIFace.CustomContent.DownloadContent::DeleteInventory
+IL_0014: pop
+IL_0015: ret

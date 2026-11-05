@@ -1,0 +1,32 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Supplemental helper: Camera_SetZoomAndDerivedTarget at 0x00960b80
+# Bounded stop: 0x00960bc0; next Ghidra entry: 0x00960bc0; this is not a body-size claim.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00960b80 <.text+0x55fb80>:
+  960b80:	55                   	push   ebp
+  960b81:	8b ec                	mov    ebp,esp
+  960b83:	83 e4 f0             	and    esp,0xfffffff0
+  960b86:	f3 0f 10 45 08       	movss  xmm0,DWORD PTR [ebp+0x8]
+  960b8b:	0f 28 49 50          	movaps xmm1,XMMWORD PTR [ecx+0x50]
+  960b8f:	f3 0f 11 81 70 02 00 	movss  DWORD PTR [ecx+0x270],xmm0
+  960b96:	00 
+  960b97:	0f 57 d2             	xorps  xmm2,xmm2
+  960b9a:	f3 0f 10 c0          	movss  xmm0,xmm0
+  960b9e:	0f 5c d1             	subps  xmm2,xmm1
+  960ba1:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  960ba5:	0f 59 d0             	mulps  xmm2,xmm0
+  960ba8:	0f 28 41 60          	movaps xmm0,XMMWORD PTR [ecx+0x60]
+  960bac:	0f 58 d0             	addps  xmm2,xmm0
+  960baf:	0f 29 91 00 02 00 00 	movaps XMMWORD PTR [ecx+0x200],xmm2
+  960bb6:	8b e5                	mov    esp,ebp
+  960bb8:	5d                   	pop    ebp
+  960bb9:	c2 04 00             	ret    0x4
+  960bbc:	cc                   	int3
+  960bbd:	cc                   	int3
+  960bbe:	cc                   	int3
+  960bbf:	cc                   	int3

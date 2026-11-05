@@ -1,0 +1,74 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: Sims3/CSHost/World.cs
+// Each selected method is complete. Other members are omitted.
+
+	public Sea GetSea()
+	{
+		return mSea;
+	}
+
+// [Next selected original method]
+
+	public Pond GetPondAtVertex(float vertX, float vertZ)
+	{
+		if (mWorldWrap != null)
+		{
+			PondWrap pondAtVertex = mWorldWrap.GetPondAtVertex(vertX, vertZ);
+			if (pondAtVertex != null)
+			{
+				return new Pond(pondAtVertex, this);
+			}
+		}
+		return null;
+	}
+
+// [Next selected original method]
+
+	public Pond CreateNewPond()
+	{
+		if (mWorldWrap != null)
+		{
+			PondWrap pondWrap = mWorldWrap.CreateNewPond();
+			if (pondWrap != null)
+			{
+				return new Pond(pondWrap, this);
+			}
+		}
+		return null;
+	}
+
+// [Next selected original method]
+
+	public bool AddPond(Pond pondObj)
+	{
+		if (pondObj == null)
+		{
+			throw new ArgumentNullException("pondObj", Strings.kError_AddNullPond);
+		}
+		if (mWorldWrap != null && TryEdit())
+		{
+			PondWrap wrapObject = pondObj.GetWrapObject();
+			if (wrapObject != null)
+			{
+				return mWorldWrap.AddPond(wrapObject);
+			}
+		}
+		return false;
+	}
+
+// [Next selected original method]
+
+	public void RemovePond(Pond pondObj)
+	{
+		if (pondObj == null)
+		{
+			throw new ArgumentNullException("pondObj", Strings.kError_RemoveNullPond);
+		}
+		if (mWorldWrap != null && TryEdit())
+		{
+			PondWrap wrapObject = pondObj.GetWrapObject();
+			if (wrapObject != null)
+			{
+				mWorldWrap.RemovePond(wrapObject);
+			}
+		}
+	}

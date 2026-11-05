@@ -1,0 +1,30 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00ec1300 <.text+0xac0300>:
+  ec1300:	e8 8b 80 8a ff       	call   0x769390
+  ec1305:	8b 4c 24 04          	mov    ecx,DWORD PTR [esp+0x4]
+  ec1309:	8b 10                	mov    edx,DWORD PTR [eax]
+  ec130b:	8b 52 58             	mov    edx,DWORD PTR [edx+0x58]
+  ec130e:	51                   	push   ecx
+  ec130f:	8b c8                	mov    ecx,eax
+  ec1311:	ff d2                	call   edx
+  ec1313:	8b 0d ac 07 20 01    	mov    ecx,DWORD PTR ds:0x12007ac
+  ec1319:	85 c9                	test   ecx,ecx
+  ec131b:	74 0a                	je     0xec1327
+  ec131d:	50                   	push   eax
+  ec131e:	51                   	push   ecx
+  ec131f:	e8 2c 63 00 00       	call   0xec7650
+  ec1324:	83 c4 08             	add    esp,0x8
+  ec1327:	c3                   	ret
+  ec1328:	cc                   	int3
+  ec1329:	cc                   	int3
+  ec132a:	cc                   	int3
+  ec132b:	cc                   	int3
+  ec132c:	cc                   	int3
+  ec132d:	cc                   	int3
+  ec132e:	cc                   	int3
+  ec132f:	cc                   	int3

@@ -1,0 +1,35 @@
+# Lot retained-state release and visual evidence boundaries
+
+Static evidence from the centrally identified PC1.67 TS3W.exe. Analyst names describe the selected original instructions, not recovered C++ symbols. Actual annotated Ghidra C is paired once per address with its complete original ASM. No original execution, teardown/resource stress test, GPU retirement test or visual match is claimed.
+
+## Actual original lifecycle and ABI
+
+| Address | Bounded original contract | Canonical pair |
+| --- | --- | --- |
+| ABF290 | ECX lot + one physical DWORD releaseFlags, RET4; selected retained-state cleanup, no defined result | [ASM](../../evidence/native/functions/00ABF290_Lot_ReleaseRetainedState.asm) ([annotated C](../../evidence/native/functions/00ABF290_Lot_ReleaseRetainedState.c)) |
+| AC1020 | ECX lot, no stack arguments; member destruction ending in C71D50 tail jump | [ASM](../../evidence/native/functions/00AC1020_Lot_DestroyMembers.asm) ([annotated C](../../evidence/native/functions/00AC1020_Lot_DestroyMembers.c)) |
+| AC3610 | ECX lot + physical DWORD deletionFlags, RET4; low-byte bit0 controls allocator free, EAX receiver | [ASM](../../evidence/native/functions/00AC3610_Lot_ScalarDeletingDestructor.asm) ([annotated C](../../evidence/native/functions/00AC3610_Lot_ScalarDeletingDestructor.c)) |
+
+AC1020 installs vtable010662A0, interface0107ADA4 and+A0 table01066294, matching [lot constructor AC0B60 ASM](../../evidence/native/functions/00AC0B60_Lot_Construct.asm) ([annotated C](../../evidence/native/functions/00AC0B60_Lot_Construct.c)). It pushes DWORD1 and calls ABF290 before later buffer/interface/reference-count/member cleanup. These actual consumers/producers establish the lot receiver; a coincident numeric field offset alone does not.
+
+ABF290 first conditionally submits ABA970 through remote-call service7D9B10 when+364 is nonzero, then independently releases+A4 auxiliary storage. The selected function does not prove remote completion, retained target lifetime or synchronous cleanup. Its+74 guard gates selected manager/interface cleanup and object iteration across[lot+14,lot+18): each object receives event0C. The actual virtual reference-count/release sequences and null guards remain in full exports; they do not establish that every object is destroyed or every texture/GPU allocation is retired.
+
+Within that same+74-gated branch it clears bytes+C0/+C1/+C2 at ABF435/ABF43C/ABF443 after preceding selected manager cleanup and before conditional collision structures/base cleanup. It forwards the complete releaseFlags stackword to C718B0: ABF566 loads DWORD[ESP+30], ABF56A pushes it. Neither a normalized Boolean meaning nor unused-bit behavior in that child is established here. Afterwards it clears+74 and releases selected+2DC/+428/+42C state. No blanket transactional rollback or complete ready-state transition follows merely from this partial field correspondence.
+
+AC1020 continues member cleanup, including its three actual DeleteCriticalSection calls, and finally AC1245 JMP C71D50 after restoring stack/registers and supplying ECX lot. The complete554-byte function includes that tail transfer endingAC1249; absence of its own RET is intentional. C71D50's full base-class semantics remain separate; the selected caller does not construct a dedicated success value.
+
+AC3610 calls AC1020 at AC3613 without extra stack arguments, ignores any return residue, TESTs byte[ESP+8] with1, optionally passes the receiver to4E44E0 and cleans4bytes, then AC3628 MOV EAX,ESI returns the original receiver and RET4. Flags2 does not request that allocator free; flags1 does. This is the deleting wrapper, distinct from member cleanup and from a Boolean completion result. Returning the receiver does not imply it remains allocated after the flagged free.
+
+## Requests, pending state and readiness remain separate
+
+[AC1250 requested-detail setter ASM](../../evidence/native/functions/00AC1250_Lot_SetDetailRequested.asm) ([annotated C](../../evidence/native/functions/00AC1250_Lot_SetDetailRequested.c)) stores+C1 before remote submission/notification. [C69E30 pending query ASM](../../evidence/native/functions/00C69E30_WorldManager_HasPendingLotDetail.asm) ([annotated C](../../evidence/native/functions/00C69E30_WorldManager_HasPendingLotDetail.c)) treats a requested lot as pending when its+C2 getter iszero or the separate00700C20 streaming query reports pending. [Getter ASM](../../evidence/native/functions/00D43520_Lot_ReadDetailReadinessByte.asm) ([annotated C](../../evidence/native/functions/00D43520_Lot_ReadDetailReadinessByte.c)) is shared by other contexts; its offset is not a universal lot type identity.
+
+[AC01E0 promotion ASM](../../evidence/native/functions/00AC01E0_Lot_ApplyDetailRequestToObjects.asm) ([annotated C](../../evidence/native/functions/00AC01E0_Lot_ApplyDetailRequestToObjects.c)) and [ABE9F0 object policy ASM](../../evidence/native/functions/00ABE9F0_Lot_ApplyObjectDisplayDetail.asm) ([annotated C](../../evidence/native/functions/00ABE9F0_Lot_ApplyObjectDisplayDetail.c)) apply selective object work; [AB3310 demotion ASM](../../evidence/native/functions/00AB3310_Lot_DispatchDetailDemotionToObjects.asm) ([annotated C](../../evidence/native/functions/00AB3310_Lot_DispatchDetailDemotionToObjects.c)) sends its selected object events without universally deleting the lot's vector. These selected paths and constructor/reset evidence still do not establish every positive+C2 writer or full asset/readiness meaning. Full virtual services, streaming completion and GPU retirement remain separate dependencies.
+
+## Current visual receipts are a separate host policy
+
+The current Game registry binds curated lot IDs/world basename/options, exact compiled payload length/hash and offline capture/ledger identities to explicit owner-coverage/visual-oracle flags and limitations. Its whole-packet ownership predicate and exterior policy/source/material-aware digest checks return a shared renderer-admission value. Downstream renderer opt-ins decide preview presentation separately. This is project evidence/capability policy, not an original requested byte, original manager admission or a simulation permission check.
+
+The selected original functions operate on concrete object requests/live resources and teardown. They do not establish these project receipt strings, curated payload hashes, preview setting semantics or a comparable proof of pixel parity. That bounded counterpart comparison is not a global assertion that original asset hashing/validation does not exist. A host hash match does not establish original typed decoding, readiness completion, object retirement or whole-frame visual parity.
+
+All three actual C/ASM bodies and ABI/field/flag/tail branches were checked against pristine bytes; reuse of constructor/request/pending/object pairs preserves their existing annotations. No redundant original-data dump is needed: the relevant vtable values, byte resets, flags and direct joins are instructions in the paired functions. Independent lifecycle boundary cases remain static specifications, not executed frees or gameplay acceptance.

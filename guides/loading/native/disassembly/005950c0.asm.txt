@@ -1,0 +1,59 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+005950c0 <.text+0x1940c0>:
+  5950c0:	81 ec 08 02 00 00    	sub    esp,0x208
+  5950c6:	56                   	push   esi
+  5950c7:	33 f6                	xor    esi,esi
+  5950c9:	39 35 50 3b 15 01    	cmp    DWORD PTR ds:0x1153b50,esi
+  5950cf:	57                   	push   edi
+  5950d0:	74 49                	je     0x59511b
+  5950d2:	8b bc 24 14 02 00 00 	mov    edi,DWORD PTR [esp+0x214]
+  5950d9:	b8 50 3b 15 01       	mov    eax,0x1153b50
+  5950de:	8b ff                	mov    edi,edi
+  5950e0:	8b 00                	mov    eax,DWORD PTR [eax]
+  5950e2:	50                   	push   eax
+  5950e3:	57                   	push   edi
+  5950e4:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  5950e8:	68 80 8d fd 00       	push   0xfd8d80
+  5950ed:	51                   	push   ecx
+  5950ee:	e8 0d e0 f5 ff       	call   0x4f3100
+  5950f3:	8d 54 24 18          	lea    edx,[esp+0x18]
+  5950f7:	52                   	push   edx
+  5950f8:	e8 73 6c f4 ff       	call   0x4dbd70
+  5950fd:	83 c4 14             	add    esp,0x14
+  595100:	84 c0                	test   al,al
+  595102:	75 24                	jne    0x595128
+  595104:	83 c6 01             	add    esi,0x1
+  595107:	8d 04 76             	lea    eax,[esi+esi*2]
+  59510a:	83 3c 85 50 3b 15 01 	cmp    DWORD PTR [eax*4+0x1153b50],0x0
+  595111:	00 
+  595112:	8d 04 85 50 3b 15 01 	lea    eax,[eax*4+0x1153b50]
+  595119:	75 c5                	jne    0x5950e0
+  59511b:	5f                   	pop    edi
+  59511c:	32 c0                	xor    al,al
+  59511e:	5e                   	pop    esi
+  59511f:	81 c4 08 02 00 00    	add    esp,0x208
+  595125:	c2 0c 00             	ret    0xc
+  595128:	8b 94 24 18 02 00 00 	mov    edx,DWORD PTR [esp+0x218]
+  59512f:	8d 04 76             	lea    eax,[esi+esi*2]
+  595132:	03 c0                	add    eax,eax
+  595134:	8b 8c 00 54 3b 15 01 	mov    ecx,DWORD PTR [eax+eax*1+0x1153b54]
+  59513b:	03 c0                	add    eax,eax
+  59513d:	89 0a                	mov    DWORD PTR [edx],ecx
+  59513f:	8b 80 58 3b 15 01    	mov    eax,DWORD PTR [eax+0x1153b58]
+  595145:	8b 8c 24 1c 02 00 00 	mov    ecx,DWORD PTR [esp+0x21c]
+  59514c:	5f                   	pop    edi
+  59514d:	89 01                	mov    DWORD PTR [ecx],eax
+  59514f:	b0 01                	mov    al,0x1
+  595151:	5e                   	pop    esi
+  595152:	81 c4 08 02 00 00    	add    esp,0x208
+  595158:	c2 0c 00             	ret    0xc
+  59515b:	cc                   	int3
+  59515c:	cc                   	int3
+  59515d:	cc                   	int3
+  59515e:	cc                   	int3
+  59515f:	cc                   	int3

@@ -1,0 +1,38 @@
+// Selected pristine PC1.67 managed decompiler projection; raw CIL/metadata govern.
+public static bool GetSaveGameMetadata(string saveFile, ref string householdDelimitedData, ref UIImage householdThumbnail, ref UIImage lotThumbnail)
+{
+	uint householdThumbnail2 = 0u;
+	uint lotThumbnail2 = 0u;
+	householdDelimitedData = gUIMgr.GetSaveGameMetadata(saveFile, ref householdThumbnail2, ref lotThumbnail2);
+	if (householdThumbnail2 != 0)
+	{
+		householdThumbnail = new UIImage(householdThumbnail2);
+	}
+	else
+	{
+		householdThumbnail = null;
+	}
+	if (lotThumbnail2 != 0)
+	{
+		lotThumbnail = new UIImage(lotThumbnail2);
+	}
+	return householdDelimitedData != null;
+}
+
+using Sims3.SimIFace;
+
+public static string GetWorldMetadata(string worldFile, ref uint lotCount, ref UIImage worldThumbnail, ref ulong worldNameKey, ref WorldType worldType, ref WorldName worldName)
+{
+	uint worldThumbnail2 = 0u;
+	uint worldType2 = 0u;
+	uint worldName2 = 0u;
+	string worldMetadata = gUIMgr.GetWorldMetadata(worldFile, ref lotCount, ref worldThumbnail2, ref worldNameKey, ref worldType2, ref worldName2);
+	if (worldThumbnail2 != 0)
+	{
+		worldThumbnail = new UIImage(worldThumbnail2);
+	}
+	worldType = (WorldType)worldType2;
+	worldName = (WorldName)worldName2;
+	return worldMetadata;
+}
+

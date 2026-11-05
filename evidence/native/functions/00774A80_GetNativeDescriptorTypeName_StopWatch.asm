@@ -1,0 +1,33 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x00774a80 (GetNativeDescriptorTypeName_StopWatch)
+Paired Ghidra pseudocode: 00774A80_GetNativeDescriptorTypeName_StopWatch.c
+Window: [0x00774a80, 0x00774a90) (16 bytes; stop exclusive)
+Next defined Ghidra entry: 0x00774a90
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+00774a80: b8 ec d4 00 01 c3 cc cc cc cc cc cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+00774a80 <.text+0x373a80>:
+  774a80:	b8 ec d4 00 01                                  	mov    eax,0x100d4ec
+  774a85:	c3                                              	ret
+  774a86:	cc                                              	int3
+  774a87:	cc                                              	int3
+  774a88:	cc                                              	int3
+  774a89:	cc                                              	int3
+  774a8a:	cc                                              	int3
+  774a8b:	cc                                              	int3
+  774a8c:	cc                                              	int3
+  774a8d:	cc                                              	int3
+  774a8e:	cc                                              	int3
+  774a8f:	cc                                              	int3

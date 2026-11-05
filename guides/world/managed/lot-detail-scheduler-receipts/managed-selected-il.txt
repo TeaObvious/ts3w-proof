@@ -1,0 +1,46 @@
+// Original PC 1.67 ScriptCore; tokens bound to assembly identity in managed-selected.json.
+// Three COMPLETE bodies; no exception handlers in these bodies.
+// Operand bytes below retain canonical callers.il.txt little-endian convention.
+
+// public final virtual hidebysig newslot instance bool ScriptCore.World::WaitForDetailedLots() cil managed
+// Header 133003001c0000001d000011; maxstack=3; initlocals=true; EH=none
+// Locals 0x1100001D blob=07011c: [0] object
+### ScriptCore:0x060009ED ScriptCore.World::WaitForDetailedLots RVA=0x0000B658 ILBytes=28
+IL_0000: ldarg.0
+IL_0001: call 5A010006 // ScriptCore.CallbackObject::get_CallbackDelegate
+IL_0006: ldc.i4.0
+IL_0007: conv.i8
+IL_0008: ldc.i4.0
+IL_0009: call 81080006 // ScriptCore.World::World_WaitForDetailedLots
+IL_000E: ldarg.0
+IL_000F: call 5F010006 // ScriptCore.CallbackObject::GetCallbackResult
+IL_0014: stloc.0
+IL_0015: ldloc.0
+IL_0016: unbox.any 4D010001
+IL_001B: ret
+
+// Resolved unbox.any operand 4D010001 = 0x0100014D System.Boolean.
+
+// public hidebysig specialname instance System.Delegate ScriptCore.CallbackObject::get_CallbackDelegate() cil managed
+// Header 1e; maxstack=8; initlocals=false; EH=none
+### ScriptCore:0x0600015A ScriptCore.CallbackObject::get_CallbackDelegate RVA=0x0000347D ILBytes=7
+IL_0000: ldarg.0
+IL_0001: ldfld 25000004 // 0x04000025 ScriptCore.CallbackObject::mCallbackDelegate : ScriptCore.CallbackObject.SimCallback
+IL_0006: ret
+
+// public hidebysig instance object ScriptCore.CallbackObject::GetCallbackResult() cil managed
+// Header 13300200190000001b000011; maxstack=2; initlocals=true; EH=none
+// Locals 0x1100001B blob=0701118141: [0] Sims3.SimIFace.ObjectGuid
+### ScriptCore:0x0600015F ScriptCore.CallbackObject::GetCallbackResult RVA=0x0000368C ILBytes=25
+IL_0000: ldarg.0
+IL_0001: call 5400000A // 0x0A000054 static Sims3.SimIFace.ObjectGuid Sims3.SimIFace.Simulator::get_CurrentTask()
+IL_0006: stloc.0
+IL_0007: ldloca.s 00
+IL_0009: call 1700000A // 0x0A000017 instance uint64 Sims3.SimIFace.ObjectGuid::get_Value()
+IL_000E: box 49010001 // 0x01000149 System.UInt64
+IL_0013: call 61010006 // 0x06000161 instance object ScriptCore.CallbackObject::GetCallbackResult(object key)
+IL_0018: ret
+
+// 0x06000881 is an internalcall declaration and has no IL body.
+// private static hidebysig pinvokeimpl void ScriptCore.World::World_WaitForDetailedLots(System.Delegate callback, uint64 lotId, uint32 maskFlags) internalcall
+// Its managed uint64 GUID occupies two DWORDs at the native boundary.

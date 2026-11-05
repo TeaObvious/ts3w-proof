@@ -1,0 +1,56 @@
+/* Analyst: PC1.67 original managed evidence. Complete original type rendering for tomb/diving producer, state, consumer or reader/writer context. The focused guide states the reviewed contract and remaining limits.
+   Source identity and original assembly resource mapping: guides/tombs/README.md.
+   Decompiled syntax is a representation; the paired complete original type IL controls exact semantics. */
+
+namespace Sims3.Gameplay.ObjectComponents;
+
+public enum ActivatedBehavior : uint
+{
+	None = 0u,
+	Open = 1u,
+	Close = 2u,
+	Lock = 3u,
+	Unlock = 4u,
+	Hide = 5u,
+	Unhide = 6u,
+	Appear = 7u,
+	Deactivate = 8u,
+	Arm = 146170676u,
+	Disarm = 9u,
+	SetToFire = 10u,
+	ReleaseTombMummy = 11u,
+	Disappear = 12u,
+	UnfogRoom = 145381143u,
+	SetToDormant = 145383345u,
+	FireOnce = 145388899u,
+	LightTurnOff = 145446884u,
+	LightTurnOn = 145446888u,
+	LightSetColorWhite = 145446893u,
+	LightSetColorRed = 145446896u,
+	LightSetColorGreen = 145446900u,
+	LightSetColorBlue = 145446904u,
+	LightSetColorMagenta = 145446908u,
+	LightSetColorYellow = 145446916u,
+	LightSetColorOrange = 145446912u,
+	LightSetColorCyan = 145446919u,
+	LightSetColorPurple = 145446925u,
+	Reset = 146053545u,
+	Toggle = 163341325u,
+	In0 = 146171252u,
+	In1 = 146171253u,
+	In2 = 146171254u,
+	In3 = 146171255u,
+	In4 = 146171256u,
+	In5 = 146171257u,
+	In6 = 146171258u,
+	In7 = 146171259u,
+	In0_Reset = 146171284u,
+	In1_Reset = 146171285u,
+	In2_Reset = 146171286u,
+	In3_Reset = 146171287u,
+	In4_Reset = 146171288u,
+	In5_Reset = 146171289u,
+	In6_Reset = 146171290u,
+	In7_Reset = 146171291u,
+	Tick = 146171540u
+}

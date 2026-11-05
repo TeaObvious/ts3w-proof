@@ -1,0 +1,573 @@
+// Complete selected original ILSpy method declarations, locals, instructions and exception regions.
+// Canonical managed README owns assembly provenance. No target code executed.
+
+// Analyst: exact original GameObject field declarations and complete nested FlagField enum, actual ILSpy11.1 IL.
+// Member tokens come from authenticated original module metadata; generic typed declarations are ILSpy output.
+// FieldDef 0x04000429; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field family int32 mLevel
+// FieldDef 0x0400042a; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field private int32 mRoomId
+// FieldDef 0x0400042e; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field private bool mbInited
+// FieldDef 0x0400042f; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field private class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> mInteractions
+// FieldDef 0x04000435; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field private class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> mReferenceList
+// FieldDef 0x04000436; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field family class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> mActorsUsingMe
+// FieldDef 0x04000437; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field private class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> mRoutingReferenceList
+// FieldDef 0x04000438; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field private valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField mFlags
+// FieldDef 0x0400043a; declared owner Sims3.Gameplay.Abstracts.GameObject
+	.field private class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent> mObjComponents
+
+// Nested original GameObject.FlagField; original mFlags signature is VALUETYPE coded-token916 (TypeDef0x020000E5).
+	.class nested public auto ansi sealed FlagField
+		extends [mscorlib]System.Enum
+	{
+		.custom instance void [mscorlib]System.FlagsAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Fields
+		.field public specialname rtspecialname uint16 value__
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField WasHarvested = uint16(1)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField Charred = uint16(2)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField InWorld = uint16(4)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField IsUsed = uint16(8)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField InInventory = uint16(16)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField Smashed = uint16(32)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField OwnedBySpawner = uint16(64)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField IsStolen = uint16(128)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField MovingToOtherLot = uint16(256)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField HiddenFlagsFootprint = uint16(512)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField HiddenFlagsModel = uint16(1024)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField DoesNotStack = uint16(2048)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField Scratched = uint16(4096)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField HiddenFlagsDarkLot = uint16(8192)
+		.field public static literal valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField JustPurchased = uint16(16384)
+
+	} // end of class FlagField
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::AddToRoutingReferenceList; MethodDef 0x060008f3; RVA0x00028BCC; original CIL bytes=34.
+	.method public final hidebysig newslot virtual 
+		instance void AddToRoutingReferenceList (
+			class Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x28bcc
+		// Header size: 1
+		// Code size: 34 (0x22)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: pop
+		IL_0002: ldarg.0
+		IL_0003: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+		IL_0008: brtrue.s IL_0015
+
+		IL_000a: ldarg.0
+		IL_000b: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::.ctor()
+		IL_0010: stfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+
+		IL_0015: ldarg.0
+		IL_0016: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+		IL_001b: ldarg.1
+		IL_001c: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::Add(!0)
+		IL_0021: ret
+	} // end of method GameObject::AddToRoutingReferenceList
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_RoutingReferenceList; MethodDef 0x060008f5; RVA0x00028C06; original CIL bytes=7.
+	.method public hidebysig specialname 
+		instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> get_RoutingReferenceList () cil managed 
+	{
+		// Method begins at RVA 0x28c06
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+		IL_0006: ret
+	} // end of method GameObject::get_RoutingReferenceList
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_Interactions; MethodDef 0x06000901; RVA0x00028CE8; original CIL bytes=26.
+	.method public final hidebysig specialname newslot virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> get_Interactions () cil managed 
+	{
+		// Method begins at RVA 0x28ce8
+		// Header size: 1
+		// Code size: 26 (0x1a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> Sims3.Gameplay.Abstracts.GameObject::mInteractions
+		IL_0006: brtrue.s IL_0013
+
+		IL_0008: ldarg.0
+		IL_0009: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>::.ctor()
+		IL_000e: stfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> Sims3.Gameplay.Abstracts.GameObject::mInteractions
+
+		IL_0013: ldarg.0
+		IL_0014: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> Sims3.Gameplay.Abstracts.GameObject::mInteractions
+		IL_0019: ret
+	} // end of method GameObject::get_Interactions
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_Level; MethodDef 0x0600090e; RVA0x00028E58; original CIL bytes=7.
+	.method public final hidebysig specialname newslot virtual 
+		instance int32 get_Level () cil managed 
+	{
+		// Method begins at RVA 0x28e58
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Abstracts.GameObject::mLevel
+		IL_0006: ret
+	} // end of method GameObject::get_Level
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_StaleRoomId; MethodDef 0x0600090f; RVA0x00028E60; original CIL bytes=7.
+	.method public final hidebysig specialname newslot virtual 
+		instance int32 get_StaleRoomId () cil managed 
+	{
+		// Method begins at RVA 0x28e60
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Abstracts.GameObject::mRoomId
+		IL_0006: ret
+	} // end of method GameObject::get_StaleRoomId
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_RoomId; MethodDef 0x06000910; RVA0x00028E68; original CIL bytes=7.
+	.method public final hidebysig specialname newslot virtual 
+		instance int32 get_RoomId () cil managed 
+	{
+		// Method begins at RVA 0x28e68
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld int32 Sims3.Gameplay.Abstracts.GameObject::mRoomId
+		IL_0006: ret
+	} // end of method GameObject::get_RoomId
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_InUse; MethodDef 0x06000917; RVA0x00028F10; original CIL bytes=63.
+	.method public hidebysig specialname newslot virtual 
+		instance bool get_InUse () cil managed 
+	{
+		// Method begins at RVA 0x28f10
+		// Header size: 12
+		// Code size: 63 (0x3f)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Interfaces.IGameObject
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Abstracts.GameObject::get_Parent()
+		IL_0006: stloc.0
+		IL_0007: br.s IL_002d
+		// loop start (head: IL_002d)
+			IL_0009: ldloc.0
+			IL_000a: isinst Sims3.Gameplay.Actors.Sim
+			IL_000f: brfalse.s IL_0013
+
+			IL_0011: ldc.i4.1
+			IL_0012: ret
+
+			IL_0013: ldloc.0
+			IL_0014: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Interfaces.IScriptObject::get_ObjectId()
+			IL_0019: ldarg.0
+			IL_001a: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_001f: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Equality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0024: brtrue.s IL_0030
+
+			IL_0026: ldloc.0
+			IL_0027: callvirt instance class Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Interfaces.IGameObject::get_Parent()
+			IL_002c: stloc.0
+
+			IL_002d: ldloc.0
+			IL_002e: brtrue.s IL_0009
+		// end loop
+
+		IL_0030: ldarg.0
+		IL_0031: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mActorsUsingMe
+		IL_0036: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+		IL_003b: ldc.i4.0
+		IL_003c: cgt
+		IL_003e: ret
+	} // end of method GameObject::get_InUse
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_UseCount; MethodDef 0x0600091d; RVA0x0002901C; original CIL bytes=12.
+	.method public final hidebysig specialname newslot virtual 
+		instance int32 get_UseCount () cil managed 
+	{
+		// Method begins at RVA 0x2901c
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mActorsUsingMe
+		IL_0006: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+		IL_000b: ret
+	} // end of method GameObject::get_UseCount
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::.ctor; MethodDef 0x0600097f; RVA0x0002A15C; original CIL bytes=105.
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x2a15c
+		// Header size: 12
+		// Code size: 105 (0x69)
+		.maxstack 4
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4 2147483647
+		IL_0006: stfld int32 Sims3.Gameplay.Abstracts.GameObject::mLevel
+		IL_000b: ldarg.0
+		IL_000c: ldc.i4.m1
+		IL_000d: stfld int32 Sims3.Gameplay.Abstracts.GameObject::mRoomId
+		IL_0012: ldarg.0
+		IL_0013: ldc.i4.m1
+		IL_0014: stfld int32 Sims3.Gameplay.Abstracts.GameObject::mIntPrice
+		IL_0019: ldarg.0
+		IL_001a: ldc.i4.1
+		IL_001b: stfld int32 Sims3.Gameplay.Abstracts.GameObject::mMinValueModifier
+		IL_0020: ldarg.0
+		IL_0021: ldc.i4.m1
+		IL_0022: stfld int32 Sims3.Gameplay.Abstracts.GameObject::mPurchasedPrice
+		IL_0027: ldarg.0
+		IL_0028: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::.ctor()
+		IL_002d: stfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mReferenceList
+		IL_0032: ldarg.0
+		IL_0033: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::.ctor()
+		IL_0038: stfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mActorsUsingMe
+		IL_003d: ldarg.0
+		IL_003e: ldc.i4.s 12
+		IL_0040: stfld valuetype Sims3.Gameplay.Abstracts.GameObject/FlagField Sims3.Gameplay.Abstracts.GameObject::mFlags
+		IL_0045: ldarg.0
+		IL_0046: ldc.r4 2
+		IL_004b: stfld float32 Sims3.Gameplay.Abstracts.GameObject::kMaxDeviationFromCircle
+		IL_0050: ldarg.0
+		IL_0051: call instance void Sims3.Gameplay.Abstracts.ScriptObject::.ctor()
+		IL_0056: ldarg.0
+		IL_0057: ldarg.0
+		IL_0058: ldftn instance bool Sims3.Gameplay.Abstracts.GameObject::IsThisObjectOfSameType(class Sims3.Gameplay.Interfaces.IGameObject, object)
+		IL_005e: newobj instance void Sims3.Gameplay.ItemTestFunction::.ctor(object, native int)
+		IL_0063: stfld class Sims3.Gameplay.ItemTestFunction Sims3.Gameplay.Abstracts.GameObject::TypeCompareDelegate
+		IL_0068: ret
+	} // end of method GameObject::.ctor
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::InternalOnSetLevel; MethodDef 0x06000a41; RVA0x0002DADE; original CIL bytes=8.
+	.method public hidebysig newslot virtual 
+		instance void InternalOnSetLevel (
+			int32 level
+		) cil managed 
+	{
+		// Method begins at RVA 0x2dade
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld int32 Sims3.Gameplay.Abstracts.GameObject::mLevel
+		IL_0007: ret
+	} // end of method GameObject::InternalOnSetLevel
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::InternalOnSetRoomAndLevel; MethodDef 0x06000a42; RVA0x0002DAE8; original CIL bytes=80.
+	.method public hidebysig newslot virtual 
+		instance void InternalOnSetRoomAndLevel (
+			int32 roomId,
+			int32 level,
+			int32 previousRoomId,
+			class Sims3.Gameplay.Core.Lot previousLot
+		) cil managed 
+	{
+		// Method begins at RVA 0x2dae8
+		// Header size: 12
+		// Code size: 80 (0x50)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.Core.Lot
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0006: stloc.0
+		IL_0007: ldarg.0
+		IL_0008: ldarg.2
+		IL_0009: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::InternalOnSetLevel(int32)
+		IL_000e: ldarg.s previousLot
+		IL_0010: ldloc.0
+		IL_0011: bne.un.s IL_0017
+
+		IL_0013: ldarg.3
+		IL_0014: ldarg.1
+		IL_0015: beq.s IL_004f
+
+		IL_0017: ldarg.0
+		IL_0018: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::get_CanBeLookedAt()
+		IL_001d: brfalse.s IL_0038
+
+		IL_001f: ldarg.s previousLot
+		IL_0021: brfalse.s IL_002d
+
+		IL_0023: ldarg.s previousLot
+		IL_0025: ldarg.0
+		IL_0026: ldarg.3
+		IL_0027: callvirt instance bool Sims3.Gameplay.Core.Lot::RemoveRoomLookAt(class Sims3.Gameplay.Abstracts.GameObject, int32)
+		IL_002c: pop
+
+		IL_002d: ldloc.0
+		IL_002e: brfalse.s IL_0038
+
+		IL_0030: ldloc.0
+		IL_0031: ldarg.0
+		IL_0032: ldarg.1
+		IL_0033: callvirt instance void Sims3.Gameplay.Core.Lot::AddRoomLookAt(class Sims3.Gameplay.Abstracts.GameObject, int32)
+
+		IL_0038: ldarg.0
+		IL_0039: ldarg.1
+		IL_003a: stfld int32 Sims3.Gameplay.Abstracts.GameObject::mRoomId
+		IL_003f: ldarg.0
+		IL_0040: ldarg.1
+		IL_0041: ldarg.3
+		IL_0042: ldarg.s previousLot
+		IL_0044: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::RoomChanged(int32, int32, class Sims3.Gameplay.Core.Lot)
+		IL_0049: ldarg.0
+		IL_004a: call instance void Sims3.Gameplay.Abstracts.GameObject::UpdateCommodityInteractionMap()
+
+		IL_004f: ret
+	} // end of method GameObject::InternalOnSetRoomAndLevel
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::Init; MethodDef 0x06000a57; RVA0x0002DDC8; original CIL bytes=348.
+	.method public final hidebysig virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.ScriptExecuteType Init (
+			bool postLoad
+		) cil managed 
+	{
+		// Method begins at RVA 0x2ddc8
+		// Header size: 12
+		// Code size: 348 (0x15c)
+		.maxstack 3
+		.locals init (
+			[0] int32,
+			[1] int32,
+			[2] class Sims3.Gameplay.Abstracts.ObjectComponent
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Abstracts.GameObject::mbInited
+		IL_0006: brfalse.s IL_000f
+
+		IL_0008: ldarg.0
+		IL_0009: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ScriptExecuteType Sims3.Gameplay.Abstracts.GameObject::GetScriptExecuteType()
+		IL_000e: ret
+
+		IL_000f: ldarg.0
+		IL_0010: ldc.i4.1
+		IL_0011: stfld bool Sims3.Gameplay.Abstracts.GameObject::mbInited
+		IL_0016: ldarg.0
+		IL_0017: ldarg.1
+		IL_0018: call instance valuetype [SimIFace]Sims3.SimIFace.ScriptExecuteType Sims3.Gameplay.Abstracts.ScriptObject::Init(bool)
+		IL_001d: pop
+		IL_001e: ldarg.0
+		IL_001f: ldc.i4.4
+		IL_0020: ldarg.0
+		IL_0021: call instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.Abstracts.ScriptObject::GetResourceKey()
+		IL_0026: call class [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct [SimIFace]Sims3.SimIFace.UserToolUtils::GetProduct(valuetype [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyProductType, valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+		IL_002b: stfld class [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct Sims3.Gameplay.Abstracts.GameObject::mProduct
+		IL_0030: ldarg.0
+		IL_0031: ldfld class [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct Sims3.Gameplay.Abstracts.GameObject::mProduct
+		IL_0036: ldnull
+		IL_0037: call bool [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct::op_Inequality(class [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct, class [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct)
+		IL_003c: brfalse.s IL_0045
+
+		IL_003e: ldarg.0
+		IL_003f: ldc.i4.1
+		IL_0040: stfld bool Sims3.Gameplay.Abstracts.GameObject::mbProductInited
+		// loop start (head: IL_0045)
+			IL_0045: ldarg.0
+			IL_0046: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mActorsUsingMe
+			IL_004b: ldnull
+			IL_004c: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::Remove(!0)
+			IL_0051: brtrue.s IL_0045
+		// end loop
+		IL_0053: ldarg.1
+		IL_0054: brfalse.s IL_00b0
+
+		IL_0056: ldarg.0
+		IL_0057: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+		IL_005c: brfalse.s IL_00a8
+
+		IL_005e: ldc.i4.0
+		IL_005f: stloc.0
+		IL_0060: br.s IL_009a
+		// loop start (head: IL_009a)
+			IL_0062: ldarg.0
+			IL_0063: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+			IL_0068: ldloc.0
+			IL_0069: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Item(int32)
+			IL_006e: brfalse.s IL_0088
+
+			IL_0070: ldarg.0
+			IL_0071: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+			IL_0076: ldloc.0
+			IL_0077: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Item(int32)
+			IL_007c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0081: call bool [SimIFace]Sims3.SimIFace.Objects::IsValid(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0086: brtrue.s IL_0096
+
+			IL_0088: ldarg.0
+			IL_0089: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+			IL_008e: ldloc.0
+			IL_008f: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::RemoveAt(int32)
+			IL_0094: br.s IL_009a
+
+			IL_0096: ldloc.0
+			IL_0097: ldc.i4.1
+			IL_0098: add
+			IL_0099: stloc.0
+
+			IL_009a: ldloc.0
+			IL_009b: ldarg.0
+			IL_009c: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mRoutingReferenceList
+			IL_00a1: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+			IL_00a6: blt.s IL_0062
+		// end loop
+
+		IL_00a8: ldarg.0
+		IL_00a9: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::OnLoad()
+		IL_00ae: br.s IL_00b6
+
+		IL_00b0: ldarg.0
+		IL_00b1: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::OnCreation()
+
+		IL_00b6: ldarg.0
+		IL_00b7: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::AddToLot()
+		IL_00bc: brfalse.s IL_00cf
+
+		IL_00be: ldarg.0
+		IL_00bf: ldarg.0
+		IL_00c0: call instance class [SimIFace]Sims3.SimIFace.IScriptProxy Sims3.Gameplay.Abstracts.ScriptObject::get_Proxy()
+		IL_00c5: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ITask::get_ObjectId()
+		IL_00ca: call void Sims3.Gameplay.Core.LotManager::PlaceObjectOnLot(class Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+
+		IL_00cf: ldarg.0
+		IL_00d0: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::OnStartup()
+		IL_00d5: ldarg.0
+		IL_00d6: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent> Sims3.Gameplay.Abstracts.GameObject::mObjComponents
+		IL_00db: brfalse.s IL_0134
+
+		IL_00dd: ldc.i4.0
+		IL_00de: stloc.1
+		IL_00df: br.s IL_0112
+		// loop start (head: IL_0112)
+			IL_00e1: ldarg.0
+			IL_00e2: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent> Sims3.Gameplay.Abstracts.GameObject::mObjComponents
+			IL_00e7: ldloc.1
+			IL_00e8: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent>::get_Item(int32)
+			IL_00ed: stloc.2
+			IL_00ee: ldloc.2
+			IL_00ef: brfalse.s IL_0106
+
+			IL_00f1: ldarg.1
+			IL_00f2: brfalse.s IL_00fa
+
+			IL_00f4: ldloc.2
+			IL_00f5: callvirt instance void Sims3.Gameplay.Abstracts.ObjectComponent::OnLoad()
+
+			IL_00fa: ldloc.2
+			IL_00fb: callvirt instance void Sims3.Gameplay.Abstracts.ObjectComponent::OnStartup()
+			IL_0100: ldloc.1
+			IL_0101: ldc.i4.1
+			IL_0102: add
+			IL_0103: stloc.1
+			IL_0104: br.s IL_0112
+
+			IL_0106: ldarg.0
+			IL_0107: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent> Sims3.Gameplay.Abstracts.GameObject::mObjComponents
+			IL_010c: ldloc.1
+			IL_010d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent>::RemoveAt(int32)
+
+			IL_0112: ldloc.1
+			IL_0113: ldarg.0
+			IL_0114: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent> Sims3.Gameplay.Abstracts.GameObject::mObjComponents
+			IL_0119: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent>::get_Count()
+			IL_011e: blt.s IL_00e1
+		// end loop
+
+		IL_0120: ldarg.0
+		IL_0121: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent> Sims3.Gameplay.Abstracts.GameObject::mObjComponents
+		IL_0126: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent>::get_Count()
+		IL_012b: brtrue.s IL_0134
+
+		IL_012d: ldarg.0
+		IL_012e: ldnull
+		IL_012f: stfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.ObjectComponent> Sims3.Gameplay.Abstracts.GameObject::mObjComponents
+
+		IL_0134: ldarg.1
+		IL_0135: brtrue.s IL_0149
+
+		IL_0137: ldsfld bool Sims3.Gameplay.Core.LotManager::sIsBuildBuyModeOn
+		IL_013c: brfalse.s IL_0149
+
+		IL_013e: ldarg.0
+		IL_013f: call class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::get_ActiveLot()
+		IL_0144: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetOwnerLot(class Sims3.Gameplay.Core.Lot)
+
+		IL_0149: ldarg.0
+		IL_014a: ldarg.0
+		IL_014b: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0150: call instance void Sims3.Gameplay.Abstracts.GameObject::UpdateOwnerLot(class Sims3.Gameplay.Core.Lot)
+		IL_0155: ldarg.0
+		IL_0156: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ScriptExecuteType Sims3.Gameplay.Abstracts.GameObject::GetScriptExecuteType()
+		IL_015b: ret
+	} // end of method GameObject::Init
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::AddToLot; MethodDef 0x06000a58; RVA0x0002DF30; original CIL bytes=2.
+	.method public hidebysig newslot virtual 
+		instance bool AddToLot () cil managed 
+	{
+		// Method begins at RVA 0x2df30
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method GameObject::AddToLot
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_ReferenceList; MethodDef 0x06000a94; RVA0x0002E7F1; original CIL bytes=7.
+	.method public hidebysig specialname 
+		instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> get_ReferenceList () cil managed 
+	{
+		// Method begins at RVA 0x2e7f1
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mReferenceList
+		IL_0006: ret
+	} // end of method GameObject::get_ReferenceList
+
+// Analyst identity: Sims3.Gameplay.Abstracts.GameObject::get_ActorsUsingMe; MethodDef 0x06000a9b; RVA0x0002E944; original CIL bytes=7.
+	.method public hidebysig specialname 
+		instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> get_ActorsUsingMe () cil managed 
+	{
+		// Method begins at RVA 0x2e944
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Abstracts.GameObject::mActorsUsingMe
+		IL_0006: ret
+	} // end of method GameObject::get_ActorsUsingMe

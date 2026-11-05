@@ -1,0 +1,17 @@
+// Complete original PC1.67 ScriptCore.dll selected member; central managed README owns binary identity.
+// Analyst: complete original MethodDef0x0600069D; mTasks is read twice. Add occurs before the second mTasks read and signed Count FIELD read; sub has no overflow check. No local EH.
+
+// token 0x0600069D; RVA 0x00008CFA
+System.Int32 ScriptCore.TaskStateCollection::AddTaskState(System.UInt64)
+.maxstack 8; code size 26
+// Original IL bytes: 027B8D000004036F2B01000A027B8D0000047B2C01000A17592A
+IL_0000: ldarg.0
+IL_0001: ldfld ScriptCore.Utility.ChunkedList`1<System.UInt64> ScriptCore.TaskStateCollection::mTasks
+IL_0006: ldarg.1
+IL_0007: callvirt System.Void ScriptCore.Utility.ChunkedList`1<System.UInt64>::Add(T)
+IL_000c: ldarg.0
+IL_000d: ldfld ScriptCore.Utility.ChunkedList`1<System.UInt64> ScriptCore.TaskStateCollection::mTasks
+IL_0012: ldfld System.Int32 ScriptCore.Utility.ChunkedList`1<System.UInt64>::Count
+IL_0017: ldc.i4.1
+IL_0018: sub
+IL_0019: ret

@@ -1,0 +1,17 @@
+Original PC1.67 selected managed CIL; no target execution.
+Module SimIFace.dll MVID e4365bd8-6054-4cb5-8702-c69b1c102ce9
+Artifact SHA256 6ddedb668e1b6da037e346cd5cf6f500f37407dca633b428e7ec410daa00fcb2
+Method Sims3.SimIFace.World::HandToolAllowUserPickup token 0x60005da RVA 0x9d16
+Signature Boolean(UInt64); tiny header6E; body27bytes.
+Existing annotated managed decompilation: ../../../../guides/callbacks/managed/Sims3.SimIFace.World.cs
+
+IL_0000  7ece060004  ldsfld Sims3.SimIFace.World::HandToolAllowUserPickupCallback
+IL_0005  2c12  brfalse.s IL_0019
+IL_0007  7ece060004  ldsfld Sims3.SimIFace.World::HandToolAllowUserPickupCallback
+IL_000c  14  ldnull 
+IL_000d  02  ldarg.0 
+IL_000e  73be070006  newobj HandToolEventArgs::.ctor
+IL_0013  6fbb070006  callvirt HandToolQueryEventHandler::Invoke
+IL_0018  2a  ret 
+IL_0019  16  ldc.i4.0 
+IL_001a  2a  ret 

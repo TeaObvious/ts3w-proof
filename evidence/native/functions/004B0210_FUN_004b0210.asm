@@ -1,0 +1,58 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined4 FUN_004b0210(void * this, int param_1, undefined4 param_2)
+Owned ranges: [[004b0210, 004b027a]]
+
+004b0210  55  PUSH EBP
+004b0211  8b6c2408  MOV EBP,dword ptr [ESP + 0x8]
+004b0215  57  PUSH EDI
+004b0216  8d4508  LEA EAX,[EBP + 0x8]
+004b0219  50  PUSH EAX
+004b021a  8bf9  MOV EDI,ECX
+004b021c  e89fffffff  CALL 0x004b01c0
+004b0221  85c0  TEST EAX,EAX
+004b0223  7414  JZ 0x004b0239
+004b0225  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+004b0229  8b10  MOV EDX,dword ptr [EAX]
+004b022b  8b521c  MOV EDX,dword ptr [EDX + 0x1c]
+004b022e  51  PUSH ECX
+004b022f  55  PUSH EBP
+004b0230  8bc8  MOV ECX,EAX
+004b0232  ffd2  CALL EDX
+004b0234  5f  POP EDI
+004b0235  5d  POP EBP
+004b0236  c20800  RET 0x8
+004b0239  53  PUSH EBX
+004b023a  8b5c2414  MOV EBX,dword ptr [ESP + 0x14]
+004b023e  84db  TEST BL,BL
+004b0240  56  PUSH ESI
+004b0241  7426  JZ 0x004b0269
+004b0243  8bb7a0000000  MOV ESI,dword ptr [EDI + 0xa0]
+004b0249  8bbfa4000000  MOV EDI,dword ptr [EDI + 0xa4]
+004b024f  3bf7  CMP ESI,EDI
+004b0251  7416  JZ 0x004b0269
+004b0253  8b0e  MOV ECX,dword ptr [ESI]
+004b0255  8b01  MOV EAX,dword ptr [ECX]
+004b0257  8b501c  MOV EDX,dword ptr [EAX + 0x1c]
+004b025a  53  PUSH EBX
+004b025b  55  PUSH EBP
+004b025c  ffd2  CALL EDX
+004b025e  84c0  TEST AL,AL
+004b0260  7510  JNZ 0x004b0272
+004b0262  83c608  ADD ESI,0x8
+004b0265  3bf7  CMP ESI,EDI
+004b0267  75ea  JNZ 0x004b0253
+004b0269  5e  POP ESI
+004b026a  5b  POP EBX
+004b026b  5f  POP EDI
+004b026c  32c0  XOR AL,AL
+004b026e  5d  POP EBP
+004b026f  c20800  RET 0x8
+004b0272  5e  POP ESI
+004b0273  5b  POP EBX
+004b0274  5f  POP EDI
+004b0275  b001  MOV AL,0x1
+004b0277  5d  POP EBP
+004b0278  c20800  RET 0x8

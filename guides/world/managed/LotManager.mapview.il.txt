@@ -1,0 +1,150 @@
+.method public hidebysig specialname static 
+	class Sims3.Gameplay.Core.Lot get_ActiveLot () cil managed 
+{
+	// Method begins at RVA 0x2ae5b2
+	// Header size: 1
+	// Code size: 6 (0x6)
+	.maxstack 8
+
+	IL_0000: ldsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLot
+	IL_0005: ret
+} // end of method LotManager::get_ActiveLot
+.method public hidebysig specialname static 
+	void set_ActiveLot (
+		class Sims3.Gameplay.Core.Lot 'value'
+	) cil managed 
+{
+	// Method begins at RVA 0x2ae5b9
+	// Header size: 1
+	// Code size: 8 (0x8)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: ldc.i4.1
+	IL_0002: call void Sims3.Gameplay.Core.LotManager::SetActiveLot(class Sims3.Gameplay.Core.Lot, bool)
+	IL_0007: ret
+} // end of method LotManager::set_ActiveLot
+.method public hidebysig static 
+	void SetActiveLot (
+		class Sims3.Gameplay.Core.Lot newLot,
+		bool updateCamera
+	) cil managed 
+{
+	// Method begins at RVA 0x2ae5f8
+	// Header size: 12
+	// Code size: 96 (0x60)
+	.maxstack 6
+	.locals init (
+		[0] class Sims3.Gameplay.Core.Lot
+	)
+
+	IL_0000: ldsfld bool Sims3.Gameplay.Core.LotManager::sActiveLotLocked
+	IL_0005: brfalse.s IL_000e
+
+	IL_0007: ldarg.0
+	IL_0008: stsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLotPending
+	IL_000d: ret
+
+	IL_000e: ldarg.0
+	IL_000f: ldsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLot
+	IL_0014: beq.s IL_005f
+
+	IL_0016: ldsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLot
+	IL_001b: stloc.0
+	IL_001c: ldarg.0
+	IL_001d: stsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLot
+	IL_0022: ldsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLot
+	IL_0027: brfalse.s IL_003a
+
+	IL_0029: ldsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLot
+	IL_002e: callvirt instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+	IL_0033: call void [SimIFace]Sims3.SimIFace.World::SetActiveLot(uint64)
+	IL_0038: br.s IL_0041
+
+	IL_003a: ldc.i4.0
+	IL_003b: conv.i8
+	IL_003c: call void [SimIFace]Sims3.SimIFace.World::SetActiveLot(uint64)
+
+	IL_0041: ldsfld class Sims3.Gameplay.Core.LotManager/ActiveLotChangedHandler Sims3.Gameplay.Core.LotManager::ActiveLotChanged
+	IL_0046: brfalse.s IL_005f
+
+	IL_0048: ldsfld class Sims3.Gameplay.Core.LotManager/ActiveLotChangedHandler Sims3.Gameplay.Core.LotManager::ActiveLotChanged
+	IL_004d: ldnull
+	IL_004e: ldloc.0
+	IL_004f: ldsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLot
+	IL_0054: ldarg.1
+	IL_0055: newobj instance void Sims3.Gameplay.Core.LotManager/ActiveLotChangedArgs::.ctor(class Sims3.Gameplay.Core.Lot, class Sims3.Gameplay.Core.Lot, bool)
+	IL_005a: callvirt instance void Sims3.Gameplay.Core.LotManager/ActiveLotChangedHandler::Invoke(object, class Sims3.Gameplay.Core.LotManager/ActiveLotChangedArgs)
+
+	IL_005f: ret
+} // end of method LotManager::SetActiveLot
+.method public hidebysig specialname static 
+	bool get_ActiveLotLocked () cil managed 
+{
+	// Method begins at RVA 0x2ae664
+	// Header size: 1
+	// Code size: 6 (0x6)
+	.maxstack 8
+
+	IL_0000: ldsfld bool Sims3.Gameplay.Core.LotManager::sActiveLotLocked
+	IL_0005: ret
+} // end of method LotManager::get_ActiveLotLocked
+.method public hidebysig specialname static 
+	class Sims3.Gameplay.Core.Lot get_ActiveLotPending () cil managed 
+{
+	// Method begins at RVA 0x2ae66b
+	// Header size: 1
+	// Code size: 6 (0x6)
+	.maxstack 8
+
+	IL_0000: ldsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLotPending
+	IL_0005: ret
+} // end of method LotManager::get_ActiveLotPending
+.method public hidebysig static 
+	void LockActiveLot (
+		class Sims3.Gameplay.Core.Lot lot
+	) cil managed 
+{
+	// Method begins at RVA 0x2ae672
+	// Header size: 1
+	// Code size: 44 (0x2c)
+	.maxstack 8
+
+	IL_0000: ldsfld bool Sims3.Gameplay.Core.LotManager::sActiveLotLocked
+	IL_0005: brfalse.s IL_0015
+
+	IL_0007: ldarg.0
+	IL_0008: call class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::get_ActiveLot()
+	IL_000d: bne.un.s IL_0010
+
+	IL_000f: ret
+
+	IL_0010: call void Sims3.Gameplay.Core.LotManager::UnlockActiveLot()
+
+	IL_0015: call class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::get_ActiveLot()
+	IL_001a: stsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLotPending
+	IL_001f: ldarg.0
+	IL_0020: call void Sims3.Gameplay.Core.LotManager::set_ActiveLot(class Sims3.Gameplay.Core.Lot)
+	IL_0025: ldc.i4.1
+	IL_0026: stsfld bool Sims3.Gameplay.Core.LotManager::sActiveLotLocked
+	IL_002b: ret
+} // end of method LotManager::LockActiveLot
+.method public hidebysig static 
+	void UnlockActiveLot () cil managed 
+{
+	// Method begins at RVA 0x2ae69f
+	// Header size: 1
+	// Code size: 23 (0x17)
+	.maxstack 8
+
+	IL_0000: ldc.i4.0
+	IL_0001: stsfld bool Sims3.Gameplay.Core.LotManager::sActiveLotLocked
+	IL_0006: ldsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLotPending
+	IL_000b: call void Sims3.Gameplay.Core.LotManager::set_ActiveLot(class Sims3.Gameplay.Core.Lot)
+	IL_0010: ldnull
+	IL_0011: stsfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.LotManager::sActiveLotPending
+	IL_0016: ret
+} // end of method LotManager::UnlockActiveLot
+.field private static class Sims3.Gameplay.Core.Lot sActiveLot
+.field private static class Sims3.Gameplay.Core.Lot sActiveLotPending
+.field private static bool sActiveLotLocked

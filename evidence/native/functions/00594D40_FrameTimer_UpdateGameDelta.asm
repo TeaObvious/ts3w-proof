@@ -1,0 +1,47 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 actual saved annotated owned Listing; FrameTimer_UpdateGameDelta; owned ranges [[00594d40, 00594dcf]]
+00594d40	56	PUSH ESI
+00594d41	68ec8cfd00	PUSH 0xfd8cec
+00594d46	8bf1	MOV ESI,ECX
+00594d48	e8b3cef4ff	CALL 0x004e1c00
+00594d4d	837e4000	CMP dword ptr [ESI + 0x40],0x0
+00594d51	7540	JNZ 0x00594d93
+00594d53	f30f104674	MOVSS XMM0,dword ptr [ESI + 0x74]
+00594d58	f30f59442408	MULSS XMM0,dword ptr [ESP + 0x8]
+00594d5e	f30f104e78	MOVSS XMM1,dword ptr [ESI + 0x78]
+00594d63	0f2fc1	COMISS XMM0,XMM1
+00594d66	f30f114664	MOVSS dword ptr [ESI + 0x64],XMM0
+00594d6b	7605	JBE 0x00594d72
+00594d6d	f30f114e64	MOVSS dword ptr [ESI + 0x64],XMM1
+00594d72	f30f104668	MOVSS XMM0,dword ptr [ESI + 0x68]
+00594d77	f30f594664	MULSS XMM0,dword ptr [ESI + 0x64]
+00594d7c	f30f104e60	MOVSS XMM1,dword ptr [ESI + 0x60]
+00594d81	83465c01	ADD dword ptr [ESI + 0x5c],0x1
+00594d85	f30f58c8	ADDSS XMM1,XMM0
+00594d89	f30f114664	MOVSS dword ptr [ESI + 0x64],XMM0
+00594d8e	f30f114e60	MOVSS dword ptr [ESI + 0x60],XMM1
+00594d93	53	PUSH EBX
+00594d94	8a5e70	MOV BL,byte ptr [ESI + 0x70]
+00594d97	8bce	MOV ECX,ESI
+00594d99	c6467000	MOV byte ptr [ESI + 0x70],0x0
+00594d9d	e81ecff4ff	CALL 0x004e1cc0
+00594da2	84db	TEST BL,BL
+00594da4	5b	POP EBX
+00594da5	7425	JZ 0x00594dcc
+00594da7	e84477ebff	CALL 0x0044c4f0
+00594dac	85c0	TEST EAX,EAX
+00594dae	741c	JZ 0x00594dcc
+00594db0	8b4e6c	MOV ECX,dword ptr [ESI + 0x6c]
+00594db3	8b10	MOV EDX,dword ptr [EAX]
+00594db5	8b5218	MOV EDX,dword ptr [EDX + 0x18]
+00594db8	894c2408	MOV dword ptr [ESP + 0x8],ECX
+00594dbc	6a00	PUSH 0x0
+00594dbe	8d4c240c	LEA ECX,[ESP + 0xc]
+00594dc2	51	PUSH ECX
+00594dc3	68c080b12c	PUSH 0x2cb180c0
+00594dc8	8bc8	MOV ECX,EAX
+00594dca	ffd2	CALL EDX
+00594dcc	5e	POP ESI
+00594dcd	c20400	RET 0x4

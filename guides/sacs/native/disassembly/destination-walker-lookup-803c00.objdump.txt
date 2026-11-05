@@ -1,0 +1,64 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00803c00 <.text+0x402c00>:
+  803c00:	53                   	push   ebx
+  803c01:	8b 5c 24 08          	mov    ebx,DWORD PTR [esp+0x8]
+  803c05:	56                   	push   esi
+  803c06:	8b f1                	mov    esi,ecx
+  803c08:	8b 46 10             	mov    eax,DWORD PTR [esi+0x10]
+  803c0b:	8b 4e 14             	mov    ecx,DWORD PTR [esi+0x14]
+  803c0e:	3b c1                	cmp    eax,ecx
+  803c10:	57                   	push   edi
+  803c11:	74 0b                	je     0x803c1e
+  803c13:	39 18                	cmp    DWORD PTR [eax],ebx
+  803c15:	74 0b                	je     0x803c22
+  803c17:	83 c0 08             	add    eax,0x8
+  803c1a:	3b c1                	cmp    eax,ecx
+  803c1c:	75 f5                	jne    0x803c13
+  803c1e:	33 ff                	xor    edi,edi
+  803c20:	eb 07                	jmp    0x803c29
+  803c22:	8b 78 04             	mov    edi,DWORD PTR [eax+0x4]
+  803c25:	85 ff                	test   edi,edi
+  803c27:	75 27                	jne    0x803c50
+  803c29:	8b 4e 0c             	mov    ecx,DWORD PTR [esi+0xc]
+  803c2c:	85 c9                	test   ecx,ecx
+  803c2e:	74 20                	je     0x803c50
+  803c30:	53                   	push   ebx
+  803c31:	e8 ea 9b ff ff       	call   0x7fd820
+  803c36:	85 c0                	test   eax,eax
+  803c38:	74 16                	je     0x803c50
+  803c3a:	50                   	push   eax
+  803c3b:	8b ce                	mov    ecx,esi
+  803c3d:	e8 be fe ff ff       	call   0x803b00
+  803c42:	53                   	push   ebx
+  803c43:	8b ce                	mov    ecx,esi
+  803c45:	e8 96 c3 ff ff       	call   0x7fffe0
+  803c4a:	5f                   	pop    edi
+  803c4b:	5e                   	pop    esi
+  803c4c:	5b                   	pop    ebx
+  803c4d:	c2 04 00             	ret    0x4
+  803c50:	8b c7                	mov    eax,edi
+  803c52:	5f                   	pop    edi
+  803c53:	5e                   	pop    esi
+  803c54:	5b                   	pop    ebx
+  803c55:	c2 04 00             	ret    0x4
+  803c58:	cc                   	int3
+  803c59:	cc                   	int3
+  803c5a:	cc                   	int3
+  803c5b:	cc                   	int3
+  803c5c:	cc                   	int3
+  803c5d:	cc                   	int3
+  803c5e:	cc                   	int3
+  803c5f:	cc                   	int3
+  803c60:	53                   	push   ebx
+  803c61:	56                   	push   esi
+  803c62:	8b 74 24 0c          	mov    esi,DWORD PTR [esp+0xc]
+  803c66:	57                   	push   edi
+  803c67:	56                   	push   esi
+  803c68:	8b d9                	mov    ebx,ecx
+  803c6a:	e8 91 ff ff ff       	call   0x803c00
+  803c6f:	8b                 	mov    edi,eax

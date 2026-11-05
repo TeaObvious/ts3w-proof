@@ -1,0 +1,1203 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "TS3W.exe",
+    "version": "PC 1.67"
+  },
+  "selectionRule": "All exact-type CameraController registrations, plus listed CAS and adjacent camera entrypoints.",
+  "registrationCount": 51,
+  "uniqueNativeAddressCount": 51,
+  "entries": [
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_CASCameraModeImpl",
+      "entryVa": "0x005a5a60",
+      "registrationRecordVa": "0x01156498",
+      "registrationRecordFileOffset": 13984920,
+      "registrationRecordHex": "605a5a00bc0dfe00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060002F1",
+          "signature": "ScriptCore:ScriptCore.CASUtils::CASUtils_CASCameraModeImpl(System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "CASUtils_CASCameraModeImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x005a5a60-CASUtils_CASCameraModeImpl.objdump.txt",
+      "stopVa": "0x005a5b10",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_SetCameraPoseImpl",
+      "entryVa": "0x005a8550",
+      "registrationRecordVa": "0x011564a0",
+      "registrationRecordFileOffset": 13984928,
+      "registrationRecordHex": "50855a00ec0dfe00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060002F2",
+          "signature": "ScriptCore:ScriptCore.CASUtils::CASUtils_SetCameraPoseImpl(System.UInt32,System.UInt32,System.Single,System.Single,System.UInt32)->System.Single",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "CASUtils_SetCameraPoseImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x005a8550-CASUtils_SetCameraPoseImpl.objdump.txt",
+      "stopVa": "0x005a85b0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_SetCameraOffsetImpl",
+      "entryVa": "0x005a85b0",
+      "registrationRecordVa": "0x011564a8",
+      "registrationRecordFileOffset": 13984936,
+      "registrationRecordHex": "b0855a001c0efe00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060002F3",
+          "signature": "ScriptCore:ScriptCore.CASUtils::CASUtils_SetCameraOffsetImpl(System.Single,System.Single,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "CASUtils_SetCameraOffsetImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x005a85b0-CASUtils_SetCameraOffsetImpl.objdump.txt",
+      "stopVa": "0x005a8600",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_SetCameraOrientationImpl",
+      "entryVa": "0x005a8e20",
+      "registrationRecordVa": "0x01156540",
+      "registrationRecordFileOffset": 13985088,
+      "registrationRecordHex": "208e5a003c12fe00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000345",
+          "signature": "ScriptCore:ScriptCore.CASUtils::CASUtils_SetCameraOrientationImpl(System.UInt32,System.Single,System.Single,System.Single,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "CASUtils_SetCameraOrientationImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x005a8e20-CASUtils_SetCameraOrientationImpl.objdump.txt",
+      "stopVa": "0x005a8ee0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_RegisterCallbackMethod",
+      "entryVa": "0x0073e7a0",
+      "registrationRecordVa": "0x0115ec38",
+      "registrationRecordFileOffset": 14019640,
+      "registrationRecordHex": "a0e77300280a0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006E9",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_RegisterCallbackMethod(System.UInt32,System.String,System.String)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_RegisterCallbackMethod",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e7a0-Camera_RegisterCallbackMethod.objdump.txt",
+      "stopVa": "0x0073e800",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetControllerType",
+      "entryVa": "0x0073d480",
+      "registrationRecordVa": "0x0115ec40",
+      "registrationRecordFileOffset": 14019648,
+      "registrationRecordHex": "80d47300640a0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006EA",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetControllerType()->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetControllerType",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d480-Camera_GetControllerType.objdump.txt",
+      "stopVa": "0x0073d4b0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_SetControllerType",
+      "entryVa": "0x0073d4b0",
+      "registrationRecordVa": "0x0115ec48",
+      "registrationRecordFileOffset": 14019656,
+      "registrationRecordHex": "b0d473009c0a0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006EB",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_SetControllerType(System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_SetControllerType",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "../../evidence/native/functions/0073D4B0_ScriptCore_CameraController_Camera_SetControllerType.asm",
+      "pseudocode": "../../evidence/native/functions/0073D4B0_ScriptCore_CameraController_Camera_SetControllerType.c",
+      "stopVa": "0x0073d4d5",
+      "bodyStartVa": "0x0073d4b0",
+      "bodyByteLength": 37,
+      "bodyComplete": true,
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetPosition",
+      "entryVa": "0x0073d4e0",
+      "registrationRecordVa": "0x0115ec50",
+      "registrationRecordFileOffset": 14019664,
+      "registrationRecordHex": "e0d47300d40a0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006EC",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetPosition()->Sims3.SimIFace.Vector3",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetPosition",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d4e0-Camera_GetPosition.objdump.txt",
+      "stopVa": "0x0073d550",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetTarget",
+      "entryVa": "0x0073d550",
+      "registrationRecordVa": "0x0115ec58",
+      "registrationRecordFileOffset": 14019672,
+      "registrationRecordHex": "50d57300040b0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006ED",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetTarget()->Sims3.SimIFace.Vector3",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetTarget",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d550-Camera_GetTarget.objdump.txt",
+      "stopVa": "0x0073d5c0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetLODInterestPosition",
+      "entryVa": "0x0073d5c0",
+      "registrationRecordVa": "0x0115ec60",
+      "registrationRecordFileOffset": 14019680,
+      "registrationRecordHex": "c0d57300340b0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006EE",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetLODInterestPosition()->Sims3.SimIFace.Vector3",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetLODInterestPosition",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d5c0-Camera_GetLODInterestPosition.objdump.txt",
+      "stopVa": "0x0073d620",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_SetPositionAndTarget",
+      "entryVa": "0x0073d620",
+      "registrationRecordVa": "0x0115ec68",
+      "registrationRecordFileOffset": 14019688,
+      "registrationRecordHex": "20d67300700b0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006EF",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_SetPositionAndTarget(Sims3.SimIFace.Vector3,Sims3.SimIFace.Vector3)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_SetPositionAndTarget",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d620-Camera_SetPositionAndTarget.objdump.txt",
+      "stopVa": "0x0073d680",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetZoom",
+      "entryVa": "0x0073d800",
+      "registrationRecordVa": "0x0115ec70",
+      "registrationRecordFileOffset": 14019696,
+      "registrationRecordHex": "00d87300ac0b0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F0",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetZoom()->System.Single",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetZoom",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d800-Camera_GetZoom.objdump.txt",
+      "stopVa": "0x0073d840",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetRegularZoomLimits",
+      "entryVa": "0x0073d840",
+      "registrationRecordVa": "0x0115ec78",
+      "registrationRecordFileOffset": 14019704,
+      "registrationRecordHex": "40d87300d80b0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F1",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetRegularZoomLimits(System.Single&,System.Single&)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetRegularZoomLimits",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d840-Camera_GetRegularZoomLimits.objdump.txt",
+      "stopVa": "0x0073d890",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetPitchDegrees",
+      "entryVa": "0x0073d890",
+      "registrationRecordVa": "0x0115ec80",
+      "registrationRecordFileOffset": 14019712,
+      "registrationRecordHex": "90d87300140c0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F2",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetPitchDegrees()->System.Single",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetPitchDegrees",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d890-Camera_GetPitchDegrees.objdump.txt",
+      "stopVa": "0x0073d8d0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetYawDegrees",
+      "entryVa": "0x0073d8d0",
+      "registrationRecordVa": "0x0115ec88",
+      "registrationRecordFileOffset": 14019720,
+      "registrationRecordHex": "d0d87300480c0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F3",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetYawDegrees()->System.Single",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetYawDegrees",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "../../evidence/native/functions/0073D8D0_ScriptCore_CameraController_Camera_GetYawDegrees.asm",
+      "stopVa": "0x0073d90b",
+      "bodyComplete": false,
+      "pseudocode": "../../evidence/native/functions/0073D8D0_ScriptCore_CameraController_Camera_GetYawDegrees.c",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_LoadTuning",
+      "entryVa": "0x0073d680",
+      "registrationRecordVa": "0x0115ec90",
+      "registrationRecordFileOffset": 14019728,
+      "registrationRecordHex": "80d673007c0c0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F4",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_LoadTuning(System.UInt32,System.Single[],System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_LoadTuning",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d680-Camera_LoadTuning.objdump.txt",
+      "stopVa": "0x0073d6f0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_Shake",
+      "entryVa": "0x0073e800",
+      "registrationRecordVa": "0x0115ec98",
+      "registrationRecordFileOffset": 14019736,
+      "registrationRecordHex": "00e87300ac0c0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F5",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_Shake(System.Single,System.Single[],System.Single[],System.Single[],System.Single[])->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_Shake",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e800-Camera_Shake.objdump.txt",
+      "stopVa": "0x0073ea80",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_RequestLerpToTarget",
+      "entryVa": "0x0073d910",
+      "registrationRecordVa": "0x0115eca0",
+      "registrationRecordFileOffset": 14019744,
+      "registrationRecordHex": "10d97300d80c0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F6",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_RequestLerpToTarget(Sims3.SimIFace.Vector3,System.Single,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_RequestLerpToTarget",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d910-Camera_RequestLerpToTarget.objdump.txt",
+      "stopVa": "0x0073da20",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_RequestLerpToPositionAndTarget",
+      "entryVa": "0x0073da20",
+      "registrationRecordVa": "0x0115eca8",
+      "registrationRecordFileOffset": 14019752,
+      "registrationRecordHex": "20da7300100d0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F7",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_RequestLerpToPositionAndTarget(Sims3.SimIFace.Vector3,Sims3.SimIFace.Vector3,System.Single,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_RequestLerpToPositionAndTarget",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073da20-Camera_RequestLerpToPositionAndTarget.objdump.txt",
+      "stopVa": "0x0073db70",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_RequestLerpToZoomAndRotation",
+      "entryVa": "0x0073db70",
+      "registrationRecordVa": "0x0115ecb0",
+      "registrationRecordFileOffset": 14019760,
+      "registrationRecordHex": "70db7300580d0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F8",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_RequestLerpToZoomAndRotation(System.Single,System.Single,System.Single,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_RequestLerpToZoomAndRotation",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073db70-Camera_RequestLerpToZoomAndRotation.objdump.txt",
+      "stopVa": "0x0073dbd0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_FocusOnLot",
+      "entryVa": "0x0073dbd0",
+      "registrationRecordVa": "0x0115ecb8",
+      "registrationRecordFileOffset": 14019768,
+      "registrationRecordHex": "d0db73009c0d0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006F9",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_FocusOnLot(System.UInt64,System.Single,System.Single,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_FocusOnLot",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073dbd0-Camera_FocusOnLot.objdump.txt",
+      "stopVa": "0x0073dc40",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_FocusOnLotForBuildBuy",
+      "entryVa": "0x0073dc40",
+      "registrationRecordVa": "0x0115ecc0",
+      "registrationRecordFileOffset": 14019776,
+      "registrationRecordHex": "40dc7300cc0d0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006FA",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_FocusOnLotForBuildBuy(System.UInt64,System.Single,System.Single,System.Single,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_FocusOnLotForBuildBuy",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073dc40-Camera_FocusOnLotForBuildBuy.objdump.txt",
+      "stopVa": "0x0073dcb0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_SetOnStairs",
+      "entryVa": "0x0073dcb0",
+      "registrationRecordVa": "0x0115ecc8",
+      "registrationRecordFileOffset": 14019784,
+      "registrationRecordHex": "b0dc7300080e0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006FB",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_SetOnStairs(System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_SetOnStairs",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073dcb0-Camera_SetOnStairs.objdump.txt",
+      "stopVa": "0x0073dcf0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_EnableObjectFollow",
+      "entryVa": "0x0073dcf0",
+      "registrationRecordVa": "0x0115ecd0",
+      "registrationRecordFileOffset": 14019792,
+      "registrationRecordHex": "f0dc7300380e0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006FC",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_EnableObjectFollow(System.UInt64,Sims3.SimIFace.Vector3)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_EnableObjectFollow",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073dcf0-Camera_EnableObjectFollow.objdump.txt",
+      "stopVa": "0x0073dda0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_DisableObjectFollow",
+      "entryVa": "0x0073dda0",
+      "registrationRecordVa": "0x0115ecd8",
+      "registrationRecordFileOffset": 14019800,
+      "registrationRecordHex": "a0dd7300700e0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006FD",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_DisableObjectFollow()->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_DisableObjectFollow",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073dda0-Camera_DisableObjectFollow.objdump.txt",
+      "stopVa": "0x0073de00",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetObjectFollowId",
+      "entryVa": "0x0073de00",
+      "registrationRecordVa": "0x0115ece0",
+      "registrationRecordFileOffset": 14019808,
+      "registrationRecordHex": "00de7300a80e0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006FE",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetObjectFollowId()->System.UInt64",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetObjectFollowId",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073de00-Camera_GetObjectFollowId.objdump.txt",
+      "stopVa": "0x0073de90",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetDistanceFromTargetToObject",
+      "entryVa": "0x0073e540",
+      "registrationRecordVa": "0x0115ece8",
+      "registrationRecordFileOffset": 14019816,
+      "registrationRecordHex": "40e57300e00e0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x060006FF",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetDistanceFromTargetToObject(System.UInt64)->System.Single",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetDistanceFromTargetToObject",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e540-Camera_GetDistanceFromTargetToObject.objdump.txt",
+      "stopVa": "0x0073e750",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_TetherToLot",
+      "entryVa": "0x0073de90",
+      "registrationRecordVa": "0x0115ecf0",
+      "registrationRecordFileOffset": 14019824,
+      "registrationRecordHex": "90de7300240f0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000700",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_TetherToLot(System.UInt64,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_TetherToLot",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073de90-Camera_TetherToLot.objdump.txt",
+      "stopVa": "0x0073def0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_FinishTimeLerp",
+      "entryVa": "0x0073def0",
+      "registrationRecordVa": "0x0115ecf8",
+      "registrationRecordFileOffset": 14019832,
+      "registrationRecordHex": "f0de7300540f0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000701",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_FinishTimeLerp()->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_FinishTimeLerp",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073def0-Camera_FinishTimeLerp.objdump.txt",
+      "stopVa": "0x0073df30",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_TetherToObject",
+      "entryVa": "0x0073df30",
+      "registrationRecordVa": "0x0115ed00",
+      "registrationRecordFileOffset": 14019840,
+      "registrationRecordHex": "30df7300880f0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000702",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_TetherToObject(System.UInt64)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_TetherToObject",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073df30-Camera_TetherToObject.objdump.txt",
+      "stopVa": "0x0073df80",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_Untether",
+      "entryVa": "0x0073df80",
+      "registrationRecordVa": "0x0115ed08",
+      "registrationRecordFileOffset": 14019848,
+      "registrationRecordHex": "80df7300bc0f0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000703",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_Untether()->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_Untether",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073df80-Camera_Untether.objdump.txt",
+      "stopVa": "0x0073dfc0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_Lock",
+      "entryVa": "0x0073dfc0",
+      "registrationRecordVa": "0x0115ed10",
+      "registrationRecordFileOffset": 14019856,
+      "registrationRecordHex": "c0df7300ec0f0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000704",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_Lock(System.UInt64,Sims3.SimIFace.Vector3,System.Single,System.Single,System.Single,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_Lock",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073dfc0-Camera_Lock.objdump.txt",
+      "stopVa": "0x0073e040",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_Unlock",
+      "entryVa": "0x0073e040",
+      "registrationRecordVa": "0x0115ed18",
+      "registrationRecordFileOffset": 14019864,
+      "registrationRecordHex": "40e0730018100001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000705",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_Unlock()->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_Unlock",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e040-Camera_Unlock.objdump.txt",
+      "stopVa": "0x0073e080",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_SetMotion",
+      "entryVa": "0x0073d6f0",
+      "registrationRecordVa": "0x0115ed20",
+      "registrationRecordFileOffset": 14019872,
+      "registrationRecordHex": "f0d6730044100001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000706",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_SetMotion(System.UInt32,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_SetMotion",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "../../evidence/native/functions/0073D6F0_ScriptCore_CameraController_Camera_SetMotion.asm",
+      "stopVa": "0x0073d723",
+      "bodyComplete": false,
+      "pseudocode": "../../evidence/native/functions/0073D6F0_ScriptCore_CameraController_Camera_SetMotion.c",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_SetRotating",
+      "entryVa": "0x0073d730",
+      "registrationRecordVa": "0x0115ed28",
+      "registrationRecordFileOffset": 14019880,
+      "registrationRecordHex": "30d7730074100001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000707",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_SetRotating(System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_SetRotating",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "../../evidence/native/functions/0073D730_ScriptCore_CameraController_Camera_SetRotating.asm",
+      "stopVa": "0x0073d75e",
+      "bodyComplete": false,
+      "pseudocode": "../../evidence/native/functions/0073D730_ScriptCore_CameraController_Camera_SetRotating.c",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_EnableMapViewMode",
+      "entryVa": "0x0073e080",
+      "registrationRecordVa": "0x0115ed30",
+      "registrationRecordFileOffset": 14019888,
+      "registrationRecordHex": "80e07300a4100001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000708",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_EnableMapViewMode(System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_EnableMapViewMode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e080-Camera_EnableMapViewMode.objdump.txt",
+      "stopVa": "0x0073e0d0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_DisableMapViewMode",
+      "entryVa": "0x0073e0d0",
+      "registrationRecordVa": "0x0115ed38",
+      "registrationRecordFileOffset": 14019896,
+      "registrationRecordHex": "d0e07300dc100001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000709",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_DisableMapViewMode(System.Single,System.Single,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_DisableMapViewMode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e0d0-Camera_DisableMapViewMode.objdump.txt",
+      "stopVa": "0x0073e130",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_IsMapViewModeEnabled",
+      "entryVa": "0x0073e130",
+      "registrationRecordVa": "0x0115ed40",
+      "registrationRecordFileOffset": 14019904,
+      "registrationRecordHex": "30e1730014110001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600070A",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_IsMapViewModeEnabled()->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_IsMapViewModeEnabled",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e130-Camera_IsMapViewModeEnabled.objdump.txt",
+      "stopVa": "0x0073e170",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_EnableNHoodPlopMode",
+      "entryVa": "0x0073e170",
+      "registrationRecordVa": "0x0115ed48",
+      "registrationRecordFileOffset": 14019912,
+      "registrationRecordHex": "70e1730050110001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600070B",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_EnableNHoodPlopMode()->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_EnableNHoodPlopMode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e170-Camera_EnableNHoodPlopMode.objdump.txt",
+      "stopVa": "0x0073e1b0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_DisableNHoodPlopMode",
+      "entryVa": "0x0073e1b0",
+      "registrationRecordVa": "0x0115ed50",
+      "registrationRecordFileOffset": 14019920,
+      "registrationRecordHex": "b0e1730088110001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600070C",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_DisableNHoodPlopMode()->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_DisableNHoodPlopMode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e1b0-Camera_DisableNHoodPlopMode.objdump.txt",
+      "stopVa": "0x0073e1f0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_IsHorizontalRotationInverted",
+      "entryVa": "0x0073d760",
+      "registrationRecordVa": "0x0115ed58",
+      "registrationRecordFileOffset": 14019928,
+      "registrationRecordHex": "60d77300c8110001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600070D",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_IsHorizontalRotationInverted()->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_IsHorizontalRotationInverted",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d760-Camera_IsHorizontalRotationInverted.objdump.txt",
+      "stopVa": "0x0073d780",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_IsVerticalRotationInverted",
+      "entryVa": "0x0073d780",
+      "registrationRecordVa": "0x0115ed60",
+      "registrationRecordFileOffset": 14019936,
+      "registrationRecordHex": "80d773000c120001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600070E",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_IsVerticalRotationInverted()->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_IsVerticalRotationInverted",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073d780-Camera_IsVerticalRotationInverted.objdump.txt",
+      "stopVa": "0x0073d7a0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_SetGameEntryMode",
+      "entryVa": "0x0073e1f0",
+      "registrationRecordVa": "0x0115ed68",
+      "registrationRecordFileOffset": 14019944,
+      "registrationRecordHex": "f0e173004c120001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600070F",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_SetGameEntryMode(System.Boolean)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_SetGameEntryMode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e1f0-Camera_SetGameEntryMode.objdump.txt",
+      "stopVa": "0x0073e230",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_SetTutorialMode",
+      "entryVa": "0x0073e230",
+      "registrationRecordVa": "0x0115ed70",
+      "registrationRecordFileOffset": 14019952,
+      "registrationRecordHex": "30e2730084120001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000710",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_SetTutorialMode(System.Boolean)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_SetTutorialMode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e230-Camera_SetTutorialMode.objdump.txt",
+      "stopVa": "0x0073e270",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_ActivatePhotographMode",
+      "entryVa": "0x0073e270",
+      "registrationRecordVa": "0x0115ed78",
+      "registrationRecordFileOffset": 14019960,
+      "registrationRecordHex": "70e27300b8120001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000711",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_ActivatePhotographMode(System.UInt64,System.Boolean,System.Single,System.Single,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_ActivatePhotographMode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e270-Camera_ActivatePhotographMode.objdump.txt",
+      "stopVa": "0x0073e3a0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_StartFlyThrough",
+      "entryVa": "0x0073d7a0",
+      "registrationRecordVa": "0x0115ed80",
+      "registrationRecordFileOffset": 14019968,
+      "registrationRecordHex": "a0d77300f4120001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000712",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_StartFlyThrough(System.UInt32,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_StartFlyThrough",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "../../evidence/native/functions/0073D7A0_ScriptCore_CameraController_Camera_StartFlyThrough.asm",
+      "pseudocode": "../../evidence/native/functions/0073D7A0_ScriptCore_CameraController_Camera_StartFlyThrough.c",
+      "stopVa": "0x0073d7c6",
+      "bodyStartVa": "0x0073d7a0",
+      "bodyByteLength": 38,
+      "bodyComplete": true,
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_GetCustomFlyThroughIndex",
+      "entryVa": "0x0073d7d0",
+      "registrationRecordVa": "0x0115ed88",
+      "registrationRecordFileOffset": 14019976,
+      "registrationRecordHex": "d0d7730028130001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000713",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_GetCustomFlyThroughIndex()->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_GetCustomFlyThroughIndex",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "../../evidence/native/functions/0073D7D0_ScriptCore_CameraController_Camera_GetCustomFlyThroughIndex.asm",
+      "pseudocode": "../../evidence/native/functions/0073D7D0_ScriptCore_CameraController_Camera_GetCustomFlyThroughIndex.c",
+      "stopVa": "0x0073d7ee",
+      "bodyStartVa": "0x0073d7d0",
+      "bodyByteLength": 30,
+      "bodyComplete": true,
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.CameraController::Camera_EnableHouseboatFollow",
+      "entryVa": "0x0073e3a0",
+      "registrationRecordVa": "0x0115ed90",
+      "registrationRecordFileOffset": 14019984,
+      "registrationRecordHex": "a0e3730068130001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000714",
+          "signature": "ScriptCore:ScriptCore.CameraController::Camera_EnableHouseboatFollow(System.UInt64)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common",
+            "entryPoint": "Camera_EnableHouseboatFollow",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x0073e3a0-Camera_EnableHouseboatFollow.objdump.txt",
+      "stopVa": "0x0073e3f0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.ThumbnailManager::ThumbnailManager_SetHouseholdCamera",
+      "entryVa": "0x00777bc0",
+      "registrationRecordVa": "0x01162b58",
+      "registrationRecordFileOffset": 14035800,
+      "registrationRecordHex": "c07b770070ec0001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000189",
+          "signature": "ScriptCore:ScriptCore.ThumbnailManager::ThumbnailManager_SetHouseholdCamera(System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "ThumbnailManager_SetHouseholdCamera",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x00777bc0-ThumbnailManager_SetHouseholdCamera.objdump.txt",
+      "stopVa": "0x00777be0",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.UIManager::UIManager_UpdateMapTagCameraImpl",
+      "entryVa": "0x00779fe0",
+      "registrationRecordVa": "0x01163088",
+      "registrationRecordFileOffset": 14037128,
+      "registrationRecordHex": "e09f7700ac100101",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000E4C",
+          "signature": "ScriptCore:ScriptCore.UIManager::UIManager_UpdateMapTagCameraImpl()->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "UIManager_UpdateMapTagCameraImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x00779fe0-UIManager_UpdateMapTagCameraImpl.objdump.txt",
+      "stopVa": "0x0077a000",
+      "bodyComplete": false
+    },
+    {
+      "name": "ScriptCore.World::World_IsCameraRoutableImpl",
+      "entryVa": "0x00785690",
+      "registrationRecordVa": "0x01163bc8",
+      "registrationRecordFileOffset": 14040008,
+      "registrationRecordHex": "905678000c5b0101",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600087B",
+          "signature": "ScriptCore:ScriptCore.World::World_IsCameraRoutableImpl(System.Single,System.Single)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "World_IsCameraRoutableImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "boundedDisassembly": "native/disassembly/0x00785690-World_IsCameraRoutableImpl.objdump.txt",
+      "stopVa": "0x007856c0",
+      "bodyComplete": false
+    }
+  ]
+}

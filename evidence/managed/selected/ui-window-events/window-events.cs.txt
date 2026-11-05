@@ -1,0 +1,234 @@
+// Selected complete actual ILSpy members from pristine PC1.67 UI.dll.
+// Analyst note: original UIManager owns delegate glue, WindowEventData wrapper
+// retention, argument creation and managed registry/tag retirement. Native
+// registration/procedure/handle/variant mechanisms are separate producers.
+// ProcessEventCallback's finally destroys every nonzero receiver handle.
+// These are actual original member excerpts, not a reconstructed compilable class.
+// Paired CIL contains15 complete method bodies, original headers and full EH
+// sections,1357 code bytes. Namespace/type labels identify excerpt ownership.
+
+// Sims3.UI.UIManager
+	private class WindowEventData
+	{
+		public readonly WindowBase Window;
+
+		public readonly Dictionary<uint, UIEventHandlerGlueBase> EventTypesAndCallbacks;
+
+		public WindowEventData(WindowBase win, Dictionary<uint, UIEventHandlerGlueBase> typesAndCallbacks)
+		{
+			Window = win;
+			EventTypesAndCallbacks = typesAndCallbacks;
+		}
+	}
+
+	public static bool ProcessEventCallback(uint winHandle, uint eventType, uint srcHandle, uint dstHandle, int arg1, int arg2, int arg3, float f1, float f2, float f3, float f4, ref bool result, string text)
+	{
+		try
+		{
+			return ProcessEvent(winHandle, eventType, srcHandle, dstHandle, arg1, arg2, arg3, f1, f2, f3, f4, ref result, text);
+		}
+		finally
+		{
+			if (winHandle != 0)
+			{
+				gUIMgr.DestroyWindow(winHandle);
+			}
+		}
+	}
+
+	public static bool ProcessEvent(uint winHandle, uint eventType, uint srcHandle, uint dstHandle, int arg1, int arg2, int arg3, float f1, float f2, float f3, float f4, ref bool result, string text)
+	{
+		return ProcessEvent(winHandle, eventType, (srcHandle != 0) ? WrapperFromHandle(srcHandle) : null, (dstHandle != 0) ? WrapperFromHandle(dstHandle) : null, arg1, ref arg2, arg3, f1, f2, f3, f4, ref result, text);
+	}
+
+	static UIManager()
+	{
+		kMouseDragDistanceSquared = 50f;
+		mCustomControlInstanceDict = new Dictionary<uint, WindowBase>();
+		mTagRegistry = new Dictionary<WindowBase, object>();
+		mCreateTooltipCallbackRegistry = new Dictionary<WindowBase, WindowBase.CreateTooltipCallback>();
+		mClassIDTypeMap = new Dictionary<uint, Type>();
+		mInstancePools = new Dictionary<Type, Stack<WindowBase>>();
+		gUIMgr = null;
+		sDragDrop = null;
+		sbPreShutdown = false;
+		sDarkenBackground = null;
+		sDarkenCount = 0u;
+		mEventArgsConstructors = new Dictionary<uint, EventCreator>();
+		mWindowConstructors = new Dictionary<Type, WindowCreator>();
+		mCustomControlConstructorRegistry = new Dictionary<uint, ConstructorInfo>();
+		mRollbackRes = false;
+		mIsTogglingFullScreen = false;
+		mIsModal = false;
+		mTaskCount = 0u;
+		mModalStack = new WindowBase[8];
+		mModalStackPtr = 1;
+		gUIMgr = (IUIManager)AppDomain.CurrentDomain.GetData("UIManager");
+		bool flag = !InitUIManagerTask.sIsRunningUTFDesigner;
+		gUIMgr.RegisterShutdownCallback(Shutdown);
+		mUIEventCallbackDelegate = ProcessEventCallback;
+		mUILocaleChangedCallbackDelegate = UILocaleChangedCallback;
+		mUIResolutionChangedCallbackDelegate = UIResolutionChangedCallback;
+		mUIWindowShutdownCallbackDelegate = UIWindowShutdownCallback;
+		mUINewContentInstalledDelegate = UINewContentInstalled;
+		mUIInGameStoreDelegate = UIInGameStoreMessageCallback;
+		mUINewHotInstallDataCallback = UINewHotInstallData;
+		gUIMgr.SetUICallbacks(mUIEventCallbackDelegate, mUILocaleChangedCallbackDelegate, mUIResolutionChangedCallbackDelegate, mUIWindowShutdownCallbackDelegate, mUINewContentInstalledDelegate, mUIInGameStoreDelegate, mUINewHotInstallDataCallback);
+		mControlInstanceCache = new Cache<uint, WindowBase>(100);
+		mControlInstanceCache.CacheEntryErased += OnControlCacheEntryErased;
+		InitInstancePools();
+		mEventRegistry = new Dictionary<uint, WindowEventData>();
+		LoadCustomControls();
+		if (flag)
+		{
+			gUIMgr.InitUIHierarchy();
+			gUIMgr.InitUserToolHelper();
+			Simulator.AddObject(new TooltipManager());
+			Simulator.AddObject(new FeedbackBalloonManager());
+		}
+	}
+
+	private static void OnInternalWindowShutdown(WindowBase sender, UIEventArgs eventArgs)
+	{
+		mTagRegistry.Remove(sender);
+		mCreateTooltipCallbackRegistry.Remove(sender);
+	}
+
+	private static void OnWinDetach(WindowBase sender, UIEventArgs args)
+	{
+		if (!DisableDisposeOnDetatch && mControlInstanceCache.ContainsKey(args.SourceWindow.WinHandle))
+		{
+			mControlInstanceCache.Remove(args.SourceWindow.WinHandle);
+			DeRegisterAllEvents(args.SourceWindow);
+		}
+	}
+
+	private static void UIWindowShutdownCallback(uint winHandle)
+	{
+		if (mEventRegistry.ContainsKey(winHandle))
+		{
+			mEventRegistry.Remove(winHandle);
+		}
+	}
+
+	internal static bool ProcessEvent(uint winHandle, uint eventType, WindowBase srcWin, WindowBase dstWin, int arg1, ref int arg2, int arg3, float f1, float f2, float f3, float f4, ref bool result, string text)
+	{
+		if (!mEventRegistry.TryGetValue(winHandle, out var value))
+		{
+			return false;
+		}
+		WindowBase window = value.Window;
+		if (!value.EventTypesAndCallbacks.TryGetValue(eventType, out var value2))
+		{
+			return false;
+		}
+		if (!mEventArgsConstructors.TryGetValue(eventType, out var value3))
+		{
+			MethodInfo method = value2.EventArgsType.GetMethod("Create", BindingFlags.Static | BindingFlags.Public);
+			value3 = (EventCreator)Delegate.CreateDelegate(typeof(EventCreator), method);
+			mEventArgsConstructors.Add(eventType, value3);
+		}
+		if (value3 != null)
+		{
+			UIEventArgs e = value3();
+			e.Init(eventType, srcWin, dstWin, arg1, arg2, arg3, f1, f2, f3, f4, result, text);
+			value2.Invoke(window, e);
+			if (e is UIHitTestEventArgs e2)
+			{
+				result = e2.HitTestResult;
+			}
+			if (e is UITextValidateEventArgs e3)
+			{
+				result = e3.TextValidated;
+			}
+			if (e is UIDragEventArgs e4)
+			{
+				result = e4.Result;
+			}
+			if (e is UIQueryContinueDragEventArgs e5)
+			{
+				arg2 = (int)e5.Action;
+			}
+			if (e is UIHandledEventArgs e6)
+			{
+				return e6.Handled;
+			}
+		}
+		return false;
+	}
+
+	internal static void RegisterEvent<ArgsType>(WindowBase window, uint eventType, UIEventHandler<ArgsType> callback) where ArgsType : UIEventArgs
+	{
+		if (mEventRegistry.TryGetValue(window.WinHandle, out var value))
+		{
+			if (!value.EventTypesAndCallbacks.TryGetValue(eventType, out var value2))
+			{
+				value.EventTypesAndCallbacks.Add(eventType, new UIEventHandlerGlue<ArgsType>(callback));
+				gUIMgr.RegisterEvent(window.WinHandle, eventType);
+			}
+			else
+			{
+				(value2 as UIEventHandlerGlue<ArgsType>).AddDelegate(callback);
+			}
+		}
+		else
+		{
+			Dictionary<uint, UIEventHandlerGlueBase> dictionary = new Dictionary<uint, UIEventHandlerGlueBase>();
+			dictionary.Add(eventType, new UIEventHandlerGlue<ArgsType>(callback));
+			mEventRegistry.Add(window.WinHandle, new WindowEventData(window, dictionary));
+			gUIMgr.RegisterEvent(window.WinHandle, eventType);
+		}
+	}
+
+	internal static void DeRegisterEvent<ArgsType>(WindowBase window, uint eventType, UIEventHandler<ArgsType> callback) where ArgsType : UIEventArgs
+	{
+		if (!mEventRegistry.TryGetValue(window.WinHandle, out var value) || !value.EventTypesAndCallbacks.TryGetValue(eventType, out var value2))
+		{
+			return;
+		}
+		(value2 as UIEventHandlerGlue<ArgsType>).RemoveDelegate(callback);
+		if (value2.IsEmpty)
+		{
+			value.EventTypesAndCallbacks.Remove(eventType);
+			gUIMgr.DeRegisterEvent(window.WinHandle, eventType);
+			if (value.EventTypesAndCallbacks.Count == 0)
+			{
+				mEventRegistry.Remove(window.WinHandle);
+			}
+		}
+	}
+
+	internal static void DeRegisterAllEvents(WindowBase window)
+	{
+		if (mEventRegistry.ContainsKey(window.WinHandle))
+		{
+			gUIMgr.DeRegisterAllEvents(window.WinHandle);
+			mEventRegistry.Remove(window.WinHandle);
+		}
+	}
+
+// Sims3.UI.WindowBase
+	internal event UIEventHandler<UIEventArgs> InternalWindowShutdown
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 4097u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 4097u, value);
+		}
+	}
+
+	public event UIEventHandler<UIEventArgs> Tick
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 12u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 12u, value);
+		}
+	}
+

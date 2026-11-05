@@ -1,0 +1,32 @@
+# animation-delegate-invoke: retail TS3W.exe VA 0x00576F90-0x00576FCD, file offset 0x176F90
+576f90:	53                   	push   ebx
+  576f91:	56                   	push   esi
+  576f92:	8b d9                	mov    ebx,ecx
+  576f94:	83 43 0c 01          	add    DWORD PTR [ebx+0xc],0x1
+  576f98:	8b 73 04             	mov    esi,DWORD PTR [ebx+0x4]
+  576f9b:	57                   	push   edi
+  576f9c:	8d 7b 04             	lea    edi,[ebx+0x4]
+  576f9f:	3b f7                	cmp    esi,edi
+  576fa1:	74 20                	je     0x576fc3
+  576fa3:	55                   	push   ebp
+  576fa4:	8b 6c 24 14          	mov    ebp,DWORD PTR [esp+0x14]
+  576fa8:	8b c6                	mov    eax,esi
+  576faa:	8b 48 08             	mov    ecx,DWORD PTR [eax+0x8]
+  576fad:	85 c9                	test   ecx,ecx
+  576faf:	8b 36                	mov    esi,DWORD PTR [esi]
+  576fb1:	74 0b                	je     0x576fbe
+  576fb3:	8b 40 0c             	mov    eax,DWORD PTR [eax+0xc]
+  576fb6:	8b 11                	mov    edx,DWORD PTR [ecx]
+  576fb8:	8b 12                	mov    edx,DWORD PTR [edx]
+  576fba:	50                   	push   eax
+  576fbb:	55                   	push   ebp
+  576fbc:	ff d2                	call   edx
+  576fbe:	3b f7                	cmp    esi,edi
+  576fc0:	75 e6                	jne    0x576fa8
+  576fc2:	5d                   	pop    ebp
+  576fc3:	8b cb                	mov    ecx,ebx
+  576fc5:	e8 86 ed fe ff       	call   0x565d50
+  576fca:	5f                   	pop    edi
+  576fcb:	5e                   	pop    esi
+  576fcc:	5b                   	pop    ebx
+  576fcd:	c2               	ret    0x4

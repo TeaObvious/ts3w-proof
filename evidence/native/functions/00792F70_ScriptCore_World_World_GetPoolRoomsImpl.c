@@ -1,0 +1,65 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* Verified PC 1.67 registration table at 0x01163cb0 (original PC 1.67 TS3W.exe).
+   ScriptCore.World::World_GetPoolRoomsImpl [assembly=ScriptCore token=0x06000891; lotId:
+   System.UInt64; return=System.Int32[]]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+undefined4 ScriptCore_World__World_GetPoolRoomsImpl(int param_1,int param_2)
+
+{
+  short *psVar1;
+  int *piVar2;
+  int *piVar3;
+  int iVar4;
+  void *this;
+  int iVar5;
+  short *psVar6;
+  undefined4 uStack_1c;
+  int iStack_18;
+  short *psStack_14;
+  short *psStack_10;
+  undefined4 uStack_c;
+  char *pcStack_8;
+  
+  iVar5 = 0;
+  if (DAT_011edbc4 == (void *)0x0) {
+    return 0;
+  }
+  piVar2 = FUN_00c62810(DAT_011edbc4,param_1,param_2,(int *)0x0);
+  uStack_1c = 0;
+  piVar3 = (int *)GetGlobalInterfacePointer_11D5BBC();
+  if (piVar2 == (int *)0x0) {
+    this = (void *)0x0;
+  }
+  else {
+    this = (void *)piVar2[0xaf];
+  }
+  if ((this != (void *)0x0) && (piVar3 != (int *)0x0)) {
+    psStack_14 = (short *)0x0;
+    psStack_10 = (short *)0x0;
+    uStack_c = 0;
+    pcStack_8 = "Scripting/WorldHost/sGetPoolRooms/rooms";
+    FUN_00b69950(this,&psStack_14);
+    iVar4 = (int)psStack_10 - (int)psStack_14 >> 1;
+    if (iVar4 != 0) {
+      (**(code **)(*piVar3 + 0x8c))(&uStack_1c,iVar4);
+      psVar1 = psStack_10;
+      for (psVar6 = psStack_14; psVar6 != psVar1; psVar6 = psVar6 + 1) {
+        iStack_18 = (int)*psVar6;
+        (**(code **)(*piVar3 + 0xa4))(&uStack_1c,&iStack_18,iVar5,1);
+        iVar5 = iVar5 + 1;
+      }
+    }
+    if (psStack_14 != (short *)0x0) {
+      FUN_004e44e0((int)psStack_14);
+    }
+  }
+  return uStack_1c;
+}
+

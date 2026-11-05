@@ -1,0 +1,110 @@
+// Complete original PC1.67 selected CIL. Central managed README identifies pristine original assemblies.
+// Module-local tokens; TypeSpecification placeholders retain raw signature/token rather than an invented generic declaration.
+
+// Sims3.Gameplay.Gameflow::SetGameSpeed; MethodDef0x0600BE5D; RVA0x00369478
+// Raw CLI signature 00020111868511c0006d00; maxstack 2; local signature token 11000000 (RID0 means nil); initlocals False
+// Original IL bytes (85): 032C4A0317330D7232120270289E06000A2C012A280E03000A2C0D7233010970289E06000A2D012A7E796C00042C012A022D1A285BBE00062D097E786C000410002B0A285BBE000680786C00040216285EBE00062A
+IL_0000: ldarg.1
+IL_0001: brfalse.s IL_004D
+IL_0003: ldarg.1
+IL_0004: ldc.i4.1
+IL_0005: bne.un.s IL_0014
+IL_0007: ldstr 0x70021232 "speed"
+IL_000C: call 0x0A00069E Sims3.SimIFace.CommandLine::FindSwitch
+IL_0011: brfalse.s IL_0014
+IL_0013: ret
+IL_0014: call 0x0A00030E Sims3.SimIFace.Environment::get_HasEditInGameModeSwitch
+IL_0019: brfalse.s IL_0028
+IL_001B: ldstr 0x70090133 "eigpauseoverride"
+IL_0020: call 0x0A00069E Sims3.SimIFace.CommandLine::FindSwitch
+IL_0025: brtrue.s IL_0028
+IL_0027: ret
+IL_0028: ldsfld 0x04006C79 Sims3.Gameplay.Gameflow::mGameSpeedLocked
+IL_002D: brfalse.s IL_0030
+IL_002F: ret
+IL_0030: ldarg.0
+IL_0031: brtrue.s IL_004D
+IL_0033: call 0x0600BE5B Sims3.Gameplay.Gameflow::get_CurrentGameSpeed
+IL_0038: brtrue.s IL_0043
+IL_003A: ldsfld 0x04006C78 Sims3.Gameplay.Gameflow::mGameSpeedNonPaused
+IL_003F: starg.s 0
+IL_0041: br.s IL_004D
+IL_0043: call 0x0600BE5B Sims3.Gameplay.Gameflow::get_CurrentGameSpeed
+IL_0048: stsfld 0x04006C78 Sims3.Gameplay.Gameflow::mGameSpeedNonPaused
+IL_004D: ldarg.0
+IL_004E: ldc.i4.0
+IL_004F: call 0x0600BE5E Sims3.Gameplay.Gameflow::SetGameSpeed
+IL_0054: ret
+
+// Sims3.Gameplay.Gameflow::SetGameSpeed; MethodDef0x0600BE5E; RVA0x003694DC
+// Raw CLI signature 00020111868502; maxstack 3; local signature token 110022BF (RID0 means nil); initlocals True
+// Original IL bytes (233): 22000000000A0380796C0004022C0A208000000028B09A0006020C08450500000002000000020000000200000002000000110000002B4B02285FBE00060A0280756C00042B3C282D0F00062C35282D0F00066FE30E00066FAC9200060B072C150780766C00041A285FBE00060A0280756C00042B0D17285FBE00060A1780756C0004032D0A7E756C000480746C000406280432000A020D094505000000020000000A000000120000001A0000001A0000002B1E16280532000A2B1617280532000A2B0E18280532000A2B0619280532000A7E736C00042C107E736C00047E756C0004036F0632000A2A
+IL_0000: ldc.r4 0
+IL_0005: stloc.0
+IL_0006: ldarg.1
+IL_0007: stsfld 0x04006C79 Sims3.Gameplay.Gameflow::mGameSpeedLocked
+IL_000C: ldarg.0
+IL_000D: brfalse.s IL_0019
+IL_000F: ldc.i4 128
+IL_0014: call 0x06009AB0 Sims3.Gameplay.Tutorial.IntroTutorial::StateComplete
+IL_0019: ldarg.0
+IL_001A: stloc.2
+IL_001B: ldloc.2
+IL_001C: switch IL_0037,IL_0037,IL_0037,IL_0037,IL_0046
+IL_0035: br.s IL_0082
+IL_0037: ldarg.0
+IL_0038: call 0x0600BE5F Sims3.Gameplay.Gameflow::GetTimeRateForGameSpeed
+IL_003D: stloc.0
+IL_003E: ldarg.0
+IL_003F: stsfld 0x04006C75 Sims3.Gameplay.Gameflow::mGameSpeed
+IL_0044: br.s IL_0082
+IL_0046: call 0x06000F2D Sims3.Gameplay.Actors.Sim::get_ActiveActor
+IL_004B: brfalse.s IL_0082
+IL_004D: call 0x06000F2D Sims3.Gameplay.Actors.Sim::get_ActiveActor
+IL_0052: callvirt 0x06000EE3 Sims3.Gameplay.Actors.Sim::get_InteractionQueue
+IL_0057: callvirt 0x060092AC Sims3.Gameplay.ActorSystems.InteractionQueue::GetHeadInteraction
+IL_005C: stloc.1
+IL_005D: ldloc.1
+IL_005E: brfalse.s IL_0075
+IL_0060: ldloc.1
+IL_0061: stsfld 0x04006C76 Sims3.Gameplay.Gameflow::mInteractionInstanceToSkip
+IL_0066: ldc.i4.4
+IL_0067: call 0x0600BE5F Sims3.Gameplay.Gameflow::GetTimeRateForGameSpeed
+IL_006C: stloc.0
+IL_006D: ldarg.0
+IL_006E: stsfld 0x04006C75 Sims3.Gameplay.Gameflow::mGameSpeed
+IL_0073: br.s IL_0082
+IL_0075: ldc.i4.1
+IL_0076: call 0x0600BE5F Sims3.Gameplay.Gameflow::GetTimeRateForGameSpeed
+IL_007B: stloc.0
+IL_007C: ldc.i4.1
+IL_007D: stsfld 0x04006C75 Sims3.Gameplay.Gameflow::mGameSpeed
+IL_0082: ldarg.1
+IL_0083: brtrue.s IL_008F
+IL_0085: ldsfld 0x04006C75 Sims3.Gameplay.Gameflow::mGameSpeed
+IL_008A: stsfld 0x04006C74 Sims3.Gameplay.Gameflow::sPersistedGameSpeed
+IL_008F: ldloc.0
+IL_0090: call 0x0A003204 Sims3.SimIFace.GameUtils::SetGameTimeScale
+IL_0095: ldarg.0
+IL_0096: stloc.3
+IL_0097: ldloc.3
+IL_0098: switch IL_00B3,IL_00BB,IL_00C3,IL_00CB,IL_00CB
+IL_00B1: br.s IL_00D1
+IL_00B3: ldc.i4.0
+IL_00B4: call 0x0A003205 Sims3.SimIFace.GameUtils::SetGameTimeSpeedLevel
+IL_00B9: br.s IL_00D1
+IL_00BB: ldc.i4.1
+IL_00BC: call 0x0A003205 Sims3.SimIFace.GameUtils::SetGameTimeSpeedLevel
+IL_00C1: br.s IL_00D1
+IL_00C3: ldc.i4.2
+IL_00C4: call 0x0A003205 Sims3.SimIFace.GameUtils::SetGameTimeSpeedLevel
+IL_00C9: br.s IL_00D1
+IL_00CB: ldc.i4.3
+IL_00CC: call 0x0A003205 Sims3.SimIFace.GameUtils::SetGameTimeSpeedLevel
+IL_00D1: ldsfld 0x04006C73 Sims3.Gameplay.Gameflow::GameSpeedChanged
+IL_00D6: brfalse.s IL_00E8
+IL_00D8: ldsfld 0x04006C73 Sims3.Gameplay.Gameflow::GameSpeedChanged
+IL_00DD: ldsfld 0x04006C75 Sims3.Gameplay.Gameflow::mGameSpeed
+IL_00E2: ldarg.1
+IL_00E3: callvirt 0x0A003206 Sims3.UI.GameSpeedChangedCallback::Invoke
+IL_00E8: ret

@@ -1,0 +1,28 @@
+// Complete original PC1.67 selected CIL. Central managed README identifies pristine original assemblies.
+// Module-local tokens; TypeSpecification placeholders retain raw signature/token rather than an invented generic declaration.
+
+// ScriptCore.GameUtils::GetConfigValue; MethodDef0x060002A5; RVA0x00004A82
+// Raw CLI signature 2002020e1009; maxstack 8; local signature token 11000000 (RID0 means nil); initlocals False
+// Original IL bytes (8): 0304284E0200062A
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: call 0x0600024E ScriptCore.GameUtils::GameUtils_GetConfigValue
+IL_0007: ret
+
+// ScriptCore.GameUtils::GetConfigValue; MethodDef0x060002A6; RVA0x00004A8C
+// Raw CLI signature 2002020e100e; maxstack 2; local signature token 11000036 (RID0 means nil); initlocals True
+// Original IL bytes (19): 030450284F0200060A062D02162A040651172A
+IL_0000: ldarg.1
+IL_0001: ldarg.2
+IL_0002: ldind.ref
+IL_0003: call 0x0600024F ScriptCore.GameUtils::GameUtils_GetConfigStringValue
+IL_0008: stloc.0
+IL_0009: ldloc.0
+IL_000A: brtrue.s IL_000E
+IL_000C: ldc.i4.0
+IL_000D: ret
+IL_000E: ldarg.2
+IL_000F: ldloc.0
+IL_0010: stind.ref
+IL_0011: ldc.i4.1
+IL_0012: ret

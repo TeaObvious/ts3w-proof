@@ -1,0 +1,64 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body and owned-range envelope.
+Actual annotated Ghidra pseudocode: 00533230_SimpleLayout_RemoveAnchoredEdges.c
+Owned ranges: [[00533230, 00533302]]
+
+00533230  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+00533234  8b542404  MOV EDX,dword ptr [ESP + 0x4]
+00533238  56  PUSH ESI
+00533239  8bf1  MOV ESI,ECX
+0053323b  8a4e04  MOV CL,byte ptr [ESI + 0x4]
+0053323e  f6c108  TEST CL,0x8
+00533241  7434  JZ 0x00533277
+00533243  f30f104208  MOVSS XMM0,dword ptr [EDX + 0x8]
+00533248  f30f5c02  SUBSS XMM0,dword ptr [EDX]
+0053324c  f30f104808  MOVSS XMM1,dword ptr [EAX + 0x8]
+00533251  f30f5cc8  SUBSS XMM1,XMM0
+00533255  f30f114808  MOVSS dword ptr [EAX + 0x8],XMM1
+0053325a  f6460404  TEST byte ptr [ESI + 0x4],0x4
+0053325e  7536  JNZ 0x00533296
+00533260  f30f104208  MOVSS XMM0,dword ptr [EDX + 0x8]
+00533265  f30f5c02  SUBSS XMM0,dword ptr [EDX]
+00533269  f30f1008  MOVSS XMM1,dword ptr [EAX]
+0053326d  f30f5cc8  SUBSS XMM1,XMM0
+00533271  f30f1108  MOVSS dword ptr [EAX],XMM1
+00533275  eb1f  JMP 0x00533296
+00533277  f6c104  TEST CL,0x4
+0053327a  751a  JNZ 0x00533296
+0053327c  f30f1002  MOVSS XMM0,dword ptr [EDX]
+00533280  f30f5800  ADDSS XMM0,dword ptr [EAX]
+00533284  f30f1100  MOVSS dword ptr [EAX],XMM0
+00533288  f30f1002  MOVSS XMM0,dword ptr [EDX]
+0053328c  f30f584008  ADDSS XMM0,dword ptr [EAX + 0x8]
+00533291  f30f114008  MOVSS dword ptr [EAX + 0x8],XMM0
+00533296  8a4e04  MOV CL,byte ptr [ESI + 0x4]
+00533299  f6c102  TEST CL,0x2
+0053329c  743c  JZ 0x005332da
+0053329e  f30f10420c  MOVSS XMM0,dword ptr [EDX + 0xc]
+005332a3  f30f5c4204  SUBSS XMM0,dword ptr [EDX + 0x4]
+005332a8  f30f10480c  MOVSS XMM1,dword ptr [EAX + 0xc]
+005332ad  f30f5cc8  SUBSS XMM1,XMM0
+005332b1  f30f11480c  MOVSS dword ptr [EAX + 0xc],XMM1
+005332b6  f6460401  TEST byte ptr [ESI + 0x4],0x1
+005332ba  7541  JNZ 0x005332fd
+005332bc  f30f10420c  MOVSS XMM0,dword ptr [EDX + 0xc]
+005332c1  f30f104804  MOVSS XMM1,dword ptr [EAX + 0x4]
+005332c6  f30f5c4204  SUBSS XMM0,dword ptr [EDX + 0x4]
+005332cb  f30f5cc8  SUBSS XMM1,XMM0
+005332cf  f30f114804  MOVSS dword ptr [EAX + 0x4],XMM1
+005332d4  b001  MOV AL,0x1
+005332d6  5e  POP ESI
+005332d7  c20800  RET 0x8
+005332da  f6c101  TEST CL,0x1
+005332dd  751e  JNZ 0x005332fd
+005332df  f30f104204  MOVSS XMM0,dword ptr [EDX + 0x4]
+005332e4  f30f584004  ADDSS XMM0,dword ptr [EAX + 0x4]
+005332e9  f30f114004  MOVSS dword ptr [EAX + 0x4],XMM0
+005332ee  f30f104204  MOVSS XMM0,dword ptr [EDX + 0x4]
+005332f3  f30f58400c  ADDSS XMM0,dword ptr [EAX + 0xc]
+005332f8  f30f11400c  MOVSS dword ptr [EAX + 0xc],XMM0
+005332fd  b001  MOV AL,0x1
+005332ff  5e  POP ESI
+00533300  c20800  RET 0x8

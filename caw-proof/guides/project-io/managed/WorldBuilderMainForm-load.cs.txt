@@ -1,0 +1,74 @@
+// Original CAW 1.22.10 ILSpy C# excerpt: WorldBuilderCS/WorldBuilderMainForm.cs
+// Selected methods or declarations; intervening source is omitted.
+
+	private void LoadWorldFile(string worldFilePath)
+	{
+		if (!File.Exists(worldFilePath))
+		{
+			throw new FileNotFoundException(worldFilePath);
+		}
+		if (Sims3.CSHost.World.IsSinglePackedWorldFile(worldFilePath))
+		{
+			throw new ApplicationException(Strings.kError_SinglePackedFile);
+		}
+		ShutdownCurrentlyLoadedWorld(bPromptForSaving: true);
+		try
+		{
+			EnableUI(bEnable: false, bIncludeFileMenu: true);
+			FileInfo worldfileInfo = new FileInfo(worldFilePath);
+			bool flag = mRCS != null && mRCS.IsRCSAvailable && mbEnableRCSControl;
+			if (flag)
+			{
+				if (!mRCS.Connected)
+				{
+					mRCS.Connect(mRCS.ServerName, mUserDefClientSpec, mRCS.UserName, "");
+				}
+				bool flag2 = mRCS.IsFileUnderAnyClientSpec(worldFilePath);
+				if (flag2 && mRCS.IsFileUnderDiffClientSpec(worldFilePath))
+				{
+					throw new RCSException(new string[1] { worldFilePath }, Strings.kFileUnderDiffClientSpecError, string.Empty);
+				}
+				if (flag2)
+				{
+					SyncWorldFiles(worldfileInfo);
+				}
+			}
+			if (mWorld == null)
+			{
+				mWorld = new Sims3.CSHost.World();
+			}
+			mWorld.LotLightingSolversEnabled = true;
+			if (!mWorld.Load(worldFilePath))
+			{
+				throw new FileLoadException(string.Format(Strings.kFileLoadError, worldFilePath));
+			}
+			ExportAllWorldTextures();
+			string text = worldFilePath;
+			FileInfo fileInfo = new FileInfo(text);
+			text = text.Replace(fileInfo.Extension, ".settings");
+			if (File.Exists(text))
+			{
+				mWorldSettings = WorldSettingsHelper.LoadSettings(text);
+			}
+			InitializeScene();
+			if (flag && mRCS.IsFileUnderCurrentClientSpec(worldFilePath))
+			{
+				InitRCS();
+			}
+			mWorldLayersControl.Init(this);
+			mRecentFiles.Item(worldFilePath);
+			EnableUI(enable: true);
+			((ToolStripItem)mEditInGameMenuItem).Visible = AllowEditingInGame;
+			if (((CollectionBase)(object)MetadataView.Nodes).Count > 0)
+			{
+				MetadataView.Nodes[0].Select();
+			}
+			mbPromptSubmitFiles = true;
+			mbPromptSaveWorld = true;
+			ActivateDefaultTool();
+		}
+		finally
+		{
+			EnableUI(bEnable: true, bIncludeFileMenu: true);
+		}
+	}

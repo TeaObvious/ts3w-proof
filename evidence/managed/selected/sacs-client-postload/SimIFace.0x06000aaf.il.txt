@@ -1,0 +1,41 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method public hidebysig specialname 
+		instance void set_HandleEventsAsynchronously (
+			bool 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x11578
+		// Header size: 12
+		// Code size: 65 (0x41)
+		.maxstack 4
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.SimIFace.StateMachineClient::mHandleEventsAsynchronously
+		IL_0006: ldarg.1
+		IL_0007: beq.s IL_0039
+
+		IL_0009: ldarg.0
+		IL_000a: ldfld class Sims3.SimIFace.IEventQueue Sims3.SimIFace.StateMachineClient::mEventQueue
+		IL_000f: brfalse.s IL_0039
+
+		IL_0011: ldarg.1
+		IL_0012: brfalse.s IL_002d
+
+		IL_0014: ldarg.0
+		IL_0015: ldfld class Sims3.SimIFace.IEventQueue Sims3.SimIFace.StateMachineClient::mEventQueue
+		IL_001a: ldarg.0
+		IL_001b: ldftn instance void Sims3.SimIFace.StateMachineClient::OnEvent(class Sims3.SimIFace.IEvent)
+		IL_0021: newobj instance void Sims3.SimIFace.OnEventDelegate::.ctor(object, native int)
+		IL_0026: callvirt instance void Sims3.SimIFace.IEventQueue::set_OnEvent(class Sims3.SimIFace.OnEventDelegate)
+		IL_002b: br.s IL_0039
+
+		IL_002d: ldarg.0
+		IL_002e: ldfld class Sims3.SimIFace.IEventQueue Sims3.SimIFace.StateMachineClient::mEventQueue
+		IL_0033: ldnull
+		IL_0034: callvirt instance void Sims3.SimIFace.IEventQueue::set_OnEvent(class Sims3.SimIFace.OnEventDelegate)
+
+		IL_0039: ldarg.0
+		IL_003a: ldarg.1
+		IL_003b: stfld bool Sims3.SimIFace.StateMachineClient::mHandleEventsAsynchronously
+		IL_0040: ret
+	} // end of method StateMachineClient::set_HandleEventsAsynchronously

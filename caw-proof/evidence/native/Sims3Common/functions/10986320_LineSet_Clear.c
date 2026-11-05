@@ -1,0 +1,18 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* CAW 1.22.10 Sims3Common.dll PE export identity: LineSet_Clear. Export ordinal(s): 1878. Entry VA:
+   0x10986320. Original managed P/Invoke MethodDef(s): CSHostWrap:0x06000900. This is an
+   export/declaration annotation only; ABI, behavior and runtime execution require the original
+   instructions and caller evidence. */
+
+void __cdecl LineSet_Clear(undefined4 *param_1)
+
+{
+                    /* 0x986320  1878  LineSet_Clear */
+  FUN_104d6dd0(param_1);
+  return;
+}
+

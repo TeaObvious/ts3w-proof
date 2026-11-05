@@ -1,0 +1,55 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_FocusOnLotForBuildBuy
+# Entry: 0x0073dc40; bounded stop: 0x0073dcb0; next Ghidra entry: 0x0073dcb0
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073dc40 <.text+0x33cc40>:
+  73dc40:	e8 8b bf 22 00       	call   0x969bd0
+  73dc45:	85 c0                	test   eax,eax
+  73dc47:	74 5d                	je     0x73dca6
+  73dc49:	8b c8                	mov    ecx,eax
+  73dc4b:	e8 a0 43 7e 00       	call   0xf21ff0
+  73dc50:	85 c0                	test   eax,eax
+  73dc52:	74 52                	je     0x73dca6
+  73dc54:	8b c8                	mov    ecx,eax
+  73dc56:	e8 85 61 dd ff       	call   0x513de0
+  73dc5b:	85 c0                	test   eax,eax
+  73dc5d:	74 47                	je     0x73dca6
+  73dc5f:	8b 10                	mov    edx,DWORD PTR [eax]
+  73dc61:	8b c8                	mov    ecx,eax
+  73dc63:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73dc66:	68 89 dd 0f 11       	push   0x110fdd89
+  73dc6b:	ff d0                	call   eax
+  73dc6d:	85 c0                	test   eax,eax
+  73dc6f:	74 35                	je     0x73dca6
+  73dc71:	d9 44 24 18          	fld    DWORD PTR [esp+0x18]
+  73dc75:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  73dc79:	8b 54 24 04          	mov    edx,DWORD PTR [esp+0x4]
+  73dc7d:	6a 01                	push   0x1
+  73dc7f:	83 ec 10             	sub    esp,0x10
+  73dc82:	d9 5c 24 0c          	fstp   DWORD PTR [esp+0xc]
+  73dc86:	d9 44 24 28          	fld    DWORD PTR [esp+0x28]
+  73dc8a:	d9 5c 24 08          	fstp   DWORD PTR [esp+0x8]
+  73dc8e:	d9 44 24 24          	fld    DWORD PTR [esp+0x24]
+  73dc92:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  73dc96:	d9 44 24 20          	fld    DWORD PTR [esp+0x20]
+  73dc9a:	d9 1c 24             	fstp   DWORD PTR [esp]
+  73dc9d:	51                   	push   ecx
+  73dc9e:	52                   	push   edx
+  73dc9f:	8b c8                	mov    ecx,eax
+  73dca1:	e8 7a 77 23 00       	call   0x975420
+  73dca6:	c3                   	ret
+  73dca7:	cc                   	int3
+  73dca8:	cc                   	int3
+  73dca9:	cc                   	int3
+  73dcaa:	cc                   	int3
+  73dcab:	cc                   	int3
+  73dcac:	cc                   	int3
+  73dcad:	cc                   	int3
+  73dcae:	cc                   	int3
+  73dcaf:	cc                   	int3

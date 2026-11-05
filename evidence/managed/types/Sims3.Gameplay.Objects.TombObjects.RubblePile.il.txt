@@ -1,0 +1,1576 @@
+.class public auto ansi abstract beforefieldinit Sims3.Gameplay.Objects.TombObjects.RubblePile
+	extends [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+	implements [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ISandsOfUnderstandingable,
+	           [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent
+{
+	// Nested Types
+	.class nested private auto ansi sealed beforefieldinit Clear
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile, class Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.RubblePile target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x1de299
+				// Header size: 1
+				// Code size: 10 (0xa)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.RubblePile::get_IsClear()
+				IL_0006: ldc.i4.0
+				IL_0007: ceq
+				IL_0009: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x1de2a4
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile, class Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static float32 kChanceOfMetalSparks
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 5b 52 61 6e 67 65 3a 20 20 30 2e 30 20 2d
+			20 31 2e 30 20 20 44 65 73 63 72 69 70 74 69 6f
+			6e 3a 20 20 54 68 65 20 63 68 61 6e 63 65 20 74
+			68 61 74 20 61 20 6d 65 74 61 6c 20 65 66 66 65
+			63 74 2f 73 6f 75 6e 64 20 77 69 6c 6c 20 70 6c
+			61 79 20 6f 6e 20 65 61 63 68 20 68 69 74 00 00
+		)
+		.field private static float32 kChanceOfBeingExasperated
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 6c 52 61 6e 67 65 3a 20 20 30 2e 30 20 2d
+			20 31 2e 30 20 20 44 65 73 63 72 69 70 74 69 6f
+			6e 3a 20 20 54 68 65 20 63 68 61 6e 63 65 20 74
+			68 61 74 20 74 68 65 20 53 69 6d 20 77 69 6c 6c
+			20 62 65 20 65 78 61 73 70 65 72 61 74 65 64 2c
+			20 67 69 76 65 6e 20 74 68 65 20 6e 65 63 65 73
+			73 61 72 79 20 63 6f 6e 64 69 74 69 6f 6e 73 00 00
+		)
+		.field private static int32 kMoodThresholdForBeingExasperated
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 5d 52 61 6e 67 65 3a 20 20 2d 31 30 30 20
+			2d 20 31 30 30 20 20 44 65 73 63 72 69 70 74 69
+			6f 6e 3a 20 20 54 68 65 20 6d 6f 6f 64 20 74 68
+			72 65 73 68 6f 6c 64 20 75 6e 64 65 72 20 77 68
+			69 63 68 20 74 68 65 20 53 69 6d 20 6d 69 67 68
+			74 20 62 65 20 65 78 61 73 70 65 72 61 74 65 64
+			00 00
+		)
+		.field private static int32 kCountThresholdForBeingExasperated
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 6c 52 61 6e 67 65 3a 20 20 30 2b 20 20 44
+			65 73 63 72 69 70 74 69 6f 6e 3a 20 20 54 68 65
+			20 61 6d 6f 75 6e 74 20 6f 66 20 72 75 62 62 6c
+			65 20 70 69 6c 65 73 20 63 6c 65 61 72 65 64 20
+			62 79 20 74 68 69 73 20 53 69 6d 20 61 66 74 65
+			72 20 77 68 69 63 68 20 68 65 20 6d 69 67 68 74
+			20 62 65 20 65 78 61 73 70 65 72 61 74 65 64 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private static float32 kAthleticSkillGainRate
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 3a 52 61 6e 67 65 3a 20 20 30 2b 20 20 44
+			65 73 63 72 69 70 74 69 6f 6e 3a 20 20 54 68 65
+			20 41 74 68 6c 65 74 69 63 20 67 61 69 6e 20 70
+			65 72 20 53 69 6d 20 6d 69 6e 75 74 65 00 00
+		)
+		.field private static bool kIsSkillMeterVisible
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 50 52 61 6e 67 65 3a 20 20 74 72 75 65 2f
+			66 61 6c 73 65 20 20 44 65 73 63 72 69 70 74 69
+			6f 6e 3a 20 20 54 72 75 65 2c 20 74 6f 20 73 68
+			6f 77 20 74 68 65 20 73 6b 69 6c 6c 20 6d 65 74
+			65 72 2c 20 66 61 6c 73 65 20 6f 74 68 65 72 77
+			69 73 65 00 00
+		)
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+		.field private float32 mLoopDeltaTime
+		.field private class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject mPanguAxe
+		.field private valuetype [SimIFace]Sims3.SimIFace.ObjectGuid mPanguAxePropId
+
+		// Methods
+		.method public hidebysig virtual 
+			instance void Cleanup () cil managed 
+		{
+			// Method begins at RVA 0x1dde3c
+			// Header size: 1
+			// Code size: 50 (0x32)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+			IL_0006: brfalse.s IL_0031
+
+			IL_0008: ldarg.0
+			IL_0009: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_000e: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_0013: ldarg.0
+			IL_0014: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+			IL_0019: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::SetNotInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_001e: pop
+			IL_001f: ldarg.0
+			IL_0020: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxePropId
+			IL_0025: call void [SimIFace]Sims3.SimIFace.Simulator::DestroyObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_002a: ldarg.0
+			IL_002b: ldnull
+			IL_002c: stfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+
+			IL_0031: ret
+		} // end of method Clear::Cleanup
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x1dde70
+			// Header size: 12
+			// Code size: 673 (0x2a1)
+			.maxstack 6
+			.locals init (
+				[0] bool,
+				[1] float32,
+				[2] bool,
+				[3] class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill,
+				[4] float32,
+				[5] object[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_000c: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.RubblePile::RouteToRubblePile(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0011: brtrue.s IL_0064
+
+			IL_0013: ldarg.0
+			IL_0014: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0019: ldc.i4.4
+			IL_001a: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::HasExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_001f: brfalse.s IL_0062
+
+			IL_0021: ldarg.0
+			IL_0022: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0027: ldarg.0
+			IL_0028: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_002d: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+			IL_0032: ldstr "RouteFail"
+			IL_0037: ldc.i4.1
+			IL_0038: newarr [mscorlib]System.Object
+			IL_003d: stloc.s 5
+			IL_003f: ldloc.s 5
+			IL_0041: ldc.i4.0
+			IL_0042: ldarg.0
+			IL_0043: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0048: stelem.ref
+			IL_0049: ldloc.s 5
+			IL_004b: call string Sims3.Gameplay.Objects.TombObjects.RubblePile::LocalizeString(bool, string, object[])
+			IL_0050: ldc.i4.4
+			IL_0051: ldarg.0
+			IL_0052: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0057: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_005c: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0061: pop
+
+			IL_0062: ldc.i4.0
+			IL_0063: ret
+
+			IL_0064: ldc.i4.0
+			IL_0065: stloc.0
+			IL_0066: ldarg.0
+			IL_0067: ldarg.0
+			IL_0068: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_006d: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_0072: callvirt instance !!0 [Sims3GameplaySystems]Sims3.Gameplay.Inventory::Find<class Sims3.Gameplay.Objects.TombObjects.AdventureRewards.PanguAxe>()
+			IL_0077: stfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+			IL_007c: ldarg.0
+			IL_007d: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+			IL_0082: brfalse.s IL_00a3
+
+			IL_0084: ldarg.0
+			IL_0085: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_008a: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_008f: ldarg.0
+			IL_0090: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+			IL_0095: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::GetInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_009a: brfalse.s IL_00a3
+
+			IL_009c: ldarg.0
+			IL_009d: ldnull
+			IL_009e: stfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+
+			IL_00a3: ldarg.0
+			IL_00a4: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+			IL_00a9: brfalse.s IL_00f4
+
+			IL_00ab: ldarg.0
+			IL_00ac: ldstr "PanguAxeProp"
+			IL_00b1: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::OutOfWorld
+			IL_00b6: ldc.i4.0
+			IL_00b7: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::UnitZ
+			IL_00bc: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.GlobalFunctions::CreateProp(string, valuetype [SimIFace]Sims3.SimIFace.Vector3, int32, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00c1: stfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxePropId
+			IL_00c6: ldarg.0
+			IL_00c7: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxePropId
+			IL_00cc: ldc.r4 0.0
+			IL_00d1: ldc.r4 0.0
+			IL_00d6: call void [SimIFace]Sims3.SimIFace.World::ObjectSetOpacity(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, float32, float32)
+			IL_00db: ldarg.0
+			IL_00dc: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_00e1: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_00e6: ldarg.0
+			IL_00e7: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+			IL_00ec: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::SetInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_00f1: pop
+			IL_00f2: ldc.i4.1
+			IL_00f3: stloc.0
+
+			IL_00f4: ldarg.0
+			IL_00f5: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_00fa: ldarg.0
+			IL_00fb: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_0100: ldarg.0
+			IL_0101: ldloc.0
+			IL_0102: brtrue.s IL_010b
+
+			IL_0104: ldstr "rubblePile"
+			IL_0109: br.s IL_0110
+
+			IL_010b: ldstr "giantBoulder"
+
+			IL_0110: ldstr "Enter"
+			IL_0115: ldstr "x"
+			IL_011a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_011f: ldloc.0
+			IL_0120: brfalse.s IL_0179
+
+			IL_0122: ldarg.0
+			IL_0123: ldc.i4.s 101
+			IL_0125: ldarg.0
+			IL_0126: ldftn instance void Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::OnPanguAxeFade(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_012c: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_0131: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddPersistentScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_0136: ldarg.0
+			IL_0137: ldc.i4.s 103
+			IL_0139: ldarg.0
+			IL_013a: ldftn instance void Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::OnPanguAxeFade(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_0140: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_0145: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddPersistentScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_014a: ldarg.0
+			IL_014b: ldc.i4 1001
+			IL_0150: ldarg.0
+			IL_0151: ldftn instance void Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::OnHitRubblePile(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_0157: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_015c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddPersistentScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_0161: ldarg.0
+			IL_0162: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+			IL_0167: ldstr "axe"
+			IL_016c: ldarg.0
+			IL_016d: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxePropId
+			IL_0172: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::SetPropActor(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0177: br.s IL_01f2
+
+			IL_0179: ldarg.0
+			IL_017a: ldc.i4.s 101
+			IL_017c: ldarg.0
+			IL_017d: ldftn instance void Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::OnHitRubblePile(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_0183: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_0188: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddPersistentScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_018d: ldarg.0
+			IL_018e: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0193: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.MoodManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_MoodManager()
+			IL_0198: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.MoodManager::get_MoodValue()
+			IL_019d: ldsfld int32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kMoodThresholdForBeingExasperated
+			IL_01a2: blt.s IL_01db
+
+			IL_01a4: ldarg.0
+			IL_01a5: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_01aa: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_01af: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription::TombStats
+			IL_01b4: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking::get_NumberOfRubblePilesCleared()
+			IL_01b9: ldsfld int32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kCountThresholdForBeingExasperated
+			IL_01be: bgt.s IL_01db
+
+			IL_01c0: ldarg.0
+			IL_01c1: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_01c6: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_BuffManager()
+			IL_01cb: ldc.i8 -5175480303478028432 // 0xb82d0015b9294770
+			IL_01d4: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffManager::HasElement(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffNames)
+			IL_01d9: brfalse.s IL_01f2
+
+			IL_01db: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kChanceOfBeingExasperated
+			IL_01e0: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_01e5: brfalse.s IL_01f2
+
+			IL_01e7: ldarg.0
+			IL_01e8: ldstr "Exasperated"
+			IL_01ed: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+
+			IL_01f2: ldc.i4.1
+			IL_01f3: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Utilities.SimClock::ElapsedTime(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit)
+			IL_01f8: stloc.1
+			IL_01f9: ldarg.0
+			IL_01fa: ldloc.0
+			IL_01fb: brtrue.s IL_0204
+
+			IL_01fd: ldstr "Clear Rubble"
+			IL_0202: br.s IL_0209
+
+			IL_0204: ldstr "Smash"
+
+			IL_0209: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_020e: ldc.i4.s 79
+			IL_0210: ldarg.0
+			IL_0211: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0216: call void [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Lessons, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_021b: ldarg.0
+			IL_021c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0221: ldarg.0
+			IL_0222: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_0227: callvirt instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::GetProgress()
+			IL_022c: ldc.i4.1
+			IL_022d: call void [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter::ShowProgressMeter(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter/GlowType)
+			IL_0232: ldarg.0
+			IL_0233: ldc.i4 -5652481 // 0xffa9bfff
+			IL_0238: ldarg.0
+			IL_0239: ldftn instance void Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::LoopDel(class [SimIFace]Sims3.SimIFace.StateMachineClient, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData)
+			IL_023f: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/InsideLoopFunction::.ctor(object, native int)
+			IL_0244: ldnull
+			IL_0245: callvirt instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::DoLoop(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/InsideLoopFunction, class [SimIFace]Sims3.SimIFace.StateMachineClient)
+			IL_024a: stloc.2
+			IL_024b: ldarg.0
+			IL_024c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0251: ldloc.2
+			IL_0252: call void [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter::HideProgressMeter(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, bool)
+			IL_0257: ldarg.0
+			IL_0258: ldstr "Exit"
+			IL_025d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0262: ldarg.0
+			IL_0263: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0268: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SkillManager()
+			IL_026d: ldc.i4.2
+			IL_026e: conv.i8
+			IL_026f: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager::AddElement(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillNames)
+			IL_0274: stloc.3
+			IL_0275: ldloca.s 1
+			IL_0277: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Utilities.SimClock::ElapsedTimeInMinutes(float32&)
+			IL_027c: stloc.s 4
+			IL_027e: ldloc.3
+			IL_027f: ldloc.s 4
+			IL_0281: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kAthleticSkillGainRate
+			IL_0286: mul
+			IL_0287: ldsfld bool Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kIsSkillMeterVisible
+			IL_028c: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill::AddPoints(float32, bool)
+			IL_0291: pop
+			IL_0292: ldarg.0
+			IL_0293: ldloc.2
+			IL_0294: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_0299: ldarg.0
+			IL_029a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_029f: ldloc.2
+			IL_02a0: ret
+		} // end of method Clear::Run
+
+		.method private hidebysig 
+			instance void OnPanguAxeFade (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x1de120
+			// Header size: 12
+			// Code size: 73 (0x49)
+			.maxstack 3
+			.locals init (
+				[0] uint32
+			)
+
+			IL_0000: ldarg.2
+			IL_0001: callvirt instance uint32 [SimIFace]Sims3.SimIFace.IEvent::get_EventId()
+			IL_0006: stloc.0
+			IL_0007: ldloc.0
+			IL_0008: ldc.i4.s 101
+			IL_000a: sub
+			IL_000b: switch (IL_001d, IL_0048, IL_0033)
+
+			IL_001c: ret
+
+			IL_001d: ldarg.0
+			IL_001e: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxePropId
+			IL_0023: ldc.r4 1
+			IL_0028: ldc.r4 1.5
+			IL_002d: call void [SimIFace]Sims3.SimIFace.World::ObjectSetOpacity(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, float32, float32)
+			IL_0032: ret
+
+			IL_0033: ldarg.0
+			IL_0034: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxePropId
+			IL_0039: ldc.r4 0.0
+			IL_003e: ldc.r4 1.5
+			IL_0043: call void [SimIFace]Sims3.SimIFace.World::ObjectSetOpacity(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, float32, float32)
+
+			IL_0048: ret
+		} // end of method Clear::OnPanguAxeFade
+
+		.method private hidebysig 
+			instance void OnHitRubblePile (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x1de178
+			// Header size: 12
+			// Code size: 186 (0xba)
+			.maxstack 5
+			.locals init (
+				[0] float32
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_0006: callvirt instance string Sims3.Gameplay.Objects.TombObjects.RubblePile::get_LoopVfxName()
+			IL_000b: ldarg.0
+			IL_000c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0011: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim/FXJoints::LeftHand
+			IL_0016: ldc.i4.0
+			IL_0017: call void [SimIFace]Sims3.SimIFace.VisualEffect::FireOneShotEffect(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+			IL_001c: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kChanceOfMetalSparks
+			IL_0021: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_0026: brfalse.s IL_003e
+
+			IL_0028: ldstr "ep1RubbleDigSparks"
+			IL_002d: ldarg.0
+			IL_002e: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0033: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim/FXJoints::LeftHand
+			IL_0038: ldc.i4.0
+			IL_0039: call void [SimIFace]Sims3.SimIFace.VisualEffect::FireOneShotEffect(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+
+			IL_003e: ldarg.0
+			IL_003f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_0044: ldarg.0
+			IL_0045: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mLoopDeltaTime
+			IL_004a: ldarg.0
+			IL_004b: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0050: ldarg.0
+			IL_0051: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mPanguAxe
+			IL_0056: ldnull
+			IL_0057: ceq
+			IL_0059: ldc.i4.0
+			IL_005a: ceq
+			IL_005c: callvirt instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::UpdateProgress(float32, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, bool)
+			IL_0061: stloc.0
+			IL_0062: ldarg.0
+			IL_0063: ldc.r4 0.0
+			IL_0068: stfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mLoopDeltaTime
+			IL_006d: ldarg.0
+			IL_006e: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0073: ldarg.0
+			IL_0074: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_0079: callvirt instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::GetProgress()
+			IL_007e: ldc.i4.1
+			IL_007f: call void [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter::UpdateProgressMeter(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Core.ProgressMeter/GlowType)
+			IL_0084: ldloc.0
+			IL_0085: ldc.r4 1
+			IL_008a: bne.un.s IL_00b9
+
+			IL_008c: ldarg.0
+			IL_008d: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_0092: ldc.i4.s 64
+			IL_0094: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::AddExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_0099: ldarg.0
+			IL_009a: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Actor
+			IL_009f: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_00a4: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription::TombStats
+			IL_00a9: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking::IncrementNumRubblePilesCleared()
+			IL_00ae: ldarg.0
+			IL_00af: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_00b4: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::RemoveComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent>()
+
+			IL_00b9: ret
+		} // end of method Clear::OnHitRubblePile
+
+		.method private hidebysig 
+			instance void LoopDel (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData ld
+			) cil managed 
+		{
+			// Method begins at RVA 0x1de23e
+			// Header size: 1
+			// Code size: 21 (0x15)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: dup
+			IL_0002: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mLoopDeltaTime
+			IL_0007: ldarga.s ld
+			IL_0009: ldfld float32 [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData::mDeltaTime
+			IL_000e: add
+			IL_000f: stfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::mLoopDeltaTime
+			IL_0014: ret
+		} // end of method Clear::LoopDel
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x1de291
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::.ctor()
+			IL_0006: ret
+		} // end of method Clear::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x1de254
+			// Header size: 1
+			// Code size: 60 (0x3c)
+			.maxstack 8
+
+			IL_0000: ldc.r4 0.2
+			IL_0005: stsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kChanceOfMetalSparks
+			IL_000a: ldc.r4 0.1
+			IL_000f: stsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kChanceOfBeingExasperated
+			IL_0014: ldc.i4.s -20
+			IL_0016: stsfld int32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kMoodThresholdForBeingExasperated
+			IL_001b: ldc.i4.0
+			IL_001c: stsfld int32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kCountThresholdForBeingExasperated
+			IL_0021: ldc.r4 2
+			IL_0026: stsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kAthleticSkillGainRate
+			IL_002b: ldc.i4.1
+			IL_002c: stsfld bool Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::kIsSkillMeterVisible
+			IL_0031: newobj instance void Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear/Definition::.ctor()
+			IL_0036: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::Singleton
+			IL_003b: ret
+		} // end of method Clear::.cctor
+
+	} // end of class Clear
+
+	.class nested private auto ansi sealed beforefieldinit SetRemainingTimeToClear
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.RubblePile>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.RubblePile, class Sims3.Gameplay.Objects.TombObjects.RubblePile/SetRemainingTimeToClear>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombObjects.RubblePile target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x1de336
+				// Header size: 1
+				// Code size: 27 (0x1b)
+				.maxstack 8
+
+				IL_0000: ldstr "SetRemainingTime"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.RubblePile::LocalizeString(string, object[])
+				IL_0010: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::get_Ellipsis()
+				IL_0015: call string [mscorlib]System.String::Concat(string, string)
+				IL_001a: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombObjects.RubblePile target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x1de352
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x1de355
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.RubblePile, class Sims3.Gameplay.Objects.TombObjects.RubblePile/SetRemainingTimeToClear>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x1de2ac
+			// Header size: 12
+			// Code size: 106 (0x6a)
+			.maxstack 6
+			.locals init (
+				[0] object[],
+				[1] float32
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_0006: ldstr "SetRemainingTime"
+			IL_000b: ldc.i4.0
+			IL_000c: newarr [mscorlib]System.Object
+			IL_0011: call string Sims3.Gameplay.Objects.TombObjects.RubblePile::LocalizeString(string, object[])
+			IL_0016: ldstr "SetRemainingTimeDialogText"
+			IL_001b: ldc.i4.1
+			IL_001c: newarr [mscorlib]System.Object
+			IL_0021: stloc.0
+			IL_0022: ldloc.0
+			IL_0023: ldc.i4.0
+			IL_0024: ldarg.0
+			IL_0025: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_002a: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+			IL_002f: box [mscorlib]System.Single
+			IL_0034: stelem.ref
+			IL_0035: ldloc.0
+			IL_0036: call string Sims3.Gameplay.Objects.TombObjects.RubblePile::LocalizeString(string, object[])
+			IL_003b: ldarg.0
+			IL_003c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_0041: callvirt instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::GetPercentageClear()
+			IL_0046: stloc.1
+			IL_0047: ldloca.s 1
+			IL_0049: call instance string [mscorlib]System.Single::ToString()
+			IL_004e: call string [UI]Sims3.UI.StringInputDialog::Show(string, string, string)
+			IL_0053: ldarg.0
+			IL_0054: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::Target
+			IL_0059: callvirt instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::GetPercentageClear()
+			IL_005e: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Utilities.ParserFunctions::ParseFloat(string, float32)
+			IL_0063: callvirt instance void Sims3.Gameplay.Objects.TombObjects.RubblePile::SetPercentageClear(float32)
+			IL_0068: ldc.i4.1
+			IL_0069: ret
+		} // end of method SetRemainingTimeToClear::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x1de32e
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.RubblePile>::.ctor()
+			IL_0006: ret
+		} // end of method SetRemainingTimeToClear::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x1de322
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.RubblePile/SetRemainingTimeToClear/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.RubblePile/SetRemainingTimeToClear::Singleton
+			IL_000a: ret
+		} // end of method SetRemainingTimeToClear::.cctor
+
+	} // end of class SetRemainingTimeToClear
+
+
+	// Fields
+	.field private static literal string kLocalizationKey = "Gameplay/Objects/TombObjects/RubblePile"
+	.field private static literal string kSystemName = "RubblePile"
+	.field private static literal uint32 kRubblePileTotalTime = uint32(3529947901)
+	.field private static literal uint32 kRubblePileRemainingTime = uint32(3529947902)
+	.field private static literal uint32 kRubblePilePercentageClear = uint32(3529947903)
+	.field private static float32 kAthleticSkillMultiplierMin
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 3a 52 61 6e 67 65 3a 20 20 30 2b 20 20 44
+		65 73 63 72 69 70 74 69 6f 6e 3a 20 20 4d 75 6c
+		74 69 70 6c 69 65 72 20 66 6f 72 20 6e 6f 20 61
+		74 68 6c 65 74 69 63 20 73 6b 69 6c 6c 00 00
+	)
+	.field private static float32 kAthleticSkillMultiplierMax
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 3b 52 61 6e 67 65 3a 20 20 30 2b 20 20 44
+		65 73 63 72 69 70 74 69 6f 6e 3a 20 20 4d 75 6c
+		74 69 70 6c 69 65 72 20 66 6f 72 20 6d 61 78 20
+		61 74 68 6c 65 74 69 63 20 73 6b 69 6c 6c 00 00
+	)
+	.field private float32 mTimeRemainingToClear
+	.field private float32 mTotalTimeToClear
+	.field private float32 mPercentageClear
+
+	// Methods
+	.method family hidebysig specialname newslot abstract virtual 
+		instance string[] get_GeometryStateNames () cil managed 
+	{
+	} // end of method RubblePile::get_GeometryStateNames
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance string[] get_TransitionVfxNames () cil managed 
+	{
+	} // end of method RubblePile::get_TransitionVfxNames
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance string get_LoopVfxName () cil managed 
+	{
+	} // end of method RubblePile::get_LoopVfxName
+
+	.method private hidebysig specialname 
+		instance int32 get_NumberOfRubbleStates () cil managed 
+	{
+		// Method begins at RVA 0x1dd9e0
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance string[] Sims3.Gameplay.Objects.TombObjects.RubblePile::get_GeometryStateNames()
+		IL_0006: ldlen
+		IL_0007: conv.i4
+		IL_0008: ret
+	} // end of method RubblePile::get_NumberOfRubbleStates
+
+	.method private hidebysig specialname 
+		instance int32 get_CurrentRubbleState () cil managed 
+	{
+		// Method begins at RVA 0x1dd9ea
+		// Header size: 1
+		// Code size: 31 (0x1f)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance int32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_NumberOfRubbleStates()
+		IL_0006: ldc.i4.1
+		IL_0007: sub
+		IL_0008: conv.r4
+		IL_0009: ldarg.0
+		IL_000a: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_000f: ldarg.0
+		IL_0010: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0015: div
+		IL_0016: mul
+		IL_0017: conv.r8
+		IL_0018: call float64 [mscorlib]System.Math::Ceiling(float64)
+		IL_001d: conv.i4
+		IL_001e: ret
+	} // end of method RubblePile::get_CurrentRubbleState
+
+	.method private hidebysig specialname 
+		instance bool get_IsClear () cil managed 
+	{
+		// Method begins at RVA 0x1dda0a
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::GetPercentageClear()
+		IL_0006: ldc.r4 1
+		IL_000b: clt.un
+		IL_000d: ldc.i4.0
+		IL_000e: ceq
+		IL_0010: ret
+	} // end of method RubblePile::get_IsClear
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance float32 get_MaximumMinutesToClearRubblePile () cil managed 
+	{
+	} // end of method RubblePile::get_MaximumMinutesToClearRubblePile
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance float32 get_MinimumMinutesToClearRubblePile () cil managed 
+	{
+	} // end of method RubblePile::get_MinimumMinutesToClearRubblePile
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance float32 get_SandsOfUnderstandingSpeedUpMultiplier () cil managed 
+	{
+	} // end of method RubblePile::get_SandsOfUnderstandingSpeedUpMultiplier
+
+	.method private hidebysig static 
+		string LocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x1dda1c
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldstr "Gameplay/Objects/TombObjects/RubblePile:"
+		IL_0005: ldarg.0
+		IL_0006: call string [mscorlib]System.String::Concat(string, string)
+		IL_000b: ldarg.1
+		IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0011: ret
+	} // end of method RubblePile::LocalizeString
+
+	.method private hidebysig static 
+		string LocalizeString (
+			bool isFemale,
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [3]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x1dda2f
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldstr "Gameplay/Objects/TombObjects/RubblePile:"
+		IL_0006: ldarg.1
+		IL_0007: call string [mscorlib]System.String::Concat(string, string)
+		IL_000c: ldarg.2
+		IL_000d: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+		IL_0012: ret
+	} // end of method RubblePile::LocalizeString
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x1dda43
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::.ctor()
+		IL_0006: ldarg.0
+		IL_0007: ldc.r4 -1
+		IL_000c: stfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0011: ret
+	} // end of method RubblePile::.ctor
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x1dda56
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.RubblePile/SetRemainingTimeToClear::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0012: ret
+	} // end of method RubblePile::AddBuildBuyInteractions
+
+	.method public final hidebysig newslot virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x1dda6a
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4.6
+		IL_0002: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0007: ret
+	} // end of method RubblePile::OnAddTombObjectComponent
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x1dda74
+		// Header size: 12
+		// Code size: 82 (0x52)
+		.maxstack 2
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: newarr [mscorlib]System.Object
+		IL_0007: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent>(object[])
+		IL_000c: pop
+		IL_000d: ldarg.0
+		IL_000e: ldc.i4.0
+		IL_000f: newarr [mscorlib]System.Object
+		IL_0014: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_0019: pop
+		IL_001a: ldarg.0
+		IL_001b: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_0020: ldarg.0
+		IL_0021: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0026: bne.un.s IL_0046
+
+		IL_0028: ldarg.0
+		IL_0029: ldarg.0
+		IL_002a: call instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::PickTotalTimeToClear()
+		IL_002f: stfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0034: ldarg.0
+		IL_0035: ldarg.0
+		IL_0036: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_003b: stfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_0040: ldarg.0
+		IL_0041: call instance void Sims3.Gameplay.Objects.TombObjects.RubblePile::SetRubbleState()
+
+		IL_0046: ldarg.0
+		IL_0047: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.RubblePile/Clear::Singleton
+		IL_004c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition)
+		IL_0051: ret
+	} // end of method RubblePile::OnStartup
+
+	.method public final hidebysig newslot virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x1ddad2
+		// Header size: 1
+		// Code size: 54 (0x36)
+		.maxstack 8
+
+		IL_0000: ldstr "RubblePile"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "mPercentageClear"
+		IL_0010: ldarg.0
+		IL_0011: ldflda float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0016: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<float32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_001b: pop
+		IL_001c: ldarg.0
+		IL_001d: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0022: ldc.r4 0.0
+		IL_0027: blt.un.s IL_0035
+
+		IL_0029: ldarg.0
+		IL_002a: ldarg.0
+		IL_002b: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0030: call instance void Sims3.Gameplay.Objects.TombObjects.RubblePile::SetPercentageClear(float32)
+
+		IL_0035: ret
+	} // end of method RubblePile::LoadWorldBuilderData
+
+	.method public final hidebysig newslot virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x1ddb09
+		// Header size: 1
+		// Code size: 33 (0x21)
+		.maxstack 8
+
+		IL_0000: ldstr "RubblePile"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "mPercentageClear"
+		IL_0010: ldarg.0
+		IL_0011: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0016: ldc.r4 0.0
+		IL_001b: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<float32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0020: ret
+	} // end of method RubblePile::SaveWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x1ddb2c
+		// Header size: 12
+		// Code size: 90 (0x5a)
+		.maxstack 5
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0009: stloc.0
+		IL_000a: ldloc.0
+		IL_000b: ldarg.3
+		IL_000c: ldc.i4 -765019395 // 0xd266bafd
+		IL_0011: ldarg.0
+		IL_0012: ldflda float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0017: ldc.r4 1
+		IL_001c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadFloat(uint32, float32&, float32)
+		IL_0021: and
+		IL_0022: stloc.0
+		IL_0023: ldarg.3
+		IL_0024: ldc.i4 -765019394 // 0xd266bafe
+		IL_0029: ldarg.0
+		IL_002a: ldflda float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_002f: ldarg.0
+		IL_0030: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0035: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadFloat(uint32, float32&, float32)
+		IL_003a: pop
+		IL_003b: ldarg.3
+		IL_003c: ldc.i4 -765019393 // 0xd266baff
+		IL_0041: ldarg.0
+		IL_0042: ldflda float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0047: ldc.r4 -1
+		IL_004c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadFloat(uint32, float32&, float32)
+		IL_0051: pop
+		IL_0052: ldarg.0
+		IL_0053: call instance void Sims3.Gameplay.Objects.TombObjects.RubblePile::SetRubbleState()
+		IL_0058: ldloc.0
+		IL_0059: ret
+	} // end of method RubblePile::ImportContent
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x1ddb94
+		// Header size: 12
+		// Code size: 70 (0x46)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0009: stloc.0
+		IL_000a: ldloc.0
+		IL_000b: ldarg.3
+		IL_000c: ldc.i4 -765019395 // 0xd266bafd
+		IL_0011: ldarg.0
+		IL_0012: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0017: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_001c: and
+		IL_001d: stloc.0
+		IL_001e: ldloc.0
+		IL_001f: ldarg.3
+		IL_0020: ldc.i4 -765019394 // 0xd266bafe
+		IL_0025: ldarg.0
+		IL_0026: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_002b: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0030: and
+		IL_0031: stloc.0
+		IL_0032: ldarg.3
+		IL_0033: ldc.i4 -765019393 // 0xd266baff
+		IL_0038: ldarg.0
+		IL_0039: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_003e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0043: pop
+		IL_0044: ldloc.0
+		IL_0045: ret
+	} // end of method RubblePile::ExportContent
+
+	.method public final hidebysig newslot virtual 
+		instance bool CanTurnOnUnderstandingGlowNow () cil managed 
+	{
+		// Method begins at RVA 0x1ddbe6
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.RubblePile::get_IsClear()
+		IL_0006: ldc.i4.0
+		IL_0007: ceq
+		IL_0009: ret
+	} // end of method RubblePile::CanTurnOnUnderstandingGlowNow
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldUnderstandingGlowBePositive () cil managed 
+	{
+		// Method begins at RVA 0x1ddbf1
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method RubblePile::ShouldUnderstandingGlowBePositive
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldConsumeSandsOfUnderstanding () cil managed 
+	{
+		// Method begins at RVA 0x1ddbf4
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.RubblePile::get_IsClear()
+		IL_0006: ldc.i4.0
+		IL_0007: ceq
+		IL_0009: ret
+	} // end of method RubblePile::ShouldConsumeSandsOfUnderstanding
+
+	.method public final hidebysig newslot virtual 
+		instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback GetOnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x1ddbff
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldnull
+		IL_0001: ret
+	} // end of method RubblePile::GetOnGlowCallback
+
+	.method public hidebysig 
+		instance bool RouteToRubblePile (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x1ddc04
+		// Header size: 12
+		// Code size: 56 (0x38)
+		.maxstack 5
+		.locals init (
+			[0] int32
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.0
+		IL_0002: ldarg.0
+		IL_0003: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetRoutingSlots()
+		IL_0008: ldc.i4 824351308
+		IL_000d: ldloca.s 0
+		IL_000f: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::RouteToSlot(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot[], valuetype [SimIFace]Sims3.SimIFace.Slot, int32&)
+		IL_0014: brtrue.s IL_0018
+
+		IL_0016: ldc.i4.0
+		IL_0017: ret
+
+		IL_0018: ldarg.0
+		IL_0019: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InUse()
+		IL_001e: brfalse.s IL_0036
+
+		IL_0020: ldarg.0
+		IL_0021: ldarg.1
+		IL_0022: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::IsActorUsingMe(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0027: brtrue.s IL_0036
+
+		IL_0029: ldarg.1
+		IL_002a: ldc.i4 128
+		IL_002f: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::AddExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+		IL_0034: ldc.i4.0
+		IL_0035: ret
+
+		IL_0036: ldc.i4.1
+		IL_0037: ret
+	} // end of method RubblePile::RouteToRubblePile
+
+	.method private hidebysig 
+		instance float32 PickTotalTimeToClear () cil managed 
+	{
+		// Method begins at RVA 0x1ddc48
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_MinimumMinutesToClearRubblePile()
+		IL_0006: ldarg.0
+		IL_0007: callvirt instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_MaximumMinutesToClearRubblePile()
+		IL_000c: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::GetFloat(float32, float32)
+		IL_0011: ret
+	} // end of method RubblePile::PickTotalTimeToClear
+
+	.method private hidebysig 
+		instance void SetRubbleState () cil managed 
+	{
+		// Method begins at RVA 0x1ddc5b
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: call instance void Sims3.Gameplay.Objects.TombObjects.RubblePile::SetRubbleState(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: ret
+	} // end of method RubblePile::SetRubbleState
+
+	.method private hidebysig 
+		instance void SetRubbleState (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x1ddc64
+		// Header size: 1
+		// Code size: 58 (0x3a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance int32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_CurrentRubbleState()
+		IL_0006: brtrue.s IL_001f
+
+		IL_0008: ldarg.0
+		IL_0009: ldc.i4.2
+		IL_000a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_000f: ldarg.0
+		IL_0010: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_0015: ldc.i4.6
+		IL_0016: ldarg.1
+		IL_0017: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_001c: pop
+		IL_001d: br.s IL_0026
+
+		IL_001f: ldarg.0
+		IL_0020: ldc.i4.0
+		IL_0021: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+
+		IL_0026: ldarg.0
+		IL_0027: ldarg.0
+		IL_0028: callvirt instance string[] Sims3.Gameplay.Objects.TombObjects.RubblePile::get_GeometryStateNames()
+		IL_002d: ldarg.0
+		IL_002e: call instance int32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_CurrentRubbleState()
+		IL_0033: ldelem.ref
+		IL_0034: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetModel(string)
+		IL_0039: ret
+	} // end of method RubblePile::SetRubbleState
+
+	.method private hidebysig 
+		instance float32 GetPercentageClear () cil managed 
+	{
+		// Method begins at RVA 0x1ddc9f
+		// Header size: 1
+		// Code size: 58 (0x3a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_0006: ldc.r4 0.0
+		IL_000b: bgt.un.s IL_0013
+
+		IL_000d: ldc.r4 1
+		IL_0012: ret
+
+		IL_0013: ldarg.0
+		IL_0014: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0019: ldc.r4 0.0
+		IL_001e: bgt.un.s IL_0026
+
+		IL_0020: ldc.r4 1
+		IL_0025: ret
+
+		IL_0026: ldc.r4 1
+		IL_002b: ldarg.0
+		IL_002c: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_0031: ldarg.0
+		IL_0032: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0037: div
+		IL_0038: sub
+		IL_0039: ret
+	} // end of method RubblePile::GetPercentageClear
+
+	.method private hidebysig 
+		instance float32 GetProgress () cil managed 
+	{
+		// Method begins at RVA 0x1ddcdc
+		// Header size: 12
+		// Code size: 59 (0x3b)
+		.maxstack 3
+		.locals init (
+			[0] float32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0006: ldc.r4 0.0
+		IL_000b: blt.un.s IL_0034
+
+		IL_000d: ldarg.0
+		IL_000e: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0013: ldarg.0
+		IL_0014: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0019: mul
+		IL_001a: stloc.0
+		IL_001b: ldarg.0
+		IL_001c: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0021: ldarg.0
+		IL_0022: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_0027: sub
+		IL_0028: ldloc.0
+		IL_0029: sub
+		IL_002a: ldarg.0
+		IL_002b: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_0030: ldloc.0
+		IL_0031: sub
+		IL_0032: div
+		IL_0033: ret
+
+		IL_0034: ldarg.0
+		IL_0035: call instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::GetPercentageClear()
+		IL_003a: ret
+	} // end of method RubblePile::GetProgress
+
+	.method private hidebysig 
+		instance void SetPercentageClear (
+			float32 percentage
+		) cil managed 
+	{
+		// Method begins at RVA 0x1ddd23
+		// Header size: 1
+		// Code size: 56 (0x38)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.r4 0.0
+		IL_0006: blt.s IL_0010
+
+		IL_0008: ldarg.1
+		IL_0009: ldc.r4 1
+		IL_000e: ble.un.s IL_0011
+
+		IL_0010: ret
+
+		IL_0011: ldarg.0
+		IL_0012: ldarg.1
+		IL_0013: stfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0018: ldarg.0
+		IL_0019: ldc.r4 1
+		IL_001e: ldarg.0
+		IL_001f: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mPercentageClear
+		IL_0024: sub
+		IL_0025: ldarg.0
+		IL_0026: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTotalTimeToClear
+		IL_002b: mul
+		IL_002c: stfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_0031: ldarg.0
+		IL_0032: call instance void Sims3.Gameplay.Objects.TombObjects.RubblePile::SetRubbleState()
+		IL_0037: ret
+	} // end of method RubblePile::SetPercentageClear
+
+	.method private hidebysig 
+		instance float32 UpdateProgress (
+			float32 deltaTime,
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+			bool forceComplete
+		) cil managed 
+	{
+		// Method begins at RVA 0x1ddd5c
+		// Header size: 12
+		// Code size: 190 (0xbe)
+		.maxstack 7
+		.locals init (
+			[0] int32
+		)
+
+		IL_0000: ldarg.3
+		IL_0001: brfalse.s IL_000d
+
+		IL_0003: ldarg.0
+		IL_0004: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_0009: starg.s deltaTime
+		IL_000b: br.s IL_006f
+
+		IL_000d: ldarg.0
+		IL_000e: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_SandsOfUnderstandingComponent()
+		IL_0013: brfalse.s IL_001f
+
+		IL_0015: ldarg.1
+		IL_0016: ldarg.0
+		IL_0017: callvirt instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_SandsOfUnderstandingSpeedUpMultiplier()
+		IL_001c: mul
+		IL_001d: starg.s deltaTime
+
+		IL_001f: ldarg.2
+		IL_0020: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0025: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription::TombStats
+		IL_002a: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking::get_IsRubbleExcavator()
+		IL_002f: brfalse.s IL_0040
+
+		IL_0031: ldarg.1
+		IL_0032: ldc.r4 1
+		IL_0037: ldsfld float32 [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking::kRubbleExcavatorRewardSpeedUpMultiplier
+		IL_003c: div
+		IL_003d: mul
+		IL_003e: starg.s deltaTime
+
+		IL_0040: ldarg.1
+		IL_0041: ldc.r4 0.0
+		IL_0046: ldc.i4.2
+		IL_0047: conv.i8
+		IL_0048: call class [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillManager::GetStaticSkill(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillNames)
+		IL_004d: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill::get_MaxSkillLevel()
+		IL_0052: conv.r4
+		IL_0053: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::kAthleticSkillMultiplierMin
+		IL_0058: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::kAthleticSkillMultiplierMax
+		IL_005d: ldarg.2
+		IL_005e: ldc.i4.2
+		IL_005f: conv.i8
+		IL_0060: call uint32 [Sims3GameplaySystems]Sims3.Gameplay.Skills.Skill::GetSkillLevel(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Skills.SkillNames)
+		IL_0065: conv.r.un
+		IL_0066: conv.r4
+		IL_0067: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.MathHelpers::LinearInterpolate(float32, float32, float32, float32, float32)
+		IL_006c: mul
+		IL_006d: starg.s deltaTime
+
+		IL_006f: ldarg.0
+		IL_0070: call instance int32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_CurrentRubbleState()
+		IL_0075: stloc.0
+		IL_0076: ldarg.0
+		IL_0077: ldc.r4 0.0
+		IL_007c: ldarg.0
+		IL_007d: ldfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_0082: ldarg.1
+		IL_0083: sub
+		IL_0084: call float32 [mscorlib]System.Math::Max(float32, float32)
+		IL_0089: stfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::mTimeRemainingToClear
+		IL_008e: ldarg.0
+		IL_008f: call instance int32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_CurrentRubbleState()
+		IL_0094: ldloc.0
+		IL_0095: beq.s IL_00b7
+
+		IL_0097: ldarg.0
+		IL_0098: callvirt instance string[] Sims3.Gameplay.Objects.TombObjects.RubblePile::get_TransitionVfxNames()
+		IL_009d: ldarg.0
+		IL_009e: call instance int32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_CurrentRubbleState()
+		IL_00a3: ldelem.ref
+		IL_00a4: ldarg.0
+		IL_00a5: ldc.i4 831137836
+		IL_00aa: ldc.i4.0
+		IL_00ab: call void [SimIFace]Sims3.SimIFace.VisualEffect::FireOneShotEffect(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+		IL_00b0: ldarg.0
+		IL_00b1: ldarg.2
+		IL_00b2: call instance void Sims3.Gameplay.Objects.TombObjects.RubblePile::SetRubbleState(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+
+		IL_00b7: ldarg.0
+		IL_00b8: call instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::GetPercentageClear()
+		IL_00bd: ret
+	} // end of method RubblePile::UpdateProgress
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x1dde26
+		// Header size: 1
+		// Code size: 21 (0x15)
+		.maxstack 8
+
+		IL_0000: ldc.r4 1
+		IL_0005: stsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::kAthleticSkillMultiplierMin
+		IL_000a: ldc.r4 2
+		IL_000f: stsfld float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::kAthleticSkillMultiplierMax
+		IL_0014: ret
+	} // end of method RubblePile::.cctor
+
+	// Properties
+	.property instance string[] GeometryStateNames()
+	{
+		.get instance string[] Sims3.Gameplay.Objects.TombObjects.RubblePile::get_GeometryStateNames()
+	}
+	.property instance string[] TransitionVfxNames()
+	{
+		.get instance string[] Sims3.Gameplay.Objects.TombObjects.RubblePile::get_TransitionVfxNames()
+	}
+	.property instance string LoopVfxName()
+	{
+		.get instance string Sims3.Gameplay.Objects.TombObjects.RubblePile::get_LoopVfxName()
+	}
+	.property instance int32 NumberOfRubbleStates()
+	{
+		.get instance int32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_NumberOfRubbleStates()
+	}
+	.property instance int32 CurrentRubbleState()
+	{
+		.get instance int32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_CurrentRubbleState()
+	}
+	.property instance bool IsClear()
+	{
+		.get instance bool Sims3.Gameplay.Objects.TombObjects.RubblePile::get_IsClear()
+	}
+	.property instance float32 MaximumMinutesToClearRubblePile()
+	{
+		.get instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_MaximumMinutesToClearRubblePile()
+	}
+	.property instance float32 MinimumMinutesToClearRubblePile()
+	{
+		.get instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_MinimumMinutesToClearRubblePile()
+	}
+	.property instance float32 SandsOfUnderstandingSpeedUpMultiplier()
+	{
+		.get instance float32 Sims3.Gameplay.Objects.TombObjects.RubblePile::get_SandsOfUnderstandingSpeedUpMultiplier()
+	}
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.RubblePile

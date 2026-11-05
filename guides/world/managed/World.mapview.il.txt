@@ -1,0 +1,116 @@
+.method public hidebysig static 
+	void LotSetDetailPriority (
+		uint64 lotId,
+		valuetype Sims3.SimIFace.LotDetailPriority priority
+	) cil managed 
+{
+	// Method begins at RVA 0xa770
+	// Header size: 1
+	// Code size: 20 (0x14)
+	.maxstack 8
+
+	IL_0000: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_0005: brfalse.s IL_0013
+
+	IL_0007: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_000c: ldarg.0
+	IL_000d: ldarg.1
+	IL_000e: callvirt instance void Sims3.SimIFace.IWorld::LotSetDetailPriority(uint64, valuetype Sims3.SimIFace.LotDetailPriority)
+
+	IL_0013: ret
+} // end of method World::LotSetDetailPriority
+.method public hidebysig static 
+	bool WaitForLot (
+		uint64 lotID,
+		bool waitForSims,
+		bool waitForObjects
+	) cil managed 
+{
+	// Method begins at RVA 0xa8c7
+	// Header size: 1
+	// Code size: 14 (0xe)
+	.maxstack 8
+
+	IL_0000: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_0005: ldarg.0
+	IL_0006: ldarg.1
+	IL_0007: ldarg.2
+	IL_0008: callvirt instance bool Sims3.SimIFace.IWorld::WaitForLot(uint64, bool, bool)
+	IL_000d: ret
+} // end of method World::WaitForLot
+.method public hidebysig static 
+	void SetActiveLot (
+		uint64 lotId
+	) cil managed 
+{
+	// Method begins at RVA 0xaaf2
+	// Header size: 1
+	// Code size: 19 (0x13)
+	.maxstack 8
+
+	IL_0000: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_0005: brfalse.s IL_0012
+
+	IL_0007: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_000c: ldarg.0
+	IL_000d: callvirt instance void Sims3.SimIFace.IWorld::SetActiveLot(uint64)
+
+	IL_0012: ret
+} // end of method World::SetActiveLot
+.method public hidebysig static 
+	void LoadHeightMapRelatedData (
+		bool bKeepLoaded
+	) cil managed 
+{
+	// Method begins at RVA 0xabe6
+	// Header size: 1
+	// Code size: 19 (0x13)
+	.maxstack 8
+
+	IL_0000: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_0005: brfalse.s IL_0012
+
+	IL_0007: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_000c: ldarg.0
+	IL_000d: callvirt instance void Sims3.SimIFace.IWorld::LoadHeightMapRelatedData(bool)
+
+	IL_0012: ret
+} // end of method World::LoadHeightMapRelatedData
+.method public hidebysig static 
+	void UnloadHeightMapRelatedData (
+		bool bForceRelease
+	) cil managed 
+{
+	// Method begins at RVA 0xabfa
+	// Header size: 1
+	// Code size: 19 (0x13)
+	.maxstack 8
+
+	IL_0000: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_0005: brfalse.s IL_0012
+
+	IL_0007: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_000c: ldarg.0
+	IL_000d: callvirt instance void Sims3.SimIFace.IWorld::UnloadHeightMapRelatedData(bool)
+
+	IL_0012: ret
+} // end of method World::UnloadHeightMapRelatedData
+.method public hidebysig static 
+	void SetMapViewActiveLotMode (
+		bool allowHighLOD
+	) cil managed 
+{
+	// Method begins at RVA 0xac35
+	// Header size: 1
+	// Code size: 19 (0x13)
+	.maxstack 8
+
+	IL_0000: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_0005: brfalse.s IL_0012
+
+	IL_0007: ldsfld class Sims3.SimIFace.IWorld Sims3.SimIFace.World::gWorld
+	IL_000c: ldarg.0
+	IL_000d: callvirt instance void Sims3.SimIFace.IWorld::SetMapViewActiveLotMode(bool)
+
+	IL_0012: ret
+} // end of method World::SetMapViewActiveLotMode

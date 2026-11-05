@@ -1,0 +1,63 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_00769730:
+
+
+bool FUN_00769730(short *param_1,char param_2)
+
+{
+  short *psVar1;
+  short *psVar2;
+  short *psVar3;
+  int *piVar4;
+  int iVar5;
+  int iVar6;
+  bool bVar7;
+  short local_208 [260];
+  
+  psVar1 = (short *)FUN_0058ac90(L"allscripts",0);
+  psVar2 = (short *)FUN_0058ac90(L"systemscripts",0);
+  psVar3 = (short *)FUN_0058ac90(L"gameplayscripts",0);
+  if ((psVar1 == (short *)0x0) || (*psVar1 == 0)) {
+    psVar1 = param_1;
+  }
+  if ((psVar2 == (short *)0x0) || (*psVar2 == 0)) {
+    psVar2 = psVar1;
+  }
+  if ((psVar3 == (short *)0x0) || (*psVar3 == 0)) {
+    psVar3 = psVar1;
+  }
+  piVar4 = (int *)FUN_0072f140();
+  if (piVar4 == (int *)0x0) {
+    return true;
+  }
+  bVar7 = true;
+  if (param_2 == '\0') {
+    FUN_004ff550(local_208,psVar2,0x104);
+    FUN_004ecc60(local_208,-1);
+    FUN_004ff640(local_208,L"scripts.package",0x104);
+    iVar5 = (**(code **)(*piVar4 + 0xc))(local_208);
+    FUN_004ff550(&stack0xfffffdf4,psVar2,0x104);
+    FUN_004ecc60((short *)&stack0xfffffdf4,-1);
+    FUN_004ff640((short *)&stack0xfffffdf4,L"simcore.package",0x104);
+    iVar6 = (**(code **)(*piVar4 + 0xc))(&stack0xfffffdf4);
+    bVar7 = iVar6 != 0 && iVar5 != 0;
+    FUN_004ff550(&stack0xfffffdf0,psVar3,0x104);
+    FUN_004ecc60((short *)&stack0xfffffdf0,-1);
+    FUN_004ff640((short *)&stack0xfffffdf0,L"gameplay.package",0x104);
+    iVar5 = (**(code **)(*piVar4 + 0xc))(&stack0xfffffdf0);
+    if (iVar5 == 0) {
+      bVar7 = false;
+    }
+  }
+  FUN_004ff550(local_208,psVar3,0x104);
+  FUN_004ecc60(local_208,-1);
+  FUN_004ff640(local_208,L"Gameplay\\GameplayData.package",0x104);
+  iVar5 = (**(code **)(*piVar4 + 8))(local_208,0xfffffc18);
+  if (iVar5 == 0) {
+    bVar7 = false;
+  }
+  return bVar7;
+}
+
+

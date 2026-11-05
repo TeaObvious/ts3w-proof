@@ -1,0 +1,84 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: SacsWalker_TrySetExecutionStatus
+Paired actual annotated Ghidra pseudocode: 008019D0_SacsWalker_TrySetExecutionStatus.c
+Owned ranges: [[008019d0, 00801a80]]
+Envelope bytes=177
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+008019d0  53  PUSH EBX
+008019d1  56  PUSH ESI
+008019d2  57  PUSH EDI
+008019d3  8b7c2410  MOV EDI,dword ptr [ESP + 0x10]
+008019d7  85ff  TEST EDI,EDI
+008019d9  8bf1  MOV ESI,ECX
+008019db  7528  JNZ 0x00801a05
+008019dd  8b466c  MOV EAX,dword ptr [ESI + 0x6c]
+008019e0  85c0  TEST EAX,EAX
+008019e2  7e23  JLE 0x00801a07
+008019e4  8b4e64  MOV ECX,dword ptr [ESI + 0x64]
+008019e7  e8c4350000  CALL 0x00804fb0
+008019ec  84c0  TEST AL,AL
+008019ee  7417  JZ 0x00801a07
+008019f0  8b4e04  MOV ECX,dword ptr [ESI + 0x4]
+008019f3  56  PUSH ESI
+008019f4  e857e7ffff  CALL 0x00800150
+008019f9  84c0  TEST AL,AL
+008019fb  750a  JNZ 0x00801a07
+008019fd  5f  POP EDI
+008019fe  5e  POP ESI
+008019ff  32c0  XOR AL,AL
+00801a01  5b  POP EBX
+00801a02  c20400  RET 0x4
+00801a05  7f4a  JG 0x00801a51
+00801a07  8bcf  MOV ECX,EDI
+00801a09  8d566c  LEA EDX,[ESI + 0x6c]
+00801a0c  870a  XCHG dword ptr [EDX],ECX
+00801a0e  8b4e64  MOV ECX,dword ptr [ESI + 0x64]
+00801a11  85c9  TEST ECX,ECX
+00801a13  7407  JZ 0x00801a1c
+00801a15  6a00  PUSH 0x0
+00801a17  e8b4ca1d00  CALL 0x009de4d0
+00801a1c  85ff  TEST EDI,EDI
+00801a1e  7d09  JGE 0x00801a29
+00801a20  8b4e04  MOV ECX,dword ptr [ESI + 0x4]
+00801a23  56  PUSH ESI
+00801a24  e877fdffff  CALL 0x008017a0
+00801a29  b301  MOV BL,0x1
+00801a2b  885e0c  MOV byte ptr [ESI + 0xc],BL
+00801a2e  8b7604  MOV ESI,dword ptr [ESI + 0x4]
+00801a31  889e46010000  MOV byte ptr [ESI + 0x146],BL
+00801a37  8b0d409d1d01  MOV ECX,dword ptr [0x011d9d40]
+00801a3d  85c9  TEST ECX,ECX
+00801a3f  7408  JZ 0x00801a49
+00801a41  6a00  PUSH 0x0
+00801a43  56  PUSH ESI
+00801a44  e837b5ffff  CALL 0x007fcf80
+00801a49  5f  POP EDI
+00801a4a  5e  POP ESI
+00801a4b  8ac3  MOV AL,BL
+00801a4d  5b  POP EBX
+00801a4e  c20400  RET 0x4
+00801a51  8b466c  MOV EAX,dword ptr [ESI + 0x6c]
+00801a54  83f804  CMP EAX,0x4
+00801a57  8d5e6c  LEA EBX,[ESI + 0x6c]
+00801a5a  74a1  JZ 0x008019fd
+00801a5c  83ff02  CMP EDI,0x2
+00801a5f  740a  JZ 0x00801a6b
+00801a61  83ff03  CMP EDI,0x3
+00801a64  7405  JZ 0x00801a6b
+00801a66  83ff07  CMP EDI,0x7
+00801a69  750c  JNZ 0x00801a77
+00801a6b  8b4e64  MOV ECX,dword ptr [ESI + 0x64]
+00801a6e  e83d350000  CALL 0x00804fb0
+00801a73  84c0  TEST AL,AL
+00801a75  7486  JZ 0x008019fd
+00801a77  873b  XCHG dword ptr [EBX],EDI
+00801a79  5f  POP EDI
+00801a7a  5e  POP ESI
+00801a7b  b001  MOV AL,0x1
+00801a7d  5b  POP EBX
+00801a7e  c20400  RET 0x4
+Owned instructions=73 owned bytes=177 gap/nonowned bytes=0

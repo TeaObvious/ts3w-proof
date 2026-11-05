@@ -1,0 +1,169 @@
+Module MVID e4365bd8-6054-4cb5-8702-c69b1c102ce9
+Original PC1.67 SimIFace SHA256 6ddedb668e1b6da037e346cd5cf6f500f37407dca633b428e7ec410daa00fcb2
+Metadata token=060000aa flags=1886 implflags=0000 rawSignature=200201125809
+
+060000aa Sims3.SimIFace.BuildBuy.BuildBuyPreset::.ctor RVA=00002a33 bytes=42 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header aa
+Raw complete CIL 02281c00000a02037d5d01000402047d5e01000402167d6001000402167d5f01000402167d610100042a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 281c00000a           call 1c00000a .ctor
+ IL_0006: 02                   ldarg.0
+ IL_0007: 03                   ldarg.1
+ IL_0008: 7d5d010004           stfld 5d010004 mProduct
+ IL_000d: 02                   ldarg.0
+ IL_000e: 04                   ldarg.2
+ IL_000f: 7d5e010004           stfld 5e010004 mPresetID
+ IL_0014: 02                   ldarg.0
+ IL_0015: 16                   ldc.i4.0
+ IL_0016: 7d60010004           stfld 60010004 mSubsort
+ IL_001b: 02                   ldarg.0
+ IL_001c: 16                   ldc.i4.0
+ IL_001d: 7d5f010004           stfld 5f010004 mResourceCategory
+ IL_0022: 02                   ldarg.0
+ IL_0023: 16                   ldc.i4.0
+ IL_0024: 7d61010004           stfld 61010004 mbSubsortAndResourceCategoryValid
+ IL_0029: 2a                   ret
+Metadata token=060000ab flags=0886 implflags=0000 rawSignature=20001258
+
+060000ab Sims3.SimIFace.BuildBuy.BuildBuyPreset::get_Product RVA=00002a5e bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 027b5d0100042a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 7b5d010004           ldfld 5d010004 mProduct
+ IL_0006: 2a                   ret
+Metadata token=060000ac flags=0886 implflags=0000 rawSignature=200009
+
+060000ac Sims3.SimIFace.BuildBuy.BuildBuyPreset::get_ID RVA=00002a66 bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 027b5e0100042a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 7b5e010004           ldfld 5e010004 mPresetID
+ IL_0006: 2a                   ret
+Metadata token=060000b0 flags=0886 implflags=0000 rawSignature=2000118810
+
+060000b0 Sims3.SimIFace.BuildBuy.BuildBuyPreset::get_KeyForThumbnail RVA=00002aa8 bytes=58 maxStack=5 flags=3013 localSignature=1100000d
+Raw complete method header 133005003a0000000d000011
+Raw complete CIL 0228ab0000066f7c0000060a12007b750d000412007b730d000412007b740d000420000000ff5f027b5e01000420ffffff005f6073a40e00062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 28ab000006           call ab000006 get_Product
+ IL_0006: 6f7c000006           callvirt 7c000006 get_ProductResourceKey
+ IL_000b: 0a                   stloc.0
+ IL_000c: 1200                 ldloca.s 00
+ IL_000e: 7b750d0004           ldfld 750d0004 InstanceId
+ IL_0013: 1200                 ldloca.s 00
+ IL_0015: 7b730d0004           ldfld 730d0004 TypeId
+ IL_001a: 1200                 ldloca.s 00
+ IL_001c: 7b740d0004           ldfld 740d0004 GroupId
+ IL_0021: 20000000ff           ldc.i4 000000ff
+ IL_0026: 5f                   and
+ IL_0027: 02                   ldarg.0
+ IL_0028: 7b5e010004           ldfld 5e010004 mPresetID
+ IL_002d: 20ffffff00           ldc.i4 ffffff00
+ IL_0032: 5f                   and
+ IL_0033: 60                   or
+ IL_0034: 73a40e0006           newobj a40e0006 .ctor
+ IL_0039: 2a                   ret
+Metadata token=06000b6e flags=0091 implflags=0000 rawSignature=0001151265011c1d09
+
+06000b6e Sims3.SimIFace.UserToolUtils::WrapPresetList RVA=00013194 bytes=82 maxStack=4 flags=3013 localSignature=1100009c
+Raw complete method header 13300400520000009c000011
+Raw complete CIL 022c4d73ff00000a0a160b140c160d2b350209951304020917589513051104072e0c11040b0773730000060c2b060828480b00060608110573aa0000066f0101000a0918580d091758028e6932c3062a142a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 2c4d                 brfalse.s 4d
+ IL_0003: 73ff00000a           newobj ff00000a .ctor
+ IL_0008: 0a                   stloc.0
+ IL_0009: 16                   ldc.i4.0
+ IL_000a: 0b                   stloc.1
+ IL_000b: 14                   ldnull
+ IL_000c: 0c                   stloc.2
+ IL_000d: 16                   ldc.i4.0
+ IL_000e: 0d                   stloc.3
+ IL_000f: 2b35                 br.s 35
+ IL_0011: 02                   ldarg.0
+ IL_0012: 09                   ldloc.3
+ IL_0013: 95                   ldelem.u4
+ IL_0014: 1304                 stloc.s 04
+ IL_0016: 02                   ldarg.0
+ IL_0017: 09                   ldloc.3
+ IL_0018: 17                   ldc.i4.1
+ IL_0019: 58                   add
+ IL_001a: 95                   ldelem.u4
+ IL_001b: 1305                 stloc.s 05
+ IL_001d: 1104                 ldloc.s 04
+ IL_001f: 07                   ldloc.1
+ IL_0020: 2e0c                 beq.s 0c
+ IL_0022: 1104                 ldloc.s 04
+ IL_0024: 0b                   stloc.1
+ IL_0025: 07                   ldloc.1
+ IL_0026: 7373000006           newobj 73000006 .ctor
+ IL_002b: 0c                   stloc.2
+ IL_002c: 2b06                 br.s 06
+ IL_002e: 08                   ldloc.2
+ IL_002f: 28480b0006           call 480b0006 DestroyProduct
+ IL_0034: 06                   ldloc.0
+ IL_0035: 08                   ldloc.2
+ IL_0036: 1105                 ldloc.s 05
+ IL_0038: 73aa000006           newobj aa000006 .ctor
+ IL_003d: 6f0101000a           callvirt 0101000a Add
+ IL_0042: 09                   ldloc.3
+ IL_0043: 18                   ldc.i4.2
+ IL_0044: 58                   add
+ IL_0045: 0d                   stloc.3
+ IL_0046: 09                   ldloc.3
+ IL_0047: 17                   ldc.i4.1
+ IL_0048: 58                   add
+ IL_0049: 02                   ldarg.0
+ IL_004a: 8e                   ldlen
+ IL_004b: 69                   conv.i4
+ IL_004c: 32c3                 blt.s c3
+ IL_004e: 06                   ldloc.0
+ IL_004f: 2a                   ret
+ IL_0050: 14                   ldnull
+ IL_0051: 2a                   ret
+Metadata token=06000b73 flags=0096 implflags=0000 rawSignature=0001151265011c09
+
+06000b73 Sims3.SimIFace.UserToolUtils::GetWallPatternPresetListByType RVA=0001323b bytes=17 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 46
+Raw complete CIL 7e340b0004026ff10a0006286e0b00062a
+ IL_0000: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6ff10a0006           callvirt f10a0006 GetWallPatternPresetListByType
+ IL_000b: 286e0b0006           call 6e0b0006 WrapPresetList
+ IL_0010: 2a                   ret
+Metadata token=06000b75 flags=0096 implflags=0000 rawSignature=0001151265011c09
+
+06000b75 Sims3.SimIFace.UserToolUtils::GetFloorPatternPresetListByType RVA=0001325f bytes=17 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 46
+Raw complete CIL 7e340b0004026ff30a0006286e0b00062a
+ IL_0000: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6ff30a0006           callvirt f30a0006 GetFloorPatternPresetListByType
+ IL_000b: 286e0b0006           call 6e0b0006 WrapPresetList
+ IL_0010: 2a                   ret
+
+SELECTED complete_methods=7 CIL_bytes=230
+
+Original nested enum eWallPatternSubsort
+ Field 04000147 value__ rawSignature=0609
+ Field 04000148 Miscellaneous rawSignature=06118080 constantType=0009 rawValue=02000000 UInt32=2
+ Field 04000149 Masonry rawSignature=06118080 constantType=0009 rawValue=04000000 UInt32=4
+ Field 0400014a Paint rawSignature=06118080 constantType=0009 rawValue=08000000 UInt32=8
+ Field 0400014b Paneling rawSignature=06118080 constantType=0009 rawValue=10000000 UInt32=16
+ Field 0400014c Rock_Stone rawSignature=06118080 constantType=0009 rawValue=20000000 UInt32=32
+ Field 0400014d Siding rawSignature=06118080 constantType=0009 rawValue=40000000 UInt32=64
+ Field 0400014e Tile rawSignature=06118080 constantType=0009 rawValue=80000000 UInt32=128
+ Field 0400014f Wallpaper rawSignature=06118080 constantType=0009 rawValue=00010000 UInt32=256
+ Field 04000150 WallSets rawSignature=06118080 constantType=0009 rawValue=00020000 UInt32=512
+ Field 04000151 All rawSignature=06118080 constantType=0009 rawValue=ffffffff UInt32=4294967295
+Original nested enum eFloorPatternSubsort
+ Field 04000152 value__ rawSignature=0609
+ Field 04000153 Miscellaneous rawSignature=06118084 constantType=0009 rawValue=02000000 UInt32=2
+ Field 04000154 Carpet rawSignature=06118084 constantType=0009 rawValue=04000000 UInt32=4
+ Field 04000155 Linoleum rawSignature=06118084 constantType=0009 rawValue=08000000 UInt32=8
+ Field 04000156 Masonry rawSignature=06118084 constantType=0009 rawValue=10000000 UInt32=16
+ Field 04000157 Metal rawSignature=06118084 constantType=0009 rawValue=20000000 UInt32=32
+ Field 04000158 Rock_Stone rawSignature=06118084 constantType=0009 rawValue=40000000 UInt32=64
+ Field 04000159 Tile rawSignature=06118084 constantType=0009 rawValue=80000000 UInt32=128
+ Field 0400015a Wood rawSignature=06118084 constantType=0009 rawValue=00010000 UInt32=256
+ Field 0400015b CeilingTile rawSignature=06118084 constantType=0009 rawValue=00020000 UInt32=512
+ Field 0400015c All rawSignature=06118084 constantType=0009 rawValue=ffffffff UInt32=4294967295

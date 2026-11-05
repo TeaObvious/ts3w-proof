@@ -1,0 +1,70 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: void * ResourceManager_FindProviderForExactKeyWithTag(void * this, void * resourceKey, void * outProviderTag)
+Owned ranges: [[004b0110, 004b0139] [004b0140, 004b01b1]]
+
+004b0110  51  PUSH ECX
+004b0111  53  PUSH EBX
+004b0112  55  PUSH EBP
+004b0113  56  PUSH ESI
+004b0114  57  PUSH EDI
+004b0115  8bf9  MOV EDI,ECX
+004b0117  8d5f48  LEA EBX,[EDI + 0x48]
+004b011a  68e03cfb00  PUSH 0xfb3ce0
+004b011f  8bcb  MOV ECX,EBX
+004b0121  e8da1a0300  CALL 0x004e1c00
+004b0126  8b7730  MOV ESI,dword ptr [EDI + 0x30]
+004b0129  8b6f34  MOV EBP,dword ptr [EDI + 0x34]
+004b012c  3bf5  CMP ESI,EBP
+004b012e  c744241000000000  MOV dword ptr [ESP + 0x10],0x0
+004b0136  7467  JZ 0x004b019f
+004b0138  eb06  JMP 0x004b0140
+004b013a  8d9b00000000  .byte 8d9b00000000 ; NONOWNED envelope gap bytes
+004b0140  8b3e  MOV EDI,dword ptr [ESI]
+004b0142  8bcb  MOV ECX,EBX
+004b0144  e8771b0300  CALL 0x004e1cc0
+004b0149  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+004b014d  8b07  MOV EAX,dword ptr [EDI]
+004b014f  8b5034  MOV EDX,dword ptr [EAX + 0x34]
+004b0152  6a00  PUSH 0x0
+004b0154  6a01  PUSH 0x1
+004b0156  6a06  PUSH 0x6
+004b0158  6a01  PUSH 0x1
+004b015a  6a00  PUSH 0x0
+004b015c  51  PUSH ECX
+004b015d  8bcf  MOV ECX,EDI
+004b015f  ffd2  CALL EDX
+004b0161  84c0  TEST AL,AL
+004b0163  68e03cfb00  PUSH 0xfb3ce0
+004b0168  7521  JNZ 0x004b018b
+004b016a  8bcb  MOV ECX,EBX
+004b016c  e88f1a0300  CALL 0x004e1c00
+004b0171  83c608  ADD ESI,0x8
+004b0174  3bf5  CMP ESI,EBP
+004b0176  75c8  JNZ 0x004b0140
+004b0178  8bcb  MOV ECX,EBX
+004b017a  e8411b0300  CALL 0x004e1cc0
+004b017f  8b442410  MOV EAX,dword ptr [ESP + 0x10]
+004b0183  5f  POP EDI
+004b0184  5e  POP ESI
+004b0185  5d  POP EBP
+004b0186  5b  POP EBX
+004b0187  59  POP ECX
+004b0188  c20800  RET 0x8
+004b018b  8b4604  MOV EAX,dword ptr [ESI + 0x4]
+004b018e  8b4c2420  MOV ECX,dword ptr [ESP + 0x20]
+004b0192  8901  MOV dword ptr [ECX],EAX
+004b0194  8bcb  MOV ECX,EBX
+004b0196  897c2414  MOV dword ptr [ESP + 0x14],EDI
+004b019a  e8611a0300  CALL 0x004e1c00
+004b019f  8bcb  MOV ECX,EBX
+004b01a1  e81a1b0300  CALL 0x004e1cc0
+004b01a6  8b442410  MOV EAX,dword ptr [ESP + 0x10]
+004b01aa  5f  POP EDI
+004b01ab  5e  POP ESI
+004b01ac  5d  POP EBP
+004b01ad  5b  POP EBX
+004b01ae  59  POP ECX
+004b01af  c20800  RET 0x8

@@ -1,0 +1,234 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; complete type Sims3.Gameplay.Routing.PortalTraversalAction.
+// Analyst annotations describe static contracts; IL remains authoritative for decompiler artifacts.
+
+.class public auto ansi beforefieldinit Sims3.Gameplay.Routing.PortalTraversalAction
+	extends Sims3.Gameplay.Routing.PortalAction
+{
+	// Fields
+	.field private bool mPreferredLaneSelected
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x37da78
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Routing.PortalAction::.ctor()
+		IL_0006: ret
+	} // end of method PortalTraversalAction::.ctor
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			class Sims3.Gameplay.Actors.Sim routingSim,
+			class [SimIFace]Sims3.SimIFace.Route r,
+			class Sims3.Gameplay.Abstracts.GameObject portalObject,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 portalStartPos,
+			bool preferredLaneSelected
+		) cil managed 
+	{
+		// Method begins at RVA 0x37da80
+		// Header size: 1
+		// Code size: 16 (0x10)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: ldarg.s portalStartPos
+		IL_0006: ldarg.s preferredLaneSelected
+		IL_0008: ldnull
+		IL_0009: ldc.i4.0
+		IL_000a: call instance void Sims3.Gameplay.Routing.PortalTraversalAction::.ctor(class Sims3.Gameplay.Actors.Sim, class [SimIFace]Sims3.SimIFace.Route, class Sims3.Gameplay.Abstracts.GameObject, valuetype [SimIFace]Sims3.SimIFace.Vector3, bool, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.GameObject>, bool)
+		IL_000f: ret
+	} // end of method PortalTraversalAction::.ctor
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			class Sims3.Gameplay.Actors.Sim masterRoutingSim,
+			class [SimIFace]Sims3.SimIFace.Route r,
+			class Sims3.Gameplay.Abstracts.GameObject portalObject,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 portalStartPos,
+			bool preferredLaneSelected,
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.GameObject> slaveRoutingObjects,
+			bool bSlavesRoute
+		) cil managed 
+	{
+		// Method begins at RVA 0x37da91
+		// Header size: 1
+		// Code size: 46 (0x2e)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: ldarg.s portalStartPos
+		IL_0006: ldarg.s slaveRoutingObjects
+		IL_0008: ldarg.s bSlavesRoute
+		IL_000a: call instance void Sims3.Gameplay.Routing.PortalAction::.ctor(class Sims3.Gameplay.Actors.Sim, class [SimIFace]Sims3.SimIFace.Route, class Sims3.Gameplay.Abstracts.GameObject, valuetype [SimIFace]Sims3.SimIFace.Vector3, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Abstracts.GameObject>, bool)
+		IL_000f: ldarg.0
+		IL_0010: ldarg.1
+		IL_0011: stfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Routing.PortalAction::mRoutingSim
+		IL_0016: ldarg.0
+		IL_0017: ldarg.3
+		IL_0018: stfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Routing.PortalAction::mPortalObject
+		IL_001d: ldarg.0
+		IL_001e: ldarg.s portalStartPos
+		IL_0020: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Routing.PortalAction::mPortalStartPos
+		IL_0025: ldarg.0
+		IL_0026: ldarg.s preferredLaneSelected
+		IL_0028: stfld bool Sims3.Gameplay.Routing.PortalTraversalAction::mPreferredLaneSelected
+		IL_002d: ret
+	} // end of method PortalTraversalAction::.ctor
+
+	.method family hidebysig virtual 
+		instance valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult DoPortal (
+			valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo& laneInfo,
+			bool preferredLaneSelected
+		) cil managed 
+	{
+		// Method begins at RVA 0x37dac0
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.2
+		IL_0001: ret
+	} // end of method PortalTraversalAction::DoPortal
+
+	.method public hidebysig virtual 
+		instance valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult PerformAction () cil managed 
+	{
+		// Method begins at RVA 0x37dac4
+		// Header size: 12
+		// Code size: 206 (0xce)
+		.maxstack 2
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.RouteStartFlags,
+			[1] class Sims3.Gameplay.Routing.SimSteeringAdaptor,
+			[2] valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.RouteStartFlags Sims3.Gameplay.Routing.FollowRouteAction::GetDefaultRouteStartFlags()
+		IL_0006: stloc.0
+		IL_0007: ldarg.0
+		IL_0008: callvirt instance void Sims3.Gameplay.Routing.FollowRouteAction::CreateAdaptors()
+		IL_000d: ldarg.0
+		IL_000e: call instance class Sims3.Gameplay.Routing.SteeringAdaptor Sims3.Gameplay.Routing.FollowRouteAction::get_SteeringAdaptor()
+		IL_0013: isinst Sims3.Gameplay.Routing.SimSteeringAdaptor
+		IL_0018: stloc.1
+		IL_0019: ldarg.0
+		IL_001a: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Routing.PortalAction::mPortalObject
+		IL_001f: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+		IL_0024: ldarg.0
+		IL_0025: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Routing.PortalAction::mRoutingSim
+		IL_002a: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::OnPortalStart(class Sims3.Gameplay.Actors.Sim)
+		IL_002f: brtrue.s IL_0052
+
+		IL_0031: ldarg.0
+		IL_0032: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Routing.PortalAction::mPortalObject
+		IL_0037: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+		IL_003c: ldarg.0
+		IL_003d: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Routing.PortalAction::mRoutingSim
+		IL_0042: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::CancelApproachingPortalObject(class Sims3.Gameplay.Actors.Sim)
+		IL_0047: pop
+		IL_0048: ldarg.0
+		IL_0049: ldc.i4.s 32
+		IL_004b: call instance void Sims3.Gameplay.Routing.RouteAction::AddFailureExplanation(valuetype Sims3.Gameplay.Routing.RouteAction/FailureExplanation)
+		IL_0050: ldc.i4.0
+		IL_0051: ret
+
+		IL_0052: ldarg.0
+		IL_0053: ldfld class Sims3.Gameplay.Routing.ScriptAdaptor Sims3.Gameplay.Routing.FollowRouteAction::mScriptAdaptor
+		IL_0058: ldc.i4.0
+		IL_0059: callvirt instance void Sims3.Gameplay.Routing.ScriptAdaptor::SetExitReasonsInterrupt(valuetype Sims3.Gameplay.Actors.ExitReason)
+		IL_005e: ldloc.1
+		IL_005f: brfalse.s IL_0068
+
+		IL_0061: ldloc.1
+		IL_0062: ldc.i4.0
+		IL_0063: callvirt instance void Sims3.Gameplay.Routing.SimSteeringAdaptor::set_AvoidanceEnabled(bool)
+
+		IL_0068: ldarg.0
+		IL_0069: ldloc.0
+		IL_006a: call instance valuetype Sims3.Gameplay.Routing.RouteAction/ActionResult Sims3.Gameplay.Routing.FollowRouteAction::PerformRoute(valuetype [SimIFace]Sims3.SimIFace.RouteStartFlags)
+		IL_006f: stloc.2
+		IL_0070: ldloc.1
+		IL_0071: brfalse.s IL_007a
+
+		IL_0073: ldloc.1
+		IL_0074: ldc.i4.1
+		IL_0075: callvirt instance void Sims3.Gameplay.Routing.SimSteeringAdaptor::set_AvoidanceEnabled(bool)
+
+		IL_007a: ldarg.0
+		IL_007b: ldfld class Sims3.Gameplay.Routing.ScriptAdaptor Sims3.Gameplay.Routing.FollowRouteAction::mScriptAdaptor
+		IL_0080: callvirt instance void Sims3.Gameplay.Routing.ScriptAdaptor::ResetExitReasonsInterrupt()
+		IL_0085: ldarg.0
+		IL_0086: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Routing.PortalAction::mPortalObject
+		IL_008b: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+		IL_0090: ldarg.0
+		IL_0091: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Routing.PortalAction::mRoutingSim
+		IL_0096: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::OnPortalCompleted(class Sims3.Gameplay.Actors.Sim)
+		IL_009b: pop
+		IL_009c: ldarg.0
+		IL_009d: ldfld bool Sims3.Gameplay.Routing.PortalAction::mbReplan
+		IL_00a2: brtrue.s IL_00b8
+
+		IL_00a4: ldarg.0
+		IL_00a5: ldfld bool Sims3.Gameplay.Routing.PortalAction::mbWalkStyleChanged
+		IL_00aa: brtrue.s IL_00b8
+
+		IL_00ac: ldarg.0
+		IL_00ad: ldfld bool Sims3.Gameplay.Routing.PortalTraversalAction::mPreferredLaneSelected
+		IL_00b2: brtrue.s IL_00c6
+
+		IL_00b4: ldloc.2
+		IL_00b5: ldc.i4.2
+		IL_00b6: bne.un.s IL_00c6
+
+		IL_00b8: ldarg.0
+		IL_00b9: ldfld bool Sims3.Gameplay.Routing.PortalAction::mbWalkStyleChanged
+		IL_00be: brfalse.s IL_00c4
+
+		IL_00c0: ldc.i4.5
+		IL_00c1: stloc.2
+		IL_00c2: br.s IL_00c6
+
+		IL_00c4: ldc.i4.3
+		IL_00c5: stloc.2
+
+		IL_00c6: ldarg.0
+		IL_00c7: call instance void Sims3.Gameplay.Routing.PortalAction::HandleIntersectionsAtDestination()
+		IL_00cc: ldloc.2
+		IL_00cd: ret
+	} // end of method PortalTraversalAction::PerformAction
+
+	.method public hidebysig virtual 
+		instance class Sims3.Gameplay.Routing.FollowRouteAction Clone () cil managed 
+	{
+		// Method begins at RVA 0x37db9e
+		// Header size: 1
+		// Code size: 36 (0x24)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Routing.PortalAction::mRoutingSim
+		IL_0006: ldarg.0
+		IL_0007: ldfld class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.Routing.FollowRouteAction::mRoute
+		IL_000c: ldarg.0
+		IL_000d: ldfld class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Routing.PortalAction::mPortalObject
+		IL_0012: ldarg.0
+		IL_0013: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Routing.PortalAction::mPortalStartPos
+		IL_0018: ldarg.0
+		IL_0019: ldfld bool Sims3.Gameplay.Routing.PortalTraversalAction::mPreferredLaneSelected
+		IL_001e: newobj instance void Sims3.Gameplay.Routing.PortalTraversalAction::.ctor(class Sims3.Gameplay.Actors.Sim, class [SimIFace]Sims3.SimIFace.Route, class Sims3.Gameplay.Abstracts.GameObject, valuetype [SimIFace]Sims3.SimIFace.Vector3, bool)
+		IL_0023: ret
+	} // end of method PortalTraversalAction::Clone
+
+} // end of class Sims3.Gameplay.Routing.PortalTraversalAction

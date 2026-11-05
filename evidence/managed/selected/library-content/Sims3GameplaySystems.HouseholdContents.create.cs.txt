@@ -1,0 +1,63 @@
+// Actual ILSpy rendering; static analysis, no target code executed. Native and nested/lambda dependencies remain bounded.
+using Sims3.Gameplay.Abstracts;
+using Sims3.Gameplay.Actors;
+using Sims3.Gameplay.CAS;
+using Sims3.Gameplay.Objects.Vehicles;
+
+private void CreateInventories()
+{
+	Household.Members currentMembers = mHousehold.CurrentMembers;
+	uint num = (uint)(currentMembers.Count + 2);
+	mInventories = new ulong[num];
+	int num2 = 0;
+	foreach (SimDescription allSimDescription in currentMembers.AllSimDescriptionList)
+	{
+		Sim createdSim = allSimDescription.CreatedSim;
+		if (createdSim != null)
+		{
+			Inventory inventory = createdSim.Inventory;
+			Vehicle reservedVehicle = createdSim.GetReservedVehicle();
+			if (reservedVehicle is IOwnableVehicle)
+			{
+				foreach (GameObject containedObject in reservedVehicle.GetContainedObjectList<GameObject>(reservedVehicle.GetContainmentSlots()))
+				{
+					containedObject.UnParent();
+					containedObject.SetObjectToReset();
+				}
+				if (inventory != null)
+				{
+					if (!inventory.Contains(reservedVehicle))
+					{
+						inventory.TryToAdd(reservedVehicle);
+					}
+				}
+				else
+				{
+					reservedVehicle.Destroy();
+				}
+				createdSim.SetReservedVehicle(null);
+			}
+			if (inventory != null && !inventory.IsEmpty)
+			{
+				ulong num3 = StoreInventory(inventory);
+				mInventories[num2] = num3;
+			}
+		}
+		num2++;
+	}
+	Inventory inventory2 = ((mHousehold.SharedFridgeInventory != null) ? mHousehold.SharedFridgeInventory.Inventory : null);
+	if (inventory2 != null && !inventory2.IsEmpty)
+	{
+		ulong num4 = StoreInventory(inventory2);
+		mInventories[num2] = num4;
+	}
+	num2++;
+	Inventory inventory3 = ((mHousehold.SharedFamilyInventory != null) ? mHousehold.SharedFamilyInventory.Inventory : null);
+	if (inventory3 != null && !inventory3.IsEmpty)
+	{
+		ulong num5 = StoreInventory(inventory3);
+		mInventories[num2] = num5;
+	}
+	num2++;
+}
+

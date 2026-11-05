@@ -1,0 +1,37 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_GetControllerType
+# Entry: 0x0073d480; bounded stop: 0x0073d4b0; next Ghidra entry: 0x0073d4b0
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073d480 <.text+0x33c480>:
+  73d480:	e8 4b c7 22 00       	call   0x969bd0
+  73d485:	85 c0                	test   eax,eax
+  73d487:	74 12                	je     0x73d49b
+  73d489:	8b c8                	mov    ecx,eax
+  73d48b:	e8 60 4b 7e 00       	call   0xf21ff0
+  73d490:	85 c0                	test   eax,eax
+  73d492:	74 07                	je     0x73d49b
+  73d494:	8b 80 90 00 00 00    	mov    eax,DWORD PTR [eax+0x90]
+  73d49a:	c3                   	ret
+  73d49b:	b8 01 00 00 00       	mov    eax,0x1
+  73d4a0:	c3                   	ret
+  73d4a1:	cc                   	int3
+  73d4a2:	cc                   	int3
+  73d4a3:	cc                   	int3
+  73d4a4:	cc                   	int3
+  73d4a5:	cc                   	int3
+  73d4a6:	cc                   	int3
+  73d4a7:	cc                   	int3
+  73d4a8:	cc                   	int3
+  73d4a9:	cc                   	int3
+  73d4aa:	cc                   	int3
+  73d4ab:	cc                   	int3
+  73d4ac:	cc                   	int3
+  73d4ad:	cc                   	int3
+  73d4ae:	cc                   	int3
+  73d4af:	cc                   	int3

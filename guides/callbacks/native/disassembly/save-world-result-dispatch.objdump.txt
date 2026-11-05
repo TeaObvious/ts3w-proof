@@ -1,0 +1,33 @@
+# save-world-result-dispatch: retail TS3W.exe VA 0x00742FC0-0x00743026, file offset 0x342FC0
+742fc0:	83 ec 20             	sub    esp,0x20
+  742fc3:	56                   	push   esi
+  742fc4:	8b f1                	mov    esi,ecx
+  742fc6:	e8 c5 63 02 00       	call   0x769390
+  742fcb:	85 c0                	test   eax,eax
+  742fcd:	74 51                	je     0x743020
+  742fcf:	8a 4c 24 28          	mov    cl,BYTE PTR [esp+0x28]
+  742fd3:	8b 10                	mov    edx,DWORD PTR [eax]
+  742fd5:	8b 92 24 01 00 00    	mov    edx,DWORD PTR [edx+0x124]
+  742fdb:	88 4c 24 14          	mov    BYTE PTR [esp+0x14],cl
+  742fdf:	8d 4c 24 04          	lea    ecx,[esp+0x4]
+  742fe3:	51                   	push   ecx
+  742fe4:	8b 4e 34             	mov    ecx,DWORD PTR [esi+0x34]
+  742fe7:	51                   	push   ecx
+  742fe8:	8b 4e 30             	mov    ecx,DWORD PTR [esi+0x30]
+  742feb:	51                   	push   ecx
+  742fec:	8b c8                	mov    ecx,eax
+  742fee:	c7 44 24 10 6c 88 00 	mov    DWORD PTR [esp+0x10],0x100886c
+  742ff5:	01 
+  742ff6:	66 c7 44 24 1a 01 00 	mov    WORD PTR [esp+0x1a],0x1
+  742ffd:	66 c7 44 24 18 02 00 	mov    WORD PTR [esp+0x18],0x2
+  743004:	ff d2                	call   edx
+  743006:	f6 44 24 0c 04       	test   BYTE PTR [esp+0xc],0x4
+  74300b:	c7 44 24 04 f4 a6 fb 	mov    DWORD PTR [esp+0x4],0xfba6f4
+  743012:	00 
+  743013:	74 0b                	je     0x743020
+  743015:	6a 00                	push   0x0
+  743017:	8d 4c 24 08          	lea    ecx,[esp+0x8]
+  74301b:	e8 40 27 db ff       	call   0x4f5760
+  743020:	5e                   	pop    esi
+  743021:	83 c4 20             	add    esp,0x20
+  743024:	c2 04 00             	ret    0x4

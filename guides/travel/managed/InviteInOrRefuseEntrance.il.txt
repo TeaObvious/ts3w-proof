@@ -1,0 +1,220 @@
+// Original PC1.67 Sims3GameplaySystems.dll; complete original type export.
+.class public auto ansi beforefieldinit Sims3.Gameplay.Situations.InviteInOrRefuseEntrance
+	extends class Sims3.Gameplay.Interactions.Interaction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>
+{
+	// Nested Types
+	.class nested public auto ansi sealed beforefieldinit Definition
+		extends class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Situations.InviteInOrRefuseEntrance>
+	{
+		.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Test (
+				class Sims3.Gameplay.Actors.Sim a,
+				class Sims3.Gameplay.Actors.Sim target,
+				bool isAutonomous,
+				class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+			) cil managed 
+		{
+			// Method begins at RVA 0x376ee4
+			// Header size: 1
+			// Code size: 15 (0xf)
+			.maxstack 8
+
+			IL_0000: ldarg.1
+			IL_0001: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsSelectable()
+			IL_0006: brfalse.s IL_000d
+
+			IL_0008: ldarg.3
+			IL_0009: brfalse.s IL_000d
+
+			IL_000b: ldc.i4.0
+			IL_000c: ret
+
+			IL_000d: ldc.i4.1
+			IL_000e: ret
+		} // end of method Definition::Test
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x376ef4
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Situations.InviteInOrRefuseEntrance>::.ctor()
+			IL_0006: ret
+		} // end of method Definition::.ctor
+
+	} // end of class Definition
+
+
+	// Fields
+	.field public static initonly class Sims3.Gameplay.Situations.InviteInOrRefuseEntrance/Definition Singleton
+
+	// Methods
+	.method public hidebysig virtual 
+		instance void ConfigureInteraction () cil managed 
+	{
+		// Method begins at RVA 0x376dda
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: call instance void Sims3.Gameplay.Interactions.InteractionInstance::set_Hidden(bool)
+		IL_0007: ldarg.0
+		IL_0008: call instance void Sims3.Gameplay.Interactions.InteractionInstance::ConfigureInteraction()
+		IL_000d: ret
+	} // end of method InviteInOrRefuseEntrance::ConfigureInteraction
+
+	.method public hidebysig virtual 
+		instance string GetInteractionName () cil managed 
+	{
+		// Method begins at RVA 0x376de9
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldstr "Invite In or Refuse Entrance"
+		IL_0005: ret
+	} // end of method InviteInOrRefuseEntrance::GetInteractionName
+
+	.method family hidebysig virtual 
+		instance bool Run () cil managed 
+	{
+		// Method begins at RVA 0x376df0
+		// Header size: 12
+		// Code size: 212 (0xd4)
+		.maxstack 6
+		.locals init (
+			[0] class Sims3.Gameplay.Socializing.Relationship,
+			[1] class Sims3.Gameplay.Interactions.InteractionDefinition,
+			[2] class Sims3.Gameplay.Interactions.InteractionInstance
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0006: ldarg.0
+		IL_0007: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Target
+		IL_000c: ldc.i4.0
+		IL_000d: call class Sims3.Gameplay.Socializing.Relationship Sims3.Gameplay.Socializing.Relationship::Get(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim, bool)
+		IL_0012: stloc.0
+		IL_0013: ldnull
+		IL_0014: stloc.2
+		IL_0015: ldloc.0
+		IL_0016: brfalse.s IL_0054
+
+		IL_0018: ldloc.0
+		IL_0019: callvirt instance class Sims3.Gameplay.Socializing.LongTermRelationship Sims3.Gameplay.Socializing.Relationship::get_LTR()
+		IL_001e: callvirt instance float32 Sims3.Gameplay.Socializing.LongTermRelationship::get_Liking()
+		IL_0023: ldsfld float32 Sims3.Gameplay.Situations.VisitSituation::kLTRThresholdForInviteIn
+		IL_0028: bge.un.s IL_0054
+
+		IL_002a: ldarg.0
+		IL_002b: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Target
+		IL_0030: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsHuman()
+		IL_0035: brfalse.s IL_004c
+
+		IL_0037: ldstr "Refuse Entrance"
+		IL_003c: ldc.i4.0
+		IL_003d: newarr [mscorlib]System.String
+		IL_0042: ldnull
+		IL_0043: ldc.i4.0
+		IL_0044: newobj instance void Sims3.Gameplay.Situations.NotAutonomousForSelectableSims::.ctor(string, string[], class Sims3.Gameplay.Socializing.ActiveTopic, bool)
+		IL_0049: stloc.1
+		IL_004a: br.s IL_0094
+
+		IL_004c: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.InteractionsShared.ShooNeighborPet::Singleton
+		IL_0051: stloc.1
+		IL_0052: br.s IL_0094
+
+		IL_0054: ldarg.0
+		IL_0055: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Target
+		IL_005a: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsHuman()
+		IL_005f: brfalse.s IL_0076
+
+		IL_0061: ldstr "Invite In"
+		IL_0066: ldc.i4.0
+		IL_0067: newarr [mscorlib]System.String
+		IL_006c: ldnull
+		IL_006d: ldc.i4.0
+		IL_006e: newobj instance void Sims3.Gameplay.Situations.NotAutonomousForSelectableSims::.ctor(string, string[], class Sims3.Gameplay.Socializing.ActiveTopic, bool)
+		IL_0073: stloc.1
+		IL_0074: br.s IL_0094
+
+		IL_0076: ldstr "Pet On Floor Auto Accept"
+		IL_007b: ldc.i4.0
+		IL_007c: newarr [mscorlib]System.String
+		IL_0081: ldnull
+		IL_0082: ldc.i4.0
+		IL_0083: newobj instance void Sims3.Gameplay.Situations.NotAutonomousForSelectableSims::.ctor(string, string[], class Sims3.Gameplay.Socializing.ActiveTopic, bool)
+		IL_0088: stloc.1
+		IL_0089: ldarg.0
+		IL_008a: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Target
+		IL_008f: call void Sims3.Gameplay.Situations.VisitSituation::OnInvitedIn(class Sims3.Gameplay.Actors.Sim)
+
+		IL_0094: ldloc.1
+		IL_0095: brfalse.s IL_00bc
+
+		IL_0097: ldloc.1
+		IL_0098: ldarg.0
+		IL_0099: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Target
+		IL_009e: ldarg.0
+		IL_009f: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_00a4: ldarg.0
+		IL_00a5: call instance valuetype Sims3.Gameplay.Interactions.InteractionPriority Sims3.Gameplay.Interactions.InteractionInstance::GetPriority()
+		IL_00aa: ldarg.0
+		IL_00ab: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_Autonomous()
+		IL_00b0: ldarg.0
+		IL_00b1: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_CancellableByPlayer()
+		IL_00b6: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstance(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+		IL_00bb: stloc.2
+
+		IL_00bc: ldloc.2
+		IL_00bd: brfalse.s IL_00d2
+
+		IL_00bf: ldarg.0
+		IL_00c0: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_00c5: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+		IL_00ca: ldarg.0
+		IL_00cb: ldloc.2
+		IL_00cc: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::TryPushAsContinuation(class Sims3.Gameplay.Interactions.InteractionInstance, class Sims3.Gameplay.Interactions.InteractionInstance)
+		IL_00d1: ret
+
+		IL_00d2: ldc.i4.0
+		IL_00d3: ret
+	} // end of method InviteInOrRefuseEntrance::Run
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x376edc
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void class Sims3.Gameplay.Interactions.Interaction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::.ctor()
+		IL_0006: ret
+	} // end of method InviteInOrRefuseEntrance::.ctor
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x376ed0
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: newobj instance void Sims3.Gameplay.Situations.InviteInOrRefuseEntrance/Definition::.ctor()
+		IL_0005: stsfld class Sims3.Gameplay.Situations.InviteInOrRefuseEntrance/Definition Sims3.Gameplay.Situations.InviteInOrRefuseEntrance::Singleton
+		IL_000a: ret
+	} // end of method InviteInOrRefuseEntrance::.cctor
+
+} // end of class Sims3.Gameplay.Situations.InviteInOrRefuseEntrance

@@ -1,0 +1,172 @@
+// Complete actual Layout type and selected actual UIManager member excerpts from pristine PC1.67 UI.dll.
+// This is original decompiler evidence, not a reconstructed compilable class.
+// Paired original CIL has13 complete method bodies/689 code bytes, raw headers
+// and the complete finalizer exception section. Layout lifecycle and managed
+// wrapper/cache/pool policy remain original managed assembly responsibilities.
+
+using System;
+using Sims3.SimIFace;
+
+namespace Sims3.UI;
+
+[Persistable(false)]
+public class Layout : IDisposable
+{
+	private uint mLayoutHandle;
+
+	internal uint LayoutHandle => mLayoutHandle;
+
+	protected internal Layout(uint layoutHandle)
+	{
+		mLayoutHandle = layoutHandle;
+	}
+
+	~Layout()
+	{
+		Dispose(fromDtor: true);
+	}
+
+	public WindowBase GetWindowByExportID(int exportID)
+	{
+		return UIManager.GetWindowByExportID(this, exportID);
+	}
+
+	public void Shutdown()
+	{
+		UIManager.ShutdownLayout(this);
+	}
+
+	public void Dispose()
+	{
+		Dispose(fromDtor: false);
+	}
+
+	private void Dispose(bool fromDtor)
+	{
+		if (mLayoutHandle != 0)
+		{
+			UIManager.DestroyLayout(this);
+			mLayoutHandle = 0u;
+			if (!fromDtor)
+			{
+				GC.SuppressFinalize(this);
+			}
+		}
+	}
+}
+
+
+// Selected Sims3.UI.UIManager members
+	private static WindowBase RetrieveWindowInstance(uint winHandle, Type type)
+	{
+		WindowBase value = null;
+		mControlInstanceCache.TryGetValue(winHandle, out value);
+		if (value == null && IsPoolableType(type))
+		{
+			Stack<WindowBase> value2 = null;
+			mInstancePools.TryGetValue(type, out value2);
+			if (value2 != null)
+			{
+				while (true)
+				{
+					if (value2.Count > 0)
+					{
+						value = value2.Pop();
+						if (!(value == null))
+						{
+							value.Revive(winHandle);
+							break;
+						}
+						continue;
+					}
+					if (!mWindowConstructors.TryGetValue(type, out var value3))
+					{
+						MethodInfo method = type.GetMethod("Create", BindingFlags.Static | BindingFlags.NonPublic, null, new Type[1] { typeof(uint) }, null);
+						value3 = (WindowCreator)Delegate.CreateDelegate(typeof(WindowCreator), method);
+						mWindowConstructors.Add(type, value3);
+					}
+					value = value3(winHandle);
+					break;
+				}
+				if (value != null)
+				{
+					mControlInstanceCache.Add(winHandle, value);
+					value.Detach += OnWinDetach;
+				}
+			}
+		}
+		else
+		{
+			DestroyWindow(value);
+		}
+		return value;
+	}
+
+	internal static WindowBase WrapperFromHandle(uint winHandle)
+	{
+		uint customControlID = gUIMgr.GetCustomControlID(winHandle);
+		if (customControlID == 0)
+		{
+			if (mClassIDTypeMap.TryGetValue(gUIMgr.GetClassID(winHandle), out var value))
+			{
+				return RetrieveWindowInstance(winHandle, value);
+			}
+			gUIMgr.DestroyWindow(winHandle);
+			return null;
+		}
+		WindowBase value2 = null;
+		mCustomControlInstanceDict.TryGetValue(winHandle, out value2);
+		if (value2 == null)
+		{
+			if (mCustomControlConstructorRegistry.TryGetValue(customControlID, out var value3))
+			{
+				WindowBase windowBase = value3.Invoke(new object[1] { winHandle }) as WindowBase;
+				if (windowBase != null)
+				{
+					mCustomControlInstanceDict.Add(windowBase.WinHandle, windowBase);
+					return windowBase;
+				}
+			}
+			WindowBase windowBase2 = null;
+			switch (gUIMgr.GetClassID(winHandle))
+			{
+			case 61489448u:
+				windowBase2 = new Window(winHandle);
+				break;
+			case 61489464u:
+				windowBase2 = new Button(winHandle);
+				break;
+			case 61489480u:
+				windowBase2 = new Dialog(winHandle);
+				break;
+			}
+			if (windowBase2 != null)
+			{
+				mCustomControlInstanceDict.Add(windowBase2.WinHandle, windowBase2);
+			}
+			return windowBase2;
+		}
+		DestroyWindow(value2);
+		return value2;
+	}
+
+	internal static WindowBase GetWindowByExportID(Layout layout, int exportID)
+	{
+		return WrapperFromHandle(gUIMgr.GetWindowByExportID(layout.LayoutHandle, exportID));
+	}
+
+	internal static void DestroyLayout(Layout layout)
+	{
+		gUIMgr.DestroyLayout(layout.LayoutHandle);
+	}
+
+	internal static void ShutdownLayout(Layout layout)
+	{
+		gUIMgr.ShutdownLayout(layout.LayoutHandle);
+	}
+
+	internal static void DestroyWindow(WindowBase win)
+	{
+		gUIMgr.DestroyWindow(win.WinHandle);
+	}
+

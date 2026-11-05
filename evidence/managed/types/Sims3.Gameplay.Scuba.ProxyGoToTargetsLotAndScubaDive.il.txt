@@ -1,0 +1,219 @@
+.class public auto ansi sealed beforefieldinit Sims3.Gameplay.Scuba.ProxyGoToTargetsLotAndScubaDive
+	extends class Sims3.Gameplay.Interactions.Interaction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot>
+	implements Sims3.Gameplay.Objects.Vehicles.ITransitionForcesGetOutIntoWater
+{
+	// Nested Types
+	.class nested public auto ansi sealed beforefieldinit Definition
+		extends class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot, class Sims3.Gameplay.Scuba.ProxyGoToTargetsLotAndScubaDive>
+	{
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x45bcd3
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot, class Sims3.Gameplay.Scuba.ProxyGoToTargetsLotAndScubaDive>::.ctor()
+			IL_0006: ret
+		} // end of method Definition::.ctor
+
+		.method family hidebysig virtual 
+			instance bool Test (
+				class Sims3.Gameplay.Actors.Sim actor,
+				class Sims3.Gameplay.Core.Lot target,
+				bool isAutonomous,
+				class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+			) cil managed 
+		{
+			// Method begins at RVA 0x45bcdb
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method Definition::Test
+
+		.method public hidebysig virtual 
+			instance valuetype Sims3.Gameplay.Interactions.InteractionTestResult Test (
+				valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters,
+				class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+			) cil managed 
+		{
+			// Method begins at RVA 0x45bce0
+			// Header size: 12
+			// Code size: 82 (0x52)
+			.maxstack 3
+			.locals init (
+				[0] valuetype Sims3.Gameplay.Interactions.InteractionTestResult
+			)
+
+			IL_0000: ldarg.1
+			IL_0001: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_0006: isinst Sims3.Gameplay.Actors.Sim
+			IL_000b: ldarg.1
+			IL_000c: call instance valuetype [SimIFace]Sims3.SimIFace.GameObjectHit Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Hit()
+			IL_0011: call bool Sims3.Gameplay.Scuba.ScubaDiving::ScubaHitTest(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.GameObjectHit)
+			IL_0016: brfalse.s IL_004c
+
+			IL_0018: ldarg.0
+			IL_0019: ldarg.1
+			IL_001a: ldarg.2
+			IL_001b: call instance valuetype Sims3.Gameplay.Interactions.InteractionTestResult class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot, class Sims3.Gameplay.Scuba.ProxyGoToTargetsLotAndScubaDive>::Test(valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+			IL_0020: dup
+			IL_0021: stloc.0
+			IL_0022: call bool Sims3.Gameplay.Interactions.InteractionDefinitionUtilities::IsPass(valuetype Sims3.Gameplay.Interactions.InteractionTestResult)
+			IL_0027: brfalse.s IL_004a
+
+			IL_0029: ldarg.1
+			IL_002a: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_002f: isinst Sims3.Gameplay.Actors.Sim
+			IL_0034: ldarg.1
+			IL_0035: call instance valuetype [SimIFace]Sims3.SimIFace.GameObjectHit Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Hit()
+			IL_003a: ldarg.2
+			IL_003b: call bool Sims3.Gameplay.Scuba.ScubaDiving::ScubaHitTestTooltips(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.GameObjectHit, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+			IL_0040: brtrue.s IL_0048
+
+			IL_0042: ldc.i4 128
+			IL_0047: ret
+
+			IL_0048: ldc.i4.0
+			IL_0049: ret
+
+			IL_004a: ldloc.0
+			IL_004b: ret
+
+			IL_004c: ldc.i4 128
+			IL_0051: ret
+		} // end of method Definition::Test
+
+		.method family hidebysig virtual 
+			instance string GetInteractionName (
+				class Sims3.Gameplay.Actors.Sim actor,
+				class Sims3.Gameplay.Core.Lot target,
+				class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+			) cil managed 
+		{
+			// Method begins at RVA 0x45bd3e
+			// Header size: 1
+			// Code size: 13 (0xd)
+			.maxstack 8
+
+			IL_0000: ldstr ""
+			IL_0005: ldc.i4.0
+			IL_0006: ldarg.1
+			IL_0007: call string Sims3.Gameplay.Scuba.ScubaDiving::SharedGetInteractionName(string, bool, class Sims3.Gameplay.Actors.Sim)
+			IL_000c: ret
+		} // end of method Definition::GetInteractionName
+
+	} // end of class Definition
+
+
+	// Fields
+	.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+	// Methods
+	.method public hidebysig virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey GetIconKey () cil managed 
+	{
+		// Method begins at RVA 0x45bc0d
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldstr "w_go_scuba_diving"
+		IL_0005: ldc.i4 262144
+		IL_000a: call uint32 [SimIFace]Sims3.SimIFace.ResourceUtils::ProductVersionToGroupId(valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+		IL_000f: call valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.ResourceKey::CreatePNGKey(string, uint32)
+		IL_0014: ldc.i4.2
+		IL_0015: newobj instance void [SimIFace]Sims3.SimIFace.ThumbnailKey::.ctor(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+		IL_001a: ret
+	} // end of method ProxyGoToTargetsLotAndScubaDive::GetIconKey
+
+	.method family hidebysig virtual 
+		instance bool Run () cil managed 
+	{
+		// Method begins at RVA 0x45bc2c
+		// Header size: 12
+		// Code size: 135 (0x87)
+		.maxstack 6
+		.locals init (
+			[0] class Sims3.Gameplay.Scuba.GoHereAndScubaDive,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Scuba.GoHereAndScubaDive::Singleton
+		IL_0005: call class Sims3.Gameplay.Core.Terrain Sims3.Gameplay.Core.Terrain::get_Singleton()
+		IL_000a: ldarg.0
+		IL_000b: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot>::Actor
+		IL_0010: ldarg.0
+		IL_0011: call instance valuetype Sims3.Gameplay.Interactions.InteractionPriority Sims3.Gameplay.Interactions.InteractionInstance::GetPriority()
+		IL_0016: ldarg.0
+		IL_0017: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_Autonomous()
+		IL_001c: ldarg.0
+		IL_001d: call instance bool Sims3.Gameplay.Interactions.InteractionInstance::get_CancellableByPlayer()
+		IL_0022: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstance(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+		IL_0027: isinst Sims3.Gameplay.Scuba.GoHereAndScubaDive
+		IL_002c: stloc.0
+		IL_002d: ldarg.0
+		IL_002e: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot>::Target
+		IL_0033: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Core.Lot::GetCenterPosition()
+		IL_0038: stloc.1
+		IL_0039: ldloca.s 1
+		IL_003b: ldloca.s 1
+		IL_003d: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::x
+		IL_0042: ldloca.s 1
+		IL_0044: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::z
+		IL_0049: ldc.i4.1
+		IL_004a: call float32 [SimIFace]Sims3.SimIFace.World::GetLevelHeight(float32, float32, int32)
+		IL_004f: stfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+		IL_0054: ldloc.0
+		IL_0055: ldloc.1
+		IL_0056: callvirt instance void Sims3.Gameplay.Scuba.GoHereAndScubaDive::SetDestination(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_005b: ldloc.0
+		IL_005c: ldc.i4.s 9
+		IL_005e: newobj instance void [SimIFace]Sims3.SimIFace.GameObjectHit::.ctor(valuetype [SimIFace]Sims3.SimIFace.GameObjectHitType)
+		IL_0063: stfld valuetype [SimIFace]Sims3.SimIFace.GameObjectHit class Sims3.Gameplay.Interactions.InteractionGameObjectHit`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Hit
+		IL_0068: ldloc.0
+		IL_0069: ldflda valuetype [SimIFace]Sims3.SimIFace.GameObjectHit class Sims3.Gameplay.Interactions.InteractionGameObjectHit`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Terrain>::Hit
+		IL_006e: ldloc.1
+		IL_006f: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.GameObjectHit::mPoint
+		IL_0074: ldarg.0
+		IL_0075: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot>::Actor
+		IL_007a: callvirt instance class Sims3.Gameplay.ActorSystems.InteractionQueue Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+		IL_007f: ldarg.0
+		IL_0080: ldloc.0
+		IL_0081: callvirt instance bool Sims3.Gameplay.ActorSystems.InteractionQueue::TryPushAsContinuation(class Sims3.Gameplay.Interactions.InteractionInstance, class Sims3.Gameplay.Interactions.InteractionInstance)
+		IL_0086: ret
+	} // end of method ProxyGoToTargetsLotAndScubaDive::Run
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x45bccb
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void class Sims3.Gameplay.Interactions.Interaction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot>::.ctor()
+		IL_0006: ret
+	} // end of method ProxyGoToTargetsLotAndScubaDive::.ctor
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x45bcbf
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: newobj instance void Sims3.Gameplay.Scuba.ProxyGoToTargetsLotAndScubaDive/Definition::.ctor()
+		IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Scuba.ProxyGoToTargetsLotAndScubaDive::Singleton
+		IL_000a: ret
+	} // end of method ProxyGoToTargetsLotAndScubaDive::.cctor
+
+} // end of class Sims3.Gameplay.Scuba.ProxyGoToTargetsLotAndScubaDive

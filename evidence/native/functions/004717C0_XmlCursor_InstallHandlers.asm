@@ -1,0 +1,82 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 actual Ghidra-owned Listing; analyst-assigned name XmlCursor_InstallHandlers
+Owned ranges: [[004717c0, 004718aa]]
+Signature: void __thiscall XmlCursor_InstallHandlers(ushort * sourceLabel)
+Physical ABI: ECX cursor; stack+4 optional UTF16 source label; no meaningful return; RET4.
+
+004717c0  56  PUSH ESI
+004717c1  57  PUSH EDI
+004717c2  8bf1  MOV ESI,ECX
+004717c4  8d4610  LEA EAX,[ESI + 0x10]
+004717c7  50  PUSH EAX
+004717c8  6890434e00  PUSH 0x4e4390
+004717cd  6860434e00  PUSH 0x4e4360
+004717d2  6a00  PUSH 0x0
+004717d4  8d7e18  LEA EDI,[ESI + 0x18]
+004717d7  6a00  PUSH 0x0
+004717d9  8bcf  MOV ECX,EDI
+004717db  e800730700  CALL 0x004e8ae0
+004717e0  8b44240c  MOV EAX,dword ptr [ESP + 0xc]
+004717e4  85c0  TEST EAX,EAX
+004717e6  740b  JZ 0x004717f3
+004717e8  50  PUSH EAX
+004717e9  8bce  MOV ECX,ESI
+004717eb  e880fbffff  CALL 0x00471370 ; Copy optional source label to the same arena; this is distinct from parser encoding selection.
+004717f0  89465c  MOV dword ptr [ESI + 0x5c],EAX
+004717f3  8b4f08  MOV ECX,dword ptr [EDI + 0x8]
+004717f6  2b4f0c  SUB ECX,dword ptr [EDI + 0xc]
+004717f9  81e900200000  SUB ECX,0x2000
+004717ff  7914  JNS 0x00471815
+00471801  6800200000  PUSH 0x2000
+00471806  8bcf  MOV ECX,EDI
+00471808  e873730700  CALL 0x004e8b80
+0047180d  84c0  TEST AL,AL
+0047180f  7504  JNZ 0x00471815
+00471811  33c0  XOR EAX,EAX
+00471813  eb0f  JMP 0x00471824
+00471815  8b470c  MOV EAX,dword ptr [EDI + 0xc]
+00471818  8d8800200000  LEA ECX,[EAX + 0x2000]
+0047181e  894f0c  MOV dword ptr [EDI + 0xc],ECX
+00471821  894f10  MOV dword ptr [EDI + 0x10],ECX
+00471824  8b16  MOV EDX,dword ptr [ESI]
+00471826  89464c  MOV dword ptr [ESI + 0x4c],EAX
+00471829  0500200000  ADD EAX,0x2000
+0047182e  56  PUSH ESI
+0047182f  52  PUSH EDX
+00471830  894650  MOV dword ptr [ESI + 0x50],EAX
+00471833  c7465400000000  MOV dword ptr [ESI + 0x54],0x0
+0047183a  c7460c00000000  MOV dword ptr [ESI + 0xc],0x0
+00471841  e81a800400  CALL 0x004b9860 ; Set parser userData to the cursor receiver.
+00471846  8b06  MOV EAX,dword ptr [ESI]
+00471848  68c0154700  PUSH 0x4715c0
+0047184d  6870144700  PUSH 0x471470 ; Register OnStartElement71470 as start callback;715C0 is the separate end callback.
+00471852  50  PUSH EAX
+00471853  e828800400  CALL 0x004b9880
+00471858  8b0e  MOV ECX,dword ptr [ESI]
+0047185a  6830164700  PUSH 0x471630
+0047185f  51  PUSH ECX
+00471860  e83b800400  CALL 0x004b98a0
+00471865  8b16  MOV EDX,dword ptr [ESI]
+00471867  68e0164700  PUSH 0x4716e0
+0047186c  52  PUSH EDX
+0047186d  e84e800400  CALL 0x004b98c0
+00471872  8b06  MOV EAX,dword ptr [ESI]
+00471874  68c0404b00  PUSH 0x4b40c0
+00471879  68e0134700  PUSH 0x4713e0
+0047187e  50  PUSH EAX
+0047187f  e84c800400  CALL 0x004b98d0
+00471884  8b0e  MOV ECX,dword ptr [ESI]
+00471886  6850174700  PUSH 0x471750
+0047188b  51  PUSH ECX
+0047188c  e81f800400  CALL 0x004b98b0
+00471891  8b16  MOV EDX,dword ptr [ESI]
+00471893  68c0404b00  PUSH 0x4b40c0
+00471898  68c0404b00  PUSH 0x4b40c0
+0047189d  52  PUSH EDX
+0047189e  e84d800400  CALL 0x004b98f0
+004718a3  83c444  ADD ESP,0x44 ; Caller clears all44 bytes of cdecl registration arguments; this method itself pops its one input word.
+004718a6  5f  POP EDI
+004718a7  5e  POP ESI
+004718a8  c20400  RET 0x4

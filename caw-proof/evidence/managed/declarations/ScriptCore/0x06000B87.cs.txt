@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000B87.
+// Assembly: ScriptCore; type: ScriptCore.CacheManager.
+// Decompiled C# source: ScriptCore/ScriptCore/CacheManager.cs:47
+	[DllImport("Sims3Common")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	internal static extern bool CacheManager_ReadDatabaseChecksum([MarshalAs(UnmanagedType.LPWStr)] string databaseName, out ulong checksum, out ulong dataSize, out int recordCount);

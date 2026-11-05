@@ -1,0 +1,76 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00c60e20 to next catalog entry 0x00c60ef0; may include padding or data.
+  c60e20:	51                   	push   ecx
+  c60e21:	f3 0f 10 4c 24 08    	movss  xmm1,DWORD PTR [esp+0x8]
+  c60e27:	0f 2f 89 b4 00 00 00 	comiss xmm1,DWORD PTR [ecx+0xb4]
+  c60e2e:	f3 0f 10 05 74 96 07 	movss  xmm0,DWORD PTR ds:0x1079674
+  c60e35:	01 
+  c60e36:	f3 0f 11 04 24       	movss  DWORD PTR [esp],xmm0
+  c60e3b:	0f 82 9d 00 00 00    	jb     0xc60ede
+  c60e41:	f3 0f 10 44 24 0c    	movss  xmm0,DWORD PTR [esp+0xc]
+  c60e47:	0f 2f 81 b8 00 00 00 	comiss xmm0,DWORD PTR [ecx+0xb8]
+  c60e4e:	0f 82 8a 00 00 00    	jb     0xc60ede
+  c60e54:	f3 0f 10 91 bc 00 00 	movss  xmm2,DWORD PTR [ecx+0xbc]
+  c60e5b:	00 
+  c60e5c:	0f 2f d1             	comiss xmm2,xmm1
+  c60e5f:	76 7d                	jbe    0xc60ede
+  c60e61:	f3 0f 10 89 c4 00 00 	movss  xmm1,DWORD PTR [ecx+0xc4]
+  c60e68:	00 
+  c60e69:	f3 0f 58 89 c0 00 00 	addss  xmm1,DWORD PTR [ecx+0xc0]
+  c60e70:	00 
+  c60e71:	0f 2f c8             	comiss xmm1,xmm0
+  c60e74:	76 68                	jbe    0xc60ede
+  c60e76:	53                   	push   ebx
+  c60e77:	8b 99 04 01 00 00    	mov    ebx,DWORD PTR [ecx+0x104]
+  c60e7d:	56                   	push   esi
+  c60e7e:	8b b1 00 01 00 00    	mov    esi,DWORD PTR [ecx+0x100]
+  c60e84:	3b f3                	cmp    esi,ebx
+  c60e86:	74 54                	je     0xc60edc
+  c60e88:	55                   	push   ebp
+  c60e89:	8b 6c 24 1c          	mov    ebp,DWORD PTR [esp+0x1c]
+  c60e8d:	57                   	push   edi
+  c60e8e:	8b ff                	mov    edi,edi
+  c60e90:	d9 44 24 1c          	fld    DWORD PTR [esp+0x1c]
+  c60e94:	8b 3e                	mov    edi,DWORD PTR [esi]
+  c60e96:	55                   	push   ebp
+  c60e97:	83 ec 08             	sub    esp,0x8
+  c60e9a:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  c60e9e:	8b cf                	mov    ecx,edi
+  c60ea0:	d9 44 24 24          	fld    DWORD PTR [esp+0x24]
+  c60ea4:	d9 1c 24             	fstp   DWORD PTR [esp]
+  c60ea7:	e8 e4 d4 ef ff       	call   0xb5e390
+  c60eac:	84 c0                	test   al,al
+  c60eae:	75 13                	jne    0xc60ec3
+  c60eb0:	83 c6 04             	add    esi,0x4
+  c60eb3:	3b f3                	cmp    esi,ebx
+  c60eb5:	75 d9                	jne    0xc60e90
+  c60eb7:	d9 44 24 10          	fld    DWORD PTR [esp+0x10]
+  c60ebb:	5f                   	pop    edi
+  c60ebc:	5d                   	pop    ebp
+  c60ebd:	5e                   	pop    esi
+  c60ebe:	5b                   	pop    ebx
+  c60ebf:	59                   	pop    ecx
+  c60ec0:	c2 0c 00             	ret    0xc
+  c60ec3:	f3 0f 10 87 18 02 00 	movss  xmm0,DWORD PTR [edi+0x218]
+  c60eca:	00 
+  c60ecb:	0f 2f 05 74 96 07 01 	comiss xmm0,DWORD PTR ds:0x1079674
+  c60ed2:	76 06                	jbe    0xc60eda
+  c60ed4:	f3 0f 11 44 24 10    	movss  DWORD PTR [esp+0x10],xmm0
+  c60eda:	5f                   	pop    edi
+  c60edb:	5d                   	pop    ebp
+  c60edc:	5e                   	pop    esi
+  c60edd:	5b                   	pop    ebx
+  c60ede:	d9 04 24             	fld    DWORD PTR [esp]
+  c60ee1:	59                   	pop    ecx
+  c60ee2:	c2 0c 00             	ret    0xc
+  c60ee5:	cc                   	int3
+  c60ee6:	cc                   	int3
+  c60ee7:	cc                   	int3
+  c60ee8:	cc                   	int3
+  c60ee9:	cc                   	int3
+  c60eea:	cc                   	int3
+  c60eeb:	cc                   	int3
+  c60eec:	cc                   	int3
+  c60eed:	cc                   	int3
+  c60eee:	cc                   	int3
+  c60eef:	cc                   	int3

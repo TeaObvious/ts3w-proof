@@ -1,0 +1,36 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Supplemental helper: CameraPoseLerp_Begin at 0x009627b0
+# Bounded stop: 0x00962800; next Ghidra entry: 0x00962800; this is not a body-size claim.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+009627b0 <.text+0x5617b0>:
+  9627b0:	55                   	push   ebp
+  9627b1:	8b ec                	mov    ebp,esp
+  9627b3:	83 e4 f0             	and    esp,0xfffffff0
+  9627b6:	8b 45 08             	mov    eax,DWORD PTR [ebp+0x8]
+  9627b9:	0f 28 00             	movaps xmm0,XMMWORD PTR [eax]
+  9627bc:	8b 55 10             	mov    edx,DWORD PTR [ebp+0x10]
+  9627bf:	8b 45 0c             	mov    eax,DWORD PTR [ebp+0xc]
+  9627c2:	0f 29 41 50          	movaps XMMWORD PTR [ecx+0x50],xmm0
+  9627c6:	0f 29 41 10          	movaps XMMWORD PTR [ecx+0x10],xmm0
+  9627ca:	0f 28 02             	movaps xmm0,XMMWORD PTR [edx]
+  9627cd:	8b 55 14             	mov    edx,DWORD PTR [ebp+0x14]
+  9627d0:	0f 29 41 60          	movaps XMMWORD PTR [ecx+0x60],xmm0
+  9627d4:	0f 29 41 20          	movaps XMMWORD PTR [ecx+0x20],xmm0
+  9627d8:	0f 28 00             	movaps xmm0,XMMWORD PTR [eax]
+  9627db:	0f 29 41 30          	movaps XMMWORD PTR [ecx+0x30],xmm0
+  9627df:	0f 28 02             	movaps xmm0,XMMWORD PTR [edx]
+  9627e2:	0f 29 41 40          	movaps XMMWORD PTR [ecx+0x40],xmm0
+  9627e6:	0f 57 c0             	xorps  xmm0,xmm0
+  9627e9:	f3 0f 11 41 70       	movss  DWORD PTR [ecx+0x70],xmm0
+  9627ee:	f3 0f 10 45 18       	movss  xmm0,DWORD PTR [ebp+0x18]
+  9627f3:	f3 0f 11 41 74       	movss  DWORD PTR [ecx+0x74],xmm0
+  9627f8:	8b e5                	mov    esp,ebp
+  9627fa:	5d                   	pop    ebp
+  9627fb:	c2 14 00             	ret    0x14
+  9627fe:	cc                   	int3
+  9627ff:	cc                   	int3

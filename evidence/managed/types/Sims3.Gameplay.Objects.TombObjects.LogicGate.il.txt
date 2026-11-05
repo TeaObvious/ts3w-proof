@@ -1,0 +1,3915 @@
+.class public auto ansi beforefieldinit Sims3.Gameplay.Objects.TombObjects.LogicGate
+	extends [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+	implements [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IBuildBuyListener
+{
+	// Nested Types
+	.class nested private auto ansi sealed LogicMode
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode AND = int32(146171540)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode OR = int32(146171541)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode NAND = int32(146171542)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode NOR = int32(146171543)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode XOR = int32(146171544)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode NXOR = int32(146171545)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode NOT = int32(146171559)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Toggle = int32(146846266)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Counter = int32(146171560)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Cycler = int32(146171561)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode RandomByte = int32(146588973)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode RandomBit = int32(146589724)
+
+	} // end of class LogicMode
+
+	.class nested private auto ansi sealed ClockMode
+		extends [mscorlib]System.Enum
+	{
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Auto = int32(0)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Enabled = int32(1)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Disabled = int32(2)
+
+	} // end of class ClockMode
+
+	.class nested private auto ansi sealed Option
+		extends [mscorlib]System.Enum
+	{
+		.custom instance void [mscorlib]System.FlagsAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Fields
+		.field public specialname rtspecialname int32 value__
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option DeactivateOutputsOnTick = int32(1)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option DeactivateOutputsOnReset = int32(2)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option ClearInputsOnDeactivate = int32(4)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option ClearInputsOnTick = int32(8)
+		.field public static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option ClearInputsOnReset = int32(16)
+
+	} // end of class Option
+
+	.class nested private sequential ansi sealed beforefieldinit ImportData
+		extends [mscorlib]System.ValueType
+	{
+		// Fields
+		.field public uint32 version
+		.field public uint32 logicMode
+		.field public float32 period
+		.field public float32 jitter
+		.field public uint32 clockMode
+		.field public uint32 options
+
+	} // end of class ImportData
+
+	.class nested private auto ansi sealed beforefieldinit SetOption
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field public valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Option
+
+			// Methods
+			.method public hidebysig virtual 
+				instance string[] GetPath (
+					bool isFemale
+				) cil managed 
+			{
+				// Method begins at RVA 0x22c774
+				// Header size: 12
+				// Code size: 28 (0x1c)
+				.maxstack 4
+				.locals init (
+					[0] string[]
+				)
+
+				IL_0000: ldc.i4.1
+				IL_0001: newarr [mscorlib]System.String
+				IL_0006: stloc.0
+				IL_0007: ldloc.0
+				IL_0008: ldc.i4.0
+				IL_0009: ldstr "SetOption"
+				IL_000e: ldc.i4.0
+				IL_000f: newarr [mscorlib]System.Object
+				IL_0014: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0019: stelem.ref
+				IL_001a: ldloc.0
+				IL_001b: ret
+			} // end of method Definition::GetPath
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x22c79c
+				// Header size: 12
+				// Code size: 75 (0x4b)
+				.maxstack 5
+				.locals init (
+					[0] object[]
+				)
+
+				IL_0000: ldstr "SetOption"
+				IL_0005: ldarg.0
+				IL_0006: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption/Definition::Option
+				IL_000b: box Sims3.Gameplay.Objects.TombObjects.LogicGate/Option
+				IL_0010: call string [mscorlib]System.String::Concat(object, object)
+				IL_0015: ldc.i4.1
+				IL_0016: newarr [mscorlib]System.Object
+				IL_001b: stloc.0
+				IL_001c: ldloc.0
+				IL_001d: ldc.i4.0
+				IL_001e: ldarg.2
+				IL_001f: ldarg.0
+				IL_0020: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption/Definition::Option
+				IL_0025: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::OptionIsEnabled(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+				IL_002a: brtrue.s IL_0033
+
+				IL_002c: ldstr "SetOptionDisabled"
+				IL_0031: br.s IL_0038
+
+				IL_0033: ldstr "SetOptionEnabled"
+
+				IL_0038: ldc.i4.0
+				IL_0039: newarr [mscorlib]System.Object
+				IL_003e: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0043: stelem.ref
+				IL_0044: ldloc.0
+				IL_0045: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_004a: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x22c7f3
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x22c7f8
+				// Header size: 12
+				// Code size: 90 (0x5a)
+				.maxstack 4
+				.locals init (
+					[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option,
+					[1] class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption/Definition,
+					[2] class [mscorlib]System.Collections.IEnumerator,
+					[3] class [mscorlib]System.IDisposable
+				)
+
+				IL_0000: ldtoken Sims3.Gameplay.Objects.TombObjects.LogicGate/Option
+				IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+				IL_000a: call class [mscorlib]System.Array [mscorlib]System.Enum::GetValues(class [mscorlib]System.Type)
+				IL_000f: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Array::GetEnumerator()
+				IL_0014: stloc.2
+				.try
+				{
+					IL_0015: br.s IL_003e
+					// loop start (head: IL_003e)
+						IL_0017: ldloc.2
+						IL_0018: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+						IL_001d: unbox.any Sims3.Gameplay.Objects.TombObjects.LogicGate/Option
+						IL_0022: stloc.0
+						IL_0023: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption/Definition::.ctor()
+						IL_0028: stloc.1
+						IL_0029: ldloc.1
+						IL_002a: ldloc.0
+						IL_002b: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption/Definition::Option
+						IL_0030: ldarg.s results
+						IL_0032: ldloc.1
+						IL_0033: ldarg.3
+						IL_0034: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+						IL_0039: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+
+						IL_003e: ldloc.2
+						IL_003f: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+						IL_0044: brtrue.s IL_0017
+					// end loop
+
+					IL_0046: leave.s IL_0059
+				} // end .try
+				finally
+				{
+					IL_0048: ldloc.2
+					IL_0049: isinst [mscorlib]System.IDisposable
+					IL_004e: stloc.3
+					IL_004f: ldloc.3
+					IL_0050: brfalse.s IL_0058
+
+					IL_0052: ldloc.3
+					IL_0053: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+					IL_0058: endfinally
+				} // end handler
+
+				IL_0059: ret
+			} // end of method Definition::AddInteractions
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x22c870
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x22c742
+			// Header size: 1
+			// Code size: 29 (0x1d)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+			IL_0006: ldarg.0
+			IL_0007: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_InteractionDefinition()
+			IL_000c: isinst Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption/Definition
+			IL_0011: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption/Definition::Option
+			IL_0016: callvirt instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::ToggleOption(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+			IL_001b: ldc.i4.1
+			IL_001c: ret
+		} // end of method SetOption::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x22c76c
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::.ctor()
+			IL_0006: ret
+		} // end of method SetOption::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x22c760
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption::Singleton
+			IL_000a: ret
+		} // end of method SetOption::.cctor
+
+	} // end of class SetOption
+
+	.class nested private auto ansi sealed beforefieldinit SetLogicMode
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field public valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Mode
+
+			// Methods
+			.method public hidebysig virtual 
+				instance string[] GetPath (
+					bool isFemale
+				) cil managed 
+			{
+				// Method begins at RVA 0x22c904
+				// Header size: 12
+				// Code size: 28 (0x1c)
+				.maxstack 4
+				.locals init (
+					[0] string[]
+				)
+
+				IL_0000: ldc.i4.1
+				IL_0001: newarr [mscorlib]System.String
+				IL_0006: stloc.0
+				IL_0007: ldloc.0
+				IL_0008: ldc.i4.0
+				IL_0009: ldstr "SetLogicMode"
+				IL_000e: ldc.i4.0
+				IL_000f: newarr [mscorlib]System.Object
+				IL_0014: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0019: stelem.ref
+				IL_001a: ldloc.0
+				IL_001b: ret
+			} // end of method Definition::GetPath
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x22c92c
+				// Header size: 1
+				// Code size: 33 (0x21)
+				.maxstack 8
+
+				IL_0000: ldstr "SetLogicMode"
+				IL_0005: ldarg.0
+				IL_0006: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition::Mode
+				IL_000b: box Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode
+				IL_0010: call string [mscorlib]System.String::Concat(object, object)
+				IL_0015: ldc.i4.0
+				IL_0016: newarr [mscorlib]System.Object
+				IL_001b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0020: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x22c94e
+				// Header size: 1
+				// Code size: 33 (0x21)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+				IL_0006: ldarg.0
+				IL_0007: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition::Mode
+				IL_000c: bne.un.s IL_001f
+
+				IL_000e: ldarg.s greyedOutTooltipCallback
+				IL_0010: ldarg.0
+				IL_0011: ldftn instance string Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition::CurrentSettingTooltip()
+				IL_0017: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+				IL_001c: stind.ref
+				IL_001d: ldc.i4.0
+				IL_001e: ret
+
+				IL_001f: ldc.i4.1
+				IL_0020: ret
+			} // end of method Definition::Test
+
+			.method private hidebysig 
+				instance string CurrentSettingTooltip () cil managed 
+			{
+				// Method begins at RVA 0x22c970
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "CurrentSetting"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::CurrentSettingTooltip
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x22c984
+				// Header size: 12
+				// Code size: 90 (0x5a)
+				.maxstack 4
+				.locals init (
+					[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode,
+					[1] class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition,
+					[2] class [mscorlib]System.Collections.IEnumerator,
+					[3] class [mscorlib]System.IDisposable
+				)
+
+				IL_0000: ldtoken Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode
+				IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+				IL_000a: call class [mscorlib]System.Array [mscorlib]System.Enum::GetValues(class [mscorlib]System.Type)
+				IL_000f: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Array::GetEnumerator()
+				IL_0014: stloc.2
+				.try
+				{
+					IL_0015: br.s IL_003e
+					// loop start (head: IL_003e)
+						IL_0017: ldloc.2
+						IL_0018: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+						IL_001d: unbox.any Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode
+						IL_0022: stloc.0
+						IL_0023: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition::.ctor()
+						IL_0028: stloc.1
+						IL_0029: ldloc.1
+						IL_002a: ldloc.0
+						IL_002b: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition::Mode
+						IL_0030: ldarg.s results
+						IL_0032: ldloc.1
+						IL_0033: ldarg.3
+						IL_0034: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+						IL_0039: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+
+						IL_003e: ldloc.2
+						IL_003f: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+						IL_0044: brtrue.s IL_0017
+					// end loop
+
+					IL_0046: leave.s IL_0059
+				} // end .try
+				finally
+				{
+					IL_0048: ldloc.2
+					IL_0049: isinst [mscorlib]System.IDisposable
+					IL_004e: stloc.3
+					IL_004f: ldloc.3
+					IL_0050: brfalse.s IL_0058
+
+					IL_0052: ldloc.3
+					IL_0053: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+					IL_0058: endfinally
+				} // end handler
+
+				IL_0059: ret
+			} // end of method Definition::AddInteractions
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x22c9fc
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x22c878
+			// Header size: 12
+			// Code size: 107 (0x6b)
+			.maxstack 4
+			.locals init (
+				[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode,
+				[1] valuetype [UI]Sims3.UI.StyledNotification/Format
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_InteractionDefinition()
+			IL_0006: isinst Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition
+			IL_000b: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition::Mode
+			IL_0010: stloc.0
+			IL_0011: ldarg.0
+			IL_0012: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+			IL_0017: ldloc.0
+			IL_0018: callvirt instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetLogicModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode)
+			IL_001d: ldloc.0
+			IL_001e: ldc.i4 146846266
+			IL_0023: bne.un.s IL_0069
+
+			IL_0025: ldarg.0
+			IL_0026: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+			IL_002b: ldc.i4.8
+			IL_002c: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::OptionIsEnabled(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+			IL_0031: brtrue.s IL_0069
+
+			IL_0033: ldarg.0
+			IL_0034: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+			IL_0039: ldc.i4.8
+			IL_003a: callvirt instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::ToggleOption(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+			IL_003f: ldloca.s 1
+			IL_0041: ldstr "SetLogicModeToggleTNS"
+			IL_0046: ldc.i4.0
+			IL_0047: newarr [mscorlib]System.Object
+			IL_004c: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+			IL_0051: ldarg.0
+			IL_0052: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+			IL_0057: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_005c: ldc.i4.3
+			IL_005d: call instance void [UI]Sims3.UI.StyledNotification/Format::.ctor(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle)
+			IL_0062: ldloc.1
+			IL_0063: call class [UI]Sims3.UI.StyledNotification [UI]Sims3.UI.StyledNotification::Show(valuetype [UI]Sims3.UI.StyledNotification/Format)
+			IL_0068: pop
+
+			IL_0069: ldc.i4.1
+			IL_006a: ret
+		} // end of method SetLogicMode::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x22c8fb
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::.ctor()
+			IL_0006: ret
+		} // end of method SetLogicMode::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x22c8ef
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode::Singleton
+			IL_000a: ret
+		} // end of method SetLogicMode::.cctor
+
+	} // end of class SetLogicMode
+
+	.class nested private auto ansi sealed beforefieldinit SetClockMode
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field public valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Mode
+
+			// Methods
+			.method public hidebysig virtual 
+				instance string[] GetPath (
+					bool isFemale
+				) cil managed 
+			{
+				// Method begins at RVA 0x22ca50
+				// Header size: 12
+				// Code size: 28 (0x1c)
+				.maxstack 4
+				.locals init (
+					[0] string[]
+				)
+
+				IL_0000: ldc.i4.1
+				IL_0001: newarr [mscorlib]System.String
+				IL_0006: stloc.0
+				IL_0007: ldloc.0
+				IL_0008: ldc.i4.0
+				IL_0009: ldstr "SetClockMode"
+				IL_000e: ldc.i4.0
+				IL_000f: newarr [mscorlib]System.Object
+				IL_0014: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0019: stelem.ref
+				IL_001a: ldloc.0
+				IL_001b: ret
+			} // end of method Definition::GetPath
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x22ca78
+				// Header size: 1
+				// Code size: 33 (0x21)
+				.maxstack 8
+
+				IL_0000: ldstr "SetClockMode"
+				IL_0005: ldarg.0
+				IL_0006: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition::Mode
+				IL_000b: box Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode
+				IL_0010: call string [mscorlib]System.String::Concat(object, object)
+				IL_0015: ldc.i4.0
+				IL_0016: newarr [mscorlib]System.Object
+				IL_001b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0020: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x22ca9a
+				// Header size: 1
+				// Code size: 33 (0x21)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+				IL_0006: ldarg.0
+				IL_0007: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition::Mode
+				IL_000c: bne.un.s IL_001f
+
+				IL_000e: ldarg.s greyedOutTooltipCallback
+				IL_0010: ldarg.0
+				IL_0011: ldftn instance string Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition::CurrentSettingTooltip()
+				IL_0017: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+				IL_001c: stind.ref
+				IL_001d: ldc.i4.0
+				IL_001e: ret
+
+				IL_001f: ldc.i4.1
+				IL_0020: ret
+			} // end of method Definition::Test
+
+			.method private hidebysig 
+				instance string CurrentSettingTooltip () cil managed 
+			{
+				// Method begins at RVA 0x22cabc
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "CurrentSetting"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::CurrentSettingTooltip
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x22cad0
+				// Header size: 12
+				// Code size: 90 (0x5a)
+				.maxstack 4
+				.locals init (
+					[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode,
+					[1] class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition,
+					[2] class [mscorlib]System.Collections.IEnumerator,
+					[3] class [mscorlib]System.IDisposable
+				)
+
+				IL_0000: ldtoken Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode
+				IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+				IL_000a: call class [mscorlib]System.Array [mscorlib]System.Enum::GetValues(class [mscorlib]System.Type)
+				IL_000f: callvirt instance class [mscorlib]System.Collections.IEnumerator [mscorlib]System.Array::GetEnumerator()
+				IL_0014: stloc.2
+				.try
+				{
+					IL_0015: br.s IL_003e
+					// loop start (head: IL_003e)
+						IL_0017: ldloc.2
+						IL_0018: callvirt instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+						IL_001d: unbox.any Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode
+						IL_0022: stloc.0
+						IL_0023: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition::.ctor()
+						IL_0028: stloc.1
+						IL_0029: ldloc.1
+						IL_002a: ldloc.0
+						IL_002b: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition::Mode
+						IL_0030: ldarg.s results
+						IL_0032: ldloc.1
+						IL_0033: ldarg.3
+						IL_0034: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+						IL_0039: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+
+						IL_003e: ldloc.2
+						IL_003f: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+						IL_0044: brtrue.s IL_0017
+					// end loop
+
+					IL_0046: leave.s IL_0059
+				} // end .try
+				finally
+				{
+					IL_0048: ldloc.2
+					IL_0049: isinst [mscorlib]System.IDisposable
+					IL_004e: stloc.3
+					IL_004f: ldloc.3
+					IL_0050: brfalse.s IL_0058
+
+					IL_0052: ldloc.3
+					IL_0053: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+					IL_0058: endfinally
+				} // end handler
+
+				IL_0059: ret
+			} // end of method Definition::AddInteractions
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x22cb48
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x22ca04
+			// Header size: 12
+			// Code size: 43 (0x2b)
+			.maxstack 2
+			.locals init (
+				[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_InteractionDefinition()
+			IL_0006: isinst Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition
+			IL_000b: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition::Mode
+			IL_0010: stloc.0
+			IL_0011: ldarg.0
+			IL_0012: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+			IL_0017: ldloc.0
+			IL_0018: callvirt instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode)
+			IL_001d: ldarg.0
+			IL_001e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+			IL_0023: ldloc.0
+			IL_0024: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockModeOnReset
+			IL_0029: ldc.i4.1
+			IL_002a: ret
+		} // end of method SetClockMode::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x22ca47
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::.ctor()
+			IL_0006: ret
+		} // end of method SetClockMode::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x22ca3b
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode::Singleton
+			IL_000a: ret
+		} // end of method SetClockMode::.cctor
+
+	} // end of class SetClockMode
+
+	.class nested private auto ansi sealed beforefieldinit SetClockPeriod
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockPeriod>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x22cbd0
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "SetClockPeriod"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x22cbe2
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x22cbe5
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockPeriod>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x22cb50
+			// Header size: 12
+			// Code size: 79 (0x4f)
+			.maxstack 4
+			.locals init (
+				[0] string
+			)
+
+			.try
+			{
+				IL_0000: ldstr "LogicGate"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0010: ldstr "SetClockPeriodInSimSeconds"
+				IL_0015: ldc.i4.0
+				IL_0016: newarr [mscorlib]System.Object
+				IL_001b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0020: ldarg.0
+				IL_0021: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+				IL_0026: ldflda float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+				IL_002b: call instance string [mscorlib]System.Single::ToString()
+				IL_0030: ldc.i4.1
+				IL_0031: call string [UI]Sims3.UI.StringInputDialog::Show(string, string, string, bool)
+				IL_0036: stloc.0
+				IL_0037: ldarg.0
+				IL_0038: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+				IL_003d: ldloc.0
+				IL_003e: call float32 [mscorlib]System.Single::Parse(string)
+				IL_0043: callvirt instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockPeriodTo(float32)
+				IL_0048: leave.s IL_004d
+			} // end .try
+			catch [mscorlib]System.Object
+			{
+				IL_004a: pop
+				IL_004b: leave.s IL_004d
+			} // end handler
+
+			IL_004d: ldc.i4.1
+			IL_004e: ret
+		} // end of method SetClockPeriod::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x22cbc8
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::.ctor()
+			IL_0006: ret
+		} // end of method SetClockPeriod::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x22cbbc
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockPeriod/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockPeriod::Singleton
+			IL_000a: ret
+		} // end of method SetClockPeriod::.cctor
+
+	} // end of class SetClockPeriod
+
+	.class nested private auto ansi sealed beforefieldinit SetClockJitter
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockJitter>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x22cc70
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "SetClockJitter"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x22cc82
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x22cc85
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockJitter>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x22cbf0
+			// Header size: 12
+			// Code size: 79 (0x4f)
+			.maxstack 4
+			.locals init (
+				[0] string
+			)
+
+			.try
+			{
+				IL_0000: ldstr "LogicGate"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0010: ldstr "SetClockJitterInSimSeconds"
+				IL_0015: ldc.i4.0
+				IL_0016: newarr [mscorlib]System.Object
+				IL_001b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0020: ldarg.0
+				IL_0021: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+				IL_0026: ldflda float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+				IL_002b: call instance string [mscorlib]System.Single::ToString()
+				IL_0030: ldc.i4.1
+				IL_0031: call string [UI]Sims3.UI.StringInputDialog::Show(string, string, string, bool)
+				IL_0036: stloc.0
+				IL_0037: ldarg.0
+				IL_0038: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::Target
+				IL_003d: ldloc.0
+				IL_003e: call float32 [mscorlib]System.Single::Parse(string)
+				IL_0043: callvirt instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockJitterTo(float32)
+				IL_0048: leave.s IL_004d
+			} // end .try
+			catch [mscorlib]System.Object
+			{
+				IL_004a: pop
+				IL_004b: leave.s IL_004d
+			} // end handler
+
+			IL_004d: ldc.i4.1
+			IL_004e: ret
+		} // end of method SetClockJitter::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x22cc68
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::.ctor()
+			IL_0006: ret
+		} // end of method SetClockJitter::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x22cc5c
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockJitter/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockJitter::Singleton
+			IL_000a: ret
+		} // end of method SetClockJitter::.cctor
+
+	} // end of class SetClockJitter
+
+	.class nested private auto ansi sealed beforefieldinit DEBUG_ToggleHud
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/DEBUG_ToggleHud>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x22cca9
+				// Header size: 1
+				// Code size: 41 (0x29)
+				.maxstack 8
+
+				IL_0000: ldstr "Hud"
+				IL_0005: ldsfld bool Sims3.Gameplay.Objects.TombObjects.LogicGate::sShowHud
+				IL_000a: brtrue.s IL_0013
+
+				IL_000c: ldstr "Enable"
+				IL_0011: br.s IL_0018
+
+				IL_0013: ldstr "Disable"
+
+				IL_0018: call string [mscorlib]System.String::Concat(string, string)
+				IL_001d: ldc.i4.0
+				IL_001e: newarr [mscorlib]System.Object
+				IL_0023: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+				IL_0028: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.LogicGate target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x22ccd3
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x22ccd6
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate, class Sims3.Gameplay.Objects.TombObjects.LogicGate/DEBUG_ToggleHud>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x22cc8d
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: call void Sims3.Gameplay.Objects.TombObjects.LogicGate::ToggleHud()
+			IL_0005: ldc.i4.1
+			IL_0006: ret
+		} // end of method DEBUG_ToggleHud::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x22cca1
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.LogicGate>::.ctor()
+			IL_0006: ret
+		} // end of method DEBUG_ToggleHud::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x22cc95
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.LogicGate/DEBUG_ToggleHud/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/DEBUG_ToggleHud::Singleton
+			IL_000a: ret
+		} // end of method DEBUG_ToggleHud::.cctor
+
+	} // end of class DEBUG_ToggleHud
+
+
+	// Fields
+	.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/LogicGate"
+	.field private static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode kDefaultLogicMode = int32(146171540)
+	.field private static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode kDefaultClockMode = int32(0)
+	.field private static literal float32 kDefaultClockPeriod = float32(60)
+	.field private static literal float32 kDefaultClockJitter = float32(0.0)
+	.field private static literal valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option kDefaultOptions = int32(23)
+	.field private static literal uint32 kKeyLogicMode = uint32(146176295)
+	.field private static literal uint32 kKeyClockMode = uint32(146176296)
+	.field private static literal uint32 kKeyClockModeOnReset = uint32(145127720)
+	.field private static literal uint32 kKeyClockPeriod = uint32(146176297)
+	.field private static literal uint32 kKeyClockJitter = uint32(146589118)
+	.field private static literal uint32 kKeyOptions = uint32(146931510)
+	.field private static literal uint32 kKeyVersion = uint32(146931511)
+	.field private static literal uint32 kVersion = uint32(1)
+	.field private static literal uint32 kVersionOptionsAdded = uint32(1)
+	.field private uint32 mVersion
+	.field private valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option mOptions
+	.field private valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode mMode
+	.field private uint8 mCount
+	.field private bool[] mOutputStates
+	.field private bool[] mInputStates
+	.field private valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode mClockMode
+	.field private valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode mClockModeOnReset
+	.field private float32 mClockPeriod
+	.field private float32 mClockJitter
+	.field private valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle mClockHandle
+	.field private bool[] mInputPinIsConnected
+	.field private static initonly string[] kWorldBuilderDataKeyRemap
+	.field private static bool sShowHud
+
+	// Methods
+	.method private hidebysig static 
+		string LocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x22b4b7
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldstr "Gameplay/Objects/TombObjects/LogicGate:"
+		IL_0005: ldarg.0
+		IL_0006: call string [mscorlib]System.String::Concat(string, string)
+		IL_000b: ldarg.1
+		IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0011: ret
+	} // end of method LogicGate::LocalizeString
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x22b4ca
+		// Header size: 1
+		// Code size: 61 (0x3d)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.s 23
+		IL_0003: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_0008: ldarg.0
+		IL_0009: ldc.i4 146171540
+		IL_000e: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_0013: ldarg.0
+		IL_0014: ldc.i4.8
+		IL_0015: newarr [mscorlib]System.Boolean
+		IL_001a: stfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+		IL_001f: ldarg.0
+		IL_0020: ldc.i4.8
+		IL_0021: newarr [mscorlib]System.Boolean
+		IL_0026: stfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+		IL_002b: ldarg.0
+		IL_002c: ldc.r4 60
+		IL_0031: stfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_0036: ldarg.0
+		IL_0037: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::.ctor()
+		IL_003c: ret
+	} // end of method LogicGate::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnCreation () cil managed 
+	{
+		// Method begins at RVA 0x22b508
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mVersion
+		IL_0007: ldarg.0
+		IL_0008: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::OnCreation()
+		IL_000d: ret
+	} // end of method LogicGate::OnCreation
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x22b517
+		// Header size: 1
+		// Code size: 45 (0x2d)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: newarr [mscorlib]System.Object
+		IL_0007: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent>(object[])
+		IL_000c: pop
+		IL_000d: ldarg.0
+		IL_000e: ldc.i4.0
+		IL_000f: newarr [mscorlib]System.Object
+		IL_0014: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_0019: pop
+		IL_001a: ldarg.0
+		IL_001b: ldarg.0
+		IL_001c: ldfld uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mVersion
+		IL_0021: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::Fixup(uint32)
+		IL_0026: ldarg.0
+		IL_0027: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateVisualState()
+		IL_002c: ret
+	} // end of method LogicGate::OnStartup
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x22b548
+		// Header size: 12
+		// Code size: 74 (0x4a)
+		.maxstack 2
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0007: ldarg.1
+		IL_0008: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetLogicMode::Singleton
+		IL_000d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0012: ldarg.1
+		IL_0013: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockMode::Singleton
+		IL_0018: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_001d: ldarg.1
+		IL_001e: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockPeriod::Singleton
+		IL_0023: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0028: ldarg.1
+		IL_0029: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetClockJitter::Singleton
+		IL_002e: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0033: ldarg.1
+		IL_0034: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/SetOption::Singleton
+		IL_0039: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_003e: ldarg.1
+		IL_003f: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.LogicGate/DEBUG_ToggleHud::Singleton
+		IL_0044: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0049: ret
+	} // end of method LogicGate::AddBuildBuyInteractions
+
+	.method public final hidebysig newslot virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent TombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x22b5a0
+		// Header size: 12
+		// Code size: 564 (0x234)
+		.maxstack 5
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.0
+		IL_0002: ldftn instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::TombObjectComponentChanged()
+		IL_0008: newobj instance void [SimIFace]Sims3.SimIFace.VoidEventHandler::.ctor(object, native int)
+		IL_000d: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterOnTombObjectComponentChangedCallback(class [SimIFace]Sims3.SimIFace.VoidEventHandler)
+		IL_0012: ldarg.1
+		IL_0013: ldc.i4 146171217
+		IL_0018: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_001d: ldarg.1
+		IL_001e: ldc.i4 146171218
+		IL_0023: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0028: ldarg.1
+		IL_0029: ldc.i4 146171219
+		IL_002e: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0033: ldarg.1
+		IL_0034: ldc.i4 146171220
+		IL_0039: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_003e: ldarg.1
+		IL_003f: ldc.i4 146171221
+		IL_0044: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0049: ldarg.1
+		IL_004a: ldc.i4 146171222
+		IL_004f: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0054: ldarg.1
+		IL_0055: ldc.i4 146171223
+		IL_005a: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_005f: ldarg.1
+		IL_0060: ldc.i4 146171224
+		IL_0065: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_006a: ldarg.1
+		IL_006b: ldc.i4 146170676
+		IL_0070: ldarg.0
+		IL_0071: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Clock_Enable(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0077: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_007c: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0081: ldarg.1
+		IL_0082: ldc.i4.s 9
+		IL_0084: ldarg.0
+		IL_0085: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Clock_Disable(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_008b: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0090: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0095: ldarg.1
+		IL_0096: ldc.i4 146171540
+		IL_009b: ldarg.0
+		IL_009c: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_00a2: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_00a7: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_00ac: ldarg.1
+		IL_00ad: ldc.i4 146053545
+		IL_00b2: ldarg.0
+		IL_00b3: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_00b9: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_00be: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_00c3: ldarg.1
+		IL_00c4: ldc.i4 146171252
+		IL_00c9: ldarg.0
+		IL_00ca: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In0(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_00d0: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_00d5: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_00da: ldarg.1
+		IL_00db: ldc.i4 146171253
+		IL_00e0: ldarg.0
+		IL_00e1: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In1(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_00e7: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_00ec: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_00f1: ldarg.1
+		IL_00f2: ldc.i4 146171254
+		IL_00f7: ldarg.0
+		IL_00f8: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In2(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_00fe: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0103: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0108: ldarg.1
+		IL_0109: ldc.i4 146171255
+		IL_010e: ldarg.0
+		IL_010f: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In3(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0115: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_011a: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_011f: ldarg.1
+		IL_0120: ldc.i4 146171256
+		IL_0125: ldarg.0
+		IL_0126: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In4(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_012c: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0131: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0136: ldarg.1
+		IL_0137: ldc.i4 146171257
+		IL_013c: ldarg.0
+		IL_013d: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In5(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0143: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0148: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_014d: ldarg.1
+		IL_014e: ldc.i4 146171258
+		IL_0153: ldarg.0
+		IL_0154: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In6(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_015a: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_015f: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0164: ldarg.1
+		IL_0165: ldc.i4 146171259
+		IL_016a: ldarg.0
+		IL_016b: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In7(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0171: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0176: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_017b: ldarg.1
+		IL_017c: ldc.i4 146171284
+		IL_0181: ldarg.0
+		IL_0182: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In0_Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0188: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_018d: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0192: ldarg.1
+		IL_0193: ldc.i4 146171285
+		IL_0198: ldarg.0
+		IL_0199: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In1_Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_019f: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_01a4: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_01a9: ldarg.1
+		IL_01aa: ldc.i4 146171286
+		IL_01af: ldarg.0
+		IL_01b0: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In2_Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_01b6: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_01bb: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_01c0: ldarg.1
+		IL_01c1: ldc.i4 146171287
+		IL_01c6: ldarg.0
+		IL_01c7: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In3_Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_01cd: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_01d2: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_01d7: ldarg.1
+		IL_01d8: ldc.i4 146171288
+		IL_01dd: ldarg.0
+		IL_01de: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In4_Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_01e4: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_01e9: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_01ee: ldarg.1
+		IL_01ef: ldc.i4 146171289
+		IL_01f4: ldarg.0
+		IL_01f5: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In5_Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_01fb: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0200: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0205: ldarg.1
+		IL_0206: ldc.i4 146171290
+		IL_020b: ldarg.0
+		IL_020c: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In6_Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0212: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0217: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_021c: ldarg.1
+		IL_021d: ldc.i4 146171291
+		IL_0222: ldarg.0
+		IL_0223: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In7_Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0229: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_022e: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0233: ret
+	} // end of method LogicGate::OnAddTombObjectComponent
+
+	.method private hidebysig 
+		instance void Fixup (
+			uint32 version
+		) cil managed 
+	{
+		// Method begins at RVA 0x22b7e0
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4.1
+		IL_0002: bge.un.s IL_0020
+
+		IL_0004: ldarg.0
+		IL_0005: ldc.i4.s 23
+		IL_0007: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_000c: ldarg.0
+		IL_000d: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_0012: ldc.i4 146846266
+		IL_0017: bne.un.s IL_0020
+
+		IL_0019: ldarg.0
+		IL_001a: ldc.i4.8
+		IL_001b: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::ToggleOption(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+
+		IL_0020: ldarg.0
+		IL_0021: ldc.i4.1
+		IL_0022: stfld uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mVersion
+		IL_0027: ret
+	} // end of method LogicGate::Fixup
+
+	.method public final hidebysig newslot virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x22b80c
+		// Header size: 12
+		// Code size: 177 (0xb1)
+		.maxstack 5
+
+		IL_0000: ldstr "LogicGate"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "Version"
+		IL_0010: ldc.i4.1
+		IL_0011: ldc.i4.0
+		IL_0012: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<uint32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0017: ldstr "LogicGate"
+		IL_001c: ldarg.0
+		IL_001d: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0022: ldstr "LogicMode"
+		IL_0027: ldarg.0
+		IL_0028: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_002d: ldc.i4 146171540
+		IL_0032: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0037: ldstr "LogicGate"
+		IL_003c: ldarg.0
+		IL_003d: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0042: ldstr "ClockMode"
+		IL_0047: ldarg.0
+		IL_0048: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_004d: ldc.i4.0
+		IL_004e: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0053: ldstr "LogicGate"
+		IL_0058: ldarg.0
+		IL_0059: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_005e: ldstr "ClockPeriod"
+		IL_0063: ldarg.0
+		IL_0064: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_0069: ldc.r4 60
+		IL_006e: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<float32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0073: ldstr "LogicGate"
+		IL_0078: ldarg.0
+		IL_0079: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_007e: ldstr "ClockJitter"
+		IL_0083: ldarg.0
+		IL_0084: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0089: ldc.r4 0.0
+		IL_008e: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<float32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_0093: ldstr "LogicGate"
+		IL_0098: ldarg.0
+		IL_0099: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_009e: ldstr "Options"
+		IL_00a3: ldarg.0
+		IL_00a4: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_00a9: ldc.i4.s 23
+		IL_00ab: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_00b0: ret
+	} // end of method LogicGate::SaveWorldBuilderData
+
+	.method public final hidebysig newslot virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x22b8cc
+		// Header size: 12
+		// Code size: 209 (0xd1)
+		.maxstack 5
+		.locals init (
+			[0] uint32
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldsfld string[] Sims3.Gameplay.Objects.TombObjects.LogicGate::kWorldBuilderDataKeyRemap
+		IL_0007: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::SetKeyRemap(string[])
+		IL_000c: ldstr "LogicGate"
+		IL_0011: ldarg.0
+		IL_0012: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0017: ldstr "Version"
+		IL_001c: ldloca.s 0
+		IL_001e: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<uint32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0023: pop
+		IL_0024: ldarg.0
+		IL_0025: ldstr "LogicGate"
+		IL_002a: ldarg.0
+		IL_002b: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0030: ldstr "LogicMode"
+		IL_0035: ldc.i4 146171540
+		IL_003a: call !!0 [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0)
+		IL_003f: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetLogicModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode)
+		IL_0044: ldarg.0
+		IL_0045: ldstr "LogicGate"
+		IL_004a: ldarg.0
+		IL_004b: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0050: ldstr "ClockPeriod"
+		IL_0055: ldc.r4 60
+		IL_005a: call !!0 [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<float32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0)
+		IL_005f: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockPeriodTo(float32)
+		IL_0064: ldarg.0
+		IL_0065: ldstr "LogicGate"
+		IL_006a: ldarg.0
+		IL_006b: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0070: ldstr "ClockJitter"
+		IL_0075: ldc.r4 0.0
+		IL_007a: call !!0 [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<float32>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0)
+		IL_007f: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockJitterTo(float32)
+		IL_0084: ldarg.0
+		IL_0085: ldstr "LogicGate"
+		IL_008a: ldarg.0
+		IL_008b: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0090: ldstr "ClockMode"
+		IL_0095: ldc.i4.0
+		IL_0096: call !!0 [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0)
+		IL_009b: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode)
+		IL_00a0: ldarg.0
+		IL_00a1: ldstr "LogicGate"
+		IL_00a6: ldarg.0
+		IL_00a7: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_00ac: ldstr "Options"
+		IL_00b1: ldc.i4.s 23
+		IL_00b3: call !!0 [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0)
+		IL_00b8: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_00bd: ldarg.0
+		IL_00be: ldarg.0
+		IL_00bf: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_00c4: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockModeOnReset
+		IL_00c9: ldarg.0
+		IL_00ca: ldloc.0
+		IL_00cb: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::Fixup(uint32)
+		IL_00d0: ret
+	} // end of method LogicGate::LoadWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x22b9ac
+		// Header size: 12
+		// Code size: 118 (0x76)
+		.maxstack 4
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 146931511
+		IL_0006: ldarg.0
+		IL_0007: ldfld uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mVersion
+		IL_000c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0011: pop
+		IL_0012: ldarg.3
+		IL_0013: ldc.i4 146176295
+		IL_0018: ldarg.0
+		IL_0019: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_001e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0023: pop
+		IL_0024: ldarg.3
+		IL_0025: ldc.i4 146176296
+		IL_002a: ldarg.0
+		IL_002b: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockModeOnReset
+		IL_0030: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_0035: pop
+		IL_0036: ldarg.3
+		IL_0037: ldc.i4 146176297
+		IL_003c: ldarg.0
+		IL_003d: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_0042: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0047: pop
+		IL_0048: ldarg.3
+		IL_0049: ldc.i4 146589118
+		IL_004e: ldarg.0
+		IL_004f: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0054: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteFloat(uint32, float32)
+		IL_0059: pop
+		IL_005a: ldarg.3
+		IL_005b: ldc.i4 146931510
+		IL_0060: ldarg.0
+		IL_0061: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_0066: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteUint32(uint32, uint32)
+		IL_006b: pop
+		IL_006c: ldarg.0
+		IL_006d: ldarg.1
+		IL_006e: ldarg.2
+		IL_006f: ldarg.3
+		IL_0070: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0075: ret
+	} // end of method LogicGate::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x22ba30
+		// Header size: 12
+		// Code size: 175 (0xaf)
+		.maxstack 4
+		.locals init (
+			[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData
+		)
+
+		IL_0000: ldloca.s 0
+		IL_0002: initobj Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData
+		IL_0008: ldarg.3
+		IL_0009: ldc.i4 146931511
+		IL_000e: ldloca.s 0
+		IL_0010: ldflda uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::version
+		IL_0015: ldc.i4.0
+		IL_0016: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadUint32(uint32, uint32&, uint32)
+		IL_001b: pop
+		IL_001c: ldarg.3
+		IL_001d: ldc.i4 146176295
+		IL_0022: ldloca.s 0
+		IL_0024: ldflda uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::logicMode
+		IL_0029: ldc.i4 146171540
+		IL_002e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadUint32(uint32, uint32&, uint32)
+		IL_0033: pop
+		IL_0034: ldarg.3
+		IL_0035: ldc.i4 146176297
+		IL_003a: ldloca.s 0
+		IL_003c: ldflda float32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::period
+		IL_0041: ldc.r4 60
+		IL_0046: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadFloat(uint32, float32&, float32)
+		IL_004b: pop
+		IL_004c: ldarg.3
+		IL_004d: ldc.i4 146589118
+		IL_0052: ldloca.s 0
+		IL_0054: ldflda float32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::jitter
+		IL_0059: ldc.r4 0.0
+		IL_005e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadFloat(uint32, float32&, float32)
+		IL_0063: pop
+		IL_0064: ldarg.3
+		IL_0065: ldc.i4 146176296
+		IL_006a: ldloca.s 0
+		IL_006c: ldflda uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::clockMode
+		IL_0071: ldc.i4.0
+		IL_0072: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadUint32(uint32, uint32&, uint32)
+		IL_0077: pop
+		IL_0078: ldarg.3
+		IL_0079: ldc.i4 146931510
+		IL_007e: ldloca.s 0
+		IL_0080: ldflda uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::options
+		IL_0085: ldc.i4.s 23
+		IL_0087: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadUint32(uint32, uint32&, uint32)
+		IL_008c: pop
+		IL_008d: ldarg.2
+		IL_008e: ldarg.0
+		IL_008f: ldftn instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::PostImportCallback(object)
+		IL_0095: newobj instance void [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable/PostImportCallback::.ctor(object, native int)
+		IL_009a: ldloc.0
+		IL_009b: box Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData
+		IL_00a0: callvirt instance void [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable::AddPostImportCallback(class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable/PostImportCallback, object)
+		IL_00a5: ldarg.0
+		IL_00a6: ldarg.1
+		IL_00a7: ldarg.2
+		IL_00a8: ldarg.3
+		IL_00a9: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_00ae: ret
+	} // end of method LogicGate::ImportContent
+
+	.method public hidebysig 
+		instance void PostImportCallback (
+			object context
+		) cil managed 
+	{
+		// Method begins at RVA 0x22baec
+		// Header size: 12
+		// Code size: 113 (0x71)
+		.maxstack 2
+		.locals init (
+			[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: unbox.any Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData
+		IL_0006: stloc.0
+		IL_0007: ldarg.0
+		IL_0008: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+		IL_000d: brfalse.s IL_0016
+
+		IL_000f: ldarg.0
+		IL_0010: ldnull
+		IL_0011: stfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+
+		IL_0016: ldarg.0
+		IL_0017: ldloca.s 0
+		IL_0019: ldfld uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::logicMode
+		IL_001e: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetLogicModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode)
+		IL_0023: ldarg.0
+		IL_0024: ldloca.s 0
+		IL_0026: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::period
+		IL_002b: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockPeriodTo(float32)
+		IL_0030: ldarg.0
+		IL_0031: ldloca.s 0
+		IL_0033: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::jitter
+		IL_0038: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockJitterTo(float32)
+		IL_003d: ldarg.0
+		IL_003e: ldloca.s 0
+		IL_0040: ldfld uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::clockMode
+		IL_0045: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode)
+		IL_004a: ldarg.0
+		IL_004b: ldloca.s 0
+		IL_004d: ldfld uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::options
+		IL_0052: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_0057: ldarg.0
+		IL_0058: ldarg.0
+		IL_0059: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_005e: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockModeOnReset
+		IL_0063: ldarg.0
+		IL_0064: ldloca.s 0
+		IL_0066: ldfld uint32 Sims3.Gameplay.Objects.TombObjects.LogicGate/ImportData::version
+		IL_006b: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::Fixup(uint32)
+		IL_0070: ret
+	} // end of method LogicGate::PostImportCallback
+
+	.method assembly hidebysig static 
+		void ToggleHud () cil managed 
+	{
+		// Method begins at RVA 0x22bb6c
+		// Header size: 12
+		// Code size: 44 (0x2c)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.LogicGate,
+			[1] class Sims3.Gameplay.Objects.TombObjects.LogicGate[],
+			[2] int32
+		)
+
+		IL_0000: ldsfld bool Sims3.Gameplay.Objects.TombObjects.LogicGate::sShowHud
+		IL_0005: ldc.i4.0
+		IL_0006: ceq
+		IL_0008: stsfld bool Sims3.Gameplay.Objects.TombObjects.LogicGate::sShowHud
+		IL_000d: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.LogicGate>()
+		IL_0012: stloc.1
+		IL_0013: ldc.i4.0
+		IL_0014: stloc.2
+		IL_0015: br.s IL_0025
+		// loop start (head: IL_0025)
+			IL_0017: ldloc.1
+			IL_0018: ldloc.2
+			IL_0019: ldelem.ref
+			IL_001a: stloc.0
+			IL_001b: ldloc.0
+			IL_001c: callvirt instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateHud()
+			IL_0021: ldloc.2
+			IL_0022: ldc.i4.1
+			IL_0023: add
+			IL_0024: stloc.2
+
+			IL_0025: ldloc.2
+			IL_0026: ldloc.1
+			IL_0027: ldlen
+			IL_0028: conv.i4
+			IL_0029: blt.s IL_0017
+		// end loop
+
+		IL_002b: ret
+	} // end of method LogicGate::ToggleHud
+
+	.method private hidebysig 
+		instance void UpdateVisualState () cil managed 
+	{
+		// Method begins at RVA 0x22bba4
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call bool [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_IsBuildBuyLikeState()
+		IL_0006: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateVisualState(bool)
+		IL_000b: ret
+	} // end of method LogicGate::UpdateVisualState
+
+	.method private hidebysig 
+		instance void UpdateVisualState (
+			bool inBuildBuy
+		) cil managed 
+	{
+		// Method begins at RVA 0x22bbb4
+		// Header size: 12
+		// Code size: 86 (0x56)
+		.maxstack 3
+
+		IL_0000: ldsfld bool Sims3.Gameplay.Objects.TombObjects.LogicGate::sShowHud
+		IL_0005: brfalse.s IL_0033
+
+		IL_0007: ldarg.0
+		IL_0008: ldc.i4.2
+		IL_0009: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_000e: ldarg.1
+		IL_000f: brfalse.s IL_0022
+
+		IL_0011: ldarg.0
+		IL_0012: ldc.r4 1
+		IL_0017: ldc.r4 0.2
+		IL_001c: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+		IL_0021: ret
+
+		IL_0022: ldarg.0
+		IL_0023: ldc.r4 0.4
+		IL_0028: ldc.r4 0.2
+		IL_002d: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+		IL_0032: ret
+
+		IL_0033: ldarg.0
+		IL_0034: ldc.r4 1
+		IL_0039: ldc.r4 0.2
+		IL_003e: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+		IL_0043: ldarg.1
+		IL_0044: brfalse.s IL_004e
+
+		IL_0046: ldarg.0
+		IL_0047: ldc.i4.2
+		IL_0048: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_004d: ret
+
+		IL_004e: ldarg.0
+		IL_004f: ldc.i4.m1
+		IL_0050: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0055: ret
+	} // end of method LogicGate::UpdateVisualState
+
+	.method private hidebysig 
+		instance void UpdateHud () cil managed 
+	{
+		// Method begins at RVA 0x22bc16
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateVisualState()
+		IL_0006: ret
+	} // end of method LogicGate::UpdateHud
+
+	.method public hidebysig virtual 
+		instance class [UI]Sims3.UI.Tooltip CreateTooltip (
+			valuetype [SimIFace]Sims3.SimIFace.Vector2 mousePosition,
+			class [UI]Sims3.UI.WindowBase mousedOverWindow,
+			valuetype [SimIFace]Sims3.SimIFace.Vector2& tooltipPosition
+		) cil managed 
+	{
+		// Method begins at RVA 0x22bc20
+		// Header size: 12
+		// Code size: 31 (0x1f)
+		.maxstack 4
+		.locals init (
+			[0] class [UI]Sims3.UI.Tooltip
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance class [UI]Sims3.UI.Tooltip [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::CreateTooltip(valuetype [SimIFace]Sims3.SimIFace.Vector2, class [UI]Sims3.UI.WindowBase, valuetype [SimIFace]Sims3.SimIFace.Vector2&)
+		IL_0009: stloc.0
+		IL_000a: ldsfld bool Sims3.Gameplay.Objects.TombObjects.LogicGate::sShowHud
+		IL_000f: brfalse.s IL_001d
+
+		IL_0011: ldarg.0
+		IL_0012: call instance string Sims3.Gameplay.Objects.TombObjects.LogicGate::GetHudString()
+		IL_0017: newobj instance void [UI]Sims3.UI.SimpleTextTooltip::.ctor(string)
+		IL_001c: ret
+
+		IL_001d: ldloc.0
+		IL_001e: ret
+	} // end of method LogicGate::CreateTooltip
+
+	.method private hidebysig 
+		instance string GetHudString () cil managed 
+	{
+		// Method begins at RVA 0x22bc4c
+		// Header size: 12
+		// Code size: 558 (0x22e)
+		.maxstack 6
+		.locals init (
+			[0] string,
+			[1] string,
+			[2] int32,
+			[3] bool,
+			[4] string,
+			[5] int32,
+			[6] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode,
+			[7] object[],
+			[8] object[],
+			[9] object[],
+			[10] object[],
+			[11] object[]
+		)
+
+		IL_0000: ldstr ""
+		IL_0005: stloc.0
+		IL_0006: ldarg.0
+		IL_0007: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_000c: stloc.s 6
+		IL_000e: ldloc.s 6
+		IL_0010: ldc.i4 146171540
+		IL_0015: sub
+		IL_0016: switch (IL_0035, IL_0035, IL_0035, IL_0035, IL_0035, IL_0035)
+
+		IL_0033: br.s IL_0071
+
+		IL_0035: ldarg.0
+		IL_0036: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+		IL_003b: ldc.i4.0
+		IL_003c: ldelem.i1
+		IL_003d: brfalse.s IL_0058
+
+		IL_003f: ldloc.0
+		IL_0040: ldstr "HudOutputLineOneBitTrue"
+		IL_0045: ldc.i4.0
+		IL_0046: newarr [mscorlib]System.Object
+		IL_004b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_0050: call string [mscorlib]System.String::Concat(string, string)
+		IL_0055: stloc.0
+		IL_0056: br.s IL_00cb
+
+		IL_0058: ldloc.0
+		IL_0059: ldstr "HudOutputLineOneBitFalse"
+		IL_005e: ldc.i4.0
+		IL_005f: newarr [mscorlib]System.Object
+		IL_0064: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_0069: call string [mscorlib]System.String::Concat(string, string)
+		IL_006e: stloc.0
+		IL_006f: br.s IL_00cb
+
+		IL_0071: ldstr ""
+		IL_0076: stloc.1
+		IL_0077: ldarg.0
+		IL_0078: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+		IL_007d: ldlen
+		IL_007e: conv.i4
+		IL_007f: ldc.i4.1
+		IL_0080: sub
+		IL_0081: stloc.2
+		IL_0082: br.s IL_00a7
+		// loop start (head: IL_00a7)
+			IL_0084: ldarg.0
+			IL_0085: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+			IL_008a: ldloc.2
+			IL_008b: ldelem.i1
+			IL_008c: stloc.3
+			IL_008d: ldloc.1
+			IL_008e: ldloc.3
+			IL_008f: brtrue.s IL_0098
+
+			IL_0091: ldstr "0"
+			IL_0096: br.s IL_009d
+
+			IL_0098: ldstr "1"
+
+			IL_009d: call string [mscorlib]System.String::Concat(string, string)
+			IL_00a2: stloc.1
+			IL_00a3: ldloc.2
+			IL_00a4: ldc.i4.1
+			IL_00a5: sub
+			IL_00a6: stloc.2
+
+			IL_00a7: ldloc.2
+			IL_00a8: ldc.i4.0
+			IL_00a9: bge.s IL_0084
+		// end loop
+
+		IL_00ab: ldloc.0
+		IL_00ac: ldstr "HudOutputLineAllBits"
+		IL_00b1: ldc.i4.1
+		IL_00b2: newarr [mscorlib]System.Object
+		IL_00b7: stloc.s 7
+		IL_00b9: ldloc.s 7
+		IL_00bb: ldc.i4.0
+		IL_00bc: ldloc.1
+		IL_00bd: stelem.ref
+		IL_00be: ldloc.s 7
+		IL_00c0: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_00c5: call string [mscorlib]System.String::Concat(string, string)
+		IL_00ca: stloc.0
+
+		IL_00cb: ldloc.0
+		IL_00cc: ldstr "\n"
+		IL_00d1: call string [mscorlib]System.String::Concat(string, string)
+		IL_00d6: stloc.0
+		IL_00d7: ldloc.0
+		IL_00d8: ldstr "HudLogicModeLine"
+		IL_00dd: ldc.i4.1
+		IL_00de: newarr [mscorlib]System.Object
+		IL_00e3: stloc.s 8
+		IL_00e5: ldloc.s 8
+		IL_00e7: ldc.i4.0
+		IL_00e8: ldstr "Hud"
+		IL_00ed: ldarg.0
+		IL_00ee: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_00f3: box Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode
+		IL_00f8: call string [mscorlib]System.String::Concat(object, object)
+		IL_00fd: ldc.i4.0
+		IL_00fe: newarr [mscorlib]System.Object
+		IL_0103: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_0108: stelem.ref
+		IL_0109: ldloc.s 8
+		IL_010b: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_0110: ldstr "\n"
+		IL_0115: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_011a: stloc.0
+		IL_011b: ldloc.0
+		IL_011c: ldstr "HudClockModeLine"
+		IL_0121: ldc.i4.3
+		IL_0122: newarr [mscorlib]System.Object
+		IL_0127: stloc.s 9
+		IL_0129: ldloc.s 9
+		IL_012b: ldc.i4.0
+		IL_012c: ldstr "Hud"
+		IL_0131: ldarg.0
+		IL_0132: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_0137: box Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode
+		IL_013c: call string [mscorlib]System.String::Concat(object, object)
+		IL_0141: ldc.i4.0
+		IL_0142: newarr [mscorlib]System.Object
+		IL_0147: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_014c: stelem.ref
+		IL_014d: ldloc.s 9
+		IL_014f: ldc.i4.1
+		IL_0150: ldarg.0
+		IL_0151: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_0156: box [mscorlib]System.Single
+		IL_015b: stelem.ref
+		IL_015c: ldloc.s 9
+		IL_015e: ldc.i4.2
+		IL_015f: ldarg.0
+		IL_0160: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0165: box [mscorlib]System.Single
+		IL_016a: stelem.ref
+		IL_016b: ldloc.s 9
+		IL_016d: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_0172: ldstr "\n"
+		IL_0177: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_017c: stloc.0
+		IL_017d: ldloc.0
+		IL_017e: ldstr "HudCountLine"
+		IL_0183: ldc.i4.1
+		IL_0184: newarr [mscorlib]System.Object
+		IL_0189: stloc.s 10
+		IL_018b: ldloc.s 10
+		IL_018d: ldc.i4.0
+		IL_018e: ldarg.0
+		IL_018f: ldfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+		IL_0194: box [mscorlib]System.Byte
+		IL_0199: stelem.ref
+		IL_019a: ldloc.s 10
+		IL_019c: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_01a1: ldstr "\n"
+		IL_01a6: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_01ab: stloc.0
+		IL_01ac: ldstr ""
+		IL_01b1: stloc.s 4
+		IL_01b3: ldarg.0
+		IL_01b4: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+		IL_01b9: ldlen
+		IL_01ba: conv.i4
+		IL_01bb: ldc.i4.1
+		IL_01bc: sub
+		IL_01bd: stloc.s 5
+		IL_01bf: br.s IL_0201
+		// loop start (head: IL_0201)
+			IL_01c1: ldarg.0
+			IL_01c2: ldloc.s 5
+			IL_01c4: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::PinIsConnected(int32)
+			IL_01c9: brfalse.s IL_01ed
+
+			IL_01cb: ldloc.s 4
+			IL_01cd: ldarg.0
+			IL_01ce: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_01d3: ldloc.s 5
+			IL_01d5: ldelem.i1
+			IL_01d6: brtrue.s IL_01df
+
+			IL_01d8: ldstr "0"
+			IL_01dd: br.s IL_01e4
+
+			IL_01df: ldstr "1"
+
+			IL_01e4: call string [mscorlib]System.String::Concat(string, string)
+			IL_01e9: stloc.s 4
+			IL_01eb: br.s IL_01fb
+
+			IL_01ed: ldloc.s 4
+			IL_01ef: ldstr "-"
+			IL_01f4: call string [mscorlib]System.String::Concat(string, string)
+			IL_01f9: stloc.s 4
+
+			IL_01fb: ldloc.s 5
+			IL_01fd: ldc.i4.1
+			IL_01fe: sub
+			IL_01ff: stloc.s 5
+
+			IL_0201: ldloc.s 5
+			IL_0203: ldc.i4.0
+			IL_0204: bge.s IL_01c1
+		// end loop
+
+		IL_0206: ldloc.0
+		IL_0207: ldstr "HudInputLine"
+		IL_020c: ldc.i4.1
+		IL_020d: newarr [mscorlib]System.Object
+		IL_0212: stloc.s 11
+		IL_0214: ldloc.s 11
+		IL_0216: ldc.i4.0
+		IL_0217: ldloc.s 4
+		IL_0219: stelem.ref
+		IL_021a: ldloc.s 11
+		IL_021c: call string Sims3.Gameplay.Objects.TombObjects.LogicGate::LocalizeString(string, object[])
+		IL_0221: ldstr "\n"
+		IL_0226: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_022b: stloc.0
+		IL_022c: ldloc.0
+		IL_022d: ret
+	} // end of method LogicGate::GetHudString
+
+	.method private hidebysig 
+		instance void TombObjectComponentChanged () cil managed 
+	{
+		// Method begins at RVA 0x22be88
+		// Header size: 12
+		// Code size: 80 (0x50)
+		.maxstack 2
+		.locals init (
+			[0] bool[],
+			[1] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+		IL_0006: brfalse.s IL_001a
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+		IL_000e: callvirt instance object [mscorlib]System.Array::Clone()
+		IL_0013: isinst bool[]
+		IL_0018: br.s IL_0020
+
+		IL_001a: ldc.i4.8
+		IL_001b: newarr [mscorlib]System.Boolean
+
+		IL_0020: stloc.0
+		IL_0021: ldarg.0
+		IL_0022: ldnull
+		IL_0023: stfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+		IL_0028: ldarg.0
+		IL_0029: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateHud()
+		IL_002e: ldc.i4.0
+		IL_002f: stloc.1
+		IL_0030: br.s IL_004b
+		// loop start (head: IL_004b)
+			IL_0032: ldloc.0
+			IL_0033: ldloc.1
+			IL_0034: ldelem.i1
+			IL_0035: brfalse.s IL_0047
+
+			IL_0037: ldarg.0
+			IL_0038: ldloc.1
+			IL_0039: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::PinIsConnected(int32)
+			IL_003e: brtrue.s IL_0047
+
+			IL_0040: ldarg.0
+			IL_0041: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::InputStateChanged()
+			IL_0046: ret
+
+			IL_0047: ldloc.1
+			IL_0048: ldc.i4.1
+			IL_0049: add
+			IL_004a: stloc.1
+
+			IL_004b: ldloc.1
+			IL_004c: ldc.i4.8
+			IL_004d: blt.s IL_0032
+		// end loop
+
+		IL_004f: ret
+	} // end of method LogicGate::TombObjectComponentChanged
+
+	.method private hidebysig 
+		instance bool OptionIsEnabled (
+			valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option options
+		) cil managed 
+	{
+		// Method begins at RVA 0x22bee4
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.0
+		IL_0002: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_0007: ldarg.1
+		IL_0008: and
+		IL_0009: ceq
+		IL_000b: ret
+	} // end of method LogicGate::OptionIsEnabled
+
+	.method private hidebysig 
+		instance void ToggleOption (
+			valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option option
+		) cil managed 
+	{
+		// Method begins at RVA 0x22bef1
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: dup
+		IL_0002: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_0007: ldarg.1
+		IL_0008: xor
+		IL_0009: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option Sims3.Gameplay.Objects.TombObjects.LogicGate::mOptions
+		IL_000e: ret
+	} // end of method LogicGate::ToggleOption
+
+	.method private hidebysig 
+		instance void SetLogicModeTo (
+			valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode mode
+		) cil managed 
+	{
+		// Method begins at RVA 0x22bf04
+		// Header size: 12
+		// Code size: 88 (0x58)
+		.maxstack 2
+		.locals init (
+			[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_0007: call bool [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_IsBuildBuyLikeState()
+		IL_000c: brfalse.s IL_0016
+
+		IL_000e: ldarg.0
+		IL_000f: ldnull
+		IL_0010: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Reset(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0015: pop
+
+		IL_0016: ldarg.0
+		IL_0017: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_001c: stloc.0
+		IL_001d: ldloc.0
+		IL_001e: ldc.i4 146171540
+		IL_0023: sub
+		IL_0024: switch (IL_0049, IL_0049, IL_0049, IL_0049, IL_0049, IL_0049)
+
+		IL_0041: ldloc.0
+		IL_0042: ldc.i4 146171559
+		IL_0047: bne.un.s IL_0051
+
+		IL_0049: ldarg.0
+		IL_004a: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick()
+		IL_004f: pop
+		IL_0050: ret
+
+		IL_0051: ldarg.0
+		IL_0052: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateHud()
+		IL_0057: ret
+	} // end of method LogicGate::SetLogicModeTo
+
+	.method private hidebysig 
+		instance void SetClockModeTo (
+			valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode mode
+		) cil managed 
+	{
+		// Method begins at RVA 0x22bf68
+		// Header size: 12
+		// Code size: 59 (0x3b)
+		.maxstack 2
+		.locals init (
+			[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.m1
+		IL_0002: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_0007: ldarg.0
+		IL_0008: ldnull
+		IL_0009: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Clock_Disable(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_000e: pop
+		IL_000f: ldarg.1
+		IL_0010: stloc.0
+		IL_0011: ldloc.0
+		IL_0012: switch (IL_002d, IL_0025, IL_002d)
+
+		IL_0023: br.s IL_002d
+
+		IL_0025: ldarg.0
+		IL_0026: ldnull
+		IL_0027: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Clock_Enable(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_002c: pop
+
+		IL_002d: ldarg.0
+		IL_002e: ldarg.1
+		IL_002f: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_0034: ldarg.0
+		IL_0035: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateHud()
+		IL_003a: ret
+	} // end of method LogicGate::SetClockModeTo
+
+	.method private hidebysig 
+		instance void SetClockPeriodTo (
+			float32 period
+		) cil managed 
+	{
+		// Method begins at RVA 0x22bfb0
+		// Header size: 12
+		// Code size: 106 (0x6a)
+		.maxstack 3
+		.locals init (
+			[0] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.r4 2
+		IL_0006: bge.un.s IL_000f
+
+		IL_0008: ldc.r4 2
+		IL_000d: starg.s period
+
+		IL_000f: ldarg.0
+		IL_0010: ldarg.1
+		IL_0011: stfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_0016: ldarg.0
+		IL_0017: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_001c: ldarg.0
+		IL_001d: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0022: sub
+		IL_0023: ldc.r4 2
+		IL_0028: bge.un.s IL_003c
+
+		IL_002a: ldarg.0
+		IL_002b: ldarg.0
+		IL_002c: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_0031: ldc.r4 2
+		IL_0036: sub
+		IL_0037: stfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+
+		IL_003c: ldarg.0
+		IL_003d: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0042: ldc.r4 2
+		IL_0047: bge.un.s IL_0054
+
+		IL_0049: ldarg.0
+		IL_004a: ldc.r4 0.0
+		IL_004f: stfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+
+		IL_0054: ldarg.0
+		IL_0055: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_005a: stloc.0
+		IL_005b: ldarg.0
+		IL_005c: ldc.i4.2
+		IL_005d: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode)
+		IL_0062: ldarg.0
+		IL_0063: ldloc.0
+		IL_0064: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode)
+		IL_0069: ret
+	} // end of method LogicGate::SetClockPeriodTo
+
+	.method private hidebysig 
+		instance void SetClockJitterTo (
+			float32 jitter
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c026
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0007: ldarg.0
+		IL_0008: ldarg.0
+		IL_0009: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_000e: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockPeriodTo(float32)
+		IL_0013: ret
+	} // end of method LogicGate::SetClockJitterTo
+
+	.method private hidebysig 
+		instance bool Clock_Enable (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c03c
+		// Header size: 12
+		// Code size: 121 (0x79)
+		.maxstack 9
+		.locals init (
+			[0] float32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_0006: brfalse.s IL_0011
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_000e: ldc.i4.1
+		IL_000f: bne.un.s IL_0013
+
+		IL_0011: ldc.i4.0
+		IL_0012: ret
+
+		IL_0013: ldarg.0
+		IL_0014: ldc.i4.1
+		IL_0015: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_001a: ldarg.0
+		IL_001b: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_0020: stloc.0
+		IL_0021: ldarg.0
+		IL_0022: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0027: ldc.r4 2
+		IL_002c: ble.un.s IL_003f
+
+		IL_002e: ldc.r4 2
+		IL_0033: ldarg.0
+		IL_0034: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0039: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomFloatGaussianDistribution(float32, float32)
+		IL_003e: stloc.0
+
+		IL_003f: ldarg.0
+		IL_0040: ldarg.0
+		IL_0041: ldloc.0
+		IL_0042: ldc.i4.0
+		IL_0043: ldarg.0
+		IL_0044: ldftn instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::ClockTick()
+		IL_004a: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmTimerCallback::.ctor(object, native int)
+		IL_004f: ldarg.0
+		IL_0050: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockPeriod
+		IL_0055: ldc.i4.0
+		IL_0056: ldstr "Clock: "
+		IL_005b: ldarg.0
+		IL_005c: call instance string [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_AdventureKey()
+		IL_0061: call string [mscorlib]System.String::Concat(string, string)
+		IL_0066: ldc.i4.0
+		IL_0067: call instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddAlarmRepeating(float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit, class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmTimerCallback, float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit, string, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmType)
+		IL_006c: stfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockHandle
+		IL_0071: ldarg.0
+		IL_0072: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateHud()
+		IL_0077: ldc.i4.1
+		IL_0078: ret
+	} // end of method LogicGate::Clock_Enable
+
+	.method private hidebysig 
+		instance bool Clock_Disable (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c0c1
+		// Header size: 1
+		// Code size: 57 (0x39)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_0006: brfalse.s IL_0011
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_000e: ldc.i4.2
+		IL_000f: bne.un.s IL_0013
+
+		IL_0011: ldc.i4.0
+		IL_0012: ret
+
+		IL_0013: ldarg.0
+		IL_0014: ldc.i4.2
+		IL_0015: stfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_001a: ldarg.0
+		IL_001b: ldarg.0
+		IL_001c: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockHandle
+		IL_0021: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::RemoveAlarm(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle)
+		IL_0026: ldarg.0
+		IL_0027: ldsfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle::kInvalidHandle
+		IL_002c: stfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockHandle
+		IL_0031: ldarg.0
+		IL_0032: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateHud()
+		IL_0037: ldc.i4.1
+		IL_0038: ret
+	} // end of method LogicGate::Clock_Disable
+
+	.method private hidebysig 
+		instance bool Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c0fc
+		// Header size: 12
+		// Code size: 95 (0x5f)
+		.maxstack 4
+		.locals init (
+			[0] int32,
+			[1] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.2
+		IL_0002: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode)
+		IL_0007: ldarg.0
+		IL_0008: ldc.i4.0
+		IL_0009: stfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+		IL_000e: ldc.i4.0
+		IL_000f: stloc.0
+		IL_0010: br.s IL_0020
+		// loop start (head: IL_0020)
+			IL_0012: ldarg.0
+			IL_0013: ldloc.0
+			IL_0014: ldc.i4.0
+			IL_0015: ldc.i4.1
+			IL_0016: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::SetOutputState(int32, bool, bool)
+			IL_001b: pop
+			IL_001c: ldloc.0
+			IL_001d: ldc.i4.1
+			IL_001e: add
+			IL_001f: stloc.0
+
+			IL_0020: ldloc.0
+			IL_0021: ldarg.0
+			IL_0022: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+			IL_0027: ldlen
+			IL_0028: conv.i4
+			IL_0029: blt.s IL_0012
+		// end loop
+
+		IL_002b: ldarg.0
+		IL_002c: ldc.i4.s 16
+		IL_002e: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::OptionIsEnabled(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+		IL_0033: brfalse.s IL_0051
+
+		IL_0035: ldc.i4.0
+		IL_0036: stloc.1
+		IL_0037: br.s IL_0046
+		// loop start (head: IL_0046)
+			IL_0039: ldarg.0
+			IL_003a: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_003f: ldloc.1
+			IL_0040: ldc.i4.0
+			IL_0041: stelem.i1
+			IL_0042: ldloc.1
+			IL_0043: ldc.i4.1
+			IL_0044: add
+			IL_0045: stloc.1
+
+			IL_0046: ldloc.1
+			IL_0047: ldarg.0
+			IL_0048: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_004d: ldlen
+			IL_004e: conv.i4
+			IL_004f: blt.s IL_0039
+		// end loop
+
+		IL_0051: ldarg.0
+		IL_0052: ldarg.0
+		IL_0053: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockModeOnReset
+		IL_0058: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::SetClockModeTo(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode)
+		IL_005d: ldc.i4.1
+		IL_005e: ret
+	} // end of method LogicGate::Reset
+
+	.method private hidebysig 
+		instance void InputStateChanged () cil managed 
+	{
+		// Method begins at RVA 0x22c167
+		// Header size: 1
+		// Code size: 36 (0x24)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateHud()
+		IL_0006: ldarg.0
+		IL_0007: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/ClockMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockMode
+		IL_000c: brfalse.s IL_000f
+
+		IL_000e: ret
+
+		IL_000f: ldarg.0
+		IL_0010: ldc.i4 146171540
+		IL_0015: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::PinIsConnected(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior)
+		IL_001a: brtrue.s IL_0023
+
+		IL_001c: ldarg.0
+		IL_001d: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick()
+		IL_0022: pop
+
+		IL_0023: ret
+	} // end of method LogicGate::InputStateChanged
+
+	.method private hidebysig 
+		instance bool PinIsConnected (
+			valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior input
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c18c
+		// Header size: 12
+		// Code size: 54 (0x36)
+		.maxstack 4
+		.locals init (
+			[0] int32,
+			[1] valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior[]
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4 146171252
+		IL_0006: sub
+		IL_0007: stloc.0
+		IL_0008: ldloc.0
+		IL_0009: ldc.i4.0
+		IL_000a: blt.s IL_001e
+
+		IL_000c: ldloc.0
+		IL_000d: ldc.i4.8
+		IL_000e: bge.s IL_001e
+
+		IL_0010: ldarg.0
+		IL_0011: ldarg.1
+		IL_0012: ldc.i4 146171252
+		IL_0017: sub
+		IL_0018: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::PinIsConnected(int32)
+		IL_001d: ret
+
+		IL_001e: ldarg.0
+		IL_001f: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_0024: ldc.i4.1
+		IL_0025: newarr [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior
+		IL_002a: stloc.1
+		IL_002b: ldloc.1
+		IL_002c: ldc.i4.0
+		IL_002d: ldarg.1
+		IL_002e: stelem.i4
+		IL_002f: ldloc.1
+		IL_0030: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::IsActivatedBehaviorLinkedFromObjectType<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent>(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior[])
+		IL_0035: ret
+	} // end of method LogicGate::PinIsConnected
+
+	.method private hidebysig 
+		instance bool PinIsConnected (
+			int32 i
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c1d0
+		// Header size: 12
+		// Code size: 76 (0x4c)
+		.maxstack 4
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior>,
+			[1] int32,
+			[2] valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+		IL_0006: brtrue.s IL_0043
+
+		IL_0008: ldarg.0
+		IL_0009: ldc.i4.8
+		IL_000a: newarr [mscorlib]System.Boolean
+		IL_000f: stfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+		IL_0014: ldarg.0
+		IL_0015: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_001a: callvirt instance class [mscorlib]System.Collections.Generic.List`1<valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior> [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::GetLinkedActivatedBehaviors()
+		IL_001f: stloc.0
+		IL_0020: ldc.i4.0
+		IL_0021: stloc.1
+		IL_0022: br.s IL_003f
+		// loop start (head: IL_003f)
+			IL_0024: ldc.i4 146171252
+			IL_0029: ldloc.1
+			IL_002a: add
+			IL_002b: stloc.2
+			IL_002c: ldarg.0
+			IL_002d: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+			IL_0032: ldloc.1
+			IL_0033: ldloc.0
+			IL_0034: ldloc.2
+			IL_0035: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior>::Contains(!0)
+			IL_003a: stelem.i1
+			IL_003b: ldloc.1
+			IL_003c: ldc.i4.1
+			IL_003d: add
+			IL_003e: stloc.1
+
+			IL_003f: ldloc.1
+			IL_0040: ldc.i4.8
+			IL_0041: blt.s IL_0024
+		// end loop
+
+		IL_0043: ldarg.0
+		IL_0044: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputPinIsConnected
+		IL_0049: ldarg.1
+		IL_004a: ldelem.i1
+		IL_004b: ret
+	} // end of method LogicGate::PinIsConnected
+
+	.method private hidebysig 
+		instance bool PinIsConnected (
+			valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger output
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c228
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::IsTriggerLinkedToAnyActivatedBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_000c: ret
+	} // end of method LogicGate::PinIsConnected
+
+	.method private hidebysig 
+		instance void ClockTick () cil managed 
+	{
+		// Method begins at RVA 0x22c238
+		// Header size: 12
+		// Code size: 64 (0x40)
+		.maxstack 6
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0006: ldc.r4 2
+		IL_000b: bge.un.s IL_0015
+
+		IL_000d: ldarg.0
+		IL_000e: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick()
+		IL_0013: pop
+		IL_0014: ret
+
+		IL_0015: ldarg.0
+		IL_0016: ldc.r4 2
+		IL_001b: ldarg.0
+		IL_001c: ldfld float32 Sims3.Gameplay.Objects.TombObjects.LogicGate::mClockJitter
+		IL_0021: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomFloatGaussianDistribution(float32, float32)
+		IL_0026: ldc.i4.0
+		IL_0027: ldarg.0
+		IL_0028: ldftn instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::JitterTick()
+		IL_002e: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmTimerCallback::.ctor(object, native int)
+		IL_0033: ldstr "Jitter Tick"
+		IL_0038: ldc.i4.2
+		IL_0039: call instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmHandle [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddAlarm(float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.TimeUnit, class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmTimerCallback, string, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Utilities.AlarmType)
+		IL_003e: pop
+		IL_003f: ret
+	} // end of method LogicGate::ClockTick
+
+	.method private hidebysig 
+		instance void JitterTick () cil managed 
+	{
+		// Method begins at RVA 0x22c284
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick()
+		IL_0006: pop
+		IL_0007: ret
+	} // end of method LogicGate::JitterTick
+
+	.method private hidebysig 
+		instance bool Tick () cil managed 
+	{
+		// Method begins at RVA 0x22c28d
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: ret
+	} // end of method LogicGate::Tick
+
+	.method private hidebysig 
+		instance bool Tick (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c298
+		// Header size: 12
+		// Code size: 503 (0x1f7)
+		.maxstack 7
+		.locals init (
+			[0] bool,
+			[1] int32,
+			[2] int32,
+			[3] int32,
+			[4] int32,
+			[5] int32,
+			[6] valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger,
+			[7] int32,
+			[8] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldarg.0
+		IL_0003: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_0008: ldc.i4 146589724
+		IL_000d: beq.s IL_001c
+
+		IL_000f: ldarg.0
+		IL_0010: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_0015: ldc.i4 146588973
+		IL_001a: bne.un.s IL_002d
+
+		IL_001c: ldarg.0
+		IL_001d: ldc.i4 255
+		IL_0022: call int32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::GetInt(int32)
+		IL_0027: conv.u1
+		IL_0028: stfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+
+		IL_002d: ldarg.0
+		IL_002e: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_0033: stloc.s 8
+		IL_0035: ldloc.s 8
+		IL_0037: ldc.i4 146171561
+		IL_003c: bgt.s IL_0081
+
+		IL_003e: ldloc.s 8
+		IL_0040: ldc.i4 146171540
+		IL_0045: sub
+		IL_0046: switch (IL_00d4, IL_00d4, IL_00d4, IL_00d4, IL_00d4, IL_00d4)
+
+		IL_0063: ldloc.s 8
+		IL_0065: ldc.i4 146171559
+		IL_006a: sub
+		IL_006b: switch (IL_00a7, IL_0116, IL_0150)
+
+		IL_007c: br IL_0188
+
+		IL_0081: ldloc.s 8
+		IL_0083: ldc.i4 146588973
+		IL_0088: beq IL_0116
+
+		IL_008d: ldloc.s 8
+		IL_008f: ldc.i4 146589724
+		IL_0094: beq IL_0150
+
+		IL_0099: ldloc.s 8
+		IL_009b: ldc.i4 146846266
+		IL_00a0: beq.s IL_00e9
+
+		IL_00a2: br IL_0188
+
+		IL_00a7: ldc.i4.0
+		IL_00a8: stloc.1
+		IL_00a9: br.s IL_00c4
+		// loop start (head: IL_00c4)
+			IL_00ab: ldloc.0
+			IL_00ac: ldarg.0
+			IL_00ad: ldloc.1
+			IL_00ae: ldarg.0
+			IL_00af: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_00b4: ldloc.1
+			IL_00b5: ldelem.i1
+			IL_00b6: ldc.i4.0
+			IL_00b7: ceq
+			IL_00b9: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick_SetOutputState(int32, bool)
+			IL_00be: or
+			IL_00bf: stloc.0
+			IL_00c0: ldloc.1
+			IL_00c1: ldc.i4.1
+			IL_00c2: add
+			IL_00c3: stloc.1
+
+			IL_00c4: ldloc.1
+			IL_00c5: ldarg.0
+			IL_00c6: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_00cb: ldlen
+			IL_00cc: conv.i4
+			IL_00cd: blt.s IL_00ab
+		// end loop
+
+		IL_00cf: br IL_0188
+
+		IL_00d4: ldloc.0
+		IL_00d5: ldarg.0
+		IL_00d6: ldc.i4.0
+		IL_00d7: ldarg.0
+		IL_00d8: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick_ApplyLogic()
+		IL_00dd: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick_SetOutputState(int32, bool)
+		IL_00e2: or
+		IL_00e3: stloc.0
+		IL_00e4: br IL_0188
+
+		IL_00e9: ldc.i4.0
+		IL_00ea: stloc.2
+		IL_00eb: br.s IL_0110
+		// loop start (head: IL_0110)
+			IL_00ed: ldarg.0
+			IL_00ee: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_00f3: ldloc.2
+			IL_00f4: ldelem.i1
+			IL_00f5: brfalse.s IL_010c
+
+			IL_00f7: ldloc.0
+			IL_00f8: ldarg.0
+			IL_00f9: ldloc.2
+			IL_00fa: ldarg.0
+			IL_00fb: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+			IL_0100: ldloc.2
+			IL_0101: ldelem.i1
+			IL_0102: ldc.i4.0
+			IL_0103: ceq
+			IL_0105: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick_SetOutputState(int32, bool)
+			IL_010a: or
+			IL_010b: stloc.0
+
+			IL_010c: ldloc.2
+			IL_010d: ldc.i4.1
+			IL_010e: add
+			IL_010f: stloc.2
+
+			IL_0110: ldloc.2
+			IL_0111: ldc.i4.8
+			IL_0112: blt.s IL_00ed
+		// end loop
+
+		IL_0114: br.s IL_0188
+
+		IL_0116: ldarg.0
+		IL_0117: dup
+		IL_0118: ldfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+		IL_011d: ldc.i4.1
+		IL_011e: add
+		IL_011f: conv.u1
+		IL_0120: stfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+		IL_0125: ldc.i4.0
+		IL_0126: stloc.3
+		IL_0127: br.s IL_014a
+		// loop start (head: IL_014a)
+			IL_0129: ldloc.0
+			IL_012a: ldarg.0
+			IL_012b: ldloc.3
+			IL_012c: ldc.i4.0
+			IL_012d: ldarg.0
+			IL_012e: ldfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+			IL_0133: ldloc.3
+			IL_0134: ldc.i4.s 31
+			IL_0136: and
+			IL_0137: shr
+			IL_0138: ldc.i4.1
+			IL_0139: and
+			IL_013a: ceq
+			IL_013c: ldc.i4.0
+			IL_013d: ceq
+			IL_013f: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick_SetOutputState(int32, bool)
+			IL_0144: or
+			IL_0145: stloc.0
+			IL_0146: ldloc.3
+			IL_0147: ldc.i4.1
+			IL_0148: add
+			IL_0149: stloc.3
+
+			IL_014a: ldloc.3
+			IL_014b: ldc.i4.8
+			IL_014c: blt.s IL_0129
+		// end loop
+
+		IL_014e: br.s IL_0188
+
+		IL_0150: ldarg.0
+		IL_0151: dup
+		IL_0152: ldfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+		IL_0157: ldc.i4.1
+		IL_0158: add
+		IL_0159: conv.u1
+		IL_015a: stfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+		IL_015f: ldc.i4.0
+		IL_0160: stloc.s 4
+		IL_0162: br.s IL_0183
+		// loop start (head: IL_0183)
+			IL_0164: ldloc.0
+			IL_0165: ldarg.0
+			IL_0166: ldloc.s 4
+			IL_0168: ldarg.0
+			IL_0169: ldfld uint8 Sims3.Gameplay.Objects.TombObjects.LogicGate::mCount
+			IL_016e: ldc.i4.1
+			IL_016f: sub
+			IL_0170: ldc.i4.8
+			IL_0171: rem
+			IL_0172: ldloc.s 4
+			IL_0174: ceq
+			IL_0176: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::Tick_SetOutputState(int32, bool)
+			IL_017b: or
+			IL_017c: stloc.0
+			IL_017d: ldloc.s 4
+			IL_017f: ldc.i4.1
+			IL_0180: add
+			IL_0181: stloc.s 4
+
+			IL_0183: ldloc.s 4
+			IL_0185: ldc.i4.8
+			IL_0186: blt.s IL_0164
+		// end loop
+
+		IL_0188: ldc.i4.0
+		IL_0189: stloc.s 5
+		IL_018b: br.s IL_01b9
+		// loop start (head: IL_01b9)
+			IL_018d: ldc.i4 146171217
+			IL_0192: ldloc.s 5
+			IL_0194: add
+			IL_0195: stloc.s 6
+			IL_0197: ldarg.0
+			IL_0198: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+			IL_019d: ldloc.s 5
+			IL_019f: ldelem.i1
+			IL_01a0: brfalse.s IL_01b3
+
+			IL_01a2: ldloc.0
+			IL_01a3: ldarg.0
+			IL_01a4: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_01a9: ldloc.s 6
+			IL_01ab: ldnull
+			IL_01ac: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_01b1: or
+			IL_01b2: stloc.0
+
+			IL_01b3: ldloc.s 5
+			IL_01b5: ldc.i4.1
+			IL_01b6: add
+			IL_01b7: stloc.s 5
+
+			IL_01b9: ldloc.s 5
+			IL_01bb: ldarg.0
+			IL_01bc: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+			IL_01c1: ldlen
+			IL_01c2: conv.i4
+			IL_01c3: blt.s IL_018d
+		// end loop
+
+		IL_01c5: ldarg.0
+		IL_01c6: ldc.i4.8
+		IL_01c7: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::OptionIsEnabled(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+		IL_01cc: brfalse.s IL_01ef
+
+		IL_01ce: ldc.i4.0
+		IL_01cf: stloc.s 7
+		IL_01d1: br.s IL_01e3
+		// loop start (head: IL_01e3)
+			IL_01d3: ldarg.0
+			IL_01d4: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_01d9: ldloc.s 7
+			IL_01db: ldc.i4.0
+			IL_01dc: stelem.i1
+			IL_01dd: ldloc.s 7
+			IL_01df: ldc.i4.1
+			IL_01e0: add
+			IL_01e1: stloc.s 7
+
+			IL_01e3: ldloc.s 7
+			IL_01e5: ldarg.0
+			IL_01e6: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_01eb: ldlen
+			IL_01ec: conv.i4
+			IL_01ed: blt.s IL_01d3
+		// end loop
+
+		IL_01ef: ldarg.0
+		IL_01f0: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::UpdateHud()
+		IL_01f5: ldloc.0
+		IL_01f6: ret
+	} // end of method LogicGate::Tick
+
+	.method private hidebysig 
+		instance bool Tick_ApplyLogic () cil managed 
+	{
+		// Method begins at RVA 0x22c49c
+		// Header size: 12
+		// Code size: 218 (0xda)
+		.maxstack 2
+		.locals init (
+			[0] int32,
+			[1] int32,
+			[2] int32,
+			[3] bool,
+			[4] valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldc.i4.0
+		IL_0003: stloc.1
+		IL_0004: ldc.i4.0
+		IL_0005: stloc.2
+		IL_0006: br.s IL_0085
+		// loop start (head: IL_0085)
+			IL_0008: ldarg.0
+			IL_0009: ldloc.2
+			IL_000a: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::PinIsConnected(int32)
+			IL_000f: brfalse.s IL_0081
+
+			IL_0011: ldarg.0
+			IL_0012: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_0017: ldloc.2
+			IL_0018: ldelem.i1
+			IL_0019: stloc.3
+			IL_001a: ldarg.0
+			IL_001b: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+			IL_0020: ldc.i4 146171540
+			IL_0025: bne.un.s IL_002c
+
+			IL_0027: ldloc.3
+			IL_0028: brtrue.s IL_0081
+
+			IL_002a: ldc.i4.0
+			IL_002b: ret
+
+			IL_002c: ldarg.0
+			IL_002d: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+			IL_0032: ldc.i4 146171541
+			IL_0037: bne.un.s IL_003e
+
+			IL_0039: ldloc.3
+			IL_003a: brfalse.s IL_0081
+
+			IL_003c: ldc.i4.1
+			IL_003d: ret
+
+			IL_003e: ldarg.0
+			IL_003f: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+			IL_0044: ldc.i4 146171543
+			IL_0049: bne.un.s IL_0050
+
+			IL_004b: ldloc.3
+			IL_004c: brfalse.s IL_0081
+
+			IL_004e: ldc.i4.0
+			IL_004f: ret
+
+			IL_0050: ldloc.3
+			IL_0051: brfalse.s IL_007d
+
+			IL_0053: ldloc.0
+			IL_0054: ldc.i4.1
+			IL_0055: add
+			IL_0056: stloc.0
+			IL_0057: ldarg.0
+			IL_0058: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+			IL_005d: ldc.i4 146171544
+			IL_0062: bne.un.s IL_006a
+
+			IL_0064: ldloc.0
+			IL_0065: ldc.i4.1
+			IL_0066: ble.s IL_006a
+
+			IL_0068: ldc.i4.0
+			IL_0069: ret
+
+			IL_006a: ldarg.0
+			IL_006b: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+			IL_0070: ldc.i4 146171545
+			IL_0075: bne.un.s IL_0081
+
+			IL_0077: ldloc.0
+			IL_0078: ldc.i4.1
+			IL_0079: ble.s IL_0081
+
+			IL_007b: ldc.i4.1
+			IL_007c: ret
+
+			IL_007d: ldloc.1
+			IL_007e: ldc.i4.1
+			IL_007f: add
+			IL_0080: stloc.1
+
+			IL_0081: ldloc.2
+			IL_0082: ldc.i4.1
+			IL_0083: add
+			IL_0084: stloc.2
+
+			IL_0085: ldloc.2
+			IL_0086: ldarg.0
+			IL_0087: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+			IL_008c: ldlen
+			IL_008d: conv.i4
+			IL_008e: blt IL_0008
+		// end loop
+
+		IL_0093: ldarg.0
+		IL_0094: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/LogicMode Sims3.Gameplay.Objects.TombObjects.LogicGate::mMode
+		IL_0099: stloc.s 4
+		IL_009b: ldloc.s 4
+		IL_009d: ldc.i4 146171540
+		IL_00a2: sub
+		IL_00a3: switch (IL_00c2, IL_00c4, IL_00c6, IL_00c2, IL_00cb, IL_00d0)
+
+		IL_00c0: br.s IL_00d8
+
+		IL_00c2: ldc.i4.1
+		IL_00c3: ret
+
+		IL_00c4: ldc.i4.0
+		IL_00c5: ret
+
+		IL_00c6: ldloc.1
+		IL_00c7: ldc.i4.0
+		IL_00c8: cgt
+		IL_00ca: ret
+
+		IL_00cb: ldloc.0
+		IL_00cc: ldc.i4.1
+		IL_00cd: ceq
+		IL_00cf: ret
+
+		IL_00d0: ldloc.0
+		IL_00d1: ldc.i4.1
+		IL_00d2: ceq
+		IL_00d4: ldc.i4.0
+		IL_00d5: ceq
+		IL_00d7: ret
+
+		IL_00d8: ldc.i4.0
+		IL_00d9: ret
+	} // end of method LogicGate::Tick_ApplyLogic
+
+	.method private hidebysig 
+		instance bool Tick_SetOutputState (
+			int32 i,
+			bool p
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c582
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldc.i4.0
+		IL_0004: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::SetOutputState(int32, bool, bool)
+		IL_0009: ret
+	} // end of method LogicGate::Tick_SetOutputState
+
+	.method private hidebysig 
+		instance bool SetOutputState (
+			int32 i,
+			bool p,
+			bool fromReset
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c590
+		// Header size: 12
+		// Code size: 82 (0x52)
+		.maxstack 4
+		.locals init (
+			[0] bool,
+			[1] bool,
+			[2] valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: ldc.i4.0
+		IL_0003: stloc.1
+		IL_0004: ldarg.3
+		IL_0005: brfalse.s IL_0011
+
+		IL_0007: ldarg.0
+		IL_0008: ldc.i4.2
+		IL_0009: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::OptionIsEnabled(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+		IL_000e: stloc.1
+		IL_000f: br.s IL_002c
+
+		IL_0011: ldarg.0
+		IL_0012: ldc.i4.1
+		IL_0013: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::OptionIsEnabled(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+		IL_0018: brfalse.s IL_002a
+
+		IL_001a: ldarg.0
+		IL_001b: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+		IL_0020: ldarg.1
+		IL_0021: ldelem.i1
+		IL_0022: brfalse.s IL_002a
+
+		IL_0024: ldarg.2
+		IL_0025: ldc.i4.0
+		IL_0026: ceq
+		IL_0028: br.s IL_002b
+
+		IL_002a: ldc.i4.0
+
+		IL_002b: stloc.1
+
+		IL_002c: ldloc.1
+		IL_002d: brfalse.s IL_0047
+
+		IL_002f: ldc.i4 146171217
+		IL_0034: ldarg.1
+		IL_0035: add
+		IL_0036: stloc.2
+		IL_0037: ldloc.0
+		IL_0038: ldarg.0
+		IL_0039: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_003e: ldloc.2
+		IL_003f: ldnull
+		IL_0040: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::DeactivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0045: or
+		IL_0046: stloc.0
+
+		IL_0047: ldarg.0
+		IL_0048: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mOutputStates
+		IL_004d: ldarg.1
+		IL_004e: ldarg.2
+		IL_004f: stelem.i1
+		IL_0050: ldloc.0
+		IL_0051: ret
+	} // end of method LogicGate::SetOutputState
+
+	.method private hidebysig 
+		instance bool In (
+			int32 i,
+			bool b
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c5ee
+		// Header size: 1
+		// Code size: 59 (0x3b)
+		.maxstack 8
+
+		IL_0000: ldarg.2
+		IL_0001: brtrue.s IL_001d
+
+		IL_0003: ldarg.0
+		IL_0004: ldc.i4.4
+		IL_0005: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::OptionIsEnabled(valuetype Sims3.Gameplay.Objects.TombObjects.LogicGate/Option)
+		IL_000a: brtrue.s IL_001d
+
+		IL_000c: ldarg.0
+		IL_000d: ldc.i4 146171284
+		IL_0012: ldarg.1
+		IL_0013: add
+		IL_0014: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::PinIsConnected(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior)
+		IL_0019: brtrue.s IL_001d
+
+		IL_001b: ldc.i4.0
+		IL_001c: ret
+
+		IL_001d: ldarg.0
+		IL_001e: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+		IL_0023: ldarg.1
+		IL_0024: ldelem.i1
+		IL_0025: ldarg.2
+		IL_0026: beq.s IL_0039
+
+		IL_0028: ldarg.0
+		IL_0029: ldfld bool[] Sims3.Gameplay.Objects.TombObjects.LogicGate::mInputStates
+		IL_002e: ldarg.1
+		IL_002f: ldarg.2
+		IL_0030: stelem.i1
+		IL_0031: ldarg.0
+		IL_0032: call instance void Sims3.Gameplay.Objects.TombObjects.LogicGate::InputStateChanged()
+		IL_0037: ldc.i4.1
+		IL_0038: ret
+
+		IL_0039: ldc.i4.0
+		IL_003a: ret
+	} // end of method LogicGate::In
+
+	.method private hidebysig 
+		instance bool In0 (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c62a
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: ldc.i4.1
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In0
+
+	.method private hidebysig 
+		instance bool In1 (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c634
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: ldc.i4.1
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In1
+
+	.method private hidebysig 
+		instance bool In2 (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c63e
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.2
+		IL_0002: ldc.i4.1
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In2
+
+	.method private hidebysig 
+		instance bool In3 (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c648
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.3
+		IL_0002: ldc.i4.1
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In3
+
+	.method private hidebysig 
+		instance bool In4 (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c652
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.4
+		IL_0002: ldc.i4.1
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In4
+
+	.method private hidebysig 
+		instance bool In5 (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c65c
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.5
+		IL_0002: ldc.i4.1
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In5
+
+	.method private hidebysig 
+		instance bool In6 (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c666
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.6
+		IL_0002: ldc.i4.1
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In6
+
+	.method private hidebysig 
+		instance bool In7 (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c670
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.7
+		IL_0002: ldc.i4.1
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In7
+
+	.method private hidebysig 
+		instance bool In0_Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c67a
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: ldc.i4.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In0_Reset
+
+	.method private hidebysig 
+		instance bool In1_Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c684
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: ldc.i4.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In1_Reset
+
+	.method private hidebysig 
+		instance bool In2_Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c68e
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.2
+		IL_0002: ldc.i4.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In2_Reset
+
+	.method private hidebysig 
+		instance bool In3_Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c698
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.3
+		IL_0002: ldc.i4.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In3_Reset
+
+	.method private hidebysig 
+		instance bool In4_Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c6a2
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.4
+		IL_0002: ldc.i4.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In4_Reset
+
+	.method private hidebysig 
+		instance bool In5_Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c6ac
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.5
+		IL_0002: ldc.i4.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In5_Reset
+
+	.method private hidebysig 
+		instance bool In6_Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c6b6
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.6
+		IL_0002: ldc.i4.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In6_Reset
+
+	.method private hidebysig 
+		instance bool In7_Reset (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x22c6c0
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.7
+		IL_0002: ldc.i4.0
+		IL_0003: call instance bool Sims3.Gameplay.Objects.TombObjects.LogicGate::In(int32, bool)
+		IL_0008: ret
+	} // end of method LogicGate::In7_Reset
+
+	.method public final hidebysig newslot virtual 
+		instance void OnEnterBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x22c6ca
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.s -2
+		IL_0003: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0008: ret
+	} // end of method LogicGate::OnEnterBuildBuyMode
+
+	.method public final hidebysig newslot virtual 
+		instance void OnExitBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x22c6d4
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0007: ret
+	} // end of method LogicGate::OnExitBuildBuyMode
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x22c6e0
+		// Header size: 12
+		// Code size: 86 (0x56)
+		.maxstack 3
+		.locals init (
+			[0] string[],
+			[1] uint32,
+			[2] uint32,
+			[3] uint32
+		)
+
+		IL_0000: ldc.i4.6
+		IL_0001: newarr [mscorlib]System.String
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: ldc.i4.0
+		IL_0009: ldc.i4 146176295
+		IL_000e: stloc.1
+		IL_000f: ldloca.s 1
+		IL_0011: call instance string [mscorlib]System.UInt32::ToString()
+		IL_0016: stelem.ref
+		IL_0017: ldloc.0
+		IL_0018: ldc.i4.1
+		IL_0019: ldstr "LogicMode"
+		IL_001e: stelem.ref
+		IL_001f: ldloc.0
+		IL_0020: ldc.i4.2
+		IL_0021: ldc.i4 146176296
+		IL_0026: stloc.2
+		IL_0027: ldloca.s 2
+		IL_0029: call instance string [mscorlib]System.UInt32::ToString()
+		IL_002e: stelem.ref
+		IL_002f: ldloc.0
+		IL_0030: ldc.i4.3
+		IL_0031: ldstr "ClockMode"
+		IL_0036: stelem.ref
+		IL_0037: ldloc.0
+		IL_0038: ldc.i4.4
+		IL_0039: ldc.i4 146176297
+		IL_003e: stloc.3
+		IL_003f: ldloca.s 3
+		IL_0041: call instance string [mscorlib]System.UInt32::ToString()
+		IL_0046: stelem.ref
+		IL_0047: ldloc.0
+		IL_0048: ldc.i4.5
+		IL_0049: ldstr "ClockPeriod"
+		IL_004e: stelem.ref
+		IL_004f: ldloc.0
+		IL_0050: stsfld string[] Sims3.Gameplay.Objects.TombObjects.LogicGate::kWorldBuilderDataKeyRemap
+		IL_0055: ret
+	} // end of method LogicGate::.cctor
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.LogicGate

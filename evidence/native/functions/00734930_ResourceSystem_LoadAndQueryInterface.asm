@@ -1,0 +1,45 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined ResourceSystem_LoadAndQueryInterface(void)
+Owned ranges: [[00734930, 0073498c]]
+
+00734930  51  PUSH ECX
+00734931  8b4108  MOV EAX,dword ptr [ECX + 0x8]
+00734934  8b400c  MOV EAX,dword ptr [EAX + 0xc]
+00734937  6a00  PUSH 0x0
+00734939  6a00  PUSH 0x0
+0073493b  6a00  PUSH 0x0
+0073493d  6a00  PUSH 0x0
+0073493f  8d542410  LEA EDX,[ESP + 0x10]
+00734943  83c108  ADD ECX,0x8
+00734946  52  PUSH EDX
+00734947  8b54241c  MOV EDX,dword ptr [ESP + 0x1c]
+0073494b  52  PUSH EDX
+0073494c  c744241800000000  MOV dword ptr [ESP + 0x18],0x0
+00734954  ffd0  CALL EAX
+00734956  84c0  TEST AL,AL
+00734958  8b0c24  MOV ECX,dword ptr [ESP]
+0073495b  7419  JZ 0x00734976
+0073495d  8b11  MOV EDX,dword ptr [ECX]
+0073495f  8b44240c  MOV EAX,dword ptr [ESP + 0xc]
+00734963  8b520c  MOV EDX,dword ptr [EDX + 0xc]
+00734966  50  PUSH EAX
+00734967  ffd2  CALL EDX
+00734969  85c0  TEST EAX,EAX
+0073496b  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+0073496f  8901  MOV dword ptr [ECX],EAX
+00734971  7514  JNZ 0x00734987
+00734973  8b0c24  MOV ECX,dword ptr [ESP]
+00734976  85c9  TEST ECX,ECX
+00734978  7407  JZ 0x00734981
+0073497a  8b11  MOV EDX,dword ptr [ECX]
+0073497c  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+0073497f  ffd0  CALL EAX
+00734981  32c0  XOR AL,AL
+00734983  59  POP ECX
+00734984  c20c00  RET 0xc
+00734987  b001  MOV AL,0x1
+00734989  59  POP ECX
+0073498a  c20c00  RET 0xc

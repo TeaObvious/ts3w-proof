@@ -1,0 +1,33 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: Sims3/CSHost/World.cs
+// Each selected method is complete. Other members are omitted.
+
+	public void SetActiveObjectManager(ObjectManager objMgr)
+	{
+		if (objMgr == null)
+		{
+			throw new ArgumentNullException("objMgr", Strings.kError_SetActiveObjMgrNull);
+		}
+		if (mWorldWrap != null)
+		{
+			ObjectManagerWrap wrapObject = objMgr.GetWrapObject();
+			if (wrapObject != null)
+			{
+				mWorldWrap.SetActiveObjectManager(wrapObject);
+			}
+		}
+	}
+
+// [Next selected original method]
+
+	public Layer CreateNewLayer()
+	{
+		if (mWorldWrap != null)
+		{
+			LayerWrap layerWrap = mWorldWrap.CreateNewLayer();
+			if (layerWrap != null)
+			{
+				return new Layer(layerWrap, this);
+			}
+		}
+		return null;
+	}

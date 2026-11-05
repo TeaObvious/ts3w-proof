@@ -1,0 +1,61 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioCurve_EvaluateLinear
+Entry Point: 008a9b70
+
+008a9b70: PUSH EBX
+008a9b71: MOV EBX, dword ptr [ECX + 0x35c]
+008a9b77: PUSH ESI
+008a9b78: LEA ESI, [EBX + -0x1]
+008a9b7b: XOR EDX, EDX
+008a9b7d: TEST ESI, ESI
+008a9b7f: PUSH EDI
+008a9b80: JLE 0x008a9bb2
+008a9b82: MOV EDI, dword ptr [ECX]
+008a9b84: MOVSS XMM0, dword ptr [ESP + 0x10]
+008a9b8a: PUSH EBP
+008a9b8b: JMP 0x008a9b90
+008a9b90: LEA EAX, [ESI + EDX*0x1]
+008a9b93: SAR EAX, 0x1
+008a9b95: LEA EBP, [EAX + EAX*0x4]
+008a9b98: MOVSS XMM1, dword ptr [EDI + EBP*0x4]
+008a9b9d: COMISS XMM1, XMM0
+008a9ba0: JBE 0x008a9ba6
+008a9ba2: MOV ESI, EAX
+008a9ba4: JMP 0x008a9ba9
+008a9ba6: LEA EDX, [EAX + 0x1]
+008a9ba9: CMP ESI, EDX
+008a9bab: JG 0x008a9b90
+008a9bad: TEST EDX, EDX
+008a9baf: POP EBP
+008a9bb0: JG 0x008a9bbd
+008a9bb2: MOV EAX, dword ptr [ECX]
+008a9bb4: FLD float ptr [EAX + 0x4]
+008a9bb7: POP EDI
+008a9bb8: POP ESI
+008a9bb9: POP EBX
+008a9bba: RET 0x4
+008a9bbd: LEA EAX, [EBX + -0x1]
+008a9bc0: CMP EDX, EAX
+008a9bc2: JL 0x008a9bda
+008a9bc4: LEA ECX, [EBX + EBX*0x4]
+008a9bc7: COMISS XMM0, dword ptr [EDI + ECX*0x4 + -0x14]
+008a9bcc: LEA EAX, [EDI + ECX*0x4]
+008a9bcf: JC 0x008a9bda
+008a9bd1: FLD float ptr [EAX + -0x10]
+008a9bd4: POP EDI
+008a9bd5: POP ESI
+008a9bd6: POP EBX
+008a9bd7: RET 0x4
+008a9bda: FLD float ptr [ESP + 0x10]
+008a9bde: LEA EDX, [EDX + EDX*0x4]
+008a9be1: FSUB float ptr [EDI + EDX*0x4 + 0x8]
+008a9be5: LEA EAX, [EDI + EDX*0x4]
+008a9be8: POP EDI
+008a9be9: POP ESI
+008a9bea: FMUL float ptr [EAX + 0x10]
+008a9bed: POP EBX
+008a9bee: FADD float ptr [EAX + 0xc]
+008a9bf1: RET 0x4
+
+Total instructions: 54

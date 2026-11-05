@@ -1,0 +1,636 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; actual complete ILSpy type export.
+.class public auto ansi beforefieldinit Sims3.Gameplay.ToInWorldState
+	extends [SimIFace]Sims3.SimIFace.StateMachineState
+{
+	// Nested Types
+	.class nested public auto ansi beforefieldinit SceneReadyTask
+		extends [SimIFace]Sims3.SimIFace.Task
+	{
+		// Fields
+		.field private valuetype [SimIFace]Sims3.SimIFace.SceneMaskFlags mSceneMaskFlags
+		.field private valuetype Sims3.Gameplay.GameState mTargetState
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				valuetype [SimIFace]Sims3.SimIFace.SceneMaskFlags sceneMaskFlags,
+				valuetype Sims3.Gameplay.GameState targetState
+			) cil managed 
+		{
+			// Method begins at RVA 0xe04e1
+			// Header size: 1
+			// Code size: 21 (0x15)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void [SimIFace]Sims3.SimIFace.Task::.ctor()
+			IL_0006: ldarg.0
+			IL_0007: ldarg.1
+			IL_0008: stfld valuetype [SimIFace]Sims3.SimIFace.SceneMaskFlags Sims3.Gameplay.ToInWorldState/SceneReadyTask::mSceneMaskFlags
+			IL_000d: ldarg.0
+			IL_000e: ldarg.2
+			IL_000f: stfld valuetype Sims3.Gameplay.GameState Sims3.Gameplay.ToInWorldState/SceneReadyTask::mTargetState
+			IL_0014: ret
+		} // end of method SceneReadyTask::.ctor
+
+		.method public hidebysig virtual 
+			instance void Simulate () cil managed 
+		{
+			// Method begins at RVA 0xe04f7
+			// Header size: 1
+			// Code size: 45 (0x2d)
+			.maxstack 8
+
+			IL_0000: call void [SimIFace]Sims3.SimIFace.GameUtils::WaitForFrameEvaluation()
+			IL_0005: call bool [SimIFace]Sims3.SimIFace.World::WaitForDetailedLots()
+			IL_000a: pop
+			IL_000b: ldarg.0
+			IL_000c: ldfld valuetype [SimIFace]Sims3.SimIFace.SceneMaskFlags Sims3.Gameplay.ToInWorldState/SceneReadyTask::mSceneMaskFlags
+			IL_0011: call void [SimIFace]Sims3.SimIFace.GameUtils::WaitForSceneReadiness(valuetype [SimIFace]Sims3.SimIFace.SceneMaskFlags)
+			IL_0016: ldarg.0
+			IL_0017: ldfld valuetype Sims3.Gameplay.GameState Sims3.Gameplay.ToInWorldState/SceneReadyTask::mTargetState
+			IL_001c: call void Sims3.Gameplay.GameStates::GotoState(valuetype Sims3.Gameplay.GameState)
+			IL_0021: ldarg.0
+			IL_0022: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Task::get_ObjectId()
+			IL_0027: call void [SimIFace]Sims3.SimIFace.Simulator::DestroyObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_002c: ret
+		} // end of method SceneReadyTask::Simulate
+
+	} // end of class SceneReadyTask
+
+	.class nested private auto ansi beforefieldinit WorldLoadFailed
+		extends Sims3.Gameplay.OneShotFunctionTask
+	{
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0xe06ae
+			// Header size: 1
+			// Code size: 19 (0x13)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldnull
+			IL_0002: ldftn void Sims3.Gameplay.ToInWorldState::WorldLoadFailedTask()
+			IL_0008: newobj instance void Sims3.Gameplay.Function::.ctor(object, native int)
+			IL_000d: call instance void Sims3.Gameplay.OneShotFunctionTask::.ctor(class Sims3.Gameplay.Function)
+			IL_0012: ret
+		} // end of method WorldLoadFailed::.ctor
+
+		.method public hidebysig specialname 
+			instance bool get_PersistToMainMenu () cil managed 
+		{
+			// Method begins at RVA 0xe06c2
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method WorldLoadFailed::get_PersistToMainMenu
+
+		// Properties
+		.property instance bool PersistToMainMenu()
+		{
+			.get instance bool Sims3.Gameplay.ToInWorldState/WorldLoadFailed::get_PersistToMainMenu()
+		}
+
+	} // end of class WorldLoadFailed
+
+
+	// Fields
+	.field private static literal string sLocalizationKey = "Gameplay/ToInWorldState"
+	.field private static valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[] sMenuObjectGuids
+
+	// Methods
+	.method private hidebysig static 
+		string LocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0xe015c
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldstr "Gameplay/ToInWorldState:"
+		IL_0005: ldarg.0
+		IL_0006: call string [mscorlib]System.String::Concat(string, string)
+		IL_000b: ldarg.1
+		IL_000c: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0011: ret
+	} // end of method ToInWorldState::LocalizeString
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0xe016f
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.3
+		IL_0002: ldc.i4.3
+		IL_0003: ldstr "To In World"
+		IL_0008: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::.ctor(int32, int32, string)
+		IL_000d: ret
+	} // end of method ToInWorldState::.ctor
+
+	.method family hidebysig specialname rtspecialname 
+		instance void .ctor (
+			int32 enterId,
+			int32 exitId,
+			string name
+		) cil managed 
+	{
+		// Method begins at RVA 0xe017e
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::.ctor(int32, int32, string)
+		IL_0009: ret
+	} // end of method ToInWorldState::.ctor
+
+	.method public hidebysig virtual 
+		instance void Startup () cil managed 
+	{
+		// Method begins at RVA 0xe018c
+		// Header size: 12
+		// Code size: 128 (0x80)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Gameplay.Utilities.Initializers
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::Startup()
+		IL_0006: ldnull
+		IL_0007: ldftn void Sims3.Gameplay.ToInWorldState::OnWorldLoadStarted(object, class [mscorlib]System.EventArgs)
+		IL_000d: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0012: call void [SimIFace]Sims3.SimIFace.World::add_OnWorldLoadStartedEventHandler(class [mscorlib]System.EventHandler)
+		IL_0017: ldnull
+		IL_0018: ldftn void Sims3.Gameplay.ToInWorldState::OnWorldLoadStatus(object, class [mscorlib]System.EventArgs)
+		IL_001e: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0023: call void [SimIFace]Sims3.SimIFace.World::add_OnWorldLoadStatusEventHandler(class [mscorlib]System.EventHandler)
+		IL_0028: ldnull
+		IL_0029: ldftn void Sims3.Gameplay.ToInWorldState::OnWorldLoadFinished(object, class [mscorlib]System.EventArgs)
+		IL_002f: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0034: call void [SimIFace]Sims3.SimIFace.World::add_OnWorldLoadFinishedEventHandler(class [mscorlib]System.EventHandler)
+		IL_0039: ldnull
+		IL_003a: ldftn void Sims3.Gameplay.ToInWorldState::OnWorldLoadFailed(object, class [mscorlib]System.EventArgs)
+		IL_0040: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0045: call void [SimIFace]Sims3.SimIFace.World::add_OnWorldLoadFailedEventHandler(class [mscorlib]System.EventHandler)
+		IL_004a: ldc.i4.0
+		IL_004b: ldc.i4.0
+		IL_004c: call void Sims3.Gameplay.Gameflow::SetGameSpeed(valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed, valuetype Sims3.Gameplay.Gameflow/SetGameSpeedContext)
+		IL_0051: ldstr "PreWorldInitializers"
+		IL_0056: ldarg.0
+		IL_0057: newobj instance void Sims3.Gameplay.Utilities.Initializers::.ctor(string, object)
+		IL_005c: stloc.0
+		IL_005d: ldloc.0
+		IL_005e: callvirt instance void Sims3.Gameplay.Utilities.Initializers::Initialize()
+		IL_0063: ldc.i4.0
+		IL_0064: ldc.i4.0
+		IL_0065: call string Sims3.Gameplay.GameStates::get_LoadFileName()
+		IL_006a: call void [SimIFace]Sims3.SimIFace.OnlineFeatures::LogTelemetryEvent(valuetype [SimIFace]Sims3.SimIFace.TelemetryModuleId, valuetype [SimIFace]Sims3.SimIFace.TelemetryGroupId, string)
+		IL_006f: call string Sims3.Gameplay.GameStates::get_LoadFileName()
+		IL_0074: call void [SimIFace]Sims3.SimIFace.GameUtils::TransitionToLoadWorld(string)
+		IL_0079: ldarg.0
+		IL_007a: callvirt instance void Sims3.Gameplay.ToInWorldState::StartLoadingScreen()
+		IL_007f: ret
+	} // end of method ToInWorldState::Startup
+
+	.method public hidebysig newslot virtual 
+		instance void StartLoadingScreen () cil managed 
+	{
+		// Method begins at RVA 0xe0218
+		// Header size: 1
+		// Code size: 29 (0x1d)
+		.maxstack 8
+
+		IL_0000: call bool Sims3.Gameplay.GameStates::get_IsNewGame()
+		IL_0005: brfalse.s IL_0012
+
+		IL_0007: call class [UI]Sims3.UI.GameEntry.WorldFileMetadata Sims3.Gameplay.GameStates::get_WorldFileMetadata()
+		IL_000c: call void [UI]Sims3.UI.LoadingScreenController::LoadNewGameLoadingScreen(class [UI]Sims3.UI.GameEntry.WorldFileMetadata)
+		IL_0011: ret
+
+		IL_0012: call class [UI]Sims3.UI.GameEntry.SaveGameMetadata Sims3.Gameplay.GameStates::get_SaveGameMetadata()
+		IL_0017: call void [UI]Sims3.UI.LoadingScreenController::LoadSaveGameLoadingScreen(class [UI]Sims3.UI.GameEntry.SaveGameMetadata)
+		IL_001c: ret
+	} // end of method ToInWorldState::StartLoadingScreen
+
+	.method public hidebysig virtual 
+		instance void Shutdown () cil managed 
+	{
+		// Method begins at RVA 0xe0238
+		// Header size: 12
+		// Code size: 75 (0x4b)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::Shutdown()
+		IL_0006: ldnull
+		IL_0007: ldftn void Sims3.Gameplay.ToInWorldState::OnWorldLoadStarted(object, class [mscorlib]System.EventArgs)
+		IL_000d: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0012: call void [SimIFace]Sims3.SimIFace.World::remove_OnWorldLoadStartedEventHandler(class [mscorlib]System.EventHandler)
+		IL_0017: ldnull
+		IL_0018: ldftn void Sims3.Gameplay.ToInWorldState::OnWorldLoadStatus(object, class [mscorlib]System.EventArgs)
+		IL_001e: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0023: call void [SimIFace]Sims3.SimIFace.World::remove_OnWorldLoadStatusEventHandler(class [mscorlib]System.EventHandler)
+		IL_0028: ldnull
+		IL_0029: ldftn void Sims3.Gameplay.ToInWorldState::OnWorldLoadFinished(object, class [mscorlib]System.EventArgs)
+		IL_002f: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0034: call void [SimIFace]Sims3.SimIFace.World::remove_OnWorldLoadFinishedEventHandler(class [mscorlib]System.EventHandler)
+		IL_0039: ldnull
+		IL_003a: ldftn void Sims3.Gameplay.ToInWorldState::OnWorldLoadFailed(object, class [mscorlib]System.EventArgs)
+		IL_0040: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0045: call void [SimIFace]Sims3.SimIFace.World::remove_OnWorldLoadFailedEventHandler(class [mscorlib]System.EventHandler)
+		IL_004a: ret
+	} // end of method ToInWorldState::Shutdown
+
+	.method private hidebysig static 
+		void OnWorldLoadStarted (
+			object sender,
+			class [mscorlib]System.EventArgs args
+		) cil managed 
+	{
+		// Method begins at RVA 0xe0290
+		// Header size: 12
+		// Code size: 37 (0x25)
+		.maxstack 2
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.CauseEffectWorldState
+		)
+
+		IL_0000: call bool Sims3.Gameplay.GameStates::get_IsStartingVacation()
+		IL_0005: brfalse.s IL_0024
+
+		IL_0007: call valuetype [SimIFace]Sims3.SimIFace.WorldName Sims3.Gameplay.GameStates::get_DestinationTravelWorld()
+		IL_000c: ldc.i4 255197482
+		IL_0011: bne.un.s IL_0024
+
+		IL_0013: call class Sims3.Gameplay.TimeTravel.CauseEffectService Sims3.Gameplay.TimeTravel.CauseEffectService::GetInstance()
+		IL_0018: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CauseEffectWorldState Sims3.Gameplay.TimeTravel.CauseEffectService::GetCurrentCauseEffectWorldState()
+		IL_001d: stloc.0
+		IL_001e: ldloc.0
+		IL_001f: call void [SimIFace]Sims3.SimIFace.World::SetVisualOverride(uint32)
+
+		IL_0024: ret
+	} // end of method ToInWorldState::OnWorldLoadStarted
+
+	.method private hidebysig static 
+		void OnWorldLoadStatus (
+			object sender,
+			class [mscorlib]System.EventArgs args
+		) cil managed 
+	{
+		// Method begins at RVA 0xe02c1
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method ToInWorldState::OnWorldLoadStatus
+
+	.method private hidebysig static 
+		void OnWorldLoadFinished (
+			object sender,
+			class [mscorlib]System.EventArgs args
+		) cil managed 
+	{
+		// Method begins at RVA 0xe02c3
+		// Header size: 1
+		// Code size: 24 (0x18)
+		.maxstack 8
+
+		IL_0000: call bool Sims3.Gameplay.Core.Camera::RestorePersistedState()
+		IL_0005: pop
+		IL_0006: ldc.i4 2097152
+		IL_000b: ldc.i4.4
+		IL_000c: newobj instance void Sims3.Gameplay.ToInWorldState/SceneReadyTask::.ctor(valuetype [SimIFace]Sims3.SimIFace.SceneMaskFlags, valuetype Sims3.Gameplay.GameState)
+		IL_0011: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Simulator::AddObject(object)
+		IL_0016: pop
+		IL_0017: ret
+	} // end of method ToInWorldState::OnWorldLoadFinished
+
+	.method private hidebysig static 
+		void OnWorldLoadFailed (
+			object sender,
+			class [mscorlib]System.EventArgs args
+		) cil managed 
+	{
+		// Method begins at RVA 0xe02dc
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: newobj instance void Sims3.Gameplay.ToInWorldState/WorldLoadFailed::.ctor()
+		IL_0005: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Simulator::AddObject(object)
+		IL_000a: pop
+		IL_000b: ret
+	} // end of method ToInWorldState::OnWorldLoadFailed
+
+	.method private hidebysig static 
+		void WorldLoadFailedTask () cil managed 
+	{
+		// Method begins at RVA 0xe02ec
+		// Header size: 12
+		// Code size: 68 (0x44)
+		.maxstack 4
+		.locals init (
+			[0] string,
+			[1] class Sims3.Gameplay.Utilities.Initializers,
+			[2] object[]
+		)
+
+		IL_0000: ldstr "WorldLoadDialogText"
+		IL_0005: ldc.i4.1
+		IL_0006: newarr [mscorlib]System.Object
+		IL_000b: stloc.2
+		IL_000c: ldloc.2
+		IL_000d: ldc.i4.0
+		IL_000e: call string Sims3.Gameplay.GameStates::get_LoadFileName()
+		IL_0013: stelem.ref
+		IL_0014: ldloc.2
+		IL_0015: call string Sims3.Gameplay.ToInWorldState::LocalizeString(string, object[])
+		IL_001a: stloc.0
+		IL_001b: call void [UI]Sims3.UI.LoadingScreenController::Unload()
+		IL_0020: ldsfld string [mscorlib]System.String::Empty
+		IL_0025: ldloc.0
+		IL_0026: call void [UI]Sims3.UI.SimpleMessageDialog::Show(string, string)
+		IL_002b: ldstr "PreWorldInitializers"
+		IL_0030: ldnull
+		IL_0031: newobj instance void Sims3.Gameplay.Utilities.Initializers::.ctor(string, object)
+		IL_0036: stloc.1
+		IL_0037: ldloc.1
+		IL_0038: callvirt instance void Sims3.Gameplay.Utilities.Initializers::Shutdown()
+		IL_003d: ldc.i4.1
+		IL_003e: call void Sims3.Gameplay.GameStates::GotoState(valuetype Sims3.Gameplay.GameState)
+		IL_0043: ret
+	} // end of method ToInWorldState::WorldLoadFailedTask
+
+	.method private hidebysig static 
+		valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[] GetCurrentTasks () cil managed 
+	{
+		// Method begins at RVA 0xe033c
+		// Header size: 12
+		// Code size: 69 (0x45)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.ITask[],
+			[1] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[],
+			[2] int32,
+			[3] class [SimIFace]Sims3.SimIFace.ITask,
+			[4] class [SimIFace]Sims3.SimIFace.ITask[],
+			[5] int32
+		)
+
+		IL_0000: call !!0[] Sims3.Gameplay.Queries::GetObjects<class [SimIFace]Sims3.SimIFace.ITask>()
+		IL_0005: stloc.0
+		IL_0006: ldloc.0
+		IL_0007: ldlen
+		IL_0008: conv.i4
+		IL_0009: newarr [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_000e: stloc.1
+		IL_000f: ldc.i4.0
+		IL_0010: stloc.2
+		IL_0011: ldloc.0
+		IL_0012: stloc.s 4
+		IL_0014: ldc.i4.0
+		IL_0015: stloc.s 5
+		IL_0017: br.s IL_003b
+		// loop start (head: IL_003b)
+			IL_0019: ldloc.s 4
+			IL_001b: ldloc.s 5
+			IL_001d: ldelem.ref
+			IL_001e: stloc.3
+			IL_001f: ldloc.1
+			IL_0020: ldloc.2
+			IL_0021: dup
+			IL_0022: ldc.i4.1
+			IL_0023: add
+			IL_0024: stloc.2
+			IL_0025: ldelema [SimIFace]Sims3.SimIFace.ObjectGuid
+			IL_002a: ldloc.3
+			IL_002b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ITask::get_ObjectId()
+			IL_0030: stobj [SimIFace]Sims3.SimIFace.ObjectGuid
+			IL_0035: ldloc.s 5
+			IL_0037: ldc.i4.1
+			IL_0038: add
+			IL_0039: stloc.s 5
+
+			IL_003b: ldloc.s 5
+			IL_003d: ldloc.s 4
+			IL_003f: ldlen
+			IL_0040: conv.i4
+			IL_0041: blt.s IL_0019
+		// end loop
+
+		IL_0043: ldloc.1
+		IL_0044: ret
+	} // end of method ToInWorldState::GetCurrentTasks
+
+	.method public hidebysig static 
+		void RecordMenuObjects () cil managed 
+	{
+		// Method begins at RVA 0xe038d
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[] Sims3.Gameplay.ToInWorldState::GetCurrentTasks()
+		IL_0005: stsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[] Sims3.Gameplay.ToInWorldState::sMenuObjectGuids
+		IL_000a: ret
+	} // end of method ToInWorldState::RecordMenuObjects
+
+	.method public hidebysig static 
+		void ValidateMenuObjects () cil managed 
+	{
+		// Method begins at RVA 0xe0399
+		// Header size: 1
+		// Code size: 21 (0x15)
+		.maxstack 8
+
+		IL_0000: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[] Sims3.Gameplay.ToInWorldState::sMenuObjectGuids
+		IL_0005: brtrue.s IL_0008
+
+		IL_0007: ret
+
+		IL_0008: ldc.i4.0
+		IL_0009: call void [SimIFace]Sims3.SimIFace.Simulator::Sleep(uint32)
+		IL_000e: ldnull
+		IL_000f: stsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[] Sims3.Gameplay.ToInWorldState::sMenuObjectGuids
+		IL_0014: ret
+	} // end of method ToInWorldState::ValidateMenuObjects
+
+	.method private hidebysig static 
+		string LogSimulationObject (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid guid
+		) cil managed 
+	{
+		// Method begins at RVA 0xe03b0
+		// Header size: 12
+		// Code size: 293 (0x125)
+		.maxstack 3
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.ITask,
+			[1] class [SimIFace]Sims3.SimIFace.IScriptProxy,
+			[2] string,
+			[3] class [SimIFace]Sims3.SimIFace.IScriptLogic,
+			[4] object[],
+			[5] object[],
+			[6] object[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call class [SimIFace]Sims3.SimIFace.ITask [SimIFace]Sims3.SimIFace.Simulator::GetTask(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: isinst [SimIFace]Sims3.SimIFace.IScriptProxy
+		IL_000d: stloc.1
+		IL_000e: ldnull
+		IL_000f: stloc.2
+		IL_0010: ldloc.1
+		IL_0011: brfalse IL_00b4
+
+		IL_0016: ldloc.1
+		IL_0017: callvirt instance class [SimIFace]Sims3.SimIFace.IScriptLogic [SimIFace]Sims3.SimIFace.IScriptProxy::get_Target()
+		IL_001c: stloc.3
+		IL_001d: ldloc.3
+		IL_001e: brfalse.s IL_007c
+
+		IL_0020: ldc.i4.7
+		IL_0021: newarr [mscorlib]System.Object
+		IL_0026: stloc.s 4
+		IL_0028: ldloc.s 4
+		IL_002a: ldc.i4.0
+		IL_002b: ldstr "Leaking proxy. type: '"
+		IL_0030: stelem.ref
+		IL_0031: ldloc.s 4
+		IL_0033: ldc.i4.1
+		IL_0034: ldloc.3
+		IL_0035: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+		IL_003a: callvirt instance string [mscorlib]System.Type::get_FullName()
+		IL_003f: stelem.ref
+		IL_0040: ldloc.s 4
+		IL_0042: ldc.i4.2
+		IL_0043: ldstr "' guid: "
+		IL_0048: stelem.ref
+		IL_0049: ldloc.s 4
+		IL_004b: ldc.i4.3
+		IL_004c: ldarg.0
+		IL_004d: box [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_0052: stelem.ref
+		IL_0053: ldloc.s 4
+		IL_0055: ldc.i4.4
+		IL_0056: ldstr " ToString: '"
+		IL_005b: stelem.ref
+		IL_005c: ldloc.s 4
+		IL_005e: ldc.i4.5
+		IL_005f: ldloc.3
+		IL_0060: callvirt instance string [mscorlib]System.Object::ToString()
+		IL_0065: stelem.ref
+		IL_0066: ldloc.s 4
+		IL_0068: ldc.i4.6
+		IL_0069: ldstr "'"
+		IL_006e: stelem.ref
+		IL_006f: ldloc.s 4
+		IL_0071: call string [mscorlib]System.String::Concat(object[])
+		IL_0076: stloc.2
+		IL_0077: br IL_0121
+
+		IL_007c: ldc.i4.4
+		IL_007d: newarr [mscorlib]System.Object
+		IL_0082: stloc.s 5
+		IL_0084: ldloc.s 5
+		IL_0086: ldc.i4.0
+		IL_0087: ldstr "Leaking proxy with null logic. class: '"
+		IL_008c: stelem.ref
+		IL_008d: ldloc.s 5
+		IL_008f: ldc.i4.1
+		IL_0090: ldloc.1
+		IL_0091: callvirt instance string [SimIFace]Sims3.SimIFace.ITask::get_ClassName()
+		IL_0096: stelem.ref
+		IL_0097: ldloc.s 5
+		IL_0099: ldc.i4.2
+		IL_009a: ldstr "' guid: "
+		IL_009f: stelem.ref
+		IL_00a0: ldloc.s 5
+		IL_00a2: ldc.i4.3
+		IL_00a3: ldarg.0
+		IL_00a4: box [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_00a9: stelem.ref
+		IL_00aa: ldloc.s 5
+		IL_00ac: call string [mscorlib]System.String::Concat(object[])
+		IL_00b1: stloc.2
+		IL_00b2: br.s IL_0121
+
+		IL_00b4: ldloc.0
+		IL_00b5: brfalse.s IL_0110
+
+		IL_00b7: ldc.i4.7
+		IL_00b8: newarr [mscorlib]System.Object
+		IL_00bd: stloc.s 6
+		IL_00bf: ldloc.s 6
+		IL_00c1: ldc.i4.0
+		IL_00c2: ldstr "Leaking task. type: '"
+		IL_00c7: stelem.ref
+		IL_00c8: ldloc.s 6
+		IL_00ca: ldc.i4.1
+		IL_00cb: ldloc.0
+		IL_00cc: callvirt instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+		IL_00d1: callvirt instance string [mscorlib]System.Type::get_FullName()
+		IL_00d6: stelem.ref
+		IL_00d7: ldloc.s 6
+		IL_00d9: ldc.i4.2
+		IL_00da: ldstr "' guid: "
+		IL_00df: stelem.ref
+		IL_00e0: ldloc.s 6
+		IL_00e2: ldc.i4.3
+		IL_00e3: ldarg.0
+		IL_00e4: box [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_00e9: stelem.ref
+		IL_00ea: ldloc.s 6
+		IL_00ec: ldc.i4.4
+		IL_00ed: ldstr " ToString: '"
+		IL_00f2: stelem.ref
+		IL_00f3: ldloc.s 6
+		IL_00f5: ldc.i4.5
+		IL_00f6: ldloc.0
+		IL_00f7: callvirt instance string [mscorlib]System.Object::ToString()
+		IL_00fc: stelem.ref
+		IL_00fd: ldloc.s 6
+		IL_00ff: ldc.i4.6
+		IL_0100: ldstr "'"
+		IL_0105: stelem.ref
+		IL_0106: ldloc.s 6
+		IL_0108: call string [mscorlib]System.String::Concat(object[])
+		IL_010d: stloc.2
+		IL_010e: br.s IL_0121
+
+		IL_0110: ldstr "Leaking simulation guid "
+		IL_0115: ldarg.0
+		IL_0116: box [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_011b: call string [mscorlib]System.String::Concat(object, object)
+		IL_0120: stloc.2
+
+		IL_0121: ldloc.2
+		IL_0122: pop
+		IL_0123: ldloc.2
+		IL_0124: ret
+	} // end of method ToInWorldState::LogSimulationObject
+
+} // end of class Sims3.Gameplay.ToInWorldState

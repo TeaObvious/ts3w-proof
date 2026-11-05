@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000BF8.
+// Assembly: ScriptCore; type: ScriptCore.World.
+// Decompiled C# source: ScriptCore/ScriptCore/World.cs:319
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool World_FindGoodLocationAtCustomDepth(ulong objId, Vector3 startPosition, int directionToSelect, int initialsearchDirection, uint facingMask, uint booleanConstraints, int requiredRoomID, int requiredPlatformRoomID, [MarshalAs(UnmanagedType.Interface)] Delegate ValidatePlacementDelegate, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI8)] ulong[] objIdsToIgnore, float minDepth, float maxDepth, ref Vector3 outPos, ref float outOrientation, [MarshalAs(UnmanagedType.I1)] bool bTestWorldOnly, int offsetScale, float maxSearchRadius);

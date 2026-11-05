@@ -1,0 +1,46 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67; Graphics_SelectSupportedFsaaLevel; owned ranges [[0060ec40, 0060ec9f]]
+0060ec40	53	PUSH EBX
+0060ec41	8b5c2408	MOV EBX,dword ptr [ESP + 0x8]
+0060ec45	85db	TEST EBX,EBX
+0060ec47	56	PUSH ESI
+0060ec48	8bf1	MOV ESI,ECX
+0060ec4a	764d	JBE 0x0060ec99
+0060ec4c	55	PUSH EBP
+0060ec4d	57	PUSH EDI
+0060ec4e	8bff	MOV EDI,EDI
+0060ec50	837e0800	CMP dword ptr [ESI + 0x8],0x0
+0060ec54	743c	JZ 0x0060ec92
+0060ec56	83fb11	CMP EBX,0x11
+0060ec59	7337	JNC 0x0060ec92
+0060ec5b	8b149dd88afe00	MOV EDX,dword ptr [EBX*0x4 + 0xfe8ad8]
+0060ec62	8b86e0000000	MOV EAX,dword ptr [ESI + 0xe0]
+0060ec68	8bb854010000	MOV EDI,dword ptr [EAX + 0x154]
+0060ec6e	8b00	MOV EAX,dword ptr [EAX]
+0060ec70	8b4e08	MOV ECX,dword ptr [ESI + 0x8]
+0060ec73	8b29	MOV EBP,dword ptr [ECX]
+0060ec75	6a00	PUSH 0x0
+0060ec77	52	PUSH EDX
+0060ec78	0fb65624	MOVZX EDX,byte ptr [ESI + 0x24]
+0060ec7c	52	PUSH EDX
+0060ec7d	8b5640	MOV EDX,dword ptr [ESI + 0x40]
+0060ec80	57	PUSH EDI
+0060ec81	50	PUSH EAX
+0060ec82	8b452c	MOV EAX,dword ptr [EBP + 0x2c]
+0060ec85	52	PUSH EDX
+0060ec86	51	PUSH ECX
+0060ec87	ffd0	CALL EAX
+0060ec89	85c0	TEST EAX,EAX
+0060ec8b	0f9dc0	SETGE AL
+0060ec8e	84c0	TEST AL,AL
+0060ec90	7505	JNZ 0x0060ec97
+0060ec92	83eb01	SUB EBX,0x1
+0060ec95	75b9	JNZ 0x0060ec50
+0060ec97	5f	POP EDI
+0060ec98	5d	POP EBP
+0060ec99	5e	POP ESI
+0060ec9a	8bc3	MOV EAX,EBX
+0060ec9c	5b	POP EBX
+0060ec9d	c20400	RET 0x4

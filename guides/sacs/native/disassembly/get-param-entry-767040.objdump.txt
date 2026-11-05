@@ -1,0 +1,24 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00767040 <.text+0x366040>:
+  767040:	e8 4b 23 00 00       	call   0x769390
+  767045:	8b 4c 24 04          	mov    ecx,DWORD PTR [esp+0x4]
+  767049:	8b 10                	mov    edx,DWORD PTR [eax]
+  76704b:	8b 92 cc 00 00 00    	mov    edx,DWORD PTR [edx+0xcc]
+  767051:	51                   	push   ecx
+  767052:	8b c8                	mov    ecx,eax
+  767054:	ff d2                	call   edx
+  767056:	85 c0                	test   eax,eax
+  767058:	74 0f                	je     0x767069
+  76705a:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  76705e:	6a 00                	push   0x0
+  767060:	51                   	push   ecx
+  767061:	8b c8                	mov    ecx,eax
+  767063:	e8 38 ab 09 00       	call   0x801ba0
+  767068:	c3                   	ret
+  767069:	33 c0                	xor    eax,eax
+  76706b:	c3                   	ret

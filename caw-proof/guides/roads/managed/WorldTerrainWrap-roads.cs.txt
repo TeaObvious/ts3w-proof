@@ -1,0 +1,53 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: CSHostWrap/Sims3/CSHost/WorldTerrainWrap.cs
+// Each selected declaration or method is complete. Other members are omitted.
+
+	[DllImport("Sims3Common.dll")]
+	private static extern IntPtr WorldTerrainWrap_CreateRoadSpline(IntPtr pWorldTerrainAsVoid, Sims3.Math.Vector2 knot0, Sims3.Math.Vector2 knot1, Sims3.Math.Vector2 knot2, Sims3.Math.Vector2 knot3, int isFootpath, int isDirt, int isRoadBridge);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern IntPtr WorldTerrainWrap_CreateRoadIntersection(IntPtr pWorldTerrainAsVoid, Sims3.Math.Vector2 pos, float rotation, int isFootpath, int isDirt);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern bool WorldTerrainWrap_CanSnapRoadObjectToAnyEmptyPort(IntPtr pWorldTerrainAsVoid, IntPtr movingSplineAsVoid, uint movingPort, out IntPtr foundObjectAsVoid, out int foundObjectType, out uint foundPort);
+
+// [Next selected original declaration or method]
+
+	public RoadSpline CreateRoadSpline(Sims3.Math.Vector2 knot0, Sims3.Math.Vector2 knot1, Sims3.Math.Vector2 knot2, Sims3.Math.Vector2 knot3, bool isFootpath, bool isDirt, bool isRoadBridge)
+	{
+		IntPtr intPtr = WorldTerrainWrap_CreateRoadSpline(mNativeObj, knot0, knot1, knot2, knot3, isFootpath ? 1 : 0, isDirt ? 1 : 0, isRoadBridge ? 1 : 0);
+		if (intPtr == IntPtr.Zero)
+		{
+			return null;
+		}
+		return new RoadSpline(intPtr);
+	}
+
+// [Next selected original declaration or method]
+
+	public RoadIntersection CreateRoadIntersection(Sims3.Math.Vector2 position, float rotation, bool isFootpath, bool isDirt)
+	{
+		IntPtr intPtr = WorldTerrainWrap_CreateRoadIntersection(mNativeObj, position, rotation, isFootpath ? 1 : 0, isDirt ? 1 : 0);
+		if (intPtr == IntPtr.Zero)
+		{
+			return null;
+		}
+		return new RoadIntersection(intPtr);
+	}
+
+// [Next selected original declaration or method]
+
+	public bool CanSnapRoadObjectToAnyEmptyPort(RoadObject movingObject, uint movingPort, out RoadObject foundObject, out uint foundPort)
+	{
+		if (WorldTerrainWrap_CanSnapRoadObjectToAnyEmptyPort(mNativeObj, movingObject.NativeObject, movingPort, out var foundObjectAsVoid, out var foundObjectType, out foundPort))
+		{
+			foundObject = RoadObject.CreateWrapperForExistingObject((RoadObject.Type)foundObjectType, foundObjectAsVoid);
+			return true;
+		}
+		foundObject = null;
+		foundPort = 0u;
+		return false;
+	}

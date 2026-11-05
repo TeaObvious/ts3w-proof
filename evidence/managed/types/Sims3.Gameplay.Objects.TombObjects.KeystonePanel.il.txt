@@ -1,0 +1,1457 @@
+.class public auto ansi beforefieldinit Sims3.Gameplay.Objects.TombObjects.KeystonePanel
+	extends [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+	implements Sims3.Gameplay.Objects.TombObjects.IHasKeystoneShape,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IAdventureObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IKeystonePanel
+{
+	// Nested Types
+	.class nested public auto ansi beforefieldinit InsertKeystone
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim a,
+					class Sims3.Gameplay.Objects.TombObjects.KeystonePanel target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0xefcab
+				// Header size: 1
+				// Code size: 55 (0x37)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_IsUnlocked()
+				IL_0006: brfalse.s IL_000a
+
+				IL_0008: ldc.i4.0
+				IL_0009: ret
+
+				IL_000a: ldarg.1
+				IL_000b: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+				IL_0010: ldarg.2
+				IL_0011: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::IsObjectValidKey(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, object)
+				IL_0017: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ItemTestFunction::.ctor(object, native int)
+				IL_001c: callvirt instance !!0 [Sims3GameplaySystems]Sims3.Gameplay.Inventory::Find<class Sims3.Gameplay.Objects.TombObjects.IKeystone>(class [Sims3GameplaySystems]Sims3.Gameplay.ItemTestFunction)
+				IL_0021: brtrue.s IL_0035
+
+				IL_0023: ldarg.s greyedOutTooltipCallback
+				IL_0025: ldarg.2
+				IL_0026: dup
+				IL_0027: ldvirtftn instance string [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ToTooltipString()
+				IL_002d: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+				IL_0032: stind.ref
+				IL_0033: ldc.i4.0
+				IL_0034: ret
+
+				IL_0035: ldc.i4.1
+				IL_0036: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0xefce3
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+		.field private class Sims3.Gameplay.Objects.TombObjects.IKeystone mSelectedKeystone
+
+		// Methods
+		.method public hidebysig virtual 
+			instance void Cleanup () cil managed 
+		{
+			// Method begins at RVA 0xef950
+			// Header size: 12
+			// Code size: 106 (0x6a)
+			.maxstack 2
+
+			IL_0000: ldarg.0
+			IL_0001: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_StandardEntryCalled()
+			IL_0006: brfalse.s IL_005c
+
+			IL_0008: ldarg.0
+			IL_0009: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_StandardExitCalled()
+			IL_000e: brtrue.s IL_005c
+
+			IL_0010: ldarg.0
+			IL_0011: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0016: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::get_Parent()
+			IL_001b: ldarg.0
+			IL_001c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0021: bne.un.s IL_005c
+
+			IL_0023: ldarg.0
+			IL_0024: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0029: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::UnParent()
+			IL_002e: pop
+			IL_002f: ldarg.0
+			IL_0030: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0035: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::SetObjectToReset()
+			IL_003a: ldarg.0
+			IL_003b: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Actor
+			IL_0040: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_0045: ldarg.0
+			IL_0046: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_004b: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::TryToAdd(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_0050: pop
+			IL_0051: ldarg.0
+			IL_0052: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0057: callvirt instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+
+			IL_005c: ldarg.0
+			IL_005d: ldnull
+			IL_005e: stfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0063: ldarg.0
+			IL_0064: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::Cleanup()
+			IL_0069: ret
+		} // end of method InsertKeystone::Cleanup
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0xef9c8
+			// Header size: 12
+			// Code size: 429 (0x1ad)
+			.maxstack 5
+			.locals init (
+				[0] class Sims3.Gameplay.Objects.TombObjects.IKeystone,
+				[1] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Objects.TombObjects.IKeystone>
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Actor
+			IL_000c: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::RouteToKeystonePanel(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0011: brtrue.s IL_0015
+
+			IL_0013: ldc.i4.0
+			IL_0014: ret
+
+			IL_0015: ldarg.0
+			IL_0016: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Actor
+			IL_001b: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_0020: ldc.i4.1
+			IL_0021: ldarg.0
+			IL_0022: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0027: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::IsObjectValidKey(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, object)
+			IL_002d: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ItemTestFunction::.ctor(object, native int)
+			IL_0032: callvirt instance class [mscorlib]System.Collections.Generic.List`1<!!0> [Sims3GameplaySystems]Sims3.Gameplay.Inventory::FindAll<class Sims3.Gameplay.Objects.TombObjects.IKeystone>(bool, class [Sims3GameplaySystems]Sims3.Gameplay.ItemTestFunction)
+			IL_0037: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Objects.TombObjects.IKeystone>::GetEnumerator()
+			IL_003c: stloc.1
+			.try
+			{
+				IL_003d: br.s IL_0063
+				// loop start (head: IL_0063)
+					IL_003f: ldloca.s 1
+					IL_0041: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Objects.TombObjects.IKeystone>::get_Current()
+					IL_0046: stloc.0
+					IL_0047: ldarg.0
+					IL_0048: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+					IL_004d: brfalse.s IL_005c
+
+					IL_004f: ldarg.0
+					IL_0050: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+					IL_0055: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.IKeystone::get_UseForLast()
+					IL_005a: brfalse.s IL_0063
+
+					IL_005c: ldarg.0
+					IL_005d: ldloc.0
+					IL_005e: stfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+
+					IL_0063: ldloca.s 1
+					IL_0065: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Objects.TombObjects.IKeystone>::MoveNext()
+					IL_006a: brtrue.s IL_003f
+				// end loop
+
+				IL_006c: leave.s IL_007c
+			} // end .try
+			finally
+			{
+				IL_006e: ldloca.s 1
+				IL_0070: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Objects.TombObjects.IKeystone>
+				IL_0076: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_007b: endfinally
+			} // end handler
+
+			IL_007c: ldarg.0
+			IL_007d: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0082: brfalse IL_01ab
+
+			IL_0087: ldarg.0
+			IL_0088: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_008d: ldarg.0
+			IL_008e: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_0093: ldarg.0
+			IL_0094: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Actor
+			IL_0099: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_009e: ldarg.0
+			IL_009f: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_00a4: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Inventory::RemoveByForce(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_00a9: ldarg.0
+			IL_00aa: ldstr "keystonePanel"
+			IL_00af: ldstr "Enter"
+			IL_00b4: ldstr "x"
+			IL_00b9: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_00be: ldarg.0
+			IL_00bf: ldstr "keystonePanel"
+			IL_00c4: ldarg.0
+			IL_00c5: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_00ca: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_00cf: ldarg.0
+			IL_00d0: ldstr "keystone"
+			IL_00d5: ldarg.0
+			IL_00d6: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_00db: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_00e0: ldarg.0
+			IL_00e1: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_00e6: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Parent()
+			IL_00eb: isinst Sims3.Gameplay.Objects.TombObjects.TreasureChest
+			IL_00f0: brfalse.s IL_0114
+
+			IL_00f2: ldarg.0
+			IL_00f3: ldstr "isOnTreasureChest"
+			IL_00f8: ldc.i4.1
+			IL_00f9: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, bool)
+			IL_00fe: ldarg.0
+			IL_00ff: ldstr "TreasureChest"
+			IL_0104: ldarg.0
+			IL_0105: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_010a: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Parent()
+			IL_010f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+
+			IL_0114: ldarg.0
+			IL_0115: ldc.i4.s 101
+			IL_0117: ldarg.0
+			IL_0118: ldftn instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::OnInsertedKeystone(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_011e: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_0123: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_0128: ldarg.0
+			IL_0129: ldc.i4 376
+			IL_012e: ldarg.0
+			IL_012f: ldftn instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::OnTookKeystoneOut(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_0135: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_013a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_013f: ldarg.0
+			IL_0140: ldc.i4 377
+			IL_0145: ldarg.0
+			IL_0146: ldftn instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::OnKeystoneSwap(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_014c: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_0151: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_0156: ldarg.0
+			IL_0157: ldstr "Insert"
+			IL_015c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0161: ldarg.0
+			IL_0162: ldstr "Exit"
+			IL_0167: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_016c: ldarg.0
+			IL_016d: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0172: callvirt instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+			IL_0177: ldarg.0
+			IL_0178: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_017d: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_0182: ldc.i4.1
+			IL_0183: ldarg.0
+			IL_0184: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Actor
+			IL_0189: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_018e: pop
+			IL_018f: ldarg.0
+			IL_0190: ldc.i4.1
+			IL_0191: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_0196: ldc.i4.s 71
+			IL_0198: ldarg.0
+			IL_0199: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Actor
+			IL_019e: call void [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Lessons, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_01a3: ldarg.0
+			IL_01a4: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_01a9: ldc.i4.1
+			IL_01aa: ret
+
+			IL_01ab: ldc.i4.0
+			IL_01ac: ret
+		} // end of method InsertKeystone::Run
+
+		.method private hidebysig 
+			instance void OnInsertedKeystone (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0xefb94
+			// Header size: 12
+			// Code size: 147 (0x93)
+			.maxstack 4
+			.locals init (
+				[0] string,
+				[1] valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape
+			)
+
+			IL_0000: ldstr "ep1KeystoneRaysCircleGlow"
+			IL_0005: stloc.0
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_000c: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+			IL_0011: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+			IL_0016: stloc.1
+			IL_0017: ldloc.1
+			IL_0018: switch (IL_002f, IL_0037, IL_0047, IL_003f)
+
+			IL_002d: br.s IL_004d
+
+			IL_002f: ldstr "ep1KeystoneRaysCrescentGlow"
+			IL_0034: stloc.0
+			IL_0035: br.s IL_004d
+
+			IL_0037: ldstr "ep1KeystoneRaysHeartGlow"
+			IL_003c: stloc.0
+			IL_003d: br.s IL_004d
+
+			IL_003f: ldstr "ep1KeystoneRaysKeyGlow"
+			IL_0044: stloc.0
+			IL_0045: br.s IL_004d
+
+			IL_0047: ldstr "ep1KeystoneRaysStarGlow"
+			IL_004c: stloc.0
+
+			IL_004d: ldloc.0
+			IL_004e: ldarg.0
+			IL_004f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0054: ldc.i4 831137836
+			IL_0059: ldc.i4.0
+			IL_005a: call void [SimIFace]Sims3.SimIFace.VisualEffect::FireOneShotEffect(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+			IL_005f: ldarg.0
+			IL_0060: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Actor
+			IL_0065: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_006a: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription::TombStats
+			IL_006f: ldarg.0
+			IL_0070: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0075: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+			IL_007a: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+			IL_007f: ldarg.0
+			IL_0080: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0085: isinst Sims3.Gameplay.Objects.TombObjects.AdventureRewards.SkeletonKey
+			IL_008a: ldnull
+			IL_008b: cgt.un
+			IL_008d: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking::KeyUsed(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape, bool)
+			IL_0092: ret
+		} // end of method InsertKeystone::OnInsertedKeystone
+
+		.method private hidebysig 
+			instance void OnTookKeystoneOut (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0xefc33
+			// Header size: 1
+			// Code size: 62 (0x3e)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0006: isinst Sims3.Gameplay.Objects.TombObjects.AdventureRewards.SkeletonKey
+			IL_000b: brfalse.s IL_003d
+
+			IL_000d: ldarg.0
+			IL_000e: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0013: ldstr "Keystone"
+			IL_0018: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::SetModel(string)
+			IL_001d: ldarg.0
+			IL_001e: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0023: ldarg.0
+			IL_0024: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0029: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+			IL_002e: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+			IL_0033: call string Sims3.Gameplay.Objects.TombObjects.Keystone::GetGeometryStateName(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape)
+			IL_0038: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::SetGeometryState(string)
+
+			IL_003d: ret
+		} // end of method InsertKeystone::OnTookKeystoneOut
+
+		.method private hidebysig 
+			instance void OnKeystoneSwap (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0xefc72
+			// Header size: 1
+			// Code size: 36 (0x24)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class Sims3.Gameplay.Objects.TombObjects.IKeystone Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::mSelectedKeystone
+			IL_0006: isinst Sims3.Gameplay.Objects.TombObjects.AdventureRewards.SkeletonKey
+			IL_000b: brfalse.s IL_0023
+
+			IL_000d: ldstr "ep1KeystoneSwap"
+			IL_0012: ldarg.0
+			IL_0013: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Actor
+			IL_0018: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim/FXJoints::LeftHand
+			IL_001d: ldc.i4.0
+			IL_001e: call void [SimIFace]Sims3.SimIFace.VisualEffect::FireOneShotEffect(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+
+			IL_0023: ret
+		} // end of method InsertKeystone::OnKeystoneSwap
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0xefca3
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::.ctor()
+			IL_0006: ret
+		} // end of method InsertKeystone::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0xefc97
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::Singleton
+			IL_000a: ret
+		} // end of method InsertKeystone::.cctor
+
+	} // end of class InsertKeystone
+
+	.class nested private auto ansi sealed beforefieldinit RemoveKeystone
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel/RemoveKeystone>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombObjects.KeystonePanel target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0xefd0d
+				// Header size: 1
+				// Code size: 6 (0x6)
+				.maxstack 8
+
+				IL_0000: ldstr "Debug: Remove Keystone"
+				IL_0005: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Objects.TombObjects.KeystonePanel target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0xefd14
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0xefd17
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel/RemoveKeystone>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0xefceb
+			// Header size: 1
+			// Code size: 13 (0xd)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::Target
+			IL_0006: callvirt instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::OnAdventureReset()
+			IL_000b: ldc.i4.1
+			IL_000c: ret
+		} // end of method RemoveKeystone::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0xefd05
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>::.ctor()
+			IL_0006: ret
+		} // end of method RemoveKeystone::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0xefcf9
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel/RemoveKeystone/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.KeystonePanel/RemoveKeystone::Singleton
+			IL_000a: ret
+		} // end of method RemoveKeystone::.cctor
+
+	} // end of class RemoveKeystone
+
+
+	// Fields
+	.field private static literal string kLocalizationKey = "Gameplay/Objects/TombObjects/KeystonePanel"
+	.field private valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info mKeystoneInfo
+	.field private class [SimIFace]Sims3.SimIFace.VisualEffect mGlowFx
+
+	// Methods
+	.method public hidebysig specialname 
+		instance bool get_IsUnlocked () cil managed 
+	{
+		// Method begins at RVA 0xef3d1
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4 -1474234202 // 0xa820f8a6
+		IL_0006: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetContainedObject(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_000b: ldnull
+		IL_000c: ceq
+		IL_000e: ldc.i4.0
+		IL_000f: ceq
+		IL_0011: ret
+	} // end of method KeystonePanel::get_IsUnlocked
+
+	.method public hidebysig specialname 
+		instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info get_KeystoneInfo () cil managed 
+	{
+		// Method begins at RVA 0xef3e4
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0006: ret
+	} // end of method KeystonePanel::get_KeystoneInfo
+
+	.method public final hidebysig specialname newslot virtual 
+		instance string get_Name () cil managed 
+	{
+		// Method begins at RVA 0xef3ec
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+		IL_0006: ldfld string Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Name
+		IL_000b: ret
+	} // end of method KeystonePanel::get_Name
+
+	.method private hidebysig static 
+		string LocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0xef3f9
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldstr "Gameplay/Objects/TombObjects/KeystonePanel:"
+		IL_0005: ldarg.0
+		IL_0006: call string [mscorlib]System.String::Concat(string, string)
+		IL_000b: ldarg.1
+		IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0011: ret
+	} // end of method KeystonePanel::LocalizeString
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0xef40c
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.Keystone/SetShape::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0012: ret
+	} // end of method KeystonePanel::AddBuildBuyInteractions
+
+	.method family hidebysig virtual 
+		instance void AddDebugInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> debugInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0xef420
+		// Header size: 1
+		// Code size: 30 (0x1e)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.Keystone/SetShape::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.1
+		IL_000c: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.KeystonePanel/RemoveKeystone::Singleton
+		IL_0011: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_0016: ldarg.0
+		IL_0017: ldarg.1
+		IL_0018: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddDebugInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_001d: ret
+	} // end of method KeystonePanel::AddDebugInteractions
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0xef43f
+		// Header size: 1
+		// Code size: 44 (0x2c)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: newarr [mscorlib]System.Object
+		IL_0007: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent>(object[])
+		IL_000c: pop
+		IL_000d: ldarg.0
+		IL_000e: ldc.i4.0
+		IL_000f: newarr [mscorlib]System.Object
+		IL_0014: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_0019: pop
+		IL_001a: ldarg.0
+		IL_001b: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::Singleton
+		IL_0020: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition)
+		IL_0025: ldarg.0
+		IL_0026: call instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+		IL_002b: ret
+	} // end of method KeystonePanel::OnStartup
+
+	.method public final hidebysig newslot virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0xef46c
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4.1
+		IL_0002: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0007: ret
+	} // end of method KeystonePanel::OnAddTombObjectComponent
+
+	.method public hidebysig virtual 
+		instance void OnCreation () cil managed 
+	{
+		// Method begins at RVA 0xef478
+		// Header size: 12
+		// Code size: 38 (0x26)
+		.maxstack 2
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/KeystoneInitParams
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: call class [SimIFace]Sims3.SimIFace.Simulator/ObjectInitParameters [SimIFace]Sims3.SimIFace.Simulator::GetObjectInitParameters(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_000b: isinst [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/KeystoneInitParams
+		IL_0010: stloc.0
+		IL_0011: ldloc.0
+		IL_0012: brfalse.s IL_0025
+
+		IL_0014: ldarg.0
+		IL_0015: ldloc.0
+		IL_0016: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/KeystoneInitParams::get_KeystoneNameOrType()
+		IL_001b: call valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.Keystone::GetKeystoneInfoFromNameOrType(string)
+		IL_0020: stfld valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+
+		IL_0025: ret
+	} // end of method KeystonePanel::OnCreation
+
+	.method public hidebysig static 
+		void PostWorldLoadAdventureFixup () cil managed 
+	{
+		// Method begins at RVA 0xef4ac
+		// Header size: 12
+		// Code size: 132 (0x84)
+		.maxstack 3
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.CAS.Household,
+			[1] class [mscorlib]System.Collections.Generic.List`1<string>,
+			[2] class Sims3.Gameplay.Objects.TombObjects.KeystonePanel[],
+			[3] class Sims3.Gameplay.Objects.TombObjects.KeystonePanel,
+			[4] class Sims3.Gameplay.Objects.TombObjects.KeystonePanel[],
+			[5] int32
+		)
+
+		IL_0000: call class [Sims3GameplaySystems]Sims3.Gameplay.CAS.Household [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_TravelHousehold()
+		IL_0005: stloc.0
+		IL_0006: ldloc.0
+		IL_0007: brfalse.s IL_0083
+
+		IL_0009: ldloc.0
+		IL_000a: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.PairedListDictionary`2<valuetype [SimIFace]Sims3.SimIFace.WorldName, class [mscorlib]System.Collections.Generic.List`1<string>> [Sims3GameplaySystems]Sims3.Gameplay.CAS.Household::mKeystonePanelsUsed
+		IL_000f: call valuetype [SimIFace]Sims3.SimIFace.WorldName [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorld()
+		IL_0014: ldloca.s 1
+		IL_0016: callvirt instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.PairedListDictionary`2<valuetype [SimIFace]Sims3.SimIFace.WorldName, class [mscorlib]System.Collections.Generic.List`1<string>>::TryGetValue(!0, !1&)
+		IL_001b: brtrue.s IL_0023
+
+		IL_001d: newobj instance void class [mscorlib]System.Collections.Generic.List`1<string>::.ctor()
+		IL_0022: stloc.1
+
+		IL_0023: call !!0[] [Sims3GameplaySystems]Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Objects.TombObjects.KeystonePanel>()
+		IL_0028: stloc.2
+		IL_0029: ldloc.2
+		IL_002a: stloc.s 4
+		IL_002c: ldc.i4.0
+		IL_002d: stloc.s 5
+		IL_002f: br.s IL_007b
+		// loop start (head: IL_007b)
+			IL_0031: ldloc.s 4
+			IL_0033: ldloc.s 5
+			IL_0035: ldelem.ref
+			IL_0036: stloc.3
+			IL_0037: ldloc.3
+			IL_0038: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+			IL_003d: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+			IL_0042: ldc.i4.3
+			IL_0043: bne.un.s IL_0075
+
+			IL_0045: ldloc.3
+			IL_0046: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_AdventureKey()
+			IL_004b: call bool [mscorlib]System.String::IsNullOrEmpty(string)
+			IL_0050: brtrue.s IL_0075
+
+			IL_0052: ldloc.1
+			IL_0053: ldloc.3
+			IL_0054: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+			IL_0059: ldfld string Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Name
+			IL_005e: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<string>::Contains(!0)
+			IL_0063: brfalse.s IL_006e
+
+			IL_0065: ldloc.3
+			IL_0066: ldc.i4.1
+			IL_0067: callvirt instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::OnAdventureReset(bool)
+			IL_006c: br.s IL_0075
+
+			IL_006e: ldloc.3
+			IL_006f: ldc.i4.0
+			IL_0070: callvirt instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::OnAdventureReset(bool)
+
+			IL_0075: ldloc.s 5
+			IL_0077: ldc.i4.1
+			IL_0078: add
+			IL_0079: stloc.s 5
+
+			IL_007b: ldloc.s 5
+			IL_007d: ldloc.s 4
+			IL_007f: ldlen
+			IL_0080: conv.i4
+			IL_0081: blt.s IL_0031
+		// end loop
+
+		IL_0083: ret
+	} // end of method KeystonePanel::PostWorldLoadAdventureFixup
+
+	.method public hidebysig virtual 
+		instance void Dispose () cil managed 
+	{
+		// Method begins at RVA 0xef53c
+		// Header size: 1
+		// Code size: 33 (0x21)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_0006: brfalse.s IL_001a
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_000e: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::Dispose()
+		IL_0013: ldarg.0
+		IL_0014: ldnull
+		IL_0015: stfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+
+		IL_001a: ldarg.0
+		IL_001b: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::Dispose()
+		IL_0020: ret
+	} // end of method KeystonePanel::Dispose
+
+	.method public final hidebysig newslot virtual 
+		instance void OnAdventureReset () cil managed 
+	{
+		// Method begins at RVA 0xef55e
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: call instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::OnAdventureReset(bool)
+		IL_0007: ret
+	} // end of method KeystonePanel::OnAdventureReset
+
+	.method public hidebysig 
+		instance void OnAdventureReset (
+			bool unreset
+		) cil managed 
+	{
+		// Method begins at RVA 0xef568
+		// Header size: 12
+		// Code size: 113 (0x71)
+		.maxstack 3
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0006: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+		IL_000b: ldc.i4.3
+		IL_000c: bne.un.s IL_0070
+
+		IL_000e: ldarg.0
+		IL_000f: ldc.i4 -1474234202 // 0xa820f8a6
+		IL_0014: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetContainedObject(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0019: stloc.0
+		IL_001a: ldarg.1
+		IL_001b: brfalse.s IL_0053
+
+		IL_001d: ldloc.0
+		IL_001e: brtrue.s IL_0070
+
+		IL_0020: ldarg.0
+		IL_0021: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0026: ldfld string Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Name
+		IL_002b: call class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker::Make(string)
+		IL_0030: stloc.0
+		IL_0031: ldloc.0
+		IL_0032: ldarg.0
+		IL_0033: ldc.i4 -1474234202 // 0xa820f8a6
+		IL_0038: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::ParentToSlot(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_003d: pop
+		IL_003e: ldarg.0
+		IL_003f: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_0044: ldc.i4.1
+		IL_0045: ldnull
+		IL_0046: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_004b: pop
+		IL_004c: ldarg.0
+		IL_004d: call instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+		IL_0052: ret
+
+		IL_0053: ldloc.0
+		IL_0054: brfalse.s IL_0070
+
+		IL_0056: ldloc.0
+		IL_0057: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject::Destroy()
+		IL_005c: ldarg.0
+		IL_005d: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+		IL_0062: ldc.i4.1
+		IL_0063: ldnull
+		IL_0064: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::DeactivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0069: pop
+		IL_006a: ldarg.0
+		IL_006b: call instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+
+		IL_0070: ret
+	} // end of method KeystonePanel::OnAdventureReset
+
+	.method public hidebysig virtual 
+		instance bool HandToolAllowPlacementInSlot (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject objectToPlaceInSlot,
+			valuetype [SimIFace]Sims3.SimIFace.Slot slot,
+			class [SimIFace]Sims3.SimIFace.AdditionalSlotPlacementCheckResults checks
+		) cil managed 
+	{
+		// Method begins at RVA 0xef5e5
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.2
+		IL_0001: ldc.i4 -1474234202 // 0xa820f8a6
+		IL_0006: bne.un.s IL_000a
+
+		IL_0008: ldc.i4.0
+		IL_0009: ret
+
+		IL_000a: ldarg.0
+		IL_000b: ldarg.1
+		IL_000c: ldarg.2
+		IL_000d: ldarg.3
+		IL_000e: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::HandToolAllowPlacementInSlot(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot, class [SimIFace]Sims3.SimIFace.AdditionalSlotPlacementCheckResults)
+		IL_0013: ret
+	} // end of method KeystonePanel::HandToolAllowPlacementInSlot
+
+	.method public hidebysig virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> GetAllInteractionsForActor (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor s
+		) cil managed 
+	{
+		// Method begins at RVA 0xef5fc
+		// Header size: 12
+		// Code size: 39 (0x27)
+		.maxstack 2
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.ISecretObject
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Parent()
+		IL_0006: isinst [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.ISecretObject
+		IL_000b: stloc.0
+		IL_000c: ldloc.0
+		IL_000d: brfalse.s IL_001f
+
+		IL_000f: ldloc.0
+		IL_0010: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.ISecretObject::get_IsDiscovered()
+		IL_0015: brtrue.s IL_001f
+
+		IL_0017: ldloc.0
+		IL_0018: ldarg.1
+		IL_0019: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::GetAllInteractionsForActor(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor)
+		IL_001e: ret
+
+		IL_001f: ldarg.0
+		IL_0020: ldarg.1
+		IL_0021: call instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetAllInteractionsForActor(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor)
+		IL_0026: ret
+	} // end of method KeystonePanel::GetAllInteractionsForActor
+
+	.method public hidebysig virtual 
+		instance bool HasAnyInteraction (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor actor,
+			valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+		) cil managed 
+	{
+		// Method begins at RVA 0xef630
+		// Header size: 12
+		// Code size: 41 (0x29)
+		.maxstack 3
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.ISecretObject
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Parent()
+		IL_0006: isinst [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.ISecretObject
+		IL_000b: stloc.0
+		IL_000c: ldloc.0
+		IL_000d: brfalse.s IL_0020
+
+		IL_000f: ldloc.0
+		IL_0010: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.ISecretObject::get_IsDiscovered()
+		IL_0015: brtrue.s IL_0020
+
+		IL_0017: ldloc.0
+		IL_0018: ldarg.1
+		IL_0019: ldarg.2
+		IL_001a: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::HasAnyInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+		IL_001f: ret
+
+		IL_0020: ldarg.0
+		IL_0021: ldarg.1
+		IL_0022: ldarg.2
+		IL_0023: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::HasAnyInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+		IL_0028: ret
+	} // end of method KeystonePanel::HasAnyInteraction
+
+	.method public hidebysig virtual 
+		instance class [UI]Sims3.UI.Tooltip CreateTooltip (
+			valuetype [SimIFace]Sims3.SimIFace.Vector2 mousePosition,
+			class [UI]Sims3.UI.WindowBase mousedOverWindow,
+			valuetype [SimIFace]Sims3.SimIFace.Vector2& tooltipPosition
+		) cil managed 
+	{
+		// Method begins at RVA 0xef668
+		// Header size: 12
+		// Code size: 32 (0x20)
+		.maxstack 4
+		.locals init (
+			[0] class [UI]Sims3.UI.Tooltip
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance class [UI]Sims3.UI.Tooltip [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::CreateTooltip(valuetype [SimIFace]Sims3.SimIFace.Vector2, class [UI]Sims3.UI.WindowBase, valuetype [SimIFace]Sims3.SimIFace.Vector2&)
+		IL_0009: stloc.0
+		IL_000a: ldarg.0
+		IL_000b: call instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_IsUnlocked()
+		IL_0010: brtrue.s IL_001e
+
+		IL_0012: ldarg.0
+		IL_0013: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ToTooltipString()
+		IL_0018: newobj instance void [UI]Sims3.UI.SimpleTextTooltip::.ctor(string)
+		IL_001d: stloc.0
+
+		IL_001e: ldloc.0
+		IL_001f: ret
+	} // end of method KeystonePanel::CreateTooltip
+
+	.method public hidebysig virtual 
+		instance string ToTooltipString () cil managed 
+	{
+		// Method begins at RVA 0xef694
+		// Header size: 12
+		// Code size: 139 (0x8b)
+		.maxstack 4
+		.locals init (
+			[0] string,
+			[1] object[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_IsUnlocked()
+		IL_0006: brtrue.s IL_0084
+
+		IL_0008: ldstr "TooltipText"
+		IL_000d: ldc.i4.1
+		IL_000e: newarr [mscorlib]System.Object
+		IL_0013: stloc.1
+		IL_0014: ldloc.1
+		IL_0015: ldc.i4.0
+		IL_0016: ldarg.0
+		IL_0017: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_001c: constrained. Sims3.Gameplay.Objects.TombObjects.Keystone/Info
+		IL_0022: callvirt instance string [mscorlib]System.Object::ToString()
+		IL_0027: stelem.ref
+		IL_0028: ldloc.1
+		IL_0029: call string Sims3.Gameplay.Objects.TombObjects.KeystonePanel::LocalizeString(string, object[])
+		IL_002e: stloc.0
+		IL_002f: ldarg.0
+		IL_0030: call instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+		IL_0035: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+		IL_003a: ldc.i4.3
+		IL_003b: bne.un.s IL_0082
+
+		IL_003d: ldarg.0
+		IL_003e: call instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+		IL_0043: ldfld string Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Name
+		IL_0048: call bool [mscorlib]System.String::IsNullOrEmpty(string)
+		IL_004d: brtrue.s IL_0082
+
+		IL_004f: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, bool> [Sims3GameplaySystems]Sims3.Gameplay.Opportunities.OpportunityManager::sKeystonesThatComeFromAdventures
+		IL_0054: ldarg.0
+		IL_0055: call instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+		IL_005a: ldfld string Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Name
+		IL_005f: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<string, bool>::ContainsKey(!0)
+		IL_0064: brfalse.s IL_0082
+
+		IL_0066: ldloc.0
+		IL_0067: ldstr "\n"
+		IL_006c: ldstr "KeyFromAdventureHovertip"
+		IL_0071: ldc.i4.0
+		IL_0072: newarr [mscorlib]System.Object
+		IL_0077: call string Sims3.Gameplay.Objects.TombObjects.KeystonePanel::LocalizeString(string, object[])
+		IL_007c: call string [mscorlib]System.String::Concat(string, string, string)
+		IL_0081: stloc.0
+
+		IL_0082: ldloc.0
+		IL_0083: ret
+
+		IL_0084: ldarg.0
+		IL_0085: call instance string [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ToTooltipString()
+		IL_008a: ret
+	} // end of method KeystonePanel::ToTooltipString
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0xef72c
+		// Header size: 12
+		// Code size: 27 (0x1b)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0009: stloc.0
+		IL_000a: ldarg.0
+		IL_000b: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0010: ldarg.1
+		IL_0011: ldarg.2
+		IL_0012: ldarg.3
+		IL_0013: call instance bool Sims3.Gameplay.Objects.TombObjects.Keystone/Info::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0018: pop
+		IL_0019: ldloc.0
+		IL_001a: ret
+	} // end of method KeystonePanel::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0xef754
+		// Header size: 12
+		// Code size: 33 (0x21)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0009: stloc.0
+		IL_000a: ldarg.0
+		IL_000b: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0010: ldarg.1
+		IL_0011: ldarg.2
+		IL_0012: ldarg.3
+		IL_0013: call instance bool Sims3.Gameplay.Objects.TombObjects.Keystone/Info::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0018: pop
+		IL_0019: ldarg.0
+		IL_001a: call instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+		IL_001f: ldloc.0
+		IL_0020: ret
+	} // end of method KeystonePanel::ImportContent
+
+	.method public final hidebysig newslot virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0xef784
+		// Header size: 12
+		// Code size: 44 (0x2c)
+		.maxstack 3
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IWorldBuilderData
+		)
+
+		IL_0000: ldstr "Keystones"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "mKeystoneInfo"
+		IL_0010: call class [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IWorldBuilderData [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::GetDirect(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string)
+		IL_0015: stloc.0
+		IL_0016: ldloc.0
+		IL_0017: brfalse.s IL_002b
+
+		IL_0019: ldarg.0
+		IL_001a: ldloc.0
+		IL_001b: unbox.any Sims3.Gameplay.Objects.TombObjects.Keystone/Info
+		IL_0020: stfld valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0025: ldarg.0
+		IL_0026: call instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+
+		IL_002b: ret
+	} // end of method KeystonePanel::LoadWorldBuilderData
+
+	.method public final hidebysig newslot virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0xef7bc
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: call bool [SimIFace]Sims3.SimIFace.Environment::get_HasEditInGameModeSwitch()
+		IL_0005: brfalse.s IL_0027
+
+		IL_0007: ldstr "Keystones"
+		IL_000c: ldarg.0
+		IL_000d: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0012: ldstr "mKeystoneInfo"
+		IL_0017: ldarg.0
+		IL_0018: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_001d: box Sims3.Gameplay.Objects.TombObjects.Keystone/Info
+		IL_0022: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::SetDirect(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, class [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IWorldBuilderData)
+
+		IL_0027: ret
+	} // end of method KeystonePanel::SaveWorldBuilderData
+
+	.method public hidebysig 
+		instance bool IsObjectValidKey (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject obj,
+			object customData
+		) cil managed 
+	{
+		// Method begins at RVA 0xef7e8
+		// Header size: 12
+		// Code size: 25 (0x19)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.IKeystone
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: isinst Sims3.Gameplay.Objects.TombObjects.IKeystone
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: brfalse.s IL_0017
+
+		IL_000a: ldloc.0
+		IL_000b: ldarg.0
+		IL_000c: ldfld valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0011: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.IKeystone::IsCorrectShape(valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info)
+		IL_0016: ret
+
+		IL_0017: ldc.i4.0
+		IL_0018: ret
+	} // end of method KeystonePanel::IsObjectValidKey
+
+	.method public hidebysig 
+		instance bool RouteToKeystonePanel (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0xef810
+		// Header size: 12
+		// Code size: 36 (0x24)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.TreasureChest
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Parent()
+		IL_0006: isinst Sims3.Gameplay.Objects.TombObjects.TreasureChest
+		IL_000b: stloc.0
+		IL_000c: ldloc.0
+		IL_000d: brfalse.s IL_0017
+
+		IL_000f: ldloc.0
+		IL_0010: ldarg.1
+		IL_0011: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::RouteToTreasureChest(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0016: ret
+
+		IL_0017: ldarg.1
+		IL_0018: ldarg.0
+		IL_0019: ldc.i4 824351308
+		IL_001e: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::RouteToSlotAndCheckInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0023: ret
+	} // end of method KeystonePanel::RouteToKeystonePanel
+
+	.method public final hidebysig newslot virtual 
+		instance void UpdateInfo (
+			valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info keystoneInfo
+		) cil managed 
+	{
+		// Method begins at RVA 0xef840
+		// Header size: 1
+		// Code size: 43 (0x2b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0006: ldarga.s keystoneInfo
+		IL_0008: ldfld string Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Name
+		IL_000d: stfld string Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Name
+		IL_0012: ldarg.0
+		IL_0013: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_0018: ldarga.s keystoneInfo
+		IL_001a: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+		IL_001f: stfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+		IL_0024: ldarg.0
+		IL_0025: call instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+		IL_002a: ret
+	} // end of method KeystonePanel::UpdateInfo
+
+	.method public hidebysig 
+		instance void UpdateVisualState () cil managed 
+	{
+		// Method begins at RVA 0xef86c
+		// Header size: 12
+		// Code size: 205 (0xcd)
+		.maxstack 3
+		.locals init (
+			[0] string,
+			[1] valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape
+		)
+
+		IL_0000: ldstr "keystonePanelCircle"
+		IL_0005: stloc.0
+		IL_0006: ldarg.0
+		IL_0007: ldflda valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mKeystoneInfo
+		IL_000c: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+		IL_0011: stloc.1
+		IL_0012: ldloc.1
+		IL_0013: switch (IL_002a, IL_0032, IL_0042, IL_003a)
+
+		IL_0028: br.s IL_0048
+
+		IL_002a: ldstr "keystonePanelCresent"
+		IL_002f: stloc.0
+		IL_0030: br.s IL_0048
+
+		IL_0032: ldstr "keystonePanelHeart"
+		IL_0037: stloc.0
+		IL_0038: br.s IL_0048
+
+		IL_003a: ldstr "keystonePanelNamed"
+		IL_003f: stloc.0
+		IL_0040: br.s IL_0048
+
+		IL_0042: ldstr "keystonePanelStar"
+		IL_0047: stloc.0
+
+		IL_0048: ldarg.0
+		IL_0049: ldloc.0
+		IL_004a: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetGeometryState(string)
+		IL_004f: ldarg.0
+		IL_0050: call instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_IsUnlocked()
+		IL_0055: brfalse.s IL_009f
+
+		IL_0057: ldarg.0
+		IL_0058: ldloc.0
+		IL_0059: ldstr "Glow"
+		IL_005e: call string [mscorlib]System.String::Concat(string, string)
+		IL_0063: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetMaterial(string)
+		IL_0068: ldarg.0
+		IL_0069: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_006e: brtrue.s IL_00cc
+
+		IL_0070: ldarg.0
+		IL_0071: ldstr "ep1KeystoneConstantGlow"
+		IL_0076: call class [SimIFace]Sims3.SimIFace.VisualEffect [SimIFace]Sims3.SimIFace.VisualEffect::Create(string)
+		IL_007b: stfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_0080: ldarg.0
+		IL_0081: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_0086: ldarg.0
+		IL_0087: ldc.i4 831137836
+		IL_008c: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::ParentTo(class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0091: pop
+		IL_0092: ldarg.0
+		IL_0093: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_0098: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::Start()
+		IL_009d: pop
+		IL_009e: ret
+
+		IL_009f: ldarg.0
+		IL_00a0: ldloc.0
+		IL_00a1: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetMaterial(string)
+		IL_00a6: ldarg.0
+		IL_00a7: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_00ac: brfalse.s IL_00cc
+
+		IL_00ae: ldarg.0
+		IL_00af: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_00b4: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::Stop()
+		IL_00b9: pop
+		IL_00ba: ldarg.0
+		IL_00bb: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+		IL_00c0: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::Dispose()
+		IL_00c5: ldarg.0
+		IL_00c6: ldnull
+		IL_00c7: stfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.KeystonePanel::mGlowFx
+
+		IL_00cc: ret
+	} // end of method KeystonePanel::UpdateVisualState
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0xef945
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::.ctor()
+		IL_0006: ret
+	} // end of method KeystonePanel::.ctor
+
+	// Properties
+	.property instance bool IsUnlocked()
+	{
+		.get instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_IsUnlocked()
+	}
+	.property instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info KeystoneInfo()
+	{
+		.get instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+	}
+	.property instance string Name()
+	{
+		.get instance string Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_Name()
+	}
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.KeystonePanel

@@ -1,0 +1,71 @@
+# Actual saved-clean annotated bounded existing Listing. Two nonfunction sites, NO C or function-body claim.
+# Address 00d0e860 length 28
+# Actual PLATE: Bounded existing28-byte Listing, NOT a defined Function and no C export. Physical ECX tool, state word plus ignored second word, RET8: state0 clears byte59, state2 sets it, others preserve.
+00d0e860 8b442404 MOV EAX,dword ptr [ESP + 0x4]
+00d0e864 83e800 SUB EAX,0x0
+00d0e867 740c JZ 0x00d0e875
+00d0e869 83e802 SUB EAX,0x2
+00d0e86c 750b JNZ 0x00d0e879
+00d0e86e c6415901 MOV byte ptr [ECX + 0x59],0x1
+00d0e872 c20800 RET 0x8
+00d0e875 c6415900 MOV byte ptr [ECX + 0x59],0x0
+00d0e879 c20800 RET 0x8
+# Address 00d0e8c0 length 163
+# Actual PLATE: Bounded existing163-byte activation Listing, NOT a defined Function and no C export. Physical ECX tool plus one base activation DWORD, RET4. After base success and undoable initialization, reads three device words via0060ED20 from singleton011CFCC8; second signed output CVTSI2SS multiplied float01084C54=0x3CA3D70A then stored scale60 once. Exact device188 producer/units and window-height identity remain unresolved.
+00d0e8c0 8b442404 MOV EAX,dword ptr [ESP + 0x4]
+00d0e8c4 83ec08 SUB ESP,0x8
+00d0e8c7 57 PUSH EDI
+00d0e8c8 50 PUSH EAX
+00d0e8c9 8bf9 MOV EDI,ECX
+00d0e8cb e86044fcff CALL 0x00cd2d30
+00d0e8d0 84c0 TEST AL,AL
+00d0e8d2 7507 JNZ 0x00d0e8db
+00d0e8d4 5f POP EDI
+00d0e8d5 83c408 ADD ESP,0x8
+00d0e8d8 c20400 RET 0x4
+00d0e8db 56 PUSH ESI
+00d0e8dc 680dd1ae05 PUSH 0x5aed10d
+00d0e8e1 8bcf MOV ECX,EDI
+00d0e8e3 e82801fcff CALL 0x00ccea10
+00d0e8e8 837f3400 CMP dword ptr [EDI + 0x34],0x0
+00d0e8ec 8d7734 LEA ESI,[EDI + 0x34]
+00d0e8ef 753b JNZ 0x00d0e92c
+00d0e8f1 6a00 PUSH 0x0
+00d0e8f3 6a00 PUSH 0x0
+00d0e8f5 6a00 PUSH 0x0
+00d0e8f7 6a00 PUSH 0x0
+00d0e8f9 688c4c0801 PUSH 0x1084c8c
+00d0e8fe 6a74 PUSH 0x74
+00d0e900 e8fb5b7dff CALL 0x004e4500
+00d0e905 83c418 ADD ESP,0x18
+00d0e908 85c0 TEST EAX,EAX
+00d0e90a 740d JZ 0x00d0e919
+00d0e90c 8b4f0c MOV ECX,dword ptr [EDI + 0xc]
+00d0e90f 51 PUSH ECX
+00d0e910 8bc8 MOV ECX,EAX
+00d0e912 e8d9c30100 CALL 0x00d2acf0
+00d0e917 eb02 JMP 0x00d0e91b
+00d0e919 33c0 XOR EAX,EAX
+00d0e91b 50 PUSH EAX
+00d0e91c 8bce MOV ECX,ESI
+00d0e91e e86d7c85ff CALL 0x00566590
+00d0e923 8b0e MOV ECX,dword ptr [ESI]
+00d0e925 8b11 MOV EDX,dword ptr [ECX]
+00d0e927 8b4204 MOV EAX,dword ptr [EDX + 0x4]
+00d0e92a ffd0 CALL EAX
+00d0e92c 8d4c2408 LEA ECX,[ESP + 0x8]
+00d0e930 51 PUSH ECX
+00d0e931 8b0dc8fc1c01 MOV ECX,dword ptr [0x011cfcc8]
+00d0e937 8d542418 LEA EDX,[ESP + 0x18]
+00d0e93b 52 PUSH EDX
+00d0e93c 8d442414 LEA EAX,[ESP + 0x14]
+00d0e940 50 PUSH EAX
+00d0e941 e8da0390ff CALL 0x0060ed20
+00d0e946 f30f2a442414 CVTSI2SS XMM0,dword ptr [ESP + 0x14]
+00d0e94c f30f5905544c0801 MULSS XMM0,dword ptr [0x01084c54]
+00d0e954 5e POP ESI
+00d0e955 f30f114760 MOVSS dword ptr [EDI + 0x60],XMM0
+00d0e95a b001 MOV AL,0x1
+00d0e95c 5f POP EDI
+00d0e95d 83c408 ADD ESP,0x8
+00d0e960 c20400 RET 0x4

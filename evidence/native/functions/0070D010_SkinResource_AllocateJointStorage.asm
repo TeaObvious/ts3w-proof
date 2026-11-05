@@ -1,0 +1,67 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function envelope.
+Analyst name: SkinResource_AllocateJointStorage
+Paired actual annotated Ghidra pseudocode: 0070D010_SkinResource_AllocateJointStorage.c
+Owned ranges: [[0070d010, 0070d09d]]
+Envelope bytes=142
+
+GHIDRA LISTING (original bytes; nonowned gaps explicit)
+0070d010  56  PUSH ESI
+0070d011  57  PUSH EDI
+0070d012  8b7c240c  MOV EDI,dword ptr [ESP + 0xc]
+0070d016  8bf1  MOV ESI,ECX
+0070d018  33c9  XOR ECX,ECX
+0070d01a  8bc7  MOV EAX,EDI
+0070d01c  ba04000000  MOV EDX,0x4
+0070d021  f7e2  MUL EDX
+0070d023  6a00  PUSH 0x0
+0070d025  0f90c1  SETO CL
+0070d028  6a00  PUSH 0x0
+0070d02a  6a00  PUSH 0x0
+0070d02c  6a00  PUSH 0x0
+0070d02e  6888c4ff00  PUSH 0xffc488
+0070d033  f7d9  NEG ECX
+0070d035  0bc8  OR ECX,EAX
+0070d037  51  PUSH ECX
+0070d038  e8c374ddff  CALL 0x004e4500
+0070d03d  83c418  ADD ESP,0x18
+0070d040  85c0  TEST EAX,EAX
+0070d042  89462c  MOV dword ptr [ESI + 0x2c],EAX
+0070d045  7446  JZ 0x0070d08d
+0070d047  33c9  XOR ECX,ECX
+0070d049  8bc7  MOV EAX,EDI
+0070d04b  ba40000000  MOV EDX,0x40
+0070d050  f7e2  MUL EDX
+0070d052  6a00  PUSH 0x0
+0070d054  6a00  PUSH 0x0
+0070d056  6a00  PUSH 0x0
+0070d058  0f90c1  SETO CL
+0070d05b  6a00  PUSH 0x0
+0070d05d  6870c4ff00  PUSH 0xffc470
+0070d062  6a00  PUSH 0x0
+0070d064  6a10  PUSH 0x10
+0070d066  f7d9  NEG ECX
+0070d068  0bc8  OR ECX,EAX
+0070d06a  51  PUSH ECX
+0070d06b  e8b074ddff  CALL 0x004e4520
+0070d070  83c420  ADD ESP,0x20
+0070d073  85c0  TEST EAX,EAX
+0070d075  894630  MOV dword ptr [ESI + 0x30],EAX
+0070d078  751a  JNZ 0x0070d094
+0070d07a  8b462c  MOV EAX,dword ptr [ESI + 0x2c]
+0070d07d  50  PUSH EAX
+0070d07e  e85d74ddff  CALL 0x004e44e0
+0070d083  83c404  ADD ESP,0x4
+0070d086  c7462c00000000  MOV dword ptr [ESI + 0x2c],0x0
+0070d08d  5f  POP EDI
+0070d08e  32c0  XOR AL,AL
+0070d090  5e  POP ESI
+0070d091  c20400  RET 0x4
+0070d094  897e28  MOV dword ptr [ESI + 0x28],EDI
+0070d097  5f  POP EDI
+0070d098  b001  MOV AL,0x1
+0070d09a  5e  POP ESI
+0070d09b  c20400  RET 0x4
+Owned instructions=56 owned bytes=142 nonowned bytes=0

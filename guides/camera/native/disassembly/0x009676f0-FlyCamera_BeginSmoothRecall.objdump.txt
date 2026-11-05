@@ -1,0 +1,61 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Supplemental helper: FlyCamera_BeginSmoothRecall at 0x009676f0
+# Bounded stop: 0x00967760; next Ghidra entry: 0x00967760; this is not a body-size claim.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+009676f0 <.text+0x5666f0>:
+  9676f0:	55                   	push   ebp
+  9676f1:	8b ec                	mov    ebp,esp
+  9676f3:	83 e4 f0             	and    esp,0xfffffff0
+  9676f6:	83 ec 24             	sub    esp,0x24
+  9676f9:	8b 45 08             	mov    eax,DWORD PTR [ebp+0x8]
+  9676fc:	53                   	push   ebx
+  9676fd:	8b 5d 0c             	mov    ebx,DWORD PTR [ebp+0xc]
+  967700:	56                   	push   esi
+  967701:	57                   	push   edi
+  967702:	53                   	push   ebx
+  967703:	8b f1                	mov    esi,ecx
+  967705:	50                   	push   eax
+  967706:	8d 4c 24 18          	lea    ecx,[esp+0x18]
+  96770a:	51                   	push   ecx
+  96770b:	8b ce                	mov    ecx,esi
+  96770d:	e8 0e fe ff ff       	call   0x967520
+  967712:	d9 45 10             	fld    DWORD PTR [ebp+0x10]
+  967715:	8b 96 70 05 00 00    	mov    edx,DWORD PTR [esi+0x570]
+  96771b:	8b 06                	mov    eax,DWORD PTR [esi]
+  96771d:	51                   	push   ecx
+  96771e:	d9 1c 24             	fstp   DWORD PTR [esp]
+  967721:	8d be 70 05 00 00    	lea    edi,[esi+0x570]
+  967727:	53                   	push   ebx
+  967728:	8d 4c 24 28          	lea    ecx,[esp+0x28]
+  96772c:	89 54 24 14          	mov    DWORD PTR [esp+0x14],edx
+  967730:	8b 50 30             	mov    edx,DWORD PTR [eax+0x30]
+  967733:	51                   	push   ecx
+  967734:	8b ce                	mov    ecx,esi
+  967736:	ff d2                	call   edx
+  967738:	8b 54 24 14          	mov    edx,DWORD PTR [esp+0x14]
+  96773c:	50                   	push   eax
+  96773d:	8d 44 24 1c          	lea    eax,[esp+0x1c]
+  967741:	50                   	push   eax
+  967742:	8b 42 08             	mov    eax,DWORD PTR [edx+0x8]
+  967745:	81 c6 00 06 00 00    	add    esi,0x600
+  96774b:	56                   	push   esi
+  96774c:	8b cf                	mov    ecx,edi
+  96774e:	ff d0                	call   eax
+  967750:	5f                   	pop    edi
+  967751:	5e                   	pop    esi
+  967752:	5b                   	pop    ebx
+  967753:	8b e5                	mov    esp,ebp
+  967755:	5d                   	pop    ebp
+  967756:	c2 0c 00             	ret    0xc
+  967759:	cc                   	int3
+  96775a:	cc                   	int3
+  96775b:	cc                   	int3
+  96775c:	cc                   	int3
+  96775d:	cc                   	int3
+  96775e:	cc                   	int3
+  96775f:	cc                   	int3

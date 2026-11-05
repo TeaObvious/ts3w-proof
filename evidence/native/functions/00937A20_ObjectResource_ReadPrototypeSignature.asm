@@ -1,0 +1,81 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined4 ObjectResource_ReadPrototypeSignature(uint * param_1, int * param_2, uint * param_3)
+Owned ranges: [[00937a20, 00937b1e]]
+
+00937a20  8b4c2404  MOV ECX,dword ptr [ESP + 0x4]
+00937a24  8b4108  MOV EAX,dword ptr [ECX + 0x8]
+00937a27  3d838fa12d  CMP EAX,0x2da18f83
+00937a2c  7724  JA 0x00937a52
+00937a2e  746d  JZ 0x00937a9d
+00937a30  3d3f34dc02  CMP EAX,0x2dc343f
+00937a35  7714  JA 0x00937a4b
+00937a37  0f8487000000  JZ 0x00937ac4
+00937a3d  3dea52b500  CMP EAX,0xb552ea
+00937a42  7459  JZ 0x00937a9d
+00937a44  3d33126601  CMP EAX,0x1661233
+00937a49  eb1a  JMP 0x00937a65
+00937a4b  3d1dc6b403  CMP EAX,0x3b4c61d
+00937a50  eb13  JMP 0x00937a65
+00937a52  3d1d4f9e31  CMP EAX,0x319e4f1d
+00937a57  746b  JZ 0x00937ac4
+00937a59  3dde13af8e  CMP EAX,0x8eaf13de
+00937a5e  743d  JZ 0x00937a9d
+00937a60  3d214504d3  CMP EAX,0xd3044521
+00937a65  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+00937a69  c70000000000  MOV dword ptr [EAX],0x0
+00937a6f  c7400400000000  MOV dword ptr [EAX + 0x4],0x0
+00937a76  8b44240c  MOV EAX,dword ptr [ESP + 0xc]
+00937a7a  7412  JZ 0x00937a8e
+00937a7c  c70000000000  MOV dword ptr [EAX],0x0
+00937a82  c7400400000000  MOV dword ptr [EAX + 0x4],0x0
+00937a89  32c0  XOR AL,AL
+00937a8b  c20c00  RET 0xc
+00937a8e  8b11  MOV EDX,dword ptr [ECX]
+00937a90  8910  MOV dword ptr [EAX],EDX
+00937a92  8b4904  MOV ECX,dword ptr [ECX + 0x4]
+00937a95  894804  MOV dword ptr [EAX + 0x4],ECX
+00937a98  b001  MOV AL,0x1
+00937a9a  c20c00  RET 0xc
+00937a9d  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+00937aa1  c70000000000  MOV dword ptr [EAX],0x0
+00937aa7  c7400400000000  MOV dword ptr [EAX + 0x4],0x0
+00937aae  8b44240c  MOV EAX,dword ptr [ESP + 0xc]
+00937ab2  c70000000000  MOV dword ptr [EAX],0x0
+00937ab8  c7400400000000  MOV dword ptr [EAX + 0x4],0x0
+00937abf  b001  MOV AL,0x1
+00937ac1  c20c00  RET 0xc
+00937ac4  8d542404  LEA EDX,[ESP + 0x4]
+00937ac8  52  PUSH EDX
+00937ac9  51  PUSH ECX
+00937aca  c744240c00000000  MOV dword ptr [ESP + 0xc],0x0
+00937ad2  e8d9270000  CALL 0x0093a2b0
+00937ad7  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+00937adb  83c408  ADD ESP,0x8
+00937ade  84c0  TEST AL,AL
+00937ae0  742d  JZ 0x00937b0f
+00937ae2  8b5108  MOV EDX,dword ptr [ECX + 0x8]
+00937ae5  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+00937ae9  8910  MOV dword ptr [EAX],EDX
+00937aeb  8b510c  MOV EDX,dword ptr [ECX + 0xc]
+00937aee  895004  MOV dword ptr [EAX + 0x4],EDX
+00937af1  8b44240c  MOV EAX,dword ptr [ESP + 0xc]
+00937af5  50  PUSH EAX
+00937af6  e8b5e6ffff  CALL 0x009361b0
+00937afb  8b4c2404  MOV ECX,dword ptr [ESP + 0x4]
+00937aff  85c9  TEST ECX,ECX
+00937b01  7407  JZ 0x00937b0a
+00937b03  8b11  MOV EDX,dword ptr [ECX]
+00937b05  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+00937b08  ffd0  CALL EAX
+00937b0a  b001  MOV AL,0x1
+00937b0c  c20c00  RET 0xc
+00937b0f  85c9  TEST ECX,ECX
+00937b11  7407  JZ 0x00937b1a
+00937b13  8b11  MOV EDX,dword ptr [ECX]
+00937b15  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+00937b18  ffd0  CALL EAX
+00937b1a  32c0  XOR AL,AL
+00937b1c  c20c00  RET 0xc

@@ -1,0 +1,185 @@
+[Context] Operating on: TS3W.exe | Total open programs: 3
+
+Decompiled function FUN_0097fd20:
+
+
+char __fastcall FUN_0097fd20(int param_1)
+
+{
+  short sVar1;
+  undefined1 *puVar2;
+  char cVar3;
+  char cVar4;
+  int *piVar5;
+  short *psVar6;
+  undefined *puVar7;
+  undefined4 *puVar8;
+  byte bStack_555;
+  char *pcStack_554;
+  int iStack_548;
+  short *psStack_544;
+  undefined4 uStack_540;
+  int iStack_53c;
+  char *pcStack_538;
+  int local_534;
+  undefined1 *puStack_530;
+  undefined1 *puStack_52c;
+  undefined2 *puStack_528;
+  char *pcStack_524;
+  undefined4 uStack_520;
+  undefined4 uStack_51c;
+  undefined4 uStack_518;
+  undefined4 uStack_514;
+  undefined4 uStack_510;
+  undefined4 uStack_50c;
+  undefined4 uStack_508;
+  undefined4 uStack_504;
+  undefined4 uStack_500;
+  undefined4 uStack_4fc;
+  undefined4 uStack_4f8;
+  undefined4 uStack_4f4;
+  undefined4 uStack_4f0;
+  undefined4 uStack_4ec;
+  undefined4 uStack_4e8;
+  undefined4 uStack_4e4;
+  float fStack_4e0;
+  float fStack_4dc;
+  float fStack_4d8;
+  float fStack_4d4;
+  undefined4 uStack_4d0;
+  undefined4 uStack_4cc;
+  undefined4 uStack_4c8;
+  undefined4 uStack_4c4;
+  float fStack_4c0;
+  float fStack_4bc;
+  float fStack_4b8;
+  float fStack_4b4;
+  undefined4 uStack_4b0;
+  undefined4 uStack_4ac;
+  undefined4 uStack_4a8;
+  undefined4 uStack_4a4;
+  int aiStack_4a0 [295];
+  
+  local_534 = param_1;
+  piVar5 = (int *)FUN_0072f140();
+  psVar6 = (short *)(**(code **)(*piVar5 + 0x24))();
+  psStack_544 = (short *)0x0;
+  uStack_540 = 0;
+  iStack_53c = 0;
+  pcStack_538 = "Misc/Camera/PresetsManager";
+  FUN_0040b590(&psStack_544,psVar6);
+  sVar1 = *(short *)PTR_u_WorldPresets_ini_0117f060;
+  psVar6 = (short *)PTR_u_WorldPresets_ini_0117f060;
+  while (sVar1 != 0) {
+    psVar6 = psVar6 + 1;
+    sVar1 = *psVar6;
+  }
+  FUN_00408b90(&psStack_544,(undefined2 *)PTR_u_WorldPresets_ini_0117f060,
+               (undefined2 *)
+               (PTR_u_WorldPresets_ini_0117f060 +
+               ((int)psVar6 - (int)PTR_u_WorldPresets_ini_0117f060 >> 1) * 2));
+  FUN_004f1dd0(aiStack_4a0,psStack_544,1,0);
+  cVar4 = '\x01';
+  bStack_555 = 0;
+  do {
+    pcStack_554 = (char *)((uint)bStack_555 * 5 + 0xb80 + param_1);
+    puVar8 = (undefined4 *)((uint)bStack_555 * 0x140 + 0x50 + param_1);
+    iStack_548 = 5;
+    do {
+      if (*pcStack_554 != '\0') {
+        puStack_530 = &DAT_011c8e54;
+        puStack_52c = &DAT_011c8e54;
+        pcStack_524 = "Misc/Camera/PresetsManager";
+        puStack_528 = &DAT_011c8e56;
+        FUN_0040e840(&puStack_530,(ushort *)L"Camera%d_%ls");
+        puVar2 = puStack_530;
+        if (cVar4 != '\0') {
+          uStack_520 = puVar8[-4];
+          uStack_51c = puVar8[-3];
+          uStack_518 = puVar8[-2];
+          uStack_514 = puVar8[-1];
+          uStack_4f0 = uStack_520;
+          uStack_4ec = uStack_51c;
+          uStack_4e8 = uStack_518;
+          uStack_4e4 = uStack_514;
+          uStack_4d0 = uStack_520;
+          uStack_4cc = uStack_51c;
+          uStack_4c8 = uStack_518;
+          uStack_4c4 = uStack_514;
+          cVar3 = FUN_004ef910(aiStack_4a0,puStack_530,PTR_u_CameraPosition_0117f064,
+                               (ushort *)PTR_u____2f____2f____2f__0117f080);
+          cVar4 = '\0';
+          if (cVar3 != '\0') {
+            uStack_510 = *puVar8;
+            uStack_50c = puVar8[1];
+            uStack_508 = puVar8[2];
+            uStack_504 = puVar8[3];
+            uStack_500 = uStack_510;
+            uStack_4fc = uStack_50c;
+            uStack_4f8 = uStack_508;
+            uStack_4f4 = uStack_504;
+            uStack_4b0 = uStack_510;
+            uStack_4ac = uStack_50c;
+            uStack_4a8 = uStack_508;
+            uStack_4a4 = uStack_504;
+            cVar3 = FUN_004ef910(aiStack_4a0,puVar2,PTR_u_CameraTarget_0117f068,
+                                 (ushort *)PTR_u____2f____2f____2f__0117f080);
+            cVar4 = '\0';
+            if (cVar3 != '\0') {
+              cVar4 = FUN_004ef910(aiStack_4a0,puVar2,PTR_u_CameraLevel_0117f07c,
+                                   (ushort *)PTR_DAT_0117f090);
+            }
+          }
+        }
+        if (bStack_555 == 1) {
+          if (cVar4 != '\0') {
+            cVar3 = FUN_004ef910(aiStack_4a0,puVar2,PTR_u_CameraLookAtSky_0117f06c,
+                                 (ushort *)PTR_DAT_0117f090);
+            cVar4 = '\0';
+            if (cVar3 != '\0') {
+              fStack_4d4 = (float)puVar8[6];
+              fStack_4e0 = fStack_4d4 * 57.29578;
+              fStack_4dc = fStack_4d4 * 57.29578;
+              fStack_4d8 = fStack_4d4 * 57.29578;
+              fStack_4d4 = fStack_4d4 * 57.29578;
+              puVar7 = PTR_u_CameraLookAtSkyPitch_0117f070;
+LAB_0097ffea:
+              cVar4 = FUN_004ef910(aiStack_4a0,puVar2,puVar7,(ushort *)PTR_u___2f_0117f088);
+            }
+          }
+        }
+        else if ((bStack_555 == 5) && (cVar4 != '\0')) {
+          fStack_4b4 = (float)puVar8[7];
+          fStack_4c0 = fStack_4b4 * 57.29578;
+          fStack_4bc = fStack_4b4 * 57.29578;
+          fStack_4b8 = fStack_4b4 * 57.29578;
+          fStack_4b4 = fStack_4b4 * 57.29578;
+          cVar3 = FUN_004ef910(aiStack_4a0,puVar2,PTR_u_CameraRoll_0117f074,
+                               (ushort *)PTR_u___2f_0117f088);
+          cVar4 = '\0';
+          puVar7 = PTR_u_CameraFOV_0117f078;
+          if (cVar3 != '\0') goto LAB_0097ffea;
+        }
+        if ((2 < (int)((int)puStack_528 - (int)puVar2 & 0xfffffffeU)) &&
+           (puVar2 != (undefined1 *)0x0)) {
+          FUN_004e44e0((int)puVar2);
+        }
+      }
+      pcStack_554 = pcStack_554 + 1;
+      puVar8 = puVar8 + 0x10;
+      iStack_548 = iStack_548 + -1;
+    } while (iStack_548 != 0);
+    bStack_555 = bStack_555 + 1;
+    param_1 = local_534;
+    if (8 < bStack_555) {
+      FUN_004f0d60((int)aiStack_4a0);
+      FUN_004f0d20(aiStack_4a0);
+      if ((2 < (int)(iStack_53c - (int)psStack_544 & 0xfffffffeU)) && (psStack_544 != (short *)0x0))
+      {
+        FUN_004e44e0((int)psStack_544);
+      }
+      return cVar4;
+    }
+  } while( true );
+}
+

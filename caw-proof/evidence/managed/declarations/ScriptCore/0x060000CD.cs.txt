@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x060000CD.
+// Assembly: ScriptCore; type: ScriptCore.RouteManager.
+// Decompiled C# source: ScriptCore/ScriptCore/RouteManager.cs:85
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool RouteManager_AddDiscourageFootprint(ulong scriptHandle, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_R4)] ref float[] discourageRegionPointAry, int numPoints, [MarshalAs(UnmanagedType.I1)] bool bHighImpassable, [MarshalAs(UnmanagedType.I1)] bool bAllowPlacementInWorld, [MarshalAs(UnmanagedType.I1)] bool bPlacementFootprint);

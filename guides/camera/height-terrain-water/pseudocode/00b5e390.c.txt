@@ -1,0 +1,34 @@
+[Context] Operating on: TS3W.exe | Total open programs: 3
+
+Decompiled function FUN_00b5e390:
+
+
+uint __thiscall FUN_00b5e390(void *this,float param_1,float param_2,char param_3)
+
+{
+  uint uVar1;
+  uint extraout_EAX;
+  float10 fVar2;
+  
+  uVar1 = FUN_00b5e200((void *)((int)this + 0x480),param_1,param_2);
+  if ((char)uVar1 != '\0') {
+    fVar2 = FUN_00c6a090(*(void **)((int)this + 0x214),param_1,param_2,0,'\x01','\0',
+                         (undefined1 *)0x0,(undefined1 *)0x0,'\0','\0');
+    uVar1 = extraout_EAX;
+    if (fVar2 < (float10)*(float *)((int)this + 0x218)) {
+      if (param_3 != '\0') {
+        uVar1 = *(uint *)((int)this + 0x214);
+        if (*(void **)(uVar1 + 0x5c) != (void *)0x0) {
+          uVar1 = FUN_00b77f60(*(void **)(uVar1 + 0x5c),param_1,param_2,'\x01','\0',
+                               (undefined4 *)0x0,(float *)0x0,'\0');
+          if ((char)uVar1 != '\0') {
+            return uVar1 & 0xffffff00;
+          }
+        }
+      }
+      return CONCAT31((int3)(uVar1 >> 8),1);
+    }
+  }
+  return uVar1 & 0xffffff00;
+}
+

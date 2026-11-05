@@ -1,0 +1,168 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; actual complete ILSpy type export.
+.class public auto ansi beforefieldinit Sims3.Gameplay.TravelDepartureState
+	extends Sims3.Gameplay.LeaveInWorldState
+{
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0xdfbc5
+		// Header size: 1
+		// Code size: 16 (0x10)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.s 9
+		IL_0003: ldc.i4.s 9
+		IL_0005: ldstr "Travel Departure"
+		IL_000a: call instance void Sims3.Gameplay.LeaveInWorldState::.ctor(int32, int32, string)
+		IL_000f: ret
+	} // end of method TravelDepartureState::.ctor
+
+	.method family hidebysig specialname rtspecialname 
+		instance void .ctor (
+			int32 enterId,
+			int32 exitId,
+			string name
+		) cil managed 
+	{
+		// Method begins at RVA 0xdfbd6
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance void Sims3.Gameplay.LeaveInWorldState::.ctor(int32, int32, string)
+		IL_0009: ret
+	} // end of method TravelDepartureState::.ctor
+
+	.method family hidebysig virtual 
+		instance void SendToNextState () cil managed 
+	{
+		// Method begins at RVA 0xdfbe4
+		// Header size: 12
+		// Code size: 88 (0x58)
+		.maxstack 2
+		.locals init (
+			[0] bool,
+			[1] bool,
+			[2] bool
+		)
+
+		IL_0000: ldsfld class Sims3.Gameplay.GameStates/EditOtherWorldData Sims3.Gameplay.GameStates::sEditOtherWorldData
+		IL_0005: brfalse.s IL_001a
+
+		IL_0007: ldsfld class Sims3.Gameplay.GameStates/EditOtherWorldData Sims3.Gameplay.GameStates::sEditOtherWorldData
+		IL_000c: ldfld valuetype [SimIFace]Sims3.SimIFace.WorldName Sims3.Gameplay.GameStates/EditOtherWorldData::mOrigWorld
+		IL_0011: ldc.i4 239192404
+		IL_0016: ceq
+		IL_0018: br.s IL_001b
+
+		IL_001a: ldc.i4.0
+
+		IL_001b: stloc.0
+		IL_001c: call valuetype [SimIFace]Sims3.SimIFace.WorldName Sims3.Gameplay.GameStates::get_DestinationTravelWorld()
+		IL_0021: ldc.i4 239192404
+		IL_0026: bne.un.s IL_0036
+
+		IL_0028: call valuetype [SimIFace]Sims3.SimIFace.WorldType Sims3.Gameplay.GameStates::get_ReturningFromWorld()
+		IL_002d: ldc.i4.3
+		IL_002e: beq.s IL_0036
+
+		IL_0030: ldloc.0
+		IL_0031: ldc.i4.0
+		IL_0032: ceq
+		IL_0034: br.s IL_0037
+
+		IL_0036: ldc.i4.0
+
+		IL_0037: stloc.1
+		IL_0038: call bool Sims3.Gameplay.GameStates::get_HasAFamilyBeenSeclectedAtHome()
+		IL_003d: brfalse.s IL_0042
+
+		IL_003f: ldloc.1
+		IL_0040: br.s IL_0043
+
+		IL_0042: ldc.i4.1
+
+		IL_0043: stloc.2
+		IL_0044: ldloc.2
+		IL_0045: brfalse.s IL_0050
+
+		IL_0047: ldarg.0
+		IL_0048: ldc.i4.s 15
+		IL_004a: call instance void Sims3.Gameplay.TravelDepartureState::SendToNextState(valuetype Sims3.Gameplay.InWorldState/SubState)
+		IL_004f: ret
+
+		IL_0050: ldarg.0
+		IL_0051: ldc.i4.0
+		IL_0052: call instance void Sims3.Gameplay.TravelDepartureState::SendToNextState(valuetype Sims3.Gameplay.InWorldState/SubState)
+		IL_0057: ret
+	} // end of method TravelDepartureState::SendToNextState
+
+	.method family hidebysig 
+		instance void SendToNextState (
+			valuetype Sims3.Gameplay.InWorldState/SubState startupState
+		) cil managed 
+	{
+		// Method begins at RVA 0xdfc48
+		// Header size: 12
+		// Code size: 131 (0x83)
+		.maxstack 5
+		.locals init (
+			[0] class [UI]Sims3.UI.GameEntry.WorldFileMetadata,
+			[1] class [UI]Sims3.UI.GameEntry.SaveGameMetadata,
+			[2] string
+		)
+
+		IL_0000: call string Sims3.Gameplay.GameStates::get_LoadFileName()
+		IL_0005: ldstr ":"
+		IL_000a: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_000f: brtrue.s IL_0042
+
+		IL_0011: newobj instance void [UI]Sims3.UI.GameEntry.WorldFileMetadata::.ctor()
+		IL_0016: stloc.0
+		IL_0017: ldloc.0
+		IL_0018: call string Sims3.Gameplay.GameStates::get_LoadFileName()
+		IL_001d: stfld string [UI]Sims3.UI.GameEntry.WorldFileMetadata::mWorldFile
+		IL_0022: call class [UI]Sims3.UI.IResponder [UI]Sims3.UI.Responder::get_Instance()
+		IL_0027: callvirt instance class [UI]Sims3.UI.GameEntry.IMainMenuModel [UI]Sims3.UI.IResponder::get_MainMenuModel()
+		IL_002c: ldloca.s 0
+		IL_002e: callvirt instance bool [UI]Sims3.UI.GameEntry.IMainMenuModel::GetWorldFileDetails(class [UI]Sims3.UI.GameEntry.WorldFileMetadata&)
+		IL_0033: pop
+		IL_0034: call string Sims3.Gameplay.GameStates::get_LoadFileName()
+		IL_0039: ldloc.0
+		IL_003a: ldarg.1
+		IL_003b: ldc.i4.1
+		IL_003c: call void Sims3.Gameplay.GameStates::TransitionToGameStateToInWorld(string, class [UI]Sims3.UI.GameEntry.WorldFileMetadata, valuetype Sims3.Gameplay.InWorldState/SubState, bool)
+		IL_0041: ret
+
+		IL_0042: newobj instance void [UI]Sims3.UI.GameEntry.SaveGameMetadata::.ctor()
+		IL_0047: stloc.1
+		IL_0048: call string Sims3.Gameplay.GameStates::get_LoadFileName()
+		IL_004d: stloc.2
+		IL_004e: ldloc.1
+		IL_004f: ldloc.2
+		IL_0050: ldc.i4.0
+		IL_0051: ldloc.2
+		IL_0052: ldc.i4.s 58
+		IL_0054: callvirt instance int32 [mscorlib]System.String::IndexOf(char)
+		IL_0059: callvirt instance string [mscorlib]System.String::Substring(int32, int32)
+		IL_005e: stfld string [UI]Sims3.UI.GameEntry.SaveGameMetadata::mSaveFile
+		IL_0063: call class [UI]Sims3.UI.IResponder [UI]Sims3.UI.Responder::get_Instance()
+		IL_0068: callvirt instance class [UI]Sims3.UI.GameEntry.IMainMenuModel [UI]Sims3.UI.IResponder::get_MainMenuModel()
+		IL_006d: ldloca.s 1
+		IL_006f: callvirt instance bool [UI]Sims3.UI.GameEntry.IMainMenuModel::GetSaveFileDetails(class [UI]Sims3.UI.GameEntry.SaveGameMetadata&)
+		IL_0074: pop
+		IL_0075: call string Sims3.Gameplay.GameStates::get_LoadFileName()
+		IL_007a: ldloc.1
+		IL_007b: ldarg.1
+		IL_007c: ldc.i4.1
+		IL_007d: call void Sims3.Gameplay.GameStates::TransitionToGameStateToInWorld(string, class [UI]Sims3.UI.GameEntry.SaveGameMetadata, valuetype Sims3.Gameplay.InWorldState/SubState, bool)
+		IL_0082: ret
+	} // end of method TravelDepartureState::SendToNextState
+
+} // end of class Sims3.Gameplay.TravelDepartureState

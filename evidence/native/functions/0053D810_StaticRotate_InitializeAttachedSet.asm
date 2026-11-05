@@ -1,0 +1,49 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67; full owned Ghidra Listing.
+Actual annotated Ghidra C: 0053D810_StaticRotate_InitializeAttachedSet.c
+Owned ranges: [[0053d810, 0053d895]]
+
+0053d810  83ec14  SUB ESP,0x14
+0053d813  53  PUSH EBX
+0053d814  56  PUSH ESI
+0053d815  57  PUSH EDI
+0053d816  33ff  XOR EDI,EDI
+0053d818  57  PUSH EDI
+0053d819  6a04  PUSH 0x4
+0053d81b  6a14  PUSH 0x14
+0053d81d  6840010000  PUSH 0x140
+0053d822  8bf1  MOV ESI,ECX
+0053d824  57  PUSH EDI
+0053d825  8d4c2420  LEA ECX,[ESP + 0x20]
+0053d829  897c2420  MOV dword ptr [ESP + 0x20],EDI
+0053d82d  c7442424f0a9fa00  MOV dword ptr [ESP + 0x24],0xfaa9f0
+0053d835  e87634faff  CALL 0x004e0cb0
+0053d83a  8d44240c  LEA EAX,[ESP + 0xc]
+0053d83e  50  PUSH EAX
+0053d83f  8bce  MOV ECX,ESI
+0053d841  897c2418  MOV dword ptr [ESP + 0x18],EDI
+0053d845  c744241c40010000  MOV dword ptr [ESP + 0x1c],0x140
+0053d84d  c744242014000000  MOV dword ptr [ESP + 0x20],0x14
+0053d855  e836feffff  CALL 0x0053d690
+0053d85a  6a00  PUSH 0x0
+0053d85c  6a04  PUSH 0x4
+0053d85e  6a14  PUSH 0x14
+0053d860  6840010000  PUSH 0x140
+0053d865  8d5e2c  LEA EBX,[ESI + 0x2c]
+0053d868  8d7e18  LEA EDI,[ESI + 0x18]
+0053d86b  53  PUSH EBX
+0053d86c  8bcf  MOV ECX,EDI
+0053d86e  c7461c44b2fa00  MOV dword ptr [ESI + 0x1c],0xfab244
+0053d875  e83634faff  CALL 0x004e0cb0
+0053d87a  895f08  MOV dword ptr [EDI + 0x8],EBX
+0053d87d  81c340010000  ADD EBX,0x140
+0053d883  895f0c  MOV dword ptr [EDI + 0xc],EBX
+0053d886  c7471014000000  MOV dword ptr [EDI + 0x10],0x14
+0053d88d  5f  POP EDI
+0053d88e  8bc6  MOV EAX,ESI
+0053d890  5e  POP ESI
+0053d891  5b  POP EBX
+0053d892  83c414  ADD ESP,0x14
+0053d895  c3  RET

@@ -1,0 +1,56 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioManager_RegisterVoicePropertyInterface
+Entry Point: 008b7650
+
+008b7650: SUB ESP, 0x14
+008b7653: PUSH ESI
+008b7654: MOV ESI, dword ptr [ESP + 0x1c]
+008b7658: TEST ESI, ESI
+008b765a: PUSH EDI
+008b765b: MOV EDI, ECX
+008b765d: JNZ 0x008b7669
+008b765f: POP EDI
+008b7660: XOR AL, AL
+008b7662: POP ESI
+008b7663: ADD ESP, 0x14
+008b7666: RET 0x4
+008b7669: MOV EAX, dword ptr [ESI]
+008b766b: MOV EDX, dword ptr [EAX + 0x8]
+008b766e: MOV ECX, ESI
+008b7670: CALL EDX
+008b7672: MOV dword ptr [ESP + 0x20], EAX
+008b7676: LEA EAX, [ESP + 0x20]
+008b767a: PUSH EAX
+008b767b: LEA ECX, [ESP + 0xc]
+008b767f: ADD EDI, 0x33c
+008b7685: PUSH ECX
+008b7686: MOV ECX, EDI
+008b7688: CALL 0x00a5b9b0
+008b768d: MOV EDX, dword ptr [EDI + 0x8]
+008b7690: MOV EAX, dword ptr [EDI + 0x4]
+008b7693: MOV ECX, dword ptr [ESP + 0x8]
+008b7697: CMP ECX, dword ptr [EAX + EDX*0x4]
+008b769a: JNZ 0x008b765f
+008b769c: MOV EDX, dword ptr [ESI]
+008b769e: MOV EAX, dword ptr [EDX + 0x8]
+008b76a1: MOV ECX, ESI
+008b76a3: CALL EAX
+008b76a5: MOV byte ptr [ESP + 0x20], 0x0
+008b76aa: MOV ECX, dword ptr [ESP + 0x20]
+008b76ae: PUSH ECX
+008b76af: LEA EDX, [ESP + 0xc]
+008b76b3: MOV dword ptr [ESP + 0xc], EAX
+008b76b7: PUSH EDX
+008b76b8: LEA EAX, [ESP + 0x18]
+008b76bc: PUSH EAX
+008b76bd: MOV ECX, EDI
+008b76bf: MOV dword ptr [ESP + 0x18], ESI
+008b76c3: CALL 0x0045f3f0
+008b76c8: POP EDI
+008b76c9: MOV AL, 0x1
+008b76cb: POP ESI
+008b76cc: ADD ESP, 0x14
+008b76cf: RET 0x4
+
+Total instructions: 49

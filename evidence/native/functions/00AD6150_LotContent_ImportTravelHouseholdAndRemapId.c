@@ -1,0 +1,89 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* Original instruction review: source adapter pointer, returns64ID EDX:EAX or0. Reads
+   HouseholdTypeKeyList for type062853a8, chooses first household entry, obtains destination content
+   database, generates new ID via007cfe00, copies referenced resources then reads/writes
+   resource00283095 under old/newIDs using00ad59e0 remapping. Decompiler unrecovered ESI/EBP vector
+   bounds are call-cleanup artifacts; no implicit input registers are supplied here. */
+
+undefined8 LotContent_ImportTravelHouseholdAndRemapId(uint *param_1)
+
+{
+  undefined4 uVar1;
+  void *this;
+  char cVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int iVar5;
+  undefined4 *unaff_EBP;
+  undefined4 *unaff_ESI;
+  undefined4 local_dc;
+  undefined4 local_d8;
+  undefined4 local_d4;
+  char *local_d0;
+  undefined **local_cc;
+  undefined4 local_c8;
+  undefined4 uStack_c4;
+  undefined4 uStack_c0;
+  int *apiStack_bc [6];
+  undefined **ppuStack_a4;
+  undefined8 uStack_9c;
+  undefined4 uStack_90;
+  undefined1 auStack_8c [96];
+  undefined1 auStack_2c [44];
+  
+  local_cc = &PTR_LAB_00fd92b0;
+  local_c8 = 0x62853a8;
+  local_dc = 0;
+  local_d8 = 0;
+  local_d4 = 0;
+  local_d0 = "Lot/LotContentManager/HouseholdTypeKeyList";
+  (**(code **)(*(int *)*param_1 + 0x30))(&local_dc,&local_cc);
+  this = DAT_011ea6a4;
+  if (unaff_ESI == unaff_EBP) {
+    if (unaff_ESI != (undefined4 *)0x0) {
+      FUN_004e44e0((int)unaff_ESI);
+    }
+    return 0;
+  }
+  FUN_007d7900(apiStack_bc);
+  uVar3 = FUN_009a16e0(this,apiStack_bc);
+  if ((char)uVar3 != '\0') {
+    uVar3 = *unaff_ESI;
+    uVar1 = unaff_ESI[1];
+    uStack_9c = FUN_007cfe00('\0');
+    uStack_90 = (undefined4)((ulonglong)uStack_9c >> 0x20);
+    iVar4 = (int)uStack_9c;
+    local_cc = &PTR_LAB_01066cec;
+    ppuStack_a4 = &PTR_LAB_01068e94;
+    uStack_c4 = uVar3;
+    uStack_c0 = uVar1;
+    iVar5 = FUN_007d9130(apiStack_bc[0],(int *)*param_1);
+    if (iVar5 != 0) {
+      FUN_007d6be0(auStack_8c,0);
+      cVar2 = FUN_007d73f0(auStack_8c,param_1,0x283095,uVar3,uVar1,(undefined4 *)0x1);
+      if (cVar2 != '\0') {
+        FUN_00ad59e0((int)auStack_2c,apiStack_bc,param_1);
+        uVar3 = uStack_90;
+        FUN_007d6940(auStack_8c,apiStack_bc,0x283095,iVar4,uStack_90,(void *)0x0);
+        FUN_007d6890((int)auStack_8c);
+        local_cc = &PTR_LAB_00fb3ccc;
+        FUN_007d7990((int)apiStack_bc);
+        if (unaff_ESI != (undefined4 *)0x0) {
+          FUN_004e44e0((int)unaff_ESI);
+        }
+        return CONCAT44(uVar3,iVar4);
+      }
+      FUN_007d6890((int)auStack_8c);
+    }
+  }
+  FUN_007d7990((int)apiStack_bc);
+  if (unaff_ESI != (undefined4 *)0x0) {
+    FUN_004e44e0((int)unaff_ESI);
+  }
+  return 0;
+}
+

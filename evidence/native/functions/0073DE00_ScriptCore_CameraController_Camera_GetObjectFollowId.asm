@@ -1,0 +1,100 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x0073de00 (ScriptCore.CameraController::Camera_GetObjectFollowId)
+Paired Ghidra pseudocode: 0073DE00_ScriptCore_CameraController_Camera_GetObjectFollowId.c
+Window: [0x0073de00, 0x0073de90) (144 bytes; stop exclusive)
+Next defined Ghidra entry: 0x0073de90
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+0073de00: 56 57 e8 c9 bd 22 00 85 c0 74 71 8b c8 e8 de 41
+0073de10: 7e 00 85 c0 74 66 8b c8 e8 c3 5f dd ff 8b f0 85
+0073de20: f6 74 59 8b 06 8b 50 0c 68 89 dd 0f 11 8b ce ff
+0073de30: d2 8b f8 8b 06 8b 50 0c 68 db 4e 39 4d 8b ce ff
+0073de40: d2 85 ff 74 1e 8b 8f 1c 08 00 00 85 c9 74 0b 8b
+0073de50: 41 08 8b 49 0c 5f 8b d1 5e c3 33 c0 33 c9 5f 8b
+0073de60: d1 5e c3 85 c0 74 15 8b 88 64 06 00 00 85 c9 74
+0073de70: e9 8b 41 08 8b 49 0c 5f 8b d1 5e c3 5f 33 c0 33
+0073de80: d2 5e c3 cc cc cc cc cc cc cc cc cc cc cc cc cc
+
+LINEAR DISASSEMBLY
+0073de00 <.text+0x33ce00>:
+  73de00:	56                                              	push   esi
+  73de01:	57                                              	push   edi
+  73de02:	e8 c9 bd 22 00                                  	call   0x969bd0
+  73de07:	85 c0                                           	test   eax,eax
+  73de09:	74 71                                           	je     0x73de7c
+  73de0b:	8b c8                                           	mov    ecx,eax
+  73de0d:	e8 de 41 7e 00                                  	call   0xf21ff0
+  73de12:	85 c0                                           	test   eax,eax
+  73de14:	74 66                                           	je     0x73de7c
+  73de16:	8b c8                                           	mov    ecx,eax
+  73de18:	e8 c3 5f dd ff                                  	call   0x513de0
+  73de1d:	8b f0                                           	mov    esi,eax
+  73de1f:	85 f6                                           	test   esi,esi
+  73de21:	74 59                                           	je     0x73de7c
+  73de23:	8b 06                                           	mov    eax,DWORD PTR [esi]
+  73de25:	8b 50 0c                                        	mov    edx,DWORD PTR [eax+0xc]
+  73de28:	68 89 dd 0f 11                                  	push   0x110fdd89
+  73de2d:	8b ce                                           	mov    ecx,esi
+  73de2f:	ff d2                                           	call   edx
+  73de31:	8b f8                                           	mov    edi,eax
+  73de33:	8b 06                                           	mov    eax,DWORD PTR [esi]
+  73de35:	8b 50 0c                                        	mov    edx,DWORD PTR [eax+0xc]
+  73de38:	68 db 4e 39 4d                                  	push   0x4d394edb
+  73de3d:	8b ce                                           	mov    ecx,esi
+  73de3f:	ff d2                                           	call   edx
+  73de41:	85 ff                                           	test   edi,edi
+  73de43:	74 1e                                           	je     0x73de63
+  73de45:	8b 8f 1c 08 00 00                               	mov    ecx,DWORD PTR [edi+0x81c]
+  73de4b:	85 c9                                           	test   ecx,ecx
+  73de4d:	74 0b                                           	je     0x73de5a
+  73de4f:	8b 41 08                                        	mov    eax,DWORD PTR [ecx+0x8]
+  73de52:	8b 49 0c                                        	mov    ecx,DWORD PTR [ecx+0xc]
+  73de55:	5f                                              	pop    edi
+  73de56:	8b d1                                           	mov    edx,ecx
+  73de58:	5e                                              	pop    esi
+  73de59:	c3                                              	ret
+  73de5a:	33 c0                                           	xor    eax,eax
+  73de5c:	33 c9                                           	xor    ecx,ecx
+  73de5e:	5f                                              	pop    edi
+  73de5f:	8b d1                                           	mov    edx,ecx
+  73de61:	5e                                              	pop    esi
+  73de62:	c3                                              	ret
+  73de63:	85 c0                                           	test   eax,eax
+  73de65:	74 15                                           	je     0x73de7c
+  73de67:	8b 88 64 06 00 00                               	mov    ecx,DWORD PTR [eax+0x664]
+  73de6d:	85 c9                                           	test   ecx,ecx
+  73de6f:	74 e9                                           	je     0x73de5a
+  73de71:	8b 41 08                                        	mov    eax,DWORD PTR [ecx+0x8]
+  73de74:	8b 49 0c                                        	mov    ecx,DWORD PTR [ecx+0xc]
+  73de77:	5f                                              	pop    edi
+  73de78:	8b d1                                           	mov    edx,ecx
+  73de7a:	5e                                              	pop    esi
+  73de7b:	c3                                              	ret
+  73de7c:	5f                                              	pop    edi
+  73de7d:	33 c0                                           	xor    eax,eax
+  73de7f:	33 d2                                           	xor    edx,edx
+  73de81:	5e                                              	pop    esi
+  73de82:	c3                                              	ret
+  73de83:	cc                                              	int3
+  73de84:	cc                                              	int3
+  73de85:	cc                                              	int3
+  73de86:	cc                                              	int3
+  73de87:	cc                                              	int3
+  73de88:	cc                                              	int3
+  73de89:	cc                                              	int3
+  73de8a:	cc                                              	int3
+  73de8b:	cc                                              	int3
+  73de8c:	cc                                              	int3
+  73de8d:	cc                                              	int3
+  73de8e:	cc                                              	int3
+  73de8f:	cc                                              	int3

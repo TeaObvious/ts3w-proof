@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000C8A.
+// Assembly: CSHostWrap; type: Sims3.CSHost.SimBuilder.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/SimBuilder.cs:417
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.BStr)]
+	private static extern string SimBuilderWrap_GetBoneDelta(IntPtr pThis, uint index, ref Sims3.SimIFace.Vector3 position, ref Sims3.SimIFace.Quaternion orientation, ref Sims3.SimIFace.Vector3 scale);

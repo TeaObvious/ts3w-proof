@@ -1,0 +1,33 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; actual complete ILSpy type export.
+.class public auto ansi beforefieldinit Sims3.Gameplay.TravelArrivalState
+	extends Sims3.Gameplay.ToInWorldState
+{
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0xe06c5
+		// Header size: 1
+		// Code size: 16 (0x10)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.s 10
+		IL_0003: ldc.i4.s 10
+		IL_0005: ldstr "Travel Arrival"
+		IL_000a: call instance void Sims3.Gameplay.ToInWorldState::.ctor(int32, int32, string)
+		IL_000f: ret
+	} // end of method TravelArrivalState::.ctor
+
+	.method public hidebysig virtual 
+		instance void StartLoadingScreen () cil managed 
+	{
+		// Method begins at RVA 0xe06d6
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method TravelArrivalState::StartLoadingScreen
+
+} // end of class Sims3.Gameplay.TravelArrivalState

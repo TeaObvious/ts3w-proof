@@ -1,0 +1,60 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: CSHostWrap/Sims3/CSHost/WorldTerrainWrap.cs
+// Each selected declaration or method is complete. Other members are omitted.
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldTerrainWrap_ApplyBrush(IntPtr pWorldTerrainAsVoid, ref HeightMapBrushParameters brushParams);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldTerrainWrap_BackupCurrentHeightData(IntPtr pWorldTerrainAsVoid);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldTerrainWrap_BackupUpdatedHeightData(IntPtr pWorldTerrainAsVoid);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldTerrainWrap_UndoHeightData(IntPtr pWorldTerrainAsVoid);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern void WorldTerrainWrap_RedoHeightData(IntPtr pWorldTerrainAsVoid);
+
+// [Next selected original declaration or method]
+
+	public void ApplyBrush(ref HeightMapBrushParameters brushParams)
+	{
+		WorldTerrainWrap_ApplyBrush(mNativeObj, ref brushParams);
+	}
+
+// [Next selected original declaration or method]
+
+	public void BackupCurrentHeightData()
+	{
+		WorldTerrainWrap_BackupCurrentHeightData(mNativeObj);
+	}
+
+// [Next selected original declaration or method]
+
+	public void BackupUpdatedHeightData()
+	{
+		WorldTerrainWrap_BackupUpdatedHeightData(mNativeObj);
+	}
+
+// [Next selected original declaration or method]
+
+	public void UndoHeightData()
+	{
+		WorldTerrainWrap_UndoHeightData(mNativeObj);
+	}
+
+// [Next selected original declaration or method]
+
+	public void RedoHeightData()
+	{
+		WorldTerrainWrap_RedoHeightData(mNativeObj);
+	}

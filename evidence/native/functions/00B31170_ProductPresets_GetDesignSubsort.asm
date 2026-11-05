@@ -1,0 +1,81 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: uint ProductPresets_GetDesignSubsort(void * this, uint presetId)
+Owned ranges: [[00b31170, 00b31233]]
+
+00b31170  56  PUSH ESI
+00b31171  8bf1  MOV ESI,ECX
+00b31173  57  PUSH EDI
+00b31174  8d7e28  LEA EDI,[ESI + 0x28]
+00b31177  68a4c80601  PUSH 0x106c8a4
+00b3117c  8bcf  MOV ECX,EDI
+00b3117e  e87d0a9bff  CALL 0x004e1c00
+00b31183  8b8ea4000000  MOV ECX,dword ptr [ESI + 0xa4]
+00b31189  85c9  TEST ECX,ECX
+00b3118b  7461  JZ 0x00b311ee
+00b3118d  8b44240c  MOV EAX,dword ptr [ESP + 0xc]
+00b31191  83f8ff  CMP EAX,-0x1
+00b31194  0f8584000000  JNZ 0x00b3121e
+00b3119a  83bec000000000  CMP dword ptr [ESI + 0xc0],0x0
+00b311a1  744b  JZ 0x00b311ee
+00b311a3  e8d8ec97ff  CALL 0x004afe80
+00b311a8  8b10  MOV EDX,dword ptr [EAX]
+00b311aa  8b520c  MOV EDX,dword ptr [EDX + 0xc]
+00b311ad  6a00  PUSH 0x0
+00b311af  6a00  PUSH 0x0
+00b311b1  6a00  PUSH 0x0
+00b311b3  6a00  PUSH 0x0
+00b311b5  8d4c241c  LEA ECX,[ESP + 0x1c]
+00b311b9  51  PUSH ECX
+00b311ba  81c6b8000000  ADD ESI,0xb8
+00b311c0  56  PUSH ESI
+00b311c1  8bc8  MOV ECX,EAX
+00b311c3  ffd2  CALL EDX
+00b311c5  84c0  TEST AL,AL
+00b311c7  7425  JZ 0x00b311ee
+00b311c9  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+00b311cd  85c9  TEST ECX,ECX
+00b311cf  7416  JZ 0x00b311e7
+00b311d1  8b01  MOV EAX,dword ptr [ECX]
+00b311d3  8b500c  MOV EDX,dword ptr [EAX + 0xc]
+00b311d6  683519de05  PUSH 0x5de1935
+00b311db  ffd2  CALL EDX
+00b311dd  8bf0  MOV ESI,EAX
+00b311df  85f6  TEST ESI,ESI
+00b311e1  7519  JNZ 0x00b311fc
+00b311e3  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+00b311e7  8b01  MOV EAX,dword ptr [ECX]
+00b311e9  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+00b311ec  ffd2  CALL EDX
+00b311ee  8bcf  MOV ECX,EDI
+00b311f0  e8cb0a9bff  CALL 0x004e1cc0
+00b311f5  5f  POP EDI
+00b311f6  33c0  XOR EAX,EAX
+00b311f8  5e  POP ESI
+00b311f9  c20400  RET 0x4
+00b311fc  53  PUSH EBX
+00b311fd  8bce  MOV ECX,ESI
+00b311ff  e8fcf28dff  CALL 0x00410500
+00b31204  8bd8  MOV EBX,EAX
+00b31206  8b06  MOV EAX,dword ptr [ESI]
+00b31208  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+00b3120b  8bce  MOV ECX,ESI
+00b3120d  ffd2  CALL EDX
+00b3120f  8bcf  MOV ECX,EDI
+00b31211  e8aa0a9bff  CALL 0x004e1cc0
+00b31216  8bc3  MOV EAX,EBX
+00b31218  5b  POP EBX
+00b31219  5f  POP EDI
+00b3121a  5e  POP ESI
+00b3121b  c20400  RET 0x4
+00b3121e  50  PUSH EAX
+00b3121f  e8ac891600  CALL 0x00c99bd0
+00b31224  8bcf  MOV ECX,EDI
+00b31226  8bf0  MOV ESI,EAX
+00b31228  e8930a9bff  CALL 0x004e1cc0
+00b3122d  5f  POP EDI
+00b3122e  8bc6  MOV EAX,ESI
+00b31230  5e  POP ESI
+00b31231  c20400  RET 0x4

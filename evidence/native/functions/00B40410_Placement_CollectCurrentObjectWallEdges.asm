@@ -1,0 +1,58 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: uint Placement_CollectCurrentObjectWallEdges(void * param_1, void * param_2, void * param_3)
+Owned ranges: [[00b40410, 00b404a0]]
+
+00b40410  83ec0c  SUB ESP,0xc
+00b40413  56  PUSH ESI
+00b40414  57  PUSH EDI
+00b40415  8b7c2418  MOV EDI,dword ptr [ESP + 0x18]
+00b40419  85ff  TEST EDI,EDI
+00b4041b  7413  JZ 0x00b40430
+00b4041d  a108df1e01  MOV EAX,[0x011edf08]
+00b40422  50  PUSH EAX
+00b40423  8bcf  MOV ECX,EDI
+00b40425  e8363edfff  CALL 0x00934260
+00b4042a  8bf0  MOV ESI,EAX
+00b4042c  85f6  TEST ESI,ESI
+00b4042e  7508  JNZ 0x00b40438
+00b40430  5f  POP EDI
+00b40431  32c0  XOR AL,AL
+00b40433  5e  POP ESI
+00b40434  83c40c  ADD ESP,0xc
+00b40437  c3  RET
+00b40438  8bce  MOV ECX,ESI
+00b4043a  e801951400  CALL 0x00c89940
+00b4043f  d95c2418  FSTP float ptr [ESP + 0x18]
+00b40443  f30f100518b2fa00  MOVSS XMM0,dword ptr [0x00fab218]
+00b4044b  8d4c2410  LEA ECX,[ESP + 0x10]
+00b4044f  51  PUSH ECX
+00b40450  8d542410  LEA EDX,[ESP + 0x10]
+00b40454  52  PUSH EDX
+00b40455  8d442410  LEA EAX,[ESP + 0x10]
+00b40459  50  PUSH EAX
+00b4045a  8bce  MOV ECX,ESI
+00b4045c  f30f11442414  MOVSS dword ptr [ESP + 0x14],XMM0
+00b40462  f30f11442418  MOVSS dword ptr [ESP + 0x18],XMM0
+00b40468  c744241c00000000  MOV dword ptr [ESP + 0x1c],0x0
+00b40470  e86b901400  CALL 0x00c894e0
+00b40475  d9442418  FLD float ptr [ESP + 0x18]
+00b40479  51  PUSH ECX
+00b4047a  d91c24  FSTP float ptr [ESP]
+00b4047d  e87eb8fbff  CALL 0x00afbd00
+00b40482  8b4c2424  MOV ECX,dword ptr [ESP + 0x24]
+00b40486  8b542420  MOV EDX,dword ptr [ESP + 0x20]
+00b4048a  51  PUSH ECX
+00b4048b  52  PUSH EDX
+00b4048c  50  PUSH EAX
+00b4048d  8d442418  LEA EAX,[ESP + 0x18]
+00b40491  50  PUSH EAX
+00b40492  57  PUSH EDI
+00b40493  e8b8f8ffff  CALL 0x00b3fd50
+00b40498  83c418  ADD ESP,0x18
+00b4049b  5f  POP EDI
+00b4049c  5e  POP ESI
+00b4049d  83c40c  ADD ESP,0xc
+00b404a0  c3  RET

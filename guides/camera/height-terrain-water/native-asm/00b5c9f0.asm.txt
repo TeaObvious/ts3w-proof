@@ -1,0 +1,66 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00b5c9f0 to next catalog entry 0x00b5ca90; may include padding or data.
+  b5c9f0:	55                   	push   ebp
+  b5c9f1:	8b ec                	mov    ebp,esp
+  b5c9f3:	83 e4 f0             	and    esp,0xfffffff0
+  b5c9f6:	8b 45 08             	mov    eax,DWORD PTR [ebp+0x8]
+  b5c9f9:	83 ec 24             	sub    esp,0x24
+  b5c9fc:	53                   	push   ebx
+  b5c9fd:	56                   	push   esi
+  b5c9fe:	57                   	push   edi
+  b5c9ff:	8b 79 5c             	mov    edi,DWORD PTR [ecx+0x5c]
+  b5ca02:	8d 0c 80             	lea    ecx,[eax+eax*4]
+  b5ca05:	80 7c cf 10 00       	cmp    BYTE PTR [edi+ecx*8+0x10],0x0
+  b5ca0a:	8d 0c cf             	lea    ecx,[edi+ecx*8]
+  b5ca0d:	75 72                	jne    0xb5ca81
+  b5ca0f:	8b 5d 0c             	mov    ebx,DWORD PTR [ebp+0xc]
+  b5ca12:	33 f6                	xor    esi,esi
+  b5ca14:	8d 51 18             	lea    edx,[ecx+0x18]
+  b5ca17:	83 fe 04             	cmp    esi,0x4
+  b5ca1a:	7d 62                	jge    0xb5ca7e
+  b5ca1c:	8b 02                	mov    eax,DWORD PTR [edx]
+  b5ca1e:	85 c0                	test   eax,eax
+  b5ca20:	7c 3e                	jl     0xb5ca60
+  b5ca22:	0f 28 03             	movaps xmm0,XMMWORD PTR [ebx]
+  b5ca25:	8d 0c 80             	lea    ecx,[eax+eax*4]
+  b5ca28:	8d 0c cf             	lea    ecx,[edi+ecx*8]
+  b5ca2b:	0f 29 44 24 20       	movaps XMMWORD PTR [esp+0x20],xmm0
+  b5ca30:	0f 29 44 24 10       	movaps XMMWORD PTR [esp+0x10],xmm0
+  b5ca35:	f3 0f 10 44 24 10    	movss  xmm0,DWORD PTR [esp+0x10]
+  b5ca3b:	0f 2f 01             	comiss xmm0,DWORD PTR [ecx]
+  b5ca3e:	72 20                	jb     0xb5ca60
+  b5ca40:	f3 0f 10 4c 24 24    	movss  xmm1,DWORD PTR [esp+0x24]
+  b5ca46:	0f 2f 49 04          	comiss xmm1,DWORD PTR [ecx+0x4]
+  b5ca4a:	72 14                	jb     0xb5ca60
+  b5ca4c:	f3 0f 10 51 08       	movss  xmm2,DWORD PTR [ecx+0x8]
+  b5ca51:	0f 2f d0             	comiss xmm2,xmm0
+  b5ca54:	72 0a                	jb     0xb5ca60
+  b5ca56:	f3 0f 10 41 0c       	movss  xmm0,DWORD PTR [ecx+0xc]
+  b5ca5b:	0f 2f c1             	comiss xmm0,xmm1
+  b5ca5e:	73 08                	jae    0xb5ca68
+  b5ca60:	83 c6 01             	add    esi,0x1
+  b5ca63:	83 c2 04             	add    edx,0x4
+  b5ca66:	eb af                	jmp    0xb5ca17
+  b5ca68:	8d 14 80             	lea    edx,[eax+eax*4]
+  b5ca6b:	80 7c d7 10 00       	cmp    BYTE PTR [edi+edx*8+0x10],0x0
+  b5ca70:	8d 0c d7             	lea    ecx,[edi+edx*8]
+  b5ca73:	74 9d                	je     0xb5ca12
+  b5ca75:	5f                   	pop    edi
+  b5ca76:	5e                   	pop    esi
+  b5ca77:	5b                   	pop    ebx
+  b5ca78:	8b e5                	mov    esp,ebp
+  b5ca7a:	5d                   	pop    ebp
+  b5ca7b:	c2 08 00             	ret    0x8
+  b5ca7e:	83 c8 ff             	or     eax,0xffffffff
+  b5ca81:	5f                   	pop    edi
+  b5ca82:	5e                   	pop    esi
+  b5ca83:	5b                   	pop    ebx
+  b5ca84:	8b e5                	mov    esp,ebp
+  b5ca86:	5d                   	pop    ebp
+  b5ca87:	c2 08 00             	ret    0x8
+  b5ca8a:	cc                   	int3
+  b5ca8b:	cc                   	int3
+  b5ca8c:	cc                   	int3
+  b5ca8d:	cc                   	int3
+  b5ca8e:	cc                   	int3
+  b5ca8f:	cc                   	int3

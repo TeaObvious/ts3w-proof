@@ -1,0 +1,38 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined4 RoomLighting_GetDesiredQualityForOwnerState(int * param_1)
+Owned ranges: [[0069e920, 0069e973]]
+
+0069e920  8b11  MOV EDX,dword ptr [ECX]
+0069e922  8b8288000000  MOV EAX,dword ptr [EDX + 0x88]
+0069e928  56  PUSH ESI
+0069e929  8bb284020000  MOV ESI,dword ptr [EDX + 0x284]
+0069e92f  3bc6  CMP EAX,ESI
+0069e931  7e07  JLE 0x0069e93a
+0069e933  b802000000  MOV EAX,0x2
+0069e938  eb23  JMP 0x0069e95d
+0069e93a  8a4918  MOV CL,byte ptr [ECX + 0x18]
+0069e93d  84c9  TEST CL,CL
+0069e93f  740b  JZ 0x0069e94c
+0069e941  85c0  TEST EAX,EAX
+0069e943  7d07  JGE 0x0069e94c
+0069e945  b802000000  MOV EAX,0x2
+0069e94a  eb11  JMP 0x0069e95d
+0069e94c  3bc6  CMP EAX,ESI
+0069e94e  7d0b  JGE 0x0069e95b
+0069e950  84c9  TEST CL,CL
+0069e952  7507  JNZ 0x0069e95b
+0069e954  b801000000  MOV EAX,0x1
+0069e959  eb02  JMP 0x0069e95d
+0069e95b  33c0  XOR EAX,EAX
+0069e95d  80ba8802000001  CMP byte ptr [EDX + 0x288],0x1
+0069e964  5e  POP ESI
+0069e965  750a  JNZ 0x0069e971
+0069e967  85c0  TEST EAX,EAX
+0069e969  7506  JNZ 0x0069e971
+0069e96b  a1009b1501  MOV EAX,[0x01159b00]
+0069e970  c3  RET
+0069e971  33c0  XOR EAX,EAX
+0069e973  c3  RET

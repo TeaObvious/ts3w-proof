@@ -1,0 +1,224 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original PC1.67 TS3W.exe; existing FUN_009a2eb0, full owned listing: 177 instructions/474 owned bytes.
+# Envelope [009A2EB0,009A308A) 474 bytes. No nonowned gap.
+# Explicit /TS3W.exe read-only MCP; pristine bytes independently decoded. No DB mutation/save.
+
+ORIGINAL ENVELOPE BYTES
+009a2eb0: 83 ec 14 53 8b d9 83 7b 78 00 74 09 32 c0 5b 83
+009a2ec0: c4 14 c2 08 00 8b 53 14 55 b8 54 8e 1c 01 56 89
+009a2ed0: 44 24 10 89 44 24 14 8b 44 24 24 8b 08 57 51 52
+009a2ee0: 8d 44 24 1c 68 68 b7 01 01 50 c7 44 24 30 9c 8d
+009a2ef0: 04 01 c7 44 24 2c 56 8e 1c 01 e8 41 b9 a6 ff 8b
+009a2f00: 6c 24 24 55 e8 67 8e b3 ff 83 c4 14 84 c0 75 6b
+009a2f10: b9 e0 ed 1c 01 33 f6 e8 04 27 bf ff 8b f8 85 ff
+009a2f20: 76 48 8b d7 8d 4c 24 10 2b d6 51 83 ea 01 52 b9
+009a2f30: e0 ed 1c 01 e8 07 27 bf ff 8b 4c 24 28 8b 11 8b
+009a2f40: 00 52 50 8d 4c 24 1c 68 68 b7 01 01 51 e8 ee b8
+009a2f50: a6 ff 8b 6c 24 24 55 e8 14 8e b3 ff 83 c4 14 84
+009a2f60: c0 75 18 83 c6 01 3b f7 72 b8 8b 54 24 1c 2b d5
+009a2f70: 83 e2 fe 83 fa 02 e9 f4 00 00 00 6a 00 6a 00 6a
+009a2f80: 00 6a 00 68 a0 bf 04 01 68 98 03 00 00 e8 ce 17
+009a2f90: b4 ff 83 c4 18 85 c0 74 0e 6a 00 55 8b c8 e8 ed
+009a2fa0: 62 b0 ff 8b f0 eb 02 33 f6 8b 7b 78 3b f7 74 20
+009a2fb0: 85 f6 74 0a 8b 46 04 8b 10 8d 4e 04 ff d2 85 ff
+009a2fc0: 89 73 78 74 0b 8b 47 04 8b 50 04 8d 4f 04 ff d2
+009a2fd0: 8b 4b 78 8b 01 8b 50 04 ff d2 84 c0 74 4e 8b 4b
+009a2fe0: 78 8b 01 8b 50 18 6a 00 6a 03 6a 01 ff d2 84 c0
+009a2ff0: 74 3a 8b 5b 78 8b 44 24 2c 89 18 8b 53 04 8b 02
+009a3000: 8d 4b 04 ff d0 8b 4c 24 1c 2b cd 83 e1 fe 83 f9
+009a3010: 02 7e 0d 85 ed 74 09 55 e8 c3 14 b4 ff 83 c4 04
+009a3020: 5f 5e 5d b0 01 5b 83 c4 14 c2 08 00 8b 43 24 3b
+009a3030: 43 28 74 0b 66 c7 00 00 00 8b 53 24 89 53 28 8b
+009a3040: 4b 78 8b 01 8b 50 08 ff d2 8b 43 78 85 c0 74 13
+009a3050: 83 c0 04 c7 43 78 00 00 00 00 8b 10 8b c8 8b 42
+009a3060: 04 ff d0 8b 4c 24 1c 2b cd 83 e1 fe 83 f9 02 7e
+009a3070: 0d 85 ed 74 09 55 e8 65 14 b4 ff 83 c4 04 5f 5e
+009a3080: 5d 32 c0 5b 83 c4 14 c2 08 00
+
+GHIDRA OWNED LISTING
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: FUN_009a2eb0
+Entry Point: 009a2eb0
+
+009a2eb0: SUB ESP, 0x14
+009a2eb3: PUSH EBX
+009a2eb4: MOV EBX, ECX
+009a2eb6: CMP dword ptr [EBX + 0x78], 0x0
+009a2eba: JZ 0x009a2ec5
+009a2ebc: XOR AL, AL
+009a2ebe: POP EBX
+009a2ebf: ADD ESP, 0x14
+009a2ec2: RET 0x8
+009a2ec5: MOV EDX, dword ptr [EBX + 0x14]
+009a2ec8: PUSH EBP
+009a2ec9: MOV EAX, 0x11c8e54
+009a2ece: PUSH ESI
+009a2ecf: MOV dword ptr [ESP + 0x10], EAX
+009a2ed3: MOV dword ptr [ESP + 0x14], EAX
+009a2ed7: MOV EAX, dword ptr [ESP + 0x24]
+009a2edb: MOV ECX, dword ptr [EAX]
+009a2edd: PUSH EDI
+009a2ede: PUSH ECX
+009a2edf: PUSH EDX
+009a2ee0: LEA EAX, [ESP + 0x1c]
+009a2ee4: PUSH 0x101b768
+009a2ee9: PUSH EAX
+009a2eea: MOV dword ptr [ESP + 0x30], 0x1048d9c
+009a2ef2: MOV dword ptr [ESP + 0x2c], 0x11c8e56
+009a2efa: CALL 0x0040e840
+009a2eff: MOV EBP, dword ptr [ESP + 0x24]
+009a2f03: PUSH EBP
+009a2f04: CALL 0x004dbd70
+009a2f09: ADD ESP, 0x14
+009a2f0c: TEST AL, AL
+009a2f0e: JNZ 0x009a2f7b
+009a2f10: MOV ECX, 0x11cede0
+009a2f15: XOR ESI, ESI
+009a2f17: CALL 0x00595620
+009a2f1c: MOV EDI, EAX
+009a2f1e: TEST EDI, EDI
+009a2f20: JBE 0x009a2f6a
+009a2f22: MOV EDX, EDI
+009a2f24: LEA ECX, [ESP + 0x10]
+009a2f28: SUB EDX, ESI
+009a2f2a: PUSH ECX
+009a2f2b: SUB EDX, 0x1
+009a2f2e: PUSH EDX
+009a2f2f: MOV ECX, 0x11cede0
+009a2f34: CALL 0x00595640
+009a2f39: MOV ECX, dword ptr [ESP + 0x28]
+009a2f3d: MOV EDX, dword ptr [ECX]
+009a2f3f: MOV EAX, dword ptr [EAX]
+009a2f41: PUSH EDX
+009a2f42: PUSH EAX
+009a2f43: LEA ECX, [ESP + 0x1c]
+009a2f47: PUSH 0x101b768
+009a2f4c: PUSH ECX
+009a2f4d: CALL 0x0040e840
+009a2f52: MOV EBP, dword ptr [ESP + 0x24]
+009a2f56: PUSH EBP
+009a2f57: CALL 0x004dbd70
+009a2f5c: ADD ESP, 0x14
+009a2f5f: TEST AL, AL
+009a2f61: JNZ 0x009a2f7b
+009a2f63: ADD ESI, 0x1
+009a2f66: CMP ESI, EDI
+009a2f68: JC 0x009a2f22
+009a2f6a: MOV EDX, dword ptr [ESP + 0x1c]
+009a2f6e: SUB EDX, EBP
+009a2f70: AND EDX, 0xfffffffe
+009a2f73: CMP EDX, 0x2
+009a2f76: JMP 0x009a306f
+009a2f7b: PUSH 0x0
+009a2f7d: PUSH 0x0
+009a2f7f: PUSH 0x0
+009a2f81: PUSH 0x0
+009a2f83: PUSH 0x104bfa0
+009a2f88: PUSH 0x398
+009a2f8d: CALL 0x004e4760
+009a2f92: ADD ESP, 0x18
+009a2f95: TEST EAX, EAX
+009a2f97: JZ 0x009a2fa7
+009a2f99: PUSH 0x0
+009a2f9b: PUSH EBP
+009a2f9c: MOV ECX, EAX
+009a2f9e: CALL 0x004a9290
+009a2fa3: MOV ESI, EAX
+009a2fa5: JMP 0x009a2fa9
+009a2fa7: XOR ESI, ESI
+009a2fa9: MOV EDI, dword ptr [EBX + 0x78]
+009a2fac: CMP ESI, EDI
+009a2fae: JZ 0x009a2fd0
+009a2fb0: TEST ESI, ESI
+009a2fb2: JZ 0x009a2fbe
+009a2fb4: MOV EAX, dword ptr [ESI + 0x4]
+009a2fb7: MOV EDX, dword ptr [EAX]
+009a2fb9: LEA ECX, [ESI + 0x4]
+009a2fbc: CALL EDX
+009a2fbe: TEST EDI, EDI
+009a2fc0: MOV dword ptr [EBX + 0x78], ESI
+009a2fc3: JZ 0x009a2fd0
+009a2fc5: MOV EAX, dword ptr [EDI + 0x4]
+009a2fc8: MOV EDX, dword ptr [EAX + 0x4]
+009a2fcb: LEA ECX, [EDI + 0x4]
+009a2fce: CALL EDX
+009a2fd0: MOV ECX, dword ptr [EBX + 0x78]
+009a2fd3: MOV EAX, dword ptr [ECX]
+009a2fd5: MOV EDX, dword ptr [EAX + 0x4]
+009a2fd8: CALL EDX
+009a2fda: TEST AL, AL
+009a2fdc: JZ 0x009a302c
+009a2fde: MOV ECX, dword ptr [EBX + 0x78]
+009a2fe1: MOV EAX, dword ptr [ECX]
+009a2fe3: MOV EDX, dword ptr [EAX + 0x18]
+009a2fe6: PUSH 0x0
+009a2fe8: PUSH 0x3
+009a2fea: PUSH 0x1
+009a2fec: CALL EDX
+009a2fee: TEST AL, AL
+009a2ff0: JZ 0x009a302c
+009a2ff2: MOV EBX, dword ptr [EBX + 0x78]
+009a2ff5: MOV EAX, dword ptr [ESP + 0x2c]
+009a2ff9: MOV dword ptr [EAX], EBX
+009a2ffb: MOV EDX, dword ptr [EBX + 0x4]
+009a2ffe: MOV EAX, dword ptr [EDX]
+009a3000: LEA ECX, [EBX + 0x4]
+009a3003: CALL EAX
+009a3005: MOV ECX, dword ptr [ESP + 0x1c]
+009a3009: SUB ECX, EBP
+009a300b: AND ECX, 0xfffffffe
+009a300e: CMP ECX, 0x2
+009a3011: JLE 0x009a3020
+009a3013: TEST EBP, EBP
+009a3015: JZ 0x009a3020
+009a3017: PUSH EBP
+009a3018: CALL 0x004e44e0
+009a301d: ADD ESP, 0x4
+009a3020: POP EDI
+009a3021: POP ESI
+009a3022: POP EBP
+009a3023: MOV AL, 0x1
+009a3025: POP EBX
+009a3026: ADD ESP, 0x14
+009a3029: RET 0x8
+009a302c: MOV EAX, dword ptr [EBX + 0x24]
+009a302f: CMP EAX, dword ptr [EBX + 0x28]
+009a3032: JZ 0x009a303f
+009a3034: MOV word ptr [EAX], 0x0
+009a3039: MOV EDX, dword ptr [EBX + 0x24]
+009a303c: MOV dword ptr [EBX + 0x28], EDX
+009a303f: MOV ECX, dword ptr [EBX + 0x78]
+009a3042: MOV EAX, dword ptr [ECX]
+009a3044: MOV EDX, dword ptr [EAX + 0x8]
+009a3047: CALL EDX
+009a3049: MOV EAX, dword ptr [EBX + 0x78]
+009a304c: TEST EAX, EAX
+009a304e: JZ 0x009a3063
+009a3050: ADD EAX, 0x4
+009a3053: MOV dword ptr [EBX + 0x78], 0x0
+009a305a: MOV EDX, dword ptr [EAX]
+009a305c: MOV ECX, EAX
+009a305e: MOV EAX, dword ptr [EDX + 0x4]
+009a3061: CALL EAX
+009a3063: MOV ECX, dword ptr [ESP + 0x1c]
+009a3067: SUB ECX, EBP
+009a3069: AND ECX, 0xfffffffe
+009a306c: CMP ECX, 0x2
+009a306f: JLE 0x009a307e
+009a3071: TEST EBP, EBP
+009a3073: JZ 0x009a307e
+009a3075: PUSH EBP
+009a3076: CALL 0x004e44e0
+009a307b: ADD ESP, 0x4
+009a307e: POP EDI
+009a307f: POP ESI
+009a3080: POP EBP
+009a3081: XOR AL, AL
+009a3083: POP EBX
+009a3084: ADD ESP, 0x14
+009a3087: RET 0x8
+
+Total instructions: 177

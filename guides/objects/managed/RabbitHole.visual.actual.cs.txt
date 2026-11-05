@@ -1,0 +1,57 @@
+// Pristine PC1.67 Sims3GameplaySystems.dll; identity and package key in the material-state guide.
+// Analyst: Normal RabbitHole startup schedules Default/OpenManyLights1 when tuning/list gates admit it; InitVisualStates invokes the selected material change. Empty base custom effects and suffix do not imply all subclass overrides are empty.
+using Sims3.Gameplay.Autonomy;
+using Sims3.Gameplay.Utilities;
+using Sims3.SimIFace;
+
+public sealed override void OnStartup()
+{
+	AddInteractions();
+	Sims3.Gameplay.Autonomy.Autonomy.AddPublicMetaObject(RabbitHoleProxy);
+	OnStartupRabbitHole();
+	if (RabbitHoleTuning.kDaytimeLightSunriseDelta < 24f && (mVisualStates == null || mVisualStates.Count == 0))
+	{
+		float time = World.GetSunriseTime() + RabbitHoleTuning.kDaytimeLightSunriseDelta;
+		float time2 = World.GetSunsetTime() + RabbitHoleTuning.kNighttimeLightSunsetDelta;
+		AddVisualState("Default", time, "Rabbit Hole Daytime Lights On");
+		AddVisualState("OpenManyLights1", time2, "Rabbit Hole Nighttime Lights On");
+	}
+	if (GameUtils.IsInstalled(ProductVersion.EP11))
+	{
+		FutureWorldTextureUpdate();
+	}
+	InitVisualStates();
+	SetRandomChanceThatChangesOnceADay();
+	MetaAutonomyManager.UpdateForMetaObject(RabbitHoleProxy);
+}
+public virtual string VisualStateSuffix()
+{
+	return string.Empty;
+}
+public virtual void DoCustomStateChangeEffects(string materialName)
+{
+}
+protected void AddVisualState(string materialName, float time, string alarmText)
+{
+	VisualStateChange item = new VisualStateChange(RabbitHoleProxy, materialName, time, alarmText);
+	mVisualStates.Add(item);
+}
+protected void InitVisualStates()
+{
+	float hoursPassedOfDay = SimClock.HoursPassedOfDay;
+	int count = mVisualStates.Count;
+	if (count <= 0)
+	{
+		return;
+	}
+	for (int num = count - 1; num >= 0; num--)
+	{
+		VisualStateChange visualStateChange = mVisualStates[num];
+		if (hoursPassedOfDay >= visualStateChange.Time)
+		{
+			visualStateChange.ChangeVisualState();
+			return;
+		}
+	}
+	mVisualStates[count - 1].ChangeVisualState();
+}

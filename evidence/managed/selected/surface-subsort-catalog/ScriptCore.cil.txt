@@ -1,0 +1,38 @@
+Module MVID da71f9d5-3a90-44c6-8f98-5bafd2fca18a
+Original PC1.67 ScriptCore SHA256 1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115
+Metadata token=06000bf1 flags=2091 implflags=0080 rawSignature=00011d0909
+EXTERN 06000bf1 ScriptCore.UserToolUtils::UserToolUtils_GetWallPatternPresetListByTypeImpl RVA0; no CIL body
+Metadata token=06000bf3 flags=2091 implflags=0080 rawSignature=00011d0909
+EXTERN 06000bf3 ScriptCore.UserToolUtils::UserToolUtils_GetFloorPatternPresetListByTypeImpl RVA0; no CIL body
+Metadata token=06000c46 flags=01e6 implflags=0000 rawSignature=20011d0909
+
+06000c46 ScriptCore.UserToolUtils::GetWallPatternPresetListByType RVA=0000c868 bytes=19 maxStack=2 flags=3013 localSignature=11000075
+Raw complete method header 133002001300000075000011
+Raw complete CIL 0328f10b00060a062d07168d610100012a062a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 28f10b0006           call f10b0006 UserToolUtils_GetWallPatternPresetListByTypeImpl
+ IL_0006: 0a                   stloc.0
+ IL_0007: 06                   ldloc.0
+ IL_0008: 2d07                 brtrue.s 07
+ IL_000a: 16                   ldc.i4.0
+ IL_000b: 8d61010001           newarr 61010001
+ IL_0010: 2a                   ret
+ IL_0011: 06                   ldloc.0
+ IL_0012: 2a                   ret
+Metadata token=06000c48 flags=01e6 implflags=0000 rawSignature=20011d0909
+
+06000c48 ScriptCore.UserToolUtils::GetFloorPatternPresetListByType RVA=0000c8a8 bytes=19 maxStack=2 flags=3013 localSignature=11000075
+Raw complete method header 133002001300000075000011
+Raw complete CIL 0328f30b00060a062d07168d610100012a062a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 28f30b0006           call f30b0006 UserToolUtils_GetFloorPatternPresetListByTypeImpl
+ IL_0006: 0a                   stloc.0
+ IL_0007: 06                   ldloc.0
+ IL_0008: 2d07                 brtrue.s 07
+ IL_000a: 16                   ldc.i4.0
+ IL_000b: 8d61010001           newarr 61010001
+ IL_0010: 2a                   ret
+ IL_0011: 06                   ldloc.0
+ IL_0012: 2a                   ret
+
+SELECTED complete_methods=2 CIL_bytes=38

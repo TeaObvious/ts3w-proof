@@ -1,0 +1,600 @@
+// Original PC1.67 UI.dll; actual complete ILSpy-decompiled selected UIManager members.
+// SHA256 d38676dc2b953c03f3d764b7c2d531c1f2a08c0232580b40a8880c188f659b89
+// MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+// Original CIL/header/EH pair is authoritative for compiler artifacts and exception boundaries.
+
+namespace Sims3.UI;
+
+// Selected members of UIManager:
+
+	private static void LoadCustomControls()
+	{
+		XmlDocument xmlDocument = Simulator.LoadXML("CustomControls");
+		if (xmlDocument == null)
+		{
+			return;
+		}
+		XmlNodeList elementsByTagName = xmlDocument.GetElementsByTagName("CustomControls");
+		foreach (XmlElement item in elementsByTagName)
+		{
+			XmlNodeList elementsByTagName2 = item.GetElementsByTagName("CustomControl");
+			foreach (XmlElement item2 in elementsByTagName2)
+			{
+				string value = item2.Attributes.GetNamedItem("typeName").Value;
+				Type type = null;
+				uint num = 0u;
+				string text = null;
+				try
+				{
+					type = Type.GetType(value, throwOnError: false);
+					text = item2.Attributes.GetNamedItem("typeID").Value;
+					num = Convert.ToUInt32(text.Trim(), 16);
+				}
+				catch (Exception)
+				{
+					continue;
+				}
+				if ((object)type != null && num != 0 && type.GetConstructors().Length > 0)
+				{
+					ConstructorInfo constructor = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, new Type[1] { typeof(uint) }, null);
+					if ((object)constructor != null)
+					{
+						mCustomControlConstructorRegistry.Add(num, constructor);
+						gUIMgr.RegisterCustomControlFactory(num, register: true);
+					}
+				}
+			}
+		}
+		CustomControlPreLoad = (UIEventHandler<UIEventArgs>)Delegate.Combine(CustomControlPreLoad, new UIEventHandler<UIEventArgs>(OnCustomControlPreLoad));
+		CustomControlLoad = (UIEventHandler<UIEventArgs>)Delegate.Combine(CustomControlLoad, new UIEventHandler<UIEventArgs>(OnCustomControlLoad));
+		Window mainWindow = GetMainWindow();
+		RegisterEvent(mainWindow, 57251813u, CustomControlPreLoad);
+		RegisterEvent(mainWindow, 57251814u, CustomControlLoad);
+	}
+
+	internal static void InitInstancePools()
+	{
+		mClassIDTypeMap.Add(1321318616u, typeof(Window));
+		mClassIDTypeMap.Add(4008698563u, typeof(Button));
+		mClassIDTypeMap.Add(1863709979u, typeof(Text));
+		mClassIDTypeMap.Add(1866642672u, typeof(TextEdit));
+		mClassIDTypeMap.Add(2398322029u, typeof(Scrollbar));
+		mClassIDTypeMap.Add(252414835u, typeof(Dialog));
+		mClassIDTypeMap.Add(1865951275u, typeof(MessageDialog));
+		mClassIDTypeMap.Add(788577715u, typeof(Slider));
+		mClassIDTypeMap.Add(1325808563u, typeof(Spinner));
+		mClassIDTypeMap.Add(2941594699u, typeof(ComboBox));
+		mClassIDTypeMap.Add(1864309414u, typeof(Grid));
+		mClassIDTypeMap.Add(60170003u, typeof(SceneMgrWindow));
+		mInstancePools.Add(typeof(Window), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(Button), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(Text), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(TextEdit), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(Scrollbar), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(Dialog), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(MessageDialog), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(Slider), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(Spinner), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(ComboBox), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(Grid), new Stack<WindowBase>());
+		mInstancePools.Add(typeof(SceneMgrWindow), new Stack<WindowBase>());
+	}
+
+// Selected complete member of Sims3.UI.BuyController:
+
+	public override void Init()
+	{
+		mBuyModel = Responder.Instance.BuyModel;
+		InitBuyPuck();
+		mbHandtoolResetEnabled = true;
+		FocusAcquired += OnFocusChange;
+		FocusLost += OnFocusChange;
+		AreaChange += OnAreaChange;
+		CameraController.OnCameraControllerSwitchCallback += OnCameraControllerSwitch;
+		UIManager.NewContentInstalled += OnNewContentInstalled;
+		Responder.Instance.StoreUI.OnFeaturedItemRemoveError += OnFeaturedItemRemoveErrorHandler;
+		if (mBuyModel.IsCommunityLot(mLotId))
+		{
+			mRoomCategoryFlagsToExclude = 1024u;
+		}
+		else
+		{
+			mRoomCategoryFlagsToExclude = 512u;
+		}
+		mbCompositorActive = false;
+		mbCompositorSaveMiddlePuckVisibility = true;
+		mWindowSortByRoom = GetChildByID(8192u, recursive: true);
+		mWindowSortByFunction = GetChildByID(8193u, recursive: true);
+		mWindowFamilyInventory = GetChildByID(8194u, recursive: true);
+		mWindowSortByRoomEmpty = GetChildByID(8195u, recursive: true);
+		mWindowStoreNotable = GetChildByID(8196u, recursive: true);
+		mCollectionWindow = GetChildByID(1040u, recursive: true) as Window;
+		mCollectionGrid = GetChildByID(1042u, recursive: true) as ItemGrid;
+		mCollectionGrid.ItemClicked += OnCollectionGridItemClick;
+		mNoCollectionWindow = GetChildByID(1066u, recursive: true);
+		mCollectionBackgroundWindow = GetChildByID(1041u, recursive: true) as Window;
+		mOrganizeCollectionsButton = GetChildByID(1043u, recursive: true) as Button;
+		mOrganizeCollectionsButton.Click += OnOrganizeCollectionsClick;
+		mDeleteCollectionButton = GetChildByID(1044u, recursive: true) as Button;
+		mDeleteCollectionButton.Click += OnDeleteCollectionClick;
+		mEditCollectionButton = GetChildByID(1045u, recursive: true) as Button;
+		mEditCollectionButton.Click += OnEditCollectionClick;
+		Button button = GetChildByID(1065u, recursive: true) as Button;
+		button.Click += OnNewCollectionClick;
+		mCollectionCatalogWindow = GetChildByID(1056u, recursive: true) as Window;
+		mGridCollection = GetChildByID(1059u, recursive: true) as ExpandableCatalogGrid;
+		if (mGridCollection != null)
+		{
+			mGridCollection.Grid.ItemClicked += OnCatalogGridSelect;
+		}
+		mDeleteItemFromCollectionButton = GetChildByID(1063u, recursive: true) as Button;
+		mDeleteItemFromCollectionButton.Click += OnDeleteItemFromCollectionClick;
+		mOrganizeCollectionItemsButton = GetChildByID(1064u, recursive: true) as Button;
+		mOrganizeCollectionItemsButton.Click += OnOrganizeCollectionItemsClick;
+		mGridSortByRoom = GetChildByID(8449u, recursive: true) as ExpandableCatalogGrid;
+		mGridSortByRoom.Grid.ItemClicked += OnCatalogGridSelect;
+		mGridSortByFunction = GetChildByID(8450u, recursive: true) as ExpandableCatalogGrid;
+		mGridSortByFunction.Grid.ItemClicked += OnCatalogGridSelect;
+		mGridInventory = GetChildByID(8451u, recursive: true) as ExpandableCatalogGrid;
+		mGridInventory.Grid.ItemClicked += OnCatalogGridSelect;
+		mGridStoreNotable = GetChildByID(8452u, recursive: true) as ExpandableCatalogGrid;
+		mGridStoreNotable.Grid.ItemClicked += OnCatalogGridSelect;
+		mDefaultSortByRoomWidth = mWindowSortByRoom.Area.Width;
+		mDefaultSortByRoomGridColumns = mGridSortByRoom.Grid.VisibleColumns;
+		mDefaultSortByFunctionWidth = mWindowSortByFunction.Area.Width;
+		mDefaultSortByFunctionGridColumns = mGridSortByFunction.VisibleColumns;
+		mDefaultInventoryWidth = mWindowFamilyInventory.Area.Width;
+		mDefaultInventoryGridColumns = mGridInventory.VisibleColumns;
+		mDefaultCollectionsWidth = mCollectionCatalogWindow.Area.Width;
+		mDefaultCollectionsGridColumns = mGridCollection.VisibleColumns;
+		mDefaultStoreNotableWidth = mWindowStoreNotable.Area.Width;
+		mDefaultStoreNotableGridColumns = mGridStoreNotable.VisibleColumns;
+		mButtonFilterSortByRoom = GetChildByID(8705u, recursive: true) as Button;
+		mButtonFilterSortByRoom.Click += OnFilterButtonClick;
+		mButtonFilterSortByFunction = GetChildByID(8706u, recursive: true) as Button;
+		mButtonFilterSortByFunction.Click += OnFilterButtonClick;
+		mButtonFilterCollection = GetChildByID(1062u, recursive: true) as Button;
+		mButtonFilterCollection.Click += OnFilterButtonClick;
+		mCatalogProductFilter = mButtonFilterSortByFunction.GetChildByID(189723984u, recursive: true) as CatalogProductFilter;
+		mCatalogProductFilter.FiltersChanged += CatalogProductFilterChanged;
+		mButtonShopModeSortByRoom = GetChildByID(230226832u, recursive: true) as Button;
+		mButtonShopModeSortByRoom.Click += OnShopModeButtonClick;
+		mButtonShopModeSortByFunction = GetChildByID(230226833u, recursive: true) as Button;
+		mButtonShopModeSortByFunction.Click += OnShopModeButtonClick;
+		mButtonShopModeNotable = GetChildByID(231946624u, recursive: true) as Button;
+		mButtonShopModeNotable.Click += OnShopModeButtonClick;
+		mButtonShopModeEmpty = GetChildByID(231946864u, recursive: true) as Button;
+		mButtonShopModeEmpty.Click += OnShopModeButtonClick;
+		if (OnlineFeatures.IsSims3ServiceUnreachable())
+		{
+			mButtonShopModeSortByRoom.Enabled = false;
+			mButtonShopModeSortByRoom.Visible = false;
+			mButtonShopModeSortByFunction.Enabled = false;
+			mButtonShopModeSortByFunction.Visible = false;
+			mButtonShopModeNotable.Enabled = false;
+			mButtonShopModeNotable.Visible = false;
+			mButtonShopModeEmpty.Enabled = false;
+			mButtonShopModeEmpty.Visible = false;
+		}
+		mShopModeByFunctionBorder = GetChildByID(230307216u, recursive: true) as Window;
+		mShopModeByRoomBorder = GetChildByID(230306240u, recursive: true) as Window;
+		mShopModeEmptyBorder = GetChildByID(231946528u, recursive: true) as Window;
+		mShopModeNotableBorder = GetChildByID(231946192u, recursive: true) as Window;
+		mSimPointBalance = GetChildByID(230381488u, recursive: true) as Text;
+		mSimPointBalance.Caption = UserToolUtils.GetSimPointBalance().ToString();
+		mSimPointsWindow = GetChildByID(230384576u, recursive: true) as Window;
+		mBuySimPointsButton = GetChildByID(230383648u, recursive: true) as Button;
+		mBuySimPointsButton.Click += OnBuySimPointsClicked;
+		mBuySimPointsButton.FocusAcquired += OnBuyButtonFocusAcquired;
+		mBuySimPointsButton.FocusLost += OnBuyButtonFocusLost;
+		mTabContainerSortByRoom = GetChildByID(8961u, recursive: true) as TabContainer;
+		mTabContainerSortByRoom.TabSelect += OnTabSelect;
+		mTabContainerSortByFunction = GetChildByID(8962u, recursive: true) as TabContainer;
+		mTabContainerSortByFunction.TabSelect += OnTabSelect;
+		mFamilyInventoryDragDropWindow = mGridInventory;
+		mCatalogDivider = GetChildByID(95163656u, recursive: true) as Window;
+		mMiddlePuckWin = GetChildByID(95163911u, recursive: true) as Window;
+		mMiddlePuckDivider = GetChildByID(116175736u, recursive: true) as Window;
+		mMiddlePuckControlsStartMarker = GetChildByID(116192432u, recursive: true) as Window;
+		mCatalogSubsetSelectionWin = GetChildByID(115998872u, recursive: true) as Window;
+		mCategorySelectionPanel = GetChildByID(115818680u, recursive: true) as Window;
+		if (mCategorySelectionPanel != null)
+		{
+			uint num = 0u;
+			WindowBase childByIndex = mCategorySelectionPanel.GetChildByIndex(num);
+			while (childByIndex != null)
+			{
+				Button button2 = childByIndex as Button;
+				if (button2 != null)
+				{
+					button2.Click += OnCategoryButtonClick;
+				}
+				childByIndex = mCategorySelectionPanel.GetChildByIndex(++num);
+			}
+		}
+		if (sBuyDebug)
+		{
+			button = mCategorySelectionPanel.GetChildByID(115926755u, recursive: true) as Button;
+			button.Visible = true;
+		}
+		int num2 = 0;
+		if (!GameUtils.IsInstalled(ProductVersion.EP5))
+		{
+			button = mCategorySelectionPanel.GetChildByID(115926747u, recursive: true) as Button;
+			button.Visible = false;
+			button = GetChildByID(130097264u, recursive: true) as Button;
+			button.Visible = false;
+		}
+		else
+		{
+			button = mCategorySelectionPanel.GetChildByID(115926747u, recursive: true) as Button;
+			button.Visible = true;
+			button = GetChildByID(130097264u, recursive: true) as Button;
+			button.Visible = true;
+			num2++;
+		}
+		if (!GameUtils.IsInstalled(ProductVersion.EP6))
+		{
+			button = mCategorySelectionPanel.GetChildByID(115926748u, recursive: true) as Button;
+			button.Visible = false;
+		}
+		else
+		{
+			button = mCategorySelectionPanel.GetChildByID(115926748u, recursive: true) as Button;
+			button.Visible = true;
+			num2++;
+		}
+		if (!GameUtils.IsInstalled(ProductVersion.EP10))
+		{
+			button = mCategorySelectionPanel.GetChildByID(115926753u, recursive: true) as Button;
+			button.Visible = false;
+		}
+		else
+		{
+			button = mCategorySelectionPanel.GetChildByID(115926753u, recursive: true) as Button;
+			if (!mBuyModel.IsResort(mLotId))
+			{
+				button.Visible = false;
+			}
+			else
+			{
+				button.Visible = true;
+				num2++;
+			}
+		}
+		if (num2 > 1)
+		{
+			InitPagination();
+		}
+		mFilterAllButton = GetChildByID(95163663u, recursive: true) as Button;
+		if (mFilterAllButton != null)
+		{
+			mFilterAllButton.Click += OnAllButtonClick;
+		}
+		mToolsPuckWin = GetChildByID(115496792u, recursive: true) as Window;
+		mToolsPuckCAStyleBackgroundWin = GetChildByID(117032969u, recursive: true) as Window;
+		if (mToolsPuckWin != null)
+		{
+			mToolsPuckNormalBackgroundWin = mToolsPuckWin.GetChildByID(117032920u, recursive: true) as Window;
+			mToolsPuckUndoRedoBackgroundWin = mToolsPuckWin.GetChildByID(117032968u, recursive: true) as Window;
+			mDesignButton = mToolsPuckWin.GetChildByID(95881056u, recursive: true) as Button;
+			if (mDesignButton != null)
+			{
+				mDesignButton.Click += OnDesignTool;
+			}
+			mHandButton = mToolsPuckWin.GetChildByID(95880768u, recursive: true) as Button;
+			if (mHandButton != null)
+			{
+				mHandButton.Click += OnHandTool;
+			}
+			mSellButton = mToolsPuckWin.GetChildByID(95881000u, recursive: true) as Button;
+			if (mSellButton != null)
+			{
+				mSellButton.Click += OnSellTool;
+			}
+			mCloneButton = mToolsPuckWin.GetChildByID(95880880u, recursive: true) as Button;
+			if (mCloneButton != null)
+			{
+				mCloneButton.Click += OnCloneTool;
+			}
+			mDayNightToggleButton = mToolsPuckWin.GetChildByID(95880896u, recursive: true) as Button;
+			if (mDayNightToggleButton != null)
+			{
+				mDayNightToggleButton.Click += OnDayNightToggleClick;
+				mDayNightToggleButton.Selected = mHudModel.BuildBuyDayNightMode == BuildBuyDayNightMode.Flipped;
+			}
+			mIndoorGridToggleButton = mToolsPuckWin.GetChildByID(95880912u, recursive: true) as Button;
+			if (mIndoorGridToggleButton != null)
+			{
+				mIndoorGridToggleButton.Click += OnIndoorGridToggleClick;
+				mIndoorGridToggleButton.Selected = mHudModel.FloorGridMode != FloorGridMode.Normal;
+			}
+			button = mToolsPuckWin.GetChildByID(117032970u, recursive: true) as Button;
+			if (button != null)
+			{
+				if (mIsEp6RestrictionEnabled || Responder.Instance.BuildModel.InteriorDesignerModel != null)
+				{
+					button.Enabled = false;
+				}
+				button.Click += OnBlueprintToggleClick;
+			}
+		}
+		mGridDebug = GetChildByID(95163652u, recursive: true) as ItemGrid;
+		if (mGridDebug != null)
+		{
+			mExpandableCatalogGrid = null;
+			mCatalogGrid = mGridDebug;
+			mCatalogGrid.ItemClicked += OnCatalogGridSelect;
+			mCatalogGrid.VisibleColumns = (uint)GRID_ROOM_CONCISE_DIMENSIONS.x;
+			mCatalogGrid.VisibleRows = (uint)GRID_ROOM_CONCISE_DIMENSIONS.y;
+			mCatalogGrid.Visible = false;
+			mOriginalCatalogGridArea = mCatalogGrid.Area;
+		}
+		mFamilyInventoryInstructionText = mWindowFamilyInventory.GetChildByID(118440160u, recursive: true) as Text;
+		mFamilyInventorySellAllButton = mWindowFamilyInventory.GetChildByID(118440161u, recursive: true) as Button;
+		if (mFamilyInventorySellAllButton != null)
+		{
+			mFamilyInventorySellAllButton.Click += OnSellAllButtonClicked;
+		}
+		mFamilyInventorySellButton = mWindowFamilyInventory.GetChildByID(118440162u, recursive: true) as Button;
+		if (mFamilyInventorySellButton != null)
+		{
+			mFamilyInventorySellButton.DragEnter += OnInventorySellButtonDragEnter;
+			mFamilyInventorySellButton.DragDrop += OnInventorySellButtonDragDrop;
+		}
+		mCatalogCategoryModeButton = GetChildByID(95515393u, recursive: true) as Button;
+		if (mCatalogCategoryModeButton != null)
+		{
+			mCatalogCategoryModeButton.Click += OnCatalogButtonClick;
+		}
+		mCatalogRoomModeButton = GetChildByID(95515392u, recursive: true) as Button;
+		if (mCatalogRoomModeButton != null)
+		{
+			mCatalogRoomModeButton.Click += OnCatalogButtonClick;
+		}
+		mCatalogInventoryModeButton = GetChildByID(95515394u, recursive: true) as Button;
+		if (mCatalogInventoryModeButton != null)
+		{
+			mCatalogInventoryModeButton.Click += OnCatalogButtonClick;
+		}
+		mCollectionButton = GetChildByID(95880913u, recursive: true) as Button;
+		if (mCollectionButton != null)
+		{
+			mCollectionButton.Click += OnCatalogButtonClick;
+			mCollectionButton.Selected = false;
+		}
+		UserToolUtils.OnCollectionChanged += UserToolUtils_OnCollectionChanged;
+		mCatalogStoreNotableModeButton = GetChildByID(231935088u, recursive: true) as Button;
+		if (mCatalogStoreNotableModeButton != null)
+		{
+			mCatalogStoreNotableModeButton.Click += OnCatalogButtonClick;
+		}
+		Button button3 = GetChildByID(115904816u, recursive: true) as Button;
+		if (button3 != null)
+		{
+			button3.Click += OnCatalogBackButtonClick;
+		}
+		mUndoButton = GetChildByID(95163661u, recursive: true) as Button;
+		mUndoButton.Click += OnUndoButtonClick;
+		mRedoButton = GetChildByID(95163662u, recursive: true) as Button;
+		mRedoButton.Click += OnRedoButtonClick;
+		mTotalValueText = GetChildByID(1024u, recursive: true) as Text;
+		mUnfurnishedValueText = GetChildByID(1025u, recursive: true) as Text;
+		mTotalValueText.Caption = EAText.GetMoneyString(World.GetLotWorth(mLotId));
+		mUnfurnishedValueText.Caption = EAText.GetMoneyString(World.GetUnfurnishedLotWorth(mLotId));
+		if (mRoomCatalogButtonInfoDict != null)
+		{
+			Dictionary<uint, RoomCatalogButtonInfo>.Enumerator enumerator = mRoomCatalogButtonInfoDict.GetEnumerator();
+			while (enumerator.MoveNext())
+			{
+				KeyValuePair<uint, RoomCatalogButtonInfo> current = enumerator.Current;
+				RoomCatalogButtonInfo value = current.Value;
+				Button button4 = GetChildByID(current.Key, recursive: true) as Button;
+				if (button4 != null)
+				{
+					button4.Click += OnByRoomObjectButtonClick;
+					if (mRoomCatalogButtonInfoDict != null)
+					{
+						button4.TooltipText = value.mLocalizedName;
+					}
+				}
+			}
+		}
+		SceneMgrWindow sceneWindow = UIManager.GetSceneWindow();
+		if (sceneWindow != null)
+		{
+			sceneWindow.TriggerDown += OnTriggerDown;
+			sceneWindow.MouseUp += OnMouseUp;
+			mbTriggersCallbackConnected = true;
+		}
+		UserToolUtils.BuildBuyGenericEvent += OnBuildBuyGenericEvent;
+		UIManager.LocaleChanged += OnLocaleChange;
+		if (mBuyModel != null)
+		{
+			mBuyModel.FundsChanged += OnFundsChanged;
+			mBuyModel.EnterBuyMode(mLotId);
+		}
+		mbInSimlessBuildMode = Responder.Instance.HudModel.GetCurrentSimInfo() == null;
+		mbNoCharge = mBuyModel.NoCharge() || mbInSimlessBuildMode;
+		mBuyModel.StoreTNSItemSelected += OnStoreTNSItemSelected;
+		if (!mBuyModel.FromGameEntry)
+		{
+			mFamilyInventory = Responder.Instance.BuyModel.FamilyInventory;
+		}
+		else
+		{
+			mFamilyInventory = null;
+			Button button5 = GetChildByID(95515394u, recursive: true) as Button;
+			if (button5 != null)
+			{
+				button5.Enabled = false;
+			}
+			if (mBuyModel.GetBuildCurrCatalogButtonId() == 95515394)
+			{
+				mBuyModel.SetBuildCurrCatalogButtonId(95515392u);
+			}
+		}
+		World.OnPlaceObjectIntoInventoryCallback = (World.InventoryEventHandler)Delegate.Combine(World.OnPlaceObjectIntoInventoryCallback, new World.InventoryEventHandler(OnPlaceObjectIntoInventory));
+		mLiveDragHelper = UIManager.GetSceneWindow();
+		BBCompositorManager.Load();
+		if (CASCompositorController.Instance != null)
+		{
+			CASCompositorController.Instance.EnterFullEditMode += OnEnterFullEditMode;
+			CASCompositorController.Instance.ExitFullEditMode += OnExitFullEditMode;
+		}
+		mBuyModel.CollectionInfo.LoadCollectionsInfo();
+		SelectHandTool();
+		ResetHandTool();
+		sceneWindow.AreaChange += OnResolutionChanged;
+		ResizeCatalogGrids(forceResize: false);
+		Tick += InitTick;
+		UIManager.SetOverrideCursor(0u);
+	}
+
+// Selected complete member of Sims3.UI.BBCatalogPreviewPanelController:
+
+	public void Init(WindowBase window, IBuildBuyModel buildBuyModel, uint controlIdStart)
+	{
+		SetDefaultCameraValues();
+		mBuildBuyModel = buildBuyModel;
+		mControlIDStart = controlIdStart;
+		mDragging = false;
+		mbNoCharge = mBuildBuyModel.NoCharge();
+		mObjectGuid = ObjectGuid.InvalidObjectGuid;
+		mTargetProduct = null;
+		mTargetPreset = null;
+		mObjectProductKey = ResourceKey.kInvalidResourceKey;
+		mCatalogPreviewWindow = window.GetChildByID(mControlIDStart, recursive: true);
+		if (mCatalogPreviewWindow != null)
+		{
+			mBaseWindowArea = mCatalogPreviewWindow.Area;
+			mCatalogPreviewWindow.Visible = false;
+			mObjectThumbnailWindow = mCatalogPreviewWindow.GetChildByID(115487585u, recursive: true) as BabyMakerSceneWindow;
+			mObjectThumbnailStaticWindow = mCatalogPreviewWindow.GetChildByID(115487602u, recursive: true) as Window;
+			mObjectThumbnailWindowHider = mCatalogPreviewWindow.GetChildByID(115487632u, recursive: true);
+			if (mSetupSceneWindowTask == null)
+			{
+				mSetupSceneWindowTask = new OneShotFunctionTask(SetupSceneWindow);
+				Simulator.AddObject(mSetupSceneWindowTask);
+			}
+			mObjectThumbnailWindowBase = mCatalogPreviewWindow.GetChildByID(115487598u, recursive: true) as Window;
+			mDefaultThumbnailWindowBaseArea = mObjectThumbnailWindowBase.Area;
+			mBaseThumbnailWindowArea = mObjectThumbnailWindowBase.Area;
+			mTitleText = mCatalogPreviewWindow.GetChildByID(115487586u, recursive: true) as Text;
+			if (mTitleText != null)
+			{
+				mDefaultTitleTextColor = mTitleText.TextColor;
+			}
+			mMoneyText = mCatalogPreviewWindow.GetChildByID(115487587u, recursive: true) as Text;
+			if (mMoneyText != null)
+			{
+				mMoneyTextOriginalPos = mMoneyText.Position;
+				mDefaultMoneyTextColor = mMoneyText.TextColor;
+			}
+			mCantAffordTextColor = new Color(4294901760u);
+			mDescriptionText = mCatalogPreviewWindow.GetChildByID(115487588u, recursive: true) as Text;
+			mOnSaleTextColor = mDescriptionText.TextColor;
+			mDescriptionBackground = mCatalogPreviewWindow.GetChildByID(115487601u, recursive: true) as Window;
+			mDescriptionBackgroundOriginalArea = mDescriptionBackground.Area;
+			mInfoAreaWindow = mCatalogPreviewWindow.GetChildByID(115487599u, recursive: true) as Window;
+			mGridHolder = mCatalogPreviewWindow.GetChildByID(115487589u, recursive: true) as Window;
+			mGridPatternHolder = mCatalogPreviewWindow.GetChildByID(115487605u, recursive: true) as Window;
+			mGridButtonHolder = mCatalogPreviewWindow.GetChildByID(115487603u, recursive: true) as Window;
+			mGridPatternButtonHolder = mCatalogPreviewWindow.GetChildByID(115487606u, recursive: true) as Window;
+			mGridHolderAreaNoScrollbar = mGridHolder.Area;
+			mPresetItemGrid = mCatalogPreviewWindow.GetChildByID(115487590u, recursive: true) as ItemGrid;
+			if (mPresetItemGrid != null)
+			{
+				mPresetItemGrid.ItemClicked += OnPresetsGridClicked;
+			}
+			mDeleteButton = mCatalogPreviewWindow.GetChildByID(115487591u, recursive: true) as Button;
+			if (mDeleteButton != null)
+			{
+				mDeleteButton.Click += OnDeleteClick;
+			}
+			mDeleteButton.Enabled = false;
+			mRandomizeButton = mCatalogPreviewWindow.GetChildByID(115487592u, recursive: true) as Button;
+			if (mRandomizeButton != null)
+			{
+				mRandomizeButton.Click += OnRandomizeClick;
+			}
+			mAddToCollectionButton = mCatalogPreviewWindow.GetChildByID(115487604u, recursive: true) as Button;
+			if (mAddToCollectionButton != null)
+			{
+				mAddToCollectionButton.Click += OnAddToCollectionClick;
+			}
+			mAddToCollectionButton.Enabled = true;
+			mAddPatternToCollectionButton = mCatalogPreviewWindow.GetChildByID(115487607u, recursive: true) as Button;
+			if (mAddPatternToCollectionButton != null)
+			{
+				mAddPatternToCollectionButton.Click += OnAddToCollectionClick;
+				mAddPatternToCollectionButton.Enabled = true;
+			}
+			mBackToSetButton = mCatalogPreviewWindow.GetChildByID(229614128u, recursive: true) as Button;
+			if (mBackToSetButton != null)
+			{
+				mBackToSetButton.Click += OnBackButtonClicked;
+				mBackToSetButton.Visible = false;
+			}
+			mShareButton = mCatalogPreviewWindow.GetChildByID(115487593u, recursive: true) as Button;
+			if (mShareButton != null)
+			{
+				mShareButton.Click += OnShareClick;
+			}
+			mShareButton.Enabled = false;
+			mMoodletHolder = mCatalogPreviewWindow.GetChildByID(115487600u, recursive: true) as Window;
+			mMoodletEffectText = mCatalogPreviewWindow.GetChildByID(115487594u, recursive: true) as Text;
+			mMoodletIconDegree = mCatalogPreviewWindow.GetChildByID(115487595u, recursive: true) as Text;
+			mMoodletIconImage = mCatalogPreviewWindow.GetChildByID(115487596u, recursive: true) as Window;
+			mMoodletIconImageBase = mCatalogPreviewWindow.GetChildByID(115487597u, recursive: true) as Window;
+			mFeaturedStoreItemBorder = mCatalogPreviewWindow.GetChildByID(115487616u, recursive: true);
+			mFeaturedStoreSaleIcon = mCatalogPreviewWindow.GetChildByID(115487620u, recursive: true);
+			mFeaturedStoreBuyButton = mCatalogPreviewWindow.GetChildByID(115487618u, recursive: true) as Button;
+			mFeaturedStoreBuyButton.Click += OnBuyButtonClick;
+			mFeaturedStoreBuyButton.FocusAcquired += OnBuyButtonFocusAcquired;
+			mFeaturedStoreBuyButton.FocusLost += OnBuyButtonFocusLost;
+			mFeaturedStoreBuyButton2 = mCatalogPreviewWindow.GetChildByID(115487619u, recursive: true) as Button;
+			mFeaturedStoreBuyButton2.Click += OnBuyButtonClick;
+			mFeaturedStoreBuyButton2.FocusAcquired += OnBuyButtonFocusAcquired;
+			mFeaturedStoreBuyButton2.FocusLost += OnBuyButtonFocusLost;
+			World.OnHandToolPickupCallback = (World.HandToolEventHandler)Delegate.Combine(World.OnHandToolPickupCallback, new World.HandToolEventHandler(OnHandToolPickup));
+			World.OnHandToolEditCallback = (World.HandToolEventHandler)Delegate.Combine(World.OnHandToolEditCallback, new World.HandToolEventHandler(OnHandToolEdit));
+			mPresetExportCompleteHandler = OnPresetExportComplete;
+			CommandSystem.RegisterCommand("presetexportdone", "Notifies UI that async export has completed", mPresetExportCompleteHandler);
+			SceneMgrWindow sceneWindow = UIManager.GetSceneWindow();
+			sceneWindow.FocusAcquired += OnNavigationFocusAcquired;
+			sceneWindow.MouseDown += OnSceneWindowMouseDown;
+		}
+		SceneWindow.TriggerDown += OnTriggerDown;
+		SceneWindow.Tick += OnTick;
+		mCameraEvent = 1851572225u;
+		mMouseTrapWindow = window.GetChildByID(99484680u, recursive: true);
+		mMouseTrapWindow.Visible = false;
+		mMouseTrapWindow.MoveToBack();
+	}
+
+// Selected actual static-field initializers and complete members of Sims3.UI.CatalogProductFilter.Cell.
+// The implicit original .cctor is represented by these actual decompiler field initializers; full27-byte CIL is paired.
+
+		private static readonly ResourceKey kLayoutKey = ResourceKey.CreateUILayoutKey("CatalogProductFilterCell", 0u);
+		private static readonly int kExportGuid = 189776081;
+
+		private static Cell CreateCell(Mode mode, ProductVersion version, bool isChecked)
+		{
+			Layout layout = UIManager.LoadLayout(kLayoutKey);
+			Cell cell = (Cell)layout.GetWindowByExportID(kExportGuid);
+			cell.mMode = mode;
+			cell.mVersion = version;
+			cell.mChecked = isChecked;
+			return cell;
+		}
+
+		public static Cell CreateCell(Mode mode, bool isChecked)
+		{
+			return CreateCell(mode, ProductVersion.Undefined, isChecked);
+		}
+
+		public static Cell CreateCell(ProductVersion version, bool isChecked)
+		{
+			return CreateCell(Mode.ProductVersion, version, isChecked);
+		}

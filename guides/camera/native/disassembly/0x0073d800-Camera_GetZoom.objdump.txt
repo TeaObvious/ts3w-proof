@@ -1,0 +1,38 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_GetZoom
+# Entry: 0x0073d800; bounded stop: 0x0073d840; next Ghidra entry: 0x0073d840
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073d800 <.text+0x33c800>:
+  73d800:	e8 cb c3 22 00       	call   0x969bd0
+  73d805:	85 c0                	test   eax,eax
+  73d807:	74 2f                	je     0x73d838
+  73d809:	8b c8                	mov    ecx,eax
+  73d80b:	e8 e0 47 7e 00       	call   0xf21ff0
+  73d810:	85 c0                	test   eax,eax
+  73d812:	74 24                	je     0x73d838
+  73d814:	8b c8                	mov    ecx,eax
+  73d816:	e8 c5 65 dd ff       	call   0x513de0
+  73d81b:	85 c0                	test   eax,eax
+  73d81d:	74 19                	je     0x73d838
+  73d81f:	8b 10                	mov    edx,DWORD PTR [eax]
+  73d821:	8b c8                	mov    ecx,eax
+  73d823:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73d826:	68 89 dd 0f 11       	push   0x110fdd89
+  73d82b:	ff d0                	call   eax
+  73d82d:	85 c0                	test   eax,eax
+  73d82f:	74 07                	je     0x73d838
+  73d831:	8b c8                	mov    ecx,eax
+  73d833:	e9 28 36 23 00       	jmp    0x970e60
+  73d838:	d9 ee                	fldz
+  73d83a:	c3                   	ret
+  73d83b:	cc                   	int3
+  73d83c:	cc                   	int3
+  73d83d:	cc                   	int3
+  73d83e:	cc                   	int3
+  73d83f:	cc                   	int3

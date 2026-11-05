@@ -1,0 +1,110 @@
+// Original CAW 1.22.10 ILSpy C# excerpt: WorldBuilderCS/CameraTuning.cs
+// Selected methods or declarations; intervening source is omitted.
+
+	public static float kMainFOVDegrees = 45f;
+
+	[Tunable]
+	[TunableComment("SunsetValley: This defines the minimum zoom distance")]
+	public static float kMainZoom1 = 2.5f;
+
+	[Tunable]
+	public static float kMainZoom2 = 7f;
+
+	[Tunable]
+	[TunableComment("This defines be the maximum zoom distance before going to map view")]
+	public static float kMainZoom3 = 30f;
+
+	[Tunable]
+	[TunableComment("This defines be the map view zoom distance")]
+	public static float kMainZoom4 = 350f;
+
+	[TunableComment("China: This defines the minimum zoom distance")]
+	[Tunable]
+	public static float kMainZoom1China = 2.5f;
+
+	[Tunable]
+	public static float kMainZoom2China = 7f;
+
+	[TunableComment("China: This defines be the maximum zoom distance before going to map view")]
+	[Tunable]
+	public static float kMainZoom3China = 30f;
+
+	[Tunable]
+	[TunableComment("China: This defines be the map view zoom distance")]
+	public static float kMainZoom4China = 350f;
+
+	[TunableComment("Egypt: This defines the minimum zoom distance")]
+	[Tunable]
+	public static float kMainZoom1Egypt = 2.5f;
+
+	[Tunable]
+	public static float kMainZoom2Egypt = 7f;
+
+	[Tunable]
+	[TunableComment("Egypt: This defines be the maximum zoom distance before going to map view")]
+	public static float kMainZoom3Egypt = 30f;
+
+	[Tunable]
+	[TunableComment("Egypt: This defines be the map view zoom distance")]
+	public static float kMainZoom4Egypt = 350f;
+
+	[TunableComment("France: This defines the minimum zoom distance")]
+	[Tunable]
+	public static float kMainZoom1France = 2.5f;
+
+	[Tunable]
+	public static float kMainZoom2France = 7f;
+
+	[TunableComment("France: This defines be the maximum zoom distance before going to map view")]
+	[Tunable]
+	public static float kMainZoom3France = 30f;
+
+	[Tunable]
+	[TunableComment("France: This defines be the map view zoom distance")]
+	public static float kMainZoom4France = 350f;
+
+	[Tunable]
+	[TunableComment("This is the maximum allowable pitch (how far up the camera is looking) before switching to look at sky mode at the minimum zoom distance")]
+	public static float kMainPitch1 = 0f;
+
+	[Tunable]
+	public static float kMainPitch2 = -10f;
+
+	[TunableComment("This is the maximum allowable pitch (how far up the camera is looking) before switching to look at sky mode at the maximum regular zoom distance")]
+	[Tunable]
+	public static float kMainPitch3 = -30f;
+
+	[TunableComment("This is the maximum allowable pitch (how far up the camera is looking) before switching to look at sky mode at the map view zoom distance")]
+	[Tunable]
+	public static float kMainPitch4 = -50f;
+
+	[TunableComment("This defines how far up the camera can look at the minimum zoom distance")]
+	[Tunable]
+	public static float kMainMaxAngleUp1 = 85f;
+
+	[Tunable]
+	public static float kMainMaxAngleUp2 = 55f;
+
+	[TunableComment("This defines how far up the camera can look at the maximum regular zoom distance")]
+	[Tunable]
+	public static float kMainMaxAngleUp3 = 15f;
+
+	[TunableComment("This defines how far up the camera can look at the map view zoom distance")]
+	[Tunable]
+	public static float kMainMaxAngleUp4 = 10f;
+
+	[Tunable]
+	[TunableComment("This defines how far down the camera can look at the minimum zoom distance")]
+	public static float kMainMaxAngleDown1 = -85f;
+
+	[Tunable]
+	public static float kMainMaxAngleDown2 = -85f;
+
+	[Tunable]
+	[TunableComment("This defines how far down the camera can look at the maximum regular zoom distance")]
+	public static float kMainMaxAngleDown3 = -85f;
+
+	[TunableComment("This defines how far down the camera can look at the map view zoom distance")]
+	[Tunable]
+	public static float kMainMaxAngleDown4 = -85f;
+

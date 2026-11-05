@@ -1,0 +1,61 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00ec14c0 <.text+0xac04c0>:
+  ec14c0:	53                   	push   ebx
+  ec14c1:	56                   	push   esi
+  ec14c2:	57                   	push   edi
+  ec14c3:	e8 f8 84 be ff       	call   0xaa99c0
+  ec14c8:	8b d8                	mov    ebx,eax
+  ec14ca:	e8 c1 7e 8a ff       	call   0x769390
+  ec14cf:	85 db                	test   ebx,ebx
+  ec14d1:	8b f0                	mov    esi,eax
+  ec14d3:	74 39                	je     0xec150e
+  ec14d5:	85 f6                	test   esi,esi
+  ec14d7:	74 35                	je     0xec150e
+  ec14d9:	8b 4c 24 10          	mov    ecx,DWORD PTR [esp+0x10]
+  ec14dd:	8b 06                	mov    eax,DWORD PTR [esi]
+  ec14df:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  ec14e2:	51                   	push   ecx
+  ec14e3:	8b ce                	mov    ecx,esi
+  ec14e5:	ff d2                	call   edx
+  ec14e7:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+  ec14eb:	8b f8                	mov    edi,eax
+  ec14ed:	8b 06                	mov    eax,DWORD PTR [esi]
+  ec14ef:	8b 50 58             	mov    edx,DWORD PTR [eax+0x58]
+  ec14f2:	51                   	push   ecx
+  ec14f3:	8b ce                	mov    ecx,esi
+  ec14f5:	ff d2                	call   edx
+  ec14f7:	85 ff                	test   edi,edi
+  ec14f9:	74 13                	je     0xec150e
+  ec14fb:	85 c0                	test   eax,eax
+  ec14fd:	74 0f                	je     0xec150e
+  ec14ff:	6a 01                	push   0x1
+  ec1501:	50                   	push   eax
+  ec1502:	57                   	push   edi
+  ec1503:	8b cb                	mov    ecx,ebx
+  ec1505:	e8 66 df be ff       	call   0xaaf470
+  ec150a:	5f                   	pop    edi
+  ec150b:	5e                   	pop    esi
+  ec150c:	5b                   	pop    ebx
+  ec150d:	c3                   	ret
+  ec150e:	5f                   	pop    edi
+  ec150f:	5e                   	pop    esi
+  ec1510:	32 c0                	xor    al,al
+  ec1512:	5b                   	pop    ebx
+  ec1513:	c3                   	ret
+  ec1514:	cc                   	int3
+  ec1515:	cc                   	int3
+  ec1516:	cc                   	int3
+  ec1517:	cc                   	int3
+  ec1518:	cc                   	int3
+  ec1519:	cc                   	int3
+  ec151a:	cc                   	int3
+  ec151b:	cc                   	int3
+  ec151c:	cc                   	int3
+  ec151d:	cc                   	int3
+  ec151e:	cc                   	int3
+  ec151f:	cc                   	int3

@@ -1,0 +1,47 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00b5e200 to next catalog entry 0x00b5e280; may include padding or data.
+  b5e200:	55                   	push   ebp
+  b5e201:	8b ec                	mov    ebp,esp
+  b5e203:	83 e4 f0             	and    esp,0xfffffff0
+  b5e206:	83 ec 1c             	sub    esp,0x1c
+  b5e209:	f3 0f 10 45 08       	movss  xmm0,DWORD PTR [ebp+0x8]
+  b5e20e:	f3 0f 10 4d 0c       	movss  xmm1,DWORD PTR [ebp+0xc]
+  b5e213:	56                   	push   esi
+  b5e214:	8b f1                	mov    esi,ecx
+  b5e216:	80 be a0 00 00 00 00 	cmp    BYTE PTR [esi+0xa0],0x0
+  b5e21d:	f3 0f 11 44 24 1c    	movss  DWORD PTR [esp+0x1c],xmm0
+  b5e223:	f3 0f 11 44 24 18    	movss  DWORD PTR [esp+0x18],xmm0
+  b5e229:	f3 0f 11 4c 24 14    	movss  DWORD PTR [esp+0x14],xmm1
+  b5e22f:	f3 0f 11 44 24 10    	movss  DWORD PTR [esp+0x10],xmm0
+  b5e235:	0f 28 44 24 10       	movaps xmm0,XMMWORD PTR [esp+0x10]
+  b5e23a:	0f 29 44 24 10       	movaps XMMWORD PTR [esp+0x10],xmm0
+  b5e23f:	74 20                	je     0xb5e261
+  b5e241:	8d 44 24 10          	lea    eax,[esp+0x10]
+  b5e245:	50                   	push   eax
+  b5e246:	e8 45 e8 ff ff       	call   0xb5ca90
+  b5e24b:	85 c0                	test   eax,eax
+  b5e24d:	7c 12                	jl     0xb5e261
+  b5e24f:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  b5e253:	51                   	push   ecx
+  b5e254:	50                   	push   eax
+  b5e255:	8b ce                	mov    ecx,esi
+  b5e257:	e8 94 e7 ff ff       	call   0xb5c9f0
+  b5e25c:	83 f8 ff             	cmp    eax,0xffffffff
+  b5e25f:	75 09                	jne    0xb5e26a
+  b5e261:	32 c0                	xor    al,al
+  b5e263:	5e                   	pop    esi
+  b5e264:	8b e5                	mov    esp,ebp
+  b5e266:	5d                   	pop    ebp
+  b5e267:	c2 08 00             	ret    0x8
+  b5e26a:	8d 14 80             	lea    edx,[eax+eax*4]
+  b5e26d:	8b 46 5c             	mov    eax,DWORD PTR [esi+0x5c]
+  b5e270:	8a 44 d0 11          	mov    al,BYTE PTR [eax+edx*8+0x11]
+  b5e274:	5e                   	pop    esi
+  b5e275:	8b e5                	mov    esp,ebp
+  b5e277:	5d                   	pop    ebp
+  b5e278:	c2 08 00             	ret    0x8
+  b5e27b:	cc                   	int3
+  b5e27c:	cc                   	int3
+  b5e27d:	cc                   	int3
+  b5e27e:	cc                   	int3
+  b5e27f:	cc                   	int3

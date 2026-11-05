@@ -1,0 +1,52 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00742be0 <.text+0x341be0>:
+  742be0:	56                   	push   esi
+  742be1:	6a 00                	push   0x0
+  742be3:	6a 00                	push   0x0
+  742be5:	6a 00                	push   0x0
+  742be7:	6a 00                	push   0x0
+  742be9:	68 e4 23 00 01       	push   0x10023e4
+  742bee:	68 9c 00 00 00       	push   0x9c
+  742bf3:	e8 08 19 da ff       	call   0x4e4500
+  742bf8:	83 c4 18             	add    esp,0x18
+  742bfb:	85 c0                	test   eax,eax
+  742bfd:	74 0d                	je     0x742c0c
+  742bff:	8b c8                	mov    ecx,eax
+  742c01:	e8 9a 16 09 00       	call   0x7d42a0
+  742c06:	8b f0                	mov    esi,eax
+  742c08:	85 f6                	test   esi,esi
+  742c0a:	75 04                	jne    0x742c10
+  742c0c:	33 c0                	xor    eax,eax
+  742c0e:	5e                   	pop    esi
+  742c0f:	c3                   	ret
+  742c10:	8b ce                	mov    ecx,esi
+  742c12:	e8 39 1b 09 00       	call   0x7d4750
+  742c17:	e8 74 67 02 00       	call   0x769390
+  742c1c:	8b 10                	mov    edx,DWORD PTR [eax]
+  742c1e:	6a 44                	push   0x44
+  742c20:	8b c8                	mov    ecx,eax
+  742c22:	8b 82 c8 00 00 00    	mov    eax,DWORD PTR [edx+0xc8]
+  742c28:	56                   	push   esi
+  742c29:	ff d0                	call   eax
+  742c2b:	5e                   	pop    esi
+  742c2c:	c3                   	ret
+  742c2d:	cc                   	int3
+  742c2e:	cc                   	int3
+  742c2f:	cc                   	int3
+  742c30:	b8 f8 23 00 01       	mov    eax,0x10023f8
+  742c35:	c3                   	ret
+  742c36:	cc                   	int3
+  742c37:	cc                   	int3
+  742c38:	cc                   	int3
+  742c39:	cc                   	int3
+  742c3a:	cc                   	int3
+  742c3b:	cc                   	int3
+  742c3c:	cc                   	int3
+  742c3d:	cc                   	int3
+  742c3e:	cc                   	int3
+  742c3f:	cc                   	int3

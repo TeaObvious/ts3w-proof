@@ -1,0 +1,102 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body envelope; unowned alignment explicitly listed.
+Annotated Ghidra pseudocode: 0093B800_VisualProxy_ReadAlignedBounds.c
+Owned ranges: [[0093b800, 0093b925]]
+
+0093b800  55  PUSH EBP
+0093b801  8bec  MOV EBP,ESP
+0093b803  83e4f0  AND ESP,0xfffffff0
+0093b806  83ec1c  SUB ESP,0x1c
+0093b809  56  PUSH ESI
+0093b80a  c744240c00000000  MOV dword ptr [ESP + 0xc],0x0
+0093b812  e86946b7ff  CALL 0x004afe80
+0093b817  8bf0  MOV ESI,EAX
+0093b819  85f6  TEST ESI,ESI
+0093b81b  0f84ef000000  JZ 0x0093b910
+0093b821  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+0093b825  85c9  TEST ECX,ECX
+0093b827  740f  JZ 0x0093b838
+0093b829  c744240c00000000  MOV dword ptr [ESP + 0xc],0x0
+0093b831  8b01  MOV EAX,dword ptr [ECX]
+0093b833  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+0093b836  ffd2  CALL EDX
+0093b838  8b06  MOV EAX,dword ptr [ESI]
+0093b83a  8b5508  MOV EDX,dword ptr [EBP + 0x8]
+0093b83d  8b400c  MOV EAX,dword ptr [EAX + 0xc]
+0093b840  6a00  PUSH 0x0
+0093b842  6a00  PUSH 0x0
+0093b844  6a00  PUSH 0x0
+0093b846  6a00  PUSH 0x0
+0093b848  8d4c241c  LEA ECX,[ESP + 0x1c]
+0093b84c  51  PUSH ECX
+0093b84d  52  PUSH EDX
+0093b84e  8bce  MOV ECX,ESI
+0093b850  ffd0  CALL EAX
+0093b852  84c0  TEST AL,AL
+0093b854  0f84b6000000  JZ 0x0093b910
+0093b85a  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+0093b85e  85c9  TEST ECX,ECX
+0093b860  0f84a3000000  JZ 0x0093b909
+0093b866  8b11  MOV EDX,dword ptr [ECX]
+0093b868  8b420c  MOV EAX,dword ptr [EDX + 0xc]
+0093b86b  68afbab8b7  PUSH 0xb7b8baaf
+0093b870  ffd0  CALL EAX
+0093b872  8bf0  MOV ESI,EAX
+0093b874  85f6  TEST ESI,ESI
+0093b876  7408  JZ 0x0093b880
+0093b878  8b16  MOV EDX,dword ptr [ESI]
+0093b87a  8b02  MOV EAX,dword ptr [EDX]
+0093b87c  8bce  MOV ECX,ESI
+0093b87e  ffd0  CALL EAX
+0093b880  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+0093b884  85f6  TEST ESI,ESI
+0093b886  f30f104e40  MOVSS XMM1,dword ptr [ESI + 0x40]
+0093b88b  f30f104638  MOVSS XMM0,dword ptr [ESI + 0x38]
+0093b890  8b450c  MOV EAX,dword ptr [EBP + 0xc]
+0093b893  f30f114c2418  MOVSS dword ptr [ESP + 0x18],XMM1
+0093b899  f30f104e3c  MOVSS XMM1,dword ptr [ESI + 0x3c]
+0093b89e  f30f114c2414  MOVSS dword ptr [ESP + 0x14],XMM1
+0093b8a4  f30f1144241c  MOVSS dword ptr [ESP + 0x1c],XMM0
+0093b8aa  f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+0093b8b0  0f28442410  MOVAPS XMM0,xmmword ptr [ESP + 0x10]
+0093b8b5  0f2900  MOVAPS xmmword ptr [EAX],XMM0
+0093b8b8  f30f104e4c  MOVSS XMM1,dword ptr [ESI + 0x4c]
+0093b8bd  f30f104644  MOVSS XMM0,dword ptr [ESI + 0x44]
+0093b8c2  f30f114c2418  MOVSS dword ptr [ESP + 0x18],XMM1
+0093b8c8  f30f104e48  MOVSS XMM1,dword ptr [ESI + 0x48]
+0093b8cd  f30f1144241c  MOVSS dword ptr [ESP + 0x1c],XMM0
+0093b8d3  f30f114c2414  MOVSS dword ptr [ESP + 0x14],XMM1
+0093b8d9  f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+0093b8df  0f28442410  MOVAPS XMM0,xmmword ptr [ESP + 0x10]
+0093b8e4  0f294010  MOVAPS xmmword ptr [EAX + 0x10],XMM0
+0093b8e8  740d  JZ 0x0093b8f7
+0093b8ea  8b16  MOV EDX,dword ptr [ESI]
+0093b8ec  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+0093b8ef  8bce  MOV ECX,ESI
+0093b8f1  ffd0  CALL EAX
+0093b8f3  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+0093b8f7  85c9  TEST ECX,ECX
+0093b8f9  7407  JZ 0x0093b902
+0093b8fb  8b11  MOV EDX,dword ptr [ECX]
+0093b8fd  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+0093b900  ffd0  CALL EAX
+0093b902  b001  MOV AL,0x1
+0093b904  5e  POP ESI
+0093b905  8be5  MOV ESP,EBP
+0093b907  5d  POP EBP
+0093b908  c3  RET
+0093b909  33f6  XOR ESI,ESI
+0093b90b  e974ffffff  JMP 0x0093b884
+0093b910  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+0093b914  85c9  TEST ECX,ECX
+0093b916  7407  JZ 0x0093b91f
+0093b918  8b11  MOV EDX,dword ptr [ECX]
+0093b91a  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+0093b91d  ffd0  CALL EAX
+0093b91f  32c0  XOR AL,AL
+0093b921  5e  POP ESI
+0093b922  8be5  MOV ESP,EBP
+0093b924  5d  POP EBP
+0093b925  c3  RET

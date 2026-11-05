@@ -1,0 +1,26 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00c61090 to next catalog entry 0x00c610c0; may include padding or data.
+  c61090:	51                   	push   ecx
+  c61091:	8b 41 60             	mov    eax,DWORD PTR [ecx+0x60]
+  c61094:	85 c0                	test   eax,eax
+  c61096:	f3 0f 10 05 74 96 07 	movss  xmm0,DWORD PTR ds:0x1079674
+  c6109d:	01 
+  c6109e:	f3 0f 11 04 24       	movss  DWORD PTR [esp],xmm0
+  c610a3:	74 0a                	je     0xc610af
+  c610a5:	f3 0f 10 40 14       	movss  xmm0,DWORD PTR [eax+0x14]
+  c610aa:	f3 0f 11 04 24       	movss  DWORD PTR [esp],xmm0
+  c610af:	d9 04 24             	fld    DWORD PTR [esp]
+  c610b2:	59                   	pop    ecx
+  c610b3:	c3                   	ret
+  c610b4:	cc                   	int3
+  c610b5:	cc                   	int3
+  c610b6:	cc                   	int3
+  c610b7:	cc                   	int3
+  c610b8:	cc                   	int3
+  c610b9:	cc                   	int3
+  c610ba:	cc                   	int3
+  c610bb:	cc                   	int3
+  c610bc:	cc                   	int3
+  c610bd:	cc                   	int3
+  c610be:	cc                   	int3
+  c610bf:	cc                   	int3

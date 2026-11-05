@@ -1,0 +1,57 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_SetPositionAndTarget
+# Entry: 0x0073d620; bounded stop: 0x0073d680; next Ghidra entry: 0x0073d680
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073d620 <.text+0x33c620>:
+  73d620:	55                   	push   ebp
+  73d621:	8b ec                	mov    ebp,esp
+  73d623:	83 e4 f0             	and    esp,0xfffffff0
+  73d626:	83 ec 28             	sub    esp,0x28
+  73d629:	56                   	push   esi
+  73d62a:	57                   	push   edi
+  73d62b:	e8 a0 c5 22 00       	call   0x969bd0
+  73d630:	85 c0                	test   eax,eax
+  73d632:	74 3d                	je     0x73d671
+  73d634:	8b c8                	mov    ecx,eax
+  73d636:	e8 b5 49 7e 00       	call   0xf21ff0
+  73d63b:	85 c0                	test   eax,eax
+  73d63d:	74 32                	je     0x73d671
+  73d63f:	8b c8                	mov    ecx,eax
+  73d641:	e8 9a 67 dd ff       	call   0x513de0
+  73d646:	8b f0                	mov    esi,eax
+  73d648:	85 f6                	test   esi,esi
+  73d64a:	74 25                	je     0x73d671
+  73d64c:	8b 3e                	mov    edi,DWORD PTR [esi]
+  73d64e:	8d 44 24 10          	lea    eax,[esp+0x10]
+  73d652:	50                   	push   eax
+  73d653:	8d 4d 14             	lea    ecx,[ebp+0x14]
+  73d656:	e8 f5 e9 02 00       	call   0x76c050
+  73d65b:	50                   	push   eax
+  73d65c:	8d 4c 24 24          	lea    ecx,[esp+0x24]
+  73d660:	51                   	push   ecx
+  73d661:	8d 4d 08             	lea    ecx,[ebp+0x8]
+  73d664:	e8 e7 e9 02 00       	call   0x76c050
+  73d669:	8b 57 2c             	mov    edx,DWORD PTR [edi+0x2c]
+  73d66c:	50                   	push   eax
+  73d66d:	8b ce                	mov    ecx,esi
+  73d66f:	ff d2                	call   edx
+  73d671:	5f                   	pop    edi
+  73d672:	5e                   	pop    esi
+  73d673:	8b e5                	mov    esp,ebp
+  73d675:	5d                   	pop    ebp
+  73d676:	c3                   	ret
+  73d677:	cc                   	int3
+  73d678:	cc                   	int3
+  73d679:	cc                   	int3
+  73d67a:	cc                   	int3
+  73d67b:	cc                   	int3
+  73d67c:	cc                   	int3
+  73d67d:	cc                   	int3
+  73d67e:	cc                   	int3
+  73d67f:	cc                   	int3

@@ -1,0 +1,20 @@
+# CAW 1.22.10 pipeline helper
+
+This is the eight-export native surface of the original 32-bit `Sims3PipelineHelper.dll` shipped with CAW 1.22.10. The addresses are virtual addresses at the image base `0x10000000`. Each row links an original-file byte window and independent linear disassembly to annotated Ghidra pseudocode. The managed identities come from the original `Sims3Pipeline.dll` P/Invoke metadata and its wrapper code.
+
+| Native export | Address | Managed caller and token | Original bytes | Annotated pseudocode |
+| --- | --- | --- | --- | --- |
+| `CreateSpeedTreeConverter` | `0x10001da0` | `SpeedTreeUtils.RawCreateSpeedTreeConverter`, `0x060000b3` | [raw](functions/10001DA0_CreateSpeedTreeConverter.asm) ([annotated pseudocode](functions/10001DA0_CreateSpeedTreeConverter.c)) | [Ghidra](functions/10001DA0_CreateSpeedTreeConverter.c) |
+| `CreateTextureEngine` | `0x100044e0` | `TextureUtils.RawCreateNativeTextureEngine`, `0x060003ac` | [raw](functions/100044E0_CreateTextureEngine.asm) ([annotated pseudocode](functions/100044E0_CreateTextureEngine.c)) | [Ghidra](functions/100044E0_CreateTextureEngine.c) |
+| `StridedCopy` | `0x100063f0` | `MeshUtils.StridedCopy`, `0x06000066` | [raw](functions/100063F0_StridedCopy.asm) ([annotated pseudocode](functions/100063F0_StridedCopy.c)) | [Ghidra](functions/100063F0_StridedCopy.c) |
+| `ConvertArray` | `0x10036120` | `MeshUtils.ConvertArray`, `0x06000061` | [raw](functions/10036120_ConvertArray.asm) ([annotated pseudocode](functions/10036120_ConvertArray.c)) | [Ghidra](functions/10036120_ConvertArray.c) |
+| `ConvertArrayWithScaleOffset` | `0x10036390` | `MeshUtils.ConvertArrayWithScaleOffset`, `0x06000062` | [raw](functions/10036390_ConvertArrayWithScaleOffset.asm) ([annotated pseudocode](functions/10036390_ConvertArrayWithScaleOffset.c)) | [Ghidra](functions/10036390_ConvertArrayWithScaleOffset.c) |
+| `OptimizeMesh` | `0x100366c0` | `StageOptimizeVertexOrder.OptimizeMesh`, `0x0600025d` | [raw](functions/100366C0_OptimizeMesh.asm) ([annotated pseudocode](functions/100366C0_OptimizeMesh.c)) | [Ghidra](functions/100366C0_OptimizeMesh.c) |
+| `WeldArray` | `0x100434f0` | `MeshUtils.WeldArray`, `0x0600006a` | [raw](functions/100434F0_WeldArray.asm) ([annotated pseudocode](functions/100434F0_WeldArray.c)) | [Ghidra](functions/100434F0_WeldArray.c) |
+| `GenerateWeldGroups` | `0x10046e90` | `MeshUtils.GenerateWeldGroups`, `0x06000068` | [raw](functions/10046E90_GenerateWeldGroups.asm) ([annotated pseudocode](functions/10046E90_GenerateWeldGroups.c)) | [Ghidra](functions/10046E90_GenerateWeldGroups.c) |
+
+The managed pipeline uses these entries for typed vertex conversion, strided stream writes, welding, vertex-order optimization, and COM object creation for texture and SpeedTree conversion. The four typed array entries dispatch into further native helpers; their entry pseudocode does not establish every per-type numeric rule. `OptimizeMesh` and `GenerateWeldGroups` have known Ghidra signature limitations recorded directly in their pseudocode comments. The raw windows extend through the maximum address of the currently defined Ghidra function body; this bound is not a claim that all branches or internal helpers are included.
+
+The same `Sims3Pipeline.dll` metadata declares five additional `Sims3PipelineHelper.dll` imports—`TS_CreateTriStrip`, `TS_CopyIndexBuffer`, `TS_FreeGeneratedBuffers`, `TS_GetNumTriStripIndices`, and `TS_NumStripsGenerated`—for which this shipped helper has no named export. That is a static mismatch, not evidence that those methods executed successfully in CAW 1.22.10. Four `PhysicsExporter` imports are a separate module and are outside this helper's export surface.
+
+The [native binding contract guide](../../../guides/native-binding-contracts.md) additionally follows the texture-engine constructor and packed-pixel DXT1 classifier. Their two canonical internal pairs are indexed in [INTERNAL-INDEX.tsv](../../../INTERNAL-INDEX.tsv). They export complete defined Ghidra function instruction bodies checked against original DLL bytes and independent disassembly.

@@ -1,0 +1,511 @@
+UI.dll MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+
+06000016 Sims3.UI.WindowBase::add_InternalWindowShutdown RVA=00002663 bytes=13 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 36
+Raw complete CIL 02200110000003280100002b2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 2001100000           ldc.i4 01100000
+ IL_0006: 03                   ldarg.1
+ IL_0007: 280100002b           call 0100002b
+ IL_000c: 2a                   ret
+
+06000017 Sims3.UI.WindowBase::remove_InternalWindowShutdown RVA=00002671 bytes=13 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 36
+Raw complete CIL 02200110000003280200002b2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 2001100000           ldc.i4 01100000
+ IL_0006: 03                   ldarg.1
+ IL_0007: 280200002b           call 0200002b
+ IL_000c: 2a                   ret
+
+06000018 Sims3.UI.WindowBase::add_Tick RVA=0000267f bytes=10 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 2a
+Raw complete CIL 021f0c03280100002b2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 1f0c                 ldc.i4.s 0c
+ IL_0003: 03                   ldarg.1
+ IL_0004: 280100002b           call 0100002b
+ IL_0009: 2a                   ret
+
+06000019 Sims3.UI.WindowBase::remove_Tick RVA=0000268a bytes=10 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 2a
+Raw complete CIL 021f0c03280200002b2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 1f0c                 ldc.i4.s 0c
+ IL_0003: 03                   ldarg.1
+ IL_0004: 280200002b           call 0200002b
+ IL_0009: 2a                   ret
+
+06001242 Sims3.UI.UIManager::ProcessEventCallback RVA=00064988 bytes=47 maxStack=13 flags=301b localSignature=1100000a
+Raw complete method header 1b300d002f0000000a000011
+Raw complete CIL 020304050e040e050e060e070e080e090e0a0e0b0e0c28431200060ade0f022c0b7ea1130004026f5904000adc062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 03                   ldarg.1
+ IL_0002: 04                   ldarg.2
+ IL_0003: 05                   ldarg.3
+ IL_0004: 0e04                 ldarg.s 04
+ IL_0006: 0e05                 ldarg.s 05
+ IL_0008: 0e06                 ldarg.s 06
+ IL_000a: 0e07                 ldarg.s 07
+ IL_000c: 0e08                 ldarg.s 08
+ IL_000e: 0e09                 ldarg.s 09
+ IL_0010: 0e0a                 ldarg.s 0a
+ IL_0012: 0e0b                 ldarg.s 0b
+ IL_0014: 0e0c                 ldarg.s 0c
+ IL_0016: 2843120006           call 43120006 ProcessEvent
+ IL_001b: 0a                   stloc.0
+ IL_001c: de0f                 leave.s 0f
+ IL_001e: 02                   ldarg.0
+ IL_001f: 2c0b                 brfalse.s 0b
+ IL_0021: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0026: 02                   ldarg.0
+ IL_0027: 6f5904000a           callvirt 5904000a DestroyWindow
+ IL_002c: dc                   endfinally
+ IL_002d: 06                   ldloc.0
+ IL_002e: 2a                   ret
+Raw complete EH section 01100000020000001e1e000f00000000
+
+06001243 Sims3.UI.UIManager::ProcessEvent RVA=000649d4 bytes=50 maxStack=13 flags=3003 localSignature=00000000
+Raw complete method header 03300d003200000000000000
+Raw complete CIL 0203042d03142b06042876120006052d03142b060528761200060e040f050e060e070e080e090e0a0e0b0e0c28871200062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 03                   ldarg.1
+ IL_0002: 04                   ldarg.2
+ IL_0003: 2d03                 brtrue.s 03
+ IL_0005: 14                   ldnull
+ IL_0006: 2b06                 br.s 06
+ IL_0008: 04                   ldarg.2
+ IL_0009: 2876120006           call 76120006 WrapperFromHandle
+ IL_000e: 05                   ldarg.3
+ IL_000f: 2d03                 brtrue.s 03
+ IL_0011: 14                   ldnull
+ IL_0012: 2b06                 br.s 06
+ IL_0014: 05                   ldarg.3
+ IL_0015: 2876120006           call 76120006 WrapperFromHandle
+ IL_001a: 0e04                 ldarg.s 04
+ IL_001c: 0f05                 ldarga.s 05
+ IL_001e: 0e06                 ldarg.s 06
+ IL_0020: 0e07                 ldarg.s 07
+ IL_0022: 0e08                 ldarg.s 08
+ IL_0024: 0e09                 ldarg.s 09
+ IL_0026: 0e0a                 ldarg.s 0a
+ IL_0028: 0e0b                 ldarg.s 0b
+ IL_002a: 0e0c                 ldarg.s 0c
+ IL_002c: 2887120006           call 87120006 ProcessEvent
+ IL_0031: 2a                   ret
+
+0600124a Sims3.UI.UIManager::.cctor RVA=00064e98 bytes=481 maxStack=8 flags=3013 localSignature=1100000a
+Raw complete method header 13300800e10100000a000011
+Raw complete CIL 2200004842809a130004735d04000a809c130004735e04000a809d130004735f04000a809e130004736004000a809f130004736104000a80a01300041480a11300041480ab1300041680ac1300041480ad1300041680af130004736204000a80b0130004736304000a80b1130004736404000a80b21300041680b61300041680b71300041680c81300041680c91300041e8d0300000280cb1300041780cc13000428b703000a72708800706fb803000a746400000180a11300047e9013000416fe010a7ea113000414fe064c120006736504000a6f6604000a14fe0642120006736704000a80a213000414fe0644120006736804000a80a313000414fe063b120006736904000a80a413000414fe0658120006736a04000a80a513000414fe0645120006736b04000a80a613000414fe0647120006736c04000a80a713000414fe0646120006736d04000a80a81300047ea11300047ea21300047ea31300047ea41300047ea51300047ea61300047ea71300047ea81300046f2e04000a1f64736e04000a809b1300047e9b13000414fe065a120006736f04000a6f7004000a285c120006737104000a80b31300042850120006062c2a7ea11300046f7204000a7ea11300046f7304000a732b13000628aa00000a2673de18000628aa00000a262a
+ IL_0000: 2200004842           ldc.r4 00004842
+ IL_0005: 809a130004           stsfld 9a130004 kMouseDragDistanceSquared
+ IL_000a: 735d04000a           newobj 5d04000a .ctor
+ IL_000f: 809c130004           stsfld 9c130004 mCustomControlInstanceDict
+ IL_0014: 735e04000a           newobj 5e04000a .ctor
+ IL_0019: 809d130004           stsfld 9d130004 mTagRegistry
+ IL_001e: 735f04000a           newobj 5f04000a .ctor
+ IL_0023: 809e130004           stsfld 9e130004 mCreateTooltipCallbackRegistry
+ IL_0028: 736004000a           newobj 6004000a .ctor
+ IL_002d: 809f130004           stsfld 9f130004 mClassIDTypeMap
+ IL_0032: 736104000a           newobj 6104000a .ctor
+ IL_0037: 80a0130004           stsfld a0130004 mInstancePools
+ IL_003c: 14                   ldnull
+ IL_003d: 80a1130004           stsfld a1130004 gUIMgr
+ IL_0042: 14                   ldnull
+ IL_0043: 80ab130004           stsfld ab130004 sDragDrop
+ IL_0048: 16                   ldc.i4.0
+ IL_0049: 80ac130004           stsfld ac130004 sbPreShutdown
+ IL_004e: 14                   ldnull
+ IL_004f: 80ad130004           stsfld ad130004 sDarkenBackground
+ IL_0054: 16                   ldc.i4.0
+ IL_0055: 80af130004           stsfld af130004 sDarkenCount
+ IL_005a: 736204000a           newobj 6204000a .ctor
+ IL_005f: 80b0130004           stsfld b0130004 mEventArgsConstructors
+ IL_0064: 736304000a           newobj 6304000a .ctor
+ IL_0069: 80b1130004           stsfld b1130004 mWindowConstructors
+ IL_006e: 736404000a           newobj 6404000a .ctor
+ IL_0073: 80b2130004           stsfld b2130004 mCustomControlConstructorRegistry
+ IL_0078: 16                   ldc.i4.0
+ IL_0079: 80b6130004           stsfld b6130004 mRollbackRes
+ IL_007e: 16                   ldc.i4.0
+ IL_007f: 80b7130004           stsfld b7130004 mIsTogglingFullScreen
+ IL_0084: 16                   ldc.i4.0
+ IL_0085: 80c8130004           stsfld c8130004 mIsModal
+ IL_008a: 16                   ldc.i4.0
+ IL_008b: 80c9130004           stsfld c9130004 mTaskCount
+ IL_0090: 1e                   ldc.i4.8
+ IL_0091: 8d03000002           newarr 03000002
+ IL_0096: 80cb130004           stsfld cb130004 mModalStack
+ IL_009b: 17                   ldc.i4.1
+ IL_009c: 80cc130004           stsfld cc130004 mModalStackPtr
+ IL_00a1: 28b703000a           call b703000a get_CurrentDomain
+ IL_00a6: 7270880070           ldstr 70880070
+ IL_00ab: 6fb803000a           callvirt b803000a GetData
+ IL_00b0: 7464000001           castclass 64000001
+ IL_00b5: 80a1130004           stsfld a1130004 gUIMgr
+ IL_00ba: 7e90130004           ldsfld 90130004 sIsRunningUTFDesigner
+ IL_00bf: 16                   ldc.i4.0
+ IL_00c0: fe01                 ceq
+ IL_00c2: 0a                   stloc.0
+ IL_00c3: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_00c8: 14                   ldnull
+ IL_00c9: fe064c120006         ldftn 4c120006 Shutdown
+ IL_00cf: 736504000a           newobj 6504000a .ctor
+ IL_00d4: 6f6604000a           callvirt 6604000a RegisterShutdownCallback
+ IL_00d9: 14                   ldnull
+ IL_00da: fe0642120006         ldftn 42120006 ProcessEventCallback
+ IL_00e0: 736704000a           newobj 6704000a .ctor
+ IL_00e5: 80a2130004           stsfld a2130004 mUIEventCallbackDelegate
+ IL_00ea: 14                   ldnull
+ IL_00eb: fe0644120006         ldftn 44120006 UILocaleChangedCallback
+ IL_00f1: 736804000a           newobj 6804000a .ctor
+ IL_00f6: 80a3130004           stsfld a3130004 mUILocaleChangedCallbackDelegate
+ IL_00fb: 14                   ldnull
+ IL_00fc: fe063b120006         ldftn 3b120006 UIResolutionChangedCallback
+ IL_0102: 736904000a           newobj 6904000a .ctor
+ IL_0107: 80a4130004           stsfld a4130004 mUIResolutionChangedCallbackDelegate
+ IL_010c: 14                   ldnull
+ IL_010d: fe0658120006         ldftn 58120006 UIWindowShutdownCallback
+ IL_0113: 736a04000a           newobj 6a04000a .ctor
+ IL_0118: 80a5130004           stsfld a5130004 mUIWindowShutdownCallbackDelegate
+ IL_011d: 14                   ldnull
+ IL_011e: fe0645120006         ldftn 45120006 UINewContentInstalled
+ IL_0124: 736b04000a           newobj 6b04000a .ctor
+ IL_0129: 80a6130004           stsfld a6130004 mUINewContentInstalledDelegate
+ IL_012e: 14                   ldnull
+ IL_012f: fe0647120006         ldftn 47120006 UIInGameStoreMessageCallback
+ IL_0135: 736c04000a           newobj 6c04000a .ctor
+ IL_013a: 80a7130004           stsfld a7130004 mUIInGameStoreDelegate
+ IL_013f: 14                   ldnull
+ IL_0140: fe0646120006         ldftn 46120006 UINewHotInstallData
+ IL_0146: 736d04000a           newobj 6d04000a .ctor
+ IL_014b: 80a8130004           stsfld a8130004 mUINewHotInstallDataCallback
+ IL_0150: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0155: 7ea2130004           ldsfld a2130004 mUIEventCallbackDelegate
+ IL_015a: 7ea3130004           ldsfld a3130004 mUILocaleChangedCallbackDelegate
+ IL_015f: 7ea4130004           ldsfld a4130004 mUIResolutionChangedCallbackDelegate
+ IL_0164: 7ea5130004           ldsfld a5130004 mUIWindowShutdownCallbackDelegate
+ IL_0169: 7ea6130004           ldsfld a6130004 mUINewContentInstalledDelegate
+ IL_016e: 7ea7130004           ldsfld a7130004 mUIInGameStoreDelegate
+ IL_0173: 7ea8130004           ldsfld a8130004 mUINewHotInstallDataCallback
+ IL_0178: 6f2e04000a           callvirt 2e04000a SetUICallbacks
+ IL_017d: 1f64                 ldc.i4.s 64
+ IL_017f: 736e04000a           newobj 6e04000a .ctor
+ IL_0184: 809b130004           stsfld 9b130004 mControlInstanceCache
+ IL_0189: 7e9b130004           ldsfld 9b130004 mControlInstanceCache
+ IL_018e: 14                   ldnull
+ IL_018f: fe065a120006         ldftn 5a120006 OnControlCacheEntryErased
+ IL_0195: 736f04000a           newobj 6f04000a .ctor
+ IL_019a: 6f7004000a           callvirt 7004000a add_CacheEntryErased
+ IL_019f: 285c120006           call 5c120006 InitInstancePools
+ IL_01a4: 737104000a           newobj 7104000a .ctor
+ IL_01a9: 80b3130004           stsfld b3130004 mEventRegistry
+ IL_01ae: 2850120006           call 50120006 LoadCustomControls
+ IL_01b3: 06                   ldloc.0
+ IL_01b4: 2c2a                 brfalse.s 2a
+ IL_01b6: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_01bb: 6f7204000a           callvirt 7204000a InitUIHierarchy
+ IL_01c0: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_01c5: 6f7304000a           callvirt 7304000a InitUserToolHelper
+ IL_01ca: 732b130006           newobj 2b130006 .ctor
+ IL_01cf: 28aa00000a           call aa00000a AddObject
+ IL_01d4: 26                   pop
+ IL_01d5: 73de180006           newobj de180006 .ctor
+ IL_01da: 28aa00000a           call aa00000a AddObject
+ IL_01df: 26                   pop
+ IL_01e0: 2a                   ret
+
+0600124e Sims3.UI.UIManager::OnInternalWindowShutdown RVA=00065095 bytes=25 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 66
+Raw complete CIL 7e9d130004026f7404000a267e9e130004026f7504000a262a
+ IL_0000: 7e9d130004           ldsfld 9d130004 mTagRegistry
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f7404000a           callvirt 7404000a Remove
+ IL_000b: 26                   pop
+ IL_000c: 7e9e130004           ldsfld 9e130004 mCreateTooltipCallbackRegistry
+ IL_0011: 02                   ldarg.0
+ IL_0012: 6f7504000a           callvirt 7504000a Remove
+ IL_0017: 26                   pop
+ IL_0018: 2a                   ret
+
+06001257 Sims3.UI.UIManager::OnWinDetach RVA=000654cc bytes=65 maxStack=2 flags=3003 localSignature=00000000
+Raw complete method header 033002004100000000000000
+Raw complete CIL 7eca1300042c012a7e9b130004036fe21700066f050000066f7e04000a2c217e9b130004036fe21700066f050000066f7f04000a26036fe2170006288a1200062a
+ IL_0000: 7eca130004           ldsfld ca130004 DisableDisposeOnDetatch
+ IL_0005: 2c01                 brfalse.s 01
+ IL_0007: 2a                   ret
+ IL_0008: 7e9b130004           ldsfld 9b130004 mControlInstanceCache
+ IL_000d: 03                   ldarg.1
+ IL_000e: 6fe2170006           callvirt e2170006 get_SourceWindow
+ IL_0013: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_0018: 6f7e04000a           callvirt 7e04000a ContainsKey
+ IL_001d: 2c21                 brfalse.s 21
+ IL_001f: 7e9b130004           ldsfld 9b130004 mControlInstanceCache
+ IL_0024: 03                   ldarg.1
+ IL_0025: 6fe2170006           callvirt e2170006 get_SourceWindow
+ IL_002a: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_002f: 6f7f04000a           callvirt 7f04000a Remove
+ IL_0034: 26                   pop
+ IL_0035: 03                   ldarg.1
+ IL_0036: 6fe2170006           callvirt e2170006 get_SourceWindow
+ IL_003b: 288a120006           call 8a120006 DeRegisterAllEvents
+ IL_0040: 2a                   ret
+
+06001258 Sims3.UI.UIManager::UIWindowShutdownCallback RVA=00065519 bytes=26 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 6a
+Raw complete CIL 7eb3130004026f8004000a2c0c7eb3130004026f8104000a262a
+ IL_0000: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f8004000a           callvirt 8004000a ContainsKey
+ IL_000b: 2c0c                 brfalse.s 0c
+ IL_000d: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_0012: 02                   ldarg.0
+ IL_0013: 6f8104000a           callvirt 8104000a Remove
+ IL_0018: 26                   pop
+ IL_0019: 2a                   ret
+
+06001287 Sims3.UI.UIManager::ProcessEvent RVA=00065ea4 bytes=280 maxStack=13 flags=3013 localSignature=11000326
+Raw complete method header 13300d001801000026030011
+Raw complete CIL 7eb31300040212006fb304000a2d02162a067bce1300040b067bcf1300040312026fb404000a2d02162a7eb01300040312036fb504000a2d37086fe111000672389400701f186fb604000a1304d02b020002281500000a1104288904000a742b0200020d7eb013000403096fb704000a0939a0000000096fc4120006130511050304050e040e054a0e060e070e080e090e0a0e0b460e0c6fe1170006080711056fe0110006110575b4020002130611062c0a0e0b11066f0318000652110575ba020002130711072c0a0e0b11076f2018000652110575b1020002130811082c0a0e0b11086ff017000652110575b2020002130911092c0a0e0511096ff617000654110575b0020002130a110a2c08110a6feb1700062a162a
+ IL_0000: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_0005: 02                   ldarg.0
+ IL_0006: 1200                 ldloca.s 00
+ IL_0008: 6fb304000a           callvirt b304000a TryGetValue
+ IL_000d: 2d02                 brtrue.s 02
+ IL_000f: 16                   ldc.i4.0
+ IL_0010: 2a                   ret
+ IL_0011: 06                   ldloc.0
+ IL_0012: 7bce130004           ldfld ce130004 Window
+ IL_0017: 0b                   stloc.1
+ IL_0018: 06                   ldloc.0
+ IL_0019: 7bcf130004           ldfld cf130004 EventTypesAndCallbacks
+ IL_001e: 03                   ldarg.1
+ IL_001f: 1202                 ldloca.s 02
+ IL_0021: 6fb404000a           callvirt b404000a TryGetValue
+ IL_0026: 2d02                 brtrue.s 02
+ IL_0028: 16                   ldc.i4.0
+ IL_0029: 2a                   ret
+ IL_002a: 7eb0130004           ldsfld b0130004 mEventArgsConstructors
+ IL_002f: 03                   ldarg.1
+ IL_0030: 1203                 ldloca.s 03
+ IL_0032: 6fb504000a           callvirt b504000a TryGetValue
+ IL_0037: 2d37                 brtrue.s 37
+ IL_0039: 08                   ldloc.2
+ IL_003a: 6fe1110006           callvirt e1110006 get_EventArgsType
+ IL_003f: 7238940070           ldstr 38940070
+ IL_0044: 1f18                 ldc.i4.s 18
+ IL_0046: 6fb604000a           callvirt b604000a GetMethod
+ IL_004b: 1304                 stloc.s 04
+ IL_004d: d02b020002           ldtoken 2b020002
+ IL_0052: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0057: 1104                 ldloc.s 04
+ IL_0059: 288904000a           call 8904000a CreateDelegate
+ IL_005e: 742b020002           castclass 2b020002
+ IL_0063: 0d                   stloc.3
+ IL_0064: 7eb0130004           ldsfld b0130004 mEventArgsConstructors
+ IL_0069: 03                   ldarg.1
+ IL_006a: 09                   ldloc.3
+ IL_006b: 6fb704000a           callvirt b704000a Add
+ IL_0070: 09                   ldloc.3
+ IL_0071: 39a0000000           brfalse a0000000
+ IL_0076: 09                   ldloc.3
+ IL_0077: 6fc4120006           callvirt c4120006 Invoke
+ IL_007c: 1305                 stloc.s 05
+ IL_007e: 1105                 ldloc.s 05
+ IL_0080: 03                   ldarg.1
+ IL_0081: 04                   ldarg.2
+ IL_0082: 05                   ldarg.3
+ IL_0083: 0e04                 ldarg.s 04
+ IL_0085: 0e05                 ldarg.s 05
+ IL_0087: 4a                   ldind.i4
+ IL_0088: 0e06                 ldarg.s 06
+ IL_008a: 0e07                 ldarg.s 07
+ IL_008c: 0e08                 ldarg.s 08
+ IL_008e: 0e09                 ldarg.s 09
+ IL_0090: 0e0a                 ldarg.s 0a
+ IL_0092: 0e0b                 ldarg.s 0b
+ IL_0094: 46                   ldind.i1
+ IL_0095: 0e0c                 ldarg.s 0c
+ IL_0097: 6fe1170006           callvirt e1170006 Init
+ IL_009c: 08                   ldloc.2
+ IL_009d: 07                   ldloc.1
+ IL_009e: 1105                 ldloc.s 05
+ IL_00a0: 6fe0110006           callvirt e0110006 Invoke
+ IL_00a5: 1105                 ldloc.s 05
+ IL_00a7: 75b4020002           isinst b4020002
+ IL_00ac: 1306                 stloc.s 06
+ IL_00ae: 1106                 ldloc.s 06
+ IL_00b0: 2c0a                 brfalse.s 0a
+ IL_00b2: 0e0b                 ldarg.s 0b
+ IL_00b4: 1106                 ldloc.s 06
+ IL_00b6: 6f03180006           callvirt 03180006 get_HitTestResult
+ IL_00bb: 52                   stind.i1
+ IL_00bc: 1105                 ldloc.s 05
+ IL_00be: 75ba020002           isinst ba020002
+ IL_00c3: 1307                 stloc.s 07
+ IL_00c5: 1107                 ldloc.s 07
+ IL_00c7: 2c0a                 brfalse.s 0a
+ IL_00c9: 0e0b                 ldarg.s 0b
+ IL_00cb: 1107                 ldloc.s 07
+ IL_00cd: 6f20180006           callvirt 20180006 get_TextValidated
+ IL_00d2: 52                   stind.i1
+ IL_00d3: 1105                 ldloc.s 05
+ IL_00d5: 75b1020002           isinst b1020002
+ IL_00da: 1308                 stloc.s 08
+ IL_00dc: 1108                 ldloc.s 08
+ IL_00de: 2c0a                 brfalse.s 0a
+ IL_00e0: 0e0b                 ldarg.s 0b
+ IL_00e2: 1108                 ldloc.s 08
+ IL_00e4: 6ff0170006           callvirt f0170006 get_Result
+ IL_00e9: 52                   stind.i1
+ IL_00ea: 1105                 ldloc.s 05
+ IL_00ec: 75b2020002           isinst b2020002
+ IL_00f1: 1309                 stloc.s 09
+ IL_00f3: 1109                 ldloc.s 09
+ IL_00f5: 2c0a                 brfalse.s 0a
+ IL_00f7: 0e05                 ldarg.s 05
+ IL_00f9: 1109                 ldloc.s 09
+ IL_00fb: 6ff6170006           callvirt f6170006 get_Action
+ IL_0100: 54                   stind.i4
+ IL_0101: 1105                 ldloc.s 05
+ IL_0103: 75b0020002           isinst b0020002
+ IL_0108: 130a                 stloc.s 0a
+ IL_010a: 110a                 ldloc.s 0a
+ IL_010c: 2c08                 brfalse.s 08
+ IL_010e: 110a                 ldloc.s 0a
+ IL_0110: 6feb170006           callvirt eb170006 get_Handled
+ IL_0115: 2a                   ret
+ IL_0116: 16                   ldc.i4.0
+ IL_0117: 2a                   ret
+
+06001288 Sims3.UI.UIManager::RegisterEvent RVA=00065fc8 bytes=145 maxStack=5 flags=3013 localSignature=11000327
+Raw complete method header 133005009100000027030011
+Raw complete CIL 7eb3130004026f0500000612006fb304000a2c41067bcf1300040312016fb404000a2d24067bcf130004030473b804000a6fb904000a7ea1130004026f05000006036fba04000a2a0775d200001b046fbb04000a2a73bc04000a0c08030473b804000a6fb904000a7eb3130004026f05000006020873051300066fbd04000a7ea1130004026f05000006036fba04000a2a
+ IL_0000: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_000b: 1200                 ldloca.s 00
+ IL_000d: 6fb304000a           callvirt b304000a TryGetValue
+ IL_0012: 2c41                 brfalse.s 41
+ IL_0014: 06                   ldloc.0
+ IL_0015: 7bcf130004           ldfld cf130004 EventTypesAndCallbacks
+ IL_001a: 03                   ldarg.1
+ IL_001b: 1201                 ldloca.s 01
+ IL_001d: 6fb404000a           callvirt b404000a TryGetValue
+ IL_0022: 2d24                 brtrue.s 24
+ IL_0024: 06                   ldloc.0
+ IL_0025: 7bcf130004           ldfld cf130004 EventTypesAndCallbacks
+ IL_002a: 03                   ldarg.1
+ IL_002b: 04                   ldarg.2
+ IL_002c: 73b804000a           newobj b804000a .ctor
+ IL_0031: 6fb904000a           callvirt b904000a Add
+ IL_0036: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_003b: 02                   ldarg.0
+ IL_003c: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_0041: 03                   ldarg.1
+ IL_0042: 6fba04000a           callvirt ba04000a RegisterEvent
+ IL_0047: 2a                   ret
+ IL_0048: 07                   ldloc.1
+ IL_0049: 75d200001b           isinst d200001b
+ IL_004e: 04                   ldarg.2
+ IL_004f: 6fbb04000a           callvirt bb04000a AddDelegate
+ IL_0054: 2a                   ret
+ IL_0055: 73bc04000a           newobj bc04000a .ctor
+ IL_005a: 0c                   stloc.2
+ IL_005b: 08                   ldloc.2
+ IL_005c: 03                   ldarg.1
+ IL_005d: 04                   ldarg.2
+ IL_005e: 73b804000a           newobj b804000a .ctor
+ IL_0063: 6fb904000a           callvirt b904000a Add
+ IL_0068: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_006d: 02                   ldarg.0
+ IL_006e: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_0073: 02                   ldarg.0
+ IL_0074: 08                   ldloc.2
+ IL_0075: 7305130006           newobj 05130006 .ctor
+ IL_007a: 6fbd04000a           callvirt bd04000a Add
+ IL_007f: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0084: 02                   ldarg.0
+ IL_0085: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_008a: 03                   ldarg.1
+ IL_008b: 6fba04000a           callvirt ba04000a RegisterEvent
+ IL_0090: 2a                   ret
+
+06001289 Sims3.UI.UIManager::DeRegisterEvent RVA=00066068 bytes=119 maxStack=3 flags=3013 localSignature=11000328
+Raw complete method header 133003007700000028030011
+Raw complete CIL 7eb3130004026f0500000612006fb304000a2d012a067bcf1300040312016fb404000a2d012a0775d200001b046fbe04000a076fe21100062c3c067bcf130004036fbf04000a267ea1130004026f05000006036fc004000a067bcf1300046fc104000a2d117eb3130004026f050000066f8104000a262a
+ IL_0000: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_000b: 1200                 ldloca.s 00
+ IL_000d: 6fb304000a           callvirt b304000a TryGetValue
+ IL_0012: 2d01                 brtrue.s 01
+ IL_0014: 2a                   ret
+ IL_0015: 06                   ldloc.0
+ IL_0016: 7bcf130004           ldfld cf130004 EventTypesAndCallbacks
+ IL_001b: 03                   ldarg.1
+ IL_001c: 1201                 ldloca.s 01
+ IL_001e: 6fb404000a           callvirt b404000a TryGetValue
+ IL_0023: 2d01                 brtrue.s 01
+ IL_0025: 2a                   ret
+ IL_0026: 07                   ldloc.1
+ IL_0027: 75d200001b           isinst d200001b
+ IL_002c: 04                   ldarg.2
+ IL_002d: 6fbe04000a           callvirt be04000a RemoveDelegate
+ IL_0032: 07                   ldloc.1
+ IL_0033: 6fe2110006           callvirt e2110006 get_IsEmpty
+ IL_0038: 2c3c                 brfalse.s 3c
+ IL_003a: 06                   ldloc.0
+ IL_003b: 7bcf130004           ldfld cf130004 EventTypesAndCallbacks
+ IL_0040: 03                   ldarg.1
+ IL_0041: 6fbf04000a           callvirt bf04000a Remove
+ IL_0046: 26                   pop
+ IL_0047: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_004c: 02                   ldarg.0
+ IL_004d: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_0052: 03                   ldarg.1
+ IL_0053: 6fc004000a           callvirt c004000a DeRegisterEvent
+ IL_0058: 06                   ldloc.0
+ IL_0059: 7bcf130004           ldfld cf130004 EventTypesAndCallbacks
+ IL_005e: 6fc104000a           callvirt c104000a get_Count
+ IL_0063: 2d11                 brtrue.s 11
+ IL_0065: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_006a: 02                   ldarg.0
+ IL_006b: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_0070: 6f8104000a           callvirt 8104000a Remove
+ IL_0075: 26                   pop
+ IL_0076: 2a                   ret
+
+0600128a Sims3.UI.UIManager::DeRegisterAllEvents RVA=000660eb bytes=52 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header d2
+Raw complete CIL 7eb3130004026f050000066f8004000a2c217ea1130004026f050000066fc204000a7eb3130004026f050000066f8104000a262a
+ IL_0000: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_000b: 6f8004000a           callvirt 8004000a ContainsKey
+ IL_0010: 2c21                 brfalse.s 21
+ IL_0012: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0017: 02                   ldarg.0
+ IL_0018: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_001d: 6fc204000a           callvirt c204000a DeRegisterAllEvents
+ IL_0022: 7eb3130004           ldsfld b3130004 mEventRegistry
+ IL_0027: 02                   ldarg.0
+ IL_0028: 6f05000006           callvirt 05000006 get_WinHandle
+ IL_002d: 6f8104000a           callvirt 8104000a Remove
+ IL_0032: 26                   pop
+ IL_0033: 2a                   ret
+
+06001305 .WindowEventData::.ctor RVA=000668dc bytes=21 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 56
+Raw complete CIL 02281200000a02037dce13000402047dcf1300042a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 281200000a           call 1200000a .ctor
+ IL_0006: 02                   ldarg.0
+ IL_0007: 03                   ldarg.1
+ IL_0008: 7dce130004           stfld ce130004 Window
+ IL_000d: 02                   ldarg.0
+ IL_000e: 04                   ldarg.2
+ IL_000f: 7dcf130004           stfld cf130004 EventTypesAndCallbacks
+ IL_0014: 2a                   ret
+
+SELECTED complete_methods=15 CIL_bytes=1357

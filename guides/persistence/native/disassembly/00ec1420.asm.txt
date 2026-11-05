@@ -1,0 +1,42 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00ec1420 <.text+0xac0420>:
+  ec1420:	56                   	push   esi
+  ec1421:	e8 9a 85 be ff       	call   0xaa99c0
+  ec1426:	8b f0                	mov    esi,eax
+  ec1428:	e8 63 7f 8a ff       	call   0x769390
+  ec142d:	85 f6                	test   esi,esi
+  ec142f:	74 20                	je     0xec1451
+  ec1431:	85 c0                	test   eax,eax
+  ec1433:	74 1c                	je     0xec1451
+  ec1435:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  ec1439:	8b 10                	mov    edx,DWORD PTR [eax]
+  ec143b:	8b 52 58             	mov    edx,DWORD PTR [edx+0x58]
+  ec143e:	51                   	push   ecx
+  ec143f:	8b c8                	mov    ecx,eax
+  ec1441:	ff d2                	call   edx
+  ec1443:	85 c0                	test   eax,eax
+  ec1445:	74 0a                	je     0xec1451
+  ec1447:	50                   	push   eax
+  ec1448:	8b ce                	mov    ecx,esi
+  ec144a:	e8 71 86 be ff       	call   0xaa9ac0
+  ec144f:	5e                   	pop    esi
+  ec1450:	c3                   	ret
+  ec1451:	32 c0                	xor    al,al
+  ec1453:	5e                   	pop    esi
+  ec1454:	c3                   	ret
+  ec1455:	cc                   	int3
+  ec1456:	cc                   	int3
+  ec1457:	cc                   	int3
+  ec1458:	cc                   	int3
+  ec1459:	cc                   	int3
+  ec145a:	cc                   	int3
+  ec145b:	cc                   	int3
+  ec145c:	cc                   	int3
+  ec145d:	cc                   	int3
+  ec145e:	cc                   	int3
+  ec145f:	cc                   	int3

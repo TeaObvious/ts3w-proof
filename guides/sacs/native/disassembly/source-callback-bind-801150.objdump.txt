@@ -1,0 +1,40 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00801150 <.text+0x400150>:
+  801150:	56                   	push   esi
+  801151:	57                   	push   edi
+  801152:	8b 7c 24 0c          	mov    edi,DWORD PTR [esp+0xc]
+  801156:	85 ff                	test   edi,edi
+  801158:	8b f1                	mov    esi,ecx
+  80115a:	74 41                	je     0x80119d
+  80115c:	8b 07                	mov    eax,DWORD PTR [edi]
+  80115e:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+  801161:	8b cf                	mov    ecx,edi
+  801163:	ff d2                	call   edx
+  801165:	8b 46 60             	mov    eax,DWORD PTR [esi+0x60]
+  801168:	68 e7 00 00 00       	push   0xe7
+  80116d:	68 88 99 f9 00       	push   0xf99988
+  801172:	6a 00                	push   0x0
+  801174:	83 c6 58             	add    esi,0x58
+  801177:	6a 00                	push   0x0
+  801179:	50                   	push   eax
+  80117a:	6a 0c                	push   0xc
+  80117c:	e8 7f 33 ce ff       	call   0x4e4500
+  801181:	8d 48 08             	lea    ecx,[eax+0x8]
+  801184:	83 c4 18             	add    esp,0x18
+  801187:	85 c9                	test   ecx,ecx
+  801189:	74 02                	je     0x80118d
+  80118b:	89 39                	mov    DWORD PTR [ecx],edi
+  80118d:	89 30                	mov    DWORD PTR [eax],esi
+  80118f:	8b 4e 04             	mov    ecx,DWORD PTR [esi+0x4]
+  801192:	89 48 04             	mov    DWORD PTR [eax+0x4],ecx
+  801195:	8b 56 04             	mov    edx,DWORD PTR [esi+0x4]
+  801198:	89 02                	mov    DWORD PTR [edx],eax
+  80119a:	89 46 04             	mov    DWORD PTR [esi+0x4],eax
+  80119d:	5f                   	pop    edi
+  80119e:	5e                   	pop    esi
+  80119f:	c2               	ret    0x4

@@ -1,0 +1,110 @@
+Original PC1.67 selected probe override interface data and qualified CFGs. These two entries have no current defined Ghidra function/owned Listing/decompilation. No function/body was created or repaired. Original bytes were read through GhidrAssist /TS3W.exe and compared to authoritativePE. These are qualified instruction/data windows, not canonical function-pair admissions or complete class recovery.
+
+[Context] Operating on: TS3W.exe
+
+Hexdump at 01075290 (16 bytes):
+
+1075290  e0 47 c1 00 20 48 c1 00  80 02 c1 00 b0 02 c1 00  |.G.. H..........|
+
+[Context] Operating on: TS3W.exe
+
+Hexdump at 00c11160 (64 bytes):
+
+c11160  e5 5d c2 04 00 cc cc cc  cc cc cc cc cc cc cc cc  |.]..............|
+c11170  53 56 8b f1 57 c7 06 a0  52 07 01 c7 86 10 02 00  |SV..W...R.......|
+c11180  00 90 52 07 01 c7 86 14  02 00 00 8c 52 07 01 e8  |..R.........R...|
+c11190  7c ef ff ff 8d 8e f0 04  00 00 e8 51 1e b1 ff 8d  ||..........Q....|
+
+[Context] Operating on: TS3W.exe
+
+Hexdump at 00c147e0 (160 bytes):
+
+c147e0  f3 0f 10 44 24 04 56 8d  b1 f0 fd ff ff f3 0f 11  |...D$.V.........|
+c147f0  81 74 06 00 00 8b ce e8  44 ea ff ff 8b ce e8 8d  |.t......D.......|
+c14800  bd ff ff d9 ee 51 d9 1c  24 8b ce e8 80 d2 ff ff  |.....Q..$.......|
+c14810  5e c2 04 00 cc cc cc cc  cc cc cc cc cc cc cc cc  |^...............|
+c14820  f3 0f 10 05 18 b2 fa 00  56 8d b1 f0 fd ff ff f3  |........V.......|
+c14830  0f 11 81 74 06 00 00 8b  ce e8 02 ea ff ff 8b ce  |...t............|
+c14840  e8 4b bd ff ff d9 ee 51  d9 1c 24 8b ce e8 3e d2  |.K.....Q..$...>.|
+c14850  ff ff 5e c3 cc cc cc cc  cc cc cc cc cc cc cc cc  |..^.............|
+c14860  55 8b ec 83 e4 f0 83 ec  34 53 56 57 8b f1 e8 5d  |U.......4SVW...]|
+c14870  c0 98 ff 33 db 3b c3 74  13 8b 10 68 a0 0f 00 00  |...3.;.t...h....|
+
+
+QUALIFIED ORIGINAL-PE DECODE; independentpadding notowned
+
+/mnt/inthdd/sims3/patch_media/1_67/unpacked/GameBin/TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00c147e0 <.text+0x8137e0>:
+  c147e0:	f3 0f 10 44 24 04                               	movss  xmm0,DWORD PTR [esp+0x4]
+  c147e6:	56                                              	push   esi
+  c147e7:	8d b1 f0 fd ff ff                               	lea    esi,[ecx-0x210]
+  c147ed:	f3 0f 11 81 74 06 00 00                         	movss  DWORD PTR [ecx+0x674],xmm0
+  c147f5:	8b ce                                           	mov    ecx,esi
+  c147f7:	e8 44 ea ff ff                                  	call   0xc13240
+  c147fc:	8b ce                                           	mov    ecx,esi
+  c147fe:	e8 8d bd ff ff                                  	call   0xc10590
+  c14803:	d9 ee                                           	fldz
+  c14805:	51                                              	push   ecx
+  c14806:	d9 1c 24                                        	fstp   DWORD PTR [esp]
+  c14809:	8b ce                                           	mov    ecx,esi
+  c1480b:	e8 80 d2 ff ff                                  	call   0xc11a90
+  c14810:	5e                                              	pop    esi
+  c14811:	c2 04 00                                        	ret    0x4
+
+QUALIFIED ORIGINAL-PE DECODE; independentpadding notowned
+
+/mnt/inthdd/sims3/patch_media/1_67/unpacked/GameBin/TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00c14820 <.text+0x813820>:
+  c14820:	f3 0f 10 05 18 b2 fa 00                         	movss  xmm0,DWORD PTR ds:0xfab218
+  c14828:	56                                              	push   esi
+  c14829:	8d b1 f0 fd ff ff                               	lea    esi,[ecx-0x210]
+  c1482f:	f3 0f 11 81 74 06 00 00                         	movss  DWORD PTR [ecx+0x674],xmm0
+  c14837:	8b ce                                           	mov    ecx,esi
+  c14839:	e8 02 ea ff ff                                  	call   0xc13240
+  c1483e:	8b ce                                           	mov    ecx,esi
+  c14840:	e8 4b bd ff ff                                  	call   0xc10590
+  c14845:	d9 ee                                           	fldz
+  c14847:	51                                              	push   ecx
+  c14848:	d9 1c 24                                        	fstp   DWORD PTR [esp]
+  c1484b:	8b ce                                           	mov    ecx,esi
+  c1484d:	e8 3e d2 ff ff                                  	call   0xc11a90
+  c14852:	5e                                              	pop    esi
+  c14853:	c3                                              	ret
+
+clearhour [Context] Operating on: TS3W.exe
+
+Hexdump at 00fab218 (4 bytes):
+
+fab218  00 00 80 bf                                       |....|
+
+zero [Context] Operating on: TS3W.exe
+
+Hexdump at 010f4ccc (4 bytes):
+
+10f4ccc  00 00 00 00                                       |....|
+
+day [Context] Operating on: TS3W.exe
+
+Hexdump at 00ff4a30 (4 bytes):
+
+ff4a30  00 00 c0 41                                       |...A|
+
+window [Context] Operating on: TS3W.exe
+
+Hexdump at 00faad94 (4 bytes):
+
+faad94  00 00 40 41                                       |..@A|
+
+restartspan [Context] Operating on: TS3W.exe
+
+Hexdump at 00f998f8 (4 bytes):
+
+f998f8  00 00 80 3f                                       |...?|

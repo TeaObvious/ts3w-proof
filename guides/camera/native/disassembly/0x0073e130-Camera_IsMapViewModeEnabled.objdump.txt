@@ -1,0 +1,38 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_IsMapViewModeEnabled
+# Entry: 0x0073e130; bounded stop: 0x0073e170; next Ghidra entry: 0x0073e170
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073e130 <.text+0x33d130>:
+  73e130:	e8 9b ba 22 00       	call   0x969bd0
+  73e135:	85 c0                	test   eax,eax
+  73e137:	74 2f                	je     0x73e168
+  73e139:	8b c8                	mov    ecx,eax
+  73e13b:	e8 b0 3e 7e 00       	call   0xf21ff0
+  73e140:	85 c0                	test   eax,eax
+  73e142:	74 24                	je     0x73e168
+  73e144:	8b c8                	mov    ecx,eax
+  73e146:	e8 95 5c dd ff       	call   0x513de0
+  73e14b:	85 c0                	test   eax,eax
+  73e14d:	74 19                	je     0x73e168
+  73e14f:	8b 10                	mov    edx,DWORD PTR [eax]
+  73e151:	8b c8                	mov    ecx,eax
+  73e153:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  73e156:	68 89 dd 0f 11       	push   0x110fdd89
+  73e15b:	ff d0                	call   eax
+  73e15d:	85 c0                	test   eax,eax
+  73e15f:	74 07                	je     0x73e168
+  73e161:	8a 80 b9 08 00 00    	mov    al,BYTE PTR [eax+0x8b9]
+  73e167:	c3                   	ret
+  73e168:	32 c0                	xor    al,al
+  73e16a:	c3                   	ret
+  73e16b:	cc                   	int3
+  73e16c:	cc                   	int3
+  73e16d:	cc                   	int3
+  73e16e:	cc                   	int3
+  73e16f:	cc                   	int3

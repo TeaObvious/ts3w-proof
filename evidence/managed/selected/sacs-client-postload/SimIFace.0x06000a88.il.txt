@@ -1,0 +1,19 @@
+// Complete authenticated original metadata/CIL; actual ILSpy selected C# paired in index.
+instance void Continue(string actorName)
+MethodDef=0x06000a88 RVA=0x00010e1c signatureBlob=2001010e maxStack=3 locals=1100000A initLocals=True codeBytes=37 CIL-SHA256=f82e35095c5e7e1758633977eee953f1d190a21e896b9b913ada30929e5c165d
+IL_0000: ldarg.1
+IL_0001: brfalse.s IL_000C
+IL_0003: ldarg.0
+IL_0004: ldarg.1
+IL_0005: call 0x06000A4A Sims3.SimIFace.StateMachineClient::Hash32
+IL_000A: br.s IL_000D
+IL_000C: ldc.i4.0
+IL_000D: stloc.0
+IL_000E: call 0x06000A1F Sims3.SimIFace.SacsProxy::get_Instance
+IL_0013: ldarg.0
+IL_0014: ldflda 0x04000B18 Sims3.SimIFace.StateMachineClient::mDriver
+IL_0019: ldfld 0x04000B25 .DriverHandleWrapper::mHandle
+IL_001E: ldloc.0
+IL_001F: callvirt 0x06000A15 Sims3.SimIFace.ISacsProxy::Continue
+IL_0024: ret
+ExceptionRegions=[]

@@ -1,0 +1,145 @@
+// Pristine PC1.67 Sims3GameplaySystems.dll; identity and package key in the material-state guide.
+// Analyst: Normal RabbitHole startup schedules Default/OpenManyLights1 when tuning/list gates admit it; InitVisualStates invokes the selected material change. Empty base custom effects and suffix do not imply all subclass overrides are empty.
+Pristine PC1.67 selected managed method bodies; metadata tokens and complete decoded IL instructions. Analyst scope: material/visual-state calls; no runtime claim.
+
+// token 0x06002E95; RVA 0x000CECA4
+System.Void Sims3.Gameplay.Abstracts.RabbitHole::OnStartup()
+.maxstack 4; code size 174
+// Original IL bytes: 026F962E0006027B0D1600042803910006026F972E0006026F712E00067B3A160004220000C041345B027B231600042C0D027B231600047B600F000A2D4628CB05000A026F712E00067B3A160004580A28CC05000A026F712E00067B3B160004580B0272D53200700672EAD2017028E12E0006027226D30170077246D3017028E12E0006200000100028FC01000A2C0602289A2E00060228E22E00060228CF2E0006027B0D16000428384400062A
+.local 0 System.Single
+.local 1 System.Single
+IL_0000: ldarg.0
+IL_0001: callvirt System.Void Sims3.Gameplay.Abstracts.RabbitHole::AddInteractions()
+IL_0006: ldarg.0
+IL_0007: ldfld Sims3.Gameplay.Abstracts.RabbitHole Sims3.Gameplay.Abstracts.RabbitHole::RabbitHoleProxy
+IL_000c: call System.Void Sims3.Gameplay.Autonomy.Autonomy::AddPublicMetaObject(Sims3.Gameplay.Interfaces.IMetaObject)
+IL_0011: ldarg.0
+IL_0012: callvirt System.Void Sims3.Gameplay.Abstracts.RabbitHole::OnStartupRabbitHole()
+IL_0017: ldarg.0
+IL_0018: callvirt Sims3.Gameplay.Abstracts.RabbitHole/RabbitHoleTuningClass Sims3.Gameplay.Abstracts.RabbitHole::get_RabbitHoleTuning()
+IL_001d: ldfld System.Single Sims3.Gameplay.Abstracts.RabbitHole/RabbitHoleTuningClass::kDaytimeLightSunriseDelta
+IL_0022: ldc.r4 24
+IL_0027: bge.un.s IL_0084
+IL_0029: ldarg.0
+IL_002a: ldfld Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange> Sims3.Gameplay.Abstracts.RabbitHole::mVisualStates
+IL_002f: brfalse.s IL_003e
+IL_0031: ldarg.0
+IL_0032: ldfld Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange> Sims3.Gameplay.Abstracts.RabbitHole::mVisualStates
+IL_0037: ldfld System.Int32 Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange>::Count
+IL_003c: brtrue.s IL_0084
+IL_003e: call System.Single Sims3.SimIFace.World::GetSunriseTime()
+IL_0043: ldarg.0
+IL_0044: callvirt Sims3.Gameplay.Abstracts.RabbitHole/RabbitHoleTuningClass Sims3.Gameplay.Abstracts.RabbitHole::get_RabbitHoleTuning()
+IL_0049: ldfld System.Single Sims3.Gameplay.Abstracts.RabbitHole/RabbitHoleTuningClass::kDaytimeLightSunriseDelta
+IL_004e: add
+IL_004f: stloc.0
+IL_0050: call System.Single Sims3.SimIFace.World::GetSunsetTime()
+IL_0055: ldarg.0
+IL_0056: callvirt Sims3.Gameplay.Abstracts.RabbitHole/RabbitHoleTuningClass Sims3.Gameplay.Abstracts.RabbitHole::get_RabbitHoleTuning()
+IL_005b: ldfld System.Single Sims3.Gameplay.Abstracts.RabbitHole/RabbitHoleTuningClass::kNighttimeLightSunsetDelta
+IL_0060: add
+IL_0061: stloc.1
+IL_0062: ldarg.0
+IL_0063: ldstr "Default"
+IL_0068: ldloc.0
+IL_0069: ldstr "Rabbit Hole Daytime Lights On"
+IL_006e: call System.Void Sims3.Gameplay.Abstracts.RabbitHole::AddVisualState(System.String,System.Single,System.String)
+IL_0073: ldarg.0
+IL_0074: ldstr "OpenManyLights1"
+IL_0079: ldloc.1
+IL_007a: ldstr "Rabbit Hole Nighttime Lights On"
+IL_007f: call System.Void Sims3.Gameplay.Abstracts.RabbitHole::AddVisualState(System.String,System.Single,System.String)
+IL_0084: ldc.i4 1048576
+IL_0089: call System.Boolean Sims3.SimIFace.GameUtils::IsInstalled(Sims3.SimIFace.ProductVersion)
+IL_008e: brfalse.s IL_0096
+IL_0090: ldarg.0
+IL_0091: call System.Void Sims3.Gameplay.Abstracts.RabbitHole::FutureWorldTextureUpdate()
+IL_0096: ldarg.0
+IL_0097: call System.Void Sims3.Gameplay.Abstracts.RabbitHole::InitVisualStates()
+IL_009c: ldarg.0
+IL_009d: call System.Void Sims3.Gameplay.Abstracts.RabbitHole::SetRandomChanceThatChangesOnceADay()
+IL_00a2: ldarg.0
+IL_00a3: ldfld Sims3.Gameplay.Abstracts.RabbitHole Sims3.Gameplay.Abstracts.RabbitHole::RabbitHoleProxy
+IL_00a8: call System.Void Sims3.Gameplay.Autonomy.MetaAutonomyManager::UpdateForMetaObject(Sims3.Gameplay.Interfaces.IMetaObject)
+IL_00ad: ret
+
+// token 0x06002EC4; RVA 0x000D0B17
+System.String Sims3.Gameplay.Abstracts.RabbitHole::VisualStateSuffix()
+.maxstack 8; code size 6
+// Original IL bytes: 7EA000000A2A
+IL_0000: ldsfld System.String System.String::Empty
+IL_0005: ret
+
+// token 0x06002EC5; RVA 0x000D0B1E
+System.Void Sims3.Gameplay.Abstracts.RabbitHole::DoCustomStateChangeEffects(System.String)
+.maxstack 8; code size 1
+// Original IL bytes: 2A
+IL_0000: ret
+
+// token 0x06002EE1; RVA 0x000D123C
+System.Void Sims3.Gameplay.Abstracts.RabbitHole::AddVisualState(System.String,System.Single,System.String)
+.maxstack 5; code size 28
+// Original IL bytes: 027B0D16000403040573FA3000060A027B23160004066F840F000A2A
+.local 0 Sims3.Gameplay.Abstracts.VisualStateChange
+IL_0000: ldarg.0
+IL_0001: ldfld Sims3.Gameplay.Abstracts.RabbitHole Sims3.Gameplay.Abstracts.RabbitHole::RabbitHoleProxy
+IL_0006: ldarg.1
+IL_0007: ldarg.2
+IL_0008: ldarg.3
+IL_0009: newobj System.Void Sims3.Gameplay.Abstracts.VisualStateChange::.ctor(Sims3.Gameplay.Abstracts.RabbitHole,System.String,System.Single,System.String)
+IL_000e: stloc.0
+IL_000f: ldarg.0
+IL_0010: ldfld Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange> Sims3.Gameplay.Abstracts.RabbitHole::mVisualStates
+IL_0015: ldloc.0
+IL_0016: callvirt System.Void Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange>::Add(T)
+IL_001b: ret
+
+// token 0x06002EE2; RVA 0x000D1264
+System.Void Sims3.Gameplay.Abstracts.RabbitHole::InitVisualStates()
+.maxstack 3; code size 85
+// Original IL bytes: 289AB100060A027B231600047B600F000A0B0716313E0717590C2B21027B23160004086F850F000A0D06096FF83000063707096FFC3000062A0817590C08162FDB027B231600040717596F850F000A6FFC3000062A
+.local 0 System.Single
+.local 1 System.Int32
+.local 2 System.Int32
+.local 3 Sims3.Gameplay.Abstracts.VisualStateChange
+IL_0000: call System.Single Sims3.Gameplay.Utilities.SimClock::get_HoursPassedOfDay()
+IL_0005: stloc.0
+IL_0006: ldarg.0
+IL_0007: ldfld Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange> Sims3.Gameplay.Abstracts.RabbitHole::mVisualStates
+IL_000c: ldfld System.Int32 Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange>::Count
+IL_0011: stloc.1
+IL_0012: ldloc.1
+IL_0013: ldc.i4.0
+IL_0014: ble.s IL_0054
+IL_0016: ldloc.1
+IL_0017: ldc.i4.1
+IL_0018: sub
+IL_0019: stloc.2
+IL_001a: br.s IL_003d
+IL_001c: ldarg.0
+IL_001d: ldfld Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange> Sims3.Gameplay.Abstracts.RabbitHole::mVisualStates
+IL_0022: ldloc.2
+IL_0023: callvirt T Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange>::get_Item(System.Int32)
+IL_0028: stloc.3
+IL_0029: ldloc.0
+IL_002a: ldloc.3
+IL_002b: callvirt System.Single Sims3.Gameplay.Abstracts.VisualStateChange::get_Time()
+IL_0030: blt.un.s IL_0039
+IL_0032: ldloc.3
+IL_0033: callvirt System.Void Sims3.Gameplay.Abstracts.VisualStateChange::ChangeVisualState()
+IL_0038: ret
+IL_0039: ldloc.2
+IL_003a: ldc.i4.1
+IL_003b: sub
+IL_003c: stloc.2
+IL_003d: ldloc.2
+IL_003e: ldc.i4.0
+IL_003f: bge.s IL_001c
+IL_0041: ldarg.0
+IL_0042: ldfld Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange> Sims3.Gameplay.Abstracts.RabbitHole::mVisualStates
+IL_0047: ldloc.1
+IL_0048: ldc.i4.1
+IL_0049: sub
+IL_004a: callvirt T Sims3.Gameplay.Utilities.ListSorted`1<Sims3.Gameplay.Abstracts.VisualStateChange>::get_Item(System.Int32)
+IL_004f: callvirt System.Void Sims3.Gameplay.Abstracts.VisualStateChange::ChangeVisualState()
+IL_0054: ret

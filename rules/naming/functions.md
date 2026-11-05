@@ -71,6 +71,15 @@ versehen; Gültigkeitsbereiche prüfen und die konkrete Grenze dokumentieren.
 
 Die Namen tatsächlich in Ghidra an die geprüfte Parameter-/Variablenidentität
 binden. Belegte Typ-/Signaturpräzisierungen getrennt begründen und prüfen;
-eine Namenspflege erlaubt keine geratenen Typen oder geänderte ABI. Anschließend
-betroffene Funktionen und Aufrufer frisch dekompilieren und kanonische Paare
-erneuern. Eine reine Textersetzung im Export erfüllt diese Pflicht nicht.
+eine Namenspflege erlaubt keine geratenen Typen oder geänderte ABI. Bei geänderten Funktionsnamen anschließend betroffene Funktionen und Aufrufer
+frisch dekompilieren und die kanonischen Belege erneuern. Eine reine
+Textersetzung im Export erfüllt diese Pflicht nicht.
+
+Direkte Nutzerpräzisierung vom 05.11.2026: Bestehende C-Dateien während der
+Forschung nicht rückwirkend für Parameter-/Variablenmappings durchgehen.
+Belegte Parameter-/Variablenrollen weiterhin tatsächlich in Ghidra pflegen;
+die C-Darstellung am Ende durch einen Gesamtexport aus der gepflegten DB
+aktualisieren. Ältere Variablennamen in übernommenen C-Snapshots sind bis
+dahin zulässig und kein Anlass für manuelle Umschreibungen oder zusätzliche
+Caller-Neuexporte allein wegen dieser Variablennamen. Funktionsnamen,
+Funktionsreferenzen, Dateinamen und Indexverweise bleiben davon unberührt.

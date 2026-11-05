@@ -1,0 +1,490 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioVoice_SetScalarProperty
+Entry Point: 008ad940
+
+008ad940: PUSH EBP
+008ad941: MOV EBP, ESP
+008ad943: AND ESP, 0xfffffff0
+008ad946: SUB ESP, 0x24
+008ad949: PUSH EBX
+008ad94a: PUSH ESI
+008ad94b: PUSH EDI
+008ad94c: MOV ESI, ECX
+008ad94e: LEA EAX, [EBP + 0x8]
+008ad951: PUSH EAX
+008ad952: LEA ECX, [ESP + 0x1c]
+008ad956: LEA EDI, [ESI + 0x898]
+008ad95c: PUSH ECX
+008ad95d: MOV ECX, EDI
+008ad95f: CALL 0x00a5b9b0
+008ad964: FLD float ptr [EBP + 0xc]
+008ad967: MOV EDX, dword ptr [EDI + 0x8]
+008ad96a: MOV ECX, dword ptr [EDI + 0x4]
+008ad96d: MOV EAX, dword ptr [ESP + 0x18]
+008ad971: CMP EAX, dword ptr [ECX + EDX*0x4]
+008ad974: JZ 0x008ad985
+008ad976: PUSH ECX
+008ad977: MOV ECX, dword ptr [EAX + 0x4]
+008ad97a: FSTP float ptr [ESP]
+008ad97d: CALL 0x008a6270
+008ad982: FLD float ptr [EBP + 0xc]
+008ad985: MOV EDI, dword ptr [EBP + 0x8]
+008ad988: CMP EDI, 0x310330cc
+008ad98e: MOV byte ptr [ESP + 0x14], 0x1
+008ad993: JA 0x008adbd5
+008ad999: JZ 0x008adb60
+008ad99f: CMP EDI, 0x12d2a4d4
+008ad9a5: FSTP ST0
+008ad9a7: JA 0x008ada8c
+008ad9ad: JZ 0x008ada5a
+008ad9b3: CMP EDI, 0x50c5d66
+008ad9b9: JA 0x008ada1a
+008ad9bb: JZ 0x008ad9fd
+008ad9bd: CMP EDI, 0x3593710
+008ad9c3: JZ 0x008ad9ee
+008ad9c5: CMP EDI, 0x50c5d65
+008ad9cb: JNZ 0x008addff
+008ad9d1: MOVSS XMM0, dword ptr [EBP + 0xc]
+008ad9d6: MOVSS dword ptr [ESI + 0xc0], XMM0
+008ad9de: OR byte ptr [ESI + 0xd0], 0x4
+008ad9e5: POP EDI
+008ad9e6: POP ESI
+008ad9e7: POP EBX
+008ad9e8: MOV ESP, EBP
+008ad9ea: POP EBP
+008ad9eb: RET 0xc
+008ad9ee: MOVSS XMM0, dword ptr [EBP + 0xc]
+008ad9f3: MOVSS dword ptr [ESI + 0x6c], XMM0
+008ad9f8: JMP 0x008ade67
+008ad9fd: MOVSS XMM0, dword ptr [EBP + 0xc]
+008ada02: MOVSS dword ptr [ESI + 0xbc], XMM0
+008ada0a: OR byte ptr [ESI + 0xd0], 0x2
+008ada11: POP EDI
+008ada12: POP ESI
+008ada13: POP EBX
+008ada14: MOV ESP, EBP
+008ada16: POP EBP
+008ada17: RET 0xc
+008ada1a: CMP EDI, 0x50c5d67
+008ada20: JZ 0x008ada3d
+008ada22: CMP EDI, 0xf616b72
+008ada28: JNZ 0x008addff
+008ada2e: MOVSS XMM0, dword ptr [EBP + 0xc]
+008ada33: MOVSS dword ptr [ESI + 0x68], XMM0
+008ada38: JMP 0x008ade67
+008ada3d: MOVSS XMM0, dword ptr [EBP + 0xc]
+008ada42: MOVSS dword ptr [ESI + 0xb8], XMM0
+008ada4a: OR byte ptr [ESI + 0xd0], 0x1
+008ada51: POP EDI
+008ada52: POP ESI
+008ada53: POP EBX
+008ada54: MOV ESP, EBP
+008ada56: POP EBP
+008ada57: RET 0xc
+008ada5a: MOVSS XMM0, dword ptr [EBP + 0xc]
+008ada5f: UCOMISS XMM0, dword ptr [0x010f4ccc]
+008ada66: LAHF
+008ada67: TEST AH, 0x44
+008ada6a: JNP 0x008ada7c
+008ada6c: OR byte ptr [ESI + 0xd0], 0x8
+008ada73: POP EDI
+008ada74: POP ESI
+008ada75: POP EBX
+008ada76: MOV ESP, EBP
+008ada78: POP EBP
+008ada79: RET 0xc
+008ada7c: AND byte ptr [ESI + 0xd0], 0xf7
+008ada83: POP EDI
+008ada84: POP ESI
+008ada85: POP EBX
+008ada86: MOV ESP, EBP
+008ada88: POP EBP
+008ada89: RET 0xc
+008ada8c: CMP EDI, 0x25df0108
+008ada92: JA 0x008adb04
+008ada94: JZ 0x008adaf1
+008ada96: CMP EDI, 0x222b8006
+008ada9c: JZ 0x008adabd
+008ada9e: CMP EDI, 0x2406a047
+008adaa4: JNZ 0x008addff
+008adaaa: MOVSS XMM0, dword ptr [EBP + 0xc]
+008adaaf: MOVSS dword ptr [ESI + 0x64], XMM0
+008adab4: POP EDI
+008adab5: POP ESI
+008adab6: POP EBX
+008adab7: MOV ESP, EBP
+008adab9: POP EBP
+008adaba: RET 0xc
+008adabd: MOVSS XMM0, dword ptr [EBP + 0xc]
+008adac2: UCOMISS XMM0, dword ptr [0x010f4ccc]
+008adac9: LAHF
+008adaca: TEST AH, 0x44
+008adacd: JNP 0x008adae0
+008adacf: MOV AL, 0x1
+008adad1: MOV byte ptr [ESI + 0xac], AL
+008adad7: POP EDI
+008adad8: POP ESI
+008adad9: POP EBX
+008adada: MOV ESP, EBP
+008adadc: POP EBP
+008adadd: RET 0xc
+008adae0: XOR AL, AL
+008adae2: MOV byte ptr [ESI + 0xac], AL
+008adae8: POP EDI
+008adae9: POP ESI
+008adaea: POP EBX
+008adaeb: MOV ESP, EBP
+008adaed: POP EBP
+008adaee: RET 0xc
+008adaf1: MOVSS XMM0, dword ptr [EBP + 0xc]
+008adaf6: MOVSS dword ptr [ESI + 0x70], XMM0
+008adafb: POP EDI
+008adafc: POP ESI
+008adafd: POP EBX
+008adafe: MOV ESP, EBP
+008adb00: POP EBP
+008adb01: RET 0xc
+008adb04: CMP EDI, 0x26341ede
+008adb0a: JZ 0x008adb2e
+008adb0c: CMP EDI, 0x29e8b9f8
+008adb12: JNZ 0x008addff
+008adb18: MOVSS XMM0, dword ptr [EBP + 0xc]
+008adb1d: MOVSS dword ptr [ESI + 0x334], XMM0
+008adb25: POP EDI
+008adb26: POP ESI
+008adb27: POP EBX
+008adb28: MOV ESP, EBP
+008adb2a: POP EBP
+008adb2b: RET 0xc
+008adb2e: MOVSS XMM0, dword ptr [ESI + 0xa8]
+008adb36: MOVSS XMM1, dword ptr [EBP + 0xc]
+008adb3b: UCOMISS XMM0, XMM1
+008adb3e: LAHF
+008adb3f: TEST AH, 0x44
+008adb42: MOVSS dword ptr [ESI + 0xa8], XMM1
+008adb4a: JNP 0x008adb56
+008adb4c: MOV byte ptr [ESP + 0x14], 0x1
+008adb51: JMP 0x008ade67
+008adb56: MOV byte ptr [ESP + 0x14], 0x0
+008adb5b: JMP 0x008ade67
+008adb60: MOV ECX, dword ptr [ESI + 0x2e8]
+008adb66: TEST ECX, ECX
+008adb68: JZ 0x008ade65
+008adb6e: MOV EAX, dword ptr [ESI + 0xa84]
+008adb74: TEST EAX, EAX
+008adb76: JZ 0x008adb9a
+008adb78: MOV ECX, dword ptr [EBP + 0x10]
+008adb7b: MOV EDX, dword ptr [EAX]
+008adb7d: MOV EDX, dword ptr [EDX + 0xb0]
+008adb83: PUSH ECX
+008adb84: PUSH ECX
+008adb85: FSTP float ptr [ESP]
+008adb88: PUSH 0x310330cc
+008adb8d: MOV ECX, EAX
+008adb8f: CALL EDX
+008adb91: POP EDI
+008adb92: POP ESI
+008adb93: POP EBX
+008adb94: MOV ESP, EBP
+008adb96: POP EBP
+008adb97: RET 0xc
+008adb9a: MOVSS XMM0, dword ptr [EBP + 0xc]
+008adb9f: FSTP ST0
+008adba1: UCOMISS XMM0, dword ptr [0x010f4ccc]
+008adba8: LAHF
+008adba9: TEST AH, 0x44
+008adbac: JNP 0x008adbb2
+008adbae: MOV AL, 0x1
+008adbb0: JMP 0x008adbb4
+008adbb2: XOR AL, AL
+008adbb4: TEST AL, AL
+008adbb6: SETNZ AL
+008adbb9: PUSH EAX
+008adbba: CALL 0x008a34a0
+008adbbf: MOV EDX, dword ptr [ESI]
+008adbc1: MOV EAX, dword ptr [EDX + 0x18]
+008adbc4: PUSH 0x0
+008adbc6: PUSH 0x0
+008adbc8: MOV ECX, ESI
+008adbca: CALL EAX
+008adbcc: POP EDI
+008adbcd: POP ESI
+008adbce: POP EBX
+008adbcf: MOV ESP, EBP
+008adbd1: POP EBP
+008adbd2: RET 0xc
+008adbd5: CMP EDI, 0x71bc3009
+008adbdb: JA 0x008add24
+008adbe1: FSTP ST0
+008adbe3: JZ 0x008add0e
+008adbe9: CMP EDI, 0x647a7836
+008adbef: JA 0x008adca9
+008adbf5: JZ 0x008adc65
+008adbf7: CMP EDI, 0x393f7f7d
+008adbfd: JZ 0x008adc4f
+008adbff: CMP EDI, 0x49eb68db
+008adc05: JNZ 0x008addff
+008adc0b: MOVSS XMM0, dword ptr [ESI + 0x88]
+008adc13: MOVSS XMM1, dword ptr [EBP + 0xc]
+008adc18: UCOMISS XMM0, XMM1
+008adc1b: LAHF
+008adc1c: TEST AH, 0x44
+008adc1f: MOVSS dword ptr [ESI + 0x88], XMM1
+008adc27: MOV byte ptr [ESP + 0x14], 0x1
+008adc2c: JP 0x008adc33
+008adc2e: MOV byte ptr [ESP + 0x14], 0x0
+008adc33: OR dword ptr [ESI + 0xadc], 0x20000
+008adc3d: TEST byte ptr [ESI + 0xd0], 0x8
+008adc44: JNZ 0x008adf93
+008adc4a: JMP 0x008ade67
+008adc4f: MOVSS XMM0, dword ptr [EBP + 0xc]
+008adc54: MOVSS dword ptr [ESI + 0x84], XMM0
+008adc5c: POP EDI
+008adc5d: POP ESI
+008adc5e: POP EBX
+008adc5f: MOV ESP, EBP
+008adc61: POP EBP
+008adc62: RET 0xc
+008adc65: MOVSS XMM0, dword ptr [ESI + 0x8c]
+008adc6d: MOVSS XMM1, dword ptr [EBP + 0xc]
+008adc72: UCOMISS XMM0, XMM1
+008adc75: LAHF
+008adc76: TEST AH, 0x44
+008adc79: MOVSS dword ptr [ESI + 0x8c], XMM1
+008adc81: MOV byte ptr [ESP + 0x14], 0x1
+008adc86: JP 0x008adc8d
+008adc88: MOV byte ptr [ESP + 0x14], 0x0
+008adc8d: OR dword ptr [ESI + 0xadc], 0x8000
+008adc97: TEST byte ptr [ESI + 0xd0], 0x8
+008adc9e: JNZ 0x008adf93
+008adca4: JMP 0x008ade67
+008adca9: CMP EDI, 0x6dd08218
+008adcaf: JZ 0x008adcda
+008adcb1: CMP EDI, 0x6df5822d
+008adcb7: JNZ 0x008addff
+008adcbd: MOV ECX, dword ptr [ESI + 0x1898]
+008adcc3: CVTTSS2SI EAX, dword ptr [EBP + 0xc]
+008adcc8: CMP ECX, EAX
+008adcca: MOV dword ptr [ESI + 0x1898], EAX
+008adcd0: SETNZ byte ptr [ESP + 0x14]
+008adcd5: JMP 0x008ade67
+008adcda: MOVSS XMM0, dword ptr [EBP + 0xc]
+008adcdf: UCOMISS XMM0, dword ptr [0x010f4ccc]
+008adce6: LAHF
+008adce7: TEST AH, 0x44
+008adcea: JNP 0x008adcfd
+008adcec: MOV AL, 0x1
+008adcee: MOV byte ptr [ESI + 0xad], AL
+008adcf4: POP EDI
+008adcf5: POP ESI
+008adcf6: POP EBX
+008adcf7: MOV ESP, EBP
+008adcf9: POP EBP
+008adcfa: RET 0xc
+008adcfd: XOR AL, AL
+008adcff: MOV byte ptr [ESI + 0xad], AL
+008add05: POP EDI
+008add06: POP ESI
+008add07: POP EBX
+008add08: MOV ESP, EBP
+008add0a: POP EBP
+008add0b: RET 0xc
+008add0e: MOVSS XMM0, dword ptr [EBP + 0xc]
+008add13: MOVSS dword ptr [ESI + 0x9c], XMM0
+008add1b: POP EDI
+008add1c: POP ESI
+008add1d: POP EBX
+008add1e: MOV ESP, EBP
+008add20: POP EBP
+008add21: RET 0xc
+008add24: CMP EDI, 0xb85523e5
+008add2a: JA 0x008adde5
+008add30: FSTP ST0
+008add32: JZ 0x008addac
+008add34: CMP EDI, 0xa26a765f
+008add3a: JZ 0x008add68
+008add3c: CMP EDI, 0xb1f42539
+008add42: JNZ 0x008addff
+008add48: MOVSS XMM0, dword ptr [EBP + 0xc]
+008add4d: MOVSS dword ptr [ESI + 0xac8], XMM0
+008add55: OR dword ptr [ESI + 0xadc], 0x400
+008add5f: POP EDI
+008add60: POP ESI
+008add61: POP EBX
+008add62: MOV ESP, EBP
+008add64: POP EBP
+008add65: RET 0xc
+008add68: MOVSS XMM0, dword ptr [ESI + 0x90]
+008add70: MOVSS XMM1, dword ptr [EBP + 0xc]
+008add75: UCOMISS XMM0, XMM1
+008add78: LAHF
+008add79: TEST AH, 0x44
+008add7c: MOVSS dword ptr [ESI + 0x90], XMM1
+008add84: MOV byte ptr [ESP + 0x14], 0x1
+008add89: JP 0x008add90
+008add8b: MOV byte ptr [ESP + 0x14], 0x0
+008add90: OR dword ptr [ESI + 0xadc], 0x10000
+008add9a: TEST byte ptr [ESI + 0xd0], 0x8
+008adda1: JNZ 0x008adf93
+008adda7: JMP 0x008ade67
+008addac: MOVSS XMM0, dword ptr [EBP + 0xc]
+008addb1: UCOMISS XMM0, dword ptr [0x010f4ccc]
+008addb8: LAHF
+008addb9: TEST AH, 0x44
+008addbc: JNP 0x008addc2
+008addbe: MOV AL, 0x1
+008addc0: JMP 0x008addc4
+008addc2: XOR AL, AL
+008addc4: FLD float ptr [0x00fab218]
+008addca: MOV EDX, dword ptr [ESI]
+008addcc: PUSH 0x1
+008addce: PUSH ECX
+008addcf: FSTP float ptr [ESP]
+008addd2: PUSH 0x4
+008addd4: PUSH EAX
+008addd5: MOV EAX, dword ptr [EDX + 0x1c]
+008addd8: MOV ECX, ESI
+008addda: CALL EAX
+008adddc: POP EDI
+008adddd: POP ESI
+008addde: POP EBX
+008adddf: MOV ESP, EBP
+008adde1: POP EBP
+008adde2: RET 0xc
+008adde5: CMP EDI, 0xbaf7f4f9
+008addeb: JZ 0x008adf6b
+008addf1: CMP EDI, 0xe1f872f2
+008addf7: FSTP ST0
+008addf9: JZ 0x008adeb0
+008addff: LEA ECX, [EBP + 0x8]
+008ade02: PUSH ECX
+008ade03: LEA EDX, [ESP + 0x1c]
+008ade07: LEA EBX, [ESI + 0x108]
+008ade0d: PUSH EDX
+008ade0e: MOV ECX, EBX
+008ade10: CALL 0x00a5b9b0
+008ade15: MOV EAX, dword ptr [EBX + 0x8]
+008ade18: MOV EDX, dword ptr [EBX + 0x4]
+008ade1b: MOV ECX, dword ptr [ESP + 0x18]
+008ade1f: CMP ECX, dword ptr [EDX + EAX*0x4]
+008ade22: MOVSS XMM0, dword ptr [EBP + 0xc]
+008ade27: JNZ 0x008ade46
+008ade29: LEA EAX, [ESP + 0x18]
+008ade2d: PUSH EAX
+008ade2e: LEA ECX, [ESP + 0x28]
+008ade32: PUSH ECX
+008ade33: MOV ECX, EBX
+008ade35: MOV dword ptr [ESP + 0x20], EDI
+008ade39: MOVSS dword ptr [ESP + 0x24], XMM0
+008ade3f: CALL 0x008ad770
+008ade44: JMP 0x008ade67
+008ade46: MOVSS XMM1, dword ptr [ECX + 0x4]
+008ade4b: UCOMISS XMM1, XMM0
+008ade4e: LAHF
+008ade4f: TEST AH, 0x44
+008ade52: MOV byte ptr [ESP + 0x14], 0x1
+008ade57: JP 0x008ade5e
+008ade59: MOV byte ptr [ESP + 0x14], 0x0
+008ade5e: MOVSS dword ptr [ECX + 0x4], XMM0
+008ade63: JMP 0x008ade67
+008ade65: FSTP ST0
+008ade67: CMP dword ptr [ESI + 0x58], 0x0
+008ade6b: JZ 0x008adf93
+008ade71: CMP byte ptr [ESP + 0x14], 0x0
+008ade76: JZ 0x008adf93
+008ade7c: MOV EDX, dword ptr [ESI]
+008ade7e: MOV EAX, dword ptr [EDX + 0x20]
+008ade81: PUSH 0x1
+008ade83: PUSH -0x1
+008ade85: MOV ECX, ESI
+008ade87: CALL EAX
+008ade89: TEST AL, AL
+008ade8b: JNZ 0x008adf93
+008ade91: MOV ESI, dword ptr [ESI + 0x58]
+008ade94: FLD float ptr [EBP + 0xc]
+008ade97: MOV EDX, dword ptr [ESI]
+008ade99: MOV EAX, dword ptr [EDX + 0x34]
+008ade9c: PUSH 0x1
+008ade9e: PUSH ECX
+008ade9f: FSTP float ptr [ESP]
+008adea2: PUSH EDI
+008adea3: MOV ECX, ESI
+008adea5: CALL EAX
+008adea7: POP EDI
+008adea8: POP ESI
+008adea9: POP EBX
+008adeaa: MOV ESP, EBP
+008adeac: POP EBP
+008adead: RET 0xc
+008adeb0: MOVSS XMM1, dword ptr [EBP + 0xc]
+008adeb5: MOVSS XMM2, dword ptr [0x00f998f8]
+008adebd: MOVSS XMM0, dword ptr [0x00fab218]
+008adec5: SUBSS XMM1, XMM2
+008adec9: SHUFPS XMM0, XMM0, 0x0
+008adecd: SHUFPS XMM1, XMM1, 0x0
+008aded1: MULPS XMM0, XMM1
+008aded4: MAXPS XMM0, XMM1
+008aded7: MOVSS XMM1, dword ptr [0x0103b8fc]
+008adedf: SHUFPS XMM1, XMM1, 0x0
+008adee3: CMPLEPS XMM0, XMM1, 
+008adee7: MOVMSKPS ECX, XMM0
+008adeea: CMP ECX, 0xf
+008adeed: JNZ 0x008adf42
+008adeef: CMP dword ptr [ESI + 0x58], 0x0
+008adef3: XORPS XMM0, XMM0
+008adef6: JZ 0x008adf21
+008adef8: FLD float ptr [0x0106f8c8]
+008adefe: PUSH ECX
+008adeff: LEA EDX, [ESP + 0x18]
+008adf03: FSTP float ptr [ESP]
+008adf06: PUSH EDX
+008adf07: LEA ECX, [ESI + 0x187c]
+008adf0d: MOVSS dword ptr [ESP + 0x1c], XMM0
+008adf13: CALL 0x008ab2a0
+008adf18: POP EDI
+008adf19: POP ESI
+008adf1a: POP EBX
+008adf1b: MOV ESP, EBP
+008adf1d: POP EBP
+008adf1e: RET 0xc
+008adf21: MOVSS dword ptr [ESI + 0x1880], XMM0
+008adf29: MOVSS dword ptr [ESI + 0x187c], XMM0
+008adf31: MOVSS dword ptr [ESI + 0x1884], XMM0
+008adf39: POP EDI
+008adf3a: POP ESI
+008adf3b: POP EBX
+008adf3c: MOV ESP, EBP
+008adf3e: POP EBP
+008adf3f: RET 0xc
+008adf42: FLD float ptr [0x0106f8c8]
+008adf48: PUSH ECX
+008adf49: LEA EAX, [ESP + 0x18]
+008adf4d: FSTP float ptr [ESP]
+008adf50: PUSH EAX
+008adf51: LEA ECX, [ESI + 0x187c]
+008adf57: MOVSS dword ptr [ESP + 0x1c], XMM2
+008adf5d: CALL 0x008ab2a0
+008adf62: POP EDI
+008adf63: POP ESI
+008adf64: POP EBX
+008adf65: MOV ESP, EBP
+008adf67: POP EBP
+008adf68: RET 0xc
+008adf6b: FNSTCW word ptr [ESP + 0x14]
+008adf6f: MOVZX EAX, word ptr [ESP + 0x14]
+008adf74: OR EAX, 0xc00
+008adf79: MOV dword ptr [ESP + 0x18], EAX
+008adf7d: FLDCW word ptr [ESP + 0x18]
+008adf81: FISTP qword ptr [ESP + 0x18]
+008adf85: MOV ECX, dword ptr [ESP + 0x18]
+008adf89: MOV dword ptr [ESI + 0x33c], ECX
+008adf8f: FLDCW word ptr [ESP + 0x14]
+008adf93: POP EDI
+008adf94: POP ESI
+008adf95: POP EBX
+008adf96: MOV ESP, EBP
+008adf98: POP EBP
+008adf99: RET 0xc
+
+Total instructions: 483

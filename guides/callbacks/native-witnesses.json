@@ -1,0 +1,551 @@
+{
+  "schemaVersion": 1,
+  "exe": "TS3W.exe",
+  "provenance": "Original retail PC 1.67 PE32, exact original file bytes; no runtime observation",
+  "witnessCount": 19,
+  "witnesses": [
+    {
+      "label": "animation-finished-register",
+      "startVA": "0x0073A250",
+      "endVAExclusive": "0x0073A25E",
+      "fileOffset": 3383888,
+      "byteLength": 14,
+      "bytesHex": "8b4424048b0d344e1d01894108c3",
+      "disassembly": "native/disassembly/animation-finished-register.objdump.txt",
+      "registrationRows": [
+        {
+          "name": "ScriptCore.Animation::Animation_SetPMAAnimationFinishedCallback",
+          "recordVA": "0x0115eb90",
+          "recordFileOffset": 14019472,
+          "recordHex": "50a2730050020001",
+          "stringVA": "0x01000250",
+          "stringFileOffset": 12583504,
+          "stringBytesHex": "536372697074436f72652e416e696d6174696f6e3a3a416e696d6174696f6e5f536574504d41416e696d6174696f6e46696e697368656443616c6c6261636b00",
+          "managedTokens": [
+            "0x06000DC5"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.Animation::Animation_SetPMAAnimationFinishedCallback(System.Delegate)->System.Void"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "animation-missing-noop",
+      "startVA": "0x004B40C0",
+      "endVAExclusive": "0x004B40C1",
+      "fileOffset": 737472,
+      "byteLength": 1,
+      "bytesHex": "c3",
+      "disassembly": "native/disassembly/animation-missing-noop.objdump.txt",
+      "registrationRows": [
+        {
+          "name": "ScriptCore.Animation::Animation_SetMissingAnimationCallback",
+          "recordVA": "0x0115ebb8",
+          "recordFileOffset": 14019512,
+          "recordHex": "c0404b00ac030001",
+          "stringVA": "0x010003ac",
+          "stringFileOffset": 12583852,
+          "stringBytesHex": "536372697074436f72652e416e696d6174696f6e3a3a416e696d6174696f6e5f5365744d697373696e67416e696d6174696f6e43616c6c6261636b00",
+          "managedTokens": [
+            "0x06000DCA"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.Animation::Animation_SetMissingAnimationCallback(System.Delegate)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.ProfilerUtils::ProfilerUtils_BeginEventImpl",
+          "recordVA": "0x01161690",
+          "recordFileOffset": 14030480,
+          "recordHex": "c0404b00f84b0001",
+          "stringVA": "0x01004bf8",
+          "stringFileOffset": 12602360,
+          "stringBytesHex": "536372697074436f72652e50726f66696c65725574696c733a3a50726f66696c65725574696c735f426567696e4576656e74496d706c00",
+          "managedTokens": [
+            "0x0600002C"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.ProfilerUtils::ProfilerUtils_BeginEventImpl(System.String)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.ProfilerUtils::ProfilerUtils_EndEventImpl",
+          "recordVA": "0x01161698",
+          "recordFileOffset": 14030488,
+          "recordHex": "c0404b00304c0001",
+          "stringVA": "0x01004c30",
+          "stringFileOffset": 12602416,
+          "stringBytesHex": "536372697074436f72652e50726f66696c65725574696c733a3a50726f66696c65725574696c735f456e644576656e74496d706c00",
+          "managedTokens": [
+            "0x0600002D"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.ProfilerUtils::ProfilerUtils_EndEventImpl()->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.ProfilerUtils::ProfilerUtils_MarkerImpl",
+          "recordVA": "0x011616a0",
+          "recordFileOffset": 14030496,
+          "recordHex": "c0404b00684c0001",
+          "stringVA": "0x01004c68",
+          "stringFileOffset": 12602472,
+          "stringBytesHex": "536372697074436f72652e50726f66696c65725574696c733a3a50726f66696c65725574696c735f4d61726b6572496d706c00",
+          "managedTokens": [
+            "0x0600002E"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.ProfilerUtils::ProfilerUtils_MarkerImpl(System.String)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.ProfilerUtils::ProfilerUtils_CounterImpl",
+          "recordVA": "0x011616a8",
+          "recordFileOffset": 14030504,
+          "recordHex": "c0404b009c4c0001",
+          "stringVA": "0x01004c9c",
+          "stringFileOffset": 12602524,
+          "stringBytesHex": "536372697074436f72652e50726f66696c65725574696c733a3a50726f66696c65725574696c735f436f756e746572496d706c00",
+          "managedTokens": [
+            "0x0600002F"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.ProfilerUtils::ProfilerUtils_CounterImpl(System.String,System.Int32)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.ProfilerUtils::ProfilerUtils_DeltaImpl",
+          "recordVA": "0x011616b0",
+          "recordFileOffset": 14030512,
+          "recordHex": "c0404b00d04c0001",
+          "stringVA": "0x01004cd0",
+          "stringFileOffset": 12602576,
+          "stringBytesHex": "536372697074436f72652e50726f66696c65725574696c733a3a50726f66696c65725574696c735f44656c7461496d706c00",
+          "managedTokens": [
+            "0x06000030"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.ProfilerUtils::ProfilerUtils_DeltaImpl(System.String,System.Int32)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.RouteManager::RouteManager_SetCarSpeedGlobalMultiplier",
+          "recordVA": "0x01161c28",
+          "recordFileOffset": 14031912,
+          "recordHex": "c0404b0018700001",
+          "stringVA": "0x01007018",
+          "stringFileOffset": 12611608,
+          "stringBytesHex": "536372697074436f72652e526f7574654d616e616765723a3a526f7574654d616e616765725f5365744361725370656564476c6f62616c4d756c7469706c69657200",
+          "managedTokens": [
+            "0x06001050"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.RouteManager::RouteManager_SetCarSpeedGlobalMultiplier(System.Single)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.StreamHost::StreamHost_Flush",
+          "recordVA": "0x01162940",
+          "recordFileOffset": 14035264,
+          "recordHex": "c0404b0018dc0001",
+          "stringVA": "0x0100dc18",
+          "stringFileOffset": 12639256,
+          "stringBytesHex": "536372697074436f72652e53747265616d486f73743a3a53747265616d486f73745f466c75736800",
+          "managedTokens": [
+            "0x0600103A"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.StreamHost::StreamHost_Flush(System.UInt32)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.DownloadContent::DownloadContent_ShutdownImpl",
+          "recordVA": "0x01181638",
+          "recordFileOffset": 14161464,
+          "recordHex": "c0404b0080a50401",
+          "stringVA": "0x0104a580",
+          "stringFileOffset": 12887424,
+          "stringBytesHex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f53687574646f776e496d706c00",
+          "managedTokens": [
+            "0x060000E4"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.DownloadContent::DownloadContent_ShutdownImpl()->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.GameUtils::GameUtils_UpdateLocalAutonomyRadiusDisplay",
+          "recordVA": "0x011971c0",
+          "recordFileOffset": 14250432,
+          "recordHex": "c0404b0048420f01",
+          "stringVA": "0x010f4248",
+          "stringFileOffset": 13582920,
+          "stringBytesHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f5570646174654c6f63616c4175746f6e6f6d79526164697573446973706c617900",
+          "managedTokens": [
+            "0x0600024A"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.GameUtils::GameUtils_UpdateLocalAutonomyRadiusDisplay(System.Single)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.GameUtils::GameUtils_DumpProfilerScopeAverages",
+          "recordVA": "0x01197200",
+          "recordFileOffset": 14250496,
+          "recordHex": "c0404b0000440f01",
+          "stringVA": "0x010f4400",
+          "stringFileOffset": 13583360,
+          "stringBytesHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f44756d7050726f66696c657253636f7065417665726167657300",
+          "managedTokens": [
+            "0x06000252"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.GameUtils::GameUtils_DumpProfilerScopeAverages()->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.GameUtils::GameUtils_ResetProfilerScopeAverages",
+          "recordVA": "0x01197208",
+          "recordFileOffset": 14250504,
+          "recordHex": "c0404b003c440f01",
+          "stringVA": "0x010f443c",
+          "stringFileOffset": 13583420,
+          "stringBytesHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f526573657450726f66696c657253636f7065417665726167657300",
+          "managedTokens": [
+            "0x06000253"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.GameUtils::GameUtils_ResetProfilerScopeAverages()->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.GameUtils::GameUtils_ResetProfilerPeaks",
+          "recordVA": "0x01197210",
+          "recordFileOffset": 14250512,
+          "recordHex": "c0404b0078440f01",
+          "stringVA": "0x010f4478",
+          "stringFileOffset": 13583480,
+          "stringBytesHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f526573657450726f66696c65725065616b7300",
+          "managedTokens": [
+            "0x06000254"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.GameUtils::GameUtils_ResetProfilerPeaks()->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.GameUtils::GameUtils_BeginLoadEvent",
+          "recordVA": "0x01197270",
+          "recordFileOffset": 14250608,
+          "recordHex": "c0404b00fc460f01",
+          "stringVA": "0x010f46fc",
+          "stringFileOffset": 13584124,
+          "stringBytesHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f426567696e4c6f61644576656e7400",
+          "managedTokens": [
+            "0x06000260"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.GameUtils::GameUtils_BeginLoadEvent(System.String)->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.GameUtils::GameUtils_EndLoadEvent",
+          "recordVA": "0x01197278",
+          "recordFileOffset": 14250616,
+          "recordHex": "c0404b002c470f01",
+          "stringVA": "0x010f472c",
+          "stringFileOffset": 13584172,
+          "stringBytesHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f456e644c6f61644576656e7400",
+          "managedTokens": [
+            "0x06000261"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.GameUtils::GameUtils_EndLoadEvent()->System.Void"
+          ]
+        },
+        {
+          "name": "ScriptCore.GameUtils::GameUtils_ResetLoadEvents",
+          "recordVA": "0x01197280",
+          "recordFileOffset": 14250624,
+          "recordHex": "c0404b005c470f01",
+          "stringVA": "0x010f475c",
+          "stringFileOffset": 13584220,
+          "stringBytesHex": "536372697074436f72652e47616d655574696c733a3a47616d655574696c735f52657365744c6f61644576656e747300",
+          "managedTokens": [
+            "0x06000262"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.GameUtils::GameUtils_ResetLoadEvents()->System.Void"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "animation-finished-use-a",
+      "startVA": "0x0073A961",
+      "endVAExclusive": "0x0073A994",
+      "fileOffset": 3385697,
+      "byteLength": 51,
+      "bytesHex": "8a5c244884db742ba1344e1d0185c0740d83c004eb0a33ffeb8233f6ebe233c085f674058d4e0ceb0233c96aff50e8ecc4e3ff",
+      "disassembly": "native/disassembly/animation-finished-use-a.objdump.txt",
+      "registrationRows": []
+    },
+    {
+      "label": "animation-finished-use-b",
+      "startVA": "0x0073AEC8",
+      "endVAExclusive": "0x0073AEFA",
+      "fileOffset": 3387080,
+      "byteLength": 50,
+      "bytesHex": "a1344e1d0185c0741483c004eb11897c24188bf7e943feffff33f6ebe333c085f674058d4e0ceb0233c96aff50e886bfe3ff",
+      "disassembly": "native/disassembly/animation-finished-use-b.objdump.txt",
+      "registrationRows": []
+    },
+    {
+      "label": "animation-delegate-invoke",
+      "startVA": "0x00576F90",
+      "endVAExclusive": "0x00576FCE",
+      "fileOffset": 1535888,
+      "byteLength": 62,
+      "bytesHex": "53568bd983430c018b7304578d7b043bf77420558b6c24148bc68b480885c98b36740b8b400c8b118b125055ffd23bf775e65d8bcbe886edfeff5f5e5bc2",
+      "disassembly": "native/disassembly/animation-delegate-invoke.objdump.txt",
+      "registrationRows": []
+    },
+    {
+      "label": "camera-method-register",
+      "startVA": "0x0073E7A0",
+      "endVAExclusive": "0x0073E7FF",
+      "fileOffset": 3401632,
+      "byteLength": 95,
+      "bytesHex": "578b7c240883ff0477535356e8dfab02008b4c24188bf08b068b5058518bceffd28b4c24148bd88b068b5058518bceffd250c1e7058d87584e1d01680c0a000150e87a26e5ff538d8f684e1d01680c0a000151e86826e5ff83c4185e5b5fc3",
+      "disassembly": "native/disassembly/camera-method-register.objdump.txt",
+      "registrationRows": [
+        {
+          "name": "ScriptCore.CameraController::Camera_RegisterCallbackMethod",
+          "recordVA": "0x0115ec38",
+          "recordFileOffset": 14019640,
+          "recordHex": "a0e77300280a0001",
+          "stringVA": "0x01000a28",
+          "stringFileOffset": 12585512,
+          "stringBytesHex": "536372697074436f72652e43616d657261436f6e74726f6c6c65723a3a43616d6572615f526567697374657243616c6c6261636b4d6574686f6400",
+          "managedTokens": [
+            "0x060006E9"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.CameraController::Camera_RegisterCallbackMethod(System.UInt32,System.String,System.String)->System.Void"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "camera-method-dispatch",
+      "startVA": "0x0073E460",
+      "endVAExclusive": "0x0073E53A",
+      "fileOffset": 3400800,
+      "byteLength": 218,
+      "bytesHex": "83ec408b4424485556c1e0058b885c4e1d0133ed5733f633ff2b88584e1d01c744240cf4a6fb0066896c241466896c241674068bb0584e1d018b906c4e1d012b90684e1d0174068bb8684e1d013bf574493bfd7445e8d6ae02008b4c245c8b108b9238010000518b4c245c5157568d4c243c518bc8ffd2508d4c2410e8cf7fdbfff644243404c744242cf4a6fb00740a558d4c2430e86672dbff8b7424508d44240c508bcec706f4a6fb0066896e0866896e0ae8987fdbfff644241404c744240cf4a6fb00740a558d4c2410e82f72dbff5f8bc65e5d83c440c3",
+      "disassembly": "native/disassembly/camera-method-dispatch.objdump.txt",
+      "registrationRows": []
+    },
+    {
+      "label": "world-method-register",
+      "startVA": "0x00796550",
+      "endVAExclusive": "0x0079658C",
+      "fileOffset": 3761488,
+      "byteLength": 60,
+      "bytesHex": "578b7c240883ff4b773056e8302efdff8b4c24148bf08b068b5058518bceffd28b4c2410508b068b5058518bceffd25057e88affffff83c40c5e5fc3",
+      "disassembly": "native/disassembly/world-method-register.objdump.txt",
+      "registrationRows": [
+        {
+          "name": "ScriptCore.World::World_RegisterCallbackMethodImpl",
+          "recordVA": "0x01163228",
+          "recordFileOffset": 14037544,
+          "recordHex": "506579005c1d0101",
+          "stringVA": "0x01011d5c",
+          "stringFileOffset": 12655964,
+          "stringBytesHex": "536372697074436f72652e576f726c643a3a576f726c645f526567697374657243616c6c6261636b4d6574686f64496d706c00",
+          "managedTokens": [
+            "0x06000742"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.World::World_RegisterCallbackMethodImpl(System.UInt32,System.String,System.String)->System.Void"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "world-method-store",
+      "startVA": "0x00796510",
+      "endVAExclusive": "0x0079654D",
+      "fileOffset": 3761424,
+      "byteLength": 61,
+      "bytesHex": "8b442404568d34c08b44240c03f65003f68d8e587a1d01680c0a000151e82ea9dfff8b54241c528d86687a1d01680c0a000150e818a9dfff83c4185ec3",
+      "disassembly": "native/disassembly/world-method-store.objdump.txt",
+      "registrationRows": []
+    },
+    {
+      "label": "world-delegate-register",
+      "startVA": "0x00786580",
+      "endVAExclusive": "0x00786598",
+      "fileOffset": 3696000,
+      "byteLength": 24,
+      "bytesHex": "8b44240483f84b770e8b4c24088d04c0890c85787a1d01c3",
+      "disassembly": "native/disassembly/world-delegate-register.objdump.txt",
+      "registrationRows": [
+        {
+          "name": "ScriptCore.World::World_RegisterCallbackDelegateImpl",
+          "recordVA": "0x01163230",
+          "recordFileOffset": 14037552,
+          "recordHex": "80657800901d0101",
+          "stringVA": "0x01011d90",
+          "stringFileOffset": 12656016,
+          "stringBytesHex": "536372697074436f72652e576f726c643a3a576f726c645f526567697374657243616c6c6261636b44656c6567617465496d706c00",
+          "managedTokens": [
+            "0x06000743"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.World::World_RegisterCallbackDelegateImpl(System.UInt32,System.Delegate)->System.Void"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "world-event-dispatch",
+      "startVA": "0x0078F670",
+      "endVAExclusive": "0x0078F77D",
+      "fileOffset": 3733104,
+      "byteLength": 269,
+      "bytesHex": "83ec448b44244c535533db8d0cc0568b348d787a1d013bf3bdf4a6fb00896c241066895c241866895c241a7442e8ee9cfdff8b4c24608b108b9234010000518b4c246051568d4c243c518bc8ffd2508d4c2414e8e86dd6fff644243804896c24307472538d4c2434e88360d6ffeb66578d4c2410518d5424605250e880a3ffff8b7c246883c40c3bfb74498b7424103bf37441e8889cfdff8b4c24648b108b9238010000518b4c24645156578d4c2444518bc8ffd2508d4c2418e8816dd6fff644243c04896c2434740a538d4c2438e81c60d6ff5f8b7424548d442410508bce892e66895e0866895e0ae8516dd6fff644241804896c2410740a538d4c2414e8ec5fd6ff8bc65e5d5b83c444c3",
+      "disassembly": "native/disassembly/world-event-dispatch.objdump.txt",
+      "registrationRows": []
+    },
+    {
+      "label": "audio-finished-register",
+      "startVA": "0x00863330",
+      "endVAExclusive": "0x00863353",
+      "fileOffset": 4600624,
+      "byteLength": 35,
+      "disassembly": "../../evidence/native/functions/00863330_ScriptCore_Audio_Audio_SoundFinishedCallbackImpl.asm",
+      "registrationRows": [
+        {
+          "name": "ScriptCore.Audio::Audio_SoundFinishedCallbackImpl",
+          "recordVA": "0x011677b8",
+          "recordFileOffset": 14055352,
+          "recordHex": "303386000c920201",
+          "stringVA": "0x0102920c",
+          "stringFileOffset": 12751372,
+          "stringBytesHex": "536372697074436f72652e417564696f3a3a417564696f5f536f756e6446696e697368656443616c6c6261636b496d706c00",
+          "managedTokens": [
+            "0x060011E1"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.Audio::Audio_SoundFinishedCallbackImpl(System.UInt32,System.Delegate)->System.Void"
+          ]
+        }
+      ],
+      "decompilerPseudocode": "../../evidence/native/functions/00863330_ScriptCore_Audio_Audio_SoundFinishedCallbackImpl.c"
+    },
+    {
+      "label": "audio-finished-store",
+      "startVA": "0x008662C0",
+      "endVAExclusive": "0x008662F7",
+      "fileOffset": 4612800,
+      "byteLength": 55,
+      "disassembly": "../../evidence/native/functions/008662C0_Audio_StoreSoundFinishedDelegate.asm",
+      "registrationRows": [],
+      "decompilerPseudocode": "../../evidence/native/functions/008662C0_Audio_StoreSoundFinishedDelegate.c"
+    },
+    {
+      "label": "audio-finished-dispatch",
+      "startVA": "0x008659F0",
+      "endVAExclusive": "0x00865AEA",
+      "fileOffset": 4610544,
+      "byteLength": 250,
+      "disassembly": "../../evidence/native/functions/008659F0_Audio_DispatchFinishedSoundCallbackEvent.asm",
+      "registrationRows": [],
+      "decompilerPseudocode": "../../evidence/native/functions/008659F0_Audio_DispatchFinishedSoundCallbackEvent.c"
+    },
+    {
+      "label": "audio-modifier-register",
+      "startVA": "0x00863750",
+      "endVAExclusive": "0x00863921",
+      "fileOffset": 4601680,
+      "byteLength": 465,
+      "bytesHex": "a1409c1d0183ec1c5733ff3bc70f84b9010000538d983084fdff3bdf0f84a9010000568b74242c3bf774305757575768688f02016a0ce8750dc8ff83c4183bc7740a568bc8e816850000eb0233c05068d41c68208bcbe8e52d00008b7424343bf7743057575757684c8f02016a0ce83d0dc8ff83c4183bc7740a568bc8e80e830000eb0233c05068efacc4518bcbe8ad2d0000558b6c24343bef0f84290100008b038b901801000068408f02018bcbffd28944241c89542420c744242462f6b902c7442428ec071400897c2410e85ec6c4ff8b4c24103bcf8bf0740b897c24108b018b5004ffd28b068b400c575757578d4c2420518d542430528bceffd084c00f84b40000008b4c241085c98bf9897c241474068b118b02ffd08b57288b52208d4f288d44241850687c3599c4ffd284c0747e8b74241866837e0a137573f6460810746d8bcee8d51fc9ff8bce8bf8e8ac1fc9ff85ff76558bf08d9b000000006a006a006a006a0068248f02016a1ce83c0cc8ff83c41885c0740d8b0e51558bc8e89a880000eb0233c08b0e506a0168c59d1c8151e8466fc9ff83c40c508bcbe89b2c000083c61083ef0175b38b7c24148b078b50048bcfffd28b4c241085c974078b018b5004ffd25d5e5b5f83c41cc3",
+      "disassembly": "native/disassembly/audio-modifier-register.objdump.txt",
+      "registrationRows": [
+        {
+          "name": "ScriptCore.Audio::Audio_SetEventModifiersImpl",
+          "recordVA": "0x011677c8",
+          "recordFileOffset": 14055368,
+          "recordHex": "503786006c920201",
+          "stringVA": "0x0102926c",
+          "stringFileOffset": 12751468,
+          "stringBytesHex": "536372697074436f72652e417564696f3a3a417564696f5f5365744576656e744d6f64696669657273496d706c00",
+          "managedTokens": [
+            "0x060011E6"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.Audio::Audio_SetEventModifiersImpl(System.Delegate,System.Delegate,System.Delegate,System.Delegate)->System.Void"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "save-world-entry",
+      "startVA": "0x00743880",
+      "endVAExclusive": "0x0074396E",
+      "fileOffset": 3422336,
+      "byteLength": 238,
+      "bytesHex": "83ec405533ed392dc4db1e010f84d700000056575555555568c82600016a40e85c0cdaff8bf083c4183bf5742d8bcee89c996000c74620c0cffe00896e28c706d0230001c74620c0230001c64624008b068b50048bce8beeffd2e8b15a02008b7c2450578bcd8bf0e883fdffff84c075646a018d4c241051884424248b068b8034010000578d542438528bcec744241c6c88000166c7442426010066c74424240200ffd0f644243404bef4a6fb008974242c740b6a008d4c2430e8211edbfff6442414048974240c740b6a008d4c2410e80b1edbff85ed5f5e740e8b55008b42088bcd5d83c440ffe05d83c440c3",
+      "disassembly": "native/disassembly/save-world-entry.objdump.txt",
+      "registrationRows": [
+        {
+          "name": "ScriptCore.LoadSaveManager::LoadSaveManager_SaveWorld",
+          "recordVA": "0x011611f8",
+          "recordFileOffset": 14029304,
+          "recordHex": "80387400f0270001",
+          "stringVA": "0x010027f0",
+          "stringFileOffset": 12593136,
+          "stringBytesHex": "536372697074436f72652e4c6f6164536176654d616e616765723a3a4c6f6164536176654d616e616765725f53617665576f726c6400",
+          "managedTokens": [
+            "0x060001D5"
+          ],
+          "managedSignatures": [
+            "ScriptCore:ScriptCore.LoadSaveManager::LoadSaveManager_SaveWorld(ScriptCore.LoadSaveManager+SaveWorldDelegate)->System.Void"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "save-world-queue",
+      "startVA": "0x00743670",
+      "endVAExclusive": "0x00743877",
+      "fileOffset": 3421808,
+      "byteLength": 519,
+      "bytesHex": "83ec2c53578bd9e8145d02008b10894424188bc88b8218010000ffd0894330895334a130ec1e0133ff3bc78944240c750a5f32c05b83c42cc204008b0dc4db1e01555633f63bcf897c242c89742430897c2434c744243898260001894c241c0f84b30000006a01e8c45052008b68042b288bcfc1fd0289442418894c24100f8494000000eb048b4424188b108b048a3bc7746e8b4848894c24248b504c8b4c241c8d442424508954242ce80100520084c0744e8b4c24288b5424246a04518b4c241c52e81800610084c074353b742434731c8bc683c6083bc78974243074228b4c242489088b542428895004eb138d44242450568d4c2434e8f3ebe2ff8b7424308b4c241083c1013bcd894c24100f8272ffffff8b7c242ce89363e5ff8b108d6b288bc88b421055ffd084c0751985ff740957e8380ddaff83c4045e5d5f32c05b83c42cc204008d4b20518b4d00e85d64e5ff8b5500c74220040000008b4500c740082032740089580c8b4d00e85e66e5ff8bcbe8978660002bf7c1fe038974241cbe0000000074298da424000000008b4cf7048b04f7536a006a045150518b4c242c50e8a7db610083c6013b74241c72de8b4c24408b53348b7424208b066a00518b4b306aff528b9020010000518bceffd28bcbe8468660008b4d00e8fe7ae5ff8b068b901c0100008bceffd285ff740957e8780cdaff83c4045e5d5fb0015b83c42cc20400",
+      "disassembly": "native/disassembly/save-world-queue.objdump.txt",
+      "registrationRows": []
+    },
+    {
+      "label": "save-world-result-dispatch",
+      "startVA": "0x00742FC0",
+      "endVAExclusive": "0x00743027",
+      "fileOffset": 3420096,
+      "byteLength": 103,
+      "bytesHex": "83ec20568bf1e8c563020085c074518a4c24288b108b9224010000884c24148d4c2404518b4e34518b4e30518bc8c74424106c88000166c744241a010066c74424180200ffd2f644240c04c7442404f4a6fb00740b6a008d4c2408e84027dbff5e83c420c20400",
+      "disassembly": "native/disassembly/save-world-result-dispatch.objdump.txt",
+      "registrationRows": []
+    },
+    {
+      "label": "save-world-task-gate",
+      "startVA": "0x00743220",
+      "endVAExclusive": "0x00743242",
+      "fileOffset": 3420704,
+      "byteLength": 34,
+      "bytesHex": "837c240c0475158b4424048b4c240850e81bfeffff84c0750333c0c3b801000000c3",
+      "disassembly": "native/disassembly/save-world-task-gate.objdump.txt",
+      "registrationRows": []
+    }
+  ]
+}

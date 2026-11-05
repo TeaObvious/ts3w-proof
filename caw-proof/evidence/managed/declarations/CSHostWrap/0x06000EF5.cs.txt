@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000EF5.
+// Assembly: CSHostWrap; type: Sims3.CSHost.ContentManager.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/ContentManager.cs:37
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.U1)]
+	private static extern bool ContentManager_ExportResource(ResourceKey key, [In][MarshalAs(UnmanagedType.LPWStr)] string name, [In][MarshalAs(UnmanagedType.LPWStr)] string outputDirectory, ulong thumbnailId, int nameCount, [In][MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 4)] string[] nameCodes, [In][MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 4)] string[] localizedNames, int descCount, [In][MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 7)] string[] descCodes, [In][MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 7)] string[] localizedDescriptions, [In][MarshalAs(UnmanagedType.LPWStr)] string desiredPackageId, uint epFlags, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_UI1)] byte[] xmlTags, int addPackageCount, [In][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 12)] PackageId[] addPackageIds);

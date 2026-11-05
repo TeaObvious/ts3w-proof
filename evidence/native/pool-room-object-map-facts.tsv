@@ -1,0 +1,9 @@
+address	fact	physical_evidence
+00b692ab	signed room-key comparison	CMP DX,word[EAX];JGE existing payload branch
+00b54a96	signed lower-bound comparison	CMP word[ESI+EDX*8],DI;JGE lower half
+00b69335	row payload address	ADD EAX,8 before RET4
+00b693d8	unsigned count zero gate	JBE after UInt32 count compare
+00b6942e	unsigned row loop	JC after row increment/count compare
+00b69447	version6 Boolean	CALL4DD860; one-byte read/nonzero normalization, sticky status
+00ac99ed	reader caller failure	ALfalse frees partial manager and returns throughAC9A40
+007d7a70	resource close	complete body has no explicit EOF/status check

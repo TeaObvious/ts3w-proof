@@ -35,7 +35,11 @@ Keine Originalbyte-Patches, pauschale Reanalyse, neuen Imports oder automatische
 4. Jeden Task bis terminal verfolgen, dann Namen, Kommentar, Signatur und
    betroffene Decompilation zurücklesen. Ein gesendeter Request ist kein Erfolg.
 5. Kanonische finale ASM/C-Belege aus dem aktualisierten Stand gewinnen bzw.
-   gezielt erneuern, einschließlich betroffener erfasster Aufrufer. Namen müssen
+   gezielt erneuern, einschließlich betroffener erfasster Aufrufer bei geänderten
+   Funktionsbezügen. Parameter-/Variablenänderungen allein erzwingen gemäß
+   Nutzerpräzisierung vom 05.11.2026 keinen rückwirkenden C-Durchgang: ihre
+   C-Darstellung wird beim abschließenden Gesamtexport aus Ghidra aktualisiert.
+   Die tatsächliche DB-Pflege und deren Rücklesung bleiben erforderlich. Namen müssen
    aus frischer Decompilation der gepflegten DB stammen. Bedeutung gegen
    unveränderte Originalbytes prüfen; keine reine Export-Textersetzung.
 6. DB- und Exportnamen, Inline-Kommentare, Guides und Indizes abgleichen.

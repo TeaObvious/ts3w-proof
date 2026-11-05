@@ -1,0 +1,46 @@
+Module MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+Original PC1.67 UI SHA256 d38676dc2b953c03f3d764b7c2d531c1f2a08c0232580b40a8880c188f659b89
+Metadata token=06001272 flags=0096 implflags=0000 rawSignature=000112822c1180a1
+
+06001272 Sims3.UI.UIManager::GetThumbnailImage RVA=00065b44 bytes=25 maxStack=3 flags=3013 localSignature=1100003f
+Raw complete method header 13300300190000003f000011
+Raw complete CIL 7ea113000402166f9c04000a0a062d02142a0673180400062a
+ IL_0000: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0005: 02                   ldarg.0
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 6f9c04000a           callvirt 9c04000a GetThumbnailImage
+ IL_000c: 0a                   stloc.0
+ IL_000d: 06                   ldloc.0
+ IL_000e: 2d02                 brtrue.s 02
+ IL_0010: 14                   ldnull
+ IL_0011: 2a                   ret
+ IL_0012: 06                   ldloc.0
+ IL_0013: 7318040006           newobj 18040006 .ctor
+ IL_0018: 2a                   ret
+Metadata token=06001273 flags=0096 implflags=0000 rawSignature=000212822c1180a112822c
+
+06001273 Sims3.UI.UIManager::GetThumbnailImage RVA=00065b6c bytes=46 maxStack=3 flags=3013 localSignature=1100003f
+Raw complete method header 133003002e0000003f000011
+Raw complete CIL 0314281d0400062c1e7ea113000402036f170400066f9c04000a0a062d02142a0673180400062a0228721200062a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 14                   ldnull
+ IL_0002: 281d040006           call 1d040006 op_Inequality
+ IL_0007: 2c1e                 brfalse.s 1e
+ IL_0009: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_000e: 02                   ldarg.0
+ IL_000f: 03                   ldarg.1
+ IL_0010: 6f17040006           callvirt 17040006 get_UIImageHandle
+ IL_0015: 6f9c04000a           callvirt 9c04000a GetThumbnailImage
+ IL_001a: 0a                   stloc.0
+ IL_001b: 06                   ldloc.0
+ IL_001c: 2d02                 brtrue.s 02
+ IL_001e: 14                   ldnull
+ IL_001f: 2a                   ret
+ IL_0020: 06                   ldloc.0
+ IL_0021: 7318040006           newobj 18040006 .ctor
+ IL_0026: 2a                   ret
+ IL_0027: 02                   ldarg.0
+ IL_0028: 2872120006           call 72120006 GetThumbnailImage
+ IL_002d: 2a                   ret
+
+SELECTED complete_methods=2 CIL_bytes=71

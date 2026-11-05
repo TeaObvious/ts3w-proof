@@ -1,0 +1,100 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00c29080 to next catalog entry 0x00c291e0; may include padding or data.
+  c29080:	55                   	push   ebp
+  c29081:	8b ec                	mov    ebp,esp
+  c29083:	83 e4 f0             	and    esp,0xfffffff0
+  c29086:	83 ec 7c             	sub    esp,0x7c
+  c29089:	f3 0f 10 05 54 79 07 	movss  xmm0,DWORD PTR ds:0x1077954
+  c29090:	01 
+  c29091:	56                   	push   esi
+  c29092:	8b f1                	mov    esi,ecx
+  c29094:	f3 0f 11 44 24 08    	movss  DWORD PTR [esp+0x8],xmm0
+  c2909a:	d9 45 08             	fld    DWORD PTR [ebp+0x8]
+  c2909d:	db 54 24 10          	fist   DWORD PTR [esp+0x10]
+  c290a1:	db 44 24 10          	fild   DWORD PTR [esp+0x10]
+  c290a5:	de e9                	fsubp  st(1),st
+  c290a7:	d9 5c 24 0c          	fstp   DWORD PTR [esp+0xc]
+  c290ab:	81 7c 24 0c 01 00 00 	cmp    DWORD PTR [esp+0xc],0x80000001
+  c290b2:	80 
+  c290b3:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+  c290b7:	83 d0 ff             	adc    eax,0xffffffff
+  c290ba:	8b c8                	mov    ecx,eax
+  c290bc:	d9 45 0c             	fld    DWORD PTR [ebp+0xc]
+  c290bf:	db 54 24 18          	fist   DWORD PTR [esp+0x18]
+  c290c3:	db 44 24 18          	fild   DWORD PTR [esp+0x18]
+  c290c7:	de e9                	fsubp  st(1),st
+  c290c9:	d9 5c 24 14          	fstp   DWORD PTR [esp+0x14]
+  c290cd:	81 7c 24 14 01 00 00 	cmp    DWORD PTR [esp+0x14],0x80000001
+  c290d4:	80 
+  c290d5:	8b 44 24 18          	mov    eax,DWORD PTR [esp+0x18]
+  c290d9:	83 d0 ff             	adc    eax,0xffffffff
+  c290dc:	c1 f8 08             	sar    eax,0x8
+  c290df:	8b d0                	mov    edx,eax
+  c290e1:	8b 86 cc 00 00 00    	mov    eax,DWORD PTR [esi+0xcc]
+  c290e7:	c1 f9 08             	sar    ecx,0x8
+  c290ea:	3b c8                	cmp    ecx,eax
+  c290ec:	0f 83 e2 00 00 00    	jae    0xc291d4
+  c290f2:	3b 96 d0 00 00 00    	cmp    edx,DWORD PTR [esi+0xd0]
+  c290f8:	0f 83 d6 00 00 00    	jae    0xc291d4
+  c290fe:	0f af c2             	imul   eax,edx
+  c29101:	03 c1                	add    eax,ecx
+  c29103:	8b 8e bc 00 00 00    	mov    ecx,DWORD PTR [esi+0xbc]
+  c29109:	8b 04 81             	mov    eax,DWORD PTR [ecx+eax*4]
+  c2910c:	85 c0                	test   eax,eax
+  c2910e:	0f 84 c0 00 00 00    	je     0xc291d4
+  c29114:	f3 0f 10 45 08       	movss  xmm0,DWORD PTR [ebp+0x8]
+  c29119:	db 46 34             	fild   DWORD PTR [esi+0x34]
+  c2911c:	8b 56 34             	mov    edx,DWORD PTR [esi+0x34]
+  c2911f:	85 d2                	test   edx,edx
+  c29121:	f3 0f 11 44 24 2c    	movss  DWORD PTR [esp+0x2c],xmm0
+  c29127:	f3 0f 10 45 0c       	movss  xmm0,DWORD PTR [ebp+0xc]
+  c2912c:	f3 0f 11 44 24 28    	movss  DWORD PTR [esp+0x28],xmm0
+  c29132:	7d 06                	jge    0xc2913a
+  c29134:	d8 05 48 99 f9 00    	fadd   DWORD PTR ds:0xf99948
+  c2913a:	d8 05 f4 98 f9 00    	fadd   DWORD PTR ds:0xf998f4
+  c29140:	8d 4c 24 50          	lea    ecx,[esp+0x50]
+  c29144:	51                   	push   ecx
+  c29145:	8d 4c 24 34          	lea    ecx,[esp+0x34]
+  c29149:	d9 5c 24 20          	fstp   DWORD PTR [esp+0x20]
+  c2914d:	51                   	push   ecx
+  c2914e:	f3 0f 10 44 24 24    	movss  xmm0,DWORD PTR [esp+0x24]
+  c29154:	0f 28 48 20          	movaps xmm1,XMMWORD PTR [eax+0x20]
+  c29158:	8b 40 38             	mov    eax,DWORD PTR [eax+0x38]
+  c2915b:	f3 0f 11 44 24 2c    	movss  DWORD PTR [esp+0x2c],xmm0
+  c29161:	f3 0f 10 45 08       	movss  xmm0,DWORD PTR [ebp+0x8]
+  c29166:	f3 0f 11 44 24 28    	movss  DWORD PTR [esp+0x28],xmm0
+  c2916c:	0f 28 44 24 28       	movaps xmm0,XMMWORD PTR [esp+0x28]
+  c29171:	0f 5c c1             	subps  xmm0,xmm1
+  c29174:	f3 0f 10 0d 18 b2 fa 	movss  xmm1,DWORD PTR ds:0xfab218
+  c2917b:	00 
+  c2917c:	0f 29 44 24 38       	movaps XMMWORD PTR [esp+0x38],xmm0
+  c29181:	0f 57 c0             	xorps  xmm0,xmm0
+  c29184:	f3 0f 11 44 24 34    	movss  DWORD PTR [esp+0x34],xmm0
+  c2918a:	f3 0f 11 44 24 30    	movss  DWORD PTR [esp+0x30],xmm0
+  c29190:	f3 0f 11 4c 24 2c    	movss  DWORD PTR [esp+0x2c],xmm1
+  c29196:	f3 0f 11 44 24 28    	movss  DWORD PTR [esp+0x28],xmm0
+  c2919c:	0f 28 44 24 28       	movaps xmm0,XMMWORD PTR [esp+0x28]
+  c291a1:	0f 29 44 24 48       	movaps XMMWORD PTR [esp+0x48],xmm0
+  c291a6:	8b 10                	mov    edx,DWORD PTR [eax]
+  c291a8:	8b 52 10             	mov    edx,DWORD PTR [edx+0x10]
+  c291ab:	8b c8                	mov    ecx,eax
+  c291ad:	ff d2                	call   edx
+  c291af:	84 c0                	test   al,al
+  c291b1:	74 21                	je     0xc291d4
+  c291b3:	8b 46 34             	mov    eax,DWORD PTR [esi+0x34]
+  c291b6:	db 46 34             	fild   DWORD PTR [esi+0x34]
+  c291b9:	85 c0                	test   eax,eax
+  c291bb:	7d 06                	jge    0xc291c3
+  c291bd:	d8 05 48 99 f9 00    	fadd   DWORD PTR ds:0xf99948
+  c291c3:	d8 05 f4 98 f9 00    	fadd   DWORD PTR ds:0xf998f4
+  c291c9:	d8 64 24 70          	fsub   DWORD PTR [esp+0x70]
+  c291cd:	5e                   	pop    esi
+  c291ce:	8b e5                	mov    esp,ebp
+  c291d0:	5d                   	pop    ebp
+  c291d1:	c2 08 00             	ret    0x8
+  c291d4:	d9 44 24 08          	fld    DWORD PTR [esp+0x8]
+  c291d8:	5e                   	pop    esi
+  c291d9:	8b e5                	mov    esp,ebp
+  c291db:	5d                   	pop    ebp
+  c291dc:	c2 08 00             	ret    0x8
+  c291df:	cc                   	int3

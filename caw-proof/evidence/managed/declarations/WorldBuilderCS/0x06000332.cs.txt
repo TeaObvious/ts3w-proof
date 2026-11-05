@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000332.
+// Assembly: WorldBuilderCS; type: WorldBuilderCS.TextureDatabase.
+// Decompiled C# source: WorldBuilderCS/WorldBuilderCS/TextureDatabase.cs:33
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.U1)]
+	private static extern bool TextureDatabase_Add(IntPtr nativeObj, ResourceKey key, [In][MarshalAs(UnmanagedType.LPStr)] string name, [In][MarshalAs(UnmanagedType.LPArray)] byte[] data, int dataLen);

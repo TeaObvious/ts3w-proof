@@ -1,0 +1,58 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00802950 <.text+0x401950>:
+  802950:	56                   	push   esi
+  802951:	8b 74 24 08          	mov    esi,DWORD PTR [esp+0x8]
+  802955:	85 f6                	test   esi,esi
+  802957:	57                   	push   edi
+  802958:	8b f9                	mov    edi,ecx
+  80295a:	74 72                	je     0x8029ce
+  80295c:	55                   	push   ebp
+  80295d:	8b 6c 24 14          	mov    ebp,DWORD PTR [esp+0x14]
+  802961:	85 ed                	test   ebp,ebp
+  802963:	74 68                	je     0x8029cd
+  802965:	80 7d 4c 00          	cmp    BYTE PTR [ebp+0x4c],0x0
+  802969:	74 0f                	je     0x80297a
+  80296b:	80 7f 3c 00          	cmp    BYTE PTR [edi+0x3c],0x0
+  80296f:	75 1a                	jne    0x80298b
+  802971:	c6 47 3c 01          	mov    BYTE PTR [edi+0x3c],0x1
+  802975:	89 77 40             	mov    DWORD PTR [edi+0x40],esi
+  802978:	eb 11                	jmp    0x80298b
+  80297a:	80 7f 3c 00          	cmp    BYTE PTR [edi+0x3c],0x0
+  80297e:	74 0b                	je     0x80298b
+  802980:	c6 47 3c 00          	mov    BYTE PTR [edi+0x3c],0x0
+  802984:	c7 47 40 00 00 00 00 	mov    DWORD PTR [edi+0x40],0x0
+  80298b:	8b 46 78             	mov    eax,DWORD PTR [esi+0x78]
+  80298e:	85 c0                	test   eax,eax
+  802990:	74 1a                	je     0x8029ac
+  802992:	8b 48 38             	mov    ecx,DWORD PTR [eax+0x38]
+  802995:	85 c9                	test   ecx,ecx
+  802997:	74 0c                	je     0x8029a5
+  802999:	56                   	push   esi
+  80299a:	8d 47 44             	lea    eax,[edi+0x44]
+  80299d:	50                   	push   eax
+  80299e:	6a 03                	push   0x3
+  8029a0:	e8 ab 21 ff ff       	call   0x7f4b50
+  8029a5:	c7 46 78 00 00 00 00 	mov    DWORD PTR [esi+0x78],0x0
+  8029ac:	8b ce                	mov    ecx,esi
+  8029ae:	e8 bd e2 ff ff       	call   0x800c70
+  8029b3:	b8 40 00 00 00       	mov    eax,0x40
+  8029b8:	55                   	push   ebp
+  8029b9:	50                   	push   eax
+  8029ba:	8b ce                	mov    ecx,esi
+  8029bc:	e8 1f ff ff ff       	call   0x8028e0
+  8029c1:	55                   	push   ebp
+  8029c2:	56                   	push   esi
+  8029c3:	8b cf                	mov    ecx,edi
+  8029c5:	89 6e 28             	mov    DWORD PTR [esi+0x28],ebp
+  8029c8:	e8 23 d8 ff ff       	call   0x8001f0
+  8029cd:	5d                   	pop    ebp
+  8029ce:	5f                   	pop    edi
+  8029cf:	5e                   	pop    esi
+  8029d0:	c2 08 00             	ret    0x8
+  8029d3:	cc                   	int3
+  8029d4:	cc                   	int3

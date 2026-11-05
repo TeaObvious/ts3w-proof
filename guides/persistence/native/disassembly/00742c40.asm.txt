@@ -1,0 +1,46 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00742c40 <.text+0x341c40>:
+  742c40:	56                   	push   esi
+  742c41:	e8 4a 67 02 00       	call   0x769390
+  742c46:	8b f0                	mov    esi,eax
+  742c48:	85 f6                	test   esi,esi
+  742c4a:	75 02                	jne    0x742c4e
+  742c4c:	5e                   	pop    esi
+  742c4d:	c3                   	ret
+  742c4e:	57                   	push   edi
+  742c4f:	e8 6c 6d 36 00       	call   0xaa99c0
+  742c54:	8b f8                	mov    edi,eax
+  742c56:	33 c0                	xor    eax,eax
+  742c58:	85 ff                	test   edi,edi
+  742c5a:	74 2e                	je     0x742c8a
+  742c5c:	8b 4c 24 0c          	mov    ecx,DWORD PTR [esp+0xc]
+  742c60:	85 c9                	test   ecx,ecx
+  742c62:	74 14                	je     0x742c78
+  742c64:	8b 06                	mov    eax,DWORD PTR [esi]
+  742c66:	8b 90 cc 00 00 00    	mov    edx,DWORD PTR [eax+0xcc]
+  742c6c:	51                   	push   ecx
+  742c6d:	8b ce                	mov    ecx,esi
+  742c6f:	ff d2                	call   edx
+  742c71:	85 c0                	test   eax,eax
+  742c73:	75 03                	jne    0x742c78
+  742c75:	5f                   	pop    edi
+  742c76:	5e                   	pop    esi
+  742c77:	c3                   	ret
+  742c78:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+  742c7c:	8b 54 24 10          	mov    edx,DWORD PTR [esp+0x10]
+  742c80:	51                   	push   ecx
+  742c81:	52                   	push   edx
+  742c82:	50                   	push   eax
+  742c83:	8b cf                	mov    ecx,edi
+  742c85:	e8 36 ca 36 00       	call   0xaaf6c0
+  742c8a:	5f                   	pop    edi
+  742c8b:	5e                   	pop    esi
+  742c8c:	c3                   	ret
+  742c8d:	cc                   	int3
+  742c8e:	cc                   	int3
+  742c8f:	cc                   	int3

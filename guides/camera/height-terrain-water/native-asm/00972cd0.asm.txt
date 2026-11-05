@@ -1,0 +1,179 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00972cd0 to next catalog entry 0x00972f40; may include padding or data.
+  972cd0:	55                   	push   ebp
+  972cd1:	8b ec                	mov    ebp,esp
+  972cd3:	83 e4 f0             	and    esp,0xfffffff0
+  972cd6:	83 ec 34             	sub    esp,0x34
+  972cd9:	53                   	push   ebx
+  972cda:	56                   	push   esi
+  972cdb:	57                   	push   edi
+  972cdc:	8b 7d 0c             	mov    edi,DWORD PTR [ebp+0xc]
+  972cdf:	8d 44 24 12          	lea    eax,[esp+0x12]
+  972ce3:	50                   	push   eax
+  972ce4:	6a 00                	push   0x0
+  972ce6:	57                   	push   edi
+  972ce7:	8b f1                	mov    esi,ecx
+  972ce9:	e8 92 e7 ff ff       	call   0x971480
+  972cee:	d8 86 f8 08 00 00    	fadd   DWORD PTR [esi+0x8f8]
+  972cf4:	80 7d 10 00          	cmp    BYTE PTR [ebp+0x10],0x0
+  972cf8:	8b 5d 08             	mov    ebx,DWORD PTR [ebp+0x8]
+  972cfb:	d9 5c 24 14          	fstp   DWORD PTR [esp+0x14]
+  972cff:	f3 0f 10 54 24 14    	movss  xmm2,DWORD PTR [esp+0x14]
+  972d05:	0f 84 aa 01 00 00    	je     0x972eb5
+  972d0b:	8d 4c 24 13          	lea    ecx,[esp+0x13]
+  972d0f:	51                   	push   ecx
+  972d10:	6a 01                	push   0x1
+  972d12:	53                   	push   ebx
+  972d13:	8b ce                	mov    ecx,esi
+  972d15:	e8 66 e7 ff ff       	call   0x971480
+  972d1a:	d8 86 f4 08 00 00    	fadd   DWORD PTR [esi+0x8f4]
+  972d20:	80 be 18 08 00 00 00 	cmp    BYTE PTR [esi+0x818],0x0
+  972d27:	d9 5c 24 18          	fstp   DWORD PTR [esp+0x18]
+  972d2b:	0f 84 82 00 00 00    	je     0x972db3
+  972d31:	8b 86 1c 08 00 00    	mov    eax,DWORD PTR [esi+0x81c]
+  972d37:	85 c0                	test   eax,eax
+  972d39:	74 78                	je     0x972db3
+  972d3b:	80 be b9 08 00 00 00 	cmp    BYTE PTR [esi+0x8b9],0x0
+  972d42:	75 6f                	jne    0x972db3
+  972d44:	6a 00                	push   0x0
+  972d46:	50                   	push   eax
+  972d47:	e8 e4 f1 18 00       	call   0xb01f30
+  972d4c:	83 c4 08             	add    esp,0x8
+  972d4f:	85 c0                	test   eax,eax
+  972d51:	89 44 24 1c          	mov    DWORD PTR [esp+0x1c],eax
+  972d55:	74 53                	je     0x972daa
+  972d57:	8d 50 04             	lea    edx,[eax+0x4]
+  972d5a:	b9 01 00 00 00       	mov    ecx,0x1
+  972d5f:	f0 0f c1 0a          	lock xadd DWORD PTR [edx],ecx
+  972d63:	8b 15 fc a0 1e 01    	mov    edx,DWORD PTR ds:0x11ea0fc
+  972d69:	85 50 2c             	test   DWORD PTR [eax+0x2c],edx
+  972d6c:	75 3c                	jne    0x972daa
+  972d6e:	8d 44 24 20          	lea    eax,[esp+0x20]
+  972d72:	50                   	push   eax
+  972d73:	8b ce                	mov    ecx,esi
+  972d75:	e8 b6 e2 ff ff       	call   0x971030
+  972d7a:	84 c0                	test   al,al
+  972d7c:	74 2c                	je     0x972daa
+  972d7e:	0f 28 44 24 20       	movaps xmm0,XMMWORD PTR [esp+0x20]
+  972d83:	0f 28 c8             	movaps xmm1,xmm0
+  972d86:	0f c6 c8 55          	shufps xmm1,xmm0,0x55
+  972d8a:	f3 0f 10 86 f4 08 00 	movss  xmm0,DWORD PTR [esi+0x8f4]
+  972d91:	00 
+  972d92:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  972d96:	0f 58 c8             	addps  xmm1,xmm0
+  972d99:	0f 29 4c 24 20       	movaps XMMWORD PTR [esp+0x20],xmm1
+  972d9e:	f3 0f 10 44 24 20    	movss  xmm0,DWORD PTR [esp+0x20]
+  972da4:	f3 0f 11 44 24 18    	movss  DWORD PTR [esp+0x18],xmm0
+  972daa:	8d 4c 24 1c          	lea    ecx,[esp+0x1c]
+  972dae:	e8 2d 35 dd ff       	call   0x7462e0
+  972db3:	0f 28 0b             	movaps xmm1,XMMWORD PTR [ebx]
+  972db6:	f3 0f 10 44 24 18    	movss  xmm0,DWORD PTR [esp+0x18]
+  972dbc:	0f 29 4c 24 20       	movaps XMMWORD PTR [esp+0x20],xmm1
+  972dc1:	f3 0f 5c 44 24 24    	subss  xmm0,DWORD PTR [esp+0x24]
+  972dc7:	f3 0f 10 c0          	movss  xmm0,xmm0
+  972dcb:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  972dcf:	0f 29 44 24 20       	movaps XMMWORD PTR [esp+0x20],xmm0
+  972dd4:	f3 0f 10 54 24 20    	movss  xmm2,DWORD PTR [esp+0x20]
+  972dda:	0f c6 d2 00          	shufps xmm2,xmm2,0x0
+  972dde:	0f 28 c1             	movaps xmm0,xmm1
+  972de1:	0f 28 da             	movaps xmm3,xmm2
+  972de4:	0f 58 d9             	addps  xmm3,xmm1
+  972de7:	0f c6 c3 50          	shufps xmm0,xmm3,0x50
+  972deb:	0f c6 c1 e8          	shufps xmm0,xmm1,0xe8
+  972def:	0f 29 03             	movaps XMMWORD PTR [ebx],xmm0
+  972df2:	0f 28 0f             	movaps xmm1,XMMWORD PTR [edi]
+  972df5:	0f 28 d9             	movaps xmm3,xmm1
+  972df8:	0f 28 c1             	movaps xmm0,xmm1
+  972dfb:	0f 58 da             	addps  xmm3,xmm2
+  972dfe:	0f c6 c3 50          	shufps xmm0,xmm3,0x50
+  972e02:	0f c6 c1 e8          	shufps xmm0,xmm1,0xe8
+  972e06:	0f 29 07             	movaps XMMWORD PTR [edi],xmm0
+  972e09:	80 be b9 08 00 00 00 	cmp    BYTE PTR [esi+0x8b9],0x0
+  972e10:	0f 85 99 00 00 00    	jne    0x972eaf
+  972e16:	80 7c 24 12 00       	cmp    BYTE PTR [esp+0x12],0x0
+  972e1b:	74 0a                	je     0x972e27
+  972e1d:	f3 0f 10 9e a0 09 00 	movss  xmm3,DWORD PTR [esi+0x9a0]
+  972e24:	00 
+  972e25:	eb 08                	jmp    0x972e2f
+  972e27:	f3 0f 10 9e 9c 09 00 	movss  xmm3,DWORD PTR [esi+0x99c]
+  972e2e:	00 
+  972e2f:	0f 28 0b             	movaps xmm1,XMMWORD PTR [ebx]
+  972e32:	0f 28 d0             	movaps xmm2,xmm0
+  972e35:	0f c6 d0 55          	shufps xmm2,xmm0,0x55
+  972e39:	f3 0f 10 05 f8 98 f9 	movss  xmm0,DWORD PTR ds:0xf998f8
+  972e40:	00 
+  972e41:	f3 0f 5c c3          	subss  xmm0,xmm3
+  972e45:	f3 0f 10 db          	movss  xmm3,xmm3
+  972e49:	0f c6 db 00          	shufps xmm3,xmm3,0x0
+  972e4d:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  972e51:	0f 59 d0             	mulps  xmm2,xmm0
+  972e54:	0f 28 c1             	movaps xmm0,xmm1
+  972e57:	0f c6 c1 55          	shufps xmm0,xmm1,0x55
+  972e5b:	0f 59 c3             	mulps  xmm0,xmm3
+  972e5e:	0f 58 c2             	addps  xmm0,xmm2
+  972e61:	f3 0f 10 54 24 14    	movss  xmm2,DWORD PTR [esp+0x14]
+  972e67:	0f 29 44 24 20       	movaps XMMWORD PTR [esp+0x20],xmm0
+  972e6c:	f3 0f 10 5c 24 20    	movss  xmm3,DWORD PTR [esp+0x20]
+  972e72:	0f 2f d3             	comiss xmm2,xmm3
+  972e75:	76 3e                	jbe    0x972eb5
+  972e77:	0f 28 c2             	movaps xmm0,xmm2
+  972e7a:	f3 0f 5c c3          	subss  xmm0,xmm3
+  972e7e:	0f 28 e1             	movaps xmm4,xmm1
+  972e81:	0f 28 d9             	movaps xmm3,xmm1
+  972e84:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  972e88:	0f 58 e0             	addps  xmm4,xmm0
+  972e8b:	0f c6 dc 50          	shufps xmm3,xmm4,0x50
+  972e8f:	0f c6 d9 e8          	shufps xmm3,xmm1,0xe8
+  972e93:	0f 29 1b             	movaps XMMWORD PTR [ebx],xmm3
+  972e96:	0f 28 1f             	movaps xmm3,XMMWORD PTR [edi]
+  972e99:	0f 28 e3             	movaps xmm4,xmm3
+  972e9c:	0f 28 cb             	movaps xmm1,xmm3
+  972e9f:	0f 58 e0             	addps  xmm4,xmm0
+  972ea2:	0f c6 cc 50          	shufps xmm1,xmm4,0x50
+  972ea6:	0f c6 cb e8          	shufps xmm1,xmm3,0xe8
+  972eaa:	0f 29 0f             	movaps XMMWORD PTR [edi],xmm1
+  972ead:	eb 06                	jmp    0x972eb5
+  972eaf:	f3 0f 10 54 24 14    	movss  xmm2,DWORD PTR [esp+0x14]
+  972eb5:	0f 28 07             	movaps xmm0,XMMWORD PTR [edi]
+  972eb8:	d9 44 24 14          	fld    DWORD PTR [esp+0x14]
+  972ebc:	0f 28 c8             	movaps xmm1,xmm0
+  972ebf:	0f c6 c8 55          	shufps xmm1,xmm0,0x55
+  972ec3:	f3 0f 11 4c 24 30    	movss  DWORD PTR [esp+0x30],xmm1
+  972ec9:	f3 0f 10 ca          	movss  xmm1,xmm2
+  972ecd:	0f c6 c9 00          	shufps xmm1,xmm1,0x0
+  972ed1:	f3 0f 11 4c 24 20    	movss  DWORD PTR [esp+0x20],xmm1
+  972ed7:	f3 0f 10 4c 24 20    	movss  xmm1,DWORD PTR [esp+0x20]
+  972edd:	0f 2f 4c 24 30       	comiss xmm1,DWORD PTR [esp+0x30]
+  972ee2:	76 4d                	jbe    0x972f31
+  972ee4:	0f 29 44 24 30       	movaps XMMWORD PTR [esp+0x30],xmm0
+  972ee9:	f3 0f 5c 54 24 34    	subss  xmm2,DWORD PTR [esp+0x34]
+  972eef:	f3 0f 10 d2          	movss  xmm2,xmm2
+  972ef3:	0f c6 d2 00          	shufps xmm2,xmm2,0x0
+  972ef7:	0f 29 54 24 30       	movaps XMMWORD PTR [esp+0x30],xmm2
+  972efc:	0f 28 13             	movaps xmm2,XMMWORD PTR [ebx]
+  972eff:	f3 0f 10 44 24 30    	movss  xmm0,DWORD PTR [esp+0x30]
+  972f05:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  972f09:	0f 28 d8             	movaps xmm3,xmm0
+  972f0c:	0f 28 ca             	movaps xmm1,xmm2
+  972f0f:	0f 58 da             	addps  xmm3,xmm2
+  972f12:	0f c6 cb 50          	shufps xmm1,xmm3,0x50
+  972f16:	0f c6 ca e8          	shufps xmm1,xmm2,0xe8
+  972f1a:	0f 29 0b             	movaps XMMWORD PTR [ebx],xmm1
+  972f1d:	0f 28 17             	movaps xmm2,XMMWORD PTR [edi]
+  972f20:	0f 28 ca             	movaps xmm1,xmm2
+  972f23:	0f 58 c2             	addps  xmm0,xmm2
+  972f26:	0f c6 c8 50          	shufps xmm1,xmm0,0x50
+  972f2a:	0f c6 ca e8          	shufps xmm1,xmm2,0xe8
+  972f2e:	0f 29 0f             	movaps XMMWORD PTR [edi],xmm1
+  972f31:	5f                   	pop    edi
+  972f32:	5e                   	pop    esi
+  972f33:	5b                   	pop    ebx
+  972f34:	8b e5                	mov    esp,ebp
+  972f36:	5d                   	pop    ebp
+  972f37:	c2 0c 00             	ret    0xc
+  972f3a:	cc                   	int3
+  972f3b:	cc                   	int3
+  972f3c:	cc                   	int3
+  972f3d:	cc                   	int3
+  972f3e:	cc                   	int3
+  972f3f:	cc                   	int3

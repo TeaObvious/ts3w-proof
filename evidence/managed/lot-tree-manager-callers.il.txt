@@ -1,0 +1,436 @@
+// Original PC1.67 selected LotManager/SimIFace World method bodies; central pristine package identities apply.
+
+// Sims3GameplaySystems Sims3.Gameplay.Core.LotManager::EnterBuildBuyMode MethodDef0x0600992D RVA0x002AEB98
+// Signature 00020112c0008db802; maxstack 2; locals 11001C06; initlocals True
+// Complete CIL 338 bytes: 022D417E775100046F0629000A6F4B19000A13042B151204284C19000A0A066F53F100062C050610002B091204284D19000A2DE2DE0E1204FE16A10E001B6F5B00000ADC022D07281B990006100002807E51000417808251000403808C51000417805E4600041780D70F00041780AC1D0004022822990006026F5FF20006026F51F1000616286929000A289F3800062C060228A93800067E7E5100046FC803002B13051613062B12110511069A0B076F10240006110617581306110611058E6932E67E7E51000428C5180106200004000028B09A0006026F51F100062842C800067E7E510004281CFB00062C0F7E7E5100046FB1F100066FFEFA00067E7E5100046FC903002B0C0813071613082B12110711089A0D096F3ED90006110817581308110811078E6932E6285DF000066F5EF000066F2921000A2D06162862BE00067E865100042C0A7E865100046FB01B000A2A
+IL_0000: ldarg.0
+IL_0001: brtrue.s IL_0044
+IL_0003: ldsfld 0x04005177 Sims3.Gameplay.Core.LotManager::sLots
+IL_0008: callvirt 0x0A002906 TypeSpecification::get_Values
+IL_000D: callvirt 0x0A00194B TypeSpecification::GetEnumerator
+IL_0012: stloc.s 4
+IL_0014: br.s IL_002B
+IL_0016: ldloca.s 4
+IL_0018: call 0x0A00194C TypeSpecification::get_Current
+IL_001D: stloc.0
+IL_001E: ldloc.0
+IL_001F: callvirt 0x0600F153 Sims3.Gameplay.Core.Lot::get_IsEditable
+IL_0024: brfalse.s IL_002B
+IL_0026: ldloc.0
+IL_0027: starg.s 0
+IL_0029: br.s IL_0034
+IL_002B: ldloca.s 4
+IL_002D: call 0x0A00194D TypeSpecification::MoveNext
+IL_0032: brtrue.s IL_0016
+IL_0034: leave.s IL_0044
+IL_0036: ldloca.s 4
+IL_0038: constrained. 0x1B000EA1 TypeSpecification
+IL_003E: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_0043: endfinally
+IL_0044: ldarg.0
+IL_0045: brtrue.s IL_004E
+IL_0047: call 0x0600991B Sims3.Gameplay.Core.LotManager::get_ActiveLot
+IL_004C: starg.s 0
+IL_004E: ldarg.0
+IL_004F: stsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_0054: ldc.i4.1
+IL_0055: stsfld 0x04005182 Sims3.Gameplay.Core.LotManager::sIsBuildBuyModeOn
+IL_005A: ldarg.1
+IL_005B: stsfld 0x0400518C Sims3.Gameplay.Core.LotManager::sFamilyFundsDisabled
+IL_0060: ldc.i4.1
+IL_0061: stsfld 0x0400465E Sims3.Gameplay.Objects.Vehicles.CarOwnable::sCanShowCarTns
+IL_0066: ldc.i4.1
+IL_0067: stsfld 0x04000FD7 Sims3.Gameplay.Objects.Vehicles.BoatOwnable::sCanShowBoatTns
+IL_006C: ldc.i4.1
+IL_006D: stsfld 0x04001DAC Sims3.Gameplay.Objects.Vehicles.Bicycle::sCanShowBikeTns
+IL_0072: ldarg.0
+IL_0073: call 0x06009922 Sims3.Gameplay.Core.LotManager::LockActiveLot
+IL_0078: ldarg.0
+IL_0079: callvirt 0x0600F25F Sims3.Gameplay.Core.Lot::MakeLotMetricsDirty
+IL_007E: ldarg.0
+IL_007F: callvirt 0x0600F151 Sims3.Gameplay.Core.Lot::get_LotId
+IL_0084: ldc.i4.0
+IL_0085: call 0x0A002969 Sims3.SimIFace.World::LotClusterTrees
+IL_008A: call 0x0600389F Sims3.Gameplay.Seasons.SeasonsManager::get_Enabled
+IL_008F: brfalse.s IL_0097
+IL_0091: ldarg.0
+IL_0092: call 0x060038A9 Sims3.Gameplay.Seasons.SeasonsManager::OnEnterBuildBuy
+IL_0097: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_009C: callvirt 0x2B0003C8 MethodSpecification
+IL_00A1: stloc.s 5
+IL_00A3: ldc.i4.0
+IL_00A4: stloc.s 6
+IL_00A6: br.s IL_00BA
+IL_00A8: ldloc.s 5
+IL_00AA: ldloc.s 6
+IL_00AC: ldelem.ref
+IL_00AD: stloc.1
+IL_00AE: ldloc.1
+IL_00AF: callvirt 0x06002410 Sims3.Gameplay.Interfaces.IBuildBuyListener::OnEnterBuildBuyMode
+IL_00B4: ldloc.s 6
+IL_00B6: ldc.i4.1
+IL_00B7: add
+IL_00B8: stloc.s 6
+IL_00BA: ldloc.s 6
+IL_00BC: ldloc.s 5
+IL_00BE: ldlen
+IL_00BF: conv.i4
+IL_00C0: blt.s IL_00A8
+IL_00C2: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_00C7: call 0x060118C5 Sims3.Gameplay.Objects.Fishing.FishingSpot::EnterBuildMode
+IL_00CC: ldc.i4 1024
+IL_00D1: call 0x06009AB0 Sims3.Gameplay.Tutorial.IntroTutorial::StateComplete
+IL_00D6: ldarg.0
+IL_00D7: callvirt 0x0600F151 Sims3.Gameplay.Core.Lot::get_LotId
+IL_00DC: call 0x0600C842 Sims3.Gameplay.Core.Camera::OnEnterBuildBuy
+IL_00E1: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_00E6: call 0x0600FB1C Sims3.Gameplay.Controllers.TombRoomManager::CreateOrRemoveTombRoomManagerFromLotAsNecessary
+IL_00EB: brfalse.s IL_00FC
+IL_00ED: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_00F2: callvirt 0x0600F1B1 Sims3.Gameplay.Core.Lot::get_TombRoomManager
+IL_00F7: callvirt 0x0600FAFE Sims3.Gameplay.Controllers.TombRoomManager::OnEnterBuildBuyMode
+IL_00FC: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_0101: callvirt 0x2B0003C9 MethodSpecification
+IL_0106: stloc.2
+IL_0107: ldloc.2
+IL_0108: stloc.s 7
+IL_010A: ldc.i4.0
+IL_010B: stloc.s 8
+IL_010D: br.s IL_0121
+IL_010F: ldloc.s 7
+IL_0111: ldloc.s 8
+IL_0113: ldelem.ref
+IL_0114: stloc.3
+IL_0115: ldloc.3
+IL_0116: callvirt 0x0600D93E Sims3.Gameplay.Interfaces.ISlidingBookcase::UnfogThisRoom
+IL_011B: ldloc.s 8
+IL_011D: ldc.i4.1
+IL_011E: add
+IL_011F: stloc.s 8
+IL_0121: ldloc.s 8
+IL_0123: ldloc.s 7
+IL_0125: ldlen
+IL_0126: conv.i4
+IL_0127: blt.s IL_010F
+IL_0129: call 0x0600F05D Sims3.Gameplay.UI.Responder::get_Instance
+IL_012E: callvirt 0x0600F05E Sims3.Gameplay.UI.Responder::get_ClockSpeedModel
+IL_0133: callvirt 0x0A002129 Sims3.UI.ISimClockSpeedModel::get_GameSpeedLocked
+IL_0138: brtrue.s IL_0140
+IL_013A: ldc.i4.0
+IL_013B: call 0x0600BE62 Sims3.Gameplay.Gameflow::LockGameSpeed
+IL_0140: ldsfld 0x04005186 Sims3.Gameplay.Core.LotManager::EnteringBuildBuyMode
+IL_0145: brfalse.s IL_0151
+IL_0147: ldsfld 0x04005186 Sims3.Gameplay.Core.LotManager::EnteringBuildBuyMode
+IL_014C: callvirt 0x0A001BB0 Sims3.SimIFace.VoidEventHandler::Invoke
+IL_0151: ret
+// Exception region {"FilterOffset": -1, "HandlerLength": 14, "HandlerOffset": 54, "TryLength": 34, "TryOffset": 20, "catchType": "00000000", "kind": "Finally"}
+
+// Sims3GameplaySystems Sims3.Gameplay.Core.LotManager::ExitBuildBuyMode MethodDef0x0600992E RVA0x002AED08
+// Signature 000001; maxstack 3; locals 11001C07; initlocals True
+// Complete CIL 836 bytes: 286A29000A16283800000A286B29000A289F3800062C11281F3400062D0A7E7E51000428AA380006281B99000639F3000000281B9900066F51F1000617286929000A281B9900066FF1F100066F6701000A130A2B75110A6F6801000A0A06177D82050004066F120F000675251E00022C59066F120F00066FBD1600062C4C066F120F00066FBD1600066F170000062C3A066F0309000628B90701060B072D08066FA50900062B23066F120F000675251E00020C08076FE9D3000607066F9D0A00062D0707066F980A0006110A6F0001000A2D82DE0C110A2C07110A6F5B00000ADC281B9900066FE8F10006281B9900066F3F02002B130B16130C2B12110B110C9A0D096FAA670006110C1758130C110C110B8E6932E6281B99000628ABB100066F63F100067E785100046FAE00000A130D2B22120D28AF00000A130411042C1511046FDB1100062C0C11046FDB1100066F359F0006120D28B500000A2DD5DE0E120DFE16FC09001B6F5B00000ADC281F3400061F0E330728740900062B0C2818BC00062D0528730900067E7E5100046FC803002B130E16130F2B14110E110F9A130511056F11240006110F1758130F110F110E8E6932E47ECF3700042C4D7ECF3700046F6C29000A13102B201210286D29000A130611066FE7080006282B01000A2C09110616166F029800061210286E29000A2DD7DE0E1210FE160012001B6F5B00000ADC1480CF370004200000010028B09A00067E7E51000428C61801062843C800067E7E510004281CFB00062C0F7E7E5100046FB1F100066FFFFA00067E7E5100046FC903002B1307110713111613122B14111111129A130811086F3FD90006111217581312111211118E6932E47E7E5100046F33F100067E7E5100046F2AF20006281F3400061F0E2E0A7E7E5100046F2CF200067E7E5100046F25F100067E7E510004167D39A900047E7E510004167D3AA900047E7E510004167D3BA900047E7E5100046F22F200067E7E5100046FA3F1000628BBB4000614807E51000416808251000428239900062863BE00067EE50100046F7202000A13132B101213287302000A130911096F380400061213287402000A2DE7DE0E1213FE16580A001B6F5B00000ADC286F29000A28C40501067E875100042C0A7E875100046FB01B000A2A
+IL_0000: call 0x0A00296A Sims3.SimIFace.UserToolUtils::FlushCommandQueues
+IL_0005: ldc.i4.0
+IL_0006: call 0x0A000038 Sims3.SimIFace.Simulator::Sleep
+IL_000B: call 0x0A00296B Sims3.SimIFace.Route::OnExitBuildBuy
+IL_0010: call 0x0600389F Sims3.Gameplay.Seasons.SeasonsManager::get_Enabled
+IL_0015: brfalse.s IL_0028
+IL_0017: call 0x0600341F Sims3.Gameplay.GameStates::get_NextInWorldStateId
+IL_001C: brtrue.s IL_0028
+IL_001E: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_0023: call 0x060038AA Sims3.Gameplay.Seasons.SeasonsManager::OnExitBuildBuy
+IL_0028: call 0x0600991B Sims3.Gameplay.Core.LotManager::get_ActiveLot
+IL_002D: brfalse IL_0125
+IL_0032: call 0x0600991B Sims3.Gameplay.Core.LotManager::get_ActiveLot
+IL_0037: callvirt 0x0600F151 Sims3.Gameplay.Core.Lot::get_LotId
+IL_003C: ldc.i4.1
+IL_003D: call 0x0A002969 Sims3.SimIFace.World::LotClusterTrees
+IL_0042: call 0x0600991B Sims3.Gameplay.Core.LotManager::get_ActiveLot
+IL_0047: callvirt 0x0600F1F1 Sims3.Gameplay.Core.Lot::GetSims
+IL_004C: callvirt 0x0A000167 TypeSpecification::GetEnumerator
+IL_0051: stloc.s 10
+IL_0053: br.s IL_00CA
+IL_0055: ldloc.s 10
+IL_0057: callvirt 0x0A000168 TypeSpecification::get_Current
+IL_005C: stloc.0
+IL_005D: ldloc.0
+IL_005E: ldc.i4.1
+IL_005F: stfld 0x04000582 Sims3.Gameplay.Actors.Sim::UpdateEnvironment
+IL_0064: ldloc.0
+IL_0065: callvirt 0x06000F12 Sims3.Gameplay.Actors.Sim::get_Posture
+IL_006A: isinst 0x02001E25 Sims3.Gameplay.Pools.SwimmingInPool
+IL_006F: brfalse.s IL_00CA
+IL_0071: ldloc.0
+IL_0072: callvirt 0x06000F12 Sims3.Gameplay.Actors.Sim::get_Posture
+IL_0077: callvirt 0x060016BD Sims3.Gameplay.ActorSystems.Posture::get_Container
+IL_007C: brfalse.s IL_00CA
+IL_007E: ldloc.0
+IL_007F: callvirt 0x06000F12 Sims3.Gameplay.Actors.Sim::get_Posture
+IL_0084: callvirt 0x060016BD Sims3.Gameplay.ActorSystems.Posture::get_Container
+IL_0089: callvirt 0x06000017 Sims3.Gameplay.Interfaces.IScriptObject::get_HasBeenDestroyed
+IL_008E: brfalse.s IL_00CA
+IL_0090: ldloc.0
+IL_0091: callvirt 0x06000903 Sims3.Gameplay.Abstracts.GameObject::get_Position
+IL_0096: call 0x060107B9 Sims3.Gameplay.Pools.Pool::GetPoolNearestPoint
+IL_009B: stloc.1
+IL_009C: ldloc.1
+IL_009D: brtrue.s IL_00A7
+IL_009F: ldloc.0
+IL_00A0: callvirt 0x060009A5 Sims3.Gameplay.Abstracts.GameObject::SetObjectToReset
+IL_00A5: br.s IL_00CA
+IL_00A7: ldloc.0
+IL_00A8: callvirt 0x06000F12 Sims3.Gameplay.Actors.Sim::get_Posture
+IL_00AD: isinst 0x02001E25 Sims3.Gameplay.Pools.SwimmingInPool
+IL_00B2: stloc.2
+IL_00B3: ldloc.2
+IL_00B4: ldloc.1
+IL_00B5: callvirt 0x0600D3E9 Sims3.Gameplay.Pools.SwimmingInPool::set_ContainerPool
+IL_00BA: ldloc.1
+IL_00BB: ldloc.0
+IL_00BC: callvirt 0x06000A9D Sims3.Gameplay.Abstracts.GameObject::IsActorUsingMe
+IL_00C1: brtrue.s IL_00CA
+IL_00C3: ldloc.1
+IL_00C4: ldloc.0
+IL_00C5: callvirt 0x06000A98 Sims3.Gameplay.Abstracts.GameObject::AddToUseList
+IL_00CA: ldloc.s 10
+IL_00CC: callvirt 0x0A000100 System.Collections.IEnumerator::MoveNext
+IL_00D1: brtrue.s IL_0055
+IL_00D3: leave.s IL_00E1
+IL_00D5: ldloc.s 10
+IL_00D7: brfalse.s IL_00E0
+IL_00D9: ldloc.s 10
+IL_00DB: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_00E0: endfinally
+IL_00E1: call 0x0600991B Sims3.Gameplay.Core.LotManager::get_ActiveLot
+IL_00E6: callvirt 0x0600F1E8 Sims3.Gameplay.Core.Lot::RefreshObjectCaches
+IL_00EB: call 0x0600991B Sims3.Gameplay.Core.LotManager::get_ActiveLot
+IL_00F0: callvirt 0x2B00023F MethodSpecification
+IL_00F5: stloc.s 11
+IL_00F7: ldc.i4.0
+IL_00F8: stloc.s 12
+IL_00FA: br.s IL_010E
+IL_00FC: ldloc.s 11
+IL_00FE: ldloc.s 12
+IL_0100: ldelem.ref
+IL_0101: stloc.3
+IL_0102: ldloc.3
+IL_0103: callvirt 0x060067AA Sims3.Gameplay.Abstracts.Door::OnBuildBuyExit
+IL_0108: ldloc.s 12
+IL_010A: ldc.i4.1
+IL_010B: add
+IL_010C: stloc.s 12
+IL_010E: ldloc.s 12
+IL_0110: ldloc.s 11
+IL_0112: ldlen
+IL_0113: conv.i4
+IL_0114: blt.s IL_00FC
+IL_0116: call 0x0600991B Sims3.Gameplay.Core.LotManager::get_ActiveLot
+IL_011B: call 0x0600B1AB Sims3.Gameplay.Utilities.SimClock::CurrentTime
+IL_0120: callvirt 0x0600F163 Sims3.Gameplay.Core.Lot::set_TimeOfLastBuildBuy
+IL_0125: ldsfld 0x04005178 Sims3.Gameplay.Core.LotManager::sActorList
+IL_012A: callvirt 0x0A0000AE TypeSpecification::GetEnumerator
+IL_012F: stloc.s 13
+IL_0131: br.s IL_0155
+IL_0133: ldloca.s 13
+IL_0135: call 0x0A0000AF TypeSpecification::get_Current
+IL_013A: stloc.s 4
+IL_013C: ldloc.s 4
+IL_013E: brfalse.s IL_0155
+IL_0140: ldloc.s 4
+IL_0142: callvirt 0x060011DB Sims3.Gameplay.Actors.Sim::get_SimRoutingComponent
+IL_0147: brfalse.s IL_0155
+IL_0149: ldloc.s 4
+IL_014B: callvirt 0x060011DB Sims3.Gameplay.Actors.Sim::get_SimRoutingComponent
+IL_0150: callvirt 0x06009F35 Sims3.Gameplay.ObjectComponents.RoutingComponent::OnBuildBuyExit
+IL_0155: ldloca.s 13
+IL_0157: call 0x0A0000B5 TypeSpecification::MoveNext
+IL_015C: brtrue.s IL_0133
+IL_015E: leave.s IL_016E
+IL_0160: ldloca.s 13
+IL_0162: constrained. 0x1B0009FC TypeSpecification
+IL_0168: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_016D: endfinally
+IL_016E: call 0x0600341F Sims3.Gameplay.GameStates::get_NextInWorldStateId
+IL_0173: ldc.i4.s 14
+IL_0175: bne.un.s IL_017E
+IL_0177: call 0x06000974 Sims3.Gameplay.Abstracts.GameObject::SendBoughtEventForEditTownMode
+IL_017C: br.s IL_018A
+IL_017E: call 0x0600BC18 Sims3.Gameplay.ActiveCareer.ActiveCareers.InteriorDesigner::get_ActiveRenovation
+IL_0183: brtrue.s IL_018A
+IL_0185: call 0x06000973 Sims3.Gameplay.Abstracts.GameObject::DepreciateNewPurchasesAndSendBoughtEvent
+IL_018A: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_018F: callvirt 0x2B0003C8 MethodSpecification
+IL_0194: stloc.s 14
+IL_0196: ldc.i4.0
+IL_0197: stloc.s 15
+IL_0199: br.s IL_01AF
+IL_019B: ldloc.s 14
+IL_019D: ldloc.s 15
+IL_019F: ldelem.ref
+IL_01A0: stloc.s 5
+IL_01A2: ldloc.s 5
+IL_01A4: callvirt 0x06002411 Sims3.Gameplay.Interfaces.IBuildBuyListener::OnExitBuildBuyMode
+IL_01A9: ldloc.s 15
+IL_01AB: ldc.i4.1
+IL_01AC: add
+IL_01AD: stloc.s 15
+IL_01AF: ldloc.s 15
+IL_01B1: ldloc.s 14
+IL_01B3: ldlen
+IL_01B4: conv.i4
+IL_01B5: blt.s IL_019B
+IL_01B7: ldsfld 0x040037CF Sims3.Gameplay.UI.HudModel::LightsToggledByDayNightMode
+IL_01BC: brfalse.s IL_020B
+IL_01BE: ldsfld 0x040037CF Sims3.Gameplay.UI.HudModel::LightsToggledByDayNightMode
+IL_01C3: callvirt 0x0A00296C TypeSpecification::GetEnumerator
+IL_01C8: stloc.s 16
+IL_01CA: br.s IL_01EC
+IL_01CC: ldloca.s 16
+IL_01CE: call 0x0A00296D TypeSpecification::get_Current
+IL_01D3: stloc.s 6
+IL_01D5: ldloc.s 6
+IL_01D7: callvirt 0x060008E7 Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId
+IL_01DC: call 0x0A00012B Sims3.SimIFace.Objects::IsValid
+IL_01E1: brfalse.s IL_01EC
+IL_01E3: ldloc.s 6
+IL_01E5: ldc.i4.0
+IL_01E6: ldc.i4.0
+IL_01E7: callvirt 0x06009802 Sims3.Gameplay.Abstracts.LightGameObject::SwitchLight
+IL_01EC: ldloca.s 16
+IL_01EE: call 0x0A00296E TypeSpecification::MoveNext
+IL_01F3: brtrue.s IL_01CC
+IL_01F5: leave.s IL_0205
+IL_01F7: ldloca.s 16
+IL_01F9: constrained. 0x1B001200 TypeSpecification
+IL_01FF: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_0204: endfinally
+IL_0205: ldnull
+IL_0206: stsfld 0x040037CF Sims3.Gameplay.UI.HudModel::LightsToggledByDayNightMode
+IL_020B: ldc.i4 65536
+IL_0210: call 0x06009AB0 Sims3.Gameplay.Tutorial.IntroTutorial::StateComplete
+IL_0215: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_021A: call 0x060118C6 Sims3.Gameplay.Objects.Fishing.FishingSpot::ExitBuildMode
+IL_021F: call 0x0600C843 Sims3.Gameplay.Core.Camera::OnExitBuildBuy
+IL_0224: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_0229: call 0x0600FB1C Sims3.Gameplay.Controllers.TombRoomManager::CreateOrRemoveTombRoomManagerFromLotAsNecessary
+IL_022E: brfalse.s IL_023F
+IL_0230: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_0235: callvirt 0x0600F1B1 Sims3.Gameplay.Core.Lot::get_TombRoomManager
+IL_023A: callvirt 0x0600FAFF Sims3.Gameplay.Controllers.TombRoomManager::OnExitBuildBuyMode
+IL_023F: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_0244: callvirt 0x2B0003C9 MethodSpecification
+IL_0249: stloc.s 7
+IL_024B: ldloc.s 7
+IL_024D: stloc.s 17
+IL_024F: ldc.i4.0
+IL_0250: stloc.s 18
+IL_0252: br.s IL_0268
+IL_0254: ldloc.s 17
+IL_0256: ldloc.s 18
+IL_0258: ldelem.ref
+IL_0259: stloc.s 8
+IL_025B: ldloc.s 8
+IL_025D: callvirt 0x0600D93F Sims3.Gameplay.Interfaces.ISlidingBookcase::FogIfUnexplored
+IL_0262: ldloc.s 18
+IL_0264: ldc.i4.1
+IL_0265: add
+IL_0266: stloc.s 18
+IL_0268: ldloc.s 18
+IL_026A: ldloc.s 17
+IL_026C: ldlen
+IL_026D: conv.i4
+IL_026E: blt.s IL_0254
+IL_0270: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_0275: callvirt 0x0600F133 Sims3.Gameplay.Core.Lot::CalculateMetaAutonomyTypeAndConsiderAddingToPublicMetaObjects
+IL_027A: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_027F: callvirt 0x0600F22A Sims3.Gameplay.Core.Lot::UpdateVirtualResidentialSlots
+IL_0284: call 0x0600341F Sims3.Gameplay.GameStates::get_NextInWorldStateId
+IL_0289: ldc.i4.s 14
+IL_028B: beq.s IL_0297
+IL_028D: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_0292: callvirt 0x0600F22C Sims3.Gameplay.Core.Lot::AssignNPCDoors
+IL_0297: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_029C: callvirt 0x0600F125 Sims3.Gameplay.Core.Lot::VerifyLocationOpportunity
+IL_02A1: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_02A6: ldc.i4.0
+IL_02A7: stfld 0x0400A939 Sims3.Gameplay.Core.Lot::FrontDoorCalculatedValidated
+IL_02AC: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_02B1: ldc.i4.0
+IL_02B2: stfld 0x0400A93A Sims3.Gameplay.Core.Lot::FrontDoorOverrideValidated
+IL_02B7: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_02BC: ldc.i4.0
+IL_02BD: stfld 0x0400A93B Sims3.Gameplay.Core.Lot::BestRouteIntoLotLocationValidated
+IL_02C2: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_02C7: callvirt 0x0600F222 Sims3.Gameplay.Core.Lot::UpdateRoomMarkers
+IL_02CC: ldsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_02D1: callvirt 0x0600F1A3 Sims3.Gameplay.Core.Lot::UpdateCachedValues
+IL_02D6: call 0x0600B4BB Sims3.Gameplay.RealEstate.RealEstateManager::OnExitBuildBuy
+IL_02DB: ldnull
+IL_02DC: stsfld 0x0400517E Sims3.Gameplay.Core.LotManager::sActiveBuildBuyLot
+IL_02E1: ldc.i4.0
+IL_02E2: stsfld 0x04005182 Sims3.Gameplay.Core.LotManager::sIsBuildBuyModeOn
+IL_02E7: call 0x06009923 Sims3.Gameplay.Core.LotManager::UnlockActiveLot
+IL_02EC: call 0x0600BE63 Sims3.Gameplay.Gameflow::UnlockGameSpeed
+IL_02F1: ldsfld 0x040001E5 Sims3.Gameplay.Autonomy.Situation::sAllSituations
+IL_02F6: callvirt 0x0A000272 TypeSpecification::GetEnumerator
+IL_02FB: stloc.s 19
+IL_02FD: br.s IL_030F
+IL_02FF: ldloca.s 19
+IL_0301: call 0x0A000273 TypeSpecification::get_Current
+IL_0306: stloc.s 9
+IL_0308: ldloc.s 9
+IL_030A: callvirt 0x06000438 Sims3.Gameplay.Autonomy.Situation::OnExitBuildBuyMode
+IL_030F: ldloca.s 19
+IL_0311: call 0x0A000274 TypeSpecification::MoveNext
+IL_0316: brtrue.s IL_02FF
+IL_0318: leave.s IL_0328
+IL_031A: ldloca.s 19
+IL_031C: constrained. 0x1B000A58 TypeSpecification
+IL_0322: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_0327: endfinally
+IL_0328: call 0x0A00296F Sims3.UI.Hud.BorderTreatmentsController::OnExitBuildBuyMode
+IL_032D: call 0x060105C4 Sims3.Gameplay.Careers.CareerManager::FixUpCareersAndCareerLocations
+IL_0332: ldsfld 0x04005187 Sims3.Gameplay.Core.LotManager::ExitingBuildBuyMode
+IL_0337: brfalse.s IL_0343
+IL_0339: ldsfld 0x04005187 Sims3.Gameplay.Core.LotManager::ExitingBuildBuyMode
+IL_033E: callvirt 0x0A001BB0 Sims3.SimIFace.VoidEventHandler::Invoke
+IL_0343: ret
+// Exception region {"FilterOffset": -1, "HandlerLength": 12, "HandlerOffset": 213, "TryLength": 130, "TryOffset": 83, "catchType": "00000000", "kind": "Finally"}
+// Exception region {"FilterOffset": -1, "HandlerLength": 14, "HandlerOffset": 352, "TryLength": 47, "TryOffset": 305, "catchType": "00000000", "kind": "Finally"}
+// Exception region {"FilterOffset": -1, "HandlerLength": 14, "HandlerOffset": 503, "TryLength": 45, "TryOffset": 458, "catchType": "00000000", "kind": "Finally"}
+// Exception region {"FilterOffset": -1, "HandlerLength": 14, "HandlerOffset": 794, "TryLength": 29, "TryOffset": 765, "catchType": "00000000", "kind": "Finally"}
+
+// Sims3GameplaySystems Sims3.Gameplay.Core.LotManager::ClusterAllLotTrees MethodDef0x06009977 RVA0x002B038C
+// Signature 000001; maxstack 2; locals 11001C1A; initlocals True
+// Complete CIL 59 bytes: 7E775100046F5B29000A6F9229000A0B2B0F1201289329000A0A0617286929000A1201289429000A2DE8DE0E1201FE160212001B6F5B00000ADC2A
+IL_0000: ldsfld 0x04005177 Sims3.Gameplay.Core.LotManager::sLots
+IL_0005: callvirt 0x0A00295B TypeSpecification::get_Keys
+IL_000A: callvirt 0x0A002992 TypeSpecification::GetEnumerator
+IL_000F: stloc.1
+IL_0010: br.s IL_0021
+IL_0012: ldloca.s 1
+IL_0014: call 0x0A002993 TypeSpecification::get_Current
+IL_0019: stloc.0
+IL_001A: ldloc.0
+IL_001B: ldc.i4.1
+IL_001C: call 0x0A002969 Sims3.SimIFace.World::LotClusterTrees
+IL_0021: ldloca.s 1
+IL_0023: call 0x0A002994 TypeSpecification::MoveNext
+IL_0028: brtrue.s IL_0012
+IL_002A: leave.s IL_003A
+IL_002C: ldloca.s 1
+IL_002E: constrained. 0x1B001202 TypeSpecification
+IL_0034: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_0039: endfinally
+IL_003A: ret
+// Exception region {"FilterOffset": -1, "HandlerLength": 14, "HandlerOffset": 44, "TryLength": 28, "TryOffset": 16, "catchType": "00000000", "kind": "Finally"}
+
+// SimIFace Sims3.SimIFace.World::LotClusterTrees MethodDef0x06000653 RVA0x0000AA2F
+// Signature 0002010b02; maxstack 8; locals 11000000; initlocals False
+// Complete CIL 20 bytes: 7EB00600042C0C7EB006000402036F400400062A
+IL_0000: ldsfld 0x040006B0 Sims3.SimIFace.World::gWorld
+IL_0005: brfalse.s IL_0013
+IL_0007: ldsfld 0x040006B0 Sims3.SimIFace.World::gWorld
+IL_000C: ldarg.0
+IL_000D: ldarg.1
+IL_000E: callvirt 0x06000440 Sims3.SimIFace.IWorld::LotClusterTrees
+IL_0013: ret

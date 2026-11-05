@@ -1,0 +1,10 @@
+original_va	original_bytes_le	kind	value	use
+00f998f0	00000080	float32	-0.0	Negative-zero bits used by lower sign-selection clamp
+00f998f8	0000803f	float32	1.0	One, Newton residual and upper sign-selection clamp
+00f9b5b4	0000003f	float32	0.5	Half, both Newton steps
+00fae548	000000b4	float32	-1.1920928955078125e-07	Negative 2^-23 distribution threshold
+00ff43d8	00000034	float32	1.1920928955078125e-07	Positive 2^-23 distribution threshold
+00ff4400	66f764bf	float32	-0.8944000005722046	Negative a, lobe row initialization
+00ff4404	66f7e43e	float32	0.4472000002861023	b, lobe row initialization
+00ff4408	66f7643f	float32	0.8944000005722046	Positive a, lobe row initialization
+006a0de0	4c2424f30f114424200f284424200f298424d00000000f28038b97c80000000f588424d00000008b4424148d4c2440510f298424c40000008b0c82518d9424c8000000528bcfe865e6ffff8b44241483c0013bc68944241472bc8b44243c8d74244089442414c744243404000000eb048b4424140fb74b220faf48040fb75320	bounded-caller-bytes[128]	[006A0DE0,006A0E60)	Raw caller context only: first3B begin within prior instruction;30 complete existing instructions125B;CALL006A0E26; no complete caller function claim

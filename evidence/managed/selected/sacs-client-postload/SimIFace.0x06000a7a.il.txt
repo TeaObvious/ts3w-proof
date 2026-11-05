@@ -1,0 +1,26 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method public hidebysig 
+		instance void RequestState (
+			bool yield,
+			string actorName,
+			string stateName,
+			valuetype Sims3.SimIFace.SACS.DriverRequestFlags 'flags'
+		) cil managed 
+	{
+		// Method begins at RVA 0x103cc
+		// Header size: 12
+		// Code size: 32 (0x20)
+		.maxstack 9
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: ldarg.s 'flags'
+		IL_0006: ldsfld int32 Sims3.SimIFace.StateMachineClient::DefaultTimeout
+		IL_000b: ldsfld class Sims3.SimIFace.StateMachineClient Sims3.SimIFace.StateMachineClient::DefaultBridgeClient
+		IL_0010: ldsfld string Sims3.SimIFace.StateMachineClient::DefaultBridgeActorName
+		IL_0015: ldsfld class Sims3.SimIFace.BridgeOrigin Sims3.SimIFace.StateMachineClient::DefaultBridgeOrigin
+		IL_001a: call instance void Sims3.SimIFace.StateMachineClient::RequestState(bool, string, string, valuetype Sims3.SimIFace.SACS.DriverRequestFlags, int32, class Sims3.SimIFace.StateMachineClient, string, class Sims3.SimIFace.BridgeOrigin)
+		IL_001f: ret
+	} // end of method StateMachineClient::RequestState

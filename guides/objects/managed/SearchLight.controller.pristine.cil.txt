@@ -1,0 +1,153 @@
+Sims3GameplayObjects.dll MVID b67f5f42-2c02-4bc7-9878-87a75e61a538
+
+06005955 Sims3.Gameplay.Objects.Lighting.SearchLight::get_IsTurnedOn RVA=0011e732 bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 027bb12100042a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 7bb1210004           ldfld b1210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mIsTurnedOn
+ IL_0006: 2a                   ret
+
+06005962 Sims3.Gameplay.Objects.Lighting.SearchLight::OnStartup RVA=0011e794 bytes=23 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 5e
+Raw complete CIL 027eb521000428c100000a027eb621000428c100000a2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 7eb5210004           ldsfld b5210004 .TurnOnSearchLight::Singleton
+ IL_0006: 28c100000a           call c100000a Sims3.Gameplay.Abstracts.GameObject::AddInteraction
+ IL_000b: 02                   ldarg.0
+ IL_000c: 7eb6210004           ldsfld b6210004 .TurnOffSearchLight::Singleton
+ IL_0011: 28c100000a           call c100000a Sims3.Gameplay.Abstracts.GameObject::AddInteraction
+ IL_0016: 2a                   ret
+
+06005963 Sims3.Gameplay.Objects.Lighting.SearchLight::DoReset RVA=0011e7ac bytes=29 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 76
+Raw complete CIL 020328e403000a02147daf210004027bb12100042c060228665900062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 03                   ldarg.1
+ IL_0002: 28e403000a           call e403000a Sims3.Gameplay.Abstracts.GameObject::DoReset
+ IL_0007: 02                   ldarg.0
+ IL_0008: 14                   ldnull
+ IL_0009: 7daf210004           stfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_000e: 02                   ldarg.0
+ IL_000f: 7bb1210004           ldfld b1210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mIsTurnedOn
+ IL_0014: 2c06                 brfalse.s 06
+ IL_0016: 02                   ldarg.0
+ IL_0017: 2866590006           call 66590006 Sims3.Gameplay.Objects.Lighting.SearchLight::TurnOn
+ IL_001c: 2a                   ret
+
+06005964 Sims3.Gameplay.Objects.Lighting.SearchLight::ExportContent RVA=0011e7cc bytes=30 maxStack=4 flags=3013 localSignature=11000020
+Raw complete method header 133004001e00000020000011
+Raw complete CIL 0203040528f801000a0a0520e745ef0a027bb12100046ff901000a26062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 03                   ldarg.1
+ IL_0002: 04                   ldarg.2
+ IL_0003: 05                   ldarg.3
+ IL_0004: 28f801000a           call f801000a Sims3.Gameplay.Abstracts.GameObject::ExportContent
+ IL_0009: 0a                   stloc.0
+ IL_000a: 05                   ldarg.3
+ IL_000b: 20e745ef0a           ldc.i4 e745ef0a
+ IL_0010: 02                   ldarg.0
+ IL_0011: 7bb1210004           ldfld b1210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mIsTurnedOn
+ IL_0016: 6ff901000a           callvirt f901000a Sims3.SimIFace.IPropertyStreamWriter::WriteBool
+ IL_001b: 26                   pop
+ IL_001c: 06                   ldloc.0
+ IL_001d: 2a                   ret
+
+06005965 Sims3.Gameplay.Objects.Lighting.SearchLight::ImportContent RVA=0011e7f8 bytes=45 maxStack=4 flags=3013 localSignature=11000020
+Raw complete method header 133004002d00000020000011
+Raw complete CIL 0203040528fa01000a0a0520e745ef0a027cb1210004166ffb01000a26027bb12100042c06022866590006062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 03                   ldarg.1
+ IL_0002: 04                   ldarg.2
+ IL_0003: 05                   ldarg.3
+ IL_0004: 28fa01000a           call fa01000a Sims3.Gameplay.Abstracts.GameObject::ImportContent
+ IL_0009: 0a                   stloc.0
+ IL_000a: 05                   ldarg.3
+ IL_000b: 20e745ef0a           ldc.i4 e745ef0a
+ IL_0010: 02                   ldarg.0
+ IL_0011: 7cb1210004           ldflda b1210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mIsTurnedOn
+ IL_0016: 16                   ldc.i4.0
+ IL_0017: 6ffb01000a           callvirt fb01000a Sims3.SimIFace.IPropertyStreamReader::ReadBool
+ IL_001c: 26                   pop
+ IL_001d: 02                   ldarg.0
+ IL_001e: 7bb1210004           ldfld b1210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mIsTurnedOn
+ IL_0023: 2c06                 brfalse.s 06
+ IL_0025: 02                   ldarg.0
+ IL_0026: 2866590006           call 66590006 Sims3.Gameplay.Objects.Lighting.SearchLight::TurnOn
+ IL_002b: 06                   ldloc.0
+ IL_002c: 2a                   ret
+
+06005966 Sims3.Gameplay.Objects.Lighting.SearchLight::TurnOn RVA=0011e834 bytes=112 maxStack=5 flags=3003 localSignature=00000000
+Raw complete method header 033005007000000000000000
+Raw complete CIL 02177db12100040272cc0e0370283e05000a027baf2100042d550202289000000a725a1203701ffe1628e303000a7daf210004027baf2100047272120370026faa00000a027baf210004727212037072b70100706fab00000a027baf21000416727212037072992000706f1301000a2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 17                   ldc.i4.1
+ IL_0002: 7db1210004           stfld b1210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mIsTurnedOn
+ IL_0007: 02                   ldarg.0
+ IL_0008: 72cc0e0370           ldstr cc0e0370 'OpenManyLights1'
+ IL_000d: 283e05000a           call 3e05000a Sims3.Gameplay.Abstracts.GameObject::SetMaterial
+ IL_0012: 02                   ldarg.0
+ IL_0013: 7baf210004           ldfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_0018: 2d55                 brtrue.s 55
+ IL_001a: 02                   ldarg.0
+ IL_001b: 02                   ldarg.0
+ IL_001c: 289000000a           call 9000000a Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId
+ IL_0021: 725a120370           ldstr 5a120370 'SearchLight'
+ IL_0026: 1ffe                 ldc.i4.s fe
+ IL_0028: 16                   ldc.i4.0
+ IL_0029: 28e303000a           call e303000a Sims3.SimIFace.StateMachineClient::Acquire
+ IL_002e: 7daf210004           stfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_0033: 02                   ldarg.0
+ IL_0034: 7baf210004           ldfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_0039: 7272120370           ldstr 72120370 'searchlight'
+ IL_003e: 02                   ldarg.0
+ IL_003f: 6faa00000a           callvirt aa00000a Sims3.SimIFace.StateMachineClient::SetActor
+ IL_0044: 02                   ldarg.0
+ IL_0045: 7baf210004           ldfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_004a: 7272120370           ldstr 72120370 'searchlight'
+ IL_004f: 72b7010070           ldstr b7010070 'Enter'
+ IL_0054: 6fab00000a           callvirt ab00000a Sims3.SimIFace.StateMachineClient::EnterState
+ IL_0059: 02                   ldarg.0
+ IL_005a: 7baf210004           ldfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_005f: 16                   ldc.i4.0
+ IL_0060: 7272120370           ldstr 72120370 'searchlight'
+ IL_0065: 7299200070           ldstr 99200070 'Loop'
+ IL_006a: 6f1301000a           callvirt 1301000a Sims3.SimIFace.StateMachineClient::RequestState
+ IL_006f: 2a                   ret
+
+06005967 Sims3.Gameplay.Objects.Lighting.SearchLight::TurnOff RVA=0011e8b0 bytes=56 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header e2
+Raw complete CIL 02167db1210004027240ca0270283e05000a027baf2100042c1d027baf21000416727212037072fd0100706f1301000a02147daf2100042a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 16                   ldc.i4.0
+ IL_0002: 7db1210004           stfld b1210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mIsTurnedOn
+ IL_0007: 02                   ldarg.0
+ IL_0008: 7240ca0270           ldstr 40ca0270 'default'
+ IL_000d: 283e05000a           call 3e05000a Sims3.Gameplay.Abstracts.GameObject::SetMaterial
+ IL_0012: 02                   ldarg.0
+ IL_0013: 7baf210004           ldfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_0018: 2c1d                 brfalse.s 1d
+ IL_001a: 02                   ldarg.0
+ IL_001b: 7baf210004           ldfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_0020: 16                   ldc.i4.0
+ IL_0021: 7272120370           ldstr 72120370 'searchlight'
+ IL_0026: 72fd010070           ldstr fd010070 'Exit'
+ IL_002b: 6f1301000a           callvirt 1301000a Sims3.SimIFace.StateMachineClient::RequestState
+ IL_0030: 02                   ldarg.0
+ IL_0031: 14                   ldnull
+ IL_0032: 7daf210004           stfld af210004 Sims3.Gameplay.Objects.Lighting.SearchLight::mSMC
+ IL_0037: 2a                   ret
+
+0600597d Sims3.Gameplay.Objects.Lighting.SearchLightRabbitHole::OnStartup RVA=0011eaaf bytes=29 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 76
+Raw complete CIL 022862590006027eb5210004289701000a027eb6210004289701000a2a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 2862590006           call 62590006 Sims3.Gameplay.Objects.Lighting.SearchLight::OnStartup
+ IL_0006: 02                   ldarg.0
+ IL_0007: 7eb5210004           ldsfld b5210004 .TurnOnSearchLight::Singleton
+ IL_000c: 289701000a           call 9701000a Sims3.Gameplay.Abstracts.GameObject::RemoveInteractionByType
+ IL_0011: 02                   ldarg.0
+ IL_0012: 7eb6210004           ldsfld b6210004 .TurnOffSearchLight::Singleton
+ IL_0017: 289701000a           call 9701000a Sims3.Gameplay.Abstracts.GameObject::RemoveInteractionByType
+ IL_001c: 2a                   ret
+
+SELECTED complete_methods=8 CIL_bytes=331

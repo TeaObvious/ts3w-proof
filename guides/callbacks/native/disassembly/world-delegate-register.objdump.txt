@@ -1,0 +1,8 @@
+# world-delegate-register: retail TS3W.exe VA 0x00786580-0x00786597, file offset 0x386580
+786580:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+  786584:	83 f8 4b             	cmp    eax,0x4b
+  786587:	77 0e                	ja     0x786597
+  786589:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  78658d:	8d 04 c0             	lea    eax,[eax+eax*8]
+  786590:	89 0c 85 78 7a 1d 01 	mov    DWORD PTR [eax*4+0x11d7a78],ecx
+  786597:	c3                   	ret

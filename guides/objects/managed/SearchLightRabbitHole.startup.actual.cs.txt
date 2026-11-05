@@ -1,0 +1,7 @@
+// Actual pristine ILSpy complete member; declaring type Sims3.Gameplay.Objects.Lighting.SearchLightRabbitHole.
+	public override void OnStartup()
+	{
+		base.OnStartup();
+		((GameObject)this).RemoveInteractionByType(TurnOnSearchLight.Singleton);
+		((GameObject)this).RemoveInteractionByType(TurnOffSearchLight.Singleton);
+	}

@@ -1,0 +1,860 @@
+.class public auto ansi abstract beforefieldinit Sims3.Gameplay.Objects.TombObjects.HideableTombObject
+	extends [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+	implements [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IBuildBuyListener,
+	           [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent
+{
+	// Nested Types
+	.class nested private auto ansi sealed beforefieldinit SetVisible
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field public bool IsVisible
+
+			// Methods
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x20af81
+				// Header size: 1
+				// Code size: 14 (0xe)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldc.i4.1
+				IL_0002: stfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition::IsVisible
+				IL_0007: ldarg.0
+				IL_0008: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible>::.ctor()
+				IL_000d: ret
+			} // end of method Definition::.ctor
+
+			.method private hidebysig specialname rtspecialname 
+				instance void .ctor (
+					bool isVisible
+				) cil managed 
+			{
+				// Method begins at RVA 0x20af90
+				// Header size: 1
+				// Code size: 21 (0x15)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldc.i4.1
+				IL_0002: stfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition::IsVisible
+				IL_0007: ldarg.0
+				IL_0008: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible>::.ctor()
+				IL_000d: ldarg.0
+				IL_000e: ldarg.1
+				IL_000f: stfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition::IsVisible
+				IL_0014: ret
+			} // end of method Definition::.ctor
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.HideableTombObject target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x20afa6
+				// Header size: 1
+				// Code size: 27 (0x1b)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+				IL_0006: ldarg.0
+				IL_0007: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition::IsVisible
+				IL_000c: xor
+				IL_000d: brfalse.s IL_0019
+
+				IL_000f: ldarg.2
+				IL_0010: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_InUse()
+				IL_0015: ldc.i4.0
+				IL_0016: ceq
+				IL_0018: ret
+
+				IL_0019: ldc.i4.0
+				IL_001a: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.HideableTombObject target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x20afc2
+				// Header size: 1
+				// Code size: 42 (0x2a)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition::IsVisible
+				IL_0006: brfalse.s IL_0019
+
+				IL_0008: ldstr "SetVisibleInteractionName"
+				IL_000d: ldc.i4.0
+				IL_000e: newarr [mscorlib]System.Object
+				IL_0013: call string Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible::LocalizeString(string, object[])
+				IL_0018: ret
+
+				IL_0019: ldstr "SetInvisibleInteractionName"
+				IL_001e: ldc.i4.0
+				IL_001f: newarr [mscorlib]System.Object
+				IL_0024: call string Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible::LocalizeString(string, object[])
+				IL_0029: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance void AddInteractions (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.HideableTombObject target,
+					class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+				) cil managed 
+			{
+				// Method begins at RVA 0x20aff0
+				// Header size: 12
+				// Code size: 35 (0x23)
+				.maxstack 5
+				.locals init (
+					[0] class Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition,
+					[1] class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair
+				)
+
+				IL_0000: ldc.i4.0
+				IL_0001: newobj instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition::.ctor(bool)
+				IL_0006: stloc.0
+				IL_0007: ldloc.0
+				IL_0008: ldarg.3
+				IL_0009: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+				IL_000e: stloc.1
+				IL_000f: ldarg.s results
+				IL_0011: ldloc.1
+				IL_0012: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+				IL_0017: ldarg.0
+				IL_0018: ldarg.1
+				IL_0019: ldarg.2
+				IL_001a: ldarg.3
+				IL_001b: ldarg.s results
+				IL_001d: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible>::AddInteractions(class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair, !0, !1, class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair>)
+				IL_0022: ret
+			} // end of method Definition::AddInteractions
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/HideableTombObject/SetVisible"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x20aefe
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombObjects/HideableTombObject/SetVisible:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method SetVisible::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x20af14
+			// Header size: 12
+			// Code size: 77 (0x4d)
+			.maxstack 2
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject>::Target
+			IL_0006: ldarg.0
+			IL_0007: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_InteractionDefinition()
+			IL_000c: isinst Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition
+			IL_0011: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition::IsVisible
+			IL_0016: stfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+			IL_001b: ldarg.0
+			IL_001c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject>::Target
+			IL_0021: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::UpdateOpacity()
+			IL_0026: ldarg.0
+			IL_0027: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject>::Target
+			IL_002c: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+			IL_0031: brfalse.s IL_0040
+
+			IL_0033: ldarg.0
+			IL_0034: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject>::Target
+			IL_0039: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnShow()
+			IL_003e: br.s IL_004b
+
+			IL_0040: ldarg.0
+			IL_0041: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject>::Target
+			IL_0046: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnHide()
+
+			IL_004b: ldc.i4.1
+			IL_004c: ret
+		} // end of method SetVisible::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x20af79
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.HideableTombObject>::.ctor()
+			IL_0006: ret
+		} // end of method SetVisible::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x20af6d
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible::Singleton
+			IL_000a: ret
+		} // end of method SetVisible::.cctor
+
+	} // end of class SetVisible
+
+
+	// Fields
+	.field private static literal uint32 kIsVisible = uint32(142613301)
+	.field private static literal string kWorldBuilderDataName = "HideableTombObject"
+	.field family bool mIsVisible
+	.field private bool mbWasVisible
+	.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor(bool) = (
+		01 00 00 00 00
+	)
+	.field private static initonly string[] kWorldBuilderDataKeyRemap
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x20ac04
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0007: ldarg.0
+		IL_0008: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::.ctor()
+		IL_000d: ret
+	} // end of method HideableTombObject::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x20ac13
+		// Header size: 1
+		// Code size: 33 (0x21)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::OnStartup()
+		IL_0006: ldarg.0
+		IL_0007: ldc.i4.0
+		IL_0008: newarr [mscorlib]System.Object
+		IL_000d: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent>(object[])
+		IL_0012: pop
+		IL_0013: ldarg.0
+		IL_0014: ldc.i4.0
+		IL_0015: newarr [mscorlib]System.Object
+		IL_001a: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_001f: pop
+		IL_0020: ret
+	} // end of method HideableTombObject::OnStartup
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x20ac35
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.HideableTombObject/SetVisible::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0012: ret
+	} // end of method HideableTombObject::AddBuildBuyInteractions
+
+	.method public hidebysig newslot virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x20ac49
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4.7
+		IL_0002: ldarg.0
+		IL_0003: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Appear(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0009: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_000e: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0013: ldarg.1
+		IL_0014: ldc.i4.s 12
+		IL_0016: ldarg.0
+		IL_0017: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Disappear(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_001d: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0022: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0027: ret
+	} // end of method HideableTombObject::OnAddTombObjectComponent
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x20ac74
+		// Header size: 12
+		// Code size: 30 (0x1e)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 142613301
+		IL_0010: ldarg.0
+		IL_0011: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0016: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_001b: pop
+		IL_001c: ldloc.0
+		IL_001d: ret
+	} // end of method HideableTombObject::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x20aca0
+		// Header size: 12
+		// Code size: 46 (0x2e)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 142613301
+		IL_0010: ldarg.0
+		IL_0011: ldflda bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0016: ldc.i4.1
+		IL_0017: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_001c: pop
+		IL_001d: ldarg.0
+		IL_001e: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0023: brtrue.s IL_002c
+
+		IL_0025: ldarg.0
+		IL_0026: ldc.i4.1
+		IL_0027: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Hide(bool)
+
+		IL_002c: ldloc.0
+		IL_002d: ret
+	} // end of method HideableTombObject::ImportContent
+
+	.method public final hidebysig newslot virtual 
+		instance void OnEnterBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x20acda
+		// Header size: 1
+		// Code size: 26 (0x1a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.0
+		IL_0002: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0007: stfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mbWasVisible
+		IL_000c: ldarg.0
+		IL_000d: ldc.i4.0
+		IL_000e: ldarg.0
+		IL_000f: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mbWasVisible
+		IL_0014: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Show(bool, bool)
+		IL_0019: ret
+	} // end of method HideableTombObject::OnEnterBuildBuyMode
+
+	.method public final hidebysig newslot virtual 
+		instance void OnExitBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x20acf5
+		// Header size: 1
+		// Code size: 36 (0x24)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0006: brtrue.s IL_0016
+
+		IL_0008: ldarg.0
+		IL_0009: ldc.i4.0
+		IL_000a: ldarg.0
+		IL_000b: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mbWasVisible
+		IL_0010: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Hide(bool, bool)
+		IL_0015: ret
+
+		IL_0016: ldarg.0
+		IL_0017: ldc.i4.0
+		IL_0018: ldarg.0
+		IL_0019: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mbWasVisible
+		IL_001e: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Show(bool, bool)
+		IL_0023: ret
+	} // end of method HideableTombObject::OnExitBuildBuyMode
+
+	.method public hidebysig newslot virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x20ad1a
+		// Header size: 1
+		// Code size: 29 (0x1d)
+		.maxstack 8
+
+		IL_0000: ldstr "HideableTombObject"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "Visible"
+		IL_0010: ldarg.0
+		IL_0011: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0016: ldc.i4.1
+		IL_0017: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_001c: ret
+	} // end of method HideableTombObject::SaveWorldBuilderData
+
+	.method public hidebysig newslot virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x20ad38
+		// Header size: 1
+		// Code size: 54 (0x36)
+		.maxstack 8
+
+		IL_0000: ldsfld string[] Sims3.Gameplay.Objects.TombObjects.HideableTombObject::kWorldBuilderDataKeyRemap
+		IL_0005: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::SetKeyRemap(string[])
+		IL_000a: ldstr "HideableTombObject"
+		IL_000f: ldarg.0
+		IL_0010: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0015: ldstr "Visible"
+		IL_001a: ldarg.0
+		IL_001b: ldflda bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0020: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0025: pop
+		IL_0026: ldarg.0
+		IL_0027: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_002c: brtrue.s IL_0035
+
+		IL_002e: ldarg.0
+		IL_002f: ldc.i4.1
+		IL_0030: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Hide(bool)
+
+		IL_0035: ret
+	} // end of method HideableTombObject::LoadWorldBuilderData
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance string get_AppearDisappearEffectName () cil managed 
+	{
+	} // end of method HideableTombObject::get_AppearDisappearEffectName
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Vector3 get_AppearDisappearEffectPosition () cil managed 
+	{
+	} // end of method HideableTombObject::get_AppearDisappearEffectPosition
+
+	.method family hidebysig newslot virtual 
+		instance void OnHide () cil managed 
+	{
+		// Method begins at RVA 0x20ad6f
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method HideableTombObject::OnHide
+
+	.method family hidebysig newslot virtual 
+		instance void OnShow () cil managed 
+	{
+		// Method begins at RVA 0x20ad71
+		// Header size: 1
+		// Code size: 1 (0x1)
+		.maxstack 8
+
+		IL_0000: ret
+	} // end of method HideableTombObject::OnShow
+
+	.method family hidebysig 
+		instance void Hide (
+			bool bDoCallback
+		) cil managed 
+	{
+		// Method begins at RVA 0x20ad73
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldc.i4.1
+		IL_0003: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Hide(bool, bool)
+		IL_0008: ret
+	} // end of method HideableTombObject::Hide
+
+	.method family hidebysig 
+		instance void Hide (
+			bool bDoCallback,
+			bool bWasVisible
+		) cil managed 
+	{
+		// Method begins at RVA 0x20ad7d
+		// Header size: 1
+		// Code size: 26 (0x1a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0007: ldarg.1
+		IL_0008: brfalse.s IL_0019
+
+		IL_000a: ldarg.2
+		IL_000b: brfalse.s IL_0019
+
+		IL_000d: ldarg.0
+		IL_000e: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ObjectStateChanged()
+		IL_0013: ldarg.0
+		IL_0014: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnHide()
+
+		IL_0019: ret
+	} // end of method HideableTombObject::Hide
+
+	.method family hidebysig 
+		instance void Show (
+			bool bDoCallback
+		) cil managed 
+	{
+		// Method begins at RVA 0x20ad98
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldc.i4.0
+		IL_0003: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Show(bool, bool)
+		IL_0008: ret
+	} // end of method HideableTombObject::Show
+
+	.method family hidebysig 
+		instance void Show (
+			bool bDoCallback,
+			bool bWasVisible
+		) cil managed 
+	{
+		// Method begins at RVA 0x20ada2
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::UpdateOpacity()
+		IL_0006: ldarg.1
+		IL_0007: brfalse.s IL_0012
+
+		IL_0009: ldarg.2
+		IL_000a: brtrue.s IL_0012
+
+		IL_000c: ldarg.0
+		IL_000d: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnShow()
+
+		IL_0012: ret
+	} // end of method HideableTombObject::Show
+
+	.method family hidebysig newslot virtual 
+		instance void UpdateOpacity () cil managed 
+	{
+		// Method begins at RVA 0x20adb6
+		// Header size: 1
+		// Code size: 49 (0x31)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0007: ldarg.0
+		IL_0008: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_000d: brtrue.s IL_0020
+
+		IL_000f: ldarg.0
+		IL_0010: ldc.r4 0.5
+		IL_0015: ldc.r4 0.0
+		IL_001a: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+		IL_001f: ret
+
+		IL_0020: ldarg.0
+		IL_0021: ldc.r4 1
+		IL_0026: ldc.r4 0.0
+		IL_002b: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetOpacity(float32, float32)
+		IL_0030: ret
+	} // end of method HideableTombObject::UpdateOpacity
+
+	.method family hidebysig newslot virtual 
+		instance void ShowWithEffects () cil managed 
+	{
+		// Method begins at RVA 0x20ade8
+		// Header size: 12
+		// Code size: 65 (0x41)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.VisualEffect
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance string Sims3.Gameplay.Objects.TombObjects.HideableTombObject::get_AppearDisappearEffectName()
+		IL_0006: call class [SimIFace]Sims3.SimIFace.VisualEffect [SimIFace]Sims3.SimIFace.VisualEffect::Create(string)
+		IL_000b: stloc.0
+		IL_000c: ldloc.0
+		IL_000d: ldarg.0
+		IL_000e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.HideableTombObject::get_AppearDisappearEffectPosition()
+		IL_0013: ldarg.0
+		IL_0014: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+		IL_0019: ldarg.0
+		IL_001a: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_UpVector()
+		IL_001f: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::SetPosAndOrient(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0024: ldloc.0
+		IL_0025: ldc.i4.0
+		IL_0026: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::SubmitOneShotEffect(valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+		IL_002b: ldarg.0
+		IL_002c: ldc.i4.1
+		IL_002d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::FadeIn(bool)
+		IL_0032: ldarg.0
+		IL_0033: ldc.i4.1
+		IL_0034: stfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0039: ldarg.0
+		IL_003a: ldc.i4.1
+		IL_003b: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Show(bool)
+		IL_0040: ret
+	} // end of method HideableTombObject::ShowWithEffects
+
+	.method family hidebysig newslot virtual 
+		instance void HideWithEffects () cil managed 
+	{
+		// Method begins at RVA 0x20ae38
+		// Header size: 12
+		// Code size: 78 (0x4e)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.VisualEffect
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance string Sims3.Gameplay.Objects.TombObjects.HideableTombObject::get_AppearDisappearEffectName()
+		IL_0006: call class [SimIFace]Sims3.SimIFace.VisualEffect [SimIFace]Sims3.SimIFace.VisualEffect::Create(string)
+		IL_000b: stloc.0
+		IL_000c: ldloc.0
+		IL_000d: ldarg.0
+		IL_000e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.HideableTombObject::get_AppearDisappearEffectPosition()
+		IL_0013: ldarg.0
+		IL_0014: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+		IL_0019: ldarg.0
+		IL_001a: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_UpVector()
+		IL_001f: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::SetPosAndOrient(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0024: ldloc.0
+		IL_0025: ldc.i4.0
+		IL_0026: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::SubmitOneShotEffect(valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+		IL_002b: ldarg.0
+		IL_002c: ldc.i4.1
+		IL_002d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::FadeOut(bool)
+		IL_0032: ldarg.0
+		IL_0033: ldc.i4.0
+		IL_0034: stfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0039: ldarg.0
+		IL_003a: ldc.i4.1
+		IL_003b: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Hide(bool)
+		IL_0040: call bool [Sims3GameplaySystems]Sims3.Gameplay.GameStates::get_IsBuildBuyLikeState()
+		IL_0045: brfalse.s IL_004d
+
+		IL_0047: ldarg.0
+		IL_0048: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::UpdateOpacity()
+
+		IL_004d: ret
+	} // end of method HideableTombObject::HideWithEffects
+
+	.method public hidebysig 
+		instance bool Appear () cil managed 
+	{
+		// Method begins at RVA 0x20ae92
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: call instance bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Appear(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: ret
+	} // end of method HideableTombObject::Appear
+
+	.method public hidebysig 
+		instance bool Appear (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x20ae9b
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0006: brfalse.s IL_000a
+
+		IL_0008: ldc.i4.0
+		IL_0009: ret
+
+		IL_000a: ldarg.0
+		IL_000b: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::ShowWithEffects()
+		IL_0010: ldc.i4.1
+		IL_0011: ret
+	} // end of method HideableTombObject::Appear
+
+	.method public hidebysig 
+		instance bool Disappear () cil managed 
+	{
+		// Method begins at RVA 0x20aeae
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldnull
+		IL_0002: call instance bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::Disappear(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_0007: ret
+	} // end of method HideableTombObject::Disappear
+
+	.method public hidebysig 
+		instance bool Disappear (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x20aeb7
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0006: brtrue.s IL_000a
+
+		IL_0008: ldc.i4.0
+		IL_0009: ret
+
+		IL_000a: ldarg.0
+		IL_000b: callvirt instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::HideWithEffects()
+		IL_0010: ldc.i4.1
+		IL_0011: ret
+	} // end of method HideableTombObject::Disappear
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x20aecc
+		// Header size: 12
+		// Code size: 38 (0x26)
+		.maxstack 3
+		.locals init (
+			[0] string[],
+			[1] uint32
+		)
+
+		IL_0000: ldc.i4.2
+		IL_0001: newarr [mscorlib]System.String
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: ldc.i4.0
+		IL_0009: ldc.i4 142613301
+		IL_000e: stloc.1
+		IL_000f: ldloca.s 1
+		IL_0011: call instance string [mscorlib]System.UInt32::ToString()
+		IL_0016: stelem.ref
+		IL_0017: ldloc.0
+		IL_0018: ldc.i4.1
+		IL_0019: ldstr "Visible"
+		IL_001e: stelem.ref
+		IL_001f: ldloc.0
+		IL_0020: stsfld string[] Sims3.Gameplay.Objects.TombObjects.HideableTombObject::kWorldBuilderDataKeyRemap
+		IL_0025: ret
+	} // end of method HideableTombObject::.cctor
+
+	// Properties
+	.property instance string AppearDisappearEffectName()
+	{
+		.get instance string Sims3.Gameplay.Objects.TombObjects.HideableTombObject::get_AppearDisappearEffectName()
+	}
+	.property instance valuetype [SimIFace]Sims3.SimIFace.Vector3 AppearDisappearEffectPosition()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.HideableTombObject::get_AppearDisappearEffectPosition()
+	}
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.HideableTombObject

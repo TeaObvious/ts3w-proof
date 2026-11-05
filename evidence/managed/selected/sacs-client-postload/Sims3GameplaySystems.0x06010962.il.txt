@@ -1,0 +1,39 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method public hidebysig virtual 
+		instance class Sims3.Gameplay.ActorSystems.Posture OnReset (
+			class Sims3.Gameplay.Interfaces.IGameObject objectBeingReset
+		) cil managed 
+	{
+		// Method begins at RVA 0x4b9058
+		// Header size: 12
+		// Code size: 74 (0x4a)
+		.maxstack 2
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Actors.Sim/StandingPosture::mActor
+		IL_0006: ldfld class Sims3.Gameplay.ActorSystems.PetSittingOnGroundPosture Sims3.Gameplay.Actors.Sim::PetSittingOnGround
+		IL_000b: callvirt instance void Sims3.Gameplay.ActorSystems.PetSittingOnGroundPosture::DoReset()
+		IL_0010: ldarg.0
+		IL_0011: ldfld class Sims3.Gameplay.ActorSystems.PostureSwitcher Sims3.Gameplay.ActorSystems.PetStandingPosture::mPostureSwitcher
+		IL_0016: brfalse.s IL_0042
+
+		IL_0018: ldarg.0
+		IL_0019: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Actors.Sim/StandingPosture::mActor
+		IL_001e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0023: call bool [SimIFace]Sims3.SimIFace.Objects::IsValid(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0028: brfalse.s IL_0037
+
+		IL_002a: ldarg.0
+		IL_002b: ldfld class Sims3.Gameplay.ActorSystems.PostureSwitcher Sims3.Gameplay.ActorSystems.PetStandingPosture::mPostureSwitcher
+		IL_0030: callvirt instance void Sims3.Gameplay.ActorSystems.PostureSwitcher::ResetMonitor()
+		IL_0035: br.s IL_0042
+
+		IL_0037: ldarg.0
+		IL_0038: ldfld class Sims3.Gameplay.ActorSystems.PostureSwitcher Sims3.Gameplay.ActorSystems.PetStandingPosture::mPostureSwitcher
+		IL_003d: callvirt instance void Sims3.Gameplay.ActorSystems.PostureSwitcher::StopMonitoring()
+
+		IL_0042: ldarg.0
+		IL_0043: ldarg.1
+		IL_0044: call instance class Sims3.Gameplay.ActorSystems.Posture Sims3.Gameplay.Actors.Sim/StandingPosture::OnReset(class Sims3.Gameplay.Interfaces.IGameObject)
+		IL_0049: ret
+	} // end of method PetStandingPosture::OnReset

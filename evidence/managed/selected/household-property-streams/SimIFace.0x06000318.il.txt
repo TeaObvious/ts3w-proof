@@ -1,0 +1,61 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method family hidebysig 
+		instance bool ReadString (
+			[out] string& 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x8040
+		// Header size: 12
+		// Code size: 57 (0x39)
+		.maxstack 3
+		.locals init (
+			[0] uint16[],
+			[1] uint16,
+			[2] uint16[],
+			[3] int32
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: ldstr ""
+		IL_0006: stind.ref
+		IL_0007: ldarg.0
+		IL_0008: ldc.i4.2
+		IL_0009: ldloca.s 0
+		IL_000b: call instance bool Sims3.SimIFace.PropertyStreamReader::ReadArray<uint16>(int32, !!0[]&)
+		IL_0010: brfalse.s IL_0037
+
+		IL_0012: ldloc.0
+		IL_0013: stloc.2
+		IL_0014: ldc.i4.0
+		IL_0015: stloc.3
+		IL_0016: br.s IL_002f
+		// loop start (head: IL_002f)
+			IL_0018: ldloc.2
+			IL_0019: ldloc.3
+			IL_001a: ldelem.u2
+			IL_001b: stloc.1
+			IL_001c: ldarg.1
+			IL_001d: dup
+			IL_001e: ldind.ref
+			IL_001f: ldloc.1
+			IL_0020: box [mscorlib]System.Char
+			IL_0025: call string [mscorlib]System.String::Concat(object, object)
+			IL_002a: stind.ref
+			IL_002b: ldloc.3
+			IL_002c: ldc.i4.1
+			IL_002d: add
+			IL_002e: stloc.3
+
+			IL_002f: ldloc.3
+			IL_0030: ldloc.2
+			IL_0031: ldlen
+			IL_0032: conv.i4
+			IL_0033: blt.s IL_0018
+		// end loop
+
+		IL_0035: ldc.i4.1
+		IL_0036: ret
+
+		IL_0037: ldc.i4.0
+		IL_0038: ret
+	} // end of method PropertyStreamReader::ReadString

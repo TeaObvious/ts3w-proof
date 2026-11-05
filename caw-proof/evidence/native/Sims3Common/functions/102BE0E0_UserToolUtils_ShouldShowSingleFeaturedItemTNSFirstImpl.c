@@ -1,0 +1,19 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* CAW 1.22.10 Sims3Common.dll PE export identity:
+   UserToolUtils_ShouldShowSingleFeaturedItemTNSFirstImpl. Export ordinal(s): 1232. Entry VA:
+   0x102be0e0. Original managed P/Invoke MethodDef(s): ScriptCore:0x06000AA3. This is an
+   export/declaration annotation only; ABI, behavior and runtime execution require the original
+   instructions and caller evidence. */
+
+void UserToolUtils_ShouldShowSingleFeaturedItemTNSFirstImpl(void)
+
+{
+                    /* 0x2be0e0  1232  UserToolUtils_ShouldShowSingleFeaturedItemTNSFirstImpl */
+  FUN_10261e50();
+  return;
+}
+

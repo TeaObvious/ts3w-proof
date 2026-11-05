@@ -1,0 +1,36 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Sims3Common.dll CAW 1.22.10 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x10996a30 (WorldTerrainWrap_GetPaintingLayerTerrainType)
+Paired Ghidra pseudocode: 10996A30_WorldTerrainWrap_GetPaintingLayerTerrainType.c
+Window: [0x10996a30, 0x10996a50) (32 bytes; stop exclusive)
+Next defined Ghidra entry: 0x10996a50
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+10996a30: 8b 44 24 04 85 c0 74 13 8b 48 64 85 c9 74 0c 0f
+10996a40: b6 44 24 08 50 e8 66 3b 86 ff c3 33 c0 c3 cc cc
+
+LINEAR DISASSEMBLY
+10996a30 <.text+0x995a30>:
+10996a30:	8b 44 24 04                                     	mov    eax,DWORD PTR [esp+0x4]
+10996a34:	85 c0                                           	test   eax,eax
+10996a36:	74 13                                           	je     0x10996a4b
+10996a38:	8b 48 64                                        	mov    ecx,DWORD PTR [eax+0x64]
+10996a3b:	85 c9                                           	test   ecx,ecx
+10996a3d:	74 0c                                           	je     0x10996a4b
+10996a3f:	0f b6 44 24 08                                  	movzx  eax,BYTE PTR [esp+0x8]
+10996a44:	50                                              	push   eax
+10996a45:	e8 66 3b 86 ff                                  	call   0x101fa5b0
+10996a4a:	c3                                              	ret
+10996a4b:	33 c0                                           	xor    eax,eax
+10996a4d:	c3                                              	ret
+10996a4e:	cc                                              	int3
+10996a4f:	cc                                              	int3

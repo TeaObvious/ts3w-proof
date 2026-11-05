@@ -1,0 +1,40 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CASUtils::CASUtils_SetCameraOffsetImpl
+# Entry: 0x005a85b0; bounded stop: 0x005a8600; next Ghidra entry: 0x005a8600
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+005a85b0 <.text+0x1a75b0>:
+  5a85b0:	e8 1b 16 3c 00       	call   0x969bd0
+  5a85b5:	8b c8                	mov    ecx,eax
+  5a85b7:	e8 34 9a 97 00       	call   0xf21ff0
+  5a85bc:	8b c8                	mov    ecx,eax
+  5a85be:	e8 1d b8 f6 ff       	call   0x513de0
+  5a85c3:	85 c0                	test   eax,eax
+  5a85c5:	74 35                	je     0x5a85fc
+  5a85c7:	8b 10                	mov    edx,DWORD PTR [eax]
+  5a85c9:	8b c8                	mov    ecx,eax
+  5a85cb:	8b 42 0c             	mov    eax,DWORD PTR [edx+0xc]
+  5a85ce:	68 53 5c b5 e5       	push   0xe5b55c53
+  5a85d3:	ff d0                	call   eax
+  5a85d5:	85 c0                	test   eax,eax
+  5a85d7:	74 23                	je     0x5a85fc
+  5a85d9:	d9 44 24 0c          	fld    DWORD PTR [esp+0xc]
+  5a85dd:	8b 10                	mov    edx,DWORD PTR [eax]
+  5a85df:	83 ec 0c             	sub    esp,0xc
+  5a85e2:	d9 5c 24 08          	fstp   DWORD PTR [esp+0x8]
+  5a85e6:	8b c8                	mov    ecx,eax
+  5a85e8:	d9 44 24 14          	fld    DWORD PTR [esp+0x14]
+  5a85ec:	8b 42 68             	mov    eax,DWORD PTR [edx+0x68]
+  5a85ef:	d9 5c 24 04          	fstp   DWORD PTR [esp+0x4]
+  5a85f3:	d9 44 24 10          	fld    DWORD PTR [esp+0x10]
+  5a85f7:	d9 1c 24             	fstp   DWORD PTR [esp]
+  5a85fa:	ff d0                	call   eax
+  5a85fc:	c3                   	ret
+  5a85fd:	cc                   	int3
+  5a85fe:	cc                   	int3
+  5a85ff:	cc                   	int3

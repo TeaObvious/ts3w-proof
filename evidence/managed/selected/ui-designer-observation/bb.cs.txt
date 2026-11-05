@@ -1,0 +1,21 @@
+// Actual ILSpy selected-member renderings in metadata order, not a compilable original class.
+// Sims3.UI.BBCompositorManager::get_CompositorEnabled 0x060037D3, Sims3.UI.BBCompositorManager::get_Instance 0x060037D7, Sims3.UI.BBCompositorManager::Load 0x060037D8
+{
+	return mEnabled;
+}
+
+{
+	return sController;
+}
+
+using Sims3.UI.CAS;
+
+public static void Load()
+{
+	if (sController == null)
+	{
+		sController = new BBCompositorManager();
+		CASCompositorController.Load();
+	}
+}
+

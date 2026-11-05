@@ -1,0 +1,369 @@
+
+.method 0x060074f4 Sims3.Gameplay.Pools.LotPond::OnStartup RVA=0x1fb9e4 signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":0,"return_type":"void","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: ldsfld         0x04006f14 ; Skate::Singleton
+ IL_0006: call           0x060009ea ; Sims3.Gameplay.Abstracts.GameObject::AddInteraction
+ IL_000b: ldarg.0         ;
+ IL_000c: ldsfld         0x04006f35 ; WatchSkaters::Singleton
+ IL_0011: call           0x060009ea ; Sims3.Gameplay.Abstracts.GameObject::AddInteraction
+ IL_0016: ldarg.0         ;
+ IL_0017: ldfld          0x04003c4c ; Sims3.Gameplay.Pools.LotPond::mPondId
+ IL_001c: brtrue.s       36
+ IL_001e: ldarg.0         ;
+ IL_001f: call           0x060074f5 ; Sims3.Gameplay.Pools.LotPond::TryCalculatePondId
+ IL_0024: ldarg.0         ;
+ IL_0025: ldc.i4.m1       ;
+ IL_0026: call           0x060009be ; Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags
+ IL_002b: ret             ;
+
+.method 0x060074f5 Sims3.Gameplay.Pools.LotPond::TryCalculatePondId RVA=0x1fba14 signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":0,"return_type":"void","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: call           0x06000912 ; Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent
+ IL_0006: brfalse.s      126
+ IL_0008: ldarg.0         ;
+ IL_0009: call           0x06000912 ; Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent
+ IL_000e: callvirt       0x0600f152 ; Sims3.Gameplay.Core.Lot::get_IsWorldLot
+ IL_0013: brtrue.s       126
+ IL_0015: ldarg.0         ;
+ IL_0016: call           0x06000912 ; Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent
+ IL_001b: callvirt       0x0600f151 ; Sims3.Gameplay.Core.Lot::get_LotId
+ IL_0020: stloc.0         ;
+ IL_0021: ldnull          ;
+ IL_0022: stloc.1         ;
+ IL_0023: ldloc.0         ;
+ IL_0024: ldloca.s       1
+ IL_0026: call           0x0a001a01 ; Sims3.SimIFace.World::GetAllPondIds
+ IL_002b: brfalse.s      126
+ IL_002d: ldloc.1         ;
+ IL_002e: stloc.s        4
+ IL_0030: ldc.i4.0        ;
+ IL_0031: stloc.s        5
+ IL_0033: br.s           118
+ IL_0035: ldloc.s        4
+ IL_0037: ldloc.s        5
+ IL_0039: ldelem.u4       ;
+ IL_003a: stloc.2         ;
+ IL_003b: ldloca.s       3
+ IL_003d: initobj        0x010001d9
+ IL_0043: ldloc.2         ;
+ IL_0044: ldloc.0         ;
+ IL_0045: ldloca.s       3
+ IL_0047: call           0x0a001a02 ; Sims3.SimIFace.World::GetPondInfo
+ IL_004c: brfalse.s      112
+ IL_004e: ldloca.s       3
+ IL_0050: ldfld          0x0a001ad1 ; Sims3.SimIFace.PondInfo::mObjectID
+ IL_0055: ldarg.0         ;
+ IL_0056: call           0x060008e7 ; Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId
+ IL_005b: ldfld          0x0a000478 ; Sims3.SimIFace.ObjectGuid::mValue
+ IL_0060: bne.un.s       112
+ IL_0062: ldarg.0         ;
+ IL_0063: ldloca.s       3
+ IL_0065: ldfld          0x0a00201a ; Sims3.SimIFace.PondInfo::mID
+ IL_006a: stfld          0x04003c4c ; Sims3.Gameplay.Pools.LotPond::mPondId
+ IL_006f: ret             ;
+ IL_0070: ldloc.s        5
+ IL_0072: ldc.i4.1        ;
+ IL_0073: add             ;
+ IL_0074: stloc.s        5
+ IL_0076: ldloc.s        5
+ IL_0078: ldloc.s        4
+ IL_007a: ldlen           ;
+ IL_007b: conv.i4         ;
+ IL_007c: blt.s          53
+ IL_007e: ret             ;
+
+.method 0x060074f6 Sims3.Gameplay.Pools.LotPond::CalculateSkatingRinkPaths RVA=0x1fba9f signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":0,"return_type":"void","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: ldc.i4.1        ;
+ IL_0002: call           0x060074f7 ; Sims3.Gameplay.Pools.LotPond::CalculateSkatingRinkPaths
+ IL_0007: ret             ;
+
+.method 0x060074f7 Sims3.Gameplay.Pools.LotPond::CalculateSkatingRinkPaths RVA=0x1fbaa8 signature={"raw_length":4,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":1,"return_type":"void","parameter_types":["bool"],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: ldfld          0x04003c4c ; Sims3.Gameplay.Pools.LotPond::mPondId
+ IL_0006: brtrue.s       14
+ IL_0008: ldarg.0         ;
+ IL_0009: call           0x060074f5 ; Sims3.Gameplay.Pools.LotPond::TryCalculatePondId
+ IL_000e: ldarg.0         ;
+ IL_000f: ldfld          0x04003c4c ; Sims3.Gameplay.Pools.LotPond::mPondId
+ IL_0014: brtrue.s       23
+ IL_0016: ret             ;
+ IL_0017: ldarg.0         ;
+ IL_0018: call           0x0600091d ; Sims3.Gameplay.Abstracts.GameObject::get_UseCount
+ IL_001d: ldc.i4.0        ;
+ IL_001e: ble.s          33
+ IL_0020: ret             ;
+ IL_0021: ldloca.s       0
+ IL_0023: initobj        0x010001d9
+ IL_0029: ldarg.0         ;
+ IL_002a: ldfld          0x04003c4c ; Sims3.Gameplay.Pools.LotPond::mPondId
+ IL_002f: ldarg.0         ;
+ IL_0030: call           0x06000912 ; Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent
+ IL_0035: callvirt       0x0600f151 ; Sims3.Gameplay.Core.Lot::get_LotId
+ IL_003a: ldloca.s       0
+ IL_003c: call           0x0a001a02 ; Sims3.SimIFace.World::GetPondInfo
+ IL_0041: brtrue.s       74
+ IL_0043: ldarg.0         ;
+ IL_0044: callvirt       0x060008e9 ; Sims3.Gameplay.Abstracts.ScriptObject::Destroy
+ IL_0049: ret             ;
+ IL_004a: ldarg.0         ;
+ IL_004b: ldarg.1         ;
+ IL_004c: call           0x0600515a ; Sims3.Gameplay.Pools.SkatableTerrain::ClearPondRinkCalculations
+ IL_0051: ldarg.0         ;
+ IL_0052: ldloc.0         ;
+ IL_0053: call           0x060074f8 ; Sims3.Gameplay.Pools.LotPond::SetCornerVectors
+ IL_0058: stloc.1         ;
+ IL_0059: ldloca.s       1
+ IL_005b: ldfld          0x0a00046e ; Sims3.SimIFace.Vector2::x
+ IL_0060: stloc.2         ;
+ IL_0061: ldloca.s       1
+ IL_0063: ldfld          0x0a00046f ; Sims3.SimIFace.Vector2::y
+ IL_0068: stloc.3         ;
+ IL_0069: ldloc.2         ;
+ IL_006a: ldsfld         0x04003c47 ; Sims3.Gameplay.Pools.LotPond::kMinPondWidthAndHeightBeforeSkatable
+ IL_006f: blt.un         312
+ IL_0074: ldloc.3         ;
+ IL_0075: ldsfld         0x04003c47 ; Sims3.Gameplay.Pools.LotPond::kMinPondWidthAndHeightBeforeSkatable
+ IL_007a: blt.un         312
+ IL_007f: ldarg.0         ;
+ IL_0080: call           0x060055d7 ; Sims3.Gameplay.Core.RandomUtil::CoinFlip
+ IL_0085: stfld          0x04002c19 ; Sims3.Gameplay.Pools.SkatableTerrain::mIsClockwise
+ IL_008a: ldloc.2         ;
+ IL_008b: ldloc.3         ;
+ IL_008c: call           0x0a00018e ; System.Math::Min
+ IL_0091: stloc.s        4
+ IL_0093: ldloc.2         ;
+ IL_0094: ldloc.3         ;
+ IL_0095: add             ;
+ IL_0096: ldc.r4         2
+ IL_009b: mul             ;
+ IL_009c: stloc.s        5
+ IL_009e: ldloc.s        4
+ IL_00a0: ldsfld         0x04003c45 ; Sims3.Gameplay.Pools.LotPond::kOutsideRouteOffsetMinLengthMultiplier
+ IL_00a5: mul             ;
+ IL_00a6: stloc.s        6
+ IL_00a8: ldloc.s        4
+ IL_00aa: ldsfld         0x04003c46 ; Sims3.Gameplay.Pools.LotPond::kOutsideRouteRadiusMinLengthMultiplier
+ IL_00af: mul             ;
+ IL_00b0: stloc.s        7
+ IL_00b2: ldarg.0         ;
+ IL_00b3: ldloc.s        5
+ IL_00b5: ldsfld         0x04003c4b ; Sims3.Gameplay.Pools.LotPond::kCircumferenceMultiplierForMaxSkatersOutsideRoute
+ IL_00ba: mul             ;
+ IL_00bb: conv.i4         ;
+ IL_00bc: stfld          0x04002c13 ; Sims3.Gameplay.Pools.SkatableTerrain::mMaxSkatersOutsideRoute
+ IL_00c1: ldarg.0         ;
+ IL_00c2: call           0x06000907 ; Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector
+ IL_00c7: ldloc.s        6
+ IL_00c9: ldc.i4.2        ;
+ IL_00ca: ldloc.s        7
+ IL_00cc: ldarg.0         ;
+ IL_00cd: call           0x06005152 ; Sims3.Gameplay.Pools.SkatableTerrain::get_RotationModifier
+ IL_00d2: ldarg.0         ;
+ IL_00d3: ldfld          0x04002c19 ; Sims3.Gameplay.Pools.SkatableTerrain::mIsClockwise
+ IL_00d8: ldarg.0         ;
+ IL_00d9: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_00de: ldarg.0         ;
+ IL_00df: ldflda         0x04002c17 ; Sims3.Gameplay.Pools.SkatableTerrain::mOuterRouteVerts
+ IL_00e4: call           0x0600c316 ; Sims3.Gameplay.Objects.SkatingRink::CalculateOutsideSkateLane
+ IL_00e9: ldloc.2         ;
+ IL_00ea: ldsfld         0x04003c48 ; Sims3.Gameplay.Pools.LotPond::kMinPondWidthAndHeightForInnerRoute
+ IL_00ef: blt.un.s       312
+ IL_00f1: ldloc.3         ;
+ IL_00f2: ldsfld         0x04003c48 ; Sims3.Gameplay.Pools.LotPond::kMinPondWidthAndHeightForInnerRoute
+ IL_00f7: blt.un.s       312
+ IL_00f9: ldarg.0         ;
+ IL_00fa: ldloc.s        5
+ IL_00fc: ldsfld         0x04003c4a ; Sims3.Gameplay.Pools.LotPond::kCircumferenceMultiplierForMaxSkatersInsideRoute
+ IL_0101: mul             ;
+ IL_0102: conv.i4         ;
+ IL_0103: stfld          0x04002c14 ; Sims3.Gameplay.Pools.SkatableTerrain::mMaxSkatersInsideRoute
+ IL_0108: ldloc.s        4
+ IL_010a: ldsfld         0x04003c49 ; Sims3.Gameplay.Pools.LotPond::kInsideRouteOffsetMinLengthMultiplier
+ IL_010f: mul             ;
+ IL_0110: stloc.s        8
+ IL_0112: ldarg.0         ;
+ IL_0113: call           0x06000907 ; Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector
+ IL_0118: ldarg.0         ;
+ IL_0119: callvirt       0x06000903 ; Sims3.Gameplay.Abstracts.GameObject::get_Position
+ IL_011e: ldloc.s        8
+ IL_0120: ldc.i4.8        ;
+ IL_0121: ldarg.0         ;
+ IL_0122: call           0x06005152 ; Sims3.Gameplay.Pools.SkatableTerrain::get_RotationModifier
+ IL_0127: ldarg.0         ;
+ IL_0128: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_012d: ldarg.0         ;
+ IL_012e: ldflda         0x04002c16 ; Sims3.Gameplay.Pools.SkatableTerrain::mInnerRouteVerts
+ IL_0133: call           0x0600c319 ; Sims3.Gameplay.Objects.SkatingRink::CalculateInsideSkateLane
+ IL_0138: ret             ;
+
+.method 0x060074f8 Sims3.Gameplay.Pools.LotPond::SetCornerVectors RVA=0x1fbbf0 signature={"raw_length":8,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":1,"return_type":"valuetype:541","parameter_types":["valuetype:1893"],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: ldc.i4.4        ;
+ IL_0002: newarr         0x010000c9
+ IL_0007: stfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_000c: ldarg.0         ;
+ IL_000d: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_0012: ldc.i4.1        ;
+ IL_0013: ldelema        0x010000c9
+ IL_0018: ldarga.s       1
+ IL_001a: ldfld          0x0a00201b ; Sims3.SimIFace.PondInfo::mBestRectCorner0
+ IL_001f: stobj          0x010000c9
+ IL_0024: ldarg.0         ;
+ IL_0025: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_002a: ldc.i4.0        ;
+ IL_002b: ldelema        0x010000c9
+ IL_0030: ldarga.s       1
+ IL_0032: ldfld          0x0a00201c ; Sims3.SimIFace.PondInfo::mBestRectCorner1
+ IL_0037: stobj          0x010000c9
+ IL_003c: ldarg.0         ;
+ IL_003d: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_0042: ldc.i4.3        ;
+ IL_0043: ldelema        0x010000c9
+ IL_0048: ldarga.s       1
+ IL_004a: ldfld          0x0a00201d ; Sims3.SimIFace.PondInfo::mBestRectCorner2
+ IL_004f: stobj          0x010000c9
+ IL_0054: ldarg.0         ;
+ IL_0055: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_005a: ldc.i4.2        ;
+ IL_005b: ldelema        0x010000c9
+ IL_0060: ldarga.s       1
+ IL_0062: ldfld          0x0a00201e ; Sims3.SimIFace.PondInfo::mBestRectCorner3
+ IL_0067: stobj          0x010000c9
+ IL_006c: ldarg.0         ;
+ IL_006d: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_0072: ldc.i4.0        ;
+ IL_0073: ldelema        0x010000c9
+ IL_0078: ldobj          0x010000c9
+ IL_007d: ldarg.0         ;
+ IL_007e: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_0083: ldc.i4.3        ;
+ IL_0084: ldelema        0x010000c9
+ IL_0089: ldobj          0x010000c9
+ IL_008e: call           0x0a00019e ; Sims3.SimIFace.Vector3::op_Subtraction
+ IL_0093: stloc.0         ;
+ IL_0094: ldarg.0         ;
+ IL_0095: ldloca.s       0
+ IL_0097: call           0x0a0001a0 ; Sims3.SimIFace.Vector3::Normalize
+ IL_009c: call           0x060009b1 ; Sims3.Gameplay.Abstracts.GameObject::SetForward
+ IL_00a1: ldarg.0         ;
+ IL_00a2: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_00a7: ldc.i4.0        ;
+ IL_00a8: ldelema        0x010000c9
+ IL_00ad: ldobj          0x010000c9
+ IL_00b2: ldarg.0         ;
+ IL_00b3: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_00b8: ldc.i4.2        ;
+ IL_00b9: ldelema        0x010000c9
+ IL_00be: ldobj          0x010000c9
+ IL_00c3: call           0x0a0001c7 ; Sims3.SimIFace.Vector3::op_Addition
+ IL_00c8: ldc.r4         2
+ IL_00cd: call           0x0a000252 ; Sims3.SimIFace.Vector3::op_Division
+ IL_00d2: stloc.1         ;
+ IL_00d3: ldloca.s       2
+ IL_00d5: ldloca.s       1
+ IL_00d7: ldfld          0x0a00012d ; Sims3.SimIFace.Vector3::x
+ IL_00dc: ldarga.s       1
+ IL_00de: ldfld          0x0a00201f ; Sims3.SimIFace.PondInfo::mfWaterHeight
+ IL_00e3: ldloca.s       1
+ IL_00e5: ldfld          0x0a00012e ; Sims3.SimIFace.Vector3::z
+ IL_00ea: call           0x0a000375 ; Sims3.SimIFace.Vector3::.ctor
+ IL_00ef: ldarg.0         ;
+ IL_00f0: ldloc.2         ;
+ IL_00f1: call           0x060009ae ; Sims3.Gameplay.Abstracts.GameObject::SetPosition
+ IL_00f6: ldarg.0         ;
+ IL_00f7: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_00fc: ldc.i4.1        ;
+ IL_00fd: ldelema        0x010000c9
+ IL_0102: ldobj          0x010000c9
+ IL_0107: ldarg.0         ;
+ IL_0108: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_010d: ldc.i4.0        ;
+ IL_010e: ldelema        0x010000c9
+ IL_0113: ldobj          0x010000c9
+ IL_0118: call           0x0a00019e ; Sims3.SimIFace.Vector3::op_Subtraction
+ IL_011d: stloc.3         ;
+ IL_011e: ldloca.s       3
+ IL_0120: ldc.r4         0
+ IL_0125: stfld          0x0a0001c4 ; Sims3.SimIFace.Vector3::y
+ IL_012a: ldloca.s       3
+ IL_012c: call           0x0a0001c9 ; Sims3.SimIFace.Vector3::Length
+ IL_0131: stloc.s        4
+ IL_0133: ldarg.0         ;
+ IL_0134: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_0139: ldc.i4.1        ;
+ IL_013a: ldelema        0x010000c9
+ IL_013f: ldobj          0x010000c9
+ IL_0144: ldarg.0         ;
+ IL_0145: ldfld          0x04002c18 ; Sims3.Gameplay.Pools.SkatableTerrain::mCornerVectors
+ IL_014a: ldc.i4.2        ;
+ IL_014b: ldelema        0x010000c9
+ IL_0150: ldobj          0x010000c9
+ IL_0155: call           0x0a00019e ; Sims3.SimIFace.Vector3::op_Subtraction
+ IL_015a: stloc.s        5
+ IL_015c: ldloca.s       5
+ IL_015e: ldc.r4         0
+ IL_0163: stfld          0x0a0001c4 ; Sims3.SimIFace.Vector3::y
+ IL_0168: ldloca.s       5
+ IL_016a: call           0x0a0001c9 ; Sims3.SimIFace.Vector3::Length
+ IL_016f: stloc.s        6
+ IL_0171: ldloc.s        4
+ IL_0173: ldloc.s        6
+ IL_0175: newobj         0x0a000032 ; Sims3.SimIFace.Vector2::.ctor
+ IL_017a: ret             ;
+
+.method 0x060074fc Sims3.Gameplay.Pools.LotPond::InternalOnSetLotCurrent RVA=0x1fbdaa signature={"raw_length":8,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":1,"return_type":"void","parameter_types":["class:36280"],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: ldarg.1         ;
+ IL_0002: call           0x06000a40 ; Sims3.Gameplay.Abstracts.GameObject::InternalOnSetLotCurrent
+ IL_0007: ldarg.0         ;
+ IL_0008: ldfld          0x04003c4c ; Sims3.Gameplay.Pools.LotPond::mPondId
+ IL_000d: brtrue.s       32
+ IL_000f: ldarg.1         ;
+ IL_0010: brfalse.s      32
+ IL_0012: ldarg.1         ;
+ IL_0013: callvirt       0x0600f152 ; Sims3.Gameplay.Core.Lot::get_IsWorldLot
+ IL_0018: brtrue.s       32
+ IL_001a: ldarg.0         ;
+ IL_001b: callvirt       0x06005153 ; Sims3.Gameplay.Pools.SkatableTerrain::CalculateSkatingRinkPaths
+ IL_0020: ret             ;
+
+.method 0x060074fd Sims3.Gameplay.Pools.LotPond::OnEnterBuildBuyMode RVA=0x1fbdcc signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":0,"return_type":"void","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ret             ;
+
+.method 0x060074fe Sims3.Gameplay.Pools.LotPond::OnExitBuildBuyMode RVA=0x1fbdce signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":0,"return_type":"void","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: call           0x0600091d ; Sims3.Gameplay.Abstracts.GameObject::get_UseCount
+ IL_0006: ldc.i4.0        ;
+ IL_0007: bgt.s          15
+ IL_0009: ldarg.0         ;
+ IL_000a: callvirt       0x06005153 ; Sims3.Gameplay.Pools.SkatableTerrain::CalculateSkatingRinkPaths
+ IL_000f: ret             ;
+
+.method 0x0600750d Sims3.Gameplay.Pools.LotPond::.ctor RVA=0x1fbfb1 signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default has-this","generic_parameter_count":null,"parameter_count":0,"return_type":"void","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ldarg.0         ;
+ IL_0001: call           0x06005158 ; Sims3.Gameplay.Pools.SkatableTerrain::.ctor
+ IL_0006: ret             ;
+
+.method 0x0600750e Sims3.Gameplay.Pools.LotPond::.cctor RVA=0x1fbf40 signature={"raw_length":3,"kind":"method","parse_status":"decoded","calling_convention":"default","generic_parameter_count":null,"parameter_count":0,"return_type":"void","parameter_types":[],"field_type":null,"issue":null}
+ IL_0000: ldc.r4         0.15000000596046448
+ IL_0005: stsfld         0x04003c45 ; Sims3.Gameplay.Pools.LotPond::kOutsideRouteOffsetMinLengthMultiplier
+ IL_000a: ldc.r4         0.20000000298023224
+ IL_000f: stsfld         0x04003c46 ; Sims3.Gameplay.Pools.LotPond::kOutsideRouteRadiusMinLengthMultiplier
+ IL_0014: ldc.r4         6
+ IL_0019: stsfld         0x04003c47 ; Sims3.Gameplay.Pools.LotPond::kMinPondWidthAndHeightBeforeSkatable
+ IL_001e: ldc.r4         10
+ IL_0023: stsfld         0x04003c48 ; Sims3.Gameplay.Pools.LotPond::kMinPondWidthAndHeightForInnerRoute
+ IL_0028: ldc.r4         0.3499999940395355
+ IL_002d: stsfld         0x04003c49 ; Sims3.Gameplay.Pools.LotPond::kInsideRouteOffsetMinLengthMultiplier
+ IL_0032: ldc.r4         0.05000000074505806
+ IL_0037: stsfld         0x04003c4a ; Sims3.Gameplay.Pools.LotPond::kCircumferenceMultiplierForMaxSkatersInsideRoute
+ IL_003c: ldc.r4         0.0666700005531311
+ IL_0041: stsfld         0x04003c4b ; Sims3.Gameplay.Pools.LotPond::kCircumferenceMultiplierForMaxSkatersOutsideRoute
+ IL_0046: ldstr          0x700173a0 ; "hud_interactions_object_pond"
+ IL_004b: call           0x0a0007fb ; Sims3.SimIFace.ResourceUtils::HashString64
+ IL_0050: stsfld         0x04003c4d ; Sims3.Gameplay.Pools.LotPond::kIconNameHash
+ IL_0055: ldstr          0x700080de ; "balloon_pond"
+ IL_005a: call           0x0a0007fb ; Sims3.SimIFace.ResourceUtils::HashString64
+ IL_005f: stsfld         0x04003c4e ; Sims3.Gameplay.Pools.LotPond::kBalloonNameHash
+ IL_0064: ret             ;

@@ -1,0 +1,2708 @@
+.class public auto ansi abstract beforefieldinit Sims3.Gameplay.Objects.TombObjects.TreasureChest
+	extends [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject
+	implements [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IBuildBuyListener,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.ITreasureChest,
+	           [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ISandsOfUnderstandingable,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IPetGuardable
+{
+	// Nested Types
+	.class nested private auto ansi beforefieldinit TreasureChestInfo
+		extends [mscorlib]System.Object
+	{
+		// Fields
+		.field public string StringId
+		.field public float32 VisibleProbability
+		.field public float32 LockedProbability
+		.field public class [mscorlib]System.Collections.Generic.List`1<string> KeystonesRequired
+		.field public int32 NumberOfTreasures
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				string stringId,
+				float32 visibleProbability,
+				float32 lockedProbability,
+				class [mscorlib]System.Collections.Generic.List`1<string> keystonesRequired,
+				int32 numberOfTreasures
+			) cil managed 
+		{
+			// Method begins at RVA 0x11ab1f
+			// Header size: 1
+			// Code size: 49 (0x31)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void [mscorlib]System.Object::.ctor()
+			IL_0006: ldarg.0
+			IL_0007: ldarg.1
+			IL_0008: stfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::StringId
+			IL_000d: ldarg.0
+			IL_000e: ldarg.2
+			IL_000f: stfld float32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::VisibleProbability
+			IL_0014: ldarg.0
+			IL_0015: ldarg.3
+			IL_0016: stfld float32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::LockedProbability
+			IL_001b: ldarg.0
+			IL_001c: ldarg.s keystonesRequired
+			IL_001e: newobj instance void class [mscorlib]System.Collections.Generic.List`1<string>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+			IL_0023: stfld class [mscorlib]System.Collections.Generic.List`1<string> Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::KeystonesRequired
+			IL_0028: ldarg.0
+			IL_0029: ldarg.s numberOfTreasures
+			IL_002b: stfld int32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::NumberOfTreasures
+			IL_0030: ret
+		} // end of method TreasureChestInfo::.ctor
+
+		.method public hidebysig 
+			instance bool Validate () cil managed 
+		{
+			// Method begins at RVA 0x11ab54
+			// Header size: 12
+			// Code size: 89 (0x59)
+			.maxstack 2
+			.locals init (
+				[0] bool,
+				[1] string,
+				[2] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<string>
+			)
+
+			IL_0000: ldc.i4.1
+			IL_0001: stloc.0
+			IL_0002: ldarg.0
+			IL_0003: ldfld float32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::LockedProbability
+			IL_0008: ldc.r4 0.0
+			IL_000d: ble.un.s IL_001e
+
+			IL_000f: ldarg.0
+			IL_0010: ldfld class [mscorlib]System.Collections.Generic.List`1<string> Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::KeystonesRequired
+			IL_0015: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<string>::get_Count()
+			IL_001a: brtrue.s IL_001e
+
+			IL_001c: ldc.i4.0
+			IL_001d: stloc.0
+
+			IL_001e: ldarg.0
+			IL_001f: ldfld class [mscorlib]System.Collections.Generic.List`1<string> Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::KeystonesRequired
+			IL_0024: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<string>::GetEnumerator()
+			IL_0029: stloc.2
+			.try
+			{
+				IL_002a: br.s IL_003e
+				// loop start (head: IL_003e)
+					IL_002c: ldloca.s 2
+					IL_002e: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<string>::get_Current()
+					IL_0033: stloc.1
+					IL_0034: ldloc.1
+					IL_0035: call bool [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker::IsValidKeystoneNameOrType(string)
+					IL_003a: brtrue.s IL_003e
+
+					IL_003c: ldc.i4.0
+					IL_003d: stloc.0
+
+					IL_003e: ldloca.s 2
+					IL_0040: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<string>::MoveNext()
+					IL_0045: brtrue.s IL_002c
+				// end loop
+
+				IL_0047: leave.s IL_0057
+			} // end .try
+			finally
+			{
+				IL_0049: ldloca.s 2
+				IL_004b: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<string>
+				IL_0051: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0056: endfinally
+			} // end handler
+
+			IL_0057: ldloc.0
+			IL_0058: ret
+		} // end of method TreasureChestInfo::Validate
+
+		.method public hidebysig 
+			instance string GetLocalizedName () cil managed 
+		{
+			// Method begins at RVA 0x11abcc
+			// Header size: 1
+			// Code size: 28 (0x1c)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Excel/TreasureChest/TreasureChest:"
+			IL_0005: ldarg.0
+			IL_0006: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::StringId
+			IL_000b: call string [mscorlib]System.String::Concat(string, string)
+			IL_0010: ldc.i4.0
+			IL_0011: newarr [mscorlib]System.Object
+			IL_0016: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_001b: ret
+		} // end of method TreasureChestInfo::GetLocalizedName
+
+	} // end of class TreasureChestInfo
+
+	.class nested private auto ansi sealed beforefieldinit InsertKeystone
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone>
+		{
+			// Nested Types
+			.class nested private auto ansi sealed beforefieldinit '<>c__DisplayClass2'
+				extends [mscorlib]System.Object
+			{
+				.custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = (
+					01 00 00 00
+				)
+				// Fields
+				.field public class Sims3.Gameplay.Objects.TombObjects.TreasureChest target
+
+				// Methods
+				.method public hidebysig specialname rtspecialname 
+					instance void .ctor () cil managed 
+				{
+					// Method begins at RVA 0x11ac88
+					// Header size: 1
+					// Code size: 7 (0x7)
+					.maxstack 8
+
+					IL_0000: ldarg.0
+					IL_0001: call instance void [mscorlib]System.Object::.ctor()
+					IL_0006: ret
+				} // end of method '<>c__DisplayClass2'::.ctor
+
+				.method public hidebysig 
+					instance string '<Test>b__0' () cil managed 
+				{
+					// Method begins at RVA 0x11ac90
+					// Header size: 12
+					// Code size: 136 (0x88)
+					.maxstack 4
+					.locals init (
+						[0] class Sims3.Gameplay.Objects.TombObjects.KeystonePanel,
+						[1] string,
+						[2] object[]
+					)
+
+					IL_0000: ldarg.0
+					IL_0001: ldfld class Sims3.Gameplay.Objects.TombObjects.TreasureChest Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition/'<>c__DisplayClass2'::target
+					IL_0006: callvirt instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_KeystonePanel()
+					IL_000b: stloc.0
+					IL_000c: ldloc.0
+					IL_000d: brtrue.s IL_0015
+
+					IL_000f: ldstr ""
+					IL_0014: ret
+
+					IL_0015: ldloc.0
+					IL_0016: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+					IL_001b: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+					IL_0020: ldc.i4.3
+					IL_0021: bne.un.s IL_0046
+
+					IL_0023: ldstr "Gameplay/Excel/Keystones/Keystones:"
+					IL_0028: ldloc.0
+					IL_0029: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+					IL_002e: ldfld string Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Name
+					IL_0033: call string [mscorlib]System.String::Concat(string, string)
+					IL_0038: ldc.i4.0
+					IL_0039: newarr [mscorlib]System.Object
+					IL_003e: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+					IL_0043: stloc.1
+					IL_0044: br.s IL_0071
+
+					IL_0046: ldstr "Gameplay/Objects/TombObjects/Keystone:"
+					IL_004b: ldloc.0
+					IL_004c: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+					IL_0051: ldfld valuetype [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape Sims3.Gameplay.Objects.TombObjects.Keystone/Info::Shape
+					IL_0056: box [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/Shape
+					IL_005b: callvirt instance string [mscorlib]System.Object::ToString()
+					IL_0060: call string [mscorlib]System.String::Concat(string, string)
+					IL_0065: ldc.i4.0
+					IL_0066: newarr [mscorlib]System.Object
+					IL_006b: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+					IL_0070: stloc.1
+
+					IL_0071: ldstr "IncorrectKeystoneTooltip"
+					IL_0076: ldc.i4.1
+					IL_0077: newarr [mscorlib]System.Object
+					IL_007c: stloc.2
+					IL_007d: ldloc.2
+					IL_007e: ldc.i4.0
+					IL_007f: ldloc.1
+					IL_0080: stelem.ref
+					IL_0081: ldloc.2
+					IL_0082: call string Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone::LocalizeString(string, object[])
+					IL_0087: ret
+				} // end of method '<>c__DisplayClass2'::'<Test>b__0'
+
+			} // end of class <>c__DisplayClass2
+
+
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.TreasureChest target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x11ad24
+				// Header size: 12
+				// Code size: 97 (0x61)
+				.maxstack 4
+				.locals init (
+					[0] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback,
+					[1] class Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition/'<>c__DisplayClass2'
+				)
+
+				IL_0000: ldnull
+				IL_0001: stloc.0
+				IL_0002: newobj instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition/'<>c__DisplayClass2'::.ctor()
+				IL_0007: stloc.1
+				IL_0008: ldloc.1
+				IL_0009: ldarg.2
+				IL_000a: stfld class Sims3.Gameplay.Objects.TombObjects.TreasureChest Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition/'<>c__DisplayClass2'::target
+				IL_000f: ldloc.1
+				IL_0010: ldfld class Sims3.Gameplay.Objects.TombObjects.TreasureChest Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition/'<>c__DisplayClass2'::target
+				IL_0015: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::IsLocked()
+				IL_001a: brfalse.s IL_0029
+
+				IL_001c: ldloc.1
+				IL_001d: ldfld class Sims3.Gameplay.Objects.TombObjects.TreasureChest Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition/'<>c__DisplayClass2'::target
+				IL_0022: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+				IL_0027: brtrue.s IL_002b
+
+				IL_0029: ldc.i4.0
+				IL_002a: ret
+
+				IL_002b: ldarg.1
+				IL_002c: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+				IL_0031: ldloc.1
+				IL_0032: ldfld class Sims3.Gameplay.Objects.TombObjects.TreasureChest Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition/'<>c__DisplayClass2'::target
+				IL_0037: ldftn instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::IsObjectValidKey(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, object)
+				IL_003d: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ItemTestFunction::.ctor(object, native int)
+				IL_0042: callvirt instance !!0 [Sims3GameplaySystems]Sims3.Gameplay.Inventory::Find<class Sims3.Gameplay.Objects.TombObjects.IKeystone>(class [Sims3GameplaySystems]Sims3.Gameplay.ItemTestFunction)
+				IL_0047: brtrue.s IL_005f
+
+				IL_0049: ldarg.s greyedOutTooltipCallback
+				IL_004b: ldloc.0
+				IL_004c: brtrue.s IL_005b
+
+				IL_004e: ldloc.1
+				IL_004f: ldftn instance string Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition/'<>c__DisplayClass2'::'<Test>b__0'()
+				IL_0055: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+				IL_005a: stloc.0
+
+				IL_005b: ldloc.0
+				IL_005c: stind.ref
+				IL_005d: ldc.i4.0
+				IL_005e: ret
+
+				IL_005f: ldc.i4.1
+				IL_0060: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x11ad91
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/TreasureChest/InsertKeystone"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x11abe9
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombObjects/TreasureChest/InsertKeystone:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method InsertKeystone::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x11abfc
+			// Header size: 12
+			// Code size: 108 (0x6c)
+			.maxstack 6
+			.locals init (
+				[0] class Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation
+			)
+
+			IL_0000: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::Singleton
+			IL_0005: ldarg.0
+			IL_0006: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_000b: ldarg.0
+			IL_000c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0011: ldarg.0
+			IL_0012: call instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionPriority [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::GetPriority()
+			IL_0017: ldarg.0
+			IL_0018: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_Autonomous()
+			IL_001d: ldarg.0
+			IL_001e: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::get_CancellableByPlayer()
+			IL_0023: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition::CreateInstance(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionPriority, bool, bool)
+			IL_0028: isinst Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation
+			IL_002d: stloc.0
+			IL_002e: ldloc.0
+			IL_002f: ldc.i4.1
+			IL_0030: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::IsFromInsertKeystone
+			IL_0035: ldarg.0
+			IL_0036: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_003b: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.InteractionQueue [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+			IL_0040: ldloc.0
+			IL_0041: ldc.i4.0
+			IL_0042: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.InteractionQueue::PushAsContinuation(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance, bool)
+			IL_0047: pop
+			IL_0048: ldarg.0
+			IL_0049: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_004e: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.InteractionQueue [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_InteractionQueue()
+			IL_0053: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.KeystonePanel/InsertKeystone::Singleton
+			IL_0058: ldarg.0
+			IL_0059: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_005e: callvirt instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_KeystonePanel()
+			IL_0063: ldc.i4.0
+			IL_0064: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.InteractionQueue::PushAsContinuation(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, bool)
+			IL_0069: pop
+			IL_006a: ldc.i4.1
+			IL_006b: ret
+		} // end of method InsertKeystone::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x11ac80
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::.ctor()
+			IL_0006: ret
+		} // end of method InsertKeystone::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x11ac74
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone::Singleton
+			IL_000a: ret
+		} // end of method InsertKeystone::.cctor
+
+	} // end of class InsertKeystone
+
+	.class nested private auto ansi sealed beforefieldinit OpenWithAnimation
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.TreasureChest target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x11b2f4
+				// Header size: 1
+				// Code size: 10 (0xa)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::IsLocked()
+				IL_0006: ldc.i4.0
+				IL_0007: ceq
+				IL_0009: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.TreasureChest target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x11b2ff
+				// Header size: 1
+				// Code size: 54 (0x36)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+				IL_0006: brfalse.s IL_001f
+
+				IL_0008: ldarg.1
+				IL_0009: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+				IL_000e: ldstr "InteractionName"
+				IL_0013: ldc.i4.0
+				IL_0014: newarr [mscorlib]System.Object
+				IL_0019: call string Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::LocalizeString(bool, string, object[])
+				IL_001e: ret
+
+				IL_001f: ldarg.1
+				IL_0020: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+				IL_0025: ldstr "AtHomeInteractionName"
+				IL_002a: ldc.i4.0
+				IL_002b: newarr [mscorlib]System.Object
+				IL_0030: call string Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::LocalizeString(bool, string, object[])
+				IL_0035: ret
+			} // end of method Definition::GetInteractionName
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x11b336
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/TreasureChest/OpenWithAnimation"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+		.field public static float32 kMinutesUntilOpenInteractionTimesOut
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 57 52 61 6e 67 65 3a 20 20 4d 69 6e 75 74
+			65 73 2e 20 20 44 65 73 63 72 69 70 74 69 6f 6e
+			3a 20 20 4e 75 6d 62 65 72 20 6f 66 20 6d 69 6e
+			75 74 65 73 20 75 6e 74 69 6c 20 74 68 65 20 4f
+			70 65 6e 20 69 6e 74 65 72 61 63 74 69 6f 6e 20
+			74 69 6d 65 73 20 6f 75 74 2e 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field public bool IsFromInsertKeystone
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				bool isFemale,
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [3]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x11ad99
+			// Header size: 1
+			// Code size: 19 (0x13)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldstr "Gameplay/Objects/TombObjects/TreasureChest/OpenWithAnimation:"
+			IL_0006: ldarg.1
+			IL_0007: call string [mscorlib]System.String::Concat(string, string)
+			IL_000c: ldarg.2
+			IL_000d: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_0012: ret
+		} // end of method OpenWithAnimation::LocalizeString
+
+		.method public hidebysig 
+			instance void InventoryChangedCallback (
+				class [UI]Sims3.UI.Hud.IInventory newInventory
+			) cil managed 
+		{
+			// Method begins at RVA 0x11adad
+			// Header size: 1
+			// Code size: 28 (0x1c)
+			.maxstack 8
+
+			IL_0000: ldarg.1
+			IL_0001: ldarg.0
+			IL_0002: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0007: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_000c: beq.s IL_001b
+
+			IL_000e: ldarg.0
+			IL_000f: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0014: ldc.i4.s 64
+			IL_0016: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::AddExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+
+			IL_001b: ret
+		} // end of method OpenWithAnimation::InventoryChangedCallback
+
+		.method public hidebysig 
+			instance void TreasureChestOpenedCallback (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x11adcc
+			// Header size: 12
+			// Code size: 264 (0x108)
+			.maxstack 6
+			.locals init (
+				[0] class Sims3.Gameplay.Objects.TombObjects.AncientCoinPile,
+				[1] object[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0006: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_000b: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::get_IsEmpty()
+			IL_0010: brtrue.s IL_0034
+
+			IL_0012: ldarg.0
+			IL_0013: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0018: callvirt instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::TurnOnFilledWithTreasureFX()
+			IL_001d: ldc.i4 361
+			IL_0022: ldarg.0
+			IL_0023: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0028: ldarg.0
+			IL_0029: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_002e: call class [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.Event [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTracker::SendEvent(valuetype [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTypeId, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_0033: pop
+
+			IL_0034: ldarg.0
+			IL_0035: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_003a: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_SandsOfUnderstandingComponent()
+			IL_003f: brfalse IL_00cd
+
+			IL_0044: ldarg.0
+			IL_0045: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_004a: ldfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mSandsOfUnderstandingCanAddCoins
+			IL_004f: brfalse.s IL_00cd
+
+			IL_0051: ldstr "AncientCoinPile"
+			IL_0056: call class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.GlobalFunctions::CreateObjectOutOfWorld(string)
+			IL_005b: isinst Sims3.Gameplay.Objects.TombObjects.AncientCoinPile
+			IL_0060: stloc.0
+			IL_0061: ldloc.0
+			IL_0062: ldarg.0
+			IL_0063: call instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.PileTuningSizes Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::PickWeightedRandomCoinPileSize()
+			IL_0068: callvirt instance void Sims3.Gameplay.Objects.TombObjects.AncientCoinPile::set_CurrentTuningSize(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.PileTuningSizes)
+			IL_006d: ldarg.0
+			IL_006e: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0073: ldarg.0
+			IL_0074: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0079: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+			IL_007e: ldstr "TnsTextBonusCoinsFromSandsOfUnderstanding"
+			IL_0083: ldc.i4.1
+			IL_0084: newarr [mscorlib]System.Object
+			IL_0089: stloc.1
+			IL_008a: ldloc.1
+			IL_008b: ldc.i4.0
+			IL_008c: ldarg.0
+			IL_008d: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0092: stelem.ref
+			IL_0093: ldloc.1
+			IL_0094: call string Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::LocalizeString(bool, string, object[])
+			IL_0099: ldc.i4.3
+			IL_009a: ldarg.0
+			IL_009b: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_00a0: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_00a5: ldarg.0
+			IL_00a6: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_00ab: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_00b0: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_00b5: pop
+			IL_00b6: ldarg.0
+			IL_00b7: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_00bc: ldc.i4.0
+			IL_00bd: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mSandsOfUnderstandingCanAddCoins
+			IL_00c2: ldarg.0
+			IL_00c3: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_00c8: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::RemoveComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent>()
+
+			IL_00cd: ldarg.0
+			IL_00ce: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_00d3: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_00d8: ldc.i4.2
+			IL_00d9: ldarg.0
+			IL_00da: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_00df: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_00e4: pop
+			IL_00e5: ldc.i4.s 70
+			IL_00e7: ldarg.0
+			IL_00e8: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_00ed: call void [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Lessons, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_00f2: ldarg.0
+			IL_00f3: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_00f8: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_00fd: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription::TombStats
+			IL_0102: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking::IncrementTreasuresOpened()
+			IL_0107: ret
+		} // end of method OpenWithAnimation::TreasureChestOpenedCallback
+
+		.method private hidebysig 
+			instance valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.PileTuningSizes PickWeightedRandomCoinPileSize () cil managed 
+		{
+			// Method begins at RVA 0x11aee0
+			// Header size: 12
+			// Code size: 13 (0xd)
+			.maxstack 1
+			.locals init (
+				[0] int32
+			)
+
+			IL_0000: ldsfld float32[] Sims3.Gameplay.Objects.TombObjects.TreasureChest::kSandsOfUnderstandingCoinPileSizeWeightedChances
+			IL_0005: call int32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::GetWeightedIndex(float32[])
+			IL_000a: stloc.0
+			IL_000b: ldloc.0
+			IL_000c: ret
+		} // end of method OpenWithAnimation::PickWeightedRandomCoinPileSize
+
+		.method public hidebysig 
+			instance void TreasureChestClosedCallback (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x11aef9
+			// Header size: 1
+			// Code size: 12 (0xc)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0006: callvirt instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::TurnOffFilledWithTreasureFX()
+			IL_000b: ret
+		} // end of method OpenWithAnimation::TreasureChestClosedCallback
+
+		.method public hidebysig 
+			instance void InventoryEventCallback (
+				uint32 stackNumber,
+				valuetype [Sims3GameplaySystems]Sims3.Gameplay.InventoryEvent inventoryEvent,
+				class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject obj
+			) cil managed 
+		{
+			// Method begins at RVA 0x11af08
+			// Header size: 12
+			// Code size: 87 (0x57)
+			.maxstack 3
+			.locals init (
+				[0] class [Sims3GameplaySystems]Sims3.Gameplay.Objects.ITreasureSpawnableObject
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0006: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_000b: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::get_IsEmpty()
+			IL_0010: brfalse.s IL_002c
+
+			IL_0012: ldarg.0
+			IL_0013: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0018: callvirt instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::TurnOffFilledWithTreasureFX()
+			IL_001d: ldarg.0
+			IL_001e: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0023: ldc.i4.s 64
+			IL_0025: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::AddExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_002a: br.s IL_0037
+
+			IL_002c: ldarg.0
+			IL_002d: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0032: callvirt instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::TurnOnFilledWithTreasureFX()
+
+			IL_0037: ldarg.3
+			IL_0038: isinst [Sims3GameplaySystems]Sims3.Gameplay.Objects.ITreasureSpawnableObject
+			IL_003d: stloc.0
+			IL_003e: ldloc.0
+			IL_003f: brfalse.s IL_0056
+
+			IL_0041: ldloc.0
+			IL_0042: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Objects.ITreasureSpawnableObject::get_HasBeenCollected()
+			IL_0047: brtrue.s IL_0056
+
+			IL_0049: ldloc.0
+			IL_004a: ldarg.0
+			IL_004b: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0050: ldc.i4.0
+			IL_0051: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Objects.ITreasureSpawnableObject::OnTreasureCollected(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, bool)
+
+			IL_0056: ret
+		} // end of method OpenWithAnimation::InventoryEventCallback
+
+		.method public hidebysig virtual 
+			instance bool Test () cil managed 
+		{
+			// Method begins at RVA 0x11af6b
+			// Header size: 1
+			// Code size: 17 (0x11)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::IsFromInsertKeystone
+			IL_0006: brfalse.s IL_000a
+
+			IL_0008: ldc.i4.1
+			IL_0009: ret
+
+			IL_000a: ldarg.0
+			IL_000b: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::Test()
+			IL_0010: ret
+		} // end of method OpenWithAnimation::Test
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x11af80
+			// Header size: 12
+			// Code size: 523 (0x20b)
+			.maxstack 5
+			.locals init (
+				[0] float32
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_000c: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::RouteToTreasureChest(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_0011: brtrue.s IL_0015
+
+			IL_0013: ldc.i4.0
+			IL_0014: ret
+
+			IL_0015: ldarg.0
+			IL_0016: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_001b: ldarg.0
+			IL_001c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0021: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+			IL_0026: brfalse.s IL_005e
+
+			IL_0028: ldarg.0
+			IL_0029: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_002e: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_0033: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::get_NumberOfTreasuresGivenThisVisit()
+			IL_0038: ldc.i4.1
+			IL_0039: blt.s IL_004d
+
+			IL_003b: ldarg.0
+			IL_003c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0041: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_0046: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::HasAdventureTreasure()
+			IL_004b: brfalse.s IL_005e
+
+			IL_004d: ldarg.0
+			IL_004e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0053: ldarg.0
+			IL_0054: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0059: callvirt instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::FillWithTreasure(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+
+			IL_005e: ldarg.0
+			IL_005f: ldstr "TreasureChest"
+			IL_0064: ldstr "Enter"
+			IL_0069: ldstr "x"
+			IL_006e: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+			IL_0073: ldarg.0
+			IL_0074: ldstr "treasureChest"
+			IL_0079: ldarg.0
+			IL_007a: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_007f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_0084: ldarg.0
+			IL_0085: ldc.i4 200
+			IL_008a: ldarg.0
+			IL_008b: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::TreasureChestOpenedCallback(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_0091: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_0096: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_009b: ldarg.0
+			IL_009c: ldc.i4 1002
+			IL_00a1: ldarg.0
+			IL_00a2: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::OnPlaySound(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_00a8: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_00ad: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_00b2: ldarg.0
+			IL_00b3: ldc.i4 1003
+			IL_00b8: ldarg.0
+			IL_00b9: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::OnPlaySound(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_00bf: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_00c4: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_00c9: ldarg.0
+			IL_00ca: ldstr "Looking At Treasure"
+			IL_00cf: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_00d4: ldarg.0
+			IL_00d5: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_00da: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_00df: dup
+			IL_00e0: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback [Sims3GameplaySystems]Sims3.Gameplay.Inventory::EventCallback
+			IL_00e5: ldarg.0
+			IL_00e6: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::InventoryEventCallback(uint32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.InventoryEvent, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_00ec: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback::.ctor(object, native int)
+			IL_00f1: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Combine(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+			IL_00f6: castclass [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback
+			IL_00fb: stfld class [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback [Sims3GameplaySystems]Sims3.Gameplay.Inventory::EventCallback
+			IL_0100: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::kMinutesUntilOpenInteractionTimesOut
+			IL_0105: stloc.0
+			IL_0106: br.s IL_0126
+			// loop start (head: IL_0126)
+				IL_0108: ldarg.0
+				IL_0109: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+				IL_010e: ldc.r4 0.1
+				IL_0113: ldc.i4 -5652481 // 0xffa9bfff
+				IL_0118: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::WaitForExitReason(float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+				IL_011d: pop
+				IL_011e: ldloc.0
+				IL_011f: ldc.r4 0.1
+				IL_0124: sub
+				IL_0125: stloc.0
+
+				IL_0126: ldarg.0
+				IL_0127: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+				IL_012c: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsActiveSim()
+				IL_0131: brtrue.s IL_0148
+
+				IL_0133: ldloc.0
+				IL_0134: ldc.r4 0.0
+				IL_0139: ble.un.s IL_0148
+
+				IL_013b: ldarg.0
+				IL_013c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+				IL_0141: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::HasExitReason()
+				IL_0146: brfalse.s IL_0108
+			// end loop
+
+			IL_0148: ldarg.0
+			IL_0149: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_014e: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsActiveSim()
+			IL_0153: brfalse.s IL_01b5
+
+			IL_0155: ldarg.0
+			IL_0156: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_015b: call void [Sims3GameplaySystems]Sims3.Gameplay.UI.HudModel::OpenObjectInventoryForOwner(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_0160: call class [UI]Sims3.UI.IResponder [UI]Sims3.UI.Responder::get_Instance()
+			IL_0165: callvirt instance class [UI]Sims3.UI.Hud.IHudModel [UI]Sims3.UI.IResponder::get_HudModel()
+			IL_016a: ldarg.0
+			IL_016b: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::InventoryChangedCallback(class [UI]Sims3.UI.Hud.IInventory)
+			IL_0171: newobj instance void [UI]Sims3.UI.Hud.InventoryOwnerChangedCallback::.ctor(object, native int)
+			IL_0176: callvirt instance void [UI]Sims3.UI.Hud.IHudModel::add_SecondaryInventoryOwnerChanged(class [UI]Sims3.UI.Hud.InventoryOwnerChangedCallback)
+			IL_017b: ldarg.0
+			IL_017c: ldc.i4 -5652481 // 0xffa9bfff
+			IL_0181: ldarg.0
+			IL_0182: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::LoopDel(class [SimIFace]Sims3.SimIFace.StateMachineClient, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData)
+			IL_0188: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/InsideLoopFunction::.ctor(object, native int)
+			IL_018d: ldnull
+			IL_018e: callvirt instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::DoLoop(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason, class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/InsideLoopFunction, class [SimIFace]Sims3.SimIFace.StateMachineClient)
+			IL_0193: pop
+			IL_0194: call class [UI]Sims3.UI.IResponder [UI]Sims3.UI.Responder::get_Instance()
+			IL_0199: callvirt instance class [UI]Sims3.UI.Hud.IHudModel [UI]Sims3.UI.IResponder::get_HudModel()
+			IL_019e: ldarg.0
+			IL_019f: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::InventoryChangedCallback(class [UI]Sims3.UI.Hud.IInventory)
+			IL_01a5: newobj instance void [UI]Sims3.UI.Hud.InventoryOwnerChangedCallback::.ctor(object, native int)
+			IL_01aa: callvirt instance void [UI]Sims3.UI.Hud.IHudModel::remove_SecondaryInventoryOwnerChanged(class [UI]Sims3.UI.Hud.InventoryOwnerChangedCallback)
+			IL_01af: ldnull
+			IL_01b0: call void [Sims3GameplaySystems]Sims3.Gameplay.UI.HudModel::OpenObjectInventoryForOwner(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+
+			IL_01b5: ldarg.0
+			IL_01b6: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_01bb: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_01c0: dup
+			IL_01c1: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback [Sims3GameplaySystems]Sims3.Gameplay.Inventory::EventCallback
+			IL_01c6: ldarg.0
+			IL_01c7: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::InventoryEventCallback(uint32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.InventoryEvent, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_01cd: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback::.ctor(object, native int)
+			IL_01d2: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+			IL_01d7: castclass [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback
+			IL_01dc: stfld class [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback [Sims3GameplaySystems]Sims3.Gameplay.Inventory::EventCallback
+			IL_01e1: ldarg.0
+			IL_01e2: ldc.i4 201
+			IL_01e7: ldarg.0
+			IL_01e8: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::TreasureChestClosedCallback(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+			IL_01ee: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+			IL_01f3: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+			IL_01f8: ldarg.0
+			IL_01f9: ldstr "Exit"
+			IL_01fe: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0203: ldarg.0
+			IL_0204: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_0209: ldc.i4.1
+			IL_020a: ret
+		} // end of method OpenWithAnimation::Run
+
+		.method private hidebysig 
+			instance void LoopDel (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance/LoopData ld
+			) cil managed 
+		{
+			// Method begins at RVA 0x11b197
+			// Header size: 1
+			// Code size: 50 (0x32)
+			.maxstack 8
+
+			IL_0000: ldc.i4 333
+			IL_0005: ldarg.0
+			IL_0006: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_000b: ldarg.0
+			IL_000c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0011: call class [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.Event [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTracker::SendEvent(valuetype [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTypeId, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_0016: pop
+			IL_0017: ldarg.0
+			IL_0018: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_001d: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsActiveSim()
+			IL_0022: brtrue.s IL_0031
+
+			IL_0024: ldarg.0
+			IL_0025: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_002a: ldc.i4.s 64
+			IL_002c: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::AddExitReason(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+
+			IL_0031: ret
+		} // end of method OpenWithAnimation::LoopDel
+
+		.method public hidebysig virtual 
+			instance void Cleanup () cil managed 
+		{
+			// Method begins at RVA 0x11b1cc
+			// Header size: 12
+			// Code size: 85 (0x55)
+			.maxstack 5
+
+			IL_0000: call class [UI]Sims3.UI.IResponder [UI]Sims3.UI.Responder::get_Instance()
+			IL_0005: callvirt instance class [UI]Sims3.UI.Hud.IHudModel [UI]Sims3.UI.IResponder::get_HudModel()
+			IL_000a: ldarg.0
+			IL_000b: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::InventoryChangedCallback(class [UI]Sims3.UI.Hud.IInventory)
+			IL_0011: newobj instance void [UI]Sims3.UI.Hud.InventoryOwnerChangedCallback::.ctor(object, native int)
+			IL_0016: callvirt instance void [UI]Sims3.UI.Hud.IHudModel::remove_SecondaryInventoryOwnerChanged(class [UI]Sims3.UI.Hud.InventoryOwnerChangedCallback)
+			IL_001b: ldarg.0
+			IL_001c: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0021: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_0026: brfalse.s IL_0054
+
+			IL_0028: ldarg.0
+			IL_0029: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_002e: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_0033: dup
+			IL_0034: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback [Sims3GameplaySystems]Sims3.Gameplay.Inventory::EventCallback
+			IL_0039: ldarg.0
+			IL_003a: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::InventoryEventCallback(uint32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.InventoryEvent, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_0040: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback::.ctor(object, native int)
+			IL_0045: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+			IL_004a: castclass [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback
+			IL_004f: stfld class [Sims3GameplaySystems]Sims3.Gameplay.InventoryEventCallback [Sims3GameplaySystems]Sims3.Gameplay.Inventory::EventCallback
+
+			IL_0054: ret
+		} // end of method OpenWithAnimation::Cleanup
+
+		.method private hidebysig 
+			instance void OnPlaySound (
+				class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+				class [SimIFace]Sims3.SimIFace.IEvent evt
+			) cil managed 
+		{
+			// Method begins at RVA 0x11b230
+			// Header size: 12
+			// Code size: 154 (0x9a)
+			.maxstack 3
+			.locals init (
+				[0] uint32
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0006: ldfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mHasOpenedWithCurrentLoot
+			IL_000b: brtrue.s IL_0042
+
+			IL_000d: ldarg.0
+			IL_000e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0013: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+			IL_0018: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::get_IsEmpty()
+			IL_001d: brtrue.s IL_0036
+
+			IL_001f: ldarg.0
+			IL_0020: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0025: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_002a: ldstr "sting_treas_chest"
+			IL_002f: ldc.i4.0
+			IL_0030: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+			IL_0035: pop
+
+			IL_0036: ldarg.0
+			IL_0037: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_003c: ldc.i4.1
+			IL_003d: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mHasOpenedWithCurrentLoot
+
+			IL_0042: ldarg.2
+			IL_0043: callvirt instance uint32 [SimIFace]Sims3.SimIFace.IEvent::get_EventId()
+			IL_0048: stloc.0
+			IL_0049: ldloc.0
+			IL_004a: ldc.i4 1002
+			IL_004f: sub
+			IL_0050: switch (IL_005e, IL_007c)
+
+			IL_005d: ret
+
+			IL_005e: ldarg.0
+			IL_005f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0064: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0069: ldarg.0
+			IL_006a: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_006f: callvirt instance string Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_OpenSfx()
+			IL_0074: ldc.i4.0
+			IL_0075: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+			IL_007a: pop
+			IL_007b: ret
+
+			IL_007c: ldarg.0
+			IL_007d: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0082: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0087: ldarg.0
+			IL_0088: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_008d: callvirt instance string Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_CloseSfx()
+			IL_0092: ldc.i4.0
+			IL_0093: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+			IL_0098: pop
+			IL_0099: ret
+		} // end of method OpenWithAnimation::OnPlaySound
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x11b2ec
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::.ctor()
+			IL_0006: ret
+		} // end of method OpenWithAnimation::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x11b2d6
+			// Header size: 1
+			// Code size: 21 (0x15)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::Singleton
+			IL_000a: ldc.r4 5
+			IL_000f: stsfld float32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::kMinutesUntilOpenInteractionTimesOut
+			IL_0014: ret
+		} // end of method OpenWithAnimation::.cctor
+
+	} // end of class OpenWithAnimation
+
+	.class nested private auto ansi sealed beforefieldinit OpenWithoutAnimation
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithoutAnimation>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.TreasureChest target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x11b377
+				// Header size: 1
+				// Code size: 10 (0xa)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+				IL_0006: ldc.i4.0
+				IL_0007: ceq
+				IL_0009: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x11b382
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithoutAnimation>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x11b33e
+			// Header size: 1
+			// Code size: 36 (0x24)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0006: call void [Sims3GameplaySystems]Sims3.Gameplay.UI.HudModel::OpenObjectInventoryForOwner(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_000b: ldc.i4 333
+			IL_0010: ldarg.0
+			IL_0011: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Actor
+			IL_0016: ldarg.0
+			IL_0017: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_001c: call class [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.Event [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTracker::SendEvent(valuetype [Sims3GameplaySystems]Sims3.Gameplay.EventSystem.EventTypeId, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IActor, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+			IL_0021: pop
+			IL_0022: ldc.i4.1
+			IL_0023: ret
+		} // end of method OpenWithoutAnimation::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x11b36f
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::.ctor()
+			IL_0006: ret
+		} // end of method OpenWithoutAnimation::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x11b363
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithoutAnimation/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithoutAnimation::Singleton
+			IL_000a: ret
+		} // end of method OpenWithoutAnimation::.cctor
+
+	} // end of class OpenWithoutAnimation
+
+	.class nested private auto ansi sealed beforefieldinit SetTreasureChestInfo
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/SetTreasureChestInfo>
+		{
+			.custom instance void [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.TreasureChest target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x11b3d5
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.TreasureChest target,
+					class [Sims3GameplaySystems]Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x11b3d8
+				// Header size: 12
+				// Code size: 30 (0x1e)
+				.maxstack 4
+				.locals init (
+					[0] string,
+					[1] object[]
+				)
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance string Sims3.Gameplay.Objects.TombObjects.TreasureChest::GetLocalizedNameForTreasureChestInfoKey()
+				IL_0006: stloc.0
+				IL_0007: ldstr "InteractionName"
+				IL_000c: ldc.i4.1
+				IL_000d: newarr [mscorlib]System.Object
+				IL_0012: stloc.1
+				IL_0013: ldloc.1
+				IL_0014: ldc.i4.0
+				IL_0015: ldloc.0
+				IL_0016: stelem.ref
+				IL_0017: ldloc.1
+				IL_0018: call string Sims3.Gameplay.Objects.TombObjects.TreasureChest/SetTreasureChestInfo::LocalizeString(string, object[])
+				IL_001d: ret
+			} // end of method Definition::GetInteractionName
+
+			.method public hidebysig virtual 
+				instance void PopulatePieMenuPicker (
+					valuetype [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters,
+					[out] class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/TabInfo>& listObjs,
+					[out] class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/HeaderInfo>& headers,
+					[out] int32& NumSelectableRows
+				) cil managed 
+			{
+				// Method begins at RVA 0x11b404
+				// Header size: 12
+				// Code size: 172 (0xac)
+				.maxstack 5
+				.locals init (
+					[0] class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/RowInfo>,
+					[1] class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/ColumnInfo>,
+					[2] class [UI]Sims3.UI.ObjectPicker/RowInfo,
+					[3] valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>,
+					[4] valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>
+				)
+
+				IL_0000: ldarg.s NumSelectableRows
+				IL_0002: ldc.i4.1
+				IL_0003: stind.i4
+				IL_0004: ldarg.3
+				IL_0005: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/HeaderInfo>::.ctor()
+				IL_000a: stind.ref
+				IL_000b: ldarg.2
+				IL_000c: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/TabInfo>::.ctor()
+				IL_0011: stind.ref
+				IL_0012: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/RowInfo>::.ctor()
+				IL_0017: stloc.0
+				IL_0018: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo> Sims3.Gameplay.Objects.TombObjects.TreasureChest::sTreasureChestData
+				IL_001d: callvirt instance valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::GetEnumerator()
+				IL_0022: stloc.s 4
+				.try
+				{
+					IL_0024: br.s IL_0060
+					// loop start (head: IL_0060)
+						IL_0026: ldloca.s 4
+						IL_0028: call instance valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<!0, !1> valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::get_Current()
+						IL_002d: stloc.3
+						IL_002e: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/ColumnInfo>::.ctor()
+						IL_0033: stloc.1
+						IL_0034: ldloc.1
+						IL_0035: ldloca.s 3
+						IL_0037: call instance !1 valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::get_Value()
+						IL_003c: callvirt instance string Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::GetLocalizedName()
+						IL_0041: newobj instance void [UI]Sims3.UI.ObjectPicker/TextColumn::.ctor(string)
+						IL_0046: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/ColumnInfo>::Add(!0)
+						IL_004b: ldloca.s 3
+						IL_004d: call instance !0 valuetype [mscorlib]System.Collections.Generic.KeyValuePair`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::get_Key()
+						IL_0052: ldloc.1
+						IL_0053: newobj instance void [UI]Sims3.UI.ObjectPicker/RowInfo::.ctor(object, class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/ColumnInfo>)
+						IL_0058: stloc.2
+						IL_0059: ldloc.0
+						IL_005a: ldloc.2
+						IL_005b: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/RowInfo>::Add(!0)
+
+						IL_0060: ldloca.s 4
+						IL_0062: call instance bool valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::MoveNext()
+						IL_0067: brtrue.s IL_0026
+					// end loop
+
+					IL_0069: leave.s IL_0079
+				} // end .try
+				finally
+				{
+					IL_006b: ldloca.s 4
+					IL_006d: constrained. valuetype [mscorlib]System.Collections.Generic.Dictionary`2/Enumerator<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>
+					IL_0073: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+					IL_0078: endfinally
+				} // end handler
+
+				IL_0079: ldarg.3
+				IL_007a: ldind.ref
+				IL_007b: ldstr "Gameplay/Objects/TombObjects/TreasureChest/SetTreasureChestInfo:RowName"
+				IL_0080: ldstr "Gameplay/Objects/TombObjects/TreasureChest/SetTreasureChestInfo:RowName"
+				IL_0085: ldc.i4 500
+				IL_008a: newobj instance void [UI]Sims3.UI.ObjectPicker/HeaderInfo::.ctor(string, string, int32)
+				IL_008f: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/HeaderInfo>::Add(!0)
+				IL_0094: ldarg.2
+				IL_0095: ldind.ref
+				IL_0096: ldstr "Treasure rows"
+				IL_009b: ldstr "Treasure rows"
+				IL_00a0: ldloc.0
+				IL_00a1: newobj instance void [UI]Sims3.UI.ObjectPicker/TabInfo::.ctor(string, string, class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/RowInfo>)
+				IL_00a6: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.ObjectPicker/TabInfo>::Add(!0)
+				IL_00ab: ret
+			} // end of method Definition::PopulatePieMenuPicker
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x11b4cc
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/SetTreasureChestInfo>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/TreasureChest/SetTreasureChestInfo"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x11b38a
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldstr "Gameplay/Objects/TombObjects/TreasureChest/SetTreasureChestInfo:"
+			IL_0005: ldarg.0
+			IL_0006: call string [mscorlib]System.String::Concat(string, string)
+			IL_000b: ldarg.1
+			IL_000c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0011: ret
+		} // end of method SetTreasureChestInfo::LocalizeString
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x11b39d
+			// Header size: 1
+			// Code size: 35 (0x23)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_0006: ldarg.0
+			IL_0007: call instance object [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::GetSelectedObject()
+			IL_000c: isinst [mscorlib]System.String
+			IL_0011: stfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+			IL_0016: ldarg.0
+			IL_0017: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::Target
+			IL_001c: callvirt instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::OnTreasureInfoSetEvent()
+			IL_0021: ldc.i4.1
+			IL_0022: ret
+		} // end of method SetTreasureChestInfo::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x11b3cd
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.ImmediateInteraction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.TreasureChest>::.ctor()
+			IL_0006: ret
+		} // end of method SetTreasureChestInfo::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x11b3c1
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/SetTreasureChestInfo/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/SetTreasureChestInfo::Singleton
+			IL_000a: ret
+		} // end of method SetTreasureChestInfo::.cctor
+
+	} // end of class SetTreasureChestInfo
+
+
+	// Fields
+	.field private static literal uint32 kIsVisible = uint32(142956740)
+	.field private static literal uint32 kHasOpenedWithCurrentLoot = uint32(142956896)
+	.field private static literal uint32 kTreasureChestInfoKey = uint32(142956930)
+	.field private static literal string kWorldBuilderDataName = "TreasureChest"
+	.field private static literal string kTreasureChestGlowName = "ep1TreasureChestGlow"
+	.field private static literal string kFirstTimeOpenSoundName = "sting_treas_chest"
+	.field private static literal string kTreasureChestPathingFootprintName = "treasureChest_ftp_pathingShape"
+	.field private static float32[] kSandsOfUnderstandingCoinPileSizeWeightedChances
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 80 f2 52 65 6c 61 74 69 76 65 20 77 65 69
+		67 68 74 73 20 6f 66 20 41 6e 63 69 65 6e 74 20
+		43 6f 69 6e 20 50 69 6c 65 20 73 69 7a 65 73 2e
+		20 20 55 73 65 64 20 74 6f 20 72 61 6e 64 6f 6d
+		6c 79 20 64 65 74 65 72 6d 69 6e 65 20 77 68 69
+		63 68 20 73 69 7a 65 20 6f 66 20 63 6f 69 6e 20
+		70 69 6c 65 20 74 6f 20 61 64 64 20 77 68 65 6e
+		20 53 61 6e 64 73 20 6f 66 20 55 6e 64 65 72 73
+		74 61 6e 64 69 6e 67 20 6d 61 6b 65 73 20 74 68
+		69 73 20 6f 62 6a 65 63 74 20 67 6c 6f 77 2e 20
+		20 46 6f 72 6d 61 74 3a 20 28 57 65 69 67 68 74
+		56 65 72 79 53 6d 61 6c 6c 50 69 6c 65 2c 20 57
+		65 69 67 68 74 53 6d 61 6c 6c 50 69 6c 65 2c 20
+		57 65 69 67 68 74 4c 61 72 67 65 50 69 6c 65 2c
+		20 57 65 69 67 68 74 56 65 72 79 4c 61 72 67 65
+		50 69 6c 65 29 2e 00 00
+	)
+	.field private static string kDefaultTreasureChestInfoKey
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 43 44 65 73 63 72 69 70 74 69 6f 6e 3a 20
+		20 44 65 66 61 75 6c 74 20 43 68 65 73 74 20 49
+		6e 66 6f 20 4b 65 79 20 77 68 65 6e 20 74 72 65
+		61 73 75 72 65 20 63 6f 6d 70 6f 6e 65 6e 74 20
+		69 73 20 73 65 74 00 00
+	)
+	.field private static initonly string[] kWorldBuilderDataKeyRemap
+	.field private static class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo> sTreasureChestData
+	.field private bool mIsVisible
+	.field private bool mHasOpenedWithCurrentLoot
+	.field private class [SimIFace]Sims3.SimIFace.VisualEffect mFilledTreasureFX
+	.field private string mTreasureChestInfoKey
+	.field private bool mSandsOfUnderstandingCanAddCoins
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x11a37c
+		// Header size: 1
+		// Code size: 21 (0x15)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mIsVisible
+		IL_0007: ldarg.0
+		IL_0008: ldc.i4.1
+		IL_0009: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mSandsOfUnderstandingCanAddCoins
+		IL_000e: ldarg.0
+		IL_000f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::.ctor()
+		IL_0014: ret
+	} // end of method TreasureChest::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x11a394
+		// Header size: 12
+		// Code size: 167 (0xa7)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel,
+			[1] object[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::OnStartup()
+		IL_0006: ldarg.0
+		IL_0007: ldc.i4.1
+		IL_0008: newarr [mscorlib]System.Object
+		IL_000d: stloc.1
+		IL_000e: ldloc.1
+		IL_000f: ldc.i4.0
+		IL_0010: ldc.i4.0
+		IL_0011: box [mscorlib]System.Boolean
+		IL_0016: stelem.ref
+		IL_0017: ldloc.1
+		IL_0018: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.InventoryComponent>(object[])
+		IL_001d: pop
+		IL_001e: ldarg.0
+		IL_001f: ldc.i4.0
+		IL_0020: newarr [mscorlib]System.Object
+		IL_0025: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent>(object[])
+		IL_002a: pop
+		IL_002b: ldarg.0
+		IL_002c: ldc.i4.0
+		IL_002d: newarr [mscorlib]System.Object
+		IL_0032: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TombObjectStaticComponent>(object[])
+		IL_0037: pop
+		IL_0038: ldarg.0
+		IL_0039: ldc.i4.0
+		IL_003a: newarr [mscorlib]System.Object
+		IL_003f: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_0044: pop
+		IL_0045: ldarg.0
+		IL_0046: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithAnimation::Singleton
+		IL_004b: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition)
+		IL_0050: ldarg.0
+		IL_0051: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/OpenWithoutAnimation::Singleton
+		IL_0056: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition)
+		IL_005b: ldarg.0
+		IL_005c: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/InsertKeystone::Singleton
+		IL_0061: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition)
+		IL_0066: ldarg.0
+		IL_0067: call instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_KeystonePanel()
+		IL_006c: stloc.0
+		IL_006d: ldloc.0
+		IL_006e: brfalse.s IL_0076
+
+		IL_0070: ldloc.0
+		IL_0071: callvirt instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+
+		IL_0076: ldarg.0
+		IL_0077: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::ResetTreasureChestSettings()
+		IL_007d: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.GameStates/TravelCallback::.ctor(object, native int)
+		IL_0082: call void [Sims3GameplaySystems]Sims3.Gameplay.GameStates::add_TravelComplete(class [Sims3GameplaySystems]Sims3.Gameplay.GameStates/TravelCallback)
+		IL_0087: ldarg.0
+		IL_0088: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_008d: brtrue.s IL_00a6
+
+		IL_008f: ldarg.0
+		IL_0090: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+		IL_0095: ldarg.0
+		IL_0096: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::OnTreasureInfoSetEvent()
+		IL_009c: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent/OnTreasureInfoSet::.ctor(object, native int)
+		IL_00a1: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::add_OnTresureInfoSetEvent(class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent/OnTreasureInfoSet)
+
+		IL_00a6: ret
+	} // end of method TreasureChest::OnStartup
+
+	.method public hidebysig virtual 
+		instance void Dispose () cil managed 
+	{
+		// Method begins at RVA 0x11a447
+		// Header size: 1
+		// Code size: 50 (0x32)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::Dispose()
+		IL_0006: ldarg.0
+		IL_0007: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_000c: brfalse.s IL_0020
+
+		IL_000e: ldarg.0
+		IL_000f: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_0014: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::Dispose()
+		IL_0019: ldarg.0
+		IL_001a: ldnull
+		IL_001b: stfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+
+		IL_0020: ldarg.0
+		IL_0021: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::ResetTreasureChestSettings()
+		IL_0027: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.GameStates/TravelCallback::.ctor(object, native int)
+		IL_002c: call void [Sims3GameplaySystems]Sims3.Gameplay.GameStates::remove_TravelComplete(class [Sims3GameplaySystems]Sims3.Gameplay.GameStates/TravelCallback)
+		IL_0031: ret
+	} // end of method TreasureChest::Dispose
+
+	.method family hidebysig virtual 
+		instance void AddDebugInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> debugInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x11a47a
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddDebugInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0007: ret
+	} // end of method TreasureChest::AddDebugInteractions
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x11a483
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.TreasureChest/SetTreasureChestInfo::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0012: ret
+	} // end of method TreasureChest::AddBuildBuyInteractions
+
+	.method public final hidebysig newslot virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x11a497
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4.2
+		IL_0002: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_0007: ldarg.1
+		IL_0008: ldc.i4.1
+		IL_0009: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_000e: ret
+	} // end of method TreasureChest::OnAddTombObjectComponent
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x11a4a8
+		// Header size: 12
+		// Code size: 64 (0x40)
+		.maxstack 4
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 142956740
+		IL_0006: ldarg.0
+		IL_0007: ldfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mIsVisible
+		IL_000c: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0011: pop
+		IL_0012: ldarg.3
+		IL_0013: ldc.i4 142956896
+		IL_0018: ldarg.0
+		IL_0019: ldfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mHasOpenedWithCurrentLoot
+		IL_001e: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_0023: pop
+		IL_0024: ldarg.3
+		IL_0025: ldc.i4 142956930
+		IL_002a: ldarg.0
+		IL_002b: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0030: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteString(uint32, string)
+		IL_0035: pop
+		IL_0036: ldarg.0
+		IL_0037: ldarg.1
+		IL_0038: ldarg.2
+		IL_0039: ldarg.3
+		IL_003a: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_003f: ret
+	} // end of method TreasureChest::ExportContent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x11a4f4
+		// Header size: 12
+		// Code size: 83 (0x53)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel
+		)
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 142956740
+		IL_0006: ldarg.0
+		IL_0007: ldflda bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mIsVisible
+		IL_000c: ldc.i4.1
+		IL_000d: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_0012: pop
+		IL_0013: ldarg.3
+		IL_0014: ldc.i4 142956896
+		IL_0019: ldarg.0
+		IL_001a: ldflda bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mHasOpenedWithCurrentLoot
+		IL_001f: ldc.i4.0
+		IL_0020: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_0025: pop
+		IL_0026: ldarg.3
+		IL_0027: ldc.i4 142956930
+		IL_002c: ldarg.0
+		IL_002d: ldflda string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0032: ldnull
+		IL_0033: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadString(uint32, string&, string)
+		IL_0038: pop
+		IL_0039: ldarg.0
+		IL_003a: call instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_KeystonePanel()
+		IL_003f: stloc.0
+		IL_0040: ldloc.0
+		IL_0041: brfalse.s IL_0049
+
+		IL_0043: ldloc.0
+		IL_0044: callvirt instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+
+		IL_0049: ldarg.0
+		IL_004a: ldarg.1
+		IL_004b: ldarg.2
+		IL_004c: ldarg.3
+		IL_004d: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0052: ret
+	} // end of method TreasureChest::ImportContent
+
+	.method public final hidebysig newslot virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x11a553
+		// Header size: 1
+		// Code size: 29 (0x1d)
+		.maxstack 8
+
+		IL_0000: ldstr "TreasureChest"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "Key"
+		IL_0010: ldarg.0
+		IL_0011: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0016: ldnull
+		IL_0017: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<string>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_001c: ret
+	} // end of method TreasureChest::SaveWorldBuilderData
+
+	.method public final hidebysig newslot virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x11a571
+		// Header size: 1
+		// Code size: 39 (0x27)
+		.maxstack 8
+
+		IL_0000: ldsfld string[] Sims3.Gameplay.Objects.TombObjects.TreasureChest::kWorldBuilderDataKeyRemap
+		IL_0005: call void [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::SetKeyRemap(string[])
+		IL_000a: ldstr "TreasureChest"
+		IL_000f: ldarg.0
+		IL_0010: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0015: ldstr "Key"
+		IL_001a: ldarg.0
+		IL_001b: ldflda string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0020: call bool [Sims3GameplaySystems]Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<string>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_0025: pop
+		IL_0026: ret
+	} // end of method TreasureChest::LoadWorldBuilderData
+
+	.method public hidebysig static 
+		void ParseData () cil managed 
+	{
+		// Method begins at RVA 0x11a59c
+		// Header size: 12
+		// Code size: 282 (0x11a)
+		.maxstack 6
+		.locals init (
+			[0] class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbData,
+			[1] class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbTable,
+			[2] class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow,
+			[3] string,
+			[4] float32,
+			[5] float32,
+			[6] string[],
+			[7] bool,
+			[8] class [mscorlib]System.Collections.Generic.List`1<string>,
+			[9] int32,
+			[10] class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo,
+			[11] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow>
+		)
+
+		IL_0000: ldstr "TreasureChest"
+		IL_0005: call class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbData [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbData::ReadData(string)
+		IL_000a: stloc.0
+		IL_000b: ldnull
+		IL_000c: stloc.1
+		IL_000d: ldloc.0
+		IL_000e: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbTable> [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbData::Tables
+		IL_0013: ldstr "TreasureChest"
+		IL_0018: ldloca.s 1
+		IL_001a: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<string, class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbTable>::TryGetValue(!0, !1&)
+		IL_001f: pop
+		IL_0020: ldloc.1
+		IL_0021: ldfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow> [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbTable::Rows
+		IL_0026: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow>::GetEnumerator()
+		IL_002b: stloc.s 11
+		.try
+		{
+			IL_002d: br IL_00fd
+			// loop start (head: IL_00fd)
+				IL_0032: ldloca.s 11
+				IL_0034: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow>::get_Current()
+				IL_0039: stloc.2
+				IL_003a: ldloc.2
+				IL_003b: ldstr "StringID"
+				IL_0040: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow::get_Item(string)
+				IL_0045: stloc.3
+				IL_0046: ldloc.2
+				IL_0047: ldstr "VisibleProbability"
+				IL_004c: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow::get_Item(string)
+				IL_0051: ldc.r4 1
+				IL_0056: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Utilities.ParserFunctions::ParseFloat(string, float32)
+				IL_005b: stloc.s 4
+				IL_005d: ldloc.2
+				IL_005e: ldstr "LockedProbability"
+				IL_0063: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow::get_Item(string)
+				IL_0068: ldc.r4 0.0
+				IL_006d: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Utilities.ParserFunctions::ParseFloat(string, float32)
+				IL_0072: stloc.s 5
+				IL_0074: ldloc.2
+				IL_0075: ldstr "KeystonesRequired"
+				IL_007a: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow::get_Item(string)
+				IL_007f: ldloca.s 6
+				IL_0081: call bool [Sims3GameplaySystems]Sims3.Gameplay.Utilities.ParserFunctions::ParseCommaSeparatedString(string, string[]&)
+				IL_0086: stloc.s 7
+				IL_0088: ldloc.2
+				IL_0089: ldstr "KeystonesRequired"
+				IL_008e: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow::get_Item(string)
+				IL_0093: ldstr ""
+				IL_0098: call bool [mscorlib]System.String::op_Inequality(string, string)
+				IL_009d: brfalse.s IL_00a3
+
+				IL_009f: ldloc.s 7
+				IL_00a1: brfalse.s IL_00fd
+
+				IL_00a3: ldloc.s 6
+				IL_00a5: brfalse.s IL_00b0
+
+				IL_00a7: ldloc.s 6
+				IL_00a9: newobj instance void class [mscorlib]System.Collections.Generic.List`1<string>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+				IL_00ae: br.s IL_00b5
+
+				IL_00b0: newobj instance void class [mscorlib]System.Collections.Generic.List`1<string>::.ctor()
+
+				IL_00b5: stloc.s 8
+				IL_00b7: ldloc.2
+				IL_00b8: ldstr "NumberOfTreasures"
+				IL_00bd: callvirt instance string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow::get_Item(string)
+				IL_00c2: ldc.i4.0
+				IL_00c3: call int32 [Sims3GameplaySystems]Sims3.Gameplay.Utilities.ParserFunctions::ParseInt(string, int32)
+				IL_00c8: stloc.s 9
+				IL_00ca: ldloc.3
+				IL_00cb: ldloc.s 4
+				IL_00cd: ldloc.s 5
+				IL_00cf: ldloc.s 8
+				IL_00d1: ldloc.s 9
+				IL_00d3: newobj instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::.ctor(string, float32, float32, class [mscorlib]System.Collections.Generic.List`1<string>, int32)
+				IL_00d8: stloc.s 10
+				IL_00da: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo> Sims3.Gameplay.Objects.TombObjects.TreasureChest::sTreasureChestData
+				IL_00df: ldloc.3
+				IL_00e0: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::ContainsKey(!0)
+				IL_00e5: brtrue.s IL_00fd
+
+				IL_00e7: ldloc.s 10
+				IL_00e9: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::Validate()
+				IL_00ee: brfalse.s IL_00fd
+
+				IL_00f0: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo> Sims3.Gameplay.Objects.TombObjects.TreasureChest::sTreasureChestData
+				IL_00f5: ldloc.3
+				IL_00f6: ldloc.s 10
+				IL_00f8: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::Add(!0, !1)
+
+				IL_00fd: ldloca.s 11
+				IL_00ff: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow>::MoveNext()
+				IL_0104: brtrue IL_0032
+			// end loop
+
+			IL_0109: leave.s IL_0119
+		} // end .try
+		finally
+		{
+			IL_010b: ldloca.s 11
+			IL_010d: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Utilities.XmlDbRow>
+			IL_0113: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0118: endfinally
+		} // end handler
+
+		IL_0119: ret
+	} // end of method TreasureChest::ParseData
+
+	.method public hidebysig static 
+		void Shutdown () cil managed 
+	{
+		// Method begins at RVA 0x11a6d4
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo> Sims3.Gameplay.Objects.TombObjects.TreasureChest::sTreasureChestData
+		IL_0005: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::Clear()
+		IL_000a: ret
+	} // end of method TreasureChest::Shutdown
+
+	.method private hidebysig specialname 
+		instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel get_KeystonePanel () cil managed 
+	{
+		// Method begins at RVA 0x11a6e0
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4 -1474234202 // 0xa820f8a6
+		IL_0006: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetContainedObject(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_000b: isinst Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel
+		IL_0010: ret
+	} // end of method TreasureChest::get_KeystonePanel
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance string get_OpenSfx () cil managed 
+	{
+	} // end of method TreasureChest::get_OpenSfx
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance string get_CloseSfx () cil managed 
+	{
+	} // end of method TreasureChest::get_CloseSfx
+
+	.method public final hidebysig newslot virtual 
+		instance void OnEnterBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x11a6f2
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::Show()
+		IL_0006: ret
+	} // end of method TreasureChest::OnEnterBuildBuyMode
+
+	.method public final hidebysig newslot virtual 
+		instance void OnExitBuildBuyMode () cil managed 
+	{
+		// Method begins at RVA 0x11a6fa
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mIsVisible
+		IL_0006: brtrue.s IL_000e
+
+		IL_0008: ldarg.0
+		IL_0009: call instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::Hide()
+
+		IL_000e: ret
+	} // end of method TreasureChest::OnExitBuildBuyMode
+
+	.method public hidebysig virtual 
+		instance bool HandToolAllowDragDrop (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject objectToDrop
+		) cil managed 
+	{
+		// Method begins at RVA 0x11a70a
+		// Header size: 1
+		// Code size: 28 (0x1c)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: isinst Sims3.Gameplay.Objects.Miscellaneous.ImaginaryDoll
+		IL_0006: brtrue.s IL_0010
+
+		IL_0008: ldarg.1
+		IL_0009: isinst [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.MinorPet
+		IL_000e: brfalse.s IL_0012
+
+		IL_0010: ldc.i4.0
+		IL_0011: ret
+
+		IL_0012: ldarg.0
+		IL_0013: call instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+		IL_0018: ldc.i4.0
+		IL_0019: ceq
+		IL_001b: ret
+	} // end of method TreasureChest::HandToolAllowDragDrop
+
+	.method public hidebysig virtual 
+		instance bool PackForMovingOverride () cil managed 
+	{
+		// Method begins at RVA 0x11a727
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method TreasureChest::PackForMovingOverride
+
+	.method public final hidebysig newslot virtual 
+		instance bool CanItemsBeRemovedFromInventory () cil managed 
+	{
+		// Method begins at RVA 0x11a72a
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+		IL_0006: ret
+	} // end of method TreasureChest::CanItemsBeRemovedFromInventory
+
+	.method public final hidebysig newslot virtual 
+		instance string GetTabDelimitedTreasureChestInfo () cil managed 
+	{
+		// Method begins at RVA 0x11a732
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0006: ret
+	} // end of method TreasureChest::GetTabDelimitedTreasureChestInfo
+
+	.method public final hidebysig newslot virtual 
+		instance bool CanTurnOnUnderstandingGlowNow () cil managed 
+	{
+		// Method begins at RVA 0x11a73a
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+		IL_0006: ret
+	} // end of method TreasureChest::CanTurnOnUnderstandingGlowNow
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldUnderstandingGlowBePositive () cil managed 
+	{
+		// Method begins at RVA 0x11a742
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method TreasureChest::ShouldUnderstandingGlowBePositive
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldConsumeSandsOfUnderstanding () cil managed 
+	{
+		// Method begins at RVA 0x11a745
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mSandsOfUnderstandingCanAddCoins
+		IL_0006: ret
+	} // end of method TreasureChest::ShouldConsumeSandsOfUnderstanding
+
+	.method public final hidebysig newslot virtual 
+		instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback GetOnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x11a74d
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldnull
+		IL_0001: ret
+	} // end of method TreasureChest::GetOnGlowCallback
+
+	.method private hidebysig 
+		instance bool IsLocked () cil managed 
+	{
+		// Method begins at RVA 0x11a750
+		// Header size: 12
+		// Code size: 22 (0x16)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.KeystonePanel
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_KeystonePanel()
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: brfalse.s IL_0014
+
+		IL_000a: ldloc.0
+		IL_000b: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_IsUnlocked()
+		IL_0010: ldc.i4.0
+		IL_0011: ceq
+		IL_0013: ret
+
+		IL_0014: ldc.i4.0
+		IL_0015: ret
+	} // end of method TreasureChest::IsLocked
+
+	.method private hidebysig 
+		instance bool HasTreasureChestInfoData () cil managed 
+	{
+		// Method begins at RVA 0x11a772
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0006: call bool [mscorlib]System.String::IsNullOrEmpty(string)
+		IL_000b: ldc.i4.0
+		IL_000c: ceq
+		IL_000e: ret
+	} // end of method TreasureChest::HasTreasureChestInfoData
+
+	.method private hidebysig 
+		instance void Show () cil managed 
+	{
+		// Method begins at RVA 0x11a782
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0007: ldarg.0
+		IL_0008: ldstr "treasureChest_ftp_pathingShape"
+		IL_000d: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::EnableFootprint(string)
+		IL_0012: pop
+		IL_0013: ret
+	} // end of method TreasureChest::Show
+
+	.method private hidebysig 
+		instance void Hide () cil managed 
+	{
+		// Method begins at RVA 0x11a797
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0007: ldarg.0
+		IL_0008: ldstr "treasureChest_ftp_pathingShape"
+		IL_000d: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(string)
+		IL_0012: pop
+		IL_0013: ret
+	} // end of method TreasureChest::Hide
+
+	.method private hidebysig 
+		instance void TurnOnFilledWithTreasureFX () cil managed 
+	{
+		// Method begins at RVA 0x11a7ac
+		// Header size: 12
+		// Code size: 68 (0x44)
+		.maxstack 3
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_0006: brtrue.s IL_002a
+
+		IL_0008: ldarg.0
+		IL_0009: ldstr "ep1TreasureChestGlow"
+		IL_000e: call class [SimIFace]Sims3.SimIFace.VisualEffect [SimIFace]Sims3.SimIFace.VisualEffect::Create(string)
+		IL_0013: stfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_0018: ldarg.0
+		IL_0019: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_001e: ldarg.0
+		IL_001f: ldc.i4 831137836
+		IL_0024: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::ParentTo(class [SimIFace]Sims3.SimIFace.IHasScriptProxy, valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0029: pop
+
+		IL_002a: ldarg.0
+		IL_002b: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_0030: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::HasEffectStarted()
+		IL_0035: brtrue.s IL_0043
+
+		IL_0037: ldarg.0
+		IL_0038: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_003d: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::Start()
+		IL_0042: pop
+
+		IL_0043: ret
+	} // end of method TreasureChest::TurnOnFilledWithTreasureFX
+
+	.method private hidebysig 
+		instance void TurnOffFilledWithTreasureFX () cil managed 
+	{
+		// Method begins at RVA 0x11a7fc
+		// Header size: 1
+		// Code size: 39 (0x27)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_0006: brfalse.s IL_0026
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_000e: callvirt instance bool [SimIFace]Sims3.SimIFace.VisualEffect::Stop()
+		IL_0013: pop
+		IL_0014: ldarg.0
+		IL_0015: ldfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+		IL_001a: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::Dispose()
+		IL_001f: ldarg.0
+		IL_0020: ldnull
+		IL_0021: stfld class [SimIFace]Sims3.SimIFace.VisualEffect Sims3.Gameplay.Objects.TombObjects.TreasureChest::mFilledTreasureFX
+
+		IL_0026: ret
+	} // end of method TreasureChest::TurnOffFilledWithTreasureFX
+
+	.method private hidebysig 
+		instance void FillWithTreasure (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x11a824
+		// Header size: 12
+		// Code size: 227 (0xe3)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo,
+			[1] class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>,
+			[2] class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+			[3] int32,
+			[4] class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>,
+			[5] class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+			[6] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>,
+			[7] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>
+		)
+
+		IL_0000: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo> Sims3.Gameplay.Objects.TombObjects.TreasureChest::sTreasureChestData
+		IL_0005: ldarg.0
+		IL_0006: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_000b: ldloca.s 0
+		IL_000d: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::TryGetValue(!0, !1&)
+		IL_0012: brtrue.s IL_0015
+
+		IL_0014: ret
+
+		IL_0015: ldarg.0
+		IL_0016: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+		IL_001b: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::HasAdventureTreasure()
+		IL_0020: brfalse.s IL_006e
+
+		IL_0022: ldarg.0
+		IL_0023: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+		IL_0028: ldarg.1
+		IL_0029: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::GetAdventureTreasure(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+		IL_002e: stloc.1
+		IL_002f: ldloc.1
+		IL_0030: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::GetEnumerator()
+		IL_0035: stloc.s 6
+		.try
+		{
+			IL_0037: br.s IL_0055
+			// loop start (head: IL_0055)
+				IL_0039: ldloca.s 6
+				IL_003b: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::get_Current()
+				IL_0040: stloc.2
+				IL_0041: ldarg.0
+				IL_0042: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+				IL_0047: ldloc.2
+				IL_0048: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::TryToAdd(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+				IL_004d: brtrue.s IL_0055
+
+				IL_004f: ldloc.2
+				IL_0050: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject::Destroy()
+
+				IL_0055: ldloca.s 6
+				IL_0057: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::MoveNext()
+				IL_005c: brtrue.s IL_0039
+			// end loop
+
+			IL_005e: leave.s IL_006e
+		} // end .try
+		finally
+		{
+			IL_0060: ldloca.s 6
+			IL_0062: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>
+			IL_0068: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_006d: endfinally
+		} // end handler
+
+		IL_006e: ldarg.0
+		IL_006f: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+		IL_0074: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::get_NumberOfTreasuresGivenThisVisit()
+		IL_0079: ldc.i4.1
+		IL_007a: bge.s IL_00e2
+
+		IL_007c: ldc.i4.0
+		IL_007d: stloc.3
+		IL_007e: br.s IL_00d9
+		// loop start (head: IL_00d9)
+			IL_0080: ldarg.0
+			IL_0081: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_0086: ldarg.1
+			IL_0087: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::GetStandardTreasure(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_008c: stloc.s 4
+			IL_008e: ldloc.s 4
+			IL_0090: brfalse.s IL_00d5
+
+			IL_0092: ldloc.s 4
+			IL_0094: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::GetEnumerator()
+			IL_0099: stloc.s 7
+			.try
+			{
+				IL_009b: br.s IL_00bc
+				// loop start (head: IL_00bc)
+					IL_009d: ldloca.s 7
+					IL_009f: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::get_Current()
+					IL_00a4: stloc.s 5
+					IL_00a6: ldarg.0
+					IL_00a7: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+					IL_00ac: ldloc.s 5
+					IL_00ae: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::TryToAdd(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject)
+					IL_00b3: brtrue.s IL_00bc
+
+					IL_00b5: ldloc.s 5
+					IL_00b7: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject::Destroy()
+
+					IL_00bc: ldloca.s 7
+					IL_00be: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::MoveNext()
+					IL_00c3: brtrue.s IL_009d
+				// end loop
+
+				IL_00c5: leave.s IL_00d5
+			} // end .try
+			finally
+			{
+				IL_00c7: ldloca.s 7
+				IL_00c9: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>
+				IL_00cf: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_00d4: endfinally
+			} // end handler
+
+			IL_00d5: ldloc.3
+			IL_00d6: ldc.i4.1
+			IL_00d7: add
+			IL_00d8: stloc.3
+
+			IL_00d9: ldloc.3
+			IL_00da: ldloc.0
+			IL_00db: ldfld int32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::NumberOfTreasures
+			IL_00e0: blt.s IL_0080
+		// end loop
+
+		IL_00e2: ret
+	} // end of method TreasureChest::FillWithTreasure
+
+	.method private hidebysig 
+		instance void ResetTreasureChestSettings () cil managed 
+	{
+		// Method begins at RVA 0x11a930
+		// Header size: 12
+		// Code size: 230 (0xe6)
+		.maxstack 5
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo,
+			[1] class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+			[2] string,
+			[3] class [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/KeystoneInitParams,
+			[4] class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Inventory [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+		IL_0006: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Inventory::get_IsEmpty()
+		IL_000b: brtrue.s IL_000e
+
+		IL_000d: ret
+
+		IL_000e: ldarg.0
+		IL_000f: call instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+		IL_0014: brtrue.s IL_0017
+
+		IL_0016: ret
+
+		IL_0017: ldsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo> Sims3.Gameplay.Objects.TombObjects.TreasureChest::sTreasureChestData
+		IL_001c: ldarg.0
+		IL_001d: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0022: ldloca.s 0
+		IL_0024: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::TryGetValue(!0, !1&)
+		IL_0029: brtrue.s IL_002c
+
+		IL_002b: ret
+
+		IL_002c: ldarg.0
+		IL_002d: ldc.i4.0
+		IL_002e: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mHasOpenedWithCurrentLoot
+		IL_0033: ldarg.0
+		IL_0034: ldc.i4 -1474234202 // 0xa820f8a6
+		IL_0039: call instance class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetContainedObject(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_003e: stloc.1
+		IL_003f: ldloc.1
+		IL_0040: brfalse.s IL_0056
+
+		IL_0042: ldloc.1
+		IL_0043: isinst Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel
+		IL_0048: pop
+		IL_0049: ldloc.1
+		IL_004a: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject::UnParent()
+		IL_004f: pop
+		IL_0050: ldloc.1
+		IL_0051: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject::Destroy()
+
+		IL_0056: ldloc.0
+		IL_0057: ldfld float32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::VisibleProbability
+		IL_005c: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+		IL_0061: brfalse.s IL_00d1
+
+		IL_0063: ldarg.0
+		IL_0064: ldc.i4.1
+		IL_0065: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mIsVisible
+		IL_006a: ldarg.0
+		IL_006b: call instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::Show()
+		IL_0070: ldloc.0
+		IL_0071: ldfld float32 Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::LockedProbability
+		IL_0076: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+		IL_007b: brfalse.s IL_00de
+
+		IL_007d: ldloc.0
+		IL_007e: ldfld class [mscorlib]System.Collections.Generic.List`1<string> Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo::KeystonesRequired
+		IL_0083: callvirt instance !0[] class [mscorlib]System.Collections.Generic.List`1<string>::ToArray()
+		IL_0088: call string [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::GetRandomStringFromList(string[])
+		IL_008d: stloc.2
+		IL_008e: ldloc.2
+		IL_008f: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.Objects.KeystoneMaker/KeystoneInitParams::.ctor(string)
+		IL_0094: stloc.3
+		IL_0095: ldstr "keystonePanel"
+		IL_009a: ldarg.0
+		IL_009b: ldc.i4 -1474234202 // 0xa820f8a6
+		IL_00a0: ldtoken Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel
+		IL_00a5: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_00aa: callvirt instance string [mscorlib]System.Type::get_FullName()
+		IL_00af: ldloc.3
+		IL_00b0: call class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject [Sims3GameplaySystems]Sims3.Gameplay.GlobalFunctions::CreateObjectParentedToSlot(string, class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot, string, class [SimIFace]Sims3.SimIFace.Simulator/ObjectInitParameters)
+		IL_00b5: isinst Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel
+		IL_00ba: stloc.s 4
+		IL_00bc: ldloc.s 4
+		IL_00be: brfalse.s IL_00de
+
+		IL_00c0: ldloc.s 4
+		IL_00c2: callvirt instance void Sims3.Gameplay.Objects.TombObjects.KeystonePanel::UpdateVisualState()
+		IL_00c7: ldloc.s 4
+		IL_00c9: ldc.i4.2
+		IL_00ca: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_00cf: br.s IL_00de
+
+		IL_00d1: ldarg.0
+		IL_00d2: ldc.i4.0
+		IL_00d3: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mIsVisible
+		IL_00d8: ldarg.0
+		IL_00d9: call instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::Hide()
+
+		IL_00de: ldarg.0
+		IL_00df: ldc.i4.1
+		IL_00e0: stfld bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::mSandsOfUnderstandingCanAddCoins
+		IL_00e5: ret
+	} // end of method TreasureChest::ResetTreasureChestSettings
+
+	.method private hidebysig 
+		instance string GetLocalizedNameForTreasureChestInfoKey () cil managed 
+	{
+		// Method begins at RVA 0x11aa22
+		// Header size: 1
+		// Code size: 42 (0x2a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Objects.TombObjects.TreasureChest::HasTreasureChestInfoData()
+		IL_0006: brtrue.s IL_000e
+
+		IL_0008: ldstr ""
+		IL_000d: ret
+
+		IL_000e: ldstr "Gameplay/Excel/TreasureChest/TreasureChest:"
+		IL_0013: ldarg.0
+		IL_0014: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0019: call string [mscorlib]System.String::Concat(string, string)
+		IL_001e: ldc.i4.0
+		IL_001f: newarr [mscorlib]System.Object
+		IL_0024: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0029: ret
+	} // end of method TreasureChest::GetLocalizedNameForTreasureChestInfoKey
+
+	.method private hidebysig 
+		instance void OnTreasureInfoSetEvent () cil managed 
+	{
+		// Method begins at RVA 0x11aa4d
+		// Header size: 1
+		// Code size: 43 (0x2b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+		IL_0006: brtrue.s IL_0013
+
+		IL_0008: ldarg.0
+		IL_0009: ldsfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::kDefaultTreasureChestInfoKey
+		IL_000e: stfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::mTreasureChestInfoKey
+
+		IL_0013: ldarg.0
+		IL_0014: call instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+		IL_0019: ldarg.0
+		IL_001a: ldftn instance void Sims3.Gameplay.Objects.TombObjects.TreasureChest::OnTreasureInfoSetEvent()
+		IL_0020: newobj instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent/OnTreasureInfoSet::.ctor(object, native int)
+		IL_0025: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::remove_OnTresureInfoSetEvent(class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent/OnTreasureInfoSet)
+		IL_002a: ret
+	} // end of method TreasureChest::OnTreasureInfoSetEvent
+
+	.method public hidebysig 
+		instance bool IsObjectValidKey (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject obj,
+			object customData
+		) cil managed 
+	{
+		// Method begins at RVA 0x11aa7c
+		// Header size: 12
+		// Code size: 37 (0x25)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.TombObjects.KeystonePanel,
+			[1] class Sims3.Gameplay.Objects.TombObjects.IKeystone
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_KeystonePanel()
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: brtrue.s IL_000c
+
+		IL_000a: ldc.i4.0
+		IL_000b: ret
+
+		IL_000c: ldarg.1
+		IL_000d: isinst Sims3.Gameplay.Objects.TombObjects.IKeystone
+		IL_0012: stloc.1
+		IL_0013: ldloc.1
+		IL_0014: brfalse.s IL_0023
+
+		IL_0016: ldloc.1
+		IL_0017: ldloc.0
+		IL_0018: callvirt instance valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info Sims3.Gameplay.Objects.TombObjects.KeystonePanel::get_KeystoneInfo()
+		IL_001d: callvirt instance bool Sims3.Gameplay.Objects.TombObjects.IKeystone::IsCorrectShape(valuetype Sims3.Gameplay.Objects.TombObjects.Keystone/Info)
+		IL_0022: ret
+
+		IL_0023: ldc.i4.0
+		IL_0024: ret
+	} // end of method TreasureChest::IsObjectValidKey
+
+	.method public hidebysig 
+		instance bool RouteToTreasureChest (
+			class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x11aaad
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.0
+		IL_0002: ldc.i4 824351308
+		IL_0007: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::RouteToSlotAndCheckInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_000c: ret
+	} // end of method TreasureChest::RouteToTreasureChest
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x11aabc
+		// Header size: 12
+		// Code size: 87 (0x57)
+		.maxstack 3
+		.locals init (
+			[0] float32[],
+			[1] string[],
+			[2] uint32
+		)
+
+		IL_0000: ldc.i4.4
+		IL_0001: newarr [mscorlib]System.Single
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: ldc.i4.0
+		IL_0009: ldc.r4 2
+		IL_000e: stelem.r4
+		IL_000f: ldloc.0
+		IL_0010: ldc.i4.1
+		IL_0011: ldc.r4 1
+		IL_0016: stelem.r4
+		IL_0017: ldloc.0
+		IL_0018: stsfld float32[] Sims3.Gameplay.Objects.TombObjects.TreasureChest::kSandsOfUnderstandingCoinPileSizeWeightedChances
+		IL_001d: ldstr "BasicChest"
+		IL_0022: stsfld string Sims3.Gameplay.Objects.TombObjects.TreasureChest::kDefaultTreasureChestInfoKey
+		IL_0027: ldc.i4.2
+		IL_0028: newarr [mscorlib]System.String
+		IL_002d: stloc.1
+		IL_002e: ldloc.1
+		IL_002f: ldc.i4.0
+		IL_0030: ldc.i4 142956930
+		IL_0035: stloc.2
+		IL_0036: ldloca.s 2
+		IL_0038: call instance string [mscorlib]System.UInt32::ToString()
+		IL_003d: stelem.ref
+		IL_003e: ldloc.1
+		IL_003f: ldc.i4.1
+		IL_0040: ldstr "Key"
+		IL_0045: stelem.ref
+		IL_0046: ldloc.1
+		IL_0047: stsfld string[] Sims3.Gameplay.Objects.TombObjects.TreasureChest::kWorldBuilderDataKeyRemap
+		IL_004c: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo>::.ctor()
+		IL_0051: stsfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.TombObjects.TreasureChest/TreasureChestInfo> Sims3.Gameplay.Objects.TombObjects.TreasureChest::sTreasureChestData
+		IL_0056: ret
+	} // end of method TreasureChest::.cctor
+
+	// Properties
+	.property instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel KeystonePanel()
+	{
+		.get instance class Sims3.Gameplay.Objects.TombObjects.TreasureChestKeystonePanel Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_KeystonePanel()
+	}
+	.property instance string OpenSfx()
+	{
+		.get instance string Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_OpenSfx()
+	}
+	.property instance string CloseSfx()
+	{
+		.get instance string Sims3.Gameplay.Objects.TombObjects.TreasureChest::get_CloseSfx()
+	}
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.TreasureChest

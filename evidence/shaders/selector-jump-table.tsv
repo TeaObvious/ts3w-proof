@@ -1,0 +1,12 @@
+opcode	original_va	original_dword_le	target_va	observed_action
+1	0x0079ff58	6dfe7900	0x0079fe6d	shift-and-mask accumulator
+2	0x0079ff5c	7bfe7900	0x0079fe7b	shift-or-bit0 accumulator
+3	0x0079ff60	89fe7900	0x0079fe89	toggle bit0
+4	0x0079ff64	8efe7900	0x0079fe8e	conditional skip and shift
+5	0x0079ff68	9dfe7900	0x0079fe9d	alternate conditional skip and shift
+6	0x0079ff6c	a9fe7900	0x0079fea9	append presence-mask bit
+7	0x0079ff70	c5fe7900	0x0079fec5	append packed-option membership bit
+8	0x0079ff74	46ff7900	0x0079ff46	invalid opcode; return 0xffffffff
+9	0x0079ff78	e6fe7900	0x0079fee6	set accumulator counter
+10	0x0079ff7c	f4fe7900	0x0079fef4	add to accumulator counter
+11	0x0079ff80	04ff7900	0x0079ff04	skip program words

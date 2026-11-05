@@ -1,0 +1,120 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original PC1.67 TS3W.exe; analyst display name LotRouting_GatherSegmentFootprints.
+# Ghidra database name FUN_00632640; no symbol/database edit.
+# Bounding original-byte envelope [00632640,00632729); bytes independently matched against the central original PE.
+# Complete existing Ghidra-owned Listing below; envelope gaps are bytes, not owned instructions.
+# Owned ranges (exclusive ends): [00632640,00632729)
+# Nonowned gap bytes: 0.
+
+# Original bytes by virtual address:
+00632640: 8b 44 24 04 8b 40 54 83 ec 18 85 c0 53 56 57 8b
+00632650: d9 0f 84 c7 00 00 00 8b 70 48 8b 78 4c 8b ce 0b
+00632660: cf 0f 84 b7 00 00 00 57 56 8b cb e8 f0 6c ff ff
+00632670: 84 c0 0f 84 a6 00 00 00 8b 54 24 2c 8b 42 08 55
+00632680: 50 57 56 8b cb e8 a6 dc ff ff 8b 54 24 30 8d 4c
+00632690: 24 1c 51 52 57 56 8b cb 8b e8 e8 c1 ce ff ff 8b
+006326a0: 4c 24 34 8d 44 24 10 50 51 57 56 8b cb e8 ae ce
+006326b0: ff ff 85 ed 74 5c 8b 54 24 40 d9 44 24 38 8b 44
+006326c0: 24 3c 52 50 8b 44 24 34 8b 48 44 83 ec 14 d9 5c
+006326d0: 24 10 f7 d9 d9 44 24 30 1b c9 d9 5c 24 0c 23 c8
+006326e0: d9 44 24 2c d9 5c 24 08 d9 44 24 3c d9 5c 24 04
+006326f0: d9 44 24 38 d9 1c 24 51 8b cd e8 a1 4f 03 00 84
+00632700: c0 74 0f 5d 5f 5e b8 01 00 00 00 5b 83 c4 18 c2
+00632710: 18 00 5d 5f 5e 33 c0 5b 83 c4 18 c2 18 00 5f 5e
+00632720: 32 c0 5b 83 c4 18 c2 18 00
+
+# Existing Ghidra-owned instruction Listing:
+00632640: MOV EAX, dword ptr [ESP + 0x4]
+00632644: MOV EAX, dword ptr [EAX + 0x54]
+00632647: SUB ESP, 0x18
+0063264a: TEST EAX, EAX
+0063264c: PUSH EBX
+0063264d: PUSH ESI
+0063264e: PUSH EDI
+0063264f: MOV EBX, ECX
+00632651: JZ 0x0063271e
+00632657: MOV ESI, dword ptr [EAX + 0x48]
+0063265a: MOV EDI, dword ptr [EAX + 0x4c]
+0063265d: MOV ECX, ESI
+0063265f: OR ECX, EDI
+00632661: JZ 0x0063271e
+00632667: PUSH EDI
+00632668: PUSH ESI
+00632669: MOV ECX, EBX
+0063266b: CALL 0x00629360
+00632670: TEST AL, AL
+00632672: JZ 0x0063271e
+00632678: MOV EDX, dword ptr [ESP + 0x2c]
+0063267c: MOV EAX, dword ptr [EDX + 0x8]
+0063267f: PUSH EBP
+00632680: PUSH EAX
+00632681: PUSH EDI
+00632682: PUSH ESI
+00632683: MOV ECX, EBX
+00632685: CALL 0x00630330
+0063268a: MOV EDX, dword ptr [ESP + 0x30]
+0063268e: LEA ECX, [ESP + 0x1c]
+00632692: PUSH ECX
+00632693: PUSH EDX
+00632694: PUSH EDI
+00632695: PUSH ESI
+00632696: MOV ECX, EBX
+00632698: MOV EBP, EAX
+0063269a: CALL 0x0062f560
+0063269f: MOV ECX, dword ptr [ESP + 0x34]
+006326a3: LEA EAX, [ESP + 0x10]
+006326a7: PUSH EAX
+006326a8: PUSH ECX
+006326a9: PUSH EDI
+006326aa: PUSH ESI
+006326ab: MOV ECX, EBX
+006326ad: CALL 0x0062f560
+006326b2: TEST EBP, EBP
+006326b4: JZ 0x00632712
+006326b6: MOV EDX, dword ptr [ESP + 0x40]
+006326ba: FLD float ptr [ESP + 0x38]
+006326be: MOV EAX, dword ptr [ESP + 0x3c]
+006326c2: PUSH EDX
+006326c3: PUSH EAX
+006326c4: MOV EAX, dword ptr [ESP + 0x34]
+006326c8: MOV ECX, dword ptr [EAX + 0x44]
+006326cb: SUB ESP, 0x14
+006326ce: FSTP float ptr [ESP + 0x10]
+006326d2: NEG ECX
+006326d4: FLD float ptr [ESP + 0x30]
+006326d8: SBB ECX, ECX
+006326da: FSTP float ptr [ESP + 0xc]
+006326de: AND ECX, EAX
+006326e0: FLD float ptr [ESP + 0x2c]
+006326e4: FSTP float ptr [ESP + 0x8]
+006326e8: FLD float ptr [ESP + 0x3c]
+006326ec: FSTP float ptr [ESP + 0x4]
+006326f0: FLD float ptr [ESP + 0x38]
+006326f4: FSTP float ptr [ESP]
+006326f7: PUSH ECX
+006326f8: MOV ECX, EBP
+006326fa: CALL 0x006676a0
+006326ff: TEST AL, AL
+00632701: JZ 0x00632712
+00632703: POP EBP
+00632704: POP EDI
+00632705: POP ESI
+00632706: MOV EAX, 0x1
+0063270b: POP EBX
+0063270c: ADD ESP, 0x18
+0063270f: RET 0x18
+00632712: POP EBP
+00632713: POP EDI
+00632714: POP ESI
+00632715: XOR EAX, EAX
+00632717: POP EBX
+00632718: ADD ESP, 0x18
+0063271b: RET 0x18
+0063271e: POP EDI
+0063271f: POP ESI
+00632720: XOR AL, AL
+00632722: POP EBX
+00632723: ADD ESP, 0x18
+00632726: RET 0x18

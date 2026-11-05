@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000F06.
+// Assembly: CSHostWrap; type: Sims3.CSHost.ContentManager.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/ContentManager.cs:99
+	[DllImport("Sims3Common.dll", CallingConvention = CallingConvention.Cdecl)]
+	[return: MarshalAs(UnmanagedType.BStr)]
+	private static extern string ContentManager_GetPackageId([In][MarshalAs(UnmanagedType.U4)] S3L_PackageType packageType, [In][MarshalAs(UnmanagedType.U4)] int id);

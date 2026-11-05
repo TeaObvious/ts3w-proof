@@ -1,0 +1,65 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00996550 <.text+0x595550>:
+  996550:	83 ec 10             	sub    esp,0x10
+  996553:	e8 38 2e dd ff       	call   0x769390
+  996558:	85 c0                	test   eax,eax
+  99655a:	74 71                	je     0x9965cd
+  99655c:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+  996560:	8b 10                	mov    edx,DWORD PTR [eax]
+  996562:	8b 52 58             	mov    edx,DWORD PTR [edx+0x58]
+  996565:	53                   	push   ebx
+  996566:	51                   	push   ecx
+  996567:	8b c8                	mov    ecx,eax
+  996569:	ff d2                	call   edx
+  99656b:	50                   	push   eax
+  99656c:	8d 4c 24 08          	lea    ecx,[esp+0x8]
+  996570:	c7 44 24 08 00 00 00 	mov    DWORD PTR [esp+0x8],0x0
+  996577:	00 
+  996578:	c7 44 24 0c 00 00 00 	mov    DWORD PTR [esp+0xc],0x0
+  99657f:	00 
+  996580:	c7 44 24 10 00 00 00 	mov    DWORD PTR [esp+0x10],0x0
+  996587:	00 
+  996588:	c7 44 24 14 28 a0 04 	mov    DWORD PTR [esp+0x14],0x104a028
+  99658f:	01 
+  996590:	e8 fb 4f a7 ff       	call   0x40b590
+  996595:	8b 0d a4 a6 1e 01    	mov    ecx,DWORD PTR ds:0x11ea6a4
+  99659b:	8d 44 24 04          	lea    eax,[esp+0x4]
+  99659f:	50                   	push   eax
+  9965a0:	e8 eb ca 00 00       	call   0x9a3090
+  9965a5:	8b 4c 24 0c          	mov    ecx,DWORD PTR [esp+0xc]
+  9965a9:	8a d8                	mov    bl,al
+  9965ab:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+  9965af:	2b c8                	sub    ecx,eax
+  9965b1:	83 e1 fe             	and    ecx,0xfffffffe
+  9965b4:	83 f9 02             	cmp    ecx,0x2
+  9965b7:	7e 0d                	jle    0x9965c6
+  9965b9:	85 c0                	test   eax,eax
+  9965bb:	74 09                	je     0x9965c6
+  9965bd:	50                   	push   eax
+  9965be:	e8 1d df b4 ff       	call   0x4e44e0
+  9965c3:	83 c4 04             	add    esp,0x4
+  9965c6:	8a c3                	mov    al,bl
+  9965c8:	5b                   	pop    ebx
+  9965c9:	83 c4 10             	add    esp,0x10
+  9965cc:	c3                   	ret
+  9965cd:	32 c0                	xor    al,al
+  9965cf:	83 c4 10             	add    esp,0x10
+  9965d2:	c3                   	ret
+  9965d3:	cc                   	int3
+  9965d4:	cc                   	int3
+  9965d5:	cc                   	int3
+  9965d6:	cc                   	int3
+  9965d7:	cc                   	int3
+  9965d8:	cc                   	int3
+  9965d9:	cc                   	int3
+  9965da:	cc                   	int3
+  9965db:	cc                   	int3
+  9965dc:	cc                   	int3
+  9965dd:	cc                   	int3
+  9965de:	cc                   	int3
+  9965df:	cc                   	int3

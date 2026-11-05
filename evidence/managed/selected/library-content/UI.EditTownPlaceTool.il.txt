@@ -1,0 +1,382 @@
+// Original PC1.67 packaged retail members; complete selected method bodies. Central identities apply.
+// Raw CIL tokens/signatures qualify unresolved generics; compiler-generated child/lambda bodies are separate.
+
+// Sims3.UI.GameEntry.EditTownPlaceTool::OnSelection MethodDef0x06002655 RVA0x000D6AAC
+// Signature 200101128a48; maxstack3; locals11000131; initlocalsTrue
+// Complete raw CIL (423 bytes): 036F49160006156A4035010000027BF0270004398E010000027BEF2700043983010000027BAC070004036F4F1600066FFB3300060A027BAC070004036F4F1600066FC9330006027BF02700046F4F160006156A3B8A0000000618333B02177DF12700042823340006166F2B340006172813120006281D0E00066F150E000602FE065726000673380E000603733D0E000628AA00000A262A027BAC070004027BF0270004036F4F1600066FFD3300062D1902FE065E26000673380E000603733D0E000628AA00000A262A02FE065F26000673380E000603733D0E000628AA00000A262A027BF02700046F49160006156A3BB2000000060B071759450200000010000000010000002A02177DF1270004020328582600062A027BF02700046F4A160006036F591600062F7D02FE065D26000673380E000603733D0E000628AA00000A262A027BF02700046F4F160006156A3355027BEF270004183323027BAC070004036F4F1600066FC93300062823340006027BF0270004036F3A3400062A027BAC070004036F4F1600066FC933000602FE065A26000673380E000603733D0E000628AA00000A262A
+IL_0000: ldarg.1
+IL_0001: callvirt 0x06001649 Sims3.UI.GameEntry.UIBinInfo::get_HouseholdId
+IL_0006: ldc.i4.m1
+IL_0007: conv.i8
+IL_0008: bne.un IL_0142
+IL_000D: ldarg.0
+IL_000E: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_0013: brfalse IL_01A6
+IL_0018: ldarg.0
+IL_0019: ldfld 0x040027EF Sims3.UI.GameEntry.EditTownPlaceTool::mFrom
+IL_001E: brfalse IL_01A6
+IL_0023: ldarg.0
+IL_0024: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_0029: ldarg.1
+IL_002A: callvirt 0x0600164F Sims3.UI.GameEntry.UIBinInfo::get_LotId
+IL_002F: callvirt 0x060033FB Sims3.UI.GameEntry.IEditTownModel::GetLotValidity
+IL_0034: stloc.0
+IL_0035: ldarg.0
+IL_0036: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_003B: ldarg.1
+IL_003C: callvirt 0x0600164F Sims3.UI.GameEntry.UIBinInfo::get_LotId
+IL_0041: callvirt 0x060033C9 Sims3.UI.GameEntry.IEditTownModel::CenterCamera
+IL_0046: ldarg.0
+IL_0047: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_004C: callvirt 0x0600164F Sims3.UI.GameEntry.UIBinInfo::get_LotId
+IL_0051: ldc.i4.m1
+IL_0052: conv.i8
+IL_0053: beq IL_00E2
+IL_0058: ldloc.0
+IL_0059: ldc.i4.2
+IL_005A: bne.un.s IL_0097
+IL_005C: ldarg.0
+IL_005D: ldc.i4.1
+IL_005E: stfld 0x040027F1 Sims3.UI.GameEntry.EditTownPlaceTool::mPlacing
+IL_0063: call 0x06003423 Sims3.UI.GameEntry.EditTownController::get_Instance
+IL_0068: ldc.i4.0
+IL_0069: callvirt 0x0600342B Sims3.UI.GameEntry.EditTownController::ShowUI
+IL_006E: ldc.i4.1
+IL_006F: call 0x06001213 Sims3.UI.UIManager::DarkenBackground
+IL_0074: call 0x06000E1D Sims3.UI.Responder::get_Instance
+IL_0079: callvirt 0x06000E15 Sims3.UI.IResponder::DisableQuit
+IL_007E: ldarg.0
+IL_007F: ldftn 0x06002657 Sims3.UI.GameEntry.EditTownPlaceTool::PlaceLotTask
+IL_0085: newobj 0x06000E38 Sims3.UI.FunctionWithParam::.ctor
+IL_008A: ldarg.1
+IL_008B: newobj 0x06000E3D Sims3.UI.OneShotFunctionWithParams::.ctor
+IL_0090: call 0x0A0000AA Sims3.SimIFace.Simulator::AddObject
+IL_0095: pop
+IL_0096: ret
+IL_0097: ldarg.0
+IL_0098: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_009D: ldarg.0
+IL_009E: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_00A3: ldarg.1
+IL_00A4: callvirt 0x0600164F Sims3.UI.GameEntry.UIBinInfo::get_LotId
+IL_00A9: callvirt 0x060033FD Sims3.UI.GameEntry.IEditTownModel::LotContentsWillFit
+IL_00AE: brtrue.s IL_00C9
+IL_00B0: ldarg.0
+IL_00B1: ldftn 0x0600265E Sims3.UI.GameEntry.EditTownPlaceTool::WarnTooBig
+IL_00B7: newobj 0x06000E38 Sims3.UI.FunctionWithParam::.ctor
+IL_00BC: ldarg.1
+IL_00BD: newobj 0x06000E3D Sims3.UI.OneShotFunctionWithParams::.ctor
+IL_00C2: call 0x0A0000AA Sims3.SimIFace.Simulator::AddObject
+IL_00C7: pop
+IL_00C8: ret
+IL_00C9: ldarg.0
+IL_00CA: ldftn 0x0600265F Sims3.UI.GameEntry.EditTownPlaceTool::WarnLotGeneric
+IL_00D0: newobj 0x06000E38 Sims3.UI.FunctionWithParam::.ctor
+IL_00D5: ldarg.1
+IL_00D6: newobj 0x06000E3D Sims3.UI.OneShotFunctionWithParams::.ctor
+IL_00DB: call 0x0A0000AA Sims3.SimIFace.Simulator::AddObject
+IL_00E0: pop
+IL_00E1: ret
+IL_00E2: ldarg.0
+IL_00E3: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_00E8: callvirt 0x06001649 Sims3.UI.GameEntry.UIBinInfo::get_HouseholdId
+IL_00ED: ldc.i4.m1
+IL_00EE: conv.i8
+IL_00EF: beq IL_01A6
+IL_00F4: ldloc.0
+IL_00F5: stloc.1
+IL_00F6: ldloc.1
+IL_00F7: ldc.i4.1
+IL_00F8: sub
+IL_00F9: switch IL_0116,IL_0107
+IL_0106: ret
+IL_0107: ldarg.0
+IL_0108: ldc.i4.1
+IL_0109: stfld 0x040027F1 Sims3.UI.GameEntry.EditTownPlaceTool::mPlacing
+IL_010E: ldarg.0
+IL_010F: ldarg.1
+IL_0110: call 0x06002658 Sims3.UI.GameEntry.EditTownPlaceTool::ConfirmPurchase
+IL_0115: ret
+IL_0116: ldarg.0
+IL_0117: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_011C: callvirt 0x0600164A Sims3.UI.GameEntry.UIBinInfo::get_HouseholdFunds
+IL_0121: ldarg.1
+IL_0122: callvirt 0x06001659 Sims3.UI.GameEntry.UIBinInfo::get_LotWorth
+IL_0127: bge.s IL_01A6
+IL_0129: ldarg.0
+IL_012A: ldftn 0x0600265D Sims3.UI.GameEntry.EditTownPlaceTool::WarnInsufficientFunds
+IL_0130: newobj 0x06000E38 Sims3.UI.FunctionWithParam::.ctor
+IL_0135: ldarg.1
+IL_0136: newobj 0x06000E3D Sims3.UI.OneShotFunctionWithParams::.ctor
+IL_013B: call 0x0A0000AA Sims3.SimIFace.Simulator::AddObject
+IL_0140: pop
+IL_0141: ret
+IL_0142: ldarg.0
+IL_0143: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_0148: callvirt 0x0600164F Sims3.UI.GameEntry.UIBinInfo::get_LotId
+IL_014D: ldc.i4.m1
+IL_014E: conv.i8
+IL_014F: bne.un.s IL_01A6
+IL_0151: ldarg.0
+IL_0152: ldfld 0x040027EF Sims3.UI.GameEntry.EditTownPlaceTool::mFrom
+IL_0157: ldc.i4.2
+IL_0158: bne.un.s IL_017D
+IL_015A: ldarg.0
+IL_015B: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_0160: ldarg.1
+IL_0161: callvirt 0x0600164F Sims3.UI.GameEntry.UIBinInfo::get_LotId
+IL_0166: callvirt 0x060033C9 Sims3.UI.GameEntry.IEditTownModel::CenterCamera
+IL_016B: call 0x06003423 Sims3.UI.GameEntry.EditTownController::get_Instance
+IL_0170: ldarg.0
+IL_0171: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_0176: ldarg.1
+IL_0177: callvirt 0x0600343A Sims3.UI.GameEntry.EditTownController::MergeHouseholds
+IL_017C: ret
+IL_017D: ldarg.0
+IL_017E: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_0183: ldarg.1
+IL_0184: callvirt 0x0600164F Sims3.UI.GameEntry.UIBinInfo::get_LotId
+IL_0189: callvirt 0x060033C9 Sims3.UI.GameEntry.IEditTownModel::CenterCamera
+IL_018E: ldarg.0
+IL_018F: ldftn 0x0600265A Sims3.UI.GameEntry.EditTownPlaceTool::PlaceHouseholdTask
+IL_0195: newobj 0x06000E38 Sims3.UI.FunctionWithParam::.ctor
+IL_019A: ldarg.1
+IL_019B: newobj 0x06000E3D Sims3.UI.OneShotFunctionWithParams::.ctor
+IL_01A0: call 0x0A0000AA Sims3.SimIFace.Simulator::AddObject
+IL_01A5: pop
+IL_01A6: ret
+
+// Sims3.UI.GameEntry.EditTownPlaceTool::PlaceLotTask MethodDef0x06002657 RVA0x000D6D74
+// Signature 2001011c; maxstack4; locals1100066A; initlocalsTrue
+// Complete raw CIL (581 bytes): 0375920200020A06391E0200001A0B1A0C066F4F1600060D066F59160006130402061203120428642600062D1902167DF12700042823340006176F2B3400061628131200062A161305027BAC070004096FEE3300062D56281D0E00066FDE0D000672A1350170168D010000016F2721000628BE2F00062D350206286526000602167DF12700042823340006176F2B340006280D340006166F3D000006162813120006281D0E00066F160E00062A027BAC070004027BF02700040912056FD13300063965010000027BF02700046F49160006156A2E23027BAC070004027BF0270004096FDA3300062D0F020628652600060206285D2600062A027BAC0700046FA3330006027BAC07000412011202176FD33300062609110517066F5D1600062D08066F671600062B0117286826000612011202286A26000613062B1C027BAC07000412011202176FD33300062612011202286A26000613061106182EDF11063AA4000000027BF02700046F49160006156A2E33027BEF270004183316027BAC070004027BF027000409186FDB330006262B14027BAC070004027BF027000409186FDC33000626027BAC0700046FD4330006027BAC0700046FA63300062C3A14281D0E00066FDE0D00067243350170027BF02700046F621600068C740000016F3001000A288900000A168D010000016F2721000628412F000602257BF627000417587DF62700042B12027BAC0700046FD533000602062865260006027BAC07000414166FB9330006286B2600060228532600062D0A284B090006283009000602167DF12700042A
+IL_0000: ldarg.1
+IL_0001: isinst 0x02000292 Sims3.UI.GameEntry.UIBinInfo
+IL_0006: stloc.0
+IL_0007: ldloc.0
+IL_0008: brfalse IL_022B
+IL_000D: ldc.i4.4
+IL_000E: stloc.1
+IL_000F: ldc.i4.4
+IL_0010: stloc.2
+IL_0011: ldloc.0
+IL_0012: callvirt 0x0600164F Sims3.UI.GameEntry.UIBinInfo::get_LotId
+IL_0017: stloc.3
+IL_0018: ldloc.0
+IL_0019: callvirt 0x06001659 Sims3.UI.GameEntry.UIBinInfo::get_LotWorth
+IL_001E: stloc.s 4
+IL_0020: ldarg.0
+IL_0021: ldloc.0
+IL_0022: ldloca.s 3
+IL_0024: ldloca.s 4
+IL_0026: call 0x06002664 Sims3.UI.GameEntry.EditTownPlaceTool::CreateHouseboatLotIfNecessary
+IL_002B: brtrue.s IL_0046
+IL_002D: ldarg.0
+IL_002E: ldc.i4.0
+IL_002F: stfld 0x040027F1 Sims3.UI.GameEntry.EditTownPlaceTool::mPlacing
+IL_0034: call 0x06003423 Sims3.UI.GameEntry.EditTownController::get_Instance
+IL_0039: ldc.i4.1
+IL_003A: callvirt 0x0600342B Sims3.UI.GameEntry.EditTownController::ShowUI
+IL_003F: ldc.i4.0
+IL_0040: call 0x06001213 Sims3.UI.UIManager::DarkenBackground
+IL_0045: ret
+IL_0046: ldc.i4.0
+IL_0047: stloc.s 5
+IL_0049: ldarg.0
+IL_004A: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_004F: ldloc.3
+IL_0050: callvirt 0x060033EE Sims3.UI.GameEntry.IEditTownModel::LotIsEmpty
+IL_0055: brtrue.s IL_00AD
+IL_0057: call 0x06000E1D Sims3.UI.Responder::get_Instance
+IL_005C: callvirt 0x06000DDE Sims3.UI.IResponder::get_LocalizationModel
+IL_0061: ldstr 0x700135A1 "Ui/Caption/GameEntry/PlaceEPLotsWizard:BulldozePrompt"
+IL_0066: ldc.i4.0
+IL_0067: newarr 0x01000001 System.Object
+IL_006C: callvirt 0x06002127 Sims3.UI.ILocalizationModel::LocalizeString
+IL_0071: call 0x06002FBE Sims3.UI.AcceptCancelDialog::Show
+IL_0076: brtrue.s IL_00AD
+IL_0078: ldarg.0
+IL_0079: ldloc.0
+IL_007A: call 0x06002665 Sims3.UI.GameEntry.EditTownPlaceTool::DestroyHouseboatLotIfNecessary
+IL_007F: ldarg.0
+IL_0080: ldc.i4.0
+IL_0081: stfld 0x040027F1 Sims3.UI.GameEntry.EditTownPlaceTool::mPlacing
+IL_0086: call 0x06003423 Sims3.UI.GameEntry.EditTownController::get_Instance
+IL_008B: ldc.i4.1
+IL_008C: callvirt 0x0600342B Sims3.UI.GameEntry.EditTownController::ShowUI
+IL_0091: call 0x0600340D Sims3.UI.GameEntry.EditTownLibraryPanel::get_Instance
+IL_0096: ldc.i4.0
+IL_0097: callvirt 0x0600003D Sims3.UI.WindowBase::set_Visible
+IL_009C: ldc.i4.0
+IL_009D: call 0x06001213 Sims3.UI.UIManager::DarkenBackground
+IL_00A2: call 0x06000E1D Sims3.UI.Responder::get_Instance
+IL_00A7: callvirt 0x06000E16 Sims3.UI.IResponder::EnableQuit
+IL_00AC: ret
+IL_00AD: ldarg.0
+IL_00AE: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_00B3: ldarg.0
+IL_00B4: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_00B9: ldloc.3
+IL_00BA: ldloca.s 5
+IL_00BC: callvirt 0x060033D1 Sims3.UI.GameEntry.IEditTownModel::BeginPlaceLotContents
+IL_00C1: brfalse IL_022B
+IL_00C6: ldarg.0
+IL_00C7: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_00CC: callvirt 0x06001649 Sims3.UI.GameEntry.UIBinInfo::get_HouseholdId
+IL_00D1: ldc.i4.m1
+IL_00D2: conv.i8
+IL_00D3: beq.s IL_00F8
+IL_00D5: ldarg.0
+IL_00D6: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_00DB: ldarg.0
+IL_00DC: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_00E1: ldloc.3
+IL_00E2: callvirt 0x060033DA Sims3.UI.GameEntry.IEditTownModel::PayForLot
+IL_00E7: brtrue.s IL_00F8
+IL_00E9: ldarg.0
+IL_00EA: ldloc.0
+IL_00EB: call 0x06002665 Sims3.UI.GameEntry.EditTownPlaceTool::DestroyHouseboatLotIfNecessary
+IL_00F0: ldarg.0
+IL_00F1: ldloc.0
+IL_00F2: call 0x0600265D Sims3.UI.GameEntry.EditTownPlaceTool::WarnInsufficientFunds
+IL_00F7: ret
+IL_00F8: ldarg.0
+IL_00F9: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_00FE: callvirt 0x060033A3 Sims3.UI.GameEntry.IEditTownModel::UpdateRoutingData
+IL_0103: ldarg.0
+IL_0104: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_0109: ldloca.s 1
+IL_010B: ldloca.s 2
+IL_010D: ldc.i4.1
+IL_010E: callvirt 0x060033D3 Sims3.UI.GameEntry.IEditTownModel::PlaceLotContents
+IL_0113: pop
+IL_0114: ldloc.3
+IL_0115: ldloc.s 5
+IL_0117: ldc.i4.1
+IL_0118: ldloc.0
+IL_0119: callvirt 0x0600165D Sims3.UI.GameEntry.UIBinInfo::get_IsHouseboatLot
+IL_011E: brtrue.s IL_0128
+IL_0120: ldloc.0
+IL_0121: callvirt 0x06001667 Sims3.UI.GameEntry.UIBinInfo::get_IsPortLot
+IL_0126: br.s IL_0129
+IL_0128: ldc.i4.1
+IL_0129: call 0x06002668 Sims3.UI.GameEntry.EditTownPlaceDialog::Show
+IL_012E: ldloca.s 1
+IL_0130: ldloca.s 2
+IL_0132: call 0x0600266A Sims3.UI.GameEntry.EditTownPlaceDialog::Update
+IL_0137: stloc.s 6
+IL_0139: br.s IL_0157
+IL_013B: ldarg.0
+IL_013C: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_0141: ldloca.s 1
+IL_0143: ldloca.s 2
+IL_0145: ldc.i4.1
+IL_0146: callvirt 0x060033D3 Sims3.UI.GameEntry.IEditTownModel::PlaceLotContents
+IL_014B: pop
+IL_014C: ldloca.s 1
+IL_014E: ldloca.s 2
+IL_0150: call 0x0600266A Sims3.UI.GameEntry.EditTownPlaceDialog::Update
+IL_0155: stloc.s 6
+IL_0157: ldloc.s 6
+IL_0159: ldc.i4.2
+IL_015A: beq.s IL_013B
+IL_015C: ldloc.s 6
+IL_015E: brtrue IL_0207
+IL_0163: ldarg.0
+IL_0164: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_0169: callvirt 0x06001649 Sims3.UI.GameEntry.UIBinInfo::get_HouseholdId
+IL_016E: ldc.i4.m1
+IL_016F: conv.i8
+IL_0170: beq.s IL_01A5
+IL_0172: ldarg.0
+IL_0173: ldfld 0x040027EF Sims3.UI.GameEntry.EditTownPlaceTool::mFrom
+IL_0178: ldc.i4.2
+IL_0179: bne.un.s IL_0191
+IL_017B: ldarg.0
+IL_017C: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_0181: ldarg.0
+IL_0182: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_0187: ldloc.3
+IL_0188: ldc.i4.2
+IL_0189: callvirt 0x060033DB Sims3.UI.GameEntry.IEditTownModel::PlaceFromGameBin
+IL_018E: pop
+IL_018F: br.s IL_01A5
+IL_0191: ldarg.0
+IL_0192: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_0197: ldarg.0
+IL_0198: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_019D: ldloc.3
+IL_019E: ldc.i4.2
+IL_019F: callvirt 0x060033DC Sims3.UI.GameEntry.IEditTownModel::PlaceFromExportBin
+IL_01A4: pop
+IL_01A5: ldarg.0
+IL_01A6: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_01AB: callvirt 0x060033D4 Sims3.UI.GameEntry.IEditTownModel::EndPlaceLotContents
+IL_01B0: ldarg.0
+IL_01B1: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_01B6: callvirt 0x060033A6 Sims3.UI.GameEntry.IEditTownModel::get_IsPlaceLotsWizardFlow
+IL_01BB: brfalse.s IL_01F7
+IL_01BD: ldnull
+IL_01BE: call 0x06000E1D Sims3.UI.Responder::get_Instance
+IL_01C3: callvirt 0x06000DDE Sims3.UI.IResponder::get_LocalizationModel
+IL_01C8: ldstr 0x70013543 "Ui/Caption/GameEntry/PlaceEPLotsWizard:Placed_"
+IL_01CD: ldarg.0
+IL_01CE: ldfld 0x040027F0 Sims3.UI.GameEntry.EditTownPlaceTool::mInfo
+IL_01D3: callvirt 0x06001662 Sims3.UI.GameEntry.UIBinInfo::get_CommercialLotSubType
+IL_01D8: box 0x01000074 Sims3.SimIFace.CommercialLotSubType
+IL_01DD: callvirt 0x0A000130 System.Object::ToString
+IL_01E2: call 0x0A000089 System.String::Concat
+IL_01E7: ldc.i4.0
+IL_01E8: newarr 0x01000001 System.Object
+IL_01ED: callvirt 0x06002127 Sims3.UI.ILocalizationModel::LocalizeString
+IL_01F2: call 0x06002F41 Sims3.UI.SimpleMessageDialog::Show
+IL_01F7: ldarg.0
+IL_01F8: dup
+IL_01F9: ldfld 0x040027F6 Sims3.UI.GameEntry.EditTownPlaceTool::mPlacingLot
+IL_01FE: ldc.i4.1
+IL_01FF: add
+IL_0200: stfld 0x040027F6 Sims3.UI.GameEntry.EditTownPlaceTool::mPlacingLot
+IL_0205: br.s IL_0219
+IL_0207: ldarg.0
+IL_0208: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_020D: callvirt 0x060033D5 Sims3.UI.GameEntry.IEditTownModel::CancelPlaceLotContents
+IL_0212: ldarg.0
+IL_0213: ldloc.0
+IL_0214: call 0x06002665 Sims3.UI.GameEntry.EditTownPlaceTool::DestroyHouseboatLotIfNecessary
+IL_0219: ldarg.0
+IL_021A: ldfld 0x040007AC Sims3.UI.GameEntry.EditTownTool::mModel
+IL_021F: ldnull
+IL_0220: ldc.i4.0
+IL_0221: callvirt 0x060033B9 Sims3.UI.GameEntry.IEditTownModel::SetCurrentSelection
+IL_0226: call 0x0600266B Sims3.UI.GameEntry.EditTownPlaceDialog::Hide
+IL_022B: ldarg.0
+IL_022C: call 0x06002653 Sims3.UI.GameEntry.EditTownPlaceTool::GetWizardLotToPlace
+IL_0231: brtrue.s IL_023D
+IL_0233: call 0x0600094B Sims3.UI.GameEntry.EditTownDefaultTool::get_Instance
+IL_0238: call 0x06000930 Sims3.UI.GameEntry.EditTownTool::set_CurrentTool
+IL_023D: ldarg.0
+IL_023E: ldc.i4.0
+IL_023F: stfld 0x040027F1 Sims3.UI.GameEntry.EditTownPlaceTool::mPlacing
+IL_0244: ret
+
+// Sims3.UI.GameEntry.EditTownPlaceTool::WarnLotGeneric MethodDef0x0600265F RVA0x000D7240
+// Signature 2001011c; maxstack6; locals11000118; initlocalsTrue
+// Complete raw CIL (63 bytes): 281D0E00066FDE0D00060A067217370170168D010000016F272100060B14071822000080BF22000080BF734200000A7259030070729503007028462F00062A
+IL_0000: call 0x06000E1D Sims3.UI.Responder::get_Instance
+IL_0005: callvirt 0x06000DDE Sims3.UI.IResponder::get_LocalizationModel
+IL_000A: stloc.0
+IL_000B: ldloc.0
+IL_000C: ldstr 0x70013717 "Ui/Caption/GameEntry/EditTown:LotGenericWarning"
+IL_0011: ldc.i4.0
+IL_0012: newarr 0x01000001 System.Object
+IL_0017: callvirt 0x06002127 Sims3.UI.ILocalizationModel::LocalizeString
+IL_001C: stloc.1
+IL_001D: ldnull
+IL_001E: ldloc.1
+IL_001F: ldc.i4.2
+IL_0020: ldc.r4 -1
+IL_0025: ldc.r4 -1
+IL_002A: newobj 0x0A000042 Sims3.SimIFace.Vector2::.ctor
+IL_002F: ldstr 0x70000359 "ui_error"
+IL_0034: ldstr 0x70000395 "ui_hardwindow_close"
+IL_0039: call 0x06002F46 Sims3.UI.SimpleMessageDialog::Show
+IL_003E: ret

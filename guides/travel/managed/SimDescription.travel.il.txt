@@ -1,0 +1,719 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; selected original metadata and complete method IL.
+	.method private hidebysig 
+		instance void CopyCoreFileds (
+			class Sims3.Gameplay.CAS.SimDescriptionCore sdCore
+		) cil managed 
+	{
+		// Method begins at RVA 0x3a9884
+		// Header size: 12
+		// Code size: 397 (0x18d)
+		.maxstack 3
+		.locals init (
+			[0] uint32,
+			[1] class Sims3.Gameplay.CAS.CASSupernaturalData,
+			[2] class Sims3.Gameplay.CAS.CASRobotData
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: callvirt instance string Sims3.Gameplay.CAS.SimDescriptionCore::get_FirstNameUnlocalized()
+		IL_0007: call instance void Sims3.Gameplay.CAS.SimDescriptionCore::set_FirstName(string)
+		IL_000c: ldarg.0
+		IL_000d: ldarg.1
+		IL_000e: callvirt instance string Sims3.Gameplay.CAS.SimDescriptionCore::get_LastNameUnlocalized()
+		IL_0013: call instance void Sims3.Gameplay.CAS.SimDescriptionCore::set_LastName(string)
+		IL_0018: ldarg.0
+		IL_0019: ldarg.1
+		IL_001a: callvirt instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_HairColors()
+		IL_001f: stfld class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::mHairColors
+		IL_0024: ldarg.0
+		IL_0025: ldarg.1
+		IL_0026: callvirt instance class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::get_EyebrowColor()
+		IL_002b: stfld class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::mEyebrowColor
+		IL_0030: ldarg.0
+		IL_0031: ldarg.1
+		IL_0032: callvirt instance class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::get_BodyHairColor()
+		IL_0037: stfld class Sims3.Gameplay.CAS.GeneticColor Sims3.Gameplay.CAS.SimDescriptionCore::mBodyHairColor
+		IL_003c: ldarg.0
+		IL_003d: ldarg.1
+		IL_003e: callvirt instance class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::get_FacialHairColors()
+		IL_0043: stfld class Sims3.Gameplay.CAS.GeneticColor[] Sims3.Gameplay.CAS.SimDescriptionCore::mFacialHairColors
+		IL_0048: ldarg.0
+		IL_0049: ldarg.1
+		IL_004a: callvirt instance bool Sims3.Gameplay.CAS.SimDescriptionCore::get_BeardUsesHairColor()
+		IL_004f: stfld bool Sims3.Gameplay.CAS.SimDescriptionCore::mBeardUsesHairColor
+		IL_0054: ldarg.0
+		IL_0055: ldarg.1
+		IL_0056: callvirt instance bool Sims3.Gameplay.CAS.SimDescriptionCore::get_EyebrowsUseHairColor()
+		IL_005b: stfld bool Sims3.Gameplay.CAS.SimDescriptionCore::mEyebrowsUseHairColor
+		IL_0060: ldarg.0
+		IL_0061: ldarg.1
+		IL_0062: callvirt instance bool Sims3.Gameplay.CAS.SimDescriptionCore::get_BodyHairUsesHairColor()
+		IL_0067: stfld bool Sims3.Gameplay.CAS.SimDescriptionCore::mBodyHairUsesHairColor
+		IL_006c: ldarg.0
+		IL_006d: ldarg.1
+		IL_006e: ldfld bool Sims3.Gameplay.CAS.SimDescriptionCore::PropagateHairStyle
+		IL_0073: stfld bool Sims3.Gameplay.CAS.SimDescriptionCore::PropagateHairStyle
+		IL_0078: ldarg.0
+		IL_0079: ldarg.1
+		IL_007a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescriptionCore::get_GeneticHairstyleKey()
+		IL_007f: stfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescriptionCore::mGeneticHairstyleKey
+		IL_0084: ldc.i4.0
+		IL_0085: stloc.0
+		IL_0086: br.s IL_00b0
+		// loop start (head: IL_00b0)
+			IL_0088: ldarg.0
+			IL_0089: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey[] Sims3.Gameplay.CAS.SimDescriptionCore::mGeneticBodyhairStyleKeys
+			IL_008e: ldloc.0
+			IL_008f: conv.u
+			IL_0090: ldelema [SimIFace]Sims3.SimIFace.ResourceKey
+			IL_0095: ldarg.1
+			IL_0096: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey[] Sims3.Gameplay.CAS.SimDescriptionCore::get_GeneticBodyhairStyleKeys()
+			IL_009b: ldloc.0
+			IL_009c: conv.u
+			IL_009d: ldelema [SimIFace]Sims3.SimIFace.ResourceKey
+			IL_00a2: ldobj [SimIFace]Sims3.SimIFace.ResourceKey
+			IL_00a7: stobj [SimIFace]Sims3.SimIFace.ResourceKey
+			IL_00ac: ldloc.0
+			IL_00ad: ldc.i4.1
+			IL_00ae: add
+			IL_00af: stloc.0
+
+			IL_00b0: ldloc.0
+			IL_00b1: ldc.i4.8
+			IL_00b2: blt.un.s IL_0088
+		// end loop
+
+		IL_00b4: ldarg.0
+		IL_00b5: ldarg.1
+		IL_00b6: callvirt instance valuetype [SimIFace]Sims3.SimIFace.WorldName Sims3.Gameplay.CAS.SimDescriptionCore::get_HomeWorld()
+		IL_00bb: stfld valuetype [SimIFace]Sims3.SimIFace.WorldName Sims3.Gameplay.CAS.SimDescriptionCore::mHomeWorld
+		IL_00c0: ldarg.1
+		IL_00c1: ldfld float32 Sims3.Gameplay.CAS.SimDescriptionCore::AgingYearsSinceLastAgeTransition
+		IL_00c6: ldc.r4 -1
+		IL_00cb: beq.s IL_00d9
+
+		IL_00cd: ldarg.0
+		IL_00ce: ldarg.1
+		IL_00cf: ldfld float32 Sims3.Gameplay.CAS.SimDescriptionCore::AgingYearsSinceLastAgeTransition
+		IL_00d4: stfld float32 Sims3.Gameplay.CAS.SimDescriptionCore::AgingYearsSinceLastAgeTransition
+
+		IL_00d9: ldarg.0
+		IL_00da: ldarg.1
+		IL_00db: ldfld uint32 Sims3.Gameplay.CAS.SimDescriptionCore::LifetimeWish
+		IL_00e0: stfld uint32 Sims3.Gameplay.CAS.SimDescriptionCore::LifetimeWish
+		IL_00e5: ldarg.0
+		IL_00e6: ldarg.1
+		IL_00e7: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.FavoriteMusicType Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteMusicType
+		IL_00ec: stfld valuetype [SimIFace]Sims3.SimIFace.CAS.FavoriteMusicType Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteMusicType
+		IL_00f1: ldarg.0
+		IL_00f2: ldarg.1
+		IL_00f3: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.FavoriteFoodType Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteFoodType
+		IL_00f8: stfld valuetype [SimIFace]Sims3.SimIFace.CAS.FavoriteFoodType Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteFoodType
+		IL_00fd: ldarg.0
+		IL_00fe: ldarg.1
+		IL_00ff: ldfld valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteColor
+		IL_0104: stfld valuetype [SimIFace]Sims3.SimIFace.Color Sims3.Gameplay.CAS.SimDescriptionCore::mFavouriteColor
+		IL_0109: ldarg.0
+		IL_010a: ldarg.1
+		IL_010b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.Zodiac Sims3.Gameplay.CAS.SimDescriptionCore::get_Zodiac()
+		IL_0110: stfld valuetype [SimIFace]Sims3.SimIFace.CAS.Zodiac Sims3.Gameplay.CAS.SimDescriptionCore::mZodiacSign
+		IL_0115: ldarg.0
+		IL_0116: ldarg.1
+		IL_0117: ldfld string Sims3.Gameplay.CAS.SimDescriptionCore::mBio
+		IL_011c: stfld string Sims3.Gameplay.CAS.SimDescriptionCore::mBio
+		IL_0121: ldarg.0
+		IL_0122: ldarg.1
+		IL_0123: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.VoiceVariationType Sims3.Gameplay.CAS.SimDescriptionCore::get_VoiceVariation()
+		IL_0128: stfld valuetype [SimIFace]Sims3.SimIFace.CAS.VoiceVariationType Sims3.Gameplay.CAS.SimDescriptionCore::mVoiceVariation
+		IL_012d: ldarg.0
+		IL_012e: ldarg.1
+		IL_012f: callvirt instance float32 Sims3.Gameplay.CAS.SimDescriptionCore::get_VoicePitchModifier()
+		IL_0134: stfld float32 Sims3.Gameplay.CAS.SimDescriptionCore::mVoicePitchModifier
+		IL_0139: ldarg.1
+		IL_013a: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+		IL_013f: stloc.1
+		IL_0140: ldloc.1
+		IL_0141: brfalse.s IL_0180
+
+		IL_0143: ldarg.0
+		IL_0144: ldloc.1
+		IL_0145: callvirt instance valuetype [UI]Sims3.UI.Hud.OccultTypes Sims3.Gameplay.CAS.CASSupernaturalData::get_OccultType()
+		IL_014a: call instance void Sims3.Gameplay.CAS.SimDescriptionCore::AddSupernaturalData(valuetype [UI]Sims3.UI.Hud.OccultTypes)
+		IL_014f: ldarg.0
+		IL_0150: ldfld class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::mSupernaturalData
+		IL_0155: ldloc.1
+		IL_0156: callvirt instance bool Sims3.Gameplay.CAS.CASSupernaturalData::Clone(class Sims3.Gameplay.CAS.CASSupernaturalData)
+		IL_015b: pop
+		IL_015c: ldarg.0
+		IL_015d: ldfld class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::mSupernaturalData
+		IL_0162: isinst Sims3.Gameplay.CAS.CASRobotData
+		IL_0167: brfalse.s IL_0180
+
+		IL_0169: ldarg.0
+		IL_016a: ldfld class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::mSupernaturalData
+		IL_016f: isinst Sims3.Gameplay.CAS.CASRobotData
+		IL_0174: stloc.2
+		IL_0175: ldloc.2
+		IL_0176: brfalse.s IL_0180
+
+		IL_0178: ldloc.2
+		IL_0179: ldarg.0
+		IL_017a: ldc.i4.1
+		IL_017b: callvirt instance void Sims3.Gameplay.CAS.CASRobotData::SetupVFXDataIfNeeded(class Sims3.Gameplay.CAS.SimDescription, bool)
+
+		IL_0180: ldarg.0
+		IL_0181: ldarg.1
+		IL_0182: callvirt instance float32 Sims3.Gameplay.CAS.SimDescriptionCore::get_AlienDNAPercentage()
+		IL_0187: stfld float32 Sims3.Gameplay.CAS.SimDescriptionCore::mAlienDNAPercentage
+		IL_018c: ret
+	} // end of method SimDescription::CopyCoreFileds
+	.method public hidebysig 
+		instance void MergeTravelInformation (
+			class Sims3.Gameplay.CAS.SimDescription importedDescription
+		) cil managed 
+	{
+		// Method begins at RVA 0x3b25bc
+		// Header size: 12
+		// Code size: 1068 (0x42c)
+		.maxstack 5
+		.locals init (
+			[0] class Sims3.Gameplay.Objects.Urnstone
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+		IL_0006: brfalse.s IL_000e
+
+		IL_0008: ldarg.0
+		IL_0009: call instance void Sims3.Gameplay.CAS.SimDescriptionCore::RemoveSupernaturalData()
+
+		IL_000e: ldarg.0
+		IL_000f: ldarg.1
+		IL_0010: call instance void Sims3.Gameplay.CAS.SimDescription::CopyCoreFileds(class Sims3.Gameplay.CAS.SimDescriptionCore)
+		IL_0015: ldarg.0
+		IL_0016: ldfld class Sims3.Gameplay.ActorSystems.AgingState Sims3.Gameplay.CAS.SimDescription::AgingState
+		IL_001b: brfalse.s IL_0029
+
+		IL_001d: ldarg.0
+		IL_001e: ldfld class Sims3.Gameplay.ActorSystems.AgingState Sims3.Gameplay.CAS.SimDescription::AgingState
+		IL_0023: ldarg.1
+		IL_0024: callvirt instance void Sims3.Gameplay.ActorSystems.AgingState::MergeTravelInformation(class Sims3.Gameplay.CAS.SimDescription)
+
+		IL_0029: ldarg.0
+		IL_002a: ldarg.1
+		IL_002b: ldfld float32 Sims3.Gameplay.CAS.SimDescription::CardioVectorDays
+		IL_0030: stfld float32 Sims3.Gameplay.CAS.SimDescription::CardioVectorDays
+		IL_0035: ldarg.0
+		IL_0036: ldarg.1
+		IL_0037: ldfld class Sims3.Gameplay.DreamsAndPromises.DnPExportData Sims3.Gameplay.CAS.SimDescription::DnPExportData
+		IL_003c: stfld class Sims3.Gameplay.DreamsAndPromises.DnPExportData Sims3.Gameplay.CAS.SimDescription::DnPExportData
+		IL_0041: ldarg.0
+		IL_0042: ldarg.1
+		IL_0043: ldfld class Sims3.Gameplay.Opportunities.OpportunityHistory Sims3.Gameplay.CAS.SimDescription::OpportunityHistory
+		IL_0048: stfld class Sims3.Gameplay.Opportunities.OpportunityHistory Sims3.Gameplay.CAS.SimDescription::OpportunityHistory
+		IL_004d: ldarg.0
+		IL_004e: ldarg.1
+		IL_004f: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_NeedsOpportunityImport()
+		IL_0054: call instance void Sims3.Gameplay.CAS.SimDescription::set_NeedsOpportunityImport(bool)
+		IL_0059: ldarg.0
+		IL_005a: ldarg.1
+		IL_005b: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_HasBFF()
+		IL_0060: call instance void Sims3.Gameplay.CAS.SimDescription::set_HasBFF(bool)
+		IL_0065: ldarg.0
+		IL_0066: ldarg.1
+		IL_0067: ldfld float32 Sims3.Gameplay.CAS.SimDescription::HybridVectorDays
+		IL_006c: stfld float32 Sims3.Gameplay.CAS.SimDescription::HybridVectorDays
+		IL_0071: ldarg.0
+		IL_0072: ldc.i4.s 64
+		IL_0074: conv.i8
+		IL_0075: ldarg.1
+		IL_0076: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_AgingEnabled()
+		IL_007b: call instance void Sims3.Gameplay.CAS.SimDescription::SetFlags(valuetype Sims3.Gameplay.CAS.SimDescription/FlagField, bool)
+		IL_0080: ldarg.0
+		IL_0081: ldarg.1
+		IL_0082: ldfld bool Sims3.Gameplay.CAS.SimDescription::mbAgingEnabledPushedToAgingManager
+		IL_0087: stfld bool Sims3.Gameplay.CAS.SimDescription::mbAgingEnabledPushedToAgingManager
+		IL_008c: ldarg.0
+		IL_008d: ldarg.1
+		IL_008e: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_HasCompletedLifetimeWish()
+		IL_0093: call instance void Sims3.Gameplay.CAS.SimDescription::set_HasCompletedLifetimeWish(bool)
+		IL_0098: ldarg.0
+		IL_0099: ldarg.1
+		IL_009a: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_Protected()
+		IL_009f: call instance void Sims3.Gameplay.CAS.SimDescription::set_Protected(bool)
+		IL_00a4: ldarg.0
+		IL_00a5: ldarg.1
+		IL_00a6: ldfld valuetype Sims3.Gameplay.CAS.SimDescription/DeathType Sims3.Gameplay.CAS.SimDescription::mDeathStyle
+		IL_00ab: stfld valuetype Sims3.Gameplay.CAS.SimDescription/DeathType Sims3.Gameplay.CAS.SimDescription::mDeathStyle
+		IL_00b0: ldarg.0
+		IL_00b1: ldarg.1
+		IL_00b2: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescription::mDefaultOutfitKey
+		IL_00b7: stfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescription::mDefaultOutfitKey
+		IL_00bc: ldarg.0
+		IL_00bd: ldarg.1
+		IL_00be: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mFitnessShapeDelta
+		IL_00c3: stfld float32 Sims3.Gameplay.CAS.SimDescription::mFitnessShapeDelta
+		IL_00c8: ldarg.0
+		IL_00c9: ldarg.1
+		IL_00ca: ldfld int32 Sims3.Gameplay.CAS.SimDescription::mGenderPreferenceFemale
+		IL_00cf: stfld int32 Sims3.Gameplay.CAS.SimDescription::mGenderPreferenceFemale
+		IL_00d4: ldarg.0
+		IL_00d5: ldarg.1
+		IL_00d6: ldfld int32 Sims3.Gameplay.CAS.SimDescription::mGenderPreferenceMale
+		IL_00db: stfld int32 Sims3.Gameplay.CAS.SimDescription::mGenderPreferenceMale
+		IL_00e0: ldarg.0
+		IL_00e1: ldarg.1
+		IL_00e2: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_HadFirstKiss()
+		IL_00e7: call instance void Sims3.Gameplay.CAS.SimDescription::set_HadFirstKiss(bool)
+		IL_00ec: ldarg.0
+		IL_00ed: ldarg.1
+		IL_00ee: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_HadFirstRomance()
+		IL_00f3: call instance void Sims3.Gameplay.CAS.SimDescription::set_HadFirstRomance(bool)
+		IL_00f8: ldarg.0
+		IL_00f9: ldarg.1
+		IL_00fa: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_HadFirstWooHoo()
+		IL_00ff: call instance void Sims3.Gameplay.CAS.SimDescription::set_HadFirstWooHoo(bool)
+		IL_0104: ldarg.0
+		IL_0105: ldarg.1
+		IL_0106: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_HadBachelorParty()
+		IL_010b: call instance void Sims3.Gameplay.CAS.SimDescription::set_HadBachelorParty(bool)
+		IL_0110: ldarg.0
+		IL_0111: ldarg.1
+		IL_0112: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsVisuallyPregnant()
+		IL_0117: call instance void Sims3.Gameplay.CAS.SimDescription::set_IsVisuallyPregnant(bool)
+		IL_011c: ldarg.0
+		IL_011d: ldarg.1
+		IL_011e: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mLifetimeHappiness
+		IL_0123: stfld float32 Sims3.Gameplay.CAS.SimDescription::mLifetimeHappiness
+		IL_0128: ldarg.0
+		IL_0129: ldarg.1
+		IL_012a: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_MotivesDontDecay()
+		IL_012f: call instance void Sims3.Gameplay.CAS.SimDescription::set_MotivesDontDecay(bool)
+		IL_0134: ldarg.0
+		IL_0135: ldarg.1
+		IL_0136: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mShapeDeltaMultiplier
+		IL_013b: stfld float32 Sims3.Gameplay.CAS.SimDescription::mShapeDeltaMultiplier
+		IL_0140: ldarg.0
+		IL_0141: ldarg.1
+		IL_0142: ldfld valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::mSimFlags
+		IL_0147: stfld valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::mSimFlags
+		IL_014c: ldarg.0
+		IL_014d: ldarg.1
+		IL_014e: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mSkinToneIndex
+		IL_0153: stfld float32 Sims3.Gameplay.CAS.SimDescription::mSkinToneIndex
+		IL_0158: ldarg.0
+		IL_0159: ldarg.1
+		IL_015a: ldfld float32[] Sims3.Gameplay.CAS.SimDescription::mSecondaryNormalMapWeights
+		IL_015f: stfld float32[] Sims3.Gameplay.CAS.SimDescription::mSecondaryNormalMapWeights
+		IL_0164: ldarg.0
+		IL_0165: ldarg.1
+		IL_0166: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescription::mSkinToneKey
+		IL_016b: stfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.CAS.SimDescription::mSkinToneKey
+		IL_0170: ldarg.0
+		IL_0171: ldarg.1
+		IL_0172: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mSpendableHappiness
+		IL_0177: stfld float32 Sims3.Gameplay.CAS.SimDescription::mSpendableHappiness
+		IL_017c: ldarg.0
+		IL_017d: ldarg.1
+		IL_017e: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mTimePassedSinceBodyShapeUpdate
+		IL_0183: stfld float32 Sims3.Gameplay.CAS.SimDescription::mTimePassedSinceBodyShapeUpdate
+		IL_0188: ldarg.0
+		IL_0189: ldarg.1
+		IL_018a: ldfld valuetype Sims3.Gameplay.CAS.SimDescriptionCore/BodyShape Sims3.Gameplay.CAS.SimDescriptionCore::mCurrentShape
+		IL_018f: stfld valuetype Sims3.Gameplay.CAS.SimDescriptionCore/BodyShape Sims3.Gameplay.CAS.SimDescriptionCore::mCurrentShape
+		IL_0194: ldarg.0
+		IL_0195: ldflda valuetype Sims3.Gameplay.CAS.SimDescriptionCore/BodyShape Sims3.Gameplay.CAS.SimDescriptionCore::mCurrentShape
+		IL_019a: ldarg.0
+		IL_019b: stfld class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.CAS.SimDescriptionCore/BodyShape::Owner
+		IL_01a0: ldarg.0
+		IL_01a1: ldarg.1
+		IL_01a2: ldfld float32 Sims3.Gameplay.CAS.SimDescription::mWeightShapeDelta
+		IL_01a7: stfld float32 Sims3.Gameplay.CAS.SimDescription::mWeightShapeDelta
+		IL_01ac: ldarg.0
+		IL_01ad: ldarg.1
+		IL_01ae: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.ReadBookData> Sims3.Gameplay.CAS.SimDescription::ReadBookDataList
+		IL_01b3: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, class Sims3.Gameplay.Objects.ReadBookData> Sims3.Gameplay.CAS.SimDescription::ReadBookDataList
+		IL_01b8: ldarg.0
+		IL_01b9: ldarg.1
+		IL_01ba: ldfld class Sims3.Gameplay.Skills.RelicStatTracking Sims3.Gameplay.CAS.SimDescription::RelicStats
+		IL_01bf: stfld class Sims3.Gameplay.Skills.RelicStatTracking Sims3.Gameplay.CAS.SimDescription::RelicStats
+		IL_01c4: ldarg.0
+		IL_01c5: ldfld class Sims3.Gameplay.Skills.RelicStatTracking Sims3.Gameplay.CAS.SimDescription::RelicStats
+		IL_01ca: ldarg.0
+		IL_01cb: callvirt instance void Sims3.Gameplay.Skills.StatTracker::SetSimDescription(class Sims3.Gameplay.CAS.SimDescription)
+		IL_01d0: ldarg.0
+		IL_01d1: ldarg.1
+		IL_01d2: ldfld class Sims3.Gameplay.Skills.TombStatTracking Sims3.Gameplay.CAS.SimDescription::TombStats
+		IL_01d7: stfld class Sims3.Gameplay.Skills.TombStatTracking Sims3.Gameplay.CAS.SimDescription::TombStats
+		IL_01dc: ldarg.0
+		IL_01dd: ldfld class Sims3.Gameplay.Skills.TombStatTracking Sims3.Gameplay.CAS.SimDescription::TombStats
+		IL_01e2: ldarg.0
+		IL_01e3: callvirt instance void Sims3.Gameplay.Skills.StatTracker::SetSimDescription(class Sims3.Gameplay.CAS.SimDescription)
+		IL_01e8: ldarg.0
+		IL_01e9: ldarg.1
+		IL_01ea: ldfld float32 Sims3.Gameplay.CAS.SimDescription::SarcophagusMinutesSleptInBlessed
+		IL_01ef: stfld float32 Sims3.Gameplay.CAS.SimDescription::SarcophagusMinutesSleptInBlessed
+		IL_01f4: ldarg.0
+		IL_01f5: ldarg.1
+		IL_01f6: ldfld float32 Sims3.Gameplay.CAS.SimDescription::SarcophagusMinutesSleptInCursed
+		IL_01fb: stfld float32 Sims3.Gameplay.CAS.SimDescription::SarcophagusMinutesSleptInCursed
+		IL_0200: ldarg.0
+		IL_0201: ldarg.1
+		IL_0202: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_WasAdopted()
+		IL_0207: call instance void Sims3.Gameplay.CAS.SimDescription::set_WasAdopted(bool)
+		IL_020c: ldarg.0
+		IL_020d: ldarg.1
+		IL_020e: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_WasCasCreated()
+		IL_0213: call instance void Sims3.Gameplay.CAS.SimDescription::set_WasCasCreated(bool)
+		IL_0218: ldarg.0
+		IL_0219: ldfld class Sims3.Gameplay.ActorSystems.OccultManager Sims3.Gameplay.CAS.SimDescription::OccultManager
+		IL_021e: ldarg.1
+		IL_021f: ldfld class Sims3.Gameplay.ActorSystems.OccultManager Sims3.Gameplay.CAS.SimDescription::OccultManager
+		IL_0224: callvirt instance void Sims3.Gameplay.ActorSystems.OccultManager::MergeOccults(class Sims3.Gameplay.ActorSystems.OccultManager)
+		IL_0229: ldarg.0
+		IL_022a: ldfld class Sims3.Gameplay.ActorSystems.SingingInfo Sims3.Gameplay.CAS.SimDescription::Singing
+		IL_022f: ldarg.1
+		IL_0230: ldfld class Sims3.Gameplay.ActorSystems.SingingInfo Sims3.Gameplay.CAS.SimDescription::Singing
+		IL_0235: callvirt instance void Sims3.Gameplay.ActorSystems.SingingInfo::MergeSingingInfo(class Sims3.Gameplay.ActorSystems.SingingInfo)
+		IL_023a: ldarg.0
+		IL_023b: ldarg.1
+		IL_023c: ldfld valuetype Sims3.Gameplay.CAS.SimDescription/Charisma Sims3.Gameplay.CAS.SimDescription::CharismaStats
+		IL_0241: stfld valuetype Sims3.Gameplay.CAS.SimDescription/Charisma Sims3.Gameplay.CAS.SimDescription::CharismaStats
+		IL_0246: ldarg.0
+		IL_0247: ldarg.1
+		IL_0248: ldfld class Sims3.Gameplay.ActorSystems.LifeEventManager Sims3.Gameplay.CAS.SimDescription::LifeEventManager
+		IL_024d: stfld class Sims3.Gameplay.ActorSystems.LifeEventManager Sims3.Gameplay.CAS.SimDescription::LifeEventManager
+		IL_0252: ldarg.1
+		IL_0253: ldfld class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.Gameplay.Utilities.DateAndTime> Sims3.Gameplay.CAS.SimDescription::SpoiledGiftHistory
+		IL_0258: brfalse.s IL_0270
+
+		IL_025a: ldarg.0
+		IL_025b: ldarg.1
+		IL_025c: ldfld class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.Gameplay.Utilities.DateAndTime> Sims3.Gameplay.CAS.SimDescription::SpoiledGiftHistory
+		IL_0261: callvirt instance !0[] class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.Gameplay.Utilities.DateAndTime>::ToArray()
+		IL_0266: newobj instance void class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.Gameplay.Utilities.DateAndTime>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+		IL_026b: stfld class [mscorlib]System.Collections.Generic.List`1<valuetype Sims3.Gameplay.Utilities.DateAndTime> Sims3.Gameplay.CAS.SimDescription::SpoiledGiftHistory
+
+		IL_0270: ldarg.0
+		IL_0271: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_0276: brfalse.s IL_02c5
+
+		IL_0278: ldarg.0
+		IL_0279: call instance bool Sims3.Gameplay.CAS.SimDescription::get_IsGhost()
+		IL_027e: brfalse.s IL_02aa
+
+		IL_0280: ldarg.1
+		IL_0281: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsGhost()
+		IL_0286: brtrue.s IL_02aa
+
+		IL_0288: ldarg.0
+		IL_0289: call class Sims3.Gameplay.Objects.Urnstone Sims3.Gameplay.Objects.Urnstone::FindGhostsGrave(class Sims3.Gameplay.CAS.SimDescription)
+		IL_028e: stloc.0
+		IL_028f: ldloc.0
+		IL_0290: brfalse.s IL_02c5
+
+		IL_0292: ldloc.0
+		IL_0293: ldarg.0
+		IL_0294: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_0299: ldc.i4.1
+		IL_029a: ldarg.0
+		IL_029b: call instance bool Sims3.Gameplay.CAS.SimDescription::get_IsPlayableGhost()
+		IL_02a0: ldc.i4.0
+		IL_02a1: ceq
+		IL_02a3: callvirt instance void Sims3.Gameplay.Objects.Urnstone::GhostToSim(class Sims3.Gameplay.Actors.Sim, bool, bool)
+		IL_02a8: br.s IL_02c5
+
+		IL_02aa: ldarg.0
+		IL_02ab: call instance bool Sims3.Gameplay.CAS.SimDescription::get_IsPlayableGhost()
+		IL_02b0: brtrue.s IL_02c5
+
+		IL_02b2: ldarg.1
+		IL_02b3: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsPlayableGhost()
+		IL_02b8: brfalse.s IL_02c5
+
+		IL_02ba: ldarg.0
+		IL_02bb: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_02c0: call void Sims3.Gameplay.Objects.Urnstone::SimToPlayableGhost(class Sims3.Gameplay.Actors.Sim)
+
+		IL_02c5: ldarg.0
+		IL_02c6: ldarg.1
+		IL_02c7: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsGhost()
+		IL_02cc: call instance void Sims3.Gameplay.CAS.SimDescription::set_IsGhost(bool)
+		IL_02d1: ldarg.0
+		IL_02d2: ldfld class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.CAS.SimDescription::CareerManager
+		IL_02d7: callvirt instance class Sims3.Gameplay.Academics.AcademicDegreeManager Sims3.Gameplay.Careers.CareerManager::get_DegreeManager()
+		IL_02dc: brfalse.s IL_0306
+
+		IL_02de: ldarg.1
+		IL_02df: ldfld class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.CAS.SimDescription::CareerManager
+		IL_02e4: callvirt instance class Sims3.Gameplay.Academics.AcademicDegreeManager Sims3.Gameplay.Careers.CareerManager::get_DegreeManager()
+		IL_02e9: brfalse.s IL_0306
+
+		IL_02eb: ldarg.0
+		IL_02ec: ldfld class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.CAS.SimDescription::CareerManager
+		IL_02f1: callvirt instance class Sims3.Gameplay.Academics.AcademicDegreeManager Sims3.Gameplay.Careers.CareerManager::get_DegreeManager()
+		IL_02f6: ldarg.1
+		IL_02f7: ldfld class Sims3.Gameplay.Careers.CareerManager Sims3.Gameplay.CAS.SimDescription::CareerManager
+		IL_02fc: callvirt instance class Sims3.Gameplay.Academics.AcademicDegreeManager Sims3.Gameplay.Careers.CareerManager::get_DegreeManager()
+		IL_0301: callvirt instance void Sims3.Gameplay.Academics.AcademicDegreeManager::MergeTravelData(class Sims3.Gameplay.Academics.AcademicDegreeManager)
+
+		IL_0306: ldarg.0
+		IL_0307: ldarg.1
+		IL_0308: callvirt instance class Sims3.Gameplay.ActorSystems.TraitManager Sims3.Gameplay.CAS.SimDescriptionCore::get_TraitManager()
+		IL_030d: newobj instance void Sims3.Gameplay.ActorSystems.TraitManager::.ctor(class Sims3.Gameplay.ActorSystems.TraitManager)
+		IL_0312: call instance void Sims3.Gameplay.CAS.SimDescriptionCore::set_TraitManager(class Sims3.Gameplay.ActorSystems.TraitManager)
+		IL_0317: ldarg.0
+		IL_0318: call instance class Sims3.Gameplay.ActorSystems.TraitManager Sims3.Gameplay.CAS.SimDescriptionCore::get_TraitManager()
+		IL_031d: ldarg.0
+		IL_031e: callvirt instance void Sims3.Gameplay.ActorSystems.TraitManager::SetSimDescription(class Sims3.Gameplay.CAS.SimDescription)
+		IL_0323: ldarg.0
+		IL_0324: ldfld class Sims3.Gameplay.Visa.VisaManager Sims3.Gameplay.CAS.SimDescription::VisaManager
+		IL_0329: ldarg.1
+		IL_032a: ldfld class Sims3.Gameplay.Visa.VisaManager Sims3.Gameplay.CAS.SimDescription::VisaManager
+		IL_032f: callvirt instance void Sims3.Gameplay.Visa.VisaManager::MergeVisaData(class Sims3.Gameplay.Visa.VisaManager)
+		IL_0334: ldarg.0
+		IL_0335: ldfld class Sims3.Gameplay.Skills.SkillManager Sims3.Gameplay.CAS.SimDescription::SkillManager
+		IL_033a: ldarg.1
+		IL_033b: ldfld class Sims3.Gameplay.Skills.SkillManager Sims3.Gameplay.CAS.SimDescription::SkillManager
+		IL_0340: callvirt instance void Sims3.Gameplay.Skills.SkillManager::MergeTravelData(class Sims3.Gameplay.Skills.SkillManager)
+		IL_0345: ldarg.1
+		IL_0346: callvirt instance class Sims3.Gameplay.ActorSystems.TraitChipManager Sims3.Gameplay.CAS.SimDescription::get_TraitChipManager()
+		IL_034b: brfalse.s IL_035e
+
+		IL_034d: ldarg.0
+		IL_034e: call instance class Sims3.Gameplay.ActorSystems.TraitChipManager Sims3.Gameplay.CAS.SimDescription::get_TraitChipManager()
+		IL_0353: ldarg.1
+		IL_0354: callvirt instance class Sims3.Gameplay.ActorSystems.TraitChipManager Sims3.Gameplay.CAS.SimDescription::get_TraitChipManager()
+		IL_0359: callvirt instance void Sims3.Gameplay.ActorSystems.TraitChipManager::MergeTravelData(class Sims3.Gameplay.ActorSystems.TraitChipManager)
+
+		IL_035e: ldarg.0
+		IL_035f: ldfld class Sims3.Gameplay.CelebritySystem.CelebrityManager Sims3.Gameplay.CAS.SimDescription::CelebrityManager
+		IL_0364: brtrue.s IL_0377
+
+		IL_0366: ldarg.0
+		IL_0367: ldarg.0
+		IL_0368: ldfld uint64 Sims3.Gameplay.CAS.SimDescription::mSimDescriptionId
+		IL_036d: newobj instance void Sims3.Gameplay.CelebritySystem.CelebrityManager::.ctor(uint64)
+		IL_0372: stfld class Sims3.Gameplay.CelebritySystem.CelebrityManager Sims3.Gameplay.CAS.SimDescription::CelebrityManager
+
+		IL_0377: ldarg.0
+		IL_0378: ldfld class Sims3.Gameplay.CelebritySystem.CelebrityManager Sims3.Gameplay.CAS.SimDescription::CelebrityManager
+		IL_037d: ldarg.1
+		IL_037e: ldfld class Sims3.Gameplay.CelebritySystem.CelebrityManager Sims3.Gameplay.CAS.SimDescription::CelebrityManager
+		IL_0383: callvirt instance void Sims3.Gameplay.CelebritySystem.CelebrityManager::MergeTravelData(class Sims3.Gameplay.CelebritySystem.CelebrityManager)
+		IL_0388: ldarg.0
+		IL_0389: ldfld class Sims3.Gameplay.ActorSystems.LifeEventManager Sims3.Gameplay.CAS.SimDescription::LifeEventManager
+		IL_038e: ldarg.0
+		IL_038f: ldarg.1
+		IL_0390: ldfld class Sims3.Gameplay.ActorSystems.LifeEventManager Sims3.Gameplay.CAS.SimDescription::LifeEventManager
+		IL_0395: callvirt instance void Sims3.Gameplay.ActorSystems.LifeEventManager::MergeTravelData(class Sims3.Gameplay.CAS.SimDescription, class Sims3.Gameplay.ActorSystems.LifeEventManager)
+		IL_039a: ldarg.0
+		IL_039b: ldarg.1
+		IL_039c: ldfld class Sims3.Gameplay.CAS.OutfitCategoryMap Sims3.Gameplay.CAS.SimDescriptionCore::mOutfits
+		IL_03a1: stfld class Sims3.Gameplay.CAS.OutfitCategoryMap Sims3.Gameplay.CAS.SimDescriptionCore::mOutfits
+		IL_03a6: ldarg.0
+		IL_03a7: ldarg.1
+		IL_03a8: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, int32> Sims3.Gameplay.CAS.SimDescriptionCore::mSpecialOutfitIndices
+		IL_03ad: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, int32> Sims3.Gameplay.CAS.SimDescriptionCore::mSpecialOutfitIndices
+		IL_03b2: ldarg.0
+		IL_03b3: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_03b8: brfalse.s IL_03c6
+
+		IL_03ba: ldarg.0
+		IL_03bb: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_03c0: ldc.i4.2
+		IL_03c1: callvirt instance void Sims3.Gameplay.Actors.Sim::SwitchToOutfitWithoutSpin(valuetype [SimIFace]Sims3.SimIFace.CAS.OutfitCategories)
+
+		IL_03c6: ldarg.0
+		IL_03c7: ldarg.1
+		IL_03c8: callvirt instance class [UI]Sims3.UI.CAS.IGenealogy Sims3.Gameplay.CAS.SimDescriptionCore::get_CASGenealogy()
+		IL_03cd: call instance void Sims3.Gameplay.CAS.SimDescriptionCore::set_CASGenealogy(class [UI]Sims3.UI.CAS.IGenealogy)
+		IL_03d2: ldarg.1
+		IL_03d3: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.CAS.SimDescription::mPreferredVehicleGuid
+		IL_03d8: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_03dd: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_03e2: brfalse.s IL_03f0
+
+		IL_03e4: ldarg.0
+		IL_03e5: ldarg.1
+		IL_03e6: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.CAS.SimDescription::mPreferredVehicleGuid
+		IL_03eb: stfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.CAS.SimDescription::mPreferredVehicleGuid
+
+		IL_03f0: ldarg.0
+		IL_03f1: ldfld class Sims3.Gameplay.DreamsAndPromises.DnPExportData Sims3.Gameplay.CAS.SimDescription::DnPExportData
+		IL_03f6: brfalse.s IL_040b
+
+		IL_03f8: ldarg.0
+		IL_03f9: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_03fe: brfalse.s IL_040b
+
+		IL_0400: ldarg.0
+		IL_0401: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_0406: callvirt instance void Sims3.Gameplay.Actors.Sim::SetUpDnPManagerFromExport()
+
+		IL_040b: ldarg.0
+		IL_040c: ldarg.1
+		IL_040d: ldfld class Sims3.Gameplay.Socializing.ReputationStatistics Sims3.Gameplay.CAS.SimDescription::mReputation
+		IL_0412: stfld class Sims3.Gameplay.Socializing.ReputationStatistics Sims3.Gameplay.CAS.SimDescription::mReputation
+		IL_0417: ldarg.0
+		IL_0418: ldfld class Sims3.Gameplay.ActorSystems.PetManager Sims3.Gameplay.CAS.SimDescription::PetManager
+		IL_041d: brtrue.s IL_042b
+
+		IL_041f: ldarg.0
+		IL_0420: ldarg.0
+		IL_0421: call instance class Sims3.Gameplay.ActorSystems.PetManager Sims3.Gameplay.CAS.SimDescription::CreatePetManager()
+		IL_0426: stfld class Sims3.Gameplay.ActorSystems.PetManager Sims3.Gameplay.CAS.SimDescription::PetManager
+
+		IL_042b: ret
+	} // end of method SimDescription::MergeTravelInformation
+	.method public hidebysig 
+		instance void MergeTravelInformation (
+			class Sims3.Gameplay.CAS.MiniSimDescription msd
+		) cil managed 
+	{
+		// Method begins at RVA 0x3b29f4
+		// Header size: 12
+		// Code size: 177 (0xb1)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.CAS.MiniRelationship,
+			[1] class Sims3.Gameplay.CAS.SimDescription,
+			[2] class Sims3.Gameplay.Socializing.Relationship,
+			[3] float32,
+			[4] class [mscorlib]System.Collections.Generic.IEnumerator`1<class Sims3.Gameplay.CAS.MiniRelationship>
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance class [mscorlib]System.Collections.Generic.IEnumerable`1<class Sims3.Gameplay.CAS.MiniRelationship> Sims3.Gameplay.CAS.MiniSimDescription::get_MiniRelationships()
+		IL_0006: callvirt instance class [mscorlib]System.Collections.Generic.IEnumerator`1<!0> class [mscorlib]System.Collections.Generic.IEnumerable`1<class Sims3.Gameplay.CAS.MiniRelationship>::GetEnumerator()
+		IL_000b: stloc.s 4
+		.try
+		{
+			IL_000d: br.s IL_0079
+			// loop start (head: IL_0079)
+				IL_000f: ldloc.s 4
+				IL_0011: callvirt instance !0 class [mscorlib]System.Collections.Generic.IEnumerator`1<class Sims3.Gameplay.CAS.MiniRelationship>::get_Current()
+				IL_0016: stloc.0
+				IL_0017: ldloc.0
+				IL_0018: ldfld uint64 Sims3.Gameplay.CAS.MiniRelationship::SimDescriptionId
+				IL_001d: call class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.CAS.SimDescription::Find(uint64)
+				IL_0022: stloc.1
+				IL_0023: ldloc.1
+				IL_0024: brfalse.s IL_0079
+
+				IL_0026: ldarg.0
+				IL_0027: ldloc.1
+				IL_0028: call class Sims3.Gameplay.Socializing.Relationship Sims3.Gameplay.Socializing.Relationship::GetUnsafely(class Sims3.Gameplay.CAS.SimDescription, class Sims3.Gameplay.CAS.SimDescription)
+				IL_002d: stloc.2
+				IL_002e: ldloc.2
+				IL_002f: brfalse.s IL_0079
+
+				IL_0031: ldloc.0
+				IL_0032: callvirt instance float32 Sims3.Gameplay.CAS.MiniRelationship::get_Value()
+				IL_0037: ldloc.2
+				IL_0038: callvirt instance class Sims3.Gameplay.Socializing.LongTermRelationship Sims3.Gameplay.Socializing.Relationship::get_LTR()
+				IL_003d: callvirt instance float32 Sims3.Gameplay.Socializing.LongTermRelationship::get_Liking()
+				IL_0042: sub
+				IL_0043: stloc.3
+				IL_0044: ldloc.3
+				IL_0045: ldc.r4 0.0
+				IL_004a: beq.s IL_0058
+
+				IL_004c: ldloc.2
+				IL_004d: callvirt instance class Sims3.Gameplay.Socializing.LongTermRelationship Sims3.Gameplay.Socializing.Relationship::get_LTR()
+				IL_0052: ldloc.3
+				IL_0053: callvirt instance void Sims3.Gameplay.Socializing.LongTermRelationship::UpdateLiking(float32)
+
+				IL_0058: ldloc.2
+				IL_0059: callvirt instance valuetype [UI]Sims3.UI.Controller.LongTermRelationshipTypes Sims3.Gameplay.Socializing.Relationship::get_CurrentLTR()
+				IL_005e: ldloc.0
+				IL_005f: callvirt instance valuetype [UI]Sims3.UI.Controller.LongTermRelationshipTypes Sims3.Gameplay.CAS.MiniRelationship::get_CurrentLTR()
+				IL_0064: beq.s IL_0072
+
+				IL_0066: ldloc.2
+				IL_0067: ldloc.0
+				IL_0068: callvirt instance valuetype [UI]Sims3.UI.Controller.LongTermRelationshipTypes Sims3.Gameplay.CAS.MiniRelationship::get_CurrentLTR()
+				IL_006d: callvirt instance void Sims3.Gameplay.Socializing.Relationship::ForceChangeState(valuetype [UI]Sims3.UI.Controller.LongTermRelationshipTypes)
+
+				IL_0072: ldloc.0
+				IL_0073: ldloc.2
+				IL_0074: call void Sims3.Gameplay.Socializing.RomanceVisibilityState::MergeTravelInformationOnTravelBackHome(class Sims3.Gameplay.CAS.MiniRelationship, class Sims3.Gameplay.Socializing.Relationship)
+
+				IL_0079: ldloc.s 4
+				IL_007b: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+				IL_0080: brtrue.s IL_000f
+			// end loop
+
+			IL_0082: leave.s IL_0090
+		} // end .try
+		finally
+		{
+			IL_0084: ldloc.s 4
+			IL_0086: brfalse.s IL_008f
+
+			IL_0088: ldloc.s 4
+			IL_008a: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+			IL_008f: endfinally
+		} // end handler
+
+		IL_0090: ldarg.0
+		IL_0091: ldarg.1
+		IL_0092: callvirt instance class [UI]Sims3.UI.CAS.IGenealogy Sims3.Gameplay.CAS.MiniSimDescription::get_CASGenealogy()
+		IL_0097: call instance void Sims3.Gameplay.CAS.SimDescriptionCore::set_CASGenealogy(class [UI]Sims3.UI.CAS.IGenealogy)
+		IL_009c: ldarg.0
+		IL_009d: ldfld class Sims3.Gameplay.ActorSystems.AgingState Sims3.Gameplay.CAS.SimDescription::AgingState
+		IL_00a2: brfalse.s IL_00b0
+
+		IL_00a4: ldarg.0
+		IL_00a5: ldfld class Sims3.Gameplay.ActorSystems.AgingState Sims3.Gameplay.CAS.SimDescription::AgingState
+		IL_00aa: ldarg.1
+		IL_00ab: callvirt instance void Sims3.Gameplay.ActorSystems.AgingState::MergeTravelInformation(class Sims3.Gameplay.CAS.MiniSimDescription)
+
+		IL_00b0: ret
+	} // end of method SimDescription::MergeTravelInformation
+	.method public hidebysig 
+		instance void MergePregnancyInformation (
+			class Sims3.Gameplay.CAS.SimDescription importedDescription
+		) cil managed 
+	{
+		// Method begins at RVA 0x3b2ac4
+		// Header size: 12
+		// Code size: 74 (0x4a)
+		.maxstack 2
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.ActorSystems.Pregnancy Sims3.Gameplay.CAS.SimDescription::Pregnancy
+		IL_0006: brtrue.s IL_0021
+
+		IL_0008: ldarg.1
+		IL_0009: ldfld class Sims3.Gameplay.ActorSystems.Pregnancy Sims3.Gameplay.CAS.SimDescription::Pregnancy
+		IL_000e: brfalse.s IL_0021
+
+		IL_0010: ldarg.0
+		IL_0011: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.CAS.SimDescription::get_CreatedSim()
+		IL_0016: ldarg.1
+		IL_0017: ldfld class Sims3.Gameplay.ActorSystems.Pregnancy Sims3.Gameplay.CAS.SimDescription::Pregnancy
+		IL_001c: call void Sims3.Gameplay.ActorSystems.Pregnancy::StartFromMerge(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.ActorSystems.Pregnancy)
+
+		IL_0021: ldarg.0
+		IL_0022: ldfld class Sims3.Gameplay.ActorSystems.Pregnancy Sims3.Gameplay.CAS.SimDescription::Pregnancy
+		IL_0027: brfalse.s IL_0049
+
+		IL_0029: ldarg.1
+		IL_002a: ldfld class Sims3.Gameplay.ActorSystems.Pregnancy Sims3.Gameplay.CAS.SimDescription::Pregnancy
+		IL_002f: brfalse.s IL_0043
+
+		IL_0031: ldarg.0
+		IL_0032: ldfld class Sims3.Gameplay.ActorSystems.Pregnancy Sims3.Gameplay.CAS.SimDescription::Pregnancy
+		IL_0037: ldarg.1
+		IL_0038: ldfld class Sims3.Gameplay.ActorSystems.Pregnancy Sims3.Gameplay.CAS.SimDescription::Pregnancy
+		IL_003d: callvirt instance void Sims3.Gameplay.ActorSystems.Pregnancy::MergeData(class Sims3.Gameplay.ActorSystems.Pregnancy)
+		IL_0042: ret
+
+		IL_0043: ldarg.0
+		IL_0044: call instance void Sims3.Gameplay.CAS.SimDescription::ClearPregnancyData()
+
+		IL_0049: ret
+	} // end of method SimDescription::MergePregnancyInformation

@@ -1,0 +1,55 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00d83c20 <.text+0x982c20>:
+  d83c20:	56                   	push   esi
+  d83c21:	8b 74 24 08          	mov    esi,DWORD PTR [esp+0x8]
+  d83c25:	8b c6                	mov    eax,esi
+  d83c27:	25 00 00 00 ff       	and    eax,0xff000000
+  d83c2c:	3d 00 00 00 43       	cmp    eax,0x43000000
+  d83c31:	74 04                	je     0xd83c37
+  d83c33:	32 c0                	xor    al,al
+  d83c35:	5e                   	pop    esi
+  d83c36:	c3                   	ret
+  d83c37:	e8 54 57 9e ff       	call   0x769390
+  d83c3c:	85 c0                	test   eax,eax
+  d83c3e:	74 05                	je     0xd83c45
+  d83c40:	83 c0 f8             	add    eax,0xfffffff8
+  d83c43:	eb 02                	jmp    0xd83c47
+  d83c45:	33 c0                	xor    eax,eax
+  d83c47:	8b 50 08             	mov    edx,DWORD PTR [eax+0x8]
+  d83c4a:	8d 48 08             	lea    ecx,[eax+0x8]
+  d83c4d:	8b 82 cc 00 00 00    	mov    eax,DWORD PTR [edx+0xcc]
+  d83c53:	56                   	push   esi
+  d83c54:	ff d0                	call   eax
+  d83c56:	85 c0                	test   eax,eax
+  d83c58:	74 14                	je     0xd83c6e
+  d83c5a:	8b 10                	mov    edx,DWORD PTR [eax]
+  d83c5c:	8b c8                	mov    ecx,eax
+  d83c5e:	8b 42 14             	mov    eax,DWORD PTR [edx+0x14]
+  d83c61:	ff d0                	call   eax
+  d83c63:	84 c0                	test   al,al
+  d83c65:	74 07                	je     0xd83c6e
+  d83c67:	b8 01 00 00 00       	mov    eax,0x1
+  d83c6c:	5e                   	pop    esi
+  d83c6d:	c3                   	ret
+  d83c6e:	33 c0                	xor    eax,eax
+  d83c70:	5e                   	pop    esi
+  d83c71:	c3                   	ret
+  d83c72:	cc                   	int3
+  d83c73:	cc                   	int3
+  d83c74:	cc                   	int3
+  d83c75:	cc                   	int3
+  d83c76:	cc                   	int3
+  d83c77:	cc                   	int3
+  d83c78:	cc                   	int3
+  d83c79:	cc                   	int3
+  d83c7a:	cc                   	int3
+  d83c7b:	cc                   	int3
+  d83c7c:	cc                   	int3
+  d83c7d:	cc                   	int3
+  d83c7e:	cc                   	int3
+  d83c7f:	cc                   	int3

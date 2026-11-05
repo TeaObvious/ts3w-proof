@@ -1,0 +1,82 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00743310 <.text+0x342310>:
+  743310:	83 ec 34             	sub    esp,0x34
+  743313:	56                   	push   esi
+  743314:	e8 77 60 02 00       	call   0x769390
+  743319:	8b f0                	mov    esi,eax
+  74331b:	85 f6                	test   esi,esi
+  74331d:	75 07                	jne    0x743326
+  74331f:	33 c0                	xor    eax,eax
+  743321:	5e                   	pop    esi
+  743322:	83 c4 34             	add    esp,0x34
+  743325:	c3                   	ret
+  743326:	8b 4c 24 3c          	mov    ecx,DWORD PTR [esp+0x3c]
+  74332a:	8b 06                	mov    eax,DWORD PTR [esi]
+  74332c:	8b 90 cc 00 00 00    	mov    edx,DWORD PTR [eax+0xcc]
+  743332:	51                   	push   ecx
+  743333:	8b ce                	mov    ecx,esi
+  743335:	ff d2                	call   edx
+  743337:	85 c0                	test   eax,eax
+  743339:	74 e4                	je     0x74331f
+  74333b:	b9 54 8e 1c 01       	mov    ecx,0x11c8e54
+  743340:	89 4c 24 08          	mov    DWORD PTR [esp+0x8],ecx
+  743344:	89 4c 24 0c          	mov    DWORD PTR [esp+0xc],ecx
+  743348:	8d 4c 24 08          	lea    ecx,[esp+0x8]
+  74334c:	51                   	push   ecx
+  74334d:	8b c8                	mov    ecx,eax
+  74334f:	c7 44 24 18 4c 26 00 	mov    DWORD PTR [esp+0x18],0x100264c
+  743356:	01 
+  743357:	c7 44 24 14 56 8e 1c 	mov    DWORD PTR [esp+0x14],0x11c8e56
+  74335e:	01 
+  74335f:	e8 9c 77 36 00       	call   0xaaab00
+  743364:	6a 01                	push   0x1
+  743366:	6a 10                	push   0x10
+  743368:	8d 54 24 10          	lea    edx,[esp+0x10]
+  74336c:	52                   	push   edx
+  74336d:	6a 09                	push   0x9
+  74336f:	6a 13                	push   0x13
+  743371:	8d 4c 24 2c          	lea    ecx,[esp+0x2c]
+  743375:	c7 44 24 2c f4 a6 fb 	mov    DWORD PTR [esp+0x2c],0xfba6f4
+  74337c:	00 
+  74337d:	66 c7 44 24 34 00 00 	mov    WORD PTR [esp+0x34],0x0
+  743384:	66 c7 44 24 36 00 00 	mov    WORD PTR [esp+0x36],0x0
+  74338b:	e8 30 26 db ff       	call   0x4f59c0
+  743390:	8d 4c 24 04          	lea    ecx,[esp+0x4]
+  743394:	c7 44 24 04 00 00 00 	mov    DWORD PTR [esp+0x4],0x0
+  74339b:	00 
+  74339c:	8b 06                	mov    eax,DWORD PTR [esi]
+  74339e:	8b 40 50             	mov    eax,DWORD PTR [eax+0x50]
+  7433a1:	51                   	push   ecx
+  7433a2:	8d 54 24 1c          	lea    edx,[esp+0x1c]
+  7433a6:	52                   	push   edx
+  7433a7:	8b ce                	mov    ecx,esi
+  7433a9:	ff d0                	call   eax
+  7433ab:	f6 44 24 20 04       	test   BYTE PTR [esp+0x20],0x4
+  7433b0:	8b 74 24 04          	mov    esi,DWORD PTR [esp+0x4]
+  7433b4:	c7 44 24 18 f4 a6 fb 	mov    DWORD PTR [esp+0x18],0xfba6f4
+  7433bb:	00 
+  7433bc:	74 0b                	je     0x7433c9
+  7433be:	6a 00                	push   0x0
+  7433c0:	8d 4c 24 1c          	lea    ecx,[esp+0x1c]
+  7433c4:	e8 97 23 db ff       	call   0x4f5760
+  7433c9:	8b 4c 24 10          	mov    ecx,DWORD PTR [esp+0x10]
+  7433cd:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+  7433d1:	2b c8                	sub    ecx,eax
+  7433d3:	83 e1 fe             	and    ecx,0xfffffffe
+  7433d6:	83 f9 02             	cmp    ecx,0x2
+  7433d9:	7e 0d                	jle    0x7433e8
+  7433db:	85 c0                	test   eax,eax
+  7433dd:	74 09                	je     0x7433e8
+  7433df:	50                   	push   eax
+  7433e0:	e8 fb 10 da ff       	call   0x4e44e0
+  7433e5:	83 c4 04             	add    esp,0x4
+  7433e8:	8b c6                	mov    eax,esi
+  7433ea:	5e                   	pop    esi
+  7433eb:	83 c4 34             	add    esp,0x34
+  7433ee:	c3                   	ret
+  7433ef:	cc                   	int3

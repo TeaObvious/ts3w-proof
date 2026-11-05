@@ -1,0 +1,57 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: uint FireplaceEdit_RecordAddedGroup(void * this, int param_1, int * param_2, int * param_3)
+Owned ranges: [[00d20430, 00d204b1]]
+
+00d20430  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+00d20434  83ec18  SUB ESP,0x18
+00d20437  53  PUSH EBX
+00d20438  8b5c2428  MOV EBX,dword ptr [ESP + 0x28]
+00d2043c  55  PUSH EBP
+00d2043d  56  PUSH ESI
+00d2043e  57  PUSH EDI
+00d2043f  8b7c242c  MOV EDI,dword ptr [ESP + 0x2c]
+00d20443  53  PUSH EBX
+00d20444  8bf1  MOV ESI,ECX
+00d20446  8b8fcc020000  MOV ECX,dword ptr [EDI + 0x2cc]
+00d2044c  50  PUSH EAX
+00d2044d  e86e66d5ff  CALL 0x00a76ac0
+00d20452  53  PUSH EBX
+00d20453  8be8  MOV EBP,EAX
+00d20455  55  PUSH EBP
+00d20456  57  PUSH EDI
+00d20457  8d4c241c  LEA ECX,[ESP + 0x1c]
+00d2045b  e830feffff  CALL 0x00d20290
+00d20460  8b4e58  MOV ECX,dword ptr [ESI + 0x58]
+00d20463  3b4e5c  CMP ECX,dword ptr [ESI + 0x5c]
+00d20466  8d4654  LEA EAX,[ESI + 0x54]
+00d20469  7316  JNC 0x00d20481
+00d2046b  85c9  TEST ECX,ECX
+00d2046d  8d5118  LEA EDX,[ECX + 0x18]
+00d20470  895004  MOV dword ptr [EAX + 0x4],EDX
+00d20473  7419  JZ 0x00d2048e
+00d20475  8d442410  LEA EAX,[ESP + 0x10]
+00d20479  50  PUSH EAX
+00d2047a  e8b1fcffff  CALL 0x00d20130
+00d2047f  eb0d  JMP 0x00d2048e
+00d20481  8d542410  LEA EDX,[ESP + 0x10]
+00d20485  52  PUSH EDX
+00d20486  51  PUSH ECX
+00d20487  8bc8  MOV ECX,EAX
+00d20489  e862feffff  CALL 0x00d202f0
+00d2048e  8b442418  MOV EAX,dword ptr [ESP + 0x18]
+00d20492  85c0  TEST EAX,EAX
+00d20494  c7465001000000  MOV dword ptr [ESI + 0x50],0x1
+00d2049b  7409  JZ 0x00d204a6
+00d2049d  50  PUSH EAX
+00d2049e  e83d407cff  CALL 0x004e44e0
+00d204a3  83c404  ADD ESP,0x4
+00d204a6  5f  POP EDI
+00d204a7  5e  POP ESI
+00d204a8  8bc5  MOV EAX,EBP
+00d204aa  5d  POP EBP
+00d204ab  5b  POP EBX
+00d204ac  83c418  ADD ESP,0x18
+00d204af  c20c00  RET 0xc

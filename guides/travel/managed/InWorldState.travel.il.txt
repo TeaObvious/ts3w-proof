@@ -1,0 +1,440 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; selected original metadata and complete method IL.
+	.method public hidebysig virtual 
+		instance void Startup () cil managed 
+	{
+		// Method begins at RVA 0xe3084
+		// Header size: 12
+		// Code size: 970 (0x3ca)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.InWorldSubState,
+			[1] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>,
+			[2] float32,
+			[3] valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed,
+			[4] bool,
+			[5] string,
+			[6] int32,
+			[7] class Sims3.Gameplay.InWorldSubState[],
+			[8] int32,
+			[9] valuetype Sims3.Gameplay.InWorldState/SubState
+		)
+
+		.try
+		{
+			IL_0000: ldarg.0
+			IL_0001: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::Startup()
+			IL_0006: call void Sims3.Gameplay.UI.Responder::GameStartup()
+			IL_000b: ldarg.0
+			IL_000c: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+			IL_0011: stfld bool Sims3.Gameplay.InWorldState::mEnteredFromTravelling
+			IL_0016: call bool [SimIFace]Sims3.SimIFace.World::IsEditInGameFromWBMode()
+			IL_001b: brfalse.s IL_0023
+
+			IL_001d: ldc.i4.1
+			IL_001e: stsfld bool Sims3.Gameplay.Autonomy.Autonomy::DisableMoodContributors
+
+			IL_0023: ldarg.0
+			IL_0024: ldc.i4.1
+			IL_0025: ldstr "InWorld"
+			IL_002a: call class [SimIFace]Sims3.SimIFace.StateMachine [SimIFace]Sims3.SimIFace.StateMachine::Create(int32, string)
+			IL_002f: stfld class [SimIFace]Sims3.SimIFace.StateMachine Sims3.Gameplay.InWorldState::mStateMachine
+			IL_0034: ldarg.0
+			IL_0035: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_003a: ldc.i4.0
+			IL_003b: call bool Sims3.Gameplay.GameStates::get_IsMovingWorlds()
+			IL_0040: newobj instance void Sims3.Gameplay.LiveModeState::.ctor(bool)
+			IL_0045: stelem.ref
+			IL_0046: ldarg.0
+			IL_0047: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_004c: ldc.i4.1
+			IL_004d: newobj instance void Sims3.Gameplay.BuildModeState::.ctor()
+			IL_0052: stelem.ref
+			IL_0053: ldarg.0
+			IL_0054: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0059: ldc.i4.2
+			IL_005a: newobj instance void Sims3.Gameplay.BuyModeState::.ctor()
+			IL_005f: stelem.ref
+			IL_0060: ldarg.0
+			IL_0061: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0066: ldc.i4.s 12
+			IL_0068: newobj instance void Sims3.Gameplay.ShoppingModeState::.ctor()
+			IL_006d: stelem.ref
+			IL_006e: ldarg.0
+			IL_006f: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0074: ldc.i4.3
+			IL_0075: newobj instance void Sims3.Gameplay.CASFullModeState::.ctor()
+			IL_007a: stelem.ref
+			IL_007b: ldarg.0
+			IL_007c: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0081: ldc.i4.4
+			IL_0082: newobj instance void Sims3.Gameplay.CASDresserModeState::.ctor()
+			IL_0087: stelem.ref
+			IL_0088: ldarg.0
+			IL_0089: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_008e: ldc.i4.5
+			IL_008f: newobj instance void Sims3.Gameplay.CASMirrorModeState::.ctor()
+			IL_0094: stelem.ref
+			IL_0095: ldarg.0
+			IL_0096: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_009b: ldc.i4.6
+			IL_009c: newobj instance void Sims3.Gameplay.CASTattooModeState::.ctor()
+			IL_00a1: stelem.ref
+			IL_00a2: ldarg.0
+			IL_00a3: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_00a8: ldc.i4.7
+			IL_00a9: newobj instance void Sims3.Gameplay.CASStylistModeState::.ctor()
+			IL_00ae: stelem.ref
+			IL_00af: ldarg.0
+			IL_00b0: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_00b5: ldc.i4.8
+			IL_00b6: newobj instance void Sims3.Gameplay.CASTackModeState::.ctor()
+			IL_00bb: stelem.ref
+			IL_00bc: ldarg.0
+			IL_00bd: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_00c2: ldc.i4.s 9
+			IL_00c4: newobj instance void Sims3.Gameplay.CASCollarModeState::.ctor()
+			IL_00c9: stelem.ref
+			IL_00ca: ldarg.0
+			IL_00cb: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_00d0: ldc.i4.s 10
+			IL_00d2: newobj instance void Sims3.Gameplay.CASSurgeryFaceModeState::.ctor()
+			IL_00d7: stelem.ref
+			IL_00d8: ldarg.0
+			IL_00d9: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_00de: ldc.i4.s 11
+			IL_00e0: newobj instance void Sims3.Gameplay.CASSurgeryBodyModeState::.ctor()
+			IL_00e5: stelem.ref
+			IL_00e6: ldarg.0
+			IL_00e7: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_00ec: ldc.i4.s 15
+			IL_00ee: newobj instance void Sims3.Gameplay.PlayFlowState::.ctor()
+			IL_00f3: stelem.ref
+			IL_00f4: ldarg.0
+			IL_00f5: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_00fa: ldc.i4.s 14
+			IL_00fc: newobj instance void Sims3.Gameplay.EditTownState::.ctor()
+			IL_0101: stelem.ref
+			IL_0102: ldarg.0
+			IL_0103: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0108: ldc.i4.s 16
+			IL_010a: newobj instance void Sims3.Gameplay.BlueprintModeState::.ctor()
+			IL_010f: stelem.ref
+			IL_0110: ldarg.0
+			IL_0111: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0116: ldc.i4.s 17
+			IL_0118: newobj instance void Sims3.Gameplay.CASMermaidModeState::.ctor()
+			IL_011d: stelem.ref
+			IL_011e: ldarg.0
+			IL_011f: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0124: ldc.i4.s 18
+			IL_0126: newobj instance void Sims3.Gameplay.CABModeState::.ctor()
+			IL_012b: stelem.ref
+			IL_012c: ldarg.0
+			IL_012d: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0132: ldc.i4.s 19
+			IL_0134: newobj instance void Sims3.Gameplay.CABModeEditState::.ctor()
+			IL_0139: stelem.ref
+			IL_013a: ldarg.0
+			IL_013b: ldfld class Sims3.Gameplay.InWorldSubState[] Sims3.Gameplay.InWorldState::mSubStates
+			IL_0140: stloc.s 7
+			IL_0142: ldc.i4.0
+			IL_0143: stloc.s 8
+			IL_0145: br.s IL_0160
+			// loop start (head: IL_0160)
+				IL_0147: ldloc.s 7
+				IL_0149: ldloc.s 8
+				IL_014b: ldelem.ref
+				IL_014c: stloc.0
+				IL_014d: ldarg.0
+				IL_014e: ldfld class [SimIFace]Sims3.SimIFace.StateMachine Sims3.Gameplay.InWorldState::mStateMachine
+				IL_0153: ldloc.0
+				IL_0154: callvirt instance class [SimIFace]Sims3.SimIFace.StateMachineState [SimIFace]Sims3.SimIFace.StateMachine::AddState(class [SimIFace]Sims3.SimIFace.StateMachineState)
+				IL_0159: pop
+				IL_015a: ldloc.s 8
+				IL_015c: ldc.i4.1
+				IL_015d: add
+				IL_015e: stloc.s 8
+
+				IL_0160: ldloc.s 8
+				IL_0162: ldloc.s 7
+				IL_0164: ldlen
+				IL_0165: conv.i4
+				IL_0166: blt.s IL_0147
+			// end loop
+
+			IL_0168: ldarg.0
+			IL_0169: ldfld class [SimIFace]Sims3.SimIFace.StateMachine Sims3.Gameplay.InWorldState::mStateMachine
+			IL_016e: call class [SimIFace]Sims3.SimIFace.StateMachine [SimIFace]Sims3.SimIFace.StateMachineManager::AddMachine(class [SimIFace]Sims3.SimIFace.StateMachine)
+			IL_0173: pop
+			IL_0174: ldnull
+			IL_0175: stloc.1
+			IL_0176: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+			IL_017b: brtrue.s IL_0184
+
+			IL_017d: call bool Sims3.Gameplay.GameStates::get_IsEditingOtherTown()
+			IL_0182: brfalse.s IL_018e
+			.try
+			{
+				IL_0184: call void Sims3.Gameplay.WorldBuilderUtil.CharacterImportOnGameLoad::RemapSimDescriptionIds()
+				IL_0189: leave.s IL_018e
+			} // end .try
+			catch [mscorlib]System.Exception
+			{
+				IL_018b: pop
+				IL_018c: leave.s IL_018e
+			} // end handler
+
+			IL_018e: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+			IL_0193: brfalse.s IL_019c
+
+			IL_0195: call void Sims3.Gameplay.GameStates::ImportTravellingHousehold()
+			IL_019a: br.s IL_01b6
+
+			IL_019c: call bool Sims3.Gameplay.GameStates::get_IsEditingOtherTown()
+			IL_01a1: brtrue.s IL_01b6
+
+			IL_01a3: call valuetype [SimIFace]Sims3.SimIFace.WorldType [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorldType()
+			IL_01a8: brtrue.s IL_01b6
+
+			IL_01aa: call bool Sims3.Gameplay.GameStates::get_HasTravelData()
+			IL_01af: brfalse.s IL_01b6
+
+			IL_01b1: call void Sims3.Gameplay.GameStates::ClearTravelStatics()
+
+			IL_01b6: ldarg.0
+			IL_01b7: ldstr "PostWorldInitializers"
+			IL_01bc: ldarg.0
+			IL_01bd: newobj instance void Sims3.Gameplay.Utilities.Initializers::.ctor(string, object)
+			IL_01c2: stfld class Sims3.Gameplay.Utilities.Initializers Sims3.Gameplay.InWorldState::mPostWorldInitializers
+			IL_01c7: ldarg.0
+			IL_01c8: ldfld class Sims3.Gameplay.Utilities.Initializers Sims3.Gameplay.InWorldState::mPostWorldInitializers
+			IL_01cd: callvirt instance void Sims3.Gameplay.Utilities.Initializers::Initialize()
+			IL_01d2: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+			IL_01d7: brfalse.s IL_01df
+
+			IL_01d9: call class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.GameStates::PostTravelingFixUp()
+			IL_01de: stloc.1
+
+			IL_01df: call bool Sims3.Gameplay.GameStates::get_IsEditingOtherTown()
+			IL_01e4: brfalse.s IL_01eb
+
+			IL_01e6: call void Sims3.Gameplay.GameStates::PostLoadEditTownFixup()
+
+			IL_01eb: call void Sims3.Gameplay.GameStates::NullEditTownDataDataIfEditingOriginalStartingWorld()
+			.try
+			{
+				IL_01f0: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsAnyTravelBasedWorld()
+				IL_01f5: brfalse.s IL_0223
+
+				IL_01f7: ldloc.1
+				IL_01f8: brfalse.s IL_0219
+
+				IL_01fa: ldsfld float32 Sims3.Gameplay.ActorSystems.AgingManager::NumberAgingYearsElapsed
+				IL_01ff: ldc.r4 -1
+				IL_0204: beq.s IL_0219
+
+				IL_0206: call float32 Sims3.Gameplay.GameStates::get_NumberAgingYearsElapsed()
+				IL_020b: ldsfld float32 Sims3.Gameplay.ActorSystems.AgingManager::NumberAgingYearsElapsed
+				IL_0210: sub
+				IL_0211: stloc.2
+				IL_0212: ldloc.2
+				IL_0213: ldloc.1
+				IL_0214: call void Sims3.Gameplay.StoryProgression.StoryProgressionService::FixUpAfterTravel(float32, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>)
+
+				IL_0219: call float32 Sims3.Gameplay.GameStates::get_NumberAgingYearsElapsed()
+				IL_021e: stsfld float32 Sims3.Gameplay.ActorSystems.AgingManager::NumberAgingYearsElapsed
+
+				IL_0223: leave.s IL_0228
+			} // end .try
+			catch [mscorlib]System.Exception
+			{
+				IL_0225: pop
+				IL_0226: leave.s IL_0228
+			} // end handler
+
+			IL_0228: ldc.i4.0
+			IL_0229: stloc.3
+			IL_022a: ldc.i4.0
+			IL_022b: stloc.s 4
+			IL_022d: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_StartupState()
+			IL_0232: brtrue.s IL_0277
+
+			IL_0234: call bool Sims3.Gameplay.GameStates::get_IsEditingOtherTown()
+			IL_0239: brtrue.s IL_025f
+
+			IL_023b: call bool Sims3.Gameplay.GameStates::get_ForceStateChange()
+			IL_0240: brtrue.s IL_025c
+
+			IL_0242: call class Sims3.Gameplay.PlayFlowModel Sims3.Gameplay.PlayFlowModel::get_Singleton()
+			IL_0247: callvirt instance bool Sims3.Gameplay.PlayFlowModel::get_GameEntryLive()
+			IL_024c: brfalse.s IL_025c
+
+			IL_024e: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+			IL_0253: brtrue.s IL_025c
+
+			IL_0255: call bool Sims3.Gameplay.GameStates::get_IsTravelling()
+			IL_025a: br.s IL_0260
+
+			IL_025c: ldc.i4.1
+			IL_025d: br.s IL_0260
+
+			IL_025f: ldc.i4.0
+
+			IL_0260: stloc.s 4
+			IL_0262: ldloc.s 4
+			IL_0264: brfalse.s IL_0277
+
+			IL_0266: ldsfld bool Sims3.Gameplay.Gameflow::sGameLoadedFromWorldFile
+			IL_026b: brfalse.s IL_0271
+
+			IL_026d: ldc.i4.1
+			IL_026e: stloc.3
+			IL_026f: br.s IL_0277
+
+			IL_0271: ldsfld valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed Sims3.Gameplay.Gameflow::sPersistedGameSpeed
+			IL_0276: stloc.3
+
+			IL_0277: ldc.i4.0
+			IL_0278: stsfld bool Sims3.Gameplay.Gameflow::sGameLoadedFromWorldFile
+			IL_027d: ldstr "speed"
+			IL_0282: call string [SimIFace]Sims3.SimIFace.CommandLine::FindSwitch(string)
+			IL_0287: stloc.s 5
+			IL_0289: ldloc.s 5
+			IL_028b: brfalse.s IL_02a8
+
+			IL_028d: ldloc.s 5
+			IL_028f: ldloca.s 6
+			IL_0291: call bool [mscorlib]System.Int32::TryParse(string, int32&)
+			IL_0296: brfalse.s IL_029d
+
+			IL_0298: ldloc.s 6
+			IL_029a: stloc.3
+			IL_029b: br.s IL_02a8
+
+			IL_029d: ldloc.s 5
+			IL_029f: ldloca.s 3
+			IL_02a1: ldc.i4.1
+			IL_02a2: call bool Sims3.Gameplay.Utilities.ParserFunctions::TryParseEnum<valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed>(string, !!0&, !!0)
+			IL_02a7: pop
+
+			IL_02a8: ldloc.3
+			IL_02a9: ldc.i4.0
+			IL_02aa: call void Sims3.Gameplay.Gameflow::SetGameSpeed(valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed, valuetype Sims3.Gameplay.Gameflow/SetGameSpeedContext)
+			IL_02af: call void [UI]Sims3.UI.NotificationManager::Load()
+			IL_02b4: call void [UI]Sims3.UI.GameEntry.MainMenu::TriggerPendingFsiWorldNotifications()
+			IL_02b9: call bool [SimIFace]Sims3.SimIFace.SocialFeatures/Accounts::IsLoggedIn()
+			IL_02be: brfalse.s IL_02ca
+
+			IL_02c0: ldarg.0
+			IL_02c1: ldc.i4.0
+			IL_02c2: ldc.i4.0
+			IL_02c3: ldc.i4.0
+			IL_02c4: conv.i8
+			IL_02c5: call instance void Sims3.Gameplay.InWorldState::Notify(uint32, uint32, int64)
+
+			IL_02ca: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_StartupState()
+			IL_02cf: stloc.s 9
+			IL_02d1: ldloc.s 9
+			IL_02d3: ldc.i4.0
+			IL_02d4: beq.s IL_02ed
+
+			IL_02d6: ldloc.s 9
+			IL_02d8: ldc.i4.s 14
+			IL_02da: sub
+			IL_02db: switch (IL_0338, IL_034b)
+
+			IL_02e8: br IL_0391
+
+			IL_02ed: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsOnVacation()
+			IL_02f2: brtrue.s IL_02fb
+
+			IL_02f4: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsFutureWorld()
+			IL_02f9: brfalse.s IL_0302
+
+			IL_02fb: call bool Sims3.Gameplay.EditTownModel::IsAnyLotBaseCampStatic()
+			IL_0300: brfalse.s IL_0306
+
+			IL_0302: ldloc.s 4
+			IL_0304: brtrue.s IL_0319
+
+			IL_0306: ldc.i4.1
+			IL_0307: call void [SimIFace]Sims3.SimIFace.GameUtils::EnableSceneDraw(bool)
+			IL_030c: call void [UI]Sims3.UI.LoadingScreenController::Unload()
+			IL_0311: ldarg.0
+			IL_0312: call instance void Sims3.Gameplay.InWorldState::GotoEditTown()
+			IL_0317: br.s IL_0391
+
+			IL_0319: ldloc.s 4
+			IL_031b: brfalse.s IL_0325
+
+			IL_031d: ldarg.0
+			IL_031e: call instance void Sims3.Gameplay.InWorldState::GotoLiveMode()
+			IL_0323: br.s IL_0391
+
+			IL_0325: ldc.i4.1
+			IL_0326: call void [SimIFace]Sims3.SimIFace.GameUtils::EnableSceneDraw(bool)
+			IL_032b: call void [UI]Sims3.UI.LoadingScreenController::Unload()
+			IL_0330: ldarg.0
+			IL_0331: call instance void Sims3.Gameplay.InWorldState::GotoPlayFlow()
+			IL_0336: br.s IL_0391
+
+			IL_0338: ldc.i4.1
+			IL_0339: call void [SimIFace]Sims3.SimIFace.GameUtils::EnableSceneDraw(bool)
+			IL_033e: call void [UI]Sims3.UI.LoadingScreenController::Unload()
+			IL_0343: ldarg.0
+			IL_0344: call instance void Sims3.Gameplay.InWorldState::GotoEditTown()
+			IL_0349: br.s IL_0391
+
+			IL_034b: call bool [SimIFace]Sims3.SimIFace.World::IsEditInGameFromWBMode()
+			IL_0350: brtrue.s IL_0380
+
+			IL_0352: call bool Sims3.Gameplay.PlayFlowModel::get_PlayFlowEnabled()
+			IL_0357: brfalse.s IL_036d
+
+			IL_0359: call class Sims3.Gameplay.PlayFlowModel Sims3.Gameplay.PlayFlowModel::get_Singleton()
+			IL_035e: callvirt instance bool Sims3.Gameplay.PlayFlowModel::get_GameEntryLive()
+			IL_0363: brfalse.s IL_036d
+
+			IL_0365: ldarg.0
+			IL_0366: call instance void Sims3.Gameplay.InWorldState::GotoPlayFlow()
+			IL_036b: br.s IL_0391
+
+			IL_036d: ldc.i4.1
+			IL_036e: call void [SimIFace]Sims3.SimIFace.GameUtils::EnableSceneDraw(bool)
+			IL_0373: call void [UI]Sims3.UI.LoadingScreenController::Unload()
+			IL_0378: ldarg.0
+			IL_0379: call instance void Sims3.Gameplay.InWorldState::GotoLiveMode()
+			IL_037e: br.s IL_0391
+
+			IL_0380: ldc.i4.1
+			IL_0381: call void [SimIFace]Sims3.SimIFace.GameUtils::EnableSceneDraw(bool)
+			IL_0386: call void [UI]Sims3.UI.LoadingScreenController::Unload()
+			IL_038b: ldarg.0
+			IL_038c: call instance void Sims3.Gameplay.InWorldState::GotoLiveMode()
+
+			IL_0391: ldsfld bool Sims3.Gameplay.Gameflow::sShowObjectReplacedWarning
+			IL_0396: brfalse.s IL_03c4
+
+			IL_0398: ldstr "Ui/Warning/LoadGame:Warning"
+			IL_039d: ldc.i4.0
+			IL_039e: newarr [mscorlib]System.Object
+			IL_03a3: call string Sims3.Gameplay.InWorldState::LocalizeString(string, object[])
+			IL_03a8: ldstr "Ui/Warning/LoadGame:ReplacedObjects"
+			IL_03ad: ldc.i4.0
+			IL_03ae: newarr [mscorlib]System.Object
+			IL_03b3: call string Sims3.Gameplay.InWorldState::LocalizeString(string, object[])
+			IL_03b8: ldc.i4.2
+			IL_03b9: call void [UI]Sims3.UI.SimpleMessageDialog::Show(string, string, valuetype [UI]Sims3.UI.ModalDialog/PauseMode)
+			IL_03be: ldc.i4.0
+			IL_03bf: stsfld bool Sims3.Gameplay.Gameflow::sShowObjectReplacedWarning
+
+			IL_03c4: leave.s IL_03c9
+		} // end .try
+		catch [mscorlib]System.Exception
+		{
+			IL_03c6: pop
+			IL_03c7: leave.s IL_03c9
+		} // end handler
+
+		IL_03c9: ret
+	} // end of method InWorldState::Startup

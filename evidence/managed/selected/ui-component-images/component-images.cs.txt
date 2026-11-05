@@ -1,0 +1,72 @@
+// Selected actual ILSpy declarations and complete image indexers from pristine UI.dll.
+// Analyst note: original enum/index/property identities only. Native geometry,
+// state flags, atlas frames and fallback draw remain native algorithms.
+// Original raw CIL is paired for all four indexer accessors; its TypeDef names
+// are short nested names, with enclosing types established by actual decompilation.
+
+// Sims3.UI.Slider
+
+	public enum SliderOrientation
+	{
+		Horizontal = 1,
+		Vertical
+	}
+
+	public enum SliderComponents
+	{
+		Background,
+		Thumb,
+		ThumbContainer
+	}
+
+// Sims3.UI.Slider.SliderDrawable
+
+internal const uint ClassId = 4009969156u;
+
+		public UIImage this[SliderComponents componentID]
+		{
+			get
+			{
+				return UIManager.GetImageProperty(DrawableHandle, 1866651085u, (uint)componentID);
+			}
+			set
+			{
+				UIManager.SetImageProperty(DrawableHandle, 1866651085u, (uint)componentID, value);
+			}
+		}
+
+// Sims3.UI.Scrollbar
+
+	public enum ScrollbarComponents : uint
+	{
+		Background,
+		DecArrow,
+		DecArea,
+		Thumb,
+		ThumbContainer,
+		IncArea,
+		IncArrow
+	}
+
+	public enum ScrollbarOrientation : uint
+	{
+		Horizontal = 1u,
+		Vertical
+	}
+
+// Sims3.UI.Scrollbar.ScrollbarDrawable
+
+internal const uint ClassId = 251872823u;
+
+		public UIImage this[ScrollbarComponents componentID]
+		{
+			get
+			{
+				return UIManager.GetImageProperty(DrawableHandle, 2940393756u, (uint)componentID);
+			}
+			set
+			{
+				UIManager.SetImageProperty(DrawableHandle, 2940393756u, (uint)componentID, value);
+			}
+		}
+

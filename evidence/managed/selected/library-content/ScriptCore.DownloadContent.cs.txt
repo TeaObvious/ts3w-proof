@@ -1,0 +1,26 @@
+// Actual ILSpy rendering; static analysis, no target code executed. Native and nested/lambda dependencies remain bounded.
+using Sims3.SimIFace.CustomContent;
+
+public bool ImportInventory(ulong id, IExportableContent inventory)
+{
+	byte[] pKeyTable = null;
+	ulong[] pIdTable = null;
+	byte[] pScriptData = null;
+	if (!DownloadContent_ImportInventoryImpl(id, ref pKeyTable, ref pIdTable, ref pScriptData))
+	{
+		return false;
+	}
+	return ImportManagedContent(inventory, pKeyTable, pIdTable, pScriptData);
+}
+
+public void Init()
+{
+	DownloadContent_InitImpl();
+	mImportsFolder = DownloadContent_GetImportsFolderImpl();
+}
+
+public void Shutdown()
+{
+	DownloadContent_ShutdownImpl();
+}
+

@@ -1,0 +1,36 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function ScriptCore.LoadSaveManager::LoadSaveManager_LoadGame_Impl:
+
+
+/* Verified PC 1.67 registration table at 0x011611f0 (original PC 1.67 TS3W.exe).
+   ScriptCore.LoadSaveManager::LoadSaveManager_LoadGame_Impl [assembly=ScriptCore token=0x060001D4;
+   h: System.UInt32; return=System.Boolean]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+bool ScriptCore_LoadSaveManager__LoadSaveManager_LoadGame_Impl(undefined4 param_1)
+
+{
+  bool bVar1;
+  int *piVar2;
+  void *this;
+  undefined4 *puVar3;
+  
+  piVar2 = (int *)SACS_GetManager();
+  if (piVar2 == (int *)0x0) {
+    return false;
+  }
+  this = (void *)FUN_00aa99c0();
+  if (this != (void *)0x0) {
+    puVar3 = (undefined4 *)(**(code **)(*piVar2 + 0xcc))(param_1);
+    if (puVar3 != (undefined4 *)0x0) {
+      bVar1 = FUN_00aafb40(this,puVar3);
+      return bVar1;
+    }
+  }
+  return false;
+}
+
+

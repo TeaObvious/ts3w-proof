@@ -1,0 +1,157 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe; actual Ghidra Listing and preserved non-owned envelope gaps.
+Owned ranges: [[00c8f330, 00c8f4cc]]
+Signature: void * ProductCatalog_LookupDescriptionProduct(void * this, void * sourceKey)
+
+00c8f330  83ec08  SUB ESP,0x8
+00c8f333  56  PUSH ESI
+00c8f334  8bf1  MOV ESI,ECX
+00c8f336  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+00c8f33a  8b5108  MOV EDX,dword ptr [ECX + 0x8]
+00c8f33d  33c0  XOR EAX,EAX
+00c8f33f  81fa0c390b06  CMP EDX,0x60b390c
+00c8f345  57  PUSH EDI
+00c8f346  0f87a8000000  JA 0x00c8f3f4
+00c8f34c  0f8492000000  JZ 0x00c8f3e4
+00c8f352  81fa0381c504  CMP EDX,0x4c58103
+00c8f358  7752  JA 0x00c8f3ac
+00c8f35a  742c  JZ 0x00c8f388
+00c8f35c  81fa2afe1804  CMP EDX,0x418fe2a
+00c8f362  7436  JZ 0x00c8f39a
+00c8f364  81facda49c04  CMP EDX,0x49ca4cd
+00c8f36a  741c  JZ 0x00c8f388
+00c8f36c  81fa6906b304  CMP EDX,0x4b30669
+00c8f372  0f854d010000  JNZ 0x00c8f4c5
+00c8f378  51  PUSH ECX
+00c8f379  8bce  MOV ECX,ESI
+00c8f37b  e8b0faffff  CALL 0x00c8ee30
+00c8f380  5f  POP EDI
+00c8f381  5e  POP ESI
+00c8f382  83c408  ADD ESP,0x8
+00c8f385  c20400  RET 0x4
+00c8f388  6a01  PUSH 0x1
+00c8f38a  51  PUSH ECX
+00c8f38b  8bce  MOV ECX,ESI
+00c8f38d  e83ef4ffff  CALL 0x00c8e7d0
+00c8f392  5f  POP EDI
+00c8f393  5e  POP ESI
+00c8f394  83c408  ADD ESP,0x8
+00c8f397  c20400  RET 0x4
+00c8f39a  6a01  PUSH 0x1
+00c8f39c  51  PUSH ECX
+00c8f39d  8bce  MOV ECX,ESI
+00c8f39f  e8bcf3ffff  CALL 0x00c8e760
+00c8f3a4  5f  POP EDI
+00c8f3a5  5e  POP ESI
+00c8f3a6  83c408  ADD ESP,0x8
+00c8f3a9  c20400  RET 0x4
+00c8f3ac  81fab24bed04  CMP EDX,0x4ed4bb2
+00c8f3b2  741e  JZ 0x00c8f3d2
+00c8f3b4  81fa01ccf304  CMP EDX,0x4f3cc01
+00c8f3ba  0f8505010000  JNZ 0x00c8f4c5
+00c8f3c0  6a01  PUSH 0x1
+00c8f3c2  51  PUSH ECX
+00c8f3c3  8bce  MOV ECX,ESI
+00c8f3c5  e8c6f4ffff  CALL 0x00c8e890
+00c8f3ca  5f  POP EDI
+00c8f3cb  5e  POP ESI
+00c8f3cc  83c408  ADD ESP,0x8
+00c8f3cf  c20400  RET 0x4
+00c8f3d2  6a01  PUSH 0x1
+00c8f3d4  51  PUSH ECX
+00c8f3d5  8bce  MOV ECX,ESI
+00c8f3d7  e8a4faffff  CALL 0x00c8ee80
+00c8f3dc  5f  POP EDI
+00c8f3dd  5e  POP ESI
+00c8f3de  83c408  ADD ESP,0x8
+00c8f3e1  c20400  RET 0x4
+00c8f3e4  51  PUSH ECX
+00c8f3e5  8bce  MOV ECX,ESI
+00c8f3e7  e854fbffff  CALL 0x00c8ef40
+00c8f3ec  5f  POP EDI
+00c8f3ed  5e  POP ESI
+00c8f3ee  83c408  ADD ESP,0x8
+00c8f3f1  c20400  RET 0x4
+00c8f3f4  81fabce65191  CMP EDX,0x9151e6bc
+00c8f3fa  0f8799000000  JA 0x00c8f499
+00c8f400  744c  JZ 0x00c8f44e
+00c8f402  81faf2786c31  CMP EDX,0x316c78f2
+00c8f408  7434  JZ 0x00c8f43e
+00c8f40a  81fa1d4f9e31  CMP EDX,0x319e4f1d
+00c8f410  741c  JZ 0x00c8f42e
+00c8f412  81facda45c51  CMP EDX,0x515ca4cd
+00c8f418  0f85a7000000  JNZ 0x00c8f4c5
+00c8f41e  51  PUSH ECX
+00c8f41f  8bce  MOV ECX,ESI
+00c8f421  e8baf6ffff  CALL 0x00c8eae0
+00c8f426  5f  POP EDI
+00c8f427  5e  POP ESI
+00c8f428  83c408  ADD ESP,0x8
+00c8f42b  c20400  RET 0x4
+00c8f42e  51  PUSH ECX
+00c8f42f  8bce  MOV ECX,ESI
+00c8f431  e87af7ffff  CALL 0x00c8ebb0
+00c8f436  5f  POP EDI
+00c8f437  5e  POP ESI
+00c8f438  83c408  ADD ESP,0x8
+00c8f43b  c20400  RET 0x4
+00c8f43e  51  PUSH ECX
+00c8f43f  8bce  MOV ECX,ESI
+00c8f441  e81af7ffff  CALL 0x00c8eb60
+00c8f446  5f  POP EDI
+00c8f447  5e  POP ESI
+00c8f448  83c408  ADD ESP,0x8
+00c8f44b  c20400  RET 0x4
+00c8f44e  51  PUSH ECX
+00c8f44f  8d44240c  LEA EAX,[ESP + 0xc]
+00c8f453  8d7e1c  LEA EDI,[ESI + 0x1c]
+00c8f456  50  PUSH EAX
+00c8f457  8bcf  MOV ECX,EDI
+00c8f459  e8c2e6ffff  CALL 0x00c8db20
+00c8f45e  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+00c8f462  3b44240c  CMP EAX,dword ptr [ESP + 0xc]
+00c8f466  7503  JNZ 0x00c8f46b
+00c8f468  8b4704  MOV EAX,dword ptr [EDI + 0x4]
+00c8f46b  3b4620  CMP EAX,dword ptr [ESI + 0x20]
+00c8f46e  740b  JZ 0x00c8f47b
+00c8f470  8b4010  MOV EAX,dword ptr [EAX + 0x10]
+00c8f473  5f  POP EDI
+00c8f474  5e  POP ESI
+00c8f475  83c408  ADD ESP,0x8
+00c8f478  c20400  RET 0x4
+00c8f47b  8b0f  MOV ECX,dword ptr [EDI] ; Missing wall-style key can return first actual24-byte catalog row; not exact-only resource lookup.
+00c8f47d  3b4f04  CMP ECX,dword ptr [EDI + 0x4]
+00c8f480  740d  JZ 0x00c8f48f
+00c8f482  8bd1  MOV EDX,ECX
+00c8f484  8b4210  MOV EAX,dword ptr [EDX + 0x10]
+00c8f487  5f  POP EDI
+00c8f488  5e  POP ESI
+00c8f489  83c408  ADD ESP,0x8
+00c8f48c  c20400  RET 0x4
+00c8f48f  5f  POP EDI
+00c8f490  33c0  XOR EAX,EAX
+00c8f492  5e  POP ESI
+00c8f493  83c408  ADD ESP,0x8
+00c8f496  c20400  RET 0x4
+00c8f499  81fa3ebded91  CMP EDX,0x91edbd3e
+00c8f49f  741a  JZ 0x00c8f4bb
+00c8f4a1  81fa86bdedf1  CMP EDX,0xf1edbd86
+00c8f4a7  751c  JNZ 0x00c8f4c5
+00c8f4a9  6a01  PUSH 0x1
+00c8f4ab  51  PUSH ECX
+00c8f4ac  8bce  MOV ECX,ESI
+00c8f4ae  e8cdf8ffff  CALL 0x00c8ed80
+00c8f4b3  5f  POP EDI
+00c8f4b4  5e  POP ESI
+00c8f4b5  83c408  ADD ESP,0x8
+00c8f4b8  c20400  RET 0x4
+00c8f4bb  6a01  PUSH 0x1
+00c8f4bd  51  PUSH ECX
+00c8f4be  8bce  MOV ECX,ESI
+00c8f4c0  e84bf8ffff  CALL 0x00c8ed10
+00c8f4c5  5f  POP EDI
+00c8f4c6  5e  POP ESI
+00c8f4c7  83c408  ADD ESP,0x8
+00c8f4ca  c20400  RET 0x4

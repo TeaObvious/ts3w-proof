@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000CAC.
+// Assembly: ScriptCore; type: ScriptCore.World.
+// Decompiled C# source: ScriptCore/ScriptCore/World.cs:921
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_I4)]
+	private static extern int[] World_GetDoorRoomsImpl(ulong scriptHandle, [MarshalAs(UnmanagedType.I4)] eRoomDefinition roomDef);

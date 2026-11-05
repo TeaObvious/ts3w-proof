@@ -1,0 +1,53 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00742cb0 <.text+0x341cb0>:
+  742cb0:	56                   	push   esi
+  742cb1:	e8 da 66 02 00       	call   0x769390
+  742cb6:	8b f0                	mov    esi,eax
+  742cb8:	85 f6                	test   esi,esi
+  742cba:	75 04                	jne    0x742cc0
+  742cbc:	32 c0                	xor    al,al
+  742cbe:	5e                   	pop    esi
+  742cbf:	c3                   	ret
+  742cc0:	57                   	push   edi
+  742cc1:	e8 fa 6c 36 00       	call   0xaa99c0
+  742cc6:	8b f8                	mov    edi,eax
+  742cc8:	85 ff                	test   edi,edi
+  742cca:	74 15                	je     0x742ce1
+  742ccc:	8b 4c 24 0c          	mov    ecx,DWORD PTR [esp+0xc]
+  742cd0:	8b 06                	mov    eax,DWORD PTR [esi]
+  742cd2:	8b 90 cc 00 00 00    	mov    edx,DWORD PTR [eax+0xcc]
+  742cd8:	51                   	push   ecx
+  742cd9:	8b ce                	mov    ecx,esi
+  742cdb:	ff d2                	call   edx
+  742cdd:	85 c0                	test   eax,eax
+  742cdf:	75 05                	jne    0x742ce6
+  742ce1:	5f                   	pop    edi
+  742ce2:	32 c0                	xor    al,al
+  742ce4:	5e                   	pop    esi
+  742ce5:	c3                   	ret
+  742ce6:	50                   	push   eax
+  742ce7:	8b cf                	mov    ecx,edi
+  742ce9:	e8 52 ce 36 00       	call   0xaafb40
+  742cee:	5f                   	pop    edi
+  742cef:	5e                   	pop    esi
+  742cf0:	c3                   	ret
+  742cf1:	cc                   	int3
+  742cf2:	cc                   	int3
+  742cf3:	cc                   	int3
+  742cf4:	cc                   	int3
+  742cf5:	cc                   	int3
+  742cf6:	cc                   	int3
+  742cf7:	cc                   	int3
+  742cf8:	cc                   	int3
+  742cf9:	cc                   	int3
+  742cfa:	cc                   	int3
+  742cfb:	cc                   	int3
+  742cfc:	cc                   	int3
+  742cfd:	cc                   	int3
+  742cfe:	cc                   	int3
+  742cff:	cc                   	int3

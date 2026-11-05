@@ -1,0 +1,38 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67; complete actual saved Ghidra Listing with pristine original bytes; body [[00b051d0, 00b05238]]
+00b051d0	83ec10	SUB ESP,0x10
+00b051d3	56	PUSH ESI
+00b051d4	8b742418	MOV ESI,dword ptr [ESP + 0x18]
+00b051d8	85f6	TEST ESI,ESI
+00b051da	7456	JZ 0x00b05232
+00b051dc	d9442420	FLD float ptr [ESP + 0x20]
+00b051e0	8d442404	LEA EAX,[ESP + 0x4]
+00b051e4	50	PUSH EAX
+00b051e5	8d4c241c	LEA ECX,[ESP + 0x1c]
+00b051e9	51	PUSH ECX
+00b051ea	83ec08	SUB ESP,0x8
+00b051ed	d95c2404	FSTP float ptr [ESP + 0x4]
+00b051f1	8bce	MOV ECX,ESI
+00b051f3	d944242c	FLD float ptr [ESP + 0x2c]
+00b051f7	d91c24	FSTP float ptr [ESP]
+00b051fa	e8411cfbff	CALL 0x00ab6e40
+00b051ff	f30f10442418	MOVSS XMM0,dword ptr [ESP + 0x18]
+00b05205	8b542424	MOV EDX,dword ptr [ESP + 0x24]
+00b05209	8d442408	LEA EAX,[ESP + 0x8]
+00b0520d	50	PUSH EAX
+00b0520e	f30f1144240c	MOVSS dword ptr [ESP + 0xc],XMM0
+00b05214	f30f10442408	MOVSS XMM0,dword ptr [ESP + 0x8]
+00b0521a	56	PUSH ESI
+00b0521b	f30f11442414	MOVSS dword ptr [ESP + 0x14],XMM0
+00b05221	89542418	MOV dword ptr [ESP + 0x18],EDX
+00b05225	e876fcffff	CALL 0x00b04ea0
+00b0522a	83c408	ADD ESP,0x8
+00b0522d	5e	POP ESI
+00b0522e	83c410	ADD ESP,0x10
+00b05231	c3	RET
+00b05232	32c0	XOR AL,AL
+00b05234	5e	POP ESI
+00b05235	83c410	ADD ESP,0x10
+00b05238	c3	RET

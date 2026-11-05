@@ -1,0 +1,27 @@
+// Complete original PC1.67 ScriptCore.dll selected member; central managed README owns binary identity.
+// Analyst: complete original MethodDef0x06000219; concrete Simulator cast precedes GetProxy. Null proxy returns -1; only nonnull reads sTaskStates. No local EH.
+
+// token 0x06000219; RVA 0x00004708
+System.Int32 ScriptCore.LoadSaveManager::SaveObjectStack(System.UInt64)
+.maxstack 3; code size 51
+// Original IL bytes: 281500000A723B0100706F7700000A74320000020A0602731800000A6F790500060B072D02152A7E44000004026F9D0600062A
+.local 0 ScriptCore.Simulator
+.local 1 Sims3.SimIFace.IScriptProxy
+IL_0000: call System.AppDomain System.AppDomain::get_CurrentDomain()
+IL_0005: ldstr "Simulator"
+IL_000a: callvirt System.Object System.AppDomain::GetData(System.String)
+IL_000f: castclass ScriptCore.Simulator
+IL_0014: stloc.0
+IL_0015: ldloc.0
+IL_0016: ldarg.0
+IL_0017: newobj System.Void Sims3.SimIFace.ObjectGuid::.ctor(System.UInt64)
+IL_001c: callvirt Sims3.SimIFace.IScriptProxy ScriptCore.Simulator::GetProxy(Sims3.SimIFace.ObjectGuid)
+IL_0021: stloc.1
+IL_0022: ldloc.1
+IL_0023: brtrue.s IL_0027
+IL_0025: ldc.i4.m1
+IL_0026: ret
+IL_0027: ldsfld ScriptCore.TaskStateCollection ScriptCore.LoadSaveManager::sTaskStates
+IL_002c: ldarg.0
+IL_002d: callvirt System.Int32 ScriptCore.TaskStateCollection::AddTaskState(System.UInt64)
+IL_0032: ret

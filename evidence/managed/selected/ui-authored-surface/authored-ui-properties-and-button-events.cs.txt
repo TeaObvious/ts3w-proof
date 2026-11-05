@@ -1,0 +1,130 @@
+// Selected actual ILSpy C# from pristine PC1.67 UI.dll.
+// Analyst note: these managed properties/event wrappers are complete selected members,
+// not a reconstructed native press/capture/render implementation. Native code owns
+// those effects. Member tokens and original CIL appear in the paired IL selection.
+// Original type boundaries are headings; this selection is not a replacement assembly.
+
+// Sims3.UI.WindowBase
+
+	public bool Visible
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 4005670912u, 1u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 4005670912u, 1u, value);
+		}
+	}
+
+
+	public virtual bool Enabled
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 4005670912u, 2u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 4005670912u, 2u, value);
+		}
+	}
+
+
+	public string Caption
+	{
+		get
+		{
+			return UIManager.GetStringProperty(WinHandle, 4005670922u);
+		}
+		set
+		{
+			UIManager.SetStringProperty(WinHandle, 4005670922u, value);
+		}
+	}
+
+
+	public uint TextStyle
+	{
+		get
+		{
+			return UIManager.GetUInt32Property(WinHandle, 4005670926u);
+		}
+		set
+		{
+			UIManager.SetUInt32Property(WinHandle, 4005670926u, value);
+		}
+	}
+
+
+// Sims3.UI.Button
+
+	internal const uint ClassId = 4008698563u;
+
+	public enum ButtonEvents : uint
+	{
+		kEventButtonClick = 678582774u
+	}
+
+
+	public enum ButtonTypes : uint
+	{
+		Standard = 1u,
+		Toggle,
+		Radio
+	}
+
+
+	[Flags]
+	public enum ButtonStateFlags : uint
+	{
+		kMaskButtonStateFlagsEnabled = 1u,
+		kMaskButtonStateFlagsDepressed = 2u,
+		kMaskButtonStateFlagsSelected = 4u,
+		kMaskButtonStateFlagsHighlighted = 8u,
+		kMaskButtonStateFlagsActive = 0x10u
+	}
+
+
+	public override bool Enabled
+	{
+		get
+		{
+			return base.Enabled;
+		}
+		set
+		{
+			base.Enabled = value;
+			UIManager.SetFlagProperty(WinHandle, 4005679105u, 1u, value);
+		}
+	}
+
+
+	public event UIEventHandler<UIButtonClickEventArgs> Click
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 678582774u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 678582774u, value);
+		}
+	}
+
+
+// Sims3.UI.Text
+
+	public Color TextColor
+	{
+		get
+		{
+			return UIManager.GetColorProperty(WinHandle, 1866726605u);
+		}
+		set
+		{
+			UIManager.SetColorProperty(WinHandle, 1866726605u, value);
+		}
+	}
+

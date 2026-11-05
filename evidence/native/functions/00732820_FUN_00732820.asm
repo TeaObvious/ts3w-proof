@@ -1,0 +1,65 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: void * FUN_00732820(void * this, undefined4 param_1)
+Owned ranges: [[00732820, 0073290b]]
+
+00732820  53  PUSH EBX
+00732821  56  PUSH ESI
+00732822  8bf1  MOV ESI,ECX
+00732824  c7068c31fb00  MOV dword ptr [ESI],0xfb318c
+0073282a  33c0  XOR EAX,EAX
+0073282c  8d4e04  LEA ECX,[ESI + 0x4]
+0073282f  8701  XCHG dword ptr [ECX],EAX
+00732831  f30f1005f898f900  MOVSS XMM0,dword ptr [0x00f998f8]
+00732839  c7060ceeff00  MOV dword ptr [ESI],0xffee0c
+0073283f  33db  XOR EBX,EBX
+00732841  885e08  MOV byte ptr [ESI + 0x8],BL
+00732844  895e0c  MOV dword ptr [ESI + 0xc],EBX
+00732847  895e10  MOV dword ptr [ESI + 0x10],EBX
+0073284a  c7461480eeff00  MOV dword ptr [ESI + 0x14],0xffee80
+00732851  c74618ff010000  MOV dword ptr [ESI + 0x18],0x1ff
+00732858  f30f11462c  MOVSS dword ptr [ESI + 0x2c],XMM0
+0073285d  f30f100588fd0301  MOVSS XMM0,dword ptr [0x0103fd88]
+00732865  f30f114630  MOVSS dword ptr [ESI + 0x30],XMM0
+0073286a  8d460c  LEA EAX,[ESI + 0xc]
+0073286d  894638  MOV dword ptr [ESI + 0x38],EAX
+00732870  c7462401000000  MOV dword ptr [ESI + 0x24],0x1
+00732877  c7462000d91401  MOV dword ptr [ESI + 0x20],0x114d900
+0073287e  895e28  MOV dword ptr [ESI + 0x28],EBX
+00732881  895e34  MOV dword ptr [ESI + 0x34],EBX
+00732884  8d463c  LEA EAX,[ESI + 0x3c]
+00732887  894004  MOV dword ptr [EAX + 0x4],EAX
+0073288a  8900  MOV dword ptr [EAX],EAX
+0073288c  895e44  MOV dword ptr [ESI + 0x44],EBX
+0073288f  6a01  PUSH 0x1
+00732891  895e48  MOV dword ptr [ESI + 0x48],EBX
+00732894  895e4c  MOV dword ptr [ESI + 0x4c],EBX
+00732897  895e50  MOV dword ptr [ESI + 0x50],EBX
+0073289a  53  PUSH EBX
+0073289b  8d4e58  LEA ECX,[ESI + 0x58]
+0073289e  c7465460eeff00  MOV dword ptr [ESI + 0x54],0xffee60
+007328a5  e846f4daff  CALL 0x004e1cf0
+007328aa  8b54240c  MOV EDX,dword ptr [ESP + 0xc]
+007328ae  53  PUSH EBX
+007328af  683cd1fc00  PUSH 0xfcd13c
+007328b4  68e41cfc00  PUSH 0xfc1ce4
+007328b9  899688000000  MOV dword ptr [ESI + 0x88],EDX
+007328bf  899e8c000000  MOV dword ptr [ESI + 0x8c],EBX
+007328c5  c786900000000000a000  MOV dword ptr [ESI + 0x90],0xa00000
+007328cf  899e94000000  MOV dword ptr [ESI + 0x94],EBX
+007328d5  899e98000000  MOV dword ptr [ESI + 0x98],EBX
+007328db  e82086e5ff  CALL 0x0058af00
+007328e0  89868c000000  MOV dword ptr [ESI + 0x8c],EAX
+007328e6  8b8690000000  MOV EAX,dword ptr [ESI + 0x90]
+007328ec  50  PUSH EAX
+007328ed  6838eeff00  PUSH 0xffee38
+007328f2  68e41cfc00  PUSH 0xfc1ce4
+007328f7  e80486e5ff  CALL 0x0058af00
+007328fc  83c418  ADD ESP,0x18
+007328ff  898690000000  MOV dword ptr [ESI + 0x90],EAX
+00732905  8bc6  MOV EAX,ESI
+00732907  5e  POP ESI
+00732908  5b  POP EBX
+00732909  c20400  RET 0x4

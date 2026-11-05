@@ -1,0 +1,58 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 1098c470..1098c54e; RoadSplineWrap_TranslateKnots
+1098c470: 55  PUSH EBP
+1098c471: 8bec  MOV EBP,ESP
+1098c473: 83e4f0  AND ESP,0xfffffff0
+1098c476: 83ec40  SUB ESP,0x40
+1098c479: f30f104524  MOVSS XMM0,dword ptr [EBP + 0x24]
+1098c47e: f30f104d28  MOVSS XMM1,dword ptr [EBP + 0x28]
+1098c483: 8b452c  MOV EAX,dword ptr [EBP + 0x2c]
+1098c486: f30f1144240c  MOVSS dword ptr [ESP + 0xc],XMM0
+1098c48c: f30f11442408  MOVSS dword ptr [ESP + 0x8],XMM0
+1098c492: f30f114c2404  MOVSS dword ptr [ESP + 0x4],XMM1
+1098c498: f30f104d20  MOVSS XMM1,dword ptr [EBP + 0x20]
+1098c49d: f30f110424  MOVSS dword ptr [ESP],XMM0
+1098c4a2: 0f280424  MOVAPS XMM0,xmmword ptr [ESP]
+1098c4a6: 0f29442410  MOVAPS xmmword ptr [ESP + 0x10],XMM0
+1098c4ab: f30f10451c  MOVSS XMM0,dword ptr [EBP + 0x1c]
+1098c4b0: f30f1144240c  MOVSS dword ptr [ESP + 0xc],XMM0
+1098c4b6: f30f11442408  MOVSS dword ptr [ESP + 0x8],XMM0
+1098c4bc: f30f114c2404  MOVSS dword ptr [ESP + 0x4],XMM1
+1098c4c2: f30f104d18  MOVSS XMM1,dword ptr [EBP + 0x18]
+1098c4c7: f30f110424  MOVSS dword ptr [ESP],XMM0
+1098c4cc: 0f280424  MOVAPS XMM0,xmmword ptr [ESP]
+1098c4d0: 50  PUSH EAX
+1098c4d1: 0f29442424  MOVAPS xmmword ptr [ESP + 0x24],XMM0
+1098c4d6: f30f104514  MOVSS XMM0,dword ptr [EBP + 0x14]
+1098c4db: f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+1098c4e1: f30f1144240c  MOVSS dword ptr [ESP + 0xc],XMM0
+1098c4e7: f30f114c2408  MOVSS dword ptr [ESP + 0x8],XMM1
+1098c4ed: f30f104d10  MOVSS XMM1,dword ptr [EBP + 0x10]
+1098c4f2: f30f11442404  MOVSS dword ptr [ESP + 0x4],XMM0
+1098c4f8: 0f28442404  MOVAPS XMM0,xmmword ptr [ESP + 0x4]
+1098c4fd: 8d4c2414  LEA ECX,[ESP + 0x14]
+1098c501: 51  PUSH ECX
+1098c502: 8d542428  LEA EDX,[ESP + 0x28]
+1098c506: 52  PUSH EDX
+1098c507: 8d44243c  LEA EAX,[ESP + 0x3c]
+1098c50b: 0f2944243c  MOVAPS xmmword ptr [ESP + 0x3c],XMM0
+1098c510: f30f10450c  MOVSS XMM0,dword ptr [EBP + 0xc]
+1098c515: 50  PUSH EAX
+1098c516: 8d4c2410  LEA ECX,[ESP + 0x10]
+1098c51a: f30f1144241c  MOVSS dword ptr [ESP + 0x1c],XMM0
+1098c520: f30f11442418  MOVSS dword ptr [ESP + 0x18],XMM0
+1098c526: f30f114c2414  MOVSS dword ptr [ESP + 0x14],XMM1
+1098c52c: f30f11442410  MOVSS dword ptr [ESP + 0x10],XMM0
+1098c532: 0f28442410  MOVAPS XMM0,xmmword ptr [ESP + 0x10]
+1098c537: 51  PUSH ECX
+1098c538: 8b4d08  MOV ECX,dword ptr [EBP + 0x8]
+1098c53b: 0f29442414  MOVAPS xmmword ptr [ESP + 0x14],XMM0
+1098c540: e89b0d7bff  CALL 0x1013d2e0
+1098c545: f6d8  NEG AL
+1098c547: 1bc0  SBB EAX,EAX
+1098c549: f7d8  NEG EAX
+1098c54b: 8be5  MOV ESP,EBP
+1098c54d: 5d  POP EBP
+1098c54e: c3  RET

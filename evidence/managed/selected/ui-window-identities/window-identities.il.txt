@@ -1,0 +1,2341 @@
+UI.dll MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+
+06001250 Sims3.UI.UIManager::LoadCustomControls RVA=000650d0 bytes=444 maxStack=6 flags=301b localSignature=1100031f
+Raw complete method header 1b300600bc0100001f030011
+Raw complete CIL 72ba9c007028d400000a0a062d012a0672ba9c00706fd800000a0b076fdc00000a130b3807010000110b6f3700000a742b0000010c0872d89c00706fda00000a0d096fdc00000a130c38be000000110c6f3700000a742b000001130411046fdd00000a72f49c00706fde00000a6fdf00000a1305141306161307141308110516287704000a130611046fdd00000a72069d00706fde00000a6fdf00000a130811086fe400000a1f10287804000a1307de0326de5811062c5411072c5011066f7904000a8e6916314411061f3414178d17000001130d110d16d0b8000001281500000aa2110d146f7a04000a130911092c1b7eb2130004110711096f7b04000a7ea11300041107176f2b04000a110c6f3900000a3a36ffffffde15110c7502000001130e110e2c07110e6f3a00000adc110b6f3900000a3aedfeffffde15110b7502000001130f110f2c07110f6f3a00000adc7eaa13000414fe0652120006734800000a282000000a740900001b80aa1300047ea913000414fe0653120006734800000a282000000a740900001b80a91300042810120006130a110a20e59769037eaa130004280100002b110a20e69769037ea9130004280100002b2a
+ IL_0000: 72ba9c0070           ldstr ba9c0070
+ IL_0005: 28d400000a           call d400000a LoadXML
+ IL_000a: 0a                   stloc.0
+ IL_000b: 06                   ldloc.0
+ IL_000c: 2d01                 brtrue.s 01
+ IL_000e: 2a                   ret
+ IL_000f: 06                   ldloc.0
+ IL_0010: 72ba9c0070           ldstr ba9c0070
+ IL_0015: 6fd800000a           callvirt d800000a GetElementsByTagName
+ IL_001a: 0b                   stloc.1
+ IL_001b: 07                   ldloc.1
+ IL_001c: 6fdc00000a           callvirt dc00000a GetEnumerator
+ IL_0021: 130b                 stloc.s 0b
+ IL_0023: 3807010000           br 07010000
+ IL_0028: 110b                 ldloc.s 0b
+ IL_002a: 6f3700000a           callvirt 3700000a get_Current
+ IL_002f: 742b000001           castclass 2b000001
+ IL_0034: 0c                   stloc.2
+ IL_0035: 08                   ldloc.2
+ IL_0036: 72d89c0070           ldstr d89c0070
+ IL_003b: 6fda00000a           callvirt da00000a GetElementsByTagName
+ IL_0040: 0d                   stloc.3
+ IL_0041: 09                   ldloc.3
+ IL_0042: 6fdc00000a           callvirt dc00000a GetEnumerator
+ IL_0047: 130c                 stloc.s 0c
+ IL_0049: 38be000000           br be000000
+ IL_004e: 110c                 ldloc.s 0c
+ IL_0050: 6f3700000a           callvirt 3700000a get_Current
+ IL_0055: 742b000001           castclass 2b000001
+ IL_005a: 1304                 stloc.s 04
+ IL_005c: 1104                 ldloc.s 04
+ IL_005e: 6fdd00000a           callvirt dd00000a get_Attributes
+ IL_0063: 72f49c0070           ldstr f49c0070
+ IL_0068: 6fde00000a           callvirt de00000a GetNamedItem
+ IL_006d: 6fdf00000a           callvirt df00000a get_Value
+ IL_0072: 1305                 stloc.s 05
+ IL_0074: 14                   ldnull
+ IL_0075: 1306                 stloc.s 06
+ IL_0077: 16                   ldc.i4.0
+ IL_0078: 1307                 stloc.s 07
+ IL_007a: 14                   ldnull
+ IL_007b: 1308                 stloc.s 08
+ IL_007d: 1105                 ldloc.s 05
+ IL_007f: 16                   ldc.i4.0
+ IL_0080: 287704000a           call 7704000a GetType
+ IL_0085: 1306                 stloc.s 06
+ IL_0087: 1104                 ldloc.s 04
+ IL_0089: 6fdd00000a           callvirt dd00000a get_Attributes
+ IL_008e: 72069d0070           ldstr 069d0070
+ IL_0093: 6fde00000a           callvirt de00000a GetNamedItem
+ IL_0098: 6fdf00000a           callvirt df00000a get_Value
+ IL_009d: 1308                 stloc.s 08
+ IL_009f: 1108                 ldloc.s 08
+ IL_00a1: 6fe400000a           callvirt e400000a Trim
+ IL_00a6: 1f10                 ldc.i4.s 10
+ IL_00a8: 287804000a           call 7804000a ToUInt32
+ IL_00ad: 1307                 stloc.s 07
+ IL_00af: de03                 leave.s 03
+ IL_00b1: 26                   pop
+ IL_00b2: de58                 leave.s 58
+ IL_00b4: 1106                 ldloc.s 06
+ IL_00b6: 2c54                 brfalse.s 54
+ IL_00b8: 1107                 ldloc.s 07
+ IL_00ba: 2c50                 brfalse.s 50
+ IL_00bc: 1106                 ldloc.s 06
+ IL_00be: 6f7904000a           callvirt 7904000a GetConstructors
+ IL_00c3: 8e                   ldlen
+ IL_00c4: 69                   conv.i4
+ IL_00c5: 16                   ldc.i4.0
+ IL_00c6: 3144                 ble.s 44
+ IL_00c8: 1106                 ldloc.s 06
+ IL_00ca: 1f34                 ldc.i4.s 34
+ IL_00cc: 14                   ldnull
+ IL_00cd: 17                   ldc.i4.1
+ IL_00ce: 8d17000001           newarr 17000001
+ IL_00d3: 130d                 stloc.s 0d
+ IL_00d5: 110d                 ldloc.s 0d
+ IL_00d7: 16                   ldc.i4.0
+ IL_00d8: d0b8000001           ldtoken b8000001
+ IL_00dd: 281500000a           call 1500000a GetTypeFromHandle
+ IL_00e2: a2                   stelem.ref
+ IL_00e3: 110d                 ldloc.s 0d
+ IL_00e5: 14                   ldnull
+ IL_00e6: 6f7a04000a           callvirt 7a04000a GetConstructor
+ IL_00eb: 1309                 stloc.s 09
+ IL_00ed: 1109                 ldloc.s 09
+ IL_00ef: 2c1b                 brfalse.s 1b
+ IL_00f1: 7eb2130004           ldsfld b2130004 mCustomControlConstructorRegistry
+ IL_00f6: 1107                 ldloc.s 07
+ IL_00f8: 1109                 ldloc.s 09
+ IL_00fa: 6f7b04000a           callvirt 7b04000a Add
+ IL_00ff: 7ea1130004           ldsfld a1130004 gUIMgr
+ IL_0104: 1107                 ldloc.s 07
+ IL_0106: 17                   ldc.i4.1
+ IL_0107: 6f2b04000a           callvirt 2b04000a RegisterCustomControlFactory
+ IL_010c: 110c                 ldloc.s 0c
+ IL_010e: 6f3900000a           callvirt 3900000a MoveNext
+ IL_0113: 3a36ffffff           brtrue 36ffffff
+ IL_0118: de15                 leave.s 15
+ IL_011a: 110c                 ldloc.s 0c
+ IL_011c: 7502000001           isinst 02000001
+ IL_0121: 130e                 stloc.s 0e
+ IL_0123: 110e                 ldloc.s 0e
+ IL_0125: 2c07                 brfalse.s 07
+ IL_0127: 110e                 ldloc.s 0e
+ IL_0129: 6f3a00000a           callvirt 3a00000a Dispose
+ IL_012e: dc                   endfinally
+ IL_012f: 110b                 ldloc.s 0b
+ IL_0131: 6f3900000a           callvirt 3900000a MoveNext
+ IL_0136: 3aedfeffff           brtrue edfeffff
+ IL_013b: de15                 leave.s 15
+ IL_013d: 110b                 ldloc.s 0b
+ IL_013f: 7502000001           isinst 02000001
+ IL_0144: 130f                 stloc.s 0f
+ IL_0146: 110f                 ldloc.s 0f
+ IL_0148: 2c07                 brfalse.s 07
+ IL_014a: 110f                 ldloc.s 0f
+ IL_014c: 6f3a00000a           callvirt 3a00000a Dispose
+ IL_0151: dc                   endfinally
+ IL_0152: 7eaa130004           ldsfld aa130004 CustomControlPreLoad
+ IL_0157: 14                   ldnull
+ IL_0158: fe0652120006         ldftn 52120006 OnCustomControlPreLoad
+ IL_015e: 734800000a           newobj 4800000a .ctor
+ IL_0163: 282000000a           call 2000000a Combine
+ IL_0168: 740900001b           castclass 0900001b
+ IL_016d: 80aa130004           stsfld aa130004 CustomControlPreLoad
+ IL_0172: 7ea9130004           ldsfld a9130004 CustomControlLoad
+ IL_0177: 14                   ldnull
+ IL_0178: fe0653120006         ldftn 53120006 OnCustomControlLoad
+ IL_017e: 734800000a           newobj 4800000a .ctor
+ IL_0183: 282000000a           call 2000000a Combine
+ IL_0188: 740900001b           castclass 0900001b
+ IL_018d: 80a9130004           stsfld a9130004 CustomControlLoad
+ IL_0192: 2810120006           call 10120006 GetMainWindow
+ IL_0197: 130a                 stloc.s 0a
+ IL_0199: 110a                 ldloc.s 0a
+ IL_019b: 20e5976903           ldc.i4 e5976903
+ IL_01a0: 7eaa130004           ldsfld aa130004 CustomControlPreLoad
+ IL_01a5: 280100002b           call 0100002b
+ IL_01aa: 110a                 ldloc.s 0a
+ IL_01ac: 20e6976903           ldc.i4 e6976903
+ IL_01b1: 7ea9130004           ldsfld a9130004 CustomControlLoad
+ IL_01b6: 280100002b           call 0100002b
+ IL_01bb: 2a                   ret
+Raw complete EH section 414c0000000000007d00000034000000b100000003000000ee0000010200000049000000d10000001a010000150000000000000002000000230000001a0100003d0100001500000000000000
+
+0600125c Sims3.UI.UIManager::InitInstancePools RVA=0006565c bytes=601 maxStack=3 flags=3003 localSignature=00000000
+Raw complete method header 033003005902000000000000
+Raw complete CIL 7e9f13000420d8b8c14ed06c000002281500000a6f8c04000a7e9f13000420c3e2efeed060000002281500000a6f8c04000a7e9f130004201bf5156fd03f030002281500000a6f8c04000a7e9f13000420f0b4426fd023060002281500000a6f8c04000a7e9f130004206d7df38ed079030002281500000a6f8c04000a7e9f13000420738b0b0fd035000002281500000a6f8c04000a7e9f130004202b28386fd08c000002281500000a6f8c04000a7e9f13000420b3bd002fd0c4040002281500000a6f8c04000a7e9f13000420b33b064fd02a060002281500000a6f8c04000a7e9f130004204b2c55afd0c7050002281500000a6f8c04000a7e9f13000420a61a1f6fd091000002281500000a6f8c04000a7e9f13000420131f9603d032000002281500000a6f8c04000a7ea0130004d06c000002281500000a738d04000a6f8e04000a7ea0130004d060000002281500000a738d04000a6f8e04000a7ea0130004d03f030002281500000a738d04000a6f8e04000a7ea0130004d023060002281500000a738d04000a6f8e04000a7ea0130004d079030002281500000a738d04000a6f8e04000a7ea0130004d035000002281500000a738d04000a6f8e04000a7ea0130004d08c000002281500000a738d04000a6f8e04000a7ea0130004d0c4040002281500000a738d04000a6f8e04000a7ea0130004d02a060002281500000a738d04000a6f8e04000a7ea0130004d0c7050002281500000a738d04000a6f8e04000a7ea0130004d091000002281500000a738d04000a6f8e04000a7ea0130004d032000002281500000a738d04000a6f8e04000a2a
+ IL_0000: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_0005: 20d8b8c14e           ldc.i4 d8b8c14e
+ IL_000a: d06c000002           ldtoken 6c000002
+ IL_000f: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0014: 6f8c04000a           callvirt 8c04000a Add
+ IL_0019: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_001e: 20c3e2efee           ldc.i4 c3e2efee
+ IL_0023: d060000002           ldtoken 60000002
+ IL_0028: 281500000a           call 1500000a GetTypeFromHandle
+ IL_002d: 6f8c04000a           callvirt 8c04000a Add
+ IL_0032: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_0037: 201bf5156f           ldc.i4 1bf5156f
+ IL_003c: d03f030002           ldtoken 3f030002
+ IL_0041: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0046: 6f8c04000a           callvirt 8c04000a Add
+ IL_004b: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_0050: 20f0b4426f           ldc.i4 f0b4426f
+ IL_0055: d023060002           ldtoken 23060002
+ IL_005a: 281500000a           call 1500000a GetTypeFromHandle
+ IL_005f: 6f8c04000a           callvirt 8c04000a Add
+ IL_0064: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_0069: 206d7df38e           ldc.i4 6d7df38e
+ IL_006e: d079030002           ldtoken 79030002
+ IL_0073: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0078: 6f8c04000a           callvirt 8c04000a Add
+ IL_007d: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_0082: 20738b0b0f           ldc.i4 738b0b0f
+ IL_0087: d035000002           ldtoken 35000002
+ IL_008c: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0091: 6f8c04000a           callvirt 8c04000a Add
+ IL_0096: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_009b: 202b28386f           ldc.i4 2b28386f
+ IL_00a0: d08c000002           ldtoken 8c000002
+ IL_00a5: 281500000a           call 1500000a GetTypeFromHandle
+ IL_00aa: 6f8c04000a           callvirt 8c04000a Add
+ IL_00af: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_00b4: 20b3bd002f           ldc.i4 b3bd002f
+ IL_00b9: d0c4040002           ldtoken c4040002
+ IL_00be: 281500000a           call 1500000a GetTypeFromHandle
+ IL_00c3: 6f8c04000a           callvirt 8c04000a Add
+ IL_00c8: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_00cd: 20b33b064f           ldc.i4 b33b064f
+ IL_00d2: d02a060002           ldtoken 2a060002
+ IL_00d7: 281500000a           call 1500000a GetTypeFromHandle
+ IL_00dc: 6f8c04000a           callvirt 8c04000a Add
+ IL_00e1: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_00e6: 204b2c55af           ldc.i4 4b2c55af
+ IL_00eb: d0c7050002           ldtoken c7050002
+ IL_00f0: 281500000a           call 1500000a GetTypeFromHandle
+ IL_00f5: 6f8c04000a           callvirt 8c04000a Add
+ IL_00fa: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_00ff: 20a61a1f6f           ldc.i4 a61a1f6f
+ IL_0104: d091000002           ldtoken 91000002
+ IL_0109: 281500000a           call 1500000a GetTypeFromHandle
+ IL_010e: 6f8c04000a           callvirt 8c04000a Add
+ IL_0113: 7e9f130004           ldsfld 9f130004 mClassIDTypeMap
+ IL_0118: 20131f9603           ldc.i4 131f9603
+ IL_011d: d032000002           ldtoken 32000002
+ IL_0122: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0127: 6f8c04000a           callvirt 8c04000a Add
+ IL_012c: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_0131: d06c000002           ldtoken 6c000002
+ IL_0136: 281500000a           call 1500000a GetTypeFromHandle
+ IL_013b: 738d04000a           newobj 8d04000a .ctor
+ IL_0140: 6f8e04000a           callvirt 8e04000a Add
+ IL_0145: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_014a: d060000002           ldtoken 60000002
+ IL_014f: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0154: 738d04000a           newobj 8d04000a .ctor
+ IL_0159: 6f8e04000a           callvirt 8e04000a Add
+ IL_015e: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_0163: d03f030002           ldtoken 3f030002
+ IL_0168: 281500000a           call 1500000a GetTypeFromHandle
+ IL_016d: 738d04000a           newobj 8d04000a .ctor
+ IL_0172: 6f8e04000a           callvirt 8e04000a Add
+ IL_0177: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_017c: d023060002           ldtoken 23060002
+ IL_0181: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0186: 738d04000a           newobj 8d04000a .ctor
+ IL_018b: 6f8e04000a           callvirt 8e04000a Add
+ IL_0190: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_0195: d079030002           ldtoken 79030002
+ IL_019a: 281500000a           call 1500000a GetTypeFromHandle
+ IL_019f: 738d04000a           newobj 8d04000a .ctor
+ IL_01a4: 6f8e04000a           callvirt 8e04000a Add
+ IL_01a9: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_01ae: d035000002           ldtoken 35000002
+ IL_01b3: 281500000a           call 1500000a GetTypeFromHandle
+ IL_01b8: 738d04000a           newobj 8d04000a .ctor
+ IL_01bd: 6f8e04000a           callvirt 8e04000a Add
+ IL_01c2: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_01c7: d08c000002           ldtoken 8c000002
+ IL_01cc: 281500000a           call 1500000a GetTypeFromHandle
+ IL_01d1: 738d04000a           newobj 8d04000a .ctor
+ IL_01d6: 6f8e04000a           callvirt 8e04000a Add
+ IL_01db: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_01e0: d0c4040002           ldtoken c4040002
+ IL_01e5: 281500000a           call 1500000a GetTypeFromHandle
+ IL_01ea: 738d04000a           newobj 8d04000a .ctor
+ IL_01ef: 6f8e04000a           callvirt 8e04000a Add
+ IL_01f4: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_01f9: d02a060002           ldtoken 2a060002
+ IL_01fe: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0203: 738d04000a           newobj 8d04000a .ctor
+ IL_0208: 6f8e04000a           callvirt 8e04000a Add
+ IL_020d: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_0212: d0c7050002           ldtoken c7050002
+ IL_0217: 281500000a           call 1500000a GetTypeFromHandle
+ IL_021c: 738d04000a           newobj 8d04000a .ctor
+ IL_0221: 6f8e04000a           callvirt 8e04000a Add
+ IL_0226: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_022b: d091000002           ldtoken 91000002
+ IL_0230: 281500000a           call 1500000a GetTypeFromHandle
+ IL_0235: 738d04000a           newobj 8d04000a .ctor
+ IL_023a: 6f8e04000a           callvirt 8e04000a Add
+ IL_023f: 7ea0130004           ldsfld a0130004 mInstancePools
+ IL_0244: d032000002           ldtoken 32000002
+ IL_0249: 281500000a           call 1500000a GetTypeFromHandle
+ IL_024e: 738d04000a           newobj 8d04000a .ctor
+ IL_0253: 6f8e04000a           callvirt 8e04000a Add
+ IL_0258: 2a                   ret
+
+06001c09 Sims3.UI.BuyController::Init RVA=000a1160 bytes=4858 maxStack=4 flags=3013 localSignature=110004ef
+Raw complete method header 13300400fa120000ef040011
+Raw complete CIL 02281d0e00066fd80d00067d7e1d000402280e1c000602177d851d00040202fe06271c0006734600000a28220000060202fe06271c0006734600000a28240000060202fe06281c0006734802000a282800000602fe06be1c0006734900000a284a00000a02fe06501c000673cf12000628ec110006281d0e00066fdf0d000602fe06511c000673271900066f33190006027b7e1d00047ec31d00046ffb0300060a062c0d0220000400007dbc1d00042b0b0220000200007dbc1d000402167de21d000402177de31d00040202200020000017287b0000067d501d00040202200120000017287b0000067d521d00040202200220000017287b0000067d531d00040202200320000017287b0000067d511d00040202200420000017287b0000067d541d00040202201004000017287b000006756c0000027d551d00040202201204000017287b00000675460300027d561d0004027b561d000402fe06451c000673cf1d00066fc41d00060202202a04000017287b0000067d601d00040202201104000017287b000006756c0000027d571d00040202201304000017287b00000675600000027d581d0004027b581d000402fe06461c0006739000000a6fd10200060202201404000017287b00000675600000027d591d0004027b591d000402fe06471c0006739000000a6fd10200060202201504000017287b00000675600000027d5a1d0004027b5a1d000402fe06491c0006739000000a6fd102000602202904000017287b00000675600000020b0702fe064a1c0006739000000a6fd10200060202202004000017287b000006756c0000027d5b1d00040202202304000017287b00000675490200027d5c1d0004027b5c1d00041428900000062c1c027b5c1d00046f3413000602fe06751c000673cf1d00066fc41d00060202202704000017287b00000675600000027d5d1d0004027b5d1d000402fe064c1c0006739000000a6fd10200060202202804000017287b00000675600000027d5e1d0004027b5e1d000402fe064d1c0006739000000a6fd10200060202200121000017287b00000675490200027d611d0004027b611d00046f3413000602fe06751c000673cf1d00066fc41d00060202200221000017287b00000675490200027d621d0004027b621d00046f3413000602fe06751c000673cf1d00066fc41d00060202200321000017287b00000675490200027d631d0004027b631d00046f3413000602fe06751c000673cf1d00066fc41d00060202200421000017287b00000675490200027d641d0004027b641d00046f3413000602fe06751c000673cf1d00066fc41d000602027b501d00046f50000006130d120d282c00000a7dc61d000402027b611d00046f341300066f581d00067dc71d000402027b521d00046f50000006130e120e282c00000a7dc81d000402027b621d00046f3f1300067dc91d000402027b531d00046f50000006130f120f282c00000a7dca1d000402027b631d00046f3f1300067dcb1d000402027b5b1d00046f5000000613101210282c00000a7dcc1d000402027b5c1d00046f3f1300067dcd1d000402027b541d00046f5000000613111211282c00000a7dce1d000402027b641d00046f3f1300067dcf1d00040202200122000017287b00000675600000027d661d0004027b661d000402fe063c1c0006739000000a6fd10200060202200222000017287b00000675600000027d671d0004027b671d000402fe063c1c0006739000000a6fd10200060202202604000017287b00000675600000027d5f1d0004027b5f1d000402fe063c1c0006739000000a6fd102000602027b671d00042050f54e0b176f7b00000675db0300027d681d0004027b681d000402fe064f1c0006736401000a6fb320000602022090fbb80d17287b00000675600000027d691d0004027b691d000402fe063d1c0006739000000a6fd102000602022091fbb80d17287b00000675600000027d6a1d0004027b6a1d000402fe063d1c0006739000000a6fd10200060202208039d30d17287b00000675600000027d6b1d0004027b6b1d000402fe063d1c0006739000000a6fd1020006020220703ad30d17287b00000675600000027d6c1d0004027b6c1d000402fe063d1c0006739000000a6fd1020006284405000a2c60027b691d0004166f3f000006027b691d0004166f3d000006027b6a1d0004166f3f000006027b6a1d0004166f3d000006027b6b1d0004166f3f000006027b6b1d0004166f3d000006027b6c1d0004166f3f000006027b6c1d0004166f3d0000060202209035ba0d17287b000006756c0000027d6e1d0004020220c031ba0d17287b000006756c0000027d6d1d00040202202039d30d17287b000006756c0000027d701d0004020220d037d30d17287b000006756c0000027d6f1d0004020220b057bb0d17287b000006753f0300027d711d0004027b711d0004288806000a13121212289b00000a6f58000006020220c063bb0d17287b000006756c0000027d731d00040202202060bb0d17287b00000675600000027d721d0004027b721d000402fe06401c0006739000000a6fd1020006027b721d000402fe06411c0006734600000a6f22000006027b721d000402fe06421c0006734600000a6f240000060202200123000017287b00000675970100027d741d0004027b741d000402fe066a1c000673960d00066f800d00060202200223000017287b00000675970100027d751d0004027b751d000402fe066a1c000673960d00066f800d000602027b631d00047d761d00040202200815ac0517287b000006756c0000027da51d00040202200716ac0517287b000006756c0000027da71d000402022078b3ec0617287b000006756c0000027da91d0004020220b0f4ec0617287b000006756c0000027daa1d00040202209800ea0617287b000006756c0000027da81d0004020220b840e70617287b000006756c0000027da61d0004027ba61d00041428900000062c50160c027ba61d0004086f7c0000060d2b36097560000002130411041428900000062c13110402fe06691c0006739000000a6fd1020006027ba61d0004081758250c6f7c0000060d091428900000062dc17eb41d00042c1e027ba61d000420e3e6e806176f7b00000675600000020b07176f3d000006161305200002000028c900000a2d39027ba61d000420dbe6e806176f7b00000675600000020b07166f3d00000602207020c10717287b00000675600000020b07166f3d0000062b3d027ba61d000420dbe6e806176f7b00000675600000020b07176f3d00000602207020c10717287b00000675600000020b07176f3d000006110517581305200008000028c900000a2d20027ba61d000420dce6e806176f7b00000675600000020b07166f3d0000062b24027ba61d000420dce6e806176f7b00000675600000020b07176f3d000006110517581305200000040028c900000a2d20027ba61d000420e1e6e806176f7b00000675600000020b07166f3d0000062b3f027ba61d000420e1e6e806176f7b00000675600000020b027b7e1d00047ec31d00046f160400062d0907166f3d0000062b0d07176f3d000006110517581305110517310602280a1c00060202200f15ac0517287b00000675600000027d7f1d0004027b7f1d00041428900000062c17027b7f1d000402fe06711c0006739000000a6fd10200060202205857e20617287b000006756c0000027d9a1d000402022009c8f90617287b000006756c0000027d9d1d0004027b9a1d0004142890000006394502000002027b9a1d000420d8c7f906176f7b000006756c0000027d9b1d000402027b9a1d00042008c8f906176f7b000006756c0000027d9c1d000402027b9a1d0004206007b705176f7b00000675600000027d9e1d0004027b9e1d00041428900000062c17027b9e1d000402fe06761c0006739000000a6fd102000602027b9a1d0004204006b705176f7b00000675600000027d9f1d0004027b9f1d00041428900000062c17027b9f1d000402fe06771c0006739000000a6fd102000602027b9a1d0004202807b705176f7b00000675600000027da01d0004027ba01d00041428900000062c17027ba01d000402fe06781c0006739000000a6fd102000602027b9a1d000420b006b705176f7b00000675600000027da11d0004027ba11d00041428900000062c17027ba11d000402fe06791c0006739000000a6fd102000602027b9a1d000420c006b705176f7b00000675600000027da21d0004027ba21d00041428900000062c30027ba21d000402fe067a1c0006739000000a6fd1020006027ba21d0004027bc41d00046f0007000617fe016fd802000602027b9a1d000420d006b705176f7b00000675600000027da31d0004027ba31d00041428900000062c33027ba31d000402fe067b1c0006739000000a6fd1020006027ba31d0004027bc41d00046ffe06000616fe0116fe016fd8020006027b9a1d0004200ac8f906176f7b00000675600000020b071428900000062c32027be91d00042d11281d0e00066fd70d00066f100400062c0707166f3f0000060702fe067c1c0006739000000a6fd10200060202200415ac0517287b00000675460300027d651d0004027b651d00041428900000062c7502147d791d000402027b651d00047d781d0004027b781d000402fe06751c000673cf1d00066fc41d0006027b781d0004027b891d00047b2900000a6d6f591d0006027b781d0004027b891d00047b2a00000a6d6f5b1d0006027b781d0004166f3d00000602027b781d00046f500000067d7d1d000402027b531d000420e0400f07176f7b000006753f0300027d7a1d000402027b531d000420e1400f07176f7b00000675600000027d7b1d0004027b7b1d00041428900000062c17027b7b1d000402fe06b91c0006739000000a6fd102000602027b531d000420e2400f07176f7b00000675600000027d7c1d0004027b7c1d00041428900000062c2e027b7c1d000402fe06b71c0006735d00000a6f6d000006027b7c1d000402fe06b81c0006735d00000a6f730000060202200173b10517287b00000675600000027dab1d0004027bab1d00041428900000062c17027bab1d000402fe06671c0006739000000a6fd10200060202200073b10517287b00000675600000027dac1d0004027bac1d00041428900000062c17027bac1d000402fe06671c0006739000000a6fd10200060202200273b10517287b00000675600000027dad1d0004027bad1d00041428900000062c17027bad1d000402fe06671c0006739000000a6fd1020006020220d106b70517287b00000675600000027da41d0004027ba41d00041428900000062c23027ba41d000402fe06671c0006739000000a6fd1020006027ba41d0004166fd802000602fe06431c000673d603000a28d703000a020220700cd30d17287b00000675600000027dae1d0004027bae1d00041428900000062c17027bae1d000402fe06671c0006739000000a6fd102000602203091e80617287b0000067560000002130611061428900000062c13110602fe06681c0006739000000a6fd10200060202200d15ac0517287b00000675600000027d801d0004027b801d000402fe06731c0006739000000a6fd10200060202200e15ac0517287b00000675600000027d811d0004027b811d000402fe06741c0006739000000a6fd10200060202200004000017287b000006753f0300027d821d00040202200104000017287b000006753f0300027d831d0004027b821d00047ec31d000428d403000a6a28aa02000a6f58000006027b831d00047ec31d000428d503000a6a28aa02000a6f580000067eb31d00042c707eb31d00046f8906000a13072b591207288a06000a13081208288b06000a1309021208288c06000a17287b0000067560000002130a110a1428900000062c28110a02fe06631c0006739000000a6fd10200067eb31d00042c0e110a12097b021e00046f5c0000061207288d06000a2d9e2811120006130b110b1428900000062c2d110b02fe06701c0006734700000a6f30000006110b02fe063b1c0006734500000a6f1c00000602177dc21d000402fe06851c0006739c02000a289d02000a02fe06871c000673cb12000628ea110006027b7e1d00042c27027b7e1d000402fe06861c000673dd1b00066ff6030006027b7e1d00047ec31d00046fe11b000602281d0e00066fe50d00066f3707000614fe017dbe1d000402027b7e1d00046ffc0300062d08027bbe1d00042b01177dbf1d0004027b7e1d000402fe06881c0006732f1900066ff8030006027b7e1d00046ff40300062d1702281d0e00066fd80d00066f0e0400067dd01d00042b4e02147dd01d000402200273b10517287b0000067560000002130c110c1428900000062c08110c166f3f000006027b7e1d00046fe91b0006200273b1053310027b7e1d0004200073b1056fea1b00067e9902000a14fe06bb1c0006739a02000a282000000a7411010001809902000a0228111200067dd91d000428d837000628911a00061428900000062c2c28911a000602fe068d1c0006739a1b00066f251b000628911a000602fe068e1c0006739e1b00066f271b0006027b7e1d00046f0f0400066fb00600060228801c00060228821c0006110b02fe06151c0006734802000a6f28000006021628141c00060202fe060d1c0006734800000a281800000616282e1200062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 281d0e0006           call 1d0e0006 get_Instance
+ IL_0006: 6fd80d0006           callvirt d80d0006 get_BuyModel
+ IL_000b: 7d7e1d0004           stfld 7e1d0004 mBuyModel
+ IL_0010: 02                   ldarg.0
+ IL_0011: 280e1c0006           call 0e1c0006 InitBuyPuck
+ IL_0016: 02                   ldarg.0
+ IL_0017: 17                   ldc.i4.1
+ IL_0018: 7d851d0004           stfld 851d0004 mbHandtoolResetEnabled
+ IL_001d: 02                   ldarg.0
+ IL_001e: 02                   ldarg.0
+ IL_001f: fe06271c0006         ldftn 271c0006 OnFocusChange
+ IL_0025: 734600000a           newobj 4600000a .ctor
+ IL_002a: 2822000006           call 22000006 add_FocusAcquired
+ IL_002f: 02                   ldarg.0
+ IL_0030: 02                   ldarg.0
+ IL_0031: fe06271c0006         ldftn 271c0006 OnFocusChange
+ IL_0037: 734600000a           newobj 4600000a .ctor
+ IL_003c: 2824000006           call 24000006 add_FocusLost
+ IL_0041: 02                   ldarg.0
+ IL_0042: 02                   ldarg.0
+ IL_0043: fe06281c0006         ldftn 281c0006 OnAreaChange
+ IL_0049: 734802000a           newobj 4802000a .ctor
+ IL_004e: 2828000006           call 28000006 add_AreaChange
+ IL_0053: 02                   ldarg.0
+ IL_0054: fe06be1c0006         ldftn be1c0006 OnCameraControllerSwitch
+ IL_005a: 734900000a           newobj 4900000a .ctor
+ IL_005f: 284a00000a           call 4a00000a add_OnCameraControllerSwitchCallback
+ IL_0064: 02                   ldarg.0
+ IL_0065: fe06501c0006         ldftn 501c0006 OnNewContentInstalled
+ IL_006b: 73cf120006           newobj cf120006 .ctor
+ IL_0070: 28ec110006           call ec110006 add_NewContentInstalled
+ IL_0075: 281d0e0006           call 1d0e0006 get_Instance
+ IL_007a: 6fdf0d0006           callvirt df0d0006 get_StoreUI
+ IL_007f: 02                   ldarg.0
+ IL_0080: fe06511c0006         ldftn 511c0006 OnFeaturedItemRemoveErrorHandler
+ IL_0086: 7327190006           newobj 27190006 .ctor
+ IL_008b: 6f33190006           callvirt 33190006 add_OnFeaturedItemRemoveError
+ IL_0090: 02                   ldarg.0
+ IL_0091: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_0096: 7ec31d0004           ldsfld c31d0004 mLotId
+ IL_009b: 6ffb030006           callvirt fb030006 IsCommunityLot
+ IL_00a0: 0a                   stloc.0
+ IL_00a1: 06                   ldloc.0
+ IL_00a2: 2c0d                 brfalse.s 0d
+ IL_00a4: 02                   ldarg.0
+ IL_00a5: 2000040000           ldc.i4 00040000
+ IL_00aa: 7dbc1d0004           stfld bc1d0004 mRoomCategoryFlagsToExclude
+ IL_00af: 2b0b                 br.s 0b
+ IL_00b1: 02                   ldarg.0
+ IL_00b2: 2000020000           ldc.i4 00020000
+ IL_00b7: 7dbc1d0004           stfld bc1d0004 mRoomCategoryFlagsToExclude
+ IL_00bc: 02                   ldarg.0
+ IL_00bd: 16                   ldc.i4.0
+ IL_00be: 7de21d0004           stfld e21d0004 mbCompositorActive
+ IL_00c3: 02                   ldarg.0
+ IL_00c4: 17                   ldc.i4.1
+ IL_00c5: 7de31d0004           stfld e31d0004 mbCompositorSaveMiddlePuckVisibility
+ IL_00ca: 02                   ldarg.0
+ IL_00cb: 02                   ldarg.0
+ IL_00cc: 2000200000           ldc.i4 00200000
+ IL_00d1: 17                   ldc.i4.1
+ IL_00d2: 287b000006           call 7b000006 GetChildByID
+ IL_00d7: 7d501d0004           stfld 501d0004 mWindowSortByRoom
+ IL_00dc: 02                   ldarg.0
+ IL_00dd: 02                   ldarg.0
+ IL_00de: 2001200000           ldc.i4 01200000
+ IL_00e3: 17                   ldc.i4.1
+ IL_00e4: 287b000006           call 7b000006 GetChildByID
+ IL_00e9: 7d521d0004           stfld 521d0004 mWindowSortByFunction
+ IL_00ee: 02                   ldarg.0
+ IL_00ef: 02                   ldarg.0
+ IL_00f0: 2002200000           ldc.i4 02200000
+ IL_00f5: 17                   ldc.i4.1
+ IL_00f6: 287b000006           call 7b000006 GetChildByID
+ IL_00fb: 7d531d0004           stfld 531d0004 mWindowFamilyInventory
+ IL_0100: 02                   ldarg.0
+ IL_0101: 02                   ldarg.0
+ IL_0102: 2003200000           ldc.i4 03200000
+ IL_0107: 17                   ldc.i4.1
+ IL_0108: 287b000006           call 7b000006 GetChildByID
+ IL_010d: 7d511d0004           stfld 511d0004 mWindowSortByRoomEmpty
+ IL_0112: 02                   ldarg.0
+ IL_0113: 02                   ldarg.0
+ IL_0114: 2004200000           ldc.i4 04200000
+ IL_0119: 17                   ldc.i4.1
+ IL_011a: 287b000006           call 7b000006 GetChildByID
+ IL_011f: 7d541d0004           stfld 541d0004 mWindowStoreNotable
+ IL_0124: 02                   ldarg.0
+ IL_0125: 02                   ldarg.0
+ IL_0126: 2010040000           ldc.i4 10040000
+ IL_012b: 17                   ldc.i4.1
+ IL_012c: 287b000006           call 7b000006 GetChildByID
+ IL_0131: 756c000002           isinst 6c000002
+ IL_0136: 7d551d0004           stfld 551d0004 mCollectionWindow
+ IL_013b: 02                   ldarg.0
+ IL_013c: 02                   ldarg.0
+ IL_013d: 2012040000           ldc.i4 12040000
+ IL_0142: 17                   ldc.i4.1
+ IL_0143: 287b000006           call 7b000006 GetChildByID
+ IL_0148: 7546030002           isinst 46030002
+ IL_014d: 7d561d0004           stfld 561d0004 mCollectionGrid
+ IL_0152: 02                   ldarg.0
+ IL_0153: 7b561d0004           ldfld 561d0004 mCollectionGrid
+ IL_0158: 02                   ldarg.0
+ IL_0159: fe06451c0006         ldftn 451c0006 OnCollectionGridItemClick
+ IL_015f: 73cf1d0006           newobj cf1d0006 .ctor
+ IL_0164: 6fc41d0006           callvirt c41d0006 add_ItemClicked
+ IL_0169: 02                   ldarg.0
+ IL_016a: 02                   ldarg.0
+ IL_016b: 202a040000           ldc.i4 2a040000
+ IL_0170: 17                   ldc.i4.1
+ IL_0171: 287b000006           call 7b000006 GetChildByID
+ IL_0176: 7d601d0004           stfld 601d0004 mNoCollectionWindow
+ IL_017b: 02                   ldarg.0
+ IL_017c: 02                   ldarg.0
+ IL_017d: 2011040000           ldc.i4 11040000
+ IL_0182: 17                   ldc.i4.1
+ IL_0183: 287b000006           call 7b000006 GetChildByID
+ IL_0188: 756c000002           isinst 6c000002
+ IL_018d: 7d571d0004           stfld 571d0004 mCollectionBackgroundWindow
+ IL_0192: 02                   ldarg.0
+ IL_0193: 02                   ldarg.0
+ IL_0194: 2013040000           ldc.i4 13040000
+ IL_0199: 17                   ldc.i4.1
+ IL_019a: 287b000006           call 7b000006 GetChildByID
+ IL_019f: 7560000002           isinst 60000002
+ IL_01a4: 7d581d0004           stfld 581d0004 mOrganizeCollectionsButton
+ IL_01a9: 02                   ldarg.0
+ IL_01aa: 7b581d0004           ldfld 581d0004 mOrganizeCollectionsButton
+ IL_01af: 02                   ldarg.0
+ IL_01b0: fe06461c0006         ldftn 461c0006 OnOrganizeCollectionsClick
+ IL_01b6: 739000000a           newobj 9000000a .ctor
+ IL_01bb: 6fd1020006           callvirt d1020006 add_Click
+ IL_01c0: 02                   ldarg.0
+ IL_01c1: 02                   ldarg.0
+ IL_01c2: 2014040000           ldc.i4 14040000
+ IL_01c7: 17                   ldc.i4.1
+ IL_01c8: 287b000006           call 7b000006 GetChildByID
+ IL_01cd: 7560000002           isinst 60000002
+ IL_01d2: 7d591d0004           stfld 591d0004 mDeleteCollectionButton
+ IL_01d7: 02                   ldarg.0
+ IL_01d8: 7b591d0004           ldfld 591d0004 mDeleteCollectionButton
+ IL_01dd: 02                   ldarg.0
+ IL_01de: fe06471c0006         ldftn 471c0006 OnDeleteCollectionClick
+ IL_01e4: 739000000a           newobj 9000000a .ctor
+ IL_01e9: 6fd1020006           callvirt d1020006 add_Click
+ IL_01ee: 02                   ldarg.0
+ IL_01ef: 02                   ldarg.0
+ IL_01f0: 2015040000           ldc.i4 15040000
+ IL_01f5: 17                   ldc.i4.1
+ IL_01f6: 287b000006           call 7b000006 GetChildByID
+ IL_01fb: 7560000002           isinst 60000002
+ IL_0200: 7d5a1d0004           stfld 5a1d0004 mEditCollectionButton
+ IL_0205: 02                   ldarg.0
+ IL_0206: 7b5a1d0004           ldfld 5a1d0004 mEditCollectionButton
+ IL_020b: 02                   ldarg.0
+ IL_020c: fe06491c0006         ldftn 491c0006 OnEditCollectionClick
+ IL_0212: 739000000a           newobj 9000000a .ctor
+ IL_0217: 6fd1020006           callvirt d1020006 add_Click
+ IL_021c: 02                   ldarg.0
+ IL_021d: 2029040000           ldc.i4 29040000
+ IL_0222: 17                   ldc.i4.1
+ IL_0223: 287b000006           call 7b000006 GetChildByID
+ IL_0228: 7560000002           isinst 60000002
+ IL_022d: 0b                   stloc.1
+ IL_022e: 07                   ldloc.1
+ IL_022f: 02                   ldarg.0
+ IL_0230: fe064a1c0006         ldftn 4a1c0006 OnNewCollectionClick
+ IL_0236: 739000000a           newobj 9000000a .ctor
+ IL_023b: 6fd1020006           callvirt d1020006 add_Click
+ IL_0240: 02                   ldarg.0
+ IL_0241: 02                   ldarg.0
+ IL_0242: 2020040000           ldc.i4 20040000
+ IL_0247: 17                   ldc.i4.1
+ IL_0248: 287b000006           call 7b000006 GetChildByID
+ IL_024d: 756c000002           isinst 6c000002
+ IL_0252: 7d5b1d0004           stfld 5b1d0004 mCollectionCatalogWindow
+ IL_0257: 02                   ldarg.0
+ IL_0258: 02                   ldarg.0
+ IL_0259: 2023040000           ldc.i4 23040000
+ IL_025e: 17                   ldc.i4.1
+ IL_025f: 287b000006           call 7b000006 GetChildByID
+ IL_0264: 7549020002           isinst 49020002
+ IL_0269: 7d5c1d0004           stfld 5c1d0004 mGridCollection
+ IL_026e: 02                   ldarg.0
+ IL_026f: 7b5c1d0004           ldfld 5c1d0004 mGridCollection
+ IL_0274: 14                   ldnull
+ IL_0275: 2890000006           call 90000006 op_Inequality
+ IL_027a: 2c1c                 brfalse.s 1c
+ IL_027c: 02                   ldarg.0
+ IL_027d: 7b5c1d0004           ldfld 5c1d0004 mGridCollection
+ IL_0282: 6f34130006           callvirt 34130006 get_Grid
+ IL_0287: 02                   ldarg.0
+ IL_0288: fe06751c0006         ldftn 751c0006 OnCatalogGridSelect
+ IL_028e: 73cf1d0006           newobj cf1d0006 .ctor
+ IL_0293: 6fc41d0006           callvirt c41d0006 add_ItemClicked
+ IL_0298: 02                   ldarg.0
+ IL_0299: 02                   ldarg.0
+ IL_029a: 2027040000           ldc.i4 27040000
+ IL_029f: 17                   ldc.i4.1
+ IL_02a0: 287b000006           call 7b000006 GetChildByID
+ IL_02a5: 7560000002           isinst 60000002
+ IL_02aa: 7d5d1d0004           stfld 5d1d0004 mDeleteItemFromCollectionButton
+ IL_02af: 02                   ldarg.0
+ IL_02b0: 7b5d1d0004           ldfld 5d1d0004 mDeleteItemFromCollectionButton
+ IL_02b5: 02                   ldarg.0
+ IL_02b6: fe064c1c0006         ldftn 4c1c0006 OnDeleteItemFromCollectionClick
+ IL_02bc: 739000000a           newobj 9000000a .ctor
+ IL_02c1: 6fd1020006           callvirt d1020006 add_Click
+ IL_02c6: 02                   ldarg.0
+ IL_02c7: 02                   ldarg.0
+ IL_02c8: 2028040000           ldc.i4 28040000
+ IL_02cd: 17                   ldc.i4.1
+ IL_02ce: 287b000006           call 7b000006 GetChildByID
+ IL_02d3: 7560000002           isinst 60000002
+ IL_02d8: 7d5e1d0004           stfld 5e1d0004 mOrganizeCollectionItemsButton
+ IL_02dd: 02                   ldarg.0
+ IL_02de: 7b5e1d0004           ldfld 5e1d0004 mOrganizeCollectionItemsButton
+ IL_02e3: 02                   ldarg.0
+ IL_02e4: fe064d1c0006         ldftn 4d1c0006 OnOrganizeCollectionItemsClick
+ IL_02ea: 739000000a           newobj 9000000a .ctor
+ IL_02ef: 6fd1020006           callvirt d1020006 add_Click
+ IL_02f4: 02                   ldarg.0
+ IL_02f5: 02                   ldarg.0
+ IL_02f6: 2001210000           ldc.i4 01210000
+ IL_02fb: 17                   ldc.i4.1
+ IL_02fc: 287b000006           call 7b000006 GetChildByID
+ IL_0301: 7549020002           isinst 49020002
+ IL_0306: 7d611d0004           stfld 611d0004 mGridSortByRoom
+ IL_030b: 02                   ldarg.0
+ IL_030c: 7b611d0004           ldfld 611d0004 mGridSortByRoom
+ IL_0311: 6f34130006           callvirt 34130006 get_Grid
+ IL_0316: 02                   ldarg.0
+ IL_0317: fe06751c0006         ldftn 751c0006 OnCatalogGridSelect
+ IL_031d: 73cf1d0006           newobj cf1d0006 .ctor
+ IL_0322: 6fc41d0006           callvirt c41d0006 add_ItemClicked
+ IL_0327: 02                   ldarg.0
+ IL_0328: 02                   ldarg.0
+ IL_0329: 2002210000           ldc.i4 02210000
+ IL_032e: 17                   ldc.i4.1
+ IL_032f: 287b000006           call 7b000006 GetChildByID
+ IL_0334: 7549020002           isinst 49020002
+ IL_0339: 7d621d0004           stfld 621d0004 mGridSortByFunction
+ IL_033e: 02                   ldarg.0
+ IL_033f: 7b621d0004           ldfld 621d0004 mGridSortByFunction
+ IL_0344: 6f34130006           callvirt 34130006 get_Grid
+ IL_0349: 02                   ldarg.0
+ IL_034a: fe06751c0006         ldftn 751c0006 OnCatalogGridSelect
+ IL_0350: 73cf1d0006           newobj cf1d0006 .ctor
+ IL_0355: 6fc41d0006           callvirt c41d0006 add_ItemClicked
+ IL_035a: 02                   ldarg.0
+ IL_035b: 02                   ldarg.0
+ IL_035c: 2003210000           ldc.i4 03210000
+ IL_0361: 17                   ldc.i4.1
+ IL_0362: 287b000006           call 7b000006 GetChildByID
+ IL_0367: 7549020002           isinst 49020002
+ IL_036c: 7d631d0004           stfld 631d0004 mGridInventory
+ IL_0371: 02                   ldarg.0
+ IL_0372: 7b631d0004           ldfld 631d0004 mGridInventory
+ IL_0377: 6f34130006           callvirt 34130006 get_Grid
+ IL_037c: 02                   ldarg.0
+ IL_037d: fe06751c0006         ldftn 751c0006 OnCatalogGridSelect
+ IL_0383: 73cf1d0006           newobj cf1d0006 .ctor
+ IL_0388: 6fc41d0006           callvirt c41d0006 add_ItemClicked
+ IL_038d: 02                   ldarg.0
+ IL_038e: 02                   ldarg.0
+ IL_038f: 2004210000           ldc.i4 04210000
+ IL_0394: 17                   ldc.i4.1
+ IL_0395: 287b000006           call 7b000006 GetChildByID
+ IL_039a: 7549020002           isinst 49020002
+ IL_039f: 7d641d0004           stfld 641d0004 mGridStoreNotable
+ IL_03a4: 02                   ldarg.0
+ IL_03a5: 7b641d0004           ldfld 641d0004 mGridStoreNotable
+ IL_03aa: 6f34130006           callvirt 34130006 get_Grid
+ IL_03af: 02                   ldarg.0
+ IL_03b0: fe06751c0006         ldftn 751c0006 OnCatalogGridSelect
+ IL_03b6: 73cf1d0006           newobj cf1d0006 .ctor
+ IL_03bb: 6fc41d0006           callvirt c41d0006 add_ItemClicked
+ IL_03c0: 02                   ldarg.0
+ IL_03c1: 02                   ldarg.0
+ IL_03c2: 7b501d0004           ldfld 501d0004 mWindowSortByRoom
+ IL_03c7: 6f50000006           callvirt 50000006 get_Area
+ IL_03cc: 130d                 stloc.s 0d
+ IL_03ce: 120d                 ldloca.s 0d
+ IL_03d0: 282c00000a           call 2c00000a get_Width
+ IL_03d5: 7dc61d0004           stfld c61d0004 mDefaultSortByRoomWidth
+ IL_03da: 02                   ldarg.0
+ IL_03db: 02                   ldarg.0
+ IL_03dc: 7b611d0004           ldfld 611d0004 mGridSortByRoom
+ IL_03e1: 6f34130006           callvirt 34130006 get_Grid
+ IL_03e6: 6f581d0006           callvirt 581d0006 get_VisibleColumns
+ IL_03eb: 7dc71d0004           stfld c71d0004 mDefaultSortByRoomGridColumns
+ IL_03f0: 02                   ldarg.0
+ IL_03f1: 02                   ldarg.0
+ IL_03f2: 7b521d0004           ldfld 521d0004 mWindowSortByFunction
+ IL_03f7: 6f50000006           callvirt 50000006 get_Area
+ IL_03fc: 130e                 stloc.s 0e
+ IL_03fe: 120e                 ldloca.s 0e
+ IL_0400: 282c00000a           call 2c00000a get_Width
+ IL_0405: 7dc81d0004           stfld c81d0004 mDefaultSortByFunctionWidth
+ IL_040a: 02                   ldarg.0
+ IL_040b: 02                   ldarg.0
+ IL_040c: 7b621d0004           ldfld 621d0004 mGridSortByFunction
+ IL_0411: 6f3f130006           callvirt 3f130006 get_VisibleColumns
+ IL_0416: 7dc91d0004           stfld c91d0004 mDefaultSortByFunctionGridColumns
+ IL_041b: 02                   ldarg.0
+ IL_041c: 02                   ldarg.0
+ IL_041d: 7b531d0004           ldfld 531d0004 mWindowFamilyInventory
+ IL_0422: 6f50000006           callvirt 50000006 get_Area
+ IL_0427: 130f                 stloc.s 0f
+ IL_0429: 120f                 ldloca.s 0f
+ IL_042b: 282c00000a           call 2c00000a get_Width
+ IL_0430: 7dca1d0004           stfld ca1d0004 mDefaultInventoryWidth
+ IL_0435: 02                   ldarg.0
+ IL_0436: 02                   ldarg.0
+ IL_0437: 7b631d0004           ldfld 631d0004 mGridInventory
+ IL_043c: 6f3f130006           callvirt 3f130006 get_VisibleColumns
+ IL_0441: 7dcb1d0004           stfld cb1d0004 mDefaultInventoryGridColumns
+ IL_0446: 02                   ldarg.0
+ IL_0447: 02                   ldarg.0
+ IL_0448: 7b5b1d0004           ldfld 5b1d0004 mCollectionCatalogWindow
+ IL_044d: 6f50000006           callvirt 50000006 get_Area
+ IL_0452: 1310                 stloc.s 10
+ IL_0454: 1210                 ldloca.s 10
+ IL_0456: 282c00000a           call 2c00000a get_Width
+ IL_045b: 7dcc1d0004           stfld cc1d0004 mDefaultCollectionsWidth
+ IL_0460: 02                   ldarg.0
+ IL_0461: 02                   ldarg.0
+ IL_0462: 7b5c1d0004           ldfld 5c1d0004 mGridCollection
+ IL_0467: 6f3f130006           callvirt 3f130006 get_VisibleColumns
+ IL_046c: 7dcd1d0004           stfld cd1d0004 mDefaultCollectionsGridColumns
+ IL_0471: 02                   ldarg.0
+ IL_0472: 02                   ldarg.0
+ IL_0473: 7b541d0004           ldfld 541d0004 mWindowStoreNotable
+ IL_0478: 6f50000006           callvirt 50000006 get_Area
+ IL_047d: 1311                 stloc.s 11
+ IL_047f: 1211                 ldloca.s 11
+ IL_0481: 282c00000a           call 2c00000a get_Width
+ IL_0486: 7dce1d0004           stfld ce1d0004 mDefaultStoreNotableWidth
+ IL_048b: 02                   ldarg.0
+ IL_048c: 02                   ldarg.0
+ IL_048d: 7b641d0004           ldfld 641d0004 mGridStoreNotable
+ IL_0492: 6f3f130006           callvirt 3f130006 get_VisibleColumns
+ IL_0497: 7dcf1d0004           stfld cf1d0004 mDefaultStoreNotableGridColumns
+ IL_049c: 02                   ldarg.0
+ IL_049d: 02                   ldarg.0
+ IL_049e: 2001220000           ldc.i4 01220000
+ IL_04a3: 17                   ldc.i4.1
+ IL_04a4: 287b000006           call 7b000006 GetChildByID
+ IL_04a9: 7560000002           isinst 60000002
+ IL_04ae: 7d661d0004           stfld 661d0004 mButtonFilterSortByRoom
+ IL_04b3: 02                   ldarg.0
+ IL_04b4: 7b661d0004           ldfld 661d0004 mButtonFilterSortByRoom
+ IL_04b9: 02                   ldarg.0
+ IL_04ba: fe063c1c0006         ldftn 3c1c0006 OnFilterButtonClick
+ IL_04c0: 739000000a           newobj 9000000a .ctor
+ IL_04c5: 6fd1020006           callvirt d1020006 add_Click
+ IL_04ca: 02                   ldarg.0
+ IL_04cb: 02                   ldarg.0
+ IL_04cc: 2002220000           ldc.i4 02220000
+ IL_04d1: 17                   ldc.i4.1
+ IL_04d2: 287b000006           call 7b000006 GetChildByID
+ IL_04d7: 7560000002           isinst 60000002
+ IL_04dc: 7d671d0004           stfld 671d0004 mButtonFilterSortByFunction
+ IL_04e1: 02                   ldarg.0
+ IL_04e2: 7b671d0004           ldfld 671d0004 mButtonFilterSortByFunction
+ IL_04e7: 02                   ldarg.0
+ IL_04e8: fe063c1c0006         ldftn 3c1c0006 OnFilterButtonClick
+ IL_04ee: 739000000a           newobj 9000000a .ctor
+ IL_04f3: 6fd1020006           callvirt d1020006 add_Click
+ IL_04f8: 02                   ldarg.0
+ IL_04f9: 02                   ldarg.0
+ IL_04fa: 2026040000           ldc.i4 26040000
+ IL_04ff: 17                   ldc.i4.1
+ IL_0500: 287b000006           call 7b000006 GetChildByID
+ IL_0505: 7560000002           isinst 60000002
+ IL_050a: 7d5f1d0004           stfld 5f1d0004 mButtonFilterCollection
+ IL_050f: 02                   ldarg.0
+ IL_0510: 7b5f1d0004           ldfld 5f1d0004 mButtonFilterCollection
+ IL_0515: 02                   ldarg.0
+ IL_0516: fe063c1c0006         ldftn 3c1c0006 OnFilterButtonClick
+ IL_051c: 739000000a           newobj 9000000a .ctor
+ IL_0521: 6fd1020006           callvirt d1020006 add_Click
+ IL_0526: 02                   ldarg.0
+ IL_0527: 02                   ldarg.0
+ IL_0528: 7b671d0004           ldfld 671d0004 mButtonFilterSortByFunction
+ IL_052d: 2050f54e0b           ldc.i4 50f54e0b
+ IL_0532: 17                   ldc.i4.1
+ IL_0533: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0538: 75db030002           isinst db030002
+ IL_053d: 7d681d0004           stfld 681d0004 mCatalogProductFilter
+ IL_0542: 02                   ldarg.0
+ IL_0543: 7b681d0004           ldfld 681d0004 mCatalogProductFilter
+ IL_0548: 02                   ldarg.0
+ IL_0549: fe064f1c0006         ldftn 4f1c0006 CatalogProductFilterChanged
+ IL_054f: 736401000a           newobj 6401000a .ctor
+ IL_0554: 6fb3200006           callvirt b3200006 add_FiltersChanged
+ IL_0559: 02                   ldarg.0
+ IL_055a: 02                   ldarg.0
+ IL_055b: 2090fbb80d           ldc.i4 90fbb80d
+ IL_0560: 17                   ldc.i4.1
+ IL_0561: 287b000006           call 7b000006 GetChildByID
+ IL_0566: 7560000002           isinst 60000002
+ IL_056b: 7d691d0004           stfld 691d0004 mButtonShopModeSortByRoom
+ IL_0570: 02                   ldarg.0
+ IL_0571: 7b691d0004           ldfld 691d0004 mButtonShopModeSortByRoom
+ IL_0576: 02                   ldarg.0
+ IL_0577: fe063d1c0006         ldftn 3d1c0006 OnShopModeButtonClick
+ IL_057d: 739000000a           newobj 9000000a .ctor
+ IL_0582: 6fd1020006           callvirt d1020006 add_Click
+ IL_0587: 02                   ldarg.0
+ IL_0588: 02                   ldarg.0
+ IL_0589: 2091fbb80d           ldc.i4 91fbb80d
+ IL_058e: 17                   ldc.i4.1
+ IL_058f: 287b000006           call 7b000006 GetChildByID
+ IL_0594: 7560000002           isinst 60000002
+ IL_0599: 7d6a1d0004           stfld 6a1d0004 mButtonShopModeSortByFunction
+ IL_059e: 02                   ldarg.0
+ IL_059f: 7b6a1d0004           ldfld 6a1d0004 mButtonShopModeSortByFunction
+ IL_05a4: 02                   ldarg.0
+ IL_05a5: fe063d1c0006         ldftn 3d1c0006 OnShopModeButtonClick
+ IL_05ab: 739000000a           newobj 9000000a .ctor
+ IL_05b0: 6fd1020006           callvirt d1020006 add_Click
+ IL_05b5: 02                   ldarg.0
+ IL_05b6: 02                   ldarg.0
+ IL_05b7: 208039d30d           ldc.i4 8039d30d
+ IL_05bc: 17                   ldc.i4.1
+ IL_05bd: 287b000006           call 7b000006 GetChildByID
+ IL_05c2: 7560000002           isinst 60000002
+ IL_05c7: 7d6b1d0004           stfld 6b1d0004 mButtonShopModeNotable
+ IL_05cc: 02                   ldarg.0
+ IL_05cd: 7b6b1d0004           ldfld 6b1d0004 mButtonShopModeNotable
+ IL_05d2: 02                   ldarg.0
+ IL_05d3: fe063d1c0006         ldftn 3d1c0006 OnShopModeButtonClick
+ IL_05d9: 739000000a           newobj 9000000a .ctor
+ IL_05de: 6fd1020006           callvirt d1020006 add_Click
+ IL_05e3: 02                   ldarg.0
+ IL_05e4: 02                   ldarg.0
+ IL_05e5: 20703ad30d           ldc.i4 703ad30d
+ IL_05ea: 17                   ldc.i4.1
+ IL_05eb: 287b000006           call 7b000006 GetChildByID
+ IL_05f0: 7560000002           isinst 60000002
+ IL_05f5: 7d6c1d0004           stfld 6c1d0004 mButtonShopModeEmpty
+ IL_05fa: 02                   ldarg.0
+ IL_05fb: 7b6c1d0004           ldfld 6c1d0004 mButtonShopModeEmpty
+ IL_0600: 02                   ldarg.0
+ IL_0601: fe063d1c0006         ldftn 3d1c0006 OnShopModeButtonClick
+ IL_0607: 739000000a           newobj 9000000a .ctor
+ IL_060c: 6fd1020006           callvirt d1020006 add_Click
+ IL_0611: 284405000a           call 4405000a IsSims3ServiceUnreachable
+ IL_0616: 2c60                 brfalse.s 60
+ IL_0618: 02                   ldarg.0
+ IL_0619: 7b691d0004           ldfld 691d0004 mButtonShopModeSortByRoom
+ IL_061e: 16                   ldc.i4.0
+ IL_061f: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_0624: 02                   ldarg.0
+ IL_0625: 7b691d0004           ldfld 691d0004 mButtonShopModeSortByRoom
+ IL_062a: 16                   ldc.i4.0
+ IL_062b: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0630: 02                   ldarg.0
+ IL_0631: 7b6a1d0004           ldfld 6a1d0004 mButtonShopModeSortByFunction
+ IL_0636: 16                   ldc.i4.0
+ IL_0637: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_063c: 02                   ldarg.0
+ IL_063d: 7b6a1d0004           ldfld 6a1d0004 mButtonShopModeSortByFunction
+ IL_0642: 16                   ldc.i4.0
+ IL_0643: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0648: 02                   ldarg.0
+ IL_0649: 7b6b1d0004           ldfld 6b1d0004 mButtonShopModeNotable
+ IL_064e: 16                   ldc.i4.0
+ IL_064f: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_0654: 02                   ldarg.0
+ IL_0655: 7b6b1d0004           ldfld 6b1d0004 mButtonShopModeNotable
+ IL_065a: 16                   ldc.i4.0
+ IL_065b: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0660: 02                   ldarg.0
+ IL_0661: 7b6c1d0004           ldfld 6c1d0004 mButtonShopModeEmpty
+ IL_0666: 16                   ldc.i4.0
+ IL_0667: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_066c: 02                   ldarg.0
+ IL_066d: 7b6c1d0004           ldfld 6c1d0004 mButtonShopModeEmpty
+ IL_0672: 16                   ldc.i4.0
+ IL_0673: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0678: 02                   ldarg.0
+ IL_0679: 02                   ldarg.0
+ IL_067a: 209035ba0d           ldc.i4 9035ba0d
+ IL_067f: 17                   ldc.i4.1
+ IL_0680: 287b000006           call 7b000006 GetChildByID
+ IL_0685: 756c000002           isinst 6c000002
+ IL_068a: 7d6e1d0004           stfld 6e1d0004 mShopModeByFunctionBorder
+ IL_068f: 02                   ldarg.0
+ IL_0690: 02                   ldarg.0
+ IL_0691: 20c031ba0d           ldc.i4 c031ba0d
+ IL_0696: 17                   ldc.i4.1
+ IL_0697: 287b000006           call 7b000006 GetChildByID
+ IL_069c: 756c000002           isinst 6c000002
+ IL_06a1: 7d6d1d0004           stfld 6d1d0004 mShopModeByRoomBorder
+ IL_06a6: 02                   ldarg.0
+ IL_06a7: 02                   ldarg.0
+ IL_06a8: 202039d30d           ldc.i4 2039d30d
+ IL_06ad: 17                   ldc.i4.1
+ IL_06ae: 287b000006           call 7b000006 GetChildByID
+ IL_06b3: 756c000002           isinst 6c000002
+ IL_06b8: 7d701d0004           stfld 701d0004 mShopModeEmptyBorder
+ IL_06bd: 02                   ldarg.0
+ IL_06be: 02                   ldarg.0
+ IL_06bf: 20d037d30d           ldc.i4 d037d30d
+ IL_06c4: 17                   ldc.i4.1
+ IL_06c5: 287b000006           call 7b000006 GetChildByID
+ IL_06ca: 756c000002           isinst 6c000002
+ IL_06cf: 7d6f1d0004           stfld 6f1d0004 mShopModeNotableBorder
+ IL_06d4: 02                   ldarg.0
+ IL_06d5: 02                   ldarg.0
+ IL_06d6: 20b057bb0d           ldc.i4 b057bb0d
+ IL_06db: 17                   ldc.i4.1
+ IL_06dc: 287b000006           call 7b000006 GetChildByID
+ IL_06e1: 753f030002           isinst 3f030002
+ IL_06e6: 7d711d0004           stfld 711d0004 mSimPointBalance
+ IL_06eb: 02                   ldarg.0
+ IL_06ec: 7b711d0004           ldfld 711d0004 mSimPointBalance
+ IL_06f1: 288806000a           call 8806000a GetSimPointBalance
+ IL_06f6: 1312                 stloc.s 12
+ IL_06f8: 1212                 ldloca.s 12
+ IL_06fa: 289b00000a           call 9b00000a ToString
+ IL_06ff: 6f58000006           callvirt 58000006 set_Caption
+ IL_0704: 02                   ldarg.0
+ IL_0705: 02                   ldarg.0
+ IL_0706: 20c063bb0d           ldc.i4 c063bb0d
+ IL_070b: 17                   ldc.i4.1
+ IL_070c: 287b000006           call 7b000006 GetChildByID
+ IL_0711: 756c000002           isinst 6c000002
+ IL_0716: 7d731d0004           stfld 731d0004 mSimPointsWindow
+ IL_071b: 02                   ldarg.0
+ IL_071c: 02                   ldarg.0
+ IL_071d: 202060bb0d           ldc.i4 2060bb0d
+ IL_0722: 17                   ldc.i4.1
+ IL_0723: 287b000006           call 7b000006 GetChildByID
+ IL_0728: 7560000002           isinst 60000002
+ IL_072d: 7d721d0004           stfld 721d0004 mBuySimPointsButton
+ IL_0732: 02                   ldarg.0
+ IL_0733: 7b721d0004           ldfld 721d0004 mBuySimPointsButton
+ IL_0738: 02                   ldarg.0
+ IL_0739: fe06401c0006         ldftn 401c0006 OnBuySimPointsClicked
+ IL_073f: 739000000a           newobj 9000000a .ctor
+ IL_0744: 6fd1020006           callvirt d1020006 add_Click
+ IL_0749: 02                   ldarg.0
+ IL_074a: 7b721d0004           ldfld 721d0004 mBuySimPointsButton
+ IL_074f: 02                   ldarg.0
+ IL_0750: fe06411c0006         ldftn 411c0006 OnBuyButtonFocusAcquired
+ IL_0756: 734600000a           newobj 4600000a .ctor
+ IL_075b: 6f22000006           callvirt 22000006 add_FocusAcquired
+ IL_0760: 02                   ldarg.0
+ IL_0761: 7b721d0004           ldfld 721d0004 mBuySimPointsButton
+ IL_0766: 02                   ldarg.0
+ IL_0767: fe06421c0006         ldftn 421c0006 OnBuyButtonFocusLost
+ IL_076d: 734600000a           newobj 4600000a .ctor
+ IL_0772: 6f24000006           callvirt 24000006 add_FocusLost
+ IL_0777: 02                   ldarg.0
+ IL_0778: 02                   ldarg.0
+ IL_0779: 2001230000           ldc.i4 01230000
+ IL_077e: 17                   ldc.i4.1
+ IL_077f: 287b000006           call 7b000006 GetChildByID
+ IL_0784: 7597010002           isinst 97010002
+ IL_0789: 7d741d0004           stfld 741d0004 mTabContainerSortByRoom
+ IL_078e: 02                   ldarg.0
+ IL_078f: 7b741d0004           ldfld 741d0004 mTabContainerSortByRoom
+ IL_0794: 02                   ldarg.0
+ IL_0795: fe066a1c0006         ldftn 6a1c0006 OnTabSelect
+ IL_079b: 73960d0006           newobj 960d0006 .ctor
+ IL_07a0: 6f800d0006           callvirt 800d0006 add_TabSelect
+ IL_07a5: 02                   ldarg.0
+ IL_07a6: 02                   ldarg.0
+ IL_07a7: 2002230000           ldc.i4 02230000
+ IL_07ac: 17                   ldc.i4.1
+ IL_07ad: 287b000006           call 7b000006 GetChildByID
+ IL_07b2: 7597010002           isinst 97010002
+ IL_07b7: 7d751d0004           stfld 751d0004 mTabContainerSortByFunction
+ IL_07bc: 02                   ldarg.0
+ IL_07bd: 7b751d0004           ldfld 751d0004 mTabContainerSortByFunction
+ IL_07c2: 02                   ldarg.0
+ IL_07c3: fe066a1c0006         ldftn 6a1c0006 OnTabSelect
+ IL_07c9: 73960d0006           newobj 960d0006 .ctor
+ IL_07ce: 6f800d0006           callvirt 800d0006 add_TabSelect
+ IL_07d3: 02                   ldarg.0
+ IL_07d4: 02                   ldarg.0
+ IL_07d5: 7b631d0004           ldfld 631d0004 mGridInventory
+ IL_07da: 7d761d0004           stfld 761d0004 mFamilyInventoryDragDropWindow
+ IL_07df: 02                   ldarg.0
+ IL_07e0: 02                   ldarg.0
+ IL_07e1: 200815ac05           ldc.i4 0815ac05
+ IL_07e6: 17                   ldc.i4.1
+ IL_07e7: 287b000006           call 7b000006 GetChildByID
+ IL_07ec: 756c000002           isinst 6c000002
+ IL_07f1: 7da51d0004           stfld a51d0004 mCatalogDivider
+ IL_07f6: 02                   ldarg.0
+ IL_07f7: 02                   ldarg.0
+ IL_07f8: 200716ac05           ldc.i4 0716ac05
+ IL_07fd: 17                   ldc.i4.1
+ IL_07fe: 287b000006           call 7b000006 GetChildByID
+ IL_0803: 756c000002           isinst 6c000002
+ IL_0808: 7da71d0004           stfld a71d0004 mMiddlePuckWin
+ IL_080d: 02                   ldarg.0
+ IL_080e: 02                   ldarg.0
+ IL_080f: 2078b3ec06           ldc.i4 78b3ec06
+ IL_0814: 17                   ldc.i4.1
+ IL_0815: 287b000006           call 7b000006 GetChildByID
+ IL_081a: 756c000002           isinst 6c000002
+ IL_081f: 7da91d0004           stfld a91d0004 mMiddlePuckDivider
+ IL_0824: 02                   ldarg.0
+ IL_0825: 02                   ldarg.0
+ IL_0826: 20b0f4ec06           ldc.i4 b0f4ec06
+ IL_082b: 17                   ldc.i4.1
+ IL_082c: 287b000006           call 7b000006 GetChildByID
+ IL_0831: 756c000002           isinst 6c000002
+ IL_0836: 7daa1d0004           stfld aa1d0004 mMiddlePuckControlsStartMarker
+ IL_083b: 02                   ldarg.0
+ IL_083c: 02                   ldarg.0
+ IL_083d: 209800ea06           ldc.i4 9800ea06
+ IL_0842: 17                   ldc.i4.1
+ IL_0843: 287b000006           call 7b000006 GetChildByID
+ IL_0848: 756c000002           isinst 6c000002
+ IL_084d: 7da81d0004           stfld a81d0004 mCatalogSubsetSelectionWin
+ IL_0852: 02                   ldarg.0
+ IL_0853: 02                   ldarg.0
+ IL_0854: 20b840e706           ldc.i4 b840e706
+ IL_0859: 17                   ldc.i4.1
+ IL_085a: 287b000006           call 7b000006 GetChildByID
+ IL_085f: 756c000002           isinst 6c000002
+ IL_0864: 7da61d0004           stfld a61d0004 mCategorySelectionPanel
+ IL_0869: 02                   ldarg.0
+ IL_086a: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_086f: 14                   ldnull
+ IL_0870: 2890000006           call 90000006 op_Inequality
+ IL_0875: 2c50                 brfalse.s 50
+ IL_0877: 16                   ldc.i4.0
+ IL_0878: 0c                   stloc.2
+ IL_0879: 02                   ldarg.0
+ IL_087a: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_087f: 08                   ldloc.2
+ IL_0880: 6f7c000006           callvirt 7c000006 GetChildByIndex
+ IL_0885: 0d                   stloc.3
+ IL_0886: 2b36                 br.s 36
+ IL_0888: 09                   ldloc.3
+ IL_0889: 7560000002           isinst 60000002
+ IL_088e: 1304                 stloc.s 04
+ IL_0890: 1104                 ldloc.s 04
+ IL_0892: 14                   ldnull
+ IL_0893: 2890000006           call 90000006 op_Inequality
+ IL_0898: 2c13                 brfalse.s 13
+ IL_089a: 1104                 ldloc.s 04
+ IL_089c: 02                   ldarg.0
+ IL_089d: fe06691c0006         ldftn 691c0006 OnCategoryButtonClick
+ IL_08a3: 739000000a           newobj 9000000a .ctor
+ IL_08a8: 6fd1020006           callvirt d1020006 add_Click
+ IL_08ad: 02                   ldarg.0
+ IL_08ae: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_08b3: 08                   ldloc.2
+ IL_08b4: 17                   ldc.i4.1
+ IL_08b5: 58                   add
+ IL_08b6: 25                   dup
+ IL_08b7: 0c                   stloc.2
+ IL_08b8: 6f7c000006           callvirt 7c000006 GetChildByIndex
+ IL_08bd: 0d                   stloc.3
+ IL_08be: 09                   ldloc.3
+ IL_08bf: 14                   ldnull
+ IL_08c0: 2890000006           call 90000006 op_Inequality
+ IL_08c5: 2dc1                 brtrue.s c1
+ IL_08c7: 7eb41d0004           ldsfld b41d0004 sBuyDebug
+ IL_08cc: 2c1e                 brfalse.s 1e
+ IL_08ce: 02                   ldarg.0
+ IL_08cf: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_08d4: 20e3e6e806           ldc.i4 e3e6e806
+ IL_08d9: 17                   ldc.i4.1
+ IL_08da: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_08df: 7560000002           isinst 60000002
+ IL_08e4: 0b                   stloc.1
+ IL_08e5: 07                   ldloc.1
+ IL_08e6: 17                   ldc.i4.1
+ IL_08e7: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_08ec: 16                   ldc.i4.0
+ IL_08ed: 1305                 stloc.s 05
+ IL_08ef: 2000020000           ldc.i4 00020000
+ IL_08f4: 28c900000a           call c900000a IsInstalled
+ IL_08f9: 2d39                 brtrue.s 39
+ IL_08fb: 02                   ldarg.0
+ IL_08fc: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_0901: 20dbe6e806           ldc.i4 dbe6e806
+ IL_0906: 17                   ldc.i4.1
+ IL_0907: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_090c: 7560000002           isinst 60000002
+ IL_0911: 0b                   stloc.1
+ IL_0912: 07                   ldloc.1
+ IL_0913: 16                   ldc.i4.0
+ IL_0914: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0919: 02                   ldarg.0
+ IL_091a: 207020c107           ldc.i4 7020c107
+ IL_091f: 17                   ldc.i4.1
+ IL_0920: 287b000006           call 7b000006 GetChildByID
+ IL_0925: 7560000002           isinst 60000002
+ IL_092a: 0b                   stloc.1
+ IL_092b: 07                   ldloc.1
+ IL_092c: 16                   ldc.i4.0
+ IL_092d: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0932: 2b3d                 br.s 3d
+ IL_0934: 02                   ldarg.0
+ IL_0935: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_093a: 20dbe6e806           ldc.i4 dbe6e806
+ IL_093f: 17                   ldc.i4.1
+ IL_0940: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0945: 7560000002           isinst 60000002
+ IL_094a: 0b                   stloc.1
+ IL_094b: 07                   ldloc.1
+ IL_094c: 17                   ldc.i4.1
+ IL_094d: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0952: 02                   ldarg.0
+ IL_0953: 207020c107           ldc.i4 7020c107
+ IL_0958: 17                   ldc.i4.1
+ IL_0959: 287b000006           call 7b000006 GetChildByID
+ IL_095e: 7560000002           isinst 60000002
+ IL_0963: 0b                   stloc.1
+ IL_0964: 07                   ldloc.1
+ IL_0965: 17                   ldc.i4.1
+ IL_0966: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_096b: 1105                 ldloc.s 05
+ IL_096d: 17                   ldc.i4.1
+ IL_096e: 58                   add
+ IL_096f: 1305                 stloc.s 05
+ IL_0971: 2000080000           ldc.i4 00080000
+ IL_0976: 28c900000a           call c900000a IsInstalled
+ IL_097b: 2d20                 brtrue.s 20
+ IL_097d: 02                   ldarg.0
+ IL_097e: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_0983: 20dce6e806           ldc.i4 dce6e806
+ IL_0988: 17                   ldc.i4.1
+ IL_0989: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_098e: 7560000002           isinst 60000002
+ IL_0993: 0b                   stloc.1
+ IL_0994: 07                   ldloc.1
+ IL_0995: 16                   ldc.i4.0
+ IL_0996: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_099b: 2b24                 br.s 24
+ IL_099d: 02                   ldarg.0
+ IL_099e: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_09a3: 20dce6e806           ldc.i4 dce6e806
+ IL_09a8: 17                   ldc.i4.1
+ IL_09a9: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_09ae: 7560000002           isinst 60000002
+ IL_09b3: 0b                   stloc.1
+ IL_09b4: 07                   ldloc.1
+ IL_09b5: 17                   ldc.i4.1
+ IL_09b6: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_09bb: 1105                 ldloc.s 05
+ IL_09bd: 17                   ldc.i4.1
+ IL_09be: 58                   add
+ IL_09bf: 1305                 stloc.s 05
+ IL_09c1: 2000000400           ldc.i4 00000400
+ IL_09c6: 28c900000a           call c900000a IsInstalled
+ IL_09cb: 2d20                 brtrue.s 20
+ IL_09cd: 02                   ldarg.0
+ IL_09ce: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_09d3: 20e1e6e806           ldc.i4 e1e6e806
+ IL_09d8: 17                   ldc.i4.1
+ IL_09d9: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_09de: 7560000002           isinst 60000002
+ IL_09e3: 0b                   stloc.1
+ IL_09e4: 07                   ldloc.1
+ IL_09e5: 16                   ldc.i4.0
+ IL_09e6: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_09eb: 2b3f                 br.s 3f
+ IL_09ed: 02                   ldarg.0
+ IL_09ee: 7ba61d0004           ldfld a61d0004 mCategorySelectionPanel
+ IL_09f3: 20e1e6e806           ldc.i4 e1e6e806
+ IL_09f8: 17                   ldc.i4.1
+ IL_09f9: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_09fe: 7560000002           isinst 60000002
+ IL_0a03: 0b                   stloc.1
+ IL_0a04: 02                   ldarg.0
+ IL_0a05: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_0a0a: 7ec31d0004           ldsfld c31d0004 mLotId
+ IL_0a0f: 6f16040006           callvirt 16040006 IsResort
+ IL_0a14: 2d09                 brtrue.s 09
+ IL_0a16: 07                   ldloc.1
+ IL_0a17: 16                   ldc.i4.0
+ IL_0a18: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0a1d: 2b0d                 br.s 0d
+ IL_0a1f: 07                   ldloc.1
+ IL_0a20: 17                   ldc.i4.1
+ IL_0a21: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0a26: 1105                 ldloc.s 05
+ IL_0a28: 17                   ldc.i4.1
+ IL_0a29: 58                   add
+ IL_0a2a: 1305                 stloc.s 05
+ IL_0a2c: 1105                 ldloc.s 05
+ IL_0a2e: 17                   ldc.i4.1
+ IL_0a2f: 3106                 ble.s 06
+ IL_0a31: 02                   ldarg.0
+ IL_0a32: 280a1c0006           call 0a1c0006 InitPagination
+ IL_0a37: 02                   ldarg.0
+ IL_0a38: 02                   ldarg.0
+ IL_0a39: 200f15ac05           ldc.i4 0f15ac05
+ IL_0a3e: 17                   ldc.i4.1
+ IL_0a3f: 287b000006           call 7b000006 GetChildByID
+ IL_0a44: 7560000002           isinst 60000002
+ IL_0a49: 7d7f1d0004           stfld 7f1d0004 mFilterAllButton
+ IL_0a4e: 02                   ldarg.0
+ IL_0a4f: 7b7f1d0004           ldfld 7f1d0004 mFilterAllButton
+ IL_0a54: 14                   ldnull
+ IL_0a55: 2890000006           call 90000006 op_Inequality
+ IL_0a5a: 2c17                 brfalse.s 17
+ IL_0a5c: 02                   ldarg.0
+ IL_0a5d: 7b7f1d0004           ldfld 7f1d0004 mFilterAllButton
+ IL_0a62: 02                   ldarg.0
+ IL_0a63: fe06711c0006         ldftn 711c0006 OnAllButtonClick
+ IL_0a69: 739000000a           newobj 9000000a .ctor
+ IL_0a6e: 6fd1020006           callvirt d1020006 add_Click
+ IL_0a73: 02                   ldarg.0
+ IL_0a74: 02                   ldarg.0
+ IL_0a75: 205857e206           ldc.i4 5857e206
+ IL_0a7a: 17                   ldc.i4.1
+ IL_0a7b: 287b000006           call 7b000006 GetChildByID
+ IL_0a80: 756c000002           isinst 6c000002
+ IL_0a85: 7d9a1d0004           stfld 9a1d0004 mToolsPuckWin
+ IL_0a8a: 02                   ldarg.0
+ IL_0a8b: 02                   ldarg.0
+ IL_0a8c: 2009c8f906           ldc.i4 09c8f906
+ IL_0a91: 17                   ldc.i4.1
+ IL_0a92: 287b000006           call 7b000006 GetChildByID
+ IL_0a97: 756c000002           isinst 6c000002
+ IL_0a9c: 7d9d1d0004           stfld 9d1d0004 mToolsPuckCAStyleBackgroundWin
+ IL_0aa1: 02                   ldarg.0
+ IL_0aa2: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0aa7: 14                   ldnull
+ IL_0aa8: 2890000006           call 90000006 op_Inequality
+ IL_0aad: 3945020000           brfalse 45020000
+ IL_0ab2: 02                   ldarg.0
+ IL_0ab3: 02                   ldarg.0
+ IL_0ab4: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0ab9: 20d8c7f906           ldc.i4 d8c7f906
+ IL_0abe: 17                   ldc.i4.1
+ IL_0abf: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0ac4: 756c000002           isinst 6c000002
+ IL_0ac9: 7d9b1d0004           stfld 9b1d0004 mToolsPuckNormalBackgroundWin
+ IL_0ace: 02                   ldarg.0
+ IL_0acf: 02                   ldarg.0
+ IL_0ad0: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0ad5: 2008c8f906           ldc.i4 08c8f906
+ IL_0ada: 17                   ldc.i4.1
+ IL_0adb: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0ae0: 756c000002           isinst 6c000002
+ IL_0ae5: 7d9c1d0004           stfld 9c1d0004 mToolsPuckUndoRedoBackgroundWin
+ IL_0aea: 02                   ldarg.0
+ IL_0aeb: 02                   ldarg.0
+ IL_0aec: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0af1: 206007b705           ldc.i4 6007b705
+ IL_0af6: 17                   ldc.i4.1
+ IL_0af7: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0afc: 7560000002           isinst 60000002
+ IL_0b01: 7d9e1d0004           stfld 9e1d0004 mDesignButton
+ IL_0b06: 02                   ldarg.0
+ IL_0b07: 7b9e1d0004           ldfld 9e1d0004 mDesignButton
+ IL_0b0c: 14                   ldnull
+ IL_0b0d: 2890000006           call 90000006 op_Inequality
+ IL_0b12: 2c17                 brfalse.s 17
+ IL_0b14: 02                   ldarg.0
+ IL_0b15: 7b9e1d0004           ldfld 9e1d0004 mDesignButton
+ IL_0b1a: 02                   ldarg.0
+ IL_0b1b: fe06761c0006         ldftn 761c0006 OnDesignTool
+ IL_0b21: 739000000a           newobj 9000000a .ctor
+ IL_0b26: 6fd1020006           callvirt d1020006 add_Click
+ IL_0b2b: 02                   ldarg.0
+ IL_0b2c: 02                   ldarg.0
+ IL_0b2d: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0b32: 204006b705           ldc.i4 4006b705
+ IL_0b37: 17                   ldc.i4.1
+ IL_0b38: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0b3d: 7560000002           isinst 60000002
+ IL_0b42: 7d9f1d0004           stfld 9f1d0004 mHandButton
+ IL_0b47: 02                   ldarg.0
+ IL_0b48: 7b9f1d0004           ldfld 9f1d0004 mHandButton
+ IL_0b4d: 14                   ldnull
+ IL_0b4e: 2890000006           call 90000006 op_Inequality
+ IL_0b53: 2c17                 brfalse.s 17
+ IL_0b55: 02                   ldarg.0
+ IL_0b56: 7b9f1d0004           ldfld 9f1d0004 mHandButton
+ IL_0b5b: 02                   ldarg.0
+ IL_0b5c: fe06771c0006         ldftn 771c0006 OnHandTool
+ IL_0b62: 739000000a           newobj 9000000a .ctor
+ IL_0b67: 6fd1020006           callvirt d1020006 add_Click
+ IL_0b6c: 02                   ldarg.0
+ IL_0b6d: 02                   ldarg.0
+ IL_0b6e: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0b73: 202807b705           ldc.i4 2807b705
+ IL_0b78: 17                   ldc.i4.1
+ IL_0b79: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0b7e: 7560000002           isinst 60000002
+ IL_0b83: 7da01d0004           stfld a01d0004 mSellButton
+ IL_0b88: 02                   ldarg.0
+ IL_0b89: 7ba01d0004           ldfld a01d0004 mSellButton
+ IL_0b8e: 14                   ldnull
+ IL_0b8f: 2890000006           call 90000006 op_Inequality
+ IL_0b94: 2c17                 brfalse.s 17
+ IL_0b96: 02                   ldarg.0
+ IL_0b97: 7ba01d0004           ldfld a01d0004 mSellButton
+ IL_0b9c: 02                   ldarg.0
+ IL_0b9d: fe06781c0006         ldftn 781c0006 OnSellTool
+ IL_0ba3: 739000000a           newobj 9000000a .ctor
+ IL_0ba8: 6fd1020006           callvirt d1020006 add_Click
+ IL_0bad: 02                   ldarg.0
+ IL_0bae: 02                   ldarg.0
+ IL_0baf: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0bb4: 20b006b705           ldc.i4 b006b705
+ IL_0bb9: 17                   ldc.i4.1
+ IL_0bba: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0bbf: 7560000002           isinst 60000002
+ IL_0bc4: 7da11d0004           stfld a11d0004 mCloneButton
+ IL_0bc9: 02                   ldarg.0
+ IL_0bca: 7ba11d0004           ldfld a11d0004 mCloneButton
+ IL_0bcf: 14                   ldnull
+ IL_0bd0: 2890000006           call 90000006 op_Inequality
+ IL_0bd5: 2c17                 brfalse.s 17
+ IL_0bd7: 02                   ldarg.0
+ IL_0bd8: 7ba11d0004           ldfld a11d0004 mCloneButton
+ IL_0bdd: 02                   ldarg.0
+ IL_0bde: fe06791c0006         ldftn 791c0006 OnCloneTool
+ IL_0be4: 739000000a           newobj 9000000a .ctor
+ IL_0be9: 6fd1020006           callvirt d1020006 add_Click
+ IL_0bee: 02                   ldarg.0
+ IL_0bef: 02                   ldarg.0
+ IL_0bf0: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0bf5: 20c006b705           ldc.i4 c006b705
+ IL_0bfa: 17                   ldc.i4.1
+ IL_0bfb: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0c00: 7560000002           isinst 60000002
+ IL_0c05: 7da21d0004           stfld a21d0004 mDayNightToggleButton
+ IL_0c0a: 02                   ldarg.0
+ IL_0c0b: 7ba21d0004           ldfld a21d0004 mDayNightToggleButton
+ IL_0c10: 14                   ldnull
+ IL_0c11: 2890000006           call 90000006 op_Inequality
+ IL_0c16: 2c30                 brfalse.s 30
+ IL_0c18: 02                   ldarg.0
+ IL_0c19: 7ba21d0004           ldfld a21d0004 mDayNightToggleButton
+ IL_0c1e: 02                   ldarg.0
+ IL_0c1f: fe067a1c0006         ldftn 7a1c0006 OnDayNightToggleClick
+ IL_0c25: 739000000a           newobj 9000000a .ctor
+ IL_0c2a: 6fd1020006           callvirt d1020006 add_Click
+ IL_0c2f: 02                   ldarg.0
+ IL_0c30: 7ba21d0004           ldfld a21d0004 mDayNightToggleButton
+ IL_0c35: 02                   ldarg.0
+ IL_0c36: 7bc41d0004           ldfld c41d0004 mHudModel
+ IL_0c3b: 6f00070006           callvirt 00070006 get_BuildBuyDayNightMode
+ IL_0c40: 17                   ldc.i4.1
+ IL_0c41: fe01                 ceq
+ IL_0c43: 6fd8020006           callvirt d8020006 set_Selected
+ IL_0c48: 02                   ldarg.0
+ IL_0c49: 02                   ldarg.0
+ IL_0c4a: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0c4f: 20d006b705           ldc.i4 d006b705
+ IL_0c54: 17                   ldc.i4.1
+ IL_0c55: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0c5a: 7560000002           isinst 60000002
+ IL_0c5f: 7da31d0004           stfld a31d0004 mIndoorGridToggleButton
+ IL_0c64: 02                   ldarg.0
+ IL_0c65: 7ba31d0004           ldfld a31d0004 mIndoorGridToggleButton
+ IL_0c6a: 14                   ldnull
+ IL_0c6b: 2890000006           call 90000006 op_Inequality
+ IL_0c70: 2c33                 brfalse.s 33
+ IL_0c72: 02                   ldarg.0
+ IL_0c73: 7ba31d0004           ldfld a31d0004 mIndoorGridToggleButton
+ IL_0c78: 02                   ldarg.0
+ IL_0c79: fe067b1c0006         ldftn 7b1c0006 OnIndoorGridToggleClick
+ IL_0c7f: 739000000a           newobj 9000000a .ctor
+ IL_0c84: 6fd1020006           callvirt d1020006 add_Click
+ IL_0c89: 02                   ldarg.0
+ IL_0c8a: 7ba31d0004           ldfld a31d0004 mIndoorGridToggleButton
+ IL_0c8f: 02                   ldarg.0
+ IL_0c90: 7bc41d0004           ldfld c41d0004 mHudModel
+ IL_0c95: 6ffe060006           callvirt fe060006 get_FloorGridMode
+ IL_0c9a: 16                   ldc.i4.0
+ IL_0c9b: fe01                 ceq
+ IL_0c9d: 16                   ldc.i4.0
+ IL_0c9e: fe01                 ceq
+ IL_0ca0: 6fd8020006           callvirt d8020006 set_Selected
+ IL_0ca5: 02                   ldarg.0
+ IL_0ca6: 7b9a1d0004           ldfld 9a1d0004 mToolsPuckWin
+ IL_0cab: 200ac8f906           ldc.i4 0ac8f906
+ IL_0cb0: 17                   ldc.i4.1
+ IL_0cb1: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0cb6: 7560000002           isinst 60000002
+ IL_0cbb: 0b                   stloc.1
+ IL_0cbc: 07                   ldloc.1
+ IL_0cbd: 14                   ldnull
+ IL_0cbe: 2890000006           call 90000006 op_Inequality
+ IL_0cc3: 2c32                 brfalse.s 32
+ IL_0cc5: 02                   ldarg.0
+ IL_0cc6: 7be91d0004           ldfld e91d0004 mIsEp6RestrictionEnabled
+ IL_0ccb: 2d11                 brtrue.s 11
+ IL_0ccd: 281d0e0006           call 1d0e0006 get_Instance
+ IL_0cd2: 6fd70d0006           callvirt d70d0006 get_BuildModel
+ IL_0cd7: 6f10040006           callvirt 10040006 get_InteriorDesignerModel
+ IL_0cdc: 2c07                 brfalse.s 07
+ IL_0cde: 07                   ldloc.1
+ IL_0cdf: 16                   ldc.i4.0
+ IL_0ce0: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_0ce5: 07                   ldloc.1
+ IL_0ce6: 02                   ldarg.0
+ IL_0ce7: fe067c1c0006         ldftn 7c1c0006 OnBlueprintToggleClick
+ IL_0ced: 739000000a           newobj 9000000a .ctor
+ IL_0cf2: 6fd1020006           callvirt d1020006 add_Click
+ IL_0cf7: 02                   ldarg.0
+ IL_0cf8: 02                   ldarg.0
+ IL_0cf9: 200415ac05           ldc.i4 0415ac05
+ IL_0cfe: 17                   ldc.i4.1
+ IL_0cff: 287b000006           call 7b000006 GetChildByID
+ IL_0d04: 7546030002           isinst 46030002
+ IL_0d09: 7d651d0004           stfld 651d0004 mGridDebug
+ IL_0d0e: 02                   ldarg.0
+ IL_0d0f: 7b651d0004           ldfld 651d0004 mGridDebug
+ IL_0d14: 14                   ldnull
+ IL_0d15: 2890000006           call 90000006 op_Inequality
+ IL_0d1a: 2c75                 brfalse.s 75
+ IL_0d1c: 02                   ldarg.0
+ IL_0d1d: 14                   ldnull
+ IL_0d1e: 7d791d0004           stfld 791d0004 mExpandableCatalogGrid
+ IL_0d23: 02                   ldarg.0
+ IL_0d24: 02                   ldarg.0
+ IL_0d25: 7b651d0004           ldfld 651d0004 mGridDebug
+ IL_0d2a: 7d781d0004           stfld 781d0004 mCatalogGrid
+ IL_0d2f: 02                   ldarg.0
+ IL_0d30: 7b781d0004           ldfld 781d0004 mCatalogGrid
+ IL_0d35: 02                   ldarg.0
+ IL_0d36: fe06751c0006         ldftn 751c0006 OnCatalogGridSelect
+ IL_0d3c: 73cf1d0006           newobj cf1d0006 .ctor
+ IL_0d41: 6fc41d0006           callvirt c41d0006 add_ItemClicked
+ IL_0d46: 02                   ldarg.0
+ IL_0d47: 7b781d0004           ldfld 781d0004 mCatalogGrid
+ IL_0d4c: 02                   ldarg.0
+ IL_0d4d: 7b891d0004           ldfld 891d0004 GRID_ROOM_CONCISE_DIMENSIONS
+ IL_0d52: 7b2900000a           ldfld 2900000a x
+ IL_0d57: 6d                   conv.u4
+ IL_0d58: 6f591d0006           callvirt 591d0006 set_VisibleColumns
+ IL_0d5d: 02                   ldarg.0
+ IL_0d5e: 7b781d0004           ldfld 781d0004 mCatalogGrid
+ IL_0d63: 02                   ldarg.0
+ IL_0d64: 7b891d0004           ldfld 891d0004 GRID_ROOM_CONCISE_DIMENSIONS
+ IL_0d69: 7b2a00000a           ldfld 2a00000a y
+ IL_0d6e: 6d                   conv.u4
+ IL_0d6f: 6f5b1d0006           callvirt 5b1d0006 set_VisibleRows
+ IL_0d74: 02                   ldarg.0
+ IL_0d75: 7b781d0004           ldfld 781d0004 mCatalogGrid
+ IL_0d7a: 16                   ldc.i4.0
+ IL_0d7b: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0d80: 02                   ldarg.0
+ IL_0d81: 02                   ldarg.0
+ IL_0d82: 7b781d0004           ldfld 781d0004 mCatalogGrid
+ IL_0d87: 6f50000006           callvirt 50000006 get_Area
+ IL_0d8c: 7d7d1d0004           stfld 7d1d0004 mOriginalCatalogGridArea
+ IL_0d91: 02                   ldarg.0
+ IL_0d92: 02                   ldarg.0
+ IL_0d93: 7b531d0004           ldfld 531d0004 mWindowFamilyInventory
+ IL_0d98: 20e0400f07           ldc.i4 e0400f07
+ IL_0d9d: 17                   ldc.i4.1
+ IL_0d9e: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0da3: 753f030002           isinst 3f030002
+ IL_0da8: 7d7a1d0004           stfld 7a1d0004 mFamilyInventoryInstructionText
+ IL_0dad: 02                   ldarg.0
+ IL_0dae: 02                   ldarg.0
+ IL_0daf: 7b531d0004           ldfld 531d0004 mWindowFamilyInventory
+ IL_0db4: 20e1400f07           ldc.i4 e1400f07
+ IL_0db9: 17                   ldc.i4.1
+ IL_0dba: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0dbf: 7560000002           isinst 60000002
+ IL_0dc4: 7d7b1d0004           stfld 7b1d0004 mFamilyInventorySellAllButton
+ IL_0dc9: 02                   ldarg.0
+ IL_0dca: 7b7b1d0004           ldfld 7b1d0004 mFamilyInventorySellAllButton
+ IL_0dcf: 14                   ldnull
+ IL_0dd0: 2890000006           call 90000006 op_Inequality
+ IL_0dd5: 2c17                 brfalse.s 17
+ IL_0dd7: 02                   ldarg.0
+ IL_0dd8: 7b7b1d0004           ldfld 7b1d0004 mFamilyInventorySellAllButton
+ IL_0ddd: 02                   ldarg.0
+ IL_0dde: fe06b91c0006         ldftn b91c0006 OnSellAllButtonClicked
+ IL_0de4: 739000000a           newobj 9000000a .ctor
+ IL_0de9: 6fd1020006           callvirt d1020006 add_Click
+ IL_0dee: 02                   ldarg.0
+ IL_0def: 02                   ldarg.0
+ IL_0df0: 7b531d0004           ldfld 531d0004 mWindowFamilyInventory
+ IL_0df5: 20e2400f07           ldc.i4 e2400f07
+ IL_0dfa: 17                   ldc.i4.1
+ IL_0dfb: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0e00: 7560000002           isinst 60000002
+ IL_0e05: 7d7c1d0004           stfld 7c1d0004 mFamilyInventorySellButton
+ IL_0e0a: 02                   ldarg.0
+ IL_0e0b: 7b7c1d0004           ldfld 7c1d0004 mFamilyInventorySellButton
+ IL_0e10: 14                   ldnull
+ IL_0e11: 2890000006           call 90000006 op_Inequality
+ IL_0e16: 2c2e                 brfalse.s 2e
+ IL_0e18: 02                   ldarg.0
+ IL_0e19: 7b7c1d0004           ldfld 7c1d0004 mFamilyInventorySellButton
+ IL_0e1e: 02                   ldarg.0
+ IL_0e1f: fe06b71c0006         ldftn b71c0006 OnInventorySellButtonDragEnter
+ IL_0e25: 735d00000a           newobj 5d00000a .ctor
+ IL_0e2a: 6f6d000006           callvirt 6d000006 add_DragEnter
+ IL_0e2f: 02                   ldarg.0
+ IL_0e30: 7b7c1d0004           ldfld 7c1d0004 mFamilyInventorySellButton
+ IL_0e35: 02                   ldarg.0
+ IL_0e36: fe06b81c0006         ldftn b81c0006 OnInventorySellButtonDragDrop
+ IL_0e3c: 735d00000a           newobj 5d00000a .ctor
+ IL_0e41: 6f73000006           callvirt 73000006 add_DragDrop
+ IL_0e46: 02                   ldarg.0
+ IL_0e47: 02                   ldarg.0
+ IL_0e48: 200173b105           ldc.i4 0173b105
+ IL_0e4d: 17                   ldc.i4.1
+ IL_0e4e: 287b000006           call 7b000006 GetChildByID
+ IL_0e53: 7560000002           isinst 60000002
+ IL_0e58: 7dab1d0004           stfld ab1d0004 mCatalogCategoryModeButton
+ IL_0e5d: 02                   ldarg.0
+ IL_0e5e: 7bab1d0004           ldfld ab1d0004 mCatalogCategoryModeButton
+ IL_0e63: 14                   ldnull
+ IL_0e64: 2890000006           call 90000006 op_Inequality
+ IL_0e69: 2c17                 brfalse.s 17
+ IL_0e6b: 02                   ldarg.0
+ IL_0e6c: 7bab1d0004           ldfld ab1d0004 mCatalogCategoryModeButton
+ IL_0e71: 02                   ldarg.0
+ IL_0e72: fe06671c0006         ldftn 671c0006 OnCatalogButtonClick
+ IL_0e78: 739000000a           newobj 9000000a .ctor
+ IL_0e7d: 6fd1020006           callvirt d1020006 add_Click
+ IL_0e82: 02                   ldarg.0
+ IL_0e83: 02                   ldarg.0
+ IL_0e84: 200073b105           ldc.i4 0073b105
+ IL_0e89: 17                   ldc.i4.1
+ IL_0e8a: 287b000006           call 7b000006 GetChildByID
+ IL_0e8f: 7560000002           isinst 60000002
+ IL_0e94: 7dac1d0004           stfld ac1d0004 mCatalogRoomModeButton
+ IL_0e99: 02                   ldarg.0
+ IL_0e9a: 7bac1d0004           ldfld ac1d0004 mCatalogRoomModeButton
+ IL_0e9f: 14                   ldnull
+ IL_0ea0: 2890000006           call 90000006 op_Inequality
+ IL_0ea5: 2c17                 brfalse.s 17
+ IL_0ea7: 02                   ldarg.0
+ IL_0ea8: 7bac1d0004           ldfld ac1d0004 mCatalogRoomModeButton
+ IL_0ead: 02                   ldarg.0
+ IL_0eae: fe06671c0006         ldftn 671c0006 OnCatalogButtonClick
+ IL_0eb4: 739000000a           newobj 9000000a .ctor
+ IL_0eb9: 6fd1020006           callvirt d1020006 add_Click
+ IL_0ebe: 02                   ldarg.0
+ IL_0ebf: 02                   ldarg.0
+ IL_0ec0: 200273b105           ldc.i4 0273b105
+ IL_0ec5: 17                   ldc.i4.1
+ IL_0ec6: 287b000006           call 7b000006 GetChildByID
+ IL_0ecb: 7560000002           isinst 60000002
+ IL_0ed0: 7dad1d0004           stfld ad1d0004 mCatalogInventoryModeButton
+ IL_0ed5: 02                   ldarg.0
+ IL_0ed6: 7bad1d0004           ldfld ad1d0004 mCatalogInventoryModeButton
+ IL_0edb: 14                   ldnull
+ IL_0edc: 2890000006           call 90000006 op_Inequality
+ IL_0ee1: 2c17                 brfalse.s 17
+ IL_0ee3: 02                   ldarg.0
+ IL_0ee4: 7bad1d0004           ldfld ad1d0004 mCatalogInventoryModeButton
+ IL_0ee9: 02                   ldarg.0
+ IL_0eea: fe06671c0006         ldftn 671c0006 OnCatalogButtonClick
+ IL_0ef0: 739000000a           newobj 9000000a .ctor
+ IL_0ef5: 6fd1020006           callvirt d1020006 add_Click
+ IL_0efa: 02                   ldarg.0
+ IL_0efb: 02                   ldarg.0
+ IL_0efc: 20d106b705           ldc.i4 d106b705
+ IL_0f01: 17                   ldc.i4.1
+ IL_0f02: 287b000006           call 7b000006 GetChildByID
+ IL_0f07: 7560000002           isinst 60000002
+ IL_0f0c: 7da41d0004           stfld a41d0004 mCollectionButton
+ IL_0f11: 02                   ldarg.0
+ IL_0f12: 7ba41d0004           ldfld a41d0004 mCollectionButton
+ IL_0f17: 14                   ldnull
+ IL_0f18: 2890000006           call 90000006 op_Inequality
+ IL_0f1d: 2c23                 brfalse.s 23
+ IL_0f1f: 02                   ldarg.0
+ IL_0f20: 7ba41d0004           ldfld a41d0004 mCollectionButton
+ IL_0f25: 02                   ldarg.0
+ IL_0f26: fe06671c0006         ldftn 671c0006 OnCatalogButtonClick
+ IL_0f2c: 739000000a           newobj 9000000a .ctor
+ IL_0f31: 6fd1020006           callvirt d1020006 add_Click
+ IL_0f36: 02                   ldarg.0
+ IL_0f37: 7ba41d0004           ldfld a41d0004 mCollectionButton
+ IL_0f3c: 16                   ldc.i4.0
+ IL_0f3d: 6fd8020006           callvirt d8020006 set_Selected
+ IL_0f42: 02                   ldarg.0
+ IL_0f43: fe06431c0006         ldftn 431c0006 UserToolUtils_OnCollectionChanged
+ IL_0f49: 73d603000a           newobj d603000a .ctor
+ IL_0f4e: 28d703000a           call d703000a add_OnCollectionChanged
+ IL_0f53: 02                   ldarg.0
+ IL_0f54: 02                   ldarg.0
+ IL_0f55: 20700cd30d           ldc.i4 700cd30d
+ IL_0f5a: 17                   ldc.i4.1
+ IL_0f5b: 287b000006           call 7b000006 GetChildByID
+ IL_0f60: 7560000002           isinst 60000002
+ IL_0f65: 7dae1d0004           stfld ae1d0004 mCatalogStoreNotableModeButton
+ IL_0f6a: 02                   ldarg.0
+ IL_0f6b: 7bae1d0004           ldfld ae1d0004 mCatalogStoreNotableModeButton
+ IL_0f70: 14                   ldnull
+ IL_0f71: 2890000006           call 90000006 op_Inequality
+ IL_0f76: 2c17                 brfalse.s 17
+ IL_0f78: 02                   ldarg.0
+ IL_0f79: 7bae1d0004           ldfld ae1d0004 mCatalogStoreNotableModeButton
+ IL_0f7e: 02                   ldarg.0
+ IL_0f7f: fe06671c0006         ldftn 671c0006 OnCatalogButtonClick
+ IL_0f85: 739000000a           newobj 9000000a .ctor
+ IL_0f8a: 6fd1020006           callvirt d1020006 add_Click
+ IL_0f8f: 02                   ldarg.0
+ IL_0f90: 203091e806           ldc.i4 3091e806
+ IL_0f95: 17                   ldc.i4.1
+ IL_0f96: 287b000006           call 7b000006 GetChildByID
+ IL_0f9b: 7560000002           isinst 60000002
+ IL_0fa0: 1306                 stloc.s 06
+ IL_0fa2: 1106                 ldloc.s 06
+ IL_0fa4: 14                   ldnull
+ IL_0fa5: 2890000006           call 90000006 op_Inequality
+ IL_0faa: 2c13                 brfalse.s 13
+ IL_0fac: 1106                 ldloc.s 06
+ IL_0fae: 02                   ldarg.0
+ IL_0faf: fe06681c0006         ldftn 681c0006 OnCatalogBackButtonClick
+ IL_0fb5: 739000000a           newobj 9000000a .ctor
+ IL_0fba: 6fd1020006           callvirt d1020006 add_Click
+ IL_0fbf: 02                   ldarg.0
+ IL_0fc0: 02                   ldarg.0
+ IL_0fc1: 200d15ac05           ldc.i4 0d15ac05
+ IL_0fc6: 17                   ldc.i4.1
+ IL_0fc7: 287b000006           call 7b000006 GetChildByID
+ IL_0fcc: 7560000002           isinst 60000002
+ IL_0fd1: 7d801d0004           stfld 801d0004 mUndoButton
+ IL_0fd6: 02                   ldarg.0
+ IL_0fd7: 7b801d0004           ldfld 801d0004 mUndoButton
+ IL_0fdc: 02                   ldarg.0
+ IL_0fdd: fe06731c0006         ldftn 731c0006 OnUndoButtonClick
+ IL_0fe3: 739000000a           newobj 9000000a .ctor
+ IL_0fe8: 6fd1020006           callvirt d1020006 add_Click
+ IL_0fed: 02                   ldarg.0
+ IL_0fee: 02                   ldarg.0
+ IL_0fef: 200e15ac05           ldc.i4 0e15ac05
+ IL_0ff4: 17                   ldc.i4.1
+ IL_0ff5: 287b000006           call 7b000006 GetChildByID
+ IL_0ffa: 7560000002           isinst 60000002
+ IL_0fff: 7d811d0004           stfld 811d0004 mRedoButton
+ IL_1004: 02                   ldarg.0
+ IL_1005: 7b811d0004           ldfld 811d0004 mRedoButton
+ IL_100a: 02                   ldarg.0
+ IL_100b: fe06741c0006         ldftn 741c0006 OnRedoButtonClick
+ IL_1011: 739000000a           newobj 9000000a .ctor
+ IL_1016: 6fd1020006           callvirt d1020006 add_Click
+ IL_101b: 02                   ldarg.0
+ IL_101c: 02                   ldarg.0
+ IL_101d: 2000040000           ldc.i4 00040000
+ IL_1022: 17                   ldc.i4.1
+ IL_1023: 287b000006           call 7b000006 GetChildByID
+ IL_1028: 753f030002           isinst 3f030002
+ IL_102d: 7d821d0004           stfld 821d0004 mTotalValueText
+ IL_1032: 02                   ldarg.0
+ IL_1033: 02                   ldarg.0
+ IL_1034: 2001040000           ldc.i4 01040000
+ IL_1039: 17                   ldc.i4.1
+ IL_103a: 287b000006           call 7b000006 GetChildByID
+ IL_103f: 753f030002           isinst 3f030002
+ IL_1044: 7d831d0004           stfld 831d0004 mUnfurnishedValueText
+ IL_1049: 02                   ldarg.0
+ IL_104a: 7b821d0004           ldfld 821d0004 mTotalValueText
+ IL_104f: 7ec31d0004           ldsfld c31d0004 mLotId
+ IL_1054: 28d403000a           call d403000a GetLotWorth
+ IL_1059: 6a                   conv.i8
+ IL_105a: 28aa02000a           call aa02000a GetMoneyString
+ IL_105f: 6f58000006           callvirt 58000006 set_Caption
+ IL_1064: 02                   ldarg.0
+ IL_1065: 7b831d0004           ldfld 831d0004 mUnfurnishedValueText
+ IL_106a: 7ec31d0004           ldsfld c31d0004 mLotId
+ IL_106f: 28d503000a           call d503000a GetUnfurnishedLotWorth
+ IL_1074: 6a                   conv.i8
+ IL_1075: 28aa02000a           call aa02000a GetMoneyString
+ IL_107a: 6f58000006           callvirt 58000006 set_Caption
+ IL_107f: 7eb31d0004           ldsfld b31d0004 mRoomCatalogButtonInfoDict
+ IL_1084: 2c70                 brfalse.s 70
+ IL_1086: 7eb31d0004           ldsfld b31d0004 mRoomCatalogButtonInfoDict
+ IL_108b: 6f8906000a           callvirt 8906000a GetEnumerator
+ IL_1090: 1307                 stloc.s 07
+ IL_1092: 2b59                 br.s 59
+ IL_1094: 1207                 ldloca.s 07
+ IL_1096: 288a06000a           call 8a06000a get_Current
+ IL_109b: 1308                 stloc.s 08
+ IL_109d: 1208                 ldloca.s 08
+ IL_109f: 288b06000a           call 8b06000a get_Value
+ IL_10a4: 1309                 stloc.s 09
+ IL_10a6: 02                   ldarg.0
+ IL_10a7: 1208                 ldloca.s 08
+ IL_10a9: 288c06000a           call 8c06000a get_Key
+ IL_10ae: 17                   ldc.i4.1
+ IL_10af: 287b000006           call 7b000006 GetChildByID
+ IL_10b4: 7560000002           isinst 60000002
+ IL_10b9: 130a                 stloc.s 0a
+ IL_10bb: 110a                 ldloc.s 0a
+ IL_10bd: 14                   ldnull
+ IL_10be: 2890000006           call 90000006 op_Inequality
+ IL_10c3: 2c28                 brfalse.s 28
+ IL_10c5: 110a                 ldloc.s 0a
+ IL_10c7: 02                   ldarg.0
+ IL_10c8: fe06631c0006         ldftn 631c0006 OnByRoomObjectButtonClick
+ IL_10ce: 739000000a           newobj 9000000a .ctor
+ IL_10d3: 6fd1020006           callvirt d1020006 add_Click
+ IL_10d8: 7eb31d0004           ldsfld b31d0004 mRoomCatalogButtonInfoDict
+ IL_10dd: 2c0e                 brfalse.s 0e
+ IL_10df: 110a                 ldloc.s 0a
+ IL_10e1: 1209                 ldloca.s 09
+ IL_10e3: 7b021e0004           ldfld 021e0004 mLocalizedName
+ IL_10e8: 6f5c000006           callvirt 5c000006 set_TooltipText
+ IL_10ed: 1207                 ldloca.s 07
+ IL_10ef: 288d06000a           call 8d06000a MoveNext
+ IL_10f4: 2d9e                 brtrue.s 9e
+ IL_10f6: 2811120006           call 11120006 GetSceneWindow
+ IL_10fb: 130b                 stloc.s 0b
+ IL_10fd: 110b                 ldloc.s 0b
+ IL_10ff: 14                   ldnull
+ IL_1100: 2890000006           call 90000006 op_Inequality
+ IL_1105: 2c2d                 brfalse.s 2d
+ IL_1107: 110b                 ldloc.s 0b
+ IL_1109: 02                   ldarg.0
+ IL_110a: fe06701c0006         ldftn 701c0006 OnTriggerDown
+ IL_1110: 734700000a           newobj 4700000a .ctor
+ IL_1115: 6f30000006           callvirt 30000006 add_TriggerDown
+ IL_111a: 110b                 ldloc.s 0b
+ IL_111c: 02                   ldarg.0
+ IL_111d: fe063b1c0006         ldftn 3b1c0006 OnMouseUp
+ IL_1123: 734500000a           newobj 4500000a .ctor
+ IL_1128: 6f1c000006           callvirt 1c000006 add_MouseUp
+ IL_112d: 02                   ldarg.0
+ IL_112e: 17                   ldc.i4.1
+ IL_112f: 7dc21d0004           stfld c21d0004 mbTriggersCallbackConnected
+ IL_1134: 02                   ldarg.0
+ IL_1135: fe06851c0006         ldftn 851c0006 OnBuildBuyGenericEvent
+ IL_113b: 739c02000a           newobj 9c02000a .ctor
+ IL_1140: 289d02000a           call 9d02000a add_BuildBuyGenericEvent
+ IL_1145: 02                   ldarg.0
+ IL_1146: fe06871c0006         ldftn 871c0006 OnLocaleChange
+ IL_114c: 73cb120006           newobj cb120006 .ctor
+ IL_1151: 28ea110006           call ea110006 add_LocaleChanged
+ IL_1156: 02                   ldarg.0
+ IL_1157: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_115c: 2c27                 brfalse.s 27
+ IL_115e: 02                   ldarg.0
+ IL_115f: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_1164: 02                   ldarg.0
+ IL_1165: fe06861c0006         ldftn 861c0006 OnFundsChanged
+ IL_116b: 73dd1b0006           newobj dd1b0006 .ctor
+ IL_1170: 6ff6030006           callvirt f6030006 add_FundsChanged
+ IL_1175: 02                   ldarg.0
+ IL_1176: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_117b: 7ec31d0004           ldsfld c31d0004 mLotId
+ IL_1180: 6fe11b0006           callvirt e11b0006 EnterBuyMode
+ IL_1185: 02                   ldarg.0
+ IL_1186: 281d0e0006           call 1d0e0006 get_Instance
+ IL_118b: 6fe50d0006           callvirt e50d0006 get_HudModel
+ IL_1190: 6f37070006           callvirt 37070006 GetCurrentSimInfo
+ IL_1195: 14                   ldnull
+ IL_1196: fe01                 ceq
+ IL_1198: 7dbe1d0004           stfld be1d0004 mbInSimlessBuildMode
+ IL_119d: 02                   ldarg.0
+ IL_119e: 02                   ldarg.0
+ IL_119f: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_11a4: 6ffc030006           callvirt fc030006 NoCharge
+ IL_11a9: 2d08                 brtrue.s 08
+ IL_11ab: 02                   ldarg.0
+ IL_11ac: 7bbe1d0004           ldfld be1d0004 mbInSimlessBuildMode
+ IL_11b1: 2b01                 br.s 01
+ IL_11b3: 17                   ldc.i4.1
+ IL_11b4: 7dbf1d0004           stfld bf1d0004 mbNoCharge
+ IL_11b9: 02                   ldarg.0
+ IL_11ba: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_11bf: 02                   ldarg.0
+ IL_11c0: fe06881c0006         ldftn 881c0006 OnStoreTNSItemSelected
+ IL_11c6: 732f190006           newobj 2f190006 .ctor
+ IL_11cb: 6ff8030006           callvirt f8030006 add_StoreTNSItemSelected
+ IL_11d0: 02                   ldarg.0
+ IL_11d1: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_11d6: 6ff4030006           callvirt f4030006 get_FromGameEntry
+ IL_11db: 2d17                 brtrue.s 17
+ IL_11dd: 02                   ldarg.0
+ IL_11de: 281d0e0006           call 1d0e0006 get_Instance
+ IL_11e3: 6fd80d0006           callvirt d80d0006 get_BuyModel
+ IL_11e8: 6f0e040006           callvirt 0e040006 get_FamilyInventory
+ IL_11ed: 7dd01d0004           stfld d01d0004 mFamilyInventory
+ IL_11f2: 2b4e                 br.s 4e
+ IL_11f4: 02                   ldarg.0
+ IL_11f5: 14                   ldnull
+ IL_11f6: 7dd01d0004           stfld d01d0004 mFamilyInventory
+ IL_11fb: 02                   ldarg.0
+ IL_11fc: 200273b105           ldc.i4 0273b105
+ IL_1201: 17                   ldc.i4.1
+ IL_1202: 287b000006           call 7b000006 GetChildByID
+ IL_1207: 7560000002           isinst 60000002
+ IL_120c: 130c                 stloc.s 0c
+ IL_120e: 110c                 ldloc.s 0c
+ IL_1210: 14                   ldnull
+ IL_1211: 2890000006           call 90000006 op_Inequality
+ IL_1216: 2c08                 brfalse.s 08
+ IL_1218: 110c                 ldloc.s 0c
+ IL_121a: 16                   ldc.i4.0
+ IL_121b: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_1220: 02                   ldarg.0
+ IL_1221: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_1226: 6fe91b0006           callvirt e91b0006 GetBuildCurrCatalogButtonId
+ IL_122b: 200273b105           ldc.i4 0273b105
+ IL_1230: 3310                 bne.un.s 10
+ IL_1232: 02                   ldarg.0
+ IL_1233: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_1238: 200073b105           ldc.i4 0073b105
+ IL_123d: 6fea1b0006           callvirt ea1b0006 SetBuildCurrCatalogButtonId
+ IL_1242: 7e9902000a           ldsfld 9902000a OnPlaceObjectIntoInventoryCallback
+ IL_1247: 14                   ldnull
+ IL_1248: fe06bb1c0006         ldftn bb1c0006 OnPlaceObjectIntoInventory
+ IL_124e: 739a02000a           newobj 9a02000a .ctor
+ IL_1253: 282000000a           call 2000000a Combine
+ IL_1258: 7411010001           castclass 11010001
+ IL_125d: 809902000a           stsfld 9902000a OnPlaceObjectIntoInventoryCallback
+ IL_1262: 02                   ldarg.0
+ IL_1263: 2811120006           call 11120006 GetSceneWindow
+ IL_1268: 7dd91d0004           stfld d91d0004 mLiveDragHelper
+ IL_126d: 28d8370006           call d8370006 Load
+ IL_1272: 28911a0006           call 911a0006 get_Instance
+ IL_1277: 14                   ldnull
+ IL_1278: 2890000006           call 90000006 op_Inequality
+ IL_127d: 2c2c                 brfalse.s 2c
+ IL_127f: 28911a0006           call 911a0006 get_Instance
+ IL_1284: 02                   ldarg.0
+ IL_1285: fe068d1c0006         ldftn 8d1c0006 OnEnterFullEditMode
+ IL_128b: 739a1b0006           newobj 9a1b0006 .ctor
+ IL_1290: 6f251b0006           callvirt 251b0006 add_EnterFullEditMode
+ IL_1295: 28911a0006           call 911a0006 get_Instance
+ IL_129a: 02                   ldarg.0
+ IL_129b: fe068e1c0006         ldftn 8e1c0006 OnExitFullEditMode
+ IL_12a1: 739e1b0006           newobj 9e1b0006 .ctor
+ IL_12a6: 6f271b0006           callvirt 271b0006 add_ExitFullEditMode
+ IL_12ab: 02                   ldarg.0
+ IL_12ac: 7b7e1d0004           ldfld 7e1d0004 mBuyModel
+ IL_12b1: 6f0f040006           callvirt 0f040006 get_CollectionInfo
+ IL_12b6: 6fb0060006           callvirt b0060006 LoadCollectionsInfo
+ IL_12bb: 02                   ldarg.0
+ IL_12bc: 28801c0006           call 801c0006 SelectHandTool
+ IL_12c1: 02                   ldarg.0
+ IL_12c2: 28821c0006           call 821c0006 ResetHandTool
+ IL_12c7: 110b                 ldloc.s 0b
+ IL_12c9: 02                   ldarg.0
+ IL_12ca: fe06151c0006         ldftn 151c0006 OnResolutionChanged
+ IL_12d0: 734802000a           newobj 4802000a .ctor
+ IL_12d5: 6f28000006           callvirt 28000006 add_AreaChange
+ IL_12da: 02                   ldarg.0
+ IL_12db: 16                   ldc.i4.0
+ IL_12dc: 28141c0006           call 141c0006 ResizeCatalogGrids
+ IL_12e1: 02                   ldarg.0
+ IL_12e2: 02                   ldarg.0
+ IL_12e3: fe060d1c0006         ldftn 0d1c0006 InitTick
+ IL_12e9: 734800000a           newobj 4800000a .ctor
+ IL_12ee: 2818000006           call 18000006 add_Tick
+ IL_12f3: 16                   ldc.i4.0
+ IL_12f4: 282e120006           call 2e120006 SetOverrideCursor
+ IL_12f9: 2a                   ret
+
+06001ced Sims3.UI.BBCatalogPreviewPanelController::Init RVA=000ae81c bytes=1867 maxStack=4 flags=3013 localSignature=1100011d
+Raw complete method header 133004004b0700001d010011
+Raw complete CIL 02282c1d000602047dcc1e000402057dcd1e000402167d1e1f000402027bcc1e00046ffc0300067dfc1e0004027e4400000a7df11e000402147dff1e000402147d001f0004027e8000000a7df51e00040203027bcd1e0004176f7b0000067dce1e0004027bce1e0004142890000006397406000002027bce1e00046f500000067d161f0004027bce1e0004166f3d00000602027bce1e0004206133e206176f7b00000675140700027dcf1e000402027bce1e0004207233e206176f7b000006756c0000027dd11e000402027bce1e0004209033e206176f7b0000067dd01e0004027b0a1f00042d230202fe06071d000673200e000673260e00067d0a1f0004027b0a1f000428aa00000a2602027bce1e0004206e33e206176f7b000006756c0000027dd21e000402027bd21e00046f500000067dea1e000402027bd21e00046f500000067d171f000402027bce1e0004206233e206176f7b000006753f0300027dd31e0004027bd31e00041428900000062c1102027bd31e00046f3a1d00067de31e000402027bce1e0004206333e206176f7b000006753f0300027dd41e0004027bd41e00041428900000062c2202027bd41e00046f530000067de71e000402027bd41e00046f3a1d00067de51e000402200000ffff733500000a7de41e000402027bce1e0004206433e206176f7b000006753f0300027dd51e000402027bd51e00046f3a1d00067de61e000402027bce1e0004207133e206176f7b000006756c0000027dd61e000402027bd61e00046f500000067de81e000402027bce1e0004206f33e206176f7b000006756c0000027dd71e000402027bce1e0004206533e206176f7b000006756c0000027dd81e000402027bce1e0004207533e206176f7b000006756c0000027dd91e000402027bce1e0004207333e206176f7b000006756c0000027de11e000402027bce1e0004207633e206176f7b000006756c0000027de21e000402027bd81e00046f500000067de91e000402027bce1e0004206633e206176f7b00000675460300027dda1e0004027bda1e00041428900000062c17027bda1e000402fe06111d000673cf1d00066fc41d000602027bce1e0004206733e206176f7b00000675600000027ddc1e0004027bdc1e00041428900000062c17027bdc1e000402fe06f81c0006739000000a6fd1020006027bdc1e0004166f3f00000602027bce1e0004206833e206176f7b00000675600000027ddd1e0004027bdd1e00041428900000062c17027bdd1e000402fe06f91c0006739000000a6fd102000602027bce1e0004207433e206176f7b00000675600000027dde1e0004027bde1e00041428900000062c17027bde1e000402fe06fb1c0006739000000a6fd1020006027bde1e0004176f3f00000602027bce1e0004207733e206176f7b00000675600000027ddf1e0004027bdf1e00041428900000062c23027bdf1e000402fe06fb1c0006739000000a6fd1020006027bdf1e0004176f3f00000602027bce1e00042030a2af0d176f7b00000675600000027ddb1e0004027bdb1e00041428900000062c23027bdb1e000402fe06ee1c0006739000000a6fd1020006027bdb1e0004166f3d00000602027bce1e0004206933e206176f7b00000675600000027de01e0004027be01e00041428900000062c17027be01e000402fe06fc1c0006739000000a6fd1020006027be01e0004166f3f00000602027bce1e0004207033e206176f7b000006756c0000027deb1e000402027bce1e0004206a33e206176f7b000006753f0300027dec1e000402027bce1e0004206b33e206176f7b000006753f0300027ded1e000402027bce1e0004206c33e206176f7b000006756c0000027dee1e000402027bce1e0004206d33e206176f7b000006756c0000027def1e000402027bce1e0004208033e206176f7b0000067d0f1f000402027bce1e0004208433e206176f7b0000067d101f000402027bce1e0004208233e206176f7b00000675600000027d111f0004027b111f000402fe06f31c0006739000000a6fd1020006027b111f000402fe06f61c0006734600000a6f22000006027b111f000402fe06f71c0006734600000a6f2400000602027bce1e0004208333e206176f7b00000675600000027d121f0004027b121f000402fe06f31c0006739000000a6fd1020006027b121f000402fe06f61c0006734600000a6f22000006027b121f000402fe06f71c0006734600000a6f240000067e6b00000a02fe06011d0006736c00000a282000000a74cd000001806b00000a7e6d00000a02fe06061d0006736c00000a282000000a74cd000001806d00000a0214fe060b1d000673bd02000a7d2b1f000472c2ee007072e4ee0070027b2b1f000428d005000a2628111200060a0602fe06fe1c0006734600000a6f220000060602fe06fd1c0006734500000a6f1a0000060228e41c000602fe061c1d0006734700000a6f300000060228e41c000602fe061d1d0006734800000a6f18000006022001c05c6e7d2a1f00040203200804ee05176f7b0000067d181f0004027b181f0004166f3d000006027b181f00046f820000062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 282c1d0006           call 2c1d0006 SetDefaultCameraValues
+ IL_0006: 02                   ldarg.0
+ IL_0007: 04                   ldarg.2
+ IL_0008: 7dcc1e0004           stfld cc1e0004 mBuildBuyModel
+ IL_000d: 02                   ldarg.0
+ IL_000e: 05                   ldarg.3
+ IL_000f: 7dcd1e0004           stfld cd1e0004 mControlIDStart
+ IL_0014: 02                   ldarg.0
+ IL_0015: 16                   ldc.i4.0
+ IL_0016: 7d1e1f0004           stfld 1e1f0004 mDragging
+ IL_001b: 02                   ldarg.0
+ IL_001c: 02                   ldarg.0
+ IL_001d: 7bcc1e0004           ldfld cc1e0004 mBuildBuyModel
+ IL_0022: 6ffc030006           callvirt fc030006 NoCharge
+ IL_0027: 7dfc1e0004           stfld fc1e0004 mbNoCharge
+ IL_002c: 02                   ldarg.0
+ IL_002d: 7e4400000a           ldsfld 4400000a InvalidObjectGuid
+ IL_0032: 7df11e0004           stfld f11e0004 mObjectGuid
+ IL_0037: 02                   ldarg.0
+ IL_0038: 14                   ldnull
+ IL_0039: 7dff1e0004           stfld ff1e0004 mTargetProduct
+ IL_003e: 02                   ldarg.0
+ IL_003f: 14                   ldnull
+ IL_0040: 7d001f0004           stfld 001f0004 mTargetPreset
+ IL_0045: 02                   ldarg.0
+ IL_0046: 7e8000000a           ldsfld 8000000a kInvalidResourceKey
+ IL_004b: 7df51e0004           stfld f51e0004 mObjectProductKey
+ IL_0050: 02                   ldarg.0
+ IL_0051: 03                   ldarg.1
+ IL_0052: 02                   ldarg.0
+ IL_0053: 7bcd1e0004           ldfld cd1e0004 mControlIDStart
+ IL_0058: 17                   ldc.i4.1
+ IL_0059: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_005e: 7dce1e0004           stfld ce1e0004 mCatalogPreviewWindow
+ IL_0063: 02                   ldarg.0
+ IL_0064: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0069: 14                   ldnull
+ IL_006a: 2890000006           call 90000006 op_Inequality
+ IL_006f: 3974060000           brfalse 74060000
+ IL_0074: 02                   ldarg.0
+ IL_0075: 02                   ldarg.0
+ IL_0076: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_007b: 6f50000006           callvirt 50000006 get_Area
+ IL_0080: 7d161f0004           stfld 161f0004 mBaseWindowArea
+ IL_0085: 02                   ldarg.0
+ IL_0086: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_008b: 16                   ldc.i4.0
+ IL_008c: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_0091: 02                   ldarg.0
+ IL_0092: 02                   ldarg.0
+ IL_0093: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0098: 206133e206           ldc.i4 6133e206
+ IL_009d: 17                   ldc.i4.1
+ IL_009e: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_00a3: 7514070002           isinst 14070002
+ IL_00a8: 7dcf1e0004           stfld cf1e0004 mObjectThumbnailWindow
+ IL_00ad: 02                   ldarg.0
+ IL_00ae: 02                   ldarg.0
+ IL_00af: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_00b4: 207233e206           ldc.i4 7233e206
+ IL_00b9: 17                   ldc.i4.1
+ IL_00ba: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_00bf: 756c000002           isinst 6c000002
+ IL_00c4: 7dd11e0004           stfld d11e0004 mObjectThumbnailStaticWindow
+ IL_00c9: 02                   ldarg.0
+ IL_00ca: 02                   ldarg.0
+ IL_00cb: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_00d0: 209033e206           ldc.i4 9033e206
+ IL_00d5: 17                   ldc.i4.1
+ IL_00d6: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_00db: 7dd01e0004           stfld d01e0004 mObjectThumbnailWindowHider
+ IL_00e0: 02                   ldarg.0
+ IL_00e1: 7b0a1f0004           ldfld 0a1f0004 mSetupSceneWindowTask
+ IL_00e6: 2d23                 brtrue.s 23
+ IL_00e8: 02                   ldarg.0
+ IL_00e9: 02                   ldarg.0
+ IL_00ea: fe06071d0006         ldftn 071d0006 SetupSceneWindow
+ IL_00f0: 73200e0006           newobj 200e0006 .ctor
+ IL_00f5: 73260e0006           newobj 260e0006 .ctor
+ IL_00fa: 7d0a1f0004           stfld 0a1f0004 mSetupSceneWindowTask
+ IL_00ff: 02                   ldarg.0
+ IL_0100: 7b0a1f0004           ldfld 0a1f0004 mSetupSceneWindowTask
+ IL_0105: 28aa00000a           call aa00000a AddObject
+ IL_010a: 26                   pop
+ IL_010b: 02                   ldarg.0
+ IL_010c: 02                   ldarg.0
+ IL_010d: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0112: 206e33e206           ldc.i4 6e33e206
+ IL_0117: 17                   ldc.i4.1
+ IL_0118: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_011d: 756c000002           isinst 6c000002
+ IL_0122: 7dd21e0004           stfld d21e0004 mObjectThumbnailWindowBase
+ IL_0127: 02                   ldarg.0
+ IL_0128: 02                   ldarg.0
+ IL_0129: 7bd21e0004           ldfld d21e0004 mObjectThumbnailWindowBase
+ IL_012e: 6f50000006           callvirt 50000006 get_Area
+ IL_0133: 7dea1e0004           stfld ea1e0004 mDefaultThumbnailWindowBaseArea
+ IL_0138: 02                   ldarg.0
+ IL_0139: 02                   ldarg.0
+ IL_013a: 7bd21e0004           ldfld d21e0004 mObjectThumbnailWindowBase
+ IL_013f: 6f50000006           callvirt 50000006 get_Area
+ IL_0144: 7d171f0004           stfld 171f0004 mBaseThumbnailWindowArea
+ IL_0149: 02                   ldarg.0
+ IL_014a: 02                   ldarg.0
+ IL_014b: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0150: 206233e206           ldc.i4 6233e206
+ IL_0155: 17                   ldc.i4.1
+ IL_0156: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_015b: 753f030002           isinst 3f030002
+ IL_0160: 7dd31e0004           stfld d31e0004 mTitleText
+ IL_0165: 02                   ldarg.0
+ IL_0166: 7bd31e0004           ldfld d31e0004 mTitleText
+ IL_016b: 14                   ldnull
+ IL_016c: 2890000006           call 90000006 op_Inequality
+ IL_0171: 2c11                 brfalse.s 11
+ IL_0173: 02                   ldarg.0
+ IL_0174: 02                   ldarg.0
+ IL_0175: 7bd31e0004           ldfld d31e0004 mTitleText
+ IL_017a: 6f3a1d0006           callvirt 3a1d0006 get_TextColor
+ IL_017f: 7de31e0004           stfld e31e0004 mDefaultTitleTextColor
+ IL_0184: 02                   ldarg.0
+ IL_0185: 02                   ldarg.0
+ IL_0186: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_018b: 206333e206           ldc.i4 6333e206
+ IL_0190: 17                   ldc.i4.1
+ IL_0191: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0196: 753f030002           isinst 3f030002
+ IL_019b: 7dd41e0004           stfld d41e0004 mMoneyText
+ IL_01a0: 02                   ldarg.0
+ IL_01a1: 7bd41e0004           ldfld d41e0004 mMoneyText
+ IL_01a6: 14                   ldnull
+ IL_01a7: 2890000006           call 90000006 op_Inequality
+ IL_01ac: 2c22                 brfalse.s 22
+ IL_01ae: 02                   ldarg.0
+ IL_01af: 02                   ldarg.0
+ IL_01b0: 7bd41e0004           ldfld d41e0004 mMoneyText
+ IL_01b5: 6f53000006           callvirt 53000006 get_Position
+ IL_01ba: 7de71e0004           stfld e71e0004 mMoneyTextOriginalPos
+ IL_01bf: 02                   ldarg.0
+ IL_01c0: 02                   ldarg.0
+ IL_01c1: 7bd41e0004           ldfld d41e0004 mMoneyText
+ IL_01c6: 6f3a1d0006           callvirt 3a1d0006 get_TextColor
+ IL_01cb: 7de51e0004           stfld e51e0004 mDefaultMoneyTextColor
+ IL_01d0: 02                   ldarg.0
+ IL_01d1: 200000ffff           ldc.i4 0000ffff
+ IL_01d6: 733500000a           newobj 3500000a .ctor
+ IL_01db: 7de41e0004           stfld e41e0004 mCantAffordTextColor
+ IL_01e0: 02                   ldarg.0
+ IL_01e1: 02                   ldarg.0
+ IL_01e2: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_01e7: 206433e206           ldc.i4 6433e206
+ IL_01ec: 17                   ldc.i4.1
+ IL_01ed: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_01f2: 753f030002           isinst 3f030002
+ IL_01f7: 7dd51e0004           stfld d51e0004 mDescriptionText
+ IL_01fc: 02                   ldarg.0
+ IL_01fd: 02                   ldarg.0
+ IL_01fe: 7bd51e0004           ldfld d51e0004 mDescriptionText
+ IL_0203: 6f3a1d0006           callvirt 3a1d0006 get_TextColor
+ IL_0208: 7de61e0004           stfld e61e0004 mOnSaleTextColor
+ IL_020d: 02                   ldarg.0
+ IL_020e: 02                   ldarg.0
+ IL_020f: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0214: 207133e206           ldc.i4 7133e206
+ IL_0219: 17                   ldc.i4.1
+ IL_021a: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_021f: 756c000002           isinst 6c000002
+ IL_0224: 7dd61e0004           stfld d61e0004 mDescriptionBackground
+ IL_0229: 02                   ldarg.0
+ IL_022a: 02                   ldarg.0
+ IL_022b: 7bd61e0004           ldfld d61e0004 mDescriptionBackground
+ IL_0230: 6f50000006           callvirt 50000006 get_Area
+ IL_0235: 7de81e0004           stfld e81e0004 mDescriptionBackgroundOriginalArea
+ IL_023a: 02                   ldarg.0
+ IL_023b: 02                   ldarg.0
+ IL_023c: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0241: 206f33e206           ldc.i4 6f33e206
+ IL_0246: 17                   ldc.i4.1
+ IL_0247: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_024c: 756c000002           isinst 6c000002
+ IL_0251: 7dd71e0004           stfld d71e0004 mInfoAreaWindow
+ IL_0256: 02                   ldarg.0
+ IL_0257: 02                   ldarg.0
+ IL_0258: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_025d: 206533e206           ldc.i4 6533e206
+ IL_0262: 17                   ldc.i4.1
+ IL_0263: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0268: 756c000002           isinst 6c000002
+ IL_026d: 7dd81e0004           stfld d81e0004 mGridHolder
+ IL_0272: 02                   ldarg.0
+ IL_0273: 02                   ldarg.0
+ IL_0274: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0279: 207533e206           ldc.i4 7533e206
+ IL_027e: 17                   ldc.i4.1
+ IL_027f: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0284: 756c000002           isinst 6c000002
+ IL_0289: 7dd91e0004           stfld d91e0004 mGridPatternHolder
+ IL_028e: 02                   ldarg.0
+ IL_028f: 02                   ldarg.0
+ IL_0290: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0295: 207333e206           ldc.i4 7333e206
+ IL_029a: 17                   ldc.i4.1
+ IL_029b: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_02a0: 756c000002           isinst 6c000002
+ IL_02a5: 7de11e0004           stfld e11e0004 mGridButtonHolder
+ IL_02aa: 02                   ldarg.0
+ IL_02ab: 02                   ldarg.0
+ IL_02ac: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_02b1: 207633e206           ldc.i4 7633e206
+ IL_02b6: 17                   ldc.i4.1
+ IL_02b7: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_02bc: 756c000002           isinst 6c000002
+ IL_02c1: 7de21e0004           stfld e21e0004 mGridPatternButtonHolder
+ IL_02c6: 02                   ldarg.0
+ IL_02c7: 02                   ldarg.0
+ IL_02c8: 7bd81e0004           ldfld d81e0004 mGridHolder
+ IL_02cd: 6f50000006           callvirt 50000006 get_Area
+ IL_02d2: 7de91e0004           stfld e91e0004 mGridHolderAreaNoScrollbar
+ IL_02d7: 02                   ldarg.0
+ IL_02d8: 02                   ldarg.0
+ IL_02d9: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_02de: 206633e206           ldc.i4 6633e206
+ IL_02e3: 17                   ldc.i4.1
+ IL_02e4: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_02e9: 7546030002           isinst 46030002
+ IL_02ee: 7dda1e0004           stfld da1e0004 mPresetItemGrid
+ IL_02f3: 02                   ldarg.0
+ IL_02f4: 7bda1e0004           ldfld da1e0004 mPresetItemGrid
+ IL_02f9: 14                   ldnull
+ IL_02fa: 2890000006           call 90000006 op_Inequality
+ IL_02ff: 2c17                 brfalse.s 17
+ IL_0301: 02                   ldarg.0
+ IL_0302: 7bda1e0004           ldfld da1e0004 mPresetItemGrid
+ IL_0307: 02                   ldarg.0
+ IL_0308: fe06111d0006         ldftn 111d0006 OnPresetsGridClicked
+ IL_030e: 73cf1d0006           newobj cf1d0006 .ctor
+ IL_0313: 6fc41d0006           callvirt c41d0006 add_ItemClicked
+ IL_0318: 02                   ldarg.0
+ IL_0319: 02                   ldarg.0
+ IL_031a: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_031f: 206733e206           ldc.i4 6733e206
+ IL_0324: 17                   ldc.i4.1
+ IL_0325: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_032a: 7560000002           isinst 60000002
+ IL_032f: 7ddc1e0004           stfld dc1e0004 mDeleteButton
+ IL_0334: 02                   ldarg.0
+ IL_0335: 7bdc1e0004           ldfld dc1e0004 mDeleteButton
+ IL_033a: 14                   ldnull
+ IL_033b: 2890000006           call 90000006 op_Inequality
+ IL_0340: 2c17                 brfalse.s 17
+ IL_0342: 02                   ldarg.0
+ IL_0343: 7bdc1e0004           ldfld dc1e0004 mDeleteButton
+ IL_0348: 02                   ldarg.0
+ IL_0349: fe06f81c0006         ldftn f81c0006 OnDeleteClick
+ IL_034f: 739000000a           newobj 9000000a .ctor
+ IL_0354: 6fd1020006           callvirt d1020006 add_Click
+ IL_0359: 02                   ldarg.0
+ IL_035a: 7bdc1e0004           ldfld dc1e0004 mDeleteButton
+ IL_035f: 16                   ldc.i4.0
+ IL_0360: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_0365: 02                   ldarg.0
+ IL_0366: 02                   ldarg.0
+ IL_0367: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_036c: 206833e206           ldc.i4 6833e206
+ IL_0371: 17                   ldc.i4.1
+ IL_0372: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0377: 7560000002           isinst 60000002
+ IL_037c: 7ddd1e0004           stfld dd1e0004 mRandomizeButton
+ IL_0381: 02                   ldarg.0
+ IL_0382: 7bdd1e0004           ldfld dd1e0004 mRandomizeButton
+ IL_0387: 14                   ldnull
+ IL_0388: 2890000006           call 90000006 op_Inequality
+ IL_038d: 2c17                 brfalse.s 17
+ IL_038f: 02                   ldarg.0
+ IL_0390: 7bdd1e0004           ldfld dd1e0004 mRandomizeButton
+ IL_0395: 02                   ldarg.0
+ IL_0396: fe06f91c0006         ldftn f91c0006 OnRandomizeClick
+ IL_039c: 739000000a           newobj 9000000a .ctor
+ IL_03a1: 6fd1020006           callvirt d1020006 add_Click
+ IL_03a6: 02                   ldarg.0
+ IL_03a7: 02                   ldarg.0
+ IL_03a8: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_03ad: 207433e206           ldc.i4 7433e206
+ IL_03b2: 17                   ldc.i4.1
+ IL_03b3: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_03b8: 7560000002           isinst 60000002
+ IL_03bd: 7dde1e0004           stfld de1e0004 mAddToCollectionButton
+ IL_03c2: 02                   ldarg.0
+ IL_03c3: 7bde1e0004           ldfld de1e0004 mAddToCollectionButton
+ IL_03c8: 14                   ldnull
+ IL_03c9: 2890000006           call 90000006 op_Inequality
+ IL_03ce: 2c17                 brfalse.s 17
+ IL_03d0: 02                   ldarg.0
+ IL_03d1: 7bde1e0004           ldfld de1e0004 mAddToCollectionButton
+ IL_03d6: 02                   ldarg.0
+ IL_03d7: fe06fb1c0006         ldftn fb1c0006 OnAddToCollectionClick
+ IL_03dd: 739000000a           newobj 9000000a .ctor
+ IL_03e2: 6fd1020006           callvirt d1020006 add_Click
+ IL_03e7: 02                   ldarg.0
+ IL_03e8: 7bde1e0004           ldfld de1e0004 mAddToCollectionButton
+ IL_03ed: 17                   ldc.i4.1
+ IL_03ee: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_03f3: 02                   ldarg.0
+ IL_03f4: 02                   ldarg.0
+ IL_03f5: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_03fa: 207733e206           ldc.i4 7733e206
+ IL_03ff: 17                   ldc.i4.1
+ IL_0400: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0405: 7560000002           isinst 60000002
+ IL_040a: 7ddf1e0004           stfld df1e0004 mAddPatternToCollectionButton
+ IL_040f: 02                   ldarg.0
+ IL_0410: 7bdf1e0004           ldfld df1e0004 mAddPatternToCollectionButton
+ IL_0415: 14                   ldnull
+ IL_0416: 2890000006           call 90000006 op_Inequality
+ IL_041b: 2c23                 brfalse.s 23
+ IL_041d: 02                   ldarg.0
+ IL_041e: 7bdf1e0004           ldfld df1e0004 mAddPatternToCollectionButton
+ IL_0423: 02                   ldarg.0
+ IL_0424: fe06fb1c0006         ldftn fb1c0006 OnAddToCollectionClick
+ IL_042a: 739000000a           newobj 9000000a .ctor
+ IL_042f: 6fd1020006           callvirt d1020006 add_Click
+ IL_0434: 02                   ldarg.0
+ IL_0435: 7bdf1e0004           ldfld df1e0004 mAddPatternToCollectionButton
+ IL_043a: 17                   ldc.i4.1
+ IL_043b: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_0440: 02                   ldarg.0
+ IL_0441: 02                   ldarg.0
+ IL_0442: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0447: 2030a2af0d           ldc.i4 30a2af0d
+ IL_044c: 17                   ldc.i4.1
+ IL_044d: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0452: 7560000002           isinst 60000002
+ IL_0457: 7ddb1e0004           stfld db1e0004 mBackToSetButton
+ IL_045c: 02                   ldarg.0
+ IL_045d: 7bdb1e0004           ldfld db1e0004 mBackToSetButton
+ IL_0462: 14                   ldnull
+ IL_0463: 2890000006           call 90000006 op_Inequality
+ IL_0468: 2c23                 brfalse.s 23
+ IL_046a: 02                   ldarg.0
+ IL_046b: 7bdb1e0004           ldfld db1e0004 mBackToSetButton
+ IL_0470: 02                   ldarg.0
+ IL_0471: fe06ee1c0006         ldftn ee1c0006 OnBackButtonClicked
+ IL_0477: 739000000a           newobj 9000000a .ctor
+ IL_047c: 6fd1020006           callvirt d1020006 add_Click
+ IL_0481: 02                   ldarg.0
+ IL_0482: 7bdb1e0004           ldfld db1e0004 mBackToSetButton
+ IL_0487: 16                   ldc.i4.0
+ IL_0488: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_048d: 02                   ldarg.0
+ IL_048e: 02                   ldarg.0
+ IL_048f: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0494: 206933e206           ldc.i4 6933e206
+ IL_0499: 17                   ldc.i4.1
+ IL_049a: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_049f: 7560000002           isinst 60000002
+ IL_04a4: 7de01e0004           stfld e01e0004 mShareButton
+ IL_04a9: 02                   ldarg.0
+ IL_04aa: 7be01e0004           ldfld e01e0004 mShareButton
+ IL_04af: 14                   ldnull
+ IL_04b0: 2890000006           call 90000006 op_Inequality
+ IL_04b5: 2c17                 brfalse.s 17
+ IL_04b7: 02                   ldarg.0
+ IL_04b8: 7be01e0004           ldfld e01e0004 mShareButton
+ IL_04bd: 02                   ldarg.0
+ IL_04be: fe06fc1c0006         ldftn fc1c0006 OnShareClick
+ IL_04c4: 739000000a           newobj 9000000a .ctor
+ IL_04c9: 6fd1020006           callvirt d1020006 add_Click
+ IL_04ce: 02                   ldarg.0
+ IL_04cf: 7be01e0004           ldfld e01e0004 mShareButton
+ IL_04d4: 16                   ldc.i4.0
+ IL_04d5: 6f3f000006           callvirt 3f000006 set_Enabled
+ IL_04da: 02                   ldarg.0
+ IL_04db: 02                   ldarg.0
+ IL_04dc: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_04e1: 207033e206           ldc.i4 7033e206
+ IL_04e6: 17                   ldc.i4.1
+ IL_04e7: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_04ec: 756c000002           isinst 6c000002
+ IL_04f1: 7deb1e0004           stfld eb1e0004 mMoodletHolder
+ IL_04f6: 02                   ldarg.0
+ IL_04f7: 02                   ldarg.0
+ IL_04f8: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_04fd: 206a33e206           ldc.i4 6a33e206
+ IL_0502: 17                   ldc.i4.1
+ IL_0503: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0508: 753f030002           isinst 3f030002
+ IL_050d: 7dec1e0004           stfld ec1e0004 mMoodletEffectText
+ IL_0512: 02                   ldarg.0
+ IL_0513: 02                   ldarg.0
+ IL_0514: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0519: 206b33e206           ldc.i4 6b33e206
+ IL_051e: 17                   ldc.i4.1
+ IL_051f: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0524: 753f030002           isinst 3f030002
+ IL_0529: 7ded1e0004           stfld ed1e0004 mMoodletIconDegree
+ IL_052e: 02                   ldarg.0
+ IL_052f: 02                   ldarg.0
+ IL_0530: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0535: 206c33e206           ldc.i4 6c33e206
+ IL_053a: 17                   ldc.i4.1
+ IL_053b: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0540: 756c000002           isinst 6c000002
+ IL_0545: 7dee1e0004           stfld ee1e0004 mMoodletIconImage
+ IL_054a: 02                   ldarg.0
+ IL_054b: 02                   ldarg.0
+ IL_054c: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0551: 206d33e206           ldc.i4 6d33e206
+ IL_0556: 17                   ldc.i4.1
+ IL_0557: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_055c: 756c000002           isinst 6c000002
+ IL_0561: 7def1e0004           stfld ef1e0004 mMoodletIconImageBase
+ IL_0566: 02                   ldarg.0
+ IL_0567: 02                   ldarg.0
+ IL_0568: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_056d: 208033e206           ldc.i4 8033e206
+ IL_0572: 17                   ldc.i4.1
+ IL_0573: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0578: 7d0f1f0004           stfld 0f1f0004 mFeaturedStoreItemBorder
+ IL_057d: 02                   ldarg.0
+ IL_057e: 02                   ldarg.0
+ IL_057f: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_0584: 208433e206           ldc.i4 8433e206
+ IL_0589: 17                   ldc.i4.1
+ IL_058a: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_058f: 7d101f0004           stfld 101f0004 mFeaturedStoreSaleIcon
+ IL_0594: 02                   ldarg.0
+ IL_0595: 02                   ldarg.0
+ IL_0596: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_059b: 208233e206           ldc.i4 8233e206
+ IL_05a0: 17                   ldc.i4.1
+ IL_05a1: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_05a6: 7560000002           isinst 60000002
+ IL_05ab: 7d111f0004           stfld 111f0004 mFeaturedStoreBuyButton
+ IL_05b0: 02                   ldarg.0
+ IL_05b1: 7b111f0004           ldfld 111f0004 mFeaturedStoreBuyButton
+ IL_05b6: 02                   ldarg.0
+ IL_05b7: fe06f31c0006         ldftn f31c0006 OnBuyButtonClick
+ IL_05bd: 739000000a           newobj 9000000a .ctor
+ IL_05c2: 6fd1020006           callvirt d1020006 add_Click
+ IL_05c7: 02                   ldarg.0
+ IL_05c8: 7b111f0004           ldfld 111f0004 mFeaturedStoreBuyButton
+ IL_05cd: 02                   ldarg.0
+ IL_05ce: fe06f61c0006         ldftn f61c0006 OnBuyButtonFocusAcquired
+ IL_05d4: 734600000a           newobj 4600000a .ctor
+ IL_05d9: 6f22000006           callvirt 22000006 add_FocusAcquired
+ IL_05de: 02                   ldarg.0
+ IL_05df: 7b111f0004           ldfld 111f0004 mFeaturedStoreBuyButton
+ IL_05e4: 02                   ldarg.0
+ IL_05e5: fe06f71c0006         ldftn f71c0006 OnBuyButtonFocusLost
+ IL_05eb: 734600000a           newobj 4600000a .ctor
+ IL_05f0: 6f24000006           callvirt 24000006 add_FocusLost
+ IL_05f5: 02                   ldarg.0
+ IL_05f6: 02                   ldarg.0
+ IL_05f7: 7bce1e0004           ldfld ce1e0004 mCatalogPreviewWindow
+ IL_05fc: 208333e206           ldc.i4 8333e206
+ IL_0601: 17                   ldc.i4.1
+ IL_0602: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_0607: 7560000002           isinst 60000002
+ IL_060c: 7d121f0004           stfld 121f0004 mFeaturedStoreBuyButton2
+ IL_0611: 02                   ldarg.0
+ IL_0612: 7b121f0004           ldfld 121f0004 mFeaturedStoreBuyButton2
+ IL_0617: 02                   ldarg.0
+ IL_0618: fe06f31c0006         ldftn f31c0006 OnBuyButtonClick
+ IL_061e: 739000000a           newobj 9000000a .ctor
+ IL_0623: 6fd1020006           callvirt d1020006 add_Click
+ IL_0628: 02                   ldarg.0
+ IL_0629: 7b121f0004           ldfld 121f0004 mFeaturedStoreBuyButton2
+ IL_062e: 02                   ldarg.0
+ IL_062f: fe06f61c0006         ldftn f61c0006 OnBuyButtonFocusAcquired
+ IL_0635: 734600000a           newobj 4600000a .ctor
+ IL_063a: 6f22000006           callvirt 22000006 add_FocusAcquired
+ IL_063f: 02                   ldarg.0
+ IL_0640: 7b121f0004           ldfld 121f0004 mFeaturedStoreBuyButton2
+ IL_0645: 02                   ldarg.0
+ IL_0646: fe06f71c0006         ldftn f71c0006 OnBuyButtonFocusLost
+ IL_064c: 734600000a           newobj 4600000a .ctor
+ IL_0651: 6f24000006           callvirt 24000006 add_FocusLost
+ IL_0656: 7e6b00000a           ldsfld 6b00000a OnHandToolPickupCallback
+ IL_065b: 02                   ldarg.0
+ IL_065c: fe06011d0006         ldftn 011d0006 OnHandToolPickup
+ IL_0662: 736c00000a           newobj 6c00000a .ctor
+ IL_0667: 282000000a           call 2000000a Combine
+ IL_066c: 74cd000001           castclass cd000001
+ IL_0671: 806b00000a           stsfld 6b00000a OnHandToolPickupCallback
+ IL_0676: 7e6d00000a           ldsfld 6d00000a OnHandToolEditCallback
+ IL_067b: 02                   ldarg.0
+ IL_067c: fe06061d0006         ldftn 061d0006 OnHandToolEdit
+ IL_0682: 736c00000a           newobj 6c00000a .ctor
+ IL_0687: 282000000a           call 2000000a Combine
+ IL_068c: 74cd000001           castclass cd000001
+ IL_0691: 806d00000a           stsfld 6d00000a OnHandToolEditCallback
+ IL_0696: 02                   ldarg.0
+ IL_0697: 14                   ldnull
+ IL_0698: fe060b1d0006         ldftn 0b1d0006 OnPresetExportComplete
+ IL_069e: 73bd02000a           newobj bd02000a .ctor
+ IL_06a3: 7d2b1f0004           stfld 2b1f0004 mPresetExportCompleteHandler
+ IL_06a8: 72c2ee0070           ldstr c2ee0070
+ IL_06ad: 72e4ee0070           ldstr e4ee0070
+ IL_06b2: 02                   ldarg.0
+ IL_06b3: 7b2b1f0004           ldfld 2b1f0004 mPresetExportCompleteHandler
+ IL_06b8: 28d005000a           call d005000a RegisterCommand
+ IL_06bd: 26                   pop
+ IL_06be: 2811120006           call 11120006 GetSceneWindow
+ IL_06c3: 0a                   stloc.0
+ IL_06c4: 06                   ldloc.0
+ IL_06c5: 02                   ldarg.0
+ IL_06c6: fe06fe1c0006         ldftn fe1c0006 OnNavigationFocusAcquired
+ IL_06cc: 734600000a           newobj 4600000a .ctor
+ IL_06d1: 6f22000006           callvirt 22000006 add_FocusAcquired
+ IL_06d6: 06                   ldloc.0
+ IL_06d7: 02                   ldarg.0
+ IL_06d8: fe06fd1c0006         ldftn fd1c0006 OnSceneWindowMouseDown
+ IL_06de: 734500000a           newobj 4500000a .ctor
+ IL_06e3: 6f1a000006           callvirt 1a000006 add_MouseDown
+ IL_06e8: 02                   ldarg.0
+ IL_06e9: 28e41c0006           call e41c0006 get_SceneWindow
+ IL_06ee: 02                   ldarg.0
+ IL_06ef: fe061c1d0006         ldftn 1c1d0006 OnTriggerDown
+ IL_06f5: 734700000a           newobj 4700000a .ctor
+ IL_06fa: 6f30000006           callvirt 30000006 add_TriggerDown
+ IL_06ff: 02                   ldarg.0
+ IL_0700: 28e41c0006           call e41c0006 get_SceneWindow
+ IL_0705: 02                   ldarg.0
+ IL_0706: fe061d1d0006         ldftn 1d1d0006 OnTick
+ IL_070c: 734800000a           newobj 4800000a .ctor
+ IL_0711: 6f18000006           callvirt 18000006 add_Tick
+ IL_0716: 02                   ldarg.0
+ IL_0717: 2001c05c6e           ldc.i4 01c05c6e
+ IL_071c: 7d2a1f0004           stfld 2a1f0004 mCameraEvent
+ IL_0721: 02                   ldarg.0
+ IL_0722: 03                   ldarg.1
+ IL_0723: 200804ee05           ldc.i4 0804ee05
+ IL_0728: 17                   ldc.i4.1
+ IL_0729: 6f7b000006           callvirt 7b000006 GetChildByID
+ IL_072e: 7d181f0004           stfld 181f0004 mMouseTrapWindow
+ IL_0733: 02                   ldarg.0
+ IL_0734: 7b181f0004           ldfld 181f0004 mMouseTrapWindow
+ IL_0739: 16                   ldc.i4.0
+ IL_073a: 6f3d000006           callvirt 3d000006 set_Visible
+ IL_073f: 02                   ldarg.0
+ IL_0740: 7b181f0004           ldfld 181f0004 mMouseTrapWindow
+ IL_0745: 6f82000006           callvirt 82000006 MoveToBack
+ IL_074a: 2a                   ret
+
+060020bc Sims3.UI.CatalogProductFilter.Cell::CreateCell RVA=000c5fa4 bytes=51 maxStack=2 flags=3013 localSignature=110005f2
+Raw complete method header 1330020033000000f2050011
+Raw complete CIL 7ee723000428081200060a067ee82300046f1c38000674dc0300020b07027df023000407037df223000407047df1230004072a
+ IL_0000: 7ee7230004           ldsfld e7230004 kLayoutKey
+ IL_0005: 2808120006           call 08120006 LoadLayout
+ IL_000a: 0a                   stloc.0
+ IL_000b: 06                   ldloc.0
+ IL_000c: 7ee8230004           ldsfld e8230004 kExportGuid
+ IL_0011: 6f1c380006           callvirt 1c380006 GetWindowByExportID
+ IL_0016: 74dc030002           castclass dc030002
+ IL_001b: 0b                   stloc.1
+ IL_001c: 07                   ldloc.1
+ IL_001d: 02                   ldarg.0
+ IL_001e: 7df0230004           stfld f0230004 mMode
+ IL_0023: 07                   ldloc.1
+ IL_0024: 03                   ldarg.1
+ IL_0025: 7df2230004           stfld f2230004 mVersion
+ IL_002a: 07                   ldloc.1
+ IL_002b: 04                   ldarg.2
+ IL_002c: 7df1230004           stfld f1230004 mChecked
+ IL_0031: 07                   ldloc.1
+ IL_0032: 2a                   ret
+
+060020bd Sims3.UI.CatalogProductFilter.Cell::CreateCell RVA=000c5fe3 bytes=9 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 26
+Raw complete CIL 02160328bc2000062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 16                   ldc.i4.0
+ IL_0002: 03                   ldarg.1
+ IL_0003: 28bc200006           call bc200006 CreateCell
+ IL_0008: 2a                   ret
+
+060020be Sims3.UI.CatalogProductFilter.Cell::CreateCell RVA=000c5fed bytes=9 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 26
+Raw complete CIL 19020328bc2000062a
+ IL_0000: 19                   ldc.i4.3
+ IL_0001: 02                   ldarg.0
+ IL_0002: 03                   ldarg.1
+ IL_0003: 28bc200006           call bc200006 CreateCell
+ IL_0008: 2a                   ret
+
+060020d1 Sims3.UI.CatalogProductFilter.Cell::.cctor RVA=000c66ea bytes=27 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 6e
+Raw complete CIL 720814017016285c00000a80e723000420d1c04f0b80e82300042a
+ IL_0000: 7208140170           ldstr 08140170
+ IL_0005: 16                   ldc.i4.0
+ IL_0006: 285c00000a           call 5c00000a CreateUILayoutKey
+ IL_000b: 80e7230004           stsfld e7230004 kLayoutKey
+ IL_0010: 20d1c04f0b           ldc.i4 d1c04f0b
+ IL_0015: 80e8230004           stsfld e8230004 kExportGuid
+ IL_001a: 2a                   ret
+
+SELECTED complete_methods=8 CIL_bytes=7866

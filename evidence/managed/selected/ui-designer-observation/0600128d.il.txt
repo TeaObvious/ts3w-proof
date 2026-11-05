@@ -1,0 +1,17 @@
+// Complete pristine UI MethodDef/CIL; pair with actual ILSpy group rendering and method index.
+Sims3.UI.UIManager::GetFlagProperty
+MethodDef=0x0600128D RVA=0x00066168 SignatureBlob=000302090909 MaxStack=3 LocalSignature=1100003F InitLocals=True CodeBytes=23
+IL_0000: ldsfld 0x040013A1 Sims3.UI.UIManager::gUIMgr
+IL_0005: ldarg.0
+IL_0006: ldarg.1
+IL_0007: callvirt 0x0A0004C4 Sims3.SimIFace.IUIManager::GetUInt32Property
+IL_000C: stloc.0
+IL_000D: ldloc.0
+IL_000E: ldarg.2
+IL_000F: and
+IL_0010: ldc.i4.0
+IL_0011: ceq
+IL_0013: ldc.i4.0
+IL_0014: ceq
+IL_0016: ret
+ExceptionRegions=[]

@@ -1,0 +1,59 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined1 FUN_00733d80(int param_1)
+Owned ranges: [[00733d80, 00733e0c]]
+
+00733d80  56  PUSH ESI
+00733d81  8bf1  MOV ESI,ECX
+00733d83  8b4620  MOV EAX,dword ptr [ESI + 0x20]
+00733d86  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+00733d89  8d4e20  LEA ECX,[ESI + 0x20]
+00733d8c  ffd2  CALL EDX
+00733d8e  84c0  TEST AL,AL
+00733d90  7502  JNZ 0x00733d94
+00733d92  5e  POP ESI
+00733d93  c3  RET
+00733d94  8d4618  LEA EAX,[ESI + 0x18]
+00733d97  50  PUSH EAX
+00733d98  e8b3b3ffff  CALL 0x0072f150
+00733d9d  83c404  ADD ESP,0x4
+00733da0  e82bcbe6ff  CALL 0x005a08d0
+00733da5  85c0  TEST EAX,EAX
+00733da7  7413  JZ 0x00733dbc
+00733da9  8b10  MOV EDX,dword ptr [EAX]
+00733dab  6810270000  PUSH 0x2710
+00733db0  8bc8  MOV ECX,EAX
+00733db2  8b4218  MOV EAX,dword ptr [EDX + 0x18]
+00733db5  68f4a7fd00  PUSH 0xfda7f4
+00733dba  ffd0  CALL EAX
+00733dbc  e80fcbe6ff  CALL 0x005a08d0
+00733dc1  85c0  TEST EAX,EAX
+00733dc3  7418  JZ 0x00733ddd
+00733dc5  8b10  MOV EDX,dword ptr [EAX]
+00733dc7  8b5238  MOV EDX,dword ptr [EDX + 0x38]
+00733dca  6a01  PUSH 0x1
+00733dcc  6a64  PUSH 0x64
+00733dce  6a01  PUSH 0x1
+00733dd0  6898e3ff00  PUSH 0xffe398
+00733dd5  8d4e14  LEA ECX,[ESI + 0x14]
+00733dd8  51  PUSH ECX
+00733dd9  8bc8  MOV ECX,EAX
+00733ddb  ffd2  CALL EDX
+00733ddd  e8eecae6ff  CALL 0x005a08d0
+00733de2  85c0  TEST EAX,EAX
+00733de4  7410  JZ 0x00733df6
+00733de6  8b10  MOV EDX,dword ptr [EAX]
+00733de8  68ffffff7f  PUSH 0x7fffffff
+00733ded  8bc8  MOV ECX,EAX
+00733def  8b4218  MOV EAX,dword ptr [EDX + 0x18]
+00733df2  6a00  PUSH 0x0
+00733df4  ffd0  CALL EAX
+00733df6  83c610  ADD ESI,0x10
+00733df9  b9e0ed1c01  MOV ECX,0x11cede0
+00733dfe  8935304e1d01  MOV dword ptr [0x011d4e30],ESI
+00733e04  e8771ae6ff  CALL 0x00595880
+00733e09  b001  MOV AL,0x1
+00733e0b  5e  POP ESI
+00733e0c  c3  RET

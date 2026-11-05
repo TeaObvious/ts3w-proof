@@ -1,0 +1,135 @@
+// Original CAW 1.22.10 ILSpy C# excerpt: Sims3/CSHost/World.cs
+// Selected complete method bodies.
+
+	public bool Save(string saveFilePath, eEndianType endianType)
+	{
+		//IL_00b6: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00bc: Invalid comparison between Unknown and I4
+		if (string.IsNullOrEmpty(saveFilePath))
+		{
+			throw new ArgumentNullException("saveFilePath", Strings.kError_FilePathEmpty);
+		}
+		bool flag = false;
+		string saveFilePath2 = GetSaveFilePath();
+		string worldDirectory = GetWorldDirectory();
+		if (!string.IsNullOrEmpty(saveFilePath2) && string.Compare(saveFilePath2, saveFilePath) != 0)
+		{
+			flag = true;
+		}
+		if (!flag)
+		{
+			List<string> list = new List<string>();
+			if (BackupWorld(saveFilePath, list) && list.Count > 0)
+			{
+				StringBuilder stringBuilder = new StringBuilder(Strings.kWorldBackupDeleteQuery);
+				stringBuilder.AppendLine();
+				foreach (string item in list)
+				{
+					stringBuilder.AppendLine(item);
+				}
+				if ((int)MessageBox.Show(stringBuilder.ToString(), Strings.kDeleteFilesCaption, (MessageBoxButtons)1) == 1)
+				{
+					foreach (string item2 in list)
+					{
+						try
+						{
+							if (Directory.Exists(item2))
+							{
+								Directory.Delete(item2, recursive: true);
+							}
+						}
+						catch (Exception ex)
+						{
+							Log.gWarn("World", Strings.kError_DirectoryDelete, item2, ex.Message);
+						}
+					}
+				}
+			}
+		}
+		if (mWorldWrap != null)
+		{
+			if (RoutingDataNeedsRebuild())
+			{
+				RebuildRoutingData();
+			}
+			bool flag2 = mWorldWrap.Save(saveFilePath, endianType);
+			if (flag2 && flag)
+			{
+				try
+				{
+					string worldDirectory2 = GetWorldDirectory();
+					string sourceFileName = Path.Combine(worldDirectory, "World.ini");
+					string destFileName = Path.Combine(worldDirectory2, "World.ini");
+					File.Copy(sourceFileName, destFileName, overwrite: false);
+				}
+				catch (Exception ex2)
+				{
+					Log.gDebug("World", $"Failed to copy world ini. \n{ex2.Message}");
+				}
+				try
+				{
+					string text = Path.Combine(worldDirectory, "CharacterImport.xml");
+					if (File.Exists(text))
+					{
+						string destFileName2 = Path.Combine(GetWorldDirectory(), "CharacterImport.xml");
+						File.Copy(text, destFileName2);
+					}
+				}
+				catch (Exception ex3)
+				{
+					Log.gWarn("World", $"Failed to copy CharacterImport.xml \n{ex3.Message}");
+				}
+				try
+				{
+					string text2 = Path.Combine(worldDirectory, "CharacterImport.xls");
+					if (File.Exists(text2))
+					{
+						string destFileName3 = Path.Combine(GetWorldDirectory(), "CharacterImport.xls");
+						File.Copy(text2, destFileName3);
+					}
+				}
+				catch (Exception ex4)
+				{
+					Log.gWarn("World", $"Failed to copy CharacterImport.xls \n{ex4.Message}");
+				}
+			}
+			if (OnWorldSaved != null)
+			{
+				OnWorldSaved(flag2);
+			}
+			if (flag2 && WorldBuilderMainForm.IsUserWorldBuilder)
+			{
+				foreach (string mDeletedObjMgr in mDeletedObjMgrs)
+				{
+					try
+					{
+						if (File.Exists(mDeletedObjMgr))
+						{
+							File.Delete(mDeletedObjMgr);
+						}
+					}
+					catch
+					{
+					}
+				}
+				mDeletedObjMgrs.Clear();
+			}
+			return flag2;
+		}
+		return false;
+	}
+
+	public bool Load(string loadFilePath)
+	{
+		if (string.IsNullOrEmpty(loadFilePath))
+		{
+			throw new ArgumentNullException("loadFilePath", Strings.kError_FilePathEmpty);
+		}
+		if (mWorldWrap != null && mWorldWrap.Load(loadFilePath))
+		{
+			CreateComponents();
+			mbRoutingDataNeedsRebuild = false;
+			return true;
+		}
+		return false;
+	}

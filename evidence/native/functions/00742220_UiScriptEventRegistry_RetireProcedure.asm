@@ -1,0 +1,45 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body and owned-range envelope.
+Actual annotated Ghidra pseudocode: 00742220_UiScriptEventRegistry_RetireProcedure.c
+Owned ranges: [[00742220, 00742283]]
+
+00742220  83ec08  SUB ESP,0x8
+00742223  56  PUSH ESI
+00742224  57  PUSH EDI
+00742225  8d7904  LEA EDI,[ECX + 0x4]
+00742228  8d442414  LEA EAX,[ESP + 0x14]
+0074222c  50  PUSH EAX
+0074222d  8d4c240c  LEA ECX,[ESP + 0xc]
+00742231  51  PUSH ECX
+00742232  8bcf  MOV ECX,EDI
+00742234  e877973100  CALL 0x00a5b9b0
+00742239  8b5708  MOV EDX,dword ptr [EDI + 0x8]
+0074223c  8b4704  MOV EAX,dword ptr [EDI + 0x4]
+0074223f  8b4c2408  MOV ECX,dword ptr [ESP + 0x8]
+00742243  3b0c90  CMP ECX,dword ptr [EAX + EDX*0x4]
+00742246  7434  JZ 0x0074227c
+00742248  8b742418  MOV ESI,dword ptr [ESP + 0x18]
+0074224c  397104  CMP dword ptr [ECX + 0x4],ESI
+0074224f  752b  JNZ 0x0074227c
+00742251  83ec08  SUB ESP,0x8
+00742254  8bc4  MOV EAX,ESP
+00742256  8908  MOV dword ptr [EAX],ECX
+00742258  8b4c2414  MOV ECX,dword ptr [ESP + 0x14]
+0074225c  8d542410  LEA EDX,[ESP + 0x10]
+00742260  894804  MOV dword ptr [EAX + 0x4],ECX
+00742263  52  PUSH EDX
+00742264  8bcf  MOV ECX,EDI
+00742266  e845feffff  CALL 0x007420b0
+0074226b  33c0  XOR EAX,EAX
+0074226d  89463c  MOV dword ptr [ESI + 0x3c],EAX
+00742270  894638  MOV dword ptr [ESI + 0x38],EAX
+00742273  8b06  MOV EAX,dword ptr [ESI]
+00742275  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+00742278  8bce  MOV ECX,ESI
+0074227a  ffd2  CALL EDX
+0074227c  5f  POP EDI
+0074227d  5e  POP ESI
+0074227e  83c408  ADD ESP,0x8
+00742281  c20800  RET 0x8

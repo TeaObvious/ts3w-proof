@@ -1,0 +1,61 @@
+	.method public hidebysig virtual 
+		instance void OnCreation () cil managed 
+	{
+		// Method begins at RVA 0x30139c
+		// Header size: 12
+		// Code size: 94 (0x5e)
+		.maxstack 2
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid,
+			[1] class Sims3.Gameplay.Interfaces.IGameObject,
+			[2] class Sims3.Gameplay.Objects.Gardening.Plant
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.Gardening.Soil::OnCreation()
+		IL_0006: call bool [SimIFace]Sims3.SimIFace.Environment::get_HasEditInGameModeSwitch()
+		IL_000b: brfalse.s IL_000e
+
+		IL_000d: ret
+
+		IL_000e: ldarg.0
+		IL_000f: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0014: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.Gardening.Soil/ContainmentSlots::Plant
+		IL_0019: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Slots::GetContainedObject(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, uint32)
+		IL_001e: stloc.0
+		IL_001f: ldloc.0
+		IL_0020: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_0025: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_002a: brfalse.s IL_002d
+
+		IL_002c: ret
+
+		IL_002d: ldarg.0
+		IL_002e: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0033: call bool [SimIFace]Sims3.SimIFace.Objects::IsValid(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0038: brfalse.s IL_005d
+
+		IL_003a: ldarg.0
+		IL_003b: call instance class Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.Objects.Gardening.SoilAutoPlant::CreateSeed()
+		IL_0040: stloc.1
+		IL_0041: ldloc.1
+		IL_0042: brtrue.s IL_0045
+
+		IL_0044: ret
+
+		IL_0045: ldloc.1
+		IL_0046: ldarg.0
+		IL_0047: call class Sims3.Gameplay.Objects.Gardening.Plant Sims3.Gameplay.Objects.Gardening.Plant::CreateAutoPlantFromSeed(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Objects.Gardening.SoilAutoPlant)
+		IL_004c: stloc.2
+		IL_004d: ldloc.2
+		IL_004e: brtrue.s IL_0057
+
+		IL_0050: ldloc.1
+		IL_0051: callvirt instance void Sims3.Gameplay.Interfaces.IScriptObject::Destroy()
+		IL_0056: ret
+
+		IL_0057: ldarg.0
+		IL_0058: call instance void Sims3.Gameplay.Objects.Gardening.Soil::SetPlanted()
+
+		IL_005d: ret
+	} // end of method SoilAutoPlant::OnCreation

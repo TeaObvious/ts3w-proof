@@ -1,0 +1,34 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method public final hidebysig newslot virtual 
+		instance bool ReadUint32 (
+			uint32 key,
+			[out] uint32[]& values
+		) cil managed 
+	{
+		// Method begins at RVA 0x7f99
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldc.i4 -249002490 // 0xf1288606
+		IL_0007: xor
+		IL_0008: ldc.i4 1432145396
+		IL_000d: xor
+		IL_000e: call instance bool Sims3.SimIFace.PropertyStreamReader::SeekToEntry(uint32)
+		IL_0013: brfalse.s IL_001e
+
+		IL_0015: ldarg.0
+		IL_0016: ldc.i4.4
+		IL_0017: ldarg.2
+		IL_0018: call instance bool Sims3.SimIFace.PropertyStreamReader::ReadArray<uint32>(int32, !!0[]&)
+		IL_001d: ret
+
+		IL_001e: ldarg.2
+		IL_001f: ldc.i4.0
+		IL_0020: newarr [mscorlib]System.UInt32
+		IL_0025: stind.ref
+		IL_0026: ldc.i4.0
+		IL_0027: ret
+	} // end of method PropertyStreamReader::ReadUint32

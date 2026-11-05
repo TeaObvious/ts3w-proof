@@ -1,0 +1,50 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Supplemental helper: Camera_GetZoomDistance at 0x00960ae0
+# Bounded stop: 0x00960b40; next Ghidra entry: 0x00960b40; this is not a body-size claim.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00960ae0 <.text+0x55fae0>:
+  960ae0:	55                   	push   ebp
+  960ae1:	8b ec                	mov    ebp,esp
+  960ae3:	83 e4 f0             	and    esp,0xfffffff0
+  960ae6:	83 ec 10             	sub    esp,0x10
+  960ae9:	80 b9 e0 06 00 00 00 	cmp    BYTE PTR [ecx+0x6e0],0x0
+  960af0:	74 37                	je     0x960b29
+  960af2:	0f 28 49 60          	movaps xmm1,XMMWORD PTR [ecx+0x60]
+  960af6:	0f 28 81 00 02 00 00 	movaps xmm0,XMMWORD PTR [ecx+0x200]
+  960afd:	0f 5c c1             	subps  xmm0,xmm1
+  960b00:	0f 59 c0             	mulps  xmm0,xmm0
+  960b03:	0f 28 c8             	movaps xmm1,xmm0
+  960b06:	0f c6 c1 02          	shufps xmm0,xmm1,0x2
+  960b0a:	0f 28 d1             	movaps xmm2,xmm1
+  960b0d:	0f c6 d1 01          	shufps xmm2,xmm1,0x1
+  960b11:	0f 58 c2             	addps  xmm0,xmm2
+  960b14:	0f 58 c1             	addps  xmm0,xmm1
+  960b17:	0f c6 c0 00          	shufps xmm0,xmm0,0x0
+  960b1b:	0f 51 c0             	sqrtps xmm0,xmm0
+  960b1e:	0f 29 04 24          	movaps XMMWORD PTR [esp],xmm0
+  960b22:	d9 04 24             	fld    DWORD PTR [esp]
+  960b25:	8b e5                	mov    esp,ebp
+  960b27:	5d                   	pop    ebp
+  960b28:	c3                   	ret
+  960b29:	d9 81 70 02 00 00    	fld    DWORD PTR [ecx+0x270]
+  960b2f:	8b e5                	mov    esp,ebp
+  960b31:	5d                   	pop    ebp
+  960b32:	c3                   	ret
+  960b33:	cc                   	int3
+  960b34:	cc                   	int3
+  960b35:	cc                   	int3
+  960b36:	cc                   	int3
+  960b37:	cc                   	int3
+  960b38:	cc                   	int3
+  960b39:	cc                   	int3
+  960b3a:	cc                   	int3
+  960b3b:	cc                   	int3
+  960b3c:	cc                   	int3
+  960b3d:	cc                   	int3
+  960b3e:	cc                   	int3
+  960b3f:	cc                   	int3

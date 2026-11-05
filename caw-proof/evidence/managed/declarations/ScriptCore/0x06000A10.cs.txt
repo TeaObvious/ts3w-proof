@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x06000A10.
+// Assembly: ScriptCore; type: ScriptCore.EAText.
+// Decompiled C# source: ScriptCore/ScriptCore/EAText.cs:25
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalType = "ScriptCore.StringFromVariantMarshaler")]
+	private static extern string EAText_GetMoneyString(long amount);

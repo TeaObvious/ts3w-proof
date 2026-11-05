@@ -1,0 +1,57 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00802ba0 <.text+0x401ba0>:
+  802ba0:	8b 77 10             	mov    esi,DWORD PTR [edi+0x10]
+  802ba3:	b3 01                	mov    bl,0x1
+  802ba5:	eb 0f                	jmp    0x802bb6
+  802ba7:	84 d2                	test   dl,dl
+  802ba9:	74 07                	je     0x802bb2
+  802bab:	8b 77 10             	mov    esi,DWORD PTR [edi+0x10]
+  802bae:	b3 01                	mov    bl,0x1
+  802bb0:	eb 04                	jmp    0x802bb6
+  802bb2:	8b f0                	mov    esi,eax
+  802bb4:	32 db                	xor    bl,bl
+  802bb6:	85 f6                	test   esi,esi
+  802bb8:	75 0c                	jne    0x802bc6
+  802bba:	8b 77 10             	mov    esi,DWORD PTR [edi+0x10]
+  802bbd:	85 f6                	test   esi,esi
+  802bbf:	b3 01                	mov    bl,0x1
+  802bc1:	75 03                	jne    0x802bc6
+  802bc3:	8b 77 1c             	mov    esi,DWORD PTR [edi+0x1c]
+  802bc6:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+  802bca:	80 78 3c 00          	cmp    BYTE PTR [eax+0x3c],0x0
+  802bce:	74 07                	je     0x802bd7
+  802bd0:	3b 78 40             	cmp    edi,DWORD PTR [eax+0x40]
+  802bd3:	74 02                	je     0x802bd7
+  802bd5:	32 db                	xor    bl,bl
+  802bd7:	85 f6                	test   esi,esi
+  802bd9:	0f 84 d8 00 00 00    	je     0x802cb7
+  802bdf:	f7 44 24 6c 00 01 00 	test   DWORD PTR [esp+0x6c],0x100
+  802be6:	00 
+  802be7:	0f 85 8d 00 00 00    	jne    0x802c7a
+  802bed:	3b 74 24 68          	cmp    esi,DWORD PTR [esp+0x68]
+  802bf1:	0f 85 83 00 00 00    	jne    0x802c7a
+  802bf7:	8b 4c 24 70          	mov    ecx,DWORD PTR [esp+0x70]
+  802bfb:	51                   	push   ecx
+  802bfc:	8b cf                	mov    ecx,edi
+  802bfe:	e8 4d e5 ff ff       	call   0x801150
+  802c03:	8b cf                	mov    ecx,edi
+  802c05:	e8 36 da ff ff       	call   0x800640
+  802c0a:	6a 24                	push   0x24
+  802c0c:	e8 9f fb f3 ff       	call   0x7427b0
+  802c11:	83 c4 04             	add    esp,0x4
+  802c14:	85 c0                	test   eax,eax
+  802c16:	74 13                	je     0x802c2b
+  802c18:	8b 54 24 68          	mov    edx,DWORD PTR [esp+0x68]
+  802c1c:	8b 4a 28             	mov    ecx,DWORD PTR [edx+0x28]
+  802c1f:	51                   	push   ecx
+  802c20:	6a 03                	push   0x3
+  802c22:	8b c8                	mov    ecx,eax
+  802c24:	e8 97 d8 ff ff       	call   0x8004c0
+  802c29:	eb 02                	jmp    0x802c2d
+  802c2b:	33 c0                	xor    eax,eax
+  802c2d:	8b 74 24           	mov    esi,DWORD PTR [esp+0x10]

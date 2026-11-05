@@ -1,0 +1,56 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: ContentRoots_FindByKey
+Paired actual annotated Ghidra pseudocode: 00595510_ContentRoots_FindByKey.c
+Owned ranges: [[00595510, 00595580]]
+Envelope bytes=113
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+00595510  8b91a0040000  MOV EDX,dword ptr [ECX + 0x4a0]
+00595516  2b919c040000  SUB EDX,dword ptr [ECX + 0x49c]
+0059551c  b867666666  MOV EAX,0x66666667
+00595521  f7ea  IMUL EDX
+00595523  53  PUSH EBX
+00595524  c1fa03  SAR EDX,0x3
+00595527  55  PUSH EBP
+00595528  8bc2  MOV EAX,EDX
+0059552a  56  PUSH ESI
+0059552b  c1e81f  SHR EAX,0x1f
+0059552e  33f6  XOR ESI,ESI
+00595530  03c2  ADD EAX,EDX
+00595532  57  PUSH EDI
+00595533  7435  JZ 0x0059556a
+00595535  8b999c040000  MOV EBX,dword ptr [ECX + 0x49c]
+0059553b  8b542414  MOV EDX,dword ptr [ESP + 0x14]
+0059553f  8b2a  MOV EBP,dword ptr [EDX]
+00595541  8bfb  MOV EDI,EBX
+00595543  392f  CMP dword ptr [EDI],EBP
+00595545  742c  JZ 0x00595573
+00595547  8b91a0040000  MOV EDX,dword ptr [ECX + 0x4a0]
+0059554d  2bd3  SUB EDX,EBX
+0059554f  b867666666  MOV EAX,0x66666667
+00595554  f7ea  IMUL EDX
+00595556  c1fa03  SAR EDX,0x3
+00595559  8bc2  MOV EAX,EDX
+0059555b  c1e81f  SHR EAX,0x1f
+0059555e  83c601  ADD ESI,0x1
+00595561  03c2  ADD EAX,EDX
+00595563  83c714  ADD EDI,0x14
+00595566  3bf0  CMP ESI,EAX
+00595568  72d9  JC 0x00595543
+0059556a  5f  POP EDI
+0059556b  5e  POP ESI
+0059556c  5d  POP EBP
+0059556d  33c0  XOR EAX,EAX
+0059556f  5b  POP EBX
+00595570  c20400  RET 0x4
+00595573  5f  POP EDI
+00595574  8d0cb6  LEA ECX,[ESI + ESI*0x4]
+00595577  5e  POP ESI
+00595578  5d  POP EBP
+00595579  8d448b04  LEA EAX,[EBX + ECX*0x4 + 0x4]
+0059557d  5b  POP EBX
+0059557e  c20400  RET 0x4
+Owned instructions=45 owned bytes=113 gap/nonowned bytes=0

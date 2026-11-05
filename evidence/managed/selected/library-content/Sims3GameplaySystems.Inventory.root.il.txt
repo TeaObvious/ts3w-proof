@@ -1,0 +1,151 @@
+// Original PC1.67 packaged retail members; complete selected method bodies. Central identities apply.
+// Raw CIL tokens/signatures qualify unresolved generics; compiler-generated child/lambda bodies are separate.
+
+// Sims3.Gameplay.Inventory::ExportContent MethodDef0x06008022 RVA0x00233448
+// Signature 20030212836d128371128375; maxstack4; locals1100172B; initlocalsTrue
+// Complete raw CIL (114 bytes): 73F52701060A06037D97CB000406047D98CB000406057D99CB0004060228B17F0006732323000A7D96CB00040206FE06F6270106732F8000061628FE7F0006067B99CB000420AB594480067B96CB00046F2105000A6F2205000A26067B99CB00042085426C08027B4F4300046F9300000A2A
+IL_0000: newobj 0x060127F5 .<>c__DisplayClass1e::.ctor
+IL_0005: stloc.0
+IL_0006: ldloc.0
+IL_0007: ldarg.1
+IL_0008: stfld 0x0400CB97 .<>c__DisplayClass1e::resKeyTable
+IL_000D: ldloc.0
+IL_000E: ldarg.2
+IL_000F: stfld 0x0400CB98 .<>c__DisplayClass1e::objIdTable
+IL_0014: ldloc.0
+IL_0015: ldarg.3
+IL_0016: stfld 0x0400CB99 .<>c__DisplayClass1e::writer
+IL_001B: ldloc.0
+IL_001C: ldarg.0
+IL_001D: call 0x06007FB1 Sims3.Gameplay.Inventory::get_NumItemsStored
+IL_0022: newobj 0x0A002323 TypeSpecification::.ctor
+IL_0027: stfld 0x0400CB96 .<>c__DisplayClass1e::items
+IL_002C: ldarg.0
+IL_002D: ldloc.0
+IL_002E: ldftn 0x060127F6 .<>c__DisplayClass1e::<ExportContent>b__1d
+IL_0034: newobj 0x0600802F .ItemFunction::.ctor
+IL_0039: ldc.i4.0
+IL_003A: call 0x06007FFE Sims3.Gameplay.Inventory::ApplyFuncToAllItems
+IL_003F: ldloc.0
+IL_0040: ldfld 0x0400CB99 .<>c__DisplayClass1e::writer
+IL_0045: ldc.i4 -2143004245
+IL_004A: ldloc.0
+IL_004B: ldfld 0x0400CB96 .<>c__DisplayClass1e::items
+IL_0050: callvirt 0x0A000521 TypeSpecification::ToArray
+IL_0055: callvirt 0x0A000522 Sims3.SimIFace.IPropertyStreamWriter::WriteUint32
+IL_005A: pop
+IL_005B: ldloc.0
+IL_005C: ldfld 0x0400CB99 .<>c__DisplayClass1e::writer
+IL_0061: ldc.i4 141312645
+IL_0066: ldarg.0
+IL_0067: ldfld 0x0400434F Sims3.Gameplay.Inventory::mMaxInventoryCapacity
+IL_006C: callvirt 0x0A000093 Sims3.SimIFace.IPropertyStreamWriter::WriteInt32
+IL_0071: ret
+
+// Sims3.Gameplay.Inventory::ImportContent MethodDef0x06008023 RVA0x002334C8
+// Signature 20030212836d128371128379; maxstack5; locals1100172C; initlocalsTrue
+// Complete raw CIL (230 bytes): 0228FF7F0006027B504300046F7F0000067B663800046F642401060520AB59448012006F2405000A2D02162A061306161307388F00000011061107950B04076F6D0B000A28A402002B0C082C7305076F9A00000A0D092C58171304087513180002130511052C141105030409027B504300046F90A7000613042B210875AA0600022C0E02280D01002B1733101613042B0B080304096F0600000A1304DE0626161304DE0011042D08086F180000062B1002081628C37F00062D06086F18000006110717581307110711068E693F66FFFFFF052085426C08027C4F430004166F9800000A26172A
+IL_0000: ldarg.0
+IL_0001: call 0x06007FFF Sims3.Gameplay.Inventory::DestroyItems
+IL_0006: ldarg.0
+IL_0007: ldfld 0x04004350 Sims3.Gameplay.Inventory::Owner
+IL_000C: callvirt 0x0600007F Sims3.Gameplay.Interfaces.IGameObject::get_InventoryComp
+IL_0011: ldfld 0x04003866 Sims3.Gameplay.ObjectComponents.InventoryComponent::InventoryUIModel
+IL_0016: callvirt 0x06012464 Sims3.Gameplay.InventoryModel::ClearInvalidItemStacks
+IL_001B: ldarg.3
+IL_001C: ldc.i4 -2143004245
+IL_0021: ldloca.s 0
+IL_0023: callvirt 0x0A000524 Sims3.SimIFace.IPropertyStreamReader::ReadUint32
+IL_0028: brtrue.s IL_002C
+IL_002A: ldc.i4.0
+IL_002B: ret
+IL_002C: ldloc.0
+IL_002D: stloc.s 6
+IL_002F: ldc.i4.0
+IL_0030: stloc.s 7
+IL_0032: br IL_00C6
+IL_0037: ldloc.s 6
+IL_0039: ldloc.s 7
+IL_003B: ldelem.u4
+IL_003C: stloc.1
+IL_003D: ldarg.2
+IL_003E: ldloc.1
+IL_003F: callvirt 0x0A000B6D Sims3.SimIFace.CustomContent.ObjectIdTable::get_Item
+IL_0044: call 0x2B0002A4 MethodSpecification
+IL_0049: stloc.2
+IL_004A: ldloc.2
+IL_004B: brfalse.s IL_00C0
+IL_004D: ldarg.3
+IL_004E: ldloc.1
+IL_004F: callvirt 0x0A00009A Sims3.SimIFace.IPropertyStreamReader::GetChild
+IL_0054: stloc.3
+IL_0055: ldloc.3
+IL_0056: brfalse.s IL_00B0
+IL_0058: ldc.i4.1
+IL_0059: stloc.s 4
+IL_005B: ldloc.2
+IL_005C: isinst 0x02001813 Sims3.Gameplay.Objects.Urnstone
+IL_0061: stloc.s 5
+IL_0063: ldloc.s 5
+IL_0065: brfalse.s IL_007B
+IL_0067: ldloc.s 5
+IL_0069: ldarg.1
+IL_006A: ldarg.2
+IL_006B: ldloc.3
+IL_006C: ldarg.0
+IL_006D: ldfld 0x04004350 Sims3.Gameplay.Inventory::Owner
+IL_0072: callvirt 0x0600A790 Sims3.Gameplay.Objects.Urnstone::ImportContent
+IL_0077: stloc.s 4
+IL_0079: br.s IL_009C
+IL_007B: ldloc.2
+IL_007C: isinst 0x020006AA Sims3.Gameplay.Controllers.IPhoneCell
+IL_0081: brfalse.s IL_0091
+IL_0083: ldarg.0
+IL_0084: call 0x2B00010D MethodSpecification
+IL_0089: ldc.i4.1
+IL_008A: bne.un.s IL_009C
+IL_008C: ldc.i4.0
+IL_008D: stloc.s 4
+IL_008F: br.s IL_009C
+IL_0091: ldloc.2
+IL_0092: ldarg.1
+IL_0093: ldarg.2
+IL_0094: ldloc.3
+IL_0095: callvirt 0x0A000006 Sims3.SimIFace.CustomContent.IExportableContent::ImportContent
+IL_009A: stloc.s 4
+IL_009C: leave.s IL_00A4
+IL_009E: pop
+IL_009F: ldc.i4.0
+IL_00A0: stloc.s 4
+IL_00A2: leave.s IL_00A4
+IL_00A4: ldloc.s 4
+IL_00A6: brtrue.s IL_00B0
+IL_00A8: ldloc.2
+IL_00A9: callvirt 0x06000018 Sims3.Gameplay.Interfaces.IScriptObject::Destroy
+IL_00AE: br.s IL_00C0
+IL_00B0: ldarg.0
+IL_00B1: ldloc.2
+IL_00B2: ldc.i4.0
+IL_00B3: call 0x06007FC3 Sims3.Gameplay.Inventory::TryToAdd
+IL_00B8: brtrue.s IL_00C0
+IL_00BA: ldloc.2
+IL_00BB: callvirt 0x06000018 Sims3.Gameplay.Interfaces.IScriptObject::Destroy
+IL_00C0: ldloc.s 7
+IL_00C2: ldc.i4.1
+IL_00C3: add
+IL_00C4: stloc.s 7
+IL_00C6: ldloc.s 7
+IL_00C8: ldloc.s 6
+IL_00CA: ldlen
+IL_00CB: conv.i4
+IL_00CC: blt IL_0037
+IL_00D1: ldarg.3
+IL_00D2: ldc.i4 141312645
+IL_00D7: ldarg.0
+IL_00D8: ldflda 0x0400434F Sims3.Gameplay.Inventory::mMaxInventoryCapacity
+IL_00DD: ldc.i4.0
+IL_00DE: callvirt 0x0A000098 Sims3.SimIFace.IPropertyStreamReader::ReadInt32
+IL_00E3: pop
+IL_00E4: ldc.i4.1
+IL_00E5: ret
+// EH {"FilterOffset": -1, "HandlerLength": 6, "HandlerOffset": 158, "TryLength": 67, "TryOffset": 91, "catchType": "010000A0", "kind": "Catch"}

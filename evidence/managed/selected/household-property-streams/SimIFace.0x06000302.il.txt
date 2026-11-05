@@ -1,0 +1,36 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig 
+		instance bool SeekToEntry (
+			uint32 key
+		) cil managed 
+	{
+		// Method begins at RVA 0x7c68
+		// Header size: 12
+		// Code size: 45 (0x2d)
+		.maxstack 3
+		.locals init (
+			[0] uint32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, uint32> Sims3.SimIFace.PropertyStreamReader::mEntryMap
+		IL_0006: ldarg.1
+		IL_0007: ldloca.s 0
+		IL_0009: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, uint32>::TryGetValue(!0, !1&)
+		IL_000e: brfalse.s IL_002b
+
+		IL_0010: ldarg.0
+		IL_0011: ldfld class [mscorlib]System.IO.BinaryReader Sims3.SimIFace.PropertyStreamReader::mStream
+		IL_0016: callvirt instance class [mscorlib]System.IO.Stream [mscorlib]System.IO.BinaryReader::get_BaseStream()
+		IL_001b: ldarg.0
+		IL_001c: ldfld int64 Sims3.SimIFace.PropertyStreamReader::mStartPosition
+		IL_0021: ldloc.0
+		IL_0022: conv.u8
+		IL_0023: add
+		IL_0024: callvirt instance void [mscorlib]System.IO.Stream::set_Position(int64)
+		IL_0029: ldc.i4.1
+		IL_002a: ret
+
+		IL_002b: ldc.i4.0
+		IL_002c: ret
+	} // end of method PropertyStreamReader::SeekToEntry

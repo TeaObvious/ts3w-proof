@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x0600029C.
+// Assembly: ScriptCore; type: ScriptCore.CommandSystem.
+// Decompiled C# source: ScriptCore/ScriptCore/CommandSystem.cs:9
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool Command_RegisterCommandImpl([MarshalAs(UnmanagedType.LPWStr)] string cmdName, [MarshalAs(UnmanagedType.LPWStr)] string cmdDesc, [MarshalAs(UnmanagedType.Interface)] Delegate eventHandler, bool bHidden);

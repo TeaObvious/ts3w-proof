@@ -1,0 +1,304 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original PC1.67 TS3W.exe; analyst display name FootprintCell_CollectLeafRecords.
+# Ghidra database name FUN_00669b20; no symbol/database edit.
+# Bounding original-byte envelope [00669b20,00669dff); bytes independently matched against the central original PE.
+# Complete existing Ghidra-owned Listing below; envelope gaps are bytes, not owned instructions.
+# Owned ranges (exclusive ends): [00669b20,00669d87), [00669d90,00669dff)
+# Nonowned gap bytes: 9.
+
+# Original bytes by virtual address:
+00669b20: 8a 41 08 83 ec 68 57 8d 79 08 f6 d0 a8 01 75 0a
+00669b30: 83 7f 04 00 0f 84 be 02 00 00 8b 44 24 70 85 c0
+00669b40: 53 55 56 74 05 8b 68 40 eb 02 33 ed e8 9f f1 1b
+00669b50: 00 85 c0 74 0e 55 8b c8 e8 a3 f3 1b 00 89 44 24
+00669b60: 14 eb 08 c7 44 24 14 00 00 00 00 8a 07 8d 4c 24
+00669b70: 3c f6 d0 a8 01 8b f1 8d 54 24 78 c6 44 24 13 00
+00669b80: 89 4c 24 38 89 4c 24 2c 89 74 24 28 89 54 24 30
+00669b90: c7 44 24 34 58 f1 fe 00 74 04 8b df eb 05 8b 1f
+00669ba0: 83 e3 fe 8a 17 f6 d2 f6 c2 01 74 09 83 c7 0c 89
+00669bb0: 7c 24 18 eb 12 8b 47 04 8b 17 8d 04 40 83 e2 fe
+00669bc0: 8d 04 82 89 44 24 18 3b 5c 24 18 0f 84 9d 01 00
+00669bd0: 00 8b 3b 85 ff 0f 84 7e 01 00 00 8b 4f 08 85 c9
+00669be0: 8d 77 08 74 4b 80 bc 24 8c 00 00 00 00 75 24 83
+00669bf0: 7c 24 14 00 74 1d 8b 11 8b 82 84 00 00 00 ff d0
+00669c00: 8b 4c 24 14 52 50 e8 b5 29 1b 00 84 c0 0f 85 46
+00669c10: 01 00 00 85 ed 74 05 8b 45 00 eb 02 33 c0 8b 0e
+00669c20: 8b 11 50 8b 42 60 ff d0 84 c0 0f 84 29 01 00 00
+00669c30: 8b 0e 85 c9 74 0f 8b 11 8b 42 28 ff d0 84 c0 0f
+00669c40: 85 14 01 00 00 0f b6 47 10 8b 0e 8b 11 8b 52 08
+00669c50: 50 55 ff d2 85 ed 8b f8 74 56 8b 0e 85 c9 74 50
+00669c60: 8b 01 8b 90 84 00 00 00 ff d2 3b 45 08 75 13 3b
+00669c70: 55 0c 75 0e 80 bc 24 88 00 00 00 00 0f 85 d7 00
+00669c80: 00 00 8b 44 24 7c f7 40 50 00 00 08 00 74 21 8b
+00669c90: 0e 8b 11 8b 42 0c ff d0 83 f8 13 74 0e 8b 0e 8b
+00669ca0: 11 8b 42 0c ff d0 83 f8 18 75 05 bf 0c 00 00 00
+00669cb0: 8b 0e 85 c9 74 2f 8b 11 8b 42 0c ff d0 83 f8 1f
+00669cc0: 75 0a c6 44 24 13 01 e9 8d 00 00 00 83 7c 24 7c
+00669cd0: 00 74 12 8b 4c 24 7c f7 41 50 00 00 00 02 74 05
+00669ce0: 83 f8 1e 74 74 8b 0e 85 c9 74 2b 8b 11 8b 42 0c
+00669cf0: ff d0 83 f8 14 75 1f 8b 4c 24 14 85 c9 74 12 6a
+00669d00: 00 6a 00 68 04 10 00 00 e8 d3 27 1b 00 84 c0 75
+00669d10: 05 bf 01 00 00 00 80 bc 24 84 00 00 00 00 74 1d
+00669d20: 83 ff 02 75 11 83 3e 00 74 13 56 8d 4c 24 2c e8
+00669d30: 8c f7 ff ff eb 23 72 21 83 ff 0d 74 1c c6 44 24
+00669d40: 1c 00 8b 4c 24 1c 51 8b 8c 24 84 00 00 00 56 8d
+00669d50: 54 24 28 52 e8 47 ef fb ff 83 c3 0c 3b 5c 24 18
+00669d60: 0f 85 6b fe ff ff 8b 4c 24 2c 8b 74 24 28 80 bc
+00669d70: 24 84 00 00 00 00 74 49 3b f1 74 45 80 7c 24 13
+00669d80: 00 74 3e 8b f9 eb 09 8d a4 24 00 00 00 00 8b ff
+00669d90: c6 84 24 84 00 00 00 00 8b 84 24 84 00 00 00 50
+00669da0: 56 8d 4c 24 28 51 8b 8c 24 8c 00 00 00 e8 ee ee
+00669db0: fb ff 83 c6 04 3b f7 75 d7 8b 4c 24 2c 8b 74 24
+00669dc0: 28 3b f1 8b f9 73 1b 8b 0e 85 c9 74 0a 8b 11 8b
+00669dd0: 82 94 00 00 00 ff d0 83 c6 04 3b f7 72 e9 8b 74
+00669de0: 24 28 85 f6 74 0f 3b 74 24 38 74 09 56 e8 ee a6
+00669df0: e7 ff 83 c4 04 5e 5d 5b 5f 83 c4 68 c2 14 00
+
+# Existing Ghidra-owned instruction Listing:
+00669b20: MOV AL, byte ptr [ECX + 0x8]
+00669b23: SUB ESP, 0x68
+00669b26: PUSH EDI
+00669b27: LEA EDI, [ECX + 0x8]
+00669b2a: NOT AL
+00669b2c: TEST AL, 0x1
+00669b2e: JNZ 0x00669b3a
+00669b30: CMP dword ptr [EDI + 0x4], 0x0
+00669b34: JZ 0x00669df8
+00669b3a: MOV EAX, dword ptr [ESP + 0x70]
+00669b3e: TEST EAX, EAX
+00669b40: PUSH EBX
+00669b41: PUSH EBP
+00669b42: PUSH ESI
+00669b43: JZ 0x00669b4a
+00669b45: MOV EBP, dword ptr [EAX + 0x40]
+00669b48: JMP 0x00669b4c
+00669b4a: XOR EBP, EBP
+00669b4c: CALL 0x00828cf0
+00669b51: TEST EAX, EAX
+00669b53: JZ 0x00669b63
+00669b55: PUSH EBP
+00669b56: MOV ECX, EAX
+00669b58: CALL 0x00828f00
+00669b5d: MOV dword ptr [ESP + 0x14], EAX
+00669b61: JMP 0x00669b6b
+00669b63: MOV dword ptr [ESP + 0x14], 0x0
+00669b6b: MOV AL, byte ptr [EDI]
+00669b6d: LEA ECX, [ESP + 0x3c]
+00669b71: NOT AL
+00669b73: TEST AL, 0x1
+00669b75: MOV ESI, ECX
+00669b77: LEA EDX, [ESP + 0x78]
+00669b7b: MOV byte ptr [ESP + 0x13], 0x0
+00669b80: MOV dword ptr [ESP + 0x38], ECX
+00669b84: MOV dword ptr [ESP + 0x2c], ECX
+00669b88: MOV dword ptr [ESP + 0x28], ESI
+00669b8c: MOV dword ptr [ESP + 0x30], EDX
+00669b90: MOV dword ptr [ESP + 0x34], 0xfef158
+00669b98: JZ 0x00669b9e
+00669b9a: MOV EBX, EDI
+00669b9c: JMP 0x00669ba3
+00669b9e: MOV EBX, dword ptr [EDI]
+00669ba0: AND EBX, 0xfffffffe
+00669ba3: MOV DL, byte ptr [EDI]
+00669ba5: NOT DL
+00669ba7: TEST DL, 0x1
+00669baa: JZ 0x00669bb5
+00669bac: ADD EDI, 0xc
+00669baf: MOV dword ptr [ESP + 0x18], EDI
+00669bb3: JMP 0x00669bc7
+00669bb5: MOV EAX, dword ptr [EDI + 0x4]
+00669bb8: MOV EDX, dword ptr [EDI]
+00669bba: LEA EAX, [EAX + EAX*0x2]
+00669bbd: AND EDX, 0xfffffffe
+00669bc0: LEA EAX, [EDX + EAX*0x4]
+00669bc3: MOV dword ptr [ESP + 0x18], EAX
+00669bc7: CMP EBX, dword ptr [ESP + 0x18]
+00669bcb: JZ 0x00669d6e
+00669bd1: MOV EDI, dword ptr [EBX]
+00669bd3: TEST EDI, EDI
+00669bd5: JZ 0x00669d59
+00669bdb: MOV ECX, dword ptr [EDI + 0x8]
+00669bde: TEST ECX, ECX
+00669be0: LEA ESI, [EDI + 0x8]
+00669be3: JZ 0x00669c30
+00669be5: CMP byte ptr [ESP + 0x8c], 0x0
+00669bed: JNZ 0x00669c13
+00669bef: CMP dword ptr [ESP + 0x14], 0x0
+00669bf4: JZ 0x00669c13
+00669bf6: MOV EDX, dword ptr [ECX]
+00669bf8: MOV EAX, dword ptr [EDX + 0x84]
+00669bfe: CALL EAX
+00669c00: MOV ECX, dword ptr [ESP + 0x14]
+00669c04: PUSH EDX
+00669c05: PUSH EAX
+00669c06: CALL 0x0081c5c0
+00669c0b: TEST AL, AL
+00669c0d: JNZ 0x00669d59
+00669c13: TEST EBP, EBP
+00669c15: JZ 0x00669c1c
+00669c17: MOV EAX, dword ptr [EBP]
+00669c1a: JMP 0x00669c1e
+00669c1c: XOR EAX, EAX
+00669c1e: MOV ECX, dword ptr [ESI]
+00669c20: MOV EDX, dword ptr [ECX]
+00669c22: PUSH EAX
+00669c23: MOV EAX, dword ptr [EDX + 0x60]
+00669c26: CALL EAX
+00669c28: TEST AL, AL
+00669c2a: JZ 0x00669d59
+00669c30: MOV ECX, dword ptr [ESI]
+00669c32: TEST ECX, ECX
+00669c34: JZ 0x00669c45
+00669c36: MOV EDX, dword ptr [ECX]
+00669c38: MOV EAX, dword ptr [EDX + 0x28]
+00669c3b: CALL EAX
+00669c3d: TEST AL, AL
+00669c3f: JNZ 0x00669d59
+00669c45: MOVZX EAX, byte ptr [EDI + 0x10]
+00669c49: MOV ECX, dword ptr [ESI]
+00669c4b: MOV EDX, dword ptr [ECX]
+00669c4d: MOV EDX, dword ptr [EDX + 0x8]
+00669c50: PUSH EAX
+00669c51: PUSH EBP
+00669c52: CALL EDX
+00669c54: TEST EBP, EBP
+00669c56: MOV EDI, EAX
+00669c58: JZ 0x00669cb0
+00669c5a: MOV ECX, dword ptr [ESI]
+00669c5c: TEST ECX, ECX
+00669c5e: JZ 0x00669cb0
+00669c60: MOV EAX, dword ptr [ECX]
+00669c62: MOV EDX, dword ptr [EAX + 0x84]
+00669c68: CALL EDX
+00669c6a: CMP EAX, dword ptr [EBP + 0x8]
+00669c6d: JNZ 0x00669c82
+00669c6f: CMP EDX, dword ptr [EBP + 0xc]
+00669c72: JNZ 0x00669c82
+00669c74: CMP byte ptr [ESP + 0x88], 0x0
+00669c7c: JNZ 0x00669d59
+00669c82: MOV EAX, dword ptr [ESP + 0x7c]
+00669c86: TEST dword ptr [EAX + 0x50], 0x80000
+00669c8d: JZ 0x00669cb0
+00669c8f: MOV ECX, dword ptr [ESI]
+00669c91: MOV EDX, dword ptr [ECX]
+00669c93: MOV EAX, dword ptr [EDX + 0xc]
+00669c96: CALL EAX
+00669c98: CMP EAX, 0x13
+00669c9b: JZ 0x00669cab
+00669c9d: MOV ECX, dword ptr [ESI]
+00669c9f: MOV EDX, dword ptr [ECX]
+00669ca1: MOV EAX, dword ptr [EDX + 0xc]
+00669ca4: CALL EAX
+00669ca6: CMP EAX, 0x18
+00669ca9: JNZ 0x00669cb0
+00669cab: MOV EDI, 0xc
+00669cb0: MOV ECX, dword ptr [ESI]
+00669cb2: TEST ECX, ECX
+00669cb4: JZ 0x00669ce5
+00669cb6: MOV EDX, dword ptr [ECX]
+00669cb8: MOV EAX, dword ptr [EDX + 0xc]
+00669cbb: CALL EAX
+00669cbd: CMP EAX, 0x1f
+00669cc0: JNZ 0x00669ccc
+00669cc2: MOV byte ptr [ESP + 0x13], 0x1
+00669cc7: JMP 0x00669d59
+00669ccc: CMP dword ptr [ESP + 0x7c], 0x0
+00669cd1: JZ 0x00669ce5
+00669cd3: MOV ECX, dword ptr [ESP + 0x7c]
+00669cd7: TEST dword ptr [ECX + 0x50], 0x2000000
+00669cde: JZ 0x00669ce5
+00669ce0: CMP EAX, 0x1e
+00669ce3: JZ 0x00669d59
+00669ce5: MOV ECX, dword ptr [ESI]
+00669ce7: TEST ECX, ECX
+00669ce9: JZ 0x00669d16
+00669ceb: MOV EDX, dword ptr [ECX]
+00669ced: MOV EAX, dword ptr [EDX + 0xc]
+00669cf0: CALL EAX
+00669cf2: CMP EAX, 0x14
+00669cf5: JNZ 0x00669d16
+00669cf7: MOV ECX, dword ptr [ESP + 0x14]
+00669cfb: TEST ECX, ECX
+00669cfd: JZ 0x00669d11
+00669cff: PUSH 0x0
+00669d01: PUSH 0x0
+00669d03: PUSH 0x1004
+00669d08: CALL 0x0081c4e0
+00669d0d: TEST AL, AL
+00669d0f: JNZ 0x00669d16
+00669d11: MOV EDI, 0x1
+00669d16: CMP byte ptr [ESP + 0x84], 0x0
+00669d1e: JZ 0x00669d3d
+00669d20: CMP EDI, 0x2
+00669d23: JNZ 0x00669d36
+00669d25: CMP dword ptr [ESI], 0x0
+00669d28: JZ 0x00669d3d
+00669d2a: PUSH ESI
+00669d2b: LEA ECX, [ESP + 0x2c]
+00669d2f: CALL 0x006694c0
+00669d34: JMP 0x00669d59
+00669d36: JC 0x00669d59
+00669d38: CMP EDI, 0xd
+00669d3b: JZ 0x00669d59
+00669d3d: MOV byte ptr [ESP + 0x1c], 0x0
+00669d42: MOV ECX, dword ptr [ESP + 0x1c]
+00669d46: PUSH ECX
+00669d47: MOV ECX, dword ptr [ESP + 0x84]
+00669d4e: PUSH ESI
+00669d4f: LEA EDX, [ESP + 0x28]
+00669d53: PUSH EDX
+00669d54: CALL 0x00628ca0
+00669d59: ADD EBX, 0xc
+00669d5c: CMP EBX, dword ptr [ESP + 0x18]
+00669d60: JNZ 0x00669bd1
+00669d66: MOV ECX, dword ptr [ESP + 0x2c]
+00669d6a: MOV ESI, dword ptr [ESP + 0x28]
+00669d6e: CMP byte ptr [ESP + 0x84], 0x0
+00669d76: JZ 0x00669dc1
+00669d78: CMP ESI, ECX
+00669d7a: JZ 0x00669dc1
+00669d7c: CMP byte ptr [ESP + 0x13], 0x0
+00669d81: JZ 0x00669dc1
+00669d83: MOV EDI, ECX
+00669d85: JMP 0x00669d90
+00669d90: MOV byte ptr [ESP + 0x84], 0x0
+00669d98: MOV EAX, dword ptr [ESP + 0x84]
+00669d9f: PUSH EAX
+00669da0: PUSH ESI
+00669da1: LEA ECX, [ESP + 0x28]
+00669da5: PUSH ECX
+00669da6: MOV ECX, dword ptr [ESP + 0x8c]
+00669dad: CALL 0x00628ca0
+00669db2: ADD ESI, 0x4
+00669db5: CMP ESI, EDI
+00669db7: JNZ 0x00669d90
+00669db9: MOV ECX, dword ptr [ESP + 0x2c]
+00669dbd: MOV ESI, dword ptr [ESP + 0x28]
+00669dc1: CMP ESI, ECX
+00669dc3: MOV EDI, ECX
+00669dc5: JNC 0x00669de2
+00669dc7: MOV ECX, dword ptr [ESI]
+00669dc9: TEST ECX, ECX
+00669dcb: JZ 0x00669dd7
+00669dcd: MOV EDX, dword ptr [ECX]
+00669dcf: MOV EAX, dword ptr [EDX + 0x94]
+00669dd5: CALL EAX
+00669dd7: ADD ESI, 0x4
+00669dda: CMP ESI, EDI
+00669ddc: JC 0x00669dc7
+00669dde: MOV ESI, dword ptr [ESP + 0x28]
+00669de2: TEST ESI, ESI
+00669de4: JZ 0x00669df5
+00669de6: CMP ESI, dword ptr [ESP + 0x38]
+00669dea: JZ 0x00669df5
+00669dec: PUSH ESI
+00669ded: CALL 0x004e44e0
+00669df2: ADD ESP, 0x4
+00669df5: POP ESI
+00669df6: POP EBP
+00669df7: POP EBX
+00669df8: POP EDI
+00669df9: ADD ESP, 0x68
+00669dfc: RET 0x14

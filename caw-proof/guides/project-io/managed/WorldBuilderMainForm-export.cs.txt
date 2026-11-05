@@ -1,0 +1,130 @@
+// Original CAW 1.22.10 ILSpy C# excerpt: WorldBuilderCS/WorldBuilderMainForm.cs
+// Selected methods or declarations; intervening source is omitted.
+
+	private void OnExportWorldClick(object sender, EventArgs e)
+	{
+		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0092: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0097: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
+		//IL_002d: Expected Obj, but got Unknown
+		//IL_0079: Unknown result type (might be due to invalid IL or missing references)
+		//IL_007e: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00b0: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00b2: Invalid comparison between Unknown and I4
+		//IL_02a1: Unknown result type (might be due to invalid IL or missing references)
+		//IL_028e: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00d2: Unknown result type (might be due to invalid IL or missing references)
+		//IL_01aa: Unknown result type (might be due to invalid IL or missing references)
+		//IL_021b: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0220: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0222: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0225: Invalid comparison between Unknown and I4
+		//IL_0148: Unknown result type (might be due to invalid IL or missing references)
+		if (!((object)mExportWorldMenu).Equals(sender))
+		{
+			return;
+		}
+		ContentCategoryFlags catFlags = ContentCategoryFlags.kCustomContent;
+		EPExportMode epMode = EPExportMode.None;
+		DialogResult val = (DialogResult)2;
+		string empty = string.Empty;
+		if (sbIsUserWorldBuilder)
+		{
+			OpenFileDialog val2 = new OpenFileDialog();
+			((FileDialog)val2).CheckFileExists = true;
+			((FileDialog)val2).DefaultExt = ".world";
+			((FileDialog)val2).Filter = mWorldFileFilter;
+			((FileDialog)val2).FilterIndex = 1;
+			val2.Multiselect = false;
+			((FileDialog)val2).AddExtension = true;
+			((FileDialog)val2).InitialDirectory = mConfigData.WorldFilesDataPath;
+			val = ((CommonDialog)val2).ShowDialog();
+			empty = ((FileDialog)val2).FileName;
+		}
+		else
+		{
+			WorldExportDialog worldExportDialog = new WorldExportDialog();
+			val = ((Form)worldExportDialog).ShowDialog();
+			catFlags = worldExportDialog.CatFlags;
+			epMode = worldExportDialog.EPMode;
+			empty = worldExportDialog.FileName;
+		}
+		if ((int)val != 1)
+		{
+			return;
+		}
+		if (string.IsNullOrEmpty(empty) || !File.Exists(empty))
+		{
+			MessageBox.Show((IWin32Window)(object)this, Strings.kError_ExportWorld, Strings.kErrorCaption);
+			return;
+		}
+		if (!mbLocalTestExportMode)
+		{
+			StringBuilder stringBuilder = new StringBuilder();
+			if (string.IsNullOrEmpty(Sims3.CSHost.World.GetLocalizedNameKey(empty)))
+			{
+				stringBuilder.AppendLine(Strings.kError_NoName);
+			}
+			if (string.IsNullOrEmpty(Sims3.CSHost.World.GetLocalizedDetailsKey(empty)))
+			{
+				stringBuilder.AppendLine(Strings.kError_NoDescription);
+			}
+			if (!Sims3.CSHost.World.IsThumbnailValid(empty))
+			{
+				stringBuilder.AppendLine(Strings.kError_NoThumbnail);
+			}
+			if (stringBuilder.Length > 0)
+			{
+				MessageBox.Show((IWin32Window)(object)this, stringBuilder.ToString(), Strings.kError_ExportWorld);
+				return;
+			}
+		}
+		using DatabaseHandle databaseHandle = new DirectoryDBHandle(WorldExport.StringTablesDirectory, FileAccess.ReadWrite);
+		Dictionary<string, string> names = new Dictionary<string, string>();
+		Dictionary<string, string> descriptions = new Dictionary<string, string>();
+		string localizedNameKey = Sims3.CSHost.World.GetLocalizedNameKey(empty);
+		string localizedDetailsKey = Sims3.CSHost.World.GetLocalizedDetailsKey(empty);
+		if (Sims3.CSHost.World.GetPackageId(empty).Equals(new PackageId(0uL, 0uL)))
+		{
+			MessageBox.Show((IWin32Window)(object)this, Strings.kError_InvalidPackageId, Strings.kErrorCaption);
+			return;
+		}
+		if (sbIsUserWorldBuilder)
+		{
+			CultureInfo currentUICulture = Thread.CurrentThread.CurrentUICulture;
+			string empty2 = string.Empty;
+			try
+			{
+				empty2 = LanguageCodes.ToHALCode(currentUICulture.Name);
+			}
+			catch (Exception)
+			{
+				empty2 = LanguageCodes.HALCodes[0];
+			}
+			names[empty2] = localizedNameKey;
+			descriptions[empty2] = localizedDetailsKey;
+		}
+		else
+		{
+			string filter = string.Empty;
+			WorldTextExportDialog worldTextExportDialog = new WorldTextExportDialog();
+			worldTextExportDialog.ExportAllLanguages = true;
+			DialogResult val3 = ((Form)worldTextExportDialog).ShowDialog();
+			if ((int)val3 == 1)
+			{
+				filter = worldTextExportDialog.HalExportKeyPattern;
+			}
+			bool exportAllLanguages = worldTextExportDialog.ExportAllLanguages;
+			WorldExport.ExportStrings(empty, localizedNameKey, localizedDetailsKey, ref names, ref descriptions, exportAllLanguages, databaseHandle.DatabaseId, filter);
+		}
+		string sims3ptPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "sims3pt.exe");
+		if (!Sims3.CSHost.World.ExportWorld(empty, sims3ptPath, names, descriptions, (uint)catFlags, (uint)epMode, mbLocalTestExportMode, sbIsUserWorldBuilder))
+		{
+			MessageBox.Show((IWin32Window)(object)this, Strings.kError_ExportWorld, Strings.kErrorCaption);
+		}
+		else
+		{
+			MessageBox.Show((IWin32Window)(object)this, Strings.kSuccess_WorldExport, Strings.kSuccess_Caption);
+		}
+	}

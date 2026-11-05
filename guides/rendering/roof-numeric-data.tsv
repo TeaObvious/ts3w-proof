@@ -1,0 +1,8 @@
+address	byte_length	raw_little_endian	type	bits	exact_binary32_value_or_pointer	meaning
+0x010734e4	4	db0f493f	binary32	0x3f490fdb	0.7853981852531433	angle used by 00bf23b0; approximate pi/4
+0x010734e8	4	00000034	binary32	0x34000000	1.1920928955078125E-7	strict absolute component gate for 00bf23b0; exact 2^-23
+0x010746e8	4	6f12833a	binary32	0x3a83126f	0.0010000000474974513	positive X/Z predicate threshold
+0x01061224	4	6f1283ba	binary32	0xba83126f	-0.0010000000474974513	negative X/Z predicate threshold
+0x01073600	4	6009bf00	pointer32	0x00bf0960	0x00bf0960	selected variant A vtable +0x30; bit0 count
+0x01073604	4	8009bf00	pointer32	0x00bf0980	0x00bf0980	selected variant A vtable +0x34; bit2 count
+0x01073614	4	0019bf00	pointer32	0x00bf1900	0x00bf1900	selected variant A vtable +0x44; two-diagonal selector A

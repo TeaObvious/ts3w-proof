@@ -1,0 +1,30 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function ScriptCore.GameUtils::GameUtils_CreateWorldFileSearchImpl:
+
+
+/* Verified PC 1.67 registration table at 0x011970a0 (original PC 1.67 TS3W.exe).
+   ScriptCore.GameUtils::GameUtils_CreateWorldFileSearchImpl [assembly=ScriptCore token=0x06000224;
+   searchtype: System.UInt32; return=System.UInt32]
+   The table establishes entry identity only. Parameter types/names come from pristine managed
+   metadata; calling convention, argument stack use, returns and side effects require
+   instruction-level checking. The decompiler may mis-track the stack across indirect host calls. */
+
+void ScriptCore_GameUtils__GameUtils_CreateWorldFileSearchImpl(undefined4 param_1)
+
+{
+  int *piVar1;
+  void *pvVar2;
+  
+  piVar1 = (int *)SACS_GetManager();
+  pvVar2 = (void *)FUN_004e4500(0x34,"Services/GameHost/sCreateWorldFileSearch",0);
+  if (pvVar2 != (void *)0x0) {
+    pvVar2 = FUN_00ec3a40(pvVar2,param_1);
+    (**(code **)(*piVar1 + 200))(pvVar2,0x40);
+    return;
+  }
+  (**(code **)(*piVar1 + 200))(0,0x40);
+  return;
+}
+
+

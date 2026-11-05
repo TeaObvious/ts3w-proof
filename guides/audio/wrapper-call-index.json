@@ -1,0 +1,1263 @@
+{
+  "scope": "direct calls, indirect-call sites and ret opcodes in 27 bounded linear decodes; may include unreachable bytes",
+  "coverageLimit": "No resolution of virtual calls or callback targets; not a dynamic execution trace",
+  "records": [
+    {
+      "registrationName": "ScriptCore.RouteManager::RouteManager_SetRouteSoundSpec",
+      "entryVa": "0x00758450",
+      "boundedDecode": "native/disassembly/0x00758450-RouteManager_SetRouteSoundSpec.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00758453",
+          "target": "0x00937570",
+          "targetGhidraName": "FUN_00937570"
+        },
+        {
+          "site": "0x0075846c",
+          "target": "0x00937f80",
+          "targetGhidraName": "FUN_00937f80"
+        },
+        {
+          "site": "0x00758483",
+          "target": "0x00934260",
+          "targetGhidraName": "FUN_00934260"
+        },
+        {
+          "site": "0x0075848f",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x0075849a",
+          "target": "0x00858f30",
+          "targetGhidraName": "FUN_00858f30"
+        },
+        {
+          "site": "0x007584bd",
+          "target": "0x00408f50",
+          "targetGhidraName": "FUN_00408f50"
+        },
+        {
+          "site": "0x007584e0",
+          "target": "0x00408f50",
+          "targetGhidraName": "FUN_00408f50"
+        },
+        {
+          "site": "0x007584ec",
+          "target": "0x00954c40",
+          "targetGhidraName": "FUN_00954c40"
+        },
+        {
+          "site": "0x007584f5",
+          "target": "0x004ef9f0",
+          "targetGhidraName": "FUN_004ef9f0"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x007584af",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x007584d2",
+          "operand": "call   eax"
+        }
+      ],
+      "returnInstructions": [
+        "0x007584ff"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.UIManager::UIManager_GetCustomMusicInfoImpl",
+      "entryVa": "0x00783e50",
+      "boundedDecode": "native/disassembly/0x00783e50-UIManager_GetCustomMusicInfoImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00783e5d",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x00783e7e",
+          "target": "0x00782e30",
+          "targetGhidraName": "FUN_00782e30"
+        },
+        {
+          "site": "0x00783eac",
+          "target": "0x00869e20",
+          "targetGhidraName": "FUN_00869e20"
+        },
+        {
+          "site": "0x00783ec1",
+          "target": "0x00783b90",
+          "targetGhidraName": "FUN_00783b90"
+        },
+        {
+          "site": "0x00783f17",
+          "target": "0x0040b590",
+          "targetGhidraName": "FUN_0040b590"
+        },
+        {
+          "site": "0x00783f4a",
+          "target": "0x004ee170",
+          "targetGhidraName": "FUN_004ee170"
+        },
+        {
+          "site": "0x00783f63",
+          "target": "0x004eddc0",
+          "targetGhidraName": "FUN_004eddc0"
+        },
+        {
+          "site": "0x00783fb1",
+          "target": "0x004af140",
+          "targetGhidraName": "FUN_004af140"
+        },
+        {
+          "site": "0x00784010",
+          "target": "0x004af140",
+          "targetGhidraName": "FUN_004af140"
+        },
+        {
+          "site": "0x0078403c",
+          "target": "0x004f59c0",
+          "targetGhidraName": "FUN_004f59c0"
+        },
+        {
+          "site": "0x00784058",
+          "target": "0x004f64b0",
+          "targetGhidraName": "FUN_004f64b0"
+        },
+        {
+          "site": "0x0078406f",
+          "target": "0x004f5760",
+          "targetGhidraName": "FUN_004f5760"
+        },
+        {
+          "site": "0x00784099",
+          "target": "0x004f5760",
+          "targetGhidraName": "FUN_004f5760"
+        },
+        {
+          "site": "0x007840b5",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        },
+        {
+          "site": "0x007840e4",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        },
+        {
+          "site": "0x007840fb",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00784087",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00784111",
+        "0x0078411d"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_InitWorldImpl",
+      "entryVa": "0x00863090",
+      "boundedDecode": "native/disassembly/0x00863090-Audio_InitWorldImpl.original-bounded.asm.txt",
+      "directCalls": [],
+      "indirectCalls": [],
+      "returnInstructions": [
+        "0x008630af"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_ShutdownWorldImpl",
+      "entryVa": "0x008630b0",
+      "boundedDecode": "native/disassembly/0x008630b0-Audio_ShutdownWorldImpl.original-bounded.asm.txt",
+      "directCalls": [],
+      "indirectCalls": [],
+      "returnInstructions": [
+        "0x008630cd"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundImpl",
+      "entryVa": "0x008630d0",
+      "boundedDecode": "native/disassembly/0x008630d0-Audio_StartSoundImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x008630f5",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x00863118",
+          "target": "0x004fdfa0",
+          "targetGhidraName": "FUN_004fdfa0"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00863110",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086312f",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086313c",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086314c",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086315c",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086316b",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863174",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863182",
+        "0x0086318c"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundMP3Impl",
+      "entryVa": "0x00863190",
+      "boundedDecode": "native/disassembly/0x00863190-Audio_StartSoundMP3Impl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x008631b5",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x008631d6",
+          "target": "0x004ff550",
+          "targetGhidraName": "FUN_004ff550"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x008631ce",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008631f7",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x00863204",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x00863214",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x00863224",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x00863233",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x0086324b",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863254",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863262",
+        "0x0086326c"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundAtPositionImpl",
+      "entryVa": "0x00863460",
+      "boundedDecode": "native/disassembly/0x00863460-Audio_StartSoundAtPositionImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00863489",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x008634a8",
+          "target": "0x004fdfa0",
+          "targetGhidraName": "FUN_004fdfa0"
+        },
+        {
+          "site": "0x00863527",
+          "target": "0x00c687d0",
+          "targetGhidraName": "FUN_00c687d0"
+        },
+        {
+          "site": "0x00863546",
+          "target": "0x00ab1b00",
+          "targetGhidraName": "FUN_00ab1b00"
+        },
+        {
+          "site": "0x00863692",
+          "target": "0x00adc860",
+          "targetGhidraName": "FUN_00adc860"
+        },
+        {
+          "site": "0x008636a5",
+          "target": "0x00b482c0",
+          "targetGhidraName": "FUN_00b482c0"
+        },
+        {
+          "site": "0x008636bd",
+          "target": "0x00aff6a0",
+          "targetGhidraName": "FUN_00aff6a0"
+        },
+        {
+          "site": "0x008636e0",
+          "target": "0x00b482c0",
+          "targetGhidraName": "FUN_00b482c0"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x008634a0",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008634bf",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008634d0",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008635cc",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x008635e4",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008635f3",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863613",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863633",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863653",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008636f9",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x00863713",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x0086372b",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x00863734",
+          "operand": "call   eax"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863740",
+        "0x00863749"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_CreateSoundImpl",
+      "entryVa": "0x00863270",
+      "boundedDecode": "native/disassembly/0x00863270-Audio_CreateSoundImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00863295",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x008632b8",
+          "target": "0x004fdfa0",
+          "targetGhidraName": "FUN_004fdfa0"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x008632b0",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008632cf",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008632dc",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008632ec",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008632fc",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086330b",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863314",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863322",
+        "0x0086332c"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundByIdImpl",
+      "entryVa": "0x00862ee0",
+      "boundedDecode": "native/disassembly/0x00862ee0-Audio_StartSoundByIdImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00862ee1",
+          "target": "0x008afe00",
+          "targetGhidraName": "FUN_008afe00"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00862ef8",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00862f0b",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00862f14",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00862f19"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopSoundImpl",
+      "entryVa": "0x00862f20",
+      "boundedDecode": "native/disassembly/0x00862f20-Audio_StopSoundImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00862f27",
+          "target": "0x008608e0",
+          "targetGhidraName": "FUN_008608e0"
+        }
+      ],
+      "indirectCalls": [],
+      "returnInstructions": [
+        "0x00862f31"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopAllObjectSoundImpl",
+      "entryVa": "0x00863c20",
+      "boundedDecode": "../../evidence/native/functions/00863C20_ScriptCore_Audio_Audio_StopAllObjectSoundImpl.asm",
+      "directCalls": [
+        {
+          "site": "0x00863c28",
+          "target": "0x00937570",
+          "targetGhidraName": "ObjectRegistry_GetGlobal"
+        },
+        {
+          "site": "0x00863c3e",
+          "target": "0x00937f80",
+          "targetGhidraName": "ObjectRegistry_FindBorrowed"
+        },
+        {
+          "site": "0x00863c48",
+          "target": "0x00874fb0",
+          "targetGhidraName": "FUN_00874fb0"
+        },
+        {
+          "site": "0x00863c5d",
+          "target": "0x00934260",
+          "targetGhidraName": "Object_GetComponentByMask"
+        },
+        {
+          "site": "0x00863c6c",
+          "target": "0x00942c40",
+          "targetGhidraName": "ObjectSound_StopMatchingRows"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00863c8f",
+          "operand": "call   eax"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863c93"
+      ],
+      "pseudocode": "../../evidence/native/functions/00863C20_ScriptCore_Audio_Audio_StopAllObjectSoundImpl.c",
+      "bodyBoundaryStatus": "complete reviewed function body through terminal RET; following INT3 excluded"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_MuteAllObjectSoundsImpl",
+      "entryVa": "0x00863ca0",
+      "boundedDecode": "native/disassembly/0x00863ca0-Audio_MuteAllObjectSoundsImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00863ca8",
+          "target": "0x00937570",
+          "targetGhidraName": "FUN_00937570"
+        },
+        {
+          "site": "0x00863cbe",
+          "target": "0x00937f80",
+          "targetGhidraName": "FUN_00937f80"
+        },
+        {
+          "site": "0x00863cc8",
+          "target": "0x00874fb0",
+          "targetGhidraName": "FUN_00874fb0"
+        },
+        {
+          "site": "0x00863cdd",
+          "target": "0x00934260",
+          "targetGhidraName": "FUN_00934260"
+        },
+        {
+          "site": "0x00863ced",
+          "target": "0x00941f90",
+          "targetGhidraName": "FUN_00941f90"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00863d10",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863d14"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SetSoundPropertyImpl",
+      "entryVa": "0x00862f40",
+      "boundedDecode": "native/disassembly/0x00862f40-Audio_SetSoundPropertyImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00862f54",
+          "target": "0x00862e60",
+          "targetGhidraName": "FUN_00862e60"
+        }
+      ],
+      "indirectCalls": [],
+      "returnInstructions": [
+        "0x00862f5e"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartObjectSoundImpl",
+      "entryVa": "0x00863a10",
+      "boundedDecode": "../../evidence/native/functions/00863A10_ScriptCore_Audio_Audio_StartObjectSoundImpl.asm",
+      "directCalls": [
+        {
+          "site": "0x00863a1b",
+          "target": "0x00937570",
+          "targetGhidraName": "ObjectRegistry_GetGlobal"
+        },
+        {
+          "site": "0x00863a34",
+          "target": "0x00937f80",
+          "targetGhidraName": "ObjectRegistry_FindBorrowed"
+        },
+        {
+          "site": "0x00863a3e",
+          "target": "0x00874fb0",
+          "targetGhidraName": "FUN_00874fb0"
+        },
+        {
+          "site": "0x00863a57",
+          "target": "0x00934260",
+          "targetGhidraName": "Object_GetComponentByMask"
+        },
+        {
+          "site": "0x00863a62",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x00863a84",
+          "target": "0x009433a0",
+          "targetGhidraName": "ObjectSound_StartWideName"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00863a73",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863aa9",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863acf",
+          "operand": "call   eax"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863ab0",
+        "0x00863ad6"
+      ],
+      "pseudocode": "../../evidence/native/functions/00863A10_ScriptCore_Audio_Audio_StartObjectSoundImpl.c",
+      "bodyBoundaryStatus": "complete reviewed function body through terminal RET; following INT3 excluded"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartObjectSoundWithFlagsImpl",
+      "entryVa": "0x00863ae0",
+      "boundedDecode": "../../evidence/native/functions/00863AE0_ScriptCore_Audio_Audio_StartObjectSoundWithFlagsImpl.asm",
+      "directCalls": [
+        {
+          "site": "0x00863aeb",
+          "target": "0x00937570",
+          "targetGhidraName": "ObjectRegistry_GetGlobal"
+        },
+        {
+          "site": "0x00863b04",
+          "target": "0x00937f80",
+          "targetGhidraName": "ObjectRegistry_FindBorrowed"
+        },
+        {
+          "site": "0x00863b0e",
+          "target": "0x00874fb0",
+          "targetGhidraName": "FUN_00874fb0"
+        },
+        {
+          "site": "0x00863b23",
+          "target": "0x00934260",
+          "targetGhidraName": "Object_GetComponentByMask"
+        },
+        {
+          "site": "0x00863b2e",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x00863b4b",
+          "target": "0x009433a0",
+          "targetGhidraName": "ObjectSound_StartWideName"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00863b3f",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863b70",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863b96",
+          "operand": "call   eax"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863b77",
+        "0x00863b9d"
+      ],
+      "pseudocode": "../../evidence/native/functions/00863AE0_ScriptCore_Audio_Audio_StartObjectSoundWithFlagsImpl.c",
+      "bodyBoundaryStatus": "complete reviewed function body through terminal RET; following INT3 excluded"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SoundFinishedCallbackImpl",
+      "entryVa": "0x00863330",
+      "boundedDecode": "../../evidence/native/functions/00863330_ScriptCore_Audio_Audio_SoundFinishedCallbackImpl.asm",
+      "directCalls": [
+        {
+          "site": "0x0086334d",
+          "target": "0x008662c0",
+          "targetGhidraName": "Audio_StoreSoundFinishedDelegate"
+        }
+      ],
+      "indirectCalls": [],
+      "returnInstructions": [
+        "0x00863352"
+      ],
+      "decompilerPseudocode": "../../evidence/native/functions/00863330_ScriptCore_Audio_Audio_SoundFinishedCallbackImpl.c"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopObjectSoundImpl",
+      "entryVa": "0x00863ba0",
+      "boundedDecode": "../../evidence/native/functions/00863BA0_ScriptCore_Audio_Audio_StopObjectSoundImpl.asm",
+      "directCalls": [
+        {
+          "site": "0x00863ba8",
+          "target": "0x00937570",
+          "targetGhidraName": "ObjectRegistry_GetGlobal"
+        },
+        {
+          "site": "0x00863bbe",
+          "target": "0x00937f80",
+          "targetGhidraName": "ObjectRegistry_FindBorrowed"
+        },
+        {
+          "site": "0x00863bc8",
+          "target": "0x00874fb0",
+          "targetGhidraName": "FUN_00874fb0"
+        },
+        {
+          "site": "0x00863bdd",
+          "target": "0x00934260",
+          "targetGhidraName": "Object_GetComponentByMask"
+        },
+        {
+          "site": "0x00863bef",
+          "target": "0x00942bb0",
+          "targetGhidraName": "ObjectSound_StopOne"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00863c12",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863c16"
+      ],
+      "pseudocode": "../../evidence/native/functions/00863BA0_ScriptCore_Audio_Audio_StopObjectSoundImpl.c",
+      "bodyBoundaryStatus": "complete reviewed function body through terminal RET; following INT3 excluded"
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SetEventModifiersImpl",
+      "entryVa": "0x00863750",
+      "boundedDecode": "native/disassembly/0x00863750-Audio_SetEventModifiersImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00863786",
+          "target": "0x004e4500",
+          "targetGhidraName": "FUN_004e4500"
+        },
+        {
+          "site": "0x00863795",
+          "target": "0x0086bcb0",
+          "targetGhidraName": "FUN_0086bcb0"
+        },
+        {
+          "site": "0x008637a6",
+          "target": "0x00866590",
+          "targetGhidraName": "FUN_00866590"
+        },
+        {
+          "site": "0x008637be",
+          "target": "0x004e4500",
+          "targetGhidraName": "FUN_004e4500"
+        },
+        {
+          "site": "0x008637cd",
+          "target": "0x0086bae0",
+          "targetGhidraName": "FUN_0086bae0"
+        },
+        {
+          "site": "0x008637de",
+          "target": "0x00866590",
+          "targetGhidraName": "FUN_00866590"
+        },
+        {
+          "site": "0x0086381d",
+          "target": "0x004afe80",
+          "targetGhidraName": "FUN_004afe80"
+        },
+        {
+          "site": "0x00863896",
+          "target": "0x004f5870",
+          "targetGhidraName": "FUN_004f5870"
+        },
+        {
+          "site": "0x0086389f",
+          "target": "0x004f5850",
+          "targetGhidraName": "FUN_004f5850"
+        },
+        {
+          "site": "0x008638bf",
+          "target": "0x004e4500",
+          "targetGhidraName": "FUN_004e4500"
+        },
+        {
+          "site": "0x008638d1",
+          "target": "0x0086c170",
+          "targetGhidraName": "FUN_0086c170"
+        },
+        {
+          "site": "0x008638e5",
+          "target": "0x004fa830",
+          "targetGhidraName": "FUN_004fa830"
+        },
+        {
+          "site": "0x008638f0",
+          "target": "0x00866590",
+          "targetGhidraName": "FUN_00866590"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x008637ff",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863835",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086384c",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x00863868",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x0086387d",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863908",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863917",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863920"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_PauseGroupImpl",
+      "entryVa": "0x00862f60",
+      "boundedDecode": "native/disassembly/0x00862f60-Audio_PauseGroupImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00862f61",
+          "target": "0x008afe00",
+          "targetGhidraName": "FUN_008afe00"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00862f78",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00862f8b",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00862fa3",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00862fb0"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopGroupImpl",
+      "entryVa": "0x00862fc0",
+      "boundedDecode": "native/disassembly/0x00862fc0-Audio_StopGroupImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00862fc1",
+          "target": "0x008afe00",
+          "targetGhidraName": "FUN_008afe00"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00862fd8",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00862feb",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863003",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863010"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_EnableGroupImpl",
+      "entryVa": "0x00863020",
+      "boundedDecode": "native/disassembly/0x00863020-Audio_EnableGroupImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00863021",
+          "target": "0x008afe00",
+          "targetGhidraName": "FUN_008afe00"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x00863038",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086304b",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863063",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x00863070",
+        "0x00863085"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_PlayObjectPutSoundImpl",
+      "entryVa": "0x00863d20",
+      "boundedDecode": "native/disassembly/0x00863d20-Audio_PlayObjectPutSoundImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00863d39",
+          "target": "0x00863930",
+          "targetGhidraName": "FUN_00863930"
+        }
+      ],
+      "indirectCalls": [],
+      "returnInstructions": [
+        "0x00863d41"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_PlayObjectGetSoundImpl",
+      "entryVa": "0x00863d50",
+      "boundedDecode": "native/disassembly/0x00863d50-Audio_PlayObjectGetSoundImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x00863d69",
+          "target": "0x00863930",
+          "targetGhidraName": "FUN_00863930"
+        }
+      ],
+      "indirectCalls": [],
+      "returnInstructions": [
+        "0x00863d71"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StartSoundArrayImpl",
+      "entryVa": "0x00864100",
+      "boundedDecode": "native/disassembly/0x00864100-Audio_StartSoundArrayImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x0086411c",
+          "target": "0x00937570",
+          "targetGhidraName": "FUN_00937570"
+        },
+        {
+          "site": "0x00864123",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x00864169",
+          "target": "0x0040b590",
+          "targetGhidraName": "FUN_0040b590"
+        },
+        {
+          "site": "0x00864195",
+          "target": "0x0040b590",
+          "targetGhidraName": "FUN_0040b590"
+        },
+        {
+          "site": "0x008641c4",
+          "target": "0x004f3df0",
+          "targetGhidraName": "FUN_004f3df0"
+        },
+        {
+          "site": "0x00864211",
+          "target": "0x00863d80",
+          "targetGhidraName": "FUN_00863d80"
+        },
+        {
+          "site": "0x0086423a",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        },
+        {
+          "site": "0x00864259",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        },
+        {
+          "site": "0x00864278",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        },
+        {
+          "site": "0x008642a3",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        },
+        {
+          "site": "0x008642c2",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        },
+        {
+          "site": "0x008642e1",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x0086414e",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086417a",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008641b8",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008641d7",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x008641e9",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x008641f9",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x00864224",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x0086428d",
+          "operand": "call   eax"
+        }
+      ],
+      "returnInstructions": [
+        "0x00864289",
+        "0x008642f2"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_UpdateSoundArrayImpl",
+      "entryVa": "0x00864300",
+      "boundedDecode": "native/disassembly/0x00864300-Audio_UpdateSoundArrayImpl.original-bounded.asm.txt",
+      "directCalls": [
+        {
+          "site": "0x0086431c",
+          "target": "0x00937570",
+          "targetGhidraName": "FUN_00937570"
+        },
+        {
+          "site": "0x00864323",
+          "target": "0x00769390",
+          "targetGhidraName": "GetGlobalInterfacePointer_11D5BBC"
+        },
+        {
+          "site": "0x00864369",
+          "target": "0x0040b590",
+          "targetGhidraName": "FUN_0040b590"
+        },
+        {
+          "site": "0x008643b2",
+          "target": "0x00863d80",
+          "targetGhidraName": "FUN_00863d80"
+        },
+        {
+          "site": "0x008643de",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        },
+        {
+          "site": "0x0086440c",
+          "target": "0x004e44e0",
+          "targetGhidraName": "FUN_004e44e0"
+        }
+      ],
+      "indirectCalls": [
+        {
+          "site": "0x0086434e",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086438c",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x0086439a",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008643c5",
+          "operand": "call   eax"
+        },
+        {
+          "site": "0x008643f3",
+          "operand": "call   eax"
+        }
+      ],
+      "returnInstructions": [
+        "0x008643ef",
+        "0x0086441d"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_StopSoundArrayImpl",
+      "entryVa": "0x00863360",
+      "boundedDecode": "native/disassembly/0x00863360-Audio_StopSoundArrayImpl.original-bounded.asm.txt",
+      "directCalls": [],
+      "indirectCalls": [
+        {
+          "site": "0x00863389",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863398",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008633a1",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x008633a7",
+        "0x008633ac"
+      ]
+    },
+    {
+      "registrationName": "ScriptCore.Audio::Audio_SetSoundArrayGainImpl",
+      "entryVa": "0x008633b0",
+      "boundedDecode": "native/disassembly/0x008633b0-Audio_SetSoundArrayGainImpl.original-bounded.asm.txt",
+      "directCalls": [],
+      "indirectCalls": [
+        {
+          "site": "0x008633d9",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008633e8",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x008633fe",
+          "operand": "call   edx"
+        },
+        {
+          "site": "0x00863407",
+          "operand": "call   edx"
+        }
+      ],
+      "returnInstructions": [
+        "0x0086340d",
+        "0x00863412"
+      ]
+    }
+  ],
+  "directTargetCounts": {
+    "0x004e44e0": 11,
+    "0x00769390": 10,
+    "0x00937570": 8,
+    "0x00937f80": 6,
+    "0x00934260": 6,
+    "0x00874fb0": 5,
+    "0x0040b590": 4,
+    "0x008afe00": 4,
+    "0x004fdfa0": 3,
+    "0x004e4500": 3,
+    "0x00866590": 3,
+    "0x00408f50": 2,
+    "0x004af140": 2,
+    "0x004f5760": 2,
+    "0x00b482c0": 2,
+    "0x009433a0": 2,
+    "0x00863930": 2,
+    "0x00863d80": 2,
+    "0x00858f30": 1,
+    "0x00954c40": 1,
+    "0x004ef9f0": 1,
+    "0x00782e30": 1,
+    "0x00869e20": 1,
+    "0x00783b90": 1,
+    "0x004ee170": 1,
+    "0x004eddc0": 1,
+    "0x004f59c0": 1,
+    "0x004f64b0": 1,
+    "0x004ff550": 1,
+    "0x00c687d0": 1,
+    "0x00ab1b00": 1,
+    "0x00adc860": 1,
+    "0x00aff6a0": 1,
+    "0x008608e0": 1,
+    "0x00942c40": 1,
+    "0x00941f90": 1,
+    "0x00862e60": 1,
+    "0x008662c0": 1,
+    "0x00942bb0": 1,
+    "0x0086bcb0": 1,
+    "0x0086bae0": 1,
+    "0x004afe80": 1,
+    "0x004f5870": 1,
+    "0x004f5850": 1,
+    "0x0086c170": 1,
+    "0x004fa830": 1,
+    "0x004f3df0": 1
+  }
+}

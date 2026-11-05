@@ -1,0 +1,126 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; actual complete ILSpy type export.
+.class public auto ansi beforefieldinit Sims3.Gameplay.LeaveInWorldState
+	extends [SimIFace]Sims3.SimIFace.StateMachineState
+{
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0xdfb27
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.5
+		IL_0002: ldc.i4.5
+		IL_0003: ldstr "Leave In World"
+		IL_0008: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::.ctor(int32, int32, string)
+		IL_000d: ret
+	} // end of method LeaveInWorldState::.ctor
+
+	.method family hidebysig specialname rtspecialname 
+		instance void .ctor (
+			int32 enterId,
+			int32 exitId,
+			string name
+		) cil managed 
+	{
+		// Method begins at RVA 0xdfb36
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::.ctor(int32, int32, string)
+		IL_0009: ret
+	} // end of method LeaveInWorldState::.ctor
+
+	.method public hidebysig virtual 
+		instance void Startup () cil managed 
+	{
+		// Method begins at RVA 0xdfb41
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::Startup()
+		IL_0006: call void [UI]Sims3.UI.PopupMenu::CloseOptions()
+		IL_000b: ldc.i4.1
+		IL_000c: call void [SimIFace]Sims3.SimIFace.GameUtils::FreezeLotLODs(bool)
+		IL_0011: ldarg.0
+		IL_0012: ldftn instance void Sims3.Gameplay.LeaveInWorldState::OnEnterNotInWorld(object, class [mscorlib]System.EventArgs)
+		IL_0018: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_001d: call void [SimIFace]Sims3.SimIFace.World::add_OnEnterNotInWorldEventHandler(class [mscorlib]System.EventHandler)
+		IL_0022: call void [SimIFace]Sims3.SimIFace.GameUtils::TransitionToNotInWorld()
+		IL_0027: ret
+	} // end of method LeaveInWorldState::Startup
+
+	.method public hidebysig virtual 
+		instance void Shutdown () cil managed 
+	{
+		// Method begins at RVA 0xdfb6c
+		// Header size: 12
+		// Code size: 48 (0x30)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Gameplay.Utilities.Initializers
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [SimIFace]Sims3.SimIFace.StateMachineState::Shutdown()
+		IL_0006: ldc.i4.0
+		IL_0007: call void [SimIFace]Sims3.SimIFace.GameUtils::FreezeLotLODs(bool)
+		IL_000c: ldarg.0
+		IL_000d: ldftn instance void Sims3.Gameplay.LeaveInWorldState::OnEnterNotInWorld(object, class [mscorlib]System.EventArgs)
+		IL_0013: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+		IL_0018: call void [SimIFace]Sims3.SimIFace.World::remove_OnEnterNotInWorldEventHandler(class [mscorlib]System.EventHandler)
+		IL_001d: ldstr "PreWorldInitializers"
+		IL_0022: ldnull
+		IL_0023: newobj instance void Sims3.Gameplay.Utilities.Initializers::.ctor(string, object)
+		IL_0028: stloc.0
+		IL_0029: ldloc.0
+		IL_002a: callvirt instance void Sims3.Gameplay.Utilities.Initializers::Shutdown()
+		IL_002f: ret
+	} // end of method LeaveInWorldState::Shutdown
+
+	.method private hidebysig 
+		instance void OnEnterNotInWorld (
+			object sender,
+			class [mscorlib]System.EventArgs args
+		) cil managed 
+	{
+		// Method begins at RVA 0xdfba8
+		// Header size: 1
+		// Code size: 20 (0x14)
+		.maxstack 8
+
+		IL_0000: ldc.i4.0
+		IL_0001: call void [SimIFace]Sims3.SimIFace.GameUtils::EnableSceneDraw(bool)
+		IL_0006: call bool Sims3.Gameplay.GameStates::HasPendingState()
+		IL_000b: brtrue.s IL_0013
+
+		IL_000d: ldarg.0
+		IL_000e: callvirt instance void Sims3.Gameplay.LeaveInWorldState::SendToNextState()
+
+		IL_0013: ret
+	} // end of method LeaveInWorldState::OnEnterNotInWorld
+
+	.method family hidebysig newslot virtual 
+		instance void SendToNextState () cil managed 
+	{
+		// Method begins at RVA 0xdfbbd
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldc.i4.2
+		IL_0001: call void Sims3.Gameplay.GameStates::GotoState(valuetype Sims3.Gameplay.GameState)
+		IL_0006: ret
+	} // end of method LeaveInWorldState::SendToNextState
+
+} // end of class Sims3.Gameplay.LeaveInWorldState

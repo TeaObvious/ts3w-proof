@@ -1,0 +1,148 @@
+// Selected complete actual ILSpy member/accessor excerpts from pristine PC1.67 UI.dll.
+// Original WindowBase owns the Detach subscription and disposal state;
+// original UIManager owns wrapper/cache disposal; original Grid owns its tags.
+// Native code owns the separate child list, retained references and cell payload.
+// These are actual original member excerpts, not a reconstructed compilable class.
+// Paired CIL has15 complete method bodies, original headers and519 code bytes.
+// No exception sections exist in these selected bodies. Type/member headings
+// identify excerpt ownership; the DisposeOnDetach excerpt is its actual getter.
+
+// Sims3.UI.WindowBase
+	public event UIEventHandler<UIEventArgs> Detach
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 17u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 17u, value);
+		}
+	}
+
+// Sims3.UI.WindowBase.DisposeOnDetach getter
+		get
+		{
+			if (UIManager.IsCustomControl(this))
+			{
+				return UIManager.GetFlagProperty(WinHandle, 61480961u, 1u);
+			}
+			return false;
+		}
+
+	private void Dispose(bool fromDtor)
+	{
+		if (mWinHandle != 0)
+		{
+			UIManager.DestroyWindow(this);
+			mWinHandle = 0u;
+			mCustomControlPropertyDelegates = null;
+			mEffectList = null;
+			mInitCalled = false;
+			InitComplete = null;
+			bool flag = UIManager.ReturnToPool(this);
+			if (flag && fromDtor)
+			{
+				GC.ReRegisterForFinalize(this);
+			}
+			else if (!flag && !fromDtor)
+			{
+				GC.SuppressFinalize(this);
+			}
+		}
+	}
+
+	public virtual void Dispose()
+	{
+		Dispose(fromDtor: false);
+	}
+
+// Sims3.UI.UIManager
+	private static void OnCustomDetach(WindowBase sender, UIEventArgs args)
+	{
+		if (!DisableDisposeOnDetatch && args.SourceWindow.DisposeOnDetach && IsCustomControl(args.SourceWindow) && mCustomControlInstanceDict.Remove(args.SourceWindow.WinHandle))
+		{
+			DeRegisterAllEvents(args.SourceWindow);
+			if (!IsRunningDesigner)
+			{
+				args.SourceWindow.Dispose();
+			}
+		}
+	}
+
+	private static void OnWinDetach(WindowBase sender, UIEventArgs args)
+	{
+		if (!DisableDisposeOnDetatch && mControlInstanceCache.ContainsKey(args.SourceWindow.WinHandle))
+		{
+			mControlInstanceCache.Remove(args.SourceWindow.WinHandle);
+			DeRegisterAllEvents(args.SourceWindow);
+		}
+	}
+
+	internal static bool GridGeneric(Grid grid, Grid.GridGenericID funcID, ref int int1, ref int int2, ref uint uint1, ref float float1)
+	{
+		return gUIMgr.GridGeneric(grid.WinHandle, (uint)funcID, ref int1, ref int2, ref uint1, ref float1);
+	}
+
+// Sims3.UI.Grid
+	public bool ClearCell(int column, int row)
+	{
+		uint cellExtraData = GetCellExtraData(column, row);
+		if (cellExtraData != 0)
+		{
+			RemoveTag(cellExtraData);
+		}
+		uint @uint = 0u;
+		float @float = 0f;
+		return UIManager.GridGeneric(this, GridGenericID.kGridClearCell, ref column, ref row, ref @uint, ref @float);
+	}
+
+	public bool ClearAllCells()
+	{
+		ClearAllTags();
+		int @int = 0;
+		int int2 = 0;
+		uint @uint = 0u;
+		float @float = 0f;
+		return UIManager.GridGeneric(this, GridGenericID.kGridClearAllCells, ref @int, ref int2, ref @uint, ref @float);
+	}
+
+	public WindowBase GetCellWindow(int column, int row)
+	{
+		uint @uint = 0u;
+		float @float = 0f;
+		if (UIManager.GridGeneric(this, GridGenericID.kGridGetCellWindow, ref column, ref row, ref @uint, ref @float))
+		{
+			return UIManager.WrapperFromHandle(@uint);
+		}
+		return null;
+	}
+
+	public bool SetCellWindow(int column, int row, WindowBase window)
+	{
+		return SetCellWindow(column, row, window, stretchCellWindows: true);
+	}
+
+	public bool SetCellWindow(int column, int row, WindowBase window, bool stretchCellWindows)
+	{
+		uint @uint = window.WinHandle;
+		float @float = (stretchCellWindows ? 1 : 0);
+		return UIManager.GridGeneric(this, GridGenericID.kGridSetCellWindow, ref column, ref row, ref @uint, ref @float);
+	}
+
+	private void RemoveTag(uint key)
+	{
+		if (base.Tag is Dictionary<uint, object> dictionary)
+		{
+			dictionary.Remove(key);
+		}
+	}
+
+	public void ClearAllTags()
+	{
+		if (base.Tag is Dictionary<uint, object> dictionary)
+		{
+			dictionary.Clear();
+		}
+	}
+

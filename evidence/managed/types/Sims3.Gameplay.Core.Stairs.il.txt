@@ -1,0 +1,2899 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; complete type Sims3.Gameplay.Core.Stairs.
+// Analyst annotations describe static contracts; IL remains authoritative for decompiler artifacts.
+
+.class public auto ansi beforefieldinit Sims3.Gameplay.Core.Stairs
+	extends Sims3.Gameplay.Abstracts.GameObject
+	implements Sims3.Gameplay.Interfaces.IStairs,
+	           Sims3.Gameplay.ObjectComponents.IHasPortalComponent,
+	           Sims3.Gameplay.Interfaces.INotHauntable,
+	           Sims3.Gameplay.ObjectComponents.IPortalConnectionObject,
+	           Sims3.Gameplay.Interfaces.ISecretObject,
+	           Sims3.Gameplay.WorldBuilderUtil.IHasWorldBuilderData,
+	           Sims3.Gameplay.ObjectComponents.IHasCustomCauseEffectBehavior,
+	           Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           Sims3.Gameplay.Interfaces.IGameObject,
+	           Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent,
+	           Sims3.Gameplay.Controllers.IDoNotGetFogged
+{
+	// Nested Types
+	.class nested public auto ansi abstract sealed beforefieldinit RoutingSlots
+		extends [mscorlib]System.Object
+	{
+		// Fields
+		.field public static valuetype [SimIFace]Sims3.SimIFace.Slot Stairs_Bottom0
+		.field public static valuetype [SimIFace]Sims3.SimIFace.Slot Stairs_Top0
+
+		// Methods
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x5475fd
+			// Header size: 1
+			// Code size: 21 (0x15)
+			.maxstack 8
+
+			IL_0000: ldc.i4 -956593336 // 0xc6fb8b48
+			IL_0005: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Bottom0
+			IL_000a: ldc.i4 2009700790
+			IL_000f: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Top0
+			IL_0014: ret
+		} // end of method RoutingSlots::.cctor
+
+	} // end of class RoutingSlots
+
+	.class nested public auto ansi beforefieldinit StairsPortalComponent
+		extends Sims3.Gameplay.ObjectComponents.PortalComponent
+	{
+		.custom instance void Sims3.Gameplay.Abstracts.VersionAttribute::.ctor(int32) = (
+			01 00 02 00 00 00 00 00
+		)
+		// Nested Types
+		.class nested family auto ansi beforefieldinit ActiveUserEntry
+			extends [mscorlib]System.Object
+		{
+			.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Fields
+			.field public valuetype [SimIFace]Sims3.SimIFace.ObjectGuid mTask
+			.field public bool mbResult
+			.field public bool mbSleeping
+
+			// Methods
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x547cc8
+				// Header size: 1
+				// Code size: 25 (0x19)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+				IL_0006: stfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mTask
+				IL_000b: ldarg.0
+				IL_000c: ldc.i4.1
+				IL_000d: stfld bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mbResult
+				IL_0012: ldarg.0
+				IL_0013: call instance void [mscorlib]System.Object::.ctor()
+				IL_0018: ret
+			} // end of method ActiveUserEntry::.ctor
+
+		} // end of class ActiveUserEntry
+
+
+		// Fields
+		.field family class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry> mSleepingTasks
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x547613
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::.ctor()
+			IL_0006: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry> Sims3.Gameplay.Core.Stairs/StairsPortalComponent::mSleepingTasks
+			IL_000b: ldarg.0
+			IL_000c: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::.ctor()
+			IL_0011: ret
+		} // end of method StairsPortalComponent::.ctor
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				class Sims3.Gameplay.Abstracts.GameObject o
+			) cil managed 
+		{
+			// Method begins at RVA 0x547626
+			// Header size: 1
+			// Code size: 19 (0x13)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::.ctor()
+			IL_0006: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry> Sims3.Gameplay.Core.Stairs/StairsPortalComponent::mSleepingTasks
+			IL_000b: ldarg.0
+			IL_000c: ldarg.1
+			IL_000d: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::.ctor(class Sims3.Gameplay.Abstracts.GameObject)
+			IL_0012: ret
+		} // end of method StairsPortalComponent::.ctor
+
+		.method public hidebysig virtual 
+			instance valuetype Sims3.Gameplay.ObjectComponents.PortalObjectType GetPortalObjectType () cil managed 
+		{
+			// Method begins at RVA 0x54763a
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method StairsPortalComponent::GetPortalObjectType
+
+		.method private hidebysig specialname 
+			instance class Sims3.Gameplay.Core.Stairs get_StairsOwner () cil managed 
+		{
+			// Method begins at RVA 0x54763d
+			// Header size: 1
+			// Code size: 12 (0xc)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0006: isinst Sims3.Gameplay.Core.Stairs
+			IL_000b: ret
+		} // end of method StairsPortalComponent::get_StairsOwner
+
+		.method family hidebysig specialname virtual 
+			instance bool get_AddToUseListDuringTraversal () cil managed 
+		{
+			// Method begins at RVA 0x54764a
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method StairsPortalComponent::get_AddToUseListDuringTraversal
+
+		.method family hidebysig specialname virtual 
+			instance bool get_RemoveFromUseListAfterTraversal () cil managed 
+		{
+			// Method begins at RVA 0x54764d
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method StairsPortalComponent::get_RemoveFromUseListAfterTraversal
+
+		.method public hidebysig specialname virtual 
+			instance bool get_CanUseUmbrella () cil managed 
+		{
+			// Method begins at RVA 0x547650
+			// Header size: 1
+			// Code size: 2 (0x2)
+			.maxstack 8
+
+			IL_0000: ldc.i4.1
+			IL_0001: ret
+		} // end of method StairsPortalComponent::get_CanUseUmbrella
+
+		.method public hidebysig virtual 
+			instance uint32 GetNumLanes () cil managed 
+		{
+			// Method begins at RVA 0x547653
+			// Header size: 1
+			// Code size: 16 (0x10)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0006: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Abstracts.GameObject::GetRoutingSlots()
+			IL_000b: ldlen
+			IL_000c: conv.i4
+			IL_000d: ldc.i4.2
+			IL_000e: div
+			IL_000f: ret
+		} // end of method StairsPortalComponent::GetNumLanes
+
+		.method public hidebysig virtual 
+			instance valuetype [SimIFace]Sims3.SimIFace.Slot[] GetSlotsForLaneIndex (
+				uint32 laneIndex
+			) cil managed 
+		{
+			// Method begins at RVA 0x547664
+			// Header size: 12
+			// Code size: 57 (0x39)
+			.maxstack 4
+			.locals init (
+				[0] valuetype [SimIFace]Sims3.SimIFace.Slot[]
+			)
+
+			IL_0000: ldc.i4.2
+			IL_0001: newarr [SimIFace]Sims3.SimIFace.Slot
+			IL_0006: stloc.0
+			IL_0007: ldloc.0
+			IL_0008: ldc.i4.0
+			IL_0009: ldstr "RoutingSlot_Stairs_Bottom"
+			IL_000e: ldarg.1
+			IL_000f: box [mscorlib]System.UInt32
+			IL_0014: call string [mscorlib]System.String::Concat(object, object)
+			IL_0019: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_001e: stelem.i4
+			IL_001f: ldloc.0
+			IL_0020: ldc.i4.1
+			IL_0021: ldstr "RoutingSlot_Stairs_Top"
+			IL_0026: ldarg.1
+			IL_0027: box [mscorlib]System.UInt32
+			IL_002c: call string [mscorlib]System.String::Concat(object, object)
+			IL_0031: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0036: stelem.i4
+			IL_0037: ldloc.0
+			IL_0038: ret
+		} // end of method StairsPortalComponent::GetSlotsForLaneIndex
+
+		.method public hidebysig virtual 
+			instance class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot> GetStartSlotsForApproachingSim (
+				class Sims3.Gameplay.Actors.Sim s,
+				valuetype [SimIFace]Sims3.SimIFace.Vector3 preferredPos,
+				bool& preferredLaneSelected
+			) cil managed 
+		{
+			// Method begins at RVA 0x5476ac
+			// Header size: 12
+			// Code size: 180 (0xb4)
+			.maxstack 4
+			.locals init (
+				[0] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[2] float32,
+				[3] float32,
+				[4] string,
+				[5] uint32,
+				[6] class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>,
+				[7] uint32,
+				[8] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[9] valuetype [SimIFace]Sims3.SimIFace.Vector3
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0006: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Bottom0
+			IL_000b: ldarg.1
+			IL_000c: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0011: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+			IL_0016: ldc.i4.0
+			IL_0017: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+			IL_001c: stloc.0
+			IL_001d: ldarg.0
+			IL_001e: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0023: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Top0
+			IL_0028: ldarg.1
+			IL_0029: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_002e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+			IL_0033: ldc.i4.0
+			IL_0034: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+			IL_0039: stloc.1
+			IL_003a: ldarg.2
+			IL_003b: ldloc.0
+			IL_003c: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0041: stloc.s 8
+			IL_0043: ldloca.s 8
+			IL_0045: call instance float32 [SimIFace]Sims3.SimIFace.Vector3::LengthSqr()
+			IL_004a: stloc.2
+			IL_004b: ldarg.2
+			IL_004c: ldloc.1
+			IL_004d: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0052: stloc.s 9
+			IL_0054: ldloca.s 9
+			IL_0056: call instance float32 [SimIFace]Sims3.SimIFace.Vector3::LengthSqr()
+			IL_005b: stloc.3
+			IL_005c: ldloc.2
+			IL_005d: ldloc.3
+			IL_005e: bgt.un.s IL_0069
+
+			IL_0060: ldstr "_Bottom"
+			IL_0065: stloc.s 4
+			IL_0067: br.s IL_0070
+
+			IL_0069: ldstr "_Top"
+			IL_006e: stloc.s 4
+
+			IL_0070: ldarg.0
+			IL_0071: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+			IL_0076: stloc.s 5
+			IL_0078: ldloc.s 5
+			IL_007a: newobj instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::.ctor(int32)
+			IL_007f: stloc.s 6
+			IL_0081: ldc.i4.0
+			IL_0082: stloc.s 7
+			IL_0084: br.s IL_00ab
+			// loop start (head: IL_00ab)
+				IL_0086: ldloc.s 6
+				IL_0088: ldstr "RoutingSlot_Stairs"
+				IL_008d: ldloc.s 4
+				IL_008f: ldloc.s 7
+				IL_0091: box [mscorlib]System.UInt32
+				IL_0096: call string [mscorlib]System.String::Concat(object, object, object)
+				IL_009b: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+				IL_00a0: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [SimIFace]Sims3.SimIFace.Slot>::Add(!0)
+				IL_00a5: ldloc.s 7
+				IL_00a7: ldc.i4.1
+				IL_00a8: add
+				IL_00a9: stloc.s 7
+
+				IL_00ab: ldloc.s 7
+				IL_00ad: ldloc.s 5
+				IL_00af: blt.un.s IL_0086
+			// end loop
+
+			IL_00b1: ldloc.s 6
+			IL_00b3: ret
+		} // end of method StairsPortalComponent::GetStartSlotsForApproachingSim
+
+		.method public hidebysig virtual 
+			instance bool IsLaneUnobstructed (
+				valuetype [SimIFace]Sims3.SimIFace.Slot[] laneSlots,
+				class Sims3.Gameplay.Actors.Sim sim,
+				bool checkForSims,
+				valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption routeOptions
+			) cil managed 
+		{
+			// Method begins at RVA 0x54776c
+			// Header size: 12
+			// Code size: 84 (0x54)
+			.maxstack 8
+
+			IL_0000: ldarg.s routeOptions
+			IL_0002: ldc.i8 17179869184
+			IL_000b: or
+			IL_000c: starg.s routeOptions
+			IL_000e: ldarg.0
+			IL_000f: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0014: ldarg.2
+			IL_0015: ldarg.1
+			IL_0016: ldc.i4.0
+			IL_0017: ldelem.u4
+			IL_0018: ldarg.2
+			IL_0019: ldc.i4.0
+			IL_001a: ldarg.s routeOptions
+			IL_001c: ldarg.2
+			IL_001d: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0022: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+			IL_0027: ldc.i4.0
+			IL_0028: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsRoutingSlotObstructed(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Abstracts.GameObject, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+			IL_002d: brtrue.s IL_0052
+
+			IL_002f: ldarg.0
+			IL_0030: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0035: ldarg.2
+			IL_0036: ldarg.1
+			IL_0037: ldc.i4.1
+			IL_0038: ldelem.u4
+			IL_0039: ldarg.2
+			IL_003a: ldc.i4.0
+			IL_003b: ldarg.s routeOptions
+			IL_003d: ldarg.2
+			IL_003e: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0043: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+			IL_0048: ldc.i4.1
+			IL_0049: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::IsRoutingSlotObstructed(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Slot, class Sims3.Gameplay.Abstracts.GameObject, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+			IL_004e: ldc.i4.0
+			IL_004f: ceq
+			IL_0051: ret
+
+			IL_0052: ldc.i4.0
+			IL_0053: ret
+		} // end of method StairsPortalComponent::IsLaneUnobstructed
+
+		.method public hidebysig virtual 
+			instance void OnStartup () cil managed 
+		{
+			// Method begins at RVA 0x5477cc
+			// Header size: 1
+			// Code size: 25 (0x19)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldarg.0
+			IL_0002: ldftn instance void Sims3.Gameplay.Core.Stairs/StairsPortalComponent::AddStairsPortals()
+			IL_0008: newobj instance void Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback::.ctor(object, native int)
+			IL_000d: stfld class Sims3.Gameplay.ObjectComponents.PortalComponent/AddPortalsCallback Sims3.Gameplay.ObjectComponents.PortalComponent::mAddPortalsCallback
+			IL_0012: ldarg.0
+			IL_0013: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::OnStartup()
+			IL_0018: ret
+		} // end of method StairsPortalComponent::OnStartup
+
+		.method public hidebysig virtual 
+			instance void OnLoad () cil managed 
+		{
+			// Method begins at RVA 0x5477e6
+			// Header size: 1
+			// Code size: 24 (0x18)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldftn instance void Sims3.Gameplay.Core.Stairs/StairsPortalComponent::WakeAll()
+			IL_0007: newobj instance void Sims3.Gameplay.Function::.ctor(object, native int)
+			IL_000c: newobj instance void Sims3.Gameplay.OneShotFunctionTask::.ctor(class Sims3.Gameplay.Function)
+			IL_0011: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Simulator::AddObject(object)
+			IL_0016: pop
+			IL_0017: ret
+		} // end of method StairsPortalComponent::OnLoad
+
+		.method private hidebysig 
+			instance void WakeAll () cil managed 
+		{
+			// Method begins at RVA 0x547800
+			// Header size: 12
+			// Code size: 72 (0x48)
+			.maxstack 2
+			.locals init (
+				[0] class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry,
+				[1] valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry> Sims3.Gameplay.Core.Stairs/StairsPortalComponent::mSleepingTasks
+			IL_0006: callvirt instance class [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::get_Values()
+			IL_000b: callvirt instance valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::GetEnumerator()
+			IL_0010: stloc.1
+			.try
+			{
+				IL_0011: br.s IL_002e
+				// loop start (head: IL_002e)
+					IL_0013: ldloca.s 1
+					IL_0015: call instance !1 valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::get_Current()
+					IL_001a: stloc.0
+					IL_001b: ldloc.0
+					IL_001c: ldc.i4.0
+					IL_001d: stfld bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mbSleeping
+					IL_0022: ldloc.0
+					IL_0023: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mTask
+					IL_0028: ldc.i4.0
+					IL_0029: call void [SimIFace]Sims3.SimIFace.Simulator::Wake(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+
+					IL_002e: ldloca.s 1
+					IL_0030: call instance bool valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::MoveNext()
+					IL_0035: brtrue.s IL_0013
+				// end loop
+
+				IL_0037: leave.s IL_0047
+			} // end .try
+			finally
+			{
+				IL_0039: ldloca.s 1
+				IL_003b: constrained. valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>
+				IL_0041: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0046: endfinally
+			} // end handler
+
+			IL_0047: ret
+		} // end of method StairsPortalComponent::WakeAll
+
+		.method public hidebysig 
+			instance void AddStairsPortals () cil managed 
+		{
+			// Method begins at RVA 0x547864
+			// Header size: 1
+			// Code size: 31 (0x1f)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Core.Stairs Sims3.Gameplay.Core.Stairs/StairsPortalComponent::get_StairsOwner()
+			IL_0006: callvirt instance bool Sims3.Gameplay.Core.Stairs::get_IsHidden()
+			IL_000b: brtrue.s IL_001e
+
+			IL_000d: ldarg.0
+			IL_000e: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0013: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0018: call bool [SimIFace]Sims3.SimIFace.Route::AddStairPortals(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_001d: pop
+
+			IL_001e: ret
+		} // end of method StairsPortalComponent::AddStairsPortals
+
+		.method public hidebysig 
+			instance void RemovePortals () cil managed 
+		{
+			// Method begins at RVA 0x547884
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0006: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_000b: call bool [SimIFace]Sims3.SimIFace.Route::RemovePortals(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0010: pop
+			IL_0011: ret
+		} // end of method StairsPortalComponent::RemovePortals
+
+		.method public hidebysig 
+			instance void HandleStairsCompleted (
+				valuetype [SimIFace]Sims3.SimIFace.ObjectGuid follower,
+				bool bSuccess
+			) cil managed 
+		{
+			// Method begins at RVA 0x547898
+			// Header size: 12
+			// Code size: 43 (0x2b)
+			.maxstack 3
+			.locals init (
+				[0] class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry> Sims3.Gameplay.Core.Stairs/StairsPortalComponent::mSleepingTasks
+			IL_0006: ldarg.1
+			IL_0007: ldloca.s 0
+			IL_0009: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::TryGetValue(!0, !1&)
+			IL_000e: brfalse.s IL_002a
+
+			IL_0010: ldloc.0
+			IL_0011: ldarg.2
+			IL_0012: stfld bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mbResult
+			IL_0017: ldloc.0
+			IL_0018: ldc.i4.0
+			IL_0019: stfld bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mbSleeping
+			IL_001e: ldloc.0
+			IL_001f: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mTask
+			IL_0024: ldc.i4.0
+			IL_0025: call void [SimIFace]Sims3.SimIFace.Simulator::Wake(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+
+			IL_002a: ret
+		} // end of method StairsPortalComponent::HandleStairsCompleted
+
+		.method public hidebysig virtual 
+			instance bool OnPortalStart (
+				class Sims3.Gameplay.Actors.Sim s
+			) cil managed 
+		{
+			// Method begins at RVA 0x5478d0
+			// Header size: 12
+			// Code size: 921 (0x399)
+			.maxstack 10
+			.locals init (
+				[0] valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo,
+				[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[2] valuetype [SimIFace]Sims3.SimIFace.Quaternion,
+				[3] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[4] valuetype [SimIFace]Sims3.SimIFace.Quaternion,
+				[5] bool,
+				[6] float32,
+				[7] string,
+				[8] valuetype [SimIFace]Sims3.SimIFace.PortalDirection,
+				[9] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[10] valuetype [SimIFace]Sims3.SimIFace.LotLocation,
+				[11] valuetype [SimIFace]Sims3.SimIFace.LotLocation,
+				[12] uint64,
+				[13] class [SimIFace]Sims3.SimIFace.Route,
+				[14] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[15] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+				[16] valuetype [SimIFace]Sims3.SimIFace.RouteAnimationSpec,
+				[17] valuetype [SimIFace]Sims3.SimIFace.PortalRoutingSpec,
+				[18] valuetype [SimIFace]Sims3.SimIFace.StairTraversalResult,
+				[19] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid,
+				[20] class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry,
+				[21] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>,
+				[22] int32,
+				[23] class Sims3.Gameplay.Actors.Sim,
+				[24] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: call instance class Sims3.Gameplay.Core.Stairs Sims3.Gameplay.Core.Stairs/StairsPortalComponent::get_StairsOwner()
+			IL_0006: callvirt instance bool Sims3.Gameplay.Core.Stairs::get_IsHidden()
+			IL_000b: brfalse.s IL_0016
+
+			IL_000d: ldarg.0
+			IL_000e: ldarg.1
+			IL_000f: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::FreeRoutingLane(class Sims3.Gameplay.Actors.Sim)
+			IL_0014: ldc.i4.0
+			IL_0015: ret
+
+			IL_0016: ldarg.1
+			IL_0017: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_001c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_Age()
+			IL_0021: ldc.i4.2
+			IL_0022: beq.s IL_0034
+
+			IL_0024: ldarg.1
+			IL_0025: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsPuppy()
+			IL_002a: brtrue.s IL_0034
+
+			IL_002c: ldarg.1
+			IL_002d: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsKitten()
+			IL_0032: brfalse.s IL_003d
+
+			IL_0034: ldarg.0
+			IL_0035: ldarg.1
+			IL_0036: call instance void Sims3.Gameplay.ObjectComponents.PortalComponent::FreeRoutingLane(class Sims3.Gameplay.Actors.Sim)
+			IL_003b: ldc.i4.0
+			IL_003c: ret
+
+			IL_003d: ldarg.0
+			IL_003e: ldarg.1
+			IL_003f: ldloca.s 0
+			IL_0041: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::GetLaneInfo(class Sims3.Gameplay.Actors.Sim, valuetype Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo&)
+			IL_0046: brfalse IL_0397
+
+			IL_004b: ldarg.0
+			IL_004c: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0051: ldloca.s 0
+			IL_0053: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_0058: ldc.i4.0
+			IL_0059: ldelem.u4
+			IL_005a: ldarg.1
+			IL_005b: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0060: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+			IL_0065: ldc.i4.0
+			IL_0066: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+			IL_006b: stloc.1
+			IL_006c: ldloca.s 2
+			IL_006e: ldc.r4 0.0
+			IL_0073: ldc.r4 0.0
+			IL_0078: ldc.r4 0.0
+			IL_007d: ldc.r4 1
+			IL_0082: call instance void [SimIFace]Sims3.SimIFace.Quaternion::.ctor(float32, float32, float32, float32)
+			IL_0087: ldarg.0
+			IL_0088: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_008d: ldloca.s 0
+			IL_008f: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_0094: ldc.i4.1
+			IL_0095: ldelem.u4
+			IL_0096: ldarg.1
+			IL_0097: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_009c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+			IL_00a1: ldc.i4.1
+			IL_00a2: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot, valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags, bool)
+			IL_00a7: stloc.3
+			IL_00a8: ldloca.s 4
+			IL_00aa: ldc.r4 0.0
+			IL_00af: ldc.r4 0.0
+			IL_00b4: ldc.r4 0.0
+			IL_00b9: ldc.r4 1
+			IL_00be: call instance void [SimIFace]Sims3.SimIFace.Quaternion::.ctor(float32, float32, float32, float32)
+			IL_00c3: ldarg.1
+			IL_00c4: ldloc.3
+			IL_00c5: call void Sims3.Gameplay.Routing.SimScriptAdaptor::CheckForClothingChangesBeforeRouting(class Sims3.Gameplay.Actors.Sim, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00ca: ldc.i4.0
+			IL_00cb: stloc.s 5
+			IL_00cd: ldarg.1
+			IL_00ce: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsActiveSim()
+			IL_00d3: brfalse.s IL_00de
+
+			IL_00d5: ldc.i4.1
+			IL_00d6: call void Sims3.Gameplay.Core.Camera::SetOnStairs(bool)
+			IL_00db: ldc.i4.1
+			IL_00dc: stloc.s 5
+
+			IL_00de: ldc.i4.1
+			IL_00df: call float32 Sims3.Gameplay.Utilities.SimClock::ElapsedTime(valuetype Sims3.Gameplay.Utilities.TimeUnit)
+			IL_00e4: stloc.s 6
+			IL_00e6: ldstr "WalkStairs"
+			IL_00eb: stloc.s 7
+			IL_00ed: ldarg.1
+			IL_00ee: callvirt instance class Sims3.Gameplay.ActorSystems.Posture Sims3.Gameplay.Actors.Sim::get_Posture()
+			IL_00f3: isinst Sims3.Gameplay.Objects.Hoverboard/RidingHoverboardPosture
+			IL_00f8: brfalse.s IL_0103
+
+			IL_00fa: ldstr "HoverboardStairs"
+			IL_00ff: stloc.s 7
+			IL_0101: br.s IL_0120
+
+			IL_0103: ldarg.1
+			IL_0104: callvirt instance class Sims3.Gameplay.ActorSystems.TraitManager Sims3.Gameplay.Actors.Sim::get_TraitManager()
+			IL_0109: ldc.i8 1433270943995853280
+			IL_0112: callvirt instance bool Sims3.Gameplay.ActorSystems.TraitManager::HasElement(valuetype Sims3.Gameplay.ActorSystems.TraitNames)
+			IL_0117: brfalse.s IL_0120
+
+			IL_0119: ldstr "WalkStairsHover"
+			IL_011e: stloc.s 7
+
+			IL_0120: ldc.i4.0
+			IL_0121: stloc.s 8
+			IL_0123: ldloca.s 1
+			IL_0125: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+			IL_012a: ldloca.s 3
+			IL_012c: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+			IL_0131: bgt.un.s IL_0136
+
+			IL_0133: ldc.i4.1
+			IL_0134: stloc.s 8
+
+			IL_0136: ldloc.s 8
+			IL_0138: brtrue IL_020f
+
+			IL_013d: ldarg.1
+			IL_013e: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0143: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_Species()
+			IL_0148: ldc.i4 1024
+			IL_014d: bne.un IL_020f
+
+			IL_0152: ldloc.3
+			IL_0153: ldloc.1
+			IL_0154: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0159: stloc.s 9
+			IL_015b: ldloca.s 9
+			IL_015d: ldc.r4 0.0
+			IL_0162: stfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+			IL_0167: ldloca.s 9
+			IL_0169: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Normalize()
+			IL_016e: pop
+			IL_016f: ldsfld valuetype [SimIFace]Sims3.SimIFace.LotLocation [SimIFace]Sims3.SimIFace.LotLocation::Invalid
+			IL_0174: stloc.s 10
+			IL_0176: ldsfld valuetype [SimIFace]Sims3.SimIFace.LotLocation [SimIFace]Sims3.SimIFace.LotLocation::Invalid
+			IL_017b: stloc.s 11
+			IL_017d: ldloc.3
+			IL_017e: ldloca.s 10
+			IL_0180: call uint64 [SimIFace]Sims3.SimIFace.World::GetLotLocation(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.LotLocation&)
+			IL_0185: stloc.s 12
+			IL_0187: ldloc.3
+			IL_0188: ldloc.s 9
+			IL_018a: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_018f: ldloca.s 11
+			IL_0191: call uint64 [SimIFace]Sims3.SimIFace.World::GetLotLocation(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.LotLocation&)
+			IL_0196: pop
+			IL_0197: ldloc.s 12
+			IL_0199: ldloc.s 10
+			IL_019b: ldloc.s 11
+			IL_019d: call bool [SimIFace]Sims3.SimIFace.World::WallExistsBetween(uint64, valuetype [SimIFace]Sims3.SimIFace.LotLocation, valuetype [SimIFace]Sims3.SimIFace.LotLocation)
+			IL_01a2: brfalse.s IL_020f
+
+			IL_01a4: ldarg.1
+			IL_01a5: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+			IL_01aa: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.ObjectComponents.RoutingComponent::GetCurrentRoute()
+			IL_01af: stloc.s 13
+			IL_01b1: ldloc.s 13
+			IL_01b3: brfalse.s IL_020f
+
+			IL_01b5: ldloc.s 13
+			IL_01b7: callvirt instance uint32 [SimIFace]Sims3.SimIFace.Route::GetNumPaths()
+			IL_01bc: ldc.i4.1
+			IL_01bd: ble.un.s IL_020f
+
+			IL_01bf: ldloca.s 14
+			IL_01c1: initobj [SimIFace]Sims3.SimIFace.Vector3
+			IL_01c7: ldloc.s 13
+			IL_01c9: ldc.i4.1
+			IL_01ca: ldloca.s 14
+			IL_01cc: callvirt instance void [SimIFace]Sims3.SimIFace.Route::GetPathStartDirection(uint32, valuetype [SimIFace]Sims3.SimIFace.Vector3&)
+			IL_01d1: ldloca.s 15
+			IL_01d3: initobj [SimIFace]Sims3.SimIFace.Vector3
+			IL_01d9: ldloca.s 15
+			IL_01db: ldloca.s 9
+			IL_01dd: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::z
+			IL_01e2: neg
+			IL_01e3: ldc.r4 0.0
+			IL_01e8: ldloca.s 9
+			IL_01ea: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::x
+			IL_01ef: call instance void [SimIFace]Sims3.SimIFace.Vector3::Set(float32, float32, float32)
+			IL_01f4: ldloc.s 14
+			IL_01f6: ldloc.s 15
+			IL_01f8: call float32 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_01fd: conv.r8
+			IL_01fe: ldc.r8 0.0
+			IL_0207: bge.s IL_020c
+
+			IL_0209: ldc.i4.2
+			IL_020a: br.s IL_020d
+
+			IL_020c: ldc.i4.3
+
+			IL_020d: stloc.s 8
+
+			IL_020f: ldloca.s 16
+			IL_0211: ldloc.s 7
+			IL_0213: ldarg.1
+			IL_0214: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0219: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_Age()
+			IL_021e: ldarg.1
+			IL_021f: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0224: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_Gender()
+			IL_0229: ldarg.1
+			IL_022a: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_022f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_Species()
+			IL_0234: call instance void [SimIFace]Sims3.SimIFace.RouteAnimationSpec::.ctor(string, uint32, uint32, uint32)
+			IL_0239: ldloca.s 17
+			IL_023b: ldarg.0
+			IL_023c: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0241: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0246: ldloca.s 0
+			IL_0248: ldfld uint32 Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneIndex
+			IL_024d: ldloca.s 0
+			IL_024f: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_0254: ldc.i4.0
+			IL_0255: ldelem.u4
+			IL_0256: ldloca.s 0
+			IL_0258: ldfld valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent/LaneInfo::mLaneSlots
+			IL_025d: ldc.i4.1
+			IL_025e: ldelem.u4
+			IL_025f: ldloc.1
+			IL_0260: ldloc.2
+			IL_0261: ldloc.3
+			IL_0262: ldloc.s 4
+			IL_0264: ldloc.s 8
+			IL_0266: call instance void [SimIFace]Sims3.SimIFace.PortalRoutingSpec::.ctor(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, uint32, uint32, uint32, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Quaternion, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Quaternion, uint32)
+			IL_026b: ldarg.1
+			IL_026c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0271: stloc.s 24
+			IL_0273: ldloca.s 24
+			IL_0275: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+			IL_027a: ldloc.s 17
+			IL_027c: ldloc.s 16
+			IL_027e: call valuetype [SimIFace]Sims3.SimIFace.StairTraversalResult [SimIFace]Sims3.SimIFace.Route::StartStairTraversal(uint64, valuetype [SimIFace]Sims3.SimIFace.PortalRoutingSpec, valuetype [SimIFace]Sims3.SimIFace.RouteAnimationSpec)
+			IL_0283: stloc.s 18
+			IL_0285: ldloc.s 18
+			IL_0287: brtrue IL_037a
+
+			IL_028c: ldarg.1
+			IL_028d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0292: call void [SimIFace]Sims3.SimIFace.Animation::DisableLargeAnimalEvalNode(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0297: call valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.Simulator::get_CurrentTask()
+			IL_029c: stloc.s 19
+			IL_029e: newobj instance void Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::.ctor()
+			IL_02a3: stloc.s 20
+			IL_02a5: ldloc.s 20
+			IL_02a7: ldloc.s 19
+			IL_02a9: stfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mTask
+			IL_02ae: ldloc.s 20
+			IL_02b0: ldc.i4.1
+			IL_02b1: stfld bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mbResult
+			IL_02b6: ldarg.0
+			IL_02b7: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry> Sims3.Gameplay.Core.Stairs/StairsPortalComponent::mSleepingTasks
+			IL_02bc: ldarg.1
+			IL_02bd: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_02c2: ldloc.s 20
+			IL_02c4: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::set_Item(!0, !1)
+			IL_02c9: ldloc.s 20
+			IL_02cb: ldc.i4.1
+			IL_02cc: stfld bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mbSleeping
+			.try
+			{
+				IL_02d1: br.s IL_033f
+				// loop start (head: IL_033f)
+					IL_02d3: ldc.i4.s 10
+					IL_02d5: call void [SimIFace]Sims3.SimIFace.Simulator::Sleep(uint32)
+					IL_02da: ldloc.3
+					IL_02db: ldc.r4 0.6
+					IL_02e0: call !!0[] Sims3.Gameplay.Queries::GetObjects<class Sims3.Gameplay.Actors.Sim>(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+					IL_02e5: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::.ctor(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+					IL_02ea: stloc.s 21
+					IL_02ec: ldloc.s 21
+					IL_02ee: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+					IL_02f3: ldc.i4.0
+					IL_02f4: ble.s IL_033f
+
+					IL_02f6: ldc.i4.0
+					IL_02f7: stloc.s 22
+					IL_02f9: br.s IL_0325
+					// loop start (head: IL_0325)
+						IL_02fb: ldloc.s 21
+						IL_02fd: ldloc.s 22
+						IL_02ff: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Item(int32)
+						IL_0304: stloc.s 23
+						IL_0306: ldloc.s 23
+						IL_0308: ldarg.1
+						IL_0309: beq.s IL_0314
+
+						IL_030b: ldloc.s 23
+						IL_030d: call class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.ObjectComponents.RoutingComponent::GetPushRelevantInteractionForSim(class Sims3.Gameplay.Actors.Sim)
+						IL_0312: brfalse.s IL_031f
+
+						IL_0314: ldloc.s 21
+						IL_0316: ldloc.s 22
+						IL_0318: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::RemoveAt(int32)
+						IL_031d: br.s IL_0325
+
+						IL_031f: ldloc.s 22
+						IL_0321: ldc.i4.1
+						IL_0322: add
+						IL_0323: stloc.s 22
+
+						IL_0325: ldloc.s 22
+						IL_0327: ldloc.s 21
+						IL_0329: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Count()
+						IL_032e: blt.s IL_02fb
+					// end loop
+
+					IL_0330: ldarg.1
+					IL_0331: callvirt instance class Sims3.Gameplay.ObjectComponents.RoutingComponent Sims3.Gameplay.Abstracts.GameObject::get_RoutingComponent()
+					IL_0336: ldloc.s 21
+					IL_0338: ldc.i4.0
+					IL_0339: callvirt instance bool Sims3.Gameplay.ObjectComponents.RoutingComponent::PushSims(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>, bool)
+					IL_033e: pop
+
+					IL_033f: ldloc.s 20
+					IL_0341: ldfld bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mbSleeping
+					IL_0346: brtrue.s IL_02d3
+				// end loop
+
+				IL_0348: leave.s IL_0368
+			} // end .try
+			finally
+			{
+				IL_034a: ldarg.0
+				IL_034b: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry> Sims3.Gameplay.Core.Stairs/StairsPortalComponent::mSleepingTasks
+				IL_0350: ldarg.1
+				IL_0351: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+				IL_0356: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, class Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry>::Remove(!0)
+				IL_035b: pop
+				IL_035c: ldarg.1
+				IL_035d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+				IL_0362: call void [SimIFace]Sims3.SimIFace.Animation::EnableLargeAnimalEvalNode(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+				IL_0367: endfinally
+			} // end handler
+
+			IL_0368: ldloc.s 5
+			IL_036a: brfalse.s IL_0372
+
+			IL_036c: ldc.i4.0
+			IL_036d: call void Sims3.Gameplay.Core.Camera::SetOnStairs(bool)
+
+			IL_0372: ldloc.s 20
+			IL_0374: ldfld bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent/ActiveUserEntry::mbResult
+			IL_0379: ret
+
+			IL_037a: ldloc.s 18
+			IL_037c: ldc.i4.2
+			IL_037d: bne.un.s IL_038b
+
+			IL_037f: ldloc.s 5
+			IL_0381: brfalse.s IL_0389
+
+			IL_0383: ldc.i4.0
+			IL_0384: call void Sims3.Gameplay.Core.Camera::SetOnStairs(bool)
+
+			IL_0389: ldc.i4.1
+			IL_038a: ret
+
+			IL_038b: ldloc.s 5
+			IL_038d: brfalse.s IL_0395
+
+			IL_038f: ldc.i4.0
+			IL_0390: call void Sims3.Gameplay.Core.Camera::SetOnStairs(bool)
+
+			IL_0395: ldc.i4.0
+			IL_0396: ret
+
+			IL_0397: ldc.i4.1
+			IL_0398: ret
+		} // end of method StairsPortalComponent::OnPortalStart
+
+		.method family hidebysig virtual 
+			instance bool OnPortalStop (
+				class Sims3.Gameplay.Actors.Sim s
+			) cil managed 
+		{
+			// Method begins at RVA 0x547c88
+			// Header size: 1
+			// Code size: 63 (0x3f)
+			.maxstack 8
+
+			IL_0000: ldarg.1
+			IL_0001: callvirt instance class Sims3.Gameplay.Interactions.InteractionInstance Sims3.Gameplay.Actors.Sim::get_CurrentInteraction()
+			IL_0006: isinst Sims3.Gameplay.Core.Stairs/ClimbStairs
+			IL_000b: brfalse.s IL_0027
+
+			IL_000d: ldarg.1
+			IL_000e: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsActiveSim()
+			IL_0013: brfalse.s IL_0027
+
+			IL_0015: ldsfld class Sims3.Gameplay.Core.Camera/CameraFollow Sims3.Gameplay.Core.Camera::sCameraFollow
+			IL_001a: ldarg.1
+			IL_001b: callvirt instance bool Sims3.Gameplay.Core.Camera/CameraFollow::IsSimBeingFollowed(class Sims3.Gameplay.Actors.Sim)
+			IL_0020: brtrue.s IL_0027
+
+			IL_0022: call void Sims3.Gameplay.Core.Camera::FocusOnSelectedSim()
+
+			IL_0027: ldarg.1
+			IL_0028: callvirt instance class Sims3.Gameplay.Actors.SimRoutingComponent Sims3.Gameplay.Actors.Sim::get_SimRoutingComponent()
+			IL_002d: ldarg.0
+			IL_002e: call instance class Sims3.Gameplay.Abstracts.GameObject Sims3.Gameplay.Abstracts.ObjectComponent::get_Owner()
+			IL_0033: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0038: stfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Actors.SimRoutingComponent::LastStairsUsedGuid
+			IL_003d: ldc.i4.1
+			IL_003e: ret
+		} // end of method StairsPortalComponent::OnPortalStop
+
+		// Properties
+		.property instance class Sims3.Gameplay.Core.Stairs StairsOwner()
+		{
+			.get instance class Sims3.Gameplay.Core.Stairs Sims3.Gameplay.Core.Stairs/StairsPortalComponent::get_StairsOwner()
+		}
+		.property instance bool AddToUseListDuringTraversal()
+		{
+			.get instance bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent::get_AddToUseListDuringTraversal()
+		}
+		.property instance bool RemoveFromUseListAfterTraversal()
+		{
+			.get instance bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent::get_RemoveFromUseListAfterTraversal()
+		}
+		.property instance bool CanUseUmbrella()
+		{
+			.get instance bool Sims3.Gameplay.Core.Stairs/StairsPortalComponent::get_CanUseUmbrella()
+		}
+
+	} // end of class StairsPortalComponent
+
+	.class nested public auto ansi beforefieldinit StairsRouteThroughComponent
+		extends Sims3.Gameplay.Abstracts.StaticObjectComponent
+	{
+		// Methods
+		.method private hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x547ce2
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void Sims3.Gameplay.Abstracts.StaticObjectComponent::.ctor()
+			IL_0006: ret
+		} // end of method StairsRouteThroughComponent::.ctor
+
+		.method public hidebysig specialname virtual 
+			instance class [mscorlib]System.Type get_BaseType () cil managed 
+		{
+			// Method begins at RVA 0x547cea
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: ldtoken Sims3.Gameplay.Core.Stairs/StairsRouteThroughComponent
+			IL_0005: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+			IL_000a: ret
+		} // end of method StairsRouteThroughComponent::get_BaseType
+
+		// Properties
+		.property instance class [mscorlib]System.Type BaseType()
+		{
+			.get instance class [mscorlib]System.Type Sims3.Gameplay.Core.Stairs/StairsRouteThroughComponent::get_BaseType()
+		}
+
+	} // end of class StairsRouteThroughComponent
+
+	.class nested public auto ansi sealed beforefieldinit ClimbStairs
+		extends class Sims3.Gameplay.Interactions.Interaction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs, class Sims3.Gameplay.Core.Stairs/ClimbStairs>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Core.Stairs target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+				) cil managed 
+			{
+				// Method begins at RVA 0x547de9
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "Use"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Core.Stairs::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Core.Stairs target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x547dfb
+				// Header size: 1
+				// Code size: 2 (0x2)
+				.maxstack 8
+
+				IL_0000: ldc.i4.1
+				IL_0001: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x547dfe
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs, class Sims3.Gameplay.Core.Stairs/ClimbStairs>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+		.field private valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey mThumbnailKey
+
+		// Methods
+		.method public hidebysig virtual 
+			instance void Init (
+				valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+			) cil managed 
+		{
+			// Method begins at RVA 0x547cf8
+			// Header size: 12
+			// Code size: 55 (0x37)
+			.maxstack 4
+			.locals init (
+				[0] valuetype [SimIFace]Sims3.SimIFace.ResourceKey,
+				[1] valuetype [SimIFace]Sims3.SimIFace.ResourceKey,
+				[2] class [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct
+			)
+
+			IL_0000: ldarg.1
+			IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.GameObjectHit Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Hit()
+			IL_0006: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.GameObjectHit::mPoint
+			IL_000b: ldloca.s 0
+			IL_000d: ldloca.s 1
+			IL_000f: call void [SimIFace]Sims3.SimIFace.World::StairsGetProductInformation(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.ResourceKey&, valuetype [SimIFace]Sims3.SimIFace.ResourceKey&)
+			IL_0014: ldc.i4.s 16
+			IL_0016: ldloc.0
+			IL_0017: call class [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct [SimIFace]Sims3.SimIFace.UserToolUtils::GetProduct(valuetype [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyProductType, valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+			IL_001c: stloc.2
+			IL_001d: ldarg.0
+			IL_001e: ldloc.2
+			IL_001f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.BuildBuy.BuildBuyProduct::get_ProductResourceKey()
+			IL_0024: ldc.i4.2
+			IL_0025: newobj instance void [SimIFace]Sims3.SimIFace.ThumbnailKey::.ctor(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+			IL_002a: stfld valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey Sims3.Gameplay.Core.Stairs/ClimbStairs::mThumbnailKey
+			IL_002f: ldarg.0
+			IL_0030: ldarg.1
+			IL_0031: call instance void class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Init(valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+			IL_0036: ret
+		} // end of method ClimbStairs::Init
+
+		.method public hidebysig virtual 
+			instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey GetIconKey () cil managed 
+		{
+			// Method begins at RVA 0x547d3b
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey Sims3.Gameplay.Core.Stairs/ClimbStairs::mThumbnailKey
+			IL_0006: ret
+		} // end of method ClimbStairs::GetIconKey
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x547d44
+			// Header size: 12
+			// Code size: 122 (0x7a)
+			.maxstack 6
+			.locals init (
+				[0] object[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Actor
+			IL_0006: ldsfld int32 Sims3.Gameplay.Core.Stairs::kFearBuffThresholdClimbStairs
+			IL_000b: call bool Sims3.Gameplay.ActorSystems.BuffFear::CanSimDoFearGatingAction(class Sims3.Gameplay.Actors.Sim, int32)
+			IL_0010: brtrue.s IL_0068
+
+			IL_0012: ldarg.0
+			IL_0013: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Actor
+			IL_0018: ldarg.0
+			IL_0019: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Actor
+			IL_001e: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsFemale()
+			IL_0023: ldstr "Gameplay/Objects/Stairs:FearRefuseTNS"
+			IL_0028: ldc.i4.1
+			IL_0029: newarr [mscorlib]System.Object
+			IL_002e: stloc.0
+			IL_002f: ldloc.0
+			IL_0030: ldc.i4.0
+			IL_0031: ldarg.0
+			IL_0032: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Actor
+			IL_0037: stelem.ref
+			IL_0038: ldloc.0
+			IL_0039: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_003e: ldc.i4.4
+			IL_003f: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+			IL_0044: ldarg.0
+			IL_0045: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Actor
+			IL_004a: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_004f: callvirt instance class [UI]Sims3.UI.StyledNotification Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0054: pop
+			IL_0055: ldarg.0
+			IL_0056: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Actor
+			IL_005b: ldstr "a_fearModdlet_refuse_x"
+			IL_0060: ldc.i4.1
+			IL_0061: callvirt instance void Sims3.Gameplay.Actors.Sim::PlaySoloAnimation(string, bool)
+			IL_0066: ldc.i4.0
+			IL_0067: ret
+
+			IL_0068: ldarg.0
+			IL_0069: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Target
+			IL_006e: ldarg.0
+			IL_006f: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::Actor
+			IL_0074: call bool Sims3.Gameplay.Core.Stairs::RouteUpOrDownStairs(class Sims3.Gameplay.Interfaces.IStairs, class Sims3.Gameplay.Actors.Sim)
+			IL_0079: ret
+		} // end of method ClimbStairs::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x547dd6
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldsfld valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey [SimIFace]Sims3.SimIFace.ThumbnailKey::kInvalidThumbnailKey
+			IL_0006: stfld valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey Sims3.Gameplay.Core.Stairs/ClimbStairs::mThumbnailKey
+			IL_000b: ldarg.0
+			IL_000c: call instance void class Sims3.Gameplay.Interactions.Interaction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Stairs>::.ctor()
+			IL_0011: ret
+		} // end of method ClimbStairs::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x547dca
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Core.Stairs/ClimbStairs/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Core.Stairs/ClimbStairs::Singleton
+			IL_000a: ret
+		} // end of method ClimbStairs::.cctor
+
+	} // end of class ClimbStairs
+
+	.class nested private auto ansi sealed beforefieldinit HideUnhide
+		extends class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Core.Stairs>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Core.Stairs, class Sims3.Gameplay.Core.Stairs/HideUnhide>
+		{
+			.custom instance void Sims3.Gameplay.Autonomy.DoesntRequireTuningAttribute::.ctor() = (
+				01 00 00 00
+			)
+			// Methods
+			.method family hidebysig virtual 
+				instance string GetInteractionName (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Core.Stairs target,
+					class Sims3.Gameplay.Autonomy.InteractionObjectPair interaction
+				) cil managed 
+			{
+				// Method begins at RVA 0x547e36
+				// Header size: 1
+				// Code size: 42 (0x2a)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Core.Stairs::get_IsHidden()
+				IL_0006: brfalse.s IL_0019
+
+				IL_0008: ldstr "Unhide"
+				IL_000d: ldc.i4.0
+				IL_000e: newarr [mscorlib]System.Object
+				IL_0013: call string Sims3.Gameplay.Core.Stairs::LocalizeString(string, object[])
+				IL_0018: ret
+
+				IL_0019: ldstr "Hide"
+				IL_001e: ldc.i4.0
+				IL_001f: newarr [mscorlib]System.Object
+				IL_0024: call string Sims3.Gameplay.Core.Stairs::LocalizeString(string, object[])
+				IL_0029: ret
+			} // end of method Definition::GetInteractionName
+
+			.method family hidebysig virtual 
+				instance bool Test (
+					class Sims3.Gameplay.Interfaces.IActor a,
+					class Sims3.Gameplay.Core.Stairs target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x547e61
+				// Header size: 1
+				// Code size: 27 (0x1b)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::get_InUse()
+				IL_0006: brfalse.s IL_0019
+
+				IL_0008: ldarg.s greyedOutTooltipCallback
+				IL_000a: ldnull
+				IL_000b: ldftn string Sims3.Gameplay.Core.Stairs/HideUnhide/Definition::InUseGreyedOutTooltip()
+				IL_0011: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+				IL_0016: stind.ref
+				IL_0017: ldc.i4.0
+				IL_0018: ret
+
+				IL_0019: ldc.i4.1
+				IL_001a: ret
+			} // end of method Definition::Test
+
+			.method private hidebysig static 
+				string InUseGreyedOutTooltip () cil managed 
+			{
+				// Method begins at RVA 0x547e7d
+				// Header size: 1
+				// Code size: 17 (0x11)
+				.maxstack 8
+
+				IL_0000: ldstr "InUseTooltip"
+				IL_0005: ldc.i4.0
+				IL_0006: newarr [mscorlib]System.Object
+				IL_000b: call string Sims3.Gameplay.Core.Stairs::LocalizeString(string, object[])
+				IL_0010: ret
+			} // end of method Definition::InUseGreyedOutTooltip
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x547e8f
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class Sims3.Gameplay.Interactions.ActorlessInteractionDefinition`3<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Core.Stairs, class Sims3.Gameplay.Core.Stairs/HideUnhide>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+
+		// Methods
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x547e06
+			// Header size: 1
+			// Code size: 27 (0x1b)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Core.Stairs>::Target
+			IL_0006: ldarg.0
+			IL_0007: ldfld !1 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Core.Stairs>::Target
+			IL_000c: callvirt instance bool Sims3.Gameplay.Core.Stairs::get_IsHidden()
+			IL_0011: ldc.i4.0
+			IL_0012: ceq
+			IL_0014: callvirt instance void Sims3.Gameplay.Core.Stairs::SetHiddenState(bool)
+			IL_0019: ldc.i4.1
+			IL_001a: ret
+		} // end of method HideUnhide::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x547e2e
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class Sims3.Gameplay.Interactions.ImmediateInteraction`2<class Sims3.Gameplay.Interfaces.IActor, class Sims3.Gameplay.Core.Stairs>::.ctor()
+			IL_0006: ret
+		} // end of method HideUnhide::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x547e22
+			// Header size: 1
+			// Code size: 11 (0xb)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Core.Stairs/HideUnhide/Definition::.ctor()
+			IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Core.Stairs/HideUnhide::Singleton
+			IL_000a: ret
+		} // end of method HideUnhide::.cctor
+
+	} // end of class HideUnhide
+
+
+	// Fields
+	.field private static literal string kStingUncoveredStairs = "sting_mystery"
+	.field private static literal string kLocalizationKey = "Gameplay/Objects/Stairs"
+	.field private static literal uint32 kStairsHidden = uint32(3987050944)
+	.field public static literal string kSystemName = "Stairs"
+	.field private bool mIsHidden
+	.field private static int32 kFearBuffThresholdClimbStairs
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+		01 00 76 52 61 6e 67 65 3a 20 4e 65 67 61 74 69
+		76 65 20 69 6e 74 65 67 65 72 2e 20 49 66 20 61
+		20 53 69 6d 20 68 61 73 20 61 20 66 65 61 72 20
+		62 75 66 66 20 77 69 74 68 20 61 20 67 72 65 61
+		74 65 72 20 73 74 72 65 6e 67 74 68 20 74 68 61
+		6e 20 74 68 69 73 20 76 61 6c 75 65 2c 20 74 68
+		65 79 20 77 69 6c 6c 20 6e 6f 74 20 63 6c 69 6d
+		62 20 73 74 61 69 72 73 2e 00 00
+	)
+	.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+		01 00 00 00
+	)
+
+	// Methods
+	.method public hidebysig specialname 
+		instance bool get_IsHidden () cil managed 
+	{
+		// Method begins at RVA 0x546d34
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0006: ret
+	} // end of method Stairs::get_IsHidden
+
+	.method public final hidebysig specialname newslot virtual 
+		instance bool get_IsDiscovered () cil managed 
+	{
+		// Method begins at RVA 0x546d3c
+		// Header size: 1
+		// Code size: 10 (0xa)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.Gameplay.Core.Stairs::get_IsHidden()
+		IL_0006: ldc.i4.0
+		IL_0007: ceq
+		IL_0009: ret
+	} // end of method Stairs::get_IsDiscovered
+
+	.method public hidebysig specialname 
+		instance class Sims3.Gameplay.Core.Stairs/StairsPortalComponent get_StairsPortal () cil managed 
+	{
+		// Method begins at RVA 0x546d47
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+		IL_0006: isinst Sims3.Gameplay.Core.Stairs/StairsPortalComponent
+		IL_000b: ret
+	} // end of method Stairs::get_StairsPortal
+
+	.method public final hidebysig specialname newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot get_TopSlot () cil managed 
+	{
+		// Method begins at RVA 0x546d54
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Top0
+		IL_0005: ret
+	} // end of method Stairs::get_TopSlot
+
+	.method public final hidebysig specialname newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Vector3 get_CauseEffectTargetPosition () cil managed 
+	{
+		// Method begins at RVA 0x546d5c
+		// Header size: 12
+		// Code size: 81 (0x51)
+		.maxstack 3
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+		IL_0005: brfalse.s IL_004a
+
+		IL_0007: ldarg.0
+		IL_0008: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Top0
+		IL_000d: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0012: stloc.0
+		IL_0013: ldarg.0
+		IL_0014: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Bottom0
+		IL_0019: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_001e: stloc.1
+		IL_001f: call class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.PlumbBob::get_SelectedActor()
+		IL_0024: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0029: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+		IL_002e: ldloc.0
+		IL_002f: ldloc.1
+		IL_0030: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0035: ldc.r4 0.5
+		IL_003a: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+		IL_003f: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+		IL_0044: blt.un.s IL_0048
+
+		IL_0046: ldloc.0
+		IL_0047: ret
+
+		IL_0048: ldloc.1
+		IL_0049: ret
+
+		IL_004a: ldarg.0
+		IL_004b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0050: ret
+	} // end of method Stairs::get_CauseEffectTargetPosition
+
+	.method public hidebysig static 
+		string LocalizeString (
+			string name,
+			object[] parameters
+		) cil managed 
+	{
+		.param [2]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x546db9
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldstr "Gameplay/Objects/Stairs:"
+		IL_0005: ldarg.0
+		IL_0006: call string [mscorlib]System.String::Concat(string, string)
+		IL_000b: ldarg.1
+		IL_000c: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0011: ret
+	} // end of method Stairs::LocalizeString
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x546dcc
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Abstracts.GameObject::.ctor()
+		IL_0006: ret
+	} // end of method Stairs::.ctor
+
+	.method family hidebysig virtual 
+		instance void AddBuildBuyInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition> buildBuyInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x546dd4
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Core.Stairs/HideUnhide::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void Sims3.Gameplay.Abstracts.GameObject::AddBuildBuyInteractions(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0012: ret
+	} // end of method Stairs::AddBuildBuyInteractions
+
+	.method family hidebysig virtual 
+		instance void AddDebugInteractions (
+			class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition> debugInteractions
+		) cil managed 
+	{
+		// Method begins at RVA 0x546de8
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Core.Stairs/HideUnhide::Singleton
+		IL_0006: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>::Add(!0)
+		IL_000b: ldarg.0
+		IL_000c: ldarg.1
+		IL_000d: call instance void Sims3.Gameplay.Abstracts.GameObject::AddDebugInteractions(class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Interactions.InteractionDefinition>)
+		IL_0012: ret
+	} // end of method Stairs::AddDebugInteractions
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x546dfc
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.0
+		IL_0002: newarr [mscorlib]System.Object
+		IL_0007: call instance bool Sims3.Gameplay.Abstracts.GameObject::AddComponent<class Sims3.Gameplay.Core.Stairs/StairsPortalComponent>(object[])
+		IL_000c: pop
+		IL_000d: ldarg.0
+		IL_000e: ldc.i4.1
+		IL_000f: call instance void Sims3.Gameplay.Abstracts.GameObject::SetHiddenFlags(valuetype [SimIFace]Sims3.SimIFace.HiddenFlags)
+		IL_0014: ldarg.0
+		IL_0015: call instance void Sims3.Gameplay.Core.Stairs::SetHiddenState()
+		IL_001a: ret
+	} // end of method Stairs::OnStartup
+
+	.method public hidebysig virtual 
+		instance void OnLoad () cil managed 
+	{
+		// Method begins at RVA 0x546e18
+		// Header size: 12
+		// Code size: 36 (0x24)
+		.maxstack 1
+		.locals init (
+			[0] class Sims3.Gameplay.ObjectComponents.PortalComponent
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: brfalse.s IL_0023
+
+		IL_000a: ldloc.0
+		IL_000b: callvirt instance void Sims3.Gameplay.ObjectComponents.PortalComponent::FreeAllRoutingLanes()
+		IL_0010: ldarg.0
+		IL_0011: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0016: brfalse.s IL_0023
+
+		IL_0018: ldarg.0
+		IL_0019: call instance class Sims3.Gameplay.Core.Stairs/StairsPortalComponent Sims3.Gameplay.Core.Stairs::get_StairsPortal()
+		IL_001e: callvirt instance void Sims3.Gameplay.Core.Stairs/StairsPortalComponent::RemovePortals()
+
+		IL_0023: ret
+	} // end of method Stairs::OnLoad
+
+	.method public final hidebysig newslot virtual 
+		instance void OnAddTombObjectComponent (
+			class Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x546e48
+		// Header size: 1
+		// Code size: 39 (0x27)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldc.i4.5
+		IL_0002: ldarg.0
+		IL_0003: ldftn instance bool Sims3.Gameplay.Core.Stairs::OnHide(class Sims3.Gameplay.Actors.Sim)
+		IL_0009: newobj instance void Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_000e: callvirt instance void Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0013: ldarg.1
+		IL_0014: ldc.i4.6
+		IL_0015: ldarg.0
+		IL_0016: ldftn instance bool Sims3.Gameplay.Core.Stairs::OnUnhide(class Sims3.Gameplay.Actors.Sim)
+		IL_001c: newobj instance void Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback::.ctor(object, native int)
+		IL_0021: callvirt instance void Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterBehavior(valuetype Sims3.Gameplay.ObjectComponents.ActivatedBehavior, class Sims3.Gameplay.ObjectComponents.ActivatedBehaviorCallback)
+		IL_0026: ret
+	} // end of method Stairs::OnAddTombObjectComponent
+
+	.method public hidebysig virtual 
+		instance bool ImportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamReader reader
+		) cil managed 
+	{
+		// Method begins at RVA 0x546e70
+		// Header size: 12
+		// Code size: 37 (0x25)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool Sims3.Gameplay.Abstracts.GameObject::ImportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamReader)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 -307916352 // 0xeda591c0
+		IL_0010: ldarg.0
+		IL_0011: ldflda bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0016: ldc.i4.0
+		IL_0017: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamReader::ReadBool(uint32, bool&, bool)
+		IL_001c: pop
+		IL_001d: ldarg.0
+		IL_001e: call instance void Sims3.Gameplay.Core.Stairs::SetHiddenState()
+		IL_0023: ldloc.0
+		IL_0024: ret
+	} // end of method Stairs::ImportContent
+
+	.method public hidebysig virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x546ea4
+		// Header size: 12
+		// Code size: 30 (0x1e)
+		.maxstack 4
+		.locals init (
+			[0] bool
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldarg.3
+		IL_0004: call instance bool Sims3.Gameplay.Abstracts.GameObject::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_0009: stloc.0
+		IL_000a: ldarg.3
+		IL_000b: ldc.i4 -307916352 // 0xeda591c0
+		IL_0010: ldarg.0
+		IL_0011: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0016: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteBool(uint32, bool)
+		IL_001b: pop
+		IL_001c: ldloc.0
+		IL_001d: ret
+	} // end of method Stairs::ExportContent
+
+	.method public hidebysig newslot virtual 
+		instance void LoadWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x546ece
+		// Header size: 1
+		// Code size: 35 (0x23)
+		.maxstack 8
+
+		IL_0000: ldstr "Stairs"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "mIsHidden"
+		IL_0010: ldarg.0
+		IL_0011: ldflda bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0016: call bool Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Get<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0&)
+		IL_001b: pop
+		IL_001c: ldarg.0
+		IL_001d: call instance void Sims3.Gameplay.Core.Stairs::SetHiddenState()
+		IL_0022: ret
+	} // end of method Stairs::LoadWorldBuilderData
+
+	.method public final hidebysig newslot virtual 
+		instance void SaveWorldBuilderData () cil managed 
+	{
+		// Method begins at RVA 0x546ef2
+		// Header size: 1
+		// Code size: 29 (0x1d)
+		.maxstack 8
+
+		IL_0000: ldstr "Stairs"
+		IL_0005: ldarg.0
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_000b: ldstr "mIsHidden"
+		IL_0010: ldarg.0
+		IL_0011: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0016: ldc.i4.0
+		IL_0017: call void Sims3.Gameplay.WorldBuilderUtil.WorldBuilderData::Set<bool>(string, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, !!0, !!0)
+		IL_001c: ret
+	} // end of method Stairs::SaveWorldBuilderData
+
+	.method public hidebysig virtual 
+		instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> GetAllInteractionsForActor (
+			class Sims3.Gameplay.Interfaces.IActor s
+		) cil managed 
+	{
+		// Method begins at RVA 0x546f10
+		// Header size: 12
+		// Code size: 31 (0x1f)
+		.maxstack 6
+		.locals init (
+			[0] class Sims3.Gameplay.Interactions.InteractionDefinition[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.0
+		IL_0003: ldarg.1
+		IL_0004: call instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> Sims3.Gameplay.Abstracts.GameObject::GetAllInteractionsForActor(class Sims3.Gameplay.Interfaces.IActor)
+		IL_0009: ldc.i4.1
+		IL_000a: newarr Sims3.Gameplay.Interactions.InteractionDefinition
+		IL_000f: stloc.0
+		IL_0010: ldloc.0
+		IL_0011: ldc.i4.0
+		IL_0012: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Core.Stairs/ClimbStairs::Singleton
+		IL_0017: stelem.ref
+		IL_0018: ldloc.0
+		IL_0019: call instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> Sims3.Gameplay.Abstracts.GameObject::BuildInteractions(class Sims3.Gameplay.Interfaces.IActor, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>, class Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_001e: ret
+	} // end of method Stairs::GetAllInteractionsForActor
+
+	.method public hidebysig virtual 
+		instance bool HasAnyInteraction (
+			class Sims3.Gameplay.Interfaces.IActor actor,
+			valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+		) cil managed 
+	{
+		// Method begins at RVA 0x546f3c
+		// Header size: 12
+		// Code size: 37 (0x25)
+		.maxstack 6
+		.locals init (
+			[0] class Sims3.Gameplay.Interactions.InteractionDefinition[]
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldarg.2
+		IL_0003: ldc.i4.1
+		IL_0004: newarr Sims3.Gameplay.Interactions.InteractionDefinition
+		IL_0009: stloc.0
+		IL_000a: ldloc.0
+		IL_000b: ldc.i4.0
+		IL_000c: ldsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Core.Stairs/ClimbStairs::Singleton
+		IL_0011: stelem.ref
+		IL_0012: ldloc.0
+		IL_0013: call instance bool Sims3.Gameplay.Abstracts.GameObject::TestInteractions(class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class Sims3.Gameplay.Interactions.InteractionDefinition[])
+		IL_0018: brfalse.s IL_001c
+
+		IL_001a: ldc.i4.1
+		IL_001b: ret
+
+		IL_001c: ldarg.0
+		IL_001d: ldarg.1
+		IL_001e: ldarg.2
+		IL_001f: call instance bool Sims3.Gameplay.Abstracts.GameObject::HasAnyInteraction(class Sims3.Gameplay.Interfaces.IActor, valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+		IL_0024: ret
+	} // end of method Stairs::HasAnyInteraction
+
+	.method private hidebysig static 
+		bool HasFreeLanes (
+			class Sims3.Gameplay.Interfaces.IStairs stairs,
+			class Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x546f70
+		// Header size: 12
+		// Code size: 52 (0x34)
+		.maxstack 5
+		.locals init (
+			[0] class Sims3.Gameplay.ObjectComponents.PortalComponent,
+			[1] uint32,
+			[2] uint32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Interfaces.IGameObject::get_PortalComponent()
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: brfalse.s IL_0032
+
+		IL_000a: ldloc.0
+		IL_000b: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_0010: stloc.1
+		IL_0011: ldc.i4.0
+		IL_0012: stloc.2
+		IL_0013: br.s IL_002e
+		// loop start (head: IL_002e)
+			IL_0015: ldloc.0
+			IL_0016: ldloc.0
+			IL_0017: ldloc.2
+			IL_0018: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.ObjectComponents.PortalComponent::GetSlotsForLaneIndex(uint32)
+			IL_001d: ldarg.1
+			IL_001e: ldc.i4.0
+			IL_001f: ldc.i4.0
+			IL_0020: conv.i8
+			IL_0021: callvirt instance bool Sims3.Gameplay.ObjectComponents.PortalComponent::IsLaneUnobstructed(valuetype [SimIFace]Sims3.SimIFace.Slot[], class Sims3.Gameplay.Actors.Sim, bool, valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption)
+			IL_0026: brfalse.s IL_002a
+
+			IL_0028: ldc.i4.1
+			IL_0029: ret
+
+			IL_002a: ldloc.2
+			IL_002b: ldc.i4.1
+			IL_002c: add
+			IL_002d: stloc.2
+
+			IL_002e: ldloc.2
+			IL_002f: ldloc.1
+			IL_0030: blt.un.s IL_0015
+		// end loop
+
+		IL_0032: ldc.i4.0
+		IL_0033: ret
+	} // end of method Stairs::HasFreeLanes
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot[] GetSlotsForSide (
+			bool isBottomSide
+		) cil managed 
+	{
+		// Method begins at RVA 0x546fb0
+		// Header size: 12
+		// Code size: 77 (0x4d)
+		.maxstack 5
+		.locals init (
+			[0] string,
+			[1] uint32,
+			[2] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[3] uint32
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: brfalse.s IL_000b
+
+		IL_0003: ldstr "_Bottom"
+		IL_0008: stloc.0
+		IL_0009: br.s IL_0011
+
+		IL_000b: ldstr "_Top"
+		IL_0010: stloc.0
+
+		IL_0011: ldarg.0
+		IL_0012: call instance class Sims3.Gameplay.Core.Stairs/StairsPortalComponent Sims3.Gameplay.Core.Stairs::get_StairsPortal()
+		IL_0017: callvirt instance uint32 Sims3.Gameplay.ObjectComponents.PortalComponent::GetNumLanes()
+		IL_001c: stloc.1
+		IL_001d: ldloc.1
+		IL_001e: conv.u
+		IL_001f: newarr [SimIFace]Sims3.SimIFace.Slot
+		IL_0024: stloc.2
+		IL_0025: ldc.i4.0
+		IL_0026: stloc.3
+		IL_0027: br.s IL_0047
+		// loop start (head: IL_0047)
+			IL_0029: ldloc.2
+			IL_002a: ldloc.3
+			IL_002b: conv.u
+			IL_002c: ldstr "RoutingSlot_Stairs"
+			IL_0031: ldloc.0
+			IL_0032: ldloc.3
+			IL_0033: box [mscorlib]System.UInt32
+			IL_0038: call string [mscorlib]System.String::Concat(object, object, object)
+			IL_003d: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0042: stelem.i4
+			IL_0043: ldloc.3
+			IL_0044: ldc.i4.1
+			IL_0045: add
+			IL_0046: stloc.3
+
+			IL_0047: ldloc.3
+			IL_0048: ldloc.1
+			IL_0049: blt.un.s IL_0029
+		// end loop
+
+		IL_004b: ldloc.2
+		IL_004c: ret
+	} // end of method Stairs::GetSlotsForSide
+
+	.method private hidebysig static 
+		void CreateRouteToSlots (
+			class Sims3.Gameplay.Interfaces.IStairs stairs,
+			class [SimIFace]Sims3.SimIFace.Route route,
+			valuetype [SimIFace]Sims3.SimIFace.Slot[] slots,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags ageGenderSpecies
+		) cil managed 
+	{
+		// Method begins at RVA 0x54700c
+		// Header size: 12
+		// Code size: 282 (0x11a)
+		.maxstack 5
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[2] class [SimIFace]Sims3.SimIFace.RouteDestinations.PointDestination,
+			[3] valuetype [SimIFace]Sims3.SimIFace.Slot,
+			[4] class [SimIFace]Sims3.SimIFace.RouteDestinations.RadialRangeDestination,
+			[5] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[6] int32,
+			[7] valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult,
+			[8] valuetype [SimIFace]Sims3.SimIFace.Slot[],
+			[9] int32
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.0
+		IL_0002: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Interfaces.IScriptObject::get_ObjectId()
+		IL_0007: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetPreferredPortal(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_000c: ldarg.2
+		IL_000d: stloc.s 5
+		IL_000f: ldc.i4.0
+		IL_0010: stloc.s 6
+		IL_0012: br.s IL_0068
+		// loop start (head: IL_0068)
+			IL_0014: ldloc.s 5
+			IL_0016: ldloc.s 6
+			IL_0018: ldelem.u4
+			IL_0019: stloc.0
+			IL_001a: ldarg.0
+			IL_001b: ldloc.0
+			IL_001c: ldarg.3
+			IL_001d: ldc.i4.1
+			IL_001e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interfaces.IGameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot, uint32, bool)
+			IL_0023: stloc.1
+			IL_0024: newobj instance void [SimIFace]Sims3.SimIFace.RouteDestinations.PointDestination::.ctor()
+			IL_0029: stloc.2
+			IL_002a: ldloc.2
+			IL_002b: ldloc.1
+			IL_002c: ldarg.0
+			IL_002d: ldloc.0
+			IL_002e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interfaces.IGameObject::GetForwardOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0033: ldc.r4 -0.2
+			IL_0038: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+			IL_003d: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0042: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.RouteDestinations.PointDestination::mPoint
+			IL_0047: ldarg.1
+			IL_0048: ldloc.2
+			IL_0049: callvirt instance void [SimIFace]Sims3.SimIFace.Route::AddDestination(class [SimIFace]Sims3.SimIFace.RouteDestination)
+			IL_004e: newobj instance void [SimIFace]Sims3.SimIFace.RouteDestinations.PointDestination::.ctor()
+			IL_0053: stloc.2
+			IL_0054: ldloc.2
+			IL_0055: ldloc.1
+			IL_0056: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.RouteDestinations.PointDestination::mPoint
+			IL_005b: ldarg.1
+			IL_005c: ldloc.2
+			IL_005d: callvirt instance void [SimIFace]Sims3.SimIFace.Route::AddDestination(class [SimIFace]Sims3.SimIFace.RouteDestination)
+			IL_0062: ldloc.s 6
+			IL_0064: ldc.i4.1
+			IL_0065: add
+			IL_0066: stloc.s 6
+
+			IL_0068: ldloc.s 6
+			IL_006a: ldloc.s 5
+			IL_006c: ldlen
+			IL_006d: conv.i4
+			IL_006e: blt.s IL_0014
+		// end loop
+
+		IL_0070: ldarg.1
+		IL_0071: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::Plan()
+		IL_0076: stloc.s 7
+		IL_0078: ldloca.s 7
+		IL_007a: call instance bool [SimIFace]Sims3.SimIFace.RoutePlanResult::Succeeded()
+		IL_007f: brtrue IL_0119
+
+		IL_0084: ldarg.2
+		IL_0085: stloc.s 8
+		IL_0087: ldc.i4.0
+		IL_0088: stloc.s 9
+		IL_008a: br.s IL_0107
+		// loop start (head: IL_0107)
+			IL_008c: ldloc.s 8
+			IL_008e: ldloc.s 9
+			IL_0090: ldelem.u4
+			IL_0091: stloc.3
+			IL_0092: ldarg.1
+			IL_0093: ldc.i4 65536
+			IL_0098: conv.i8
+			IL_0099: ldc.i4.1
+			IL_009a: callvirt instance void [SimIFace]Sims3.SimIFace.Route::SetOption(valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption, bool)
+			IL_009f: newobj instance void [SimIFace]Sims3.SimIFace.RouteDestinations.RadialRangeDestination::.ctor()
+			IL_00a4: stloc.s 4
+			IL_00a6: ldloc.s 4
+			IL_00a8: ldarg.0
+			IL_00a9: ldloc.3
+			IL_00aa: ldarg.3
+			IL_00ab: ldc.i4.1
+			IL_00ac: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interfaces.IGameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot, uint32, bool)
+			IL_00b1: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.RouteDestinations.RadialRangeDestination::mCenterPoint
+			IL_00b6: ldloc.s 4
+			IL_00b8: ldarg.0
+			IL_00b9: ldloc.3
+			IL_00ba: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interfaces.IGameObject::GetForwardOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_00bf: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_UnaryNegation(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_00c4: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.RouteDestinations.RadialRangeDestination::mConeVector
+			IL_00c9: ldloc.s 4
+			IL_00cb: ldc.r4 3.1415927
+			IL_00d0: stfld float32 [SimIFace]Sims3.SimIFace.RouteDestinations.RadialRangeDestination::mfConeAngle
+			IL_00d5: ldloc.s 4
+			IL_00d7: ldc.r4 1
+			IL_00dc: stfld float32 [SimIFace]Sims3.SimIFace.RouteDestinations.RadialRangeDestination::mfMaxRadius
+			IL_00e1: ldloc.s 4
+			IL_00e3: ldc.r4 0.0
+			IL_00e8: stfld float32 [SimIFace]Sims3.SimIFace.RouteDestinations.RadialRangeDestination::mfMinRadius
+			IL_00ed: ldloc.s 4
+			IL_00ef: ldc.r4 0.15
+			IL_00f4: stfld float32 [SimIFace]Sims3.SimIFace.RouteDestinations.RadialRangeDestination::mfPreferredSpacing
+			IL_00f9: ldarg.1
+			IL_00fa: ldloc.s 4
+			IL_00fc: callvirt instance void [SimIFace]Sims3.SimIFace.Route::AddDestination(class [SimIFace]Sims3.SimIFace.RouteDestination)
+			IL_0101: ldloc.s 9
+			IL_0103: ldc.i4.1
+			IL_0104: add
+			IL_0105: stloc.s 9
+
+			IL_0107: ldloc.s 9
+			IL_0109: ldloc.s 8
+			IL_010b: ldlen
+			IL_010c: conv.i4
+			IL_010d: blt IL_008c
+		// end loop
+
+		IL_0112: ldarg.1
+		IL_0113: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::Plan()
+		IL_0118: pop
+
+		IL_0119: ret
+	} // end of method Stairs::CreateRouteToSlots
+
+	.method public hidebysig static 
+		bool RouteUpOrDownStairs (
+			class Sims3.Gameplay.Interfaces.IStairs stairs,
+			class Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x547132
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: ldc.i4.1
+		IL_0003: call bool Sims3.Gameplay.Core.Stairs::RouteUpOrDownStairs(class Sims3.Gameplay.Interfaces.IStairs, class Sims3.Gameplay.Actors.Sim, bool)
+		IL_0008: ret
+	} // end of method Stairs::RouteUpOrDownStairs
+
+	.method private hidebysig static 
+		bool RouteUpOrDownStairs (
+			class Sims3.Gameplay.Interfaces.IStairs stairs,
+			class Sims3.Gameplay.Actors.Sim actor,
+			bool shouldRetry
+		) cil managed 
+	{
+		// Method begins at RVA 0x54713c
+		// Header size: 12
+		// Code size: 227 (0xe3)
+		.maxstack 4
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags,
+			[1] class [SimIFace]Sims3.SimIFace.Route,
+			[2] class [SimIFace]Sims3.SimIFace.Route,
+			[3] class [SimIFace]Sims3.SimIFace.Route,
+			[4] valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0006: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_AgeGenderSpecies()
+		IL_000b: stloc.0
+		IL_000c: ldarg.1
+		IL_000d: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.Abstracts.GameObject::CreateRoute()
+		IL_0012: stloc.1
+		IL_0013: ldarg.0
+		IL_0014: ldloc.1
+		IL_0015: ldarg.0
+		IL_0016: ldc.i4.1
+		IL_0017: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Interfaces.IStairs::GetSlotsForSide(bool)
+		IL_001c: ldloc.0
+		IL_001d: call void Sims3.Gameplay.Core.Stairs::CreateRouteToSlots(class Sims3.Gameplay.Interfaces.IStairs, class [SimIFace]Sims3.SimIFace.Route, valuetype [SimIFace]Sims3.SimIFace.Slot[], valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags)
+		IL_0022: ldarg.1
+		IL_0023: callvirt instance class [SimIFace]Sims3.SimIFace.Route Sims3.Gameplay.Abstracts.GameObject::CreateRoute()
+		IL_0028: stloc.2
+		IL_0029: ldarg.0
+		IL_002a: ldloc.2
+		IL_002b: ldarg.0
+		IL_002c: ldc.i4.0
+		IL_002d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Interfaces.IStairs::GetSlotsForSide(bool)
+		IL_0032: ldloc.0
+		IL_0033: call void Sims3.Gameplay.Core.Stairs::CreateRouteToSlots(class Sims3.Gameplay.Interfaces.IStairs, class [SimIFace]Sims3.SimIFace.Route, valuetype [SimIFace]Sims3.SimIFace.Slot[], valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags)
+		IL_0038: ldloc.2
+		IL_0039: stloc.3
+		IL_003a: ldarg.1
+		IL_003b: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0040: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+		IL_0045: ldarg.0
+		IL_0046: ldarg.0
+		IL_0047: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Interfaces.IStairs::get_TopSlot()
+		IL_004c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Interfaces.IGameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0051: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+		IL_0056: call bool [SimIFace]Sims3.SimIFace.MathUtils::IsSimilar(float32, float32)
+		IL_005b: brfalse.s IL_005f
+
+		IL_005d: ldloc.1
+		IL_005e: stloc.3
+
+		IL_005f: ldloc.1
+		IL_0060: callvirt instance float32 [SimIFace]Sims3.SimIFace.Route::GetDistanceRemaining()
+		IL_0065: ldloc.2
+		IL_0066: callvirt instance float32 [SimIFace]Sims3.SimIFace.Route::GetDistanceRemaining()
+		IL_006b: ble.un.s IL_006f
+
+		IL_006d: ldloc.1
+		IL_006e: stloc.3
+
+		IL_006f: ldloc.3
+		IL_0070: callvirt instance valuetype [SimIFace]Sims3.SimIFace.RoutePlanResult [SimIFace]Sims3.SimIFace.Route::get_PlanResult()
+		IL_0075: stloc.s 4
+		IL_0077: ldloca.s 4
+		IL_0079: call instance bool [SimIFace]Sims3.SimIFace.RoutePlanResult::Succeeded()
+		IL_007e: brtrue.s IL_0088
+
+		IL_0080: ldarg.1
+		IL_0081: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure()
+		IL_0086: ldc.i4.0
+		IL_0087: ret
+
+		IL_0088: ldarg.2
+		IL_0089: brtrue.s IL_00a0
+
+		IL_008b: ldloc.3
+		IL_008c: callvirt instance float32 [SimIFace]Sims3.SimIFace.Route::GetDistanceRemaining()
+		IL_0091: ldc.r4 2
+		IL_0096: blt.un.s IL_00a0
+
+		IL_0098: ldarg.1
+		IL_0099: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure()
+		IL_009e: ldc.i4.0
+		IL_009f: ret
+
+		IL_00a0: ldarg.1
+		IL_00a1: ldloc.3
+		IL_00a2: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::DoRoute(class [SimIFace]Sims3.SimIFace.Route)
+		IL_00a7: brfalse.s IL_00e1
+
+		IL_00a9: ldarg.1
+		IL_00aa: callvirt instance class Sims3.Gameplay.Actors.SimRoutingComponent Sims3.Gameplay.Actors.Sim::get_SimRoutingComponent()
+		IL_00af: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Actors.SimRoutingComponent::LastStairsUsedGuid
+		IL_00b4: ldarg.0
+		IL_00b5: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Interfaces.IScriptObject::get_ObjectId()
+		IL_00ba: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_00bf: brfalse.s IL_00df
+
+		IL_00c1: ldarg.2
+		IL_00c2: brfalse.s IL_00d6
+
+		IL_00c4: ldarg.0
+		IL_00c5: ldarg.1
+		IL_00c6: call bool Sims3.Gameplay.Core.Stairs::HasFreeLanes(class Sims3.Gameplay.Interfaces.IStairs, class Sims3.Gameplay.Actors.Sim)
+		IL_00cb: brfalse.s IL_00d6
+
+		IL_00cd: ldarg.0
+		IL_00ce: ldarg.1
+		IL_00cf: ldc.i4.0
+		IL_00d0: call bool Sims3.Gameplay.Core.Stairs::RouteUpOrDownStairs(class Sims3.Gameplay.Interfaces.IStairs, class Sims3.Gameplay.Actors.Sim, bool)
+		IL_00d5: ret
+
+		IL_00d6: ldarg.1
+		IL_00d7: ldarg.0
+		IL_00d8: callvirt instance void Sims3.Gameplay.Actors.Sim::PlayRouteFailure(class Sims3.Gameplay.Interfaces.IGameObject)
+		IL_00dd: ldc.i4.0
+		IL_00de: ret
+
+		IL_00df: ldc.i4.1
+		IL_00e0: ret
+
+		IL_00e1: ldc.i4.0
+		IL_00e2: ret
+	} // end of method Stairs::RouteUpOrDownStairs
+
+	.method private hidebysig 
+		instance bool OnHide (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x54722b
+		// Header size: 1
+		// Code size: 37 (0x25)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0006: brtrue.s IL_0023
+
+		IL_0008: ldarg.0
+		IL_0009: ldc.i4.1
+		IL_000a: call instance void Sims3.Gameplay.Core.Stairs::SetHiddenState(bool)
+		IL_000f: ldarg.0
+		IL_0010: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0015: ldstr "sting_mystery"
+		IL_001a: ldc.i4.0
+		IL_001b: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+		IL_0020: pop
+		IL_0021: ldc.i4.1
+		IL_0022: ret
+
+		IL_0023: ldc.i4.0
+		IL_0024: ret
+	} // end of method Stairs::OnHide
+
+	.method private hidebysig 
+		instance bool OnUnhide (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x547251
+		// Header size: 1
+		// Code size: 37 (0x25)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0006: brfalse.s IL_0023
+
+		IL_0008: ldarg.0
+		IL_0009: ldc.i4.0
+		IL_000a: call instance void Sims3.Gameplay.Core.Stairs::SetHiddenState(bool)
+		IL_000f: ldarg.0
+		IL_0010: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0015: ldstr "sting_mystery"
+		IL_001a: ldc.i4.0
+		IL_001b: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartObjectSound(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, bool)
+		IL_0020: pop
+		IL_0021: ldc.i4.1
+		IL_0022: ret
+
+		IL_0023: ldc.i4.0
+		IL_0024: ret
+	} // end of method Stairs::OnUnhide
+
+	.method private hidebysig 
+		instance void PlayRevealVisualEffect () cil managed 
+	{
+		// Method begins at RVA 0x547278
+		// Header size: 12
+		// Code size: 173 (0xad)
+		.maxstack 4
+		.locals init (
+			[0] int32,
+			[1] int32,
+			[2] class [SimIFace]Sims3.SimIFace.VisualEffect,
+			[3] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[4] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[5] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[6] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[7] valuetype [SimIFace]Sims3.SimIFace.Vector3
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Abstracts.GameObject::GetRoutingSlots()
+		IL_0006: ldlen
+		IL_0007: conv.i4
+		IL_0008: ldc.i4.2
+		IL_0009: div
+		IL_000a: stloc.0
+		IL_000b: ldc.i4.0
+		IL_000c: stloc.1
+		IL_000d: br IL_00a5
+		// loop start (head: IL_00a5)
+			IL_0012: ldstr "ep1StairsReveal"
+			IL_0017: call class [SimIFace]Sims3.SimIFace.VisualEffect [SimIFace]Sims3.SimIFace.VisualEffect::Create(string)
+			IL_001c: stloc.2
+			IL_001d: ldarg.0
+			IL_001e: ldstr "RoutingSlot_Stairs_Bottom"
+			IL_0023: ldloc.1
+			IL_0024: box [mscorlib]System.Int32
+			IL_0029: call string [mscorlib]System.String::Concat(object, object)
+			IL_002e: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_0033: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0038: stloc.3
+			IL_0039: ldarg.0
+			IL_003a: ldstr "RoutingSlot_Stairs_Top"
+			IL_003f: ldloc.1
+			IL_0040: box [mscorlib]System.Int32
+			IL_0045: call string [mscorlib]System.String::Concat(object, object)
+			IL_004a: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+			IL_004f: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetPositionOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+			IL_0054: stloc.s 4
+			IL_0056: ldloc.3
+			IL_0057: ldloc.s 4
+			IL_0059: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Addition(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_005e: ldc.r4 0.5
+			IL_0063: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Multiply(valuetype [SimIFace]Sims3.SimIFace.Vector3, float32)
+			IL_0068: stloc.s 5
+			IL_006a: ldloca.s 5
+			IL_006c: ldloca.s 4
+			IL_006e: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+			IL_0073: stfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+			IL_0078: ldloc.s 4
+			IL_007a: ldloc.3
+			IL_007b: call valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::op_Subtraction(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_0080: stloc.s 7
+			IL_0082: ldloca.s 7
+			IL_0084: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Normalize()
+			IL_0089: stloc.s 6
+			IL_008b: ldloc.2
+			IL_008c: ldloc.s 5
+			IL_008e: ldloc.s 6
+			IL_0090: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::UnitY
+			IL_0095: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::SetPosAndOrient(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+			IL_009a: ldloc.2
+			IL_009b: ldc.i4.0
+			IL_009c: callvirt instance void [SimIFace]Sims3.SimIFace.VisualEffect::SubmitOneShotEffect(valuetype [SimIFace]Sims3.SimIFace.VisualEffect/TransitionType)
+			IL_00a1: ldloc.1
+			IL_00a2: ldc.i4.1
+			IL_00a3: add
+			IL_00a4: stloc.1
+
+			IL_00a5: ldloc.1
+			IL_00a6: ldloc.0
+			IL_00a7: blt IL_0012
+		// end loop
+
+		IL_00ac: ret
+	} // end of method Stairs::PlayRevealVisualEffect
+
+	.method private hidebysig 
+		instance bool PushSimsFromStairCover () cil managed 
+	{
+		// Method begins at RVA 0x547334
+		// Header size: 12
+		// Code size: 192 (0xc0)
+		.maxstack 4
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[1] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[2] valuetype [SimIFace]Sims3.SimIFace.LotLocation,
+			[3] bool,
+			[4] uint32,
+			[5] class [mscorlib]System.Collections.Generic.IEnumerator`1<valuetype [SimIFace]Sims3.SimIFace.LotLocation>,
+			[6] float32,
+			[7] uint32[],
+			[8] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: ldloca.s 0
+		IL_0008: ldloca.s 1
+		IL_000a: call void [SimIFace]Sims3.SimIFace.World::StairsGetFloorCoverExtents(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Vector3&)
+		IL_000f: ldloc.0
+		IL_0010: ldloc.1
+		IL_0011: call class [mscorlib]System.Collections.Generic.IEnumerable`1<valuetype [SimIFace]Sims3.SimIFace.LotLocation> Sims3.Gameplay.Core.Lot::GetAllLotLocations(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0016: callvirt instance class [mscorlib]System.Collections.Generic.IEnumerator`1<!0> class [mscorlib]System.Collections.Generic.IEnumerable`1<valuetype [SimIFace]Sims3.SimIFace.LotLocation>::GetEnumerator()
+		IL_001b: stloc.s 5
+		.try
+		{
+			IL_001d: br.s IL_004a
+			// loop start (head: IL_004a)
+				IL_001f: ldloc.s 5
+				IL_0021: callvirt instance !0 class [mscorlib]System.Collections.Generic.IEnumerator`1<valuetype [SimIFace]Sims3.SimIFace.LotLocation>::get_Current()
+				IL_0026: stloc.2
+				IL_0027: ldarg.0
+				IL_0028: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+				IL_002d: callvirt instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+				IL_0032: ldloc.2
+				IL_0033: call void Sims3.Gameplay.Controllers.PuddleManager::RemovePuddle(uint64, valuetype [SimIFace]Sims3.SimIFace.LotLocation)
+				IL_0038: ldarg.0
+				IL_0039: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+				IL_003e: callvirt instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+				IL_0043: ldloc.2
+				IL_0044: ldc.i4.0
+				IL_0045: call void [SimIFace]Sims3.SimIFace.World::SetBurnt(uint64, valuetype [SimIFace]Sims3.SimIFace.LotLocation, bool)
+
+				IL_004a: ldloc.s 5
+				IL_004c: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+				IL_0051: brtrue.s IL_001f
+			// end loop
+
+			IL_0053: leave.s IL_0061
+		} // end .try
+		finally
+		{
+			IL_0055: ldloc.s 5
+			IL_0057: brfalse.s IL_0060
+
+			IL_0059: ldloc.s 5
+			IL_005b: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+			IL_0060: endfinally
+		} // end handler
+
+		IL_0061: ldarg.0
+		IL_0062: ldloc.0
+		IL_0063: ldloc.1
+		IL_0064: call instance bool Sims3.Gameplay.Core.Stairs::PushSimsFromExtents(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0069: stloc.3
+		IL_006a: ldloca.s 0
+		IL_006c: ldloca.s 1
+		IL_006e: ldarg.0
+		IL_006f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0074: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+		IL_0079: dup
+		IL_007a: stloc.s 6
+		IL_007c: stfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+		IL_0081: ldloc.s 6
+		IL_0083: stfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+		IL_0088: ldloc.3
+		IL_0089: ldarg.0
+		IL_008a: ldloc.0
+		IL_008b: ldloc.1
+		IL_008c: call instance bool Sims3.Gameplay.Core.Stairs::PushSimsFromExtents(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0091: and
+		IL_0092: stloc.3
+		IL_0093: ldarg.0
+		IL_0094: call instance uint32[] Sims3.Gameplay.Abstracts.GameObject::GetFootprintNameHashes()
+		IL_0099: stloc.s 7
+		IL_009b: ldc.i4.0
+		IL_009c: stloc.s 8
+		IL_009e: br.s IL_00b6
+		// loop start (head: IL_00b6)
+			IL_00a0: ldloc.s 7
+			IL_00a2: ldloc.s 8
+			IL_00a4: ldelem.u4
+			IL_00a5: stloc.s 4
+			IL_00a7: ldarg.0
+			IL_00a8: ldloc.s 4
+			IL_00aa: call instance bool Sims3.Gameplay.Abstracts.GameObject::EnableFootprint(uint32)
+			IL_00af: pop
+			IL_00b0: ldloc.s 8
+			IL_00b2: ldc.i4.1
+			IL_00b3: add
+			IL_00b4: stloc.s 8
+
+			IL_00b6: ldloc.s 8
+			IL_00b8: ldloc.s 7
+			IL_00ba: ldlen
+			IL_00bb: conv.i4
+			IL_00bc: blt.s IL_00a0
+		// end loop
+
+		IL_00be: ldloc.3
+		IL_00bf: ret
+	} // end of method Stairs::PushSimsFromStairCover
+
+	.method private hidebysig 
+		instance bool PushSimsFromExtents (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 min,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 max
+		) cil managed 
+	{
+		// Method begins at RVA 0x547410
+		// Header size: 1
+		// Code size: 23 (0x17)
+		.maxstack 8
+
+		IL_0000: ldnull
+		IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::.ctor()
+		IL_0006: ldarga.s min
+		IL_0008: ldarga.s max
+		IL_000a: ldc.i4.1
+		IL_000b: ldc.i4.4
+		IL_000c: newobj instance void Sims3.Gameplay.Interactions.InteractionPriority::.ctor(valuetype Sims3.Gameplay.Interactions.InteractionPriorityLevel)
+		IL_0011: call bool Sims3.Gameplay.ObjectComponents.RoutingComponent::PushSimsOutOfRectStatic(class Sims3.Gameplay.Actors.Sim, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Vector3&, bool, valuetype Sims3.Gameplay.Interactions.InteractionPriority)
+		IL_0016: ret
+	} // end of method Stairs::PushSimsFromExtents
+
+	.method private hidebysig 
+		instance void SetHiddenState () cil managed 
+	{
+		// Method begins at RVA 0x547428
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.0
+		IL_0002: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0007: call instance void Sims3.Gameplay.Core.Stairs::SetHiddenState(bool)
+		IL_000c: ret
+	} // end of method Stairs::SetHiddenState
+
+	.method public hidebysig 
+		instance void SetHiddenState (
+			bool hide
+		) cil managed 
+	{
+		// Method begins at RVA 0x547438
+		// Header size: 12
+		// Code size: 130 (0x82)
+		.maxstack 3
+		.locals init (
+			[0] uint32,
+			[1] uint32[],
+			[2] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0006: brfalse.s IL_0018
+
+		IL_0008: ldarg.1
+		IL_0009: brtrue.s IL_0018
+
+		IL_000b: ldarg.0
+		IL_000c: call instance bool Sims3.Gameplay.Core.Stairs::PushSimsFromStairCover()
+		IL_0011: pop
+		IL_0012: ldarg.0
+		IL_0013: call instance void Sims3.Gameplay.Core.Stairs::PlayRevealVisualEffect()
+
+		IL_0018: ldarg.0
+		IL_0019: ldarg.1
+		IL_001a: stfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_001f: ldarg.0
+		IL_0020: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0025: brfalse.s IL_0055
+
+		IL_0027: ldarg.0
+		IL_0028: call instance uint32[] Sims3.Gameplay.Abstracts.GameObject::GetFootprintNameHashes()
+		IL_002d: stloc.1
+		IL_002e: ldc.i4.0
+		IL_002f: stloc.2
+		IL_0030: br.s IL_0042
+		// loop start (head: IL_0042)
+			IL_0032: ldloc.1
+			IL_0033: ldloc.2
+			IL_0034: ldelem.u4
+			IL_0035: stloc.0
+			IL_0036: ldarg.0
+			IL_0037: ldloc.0
+			IL_0038: call instance bool Sims3.Gameplay.Abstracts.GameObject::DisableFootprint(uint32)
+			IL_003d: pop
+			IL_003e: ldloc.2
+			IL_003f: ldc.i4.1
+			IL_0040: add
+			IL_0041: stloc.2
+
+			IL_0042: ldloc.2
+			IL_0043: ldloc.1
+			IL_0044: ldlen
+			IL_0045: conv.i4
+			IL_0046: blt.s IL_0032
+		// end loop
+
+		IL_0048: ldarg.0
+		IL_0049: call instance class Sims3.Gameplay.Core.Stairs/StairsPortalComponent Sims3.Gameplay.Core.Stairs::get_StairsPortal()
+		IL_004e: callvirt instance void Sims3.Gameplay.Core.Stairs/StairsPortalComponent::RemovePortals()
+		IL_0053: br.s IL_0060
+
+		IL_0055: ldarg.0
+		IL_0056: call instance class Sims3.Gameplay.Core.Stairs/StairsPortalComponent Sims3.Gameplay.Core.Stairs::get_StairsPortal()
+		IL_005b: callvirt instance void Sims3.Gameplay.Core.Stairs/StairsPortalComponent::AddStairsPortals()
+
+		IL_0060: ldarg.0
+		IL_0061: call instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0066: callvirt instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_006b: ldarg.0
+		IL_006c: call instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0071: ldarg.0
+		IL_0072: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_0077: call void [SimIFace]Sims3.SimIFace.World::ChangeStairState(uint64, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+		IL_007c: call void Sims3.Gameplay.Controllers.TombRoomManager::UpdateTombMusic()
+		IL_0081: ret
+	} // end of method Stairs::SetHiddenState
+
+	.method public final hidebysig newslot virtual 
+		instance int32 GetAdjoiningRoom (
+			int32 roomId
+		) cil managed 
+	{
+		// Method begins at RVA 0x5474c8
+		// Header size: 12
+		// Code size: 30 (0x1e)
+		.maxstack 2
+		.locals init (
+			[0] int32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Bottom0
+		IL_0006: call instance int32 Sims3.Gameplay.Abstracts.GameObject::GetRoomIdOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_000b: stloc.0
+		IL_000c: ldarg.1
+		IL_000d: ldloc.0
+		IL_000e: bne.un.s IL_001c
+
+		IL_0010: ldarg.0
+		IL_0011: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Top0
+		IL_0016: call instance int32 Sims3.Gameplay.Abstracts.GameObject::GetRoomIdOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_001b: ret
+
+		IL_001c: ldloc.0
+		IL_001d: ret
+	} // end of method Stairs::GetAdjoiningRoom
+
+	.method public final hidebysig newslot virtual 
+		instance int32[] GetRoomConnections () cil managed 
+	{
+		// Method begins at RVA 0x5474f4
+		// Header size: 12
+		// Code size: 37 (0x25)
+		.maxstack 4
+		.locals init (
+			[0] int32[]
+		)
+
+		IL_0000: ldc.i4.2
+		IL_0001: newarr [mscorlib]System.Int32
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: ldc.i4.0
+		IL_0009: ldarg.0
+		IL_000a: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Bottom0
+		IL_000f: call instance int32 Sims3.Gameplay.Abstracts.GameObject::GetRoomIdOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0014: stelem.i4
+		IL_0015: ldloc.0
+		IL_0016: ldc.i4.1
+		IL_0017: ldarg.0
+		IL_0018: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Top0
+		IL_001d: call instance int32 Sims3.Gameplay.Abstracts.GameObject::GetRoomIdOfSlot(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0022: stelem.i4
+		IL_0023: ldloc.0
+		IL_0024: ret
+	} // end of method Stairs::GetRoomConnections
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Vector3[] GetPortalOpenings () cil managed 
+	{
+		// Method begins at RVA 0x547528
+		// Header size: 12
+		// Code size: 55 (0x37)
+		.maxstack 3
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Vector3[]
+		)
+
+		IL_0000: ldc.i4.2
+		IL_0001: newarr [SimIFace]Sims3.SimIFace.Vector3
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: ldc.i4.0
+		IL_0009: ldelema [SimIFace]Sims3.SimIFace.Vector3
+		IL_000e: ldarg.0
+		IL_000f: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Bottom0
+		IL_0014: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0019: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_001e: ldloc.0
+		IL_001f: ldc.i4.1
+		IL_0020: ldelema [SimIFace]Sims3.SimIFace.Vector3
+		IL_0025: ldarg.0
+		IL_0026: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs/RoutingSlots::Stairs_Top0
+		IL_002b: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_0030: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_0035: ldloc.0
+		IL_0036: ret
+	} // end of method Stairs::GetPortalOpenings
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype Sims3.Gameplay.ObjectComponents.PortalRestriction IsAllowedThrough (
+			int32 srcRoomId,
+			int32 destRoomId,
+			class Sims3.Gameplay.Actors.Sim actor
+		) cil managed 
+	{
+		// Method begins at RVA 0x54756b
+		// Header size: 1
+		// Code size: 49 (0x31)
+		.maxstack 8
+
+		IL_0000: ldarg.3
+		IL_0001: brfalse.s IL_0025
+
+		IL_0003: ldarg.3
+		IL_0004: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsPuppy()
+		IL_0009: brtrue.s IL_0023
+
+		IL_000b: ldarg.3
+		IL_000c: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsKitten()
+		IL_0011: brtrue.s IL_0023
+
+		IL_0013: ldarg.3
+		IL_0014: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsHorse()
+		IL_0019: brtrue.s IL_0023
+
+		IL_001b: ldarg.3
+		IL_001c: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsWildAnimal()
+		IL_0021: brfalse.s IL_0025
+
+		IL_0023: ldc.i4.2
+		IL_0024: ret
+
+		IL_0025: ldarg.0
+		IL_0026: ldfld bool Sims3.Gameplay.Core.Stairs::mIsHidden
+		IL_002b: brfalse.s IL_002f
+
+		IL_002d: ldc.i4.2
+		IL_002e: ret
+
+		IL_002f: ldc.i4.0
+		IL_0030: ret
+	} // end of method Stairs::IsAllowedThrough
+
+	.method private hidebysig static 
+		void OnStairsCompleted (
+			uint64 stairs,
+			uint64 follower,
+			bool bSuccess
+		) cil managed 
+	{
+		// Method begins at RVA 0x5475a0
+		// Header size: 12
+		// Code size: 72 (0x48)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Gameplay.Actors.Sim,
+			[1] class Sims3.Gameplay.Core.Stairs,
+			[2] class Sims3.Gameplay.Core.Stairs/StairsPortalComponent,
+			[3] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid,
+			[4] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: newobj instance void [SimIFace]Sims3.SimIFace.ObjectGuid::.ctor(uint64)
+		IL_0006: stloc.3
+		IL_0007: ldloca.s 3
+		IL_0009: call instance !!0 [SimIFace]Sims3.SimIFace.ObjectGuid::ObjectFromId<class Sims3.Gameplay.Actors.Sim>()
+		IL_000e: stloc.0
+		IL_000f: ldloc.0
+		IL_0010: brfalse.s IL_0018
+
+		IL_0012: ldloc.0
+		IL_0013: callvirt instance void Sims3.Gameplay.Actors.Sim::StartDefaultPose()
+
+		IL_0018: ldarg.0
+		IL_0019: newobj instance void [SimIFace]Sims3.SimIFace.ObjectGuid::.ctor(uint64)
+		IL_001e: stloc.s 4
+		IL_0020: ldloca.s 4
+		IL_0022: call instance !!0 [SimIFace]Sims3.SimIFace.ObjectGuid::ObjectFromId<class Sims3.Gameplay.Core.Stairs>()
+		IL_0027: stloc.1
+		IL_0028: ldloc.1
+		IL_0029: brfalse.s IL_0047
+
+		IL_002b: ldloc.1
+		IL_002c: callvirt instance class Sims3.Gameplay.ObjectComponents.PortalComponent Sims3.Gameplay.Abstracts.GameObject::get_PortalComponent()
+		IL_0031: isinst Sims3.Gameplay.Core.Stairs/StairsPortalComponent
+		IL_0036: stloc.2
+		IL_0037: ldloc.2
+		IL_0038: brfalse.s IL_0047
+
+		IL_003a: ldloc.2
+		IL_003b: ldarg.1
+		IL_003c: newobj instance void [SimIFace]Sims3.SimIFace.ObjectGuid::.ctor(uint64)
+		IL_0041: ldarg.2
+		IL_0042: callvirt instance void Sims3.Gameplay.Core.Stairs/StairsPortalComponent::HandleStairsCompleted(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool)
+
+		IL_0047: ret
+	} // end of method Stairs::OnStairsCompleted
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x5475f4
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldc.i4.s -45
+		IL_0002: stsfld int32 Sims3.Gameplay.Core.Stairs::kFearBuffThresholdClimbStairs
+		IL_0007: ret
+	} // end of method Stairs::.cctor
+
+	// Properties
+	.property instance bool IsHidden()
+	{
+		.get instance bool Sims3.Gameplay.Core.Stairs::get_IsHidden()
+	}
+	.property instance bool IsDiscovered()
+	{
+		.get instance bool Sims3.Gameplay.Core.Stairs::get_IsDiscovered()
+	}
+	.property instance class Sims3.Gameplay.Core.Stairs/StairsPortalComponent StairsPortal()
+	{
+		.get instance class Sims3.Gameplay.Core.Stairs/StairsPortalComponent Sims3.Gameplay.Core.Stairs::get_StairsPortal()
+	}
+	.property instance valuetype [SimIFace]Sims3.SimIFace.Slot TopSlot()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Core.Stairs::get_TopSlot()
+	}
+	.property instance valuetype [SimIFace]Sims3.SimIFace.Vector3 CauseEffectTargetPosition()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Core.Stairs::get_CauseEffectTargetPosition()
+	}
+
+} // end of class Sims3.Gameplay.Core.Stairs

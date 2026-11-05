@@ -1,0 +1,141 @@
+.method public hidebysig virtual 
+	instance void Dispose () cil managed 
+{
+	// Method begins at RVA 0x3a74c
+	// Header size: 12
+	// Code size: 422 (0x1a6)
+	.maxstack 4
+	.locals init (
+		[0] class Sims3.UI.SceneMgrWindow,
+		[1] class Sims3.UI.SceneMgrWindow
+	)
+
+	IL_0000: ldarg.0
+	IL_0001: ldfld class Sims3.UI.Hud.PuckController Sims3.UI.BlueprintController::mPuckController
+	IL_0006: callvirt instance void Sims3.UI.Hud.PuckController::Dispose()
+	IL_000b: ldarg.0
+	IL_000c: ldnull
+	IL_000d: stfld class Sims3.UI.Hud.PuckController Sims3.UI.BlueprintController::mPuckController
+	IL_0012: ldarg.0
+	IL_0013: call instance void Sims3.UI.BlueprintController::DisposeSellPanel()
+	IL_0018: ldarg.0
+	IL_0019: ldfld class Sims3.UI.WindowBase Sims3.UI.BlueprintController::mCatalogPreviewPanelReshowWin
+	IL_001e: ldarg.0
+	IL_001f: ldftn instance void Sims3.UI.BlueprintController::OnCatalogPreviewPanelReshowWinFocusAcquired(class Sims3.UI.WindowBase, class Sims3.UI.UIFocusChangeEventArgs)
+	IL_0025: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIFocusChangeEventArgs>::.ctor(object, native int)
+	IL_002a: callvirt instance void Sims3.UI.WindowBase::remove_FocusAcquired(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIFocusChangeEventArgs>)
+	IL_002f: ldarg.0
+	IL_0030: call instance void Sims3.UI.BlueprintController::DisposeCatalogPreview()
+	IL_0035: ldarg.0
+	IL_0036: ldnull
+	IL_0037: stfld class Sims3.UI.Hud.IHudModel Sims3.UI.BlueprintController::mHudModel
+	IL_003c: ldarg.0
+	IL_003d: call instance void Sims3.UI.BlueprintController::UnregisterDebugCommand()
+	IL_0042: ldarg.0
+	IL_0043: ldftn instance void Sims3.UI.BlueprintController::OnCameraControllerSwitch(valuetype [SimIFace]Sims3.SimIFace.CameraControllerType)
+	IL_0049: newobj instance void [SimIFace]Sims3.SimIFace.CameraController/CameraControllerSwitchHandler::.ctor(object, native int)
+	IL_004e: call void [SimIFace]Sims3.SimIFace.CameraController::remove_OnCameraControllerSwitchCallback(class [SimIFace]Sims3.SimIFace.CameraController/CameraControllerSwitchHandler)
+	IL_0053: ldarg.0
+	IL_0054: ldftn instance void Sims3.UI.BlueprintController::OnNewContentInstalled(string)
+	IL_005a: newobj instance void Sims3.UI.UIManager/NewContentInstalledCallback::.ctor(object, native int)
+	IL_005f: call void Sims3.UI.UIManager::remove_NewContentInstalled(class Sims3.UI.UIManager/NewContentInstalledCallback)
+	IL_0064: ldarg.0
+	IL_0065: ldfld bool Sims3.UI.BlueprintController::mbTriggersCallbackConnected
+	IL_006a: brfalse.s IL_00ca
+
+	IL_006c: call class Sims3.UI.SceneMgrWindow Sims3.UI.UIManager::GetSceneWindow()
+	IL_0071: stloc.0
+	IL_0072: ldloc.0
+	IL_0073: ldnull
+	IL_0074: call bool Sims3.UI.WindowBase::op_Inequality(class Sims3.UI.WindowBase, class Sims3.UI.WindowBase)
+	IL_0079: brfalse.s IL_00c3
+
+	IL_007b: ldloc.0
+	IL_007c: ldarg.0
+	IL_007d: ldftn instance void Sims3.UI.BlueprintController::OnResolutionChanged(class Sims3.UI.WindowBase, class Sims3.UI.UIAreaChangeEventArgs)
+	IL_0083: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIAreaChangeEventArgs>::.ctor(object, native int)
+	IL_0088: callvirt instance void Sims3.UI.WindowBase::remove_AreaChange(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIAreaChangeEventArgs>)
+	IL_008d: ldloc.0
+	IL_008e: ldarg.0
+	IL_008f: ldftn instance void Sims3.UI.BlueprintController::OnTriggerDown(class Sims3.UI.WindowBase, class Sims3.UI.UITriggerEventArgs)
+	IL_0095: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UITriggerEventArgs>::.ctor(object, native int)
+	IL_009a: callvirt instance void Sims3.UI.WindowBase::remove_TriggerDown(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UITriggerEventArgs>)
+	IL_009f: ldloc.0
+	IL_00a0: ldarg.0
+	IL_00a1: ldftn instance void Sims3.UI.BlueprintController::OnResolutionChanged(class Sims3.UI.WindowBase, class Sims3.UI.UIAreaChangeEventArgs)
+	IL_00a7: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIAreaChangeEventArgs>::.ctor(object, native int)
+	IL_00ac: callvirt instance void Sims3.UI.WindowBase::remove_AreaChange(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIAreaChangeEventArgs>)
+	IL_00b1: ldloc.0
+	IL_00b2: ldarg.0
+	IL_00b3: ldftn instance void Sims3.UI.BlueprintController::OnMouseUp(class Sims3.UI.WindowBase, class Sims3.UI.UIMouseEventArgs)
+	IL_00b9: newobj instance void class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIMouseEventArgs>::.ctor(object, native int)
+	IL_00be: callvirt instance void Sims3.UI.WindowBase::remove_MouseUp(class Sims3.UI.UIEventHandler`1<class Sims3.UI.UIMouseEventArgs>)
+
+	IL_00c3: ldarg.0
+	IL_00c4: ldc.i4.0
+	IL_00c5: stfld bool Sims3.UI.BlueprintController::mbTriggersCallbackConnected
+
+	IL_00ca: ldarg.0
+	IL_00cb: ldfld uint32 Sims3.UI.BlueprintController::mTriggerHandleBlueprintPreview
+	IL_00d0: ldc.i4.m1
+	IL_00d1: beq.s IL_00fa
+
+	IL_00d3: call class Sims3.UI.SceneMgrWindow Sims3.UI.UIManager::GetSceneWindow()
+	IL_00d8: stloc.1
+	IL_00d9: ldloc.1
+	IL_00da: ldnull
+	IL_00db: call bool Sims3.UI.WindowBase::op_Inequality(class Sims3.UI.WindowBase, class Sims3.UI.WindowBase)
+	IL_00e0: brfalse.s IL_00fa
+
+	IL_00e2: call class Sims3.UI.SceneMgrWindow Sims3.UI.UIManager::GetSceneWindow()
+	IL_00e7: ldarg.0
+	IL_00e8: ldfld uint32 Sims3.UI.BlueprintController::mTriggerHandleBlueprintPreview
+	IL_00ed: callvirt instance bool Sims3.UI.WindowBase::RemoveTriggerHook(uint32)
+	IL_00f2: pop
+	IL_00f3: ldarg.0
+	IL_00f4: ldc.i4.m1
+	IL_00f5: stfld uint32 Sims3.UI.BlueprintController::mTriggerHandleBlueprintPreview
+
+	IL_00fa: ldsfld class Sims3.UI.Hud.PuckController/ModeChangeHandler Sims3.UI.Hud.PuckController::OnModeChangeCallback
+	IL_00ff: ldarg.0
+	IL_0100: ldftn instance void Sims3.UI.BlueprintController::OnModeChangeHandler(valuetype Sims3.UI.Hud.PuckController/Mode)
+	IL_0106: newobj instance void Sims3.UI.Hud.PuckController/ModeChangeHandler::.ctor(object, native int)
+	IL_010b: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_0110: castclass Sims3.UI.Hud.PuckController/ModeChangeHandler
+	IL_0115: stsfld class Sims3.UI.Hud.PuckController/ModeChangeHandler Sims3.UI.Hud.PuckController::OnModeChangeCallback
+	IL_011a: ldsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnUndoRedoStateChangeCallback
+	IL_011f: ldarg.0
+	IL_0120: ldftn instance void Sims3.UI.BlueprintController::OnUndoRedoStateChange(object, class [mscorlib]System.EventArgs)
+	IL_0126: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+	IL_012b: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_0130: castclass [mscorlib]System.EventHandler
+	IL_0135: stsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnUndoRedoStateChangeCallback
+	IL_013a: ldarg.0
+	IL_013b: call instance void Sims3.UI.BlueprintController::UnregisterBuyModeHandToolEvents()
+	IL_0140: ldarg.0
+	IL_0141: ldftn instance void Sims3.UI.BlueprintController::OnBuildBuyGenericEvent(object, class [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyGenericEventArgs)
+	IL_0147: newobj instance void [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyGenericEventHandler::.ctor(object, native int)
+	IL_014c: call void [SimIFace]Sims3.SimIFace.UserToolUtils::remove_BuildBuyGenericEvent(class [SimIFace]Sims3.SimIFace.UserToolUtils/BuildBuyGenericEventHandler)
+	IL_0151: ldarg.0
+	IL_0152: ldftn instance void Sims3.UI.BlueprintController::OnLocaleChange()
+	IL_0158: newobj instance void Sims3.UI.UIManager/LocaleChangedCallback::.ctor(object, native int)
+	IL_015d: call void Sims3.UI.UIManager::remove_LocaleChanged(class Sims3.UI.UIManager/LocaleChangedCallback)
+	IL_0162: ldarg.0
+	IL_0163: ldfld class Sims3.UI.IBuyModel Sims3.UI.BlueprintController::mBuyModel
+	IL_0168: ldarg.0
+	IL_0169: ldftn instance void Sims3.UI.BlueprintController::OnFundsChanged(int32)
+	IL_016f: newobj instance void Sims3.UI.FundsChangedDelegate::.ctor(object, native int)
+	IL_0174: callvirt instance void Sims3.UI.IBuildBuyModel::remove_FundsChanged(class Sims3.UI.FundsChangedDelegate)
+	IL_0179: ldsfld class [SimIFace]Sims3.SimIFace.World/InventoryEventHandler [SimIFace]Sims3.SimIFace.World::OnPlaceObjectIntoInventoryCallback
+	IL_017e: ldarg.0
+	IL_017f: ldftn instance void Sims3.UI.BlueprintController::OnPlaceObjectIntoInventory(object, class [SimIFace]Sims3.SimIFace.World/InventoryEventArgs)
+	IL_0185: newobj instance void [SimIFace]Sims3.SimIFace.World/InventoryEventHandler::.ctor(object, native int)
+	IL_018a: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_018f: castclass [SimIFace]Sims3.SimIFace.World/InventoryEventHandler
+	IL_0194: stsfld class [SimIFace]Sims3.SimIFace.World/InventoryEventHandler [SimIFace]Sims3.SimIFace.World::OnPlaceObjectIntoInventoryCallback
+	IL_0199: ldc.i4.0
+	IL_019a: call void [SimIFace]Sims3.SimIFace.World::UnloadHeightMapRelatedData(bool)
+	IL_019f: ldarg.0
+	IL_01a0: call instance void Sims3.UI.WindowBase::Dispose()
+	IL_01a5: ret
+} // end of method BlueprintController::Dispose

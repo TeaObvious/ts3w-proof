@@ -1,0 +1,36 @@
+UI.dll MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2
+
+06000050 Sims3.UI.WindowBase::get_Area RVA=000029b1 bytes=17 raw=0228050000062005b0c1ee28951200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000005 get_WinHandle
+ IL_0006: ldc.i4 0xeec1b005
+ IL_000b: call 0x06001295 GetRectProperty
+ IL_0010: ret
+
+06000051 Sims3.UI.WindowBase::set_Area RVA=000029c3 bytes=32 raw=02285000000603282200000a2c110228050000062005b0c1ee0328941200062a
+ IL_0000: ldarg.0
+ IL_0001: call 0x06000050 get_Area
+ IL_0006: ldarg.1
+ IL_0007: call 0x0a000022 op_Inequality
+ IL_000c: brfalse.s 17
+ IL_000e: ldarg.0
+ IL_000f: call 0x06000005 get_WinHandle
+ IL_0014: ldc.i4 0xeec1b005
+ IL_0019: ldarg.1
+ IL_001a: call 0x06001294 SetRectProperty
+ IL_001f: ret
+
+06001294 Sims3.UI.UIManager::SetRectProperty RVA=000661ed bytes=14 raw=7ea11300040203046fc804000a2a
+ IL_0000: ldsfld 0x040013a1 gUIMgr
+ IL_0005: ldarg.0
+ IL_0006: ldarg.1
+ IL_0007: ldarg.2
+ IL_0008: callvirt 0x0a0004c8 SetRectFloatProperty
+ IL_000d: ret
+
+06001295 Sims3.UI.UIManager::GetRectProperty RVA=000661fc bytes=13 raw=7ea113000402036fc904000a2a
+ IL_0000: ldsfld 0x040013a1 gUIMgr
+ IL_0005: ldarg.0
+ IL_0006: ldarg.1
+ IL_0007: callvirt 0x0a0004c9 GetRectFloatProperty
+ IL_000c: ret

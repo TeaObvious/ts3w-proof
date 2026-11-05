@@ -1,0 +1,49 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig 
+		instance void SetActor (
+			string actorName,
+			valuetype Sims3.SimIFace.ObjectGuid actorObjectId,
+			class Sims3.SimIFace.BridgeOrigin origin
+		) cil managed 
+	{
+		// Method begins at RVA 0xfcd8
+		// Header size: 12
+		// Code size: 79 (0x4f)
+		.maxstack 4
+		.locals init (
+			[0] uint32
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: call instance bool Sims3.SimIFace.StateMachineClient::get_UseActorBridgeOrigins()
+		IL_0006: brtrue.s IL_001b
+
+		IL_0008: ldarg.3
+		IL_0009: brfalse.s IL_001b
+
+		IL_000b: ldstr "Can't set actor bridge origins when UseActorBridgeOrigins is false."
+		IL_0010: ldstr "origin"
+		IL_0015: newobj instance void [mscorlib]System.ArgumentException::.ctor(string, string)
+		IL_001a: throw
+
+		IL_001b: ldarg.0
+		IL_001c: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<string, valuetype Sims3.SimIFace.ObjectGuid> Sims3.SimIFace.StateMachineClient::mActorNames
+		IL_0021: ldarg.1
+		IL_0022: ldarg.2
+		IL_0023: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string, valuetype Sims3.SimIFace.ObjectGuid>::set_Item(!0, !1)
+		IL_0028: ldarg.0
+		IL_0029: ldarg.1
+		IL_002a: call instance uint32 Sims3.SimIFace.StateMachineClient::Hash32(string)
+		IL_002f: stloc.0
+		IL_0030: ldarg.0
+		IL_0031: call instance class Sims3.SimIFace.ISacsProxy Sims3.SimIFace.StateMachineClient::get_Proxy()
+		IL_0036: ldarg.0
+		IL_0037: ldflda valuetype Sims3.SimIFace.StateMachineClient/DriverHandleWrapper Sims3.SimIFace.StateMachineClient::mDriver
+		IL_003c: ldfld uint32 Sims3.SimIFace.StateMachineClient/DriverHandleWrapper::mHandle
+		IL_0041: ldloc.0
+		IL_0042: ldarg.2
+		IL_0043: callvirt instance void Sims3.SimIFace.ISacsProxy::SetActor(uint32, uint32, valuetype Sims3.SimIFace.ObjectGuid)
+		IL_0048: ldarg.0
+		IL_0049: call instance void Sims3.SimIFace.StateMachineClient::CheckForException()
+		IL_004e: ret
+	} // end of method StateMachineClient::SetActor

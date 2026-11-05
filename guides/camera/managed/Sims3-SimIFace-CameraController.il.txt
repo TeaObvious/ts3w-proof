@@ -1,0 +1,584 @@
+# IL from SimIFace.dll, type Sims3.SimIFace.CameraController
+
+.method 0x060016f2 Sims3.SimIFace.CameraController::.cctor RVA=0x0001f946
+  IL_0000: call           1400000A ; 0x0a000014 System.AppDomain::get_CurrentDomain
+  IL_0005: ldstr          DC1B0070
+  IL_000a: callvirt       1500000A ; 0x0a000015 System.AppDomain::GetData
+  IL_000f: isinst         0A030002 ; 0x0200030a Sims3.SimIFace.ICameraController
+  IL_0014: stsfld         FB130004 ; 0x040013fb Instance
+  IL_0019: ret            
+
+.method 0x060016f3 Sims3.SimIFace.CameraController::RegisterCallbackMethod RVA=0x0001f961
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldstr          FE1B0070
+  IL_000b: ldarg.0        
+  IL_000c: box            09030002 ; 0x02000309 Sims3.SimIFace.CameraEvent
+  IL_0011: callvirt       1800000A ; 0x0a000018 System.Object::ToString
+  IL_0016: callvirt       C6160006 ; 0x060016c6 Sims3.SimIFace.ICameraController::RegisterCallbackMethod
+  IL_001b: ret            
+
+.method 0x060016f4 Sims3.SimIFace.CameraController::RegisterAllCallbacks RVA=0x0001f97e
+  IL_0000: ldc.i4.0       
+  IL_0001: call           F3160006 ; 0x060016f3 Sims3.SimIFace.CameraController::RegisterCallbackMethod
+  IL_0006: ldc.i4.1       
+  IL_0007: call           F3160006 ; 0x060016f3 Sims3.SimIFace.CameraController::RegisterCallbackMethod
+  IL_000c: ldc.i4.2       
+  IL_000d: call           F3160006 ; 0x060016f3 Sims3.SimIFace.CameraController::RegisterCallbackMethod
+  IL_0012: ldc.i4.3       
+  IL_0013: call           F3160006 ; 0x060016f3 Sims3.SimIFace.CameraController::RegisterCallbackMethod
+  IL_0018: ldc.i4.4       
+  IL_0019: call           F3160006 ; 0x060016f3 Sims3.SimIFace.CameraController::RegisterCallbackMethod
+  IL_001e: ret            
+
+.method 0x060016f5 Sims3.SimIFace.CameraController::EnableCameraMapView RVA=0x0001f99e
+  IL_0000: ldsfld         FF130004 ; 0x040013ff OnCameraMapViewEnabledCallback
+  IL_0005: brfalse.s      0B ; -> IL_0012
+  IL_0007: ldsfld         FF130004 ; 0x040013ff OnCameraMapViewEnabledCallback
+  IL_000c: ldarg.0        
+  IL_000d: callvirt       42170006 ; 0x06001742 .CameraMapViewEnabledHandler::Invoke
+  IL_0012: ret            
+
+.method 0x060016f6 Sims3.SimIFace.CameraController::OnCameraFollowEnabled RVA=0x0001f9b2
+  IL_0000: ldsfld         FC130004 ; 0x040013fc OnCameraFollowEnabledCallback
+  IL_0005: brfalse.s      12 ; -> IL_0019
+  IL_0007: ldsfld         FC130004 ; 0x040013fc OnCameraFollowEnabledCallback
+  IL_000c: ldnull         
+  IL_000d: ldarg.0        
+  IL_000e: ldarg.1        
+  IL_000f: newobj         38170006 ; 0x06001738 .CameraFollowEnabledEventArgs::.ctor
+  IL_0014: callvirt       33170006 ; 0x06001733 .CameraFollowEnabledHandler::Invoke
+  IL_0019: ret            
+
+.method 0x060016f7 Sims3.SimIFace.CameraController::OnCameraFlyThroughFinished RVA=0x0001f9cd
+  IL_0000: ldsfld         FD130004 ; 0x040013fd OnCameraFlyThroughFinishedCallback
+  IL_0005: brfalse.s      0B ; -> IL_0012
+  IL_0007: ldsfld         FD130004 ; 0x040013fd OnCameraFlyThroughFinishedCallback
+  IL_000c: ldarg.0        
+  IL_000d: callvirt       3A170006 ; 0x0600173a .CameraFlyThroughFinishedHandler::Invoke
+  IL_0012: ret            
+
+.method 0x060016f8 Sims3.SimIFace.CameraController::add_OnCameraControllerSwitchCallback RVA=0x0001f9e1
+  IL_0000: ldsfld         FE130004 ; 0x040013fe OnCameraControllerSwitchCallback
+  IL_0005: ldarg.0        
+  IL_0006: call           1900000A ; 0x0a000019 System.Delegate::Combine
+  IL_000b: castclass      0F030002 ; 0x0200030f .CameraControllerSwitchHandler
+  IL_0010: stsfld         FE130004 ; 0x040013fe OnCameraControllerSwitchCallback
+  IL_0015: ret            
+
+.method 0x060016f9 Sims3.SimIFace.CameraController::remove_OnCameraControllerSwitchCallback RVA=0x0001f9f8
+  IL_0000: ldsfld         FE130004 ; 0x040013fe OnCameraControllerSwitchCallback
+  IL_0005: ldarg.0        
+  IL_0006: call           1A00000A ; 0x0a00001a System.Delegate::Remove
+  IL_000b: castclass      0F030002 ; 0x0200030f .CameraControllerSwitchHandler
+  IL_0010: stsfld         FE130004 ; 0x040013fe OnCameraControllerSwitchCallback
+  IL_0015: ret            
+
+.method 0x060016fa Sims3.SimIFace.CameraController::OnCameraControllerSwitch RVA=0x0001fa0f
+  IL_0000: ldsfld         FE130004 ; 0x040013fe OnCameraControllerSwitchCallback
+  IL_0005: brfalse.s      0B ; -> IL_0012
+  IL_0007: ldsfld         FE130004 ; 0x040013fe OnCameraControllerSwitchCallback
+  IL_000c: ldarg.0        
+  IL_000d: callvirt       3E170006 ; 0x0600173e .CameraControllerSwitchHandler::Invoke
+  IL_0012: ret            
+
+.method 0x060016fb Sims3.SimIFace.CameraController::add_OnCameraMapViewEnabledCallback RVA=0x0001fa23
+  IL_0000: ldsfld         FF130004 ; 0x040013ff OnCameraMapViewEnabledCallback
+  IL_0005: ldarg.0        
+  IL_0006: call           1900000A ; 0x0a000019 System.Delegate::Combine
+  IL_000b: castclass      10030002 ; 0x02000310 .CameraMapViewEnabledHandler
+  IL_0010: stsfld         FF130004 ; 0x040013ff OnCameraMapViewEnabledCallback
+  IL_0015: ret            
+
+.method 0x060016fc Sims3.SimIFace.CameraController::remove_OnCameraMapViewEnabledCallback RVA=0x0001fa3a
+  IL_0000: ldsfld         FF130004 ; 0x040013ff OnCameraMapViewEnabledCallback
+  IL_0005: ldarg.0        
+  IL_0006: call           1A00000A ; 0x0a00001a System.Delegate::Remove
+  IL_000b: castclass      10030002 ; 0x02000310 .CameraMapViewEnabledHandler
+  IL_0010: stsfld         FF130004 ; 0x040013ff OnCameraMapViewEnabledCallback
+  IL_0015: ret            
+
+.method 0x060016fd Sims3.SimIFace.CameraController::OnCameraMapViewEnabled RVA=0x0001fa51
+  IL_0000: ldsfld         FF130004 ; 0x040013ff OnCameraMapViewEnabledCallback
+  IL_0005: brfalse.s      0B ; -> IL_0012
+  IL_0007: ldsfld         FF130004 ; 0x040013ff OnCameraMapViewEnabledCallback
+  IL_000c: ldarg.0        
+  IL_000d: callvirt       42170006 ; 0x06001742 .CameraMapViewEnabledHandler::Invoke
+  IL_0012: ret            
+
+.method 0x060016fe Sims3.SimIFace.CameraController::add_OnCameraAtMaxZoomCallback RVA=0x0001fa65
+  IL_0000: ldsfld         00140004 ; 0x04001400 OnCameraAtMaxZoomCallback
+  IL_0005: ldarg.0        
+  IL_0006: call           1900000A ; 0x0a000019 System.Delegate::Combine
+  IL_000b: castclass      11030002 ; 0x02000311 .CameraAtMaxZoomHandler
+  IL_0010: stsfld         00140004 ; 0x04001400 OnCameraAtMaxZoomCallback
+  IL_0015: ret            
+
+.method 0x060016ff Sims3.SimIFace.CameraController::remove_OnCameraAtMaxZoomCallback RVA=0x0001fa7c
+  IL_0000: ldsfld         00140004 ; 0x04001400 OnCameraAtMaxZoomCallback
+  IL_0005: ldarg.0        
+  IL_0006: call           1A00000A ; 0x0a00001a System.Delegate::Remove
+  IL_000b: castclass      11030002 ; 0x02000311 .CameraAtMaxZoomHandler
+  IL_0010: stsfld         00140004 ; 0x04001400 OnCameraAtMaxZoomCallback
+  IL_0015: ret            
+
+.method 0x06001700 Sims3.SimIFace.CameraController::OnCameraAtMaxZoom RVA=0x0001fa93
+  IL_0000: ldsfld         00140004 ; 0x04001400 OnCameraAtMaxZoomCallback
+  IL_0005: brfalse.s      0B ; -> IL_0012
+  IL_0007: ldsfld         00140004 ; 0x04001400 OnCameraAtMaxZoomCallback
+  IL_000c: ldarg.0        
+  IL_000d: callvirt       46170006 ; 0x06001746 .CameraAtMaxZoomHandler::Invoke
+  IL_0012: ret            
+
+.method 0x06001701 Sims3.SimIFace.CameraController::GetControllerType RVA=0x0001faa7
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       C7160006 ; 0x060016c7 Sims3.SimIFace.ICameraController::GetControllerType
+  IL_000a: ret            
+
+.method 0x06001702 Sims3.SimIFace.CameraController::SetControllerType RVA=0x0001fab3
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       C8160006 ; 0x060016c8 Sims3.SimIFace.ICameraController::SetControllerType
+  IL_000b: ret            
+
+.method 0x06001703 Sims3.SimIFace.CameraController::GetPosition RVA=0x0001fac0
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       C9160006 ; 0x060016c9 Sims3.SimIFace.ICameraController::GetPosition
+  IL_000a: ret            
+
+.method 0x06001704 Sims3.SimIFace.CameraController::GetTarget RVA=0x0001facc
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       CA160006 ; 0x060016ca Sims3.SimIFace.ICameraController::GetTarget
+  IL_000a: ret            
+
+.method 0x06001705 Sims3.SimIFace.CameraController::GetLODInterestPosition RVA=0x0001fad8
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       CB160006 ; 0x060016cb Sims3.SimIFace.ICameraController::GetLODInterestPosition
+  IL_000a: ret            
+
+.method 0x06001706 Sims3.SimIFace.CameraController::SetPositionAndTarget RVA=0x0001fae4
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       CC160006 ; 0x060016cc Sims3.SimIFace.ICameraController::SetPositionAndTarget
+  IL_000c: ret            
+
+.method 0x06001707 Sims3.SimIFace.CameraController::GetZoom RVA=0x0001faf2
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       CD160006 ; 0x060016cd Sims3.SimIFace.ICameraController::GetZoom
+  IL_000a: ret            
+
+.method 0x06001708 Sims3.SimIFace.CameraController::GetRegularZoomLimits RVA=0x0001fafe
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       CE160006 ; 0x060016ce Sims3.SimIFace.ICameraController::GetRegularZoomLimits
+  IL_000c: ret            
+
+.method 0x06001709 Sims3.SimIFace.CameraController::GetPitchDegrees RVA=0x0001fb0c
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       CF160006 ; 0x060016cf Sims3.SimIFace.ICameraController::GetPitchDegrees
+  IL_000a: ret            
+
+.method 0x0600170a Sims3.SimIFace.CameraController::GetYawDegrees RVA=0x0001fb18
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       D0160006 ; 0x060016d0 Sims3.SimIFace.ICameraController::GetYawDegrees
+  IL_000a: ret            
+
+.method 0x0600170b Sims3.SimIFace.CameraController::LoadTuning RVA=0x0001fb24
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: callvirt       D1160006 ; 0x060016d1 Sims3.SimIFace.ICameraController::LoadTuning
+  IL_000d: ret            
+
+.method 0x0600170c Sims3.SimIFace.CameraController::Shake RVA=0x0001fb33
+  IL_0000: ldc.r4         0000803F
+  IL_0005: ldc.r4         00008040
+  IL_000a: call           0E170006 ; 0x0600170e Sims3.SimIFace.CameraController::Shake
+  IL_000f: ret            
+
+.method 0x0600170d Sims3.SimIFace.CameraController::Shake RVA=0x0001fb44
+  IL_0000: ldarg.0        
+  IL_0001: ldc.r4         00008040
+  IL_0006: call           0E170006 ; 0x0600170e Sims3.SimIFace.CameraController::Shake
+  IL_000b: ret            
+
+.method 0x0600170e Sims3.SimIFace.CameraController::Shake RVA=0x0001fb54
+  IL_0000: ldc.i4.5       
+  IL_0001: newarr         4E000001 ; 0x0100004e System.Single
+  IL_0006: stloc.0        
+  IL_0007: ldloc.0        
+  IL_0008: ldc.i4.0       
+  IL_0009: ldc.r4         00002042
+  IL_000e: stelem.r4      
+  IL_000f: ldloc.0        
+  IL_0010: ldc.i4.1       
+  IL_0011: ldc.r4         00002042
+  IL_0016: stelem.r4      
+  IL_0017: ldloc.0        
+  IL_0018: ldc.i4.2       
+  IL_0019: ldc.r4         00007042
+  IL_001e: stelem.r4      
+  IL_001f: ldloc.0        
+  IL_0020: ldc.i4.3       
+  IL_0021: ldc.r4         00002042
+  IL_0026: stelem.r4      
+  IL_0027: ldloc.0        
+  IL_0028: ldc.i4.4       
+  IL_0029: ldc.r4         00002042
+  IL_002e: stelem.r4      
+  IL_002f: ldc.i4.5       
+  IL_0030: newarr         4E000001 ; 0x0100004e System.Single
+  IL_0035: stloc.1        
+  IL_0036: ldloc.1        
+  IL_0037: ldc.i4.0       
+  IL_0038: ldc.r4         0000C841
+  IL_003d: stelem.r4      
+  IL_003e: ldloc.1        
+  IL_003f: ldc.i4.1       
+  IL_0040: ldc.r4         0000C841
+  IL_0045: stelem.r4      
+  IL_0046: ldloc.1        
+  IL_0047: ldc.i4.2       
+  IL_0048: ldc.r4         00004842
+  IL_004d: stelem.r4      
+  IL_004e: ldloc.1        
+  IL_004f: ldc.i4.3       
+  IL_0050: ldc.r4         0000C841
+  IL_0055: stelem.r4      
+  IL_0056: ldloc.1        
+  IL_0057: ldc.i4.4       
+  IL_0058: ldc.r4         0000C841
+  IL_005d: stelem.r4      
+  IL_005e: ldc.i4.5       
+  IL_005f: newarr         4E000001 ; 0x0100004e System.Single
+  IL_0064: stloc.2        
+  IL_0065: ldloc.2        
+  IL_0066: ldc.i4.0       
+  IL_0067: ldc.r4         0AD7233C
+  IL_006c: stelem.r4      
+  IL_006d: ldloc.2        
+  IL_006e: ldc.i4.1       
+  IL_006f: ldc.r4         0AD7233C
+  IL_0074: stelem.r4      
+  IL_0075: ldloc.2        
+  IL_0076: ldc.i4.2       
+  IL_0077: ldc.r4         CDCC4C3D
+  IL_007c: stelem.r4      
+  IL_007d: ldloc.2        
+  IL_007e: ldc.i4.3       
+  IL_007f: ldc.r4         0AD7233C
+  IL_0084: stelem.r4      
+  IL_0085: ldloc.2        
+  IL_0086: ldc.i4.4       
+  IL_0087: ldc.r4         0AD7233C
+  IL_008c: stelem.r4      
+  IL_008d: ldc.i4.5       
+  IL_008e: newarr         4E000001 ; 0x0100004e System.Single
+  IL_0093: stloc.3        
+  IL_0094: ldloc.3        
+  IL_0095: ldc.i4.0       
+  IL_0096: ldc.r4         0AD7A33B
+  IL_009b: stelem.r4      
+  IL_009c: ldloc.3        
+  IL_009d: ldc.i4.1       
+  IL_009e: ldc.r4         0AD7233C
+  IL_00a3: stelem.r4      
+  IL_00a4: ldloc.3        
+  IL_00a5: ldc.i4.2       
+  IL_00a6: ldc.r4         0AD7233C
+  IL_00ab: stelem.r4      
+  IL_00ac: ldloc.3        
+  IL_00ad: ldc.i4.3       
+  IL_00ae: ldc.r4         0AD7233C
+  IL_00b3: stelem.r4      
+  IL_00b4: ldloc.3        
+  IL_00b5: ldc.i4.4       
+  IL_00b6: ldc.r4         0AD7A33B
+  IL_00bb: stelem.r4      
+  IL_00bc: ldc.i4.0       
+  IL_00bd: stloc.s        04
+  IL_00bf: br.s           5A ; -> IL_011b
+  IL_00c1: ldloc.0        
+  IL_00c2: ldloc.s        04
+  IL_00c4: ldelema        4E000001 ; 0x0100004e System.Single
+  IL_00c9: dup            
+  IL_00ca: ldobj          4E000001 ; 0x0100004e System.Single
+  IL_00cf: ldarg.0        
+  IL_00d0: mul            
+  IL_00d1: stobj          4E000001 ; 0x0100004e System.Single
+  IL_00d6: ldloc.1        
+  IL_00d7: ldloc.s        04
+  IL_00d9: ldelema        4E000001 ; 0x0100004e System.Single
+  IL_00de: dup            
+  IL_00df: ldobj          4E000001 ; 0x0100004e System.Single
+  IL_00e4: ldarg.0        
+  IL_00e5: mul            
+  IL_00e6: stobj          4E000001 ; 0x0100004e System.Single
+  IL_00eb: ldloc.2        
+  IL_00ec: ldloc.s        04
+  IL_00ee: ldelema        4E000001 ; 0x0100004e System.Single
+  IL_00f3: dup            
+  IL_00f4: ldobj          4E000001 ; 0x0100004e System.Single
+  IL_00f9: ldarg.0        
+  IL_00fa: mul            
+  IL_00fb: stobj          4E000001 ; 0x0100004e System.Single
+  IL_0100: ldloc.3        
+  IL_0101: ldloc.s        04
+  IL_0103: ldelema        4E000001 ; 0x0100004e System.Single
+  IL_0108: dup            
+  IL_0109: ldobj          4E000001 ; 0x0100004e System.Single
+  IL_010e: ldarg.0        
+  IL_010f: mul            
+  IL_0110: stobj          4E000001 ; 0x0100004e System.Single
+  IL_0115: ldloc.s        04
+  IL_0117: ldc.i4.1       
+  IL_0118: add            
+  IL_0119: stloc.s        04
+  IL_011b: ldloc.s        04
+  IL_011d: ldc.i4.5       
+  IL_011e: blt.s          A1 ; -> IL_00c1
+  IL_0120: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0125: ldarg.1        
+  IL_0126: ldloc.0        
+  IL_0127: ldloc.1        
+  IL_0128: ldloc.2        
+  IL_0129: ldloc.3        
+  IL_012a: callvirt       D2160006 ; 0x060016d2 Sims3.SimIFace.ICameraController::Shake
+  IL_012f: ret            
+
+.method 0x0600170f Sims3.SimIFace.CameraController::RequestLerpToTarget RVA=0x0001fc90
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: callvirt       D3160006 ; 0x060016d3 Sims3.SimIFace.ICameraController::RequestLerpToTarget
+  IL_000d: ret            
+
+.method 0x06001710 Sims3.SimIFace.CameraController::RequestLerpToPositionAndTarget RVA=0x0001fc9f
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: callvirt       D4160006 ; 0x060016d4 Sims3.SimIFace.ICameraController::RequestLerpToPositionAndTarget
+  IL_000e: ret            
+
+.method 0x06001711 Sims3.SimIFace.CameraController::RequestLerpToZoomAndRotation RVA=0x0001fcaf
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: callvirt       D5160006 ; 0x060016d5 Sims3.SimIFace.ICameraController::RequestLerpToZoomAndRotation
+  IL_000e: ret            
+
+.method 0x06001712 Sims3.SimIFace.CameraController::FocusOnLot RVA=0x0001fcbf
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: callvirt       D6160006 ; 0x060016d6 Sims3.SimIFace.ICameraController::FocusOnLot
+  IL_000e: ret            
+
+.method 0x06001713 Sims3.SimIFace.CameraController::FocusOnLotForBuildBuy RVA=0x0001fccf
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: callvirt       D7160006 ; 0x060016d7 Sims3.SimIFace.ICameraController::FocusOnLotForBuildBuy
+  IL_0010: ret            
+
+.method 0x06001714 Sims3.SimIFace.CameraController::SetOnStairs RVA=0x0001fce1
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       D8160006 ; 0x060016d8 Sims3.SimIFace.ICameraController::SetOnStairs
+  IL_000b: ret            
+
+.method 0x06001715 Sims3.SimIFace.CameraController::EnableObjectFollow RVA=0x0001fcee
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       D9160006 ; 0x060016d9 Sims3.SimIFace.ICameraController::EnableObjectFollow
+  IL_000c: ret            
+
+.method 0x06001716 Sims3.SimIFace.CameraController::DisableObjectFollow RVA=0x0001fcfc
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       DA160006 ; 0x060016da Sims3.SimIFace.ICameraController::DisableObjectFollow
+  IL_000a: ret            
+
+.method 0x06001717 Sims3.SimIFace.CameraController::GetObjectFollowId RVA=0x0001fd08
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       DB160006 ; 0x060016db Sims3.SimIFace.ICameraController::GetObjectFollowId
+  IL_000a: ret            
+
+.method 0x06001718 Sims3.SimIFace.CameraController::GetDistanceFromTargetToObject RVA=0x0001fd14
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       DC160006 ; 0x060016dc Sims3.SimIFace.ICameraController::GetDistanceFromTargetToObject
+  IL_000b: ret            
+
+.method 0x06001719 Sims3.SimIFace.CameraController::TetherToLot RVA=0x0001fd21
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldc.i4.0       
+  IL_0007: callvirt       DD160006 ; 0x060016dd Sims3.SimIFace.ICameraController::TetherToLot
+  IL_000c: ret            
+
+.method 0x0600171a Sims3.SimIFace.CameraController::TetherToLot RVA=0x0001fd2f
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       DD160006 ; 0x060016dd Sims3.SimIFace.ICameraController::TetherToLot
+  IL_000c: ret            
+
+.method 0x0600171b Sims3.SimIFace.CameraController::TetherToObject RVA=0x0001fd3d
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       DE160006 ; 0x060016de Sims3.SimIFace.ICameraController::TetherToObject
+  IL_000b: ret            
+
+.method 0x0600171c Sims3.SimIFace.CameraController::Untether RVA=0x0001fd4a
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       DF160006 ; 0x060016df Sims3.SimIFace.ICameraController::Untether
+  IL_000a: ret            
+
+.method 0x0600171d Sims3.SimIFace.CameraController::FinishTimeLerp RVA=0x0001fd56
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       E0160006 ; 0x060016e0 Sims3.SimIFace.ICameraController::FinishTimeLerp
+  IL_000a: ret            
+
+.method 0x0600171e Sims3.SimIFace.CameraController::Lock RVA=0x0001fd62
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: ldarg.s        05
+  IL_000d: callvirt       E1160006 ; 0x060016e1 Sims3.SimIFace.ICameraController::Lock
+  IL_0012: ret            
+
+.method 0x0600171f Sims3.SimIFace.CameraController::Unlock RVA=0x0001fd76
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       E2160006 ; 0x060016e2 Sims3.SimIFace.ICameraController::Unlock
+  IL_000a: ret            
+
+.method 0x06001720 Sims3.SimIFace.CameraController::SetMotion RVA=0x0001fd82
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       E3160006 ; 0x060016e3 Sims3.SimIFace.ICameraController::SetMotion
+  IL_000c: ret            
+
+.method 0x06001721 Sims3.SimIFace.CameraController::SetRotating RVA=0x0001fd90
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       E4160006 ; 0x060016e4 Sims3.SimIFace.ICameraController::SetCameraRotating
+  IL_000b: ret            
+
+.method 0x06001722 Sims3.SimIFace.CameraController::EnableMapViewMode RVA=0x0001fd9d
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldc.r4         0000803F
+  IL_000a: callvirt       E5160006 ; 0x060016e5 Sims3.SimIFace.ICameraController::EnableMapViewMode
+  IL_000f: ret            
+
+.method 0x06001723 Sims3.SimIFace.CameraController::DisableMapViewMode RVA=0x0001fdae
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldc.r4         0000803F
+  IL_000c: callvirt       E6160006 ; 0x060016e6 Sims3.SimIFace.ICameraController::DisableMapViewMode
+  IL_0011: ret            
+
+.method 0x06001724 Sims3.SimIFace.CameraController::DisableMapViewMode RVA=0x0001fdc1
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldc.r4         0000C8C2
+  IL_000a: ldc.r4         0000C8C2
+  IL_000f: ldc.r4         0000803F
+  IL_0014: callvirt       E6160006 ; 0x060016e6 Sims3.SimIFace.ICameraController::DisableMapViewMode
+  IL_0019: ret            
+
+.method 0x06001725 Sims3.SimIFace.CameraController::IsMapViewModeEnabled RVA=0x0001fddc
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       E9160006 ; 0x060016e9 Sims3.SimIFace.ICameraController::IsMapViewModeEnabled
+  IL_000a: ret            
+
+.method 0x06001726 Sims3.SimIFace.CameraController::EnableNHoodPlopMode RVA=0x0001fde8
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       E7160006 ; 0x060016e7 Sims3.SimIFace.ICameraController::EnableNHoodPlopMode
+  IL_000a: ret            
+
+.method 0x06001727 Sims3.SimIFace.CameraController::DisableNHoodPlopMode RVA=0x0001fdf4
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       E8160006 ; 0x060016e8 Sims3.SimIFace.ICameraController::DisableNHoodPlopMode
+  IL_000a: ret            
+
+.method 0x06001728 Sims3.SimIFace.CameraController::IsHorizontalRotationInverted RVA=0x0001fe00
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       EA160006 ; 0x060016ea Sims3.SimIFace.ICameraController::IsHorizontalRotationInverted
+  IL_000a: ret            
+
+.method 0x06001729 Sims3.SimIFace.CameraController::IsVerticalRotationInverted RVA=0x0001fe0c
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       EB160006 ; 0x060016eb Sims3.SimIFace.ICameraController::IsVerticalRotationInverted
+  IL_000a: ret            
+
+.method 0x0600172a Sims3.SimIFace.CameraController::SetGameEntryMode RVA=0x0001fe18
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       EC160006 ; 0x060016ec Sims3.SimIFace.ICameraController::SetGameEntryMode
+  IL_000b: ret            
+
+.method 0x0600172b Sims3.SimIFace.CameraController::SetTutorialMode RVA=0x0001fe25
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       ED160006 ; 0x060016ed Sims3.SimIFace.ICameraController::SetTutorialMode
+  IL_000b: ret            
+
+.method 0x0600172c Sims3.SimIFace.CameraController::ActivatePhotographMode RVA=0x0001fe32
+  IL_0000: ldarg.0        
+  IL_0001: ldarg.1        
+  IL_0002: ldc.r4         000080BF
+  IL_0007: ldc.r4         000080BF
+  IL_000c: ldc.i4.m1      
+  IL_000d: call           2D170006 ; 0x0600172d Sims3.SimIFace.CameraController::ActivatePhotographMode
+  IL_0012: ret            
+
+.method 0x0600172d Sims3.SimIFace.CameraController::ActivatePhotographMode RVA=0x0001fe46
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: callvirt       EE160006 ; 0x060016ee Sims3.SimIFace.ICameraController::ActivatePhotographMode
+  IL_0010: ret            
+
+.method 0x0600172e Sims3.SimIFace.CameraController::StartFlyThrough RVA=0x0001fe58
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: ldarg.1        
+  IL_0007: callvirt       EF160006 ; 0x060016ef Sims3.SimIFace.ICameraController::StartFlyThrough
+  IL_000c: ret            
+
+.method 0x0600172f Sims3.SimIFace.CameraController::GetCustomFlyThroughIndex RVA=0x0001fe66
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: callvirt       F0160006 ; 0x060016f0 Sims3.SimIFace.ICameraController::GetCustomFlyThroughIndex
+  IL_000a: ret            
+
+.method 0x06001730 Sims3.SimIFace.CameraController::EnableHouseboatFollow RVA=0x0001fe72
+  IL_0000: ldsfld         FB130004 ; 0x040013fb Instance
+  IL_0005: ldarg.0        
+  IL_0006: callvirt       F1160006 ; 0x060016f1 Sims3.SimIFace.ICameraController::EnableHouseboatFollow
+  IL_000b: ret            
+
+.method 0x06001731 Sims3.SimIFace.CameraController::.ctor RVA=0x0001fe7f
+  IL_0000: ldarg.0        
+  IL_0001: call           1C00000A ; 0x0a00001c System.Object::.ctor
+  IL_0006: ret            

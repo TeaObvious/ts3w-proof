@@ -1,0 +1,505 @@
+// Annotated selected secondary managed C# readability reference.
+// Copied from existing decompiled source; historical actual-tool export provenance
+// for those donors is unverified. This view does not independently establish binary provenance.
+// Read against effects.il.txt: raw authenticated PC1.67 CIL is the exact instruction/type/order authority.
+// Full EffectBase and nested EffectsList are shown. Other enclosing WindowBase/UIManager
+// members are selected complete workflow excerpts, not a compilable replacement type.
+// UI.dll SHA256 d38676dc2b953c03f3d764b7c2d531c1f2a08c0232580b40a8880c188f659b89
+// Tokens below identify the authenticated original methods; names/formatting are decompiler views.
+
+// EffectBase0200024C; methods135D..1378. Dispose invokes Destroy before nonzero->zero;
+// EaseTimes136C keeps original clamp/normalize/EaseIn-before-EaseOut policy, no local IsFinite.
+using System;
+using Sims3.SimIFace;
+
+namespace Sims3.UI
+{
+	public abstract class EffectBase : IDisposable
+	{
+		public enum EffectType
+		{
+			kEffectTypeFade,
+			kEffectTypeGlide,
+			kEffectTypeInflate,
+			kEffectTypeModulate,
+			kEffectTypeRotate,
+			kEffectTypeGrow,
+			kEffectTypeGlowModulate,
+			kEffectTypeBiStateController
+		}
+
+		protected enum PropertyID : uint
+		{
+			kBiStateEffectPropDuration = 1328218112u,
+			kBiStateEffectPropTrigger = 1328218113u,
+			kBiStateEffectPropInterpolationType = 1328218114u,
+			kBiStateEffectPropEaseInTime = 1328218115u,
+			kBiStateEffectPropEaseOutTime = 1328218116u,
+			kBiStateEffectPropDamping = 1328218117u,
+			kBiStateEffectPropDelay = 1328218120u,
+			kBiStateEffectPropEndTime = 1328218121u,
+			kBiStateEffectPropGroupID = 1328218122u
+		}
+
+		public enum TriggerTypes : uint
+		{
+			Visible,
+			Invisible,
+			Enabled,
+			Disabled,
+			MouseFocus,
+			KeyFocus,
+			AnyFocus,
+			NoMouseFocus,
+			NoKeyFocus,
+			NoFocus,
+			ButtonSelected,
+			ButtonUnselected,
+			Manual
+		}
+
+		public enum InterpolationTypes : uint
+		{
+			Linear,
+			EaseInOut,
+			DampedSpring
+		}
+
+		protected uint mEffectHandle;
+
+		internal uint EffectHandle
+		{
+			get
+			{
+				return mEffectHandle;
+			}
+		}
+
+		public float Duration
+		{
+			get
+			{
+				return UIManager.GetFloatProperty(mEffectHandle, 1328218112u);
+			}
+			set
+			{
+				UIManager.SetFloatProperty(mEffectHandle, 1328218112u, value);
+			}
+		}
+
+		public float Delay
+		{
+			get
+			{
+				return UIManager.GetFloatProperty(mEffectHandle, 1328218120u);
+			}
+			set
+			{
+				UIManager.SetFloatProperty(mEffectHandle, 1328218120u, value);
+			}
+		}
+
+		public float EndDelay
+		{
+			get
+			{
+				return UIManager.GetFloatProperty(mEffectHandle, 1328218121u);
+			}
+			set
+			{
+				UIManager.SetFloatProperty(mEffectHandle, 1328218121u, value);
+			}
+		}
+
+		public TriggerTypes TriggerType
+		{
+			get
+			{
+				return (TriggerTypes)UIManager.GetUInt32Property(mEffectHandle, 1328218113u);
+			}
+			set
+			{
+				UIManager.SetUInt32Property(mEffectHandle, 1328218113u, (uint)value);
+			}
+		}
+
+		public InterpolationTypes InterpolationType
+		{
+			get
+			{
+				return (InterpolationTypes)UIManager.GetUInt32Property(mEffectHandle, 1328218114u);
+			}
+			set
+			{
+				UIManager.SetUInt32Property(mEffectHandle, 1328218114u, (uint)value);
+			}
+		}
+
+		public Vector2 EaseTimes
+		{
+			get
+			{
+				return new Vector2(UIManager.GetFloatProperty(mEffectHandle, 1328218115u), UIManager.GetFloatProperty(mEffectHandle, 1328218116u));
+			}
+			set
+			{
+				float x = value.x;
+				float y = value.y;
+				x = Math.Max(x, 0f);
+				y = Math.Max(y, 0f);
+				x = Math.Min(x, 1f);
+				y = Math.Min(y, 1f);
+				float num = x + y;
+				if (num > 1f)
+				{
+					x /= num;
+					y /= num;
+				}
+				UIManager.SetFloatProperty(mEffectHandle, 1328218115u, x);
+				UIManager.SetFloatProperty(mEffectHandle, 1328218116u, y);
+			}
+		}
+
+		public float Damping
+		{
+			get
+			{
+				return UIManager.GetFloatProperty(mEffectHandle, 1328218117u);
+			}
+			set
+			{
+				UIManager.SetFloatProperty(mEffectHandle, 1328218117u, value);
+			}
+		}
+
+		public uint GroupID
+		{
+			get
+			{
+				return UIManager.GetUInt32Property(mEffectHandle, 1328218122u);
+			}
+			set
+			{
+				UIManager.SetUInt32Property(mEffectHandle, 1328218122u, value);
+			}
+		}
+
+		public EffectBase(EffectType type)
+		{
+			mEffectHandle = UIManager.NewEffect(type);
+		}
+
+		public EffectBase(uint effectHandle)
+		{
+			mEffectHandle = effectHandle;
+		}
+
+		~EffectBase()
+		{
+			Dispose(true);
+		}
+
+		public void TriggerEffect(bool reverse)
+		{
+			UIManager.TriggerEffect(this, reverse);
+		}
+
+		public void ResetEffect(bool reverse)
+		{
+			UIManager.ResetEffect(this, reverse);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj == null)
+			{
+				return false;
+			}
+			EffectBase effectBase = obj as EffectBase;
+			if ((object)effectBase == null)
+			{
+				return false;
+			}
+			return EffectHandle == effectBase.EffectHandle;
+		}
+
+		public override int GetHashCode()
+		{
+			return (int)EffectHandle;
+		}
+
+		public static bool operator ==(EffectBase a, EffectBase b)
+		{
+			if (object.ReferenceEquals(a, b))
+			{
+				return true;
+			}
+			if ((object)a == null || (object)b == null)
+			{
+				return false;
+			}
+			return a.EffectHandle == b.EffectHandle;
+		}
+
+		public static bool operator !=(EffectBase a, EffectBase b)
+		{
+			return !(a == b);
+		}
+
+		private void Dispose(bool fromDtor)
+		{
+			if (mEffectHandle != 0)
+			{
+				UIManager.DestroyEffect(this);
+				mEffectHandle = 0u;
+			}
+			if (!fromDtor)
+			{
+				GC.SuppressFinalize(this);
+			}
+		}
+
+		public virtual void Dispose()
+		{
+			Dispose(false);
+		}
+	}
+}
+
+
+// WindowBase02000003 nested EffectsList0200002C, methods0125..0132.
+// mWin/curIndex proxy state; as EffectBase is isinst/null, CopyTo separately castclass.
+		internal enum EffectListGenericID
+		{
+			kEffectListAdd,
+			kEffectListRemove,
+			kEffectListRemoveAll,
+			kEffectListGetValue,
+			kEffectListHasValue,
+			kEffectListCount
+		}
+
+		public class EffectsList : IEnumerator
+		{
+			private WindowBase mWin;
+
+			private int curIndex = -1;
+
+			public object this[int index]
+			{
+				get
+				{
+					return UIManager.EffectWrapperFromHandle((uint)UIManager.EffectListGeneric(mWin, EffectListGenericID.kEffectListGetValue, index, null));
+				}
+			}
+
+			public int Count
+			{
+				get
+				{
+					return UIManager.EffectListGeneric(mWin, EffectListGenericID.kEffectListCount, 0, null);
+				}
+			}
+
+			public bool IsSynchronized
+			{
+				get
+				{
+					return false;
+				}
+			}
+
+			public object SyncRoot
+			{
+				get
+				{
+					return null;
+				}
+			}
+
+			public object Current
+			{
+				get
+				{
+					return this[curIndex];
+				}
+			}
+
+			internal EffectsList(WindowBase win)
+			{
+				mWin = win;
+			}
+
+			public void Add(object value)
+			{
+				UIManager.EffectListGeneric(mWin, EffectListGenericID.kEffectListAdd, 0, value as EffectBase);
+			}
+
+			public void Clear()
+			{
+				UIManager.EffectListGeneric(mWin, EffectListGenericID.kEffectListRemoveAll, 0, null);
+			}
+
+			public bool Contains(object value)
+			{
+				return UIManager.EffectListGeneric(mWin, EffectListGenericID.kEffectListHasValue, 0, value as EffectBase) != 0;
+			}
+
+			public void Remove(object value)
+			{
+				UIManager.EffectListGeneric(mWin, EffectListGenericID.kEffectListRemove, 0, value as EffectBase);
+			}
+
+			public void CopyTo(Array array, int index)
+			{
+				int num = index;
+				IEnumerator enumerator = GetEnumerator();
+				try
+				{
+					while (enumerator.MoveNext())
+					{
+						EffectBase value = (EffectBase)enumerator.Current;
+						array.SetValue(value, num);
+						num++;
+					}
+				}
+				finally
+				{
+					IDisposable disposable = enumerator as IDisposable;
+					if (disposable != null)
+					{
+						disposable.Dispose();
+					}
+				}
+			}
+
+			public IEnumerator GetEnumerator()
+			{
+				return this;
+			}
+
+			public bool MoveNext()
+			{
+				curIndex++;
+				if (curIndex < Count)
+				{
+					return true;
+				}
+				curIndex = -1;
+				return false;
+			}
+
+			public void Reset()
+			{
+				curIndex = -1;
+			}
+		}
+
+// Selected complete WindowBase workflows: ctor0007,Revive0008,finalizer0009,
+// Effects getter007A,Dispose(Boolean)0092,Dispose()0093. Earlier work persists if calls throw.
+		protected internal WindowBase(uint winHandle)
+		{
+			mWinHandle = winHandle;
+			mEffectList = new EffectsList(this);
+			mCustomControlPropertyDelegates = new List<Delegate>();
+		}
+
+		internal virtual void Revive(uint winHandle)
+		{
+			mWinHandle = winHandle;
+			mEffectList = new EffectsList(this);
+			mCustomControlPropertyDelegates = new List<Delegate>();
+		}
+
+		~WindowBase()
+		{
+			Dispose(true);
+		}
+
+		public EffectsList EffectList
+		{
+			get
+			{
+				return mEffectList;
+			}
+		}
+
+		private void Dispose(bool fromDtor)
+		{
+			if (mWinHandle != 0)
+			{
+				UIManager.DestroyWindow(this);
+				mWinHandle = 0u;
+				mCustomControlPropertyDelegates = null;
+				mEffectList = null;
+				mInitCalled = false;
+				this.InitComplete = null;
+				bool flag = UIManager.ReturnToPool(this);
+				if (flag && fromDtor)
+				{
+					GC.ReRegisterForFinalize(this);
+				}
+				else if (!flag && !fromDtor)
+				{
+					GC.SuppressFinalize(this);
+				}
+			}
+		}
+
+		public virtual void Dispose()
+		{
+			Dispose(false);
+		}
+
+// UIManager12A8..12AC: kind forwarding has no adjustment; null proxies map to zero handles.
+		internal static uint NewEffect(EffectBase.EffectType type)
+		{
+			return gUIMgr.NewEffect((uint)type);
+		}
+
+		internal static void DestroyEffect(EffectBase effect)
+		{
+			gUIMgr.DestroyEffect(effect.EffectHandle);
+		}
+
+		internal static void TriggerEffect(EffectBase effect, bool reverse)
+		{
+			gUIMgr.TriggerEffect(effect.EffectHandle, reverse);
+		}
+
+		internal static void ResetEffect(EffectBase effect, bool reverse)
+		{
+			gUIMgr.ResetEffect(effect.EffectHandle, reverse);
+		}
+
+		internal static int EffectListGeneric(WindowBase win, WindowBase.EffectListGenericID funcID, int index, EffectBase effect)
+		{
+			return gUIMgr.EffectListGeneric(win.WinHandle, (uint)funcID, index, (effect != null) ? effect.EffectHandle : 0u);
+		}
+
+// UIManager12B4 complete wrapper factory: class08239C4E selects BiStateController;
+// this is distinct from native query interface08239C2F. No explicit managed retain here.
+		internal static EffectBase EffectWrapperFromHandle(uint effectHandle)
+		{
+			switch (gUIMgr.GetClassID(effectHandle))
+			{
+			case 1865116972u:
+				return new FadeEffect(effectHandle);
+			case 3475712724u:
+				return new GlideEffect(effectHandle);
+			case 1329442562u:
+				return new InflateEffect(effectHandle);
+			case 797686605u:
+				return new ModulateEffect(effectHandle);
+			case 3475712725u:
+				return new RotateEffect(effectHandle);
+			case 65805300u:
+				return new GrowEffect(effectHandle);
+			case 2688279006u:
+				return new GlowModulateEffect(effectHandle);
+			case 136551502u:
+				return new BiStateControllerEffect(effectHandle);
+			default:
+				return null;
+			}
+		}

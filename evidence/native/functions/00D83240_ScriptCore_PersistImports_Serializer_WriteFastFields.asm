@@ -1,0 +1,143 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x00d83240 (ScriptCore.PersistImports::Serializer_WriteFastFields)
+Paired Ghidra pseudocode: 00D83240_ScriptCore_PersistImports_Serializer_WriteFastFields.c
+Window: [0x00d83240, 0x00d83360) (288 bytes; stop exclusive)
+Next defined Ghidra entry: 0x00d83360
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+00d83240: 8b 44 24 0c 83 ec 1c 50 e8 33 1c 9f ff 83 c4 04
+00d83250: 85 c0 75 06 32 c0 83 c4 1c c3 53 6a 01 50 8d 4c
+00d83260: 24 10 e8 79 61 a5 ff 8b 4c 24 28 8b 41 08 85 c0
+00d83270: 0f 8e b1 00 00 00 56 8b 74 24 28 57 8d 79 10 8b
+00d83280: d8 8b 47 04 85 c0 0f 8c 8d 00 00 00 8b 0f 83 c1
+00d83290: fe 83 f9 0d 0f 87 7f 00 00 00 0f b6 89 50 33 d8
+00d832a0: 00 ff 24 8d 3c 33 d8 00 8a 14 30 8b 4c 24 18 88
+00d832b0: 54 24 0c 8b 44 24 0c 50 51 e8 72 ab 75 ff 83 c4
+00d832c0: 08 eb 4c 0f b7 04 30 8b 54 24 20 52 50 8b 44 24
+00d832d0: 20 50 e8 99 ab 75 ff 83 c4 0c eb 33 8b 4c 24 20
+00d832e0: 8b 04 30 8b 54 24 18 51 50 52 e8 81 ac 75 ff 83
+00d832f0: c4 0c eb 1b 8b 0c 30 8b 54 24 20 8b 44 30 04 52
+00d83300: 50 8b 44 24 20 51 50 e8 b4 ad 75 ff 83 c4 10 50
+00d83310: 8d 4c 24 14 e8 d7 46 a5 ff 83 c7 08 83 eb 01 0f
+00d83320: 85 5c ff ff ff 5f 5e 8a 5c 24 1c 8d 4c 24 08 e8
+00d83330: 5c 46 a5 ff 8a c3 5b 83 c4 1c c3 90 a8 32 d8 00
+00d83340: f4 32 d8 00 c3 32 d8 00 dc 32 d8 00 19 33 d8 00
+00d83350: 00 00 04 04 04 01 02 03 01 00 03 02 03 01 cc cc
+
+LINEAR DISASSEMBLY
+00d83240 <.text+0x982240>:
+  d83240:	8b 44 24 0c                                     	mov    eax,DWORD PTR [esp+0xc]
+  d83244:	83 ec 1c                                        	sub    esp,0x1c
+  d83247:	50                                              	push   eax
+  d83248:	e8 33 1c 9f ff                                  	call   0x774e80
+  d8324d:	83 c4 04                                        	add    esp,0x4
+  d83250:	85 c0                                           	test   eax,eax
+  d83252:	75 06                                           	jne    0xd8325a
+  d83254:	32 c0                                           	xor    al,al
+  d83256:	83 c4 1c                                        	add    esp,0x1c
+  d83259:	c3                                              	ret
+  d8325a:	53                                              	push   ebx
+  d8325b:	6a 01                                           	push   0x1
+  d8325d:	50                                              	push   eax
+  d8325e:	8d 4c 24 10                                     	lea    ecx,[esp+0x10]
+  d83262:	e8 79 61 a5 ff                                  	call   0x7d93e0
+  d83267:	8b 4c 24 28                                     	mov    ecx,DWORD PTR [esp+0x28]
+  d8326b:	8b 41 08                                        	mov    eax,DWORD PTR [ecx+0x8]
+  d8326e:	85 c0                                           	test   eax,eax
+  d83270:	0f 8e b1 00 00 00                               	jle    0xd83327
+  d83276:	56                                              	push   esi
+  d83277:	8b 74 24 28                                     	mov    esi,DWORD PTR [esp+0x28]
+  d8327b:	57                                              	push   edi
+  d8327c:	8d 79 10                                        	lea    edi,[ecx+0x10]
+  d8327f:	8b d8                                           	mov    ebx,eax
+  d83281:	8b 47 04                                        	mov    eax,DWORD PTR [edi+0x4]
+  d83284:	85 c0                                           	test   eax,eax
+  d83286:	0f 8c 8d 00 00 00                               	jl     0xd83319
+  d8328c:	8b 0f                                           	mov    ecx,DWORD PTR [edi]
+  d8328e:	83 c1 fe                                        	add    ecx,0xfffffffe
+  d83291:	83 f9 0d                                        	cmp    ecx,0xd
+  d83294:	0f 87 7f 00 00 00                               	ja     0xd83319
+  d8329a:	0f b6 89 50 33 d8 00                            	movzx  ecx,BYTE PTR [ecx+0xd83350]
+  d832a1:	ff 24 8d 3c 33 d8 00                            	jmp    DWORD PTR [ecx*4+0xd8333c]
+  d832a8:	8a 14 30                                        	mov    dl,BYTE PTR [eax+esi*1]
+  d832ab:	8b 4c 24 18                                     	mov    ecx,DWORD PTR [esp+0x18]
+  d832af:	88 54 24 0c                                     	mov    BYTE PTR [esp+0xc],dl
+  d832b3:	8b 44 24 0c                                     	mov    eax,DWORD PTR [esp+0xc]
+  d832b7:	50                                              	push   eax
+  d832b8:	51                                              	push   ecx
+  d832b9:	e8 72 ab 75 ff                                  	call   0x4dde30
+  d832be:	83 c4 08                                        	add    esp,0x8
+  d832c1:	eb 4c                                           	jmp    0xd8330f
+  d832c3:	0f b7 04 30                                     	movzx  eax,WORD PTR [eax+esi*1]
+  d832c7:	8b 54 24 20                                     	mov    edx,DWORD PTR [esp+0x20]
+  d832cb:	52                                              	push   edx
+  d832cc:	50                                              	push   eax
+  d832cd:	8b 44 24 20                                     	mov    eax,DWORD PTR [esp+0x20]
+  d832d1:	50                                              	push   eax
+  d832d2:	e8 99 ab 75 ff                                  	call   0x4dde70
+  d832d7:	83 c4 0c                                        	add    esp,0xc
+  d832da:	eb 33                                           	jmp    0xd8330f
+  d832dc:	8b 4c 24 20                                     	mov    ecx,DWORD PTR [esp+0x20]
+  d832e0:	8b 04 30                                        	mov    eax,DWORD PTR [eax+esi*1]
+  d832e3:	8b 54 24 18                                     	mov    edx,DWORD PTR [esp+0x18]
+  d832e7:	51                                              	push   ecx
+  d832e8:	50                                              	push   eax
+  d832e9:	52                                              	push   edx
+  d832ea:	e8 81 ac 75 ff                                  	call   0x4ddf70
+  d832ef:	83 c4 0c                                        	add    esp,0xc
+  d832f2:	eb 1b                                           	jmp    0xd8330f
+  d832f4:	8b 0c 30                                        	mov    ecx,DWORD PTR [eax+esi*1]
+  d832f7:	8b 54 24 20                                     	mov    edx,DWORD PTR [esp+0x20]
+  d832fb:	8b 44 30 04                                     	mov    eax,DWORD PTR [eax+esi*1+0x4]
+  d832ff:	52                                              	push   edx
+  d83300:	50                                              	push   eax
+  d83301:	8b 44 24 20                                     	mov    eax,DWORD PTR [esp+0x20]
+  d83305:	51                                              	push   ecx
+  d83306:	50                                              	push   eax
+  d83307:	e8 b4 ad 75 ff                                  	call   0x4de0c0
+  d8330c:	83 c4 10                                        	add    esp,0x10
+  d8330f:	50                                              	push   eax
+  d83310:	8d 4c 24 14                                     	lea    ecx,[esp+0x14]
+  d83314:	e8 d7 46 a5 ff                                  	call   0x7d79f0
+  d83319:	83 c7 08                                        	add    edi,0x8
+  d8331c:	83 eb 01                                        	sub    ebx,0x1
+  d8331f:	0f 85 5c ff ff ff                               	jne    0xd83281
+  d83325:	5f                                              	pop    edi
+  d83326:	5e                                              	pop    esi
+  d83327:	8a 5c 24 1c                                     	mov    bl,BYTE PTR [esp+0x1c]
+  d8332b:	8d 4c 24 08                                     	lea    ecx,[esp+0x8]
+  d8332f:	e8 5c 46 a5 ff                                  	call   0x7d7990
+  d83334:	8a c3                                           	mov    al,bl
+  d83336:	5b                                              	pop    ebx
+  d83337:	83 c4 1c                                        	add    esp,0x1c
+  d8333a:	c3                                              	ret
+  d8333b:	90                                              	nop
+  d8333c:	a8 32                                           	test   al,0x32
+  d8333e:	d8 00                                           	fadd   DWORD PTR [eax]
+  d83340:	f4                                              	hlt
+  d83341:	32 d8                                           	xor    bl,al
+  d83343:	00 c3                                           	add    bl,al
+  d83345:	32 d8                                           	xor    bl,al
+  d83347:	00 dc                                           	add    ah,bl
+  d83349:	32 d8                                           	xor    bl,al
+  d8334b:	00 19                                           	add    BYTE PTR [ecx],bl
+  d8334d:	33 d8                                           	xor    ebx,eax
+  d8334f:	00 00                                           	add    BYTE PTR [eax],al
+  d83351:	00 04 04                                        	add    BYTE PTR [esp+eax*1],al
+  d83354:	04 01                                           	add    al,0x1
+  d83356:	02 03                                           	add    al,BYTE PTR [ebx]
+  d83358:	01 00                                           	add    DWORD PTR [eax],eax
+  d8335a:	03 02                                           	add    eax,DWORD PTR [edx]
+  d8335c:	03 01                                           	add    eax,DWORD PTR [ecx]
+  d8335e:	cc                                              	int3
+  d8335f:	cc                                              	int3

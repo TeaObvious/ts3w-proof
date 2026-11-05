@@ -1,0 +1,34 @@
+	.method private hidebysig static 
+		void OnCameraMapViewEnabledEvent (
+			bool enabled
+		) cil managed 
+	{
+		// Method begins at RVA 0x207058
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: call bool Sims3.Gameplay.GameStates::get_IsPlayFlowState()
+		IL_0005: brfalse.s IL_0008
+
+		IL_0007: ret
+
+		IL_0008: ldarg.0
+		IL_0009: brfalse.s IL_0019
+
+		IL_000b: ldsfld valuetype Sims3.Gameplay.Core.MusicMode Sims3.Gameplay.Core.AudioManager::mMusicMode
+		IL_0010: brtrue.s IL_0027
+
+		IL_0012: ldc.i4.6
+		IL_0013: call void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)
+		IL_0018: ret
+
+		IL_0019: ldsfld valuetype Sims3.Gameplay.Core.MusicMode Sims3.Gameplay.Core.AudioManager::mMusicMode
+		IL_001e: ldc.i4.6
+		IL_001f: bne.un.s IL_0027
+
+		IL_0021: ldc.i4.0
+		IL_0022: call void Sims3.Gameplay.Core.AudioManager::SetMusicMode(valuetype Sims3.Gameplay.Core.MusicMode)
+
+		IL_0027: ret
+	} // end of method AudioManager::OnCameraMapViewEnabledEvent

@@ -1,0 +1,50 @@
+Original PC1.67 selected layout edge math joins. Byte ranges only; bounded supporting instruction excerpts are not defined-function/pseudocode exports.
+
+00fbea1c bytes=12 Simple class registration: ID writer, factory, name getter
+00fbea1c  9030530060355300b0305300
+
+00fbea3c bytes=12 Proportional class registration: ID writer, factory, name getter
+00fbea3c  c0305300a0345300e0305300
+
+00fbea28 bytes=13 NUL-terminated ASCII SimpleLayout
+00fbea28  53696d706c654c61796f757400
+
+00fbea48 bytes=19 NUL-terminated ASCII ProportionalLayout
+00fbea48  50726f706f7274696f6e616c4c61796f757400
+
+00fbead8 bytes=8 Simple interface apply/inverse slots
+00fbead8  7031530030325300
+
+00fbea70 bytes=8 Proportional interface apply/inverse slots
+00fbea70  60335300d0335300
+
+00fbeaf4 bytes=4 Simple class-ID virtual slot
+00fbeaf4  70305300
+
+00fbea8c bytes=4 Proportional class-ID virtual slot
+00fbea8c  80305300
+
+00533070 bytes=6 Complete bounded class-ID getter; no function definition added
+00533070  b8728d412fc3
+
+00533080 bytes=6 Complete bounded class-ID getter; no function definition added
+00533080  b811f43dafc3
+
+00533090 bytes=29 Complete bounded Simple registration-ID writer; no function definition added
+00533090  8b44240485c0740d837c2408007406c700728d412fb801000000c20800
+
+005330b0 bytes=8 Complete bounded Simple name getter; no function definition added
+005330b0  b828eafb00c20400
+
+005330c0 bytes=29 Complete bounded Proportional registration-ID writer; no function definition added
+005330c0  8b44240485c0740d837c2408007406c70011f43dafb801000000c20800
+
+005330e0 bytes=8 Complete bounded Proportional name getter; no function definition added
+005330e0  b848eafb00c20400
+
+005334d9 bytes=14 Proportional factory stores complete+4 class vtable then complete+10 math vtable
+005334d9  c7400478eafb00c740105ceafb00
+
+00533596 bytes=14 Simple factory stores complete+4 class vtable then complete+10 math vtable
+00533596  c74004e0eafb00c74010c4eafb00
+

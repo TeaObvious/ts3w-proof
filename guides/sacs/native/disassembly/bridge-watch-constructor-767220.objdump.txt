@@ -1,0 +1,39 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00767220 <.text+0x366220>:
+  767220:	56                   	push   esi
+  767221:	8b f1                	mov    esi,ecx
+  767223:	c7 06 1c c9 06 01    	mov    DWORD PTR [esi],0x106c91c
+  767229:	33 c0                	xor    eax,eax
+  76722b:	8d 4e 04             	lea    ecx,[esi+0x4]
+  76722e:	87 01                	xchg   DWORD PTR [ecx],eax
+  767230:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+  767234:	8b 54 24 08          	mov    edx,DWORD PTR [esp+0x8]
+  767238:	8b 4c 24 18          	mov    ecx,DWORD PTR [esp+0x18]
+  76723c:	89 46 0c             	mov    DWORD PTR [esi+0xc],eax
+  76723f:	8b 44 24 28          	mov    eax,DWORD PTR [esp+0x28]
+  767243:	85 c0                	test   eax,eax
+  767245:	89 56 08             	mov    DWORD PTR [esi+0x8],edx
+  767248:	c7 46 10 20 93 76 00 	mov    DWORD PTR [esi+0x10],0x769320
+  76724f:	c7 06 fc 7d 00 01    	mov    DWORD PTR [esi],0x1007dfc
+  767255:	89 4e 18             	mov    DWORD PTR [esi+0x18],ecx
+  767258:	89 46 1c             	mov    DWORD PTR [esi+0x1c],eax
+  76725b:	74 17                	je     0x767274
+  76725d:	8b 50 08             	mov    edx,DWORD PTR [eax+0x8]
+  767260:	8d 48 08             	lea    ecx,[eax+0x8]
+  767263:	8b 02                	mov    eax,DWORD PTR [edx]
+  767265:	ff d0                	call   eax
+  767267:	8b 4c 24 2c          	mov    ecx,DWORD PTR [esp+0x2c]
+  76726b:	89 4e 20             	mov    DWORD PTR [esi+0x20],ecx
+  76726e:	8b c6                	mov    eax,esi
+  767270:	5e                   	pop    esi
+  767271:	c2 28 00             	ret    0x28
+  767274:	8b 54 24 2c          	mov    edx,DWORD PTR [esp+0x2c]
+  767278:	89 56 20             	mov    DWORD PTR [esi+0x20],edx
+  76727b:	8b c6                	mov    eax,esi
+  76727d:	5e                   	pop    esi
+  76727e:	c2 28 00             	ret    0x28

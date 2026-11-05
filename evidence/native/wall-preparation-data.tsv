@@ -1,0 +1,28 @@
+address	bytes	hex	meaning
+01079434	4	0000803e	general roof deduction binary32 0.25
+01079430	4	9a99193e	ceiling deduction binary32 0.15
+01079428	4	00004040	level span binary32 3
+00fb3f78	4	0000c040	double span binary32 6
+0107942c	4	0000403e	platform span binary32 0.1875
+010794c0	4	3333833f	half span binary32 1.025
+00fab214	4	cdcc4c3e	fallback addition binary32 0.2
+010781f4	4	6f12833a	strict roof tie epsilon binary32 0.001
+01078118	4	0000803e	selected-owner roof deduction binary32 0.25
+00f9b5b4	4	0000003f	midpoint/U/sample binary32 0.5
+01064920	4	00004040	floor level stride binary32 3
+01063ca0	4	00004040	floor level stride binary32 3
+00fb35b4	4	6f12833a	vertex fast-path threshold binary32 0.001
+00c5c6e4	32	4cc6c50025c5c5005cc5c500d7c6c5000fc6c50066c6c50080c6c5009ac6c500	eight general-height selector jump targets
+00b16606	55	83ec08d9c9d95c24048bcbd91c24e837e8ffff8b542424d95c2420f30f10442420f30f584424105f5e5df30f1102b0015b83c40cc20800	separate stair success branch, NOT stored-body ownership
+00b1654d	3	8d4900	stair alignment, NOT stored-body ownership
+00c5a96e	2	8bff	bucket-builder alignment, NOT stored-body ownership
+00cf6363	32	83c00183f805f30f5ce5f30f5cc3f30f1164246cf30f11442470894424747e42	undefined CF6240 entry: signed level increment/compare5 and local corners before error path; not owned function extent
+00cf6b8a	61	807d080088442428894c243474128b5c24188d86580200008d8e4c020000eb1dc744241c000000008d44241cbb03000000c744242c000000008d4c242c	undefined CF6240: first stack byte chooses retained edit handles versus local zero temporaries; not complete journal semantics
+00cf6c1e	15	e80d2ffcff83c458f6c30288442412	undefined CF6240 caller: direct CB9B30 call,58hex caller cleanup, only AL result retained
+00cf7098	6	807d08007433	undefined CF6240: zero first stack byte branches past removal dispatch
+00cf70ca	7	8bcfe81fca0200	undefined CF6240: ECX assignment then D23AF0 call within commit-gated branch
+00cf7326	66	8b451485c074178b4c24788b54247c89088b8c24800000008950048948088b451885c0741d8b9424a80000008b8c24ac00000089108b9424b0000000894804895008	undefined CF6240: optional top/bottom three-word output stores, separate from removal branch
+00cb9b3c	42	807d400053568b7514578b7d10668b078a570266894424140fbe4c2415885424160fbec00f8589000000	undefined CB9B30: byte input at EBP40 selects admission branch; packed top pointer EBP10,lot EBP14;signed X/Z extraction
+00cb9b66	65	85c07c433b86740100007d3b85c97c373b8e780100007d2f0fbec23b867c0100007c243b86800100007f1c6a016a0f8d4c241c518b8e90020000e8cb45ddff84c0	undefined CB9B30: signed range checks and A8E170 maskF,true; no full validator closure
+00cb9bad	66	8b5d5085db74328d542414525668af0000008d8c246c010000e895cde1ff8d842460010000508bcbe896e9e1ff8d8c2460010000e8ead4e1ff32c05f5e5b8be55dc3	undefined CB9B30: optional diagnostic EBP50, AF append path, AL0/plainRET
+00cb9bef	83	85c07c273b86740100007d1f85c97c1b3b8e780100007d130fbec23b867c0100007c083b86800100007e288b5d5085db74c58d4c2414515668b30000008d8c246c010000e828cde1ff8d94246001000052eb91	undefined CB9B30: alternative bounds-only branch, B3 error on failure

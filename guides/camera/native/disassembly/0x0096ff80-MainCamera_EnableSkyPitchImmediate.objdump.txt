@@ -1,0 +1,28 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Supplemental helper: MainCamera_EnableSkyPitchImmediate at 0x0096ff80
+# Bounded stop: 0x0096ffc0; next Ghidra entry: 0x0096ffc0; this is not a body-size claim.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0096ff80 <.text+0x56ef80>:
+  96ff80:	55                   	push   ebp
+  96ff81:	8b ec                	mov    ebp,esp
+  96ff83:	83 e4 f0             	and    esp,0xfffffff0
+  96ff86:	83 ec 10             	sub    esp,0x10
+  96ff89:	f3 0f 10 45 08       	movss  xmm0,DWORD PTR [ebp+0x8]
+  96ff8e:	f3 0f 11 81 0c 08 00 	movss  DWORD PTR [ecx+0x80c],xmm0
+  96ff95:	00 
+  96ff96:	c6 81 09 08 00 00 01 	mov    BYTE PTR [ecx+0x809],0x1
+  96ff9d:	0f 28 89 d0 07 00 00 	movaps xmm1,XMMWORD PTR [ecx+0x7d0]
+  96ffa4:	0f 29 0c 24          	movaps XMMWORD PTR [esp],xmm1
+  96ffa8:	f3 0f 11 04 24       	movss  DWORD PTR [esp],xmm0
+  96ffad:	0f 28 04 24          	movaps xmm0,XMMWORD PTR [esp]
+  96ffb1:	0f 29 81 d0 07 00 00 	movaps XMMWORD PTR [ecx+0x7d0],xmm0
+  96ffb8:	8b e5                	mov    esp,ebp
+  96ffba:	5d                   	pop    ebp
+  96ffbb:	c2 04 00             	ret    0x4
+  96ffbe:	cc                   	int3
+  96ffbf:	cc                   	int3

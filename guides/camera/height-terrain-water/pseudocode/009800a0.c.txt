@@ -1,0 +1,173 @@
+[Context] Operating on: TS3W.exe | Total open programs: 3
+
+Decompiled function FUN_009800a0:
+
+
+bool __fastcall FUN_009800a0(int param_1)
+
+{
+  short sVar1;
+  bool bVar2;
+  char cVar3;
+  int *piVar4;
+  short *psVar5;
+  int iVar6;
+  undefined4 *puVar7;
+  byte bStack_53d;
+  int iStack_53c;
+  int iStack_534;
+  short *psStack_52c;
+  undefined4 uStack_528;
+  int iStack_524;
+  char *pcStack_520;
+  int iStack_51c;
+  float fStack_518;
+  short *psStack_514;
+  undefined1 *puStack_510;
+  undefined2 *puStack_50c;
+  char *pcStack_508;
+  undefined4 uStack_504;
+  undefined4 uStack_500;
+  undefined4 uStack_4fc;
+  undefined4 uStack_4f8;
+  float fStack_4f4;
+  undefined4 uStack_4f0;
+  undefined4 uStack_4ec;
+  undefined4 uStack_4e8;
+  int iStack_4e4;
+  undefined4 uStack_4e0;
+  undefined4 uStack_4dc;
+  undefined4 uStack_4d8;
+  undefined4 uStack_4d4;
+  undefined4 uStack_4d0;
+  undefined4 uStack_4cc;
+  undefined4 uStack_4c8;
+  undefined4 uStack_4c4;
+  float fStack_4c0;
+  float fStack_4bc;
+  float fStack_4b8;
+  float fStack_4b4;
+  float fStack_4b0;
+  float fStack_4ac;
+  float fStack_4a8;
+  float fStack_4a4;
+  int aiStack_4a0 [295];
+  
+  piVar4 = (int *)FUN_0072f140();
+  psVar5 = (short *)(**(code **)(*piVar4 + 0x24))();
+  psStack_52c = (short *)0x0;
+  uStack_528 = 0;
+  iStack_524 = 0;
+  pcStack_520 = "Misc/Camera/PresetsManager";
+  FUN_0040b590(&psStack_52c,psVar5);
+  sVar1 = *(short *)PTR_u_WorldPresets_ini_0117f060;
+  psVar5 = (short *)PTR_u_WorldPresets_ini_0117f060;
+  while (sVar1 != 0) {
+    psVar5 = psVar5 + 1;
+    sVar1 = *psVar5;
+  }
+  FUN_00408b90(&psStack_52c,(undefined2 *)PTR_u_WorldPresets_ini_0117f060,
+               (undefined2 *)
+               (PTR_u_WorldPresets_ini_0117f060 +
+               ((int)psVar5 - (int)PTR_u_WorldPresets_ini_0117f060 >> 1) * 2));
+  FUN_004f1dd0(aiStack_4a0,psStack_52c,1,0);
+  bVar2 = true;
+  bStack_53d = 0;
+  do {
+    iStack_53c = 0;
+    iStack_534 = 5;
+    do {
+      psStack_514 = (short *)&DAT_011c8e54;
+      puStack_510 = &DAT_011c8e54;
+      pcStack_508 = "Misc/Camera/PresetsManager";
+      puStack_50c = &DAT_011c8e56;
+      FUN_0040e840(&psStack_514,(ushort *)L"Camera%d_%ls");
+      psVar5 = psStack_514;
+      cVar3 = FUN_004f0830(aiStack_4a0,psStack_514);
+      if (cVar3 == '\0') {
+        if ((2 < (int)((int)puStack_50c - (int)psVar5 & 0xfffffffeU)) && (psVar5 != (short *)0x0)) {
+          FUN_004e44e0((int)psVar5);
+        }
+      }
+      else {
+        iStack_51c = iStack_53c + (uint)bStack_53d * 5;
+        puVar7 = (undefined4 *)((iStack_51c + 1) * 0x40 + param_1);
+        if (bVar2) {
+          iVar6 = FUN_004ef870(aiStack_4a0,psVar5,(int)PTR_u_CameraPosition_0117f064);
+          bVar2 = false;
+          if (0 < iVar6) {
+            iVar6 = FUN_004ef870(aiStack_4a0,psVar5,(int)PTR_u_CameraTarget_0117f068);
+            bVar2 = 0 < iVar6;
+            if (bVar2) {
+              uStack_4d8 = uStack_4e8;
+              uStack_4d4 = uStack_4f0;
+              uStack_4dc = uStack_4ec;
+              uStack_4e0 = uStack_4f0;
+              *puVar7 = uStack_4f0;
+              puVar7[1] = uStack_4ec;
+              puVar7[2] = uStack_4e8;
+              puVar7[3] = uStack_4f0;
+              uStack_4c8 = uStack_4f8;
+              uStack_4c4 = uStack_500;
+              uStack_4cc = uStack_4fc;
+              uStack_4d0 = uStack_500;
+              puVar7[4] = uStack_500;
+              puVar7[5] = uStack_4fc;
+              puVar7[6] = uStack_4f8;
+              puVar7[7] = uStack_500;
+              FUN_004ef870(aiStack_4a0,psVar5,(int)PTR_u_CameraLevel_0117f07c);
+            }
+          }
+        }
+        if (bStack_53d == 1) {
+          if (bVar2 != false) {
+            iVar6 = FUN_004ef870(aiStack_4a0,psVar5,(int)PTR_u_CameraLookAtSky_0117f06c);
+            bVar2 = false;
+            if (0 < iVar6) {
+              iVar6 = FUN_004ef870(aiStack_4a0,psVar5,(int)PTR_u_CameraLookAtSkyPitch_0117f070);
+              bVar2 = 0 < iVar6;
+            }
+          }
+          *(bool *)(puVar7 + 9) = iStack_4e4 != 0;
+          fStack_4c0 = fStack_518 * 0.017453292;
+          fStack_4bc = fStack_518 * 0.017453292;
+          fStack_4b8 = fStack_518 * 0.017453292;
+          fStack_4b4 = fStack_518 * 0.017453292;
+          puVar7[10] = fStack_4c0;
+        }
+        else if (bStack_53d == 5) {
+          if (bVar2 != false) {
+            iVar6 = FUN_004ef870(aiStack_4a0,psVar5,(int)PTR_u_CameraRoll_0117f074);
+            bVar2 = false;
+            if (0 < iVar6) {
+              iVar6 = FUN_004ef870(aiStack_4a0,psVar5,(int)PTR_u_CameraFOV_0117f078);
+              bVar2 = 0 < iVar6;
+            }
+          }
+          fStack_4b0 = fStack_4f4 * 0.017453292;
+          fStack_4ac = fStack_4f4 * 0.017453292;
+          fStack_4a8 = fStack_4f4 * 0.017453292;
+          fStack_4a4 = fStack_4f4 * 0.017453292;
+          puVar7[0xb] = fStack_4b0;
+          puVar7[0xc] = uStack_504;
+        }
+        if (bVar2 != false) {
+          *(undefined1 *)(iStack_51c + 0xb80 + param_1) = 1;
+        }
+        if ((2 < (int)((int)puStack_50c - (int)psVar5 & 0xfffffffeU)) && (psVar5 != (short *)0x0)) {
+          FUN_004e44e0((int)psVar5);
+        }
+      }
+      iStack_53c = iStack_53c + 1;
+      iStack_534 = iStack_534 + -1;
+    } while (iStack_534 != 0);
+    bStack_53d = bStack_53d + 1;
+  } while (bStack_53d < 9);
+  FUN_004f0d60((int)aiStack_4a0);
+  FUN_004f0d20(aiStack_4a0);
+  if ((2 < (int)(iStack_524 - (int)psStack_52c & 0xfffffffeU)) && (psStack_52c != (short *)0x0)) {
+    FUN_004e44e0((int)psStack_52c);
+  }
+  return bVar2;
+}
+

@@ -1,0 +1,27 @@
+Reference: original PC 1.67 TS3W.exe SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+Registration: ScriptCore.Audio::Audio_ShutdownWorldImpl
+PE VA interval: [0x008630b0, 0x008630d0)
+Original file interval: [0x4630b0, 0x4630d0)
+Span SHA-256: e9e63c98b7717df97252fe8dc4bf2a3eaac8d448841b16e476656c405321dea8
+Boundary: next function entry in retained Ghidra listing; this is a bounded linear decode, not independently proven exact function body.
+Decoder: GNU objdump -D -Mintel; control-flow paths must be checked before behavioral claims.
+
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+008630b0 <.text+0x4620b0>:
+  8630b0:	a1 40 9c 1d 01       	mov    eax,ds:0x11d9c40
+  8630b5:	85 c0                	test   eax,eax
+  8630b7:	74 14                	je     0x8630cd
+  8630b9:	8d 88 30 84 fd ff    	lea    ecx,[eax-0x27bd0]
+  8630bf:	85 c9                	test   ecx,ecx
+  8630c1:	74 0a                	je     0x8630cd
+  8630c3:	8b 01                	mov    eax,DWORD PTR [ecx]
+  8630c5:	8b 90 4c 02 00 00    	mov    edx,DWORD PTR [eax+0x24c]
+  8630cb:	ff e2                	jmp    edx
+  8630cd:	c3                   	ret
+  8630ce:	cc                   	int3
+  8630cf:	cc                   	int3

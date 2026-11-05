@@ -1,0 +1,256 @@
+# IL from ScriptCore.dll, type ScriptCore.Animation
+
+.method 0x06000db5 ScriptCore.Animation::Animation_SetLookAtsHidden RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000db6 ScriptCore.Animation::Animation_SetBonePosition RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000db7 ScriptCore.Animation::Animation_CreateTransformController RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000db8 ScriptCore.Animation::Animation_SetBoneTimeRotation RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000db9 ScriptCore.Animation::Animation_CreateTimeController RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dba ScriptCore.Animation::Animation_PlayAnimation RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dbb ScriptCore.Animation::Animation_PlayPose RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dbc ScriptCore.Animation::Animation_StopAllAnimation RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dbd ScriptCore.Animation::Animation_ForceAnimation RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dbe ScriptCore.Animation::Animation_StartRandomClipController RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dbf ScriptCore.Animation::Animation_StopRandomClipController RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc0 ScriptCore.Animation::Animation_ClipExists RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc1 ScriptCore.Animation::Animation_HasAnimation RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc2 ScriptCore.Animation::Animation_GetClipInstanceId RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc3 ScriptCore.Animation::Animation_GetClipInstanceIdForAges RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc4 ScriptCore.Animation::Animation_PlayProcedurallyMotionAccumulatedAnimation RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc5 ScriptCore.Animation::Animation_SetPMAAnimationFinishedCallback RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc6 ScriptCore.Animation::Animation_MeasureControllerDistanceTravelled RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc7 ScriptCore.Animation::Animation_EnableDisableForceDiscontinuousOnParenting RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc8 ScriptCore.Animation::Animation_EnableDisableLargeAnimalEvalNode RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dc9 ScriptCore.Animation::Animation_EnableDisableScubaDivingMode RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dca ScriptCore.Animation::Animation_SetMissingAnimationCallback RVA=0x00000000
+  <no IL body: native declaration or abstract>
+
+.method 0x06000dcb ScriptCore.Animation::.ctor RVA=0x0001154c
+  IL_0000: ldarg.0        
+  IL_0001: call           1400000A ; 0x0a000014 System.Object::.ctor
+  IL_0006: call           1500000A ; 0x0a000015 System.AppDomain::get_CurrentDomain
+  IL_000b: ldstr          C2080070
+  IL_0010: ldarg.0        
+  IL_0011: callvirt       1600000A ; 0x0a000016 System.AppDomain::SetData
+  IL_0016: ret            
+
+.method 0x06000dcc ScriptCore.Animation::SetLookAtsHidden RVA=0x00011564
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: call           B50D0006 ; 0x06000db5 ScriptCore.Animation::Animation_SetLookAtsHidden
+  IL_000d: ret            
+
+.method 0x06000dcd ScriptCore.Animation::SetBonePosition RVA=0x00011573
+  IL_0000: ldarga.s       01
+  IL_0002: ldfld          1900000A ; 0x0a000019 Sims3.SimIFace.ObjectGuid::mValue
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: call           B60D0006 ; 0x06000db6 ScriptCore.Animation::Animation_SetBonePosition
+  IL_0010: ret            
+
+.method 0x06000dce ScriptCore.Animation::CreateTransformController RVA=0x00011585
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: call           B70D0006 ; 0x06000db7 ScriptCore.Animation::Animation_CreateTransformController
+  IL_000c: ret            
+
+.method 0x06000dcf ScriptCore.Animation::SetBoneTimeRotation RVA=0x00011593
+  IL_0000: ldarga.s       01
+  IL_0002: ldfld          1900000A ; 0x0a000019 Sims3.SimIFace.ObjectGuid::mValue
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: call           B80D0006 ; 0x06000db8 ScriptCore.Animation::Animation_SetBoneTimeRotation
+  IL_000e: ret            
+
+.method 0x06000dd0 ScriptCore.Animation::CreateTimeController RVA=0x000115a3
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: call           B90D0006 ; 0x06000db9 ScriptCore.Animation::Animation_CreateTimeController
+  IL_000c: ret            
+
+.method 0x06000dd1 ScriptCore.Animation::PlayAnimation RVA=0x000115b1
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: ldarg.s        05
+  IL_000d: call           BA0D0006 ; 0x06000dba ScriptCore.Animation::Animation_PlayAnimation
+  IL_0012: ret            
+
+.method 0x06000dd2 ScriptCore.Animation::StartPose RVA=0x000115c5
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: call           BB0D0006 ; 0x06000dbb ScriptCore.Animation::Animation_PlayPose
+  IL_000e: ret            
+
+.method 0x06000dd3 ScriptCore.Animation::StopAllAnimation RVA=0x000115d5
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: call           BC0D0006 ; 0x06000dbc ScriptCore.Animation::Animation_StopAllAnimation
+  IL_000c: ret            
+
+.method 0x06000dd4 ScriptCore.Animation::ForceAnimation RVA=0x000115e3
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: call           BD0D0006 ; 0x06000dbd ScriptCore.Animation::Animation_ForceAnimation
+  IL_000d: ret            
+
+.method 0x06000dd5 ScriptCore.Animation::StartRandomClipController RVA=0x000115f4
+  IL_0000: ldarg.s        05
+  IL_0002: ldlen          
+  IL_0003: conv.i4        
+  IL_0004: newarr         49010001 ; 0x01000149 System.UInt64
+  IL_0009: stloc.0        
+  IL_000a: ldc.i4.0       
+  IL_000b: stloc.1        
+  IL_000c: br.s           14 ; -> IL_0022
+  IL_000e: ldloc.0        
+  IL_000f: ldloc.1        
+  IL_0010: ldarg.s        05
+  IL_0012: ldloc.1        
+  IL_0013: ldelema        55000001 ; 0x01000055 Sims3.SimIFace.ResourceKey
+  IL_0018: ldfld          DD00000A ; 0x0a0000dd Sims3.SimIFace.ResourceKey::InstanceId
+  IL_001d: stelem.i8      
+  IL_001e: ldloc.1        
+  IL_001f: ldc.i4.1       
+  IL_0020: add            
+  IL_0021: stloc.1        
+  IL_0022: ldloc.1        
+  IL_0023: ldarg.s        05
+  IL_0025: ldlen          
+  IL_0026: conv.i4        
+  IL_0027: blt.s          E5 ; -> IL_000e
+  IL_0029: ldarga.s       01
+  IL_002b: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0030: ldarg.2        
+  IL_0031: ldarg.3        
+  IL_0032: ldarg.s        04
+  IL_0034: ldloc.0        
+  IL_0035: ldarg.s        06
+  IL_0037: ldarg.s        07
+  IL_0039: call           BE0D0006 ; 0x06000dbe ScriptCore.Animation::Animation_StartRandomClipController
+  IL_003e: ret            
+
+.method 0x06000dd6 ScriptCore.Animation::StopRandomClipController RVA=0x0001163f
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: call           BF0D0006 ; 0x06000dbf ScriptCore.Animation::Animation_StopRandomClipController
+  IL_000e: ret            
+
+.method 0x06000dd7 ScriptCore.Animation::ClipExists RVA=0x0001164f
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: call           C00D0006 ; 0x06000dc0 ScriptCore.Animation::Animation_ClipExists
+  IL_0007: ret            
+
+.method 0x06000dd8 ScriptCore.Animation::HasAnimation RVA=0x00011658
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: call           C10D0006 ; 0x06000dc1 ScriptCore.Animation::Animation_HasAnimation
+  IL_000d: ret            
+
+.method 0x06000dd9 ScriptCore.Animation::GetClipInstanceId RVA=0x00011667
+  IL_0000: ldarg.1        
+  IL_0001: call           C20D0006 ; 0x06000dc2 ScriptCore.Animation::Animation_GetClipInstanceId
+  IL_0006: ret            
+
+.method 0x06000dda ScriptCore.Animation::GetClipInstanceIdForAges RVA=0x0001166f
+  IL_0000: ldarg.1        
+  IL_0001: ldarg.2        
+  IL_0002: ldarg.3        
+  IL_0003: call           C30D0006 ; 0x06000dc3 ScriptCore.Animation::Animation_GetClipInstanceIdForAges
+  IL_0008: ret            
+
+.method 0x06000ddb ScriptCore.Animation::PlayProcedurallyMotionAccumulatedAnimation RVA=0x00011679
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: ldarg.s        04
+  IL_000b: ldarg.s        05
+  IL_000d: call           C40D0006 ; 0x06000dc4 ScriptCore.Animation::Animation_PlayProcedurallyMotionAccumulatedAnimation
+  IL_0012: ret            
+
+.method 0x06000ddc ScriptCore.Animation::SetPMAAnimationFinishedCallback RVA=0x0001168d
+  IL_0000: ldarg.1        
+  IL_0001: call           C50D0006 ; 0x06000dc5 ScriptCore.Animation::Animation_SetPMAAnimationFinishedCallback
+  IL_0006: ret            
+
+.method 0x06000ddd ScriptCore.Animation::MeasureControllerDistanceTravelled RVA=0x00011695
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: call           C60D0006 ; 0x06000dc6 ScriptCore.Animation::Animation_MeasureControllerDistanceTravelled
+  IL_000d: ret            
+
+.method 0x06000dde ScriptCore.Animation::EnableDisableForceDiscontinuousOnParenting RVA=0x000116a4
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: call           C70D0006 ; 0x06000dc7 ScriptCore.Animation::Animation_EnableDisableForceDiscontinuousOnParenting
+  IL_000d: ret            
+
+.method 0x06000ddf ScriptCore.Animation::EnableDisableLargeAnimalEvalNode RVA=0x000116b3
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: call           C80D0006 ; 0x06000dc8 ScriptCore.Animation::Animation_EnableDisableLargeAnimalEvalNode
+  IL_000d: ret            
+
+.method 0x06000de0 ScriptCore.Animation::EnableDisableScubaDivingMode RVA=0x000116c2
+  IL_0000: ldarga.s       01
+  IL_0002: call           1700000A ; 0x0a000017 Sims3.SimIFace.ObjectGuid::get_Value
+  IL_0007: ldarg.2        
+  IL_0008: ldarg.3        
+  IL_0009: call           C90D0006 ; 0x06000dc9 ScriptCore.Animation::Animation_EnableDisableScubaDivingMode
+  IL_000e: ret            

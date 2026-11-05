@@ -1,0 +1,39 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+008033a5 <.text+0x4023a5>:
+  8033a5:	6a 28                	push   0x28
+  8033a7:	e8 74 7a f6 ff       	call   0x76ae20
+  8033ac:	83 c4 04             	add    esp,0x4
+  8033af:	3b c3                	cmp    eax,ebx
+  8033b1:	74 2d                	je     0x8033e0
+  8033b3:	c7 00 1c c9 06 01    	mov    DWORD PTR [eax],0x106c91c
+  8033b9:	33 d2                	xor    edx,edx
+  8033bb:	8d 48 04             	lea    ecx,[eax+0x4]
+  8033be:	87 11                	xchg   DWORD PTR [ecx],edx
+  8033c0:	89 58 08             	mov    DWORD PTR [eax+0x8],ebx
+  8033c3:	89 58 0c             	mov    DWORD PTR [eax+0xc],ebx
+  8033c6:	c7 40 10 20 93 76 00 	mov    DWORD PTR [eax+0x10],0x769320
+  8033cd:	c7 00 fc 7d 00 01    	mov    DWORD PTR [eax],0x1007dfc
+  8033d3:	89 58 18             	mov    DWORD PTR [eax+0x18],ebx
+  8033d6:	89 58 1c             	mov    DWORD PTR [eax+0x1c],ebx
+  8033d9:	89 58 20             	mov    DWORD PTR [eax+0x20],ebx
+  8033dc:	8b e8                	mov    ebp,eax
+  8033de:	eb 02                	jmp    0x8033e2
+  8033e0:	33 ed                	xor    ebp,ebp
+  8033e2:	8b 54 24 50          	mov    edx,DWORD PTR [esp+0x50]
+  8033e6:	8b 44 24 4c          	mov    eax,DWORD PTR [esp+0x4c]
+  8033ea:	52                   	push   edx
+  8033eb:	50                   	push   eax
+  8033ec:	57                   	push   edi
+  8033ed:	8b cd                	mov    ecx,ebp
+  8033ef:	e8 2c 5e f6 ff       	call   0x769220
+  8033f4:	3b eb                	cmp    ebp,ebx
+  8033f6:	74 44                	je     0x80343c
+  8033f8:	8b 55 00             	mov    edx,DWORD PTR [ebp+0x0]
+  8033fb:	8b 42 04             	mov    eax,DWORD PTR [edx+0x4]
+  8033fe:	8b cd                	mov    ecx,ebp
+  803400:	ff d0                	call   eax

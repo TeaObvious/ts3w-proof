@@ -1,0 +1,75 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: AnimationNamespaces_InsertFirstBinding
+Paired actual annotated Ghidra pseudocode: 005823C0_AnimationNamespaces_InsertFirstBinding.c
+Owned ranges: [[005823c0, 0058244f]]
+Envelope bytes=144
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+005823c0  83ec08  SUB ESP,0x8
+005823c3  53  PUSH EBX
+005823c4  8b5c2410  MOV EBX,dword ptr [ESP + 0x10]
+005823c8  85db  TEST EBX,EBX
+005823ca  57  PUSH EDI
+005823cb  7479  JZ 0x00582446
+005823cd  8b7c2418  MOV EDI,dword ptr [ESP + 0x18]
+005823d1  85ff  TEST EDI,EDI
+005823d3  7471  JZ 0x00582446
+005823d5  8b4108  MOV EAX,dword ptr [ECX + 0x8]
+005823d8  56  PUSH ESI
+005823d9  8d7108  LEA ESI,[ECX + 0x8]
+005823dc  8b490c  MOV ECX,dword ptr [ECX + 0xc]
+005823df  3bc1  CMP EAX,ECX
+005823e1  740b  JZ 0x005823ee
+005823e3  3918  CMP dword ptr [EAX],EBX
+005823e5  743c  JZ 0x00582423
+005823e7  83c008  ADD EAX,0x8
+005823ea  3bc1  CMP EAX,ECX
+005823ec  75f5  JNZ 0x005823e3
+005823ee  8b07  MOV EAX,dword ptr [EDI]
+005823f0  8b5004  MOV EDX,dword ptr [EAX + 0x4]
+005823f3  8bcf  MOV ECX,EDI
+005823f5  ffd2  CALL EDX
+005823f7  8b4604  MOV EAX,dword ptr [ESI + 0x4]
+005823fa  3b4608  CMP EAX,dword ptr [ESI + 0x8]
+005823fd  8bcb  MOV ECX,EBX
+005823ff  894c240c  MOV dword ptr [ESP + 0xc],ECX
+00582403  897c2410  MOV dword ptr [ESP + 0x10],EDI
+00582407  7325  JNC 0x0058242e
+00582409  85c0  TEST EAX,EAX
+0058240b  8d5008  LEA EDX,[EAX + 0x8]
+0058240e  895604  MOV dword ptr [ESI + 0x4],EDX
+00582411  7428  JZ 0x0058243b
+00582413  5e  POP ESI
+00582414  897804  MOV dword ptr [EAX + 0x4],EDI
+00582417  5f  POP EDI
+00582418  8908  MOV dword ptr [EAX],ECX
+0058241a  b001  MOV AL,0x1
+0058241c  5b  POP EBX
+0058241d  83c408  ADD ESP,0x8
+00582420  c20800  RET 0x8
+00582423  5e  POP ESI
+00582424  5f  POP EDI
+00582425  32c0  XOR AL,AL
+00582427  5b  POP EBX
+00582428  83c408  ADD ESP,0x8
+0058242b  c20800  RET 0x8
+0058242e  8d4c240c  LEA ECX,[ESP + 0xc]
+00582432  51  PUSH ECX
+00582433  50  PUSH EAX
+00582434  8bce  MOV ECX,ESI
+00582436  e805a1e8ff  CALL 0x0040c540
+0058243b  5e  POP ESI
+0058243c  5f  POP EDI
+0058243d  b001  MOV AL,0x1
+0058243f  5b  POP EBX
+00582440  83c408  ADD ESP,0x8
+00582443  c20800  RET 0x8
+00582446  5f  POP EDI
+00582447  32c0  XOR AL,AL
+00582449  5b  POP EBX
+0058244a  83c408  ADD ESP,0x8
+0058244d  c20800  RET 0x8
+Owned instructions=64 owned bytes=144 gap/nonowned bytes=0

@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x0600018A.
+// Assembly: ScriptCore; type: ScriptCore.Route.
+// Decompiled C# source: ScriptCore/ScriptCore/Route.cs:299
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.I1)]
+	private static extern bool Route_InsertCustomPathAtIndex(uint handle, uint pathIndex, [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_R4)] ref float[] points, [MarshalAs(UnmanagedType.I1)] bool bCyclic, [MarshalAs(UnmanagedType.I1)] bool bSetRouteDestination, uint pathType);

@@ -1,0 +1,99 @@
+; PC 1.67 TS3W.exe; SHA-256 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+; Bounded linear disassembly from 0x00ab76c0 to next catalog entry 0x00ab77e0; may include padding or data.
+  ab76c0:	51                   	push   ecx
+  ab76c1:	56                   	push   esi
+  ab76c2:	8b f1                	mov    esi,ecx
+  ab76c4:	83 be 90 02 00 00 00 	cmp    DWORD PTR [esi+0x290],0x0
+  ab76cb:	c6 86 b0 04 00 00 00 	mov    BYTE PTR [esi+0x4b0],0x0
+  ab76d2:	0f 84 fb 00 00 00    	je     0xab77d3
+  ab76d8:	80 be bc 04 00 00 00 	cmp    BYTE PTR [esi+0x4bc],0x0
+  ab76df:	0f 85 ee 00 00 00    	jne    0xab77d3
+  ab76e5:	53                   	push   ebx
+  ab76e6:	bb 01 00 00 00       	mov    ebx,0x1
+  ab76eb:	39 9e 08 04 00 00    	cmp    DWORD PTR [esi+0x408],ebx
+  ab76f1:	75 0d                	jne    0xab7700
+  ab76f3:	83 be 0c 04 00 00 50 	cmp    DWORD PTR [esi+0x40c],0x50
+  ab76fa:	0f 84 d2 00 00 00    	je     0xab77d2
+  ab7700:	55                   	push   ebp
+  ab7701:	57                   	push   edi
+  ab7702:	e8 89 a3 ff ff       	call   0xab1a90
+  ab7707:	d9 5c 24 10          	fstp   DWORD PTR [esp+0x10]
+  ab770b:	8b be 78 01 00 00    	mov    edi,DWORD PTR [esi+0x178]
+  ab7711:	f3 0f 10 44 24 10    	movss  xmm0,DWORD PTR [esp+0x10]
+  ab7717:	33 d2                	xor    edx,edx
+  ab7719:	85 ff                	test   edi,edi
+  ab771b:	7c 4e                	jl     0xab776b
+  ab771d:	8b 86 90 02 00 00    	mov    eax,DWORD PTR [esi+0x290]
+  ab7723:	8b 68 18             	mov    ebp,DWORD PTR [eax+0x18]
+  ab7726:	2b 68 10             	sub    ebp,DWORD PTR [eax+0x10]
+  ab7729:	8b 48 24             	mov    ecx,DWORD PTR [eax+0x24]
+  ab772c:	0f af 69 08          	imul   ebp,DWORD PTR [ecx+0x8]
+  ab7730:	0f af 69 04          	imul   ebp,DWORD PTR [ecx+0x4]
+  ab7734:	8b 49 10             	mov    ecx,DWORD PTR [ecx+0x10]
+  ab7737:	03 ea                	add    ebp,edx
+  ab7739:	0f 2f 04 a9          	comiss xmm0,DWORD PTR [ecx+ebp*4]
+  ab773d:	0f 87 87 00 00 00    	ja     0xab77ca
+  ab7743:	8b 68 18             	mov    ebp,DWORD PTR [eax+0x18]
+  ab7746:	2b 68 10             	sub    ebp,DWORD PTR [eax+0x10]
+  ab7749:	8b 48 24             	mov    ecx,DWORD PTR [eax+0x24]
+  ab774c:	0f af 69 04          	imul   ebp,DWORD PTR [ecx+0x4]
+  ab7750:	03 ae 74 01 00 00    	add    ebp,DWORD PTR [esi+0x174]
+  ab7756:	0f af 69 08          	imul   ebp,DWORD PTR [ecx+0x8]
+  ab775a:	8b 49 10             	mov    ecx,DWORD PTR [ecx+0x10]
+  ab775d:	03 ea                	add    ebp,edx
+  ab775f:	0f 2f 04 a9          	comiss xmm0,DWORD PTR [ecx+ebp*4]
+  ab7763:	77 65                	ja     0xab77ca
+  ab7765:	03 d3                	add    edx,ebx
+  ab7767:	3b d7                	cmp    edx,edi
+  ab7769:	7e b8                	jle    0xab7723
+  ab776b:	39 9e 74 01 00 00    	cmp    DWORD PTR [esi+0x174],ebx
+  ab7771:	8b d3                	mov    edx,ebx
+  ab7773:	7e 5b                	jle    0xab77d0
+  ab7775:	8b 86 90 02 00 00    	mov    eax,DWORD PTR [esi+0x290]
+  ab777b:	eb 03                	jmp    0xab7780
+  ab777d:	8d 49 00             	lea    ecx,[ecx+0x0]
+  ab7780:	8b 68 18             	mov    ebp,DWORD PTR [eax+0x18]
+  ab7783:	2b 68 10             	sub    ebp,DWORD PTR [eax+0x10]
+  ab7786:	8b 48 24             	mov    ecx,DWORD PTR [eax+0x24]
+  ab7789:	0f af 69 04          	imul   ebp,DWORD PTR [ecx+0x4]
+  ab778d:	03 ea                	add    ebp,edx
+  ab778f:	0f af 69 08          	imul   ebp,DWORD PTR [ecx+0x8]
+  ab7793:	8b 49 10             	mov    ecx,DWORD PTR [ecx+0x10]
+  ab7796:	0f 2f 04 a9          	comiss xmm0,DWORD PTR [ecx+ebp*4]
+  ab779a:	77 2e                	ja     0xab77ca
+  ab779c:	8b 68 18             	mov    ebp,DWORD PTR [eax+0x18]
+  ab779f:	2b 68 10             	sub    ebp,DWORD PTR [eax+0x10]
+  ab77a2:	8b 48 24             	mov    ecx,DWORD PTR [eax+0x24]
+  ab77a5:	0f af 69 04          	imul   ebp,DWORD PTR [ecx+0x4]
+  ab77a9:	03 ea                	add    ebp,edx
+  ab77ab:	0f af 69 08          	imul   ebp,DWORD PTR [ecx+0x8]
+  ab77af:	8b 49 10             	mov    ecx,DWORD PTR [ecx+0x10]
+  ab77b2:	03 ef                	add    ebp,edi
+  ab77b4:	0f 2f 04 a9          	comiss xmm0,DWORD PTR [ecx+ebp*4]
+  ab77b8:	77 10                	ja     0xab77ca
+  ab77ba:	03 d3                	add    edx,ebx
+  ab77bc:	3b 96 74 01 00 00    	cmp    edx,DWORD PTR [esi+0x174]
+  ab77c2:	7c bc                	jl     0xab7780
+  ab77c4:	5f                   	pop    edi
+  ab77c5:	5d                   	pop    ebp
+  ab77c6:	5b                   	pop    ebx
+  ab77c7:	5e                   	pop    esi
+  ab77c8:	59                   	pop    ecx
+  ab77c9:	c3                   	ret
+  ab77ca:	88 9e b0 04 00 00    	mov    BYTE PTR [esi+0x4b0],bl
+  ab77d0:	5f                   	pop    edi
+  ab77d1:	5d                   	pop    ebp
+  ab77d2:	5b                   	pop    ebx
+  ab77d3:	5e                   	pop    esi
+  ab77d4:	59                   	pop    ecx
+  ab77d5:	c3                   	ret
+  ab77d6:	cc                   	int3
+  ab77d7:	cc                   	int3
+  ab77d8:	cc                   	int3
+  ab77d9:	cc                   	int3
+  ab77da:	cc                   	int3
+  ab77db:	cc                   	int3
+  ab77dc:	cc                   	int3
+  ab77dd:	cc                   	int3
+  ab77de:	cc                   	int3
+  ab77df:	cc                   	int3

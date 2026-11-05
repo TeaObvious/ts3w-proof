@@ -1,0 +1,62 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+; Original PC1.67 TS3W.exe complete actual owned Listing
+; Analyst name: ConsoleCommandManager_DispatchResolved
+; Owned ranges: [[0058a2a0, 0058a335]]
+
+0058a2a0  83ec08  SUB ESP,0x8
+0058a2a3  53  PUSH EBX
+0058a2a4  55  PUSH EBP
+0058a2a5  56  PUSH ESI
+0058a2a6  8bf1  MOV ESI,ECX
+0058a2a8  57  PUSH EDI
+0058a2a9  8d7e48  LEA EDI,[ESI + 0x48]
+0058a2ac  681ccffc00  PUSH 0xfccf1c
+0058a2b1  8bcf  MOV ECX,EDI
+0058a2b3  e84879f5ff  CALL 0x004e1c00
+0058a2b8  8b5c241c  MOV EBX,dword ptr [ESP + 0x1c]
+0058a2bc  8b4304  MOV EAX,dword ptr [EBX + 0x4]
+0058a2bf  8b560c  MOV EDX,dword ptr [ESI + 0xc]
+0058a2c2  8d4e04  LEA ECX,[ESI + 0x4]
+0058a2c5  8944241c  MOV dword ptr [ESP + 0x1c],EAX
+0058a2c9  8b4104  MOV EAX,dword ptr [ECX + 0x4]
+0058a2cc  8b2c90  MOV EBP,dword ptr [EAX + EDX*0x4]
+0058a2cf  8d54241c  LEA EDX,[ESP + 0x1c]
+0058a2d3  52  PUSH EDX
+0058a2d4  8d442414  LEA EAX,[ESP + 0x14]
+0058a2d8  50  PUSH EAX
+0058a2d9  e8d2164d00  CALL 0x00a5b9b0
+0058a2de  3928  CMP dword ptr [EAX],EBP
+0058a2e0  7434  JZ 0x0058a316
+0058a2e2  837e4400  CMP dword ptr [ESI + 0x44],0x0
+0058a2e6  742e  JZ 0x0058a316
+0058a2e8  b901000000  MOV ECX,0x1
+0058a2ed  8d93d8000000  LEA EDX,[EBX + 0xd8]
+0058a2f3  870a  XCHG dword ptr [EDX],ECX
+0058a2f5  8b4e44  MOV ECX,dword ptr [ESI + 0x44]
+0058a2f8  8b01  MOV EAX,dword ptr [ECX]
+0058a2fa  8b5008  MOV EDX,dword ptr [EAX + 0x8]
+0058a2fd  53  PUSH EBX
+0058a2fe  ffd2  CALL EDX
+0058a300  8bcf  MOV ECX,EDI
+0058a302  e8b979f5ff  CALL 0x004e1cc0
+0058a307  5f  POP EDI
+0058a308  5e  POP ESI
+0058a309  5d  POP EBP
+0058a30a  b801000000  MOV EAX,0x1
+0058a30f  5b  POP EBX
+0058a310  83c408  ADD ESP,0x8
+0058a313  c20400  RET 0x4
+0058a316  81c3d8000000  ADD EBX,0xd8
+0058a31c  be02000000  MOV ESI,0x2
+0058a321  8733  XCHG dword ptr [EBX],ESI
+0058a323  8bcf  MOV ECX,EDI
+0058a325  e89679f5ff  CALL 0x004e1cc0
+0058a32a  5f  POP EDI
+0058a32b  8bc6  MOV EAX,ESI
+0058a32d  5e  POP ESI
+0058a32e  5d  POP EBP
+0058a32f  5b  POP EBX
+0058a330  83c408  ADD ESP,0x8
+0058a333  c20400  RET 0x4

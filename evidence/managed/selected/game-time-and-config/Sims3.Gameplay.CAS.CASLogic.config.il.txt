@@ -1,0 +1,37 @@
+// Complete original PC1.67 selected CIL. Central managed README identifies pristine original assemblies.
+// Module-local tokens; TypeSpecification placeholders retain raw signature/token rather than an invented generic declaration.
+
+// Sims3.Gameplay.CAS.CASLogic::SetDefaultBuilderValues; MethodDef0x0600E938; RVA0x0041D5E4
+// Raw CLI signature 200001; maxstack 2; local signature token 110001FF (RID0 means nil); initlocals True
+// Original IL bytes (100): 20000800000A72CD0F0B70120028733A000A26027B10A40004066F2507000A027B10A40004027B16A400046F560D000A027B10A40004027B48A400046F5B03000A027B10A40004027B49A400046F530D000A027B10A40004027B4AA400046F540D000A2A
+IL_0000: ldc.i4 2048
+IL_0005: stloc.0
+IL_0006: ldstr 0x700B0FCD "CASRenderTargetSize"
+IL_000B: ldloca.s 0
+IL_000D: call 0x0A003A73 Sims3.SimIFace.GameUtils::GetConfigValue
+IL_0012: pop
+IL_0013: ldarg.0
+IL_0014: ldfld 0x0400A410 Sims3.Gameplay.CAS.CASLogic::mBuilder
+IL_0019: ldloc.0
+IL_001A: callvirt 0x0A000725 Sims3.SimIFace.CAS.SimBuilder::set_TextureSize
+IL_001F: ldarg.0
+IL_0020: ldfld 0x0400A410 Sims3.Gameplay.CAS.CASLogic::mBuilder
+IL_0025: ldarg.0
+IL_0026: ldfld 0x0400A416 Sims3.Gameplay.CAS.CASLogic::mSkinToneKey
+IL_002B: callvirt 0x0A000D56 Sims3.SimIFace.CAS.SimBuilder::set_SkinTone
+IL_0030: ldarg.0
+IL_0031: ldfld 0x0400A410 Sims3.Gameplay.CAS.CASLogic::mBuilder
+IL_0036: ldarg.0
+IL_0037: ldfld 0x0400A448 Sims3.Gameplay.CAS.CASLogic::mDefaultAge
+IL_003C: callvirt 0x0A00035B Sims3.SimIFace.CAS.SimBuilder::set_Age
+IL_0041: ldarg.0
+IL_0042: ldfld 0x0400A410 Sims3.Gameplay.CAS.CASLogic::mBuilder
+IL_0047: ldarg.0
+IL_0048: ldfld 0x0400A449 Sims3.Gameplay.CAS.CASLogic::mDefaultGender
+IL_004D: callvirt 0x0A000D53 Sims3.SimIFace.CAS.SimBuilder::set_Gender
+IL_0052: ldarg.0
+IL_0053: ldfld 0x0400A410 Sims3.Gameplay.CAS.CASLogic::mBuilder
+IL_0058: ldarg.0
+IL_0059: ldfld 0x0400A44A Sims3.Gameplay.CAS.CASLogic::mDefaultSpecies
+IL_005E: callvirt 0x0A000D54 Sims3.SimIFace.CAS.SimBuilder::set_Species
+IL_0063: ret

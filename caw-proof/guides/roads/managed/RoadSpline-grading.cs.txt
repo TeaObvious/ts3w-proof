@@ -1,0 +1,36 @@
+// Original CAW 1.22.10 ILSpy C# excerpts: CSHostWrap/Sims3/CSHost/RoadSpline.cs
+// Each selected declaration or method is complete. Other members are omitted.
+
+	[DllImport("Sims3Common.dll")]
+	private static extern int RoadSplineWrap_FlattenRoad(IntPtr pRoadSplineAsVoid, float height, float edgeWidth, uint edgeSculptingMode, uint applyMode, ref HeightMapUpdateRect dirtyRect);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern int RoadSplineWrap_FlattenRoadSlope(IntPtr pRoadSplineAsVoid, float edgeWidth, uint edgeSculptingMode, uint applyMode, ref HeightMapUpdateRect dirtyRect);
+
+// [Next selected original declaration or method]
+
+	[DllImport("Sims3Common.dll")]
+	private static extern int RoadSplineWrap_LimitRoadGrade(IntPtr pRoadSplineAsVoid, float edgeWidth, int gradeLimit, ref HeightMapUpdateRect dirtyRect);
+
+// [Next selected original declaration or method]
+
+	public bool FlattenRoad(float height, float edgeWidth, uint edgeSculptingMode, uint applyMode, ref HeightMapUpdateRect dirtyRect)
+	{
+		return RoadSplineWrap_FlattenRoad(mNativeObj, height, edgeWidth, edgeSculptingMode, applyMode, ref dirtyRect) != 0;
+	}
+
+// [Next selected original declaration or method]
+
+	public bool FlattenRoadSlope(float edgeWidth, uint edgeSculptingMode, uint applyMode, ref HeightMapUpdateRect dirtyRect)
+	{
+		return RoadSplineWrap_FlattenRoadSlope(mNativeObj, edgeWidth, edgeSculptingMode, applyMode, ref dirtyRect) != 0;
+	}
+
+// [Next selected original declaration or method]
+
+	public bool LimitRoadGrade(float edgeWidth, int gradeLimit, ref HeightMapUpdateRect dirtyRect)
+	{
+		return RoadSplineWrap_LimitRoadGrade(mNativeObj, edgeWidth, gradeLimit, ref dirtyRect) != 0;
+	}

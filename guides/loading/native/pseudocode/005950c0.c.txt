@@ -1,0 +1,35 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_005950c0:
+
+
+uint FUN_005950c0(undefined4 param_1,undefined4 *param_2,undefined4 *param_3)
+
+{
+  undefined *puVar1;
+  undefined4 uVar2;
+  undefined **in_EAX;
+  uint uVar3;
+  int iVar4;
+  WCHAR local_208 [260];
+  
+  iVar4 = 0;
+  puVar1 = PTR_u_FullBuild0_package_01153b50;
+  while( true ) {
+    if (puVar1 == (undefined *)0x0) {
+      return (uint)in_EAX & 0xffffff00;
+    }
+    FUN_004f3100((int)local_208,(ushort *)L"%s/Shared/Packages/%s");
+    uVar3 = FUN_004dbd70(local_208);
+    if ((char)uVar3 != '\0') break;
+    iVar4 = iVar4 + 1;
+    puVar1 = (&PTR_u_FullBuild0_package_01153b50)[iVar4 * 3];
+    in_EAX = &PTR_u_FullBuild0_package_01153b50 + iVar4 * 3;
+  }
+  *param_2 = (&DAT_01153b54)[iVar4 * 3];
+  uVar2 = (&DAT_01153b58)[iVar4 * 3];
+  *param_3 = uVar2;
+  return CONCAT31((int3)((uint)uVar2 >> 8),1);
+}
+
+

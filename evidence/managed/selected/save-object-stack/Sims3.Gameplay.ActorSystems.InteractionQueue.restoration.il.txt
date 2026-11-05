@@ -1,0 +1,112 @@
+// Complete PC1.67 original CIL; central managed README identifies the original assembly.
+// Tokens are module-local. Decoded operands retain tokens; TypeSpecification labels are not recovered generic signatures.
+
+// Sims3.Gameplay.ActorSystems.InteractionQueue::OnReset; MethodDef0x060092A0; RVA0x0028BCD4
+// raw CLI signature 200001; maxstack 2; locals token 11001AA7; initlocals True
+// Original IL bytes (283): 02167DE94C000402167DEA4C000473BA01000A0A027BEB4C00042C1306027BEB4C00046FBB01000A02147DEB4C0004027BEC4C00042C2606027BEC4C00046FBB01000A02147DEC4C00042B1106027BE54C00046F7827000A6FBB01000A027BE54C00046F6F27000A1630E1160B3888000000027BE44C000473531A000A0C086FBC01000A13052B1C120528BD01000A0D02096FC1010006289992000606096FF608000A26120528BE01000A2DDBDE0E1205FE16320A001B6F5B00000ADC066FBC01000A13062B10120628BD01000A130411046FA6010006120628BE01000A2DE7DE0E1206FE16320A001B6F5B00000ADC066F8002000A0717580B027BE44C00046F6A02000A16310707193F63FFFFFF027BE44C00046F8002000A2A
+IL_0000: ldarg.0
+IL_0001: ldc.i4.0
+IL_0002: stfld 0x04004CE9 Sims3.Gameplay.ActorSystems.InteractionQueue::mIsHeadInteractionLocked
+IL_0007: ldarg.0
+IL_0008: ldc.i4.0
+IL_0009: stfld 0x04004CEA Sims3.Gameplay.ActorSystems.InteractionQueue::mIsHeadInteractionActive
+IL_000E: newobj 0x0A0001BA TypeSpecification::.ctor
+IL_0013: stloc.0
+IL_0014: ldarg.0
+IL_0015: ldfld 0x04004CEB Sims3.Gameplay.ActorSystems.InteractionQueue::mCurrentTransitionInteraction
+IL_001A: brfalse.s IL_002F
+IL_001C: ldloc.0
+IL_001D: ldarg.0
+IL_001E: ldfld 0x04004CEB Sims3.Gameplay.ActorSystems.InteractionQueue::mCurrentTransitionInteraction
+IL_0023: callvirt 0x0A0001BB TypeSpecification::Add
+IL_0028: ldarg.0
+IL_0029: ldnull
+IL_002A: stfld 0x04004CEB Sims3.Gameplay.ActorSystems.InteractionQueue::mCurrentTransitionInteraction
+IL_002F: ldarg.0
+IL_0030: ldfld 0x04004CEC Sims3.Gameplay.ActorSystems.InteractionQueue::mBabyOrToddlerTransitionTargetInteraction
+IL_0035: brfalse.s IL_005D
+IL_0037: ldloc.0
+IL_0038: ldarg.0
+IL_0039: ldfld 0x04004CEC Sims3.Gameplay.ActorSystems.InteractionQueue::mBabyOrToddlerTransitionTargetInteraction
+IL_003E: callvirt 0x0A0001BB TypeSpecification::Add
+IL_0043: ldarg.0
+IL_0044: ldnull
+IL_0045: stfld 0x04004CEC Sims3.Gameplay.ActorSystems.InteractionQueue::mBabyOrToddlerTransitionTargetInteraction
+IL_004A: br.s IL_005D
+IL_004C: ldloc.0
+IL_004D: ldarg.0
+IL_004E: ldfld 0x04004CE5 Sims3.Gameplay.ActorSystems.InteractionQueue::mRunningInteractions
+IL_0053: callvirt 0x0A002778 TypeSpecification::Pop
+IL_0058: callvirt 0x0A0001BB TypeSpecification::Add
+IL_005D: ldarg.0
+IL_005E: ldfld 0x04004CE5 Sims3.Gameplay.ActorSystems.InteractionQueue::mRunningInteractions
+IL_0063: callvirt 0x0A00276F TypeSpecification::get_Count
+IL_0068: ldc.i4.0
+IL_0069: bgt.s IL_004C
+IL_006B: ldc.i4.0
+IL_006C: stloc.1
+IL_006D: br IL_00FA
+IL_0072: ldarg.0
+IL_0073: ldfld 0x04004CE4 Sims3.Gameplay.ActorSystems.InteractionQueue::mInteractionList
+IL_0078: newobj 0x0A001A53 TypeSpecification::.ctor
+IL_007D: stloc.2
+IL_007E: ldloc.2
+IL_007F: callvirt 0x0A0001BC TypeSpecification::GetEnumerator
+IL_0084: stloc.s 5
+IL_0086: br.s IL_00A4
+IL_0088: ldloca.s 5
+IL_008A: call 0x0A0001BD TypeSpecification::get_Current
+IL_008F: stloc.3
+IL_0090: ldarg.0
+IL_0091: ldloc.3
+IL_0092: callvirt 0x060001C1 Sims3.Gameplay.Interactions.InteractionInstance::get_Id
+IL_0097: call 0x06009299 Sims3.Gameplay.ActorSystems.InteractionQueue::ImmediatelyStopInteraction
+IL_009C: ldloc.0
+IL_009D: ldloc.3
+IL_009E: callvirt 0x0A0008F6 TypeSpecification::Remove
+IL_00A3: pop
+IL_00A4: ldloca.s 5
+IL_00A6: call 0x0A0001BE TypeSpecification::MoveNext
+IL_00AB: brtrue.s IL_0088
+IL_00AD: leave.s IL_00BD
+IL_00AF: ldloca.s 5
+IL_00B1: constrained. 0x1B000A32 TypeSpecification
+IL_00B7: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_00BC: endfinally
+IL_00BD: ldloc.0
+IL_00BE: callvirt 0x0A0001BC TypeSpecification::GetEnumerator
+IL_00C3: stloc.s 6
+IL_00C5: br.s IL_00D7
+IL_00C7: ldloca.s 6
+IL_00C9: call 0x0A0001BD TypeSpecification::get_Current
+IL_00CE: stloc.s 4
+IL_00D0: ldloc.s 4
+IL_00D2: callvirt 0x060001A6 Sims3.Gameplay.Interactions.InteractionInstance::Cleanup
+IL_00D7: ldloca.s 6
+IL_00D9: call 0x0A0001BE TypeSpecification::MoveNext
+IL_00DE: brtrue.s IL_00C7
+IL_00E0: leave.s IL_00F0
+IL_00E2: ldloca.s 6
+IL_00E4: constrained. 0x1B000A32 TypeSpecification
+IL_00EA: callvirt 0x0A00005B System.IDisposable::Dispose
+IL_00EF: endfinally
+IL_00F0: ldloc.0
+IL_00F1: callvirt 0x0A000280 TypeSpecification::Clear
+IL_00F6: ldloc.1
+IL_00F7: ldc.i4.1
+IL_00F8: add
+IL_00F9: stloc.1
+IL_00FA: ldarg.0
+IL_00FB: ldfld 0x04004CE4 Sims3.Gameplay.ActorSystems.InteractionQueue::mInteractionList
+IL_0100: callvirt 0x0A00026A TypeSpecification::get_Count
+IL_0105: ldc.i4.0
+IL_0106: ble.s IL_010F
+IL_0108: ldloc.1
+IL_0109: ldc.i4.3
+IL_010A: blt IL_0072
+IL_010F: ldarg.0
+IL_0110: ldfld 0x04004CE4 Sims3.Gameplay.ActorSystems.InteractionQueue::mInteractionList
+IL_0115: callvirt 0x0A000280 TypeSpecification::Clear
+IL_011A: ret
+// Exception region {"FilterOffset": -1, "HandlerLength": 14, "HandlerOffset": 175, "TryLength": 41, "TryOffset": 134, "catchType": "00000000", "kind": "Finally"}
+// Exception region {"FilterOffset": -1, "HandlerLength": 14, "HandlerOffset": 226, "TryLength": 29, "TryOffset": 197, "catchType": "00000000", "kind": "Finally"}

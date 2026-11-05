@@ -1,0 +1,60 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined SACS_ComponentAdvanceAndCollectDrivers_94D410(int param_1)
+Owned ranges: [[0094d410, 0094d48c]]
+
+0094d410  56  PUSH ESI
+0094d411  8bf1  MOV ESI,ECX
+0094d413  8b4e04  MOV ECX,dword ptr [ESI + 0x4]
+0094d416  85c9  TEST ECX,ECX
+0094d418  7471  JZ 0x0094d48b
+0094d41a  a184d41d01  MOV EAX,[0x011dd484]
+0094d41f  50  PUSH EAX
+0094d420  e83b6efeff  CALL 0x00934260
+0094d425  85c0  TEST EAX,EAX
+0094d427  7462  JZ 0x0094d48b
+0094d429  8b5008  MOV EDX,dword ptr [EAX + 0x8]
+0094d42c  8d4808  LEA ECX,[EAX + 0x8]
+0094d42f  8b4220  MOV EAX,dword ptr [EDX + 0x20]
+0094d432  ffd0  CALL EAX
+0094d434  85c0  TEST EAX,EAX
+0094d436  7453  JZ 0x0094d48b
+0094d438  53  PUSH EBX
+0094d439  8b5e08  MOV EBX,dword ptr [ESI + 0x8]
+0094d43c  55  PUSH EBP
+0094d43d  8b6e0c  MOV EBP,dword ptr [ESI + 0xc]
+0094d440  3bdd  CMP EBX,EBP
+0094d442  7445  JZ 0x0094d489
+0094d444  57  PUSH EDI
+0094d445  8b3b  MOV EDI,dword ptr [EBX]
+0094d447  85ff  TEST EDI,EDI
+0094d449  7436  JZ 0x0094d481
+0094d44b  8bcf  MOV ECX,EDI
+0094d44d  e87e6cebff  CALL 0x008040d0
+0094d452  8b4f04  MOV ECX,dword ptr [EDI + 0x4]
+0094d455  83f901  CMP ECX,0x1
+0094d458  7527  JNZ 0x0094d481
+0094d45a  8bcf  MOV ECX,EDI
+0094d45c  e8ff2debff  CALL 0x00800260
+0094d461  84c0  TEST AL,AL
+0094d463  741c  JZ 0x0094d481
+0094d465  8b560c  MOV EDX,dword ptr [ESI + 0xc]
+0094d468  8b42fc  MOV EAX,dword ptr [EDX + -0x4]
+0094d46b  8903  MOV dword ptr [EBX],EAX
+0094d46d  83460cfc  ADD dword ptr [ESI + 0xc],-0x4
+0094d471  8b5708  MOV EDX,dword ptr [EDI + 0x8]
+0094d474  8b4204  MOV EAX,dword ptr [EDX + 0x4]
+0094d477  8b6e0c  MOV EBP,dword ptr [ESI + 0xc]
+0094d47a  8d4f08  LEA ECX,[EDI + 0x8]
+0094d47d  ffd0  CALL EAX
+0094d47f  eb03  JMP 0x0094d484
+0094d481  83c304  ADD EBX,0x4
+0094d484  3bdd  CMP EBX,EBP
+0094d486  75bd  JNZ 0x0094d445
+0094d488  5f  POP EDI
+0094d489  5d  POP EBP
+0094d48a  5b  POP EBX
+0094d48b  5e  POP ESI
+0094d48c  c3  RET

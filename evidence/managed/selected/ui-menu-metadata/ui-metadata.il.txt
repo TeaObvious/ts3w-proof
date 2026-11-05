@@ -1,0 +1,74 @@
+ASSEMBLY UI; TYPE Sims3.UI.UIManager
+TOKEN 0x060012BA RVA 0x6671c SIGNATURE 0004020e100e1012822c1012822c
+HEADER 1330050039000000f1000011; MAXSTACK 5; LOCALS 110000F1; INITLOCALS True
+CIL 160a160b037ea113000402120012016fe904000a51062c0a04067318040006512b03041451072c080507731804000651035014fe0116fe012a
+IL_0000: ldc.i4.0
+IL_0001: stloc.0
+IL_0002: ldc.i4.0
+IL_0003: stloc.1
+IL_0004: ldarg.1
+IL_0005: ldsfld 0x040013A1 Sims3.UI.UIManager::gUIMgr
+IL_000A: ldarg.0
+IL_000B: ldloca.s 0
+IL_000D: ldloca.s 1
+IL_000F: callvirt 0x0A0004E9 Sims3.SimIFace.IUIManager::GetSaveGameMetadata
+IL_0014: stind.ref
+IL_0015: ldloc.0
+IL_0016: brfalse.s IL_0022
+IL_0018: ldarg.2
+IL_0019: ldloc.0
+IL_001A: newobj 0x06000418 Sims3.UI.UIImage::.ctor
+IL_001F: stind.ref
+IL_0020: br.s IL_0025
+IL_0022: ldarg.2
+IL_0023: ldnull
+IL_0024: stind.ref
+IL_0025: ldloc.1
+IL_0026: brfalse.s IL_0030
+IL_0028: ldarg.3
+IL_0029: ldloc.1
+IL_002A: newobj 0x06000418 Sims3.UI.UIImage::.ctor
+IL_002F: stind.ref
+IL_0030: ldarg.1
+IL_0031: ldind.ref
+IL_0032: ldnull
+IL_0033: ceq
+IL_0035: ldc.i4.0
+IL_0036: ceq
+IL_0038: ret
+EH []
+
+ASSEMBLY UI; TYPE Sims3.UI.UIManager
+TOKEN 0x060012BC RVA 0x66778 SIGNATURE 00060e0e10091012822c100b101181b910118111
+HEADER 133007002f0000002c030011; MAXSTACK 7; LOCALS 1100032C; INITLOCALS True
+CIL 160a160b160c7ea11300040203120005120112026feb04000a0d062c0804067318040006510e0407540e050854092a
+IL_0000: ldc.i4.0
+IL_0001: stloc.0
+IL_0002: ldc.i4.0
+IL_0003: stloc.1
+IL_0004: ldc.i4.0
+IL_0005: stloc.2
+IL_0006: ldsfld 0x040013A1 Sims3.UI.UIManager::gUIMgr
+IL_000B: ldarg.0
+IL_000C: ldarg.1
+IL_000D: ldloca.s 0
+IL_000F: ldarg.3
+IL_0010: ldloca.s 1
+IL_0012: ldloca.s 2
+IL_0014: callvirt 0x0A0004EB Sims3.SimIFace.IUIManager::GetWorldMetadata
+IL_0019: stloc.3
+IL_001A: ldloc.0
+IL_001B: brfalse.s IL_0025
+IL_001D: ldarg.2
+IL_001E: ldloc.0
+IL_001F: newobj 0x06000418 Sims3.UI.UIImage::.ctor
+IL_0024: stind.ref
+IL_0025: ldarg.s 4
+IL_0027: ldloc.1
+IL_0028: stind.i4
+IL_0029: ldarg.s 5
+IL_002B: ldloc.2
+IL_002C: stind.i4
+IL_002D: ldloc.3
+IL_002E: ret
+EH []

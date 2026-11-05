@@ -1,0 +1,68 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: SacsDriver_CheckWalkerIdleReadiness
+Paired actual annotated Ghidra pseudocode: 00800150_SacsDriver_CheckWalkerIdleReadiness.c
+Owned ranges: [[00800150, 008001eb]]
+Envelope bytes=156
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+00800150  56  PUSH ESI
+00800151  57  PUSH EDI
+00800152  8b7c240c  MOV EDI,dword ptr [ESP + 0xc]
+00800156  85ff  TEST EDI,EDI
+00800158  8bf1  MOV ESI,ECX
+0080015a  0f8485000000  JZ 0x008001e5
+00800160  837f1800  CMP dword ptr [EDI + 0x18],0x0
+00800164  747f  JZ 0x008001e5
+00800166  837f2400  CMP dword ptr [EDI + 0x24],0x0
+0080016a  7579  JNZ 0x008001e5
+0080016c  8b4f08  MOV ECX,dword ptr [EDI + 0x8]
+0080016f  85c9  TEST ECX,ECX
+00800171  7472  JZ 0x008001e5
+00800173  6a00  PUSH 0x0
+00800175  e8f616d8ff  CALL 0x00581870
+0080017a  85c0  TEST EAX,EAX
+0080017c  7467  JZ 0x008001e5
+0080017e  50  PUSH EAX
+0080017f  e8acded5ff  CALL 0x0055e030
+00800184  83c404  ADD ESP,0x4
+00800187  85c0  TEST EAX,EAX
+00800189  745a  JZ 0x008001e5
+0080018b  8b5638  MOV EDX,dword ptr [ESI + 0x38]
+0080018e  83fafe  CMP EDX,-0x2
+00800191  7506  JNZ 0x00800199
+00800193  8b4e0c  MOV ECX,dword ptr [ESI + 0xc]
+00800196  8b5134  MOV EDX,dword ptr [ECX + 0x34]
+00800199  52  PUSH EDX
+0080019a  8bc8  MOV ECX,EAX
+0080019c  e88fc91300  CALL 0x0093cb30
+008001a1  8b15409d1d01  MOV EDX,dword ptr [0x011d9d40]
+008001a7  db423c  FILD dword ptr [EDX + 0x3c]
+008001aa  d80d9c2bfc00  FMUL float ptr [0x00fc2b9c]
+008001b0  d9c9  FXCH
+008001b2  dff1  FCOMIP ST0,ST1
+008001b4  ddd8  FSTP ST0
+008001b6  762d  JBE 0x008001e5
+008001b8  6a02  PUSH 0x2
+008001ba  8bcf  MOV ECX,EDI
+008001bc  e80f180000  CALL 0x008019d0
+008001c1  84c0  TEST AL,AL
+008001c3  7519  JNZ 0x008001de
+008001c5  c6864601000001  MOV byte ptr [ESI + 0x146],0x1
+008001cc  8b0d409d1d01  MOV ECX,dword ptr [0x011d9d40]
+008001d2  85c9  TEST ECX,ECX
+008001d4  7408  JZ 0x008001de
+008001d6  6a01  PUSH 0x1
+008001d8  56  PUSH ESI
+008001d9  e8a2cdffff  CALL 0x007fcf80
+008001de  5f  POP EDI
+008001df  32c0  XOR AL,AL
+008001e1  5e  POP ESI
+008001e2  c20400  RET 0x4
+008001e5  5f  POP EDI
+008001e6  b001  MOV AL,0x1
+008001e8  5e  POP ESI
+008001e9  c20400  RET 0x4
+Owned instructions=57 owned bytes=156 gap/nonowned bytes=0

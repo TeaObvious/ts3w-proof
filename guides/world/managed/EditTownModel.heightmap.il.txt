@@ -1,0 +1,330 @@
+.method public final hidebysig newslot virtual 
+	instance void Initialize () cil managed 
+{
+	// Method begins at RVA 0x49563c
+	// Header size: 12
+	// Code size: 143 (0x8f)
+	.maxstack 4
+
+	IL_0000: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_PrevInWorldStateId()
+	IL_0005: ldc.i4.3
+	IL_0006: beq.s IL_001e
+
+	IL_0008: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_PrevInWorldStateId()
+	IL_000d: ldc.i4.1
+	IL_000e: beq.s IL_001e
+
+	IL_0010: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_PrevInWorldStateId()
+	IL_0015: ldc.i4.2
+	IL_0016: beq.s IL_001e
+
+	IL_0018: ldc.i4.0
+	IL_0019: stsfld bool Sims3.Gameplay.EditTownModel::sItemAddedToUserFlag
+
+	IL_001e: call class Sims3.Gameplay.GameEntryMaptagManager Sims3.Gameplay.GameEntryMaptagManager::get_Instance()
+	IL_0023: ldarg.0
+	IL_0024: callvirt instance void Sims3.Gameplay.GameEntryMaptagManager::set_MaptagServer(class Sims3.Gameplay.IGameEntryMaptagServer)
+	IL_0029: ldc.i4.1
+	IL_002a: stsfld bool Sims3.Gameplay.EditTownModel::sLoadHeightMapData
+	IL_002f: ldarg.0
+	IL_0030: ldc.i4.1
+	IL_0031: call instance void Sims3.Gameplay.EditTownModel::UpdateDirtyLotThumbnails(bool)
+	IL_0036: ldc.i4.4
+	IL_0037: ldc.i4.0
+	IL_0038: ldc.i4.1
+	IL_0039: call void Sims3.Gameplay.Core.Camera::SetView(valuetype [UI]Sims3.UI.CameraView, bool, bool)
+	IL_003e: ldc.i4.1
+	IL_003f: call void [SimIFace]Sims3.SimIFace.CameraController::SetGameEntryMode(bool)
+	IL_0044: ldarg.0
+	IL_0045: ldftn instance void Sims3.Gameplay.EditTownModel::OnGameBinChanged(object, class [mscorlib]System.EventArgs)
+	IL_004b: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+	IL_0050: call void Sims3.Gameplay.Core.Bin::add_ContentsChanged(class [mscorlib]System.EventHandler)
+	IL_0055: ldsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnAddLotPostLoadCallback
+	IL_005a: ldarg.0
+	IL_005b: ldftn instance void Sims3.Gameplay.EditTownModel::OnLotAddedToWorld(object, class [mscorlib]System.EventArgs)
+	IL_0061: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+	IL_0066: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Combine(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_006b: castclass [mscorlib]System.EventHandler
+	IL_0070: stsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnAddLotPostLoadCallback
+	IL_0075: call class Sims3.Gameplay.BinModel Sims3.Gameplay.BinModel::get_Singleton()
+	IL_007a: callvirt instance void Sims3.Gameplay.BinModel::PopulateExportBin()
+	IL_007f: call class Sims3.Gameplay.BinModel Sims3.Gameplay.BinModel::get_Singleton()
+	IL_0084: call bool [SimIFace]Sims3.SimIFace.World::IsEditInGameFromWBMode()
+	IL_0089: callvirt instance void Sims3.Gameplay.BinModel::set_FreeRealEstate(bool)
+	IL_008e: ret
+} // end of method EditTownModel::Initialize
+.method public final hidebysig newslot virtual 
+	instance void Shutdown () cil managed 
+{
+	// Method begins at RVA 0x4956d8
+	// Header size: 12
+	// Code size: 127 (0x7f)
+	.maxstack 4
+
+	IL_0000: ldarg.0
+	IL_0001: ldftn instance void Sims3.Gameplay.EditTownModel::OnGameBinChanged(object, class [mscorlib]System.EventArgs)
+	IL_0007: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+	IL_000c: call void Sims3.Gameplay.Core.Bin::remove_ContentsChanged(class [mscorlib]System.EventHandler)
+	IL_0011: ldsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnAddLotPostLoadCallback
+	IL_0016: ldarg.0
+	IL_0017: ldftn instance void Sims3.Gameplay.EditTownModel::OnLotAddedToWorld(object, class [mscorlib]System.EventArgs)
+	IL_001d: newobj instance void [mscorlib]System.EventHandler::.ctor(object, native int)
+	IL_0022: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+	IL_0027: castclass [mscorlib]System.EventHandler
+	IL_002c: stsfld class [mscorlib]System.EventHandler [SimIFace]Sims3.SimIFace.World::OnAddLotPostLoadCallback
+	IL_0031: ldarg.0
+	IL_0032: call instance void Sims3.Gameplay.EditTownModel::UpdateRoutingDataAndUnloadHeightMap()
+	IL_0037: call class Sims3.Gameplay.GameEntryMaptagManager Sims3.Gameplay.GameEntryMaptagManager::get_Instance()
+	IL_003c: ldnull
+	IL_003d: callvirt instance void Sims3.Gameplay.GameEntryMaptagManager::set_MaptagServer(class Sims3.Gameplay.IGameEntryMaptagServer)
+	IL_0042: call class Sims3.Gameplay.GameEntryMaptagManager Sims3.Gameplay.GameEntryMaptagManager::get_Instance()
+	IL_0047: ldc.i4.0
+	IL_0048: conv.i8
+	IL_0049: callvirt instance void Sims3.Gameplay.GameEntryMaptagManager::ShowMaptags(valuetype [UI]Sims3.UI.GameEntry.MaptagTypes)
+	IL_004e: call void Sims3.Gameplay.GameEntryMaptagManager::Destroy()
+	IL_0053: ldarg.0
+	IL_0054: ldnull
+	IL_0055: stfld class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.GameEntry.UIBinInfo> Sims3.Gameplay.EditTownModel::mGameBin
+	IL_005a: ldarg.0
+	IL_005b: ldnull
+	IL_005c: stfld class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.GameEntry.UIBinInfo> Sims3.Gameplay.EditTownModel::mInWorldLotBin
+	IL_0061: ldarg.0
+	IL_0062: ldnull
+	IL_0063: stfld class [mscorlib]System.Collections.Generic.List`1<class [UI]Sims3.UI.GameEntry.UIBinInfo> Sims3.Gameplay.EditTownModel::mInWorldHouseholdBin
+	IL_0068: call class Sims3.Gameplay.BinModel Sims3.Gameplay.BinModel::get_Singleton()
+	IL_006d: callvirt instance void Sims3.Gameplay.BinModel::ClearExportBin()
+	IL_0072: ldarg.0
+	IL_0073: call instance void Sims3.Gameplay.EditTownModel::DirtyWorldBins()
+	IL_0078: ldarg.0
+	IL_0079: call instance void Sims3.Gameplay.EditTownModel::UpdateView()
+	IL_007e: ret
+} // end of method EditTownModel::Shutdown
+.method public final hidebysig newslot virtual 
+	instance bool ExitEditTown (
+		bool cancelled
+	) cil managed 
+{
+	// Method begins at RVA 0x49576c
+	// Header size: 12
+	// Code size: 300 (0x12c)
+	.maxstack 5
+	.locals init (
+		[0] valuetype [UI]Sims3.UI.StyledNotification/Format,
+		[1] class Sims3.Gameplay.Controllers.IPhoneFuture,
+		[2] class Sims3.Gameplay.Actors.Sim
+	)
+
+	IL_0000: call bool Sims3.Gameplay.GameStates::get_IsGameShuttingDown()
+	IL_0005: brtrue IL_0114
+
+	IL_000a: call bool Sims3.Gameplay.GameStates::get_IsCurrentlySwitchingSubStates()
+	IL_000f: brtrue IL_0114
+
+	IL_0014: ldsfld bool Sims3.Gameplay.GameStates::mQuitting
+	IL_0019: brtrue IL_0114
+
+	IL_001e: ldarg.0
+	IL_001f: call instance bool Sims3.Gameplay.EditTownModel::IsCurrentWorldActive()
+	IL_0024: brtrue.s IL_0042
+
+	IL_0026: call bool [SimIFace]Sims3.SimIFace.World::IsEditInGameFromWBMode()
+	IL_002b: brtrue.s IL_0042
+
+	IL_002d: call bool [UI]Sims3.UI.GameEntry.EditTownController::PromptForNonEmptyClipboard()
+	IL_0032: brfalse.s IL_0040
+
+	IL_0034: ldc.i4.m1
+	IL_0035: ldc.i4.1
+	IL_0036: call void Sims3.Gameplay.GameStates::EditWorld(valuetype [SimIFace]Sims3.SimIFace.WorldName, bool)
+	IL_003b: br IL_010e
+
+	IL_0040: ldc.i4.0
+	IL_0041: ret
+
+	IL_0042: call void Sims3.Gameplay.GameStates::TransitionToReturnState()
+	IL_0047: call bool Sims3.Gameplay.EditTownModel::get_PlaceLotsWizardFlow()
+	IL_004c: brfalse.s IL_0058
+
+	IL_004e: call void Sims3.Gameplay.Core.Camera::OnExitBuildBuy()
+	IL_0053: call void Sims3.Gameplay.Core.LotManager::UnlockActiveLot()
+
+	IL_0058: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+	IL_005d: brfalse IL_0109
+
+	IL_0062: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+	IL_0067: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.CAS.Household::get_LotHome()
+	IL_006c: callvirt instance bool Sims3.Gameplay.Core.Lot::CheckIfLotNeedsBabysitter()
+	IL_0071: brfalse IL_0109
+
+	IL_0076: ldloca.s 0
+	IL_0078: ldstr "Gameplay/Services/Requested:Babysitter"
+	IL_007d: ldc.i4.0
+	IL_007e: newarr [mscorlib]System.Object
+	IL_0083: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+	IL_0088: ldc.i4.1
+	IL_0089: call instance void [UI]Sims3.UI.StyledNotification/Format::.ctor(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle)
+	IL_008e: ldnull
+	IL_008f: stloc.1
+	IL_0090: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+	IL_0095: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.CAS.Household::get_Sims()
+	IL_009a: ldc.i4.0
+	IL_009b: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::get_Item(int32)
+	IL_00a0: stloc.2
+	IL_00a1: ldloc.2
+	IL_00a2: brfalse.s IL_00b0
+
+	IL_00a4: ldloc.2
+	IL_00a5: callvirt instance class Sims3.Gameplay.Inventory Sims3.Gameplay.Abstracts.GameObject::get_Inventory()
+	IL_00aa: callvirt instance !!0 Sims3.Gameplay.Inventory::Find<class Sims3.Gameplay.Controllers.IPhoneFuture>()
+	IL_00af: stloc.1
+
+	IL_00b0: ldc.i4 1048576
+	IL_00b5: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsInstalled(valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+	IL_00ba: brfalse.s IL_00d8
+
+	IL_00bc: ldloc.1
+	IL_00bd: brfalse.s IL_00d8
+
+	IL_00bf: ldloc.0
+	IL_00c0: ldstr "w_future_phone"
+	IL_00c5: ldnull
+	IL_00c6: ldc.i4 1048576
+	IL_00cb: ldc.i4 1048576
+	IL_00d0: call class [UI]Sims3.UI.StyledNotification [UI]Sims3.UI.StyledNotification::Show(valuetype [UI]Sims3.UI.StyledNotification/Format, string, string, valuetype [SimIFace]Sims3.SimIFace.ProductVersion, valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+	IL_00d5: pop
+	IL_00d6: br.s IL_0109
+
+	IL_00d8: ldc.i4 131072
+	IL_00dd: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsInstalled(valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+	IL_00e2: brfalse.s IL_00fd
+
+	IL_00e4: ldloc.0
+	IL_00e5: ldstr "w_smart_phone"
+	IL_00ea: ldnull
+	IL_00eb: ldc.i4 131072
+	IL_00f0: ldc.i4 131072
+	IL_00f5: call class [UI]Sims3.UI.StyledNotification [UI]Sims3.UI.StyledNotification::Show(valuetype [UI]Sims3.UI.StyledNotification/Format, string, string, valuetype [SimIFace]Sims3.SimIFace.ProductVersion, valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+	IL_00fa: pop
+	IL_00fb: br.s IL_0109
+
+	IL_00fd: ldloc.0
+	IL_00fe: ldstr "glb_tns_phone_r2"
+	IL_0103: call class [UI]Sims3.UI.StyledNotification [UI]Sims3.UI.StyledNotification::Show(valuetype [UI]Sims3.UI.StyledNotification/Format, string)
+	IL_0108: pop
+
+	IL_0109: call void Sims3.Gameplay.Autonomy.MetaAutonomyManager::CalculateTotalDesiredNumSims()
+
+	IL_010e: ldarg.0
+	IL_010f: call instance void Sims3.Gameplay.EditTownModel::LeavingUpdate()
+
+	IL_0114: ldarg.0
+	IL_0115: call instance void Sims3.Gameplay.EditTownModel::UpdateRoutingDataAndUnloadHeightMap()
+	IL_011a: call void Sims3.Gameplay.Core.LotManager::ForceReplanOfAllSimRoutes()
+	IL_011f: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_NextInWorldStateId()
+	IL_0124: call valuetype Sims3.Gameplay.InWorldState/SubState Sims3.Gameplay.GameStates::get_ReturnState()
+	IL_0129: ceq
+	IL_012b: ret
+} // end of method EditTownModel::ExitEditTown
+.method private hidebysig static 
+	void UpdateDirtyLotThumbnailsTask (
+		object showScreenCapParam
+	) cil managed 
+{
+	// Method begins at RVA 0x495bec
+	// Header size: 12
+	// Code size: 109 (0x6d)
+	.maxstack 2
+	.locals init (
+		[0] bool,
+		[1] bool,
+		[2] bool
+	)
+
+	IL_0000: ldarg.0
+	IL_0001: unbox.any [mscorlib]System.Boolean
+	IL_0006: stloc.0
+	IL_0007: ldloc.0
+	IL_0008: brfalse.s IL_002d
+
+	IL_000a: ldc.i4.0
+	IL_000b: call bool [SimIFace]Sims3.SimIFace.Simulator::CheckYieldingContext(bool)
+	IL_0010: stloc.1
+	IL_0011: ldc.i4.1
+	IL_0012: ldloc.1
+	IL_0013: call void [UI]Sims3.UI.GameEntry.ScreenCaptureOverlay::Display(bool, bool)
+	IL_0018: ldstr "Ui/Caption/Options:Loading"
+	IL_001d: ldc.i4.0
+	IL_001e: newarr [mscorlib]System.Object
+	IL_0023: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+	IL_0028: call void [UI]Sims3.UI.ProgressDialog::Show(string)
+	.try
+	{
+		IL_002d: call bool [SimIFace]Sims3.SimIFace.ThumbnailManager::UpdateDirtyLotThumbnails()
+		IL_0032: pop
+		IL_0033: leave.s IL_004c
+	} // end .try
+	finally
+	{
+		IL_0035: ldloc.0
+		IL_0036: brfalse.s IL_004b
+
+		IL_0038: call void [UI]Sims3.UI.ProgressDialog::Close()
+		IL_003d: ldc.i4.0
+		IL_003e: call bool [SimIFace]Sims3.SimIFace.Simulator::CheckYieldingContext(bool)
+		IL_0043: stloc.2
+		IL_0044: ldc.i4.0
+		IL_0045: ldloc.2
+		IL_0046: call void [UI]Sims3.UI.GameEntry.ScreenCaptureOverlay::Display(bool, bool)
+
+		IL_004b: endfinally
+	} // end handler
+
+	IL_004c: ldsfld bool Sims3.Gameplay.EditTownModel::sLoadHeightMapData
+	IL_0051: brfalse.s IL_006c
+
+	IL_0053: ldsfld bool Sims3.Gameplay.EditTownModel::sbHtMapLoaded
+	IL_0058: brtrue.s IL_0060
+
+	IL_005a: ldc.i4.1
+	IL_005b: call void [SimIFace]Sims3.SimIFace.World::LoadHeightMapRelatedData(bool)
+
+	IL_0060: ldc.i4.0
+	IL_0061: stsfld bool Sims3.Gameplay.EditTownModel::sLoadHeightMapData
+	IL_0066: ldc.i4.1
+	IL_0067: stsfld bool Sims3.Gameplay.EditTownModel::sbHtMapLoaded
+
+	IL_006c: ret
+} // end of method EditTownModel::UpdateDirtyLotThumbnailsTask
+.method public hidebysig 
+	instance void UpdateRoutingDataAndUnloadHeightMap () cil managed 
+{
+	// Method begins at RVA 0x495c9c
+	// Header size: 12
+	// Code size: 65 (0x41)
+	.maxstack 2
+
+	IL_0000: ldsfld bool Sims3.Gameplay.EditTownModel::sbHtMapLoaded
+	IL_0005: brfalse.s IL_0040
+
+	IL_0007: ldc.i4.0
+	IL_0008: stsfld bool Sims3.Gameplay.EditTownModel::sbHtMapLoaded
+	IL_000d: ldc.i4.1
+	IL_000e: ldc.i4.1
+	IL_000f: call void [UI]Sims3.UI.GameEntry.ScreenCaptureOverlay::Display(bool, bool)
+	IL_0014: ldstr "Ui/Caption/Global:Processing"
+	IL_0019: ldc.i4.0
+	IL_001a: newarr [mscorlib]System.Object
+	IL_001f: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+	IL_0024: ldc.i4.0
+	IL_0025: call void [UI]Sims3.UI.ProgressDialog::Show(string, bool)
+	IL_002a: call void [SimIFace]Sims3.SimIFace.World::BuildRoutingData()
+	IL_002f: ldc.i4.1
+	IL_0030: call void [SimIFace]Sims3.SimIFace.World::UnloadHeightMapRelatedData(bool)
+	IL_0035: call void [UI]Sims3.UI.ProgressDialog::Close()
+	IL_003a: ldc.i4.0
+	IL_003b: call void [UI]Sims3.UI.GameEntry.ScreenCaptureOverlay::Display(bool)
+
+	IL_0040: ret
+} // end of method EditTownModel::UpdateRoutingDataAndUnloadHeightMap
+.field private static bool sLoadHeightMapData
+.field private static bool sbHtMapLoaded

@@ -1,0 +1,146 @@
+// Original CAW 1.22.10 ILSpy C# excerpt: WorldBuilderCS/WorldBuilderMainForm.cs
+// Selected methods or declarations; intervening source is omitted.
+
+	internal bool SaveWorldToCurrentFile(bool bQuiet)
+	{
+		if (mWorld == null)
+		{
+			return true;
+		}
+		try
+		{
+			EnableUI(bEnable: false, bIncludeFileMenu: true);
+			if (mWorldLayersControl != null)
+			{
+				mWorldLayersControl.AutoClusterTrees();
+			}
+			string saveFilePath = mWorld.GetSaveFilePath();
+			bool flag = true;
+			if (saveFilePath == null || saveFilePath.Length == 0)
+			{
+				flag = SaveWorld();
+				if (flag)
+				{
+					mWorldLayersControl.SetWorldNodeName();
+				}
+			}
+			else
+			{
+				Cursor cursor = ((Control)this).Cursor;
+				Cursor current = (((Control)this).Cursor = Cursors.WaitCursor);
+				Cursor.Current = current;
+				flag = mWorld.Save(saveFilePath, eEndianType.kLittle);
+				SaveWorldSettings(saveFilePath);
+				((Control)this).Cursor = cursor;
+				DisplayWorldSaveResults(bQuiet);
+				if (flag)
+				{
+					UpdateRCS();
+				}
+			}
+			if (flag)
+			{
+				mClonedLots.Clear();
+			}
+			return flag;
+		}
+		finally
+		{
+			EnableUI(bEnable: true, bIncludeFileMenu: true);
+		}
+	}
+
+
+// [Next selected source excerpt]
+
+	private void mMenu_File_SaveAs_Click(object sender, EventArgs e)
+	{
+		SaveWorld();
+	}
+
+	private bool SaveWorld()
+	{
+		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0006: Expected Obj, but got Unknown
+		//IL_00a6: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00ac: Invalid comparison between Unknown and I4
+		SaveFileDialog val = new SaveFileDialog();
+		string initialDirectory = GetWorldFilesPath();
+		if (mConfigData != null && !string.IsNullOrEmpty(mConfigData.WorldFilesDataPath))
+		{
+			initialDirectory = mConfigData.WorldFilesDataPath;
+		}
+		((FileDialog)val).InitialDirectory = initialDirectory;
+		((FileDialog)val).Filter = mWorldFileFilter;
+		((FileDialog)val).AddExtension = true;
+		((FileDialog)val).DefaultExt = ".world";
+		val.OverwritePrompt = false;
+		((FileDialog)val).FilterIndex = 1;
+		((FileDialog)val).FileOk += (object sender, CancelEventArgs e) =>
+		{
+			//IL_008b: Unknown result type (might be due to invalid IL or missing references)
+			//IL_006e: Unknown result type (might be due to invalid IL or missing references)
+			if (IsUserWorldBuilder)
+			{
+				SaveFileDialog val2 = (SaveFileDialog)((sender is SaveFileDialog) ? sender : null);
+				try
+				{
+					string fileName2 = ((FileDialog)val2).FileName;
+					string directoryName = Path.GetDirectoryName(fileName2);
+					string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName2);
+					string text = Path.Combine(directoryName, fileNameWithoutExtension);
+					if (fileName2.Length >= 260 || directoryName.Length >= 248 || text.Length >= 240 || fileNameWithoutExtension.Length >= 30)
+					{
+						MessageBox.Show(Strings.kError_PathTooLong, Strings.kError_Title, (MessageBoxButtons)0, (MessageBoxIcon)16);
+						e.Cancel = true;
+					}
+				}
+				catch (PathTooLongException)
+				{
+					MessageBox.Show(Strings.kError_PathTooLong, Strings.kError_Title, (MessageBoxButtons)0, (MessageBoxIcon)16);
+					e.Cancel = true;
+				}
+			}
+		};
+		string saveFilePath = mWorld.GetSaveFilePath();
+		if (!string.IsNullOrEmpty(saveFilePath))
+		{
+			((FileDialog)val).FileName = saveFilePath;
+		}
+		bool flag = false;
+		if ((int)((CommonDialog)val).ShowDialog() == 1 && ((FileDialog)val).FileName.Length > 0)
+		{
+			string fileName = ((FileDialog)val).FileName;
+			if (string.Compare(fileName, saveFilePath, ignoreCase: true) == 0)
+			{
+				return SaveWorldToCurrentFile(bQuiet: false);
+			}
+			if (!CanSaveWorldFile(fileName, bPromptOverwrite: true))
+			{
+				return false;
+			}
+			if (mWorldLayersControl != null)
+			{
+				mWorldLayersControl.AutoClusterTrees();
+			}
+			Cursor cursor = ((Control)this).Cursor;
+			Cursor current = (((Control)this).Cursor = Cursors.WaitCursor);
+			Cursor.Current = current;
+			ShutdownRCS();
+			flag = mWorld.Save(fileName, eEndianType.kLittle);
+			if (flag)
+			{
+				SaveWorldSettings(fileName);
+				((Control)mPropertyBrowser).Refresh();
+			}
+			((Control)this).Cursor = cursor;
+			DisplayWorldSaveResults(bQuiet: false);
+			InitRCS();
+		}
+		((System.ComponentModel.Component)(object)val).Dispose();
+		if (flag)
+		{
+			mClonedLots.Clear();
+		}
+		return flag;
+	}

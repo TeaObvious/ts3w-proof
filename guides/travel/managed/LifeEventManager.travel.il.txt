@@ -1,0 +1,216 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; selected original metadata and complete method IL.
+		.field private valuetype [SimIFace]Sims3.SimIFace.ResourceKey mSnapshot
+		.method public final hidebysig newslot virtual 
+			instance void Forget (
+				class [UI]Sims3.UI.CAS.ISimDescription actor
+			) cil managed 
+		{
+			// Method begins at RVA 0x19234d
+			// Header size: 1
+			// Code size: 34 (0x22)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldc.i4.0
+			IL_0002: stfld bool Sims3.Gameplay.ActorSystems.LifeEventManager/LifeEvent::mIsVisible
+			IL_0007: ldarg.0
+			IL_0008: call instance bool Sims3.Gameplay.ActorSystems.LifeEventManager/LifeEvent::get_HasSnapshot()
+			IL_000d: brfalse.s IL_001b
+
+			IL_000f: ldarg.0
+			IL_0010: ldfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.ActorSystems.LifeEventManager/LifeEvent::mSnapshot
+			IL_0015: call bool [SimIFace]Sims3.SimIFace.World::DeleteTravelDBResource(valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+			IL_001a: pop
+
+			IL_001b: ldarg.1
+			IL_001c: call void Sims3.Gameplay.ActorSystems.LifeEventManager::OnLifeEventBecameInvisible(class [UI]Sims3.UI.CAS.ISimDescription)
+			IL_0021: ret
+		} // end of method LifeEvent::Forget
+		.method public hidebysig 
+			instance void SetSnapshot (
+				valuetype [SimIFace]Sims3.SimIFace.ResourceKey snapshot
+			) cil managed 
+		{
+			// Method begins at RVA 0x19253d
+			// Header size: 1
+			// Code size: 8 (0x8)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldarg.1
+			IL_0002: stfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.ActorSystems.LifeEventManager/LifeEvent::mSnapshot
+			IL_0007: ret
+		} // end of method LifeEvent::SetSnapshot
+		.method public hidebysig 
+			instance void UpdateSnapshot (
+				valuetype [SimIFace]Sims3.SimIFace.ResourceKey snapshot
+			) cil managed 
+		{
+			// Method begins at RVA 0x1925d6
+			// Header size: 1
+			// Code size: 8 (0x8)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldarg.1
+			IL_0002: stfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey Sims3.Gameplay.ActorSystems.LifeEventManager/LifeEvent::mSnapshot
+			IL_0007: ret
+		} // end of method LifeEvent::UpdateSnapshot
+		.field private valuetype [SimIFace]Sims3.SimIFace.ResourceKey mSnapshot
+		.field private valuetype [SimIFace]Sims3.SimIFace.ResourceKey mSnapshot
+	.method private hidebysig 
+		instance valuetype [SimIFace]Sims3.SimIFace.ResourceKey GetScreenshot (
+			class Sims3.Gameplay.ActorSystems.LifeEventManager/LifeEvent e,
+			class Sims3.Gameplay.EventSystem.Event originalEvent
+		) cil managed 
+	{
+		// Method begins at RVA 0x19144c
+		// Header size: 12
+		// Code size: 315 (0x13b)
+		.maxstack 3
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[],
+			[1] class Sims3.Gameplay.Core.Lot,
+			[2] class Sims3.Gameplay.ActorSystems.ITakeMemorySnapshotOfParentPosture,
+			[3] class Sims3.Gameplay.Actors.Sim
+		)
+
+		IL_0000: call bool Sims3.Gameplay.GameStates::get_IsLiveState()
+		IL_0005: brfalse IL_0135
+
+		IL_000a: ldarg.0
+		IL_000b: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.LifeEventManager::get_Actor()
+		IL_0010: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0015: brfalse IL_0135
+
+		IL_001a: ldarg.0
+		IL_001b: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.LifeEventManager::get_Actor()
+		IL_0020: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0025: callvirt instance bool Sims3.Gameplay.Core.Lot::get_IsActive()
+		IL_002a: brfalse IL_0135
+
+		IL_002f: ldarg.2
+		IL_0030: brtrue.s IL_0035
+
+		IL_0032: ldnull
+		IL_0033: br.s IL_0040
+
+		IL_0035: ldarg.2
+		IL_0036: callvirt instance class Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.EventSystem.Event::get_TargetObject()
+		IL_003b: isinst Sims3.Gameplay.Core.Lot
+
+		IL_0040: stloc.1
+		IL_0041: ldarg.0
+		IL_0042: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.LifeEventManager::get_Actor()
+		IL_0047: callvirt instance class Sims3.Gameplay.ActorSystems.Posture Sims3.Gameplay.Actors.Sim::get_Posture()
+		IL_004c: isinst Sims3.Gameplay.ActorSystems.ITakeMemorySnapshotOfParentPosture
+		IL_0051: stloc.2
+		IL_0052: ldloc.2
+		IL_0053: brfalse.s IL_0085
+
+		IL_0055: ldloc.2
+		IL_0056: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.ActorSystems.ITakeMemorySnapshotOfParentPosture::get_ParentId()
+		IL_005b: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_0060: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_0065: brfalse.s IL_0085
+
+		IL_0067: ldc.i4.1
+		IL_0068: newarr [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_006d: stloc.0
+		IL_006e: ldloc.0
+		IL_006f: ldc.i4.0
+		IL_0070: ldelema [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_0075: ldloc.2
+		IL_0076: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.ActorSystems.ITakeMemorySnapshotOfParentPosture::get_ParentId()
+		IL_007b: stobj [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_0080: br IL_012d
+
+		IL_0085: ldloc.1
+		IL_0086: brfalse.s IL_00bf
+
+		IL_0088: ldc.i4.2
+		IL_0089: newarr [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_008e: stloc.0
+		IL_008f: ldloc.0
+		IL_0090: ldc.i4.0
+		IL_0091: ldelema [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_0096: ldarg.0
+		IL_0097: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.LifeEventManager::get_Actor()
+		IL_009c: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_00a1: stobj [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_00a6: ldloc.0
+		IL_00a7: ldc.i4.1
+		IL_00a8: ldelema [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_00ad: ldloc.1
+		IL_00ae: callvirt instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_00b3: newobj instance void [SimIFace]Sims3.SimIFace.ObjectGuid::.ctor(uint64)
+		IL_00b8: stobj [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_00bd: br.s IL_012d
+
+		IL_00bf: ldarg.0
+		IL_00c0: ldarg.1
+		IL_00c1: callvirt instance class Sims3.Gameplay.DreamsAndPromises.ActiveNodeBase/NodeSubject Sims3.Gameplay.ActorSystems.LifeEventManager/LifeEvent::get_Subject()
+		IL_00c6: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.LifeEventManager::GetSimFromSubject(class Sims3.Gameplay.DreamsAndPromises.ActiveNodeBase/NodeSubject)
+		IL_00cb: stloc.3
+		IL_00cc: ldloc.3
+		IL_00cd: brfalse.s IL_010f
+
+		IL_00cf: ldloc.3
+		IL_00d0: ldarg.0
+		IL_00d1: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.LifeEventManager::get_Actor()
+		IL_00d6: call bool Sims3.Gameplay.Core.Lot::AreInSameRoom(class Sims3.Gameplay.Interfaces.IGameObject, class Sims3.Gameplay.Interfaces.IGameObject)
+		IL_00db: brfalse.s IL_010f
+
+		IL_00dd: ldc.i4.2
+		IL_00de: newarr [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_00e3: stloc.0
+		IL_00e4: ldloc.0
+		IL_00e5: ldc.i4.0
+		IL_00e6: ldelema [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_00eb: ldarg.0
+		IL_00ec: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.LifeEventManager::get_Actor()
+		IL_00f1: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_00f6: stobj [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_00fb: ldloc.0
+		IL_00fc: ldc.i4.1
+		IL_00fd: ldelema [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_0102: ldloc.3
+		IL_0103: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0108: stobj [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_010d: br.s IL_012d
+
+		IL_010f: ldc.i4.1
+		IL_0110: newarr [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_0115: stloc.0
+		IL_0116: ldloc.0
+		IL_0117: ldc.i4.0
+		IL_0118: ldelema [SimIFace]Sims3.SimIFace.ObjectGuid
+		IL_011d: ldarg.0
+		IL_011e: call instance class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.ActorSystems.LifeEventManager::get_Actor()
+		IL_0123: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0128: stobj [SimIFace]Sims3.SimIFace.ObjectGuid
+
+		IL_012d: ldc.i4.0
+		IL_012e: ldloc.0
+		IL_012f: call valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.World::CapturePhoto(valuetype [SimIFace]Sims3.SimIFace.PaintingStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid[])
+		IL_0134: ret
+
+		IL_0135: ldsfld valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.ResourceKey::kInvalidResourceKey
+		IL_013a: ret
+	} // end of method LifeEventManager::GetScreenshot
+	.method public hidebysig 
+		instance void MergeTravelData (
+			class Sims3.Gameplay.CAS.SimDescription simDescription,
+			class Sims3.Gameplay.ActorSystems.LifeEventManager importedLifeEventManager
+		) cil managed 
+	{
+		// Method begins at RVA 0x191f17
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.ActorSystems.LifeEventManager::mOwnerDescription
+		IL_0007: ret
+	} // end of method LifeEventManager::MergeTravelData

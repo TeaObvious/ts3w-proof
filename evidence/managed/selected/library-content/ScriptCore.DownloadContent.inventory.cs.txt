@@ -1,0 +1,17 @@
+// Actual ILSpy rendering; static analysis, no target code executed. Native and nested/lambda dependencies remain bounded.
+using Sims3.SimIFace.CustomContent;
+
+public ulong StoreInventory(IExportableContent inventory, ObjectIdTable objectIdTable)
+{
+	if (!ExportManagedContent(inventory, out var keyTable, ref objectIdTable, out var stream))
+	{
+		return 0uL;
+	}
+	return DownloadContent_StoreInventoryImpl(keyTable.ByteArray, objectIdTable.ObjectIdArray, stream.ToArray());
+}
+
+public bool DeleteInventory(ulong id)
+{
+	return DownloadContent_DeleteInventoryImpl(id);
+}
+

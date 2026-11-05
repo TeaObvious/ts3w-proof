@@ -1,0 +1,944 @@
+{
+  "reference": "Original PC 1.67 Shaders_Win32.precomp; identity in ../../references/retained-proof-overview.md",
+  "scope": "25 original pass samples. Capability/variant/technique values identify stored records, not a running doghouse draw. Empty arrays mean no authored states in this pass; baseline/inherited state must be considered.",
+  "readers": [
+    "ShaderPass_ReadPASS (0x0079f410)",
+    "ShaderPass_ApplyForDraw (0x0079e7e0)",
+    "ShaderTechnique_ReadTECH (0x007a1120)"
+  ],
+  "passes": [
+    {
+      "shader_name": "phong",
+      "shader_key": "0xb9105a6d",
+      "capability_mask": "0x00000101",
+      "variant": 294,
+      "technique": "Phong",
+      "technique_key": "0xb9105a6d",
+      "pass_index": 0,
+      "pass_file_offset": "0x047be420",
+      "pass_flags": "0x00000000",
+      "vertex_record": 3759,
+      "pixel_record": 4020,
+      "static_states": [],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "phong",
+      "shader_key": "0xb9105a6d",
+      "capability_mask": "0x00000101",
+      "variant": 12679,
+      "technique": "Phong",
+      "technique_key": "0xb9105a6d",
+      "pass_index": 1,
+      "pass_file_offset": "0x047bea18",
+      "pass_flags": "0x00000000",
+      "vertex_record": 3941,
+      "pixel_record": 3812,
+      "static_states": [
+        {
+          "file_offset": "0x047bebb0",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x047bebb8",
+          "state": 19,
+          "state_name": "SRCBLEND",
+          "value_bits": "0x00000005"
+        },
+        {
+          "file_offset": "0x047bebc0",
+          "state": 20,
+          "state_name": "DESTBLEND",
+          "value_bits": "0x00000006"
+        },
+        {
+          "file_offset": "0x047bebc8",
+          "state": 52,
+          "state_name": "",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x047bebd0",
+          "state": 59,
+          "state_name": "",
+          "value_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x047bebd8",
+          "state": 57,
+          "state_name": "",
+          "value_bits": "0x00000080"
+        },
+        {
+          "file_offset": "0x047bebe0",
+          "state": 58,
+          "state_name": "",
+          "value_bits": "0x00000080"
+        },
+        {
+          "file_offset": "0x047bebe8",
+          "state": 53,
+          "state_name": "",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x047bebf0",
+          "state": 54,
+          "state_name": "",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x047bebf8",
+          "state": 55,
+          "state_name": "",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x047bec00",
+          "state": 56,
+          "state_name": "",
+          "value_bits": "0x00000006"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "phong",
+      "shader_key": "0xb9105a6d",
+      "capability_mask": "0x00000104",
+      "variant": 19303,
+      "technique": "Phong",
+      "technique_key": "0xb9105a6d",
+      "pass_index": 0,
+      "pass_file_offset": "0x0483f0cc",
+      "pass_flags": "0x00000000",
+      "vertex_record": 8883,
+      "pixel_record": 8875,
+      "static_states": [],
+      "dynamic_states": [
+        {
+          "file_offset": "0x0483f1f8",
+          "state": 24,
+          "state_name": "ALPHAREF",
+          "parameter_hash": "0xe77a2b60",
+          "parameter_name": "AlphaMaskThreshold",
+          "default_bits": "0x00000080"
+        }
+      ]
+    },
+    {
+      "shader_name": "phong",
+      "shader_key": "0xb9105a6d",
+      "capability_mask": "0x0000020a",
+      "variant": 21,
+      "technique": "SkinnedShadow",
+      "technique_key": "0x8bf4773f",
+      "pass_index": 0,
+      "pass_file_offset": "0x049ab89c",
+      "pass_flags": "0x00000000",
+      "vertex_record": 12500,
+      "pixel_record": 12512,
+      "static_states": [
+        {
+          "file_offset": "0x049ab8f0",
+          "state": 15,
+          "state_name": "ALPHATESTENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x049ab8f8",
+          "state": 24,
+          "state_name": "ALPHAREF",
+          "value_bits": "0x00000080"
+        },
+        {
+          "file_offset": "0x049ab900",
+          "state": 25,
+          "state_name": "ALPHAFUNC",
+          "value_bits": "0x00000005"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "LargeObjectFloor",
+      "shader_key": "0xc3279d7b",
+      "capability_mask": "0x00000101",
+      "variant": 0,
+      "technique": "Phong",
+      "technique_key": "0xb9105a6d",
+      "pass_index": 0,
+      "pass_file_offset": "0x04be5f0c",
+      "pass_flags": "0x00000000",
+      "vertex_record": 3051,
+      "pixel_record": 193,
+      "static_states": [],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "LargeObjectFloor",
+      "shader_key": "0xc3279d7b",
+      "capability_mask": "0x00000104",
+      "variant": 1,
+      "technique": "Phong",
+      "technique_key": "0xb9105a6d",
+      "pass_index": 0,
+      "pass_file_offset": "0x04be8494",
+      "pass_flags": "0x00000000",
+      "vertex_record": 8770,
+      "pixel_record": 8773,
+      "static_states": [],
+      "dynamic_states": [
+        {
+          "file_offset": "0x04be8578",
+          "state": 24,
+          "state_name": "ALPHAREF",
+          "parameter_hash": "0xe77a2b60",
+          "parameter_name": "AlphaMaskThreshold",
+          "default_bits": "0x00000080"
+        }
+      ]
+    },
+    {
+      "shader_name": "LargeObjectFloor",
+      "shader_key": "0xc3279d7b",
+      "capability_mask": "0x00000201",
+      "variant": 233,
+      "technique": "AlphaTestShadows",
+      "technique_key": "0xea3394ce",
+      "pass_index": 0,
+      "pass_file_offset": "0x04bec0b0",
+      "pass_flags": "0x00000000",
+      "vertex_record": 3065,
+      "pixel_record": 3066,
+      "static_states": [],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "staticterrain",
+      "shader_key": "0xe05b91aa",
+      "capability_mask": "0x00000101",
+      "variant": 179,
+      "technique": "TerrainHigh",
+      "technique_key": "0xccbf7ebc",
+      "pass_index": 0,
+      "pass_file_offset": "0x050d5328",
+      "pass_flags": "0x00000000",
+      "vertex_record": 7261,
+      "pixel_record": 7228,
+      "static_states": [
+        {
+          "file_offset": "0x050d53e8",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        },
+        {
+          "file_offset": "0x050d53f0",
+          "state": 15,
+          "state_name": "ALPHATESTENABLE",
+          "value_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x050d53f8",
+          "state": 19,
+          "state_name": "SRCBLEND",
+          "value_bits": "0x00000002"
+        },
+        {
+          "file_offset": "0x050d5400",
+          "state": 20,
+          "state_name": "DESTBLEND",
+          "value_bits": "0x00000006"
+        }
+      ],
+      "dynamic_states": [
+        {
+          "file_offset": "0x050d5408",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "parameter_hash": "0xaad90e51",
+          "parameter_name": "useAlphaBlending",
+          "default_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x050d5414",
+          "state": 14,
+          "state_name": "ZWRITEENABLE",
+          "parameter_hash": "0x98f8e281",
+          "parameter_name": "useZWrite",
+          "default_bits": "0x00000000"
+        }
+      ]
+    },
+    {
+      "shader_name": "staticterrain",
+      "shader_key": "0xe05b91aa",
+      "capability_mask": "0x00000101",
+      "variant": 175,
+      "technique": "TerrainHigh",
+      "technique_key": "0xccbf7ebc",
+      "pass_index": 0,
+      "pass_file_offset": "0x050d5928",
+      "pass_flags": "0x00000000",
+      "vertex_record": 7331,
+      "pixel_record": 7322,
+      "static_states": [
+        {
+          "file_offset": "0x050d5a54",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x0000000f"
+        }
+      ],
+      "dynamic_states": [
+        {
+          "file_offset": "0x050d5a5c",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "parameter_hash": "0xaad90e51",
+          "parameter_name": "useAlphaBlending",
+          "default_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x050d5a68",
+          "state": 14,
+          "state_name": "ZWRITEENABLE",
+          "parameter_hash": "0x98f8e281",
+          "parameter_name": "useZWrite",
+          "default_bits": "0x00000000"
+        }
+      ]
+    },
+    {
+      "shader_name": "staticterrain",
+      "shader_key": "0xe05b91aa",
+      "capability_mask": "0x00000101",
+      "variant": 603,
+      "technique": "TerrainHigh",
+      "technique_key": "0xccbf7ebc",
+      "pass_index": 1,
+      "pass_file_offset": "0x050e4310",
+      "pass_flags": "0x00000000",
+      "vertex_record": 7217,
+      "pixel_record": 7299,
+      "static_states": [
+        {
+          "file_offset": "0x050e43d0",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x050e43d8",
+          "state": 14,
+          "state_name": "ZWRITEENABLE",
+          "value_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x050e43e0",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        },
+        {
+          "file_offset": "0x050e43e8",
+          "state": 15,
+          "state_name": "ALPHATESTENABLE",
+          "value_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x050e43f0",
+          "state": 19,
+          "state_name": "SRCBLEND",
+          "value_bits": "0x00000005"
+        },
+        {
+          "file_offset": "0x050e43f8",
+          "state": 20,
+          "state_name": "DESTBLEND",
+          "value_bits": "0x00000006"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "staticterrain",
+      "shader_key": "0xe05b91aa",
+      "capability_mask": "0x00000104",
+      "variant": 436,
+      "technique": "TerrainHigh",
+      "technique_key": "0xccbf7ebc",
+      "pass_index": 1,
+      "pass_file_offset": "0x05152a70",
+      "pass_flags": "0x00000000",
+      "vertex_record": 9029,
+      "pixel_record": 9030,
+      "static_states": [
+        {
+          "file_offset": "0x05152b60",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x05152b68",
+          "state": 15,
+          "state_name": "ALPHATESTENABLE",
+          "value_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x05152b70",
+          "state": 19,
+          "state_name": "SRCBLEND",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x05152b78",
+          "state": 20,
+          "state_name": "DESTBLEND",
+          "value_bits": "0x00000003"
+        },
+        {
+          "file_offset": "0x05152b80",
+          "state": 14,
+          "state_name": "ZWRITEENABLE",
+          "value_bits": "0x00000000"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "staticterrain",
+      "shader_key": "0xe05b91aa",
+      "capability_mask": "0x00000104",
+      "variant": 436,
+      "technique": "TerrainHigh",
+      "technique_key": "0xccbf7ebc",
+      "pass_index": 2,
+      "pass_file_offset": "0x05152bac",
+      "pass_flags": "0x00000000",
+      "vertex_record": 9029,
+      "pixel_record": 9031,
+      "static_states": [
+        {
+          "file_offset": "0x05152ca8",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        },
+        {
+          "file_offset": "0x05152cb0",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x05152cb8",
+          "state": 15,
+          "state_name": "ALPHATESTENABLE",
+          "value_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x05152cc0",
+          "state": 19,
+          "state_name": "SRCBLEND",
+          "value_bits": "0x00000005"
+        },
+        {
+          "file_offset": "0x05152cc8",
+          "state": 20,
+          "state_name": "DESTBLEND",
+          "value_bits": "0x00000002"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "LotTerrain",
+      "shader_key": "0x11d0b721",
+      "capability_mask": "0x00000101",
+      "variant": 27,
+      "technique": "TerrainHigh",
+      "technique_key": "0xccbf7ebc",
+      "pass_index": 0,
+      "pass_file_offset": "0x023e8654",
+      "pass_flags": "0x00000000",
+      "vertex_record": 3311,
+      "pixel_record": 3314,
+      "static_states": [
+        {
+          "file_offset": "0x023e8708",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        },
+        {
+          "file_offset": "0x023e8710",
+          "state": 19,
+          "state_name": "SRCBLEND",
+          "value_bits": "0x00000002"
+        },
+        {
+          "file_offset": "0x023e8718",
+          "state": 20,
+          "state_name": "DESTBLEND",
+          "value_bits": "0x00000006"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "LotTerrain",
+      "shader_key": "0x11d0b721",
+      "capability_mask": "0x00000101",
+      "variant": 27,
+      "technique": "TerrainIndoor",
+      "technique_key": "0x8896cd55",
+      "pass_index": 0,
+      "pass_file_offset": "0x023e8788",
+      "pass_flags": "0x00000000",
+      "vertex_record": 3288,
+      "pixel_record": 3292,
+      "static_states": [
+        {
+          "file_offset": "0x023e8824",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        },
+        {
+          "file_offset": "0x023e882c",
+          "state": 19,
+          "state_name": "SRCBLEND",
+          "value_bits": "0x00000002"
+        },
+        {
+          "file_offset": "0x023e8834",
+          "state": 20,
+          "state_name": "DESTBLEND",
+          "value_bits": "0x00000006"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "tree",
+      "shader_key": "0xc602cd31",
+      "capability_mask": "0x00000104",
+      "variant": 226,
+      "technique": "branchMain",
+      "technique_key": "0xa5afdfea",
+      "pass_index": 0,
+      "pass_file_offset": "0x04c08c78",
+      "pass_flags": "0x00000000",
+      "vertex_record": 9187,
+      "pixel_record": 9218,
+      "static_states": [
+        {
+          "file_offset": "0x04c08d5c",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        },
+        {
+          "file_offset": "0x04c08d64",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x04c08d6c",
+          "state": 19,
+          "state_name": "SRCBLEND",
+          "value_bits": "0x00000005"
+        },
+        {
+          "file_offset": "0x04c08d74",
+          "state": 20,
+          "state_name": "DESTBLEND",
+          "value_bits": "0x00000006"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "tree",
+      "shader_key": "0xc602cd31",
+      "capability_mask": "0x00000104",
+      "variant": 226,
+      "technique": "leafCard",
+      "technique_key": "0x2baaac3f",
+      "pass_index": 0,
+      "pass_file_offset": "0x04c08ec8",
+      "pass_flags": "0x00000000",
+      "vertex_record": 0,
+      "pixel_record": 0,
+      "static_states": [
+        {
+          "file_offset": "0x04c08ef8",
+          "state": 22,
+          "state_name": "CULLMODE",
+          "value_bits": "0x00000001"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "tree",
+      "shader_key": "0xc602cd31",
+      "capability_mask": "0x00000104",
+      "variant": 211,
+      "technique": "branchMain",
+      "technique_key": "0xa5afdfea",
+      "pass_index": 0,
+      "pass_file_offset": "0x04c097a4",
+      "pass_flags": "0x00000000",
+      "vertex_record": 9157,
+      "pixel_record": 9148,
+      "static_states": [
+        {
+          "file_offset": "0x04c09858",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x0000000f"
+        },
+        {
+          "file_offset": "0x04c09860",
+          "state": 15,
+          "state_name": "ALPHATESTENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x04c09868",
+          "state": 24,
+          "state_name": "ALPHAREF",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x04c09870",
+          "state": 25,
+          "state_name": "ALPHAFUNC",
+          "value_bits": "0x00000002"
+        },
+        {
+          "file_offset": "0x04c09878",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "value_bits": "0x00000000"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "tree",
+      "shader_key": "0xc602cd31",
+      "capability_mask": "0x00000104",
+      "variant": 211,
+      "technique": "leafCard",
+      "technique_key": "0x2baaac3f",
+      "pass_index": 0,
+      "pass_file_offset": "0x04c099a4",
+      "pass_flags": "0x00000000",
+      "vertex_record": 9193,
+      "pixel_record": 9175,
+      "static_states": [
+        {
+          "file_offset": "0x04c09a94",
+          "state": 22,
+          "state_name": "CULLMODE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x04c09a9c",
+          "state": 27,
+          "state_name": "ALPHABLENDENABLE",
+          "value_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x04c09aa4",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x0000000f"
+        },
+        {
+          "file_offset": "0x04c09aac",
+          "state": 15,
+          "state_name": "ALPHATESTENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x04c09ab4",
+          "state": 24,
+          "state_name": "ALPHAREF",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x04c09abc",
+          "state": 25,
+          "state_name": "ALPHAFUNC",
+          "value_bits": "0x00000002"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "rug",
+      "shader_key": "0x2a72b9a1",
+      "capability_mask": "0x0000010f",
+      "variant": 1,
+      "technique": "Rug",
+      "technique_key": "0x2a72b9a1",
+      "pass_index": 0,
+      "pass_file_offset": "0x02bb2d7c",
+      "pass_flags": "0x00000000",
+      "vertex_record": 13634,
+      "pixel_record": 13633,
+      "static_states": [
+        {
+          "file_offset": "0x02bb2e30",
+          "state": 15,
+          "state_name": "ALPHATESTENABLE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x02bb2e38",
+          "state": 24,
+          "state_name": "ALPHAREF",
+          "value_bits": "0x00000080"
+        },
+        {
+          "file_offset": "0x02bb2e40",
+          "state": 25,
+          "state_name": "ALPHAFUNC",
+          "value_bits": "0x00000005"
+        },
+        {
+          "file_offset": "0x02bb2e48",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        },
+        {
+          "file_offset": "0x02bb2e50",
+          "state": 14,
+          "state_name": "ZWRITEENABLE",
+          "value_bits": "0x00000001"
+        }
+      ],
+      "dynamic_states": [
+        {
+          "file_offset": "0x02bb2e58",
+          "state": 195,
+          "state_name": "DEPTHBIAS",
+          "parameter_hash": "0x906997a9",
+          "parameter_name": "RugSort",
+          "default_bits": "0x00000000"
+        }
+      ]
+    },
+    {
+      "shader_name": "rug",
+      "shader_key": "0x2a72b9a1",
+      "capability_mask": "0x0000070f",
+      "variant": 74,
+      "technique": "Rug",
+      "technique_key": "0x2a72b9a1",
+      "pass_index": 0,
+      "pass_file_offset": "0x02bb647c",
+      "pass_flags": "0x00000000",
+      "vertex_record": 13652,
+      "pixel_record": 13660,
+      "static_states": [
+        {
+          "file_offset": "0x02bb656c",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x0000000f"
+        },
+        {
+          "file_offset": "0x02bb6574",
+          "state": 14,
+          "state_name": "ZWRITEENABLE",
+          "value_bits": "0x00000001"
+        }
+      ],
+      "dynamic_states": [
+        {
+          "file_offset": "0x02bb657c",
+          "state": 195,
+          "state_name": "DEPTHBIAS",
+          "parameter_hash": "0x906997a9",
+          "parameter_name": "RugSort",
+          "default_bits": "0x00000000"
+        }
+      ]
+    },
+    {
+      "shader_name": "roads",
+      "shader_key": "0x5e0ac22e",
+      "capability_mask": "0x00000101",
+      "variant": 38,
+      "technique": "Road",
+      "technique_key": "0x7dd0624f",
+      "pass_index": 0,
+      "pass_file_offset": "0x030cacbc",
+      "pass_flags": "0x00000000",
+      "vertex_record": 5304,
+      "pixel_record": 5350,
+      "static_states": [
+        {
+          "file_offset": "0x030cad88",
+          "state": 23,
+          "state_name": "ZFUNC",
+          "value_bits": "0x00000004"
+        },
+        {
+          "file_offset": "0x030cad90",
+          "state": 195,
+          "state_name": "DEPTHBIAS",
+          "value_bits": "0xb60637bd"
+        },
+        {
+          "file_offset": "0x030cad98",
+          "state": 175,
+          "state_name": "SLOPESCALEDEPTHBIAS",
+          "value_bits": "0xbf028f5c"
+        },
+        {
+          "file_offset": "0x030cada0",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "roads",
+      "shader_key": "0x5e0ac22e",
+      "capability_mask": "0x00000104",
+      "variant": 3714,
+      "technique": "Road",
+      "technique_key": "0x7dd0624f",
+      "pass_index": 0,
+      "pass_file_offset": "0x03169050",
+      "pass_flags": "0x00000000",
+      "vertex_record": 8929,
+      "pixel_record": 8930,
+      "static_states": [
+        {
+          "file_offset": "0x03169104",
+          "state": 23,
+          "state_name": "ZFUNC",
+          "value_bits": "0x00000004"
+        },
+        {
+          "file_offset": "0x0316910c",
+          "state": 14,
+          "state_name": "ZWRITEENABLE",
+          "value_bits": "0x00000000"
+        },
+        {
+          "file_offset": "0x03169114",
+          "state": 195,
+          "state_name": "DEPTHBIAS",
+          "value_bits": "0xb60637bd"
+        },
+        {
+          "file_offset": "0x0316911c",
+          "state": 175,
+          "state_name": "SLOPESCALEDEPTHBIAS",
+          "value_bits": "0xbf028f5c"
+        },
+        {
+          "file_offset": "0x03169124",
+          "state": 168,
+          "state_name": "",
+          "value_bits": "0x00000007"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "foliage",
+      "shader_key": "0x4549e22e",
+      "capability_mask": "0x00000104",
+      "variant": 0,
+      "technique": "Foliage",
+      "technique_key": "0x4549e22e",
+      "pass_index": 0,
+      "pass_file_offset": "0x02c97578",
+      "pass_flags": "0x00000000",
+      "vertex_record": 8721,
+      "pixel_record": 8722,
+      "static_states": [
+        {
+          "file_offset": "0x02c97668",
+          "state": 22,
+          "state_name": "CULLMODE",
+          "value_bits": "0x00000001"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "foliage",
+      "shader_key": "0x4549e22e",
+      "capability_mask": "0x00000104",
+      "variant": 0,
+      "technique": "AlphaTestShadows",
+      "technique_key": "0xea3394ce",
+      "pass_index": 0,
+      "pass_file_offset": "0x02c9768c",
+      "pass_flags": "0x00000000",
+      "vertex_record": 8723,
+      "pixel_record": 8724,
+      "static_states": [
+        {
+          "file_offset": "0x02c976d4",
+          "state": 22,
+          "state_name": "CULLMODE",
+          "value_bits": "0x00000001"
+        },
+        {
+          "file_offset": "0x02c976dc",
+          "state": 175,
+          "state_name": "SLOPESCALEDEPTHBIAS",
+          "value_bits": "0x40a00000"
+        }
+      ],
+      "dynamic_states": []
+    },
+    {
+      "shader_name": "RoadGrateDrain",
+      "shader_key": "0x8902b042",
+      "capability_mask": "0x0000010f",
+      "variant": 3845,
+      "technique": "RoadGrateDrain",
+      "technique_key": "0x8902b042",
+      "pass_index": 0,
+      "pass_file_offset": "0x041aa398",
+      "pass_flags": "0x00000000",
+      "vertex_record": 12437,
+      "pixel_record": 12470,
+      "static_states": [
+        {
+          "file_offset": "0x041aa4e8",
+          "state": 195,
+          "state_name": "DEPTHBIAS",
+          "value_bits": "0xb68637bd"
+        },
+        {
+          "file_offset": "0x041aa4f0",
+          "state": 175,
+          "state_name": "SLOPESCALEDEPTHBIAS",
+          "value_bits": "0xbf028f5c"
+        }
+      ],
+      "dynamic_states": []
+    }
+  ]
+}

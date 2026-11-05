@@ -1,0 +1,120 @@
+{
+  "reference": "Original The Sims 3 PC 1.67; native TS3W.exe and GameBin/UI/UI.package",
+  "nativePrimaryVtable": {
+    "address": "0x01046D00",
+    "installedByConstructor": "0x00972450 (store at0x00972472)",
+    "rawFirst96Bytes": "00 bf 7d 00 80 05 9c 00 90 40 97 00 30 fe 96 00 80 06 97 00 d0 57 97 00 60 fe 96 00 d0 58 97 00 b0 40 97 00 b0 93 78 00 40 07 97 00 80 30 97 00 d0 fe 96 00 f0 fe 96 00 30 22 96 00 90 2b 96 00 10 ff 96 00 40 ff 96 00 50 3d 51 00 70 2b 97 00 80 2b 97 00 b0 2b 97 00 a0 21 96 00 f0 47 97 00",
+    "reviewedSlots": [
+      {
+        "offset": "0x1C",
+        "cell": "0x01046D1C",
+        "littleEndianBytes": "d0 58 97 00",
+        "target": "0x009758D0",
+        "analystMeaning": "frame"
+      },
+      {
+        "offset": "0x40",
+        "cell": "0x01046D40",
+        "littleEndianBytes": "10 ff 96 00",
+        "target": "0x0096FF10",
+        "analystMeaning": "script held motion flags"
+      },
+      {
+        "offset": "0x44",
+        "cell": "0x01046D44",
+        "littleEndianBytes": "40 ff 96 00",
+        "target": "0x0096FF40",
+        "analystMeaning": "rotation drag and mouse capture"
+      },
+      {
+        "offset": "0x5C",
+        "cell": "0x01046D5C",
+        "littleEndianBytes": "f0 47 97 00",
+        "target": "0x009747F0",
+        "analystMeaning": "input trigger handler"
+      }
+    ]
+  },
+  "normalCameraTriggerResourceExcerpts": [
+    {
+      "key": "F0FF5598:00000000:2148660442B22211",
+      "originalExcerpt": [
+        "// Trigger configuration for camera (Normal Mode)",
+        "#define\tCameraMove\t\t\t\t\t\t0x0254000E",
+        "#define\tCameraFlagRotate\t\t\t\t0x02541005",
+        "?shift cont mouse_move \t\t= CameraMove",
+        "?shift mouse_button_middle\t= CameraFlagRotate",
+        "?shift control mouse_button_right = CameraFlagRotate"
+      ]
+    },
+    {
+      "key": "F0FF5598:00000000:62EC9813675C4070",
+      "originalExcerpt": [
+        "// Trigger configuration for camera (Normal Mode)",
+        "#define\tCameraMove\t\t\t\t\t\t0x0254000E",
+        "#define\tCameraFlagRotate\t\t\t\t0x02541005",
+        "?shift cont mouse_move \t\t= CameraMove",
+        "?shift mouse_button_middle\t= CameraFlagRotate",
+        "?shift control mouse_button_right = CameraFlagRotate"
+      ]
+    }
+  ],
+  "triggerRecordContract": {
+    "source": "0x009747F0 instruction branches",
+    "activeOrDownKind": "0x5ECE0000",
+    "rotationTrigger": "0x02541005",
+    "mouseMoveTrigger": "0x0254000E",
+    "recordOffsets": {
+      "0x04": "trigger ID",
+      "0x10": "logical X",
+      "0x14": "logical Y",
+      "0x18": "input source byte"
+    },
+    "sourceToBank": {
+      "1": 2,
+      "2": 1,
+      "4": 0
+    }
+  },
+  "windowMessageJumpTable": {
+    "function": "0x00599380",
+    "table": "0x005995F8",
+    "switchExpression": "event type at record+8 minus1",
+    "rawLittleEndianBytes": "7a 95 59 00 ba 95 59 00 b2 95 59 00 b2 95 59 00 a3 94 59 00 14 95 59 00 ca 93 59 00",
+    "targets": [
+      {
+        "eventType": 1,
+        "target": "0x0059957A"
+      },
+      {
+        "eventType": 2,
+        "target": "0x005995BA"
+      },
+      {
+        "eventType": 3,
+        "target": "0x005995B2"
+      },
+      {
+        "eventType": 4,
+        "target": "0x005995B2"
+      },
+      {
+        "eventType": 5,
+        "target": "0x005994A3"
+      },
+      {
+        "eventType": 6,
+        "target": "0x00599514"
+      },
+      {
+        "eventType": 7,
+        "target": "0x005993CA"
+      }
+    ]
+  },
+  "triggerPackageIdentity": {
+    "file": "GameBin/UI/UI.package",
+    "version": "original PC patch1.67",
+    "sha256": "1becdbe251b215152b30b7a0af1099ccc28d18854594ca91f213e8ec3bb1cfbf"
+  }
+}

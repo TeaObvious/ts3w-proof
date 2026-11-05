@@ -1,0 +1,19 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method public hidebysig static 
+		class Sims3.SimIFace.StateMachineClient Acquire (
+			class Sims3.SimIFace.IHasScriptProxy hostObject,
+			string stateMachineName
+		) cil managed 
+	{
+		// Method begins at RVA 0xf93a
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance class Sims3.SimIFace.IScriptProxy Sims3.SimIFace.IHasScriptProxy::get_Proxy()
+		IL_0006: callvirt instance valuetype Sims3.SimIFace.ObjectGuid Sims3.SimIFace.ITask::get_ObjectId()
+		IL_000b: ldarg.1
+		IL_000c: call class Sims3.SimIFace.StateMachineClient Sims3.SimIFace.StateMachineClient::Acquire(valuetype Sims3.SimIFace.ObjectGuid, string)
+		IL_0011: ret
+	} // end of method StateMachineClient::Acquire

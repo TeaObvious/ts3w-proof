@@ -1,0 +1,210 @@
+	.method private hidebysig static 
+		void SetMusicMode (
+			valuetype Sims3.Gameplay.Core.MusicMode mode
+		) cil managed 
+	{
+		// Method begins at RVA 0x2070d8
+		// Header size: 12
+		// Code size: 496 (0x1f0)
+		.maxstack 2
+		.locals init (
+			[0] string,
+			[1] bool,
+			[2] valuetype Sims3.Gameplay.Core.MusicMode,
+			[3] valuetype [SimIFace]Sims3.SimIFace.WorldName,
+			[4] valuetype [SimIFace]Sims3.SimIFace.WorldName
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldsfld valuetype Sims3.Gameplay.Core.MusicMode Sims3.Gameplay.Core.AudioManager::mMusicMode
+		IL_0006: beq IL_01ef
+
+		IL_000b: ldstr ""
+		IL_0010: stloc.0
+		IL_0011: ldc.i4.1
+		IL_0012: stloc.1
+		IL_0013: ldarg.0
+		IL_0014: stloc.2
+		IL_0015: ldloc.2
+		IL_0016: ldc.i4.1
+		IL_0017: sub
+		IL_0018: switch (IL_005a, IL_0065, IL_00a7, IL_0114, IL_012e, IL_00b2, IL_00fe, IL_0142, IL_0070, IL_007b, IL_0086, IL_0109, IL_0091, IL_009c)
+
+		IL_0055: br IL_01b1
+
+		IL_005a: ldstr "music_theme"
+		IL_005f: stloc.0
+		IL_0060: br IL_01b1
+
+		IL_0065: ldstr "music_load"
+		IL_006a: stloc.0
+		IL_006b: br IL_01b1
+
+		IL_0070: ldstr "load_loop_china"
+		IL_0075: stloc.0
+		IL_0076: br IL_01b1
+
+		IL_007b: ldstr "load_loop_egypt"
+		IL_0080: stloc.0
+		IL_0081: br IL_01b1
+
+		IL_0086: ldstr "load_loop_france"
+		IL_008b: stloc.0
+		IL_008c: br IL_01b1
+
+		IL_0091: ldstr "sims3_ep9_load_loop"
+		IL_0096: stloc.0
+		IL_0097: br IL_01b1
+
+		IL_009c: ldstr "sims3_ep11_load_loop"
+		IL_00a1: stloc.0
+		IL_00a2: br IL_01b1
+
+		IL_00a7: ldstr "music_mode_cas"
+		IL_00ac: stloc.0
+		IL_00ad: br IL_01b1
+
+		IL_00b2: call valuetype [SimIFace]Sims3.SimIFace.WorldName [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorld()
+		IL_00b7: stloc.3
+		IL_00b8: ldloc.3
+		IL_00b9: ldc.i4 140106568
+		IL_00be: beq.s IL_00dd
+
+		IL_00c0: ldloc.3
+		IL_00c1: ldc.i4 140106572
+		IL_00c6: beq.s IL_00d2
+
+		IL_00c8: ldloc.3
+		IL_00c9: ldc.i4 140106576
+		IL_00ce: beq.s IL_00e8
+
+		IL_00d0: br.s IL_00f3
+
+		IL_00d2: ldstr "music_mode_map_china"
+		IL_00d7: stloc.0
+		IL_00d8: br IL_01b1
+
+		IL_00dd: ldstr "music_mode_map_egypt"
+		IL_00e2: stloc.0
+		IL_00e3: br IL_01b1
+
+		IL_00e8: ldstr "music_mode_map_france"
+		IL_00ed: stloc.0
+		IL_00ee: br IL_01b1
+
+		IL_00f3: ldstr "music_mode_map"
+		IL_00f8: stloc.0
+		IL_00f9: br IL_01b1
+
+		IL_00fe: ldstr "music_mode_edit_town"
+		IL_0103: stloc.0
+		IL_0104: br IL_01b1
+
+		IL_0109: ldstr "music_mode_ingame_store"
+		IL_010e: stloc.0
+		IL_010f: br IL_01b1
+
+		IL_0114: ldsfld valuetype Sims3.Gameplay.Core.MusicMode Sims3.Gameplay.Core.AudioManager::mMusicMode
+		IL_0119: ldc.i4.5
+		IL_011a: bne.un.s IL_0123
+
+		IL_011c: ldc.i4.0
+		IL_011d: stloc.1
+		IL_011e: br IL_01b1
+
+		IL_0123: ldstr "music_mode_build"
+		IL_0128: stloc.0
+		IL_0129: br IL_01b1
+
+		IL_012e: ldsfld valuetype Sims3.Gameplay.Core.MusicMode Sims3.Gameplay.Core.AudioManager::mMusicMode
+		IL_0133: ldc.i4.4
+		IL_0134: bne.un.s IL_013a
+
+		IL_0136: ldc.i4.0
+		IL_0137: stloc.1
+		IL_0138: br.s IL_01b1
+
+		IL_013a: ldstr "music_mode_buy"
+		IL_013f: stloc.0
+		IL_0140: br.s IL_01b1
+
+		IL_0142: call valuetype [SimIFace]Sims3.SimIFace.WorldName [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorld()
+		IL_0147: stloc.s 4
+		IL_0149: ldloc.s 4
+		IL_014b: ldc.i4 140106572
+		IL_0150: bgt.s IL_0166
+
+		IL_0152: ldloc.s 4
+		IL_0154: ldc.i4 140106568
+		IL_0159: beq.s IL_018b
+
+		IL_015b: ldloc.s 4
+		IL_015d: ldc.i4 140106572
+		IL_0162: beq.s IL_0183
+
+		IL_0164: br.s IL_01ab
+
+		IL_0166: ldloc.s 4
+		IL_0168: ldc.i4 140106576
+		IL_016d: beq.s IL_0193
+
+		IL_016f: ldloc.s 4
+		IL_0171: ldc.i4 239192404
+		IL_0176: beq.s IL_019b
+
+		IL_0178: ldloc.s 4
+		IL_017a: ldc.i4 255197482
+		IL_017f: beq.s IL_01a3
+
+		IL_0181: br.s IL_01ab
+
+		IL_0183: ldstr "flyby_china"
+		IL_0188: stloc.0
+		IL_0189: br.s IL_01b1
+
+		IL_018b: ldstr "flyby_egypt"
+		IL_0190: stloc.0
+		IL_0191: br.s IL_01b1
+
+		IL_0193: ldstr "flyby_france"
+		IL_0198: stloc.0
+		IL_0199: br.s IL_01b1
+
+		IL_019b: ldstr "sting_ep9_flyby_arrive"
+		IL_01a0: stloc.0
+		IL_01a1: br.s IL_01b1
+
+		IL_01a3: ldstr "sting_ep11_portal_flyby"
+		IL_01a8: stloc.0
+		IL_01a9: br.s IL_01b1
+
+		IL_01ab: ldstr "music_mode_map"
+		IL_01b0: stloc.0
+
+		IL_01b1: ldsfld uint32 Sims3.Gameplay.Core.AudioManager::mMusicHandle
+		IL_01b6: brfalse.s IL_01cc
+
+		IL_01b8: ldloc.1
+		IL_01b9: brfalse.s IL_01cc
+
+		IL_01bb: ldsfld uint32 Sims3.Gameplay.Core.AudioManager::mMusicHandle
+		IL_01c0: call bool [SimIFace]Sims3.SimIFace.Audio::StopSound(uint32)
+		IL_01c5: pop
+		IL_01c6: ldc.i4.0
+		IL_01c7: stsfld uint32 Sims3.Gameplay.Core.AudioManager::mMusicHandle
+
+		IL_01cc: ldloc.0
+		IL_01cd: ldstr ""
+		IL_01d2: call bool [mscorlib]System.String::op_Inequality(string, string)
+		IL_01d7: brfalse.s IL_01e9
+
+		IL_01d9: ldloc.0
+		IL_01da: ldsfld class [SimIFace]Sims3.SimIFace.Sound/SoundFinished Sims3.Gameplay.Core.AudioManager::mSongFinishedCallback
+		IL_01df: call uint32 [SimIFace]Sims3.SimIFace.Audio::StartSound(string, class [mscorlib]System.Delegate)
+		IL_01e4: stsfld uint32 Sims3.Gameplay.Core.AudioManager::mMusicHandle
+
+		IL_01e9: ldarg.0
+		IL_01ea: stsfld valuetype Sims3.Gameplay.Core.MusicMode Sims3.Gameplay.Core.AudioManager::mMusicMode
+
+		IL_01ef: ret
+	} // end of method AudioManager::SetMusicMode

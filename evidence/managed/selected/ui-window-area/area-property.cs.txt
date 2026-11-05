@@ -1,0 +1,35 @@
+// Selected actual ILSpy members from pristine PC1.67 UI.dll.
+// Analyst note: these are complete managed property/forwarding members, not
+// a reconstruction of the native layout scheduler or unknown virtual targets.
+// Raw original CIL in the paired selection independently confirms property IDs,
+// inequality gate and gUIMgr forwarding; no original equality semantics are guessed.
+
+// Sims3.UI.WindowBase
+
+	public Rect Area
+	{
+		get
+		{
+			return UIManager.GetRectProperty(WinHandle, 4005670917u);
+		}
+		set
+		{
+			if (Area != value)
+			{
+				UIManager.SetRectProperty(WinHandle, 4005670917u, value);
+			}
+		}
+	}
+
+// Sims3.UI.UIManager
+
+	internal static void SetRectProperty(uint handle, uint propID, Rect value)
+	{
+		gUIMgr.SetRectFloatProperty(handle, propID, value);
+	}
+
+	internal static Rect GetRectProperty(uint handle, uint propID)
+	{
+		return gUIMgr.GetRectFloatProperty(handle, propID);
+	}
+

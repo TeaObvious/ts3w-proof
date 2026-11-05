@@ -1,0 +1,47 @@
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00767160 <.text+0x366160>:
+  767160:	51                   	push   ecx
+  767161:	e8 2a 22 00 00       	call   0x769390
+  767166:	8b 4c 24 08          	mov    ecx,DWORD PTR [esp+0x8]
+  76716a:	8b 10                	mov    edx,DWORD PTR [eax]
+  76716c:	8b 92 cc 00 00 00    	mov    edx,DWORD PTR [edx+0xcc]
+  767172:	51                   	push   ecx
+  767173:	8b c8                	mov    ecx,eax
+  767175:	ff d2                	call   edx
+  767177:	8b c8                	mov    ecx,eax
+  767179:	85 c9                	test   ecx,ecx
+  76717b:	74 4e                	je     0x7671cb
+  76717d:	8b 44 24 18          	mov    eax,DWORD PTR [esp+0x18]
+  767181:	83 f8 03             	cmp    eax,0x3
+  767184:	c6 04 24 00          	mov    BYTE PTR [esp],0x0
+  767188:	77 41                	ja     0x7671cb
+  76718a:	ff 24 85 d0 71 76 00 	jmp    DWORD PTR [eax*4+0x7671d0]
+  767191:	c6 04 24 01          	mov    BYTE PTR [esp],0x1
+  767195:	8b 04 24             	mov    eax,DWORD PTR [esp]
+  767198:	8b 54 24 14          	mov    edx,DWORD PTR [esp+0x14]
+  76719c:	50                   	push   eax
+  76719d:	8b 44 24 14          	mov    eax,DWORD PTR [esp+0x14]
+  7671a1:	52                   	push   edx
+  7671a2:	8b 54 24 14          	mov    edx,DWORD PTR [esp+0x14]
+  7671a6:	50                   	push   eax
+  7671a7:	52                   	push   edx
+  7671a8:	e8 83 ae 09 00       	call   0x802030
+  7671ad:	59                   	pop    ecx
+  7671ae:	c3                   	ret
+  7671af:	c6 04 24 01          	mov    BYTE PTR [esp],0x1
+  7671b3:	8b 04 24             	mov    eax,DWORD PTR [esp]
+  7671b6:	8b 54 24 14          	mov    edx,DWORD PTR [esp+0x14]
+  7671ba:	50                   	push   eax
+  7671bb:	8b 44 24 14          	mov    eax,DWORD PTR [esp+0x14]
+  7671bf:	52                   	push   edx
+  7671c0:	8b 54 24 14          	mov    edx,DWORD PTR [esp+0x14]
+  7671c4:	50                   	push   eax
+  7671c5:	52                   	push   edx
+  7671c6:	e8 a5 a6 09 00       	call   0x801870
+  7671cb:	59                   	pop    ecx
+  7671cc:	c3                   	ret

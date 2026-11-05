@@ -1,0 +1,755 @@
+.class public auto ansi sealed beforefieldinit Sims3.Gameplay.Scuba.ScubaDive
+	extends class Sims3.Gameplay.Interactions.Interaction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>
+	implements Sims3.Gameplay.Objects.Vehicles.ITransitionForcesGetOutIntoWater
+{
+	// Nested Types
+	.class nested private auto ansi sealed beforefieldinit Definition
+		extends class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Scuba.ScubaDive>
+	{
+		// Fields
+		.field private string mMenuPath
+		.field private bool mRetroOutfit
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x45c9c9
+			// Header size: 1
+			// Code size: 18 (0x12)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldstr ""
+			IL_0006: stfld string Sims3.Gameplay.Scuba.ScubaDive/Definition::mMenuPath
+			IL_000b: ldarg.0
+			IL_000c: call instance void class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Scuba.ScubaDive>::.ctor()
+			IL_0011: ret
+		} // end of method Definition::.ctor
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor (
+				string menuPath,
+				bool retro
+			) cil managed 
+		{
+			// Method begins at RVA 0x45c9dc
+			// Header size: 1
+			// Code size: 32 (0x20)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldstr ""
+			IL_0006: stfld string Sims3.Gameplay.Scuba.ScubaDive/Definition::mMenuPath
+			IL_000b: ldarg.0
+			IL_000c: call instance void class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Scuba.ScubaDive>::.ctor()
+			IL_0011: ldarg.0
+			IL_0012: ldarg.2
+			IL_0013: stfld bool Sims3.Gameplay.Scuba.ScubaDive/Definition::mRetroOutfit
+			IL_0018: ldarg.0
+			IL_0019: ldarg.1
+			IL_001a: stfld string Sims3.Gameplay.Scuba.ScubaDive/Definition::mMenuPath
+			IL_001f: ret
+		} // end of method Definition::.ctor
+
+		.method public hidebysig virtual 
+			instance string[] GetPath (
+				bool isFemale
+			) cil managed 
+		{
+			// Method begins at RVA 0x45ca00
+			// Header size: 12
+			// Code size: 43 (0x2b)
+			.maxstack 3
+			.locals init (
+				[0] string[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld string Sims3.Gameplay.Scuba.ScubaDive/Definition::mMenuPath
+			IL_0006: ldstr ""
+			IL_000b: call bool [mscorlib]System.String::op_Equality(string, string)
+			IL_0010: brfalse.s IL_0019
+
+			IL_0012: ldc.i4.0
+			IL_0013: newarr [mscorlib]System.String
+			IL_0018: ret
+
+			IL_0019: ldc.i4.1
+			IL_001a: newarr [mscorlib]System.String
+			IL_001f: stloc.0
+			IL_0020: ldloc.0
+			IL_0021: ldc.i4.0
+			IL_0022: ldarg.0
+			IL_0023: ldfld string Sims3.Gameplay.Scuba.ScubaDive/Definition::mMenuPath
+			IL_0028: stelem.ref
+			IL_0029: ldloc.0
+			IL_002a: ret
+		} // end of method Definition::GetPath
+
+		.method family hidebysig virtual 
+			instance bool Test (
+				class Sims3.Gameplay.Actors.Sim actor,
+				class Sims3.Gameplay.Actors.Sim target,
+				bool isAutonomous,
+				class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+			) cil managed 
+		{
+			// Method begins at RVA 0x45ca37
+			// Header size: 1
+			// Code size: 5 (0x5)
+			.maxstack 8
+
+			IL_0000: ldarg.1
+			IL_0001: ldarg.2
+			IL_0002: ceq
+			IL_0004: ret
+		} // end of method Definition::Test
+
+		.method public hidebysig virtual 
+			instance valuetype Sims3.Gameplay.Interactions.InteractionTestResult Test (
+				valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters,
+				class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+			) cil managed 
+		{
+			// Method begins at RVA 0x45ca40
+			// Header size: 12
+			// Code size: 92 (0x5c)
+			.maxstack 3
+			.locals init (
+				[0] valuetype Sims3.Gameplay.Interactions.InteractionTestResult
+			)
+
+			IL_0000: ldarg.1
+			IL_0001: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_0006: isinst Sims3.Gameplay.Actors.Sim
+			IL_000b: ldarg.1
+			IL_000c: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_0011: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Interfaces.IGameObject::get_LotCurrent()
+			IL_0016: call bool Sims3.Gameplay.Scuba.ScubaDiving::ScubaTest(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot)
+			IL_001b: brfalse.s IL_0056
+
+			IL_001d: ldarg.0
+			IL_001e: ldarg.1
+			IL_001f: ldarg.2
+			IL_0020: call instance valuetype Sims3.Gameplay.Interactions.InteractionTestResult class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Scuba.ScubaDive>::Test(valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+			IL_0025: dup
+			IL_0026: stloc.0
+			IL_0027: call bool Sims3.Gameplay.Interactions.InteractionDefinitionUtilities::IsPass(valuetype Sims3.Gameplay.Interactions.InteractionTestResult)
+			IL_002c: brfalse.s IL_0054
+
+			IL_002e: ldarg.1
+			IL_002f: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_0034: isinst Sims3.Gameplay.Actors.Sim
+			IL_0039: ldarg.1
+			IL_003a: call instance class Sims3.Gameplay.Interfaces.IActor Sims3.Gameplay.Interactions.InteractionInstanceParameters::get_Actor()
+			IL_003f: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Interfaces.IGameObject::get_LotCurrent()
+			IL_0044: ldarg.2
+			IL_0045: call bool Sims3.Gameplay.Scuba.ScubaDiving::ScubaTestTooltips(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Core.Lot, class [UI]Sims3.SimIFace.GreyedOutTooltipCallback&)
+			IL_004a: brtrue.s IL_0052
+
+			IL_004c: ldc.i4 128
+			IL_0051: ret
+
+			IL_0052: ldc.i4.0
+			IL_0053: ret
+
+			IL_0054: ldloc.0
+			IL_0055: ret
+
+			IL_0056: ldc.i4 128
+			IL_005b: ret
+		} // end of method Definition::Test
+
+		.method family hidebysig virtual 
+			instance string GetInteractionName (
+				class Sims3.Gameplay.Actors.Sim actor,
+				class Sims3.Gameplay.Actors.Sim target,
+				class Sims3.Gameplay.Autonomy.InteractionObjectPair iop
+			) cil managed 
+		{
+			// Method begins at RVA 0x45caa8
+			// Header size: 1
+			// Code size: 19 (0x13)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld string Sims3.Gameplay.Scuba.ScubaDive/Definition::mMenuPath
+			IL_0006: ldarg.0
+			IL_0007: ldfld bool Sims3.Gameplay.Scuba.ScubaDive/Definition::mRetroOutfit
+			IL_000c: ldarg.1
+			IL_000d: call string Sims3.Gameplay.Scuba.ScubaDiving::SharedGetInteractionName(string, bool, class Sims3.Gameplay.Actors.Sim)
+			IL_0012: ret
+		} // end of method Definition::GetInteractionName
+
+		.method family hidebysig virtual 
+			instance class Sims3.Gameplay.Interactions.InteractionInstance CreateInstance (
+				valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters& parameters
+			) cil managed 
+		{
+			// Method begins at RVA 0x45cabc
+			// Header size: 12
+			// Code size: 29 (0x1d)
+			.maxstack 2
+			.locals init (
+				[0] class Sims3.Gameplay.Scuba.ScubaDive
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldarg.1
+			IL_0002: call instance class Sims3.Gameplay.Interactions.InteractionInstance class Sims3.Gameplay.Interactions.InteractionDefinition`3<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Scuba.ScubaDive>::CreateInstance(valuetype Sims3.Gameplay.Interactions.InteractionInstanceParameters&)
+			IL_0007: isinst Sims3.Gameplay.Scuba.ScubaDive
+			IL_000c: stloc.0
+			IL_000d: ldarg.0
+			IL_000e: ldfld bool Sims3.Gameplay.Scuba.ScubaDive/Definition::mRetroOutfit
+			IL_0013: brfalse.s IL_001b
+
+			IL_0015: ldloc.0
+			IL_0016: callvirt instance void Sims3.Gameplay.Scuba.ScubaDive::SetRetroOutfit()
+
+			IL_001b: ldloc.0
+			IL_001c: ret
+		} // end of method Definition::CreateInstance
+
+		.method family hidebysig virtual 
+			instance void AddInteractions (
+				class Sims3.Gameplay.Autonomy.InteractionObjectPair iop,
+				class Sims3.Gameplay.Actors.Sim actor,
+				class Sims3.Gameplay.Actors.Sim target,
+				class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair> results
+			) cil managed 
+		{
+			// Method begins at RVA 0x45cae8
+			// Header size: 12
+			// Code size: 128 (0x80)
+			.maxstack 4
+			.locals init (
+				[0] string
+			)
+
+			IL_0000: ldarg.2
+			IL_0001: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0006: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsMatureMermaid()
+			IL_000b: brtrue.s IL_0077
+
+			IL_000d: ldarg.2
+			IL_000e: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsEP11Bot()
+			IL_0013: brtrue.s IL_0077
+
+			IL_0015: ldarg.2
+			IL_0016: callvirt instance class Sims3.Gameplay.Skills.SkillManager Sims3.Gameplay.Actors.Sim::get_SkillManager()
+			IL_001b: ldc.i4 144
+			IL_0020: conv.i8
+			IL_0021: callvirt instance int32 Sims3.Gameplay.Skills.SkillManager::GetSkillLevel(valuetype Sims3.Gameplay.Skills.SkillNames)
+			IL_0026: ldc.i4 144
+			IL_002b: conv.i8
+			IL_002c: call int32 Sims3.Gameplay.Skills.SkillManager::GetMaximumSupportedSkillLevel(valuetype Sims3.Gameplay.Skills.SkillNames)
+			IL_0031: bne.un.s IL_0077
+
+			IL_0033: ldstr "Gameplay/Actors/Sim/ScubaDive:InteractionName"
+			IL_0038: ldc.i4.0
+			IL_0039: newarr [mscorlib]System.Object
+			IL_003e: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+			IL_0043: call string Sims3.Gameplay.Utilities.Localization::get_Ellipsis()
+			IL_0048: call string [mscorlib]System.String::Concat(string, string)
+			IL_004d: stloc.0
+			IL_004e: ldarg.s results
+			IL_0050: ldloc.0
+			IL_0051: ldc.i4.1
+			IL_0052: newobj instance void Sims3.Gameplay.Scuba.ScubaDive/Definition::.ctor(string, bool)
+			IL_0057: ldarg.3
+			IL_0058: newobj instance void Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class Sims3.Gameplay.Interactions.InteractionDefinition, class Sims3.Gameplay.Interfaces.IGameObject)
+			IL_005d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+			IL_0062: ldarg.s results
+			IL_0064: ldloc.0
+			IL_0065: ldc.i4.0
+			IL_0066: newobj instance void Sims3.Gameplay.Scuba.ScubaDive/Definition::.ctor(string, bool)
+			IL_006b: ldarg.3
+			IL_006c: newobj instance void Sims3.Gameplay.Autonomy.InteractionObjectPair::.ctor(class Sims3.Gameplay.Interactions.InteractionDefinition, class Sims3.Gameplay.Interfaces.IGameObject)
+			IL_0071: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+			IL_0076: ret
+
+			IL_0077: ldarg.s results
+			IL_0079: ldarg.1
+			IL_007a: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Autonomy.InteractionObjectPair>::Add(!0)
+			IL_007f: ret
+		} // end of method Definition::AddInteractions
+
+	} // end of class Definition
+
+
+	// Fields
+	.field public static initonly class Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+	.field private valuetype [SimIFace]Sims3.SimIFace.Vector3 mPos
+	.field private valuetype [SimIFace]Sims3.SimIFace.Vector3 mFwd
+	.field private bool mActorIsMermaid
+	.field private bool mRetroOutfit
+	.field private class Sims3.Gameplay.Core.Jig mJig
+
+	// Methods
+	.method public hidebysig virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.ThumbnailKey GetIconKey () cil managed 
+	{
+		// Method begins at RVA 0x45c564
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldstr "w_go_scuba_diving"
+		IL_0005: ldc.i4 262144
+		IL_000a: call uint32 [SimIFace]Sims3.SimIFace.ResourceUtils::ProductVersionToGroupId(valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+		IL_000f: call valuetype [SimIFace]Sims3.SimIFace.ResourceKey [SimIFace]Sims3.SimIFace.ResourceKey::CreatePNGKey(string, uint32)
+		IL_0014: ldc.i4.2
+		IL_0015: newobj instance void [SimIFace]Sims3.SimIFace.ThumbnailKey::.ctor(valuetype [SimIFace]Sims3.SimIFace.ResourceKey, valuetype [SimIFace]Sims3.SimIFace.ThumbnailSize)
+		IL_001a: ret
+	} // end of method ScubaDive::GetIconKey
+
+	.method public hidebysig 
+		instance void SetRetroOutfit () cil managed 
+	{
+		// Method begins at RVA 0x45c580
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.Gameplay.Scuba.ScubaDive::mRetroOutfit
+		IL_0007: ret
+	} // end of method ScubaDive::SetRetroOutfit
+
+	.method family hidebysig virtual 
+		instance bool Run () cil managed 
+	{
+		// Method begins at RVA 0x45c58c
+		// Header size: 12
+		// Code size: 703 (0x2bf)
+		.maxstack 5
+		.locals init (
+			[0] bool,
+			[1] class Sims3.Gameplay.Pools.SwimmingInPool,
+			[2] class Sims3.Gameplay.Scuba.ScubaDiving
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0006: callvirt instance class Sims3.Gameplay.Skills.SkillManager Sims3.Gameplay.Actors.Sim::get_SkillManager()
+		IL_000b: ldc.i4 144
+		IL_0010: conv.i8
+		IL_0011: callvirt instance class Sims3.Gameplay.Skills.Skill Sims3.Gameplay.Skills.SkillManager::AddElement(valuetype Sims3.Gameplay.Skills.SkillNames)
+		IL_0016: pop
+		IL_0017: ldarg.0
+		IL_0018: ldarg.0
+		IL_0019: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_001e: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0023: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Scuba.ScubaDive::mPos
+		IL_0028: ldarg.0
+		IL_0029: ldarg.0
+		IL_002a: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_002f: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_ForwardVector()
+		IL_0034: stfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Scuba.ScubaDive::mFwd
+		IL_0039: ldarg.0
+		IL_003a: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_003f: ldc.i4.0
+		IL_0040: ldarg.0
+		IL_0041: ldflda valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Scuba.ScubaDive::mPos
+		IL_0046: ldarg.0
+		IL_0047: ldflda valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Scuba.ScubaDive::mFwd
+		IL_004c: ldc.i4 35651584
+		IL_0051: call bool Sims3.Gameplay.GlobalFunctions::FindGoodLocationNearbyOnLevel(class Sims3.Gameplay.Interfaces.IGameObject, int32, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.FindGoodLocationBooleans)
+		IL_0056: brtrue.s IL_005a
+
+		IL_0058: ldc.i4.0
+		IL_0059: ret
+
+		IL_005a: ldarg.0
+		IL_005b: ldarg.0
+		IL_005c: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0061: call class Sims3.Gameplay.Interfaces.IGameObject Sims3.Gameplay.GlobalFunctions::CreateJigFromObject(class Sims3.Gameplay.Interfaces.IGameObject)
+		IL_0066: isinst Sims3.Gameplay.Core.Jig
+		IL_006b: stfld class Sims3.Gameplay.Core.Jig Sims3.Gameplay.Scuba.ScubaDive::mJig
+		IL_0070: ldarg.0
+		IL_0071: ldfld class Sims3.Gameplay.Core.Jig Sims3.Gameplay.Scuba.ScubaDive::mJig
+		IL_0076: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::AddToWorld()
+		IL_007b: ldarg.0
+		IL_007c: ldfld class Sims3.Gameplay.Core.Jig Sims3.Gameplay.Scuba.ScubaDive::mJig
+		IL_0081: ldarg.0
+		IL_0082: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Scuba.ScubaDive::mPos
+		IL_0087: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_008c: ldarg.0
+		IL_008d: ldfld class Sims3.Gameplay.Core.Jig Sims3.Gameplay.Scuba.ScubaDive::mJig
+		IL_0092: ldarg.0
+		IL_0093: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Scuba.ScubaDive::mFwd
+		IL_0098: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetForward(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_009d: ldarg.0
+		IL_009e: ldarg.0
+		IL_009f: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_00a4: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_00a9: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsMatureMermaid()
+		IL_00ae: stfld bool Sims3.Gameplay.Scuba.ScubaDive::mActorIsMermaid
+		IL_00b3: ldarg.0
+		IL_00b4: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_00b9: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsSelectable()
+		IL_00be: brfalse.s IL_00d0
+
+		IL_00c0: ldarg.0
+		IL_00c1: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_00c6: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_00cb: call void Sims3.Gameplay.ActorSystems.NPCMermaidManager::RequestNPCMermaidToDiveLot(class Sims3.Gameplay.Core.Lot)
+
+		IL_00d0: ldarg.0
+		IL_00d1: ldfld bool Sims3.Gameplay.Scuba.ScubaDive::mActorIsMermaid
+		IL_00d6: brfalse IL_017b
+
+		IL_00db: ldarg.0
+		IL_00dc: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_00e1: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_00e6: call void Sims3.Gameplay.ActorSystems.OccultMermaid::PutOnTailWithSpin(class Sims3.Gameplay.CAS.SimDescription)
+		IL_00eb: ldarg.0
+		IL_00ec: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_00f1: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+		IL_00f6: callvirt instance bool Sims3.Gameplay.CAS.Household::get_IsMermaidHousehold()
+		IL_00fb: brfalse.s IL_017b
+
+		IL_00fd: ldarg.0
+		IL_00fe: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0103: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0108: call void Sims3.Gameplay.ActorSystems.NPCMermaidManager::ClearNPCMermaidToDiveLotRequest(class Sims3.Gameplay.Core.Lot)
+		IL_010d: ldarg.0
+		IL_010e: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0113: callvirt instance class Sims3.Gameplay.Autonomy.Motives Sims3.Gameplay.Actors.Sim::get_Motives()
+		IL_0118: ldc.i4 17774816
+		IL_011d: ldsfld float32 Sims3.Gameplay.ActorSystems.NPCMermaidManager::kNPCMermaidDiveSocialDelta
+		IL_0122: callvirt instance void Sims3.Gameplay.Autonomy.Motives::ChangeValue(valuetype Sims3.Gameplay.Autonomy.CommodityKind, float32)
+		IL_0127: ldarg.0
+		IL_0128: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_012d: callvirt instance class Sims3.Gameplay.Autonomy.Motives Sims3.Gameplay.Actors.Sim::get_Motives()
+		IL_0132: ldc.i4 17774808
+		IL_0137: callvirt instance void Sims3.Gameplay.Autonomy.Motives::ForceSetMax(valuetype Sims3.Gameplay.Autonomy.CommodityKind)
+		IL_013c: ldarg.0
+		IL_013d: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0142: callvirt instance class Sims3.Gameplay.Autonomy.Motives Sims3.Gameplay.Actors.Sim::get_Motives()
+		IL_0147: ldc.i4 17774807
+		IL_014c: callvirt instance void Sims3.Gameplay.Autonomy.Motives::ForceSetMax(valuetype Sims3.Gameplay.Autonomy.CommodityKind)
+		IL_0151: ldarg.0
+		IL_0152: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0157: callvirt instance class Sims3.Gameplay.Autonomy.Motives Sims3.Gameplay.Actors.Sim::get_Motives()
+		IL_015c: ldc.i4 17774806
+		IL_0161: callvirt instance void Sims3.Gameplay.Autonomy.Motives::ForceSetMax(valuetype Sims3.Gameplay.Autonomy.CommodityKind)
+		IL_0166: ldarg.0
+		IL_0167: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_016c: callvirt instance class Sims3.Gameplay.Autonomy.Motives Sims3.Gameplay.Actors.Sim::get_Motives()
+		IL_0171: ldc.i4 17774810
+		IL_0176: callvirt instance void Sims3.Gameplay.Autonomy.Motives::ForceSetMax(valuetype Sims3.Gameplay.Autonomy.CommodityKind)
+
+		IL_017b: ldarg.0
+		IL_017c: ldfld bool Sims3.Gameplay.Scuba.ScubaDive::mActorIsMermaid
+		IL_0181: brtrue.s IL_01cb
+
+		IL_0183: ldarg.0
+		IL_0184: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0189: callvirt instance class Sims3.Gameplay.Services.Service Sims3.Gameplay.Actors.Sim::get_Service()
+		IL_018e: isinst Sims3.Gameplay.Services.GrimReaper
+		IL_0193: brtrue.s IL_01cb
+
+		IL_0195: ldarg.0
+		IL_0196: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_019b: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsEP11Bot()
+		IL_01a0: brtrue.s IL_01cb
+
+		IL_01a2: ldc.i4.0
+		IL_01a3: stloc.0
+		IL_01a4: ldarg.0
+		IL_01a5: ldfld bool Sims3.Gameplay.Scuba.ScubaDive::mRetroOutfit
+		IL_01aa: brfalse.s IL_01ba
+
+		IL_01ac: ldarg.0
+		IL_01ad: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_01b2: call bool Sims3.Gameplay.Scuba.ScubaDiving::PutOnRetroScubaOutfit(class Sims3.Gameplay.Actors.Sim)
+		IL_01b7: stloc.0
+		IL_01b8: br.s IL_01c6
+
+		IL_01ba: ldarg.0
+		IL_01bb: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_01c0: call bool Sims3.Gameplay.Scuba.ScubaDiving::PutOnScubaOutfit(class Sims3.Gameplay.Actors.Sim)
+		IL_01c5: stloc.0
+
+		IL_01c6: ldloc.0
+		IL_01c7: brtrue.s IL_01cb
+
+		IL_01c9: ldc.i4.0
+		IL_01ca: ret
+
+		IL_01cb: ldarg.0
+		IL_01cc: call instance void Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+		IL_01d1: ldarg.0
+		IL_01d2: ldstr "ScubaPosture"
+		IL_01d7: ldstr "Surface"
+		IL_01dc: ldstr "x"
+		IL_01e1: call instance void Sims3.Gameplay.Interactions.InteractionInstance::EnterStateMachine(string, string, string)
+		IL_01e6: ldarg.0
+		IL_01e7: ldstr "isMermaid"
+		IL_01ec: ldarg.0
+		IL_01ed: ldfld bool Sims3.Gameplay.Scuba.ScubaDive::mActorIsMermaid
+		IL_01f2: call instance void Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, bool)
+		IL_01f7: ldarg.0
+		IL_01f8: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+		IL_01fd: ldc.i4.s 101
+		IL_01ff: ldarg.0
+		IL_0200: ldftn instance void Sims3.Gameplay.Scuba.ScubaDive::TransitionCamera(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_0206: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_020b: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_0210: ldarg.0
+		IL_0211: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+		IL_0216: ldc.i4.s 102
+		IL_0218: ldarg.0
+		IL_0219: ldftn instance void Sims3.Gameplay.Scuba.ScubaDive::FadeOut(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_021f: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_0224: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_0229: ldarg.0
+		IL_022a: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+		IL_022f: ldc.i4.s 103
+		IL_0231: ldarg.0
+		IL_0232: ldftn instance void Sims3.Gameplay.Scuba.ScubaDive::FadeIn(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_0238: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_023d: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::AddOneShotScriptEventHandler(uint32, class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_0242: ldarg.0
+		IL_0243: ldstr "InScuba"
+		IL_0248: call instance void Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+		IL_024d: ldarg.0
+		IL_024e: ldc.i4.1
+		IL_024f: call instance void Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+		IL_0254: ldarg.0
+		IL_0255: ldfld bool Sims3.Gameplay.Scuba.ScubaDive::mActorIsMermaid
+		IL_025a: brfalse.s IL_0277
+
+		IL_025c: ldarg.0
+		IL_025d: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0262: callvirt instance class Sims3.Gameplay.ActorSystems.Posture Sims3.Gameplay.Actors.Sim::get_Posture()
+		IL_0267: isinst Sims3.Gameplay.Pools.SwimmingInPool
+		IL_026c: stloc.1
+		IL_026d: ldloc.1
+		IL_026e: brfalse.s IL_0277
+
+		IL_0270: ldloc.1
+		IL_0271: ldc.i4.1
+		IL_0272: stfld bool Sims3.Gameplay.Pools.SwimmingInPool::mLeaveMermaidTailOnWhenExiting
+
+		IL_0277: ldarg.0
+		IL_0278: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_027d: ldnull
+		IL_027e: callvirt instance void Sims3.Gameplay.Actors.Sim::set_Posture(class Sims3.Gameplay.ActorSystems.Posture)
+		IL_0283: ldarg.0
+		IL_0284: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+		IL_0289: call class Sims3.Gameplay.Pools.Ocean Sims3.Gameplay.Pools.Ocean::get_Singleton()
+		IL_028e: ldarg.0
+		IL_028f: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0294: newobj instance void Sims3.Gameplay.Scuba.ScubaDiving::.ctor(class [SimIFace]Sims3.SimIFace.StateMachineClient, class Sims3.Gameplay.Pools.Ocean, class Sims3.Gameplay.Actors.Sim)
+		IL_0299: stloc.2
+		IL_029a: ldarg.0
+		IL_029b: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_02a0: ldloc.2
+		IL_02a1: callvirt instance void Sims3.Gameplay.Actors.Sim::set_Posture(class Sims3.Gameplay.ActorSystems.Posture)
+		IL_02a6: ldloc.2
+		IL_02a7: callvirt instance void Sims3.Gameplay.Scuba.ScubaDiving::StartBubbleEffects()
+		IL_02ac: ldc.i4 1392
+		IL_02b1: ldarg.0
+		IL_02b2: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_02b7: call class Sims3.Gameplay.EventSystem.Event Sims3.Gameplay.EventSystem.EventTracker::SendEvent(valuetype Sims3.Gameplay.EventSystem.EventTypeId, class Sims3.Gameplay.Interfaces.IActor)
+		IL_02bc: pop
+		IL_02bd: ldc.i4.1
+		IL_02be: ret
+	} // end of method ScubaDive::Run
+
+	.method private hidebysig 
+		instance void FadeOut (
+			class [SimIFace]Sims3.SimIFace.StateMachineClient sender,
+			class [SimIFace]Sims3.SimIFace.IEvent evt
+		) cil managed 
+	{
+		// Method begins at RVA 0x45c857
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0006: ldc.i4.0
+		IL_0007: ldc.i4.0
+		IL_0008: ldc.r4 0.4
+		IL_000d: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::FadeOut(bool, bool, float32)
+		IL_0012: ret
+	} // end of method ScubaDive::FadeOut
+
+	.method private hidebysig 
+		instance void TransitionCamera (
+			class [SimIFace]Sims3.SimIFace.StateMachineClient sender,
+			class [SimIFace]Sims3.SimIFace.IEvent evt
+		) cil managed 
+	{
+		// Method begins at RVA 0x45c86b
+		// Header size: 1
+		// Code size: 56 (0x38)
+		.maxstack 8
+
+		IL_0000: ldsfld class Sims3.Gameplay.Core.Camera/CameraFollow Sims3.Gameplay.Core.Camera::sCameraFollow
+		IL_0005: brfalse.s IL_0037
+
+		IL_0007: ldsfld class Sims3.Gameplay.Core.Camera/CameraFollow Sims3.Gameplay.Core.Camera::sCameraFollow
+		IL_000c: ldarg.0
+		IL_000d: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0012: callvirt instance bool Sims3.Gameplay.Core.Camera/CameraFollow::IsSimBeingFollowed(class Sims3.Gameplay.Actors.Sim)
+		IL_0017: brfalse.s IL_0037
+
+		IL_0019: ldarg.0
+		IL_001a: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_001f: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0024: ldc.i4.0
+		IL_0025: callvirt instance bool Sims3.Gameplay.Core.Lot::SetDisplayLevel(int32)
+		IL_002a: pop
+		IL_002b: ldarg.0
+		IL_002c: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0031: ldc.i4.1
+		IL_0032: call void Sims3.Gameplay.Core.Camera::FollowSim(class Sims3.Gameplay.Actors.Sim, bool)
+
+		IL_0037: ret
+	} // end of method ScubaDive::TransitionCamera
+
+	.method private hidebysig 
+		instance void FadeIn (
+			class [SimIFace]Sims3.SimIFace.StateMachineClient sender,
+			class [SimIFace]Sims3.SimIFace.IEvent evt
+		) cil managed 
+	{
+		// Method begins at RVA 0x45c8a4
+		// Header size: 12
+		// Code size: 131 (0x83)
+		.maxstack 4
+		.locals init (
+			[0] class Sims3.Gameplay.UI.HudModel
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Scuba.ScubaDive::mActorIsMermaid
+		IL_0006: brfalse.s IL_0013
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_000e: call void Sims3.Gameplay.ActorSystems.OccultMermaid::SatsifyDivingDeficiency(class Sims3.Gameplay.Actors.Sim)
+
+		IL_0013: ldarg.0
+		IL_0014: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_0019: ldarg.0
+		IL_001a: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Scuba.ScubaDive::mPos
+		IL_001f: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetPosition(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0024: ldarg.0
+		IL_0025: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_002a: ldarg.0
+		IL_002b: ldfld valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Scuba.ScubaDive::mFwd
+		IL_0030: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::SetForward(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_0035: ldarg.0
+		IL_0036: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_003b: ldc.i4.0
+		IL_003c: ldc.r4 0.4
+		IL_0041: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::FadeIn(bool, float32)
+		IL_0046: ldarg.0
+		IL_0047: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_004c: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsSelectable()
+		IL_0051: brfalse.s IL_0082
+
+		IL_0053: call class [UI]Sims3.UI.IResponder [UI]Sims3.UI.Responder::get_Instance()
+		IL_0058: callvirt instance class [UI]Sims3.UI.Hud.IHudModel [UI]Sims3.UI.IResponder::get_HudModel()
+		IL_005d: isinst Sims3.Gameplay.UI.HudModel
+		IL_0062: stloc.0
+		IL_0063: ldloc.0
+		IL_0064: brfalse.s IL_0082
+
+		IL_0066: ldloc.0
+		IL_0067: ldnull
+		IL_0068: ldarg.0
+		IL_0069: ldfld !0 class Sims3.Gameplay.Interactions.InteractionInstance`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::Actor
+		IL_006e: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0073: callvirt instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_0078: newobj instance void [SimIFace]Sims3.SimIFace.World/LotLevelInfoChangeEventArgs::.ctor(uint64)
+		IL_007d: callvirt instance void Sims3.Gameplay.UI.HudModel::OnLotLevelInfoChange(object, class [mscorlib]System.EventArgs)
+
+		IL_0082: ret
+	} // end of method ScubaDive::FadeIn
+
+	.method public hidebysig virtual 
+		instance void Cleanup () cil managed 
+	{
+		// Method begins at RVA 0x45c934
+		// Header size: 12
+		// Code size: 117 (0x75)
+		.maxstack 4
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+		IL_0006: brfalse.s IL_0050
+
+		IL_0008: ldarg.0
+		IL_0009: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+		IL_000e: ldarg.0
+		IL_000f: ldftn instance void Sims3.Gameplay.Scuba.ScubaDive::TransitionCamera(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_0015: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_001a: callvirt instance bool [SimIFace]Sims3.SimIFace.StateMachineClient::RemoveEventHandler(class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_001f: pop
+		IL_0020: ldarg.0
+		IL_0021: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+		IL_0026: ldarg.0
+		IL_0027: ldftn instance void Sims3.Gameplay.Scuba.ScubaDive::FadeOut(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_002d: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_0032: callvirt instance bool [SimIFace]Sims3.SimIFace.StateMachineClient::RemoveEventHandler(class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_0037: pop
+		IL_0038: ldarg.0
+		IL_0039: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+		IL_003e: ldarg.0
+		IL_003f: ldftn instance void Sims3.Gameplay.Scuba.ScubaDive::FadeIn(class [SimIFace]Sims3.SimIFace.StateMachineClient, class [SimIFace]Sims3.SimIFace.IEvent)
+		IL_0045: newobj instance void [SimIFace]Sims3.SimIFace.SacsEventHandler::.ctor(object, native int)
+		IL_004a: callvirt instance bool [SimIFace]Sims3.SimIFace.StateMachineClient::RemoveEventHandler(class [SimIFace]Sims3.SimIFace.SacsEventHandler)
+		IL_004f: pop
+
+		IL_0050: ldarg.0
+		IL_0051: ldfld class Sims3.Gameplay.Core.Jig Sims3.Gameplay.Scuba.ScubaDive::mJig
+		IL_0056: brfalse.s IL_006e
+
+		IL_0058: ldarg.0
+		IL_0059: ldfld class Sims3.Gameplay.Core.Jig Sims3.Gameplay.Scuba.ScubaDive::mJig
+		IL_005e: callvirt instance void Sims3.Gameplay.Abstracts.GameObject::RemoveFromWorld()
+		IL_0063: ldarg.0
+		IL_0064: ldfld class Sims3.Gameplay.Core.Jig Sims3.Gameplay.Scuba.ScubaDive::mJig
+		IL_0069: callvirt instance void Sims3.Gameplay.Abstracts.ScriptObject::Destroy()
+
+		IL_006e: ldarg.0
+		IL_006f: call instance void Sims3.Gameplay.Interactions.InteractionInstance::Cleanup()
+		IL_0074: ret
+	} // end of method ScubaDive::Cleanup
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x45c9c1
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void class Sims3.Gameplay.Interactions.Interaction`2<class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim>::.ctor()
+		IL_0006: ret
+	} // end of method ScubaDive::.ctor
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x45c9b5
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: newobj instance void Sims3.Gameplay.Scuba.ScubaDive/Definition::.ctor()
+		IL_0005: stsfld class Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Scuba.ScubaDive::Singleton
+		IL_000a: ret
+	} // end of method ScubaDive::.cctor
+
+} // end of class Sims3.Gameplay.Scuba.ScubaDive

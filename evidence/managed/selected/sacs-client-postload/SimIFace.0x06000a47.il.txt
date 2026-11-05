@@ -1,0 +1,31 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method assembly hidebysig specialname rtspecialname 
+		instance void .ctor (
+			string name,
+			uint32 driverHandle,
+			valuetype Sims3.SimIFace.ObjectGuid scriptHandle,
+			class Sims3.SimIFace.IEventQueue eq
+		) cil managed 
+	{
+		// Method begins at RVA 0xfaf8
+		// Header size: 1
+		// Code size: 41 (0x29)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.SimIFace.StateMachineClient::.ctor()
+		IL_0006: ldarg.0
+		IL_0007: ldarg.1
+		IL_0008: stfld string Sims3.SimIFace.StateMachineClient::mName
+		IL_000d: ldarg.0
+		IL_000e: ldflda valuetype Sims3.SimIFace.StateMachineClient/DriverHandleWrapper Sims3.SimIFace.StateMachineClient::mDriver
+		IL_0013: ldarg.2
+		IL_0014: stfld uint32 Sims3.SimIFace.StateMachineClient/DriverHandleWrapper::mHandle
+		IL_0019: ldarg.0
+		IL_001a: ldarg.3
+		IL_001b: stfld valuetype Sims3.SimIFace.ObjectGuid Sims3.SimIFace.StateMachineClient::mScriptHandle
+		IL_0020: ldarg.0
+		IL_0021: ldarg.s eq
+		IL_0023: stfld class Sims3.SimIFace.IEventQueue Sims3.SimIFace.StateMachineClient::mEventQueue
+		IL_0028: ret
+	} // end of method StateMachineClient::.ctor

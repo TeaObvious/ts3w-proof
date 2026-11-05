@@ -1,0 +1,726 @@
+Module MVID e4365bd8-6054-4cb5-8702-c69b1c102ce9
+Original PC1.67 SimIFace SHA256 6ddedb668e1b6da037e346cd5cf6f500f37407dca633b428e7ec410daa00fcb2
+Metadata token=06000078 flags=0886 implflags=0000 rawSignature=20000c
+
+06000078 Sims3.SimIFace.BuildBuy.BuildBuyProduct::get_Price RVA=000026f0 bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 02282d0b00062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 282d0b0006           call 2d0b0006 GetProductPrice
+ IL_0006: 2a                   ret
+Metadata token=0600007f flags=0886 implflags=0000 rawSignature=20000c
+
+0600007f Sims3.SimIFace.BuildBuy.BuildBuyProduct::get_EnvironmentScore RVA=0000273d bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 0228350b00062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 28350b0006           call 350b0006 GetProductEnvironmentScore
+ IL_0006: 2a                   ret
+Metadata token=06000081 flags=0886 implflags=0000 rawSignature=200009
+
+06000081 Sims3.SimIFace.BuildBuy.BuildBuyProduct::get_FireType RVA=0000274e bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 0228370b00062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 28370b0006           call 370b0006 GetProductFireType
+ IL_0006: 2a                   ret
+Metadata token=0600008e flags=0886 implflags=0000 rawSignature=2000117c
+
+0600008e Sims3.SimIFace.BuildBuy.BuildBuyProduct::get_PatternType RVA=000027c2 bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 0228420b00062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 28420b0006           call 420b0006 GetProductPatternType
+ IL_0006: 2a                   ret
+Metadata token=0600008f flags=0886 implflags=0000 rawSignature=200009
+
+0600008f Sims3.SimIFace.BuildBuy.BuildBuyProduct::get_PatternSubsort RVA=000027ca bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 0228430b00062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 28430b0006           call 430b0006 GetProductPatternSubsort
+ IL_0006: 2a                   ret
+Metadata token=06000092 flags=0886 implflags=0000 rawSignature=200009
+
+06000092 Sims3.SimIFace.BuildBuy.BuildBuyProduct::get_NumPresets RVA=000027e7 bytes=7 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 1e
+Raw complete CIL 0228620b00062a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 28620b0006           call 620b0006 ProductNumPresets
+ IL_0006: 2a                   ret
+Metadata token=0600009b flags=0086 implflags=0000 rawSignature=200112808809
+
+0600009b Sims3.SimIFace.BuildBuy.BuildBuyProduct::PresetAtIndex RVA=00002844 bytes=22 maxStack=3 flags=3013 localSignature=1100000a
+Raw complete method header 13300300160000000a000011
+Raw complete CIL 020328660b00060a06152e08020673aa0000062a142a
+ IL_0000: 02                   ldarg.0
+ IL_0001: 03                   ldarg.1
+ IL_0002: 28660b0006           call 660b0006 ProductPresetIdAtIndex
+ IL_0007: 0a                   stloc.0
+ IL_0008: 06                   ldloc.0
+ IL_0009: 15                   ldc.i4.m1
+ IL_000a: 2e08                 beq.s 08
+ IL_000c: 02                   ldarg.0
+ IL_000d: 06                   ldloc.0
+ IL_000e: 73aa000006           newobj aa000006 .ctor
+ IL_0013: 2a                   ret
+ IL_0014: 14                   ldnull
+ IL_0015: 2a                   ret
+Metadata token=0600009c flags=0086 implflags=0000 rawSignature=200112808809
+
+0600009c Sims3.SimIFace.BuildBuy.BuildBuyProduct::PresetWithId RVA=00002866 bytes=14 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 3a
+Raw complete CIL 03152e08020373aa0000062a142a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 15                   ldc.i4.m1
+ IL_0002: 2e08                 beq.s 08
+ IL_0004: 02                   ldarg.0
+ IL_0005: 03                   ldarg.1
+ IL_0006: 73aa000006           newobj aa000006 .ctor
+ IL_000b: 2a                   ret
+ IL_000c: 14                   ldnull
+ IL_000d: 2a                   ret
+Metadata token=06000b28 flags=0093 implflags=0000 rawSignature=00011188101258
+
+06000b28 Sims3.SimIFace.UserToolUtils::GetProductResourceKey RVA=000120e0 bytes=50 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003200000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f72000006161200120112026fe40a000626072a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 16                   ldc.i4.0
+ IL_0024: 1200                 ldloca.s 00
+ IL_0026: 1201                 ldloca.s 01
+ IL_0028: 1202                 ldloca.s 02
+ IL_002a: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_002f: 26                   pop
+ IL_0030: 07                   ldloc.1
+ IL_0031: 2a                   ret
+Metadata token=06000b29 flags=0093 implflags=0000 rawSignature=00010e1258
+
+06000b29 Sims3.SimIFace.UserToolUtils::GetProductCatalogName RVA=00012120 bytes=48 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003000000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f72000006171200120112026fe40a00062a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 17                   ldc.i4.1
+ IL_0024: 1200                 ldloca.s 00
+ IL_0026: 1201                 ldloca.s 01
+ IL_0028: 1202                 ldloca.s 02
+ IL_002a: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_002f: 2a                   ret
+Metadata token=06000b2a flags=0093 implflags=0000 rawSignature=00010b1258
+
+06000b2a Sims3.SimIFace.UserToolUtils::GetProductCatalogNameKey RVA=0001215c bytes=57 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003900000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f271200120112026fe40a00062612017b750d00042a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f27                 ldc.i4.s 27
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 1201                 ldloca.s 01
+ IL_0033: 7b750d0004           ldfld 750d0004 InstanceId
+ IL_0038: 2a                   ret
+Metadata token=06000b2b flags=0093 implflags=0000 rawSignature=00010e1258
+
+06000b2b Sims3.SimIFace.UserToolUtils::GetProductDescription RVA=000121a4 bytes=48 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003000000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f72000006181200120112026fe40a00062a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 18                   ldc.i4.2
+ IL_0024: 1200                 ldloca.s 00
+ IL_0026: 1201                 ldloca.s 01
+ IL_0028: 1202                 ldloca.s 02
+ IL_002a: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_002f: 2a                   ret
+Metadata token=06000b2c flags=0093 implflags=0000 rawSignature=0001091258
+
+06000b2c Sims3.SimIFace.UserToolUtils::GetProductStatusFlag RVA=000121e0 bytes=50 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003200000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f72000006191200120112026fe40a000626062a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 19                   ldc.i4.3
+ IL_0024: 1200                 ldloca.s 00
+ IL_0026: 1201                 ldloca.s 01
+ IL_0028: 1202                 ldloca.s 02
+ IL_002a: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_002f: 26                   pop
+ IL_0030: 06                   ldloc.0
+ IL_0031: 2a                   ret
+Metadata token=06000b2d flags=0093 implflags=0000 rawSignature=00010c1258
+
+06000b2d Sims3.SimIFace.UserToolUtils::GetProductPrice RVA=00012220 bytes=50 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003200000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061b1200120112026fe40a000626082a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1b                   ldc.i4.5
+ IL_0024: 1200                 ldloca.s 00
+ IL_0026: 1201                 ldloca.s 01
+ IL_0028: 1202                 ldloca.s 02
+ IL_002a: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_002f: 26                   pop
+ IL_0030: 08                   ldloc.2
+ IL_0031: 2a                   ret
+Metadata token=06000b2e flags=0093 implflags=0000 rawSignature=0001021258
+
+06000b2e Sims3.SimIFace.UserToolUtils::GetIsVisibleInWorldBuilder RVA=00012260 bytes=54 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003600000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f1e1200120112026fe40a0006260617fe012a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f1e                 ldc.i4.s 1e
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 17                   ldc.i4.1
+ IL_0033: fe01                 ceq
+ IL_0035: 2a                   ret
+Metadata token=06000b35 flags=0093 implflags=0000 rawSignature=00010c1258
+
+06000b35 Sims3.SimIFace.UserToolUtils::GetProductEnvironmentScore RVA=0001244c bytes=50 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003200000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061c1200120112026fe40a000626082a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1c                   ldc.i4.6
+ IL_0024: 1200                 ldloca.s 00
+ IL_0026: 1201                 ldloca.s 01
+ IL_0028: 1202                 ldloca.s 02
+ IL_002a: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_002f: 26                   pop
+ IL_0030: 08                   ldloc.2
+ IL_0031: 2a                   ret
+Metadata token=06000b36 flags=0093 implflags=0000 rawSignature=0002091258118680
+
+06000b36 Sims3.SimIFace.UserToolUtils::GetProductCategory RVA=0001248a bytes=18 maxStack=8 flags=0002 localSignature=00000000
+Raw complete method header 4a
+Raw complete CIL 7e340b0004026f72000006036fe50a00062a
+ IL_0000: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_0005: 02                   ldarg.0
+ IL_0006: 6f72000006           callvirt 72000006 get_Handle
+ IL_000b: 03                   ldarg.1
+ IL_000c: 6fe50a0006           callvirt e50a0006 GetProductCategory
+ IL_0011: 2a                   ret
+Metadata token=06000b37 flags=0093 implflags=0000 rawSignature=0001091258
+
+06000b37 Sims3.SimIFace.UserToolUtils::GetProductFireType RVA=000124a0 bytes=50 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003200000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061d1200120112026fe40a000626062a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1d                   ldc.i4.7
+ IL_0024: 1200                 ldloca.s 00
+ IL_0026: 1201                 ldloca.s 01
+ IL_0028: 1202                 ldloca.s 02
+ IL_002a: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_002f: 26                   pop
+ IL_0030: 06                   ldloc.0
+ IL_0031: 2a                   ret
+Metadata token=06000b38 flags=0093 implflags=0000 rawSignature=0001021258
+
+06000b38 Sims3.SimIFace.UserToolUtils::GetProductIsStealable RVA=000124e0 bytes=53 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003500000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061e1200120112026fe40a0006260617fe012a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1e                   ldc.i4.8
+ IL_0024: 1200                 ldloca.s 00
+ IL_0026: 1201                 ldloca.s 01
+ IL_0028: 1202                 ldloca.s 02
+ IL_002a: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_002f: 26                   pop
+ IL_0030: 06                   ldloc.0
+ IL_0031: 17                   ldc.i4.1
+ IL_0032: fe01                 ceq
+ IL_0034: 2a                   ret
+Metadata token=06000b39 flags=0093 implflags=0000 rawSignature=0001021258
+
+06000b39 Sims3.SimIFace.UserToolUtils::GetProductIsReposesable RVA=00012524 bytes=54 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003600000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f091200120112026fe40a0006260617fe012a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f09                 ldc.i4.s 09
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 17                   ldc.i4.1
+ IL_0033: fe01                 ceq
+ IL_0035: 2a                   ret
+Metadata token=06000b3a flags=0093 implflags=0000 rawSignature=0001091258
+
+06000b3a Sims3.SimIFace.UserToolUtils::GetProductSetID RVA=00012568 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f1c1200120112026fe40a000626062a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f1c                 ldc.i4.s 1c
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b3b flags=0093 implflags=0000 rawSignature=0001091258
+
+06000b3b Sims3.SimIFace.UserToolUtils::GetProductNumLevels RVA=000125a8 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 170a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f1d1200120112026fe40a000626062a
+ IL_0000: 17                   ldc.i4.1
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f1d                 ldc.i4.s 1d
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b42 flags=0093 implflags=0000 rawSignature=0001091258
+
+06000b42 Sims3.SimIFace.UserToolUtils::GetProductPatternType RVA=00012780 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f0f1200120112026fe40a000626062a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f0f                 ldc.i4.s 0f
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b43 flags=0093 implflags=0000 rawSignature=0001091258
+
+06000b43 Sims3.SimIFace.UserToolUtils::GetProductPatternSubsort RVA=000127c0 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f101200120112026fe40a000626062a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f10                 ldc.i4.s 10
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b62 flags=0096 implflags=0000 rawSignature=0001091258
+
+06000b62 Sims3.SimIFace.UserToolUtils::ProductNumPresets RVA=00012f24 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f111200120112026fe40a000626062a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f11                 ldc.i4.s 11
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b63 flags=0096 implflags=0000 rawSignature=0001021258
+
+06000b63 Sims3.SimIFace.UserToolUtils::ProductHasUserPreset RVA=00012f64 bytes=57 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003900000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f121200120112026fe40a0006260616fe0116fe012a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f12                 ldc.i4.s 12
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 16                   ldc.i4.0
+ IL_0033: fe01                 ceq
+ IL_0035: 16                   ldc.i4.0
+ IL_0036: fe01                 ceq
+ IL_0038: 2a                   ret
+Metadata token=06000b64 flags=0096 implflags=0000 rawSignature=0001021258
+
+06000b64 Sims3.SimIFace.UserToolUtils::ProductIsPagodaRoof RVA=00012fac bytes=57 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003900000099000011
+Raw complete CIL 160a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f1b1200120112026fe40a0006260616fe0116fe012a
+ IL_0000: 16                   ldc.i4.0
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f1b                 ldc.i4.s 1b
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 16                   ldc.i4.0
+ IL_0033: fe01                 ceq
+ IL_0035: 16                   ldc.i4.0
+ IL_0036: fe01                 ceq
+ IL_0038: 2a                   ret
+Metadata token=06000b65 flags=0096 implflags=0000 rawSignature=000209125809
+
+06000b65 Sims3.SimIFace.UserToolUtils::ProductPresetIndexFromId RVA=00012ff4 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 030a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f131200120112026fe40a000626062a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f13                 ldc.i4.s 13
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b66 flags=0096 implflags=0000 rawSignature=000209125809
+
+06000b66 Sims3.SimIFace.UserToolUtils::ProductPresetIdAtIndex RVA=00013034 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 030a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f141200120112026fe40a000626062a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f14                 ldc.i4.s 14
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b67 flags=0096 implflags=0000 rawSignature=00021185a0125809
+
+06000b67 Sims3.SimIFace.UserToolUtils::ProductPresetContentTypeAtIndex RVA=00013074 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 030a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f151200120112026fe40a000626062a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f15                 ldc.i4.s 15
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b68 flags=0096 implflags=0000 rawSignature=000209125809
+
+06000b68 Sims3.SimIFace.UserToolUtils::ProductPresetSubsortAtIndex RVA=000130b4 bytes=51 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003300000099000011
+Raw complete CIL 030a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f161200120112026fe40a000626062a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f16                 ldc.i4.s 16
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 06                   ldloc.0
+ IL_0032: 2a                   ret
+Metadata token=06000b69 flags=0096 implflags=0000 rawSignature=000201125809
+
+06000b69 Sims3.SimIFace.UserToolUtils::ProductPresetDeleteAtId RVA=000130f4 bytes=50 maxStack=6 flags=3013 localSignature=11000099
+Raw complete method header 133006003200000099000011
+Raw complete CIL 030a1201166a161673a40e0006810402000222000000000c7e340b0004026f720000061f1a1200120112026fe40a0006262a
+ IL_0000: 03                   ldarg.1
+ IL_0001: 0a                   stloc.0
+ IL_0002: 1201                 ldloca.s 01
+ IL_0004: 16                   ldc.i4.0
+ IL_0005: 6a                   conv.i8
+ IL_0006: 16                   ldc.i4.0
+ IL_0007: 16                   ldc.i4.0
+ IL_0008: 73a40e0006           newobj a40e0006 .ctor
+ IL_000d: 8104020002           stobj 04020002
+ IL_0012: 2200000000           ldc.r4 00000000
+ IL_0017: 0c                   stloc.2
+ IL_0018: 7e340b0004           ldsfld 340b0004 gUserToolUtils
+ IL_001d: 02                   ldarg.0
+ IL_001e: 6f72000006           callvirt 72000006 get_Handle
+ IL_0023: 1f1a                 ldc.i4.s 1a
+ IL_0025: 1200                 ldloca.s 00
+ IL_0027: 1201                 ldloca.s 01
+ IL_0029: 1202                 ldloca.s 02
+ IL_002b: 6fe40a0006           callvirt e40a0006 ProductGeneric
+ IL_0030: 26                   pop
+ IL_0031: 2a                   ret
+
+SELECTED complete_methods=32 CIL_bytes=1283

@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "sourceExe": "TS3W.exe",
+  "domain": "loading",
+  "exportBoundary": "start at saved Ghidra function entry; stop at next saved entry or 2048 bytes, whichever is earlier; may not be complete function body",
+  "rows": [
+    {
+      "address": "0x00d77820",
+      "reason": "Raw-instruction candidate script startup function: CALL 0x00769730 at 0x00d77907 and CALL 0x00d75bb0 at 0x00d77930; Ghidra has no function entry here",
+      "fileOffset": 9926688,
+      "byteExportLength": 800,
+      "endExclusive": "0x00d77b40",
+      "nextKnownGhidraEntry": "0x00d77b40",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x44c4f0",
+        "0x4e4500",
+        "0x4e4a60",
+        "0x4e5ff0",
+        "0x4fa9b0",
+        "0x4fa9f0",
+        "0x4fab80",
+        "0x58ac90",
+        "0x58b0e0",
+        "0x595200",
+        "0x7693a0",
+        "0x769730",
+        "0xd75bb0",
+        "0xd82a10",
+        "0xd82f70",
+        "0xd835c0",
+        "0xd83df0",
+        "0xd9a8c0",
+        "0xe3e860"
+      ],
+      "rawBytes": "native/bytes/00d77820.bin",
+      "rawDisassembly": "native/disassembly/00d77820.asm.txt"
+    },
+    {
+      "address": "0x00769730",
+      "reason": "Package-mount sequence; xrefs from three shipped script-package path strings",
+      "fileOffset": 3577648,
+      "byteExportLength": 448,
+      "endExclusive": "0x007698f0",
+      "nextKnownGhidraEntry": "0x007698f0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4ecc60",
+        "0x4ff550",
+        "0x4ff640",
+        "0x58ac90",
+        "0x72f140"
+      ],
+      "rawBytes": "native/bytes/00769730.bin",
+      "rawDisassembly": "native/disassembly/00769730.asm.txt"
+    },
+    {
+      "address": "0x004a6be0",
+      "reason": "Packed-record helper; xrefs from ResourceLoad/PackedFile/RecordRead string",
+      "fileOffset": 682976,
+      "byteExportLength": 64,
+      "endExclusive": "0x004a6c20",
+      "nextKnownGhidraEntry": "0x004a6c20",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4ae1b0",
+        "0x4e4300"
+      ],
+      "rawBytes": "native/bytes/004a6be0.bin",
+      "rawDisassembly": "native/disassembly/004a6be0.asm.txt"
+    },
+    {
+      "address": "0x004a9470",
+      "reason": "DBPF helper; xref from ResourceSystem/ResourceMan/DBPF string",
+      "fileOffset": 693360,
+      "byteExportLength": 768,
+      "endExclusive": "0x004a9770",
+      "nextKnownGhidraEntry": "0x004a9770",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4a6cd0",
+        "0x4a6d10",
+        "0x4a7930",
+        "0x4a9290",
+        "0x4ac900",
+        "0x4ae8c0",
+        "0x4dbd70",
+        "0x4dbda0",
+        "0x4dbdc0",
+        "0x4dc7a0",
+        "0x4e4300"
+      ],
+      "rawBytes": "native/bytes/004a9470.bin",
+      "rawDisassembly": "native/disassembly/004a9470.asm.txt"
+    },
+    {
+      "address": "0x00d75bb0",
+      "reason": "MonoScriptHost signed-assembly/LoadImage helper; string xref",
+      "fileOffset": 9919408,
+      "byteExportLength": 1296,
+      "endExclusive": "0x00d760c0",
+      "nextKnownGhidraEntry": "0x00d760c0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x408d60",
+        "0x4afe80",
+        "0x4e44e0",
+        "0x4e4500",
+        "0x4f3c90",
+        "0x549670",
+        "0xb305a0"
+      ],
+      "rawBytes": "native/bytes/00d75bb0.bin",
+      "rawDisassembly": "native/disassembly/00d75bb0.asm.txt"
+    },
+    {
+      "address": "0x00d79ee0",
+      "reason": "MonoScriptHost Assemblies helper; string xref",
+      "fileOffset": 9936608,
+      "byteExportLength": 368,
+      "endExclusive": "0x00d7a050",
+      "nextKnownGhidraEntry": "0x00d7a050",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4e44e0",
+        "0x982420",
+        "0xd743e0",
+        "0xe69b00",
+        "0xe75550",
+        "0xe842b0",
+        "0xea1370",
+        "0xea33f0",
+        "0xea85d0"
+      ],
+      "rawBytes": "native/bytes/00d79ee0.bin",
+      "rawDisassembly": "native/disassembly/00d79ee0.asm.txt"
+    },
+    {
+      "address": "0x00d7e1a0",
+      "reason": "Native script-host setup path calling Assemblies helper 0x00d79ee0",
+      "fileOffset": 9953696,
+      "byteExportLength": 768,
+      "endExclusive": "0x00d7e4a0",
+      "nextKnownGhidraEntry": "0x00d7e4a0",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4afe80",
+        "0x4e44e0",
+        "0x4fe400",
+        "0x73c190",
+        "0x982420",
+        "0xcca0b0",
+        "0xd79ee0",
+        "0xd7a090",
+        "0xd7ca30"
+      ],
+      "rawBytes": "native/bytes/00d7e1a0.bin",
+      "rawDisassembly": "native/disassembly/00d7e1a0.asm.txt"
+    },
+    {
+      "address": "0x005950c0",
+      "reason": "FullBuild0.package path helper; string xref",
+      "fileOffset": 1659072,
+      "byteExportLength": 160,
+      "endExclusive": "0x00595160",
+      "nextKnownGhidraEntry": "0x00595160",
+      "cappedAt2048Bytes": false,
+      "directCallTargetsInBound": [
+        "0x4dbd70",
+        "0x4f3100"
+      ],
+      "rawBytes": "native/bytes/005950c0.bin",
+      "rawDisassembly": "native/disassembly/005950c0.asm.txt"
+    }
+  ]
+}

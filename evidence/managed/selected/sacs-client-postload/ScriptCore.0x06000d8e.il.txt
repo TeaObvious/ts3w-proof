@@ -1,0 +1,27 @@
+// Complete original metadata/CIL decoded from authenticated retail PE, paired actual ILSpy C#; not executed.
+instance valuetype Sims3.SimIFace.SACS.ResultCodes RequestState(bool yield,uint32 driverHandle,uint32 actorHash,uint32 stateHash,valuetype Sims3.SimIFace.SACS.DriverRequestFlags flags,float32 wakeupTimeOffset,uint32 simTickTimeout,uint32 bridgeDriverHandle,uint32 bridgeActorHash)
+MethodDef=0x06000d8e RVA=0x00010f08 signatureBlob=20091183c5020909091183c90c090909 maxStack=7 locals=110000B5 initLocals=True codeBytes=42 CIL-SHA256=a4f81a0d8ca3562358016519e36d6ba273ddc716923ce80940dd441db205173b
+IL_0000: ldarg.2
+IL_0001: ldarg.3
+IL_0002: ldarg.s 4
+IL_0004: ldarg.s 5
+IL_0006: ldarg.s 7
+IL_0008: ldarg.s 8
+IL_000A: ldarg.s 9
+IL_000C: call 0x06000D6C ScriptCore.SACS::SACS_RequestStateImpl
+IL_0011: stloc.0
+IL_0012: ldarg.1
+IL_0013: brfalse.s IL_0028
+IL_0015: ldarg.0
+IL_0016: call 0x0600015F ScriptCore.CallbackObject::GetCallbackResult
+IL_001B: stloc.1
+IL_001C: ldloc.1
+IL_001D: brtrue.s IL_0021
+IL_001F: ldc.i4.m1
+IL_0020: ret
+IL_0021: ldloc.1
+IL_0022: unbox.any 0x010000F1 Sims3.SimIFace.SACS.ResultCodes
+IL_0027: ret
+IL_0028: ldloc.0
+IL_0029: ret
+ExceptionRegions=[]

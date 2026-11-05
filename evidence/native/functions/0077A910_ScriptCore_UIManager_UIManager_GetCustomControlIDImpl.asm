@@ -1,0 +1,71 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body and owned-range envelope.
+Actual annotated Ghidra pseudocode: 0077A910_ScriptCore_UIManager_UIManager_GetCustomControlIDImpl.c
+Owned ranges: [[0077a910, 0077a9a6]]
+
+0077a910  53  PUSH EBX
+0077a911  56  PUSH ESI
+0077a912  e879eafeff  CALL 0x00769390
+0077a917  8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+0077a91b  8bd1  MOV EDX,ECX
+0077a91d  81e2000000ff  AND EDX,0xff000000
+0077a923  81fa00000030  CMP EDX,0x30000000
+0077a929  7577  JNZ 0x0077a9a2
+0077a92b  8b10  MOV EDX,dword ptr [EAX]
+0077a92d  51  PUSH ECX
+0077a92e  8bc8  MOV ECX,EAX
+0077a930  8b82cc000000  MOV EAX,dword ptr [EDX + 0xcc]
+0077a936  ffd0  CALL EAX
+0077a938  8bf0  MOV ESI,EAX
+0077a93a  85f6  TEST ESI,ESI
+0077a93c  7464  JZ 0x0077a9a2
+0077a93e  8b16  MOV EDX,dword ptr [ESI]
+0077a940  8b420c  MOV EAX,dword ptr [EDX + 0xc]
+0077a943  681882eeee  PUSH 0xeeee8218
+0077a948  8bce  MOV ECX,ESI
+0077a94a  ffd0  CALL EAX
+0077a94c  85c0  TEST EAX,EAX
+0077a94e  7452  JZ 0x0077a9a2
+0077a950  8b16  MOV EDX,dword ptr [ESI]
+0077a952  8b420c  MOV EAX,dword ptr [EDX + 0xc]
+0077a955  57  PUSH EDI
+0077a956  6868b76b05  PUSH 0x56bb768
+0077a95b  8bce  MOV ECX,ESI
+0077a95d  ffd0  CALL EAX
+0077a95f  8b16  MOV EDX,dword ptr [ESI]
+0077a961  8bf8  MOV EDI,EAX
+0077a963  8b420c  MOV EAX,dword ptr [EDX + 0xc]
+0077a966  688283c5ee  PUSH 0xeec58382
+0077a96b  8bce  MOV ECX,ESI
+0077a96d  ffd0  CALL EAX
+0077a96f  8b16  MOV EDX,dword ptr [ESI]
+0077a971  8bd8  MOV EBX,EAX
+0077a973  8b420c  MOV EAX,dword ptr [EDX + 0xc]
+0077a976  68c89ff203  PUSH 0x3f29fc8
+0077a97b  8bce  MOV ECX,ESI
+0077a97d  ffd0  CALL EAX
+0077a97f  85ff  TEST EDI,EDI
+0077a981  5f  POP EDI
+0077a982  740f  JZ 0x0077a993
+0077a984  85db  TEST EBX,EBX
+0077a986  740b  JZ 0x0077a993
+0077a988  8b13  MOV EDX,dword ptr [EBX]
+0077a98a  8b4214  MOV EAX,dword ptr [EDX + 0x14]
+0077a98d  5e  POP ESI
+0077a98e  8bcb  MOV ECX,EBX
+0077a990  5b  POP EBX
+0077a991  ffe0  JMP EAX
+0077a993  85c0  TEST EAX,EAX
+0077a995  740b  JZ 0x0077a9a2
+0077a997  8b10  MOV EDX,dword ptr [EAX]
+0077a999  5e  POP ESI
+0077a99a  8bc8  MOV ECX,EAX
+0077a99c  8b4214  MOV EAX,dword ptr [EDX + 0x14]
+0077a99f  5b  POP EBX
+0077a9a0  ffe0  JMP EAX
+0077a9a2  5e  POP ESI
+0077a9a3  33c0  XOR EAX,EAX
+0077a9a5  5b  POP EBX
+0077a9a6  c3  RET

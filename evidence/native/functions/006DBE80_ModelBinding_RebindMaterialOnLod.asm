@@ -1,0 +1,180 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67; ModelBinding_RebindMaterialOnLod; owned ranges [[006dbe80, 006dc045]]
+006dbe80	83ec10	SUB ESP,0x10
+006dbe83	53	PUSH EBX
+006dbe84	55	PUSH EBP
+006dbe85	56	PUSH ESI
+006dbe86	8b742420	MOV ESI,dword ptr [ESP + 0x20]
+006dbe8a	8b06	MOV EAX,dword ptr [ESI]
+006dbe8c	57	PUSH EDI
+006dbe8d	8be8	MOV EBP,EAX
+006dbe8f	33ff	XOR EDI,EDI
+006dbe91	3bef	CMP EBP,EDI
+006dbe93	8bd9	MOV EBX,ECX
+006dbe95	895c2418	MOV dword ptr [ESP + 0x18],EBX
+006dbe99	89442414	MOV dword ptr [ESP + 0x14],EAX
+006dbe9d	7409	JZ 0x006dbea8
+006dbe9f	8b5500	MOV EDX,dword ptr [EBP]
+006dbea2	8b02	MOV EAX,dword ptr [EDX]
+006dbea4	8bcd	MOV ECX,EBP
+006dbea6	ffd0	CALL EAX
+006dbea8	807b5c00	CMP byte ptr [EBX + 0x5c],0x0
+006dbeac	746b	JZ 0x006dbf19
+006dbeae	807d7200	CMP byte ptr [EBP + 0x72],0x0
+006dbeb2	7565	JNZ 0x006dbf19
+006dbeb4	83c360	ADD EBX,0x60
+006dbeb7	53	PUSH EBX
+006dbeb8	57	PUSH EDI
+006dbeb9	8d4c2418	LEA ECX,[ESP + 0x18]
+006dbebd	51	PUSH ECX
+006dbebe	8bcd	MOV ECX,EBP
+006dbec0	897c241c	MOV dword ptr [ESP + 0x1c],EDI
+006dbec4	e807f5ffff	CALL 0x006db3d0
+006dbec9	84c0	TEST AL,AL
+006dbecb	7523	JNZ 0x006dbef0
+006dbecd	8b4c2410	MOV ECX,dword ptr [ESP + 0x10]
+006dbed1	3bcf	CMP ECX,EDI
+006dbed3	7407	JZ 0x006dbedc
+006dbed5	8b11	MOV EDX,dword ptr [ECX]
+006dbed7	8b4204	MOV EAX,dword ptr [EDX + 0x4]
+006dbeda	ffd0	CALL EAX
+006dbedc	8b5500	MOV EDX,dword ptr [EBP]
+006dbedf	8b4204	MOV EAX,dword ptr [EDX + 0x4]
+006dbee2	8bcd	MOV ECX,EBP
+006dbee4	ffd0	CALL EAX
+006dbee6	5f	POP EDI
+006dbee7	5e	POP ESI
+006dbee8	5d	POP EBP
+006dbee9	5b	POP EBX
+006dbeea	83c410	ADD ESP,0x10
+006dbeed	c20400	RET 0x4
+006dbef0	8d4c2410	LEA ECX,[ESP + 0x10]
+006dbef4	51	PUSH ECX
+006dbef5	8d4c2418	LEA ECX,[ESP + 0x18]
+006dbef9	e812d6ecff	CALL 0x005a9510
+006dbefe	8b6c2414	MOV EBP,dword ptr [ESP + 0x14]
+006dbf02	55	PUSH EBP
+006dbf03	8bce	MOV ECX,ESI
+006dbf05	e8a6fa3b00	CALL 0x00a9b9b0
+006dbf0a	8b4c2410	MOV ECX,dword ptr [ESP + 0x10]
+006dbf0e	3bcf	CMP ECX,EDI
+006dbf10	7407	JZ 0x006dbf19
+006dbf12	8b11	MOV EDX,dword ptr [ECX]
+006dbf14	8b4204	MOV EAX,dword ptr [EDX + 0x4]
+006dbf17	ffd0	CALL EAX
+006dbf19	8bcd	MOV ECX,EBP
+006dbf1b	e8503df3ff	CALL 0x0060fc70
+006dbf20	8bd8	MOV EBX,EAX
+006dbf22	85db	TEST EBX,EBX
+006dbf24	7655	JBE 0x006dbf7b
+006dbf26	8b4d40	MOV ECX,dword ptr [EBP + 0x40]
+006dbf29	8b34b9	MOV ESI,dword ptr [ECX + EDI*0x4]
+006dbf2c	8bce	MOV ECX,ESI
+006dbf2e	e85d63e6ff	CALL 0x00542290
+006dbf33	85c0	TEST EAX,EAX
+006dbf35	8bce	MOV ECX,ESI
+006dbf37	7413	JZ 0x006dbf4c
+006dbf39	8b442418	MOV EAX,dword ptr [ESP + 0x18]
+006dbf3d	8d5060	LEA EDX,[EAX + 0x60]
+006dbf40	8b4054	MOV EAX,dword ptr [EAX + 0x54]
+006dbf43	52	PUSH EDX
+006dbf44	50	PUSH EAX
+006dbf45	e8c655fbff	CALL 0x00691510
+006dbf4a	eb1b	JMP 0x006dbf67
+006dbf4c	e81f01e9ff	CALL 0x0056c070
+006dbf51	85c0	TEST EAX,EAX
+006dbf53	7412	JZ 0x006dbf67
+006dbf55	8b4c2418	MOV ECX,dword ptr [ESP + 0x18]
+006dbf59	83c160	ADD ECX,0x60
+006dbf5c	51	PUSH ECX
+006dbf5d	6a00	PUSH 0x0
+006dbf5f	50	PUSH EAX
+006dbf60	8bce	MOV ECX,ESI
+006dbf62	e89954fbff	CALL 0x00691400
+006dbf67	6a00	PUSH 0x0
+006dbf69	8bce	MOV ECX,ESI
+006dbf6b	e8903efbff	CALL 0x0068fe00
+006dbf70	83c701	ADD EDI,0x1
+006dbf73	3bfb	CMP EDI,EBX
+006dbf75	72af	JC 0x006dbf26
+006dbf77	8b742424	MOV ESI,dword ptr [ESP + 0x24]
+006dbf7b	8b7c2418	MOV EDI,dword ptr [ESP + 0x18]
+006dbf7f	8b5f48	MOV EBX,dword ptr [EDI + 0x48]
+006dbf82	8d4748	LEA EAX,[EDI + 0x48]
+006dbf85	3bd8	CMP EBX,EAX
+006dbf87	0f849d000000	JZ 0x006dc02a
+006dbf8d	8d4900	LEA ECX,[ECX]
+006dbf90	807b0c00	CMP byte ptr [EBX + 0xc],0x0
+006dbf94	0f857f000000	JNZ 0x006dc019
+006dbf9a	8b16	MOV EDX,dword ptr [ESI]
+006dbf9c	8b4b08	MOV ECX,dword ptr [EBX + 0x8]
+006dbf9f	33c0	XOR EAX,EAX
+006dbfa1	f6c203	TEST DL,0x3
+006dbfa4	8944241c	MOV dword ptr [ESP + 0x1c],EAX
+006dbfa8	7502	JNZ 0x006dbfac
+006dbfaa	8b06	MOV EAX,dword ptr [ESI]
+006dbfac	8b11	MOV EDX,dword ptr [ECX]
+006dbfae	8d6f60	LEA EBP,[EDI + 0x60]
+006dbfb1	55	PUSH EBP
+006dbfb2	8b6f54	MOV EBP,dword ptr [EDI + 0x54]
+006dbfb5	55	PUSH EBP
+006dbfb6	8d6c2424	LEA EBP,[ESP + 0x24]
+006dbfba	55	PUSH EBP
+006dbfbb	50	PUSH EAX
+006dbfbc	8b4210	MOV EAX,dword ptr [EDX + 0x10]
+006dbfbf	ffd0	CALL EAX
+006dbfc1	84c0	TEST AL,AL
+006dbfc3	7445	JZ 0x006dc00a
+006dbfc5	8b4c241c	MOV ECX,dword ptr [ESP + 0x1c]
+006dbfc9	85c9	TEST ECX,ECX
+006dbfcb	8be9	MOV EBP,ECX
+006dbfcd	7406	JZ 0x006dbfd5
+006dbfcf	8b11	MOV EDX,dword ptr [ECX]
+006dbfd1	8b02	MOV EAX,dword ptr [EDX]
+006dbfd3	ffd0	CALL EAX
+006dbfd5	8b0d844c1d01	MOV ECX,dword ptr [0x011d4c84]
+006dbfdb	85c9	TEST ECX,ECX
+006dbfdd	740d	JZ 0x006dbfec
+006dbfdf	8b11	MOV EDX,dword ptr [ECX]
+006dbfe1	8b423c	MOV EAX,dword ptr [EDX + 0x3c]
+006dbfe4	68a0b3d400	PUSH 0xd4b3a0
+006dbfe9	56	PUSH ESI
+006dbfea	ffd0	CALL EAX
+006dbfec	8b0e	MOV ECX,dword ptr [ESI]
+006dbfee	85c9	TEST ECX,ECX
+006dbff0	7416	JZ 0x006dc008
+006dbff2	8b16	MOV EDX,dword ptr [ESI]
+006dbff4	f6c203	TEST DL,0x3
+006dbff7	750f	JNZ 0x006dc008
+006dbff9	8b0e	MOV ECX,dword ptr [ESI]
+006dbffb	8b01	MOV EAX,dword ptr [ECX]
+006dbffd	8b5004	MOV EDX,dword ptr [EAX + 0x4]
+006dc000	ffd2	CALL EDX
+006dc002	c70600000000	MOV dword ptr [ESI],0x0
+006dc008	892e	MOV dword ptr [ESI],EBP
+006dc00a	8b4c241c	MOV ECX,dword ptr [ESP + 0x1c]
+006dc00e	85c9	TEST ECX,ECX
+006dc010	7407	JZ 0x006dc019
+006dc012	8b01	MOV EAX,dword ptr [ECX]
+006dc014	8b5004	MOV EDX,dword ptr [EAX + 0x4]
+006dc017	ffd2	CALL EDX
+006dc019	8b1b	MOV EBX,dword ptr [EBX]
+006dc01b	8d4748	LEA EAX,[EDI + 0x48]
+006dc01e	3bd8	CMP EBX,EAX
+006dc020	0f856affffff	JNZ 0x006dbf90
+006dc026	8b6c2414	MOV EBP,dword ptr [ESP + 0x14]
+006dc02a	85ed	TEST EBP,EBP
+006dc02c	c6475d00	MOV byte ptr [EDI + 0x5d],0x0
+006dc030	740a	JZ 0x006dc03c
+006dc032	8b4500	MOV EAX,dword ptr [EBP]
+006dc035	8b5004	MOV EDX,dword ptr [EAX + 0x4]
+006dc038	8bcd	MOV ECX,EBP
+006dc03a	ffd2	CALL EDX
+006dc03c	5f	POP EDI
+006dc03d	5e	POP ESI
+006dc03e	5d	POP EBP
+006dc03f	5b	POP EBX
+006dc040	83c410	ADD ESP,0x10
+006dc043	c20400	RET 0x4

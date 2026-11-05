@@ -1,0 +1,1400 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "TS3W.exe",
+    "version": "PC 1.67"
+  },
+  "selectionRule": "All exact-type Animation and SACS registrations, plus listed route and CAS animation entrypoints.",
+  "registrationCount": 56,
+  "uniqueNativeAddressCount": 56,
+  "entries": [
+    {
+      "name": "ScriptCore.CASUtils::CASUtils_SimBuilderResetAnimationImpl",
+      "entryVa": "0x005a5f90",
+      "registrationRecordVa": "0x01156300",
+      "registrationRecordFileOffset": 13984512,
+      "registrationRecordHex": "905f5a00b401fe00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000305",
+          "signature": "ScriptCore:ScriptCore.CASUtils::CASUtils_SimBuilderResetAnimationImpl(System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "CASUtils_SimBuilderResetAnimationImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/005A5F90_ScriptCore_CASUtils_CASUtils_SimBuilderResetAnimationImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/005A5F90_ScriptCore_CASUtils_CASUtils_SimBuilderResetAnimationImpl.c",
+      "windowStartVa": "0x005a5f90",
+      "windowStopVaExclusive": "0x005a5fd0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_SetLookAtsHidden",
+      "entryVa": "0x0073a1c0",
+      "registrationRecordVa": "0x0115eb10",
+      "registrationRecordFileOffset": 14019344,
+      "registrationRecordHex": "c0a17300ecfeff00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DB5",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_SetLookAtsHidden(System.UInt64,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_SetLookAtsHidden",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A1C0_ScriptCore_Animation_Animation_SetLookAtsHidden.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A1C0_ScriptCore_Animation_Animation_SetLookAtsHidden.c",
+      "windowStartVa": "0x0073a1c0",
+      "windowStopVaExclusive": "0x0073a210",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_SetBonePosition",
+      "entryVa": "0x0073a2f0",
+      "registrationRecordVa": "0x0115eb18",
+      "registrationRecordFileOffset": 14019352,
+      "registrationRecordHex": "f0a2730020ffff00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DB6",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_SetBonePosition(System.UInt64,System.UInt32,Sims3.SimIFace.Vector3,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_SetBonePosition",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A2F0_ScriptCore_Animation_Animation_SetBonePosition.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A2F0_ScriptCore_Animation_Animation_SetBonePosition.c",
+      "windowStartVa": "0x0073a2f0",
+      "windowStopVaExclusive": "0x0073a3d0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_CreateTransformController",
+      "entryVa": "0x0073a3d0",
+      "registrationRecordVa": "0x0115eb20",
+      "registrationRecordFileOffset": 14019360,
+      "registrationRecordHex": "d0a3730050ffff00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DB7",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_CreateTransformController(System.UInt64)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_CreateTransformController",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A3D0_ScriptCore_Animation_Animation_CreateTransformController.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A3D0_ScriptCore_Animation_Animation_CreateTransformController.c",
+      "windowStartVa": "0x0073a3d0",
+      "windowStopVaExclusive": "0x0073a4d0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_SetBoneTimeRotation",
+      "entryVa": "0x0073a4d0",
+      "registrationRecordVa": "0x0115eb28",
+      "registrationRecordFileOffset": 14019368,
+      "registrationRecordHex": "d0a473008cffff00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DB8",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_SetBoneTimeRotation(System.UInt64,System.UInt32,System.Single)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_SetBoneTimeRotation",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A4D0_ScriptCore_Animation_Animation_SetBoneTimeRotation.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A4D0_ScriptCore_Animation_Animation_SetBoneTimeRotation.c",
+      "windowStartVa": "0x0073a4d0",
+      "windowStopVaExclusive": "0x0073a570",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_CreateTimeController",
+      "entryVa": "0x0073a570",
+      "registrationRecordVa": "0x0115eb30",
+      "registrationRecordFileOffset": 14019376,
+      "registrationRecordHex": "70a57300c0ffff00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DB9",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_CreateTimeController(System.UInt64)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_CreateTimeController",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A570_ScriptCore_Animation_Animation_CreateTimeController.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A570_ScriptCore_Animation_Animation_CreateTimeController.c",
+      "windowStartVa": "0x0073a570",
+      "windowStopVaExclusive": "0x0073a670",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_PlayAnimation",
+      "entryVa": "0x0073a870",
+      "registrationRecordVa": "0x0115eb38",
+      "registrationRecordFileOffset": 14019384,
+      "registrationRecordHex": "70a87300f8ffff00",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DBA",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_PlayAnimation(System.UInt64,System.UInt32,Sims3.SimIFace.ResourceKey,System.Single,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_PlayAnimation",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A870_ScriptCore_Animation_Animation_PlayAnimation.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A870_ScriptCore_Animation_Animation_PlayAnimation.c",
+      "windowStartVa": "0x0073a870",
+      "windowStopVaExclusive": "0x0073aa35",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_PlayPose",
+      "entryVa": "0x0073a670",
+      "registrationRecordVa": "0x0115eb40",
+      "registrationRecordFileOffset": 14019392,
+      "registrationRecordHex": "70a6730028000001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DBB",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_PlayPose(System.UInt64,System.UInt32,Sims3.SimIFace.ResourceKey)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_PlayPose",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A670_ScriptCore_Animation_Animation_PlayPose.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A670_ScriptCore_Animation_Animation_PlayPose.c",
+      "windowStartVa": "0x0073a670",
+      "windowStopVaExclusive": "0x0073a864",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_StopAllAnimation",
+      "entryVa": "0x0073aa40",
+      "registrationRecordVa": "0x0115eb48",
+      "registrationRecordFileOffset": 14019400,
+      "registrationRecordHex": "40aa730054000001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DBC",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_StopAllAnimation(System.UInt64)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_StopAllAnimation",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073AA40_Animation_StopAllAnimation.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073AA40_Animation_StopAllAnimation.c",
+      "windowStartVa": "0x0073aa40",
+      "windowStopVaExclusive": "0x0073aaaa",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_ForceAnimation",
+      "entryVa": "0x0073aab0",
+      "registrationRecordVa": "0x0115eb50",
+      "registrationRecordFileOffset": 14019408,
+      "registrationRecordHex": "b0aa730088000001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DBD",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_ForceAnimation(System.UInt64,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_ForceAnimation",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073AAB0_Animation_ForceAnimation.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073AAB0_Animation_ForceAnimation.c",
+      "windowStartVa": "0x0073aab0",
+      "windowStopVaExclusive": "0x0073ab1c",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_StartRandomClipController",
+      "entryVa": "0x0073b3f0",
+      "registrationRecordVa": "0x0115eb58",
+      "registrationRecordFileOffset": 14019416,
+      "registrationRecordHex": "f0b37300b8000001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DBE",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_StartRandomClipController(System.UInt64,System.UInt32,System.Single,Sims3.SimIFace.ResourceKey,System.UInt64[],System.Single[],System.Single[])->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_StartRandomClipController",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073B3F0_ScriptCore_Animation_Animation_StartRandomClipController.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073B3F0_ScriptCore_Animation_Animation_StartRandomClipController.c",
+      "windowStartVa": "0x0073b3f0",
+      "windowStopVaExclusive": "0x0073b7e0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_StopRandomClipController",
+      "entryVa": "0x0073ab20",
+      "registrationRecordVa": "0x0115eb60",
+      "registrationRecordFileOffset": 14019424,
+      "registrationRecordHex": "20ab7300f4000001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DBF",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_StopRandomClipController(System.UInt64,System.UInt32,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_StopRandomClipController",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073AB20_ScriptCore_Animation_Animation_StopRandomClipController.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073AB20_ScriptCore_Animation_Animation_StopRandomClipController.c",
+      "windowStartVa": "0x0073ab20",
+      "windowStopVaExclusive": "0x0073abb0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_ClipExists",
+      "entryVa": "0x0073a210",
+      "registrationRecordVa": "0x0115eb68",
+      "registrationRecordFileOffset": 14019432,
+      "registrationRecordHex": "10a2730030010001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC0",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_ClipExists(System.UInt64,System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_ClipExists",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A210_ScriptCore_Animation_Animation_ClipExists.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A210_ScriptCore_Animation_Animation_ClipExists.c",
+      "windowStartVa": "0x0073a210",
+      "windowStopVaExclusive": "0x0073a250",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_HasAnimation",
+      "entryVa": "0x0073abb0",
+      "registrationRecordVa": "0x0115eb70",
+      "registrationRecordFileOffset": 14019440,
+      "registrationRecordHex": "b0ab73005c010001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC1",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_HasAnimation(System.UInt64,System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_HasAnimation",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073ABB0_ScriptCore_Animation_Animation_HasAnimation.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073ABB0_ScriptCore_Animation_Animation_HasAnimation.c",
+      "windowStartVa": "0x0073abb0",
+      "windowStopVaExclusive": "0x0073ac90",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_GetClipInstanceId",
+      "entryVa": "0x0073a0c0",
+      "registrationRecordVa": "0x0115eb78",
+      "registrationRecordFileOffset": 14019448,
+      "registrationRecordHex": "c0a073008c010001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC2",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_GetClipInstanceId(System.String)->System.UInt64",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_GetClipInstanceId",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A0C0_ScriptCore_Animation_Animation_GetClipInstanceId.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A0C0_ScriptCore_Animation_Animation_GetClipInstanceId.c",
+      "windowStartVa": "0x0073a0c0",
+      "windowStopVaExclusive": "0x0073a110",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_GetClipInstanceIdForAges",
+      "entryVa": "0x0073a110",
+      "registrationRecordVa": "0x0115eb80",
+      "registrationRecordFileOffset": 14019456,
+      "registrationRecordHex": "10a17300c0010001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC3",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_GetClipInstanceIdForAges(System.String,System.UInt32,System.UInt32)->System.UInt64",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_GetClipInstanceIdForAges",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A110_ScriptCore_Animation_Animation_GetClipInstanceIdForAges.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A110_ScriptCore_Animation_Animation_GetClipInstanceIdForAges.c",
+      "windowStartVa": "0x0073a110",
+      "windowStopVaExclusive": "0x0073a1b0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_PlayProcedurallyMotionAccumulatedAnimation",
+      "entryVa": "0x0073ac90",
+      "registrationRecordVa": "0x0115eb88",
+      "registrationRecordFileOffset": 14019464,
+      "registrationRecordHex": "90ac730000020001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC4",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_PlayProcedurallyMotionAccumulatedAnimation(System.UInt64,System.UInt32,Sims3.SimIFace.ResourceKey,Sims3.SimIFace.Vector3,Sims3.SimIFace.Vector3)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_PlayProcedurallyMotionAccumulatedAnimation",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073AC90_ScriptCore_Animation_Animation_PlayProcedurallyMotionAccumulatedAnimation.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073AC90_ScriptCore_Animation_Animation_PlayProcedurallyMotionAccumulatedAnimation.c",
+      "windowStartVa": "0x0073ac90",
+      "windowStopVaExclusive": "0x0073afa6",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_SetPMAAnimationFinishedCallback",
+      "entryVa": "0x0073a250",
+      "registrationRecordVa": "0x0115eb90",
+      "registrationRecordFileOffset": 14019472,
+      "registrationRecordHex": "50a2730050020001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC5",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_SetPMAAnimationFinishedCallback(System.Delegate)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_SetPMAAnimationFinishedCallback",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073A250_Animation_SetPMAAnimationFinishedCallback.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073A250_Animation_SetPMAAnimationFinishedCallback.c",
+      "windowStartVa": "0x0073a250",
+      "windowStopVaExclusive": "0x0073a25e",
+      "boundaryRule": "ghidra_function_body_envelope"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_MeasureControllerDistanceTravelled",
+      "entryVa": "0x0073afb0",
+      "registrationRecordVa": "0x0115eb98",
+      "registrationRecordFileOffset": 14019480,
+      "registrationRecordHex": "b0af730090020001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC6",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_MeasureControllerDistanceTravelled(System.UInt64,Sims3.SimIFace.ResourceKey)->Sims3.SimIFace.Vector3",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_MeasureControllerDistanceTravelled",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073AFB0_ScriptCore_Animation_Animation_MeasureControllerDistanceTravelled.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073AFB0_ScriptCore_Animation_Animation_MeasureControllerDistanceTravelled.c",
+      "windowStartVa": "0x0073afb0",
+      "windowStopVaExclusive": "0x0073b160",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_EnableDisableForceDiscontinuousOnParenting",
+      "entryVa": "0x0073b160",
+      "registrationRecordVa": "0x0115eba0",
+      "registrationRecordFileOffset": 14019488,
+      "registrationRecordHex": "60b17300d8020001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC7",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_EnableDisableForceDiscontinuousOnParenting(System.UInt64,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_EnableDisableForceDiscontinuousOnParenting",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073B160_ScriptCore_Animation_Animation_EnableDisableForceDiscontinuousOnParenting.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073B160_ScriptCore_Animation_Animation_EnableDisableForceDiscontinuousOnParenting.c",
+      "windowStartVa": "0x0073b160",
+      "windowStopVaExclusive": "0x0073b1e0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_EnableDisableLargeAnimalEvalNode",
+      "entryVa": "0x0073b1e0",
+      "registrationRecordVa": "0x0115eba8",
+      "registrationRecordFileOffset": 14019496,
+      "registrationRecordHex": "e0b1730028030001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC8",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_EnableDisableLargeAnimalEvalNode(System.UInt64,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_EnableDisableLargeAnimalEvalNode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073B1E0_ScriptCore_Animation_Animation_EnableDisableLargeAnimalEvalNode.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073B1E0_ScriptCore_Animation_Animation_EnableDisableLargeAnimalEvalNode.c",
+      "windowStartVa": "0x0073b1e0",
+      "windowStopVaExclusive": "0x0073b260",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_EnableDisableScubaDivingMode",
+      "entryVa": "0x0073b260",
+      "registrationRecordVa": "0x0115ebb0",
+      "registrationRecordFileOffset": 14019504,
+      "registrationRecordHex": "60b273006c030001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DC9",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_EnableDisableScubaDivingMode(System.UInt64,System.Boolean,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_EnableDisableScubaDivingMode",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/0073B260_Animation_EnableDisableScubaDivingMode.asm",
+      "pseudocodeFile": "../../evidence/native/functions/0073B260_Animation_EnableDisableScubaDivingMode.c",
+      "windowStartVa": "0x0073b260",
+      "windowStopVaExclusive": "0x0073b2e0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Animation::Animation_SetMissingAnimationCallback",
+      "entryVa": "0x004b40c0",
+      "registrationRecordVa": "0x0115ebb8",
+      "registrationRecordFileOffset": 14019512,
+      "registrationRecordHex": "c0404b00ac030001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000DCA",
+          "signature": "ScriptCore:ScriptCore.Animation::Animation_SetMissingAnimationCallback(System.Delegate)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Animation_SetMissingAnimationCallback",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/004B40C0_ScriptCore_Animation_Animation_SetMissingAnimationCallback.asm",
+      "pseudocodeFile": "../../evidence/native/functions/004B40C0_ScriptCore_Animation_Animation_SetMissingAnimationCallback.c",
+      "windowStartVa": "0x004b40c0",
+      "windowStopVaExclusive": "0x004b40d0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Route::Route_BeginFollowingRouteAnimationSpec",
+      "entryVa": "0x00758bf0",
+      "registrationRecordVa": "0x01161ad8",
+      "registrationRecordFileOffset": 14031576,
+      "registrationRecordHex": "f08b750094670001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06001104",
+          "signature": "ScriptCore:ScriptCore.Route::Route_BeginFollowingRouteAnimationSpec(System.UInt32,Sims3.SimIFace.RouteAnimationSpec,System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Route_BeginFollowingRouteAnimationSpec",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00758BF0_ScriptCore_Route_Route_BeginFollowingRouteAnimationSpec.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00758BF0_ScriptCore_Route_Route_BeginFollowingRouteAnimationSpec.c",
+      "windowStartVa": "0x00758bf0",
+      "windowStopVaExclusive": "0x00758c30",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Route::Route_BeginFollowingRouteAnimationSpecMult",
+      "entryVa": "0x00758c30",
+      "registrationRecordVa": "0x01161ae0",
+      "registrationRecordFileOffset": 14031584,
+      "registrationRecordHex": "308c7500d0670001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06001105",
+          "signature": "ScriptCore:ScriptCore.Route::Route_BeginFollowingRouteAnimationSpecMult(System.UInt32,Sims3.SimIFace.RouteAnimationSpec,System.UInt32[],System.UInt64[],System.Boolean,System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Route_BeginFollowingRouteAnimationSpecMult",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00758C30_ScriptCore_Route_Route_BeginFollowingRouteAnimationSpecMult.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00758C30_ScriptCore_Route_Route_BeginFollowingRouteAnimationSpecMult.c",
+      "windowStartVa": "0x00758c30",
+      "windowStopVaExclusive": "0x00758c80",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Route::Route_UpdateRouteAnimationSpec",
+      "entryVa": "0x00757000",
+      "registrationRecordVa": "0x01161af0",
+      "registrationRecordFileOffset": 14031600,
+      "registrationRecordHex": "0070750044680001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06001109",
+          "signature": "ScriptCore:ScriptCore.Route::Route_UpdateRouteAnimationSpec(System.UInt32,System.UInt64,Sims3.SimIFace.RouteAnimationSpec)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Route_UpdateRouteAnimationSpec",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00757000_ScriptCore_Route_Route_UpdateRouteAnimationSpec.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00757000_ScriptCore_Route_Route_UpdateRouteAnimationSpec.c",
+      "windowStartVa": "0x00757000",
+      "windowStopVaExclusive": "0x00757070",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.Route::Route_UpdateRouteAnimationSpecMult",
+      "entryVa": "0x00757070",
+      "registrationRecordVa": "0x01161af8",
+      "registrationRecordFileOffset": 14031608,
+      "registrationRecordHex": "7070750078680001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x0600110A",
+          "signature": "ScriptCore:ScriptCore.Route::Route_UpdateRouteAnimationSpecMult(System.UInt32,System.UInt64,Sims3.SimIFace.RouteAnimationSpec,System.UInt32[],System.UInt64[])->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "Route_UpdateRouteAnimationSpecMult",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00757070_ScriptCore_Route_Route_UpdateRouteAnimationSpecMult.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00757070_ScriptCore_Route_Route_UpdateRouteAnimationSpecMult.c",
+      "windowStartVa": "0x00757070",
+      "windowStopVaExclusive": "0x007570c0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_AcquireDriverImpl",
+      "entryVa": "0x007684c0",
+      "registrationRecordVa": "0x01161de0",
+      "registrationRecordFileOffset": 14032352,
+      "registrationRecordHex": "c084760078800001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D5B",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_AcquireDriverImpl(System.UInt64,System.UInt64,System.UInt32,System.UInt32,System.Int32,System.Delegate)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_AcquireDriverImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007684C0_ScriptCore_SACS_SACS_AcquireDriverImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007684C0_ScriptCore_SACS_SACS_AcquireDriverImpl.c",
+      "windowStartVa": "0x007684c0",
+      "windowStopVaExclusive": "0x00768680",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_AcquireDriverNoYieldImpl",
+      "entryVa": "0x00767830",
+      "registrationRecordVa": "0x01161de8",
+      "registrationRecordFileOffset": 14032360,
+      "registrationRecordHex": "30787600a0800001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D5C",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_AcquireDriverNoYieldImpl(System.UInt64,System.UInt64,System.UInt32,System.UInt32,System.Int32)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_AcquireDriverNoYieldImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767830_ScriptCore_SACS_SACS_AcquireDriverNoYieldImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767830_ScriptCore_SACS_SACS_AcquireDriverNoYieldImpl.c",
+      "windowStartVa": "0x00767830",
+      "windowStopVaExclusive": "0x00767940",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_ReleaseDriverImpl",
+      "entryVa": "0x00767410",
+      "registrationRecordVa": "0x01161df0",
+      "registrationRecordFileOffset": 14032368,
+      "registrationRecordHex": "10747600d0800001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D5D",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_ReleaseDriverImpl(System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_ReleaseDriverImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767410_ScriptCore_SACS_SACS_ReleaseDriverImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767410_ScriptCore_SACS_SACS_ReleaseDriverImpl.c",
+      "windowStartVa": "0x00767410",
+      "windowStopVaExclusive": "0x00767480",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_SetEventQueueImpl",
+      "entryVa": "0x00766f90",
+      "registrationRecordVa": "0x01161df8",
+      "registrationRecordFileOffset": 14032376,
+      "registrationRecordHex": "906f7600f8800001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D5F",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_SetEventQueueImpl(System.UInt32,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_SetEventQueueImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00766F90_ScriptCore_SACS__SACS_SetEventQueueImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00766F90_ScriptCore_SACS__SACS_SetEventQueueImpl.c",
+      "windowStartVa": "0x00766f90",
+      "windowStopVaExclusive": "0x00766fd0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_IsEventQueueValidImpl",
+      "entryVa": "0x00767480",
+      "registrationRecordVa": "0x01161e00",
+      "registrationRecordFileOffset": 14032384,
+      "registrationRecordHex": "8074760020810001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D5E",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_IsEventQueueValidImpl(System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_IsEventQueueValidImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767480_ScriptCore_SACS__SACS_IsEventQueueValidImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767480_ScriptCore_SACS__SACS_IsEventQueueValidImpl.c",
+      "windowStartVa": "0x00767480",
+      "windowStopVaExclusive": "0x007674d0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_SetActorImpl",
+      "entryVa": "0x00767940",
+      "registrationRecordVa": "0x01161e08",
+      "registrationRecordFileOffset": 14032392,
+      "registrationRecordHex": "407976004c810001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D60",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_SetActorImpl(System.UInt32,System.UInt32,System.UInt64)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_SetActorImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767940_ScriptCore_SACS_SACS_SetActorImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767940_ScriptCore_SACS_SACS_SetActorImpl.c",
+      "windowStartVa": "0x00767940",
+      "windowStopVaExclusive": "0x007679e0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_HasActorImpl",
+      "entryVa": "0x00766f60",
+      "registrationRecordVa": "0x01161e10",
+      "registrationRecordFileOffset": 14032400,
+      "registrationRecordHex": "606f760070810001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D61",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_HasActorImpl(System.UInt32,System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_HasActorImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00766F60_ScriptCore_SACS_SACS_HasActorImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00766F60_ScriptCore_SACS_SACS_HasActorImpl.c",
+      "windowStartVa": "0x00766f60",
+      "windowStopVaExclusive": "0x00766f90",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_SetParamImpl",
+      "entryVa": "0x00766fd0",
+      "registrationRecordVa": "0x01161e18",
+      "registrationRecordFileOffset": 14032408,
+      "registrationRecordHex": "d06f760094810001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D62",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_SetParamImpl(System.UInt32,System.UInt32,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_SetParamImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00766FD0_ScriptCore_SACS_SACS_SetParamImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00766FD0_ScriptCore_SACS_SACS_SetParamImpl.c",
+      "windowStartVa": "0x00766fd0",
+      "windowStopVaExclusive": "0x00767000",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_SetParamStringImpl",
+      "entryVa": "0x00767000",
+      "registrationRecordVa": "0x01161e20",
+      "registrationRecordFileOffset": 14032416,
+      "registrationRecordHex": "00707600b8810001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D63",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_SetParamStringImpl(System.UInt32,System.UInt32,System.String)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_SetParamStringImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767000_ScriptCore_SACS_SACS_SetParamStringImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767000_ScriptCore_SACS_SACS_SetParamStringImpl.c",
+      "windowStartVa": "0x00767000",
+      "windowStopVaExclusive": "0x00767040",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_SetParamCompositeImpl",
+      "entryVa": "0x00766dc0",
+      "registrationRecordVa": "0x01161e28",
+      "registrationRecordFileOffset": 14032424,
+      "registrationRecordHex": "c06d7600e4810001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D64",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_SetParamCompositeImpl(System.UInt32,System.String,System.String,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_SetParamCompositeImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00766DC0_ScriptCore_SACS_SACS_SetParamCompositeImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00766DC0_ScriptCore_SACS_SACS_SetParamCompositeImpl.c",
+      "windowStartVa": "0x00766dc0",
+      "windowStopVaExclusive": "0x00766e90",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_SetParamCompositeValImpl",
+      "entryVa": "0x00766e90",
+      "registrationRecordVa": "0x01161e30",
+      "registrationRecordFileOffset": 14032432,
+      "registrationRecordHex": "906e760010820001",
+      "managedMatches": [],
+      "rawFile": "../../evidence/native/functions/00766E90_ScriptCore_SACS_SACS_SetParamCompositeValImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00766E90_ScriptCore_SACS_SACS_SetParamCompositeValImpl.c",
+      "windowStartVa": "0x00766e90",
+      "windowStopVaExclusive": "0x00766f00",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_GetParamImpl",
+      "entryVa": "0x00767040",
+      "registrationRecordVa": "0x01161e38",
+      "registrationRecordFileOffset": 14032440,
+      "registrationRecordHex": "4070760040820001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D66",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_GetParamImpl(System.UInt32,System.UInt32)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_GetParamImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767040_ScriptCore_SACS_SACS_GetParamImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767040_ScriptCore_SACS_SACS_GetParamImpl.c",
+      "windowStartVa": "0x00767040",
+      "windowStopVaExclusive": "0x00767070",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_GetParamStringImpl",
+      "entryVa": "0x007686b0",
+      "registrationRecordVa": "0x01161e40",
+      "registrationRecordFileOffset": 14032448,
+      "registrationRecordHex": "b086760064820001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D67",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_GetParamStringImpl(System.UInt32,System.UInt32)->System.String",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_GetParamStringImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007686B0_ScriptCore_SACS_SACS_GetParamStringImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007686B0_ScriptCore_SACS_SACS_GetParamStringImpl.c",
+      "windowStartVa": "0x007686b0",
+      "windowStopVaExclusive": "0x007687f0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_GetNumParamsImpl",
+      "entryVa": "0x00767070",
+      "registrationRecordVa": "0x01161e48",
+      "registrationRecordFileOffset": 14032456,
+      "registrationRecordHex": "7070760090820001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D68",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_GetNumParamsImpl(System.UInt32)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_GetNumParamsImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767070_ScriptCore_SACS_SACS_GetNumParamsImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767070_ScriptCore_SACS_SACS_GetNumParamsImpl.c",
+      "windowStartVa": "0x00767070",
+      "windowStopVaExclusive": "0x007670a0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_GetParamNameImpl",
+      "entryVa": "0x007687f0",
+      "registrationRecordVa": "0x01161e50",
+      "registrationRecordFileOffset": 14032464,
+      "registrationRecordHex": "f0877600b8820001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D69",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_GetParamNameImpl(System.UInt32,System.UInt32)->System.String",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_GetParamNameImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007687F0_ScriptCore_SACS_SACS_GetParamNameImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007687F0_ScriptCore_SACS_SACS_GetParamNameImpl.c",
+      "windowStartVa": "0x007687f0",
+      "windowStopVaExclusive": "0x00768940",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_GetDebugStringImpl",
+      "entryVa": "0x00768cb0",
+      "registrationRecordVa": "0x01161e58",
+      "registrationRecordFileOffset": 14032472,
+      "registrationRecordHex": "b08c7600e0820001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D6A",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_GetDebugStringImpl(System.UInt64)->System.String",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_GetDebugStringImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00768CB0_ScriptCore_SACS_SACS_GetDebugStringImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00768CB0_ScriptCore_SACS_SACS_GetDebugStringImpl.c",
+      "windowStartVa": "0x00768cb0",
+      "windowStopVaExclusive": "0x00768e90",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_EnterStateImpl",
+      "entryVa": "0x007670a0",
+      "registrationRecordVa": "0x01161e60",
+      "registrationRecordFileOffset": 14032480,
+      "registrationRecordHex": "a07076000c830001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D6B",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_EnterStateImpl(System.UInt32,System.UInt32,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_EnterStateImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007670A0_ScriptCore_SACS_SACS_EnterStateImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007670A0_ScriptCore_SACS_SACS_EnterStateImpl.c",
+      "windowStartVa": "0x007670a0",
+      "windowStopVaExclusive": "0x007670d0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_RequestStateImpl",
+      "entryVa": "0x007674d0",
+      "registrationRecordVa": "0x01161e68",
+      "registrationRecordFileOffset": 14032488,
+      "registrationRecordHex": "d074760034830001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D6C",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_RequestStateImpl(System.UInt32,System.UInt32,System.UInt32,Sims3.SimIFace.SACS.DriverRequestFlags,System.UInt32,System.UInt32,System.UInt32)->Sims3.SimIFace.SACS.ResultCodes",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_RequestStateImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007674D0_SACS_RequestStateImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007674D0_SACS_RequestStateImpl.c",
+      "windowStartVa": "0x007674d0",
+      "windowStopVaExclusive": "0x00767590",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_CanPauseImpl",
+      "entryVa": "0x007670d0",
+      "registrationRecordVa": "0x01161e70",
+      "registrationRecordFileOffset": 14032496,
+      "registrationRecordHex": "d07076005c830001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D6D",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_CanPauseImpl(System.UInt32,System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_CanPauseImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007670D0_ScriptCore_SACS_SACS_CanPauseImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007670D0_ScriptCore_SACS_SACS_CanPauseImpl.c",
+      "windowStartVa": "0x007670d0",
+      "windowStopVaExclusive": "0x00767100",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_PauseImpl",
+      "entryVa": "0x00767100",
+      "registrationRecordVa": "0x01161e78",
+      "registrationRecordFileOffset": 14032504,
+      "registrationRecordHex": "0071760080830001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D6E",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_PauseImpl(System.UInt32,System.UInt32)->System.Boolean",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_PauseImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767100_ScriptCore_SACS_SACS_PauseImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767100_ScriptCore_SACS_SACS_PauseImpl.c",
+      "windowStartVa": "0x00767100",
+      "windowStopVaExclusive": "0x00767130",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_ContinueImpl",
+      "entryVa": "0x00767130",
+      "registrationRecordVa": "0x01161e80",
+      "registrationRecordFileOffset": 14032512,
+      "registrationRecordHex": "30717600a0830001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D6F",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_ContinueImpl(System.UInt32,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_ContinueImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767130_ScriptCore_SACS_SACS_ContinueImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767130_ScriptCore_SACS_SACS_ContinueImpl.c",
+      "windowStartVa": "0x00767130",
+      "windowStopVaExclusive": "0x00767160",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_UpdateEventFilterImpl",
+      "entryVa": "0x00767160",
+      "registrationRecordVa": "0x01161e88",
+      "registrationRecordFileOffset": 14032520,
+      "registrationRecordHex": "60717600c4830001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D70",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_UpdateEventFilterImpl(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_UpdateEventFilterImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767160_ScriptCore_SACS__SACS_UpdateEventFilterImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767160_ScriptCore_SACS__SACS_UpdateEventFilterImpl.c",
+      "windowStartVa": "0x00767160",
+      "windowStopVaExclusive": "0x007671e0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_GetActiveClipCountImpl",
+      "entryVa": "0x007679e0",
+      "registrationRecordVa": "0x01161e90",
+      "registrationRecordFileOffset": 14032528,
+      "registrationRecordHex": "e0797600f0830001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D71",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_GetActiveClipCountImpl(System.UInt64,System.Delegate)->System.Int32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_GetActiveClipCountImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007679E0_ScriptCore_SACS_SACS_GetActiveClipCountImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007679E0_ScriptCore_SACS_SACS_GetActiveClipCountImpl.c",
+      "windowStartVa": "0x007679e0",
+      "windowStopVaExclusive": "0x00767bb0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_GetActiveClipInfoImpl",
+      "entryVa": "0x00768990",
+      "registrationRecordVa": "0x01161e98",
+      "registrationRecordFileOffset": 14032536,
+      "registrationRecordHex": "9089760020840001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D72",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_GetActiveClipInfoImpl(System.IntPtr,System.UInt32,System.UInt32&)->System.String",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_GetActiveClipInfoImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00768990_ScriptCore_SACS_SACS_GetActiveClipInfoImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00768990_ScriptCore_SACS_SACS_GetActiveClipInfoImpl.c",
+      "windowStartVa": "0x00768990",
+      "windowStopVaExclusive": "0x00768b10",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_DestroyClipInfoHandleImpl",
+      "entryVa": "0x007691a0",
+      "registrationRecordVa": "0x01161ea0",
+      "registrationRecordFileOffset": 14032544,
+      "registrationRecordHex": "a09176004c840001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D73",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_DestroyClipInfoHandleImpl(System.IntPtr)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_DestroyClipInfoHandleImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007691A0_ScriptCore_SACS_SACS_DestroyClipInfoHandleImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007691A0_ScriptCore_SACS_SACS_DestroyClipInfoHandleImpl.c",
+      "windowStartVa": "0x007691a0",
+      "windowStopVaExclusive": "0x007691d0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_GetDefaultPriorityImpl",
+      "entryVa": "0x007671e0",
+      "registrationRecordVa": "0x01161ea8",
+      "registrationRecordFileOffset": 14032552,
+      "registrationRecordHex": "e07176007c840001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D74",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_GetDefaultPriorityImpl(System.UInt32)->System.UInt32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_GetDefaultPriorityImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/007671E0_ScriptCore_SACS_SACS_GetDefaultPriorityImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/007671E0_ScriptCore_SACS_SACS_GetDefaultPriorityImpl.c",
+      "windowStartVa": "0x007671e0",
+      "windowStopVaExclusive": "0x00767220",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_StopAllAnimationImpl",
+      "entryVa": "0x00767bb0",
+      "registrationRecordVa": "0x01161eb0",
+      "registrationRecordFileOffset": 14032560,
+      "registrationRecordHex": "b07b7600ac840001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D75",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_StopAllAnimationImpl(Sims3.SimIFace.ObjectGuid)->System.Int32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_StopAllAnimationImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767BB0_ScriptCore_SACS__SACS_StopAllAnimationImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767BB0_ScriptCore_SACS__SACS_StopAllAnimationImpl.c",
+      "windowStartVa": "0x00767bb0",
+      "windowStopVaExclusive": "0x00767c70",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_SetRigImpl",
+      "entryVa": "0x00768e90",
+      "registrationRecordVa": "0x01161eb8",
+      "registrationRecordFileOffset": 14032568,
+      "registrationRecordHex": "908e7600d8840001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D76",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_SetRigImpl(Sims3.SimIFace.ObjectGuid,Sims3.SimIFace.ResourceKey)->System.Int32",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_SetRigImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00768E90_ScriptCore_SACS_SACS_SetRigImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00768E90_ScriptCore_SACS_SACS_SetRigImpl.c",
+      "windowStartVa": "0x00768e90",
+      "windowStopVaExclusive": "0x007691a0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    },
+    {
+      "name": "ScriptCore.SACS::SACS_SetClipInterruptibleImpl",
+      "entryVa": "0x00767c70",
+      "registrationRecordVa": "0x01161ec0",
+      "registrationRecordFileOffset": 14032576,
+      "registrationRecordHex": "707c7600fc840001",
+      "managedMatches": [
+        {
+          "assembly": "ScriptCore",
+          "token": "0x06000D77",
+          "signature": "ScriptCore:ScriptCore.SACS::SACS_SetClipInterruptibleImpl(Sims3.SimIFace.ObjectGuid,System.UInt32,System.Boolean)->System.Void",
+          "pinvoke": {
+            "module": "Sims3Common.dll",
+            "entryPoint": "SACS_SetClipInterruptibleImpl",
+            "attributes": "CallingConventionWinApi",
+            "attributesValue": 256
+          }
+        }
+      ],
+      "rawFile": "../../evidence/native/functions/00767C70_ScriptCore_SACS_SACS_SetClipInterruptibleImpl.asm",
+      "pseudocodeFile": "../../evidence/native/functions/00767C70_ScriptCore_SACS_SACS_SetClipInterruptibleImpl.c",
+      "windowStartVa": "0x00767c70",
+      "windowStopVaExclusive": "0x00767cf0",
+      "boundaryRule": "min(next_ghidra_entry,entry_plus_8192)"
+    }
+  ]
+}

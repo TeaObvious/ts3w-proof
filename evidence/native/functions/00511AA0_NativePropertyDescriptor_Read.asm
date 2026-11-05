@@ -1,0 +1,99 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body and owned-range envelope.
+Actual annotated Ghidra pseudocode: 00511AA0_NativePropertyDescriptor_Read.c
+Owned ranges: [[00511aa0, 00511b7a]]
+
+00511aa0  57  PUSH EDI
+00511aa1  8bf9  MOV EDI,ECX
+00511aa3  8b4704  MOV EAX,dword ptr [EDI + 0x4]
+00511aa6  85c0  TEST EAX,EAX
+00511aa8  7420  JZ 0x00511aca
+00511aaa  8b4804  MOV ECX,dword ptr [EAX + 0x4]
+00511aad  85c9  TEST ECX,ECX
+00511aaf  7419  JZ 0x00511aca
+00511ab1  8b442410  MOV EAX,dword ptr [ESP + 0x10]
+00511ab5  8b54240c  MOV EDX,dword ptr [ESP + 0xc]
+00511ab9  50  PUSH EAX
+00511aba  8b44240c  MOV EAX,dword ptr [ESP + 0xc]
+00511abe  57  PUSH EDI
+00511abf  52  PUSH EDX
+00511ac0  50  PUSH EAX
+00511ac1  ffd1  CALL ECX
+00511ac3  83c410  ADD ESP,0x10
+00511ac6  5f  POP EDI
+00511ac7  c20c00  RET 0xc
+00511aca  85c0  TEST EAX,EAX
+00511acc  53  PUSH EBX
+00511acd  55  PUSH EBP
+00511ace  8b6c2418  MOV EBP,dword ptr [ESP + 0x18]
+00511ad2  56  PUSH ESI
+00511ad3  b301  MOV BL,0x1
+00511ad5  7450  JZ 0x00511b27
+00511ad7  8b4008  MOV EAX,dword ptr [EAX + 0x8]
+00511ada  85c0  TEST EAX,EAX
+00511adc  7449  JZ 0x00511b27
+00511ade  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+00511ae2  8b742414  MOV ESI,dword ptr [ESP + 0x14]
+00511ae6  55  PUSH EBP
+00511ae7  57  PUSH EDI
+00511ae8  51  PUSH ECX
+00511ae9  56  PUSH ESI
+00511aea  ffd0  CALL EAX
+00511aec  8ad8  MOV BL,AL
+00511aee  83c410  ADD ESP,0x10
+00511af1  84db  TEST BL,BL
+00511af3  747d  JZ 0x00511b72
+00511af5  668b4f0c  MOV CX,word ptr [EDI + 0xc]
+00511af9  6681e1ff0f  AND CX,0xfff
+00511afe  6683f912  CMP CX,0x12
+00511b02  756e  JNZ 0x00511b72
+00511b04  8b4608  MOV EAX,dword ptr [ESI + 0x8]
+00511b07  8b5500  MOV EDX,dword ptr [EBP]
+00511b0a  8b12  MOV EDX,dword ptr [EDX]
+00511b0c  8b7e04  MOV EDI,dword ptr [ESI + 0x4]
+00511b0f  03c0  ADD EAX,EAX
+00511b11  6a04  PUSH 0x4
+00511b13  03c0  ADD EAX,EAX
+00511b15  50  PUSH EAX
+00511b16  8bcd  MOV ECX,EBP
+00511b18  ffd2  CALL EDX
+00511b1a  85c0  TEST EAX,EAX
+00511b1c  7535  JNZ 0x00511b53
+00511b1e  5e  POP ESI
+00511b1f  5d  POP EBP
+00511b20  5b  POP EBX
+00511b21  32c0  XOR AL,AL
+00511b23  5f  POP EDI
+00511b24  c20c00  RET 0xc
+00511b27  8b5710  MOV EDX,dword ptr [EDI + 0x10]
+00511b2a  8b742414  MOV ESI,dword ptr [ESP + 0x14]
+00511b2e  895608  MOV dword ptr [ESI + 0x8],EDX
+00511b31  0fb7470c  MOVZX EAX,word ptr [EDI + 0xc]
+00511b35  25ff0f0000  AND EAX,0xfff
+00511b3a  8b0c85f8f41401  MOV ECX,dword ptr [EAX*0x4 + 0x114f4f8]
+00511b41  8b442418  MOV EAX,dword ptr [ESP + 0x18]
+00511b45  890e  MOV dword ptr [ESI],ECX
+00511b47  0fbf570e  MOVSX EDX,word ptr [EDI + 0xe]
+00511b4b  035004  ADD EDX,dword ptr [EAX + 0x4]
+00511b4e  895604  MOV dword ptr [ESI + 0x4],EDX
+00511b51  eba2  JMP 0x00511af5
+00511b53  33c9  XOR ECX,ECX
+00511b55  394e08  CMP dword ptr [ESI + 0x8],ECX
+00511b58  894604  MOV dword ptr [ESI + 0x4],EAX
+00511b5b  7615  JBE 0x00511b72
+00511b5d  8d4900  LEA ECX,[ECX]
+00511b60  8b17  MOV EDX,dword ptr [EDI]
+00511b62  8910  MOV dword ptr [EAX],EDX
+00511b64  83c101  ADD ECX,0x1
+00511b67  83c710  ADD EDI,0x10
+00511b6a  83c004  ADD EAX,0x4
+00511b6d  3b4e08  CMP ECX,dword ptr [ESI + 0x8]
+00511b70  72ee  JC 0x00511b60
+00511b72  5e  POP ESI
+00511b73  5d  POP EBP
+00511b74  8ac3  MOV AL,BL
+00511b76  5b  POP EBX
+00511b77  5f  POP EDI
+00511b78  c20c00  RET 0xc

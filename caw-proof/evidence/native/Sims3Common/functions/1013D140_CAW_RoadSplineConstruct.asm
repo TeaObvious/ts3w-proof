@@ -1,0 +1,61 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 1013d140..1013d21f; CAW_RoadSplineConstruct
+1013d140: 0f57c0  XORPS XMM0,XMM0
+1013d143: 8a442414  MOV AL,byte ptr [ESP + 0x14]
+1013d147: 8a542418  MOV DL,byte ptr [ESP + 0x18]
+1013d14b: 56  PUSH ESI
+1013d14c: 8bf1  MOV ESI,ECX
+1013d14e: 33c9  XOR ECX,ECX
+1013d150: 884e04  MOV byte ptr [ESI + 0x4],CL
+1013d153: 884e0c  MOV byte ptr [ESI + 0xc],CL
+1013d156: f30f114610  MOVSS dword ptr [ESI + 0x10],XMM0
+1013d15b: f30f114614  MOVSS dword ptr [ESI + 0x14],XMM0
+1013d160: f30f114618  MOVSS dword ptr [ESI + 0x18],XMM0
+1013d165: f30f11461c  MOVSS dword ptr [ESI + 0x1c],XMM0
+1013d16a: 88862c010000  MOV byte ptr [ESI + 0x12c],AL
+1013d170: 8a442420  MOV AL,byte ptr [ESP + 0x20]
+1013d174: 88962d010000  MOV byte ptr [ESI + 0x12d],DL
+1013d17a: 88862e010000  MOV byte ptr [ESI + 0x12e],AL
+1013d180: 884e24  MOV byte ptr [ESI + 0x24],CL
+1013d183: 897608  MOV dword ptr [ESI + 0x8],ESI
+1013d186: c70690f1ab10  MOV dword ptr [ESI],0x10abf190
+1013d18c: f30f118670010000  MOVSS dword ptr [ESI + 0x170],XMM0
+1013d194: 8d8674010000  LEA EAX,[ESI + 0x174]
+1013d19a: ba01000000  MOV EDX,0x1
+1013d19f: 90  NOP
+1013d1a0: 8908  MOV dword ptr [EAX],ECX
+1013d1a2: 894804  MOV dword ptr [EAX + 0x4],ECX
+1013d1a5: 83c008  ADD EAX,0x8
+1013d1a8: 83ea01  SUB EDX,0x1
+1013d1ab: 79f3  JNS 0x1013d1a0
+1013d1ad: 668b542424  MOV DX,word ptr [ESP + 0x24]
+1013d1b2: 898e84010000  MOV dword ptr [ESI + 0x184],ECX
+1013d1b8: 898e88010000  MOV dword ptr [ESI + 0x188],ECX
+1013d1be: 898e8c010000  MOV dword ptr [ESI + 0x18c],ECX
+1013d1c4: b87cf1ab10  MOV EAX,0x10abf17c
+1013d1c9: 898690010000  MOV dword ptr [ESI + 0x190],EAX
+1013d1cf: 898e94010000  MOV dword ptr [ESI + 0x194],ECX
+1013d1d5: 898e98010000  MOV dword ptr [ESI + 0x198],ECX
+1013d1db: 898e9c010000  MOV dword ptr [ESI + 0x19c],ECX
+1013d1e1: 8986a0010000  MOV dword ptr [ESI + 0x1a0],EAX
+1013d1e7: 33c0  XOR EAX,EAX
+1013d1e9: 388e2c010000  CMP byte ptr [ESI + 0x12c],CL
+1013d1ef: 8b4c2414  MOV ECX,dword ptr [ESP + 0x14]
+1013d1f3: 0f95c0  SETNZ AL
+1013d1f6: 51  PUSH ECX
+1013d1f7: 8b4c240c  MOV ECX,dword ptr [ESP + 0xc]
+1013d1fb: 668996a4010000  MOV word ptr [ESI + 0x1a4],DX
+1013d202: 8b542414  MOV EDX,dword ptr [ESP + 0x14]
+1013d206: 52  PUSH EDX
+1013d207: 83c001  ADD EAX,0x1
+1013d20a: 894620  MOV dword ptr [ESI + 0x20],EAX
+1013d20d: 8b442414  MOV EAX,dword ptr [ESP + 0x14]
+1013d211: 50  PUSH EAX
+1013d212: 51  PUSH ECX
+1013d213: 8bce  MOV ECX,ESI
+1013d215: e886f5ffff  CALL 0x1013c7a0
+1013d21a: 8bc6  MOV EAX,ESI
+1013d21c: 5e  POP ESI
+1013d21d: c22000  RET 0x20

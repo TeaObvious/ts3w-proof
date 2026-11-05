@@ -1,0 +1,57 @@
+// Original CAW 1.22.10 ILSpy C# excerpt: Sims3/CSHost/World.cs
+// Selected complete method bodies.
+
+	public static bool ExportWorld(string fileName, string sims3ptPath, Dictionary<string, string> names, Dictionary<string, string> desc, uint catFlags, uint epMode, bool packageOnly, bool isUserMode)
+	{
+		string text = string.Empty;
+		bool runSims3Pt = !isUserMode;
+		try
+		{
+			text = Path.Combine(Path.GetTempPath(), Path.GetFileName(fileName));
+			Sims3WorldPackagerCmd sims3WorldPackagerCmd = new Sims3WorldPackagerCmd();
+			Sims3WorldPackagerCmd.ErrorCodes errorCodes = sims3WorldPackagerCmd.Run(fileName, text, sims3ptPath, string.Empty, bQuiet: true, runSims3Pt);
+			if (errorCodes != Sims3WorldPackagerCmd.ErrorCodes.kSuccess)
+			{
+				Log.gError("ExportWorld", "Packager failed with error code {0}", errorCodes);
+				return false;
+			}
+			if (packageOnly)
+			{
+				string destFileName = Path.GetDirectoryName(fileName) + "\\" + Path.GetFileNameWithoutExtension(fileName) + "_packaged" + Path.GetExtension(fileName);
+				File.Copy(text, destFileName);
+				File.Delete(text);
+				return true;
+			}
+			string empty = string.Empty;
+			string empty2 = string.Empty;
+			if (isUserMode)
+			{
+				empty = Path.GetFileNameWithoutExtension(fileName);
+				empty2 = GetLocalizedNameKey(fileName);
+			}
+			else
+			{
+				empty = desc["ENG_US"];
+				empty2 = names["ENG_US"];
+			}
+			return ContentManager.ExportWorld(text, empty2, empty, names, desc, catFlags, epMode, isUserMode);
+		}
+		catch (Exception ex)
+		{
+			Log.gError("ExportWorld", ex.ToString());
+			return false;
+		}
+		finally
+		{
+			try
+			{
+				if (File.Exists(text))
+				{
+					File.Delete(text);
+				}
+			}
+			catch (Exception)
+			{
+			}
+		}
+	}

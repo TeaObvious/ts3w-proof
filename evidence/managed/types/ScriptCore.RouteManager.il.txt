@@ -1,0 +1,2042 @@
+// Original PC 1.67 asm_00000000_78CF6CF5304D0C4F.dll; complete type ScriptCore.RouteManager.
+// Analyst annotations describe static contracts; IL remains authoritative for decompiler artifacts.
+
+.class public auto ansi ScriptCore.RouteManager
+	extends [mscorlib]System.Object
+	implements [SimIFace]Sims3.SimIFace.IRouteManager
+{
+	// Methods
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetMinimumDistanceForCarTravel (
+			float32 minDistanceForCarTravel
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetMinimumDistanceForCarTravel
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetMinimumDistanceForBoatTravel (
+			float32 minDistanceForBoatTravel
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetMinimumDistanceForBoatTravel
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetCarSpeedGlobalMultiplier (
+			float32 multiplier
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetCarSpeedGlobalMultiplier
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetCarSpeed (
+			uint64 carObjID,
+			float32 speed
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetCarSpeed
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetIsPlayerObject (
+			uint64 carObjID,
+			bool bState
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetIsPlayerObject
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetFadePriority (
+			uint64 carObjId,
+			uint32 priority
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetFadePriority
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetCarAcceleration (
+			uint64 carObjID,
+			float32 acceleration
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetCarAcceleration
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		float32 RouteManager_CalculateMinimumDistanceForLocomotionAnimSpec (
+			uint64 simObjID,
+			valuetype [SimIFace]Sims3.SimIFace.RouteAnimationSpec animSpec
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_CalculateMinimumDistanceForLocomotionAnimSpec
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		uint32 RouteManager_IsOkToIdleAtCurrentLocation (
+			uint64 simObjID,
+			uint64[] marshal(safearray 21) ignoreIds,
+			float32 radius,
+			uint32 agsFlags
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_IsOkToIdleAtCurrentLocation
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetDebugIdentifier (
+			uint64 footprintId,
+			string marshal(lpwstr) identifier
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetDebugIdentifier
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_FootprintSetLockKeys (
+			uint64 footprintId,
+			uint32 lockType,
+			uint64[] marshal(safearray 21) lockKeys
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_FootprintSetLockKeys
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_FootprintAddLockKey (
+			uint64 footprintId,
+			uint32 lockType,
+			uint64 lockKey
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_FootprintAddLockKey
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_FootprintRemoveLockKey (
+			uint64 footprintId,
+			uint32 lockType,
+			uint64 lockKey
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_FootprintRemoveLockKey
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_FootprintHasLockKey (
+			uint64 footprintId,
+			uint32 lockType,
+			uint64 lockKey
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_FootprintHasLockKey
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_FootprintClearLockKeys (
+			uint64 footprintId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_FootprintClearLockKeys
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_IsObjectRouting (
+			uint64 footprintId,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3& position,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3& velocity
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_IsObjectRouting
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		int32 RouteManager_IsRouteToObjectUnobstructed (
+			uint64 scriptHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 point,
+			uint64 options,
+			uint64 options2,
+			uint64 objectIdToIgnore,
+			uint32 agsFlags
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_IsRouteToObjectUnobstructed
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		int32 RouteManager_RoutingBlockerCheck2d (
+			valuetype [SimIFace]Sims3.SimIFace.Vector2 startPoint,
+			int32 startPointLevel,
+			valuetype [SimIFace]Sims3.SimIFace.Vector2 endPoint,
+			int32 endPointLevel,
+			uint64 options,
+			uint64 options2,
+			uint64 firstObjectIdToIgnore,
+			uint64 secondObjectIdToIgnore,
+			uint32 agsFlags
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_RoutingBlockerCheck2d
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		int32 RouteManager_IsSlotUnobstructed (
+			uint64 scriptHandle,
+			uint32 slotNameHash,
+			bool marshal(int8) checkForSims,
+			uint64 options,
+			uint64 options2,
+			uint64 objectIdToIgnore,
+			uint32 agsFlags,
+			bool marshal(int8) isExitSlot
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_IsSlotUnobstructed
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_PlaceSocialFootprintObjectImpl (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 simAPos,
+			uint32 slotAName,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 simBPos,
+			uint32 slotBName,
+			uint64 footprintId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_PlaceSocialFootprintObjectImpl
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_PlaceGroupSocialImpl (
+			uint64[] marshal(safearray 21) groupedScriptHandles,
+			uint64[] marshal(safearray 21) singleScriptHandles,
+			float32[]& marshal(safearray float32) positionArray,
+			float32[]& marshal(safearray float32) orientArray,
+			float32 fSeparation
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_PlaceGroupSocialImpl
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_PlaceDestinationPointImpl (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 currPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3& newPos
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_PlaceDestinationPointImpl
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_GetPositionAndOrientationForRailPathImpl (
+			uint64 trainObjId,
+			int32 railIndexStart,
+			int32 railIndexEnd,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3& position,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3& orientation
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_GetPositionAndOrientationForRailPathImpl
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_AddDiscourageFootprint (
+			uint64 scriptHandle,
+			float32[]& marshal(safearray float32) discourageRegionPointAry,
+			int32 numPoints,
+			bool marshal(int8) bHighImpassable,
+			bool marshal(int8) bAllowPlacementInWorld,
+			bool marshal(int8) bPlacementFootprint
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddDiscourageFootprint
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_RemoveDiscourageFootprint (
+			uint64 scriptHandle
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_RemoveDiscourageFootprint
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_AddPrivateFootprint (
+			uint64 scriptHandle,
+			float32[]& marshal(safearray float32) privateFootprintPointAry,
+			int32 numPoints,
+			bool marshal(int8) bAllowPlacementInWorld
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddPrivateFootprint
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_RemovePrivateFootprint (
+			uint64 scriptHandle
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_RemovePrivateFootprint
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		float32 RouteManager_GetSteeringObjectRadius (
+			uint64 simObjId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_GetSteeringObjectRadius
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		uint32 RouteManager_AddPortal (
+			uint64 objId,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 startPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 endPos,
+			float32 portalCost,
+			uint32 portalType,
+			int32 'flags',
+			uint64 agsFlags
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddPortal
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_DestroyPortalHandle (
+			uint32 portalHandle
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_DestroyPortalHandle
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_AddPortalLocationVariation (
+			uint64 objId,
+			uint32 portalHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 startPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 endPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 backwardsStartPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 backwardsEndPos,
+			uint64 agsFlags
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddPortalLocationVariation
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_AddDivingBoardPortals (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddDivingBoardPortals
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_AddWaterSlidePortals (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddWaterSlidePortals
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_AddPoolPortals (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddPoolPortals
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_AddPlatformPortals (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddPlatformPortals
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_AddStairPortals (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_AddStairPortals
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_SetOceanPortalOwner (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetOceanPortalOwner
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_RemovePortals (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_RemovePortals
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_SetPortalCost (
+			uint64 objId,
+			float32 cost
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetPortalCost
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_SetPortalAgeGenderFlags (
+			uint64 objId,
+			uint32 ageGenderFlags
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetPortalAgeGenderFlags
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_SetPortalLockStatus (
+			uint64 lotId,
+			bool marshal(int8) locked
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetPortalLockStatus
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_MarkRoomForUpdate (
+			uint64 lotId,
+			int32 roomId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_MarkRoomForUpdate
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		uint32 marshal(unsigned int32) RouteManager_BeginPortalRouting (
+			uint64 simObjectId,
+			valuetype [SimIFace]Sims3.SimIFace.PortalRoutingSpec rPortalSpec,
+			valuetype [SimIFace]Sims3.SimIFace.RouteAnimationSpec rAnimSpec
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_BeginPortalRouting
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_CanTransitionWalkstyle (
+			uint32 oldWalkstyleHash,
+			uint32 newWalkstyleHash,
+			uint32 ageSpecies
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_CanTransitionWalkstyle
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetRouteSoundSpec (
+			uint64 simObjId,
+			string marshal(lpwstr) rCruise,
+			string marshal(lpwstr) rDecelerate
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetRouteSoundSpec
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetTravellingEventInterval (
+			uint64 simObjId,
+			float32 interval
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetTravellingEventInterval
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetAvoidanceFieldRangeScale (
+			uint64 simObjId,
+			float32 scale
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetAvoidanceFieldRangeScale
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetAvoidanceFieldSmoothing (
+			uint64 simObjId,
+			float32 s
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetAvoidanceFieldSmoothing
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetAvoidanceFieldForSnorkeling (
+			uint64 simObjId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetAvoidanceFieldForSnorkeling
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_ResetAvoidanceFieldForSnorkeling (
+			uint64 simObjId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_ResetAvoidanceFieldForSnorkeling
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetShouldHandleObstructionsEncountered (
+			uint64 simObjId,
+			bool marshal(int8) b
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetShouldHandleObstructionsEncountered
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetAvoidanceFieldUseAdvancedAvoidance (
+			uint64 simObjId,
+			bool marshal(int8) useAdvancedAvoidance
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetAvoidanceFieldUseAdvancedAvoidance
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_ForcePlayWeatherEffectForTerrainType (
+			uint64 simObjId,
+			uint16 weatherTerrainType
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_ForcePlayWeatherEffectForTerrainType
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetSteeringOption (
+			uint64 simObjId,
+			uint32 steeringOption,
+			bool marshal(int8) isOn
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetSteeringOption
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_ResetSteering (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_ResetSteering
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		bool marshal(int8) RouteManager_IsStairObject (
+			uint64 objId
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_IsStairObject
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_OnExitBuildBuy () cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_OnExitBuildBuy
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		valuetype [SimIFace]Sims3.SimIFace.Rect RouteManager_GetDynamicAvoidanceFootprintRectForAgeSpecies (
+			uint32 'flags'
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_GetDynamicAvoidanceFootprintRectForAgeSpecies
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		valuetype [SimIFace]Sims3.SimIFace.Rect RouteManager_GetFootBoundaryRectForAgeSpecies (
+			uint32 'flags'
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_GetFootBoundaryRectForAgeSpecies
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_InitShutdownPairedAvoidance (
+			uint64 masterObjId,
+			uint64 slaveObjId,
+			uint32 slaveAGS,
+			bool marshal(int8) bInit
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_InitShutdownPairedAvoidance
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		void RouteManager_SetRoutingDisplayOption (
+			uint32 option,
+			uint32 val
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_SetRoutingDisplayOption
+
+	.method private hidebysig static pinvokeimpl("Sims3Common.dll" winapi) 
+		uint32 RouteManager_GetRoutingDisplayOption (
+			uint32 option
+		) cil managed preservesig 
+	{
+	} // end of method RouteManager::RouteManager_GetRoutingDisplayOption
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x12b80
+		// Header size: 12
+		// Code size: 179 (0xb3)
+		.maxstack 3
+		.locals init (
+			[0] class [mscorlib]System.Type[],
+			[1] class [mscorlib]System.Reflection.ConstructorInfo
+		)
+
+		IL_0000: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain()
+		IL_0005: ldstr "RouteManager"
+		IL_000a: newobj instance void ScriptCore.RouteManager::.ctor()
+		IL_000f: callvirt instance void [mscorlib]System.AppDomain::SetData(string, object)
+		IL_0014: ldc.i4.2
+		IL_0015: newarr [mscorlib]System.Type
+		IL_001a: stloc.0
+		IL_001b: ldloc.0
+		IL_001c: ldc.i4.0
+		IL_001d: ldtoken [SimIFace]Sims3.SimIFace.IScriptProxy
+		IL_0022: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_0027: stelem.ref
+		IL_0028: ldloc.0
+		IL_0029: ldc.i4.1
+		IL_002a: ldtoken [mscorlib]System.UInt32
+		IL_002f: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_0034: stelem.ref
+		IL_0035: ldtoken ScriptCore.Route
+		IL_003a: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_003f: ldloc.0
+		IL_0040: call instance class [mscorlib]System.Reflection.ConstructorInfo [mscorlib]System.Type::GetConstructor(class [mscorlib]System.Type[])
+		IL_0045: stloc.1
+		IL_0046: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain()
+		IL_004b: ldstr "RouteCtor"
+		IL_0050: ldloc.1
+		IL_0051: callvirt instance void [mscorlib]System.AppDomain::SetData(string, object)
+		IL_0056: ldc.i4.4
+		IL_0057: newarr [mscorlib]System.Type
+		IL_005c: stloc.0
+		IL_005d: ldloc.0
+		IL_005e: ldc.i4.0
+		IL_005f: ldtoken [SimIFace]Sims3.SimIFace.IScriptProxy
+		IL_0064: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_0069: stelem.ref
+		IL_006a: ldloc.0
+		IL_006b: ldc.i4.1
+		IL_006c: ldtoken [mscorlib]System.UInt32
+		IL_0071: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_0076: stelem.ref
+		IL_0077: ldloc.0
+		IL_0078: ldc.i4.2
+		IL_0079: ldtoken [SimIFace]Sims3.SimIFace.IScriptProxy
+		IL_007e: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_0083: stelem.ref
+		IL_0084: ldloc.0
+		IL_0085: ldc.i4.3
+		IL_0086: ldtoken uint32[]
+		IL_008b: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_0090: stelem.ref
+		IL_0091: ldtoken ScriptCore.Route
+		IL_0096: call class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+		IL_009b: ldloc.0
+		IL_009c: call instance class [mscorlib]System.Reflection.ConstructorInfo [mscorlib]System.Type::GetConstructor(class [mscorlib]System.Type[])
+		IL_00a1: stloc.1
+		IL_00a2: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain()
+		IL_00a7: ldstr "RouteSlotCtor"
+		IL_00ac: ldloc.1
+		IL_00ad: callvirt instance void [mscorlib]System.AppDomain::SetData(string, object)
+		IL_00b2: ret
+	} // end of method RouteManager::.cctor
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x12c3f
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void [mscorlib]System.Object::.ctor()
+		IL_0006: ret
+	} // end of method RouteManager::.ctor
+
+	.method public final hidebysig newslot virtual 
+		instance bool IsObjectRouting (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjID,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3& position,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3& velocity
+		) cil managed 
+	{
+		// Method begins at RVA 0x12c47
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjID
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: call bool ScriptCore.RouteManager::RouteManager_IsObjectRouting(uint64, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Vector3&)
+		IL_000e: ret
+	} // end of method RouteManager::IsObjectRouting
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus IsRouteToObjectUnobstructed (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid scriptHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 point,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOptionPair options,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objectIdToIgnore,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags agsFlags
+		) cil managed 
+	{
+		// Method begins at RVA 0x12c57
+		// Header size: 1
+		// Code size: 37 (0x25)
+		.maxstack 8
+
+		IL_0000: ldarga.s scriptHandle
+		IL_0002: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0007: ldarg.2
+		IL_0008: ldarga.s options
+		IL_000a: ldfld valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption [SimIFace]Sims3.SimIFace.Route/RouteOptionPair::mOptions
+		IL_000f: ldarga.s options
+		IL_0011: ldfld valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption2 [SimIFace]Sims3.SimIFace.Route/RouteOptionPair::mOptions2
+		IL_0016: ldarga.s objectIdToIgnore
+		IL_0018: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_001d: ldarg.s agsFlags
+		IL_001f: call int32 ScriptCore.RouteManager::RouteManager_IsRouteToObjectUnobstructed(uint64, valuetype [SimIFace]Sims3.SimIFace.Vector3, uint64, uint64, uint64, uint32)
+		IL_0024: ret
+	} // end of method RouteManager::IsRouteToObjectUnobstructed
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus IsRouteToObjectUnobstructed (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid scriptHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 point,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption options,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objectIdToIgnore,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags agsFlags
+		) cil managed 
+	{
+		// Method begins at RVA 0x12c7d
+		// Header size: 1
+		// Code size: 26 (0x1a)
+		.maxstack 8
+
+		IL_0000: ldarga.s scriptHandle
+		IL_0002: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: ldc.i4.0
+		IL_000a: conv.i8
+		IL_000b: ldarga.s objectIdToIgnore
+		IL_000d: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0012: ldarg.s agsFlags
+		IL_0014: call int32 ScriptCore.RouteManager::RouteManager_IsRouteToObjectUnobstructed(uint64, valuetype [SimIFace]Sims3.SimIFace.Vector3, uint64, uint64, uint64, uint32)
+		IL_0019: ret
+	} // end of method RouteManager::IsRouteToObjectUnobstructed
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus RoutingBlockerCheck2d (
+			valuetype [SimIFace]Sims3.SimIFace.Vector2 startPoint,
+			int32 startPointLevel,
+			valuetype [SimIFace]Sims3.SimIFace.Vector2 endPoint,
+			int32 endPointLevel,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOptionPair options,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid firstObjectIdToIgnore,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid secondObjectIdToIgnore,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags agsFlags
+		) cil managed 
+	{
+		// Method begins at RVA 0x12c98
+		// Header size: 12
+		// Code size: 41 (0x29)
+		.maxstack 9
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: ldarg.s endPointLevel
+		IL_0005: ldarga.s options
+		IL_0007: ldfld valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption [SimIFace]Sims3.SimIFace.Route/RouteOptionPair::mOptions
+		IL_000c: ldarga.s options
+		IL_000e: ldfld valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption2 [SimIFace]Sims3.SimIFace.Route/RouteOptionPair::mOptions2
+		IL_0013: ldarga.s firstObjectIdToIgnore
+		IL_0015: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_001a: ldarga.s secondObjectIdToIgnore
+		IL_001c: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0021: ldarg.s agsFlags
+		IL_0023: call int32 ScriptCore.RouteManager::RouteManager_RoutingBlockerCheck2d(valuetype [SimIFace]Sims3.SimIFace.Vector2, int32, valuetype [SimIFace]Sims3.SimIFace.Vector2, int32, uint64, uint64, uint64, uint64, uint32)
+		IL_0028: ret
+	} // end of method RouteManager::RoutingBlockerCheck2d
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus RoutingBlockerCheck2d (
+			valuetype [SimIFace]Sims3.SimIFace.Vector2 startPoint,
+			int32 startPointLevel,
+			valuetype [SimIFace]Sims3.SimIFace.Vector2 endPoint,
+			int32 endPointLevel,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption options,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid firstObjectIdToIgnore,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid secondObjectIdToIgnore,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags agsFlags
+		) cil managed 
+	{
+		// Method begins at RVA 0x12cd0
+		// Header size: 12
+		// Code size: 31 (0x1f)
+		.maxstack 9
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: ldarg.s endPointLevel
+		IL_0005: ldarg.s options
+		IL_0007: ldc.i4.0
+		IL_0008: conv.i8
+		IL_0009: ldarga.s firstObjectIdToIgnore
+		IL_000b: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0010: ldarga.s secondObjectIdToIgnore
+		IL_0012: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0017: ldarg.s agsFlags
+		IL_0019: call int32 ScriptCore.RouteManager::RouteManager_RoutingBlockerCheck2d(valuetype [SimIFace]Sims3.SimIFace.Vector2, int32, valuetype [SimIFace]Sims3.SimIFace.Vector2, int32, uint64, uint64, uint64, uint64, uint32)
+		IL_001e: ret
+	} // end of method RouteManager::RoutingBlockerCheck2d
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus IsSlotUnobstructed (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid scriptHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Slot slotNameHash,
+			bool checkForSims,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOptionPair options,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objectIdToIgnore,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags agsFlags,
+			bool isExitSlot
+		) cil managed 
+	{
+		// Method begins at RVA 0x12cfb
+		// Header size: 1
+		// Code size: 40 (0x28)
+		.maxstack 8
+
+		IL_0000: ldarga.s scriptHandle
+		IL_0002: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: ldarga.s options
+		IL_000b: ldfld valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption [SimIFace]Sims3.SimIFace.Route/RouteOptionPair::mOptions
+		IL_0010: ldarga.s options
+		IL_0012: ldfld valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption2 [SimIFace]Sims3.SimIFace.Route/RouteOptionPair::mOptions2
+		IL_0017: ldarga.s objectIdToIgnore
+		IL_0019: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_001e: ldarg.s agsFlags
+		IL_0020: ldarg.s isExitSlot
+		IL_0022: call int32 ScriptCore.RouteManager::RouteManager_IsSlotUnobstructed(uint64, uint32, bool, uint64, uint64, uint64, uint32, bool)
+		IL_0027: ret
+	} // end of method RouteManager::IsSlotUnobstructed
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.BlockedStatus IsSlotUnobstructed (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid scriptHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Slot slotNameHash,
+			bool checkForSims,
+			valuetype [SimIFace]Sims3.SimIFace.Route/RouteOption options,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objectIdToIgnore,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags agsFlags,
+			bool isExitSlot
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d24
+		// Header size: 1
+		// Code size: 30 (0x1e)
+		.maxstack 8
+
+		IL_0000: ldarga.s scriptHandle
+		IL_0002: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: ldarg.s options
+		IL_000b: ldc.i4.0
+		IL_000c: conv.i8
+		IL_000d: ldarga.s objectIdToIgnore
+		IL_000f: ldfld uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::mValue
+		IL_0014: ldarg.s agsFlags
+		IL_0016: ldarg.s isExitSlot
+		IL_0018: call int32 ScriptCore.RouteManager::RouteManager_IsSlotUnobstructed(uint64, uint32, bool, uint64, uint64, uint64, uint32, bool)
+		IL_001d: ret
+	} // end of method RouteManager::IsSlotUnobstructed
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.RouteIsOkToIdleFlags IsOkToIdleAtCurrentLocation (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjID,
+			uint64[] ignoreIds,
+			float32 radius,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags agsFlags
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d43
+		// Header size: 1
+		// Code size: 17 (0x11)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjID
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: ldarg.s agsFlags
+		IL_000b: call uint32 ScriptCore.RouteManager::RouteManager_IsOkToIdleAtCurrentLocation(uint64, uint64[], float32, uint32)
+		IL_0010: ret
+	} // end of method RouteManager::IsOkToIdleAtCurrentLocation
+
+	.method public final hidebysig newslot virtual 
+		instance void SetDebugIdentifier (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjID,
+			string identifier
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d55
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjID
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetDebugIdentifier(uint64, string)
+		IL_000d: ret
+	} // end of method RouteManager::SetDebugIdentifier
+
+	.method public final hidebysig newslot virtual 
+		instance void SetMinimumDistanceForCarTravel (
+			float32 minDistanceForCarTravel
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d64
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call void ScriptCore.RouteManager::RouteManager_SetMinimumDistanceForCarTravel(float32)
+		IL_0006: ret
+	} // end of method RouteManager::SetMinimumDistanceForCarTravel
+
+	.method public final hidebysig newslot virtual 
+		instance void SetMinimumDistanceForBoatTravel (
+			float32 minDistanceForBoatTravel
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d6c
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call void ScriptCore.RouteManager::RouteManager_SetMinimumDistanceForBoatTravel(float32)
+		IL_0006: ret
+	} // end of method RouteManager::SetMinimumDistanceForBoatTravel
+
+	.method public final hidebysig newslot virtual 
+		instance void SetCarSpeedGlobalMultiplier (
+			float32 multiplier
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d74
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call void ScriptCore.RouteManager::RouteManager_SetCarSpeedGlobalMultiplier(float32)
+		IL_0006: ret
+	} // end of method RouteManager::SetCarSpeedGlobalMultiplier
+
+	.method public final hidebysig newslot virtual 
+		instance void SetCarSpeed (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid carObjId,
+			float32 speed
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d7c
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s carObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetCarSpeed(uint64, float32)
+		IL_000d: ret
+	} // end of method RouteManager::SetCarSpeed
+
+	.method public final hidebysig newslot virtual 
+		instance void SetIsPlayerObject (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid carObjId,
+			bool bState
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d8b
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s carObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetIsPlayerObject(uint64, bool)
+		IL_000d: ret
+	} // end of method RouteManager::SetIsPlayerObject
+
+	.method public final hidebysig newslot virtual 
+		instance void SetFadePriority (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid carObjId,
+			uint32 priority
+		) cil managed 
+	{
+		// Method begins at RVA 0x12d9a
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s carObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetFadePriority(uint64, uint32)
+		IL_000d: ret
+	} // end of method RouteManager::SetFadePriority
+
+	.method public final hidebysig newslot virtual 
+		instance void SetCarAcceleration (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid carObjId,
+			float32 acceleration
+		) cil managed 
+	{
+		// Method begins at RVA 0x12da9
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s carObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetCarAcceleration(uint64, float32)
+		IL_000d: ret
+	} // end of method RouteManager::SetCarAcceleration
+
+	.method public final hidebysig newslot virtual 
+		instance float32 CalculateMinimumDistanceForLocomotionAnimSpec (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjID,
+			valuetype [SimIFace]Sims3.SimIFace.RouteAnimationSpec animSpec
+		) cil managed 
+	{
+		// Method begins at RVA 0x12db8
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjID
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call float32 ScriptCore.RouteManager::RouteManager_CalculateMinimumDistanceForLocomotionAnimSpec(uint64, valuetype [SimIFace]Sims3.SimIFace.RouteAnimationSpec)
+		IL_000d: ret
+	} // end of method RouteManager::CalculateMinimumDistanceForLocomotionAnimSpec
+
+	.method public final hidebysig newslot virtual 
+		instance bool PlaceSocialFootprintObject (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 simAPos,
+			valuetype [SimIFace]Sims3.SimIFace.Slot slotAName,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 simBPos,
+			valuetype [SimIFace]Sims3.SimIFace.Slot slotBName,
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid footprintId
+		) cil managed 
+	{
+		// Method begins at RVA 0x12dc7
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: ldarg.s slotBName
+		IL_0005: ldarga.s footprintId
+		IL_0007: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_000c: call bool ScriptCore.RouteManager::RouteManager_PlaceSocialFootprintObjectImpl(valuetype [SimIFace]Sims3.SimIFace.Vector3, uint32, valuetype [SimIFace]Sims3.SimIFace.Vector3, uint32, uint64)
+		IL_0011: ret
+	} // end of method RouteManager::PlaceSocialFootprintObject
+
+	.method public final hidebysig newslot virtual 
+		instance bool PlaceGroupSocial (
+			uint64[] groupedScriptHandles,
+			uint64[] singleScriptHandles,
+			[out] float32[]& positionArray,
+			[out] float32[]& orientArray,
+			float32 fSeparation
+		) cil managed 
+	{
+		// Method begins at RVA 0x12dda
+		// Header size: 1
+		// Code size: 46 (0x2e)
+		.maxstack 8
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4.3
+		IL_0002: ldarg.1
+		IL_0003: ldlen
+		IL_0004: conv.i4
+		IL_0005: ldarg.2
+		IL_0006: ldlen
+		IL_0007: conv.i4
+		IL_0008: add
+		IL_0009: mul
+		IL_000a: newarr [mscorlib]System.Single
+		IL_000f: stind.ref
+		IL_0010: ldarg.s orientArray
+		IL_0012: ldc.i4.3
+		IL_0013: ldarg.1
+		IL_0014: ldlen
+		IL_0015: conv.i4
+		IL_0016: ldarg.2
+		IL_0017: ldlen
+		IL_0018: conv.i4
+		IL_0019: add
+		IL_001a: mul
+		IL_001b: newarr [mscorlib]System.Single
+		IL_0020: stind.ref
+		IL_0021: ldarg.1
+		IL_0022: ldarg.2
+		IL_0023: ldarg.3
+		IL_0024: ldarg.s orientArray
+		IL_0026: ldarg.s fSeparation
+		IL_0028: call bool ScriptCore.RouteManager::RouteManager_PlaceGroupSocialImpl(uint64[], uint64[], float32[]&, float32[]&, float32)
+		IL_002d: ret
+	} // end of method RouteManager::PlaceGroupSocial
+
+	.method public final hidebysig newslot virtual 
+		instance bool PlaceDestinationPoint (
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 currPos,
+			[out] valuetype [SimIFace]Sims3.SimIFace.Vector3& newPos
+		) cil managed 
+	{
+		// Method begins at RVA 0x12e09
+		// Header size: 1
+		// Code size: 19 (0x13)
+		.maxstack 8
+
+		IL_0000: ldarg.2
+		IL_0001: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+		IL_0006: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_000b: ldarg.1
+		IL_000c: ldarg.2
+		IL_000d: call bool ScriptCore.RouteManager::RouteManager_PlaceDestinationPointImpl(valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3&)
+		IL_0012: ret
+	} // end of method RouteManager::PlaceDestinationPoint
+
+	.method public final hidebysig newslot virtual 
+		instance void GetPositionAndOrientationForRailPath (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid trainObjId,
+			int32 railIndexStart,
+			int32 railIndexEnd,
+			[out] valuetype [SimIFace]Sims3.SimIFace.Vector3& position,
+			[out] valuetype [SimIFace]Sims3.SimIFace.Vector3& orientation
+		) cil managed 
+	{
+		// Method begins at RVA 0x12e1d
+		// Header size: 1
+		// Code size: 43 (0x2b)
+		.maxstack 8
+
+		IL_0000: ldarg.s position
+		IL_0002: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+		IL_0007: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_000c: ldarg.s orientation
+		IL_000e: ldsfld valuetype [SimIFace]Sims3.SimIFace.Vector3 [SimIFace]Sims3.SimIFace.Vector3::Invalid
+		IL_0013: stobj [SimIFace]Sims3.SimIFace.Vector3
+		IL_0018: ldarga.s trainObjId
+		IL_001a: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_001f: ldarg.2
+		IL_0020: ldarg.3
+		IL_0021: ldarg.s position
+		IL_0023: ldarg.s orientation
+		IL_0025: call void ScriptCore.RouteManager::RouteManager_GetPositionAndOrientationForRailPathImpl(uint64, int32, int32, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.Vector3&)
+		IL_002a: ret
+	} // end of method RouteManager::GetPositionAndOrientationForRailPath
+
+	.method public final hidebysig newslot virtual 
+		instance bool AddDiscourageFootprint (
+			uint64 scriptHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3[] discourageRegionPointAry,
+			bool bHighImpassable,
+			bool bAllowPlacementInWorld,
+			bool bPlacementFootprint
+		) cil managed 
+	{
+		// Method begins at RVA 0x12e4c
+		// Header size: 12
+		// Code size: 105 (0x69)
+		.maxstack 6
+		.locals init (
+			[0] float32[],
+			[1] uint32
+		)
+
+		IL_0000: ldc.i4.3
+		IL_0001: ldarg.2
+		IL_0002: ldlen
+		IL_0003: conv.i4
+		IL_0004: mul
+		IL_0005: newarr [mscorlib]System.Single
+		IL_000a: stloc.0
+		IL_000b: ldc.i4.0
+		IL_000c: stloc.1
+		IL_000d: br.s IL_0050
+		// loop start (head: IL_0050)
+			IL_000f: ldloc.0
+			IL_0010: ldc.i4.3
+			IL_0011: ldloc.1
+			IL_0012: mul
+			IL_0013: conv.u
+			IL_0014: ldarg.2
+			IL_0015: ldloc.1
+			IL_0016: conv.u
+			IL_0017: ldelema [SimIFace]Sims3.SimIFace.Vector3
+			IL_001c: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::x
+			IL_0021: stelem.r4
+			IL_0022: ldloc.0
+			IL_0023: ldc.i4.3
+			IL_0024: ldloc.1
+			IL_0025: mul
+			IL_0026: ldc.i4.1
+			IL_0027: add
+			IL_0028: conv.u
+			IL_0029: ldarg.2
+			IL_002a: ldloc.1
+			IL_002b: conv.u
+			IL_002c: ldelema [SimIFace]Sims3.SimIFace.Vector3
+			IL_0031: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+			IL_0036: stelem.r4
+			IL_0037: ldloc.0
+			IL_0038: ldc.i4.3
+			IL_0039: ldloc.1
+			IL_003a: mul
+			IL_003b: ldc.i4.2
+			IL_003c: add
+			IL_003d: conv.u
+			IL_003e: ldarg.2
+			IL_003f: ldloc.1
+			IL_0040: conv.u
+			IL_0041: ldelema [SimIFace]Sims3.SimIFace.Vector3
+			IL_0046: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::z
+			IL_004b: stelem.r4
+			IL_004c: ldloc.1
+			IL_004d: ldc.i4.1
+			IL_004e: add
+			IL_004f: stloc.1
+
+			IL_0050: ldloc.1
+			IL_0051: conv.u8
+			IL_0052: ldarg.2
+			IL_0053: ldlen
+			IL_0054: conv.i4
+			IL_0055: conv.i8
+			IL_0056: blt.s IL_000f
+		// end loop
+
+		IL_0058: ldarg.1
+		IL_0059: ldloca.s 0
+		IL_005b: ldarg.2
+		IL_005c: ldlen
+		IL_005d: conv.i4
+		IL_005e: ldarg.3
+		IL_005f: ldarg.s bAllowPlacementInWorld
+		IL_0061: ldarg.s bPlacementFootprint
+		IL_0063: call bool ScriptCore.RouteManager::RouteManager_AddDiscourageFootprint(uint64, float32[]&, int32, bool, bool, bool)
+		IL_0068: ret
+	} // end of method RouteManager::AddDiscourageFootprint
+
+	.method public final hidebysig newslot virtual 
+		instance bool RemoveDiscourageFootprint (
+			uint64 scriptHandle
+		) cil managed 
+	{
+		// Method begins at RVA 0x12ec1
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call bool ScriptCore.RouteManager::RouteManager_RemoveDiscourageFootprint(uint64)
+		IL_0006: ret
+	} // end of method RouteManager::RemoveDiscourageFootprint
+
+	.method public final hidebysig newslot virtual 
+		instance bool AddPrivateFootprint (
+			uint64 scriptHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3[] privateFootprintPointAry,
+			bool bAllowPlacementInWorld
+		) cil managed 
+	{
+		// Method begins at RVA 0x12ecc
+		// Header size: 12
+		// Code size: 101 (0x65)
+		.maxstack 4
+		.locals init (
+			[0] float32[],
+			[1] uint32
+		)
+
+		IL_0000: ldc.i4.3
+		IL_0001: ldarg.2
+		IL_0002: ldlen
+		IL_0003: conv.i4
+		IL_0004: mul
+		IL_0005: newarr [mscorlib]System.Single
+		IL_000a: stloc.0
+		IL_000b: ldc.i4.0
+		IL_000c: stloc.1
+		IL_000d: br.s IL_0050
+		// loop start (head: IL_0050)
+			IL_000f: ldloc.0
+			IL_0010: ldc.i4.3
+			IL_0011: ldloc.1
+			IL_0012: mul
+			IL_0013: conv.u
+			IL_0014: ldarg.2
+			IL_0015: ldloc.1
+			IL_0016: conv.u
+			IL_0017: ldelema [SimIFace]Sims3.SimIFace.Vector3
+			IL_001c: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::x
+			IL_0021: stelem.r4
+			IL_0022: ldloc.0
+			IL_0023: ldc.i4.3
+			IL_0024: ldloc.1
+			IL_0025: mul
+			IL_0026: ldc.i4.1
+			IL_0027: add
+			IL_0028: conv.u
+			IL_0029: ldarg.2
+			IL_002a: ldloc.1
+			IL_002b: conv.u
+			IL_002c: ldelema [SimIFace]Sims3.SimIFace.Vector3
+			IL_0031: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::y
+			IL_0036: stelem.r4
+			IL_0037: ldloc.0
+			IL_0038: ldc.i4.3
+			IL_0039: ldloc.1
+			IL_003a: mul
+			IL_003b: ldc.i4.2
+			IL_003c: add
+			IL_003d: conv.u
+			IL_003e: ldarg.2
+			IL_003f: ldloc.1
+			IL_0040: conv.u
+			IL_0041: ldelema [SimIFace]Sims3.SimIFace.Vector3
+			IL_0046: ldfld float32 [SimIFace]Sims3.SimIFace.Vector3::z
+			IL_004b: stelem.r4
+			IL_004c: ldloc.1
+			IL_004d: ldc.i4.1
+			IL_004e: add
+			IL_004f: stloc.1
+
+			IL_0050: ldloc.1
+			IL_0051: conv.u8
+			IL_0052: ldarg.2
+			IL_0053: ldlen
+			IL_0054: conv.i4
+			IL_0055: conv.i8
+			IL_0056: blt.s IL_000f
+		// end loop
+
+		IL_0058: ldarg.1
+		IL_0059: ldloca.s 0
+		IL_005b: ldarg.2
+		IL_005c: ldlen
+		IL_005d: conv.i4
+		IL_005e: ldarg.3
+		IL_005f: call bool ScriptCore.RouteManager::RouteManager_AddPrivateFootprint(uint64, float32[]&, int32, bool)
+		IL_0064: ret
+	} // end of method RouteManager::AddPrivateFootprint
+
+	.method public final hidebysig newslot virtual 
+		instance bool RemovePrivateFootprint (
+			uint64 scriptHandle
+		) cil managed 
+	{
+		// Method begins at RVA 0x12f3d
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call bool ScriptCore.RouteManager::RouteManager_RemovePrivateFootprint(uint64)
+		IL_0006: ret
+	} // end of method RouteManager::RemovePrivateFootprint
+
+	.method public final hidebysig newslot virtual 
+		instance void FootprintSetLockKeys (
+			uint64 footprintId,
+			uint32 lockKeyType,
+			uint64[] lockKeys
+		) cil managed 
+	{
+		.param [3]
+			.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+				01 00 00 00
+			)
+		// Method begins at RVA 0x12f45
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: call void ScriptCore.RouteManager::RouteManager_FootprintSetLockKeys(uint64, uint32, uint64[])
+		IL_0008: ret
+	} // end of method RouteManager::FootprintSetLockKeys
+
+	.method public final hidebysig newslot virtual 
+		instance void FootprintAddLockKey (
+			uint64 footprintId,
+			uint32 lockKeyType,
+			uint64 lockKey
+		) cil managed 
+	{
+		// Method begins at RVA 0x12f4f
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: call void ScriptCore.RouteManager::RouteManager_FootprintAddLockKey(uint64, uint32, uint64)
+		IL_0008: ret
+	} // end of method RouteManager::FootprintAddLockKey
+
+	.method public final hidebysig newslot virtual 
+		instance void FootprintRemoveLockKey (
+			uint64 footprintId,
+			uint32 lockKeyType,
+			uint64 lockKey
+		) cil managed 
+	{
+		// Method begins at RVA 0x12f59
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: call void ScriptCore.RouteManager::RouteManager_FootprintRemoveLockKey(uint64, uint32, uint64)
+		IL_0008: ret
+	} // end of method RouteManager::FootprintRemoveLockKey
+
+	.method public final hidebysig newslot virtual 
+		instance bool FootprintHasLockKey (
+			uint64 footprintId,
+			uint32 lockKeyType,
+			uint64 lockKey
+		) cil managed 
+	{
+		// Method begins at RVA 0x12f63
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: call bool ScriptCore.RouteManager::RouteManager_FootprintHasLockKey(uint64, uint32, uint64)
+		IL_0008: ret
+	} // end of method RouteManager::FootprintHasLockKey
+
+	.method public final hidebysig newslot virtual 
+		instance void FootprintClearLockKeys (
+			uint64 footprintId
+		) cil managed 
+	{
+		// Method begins at RVA 0x12f6d
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call void ScriptCore.RouteManager::RouteManager_FootprintClearLockKeys(uint64)
+		IL_0006: ret
+	} // end of method RouteManager::FootprintClearLockKeys
+
+	.method public final hidebysig newslot virtual 
+		instance float32 GetSteeringObjectRadius (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId
+		) cil managed 
+	{
+		// Method begins at RVA 0x12f75
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call float32 ScriptCore.RouteManager::RouteManager_GetSteeringObjectRadius(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::GetSteeringObjectRadius
+
+	.method public final hidebysig newslot virtual 
+		instance uint32 AddPortal (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 startPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 endPos,
+			float32 portalCost,
+			valuetype [SimIFace]Sims3.SimIFace.PortalType portalType,
+			valuetype [SimIFace]Sims3.SimIFace.RoutePortalFlags 'flags',
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags agsFlags
+		) cil managed 
+	{
+		// Method begins at RVA 0x12f83
+		// Header size: 1
+		// Code size: 23 (0x17)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: ldarg.s portalCost
+		IL_000b: ldarg.s portalType
+		IL_000d: ldarg.s 'flags'
+		IL_000f: ldarg.s agsFlags
+		IL_0011: call uint32 ScriptCore.RouteManager::RouteManager_AddPortal(uint64, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, float32, uint32, int32, uint64)
+		IL_0016: ret
+	} // end of method RouteManager::AddPortal
+
+	.method public final hidebysig newslot virtual 
+		instance void DestroyPortalHandle (
+			uint32 portalHandle
+		) cil managed 
+	{
+		// Method begins at RVA 0x12f9b
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call void ScriptCore.RouteManager::RouteManager_DestroyPortalHandle(uint32)
+		IL_0006: ret
+	} // end of method RouteManager::DestroyPortalHandle
+
+	.method public final hidebysig newslot virtual 
+		instance bool AddPortalLocationVariation (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId,
+			uint32 portalHandle,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 startPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 endPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 backwardsStartPos,
+			valuetype [SimIFace]Sims3.SimIFace.Vector3 backwardsEndPos,
+			valuetype [SimIFace]Sims3.SimIFace.CAS.CASAGSAvailabilityFlags agsFlags
+		) cil managed 
+	{
+		// Method begins at RVA 0x12fa3
+		// Header size: 1
+		// Code size: 23 (0x17)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: ldarg.s endPos
+		IL_000b: ldarg.s backwardsStartPos
+		IL_000d: ldarg.s backwardsEndPos
+		IL_000f: ldarg.s agsFlags
+		IL_0011: call bool ScriptCore.RouteManager::RouteManager_AddPortalLocationVariation(uint64, uint32, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, valuetype [SimIFace]Sims3.SimIFace.Vector3, uint64)
+		IL_0016: ret
+	} // end of method RouteManager::AddPortalLocationVariation
+
+	.method public final hidebysig newslot virtual 
+		instance bool AddDivingBoardPortals (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x12fbb
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call bool ScriptCore.RouteManager::RouteManager_AddDivingBoardPortals(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::AddDivingBoardPortals
+
+	.method public final hidebysig newslot virtual 
+		instance bool AddWaterSlidePortals (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x12fc9
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call bool ScriptCore.RouteManager::RouteManager_AddWaterSlidePortals(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::AddWaterSlidePortals
+
+	.method public final hidebysig newslot virtual 
+		instance bool AddPoolPortals (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x12fd7
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call bool ScriptCore.RouteManager::RouteManager_AddPoolPortals(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::AddPoolPortals
+
+	.method public final hidebysig newslot virtual 
+		instance bool AddPlatformPortals (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x12fe5
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call bool ScriptCore.RouteManager::RouteManager_AddPlatformPortals(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::AddPlatformPortals
+
+	.method public final hidebysig newslot virtual 
+		instance bool AddStairPortals (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x12ff3
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call bool ScriptCore.RouteManager::RouteManager_AddStairPortals(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::AddStairPortals
+
+	.method public final hidebysig newslot virtual 
+		instance bool SetOceanPortalOwner (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x13001
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call bool ScriptCore.RouteManager::RouteManager_SetOceanPortalOwner(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::SetOceanPortalOwner
+
+	.method public final hidebysig newslot virtual 
+		instance bool RemovePortals (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x1300f
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call bool ScriptCore.RouteManager::RouteManager_RemovePortals(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::RemovePortals
+
+	.method public final hidebysig newslot virtual 
+		instance bool SetPortalCost (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId,
+			float32 cost
+		) cil managed 
+	{
+		// Method begins at RVA 0x1301d
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call bool ScriptCore.RouteManager::RouteManager_SetPortalCost(uint64, float32)
+		IL_000d: ret
+	} // end of method RouteManager::SetPortalCost
+
+	.method public final hidebysig newslot virtual 
+		instance bool SetPortalAgeGenderFlags (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId,
+			uint32 ageGenderFlags
+		) cil managed 
+	{
+		// Method begins at RVA 0x1302c
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call bool ScriptCore.RouteManager::RouteManager_SetPortalAgeGenderFlags(uint64, uint32)
+		IL_000d: ret
+	} // end of method RouteManager::SetPortalAgeGenderFlags
+
+	.method public final hidebysig newslot virtual 
+		instance bool SetPortalLockStatus (
+			uint64 lotId,
+			bool locked
+		) cil managed 
+	{
+		// Method begins at RVA 0x1303b
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: call bool ScriptCore.RouteManager::RouteManager_SetPortalLockStatus(uint64, bool)
+		IL_0007: ret
+	} // end of method RouteManager::SetPortalLockStatus
+
+	.method public final hidebysig newslot virtual 
+		instance void MarkRoomForUpdate (
+			uint64 lotId,
+			int32 roomId
+		) cil managed 
+	{
+		// Method begins at RVA 0x13044
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: call void ScriptCore.RouteManager::RouteManager_MarkRoomForUpdate(uint64, int32)
+		IL_0007: ret
+	} // end of method RouteManager::MarkRoomForUpdate
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.StairTraversalResult StartStairTraversal (
+			uint64 simId,
+			valuetype [SimIFace]Sims3.SimIFace.PortalRoutingSpec portalSpec,
+			valuetype [SimIFace]Sims3.SimIFace.RouteAnimationSpec animSpec
+		) cil managed 
+	{
+		// Method begins at RVA 0x1304d
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: call uint32 ScriptCore.RouteManager::RouteManager_BeginPortalRouting(uint64, valuetype [SimIFace]Sims3.SimIFace.PortalRoutingSpec, valuetype [SimIFace]Sims3.SimIFace.RouteAnimationSpec)
+		IL_0008: ret
+	} // end of method RouteManager::StartStairTraversal
+
+	.method public final hidebysig newslot virtual 
+		instance bool CanTransitionWalkstyle (
+			uint32 oldWalkstyleHash,
+			uint32 newWalkstyleHash,
+			uint32 ageSpecies
+		) cil managed 
+	{
+		// Method begins at RVA 0x13057
+		// Header size: 1
+		// Code size: 9 (0x9)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: call bool ScriptCore.RouteManager::RouteManager_CanTransitionWalkstyle(uint32, uint32, uint32)
+		IL_0008: ret
+	} // end of method RouteManager::CanTransitionWalkstyle
+
+	.method public final hidebysig newslot virtual 
+		instance void SetRouteSoundSpec (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid carObjId,
+			valuetype [SimIFace]Sims3.SimIFace.RouteSoundSpec rSpec
+		) cil managed 
+	{
+		// Method begins at RVA 0x13061
+		// Header size: 1
+		// Code size: 27 (0x1b)
+		.maxstack 8
+
+		IL_0000: ldarga.s carObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarga.s rSpec
+		IL_0009: ldfld string [SimIFace]Sims3.SimIFace.RouteSoundSpec::mCruise
+		IL_000e: ldarga.s rSpec
+		IL_0010: ldfld string [SimIFace]Sims3.SimIFace.RouteSoundSpec::mDecelerate
+		IL_0015: call void ScriptCore.RouteManager::RouteManager_SetRouteSoundSpec(uint64, string, string)
+		IL_001a: ret
+	} // end of method RouteManager::SetRouteSoundSpec
+
+	.method public final hidebysig newslot virtual 
+		instance void SetTravellingEventInterval (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId,
+			float32 interval
+		) cil managed 
+	{
+		// Method begins at RVA 0x1307d
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetTravellingEventInterval(uint64, float32)
+		IL_000d: ret
+	} // end of method RouteManager::SetTravellingEventInterval
+
+	.method public final hidebysig newslot virtual 
+		instance void SetAvoidanceFieldRangeScale (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId,
+			float32 scale
+		) cil managed 
+	{
+		// Method begins at RVA 0x1308c
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetAvoidanceFieldRangeScale(uint64, float32)
+		IL_000d: ret
+	} // end of method RouteManager::SetAvoidanceFieldRangeScale
+
+	.method public final hidebysig newslot virtual 
+		instance void SetAvoidanceFieldSmoothing (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId,
+			float32 s
+		) cil managed 
+	{
+		// Method begins at RVA 0x1309b
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetAvoidanceFieldSmoothing(uint64, float32)
+		IL_000d: ret
+	} // end of method RouteManager::SetAvoidanceFieldSmoothing
+
+	.method public final hidebysig newslot virtual 
+		instance void SetAvoidanceFieldForSnorkeling (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId
+		) cil managed 
+	{
+		// Method begins at RVA 0x130aa
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call void ScriptCore.RouteManager::RouteManager_SetAvoidanceFieldForSnorkeling(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::SetAvoidanceFieldForSnorkeling
+
+	.method public final hidebysig newslot virtual 
+		instance void ResetAvoidanceFieldForSnorkeling (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId
+		) cil managed 
+	{
+		// Method begins at RVA 0x130b8
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call void ScriptCore.RouteManager::RouteManager_ResetAvoidanceFieldForSnorkeling(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::ResetAvoidanceFieldForSnorkeling
+
+	.method public final hidebysig newslot virtual 
+		instance void SetShouldHandleObstructionsEncountered (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId,
+			bool b
+		) cil managed 
+	{
+		// Method begins at RVA 0x130c6
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetShouldHandleObstructionsEncountered(uint64, bool)
+		IL_000d: ret
+	} // end of method RouteManager::SetShouldHandleObstructionsEncountered
+
+	.method public final hidebysig newslot virtual 
+		instance void SetAvoidanceFieldUseAdvancedAvoidance (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId,
+			bool useAdvancedAvoidance
+		) cil managed 
+	{
+		// Method begins at RVA 0x130d5
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_SetAvoidanceFieldUseAdvancedAvoidance(uint64, bool)
+		IL_000d: ret
+	} // end of method RouteManager::SetAvoidanceFieldUseAdvancedAvoidance
+
+	.method public final hidebysig newslot virtual 
+		instance void ForcePlayWeatherEffectForTerrainType (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId,
+			valuetype [SimIFace]Sims3.SimIFace.WeatherTerrainType weatherTerrainType
+		) cil managed 
+	{
+		// Method begins at RVA 0x130e4
+		// Header size: 1
+		// Code size: 14 (0xe)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: call void ScriptCore.RouteManager::RouteManager_ForcePlayWeatherEffectForTerrainType(uint64, uint16)
+		IL_000d: ret
+	} // end of method RouteManager::ForcePlayWeatherEffectForTerrainType
+
+	.method public final hidebysig newslot virtual 
+		instance void SetSteeringOption (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid simObjId,
+			valuetype [SimIFace]Sims3.SimIFace.Route/SteeringOptions option,
+			bool isOn
+		) cil managed 
+	{
+		// Method begins at RVA 0x130f3
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarga.s simObjId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: ldarg.2
+		IL_0008: ldarg.3
+		IL_0009: call void ScriptCore.RouteManager::RouteManager_SetSteeringOption(uint64, uint32, bool)
+		IL_000e: ret
+	} // end of method RouteManager::SetSteeringOption
+
+	.method public final hidebysig newslot virtual 
+		instance void ResetSteering (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x13103
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call void ScriptCore.RouteManager::RouteManager_ResetSteering(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::ResetSteering
+
+	.method public final hidebysig newslot virtual 
+		instance bool IsStairObject (
+			valuetype [SimIFace]Sims3.SimIFace.ObjectGuid objId
+		) cil managed 
+	{
+		// Method begins at RVA 0x13111
+		// Header size: 1
+		// Code size: 13 (0xd)
+		.maxstack 8
+
+		IL_0000: ldarga.s objId
+		IL_0002: call instance uint64 [SimIFace]Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0007: call bool ScriptCore.RouteManager::RouteManager_IsStairObject(uint64)
+		IL_000c: ret
+	} // end of method RouteManager::IsStairObject
+
+	.method public final hidebysig newslot virtual 
+		instance void OnExitBuildBuy () cil managed 
+	{
+		// Method begins at RVA 0x1311f
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: call void ScriptCore.RouteManager::RouteManager_OnExitBuildBuy()
+		IL_0005: ret
+	} // end of method RouteManager::OnExitBuildBuy
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Rect GetDynamicAvoidanceFootprintRectForAgeSpecies (
+			uint32 'flags'
+		) cil managed 
+	{
+		// Method begins at RVA 0x13126
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call valuetype [SimIFace]Sims3.SimIFace.Rect ScriptCore.RouteManager::RouteManager_GetDynamicAvoidanceFootprintRectForAgeSpecies(uint32)
+		IL_0006: ret
+	} // end of method RouteManager::GetDynamicAvoidanceFootprintRectForAgeSpecies
+
+	.method public final hidebysig newslot virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Rect GetFootBoundaryRectForAgeSpecies (
+			uint32 'flags'
+		) cil managed 
+	{
+		// Method begins at RVA 0x1312e
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call valuetype [SimIFace]Sims3.SimIFace.Rect ScriptCore.RouteManager::RouteManager_GetFootBoundaryRectForAgeSpecies(uint32)
+		IL_0006: ret
+	} // end of method RouteManager::GetFootBoundaryRectForAgeSpecies
+
+	.method public final hidebysig newslot virtual 
+		instance void InitShutdownPairedAvoidance (
+			uint64 masterObjId,
+			uint64 slaveObjId,
+			uint32 slaveAGS,
+			bool bInit
+		) cil managed 
+	{
+		// Method begins at RVA 0x13136
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: ldarg.3
+		IL_0003: ldarg.s bInit
+		IL_0005: call void ScriptCore.RouteManager::RouteManager_InitShutdownPairedAvoidance(uint64, uint64, uint32, bool)
+		IL_000a: ret
+	} // end of method RouteManager::InitShutdownPairedAvoidance
+
+	.method public final hidebysig newslot virtual 
+		instance void SetRoutingDisplayOption (
+			uint32 option,
+			uint32 val
+		) cil managed 
+	{
+		// Method begins at RVA 0x13142
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: ldarg.2
+		IL_0002: call void ScriptCore.RouteManager::RouteManager_SetRoutingDisplayOption(uint32, uint32)
+		IL_0007: ret
+	} // end of method RouteManager::SetRoutingDisplayOption
+
+	.method public final hidebysig newslot virtual 
+		instance uint32 GetRoutingDisplayOption (
+			uint32 option
+		) cil managed 
+	{
+		// Method begins at RVA 0x1314b
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: call uint32 ScriptCore.RouteManager::RouteManager_GetRoutingDisplayOption(uint32)
+		IL_0006: ret
+	} // end of method RouteManager::GetRoutingDisplayOption
+
+} // end of class ScriptCore.RouteManager

@@ -1,0 +1,66 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra body envelope.
+Analyst name: Inventory_ReadObjectIdVector
+Paired actual annotated Ghidra pseudocode: 00935560_Inventory_ReadObjectIdVector.c
+Owned ranges: [[00935560, 009355e6]]
+Envelope bytes=135
+
+GHIDRA LISTING (original bytes; nonowned alignment explicit)
+00935560  51  PUSH ECX
+00935561  56  PUSH ESI
+00935562  8b74240c  MOV ESI,dword ptr [ESP + 0xc]
+00935566  8b4610  MOV EAX,dword ptr [ESI + 0x10]
+00935569  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+0093556c  57  PUSH EDI
+0093556d  8bf9  MOV EDI,ECX
+0093556f  50  PUSH EAX
+00935570  8d4c240c  LEA ECX,[ESP + 0xc]
+00935574  51  PUSH ECX
+00935575  52  PUSH EDX
+00935576  c744241400000000  MOV dword ptr [ESP + 0x14],0x0
+0093557e  e8fd83baff  CALL 0x004dd980
+00935583  83c40c  ADD ESP,0xc
+00935586  8bce  MOV ECX,ESI
+00935588  50  PUSH EAX
+00935589  e86224eaff  CALL 0x007d79f0
+0093558e  807e1400  CMP byte ptr [ESI + 0x14],0x0
+00935592  744b  JZ 0x009355df
+00935594  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+00935598  6a08  PUSH 0x8
+0093559a  50  PUSH EAX
+0093559b  8bce  MOV ECX,ESI
+0093559d  e85e24eaff  CALL 0x007d7a00
+009355a2  84c0  TEST AL,AL
+009355a4  7439  JZ 0x009355df
+009355a6  8b442408  MOV EAX,dword ptr [ESP + 0x8]
+009355aa  85c0  TEST EAX,EAX
+009355ac  7628  JBE 0x009355d6
+009355ae  50  PUSH EAX
+009355af  8bcf  MOV ECX,EDI
+009355b1  e86a9cc6ff  CALL 0x0059f220
+009355b6  8b4e10  MOV ECX,dword ptr [ESI + 0x10]
+009355b9  8b542408  MOV EDX,dword ptr [ESP + 0x8]
+009355bd  8b3f  MOV EDI,dword ptr [EDI]
+009355bf  8b4608  MOV EAX,dword ptr [ESI + 0x8]
+009355c2  51  PUSH ECX
+009355c3  52  PUSH EDX
+009355c4  57  PUSH EDI
+009355c5  50  PUSH EAX
+009355c6  e88584baff  CALL 0x004dda50
+009355cb  83c410  ADD ESP,0x10
+009355ce  8bce  MOV ECX,ESI
+009355d0  50  PUSH EAX
+009355d1  e81a24eaff  CALL 0x007d79f0
+009355d6  8a4614  MOV AL,byte ptr [ESI + 0x14]
+009355d9  5f  POP EDI
+009355da  5e  POP ESI
+009355db  59  POP ECX
+009355dc  c20400  RET 0x4
+009355df  5f  POP EDI
+009355e0  32c0  XOR AL,AL
+009355e2  5e  POP ESI
+009355e3  59  POP ECX
+009355e4  c20400  RET 0x4
+Owned instructions=55 owned bytes=135 gap/nonowned bytes=0

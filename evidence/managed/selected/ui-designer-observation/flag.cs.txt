@@ -1,0 +1,8 @@
+// Actual ILSpy selected-member renderings in metadata order, not a compilable original class.
+// Sims3.UI.UIManager::GetFlagProperty 0x0600128D
+internal static bool GetFlagProperty(uint handle, uint flagsetPropID, uint flagMask)
+{
+	uint uInt32Property = gUIMgr.GetUInt32Property(handle, flagsetPropID);
+	return (uInt32Property & flagMask) != 0;
+}
+

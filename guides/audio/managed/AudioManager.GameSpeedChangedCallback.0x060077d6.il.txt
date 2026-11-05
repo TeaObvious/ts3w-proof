@@ -1,0 +1,94 @@
+	.method private hidebysig static 
+		void GameSpeedChangedCallback (
+			valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed newSpeed,
+			bool locked
+		) cil managed 
+	{
+		// Method begins at RVA 0x206f58
+		// Header size: 12
+		// Code size: 244 (0xf4)
+		.maxstack 3
+		.locals init (
+			[0] valuetype [SimIFace]Sims3.SimIFace.Gameflow/GameSpeed
+		)
+
+		IL_0000: ldsfld bool Sims3.Gameplay.Core.AudioManager::mIsPaused
+		IL_0005: brfalse.s IL_0028
+
+		IL_0007: ldarg.0
+		IL_0008: brfalse.s IL_0028
+
+		IL_000a: ldc.i4.0
+		IL_000b: stsfld bool Sims3.Gameplay.Core.AudioManager::mIsPaused
+		IL_0010: ldc.i4 671786287
+		IL_0015: ldc.i4.0
+		IL_0016: call void [SimIFace]Sims3.SimIFace.Audio::PauseGroup(uint32, bool)
+		IL_001b: ldc.i4 543694036
+		IL_0020: ldc.i4.0
+		IL_0021: call void [SimIFace]Sims3.SimIFace.Audio::PauseGroup(uint32, bool)
+		IL_0026: br.s IL_004e
+
+		IL_0028: ldsfld bool Sims3.Gameplay.Core.AudioManager::mIsPaused
+		IL_002d: brtrue.s IL_004e
+
+		IL_002f: ldarg.0
+		IL_0030: brtrue.s IL_004e
+
+		IL_0032: ldc.i4.1
+		IL_0033: stsfld bool Sims3.Gameplay.Core.AudioManager::mIsPaused
+		IL_0038: ldc.i4 671786287
+		IL_003d: ldc.i4.1
+		IL_003e: call void [SimIFace]Sims3.SimIFace.Audio::PauseGroup(uint32, bool)
+		IL_0043: ldc.i4 543694036
+		IL_0048: ldc.i4.1
+		IL_0049: call void [SimIFace]Sims3.SimIFace.Audio::PauseGroup(uint32, bool)
+
+		IL_004e: ldsfld bool Sims3.Gameplay.Core.AudioManager::mIsPaused
+		IL_0053: brtrue IL_00f3
+
+		IL_0058: ldarg.0
+		IL_0059: stloc.0
+		IL_005a: ldloc.0
+		IL_005b: ldc.i4.1
+		IL_005c: sub
+		IL_005d: switch (IL_0073, IL_009e, IL_00c9, IL_00c9)
+
+		IL_0072: ret
+
+		IL_0073: ldc.i4 543694036
+		IL_0078: ldc.i4 1908158473
+		IL_007d: ldc.r4 1
+		IL_0082: call bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)
+		IL_0087: pop
+		IL_0088: ldc.i4 393239870
+		IL_008d: ldc.i4 1908158473
+		IL_0092: ldc.r4 1
+		IL_0097: call bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)
+		IL_009c: pop
+		IL_009d: ret
+
+		IL_009e: ldc.i4 543694036
+		IL_00a3: ldc.i4 1908158473
+		IL_00a8: ldc.r4 1.07
+		IL_00ad: call bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)
+		IL_00b2: pop
+		IL_00b3: ldc.i4 393239870
+		IL_00b8: ldc.i4 1908158473
+		IL_00bd: ldc.r4 1.07
+		IL_00c2: call bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)
+		IL_00c7: pop
+		IL_00c8: ret
+
+		IL_00c9: ldc.i4 543694036
+		IL_00ce: ldc.i4 1908158473
+		IL_00d3: ldc.r4 1.2
+		IL_00d8: call bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)
+		IL_00dd: pop
+		IL_00de: ldc.i4 393239870
+		IL_00e3: ldc.i4 1908158473
+		IL_00e8: ldc.r4 1.2
+		IL_00ed: call bool [SimIFace]Sims3.SimIFace.Audio::SetSoundProperty(uint32, uint32, float32)
+		IL_00f2: pop
+
+		IL_00f3: ret
+	} // end of method AudioManager::GameSpeedChangedCallback

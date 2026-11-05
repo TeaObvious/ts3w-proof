@@ -1,0 +1,29 @@
+[Context] Operating on: TS3W.exe | Total open programs: 3
+
+Decompiled function FUN_00b5c120:
+
+
+undefined1 __thiscall FUN_00b5c120(void *this,void *param_1)
+
+{
+  uint uVar1;
+  undefined4 uVar2;
+  
+  if (*(char *)((int)param_1 + 0x14) == '\0') {
+    return 0;
+  }
+  FUN_007d88c0(param_1,this);
+  uVar1 = FUN_004dd860(*(int **)((int)param_1 + 8));
+  FUN_007d79f0(param_1,(byte)uVar1);
+  uVar1 = FUN_004dd860(*(int **)((int)param_1 + 8));
+  FUN_007d79f0(param_1,(byte)uVar1);
+  uVar1 = FUN_004dd860(*(int **)((int)param_1 + 8));
+  FUN_007d79f0(param_1,(byte)uVar1);
+  uVar1 = FUN_004dd980(*(int **)((int)param_1 + 8),(uint *)((int)this + 0x14));
+  FUN_007d79f0(param_1,(byte)uVar1);
+  uVar2 = thunk_FUN_004dd9d0(*(int **)((int)param_1 + 8),(uint *)((int)this + 0x18),4);
+  FUN_007d79f0(param_1,(byte)uVar2);
+  return *(undefined1 *)((int)param_1 + 0x14);
+}
+
+

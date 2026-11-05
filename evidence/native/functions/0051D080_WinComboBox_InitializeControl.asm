@@ -1,0 +1,81 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined4 * WinComboBox_InitializeControl(undefined4 * param_1)
+Owned ranges: [[0051d080, 0051d20a]]
+
+0051d080  53  PUSH EBX
+0051d081  56  PUSH ESI
+0051d082  57  PUSH EDI
+0051d083  8bf1  MOV ESI,ECX
+0051d085  e80690ffff  CALL 0x00516090
+0051d08a  f30f100588fd0301  MOVSS XMM0,dword ptr [0x0103fd88]
+0051d092  0f57c9  XORPS XMM1,XMM1
+0051d095  c7865002000030ecfb00  MOV dword ptr [ESI + 0x250],0xfbec30
+0051d09f  c70660ccfb00  MOV dword ptr [ESI],0xfbcc60
+0051d0a5  c7460438cbfb00  MOV dword ptr [ESI + 0x4],0xfbcb38
+0051d0ac  c78650020000a0cafb00  MOV dword ptr [ESI + 0x250],0xfbcaa0
+0051d0b6  c7865402000090cafb00  MOV dword ptr [ESI + 0x254],0xfbca90
+0051d0c0  c78680020000ad8a71ff  MOV dword ptr [ESI + 0x280],0xff718aad
+0051d0ca  33db  XOR EBX,EBX
+0051d0cc  889e90020000  MOV byte ptr [ESI + 0x290],BL
+0051d0d2  899e60020000  MOV dword ptr [ESI + 0x260],EBX
+0051d0d8  899e64020000  MOV dword ptr [ESI + 0x264],EBX
+0051d0de  889e91020000  MOV byte ptr [ESI + 0x291],BL
+0051d0e4  83cfff  OR EDI,0xffffffff
+0051d0e7  89be58020000  MOV dword ptr [ESI + 0x258],EDI
+0051d0ed  89be5c020000  MOV dword ptr [ESI + 0x25c],EDI
+0051d0f3  89be84020000  MOV dword ptr [ESI + 0x284],EDI
+0051d0f9  b801000000  MOV EAX,0x1
+0051d0fe  898688020000  MOV dword ptr [ESI + 0x288],EAX
+0051d104  89868c020000  MOV dword ptr [ESI + 0x28c],EAX
+0051d10a  899e94020000  MOV dword ptr [ESI + 0x294],EBX
+0051d110  899e98020000  MOV dword ptr [ESI + 0x298],EBX
+0051d116  899e9c020000  MOV dword ptr [ESI + 0x29c],EBX
+0051d11c  c786a002000078cafb00  MOV dword ptr [ESI + 0x2a0],0xfbca78
+0051d126  899ea4020000  MOV dword ptr [ESI + 0x2a4],EBX
+0051d12c  899ea8020000  MOV dword ptr [ESI + 0x2a8],EBX
+0051d132  f30f1186dc020000  MOVSS dword ptr [ESI + 0x2dc],XMM0
+0051d13a  f30f1186e0020000  MOVSS dword ptr [ESI + 0x2e0],XMM0
+0051d142  f30f1186e4020000  MOVSS dword ptr [ESI + 0x2e4],XMM0
+0051d14a  f30f1186e8020000  MOVSS dword ptr [ESI + 0x2e8],XMM0
+0051d152  8d4e04  LEA ECX,[ESI + 0x4]
+0051d155  f30f118eec020000  MOVSS dword ptr [ESI + 0x2ec],XMM1
+0051d15d  f30f1186f0020000  MOVSS dword ptr [ESI + 0x2f0],XMM0
+0051d165  f30f1186f4020000  MOVSS dword ptr [ESI + 0x2f4],XMM0
+0051d16d  f30f1186f8020000  MOVSS dword ptr [ESI + 0x2f8],XMM0
+0051d175  f30f1186fc020000  MOVSS dword ptr [ESI + 0x2fc],XMM0
+0051d17d  899e00030000  MOV dword ptr [ESI + 0x300],EBX
+0051d183  899e04030000  MOV dword ptr [ESI + 0x304],EBX
+0051d189  f30f118e08030000  MOVSS dword ptr [ESI + 0x308],XMM1
+0051d191  f30f118e0c030000  MOVSS dword ptr [ESI + 0x30c],XMM1
+0051d199  f30f118e10030000  MOVSS dword ptr [ESI + 0x310],XMM1
+0051d1a1  f30f118e14030000  MOVSS dword ptr [ESI + 0x314],XMM1
+0051d1a9  389e90020000  CMP byte ptr [ESI + 0x290],BL
+0051d1af  7510  JNZ 0x0051d1c1
+0051d1b1  8b11  MOV EDX,dword ptr [ECX]
+0051d1b3  50  PUSH EAX
+0051d1b4  888690020000  MOV byte ptr [ESI + 0x290],AL
+0051d1ba  8b4274  MOV EAX,dword ptr [EDX + 0x74]
+0051d1bd  6a08  PUSH 0x8
+0051d1bf  ffd0  CALL EAX
+0051d1c1  6a30  PUSH 0x30
+0051d1c3  8d8eac020000  LEA ECX,[ESI + 0x2ac]
+0051d1c9  53  PUSH EBX
+0051d1ca  51  PUSH ECX
+0051d1cb  e8c820a600  CALL 0x00f7f298
+0051d1d0  83c40c  ADD ESP,0xc
+0051d1d3  b8d8e9ecff  MOV EAX,0xffece9d8
+0051d1d8  b9000000ff  MOV ECX,0xff000000
+0051d1dd  89be78020000  MOV dword ptr [ESI + 0x278],EDI
+0051d1e3  89866c020000  MOV dword ptr [ESI + 0x26c],EAX
+0051d1e9  898670020000  MOV dword ptr [ESI + 0x270],EAX
+0051d1ef  5f  POP EDI
+0051d1f0  898e68020000  MOV dword ptr [ESI + 0x268],ECX
+0051d1f6  c78674020000637173ff  MOV dword ptr [ESI + 0x274],0xff737163
+0051d200  898e7c020000  MOV dword ptr [ESI + 0x27c],ECX
+0051d206  8bc6  MOV EAX,ESI
+0051d208  5e  POP ESI
+0051d209  5b  POP EBX
+0051d20a  c3  RET

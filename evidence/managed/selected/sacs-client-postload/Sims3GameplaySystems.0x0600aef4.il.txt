@@ -1,0 +1,28 @@
+// Complete original member; ILSpy typed CIL; exact identity in method-index.tsv.
+	.method private hidebysig static 
+		class [SimIFace]Sims3.SimIFace.StateMachineClient GetStateMachine (
+			class Sims3.Gameplay.Actors.Sim s
+		) cil managed 
+	{
+		// Method begins at RVA 0x323218
+		// Header size: 12
+		// Code size: 34 (0x22)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.StateMachineClient
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+		IL_0006: ldstr "pet_sitting_on_ground_idle"
+		IL_000b: ldc.i4.s -2
+		IL_000d: ldc.i4.0
+		IL_000e: call class [SimIFace]Sims3.SimIFace.StateMachineClient [SimIFace]Sims3.SimIFace.StateMachineClient::Acquire(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, string, valuetype [SimIFace]Sims3.SimIFace.AnimationPriority, bool)
+		IL_0013: stloc.0
+		IL_0014: ldloc.0
+		IL_0015: ldstr "x"
+		IL_001a: ldarg.0
+		IL_001b: callvirt instance void [SimIFace]Sims3.SimIFace.StateMachineClient::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+		IL_0020: ldloc.0
+		IL_0021: ret
+	} // end of method PetSittingOnGroundPosture::GetStateMachine

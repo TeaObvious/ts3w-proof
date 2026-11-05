@@ -1,0 +1,46 @@
+// Complete original PC1.67 selected CIL. Central managed README identifies pristine original assemblies.
+// Module-local tokens; TypeSpecification placeholders retain raw signature/token rather than an invented generic declaration.
+
+// Sims3.Gameplay.Gameflow::GetTimeRateForGameSpeed; MethodDef0x0600BE5F; RVA0x003695D4
+// Raw CLI signature 00010c118685; maxstack 2; local signature token 110022C0 (RID0 means nil); initlocals True
+// Original IL bytes (123): 020B074505000000020000000A0000001800000026000000340000002B4022000000000A2B447E7C6C0004220000803F5A0A2B367E7D6C0004220000803F5A0A2B287E7E6C0004220000803F5A0A2B1A7E7F6C0004220000803F5A0A2B0C7E7C6C0004220000803F5A0A7E7B6C00042C08067E806C00045A0A062A
+IL_0000: ldarg.0
+IL_0001: stloc.1
+IL_0002: ldloc.1
+IL_0003: switch IL_001E,IL_0026,IL_0034,IL_0042,IL_0050
+IL_001C: br.s IL_005E
+IL_001E: ldc.r4 0
+IL_0023: stloc.0
+IL_0024: br.s IL_006A
+IL_0026: ldsfld 0x04006C7C Sims3.Gameplay.Gameflow::kNormalTimeRate
+IL_002B: ldc.r4 1
+IL_0030: mul
+IL_0031: stloc.0
+IL_0032: br.s IL_006A
+IL_0034: ldsfld 0x04006C7D Sims3.Gameplay.Gameflow::kDoubleTimeRate
+IL_0039: ldc.r4 1
+IL_003E: mul
+IL_003F: stloc.0
+IL_0040: br.s IL_006A
+IL_0042: ldsfld 0x04006C7E Sims3.Gameplay.Gameflow::kTripleTimeRate
+IL_0047: ldc.r4 1
+IL_004C: mul
+IL_004D: stloc.0
+IL_004E: br.s IL_006A
+IL_0050: ldsfld 0x04006C7F Sims3.Gameplay.Gameflow::kSkipTimeRate
+IL_0055: ldc.r4 1
+IL_005A: mul
+IL_005B: stloc.0
+IL_005C: br.s IL_006A
+IL_005E: ldsfld 0x04006C7C Sims3.Gameplay.Gameflow::kNormalTimeRate
+IL_0063: ldc.r4 1
+IL_0068: mul
+IL_0069: stloc.0
+IL_006A: ldsfld 0x04006C7B Sims3.Gameplay.Gameflow::SlowMotion
+IL_006F: brfalse.s IL_0079
+IL_0071: ldloc.0
+IL_0072: ldsfld 0x04006C80 Sims3.Gameplay.Gameflow::kSlowMotionMultiplier
+IL_0077: mul
+IL_0078: stloc.0
+IL_0079: ldloc.0
+IL_007A: ret

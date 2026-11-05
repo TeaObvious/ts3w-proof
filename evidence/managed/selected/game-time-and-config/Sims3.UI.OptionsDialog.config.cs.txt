@@ -1,0 +1,116 @@
+// Analyst: Options caller uses the string overload, not the numeric status contract.
+using Sims3.SimIFace;
+
+private void SetupResolutionMenu(bool fromDefault, ref GraphicsData graphicsDataToChange)
+{
+	mResolutionMenu.ValueList.Clear();
+	mResolutionList = DeviceConfig.GetResolutionList();
+	if (fromDefault)
+	{
+		string value = string.Empty;
+		if (GameUtils.GetConfigValue("DefaultResolution", ref value))
+		{
+			string[] array = value.Split(',');
+			if (array.Length > 1)
+			{
+				mResolution = default;
+				mResolution.mWidth = uint.Parse(array[0]);
+				mResolution.mHeight = uint.Parse(array[1]);
+				mResolution.mRefresh = 0u;
+			}
+		}
+	}
+	else
+	{
+		mResolution = DeviceConfig.GetCurrentResolution(out graphicsDataToChange.mFullScreen);
+	}
+	uint num = 0u;
+	uint num2 = 0u;
+	int num3 = 0;
+	int num4 = 0;
+	int num5 = -1;
+	Resolution[] array2 = mResolutionList;
+	for (int i = 0; i < array2.Length; i++)
+	{
+		Resolution resolution = array2[i];
+		if (resolution.mWidth != num || resolution.mHeight != num2)
+		{
+			num = resolution.mWidth;
+			num2 = resolution.mHeight;
+			if (mResolution.mWidth == num && mResolution.mHeight == num2 && num5 == -1)
+			{
+				num5 = num3;
+			}
+			num4++;
+		}
+		num3++;
+	}
+	mResolutionMap = new int[num4];
+	mResolutionStrings = new string[num4];
+	num3 = (num4 = 0);
+	num = (num2 = 0u);
+	Resolution[] array3 = mResolutionList;
+	for (int j = 0; j < array3.Length; j++)
+	{
+		Resolution resolution2 = array3[j];
+		if (resolution2.mWidth != num || resolution2.mHeight != num2)
+		{
+			num = resolution2.mWidth;
+			num2 = resolution2.mHeight;
+			mResolutionMap[num4] = num3;
+			string text = num + " x " + num2;
+			float x = (float)num / (float)num2;
+			if (MathUtils.IsSimilar(x, 1.3333334f, 0.001f))
+			{
+				text += " (4:3)";
+			}
+			else if (MathUtils.IsSimilar(x, 1.6666666f, 0.001f))
+			{
+				text += " (5:3)";
+			}
+			else if (MathUtils.IsSimilar(x, 1.25f, 0.001f))
+			{
+				text += " (5:4)";
+			}
+			else if (MathUtils.IsSimilar(x, 1.7777778f, 0.001f))
+			{
+				text += " (16:9)";
+			}
+			else if (MathUtils.IsSimilar(x, 1.6f, 0.001f))
+			{
+				text += " (16:10)";
+			}
+			else if (MathUtils.IsSimilar(x, 1.5625f, 0.001f))
+			{
+				text += " (25:16)";
+			}
+			else if (MathUtils.IsSimilar(x, 1.7708334f, 0.001f))
+			{
+				text += " (85:48)";
+			}
+			if (num < 1024)
+			{
+				text += Localize("Ui/Caption/Options:ResolutionStretched");
+			}
+			mResolutionStrings[num4] = text;
+			mResolutionMenu.ValueList.Add(mResolutionStrings[num4], null);
+			if (mResolution.mWidth == num && mResolution.mHeight == num2)
+			{
+				mResolutionMenu.SelectionChange -= OnResolutionChange;
+				mResolutionMenu.CurrentSelection = (uint)num4;
+				mResolutionMenu.SelectionChange += OnResolutionChange;
+			}
+			num4++;
+		}
+		num3++;
+	}
+	if (num5 == -1)
+	{
+		num5 = 0;
+	}
+	graphicsDataToChange.mResolution = (uint)num5;
+	graphicsDataToChange.mRefresh = FindRefresh(graphicsDataToChange.mResolution, mResolution.mRefresh, graphicsDataToChange.mFullScreen);
+	mResolution = mResolutionList[graphicsDataToChange.mResolution + graphicsDataToChange.mRefresh];
+	mFullScreenButton.Selected = graphicsDataToChange.mFullScreen;
+}
+

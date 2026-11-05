@@ -1,0 +1,153 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* 
+   
+   Original CAW 1.22.10 Sims3Common.dll: Packed node low2bits select leaf0 or X/Y/Z axes1/2/3.
+   Internal word>>2 is left child, right is left+1; negative direction swaps near/far. Stack stores
+   up to63 far frames with strict min<split<max. Leaf face start=(word>>2)&FFFFF,count=word>>22.
+   Tests indexed packed triples in stored order, accepts inclusive minimum<=distance<=current
+   maximum, and replaces equal-distance normal with the last qualifying face. Returns the first
+   front-to-back leaf with a hit. Analyst-assigned helper names are not recovered original symbols.
+   Original instructions govern decompiler ABI/register artifacts. */
+
+uint __thiscall
+CAW_TerrainKdTraverseRay
+          (void *this,uint param_1,float *param_2,float *param_3,float *param_4,float param_5,
+          float param_6,float *param_7)
+
+{
+  uint *puVar1;
+  float fVar2;
+  float fVar3;
+  int iVar4;
+  bool bVar5;
+  float fVar6;
+  float fVar7;
+  float *pfVar8;
+  uint uVar9;
+  uint uVar10;
+  uint uVar11;
+  uint *puVar12;
+  ushort *puVar13;
+  uint local_3c8;
+  uint *local_3c4;
+  uint auStack_380 [4];
+  float local_370;
+  float fStack_36c;
+  float fStack_368;
+  float fStack_364;
+  float local_360;
+  float fStack_35c;
+  float fStack_358;
+  float afStack_354 [4];
+  float fStack_344;
+  float local_340;
+  float fStack_33c;
+  float fStack_338;
+  float fStack_334;
+  float local_330 [4];
+  float local_320;
+  float fStack_31c;
+  float fStack_318;
+  float fStack_314;
+  uint local_310 [189];
+  uint local_1c;
+  float local_18;
+  float local_14;
+  uint local_10 [3];
+  
+  local_3c4 = &local_1c;
+  local_1c = param_1;
+  local_18 = param_5;
+  local_14 = param_6;
+  auStack_380[1] = -(uint)(*param_3 < DAT_10aae18c);
+  auStack_380[2] = -(uint)(param_3[1] < DAT_10aae18c);
+  iVar4 = *(int *)((int)this + 0x90);
+  auStack_380[3] = -(uint)(param_3[2] < DAT_10aae18c);
+  puVar12 = local_3c4;
+  fVar2 = param_6;
+  fVar6 = param_6;
+  fVar7 = param_6;
+  do {
+    while( true ) {
+      fStack_364 = fVar7;
+      fStack_368 = fVar6;
+      fStack_36c = fVar2;
+      local_370 = param_6;
+      uVar9 = *(uint *)(*(int *)((int)this + 0x80) + param_1 * 8);
+      puVar1 = (uint *)(*(int *)((int)this + 0x80) + param_1 * 8);
+      uVar11 = uVar9 & 3;
+      if (uVar11 == 0) break;
+      fVar2 = (float)puVar1[1];
+      afStack_354[1] = (fVar2 - *param_2) * *param_4;
+      afStack_354[2] = (fVar2 - param_2[1]) * param_4[1];
+      afStack_354[3] = (fVar2 - param_2[2]) * param_4[2];
+      fStack_344 = (fVar2 - param_2[3]) * param_4[3];
+      fVar3 = afStack_354[uVar11];
+      uVar9 = *puVar1 >> 2;
+      uVar10 = auStack_380[uVar11] & (uVar9 + 1 ^ uVar9);
+      uVar11 = uVar9 ^ uVar10;
+      uVar10 = uVar9 + 1 ^ uVar10;
+      param_1 = uVar10;
+      param_6 = local_370;
+      fVar2 = fStack_36c;
+      fVar6 = fStack_368;
+      fVar7 = fStack_364;
+      if (((param_5 < fVar3) && (param_1 = uVar11, fVar3 < local_370)) &&
+         (param_6 = fVar3, fVar2 = fVar3, fVar6 = fVar3, fVar7 = fVar3, puVar12 != local_310)) {
+        local_3c4 = puVar12 + -3;
+        local_340 = fVar3;
+        fStack_33c = fVar3;
+        fStack_338 = fVar3;
+        fStack_334 = fVar3;
+        local_360 = local_370;
+        fStack_35c = fStack_36c;
+        fStack_358 = fStack_368;
+        afStack_354[0] = fStack_364;
+        *local_3c4 = uVar10;
+        puVar12[-2] = (uint)fVar3;
+        puVar12[-1] = (uint)local_370;
+        puVar12 = local_3c4;
+      }
+    }
+    local_3c8 = uVar9 >> 0x16;
+    puVar13 = (ushort *)(*(int *)((int)this + 0xa0) + (uVar9 >> 2 & 0xfffff) * 6);
+    *param_7 = local_370;
+    bVar5 = false;
+    pfVar8 = param_7;
+    if (local_3c8 != 0) {
+      do {
+        pfVar8 = (float *)CAW_TerrainKdTriangleRay(iVar4,puVar13,param_2,param_3,local_330);
+        if ((((char)pfVar8 != '\0') && (param_5 <= local_330[0])) &&
+           (pfVar8 = param_7, local_330[0] <= *param_7)) {
+          *param_7 = local_330[0];
+          bVar5 = true;
+          param_7[4] = local_320;
+          param_7[5] = fStack_31c;
+          param_7[6] = fStack_318;
+          param_7[7] = fStack_314;
+        }
+        puVar13 = puVar13 + 3;
+        local_3c8 = local_3c8 - 1;
+      } while (local_3c8 != 0);
+      if (bVar5) {
+        return CONCAT31((int3)((uint)pfVar8 >> 8),1);
+      }
+    }
+    if (local_3c4 == local_10) {
+      return (uint)pfVar8 & 0xffffff00;
+    }
+    param_5 = (float)local_3c4[1];
+    param_1 = *local_3c4;
+    param_6 = (float)local_3c4[2];
+    local_3c4 = local_3c4 + 3;
+    puVar12 = local_3c4;
+    fVar2 = param_6;
+    fVar6 = param_6;
+    fVar7 = param_6;
+  } while( true );
+}
+

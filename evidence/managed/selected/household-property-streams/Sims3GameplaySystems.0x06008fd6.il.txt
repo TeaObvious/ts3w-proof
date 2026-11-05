@@ -1,0 +1,111 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method public final hidebysig newslot virtual 
+		instance bool ExportContent (
+			class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable resKeyTable,
+			class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable objIdTable,
+			class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter writer
+		) cil managed 
+	{
+		// Method begins at RVA 0x27c078
+		// Header size: 12
+		// Code size: 160 (0xa0)
+		.maxstack 4
+		.locals init (
+			[0] class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter,
+			[1] int32[],
+			[2] int32,
+			[3] uint64,
+			[4] uint32,
+			[5] valuetype [SimIFace]Sims3.SimIFace.ResourceKey,
+			[6] uint64[],
+			[7] int32
+		)
+
+		IL_0000: ldarg.3
+		IL_0001: ldc.i4 -2073216372 // 0x846d3a8c
+		IL_0006: callvirt instance class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CreateChild(uint32)
+		IL_000b: stloc.0
+		IL_000c: ldarg.0
+		IL_000d: ldfld class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Core.HouseholdContents::mHousehold
+		IL_0012: ldarg.1
+		IL_0013: ldarg.2
+		IL_0014: ldloc.0
+		IL_0015: callvirt instance bool Sims3.Gameplay.CAS.Household::ExportContent(class [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable, class [SimIFace]Sims3.SimIFace.CustomContent.ObjectIdTable, class [SimIFace]Sims3.SimIFace.IPropertyStreamWriter)
+		IL_001a: pop
+		IL_001b: ldarg.3
+		IL_001c: callvirt instance void [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::CommitChild()
+		IL_0021: ldnull
+		IL_0022: stloc.0
+		IL_0023: ldarg.3
+		IL_0024: ldc.i4 1758660904
+		IL_0029: ldarg.0
+		IL_002a: ldfld uint64[] Sims3.Gameplay.Core.HouseholdContents::mInventories
+		IL_002f: ldlen
+		IL_0030: conv.i4
+		IL_0031: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32)
+		IL_0036: pop
+		IL_0037: ldarg.0
+		IL_0038: ldfld uint64[] Sims3.Gameplay.Core.HouseholdContents::mInventories
+		IL_003d: ldlen
+		IL_003e: conv.i4
+		IL_003f: newarr [mscorlib]System.Int32
+		IL_0044: stloc.1
+		IL_0045: ldc.i4.0
+		IL_0046: stloc.2
+		IL_0047: ldarg.0
+		IL_0048: ldfld uint64[] Sims3.Gameplay.Core.HouseholdContents::mInventories
+		IL_004d: stloc.s 6
+		IL_004f: ldc.i4.0
+		IL_0050: stloc.s 7
+		IL_0052: br.s IL_0089
+		// loop start (head: IL_0089)
+			IL_0054: ldloc.s 6
+			IL_0056: ldloc.s 7
+			IL_0058: ldelem.i8
+			IL_0059: stloc.3
+			IL_005a: ldloc.3
+			IL_005b: ldc.i4.0
+			IL_005c: conv.i8
+			IL_005d: bne.un.s IL_0062
+
+			IL_005f: ldc.i4.0
+			IL_0060: br.s IL_0067
+
+			IL_0062: ldc.i4 -1260555925 // 0xb4dd716b
+
+			IL_0067: stloc.s 4
+			IL_0069: ldloca.s 5
+			IL_006b: ldloc.3
+			IL_006c: ldloc.s 4
+			IL_006e: ldc.i4.0
+			IL_006f: call instance void [SimIFace]Sims3.SimIFace.ResourceKey::.ctor(uint64, uint32, uint32)
+			IL_0074: ldloc.1
+			IL_0075: ldloc.2
+			IL_0076: dup
+			IL_0077: ldc.i4.1
+			IL_0078: add
+			IL_0079: stloc.2
+			IL_007a: ldarg.1
+			IL_007b: ldloc.s 5
+			IL_007d: callvirt instance int32 [SimIFace]Sims3.SimIFace.CustomContent.ResKeyTable::AddKey(valuetype [SimIFace]Sims3.SimIFace.ResourceKey)
+			IL_0082: stelem.i4
+			IL_0083: ldloc.s 7
+			IL_0085: ldc.i4.1
+			IL_0086: add
+			IL_0087: stloc.s 7
+
+			IL_0089: ldloc.s 7
+			IL_008b: ldloc.s 6
+			IL_008d: ldlen
+			IL_008e: conv.i4
+			IL_008f: blt.s IL_0054
+		// end loop
+
+		IL_0091: ldarg.3
+		IL_0092: ldc.i4 -1548720681 // 0xa3b065d7
+		IL_0097: ldloc.1
+		IL_0098: callvirt instance bool [SimIFace]Sims3.SimIFace.IPropertyStreamWriter::WriteInt32(uint32, int32[])
+		IL_009d: pop
+		IL_009e: ldc.i4.1
+		IL_009f: ret
+	} // end of method HouseholdContents::ExportContent

@@ -1,0 +1,43 @@
+# Actual bounded existing Ghidra Listing, NOT a function extent
+# entry=00792d50 length=96 functionAt=ScriptCore.World::World_HandToolAttach:[[00792d50, 00792d50]]
+# No disassembly, definitions, decompiler synthesis or metadata writes performed.
+00792d50  56  DATA ?? 56h    V
+00792d51  e84a66fdff  CALL 0x007693a0
+00792d56  6a18  PUSH 0x18
+00792d58  8bf0  MOV ESI,EAX
+00792d5a  e8f1c33400  CALL 0x00adf150
+00792d5f  83c404  ADD ESP,0x4
+00792d62  85c0  TEST EAX,EAX
+00792d64  7415  JZ 0x00792d7b
+00792d66  c7008c5f0601  MOV dword ptr [EAX],0x1065f8c
+00792d6c  33c9  XOR ECX,ECX
+00792d6e  8d5004  LEA EDX,[EAX + 0x4]
+00792d71  870a  XCHG dword ptr [EDX],ECX
+00792d73  c7008c5f0601  MOV dword ptr [EAX],0x1065f8c
+00792d79  eb02  JMP 0x00792d7d
+00792d7b  33c0  XOR EAX,EAX
+00792d7d  8b4c2408  MOV ECX,dword ptr [ESP + 0x8]
+00792d81  8b54240c  MOV EDX,dword ptr [ESP + 0xc]
+00792d85  894808  MOV dword ptr [EAX + 0x8],ECX
+00792d88  8a4c2410  MOV CL,byte ptr [ESP + 0x10]
+00792d8c  884810  MOV byte ptr [EAX + 0x10],CL
+00792d8f  6a00  PUSH 0x0
+00792d91  89500c  MOV dword ptr [EAX + 0xc],EDX
+00792d94  8b16  MOV EDX,dword ptr [ESI]
+00792d96  50  PUSH EAX
+00792d97  8b4218  MOV EAX,dword ptr [EDX + 0x18]
+00792d9a  68e5d65a04  PUSH 0x45ad6e5
+00792d9f  8bce  MOV ECX,ESI
+00792da1  ffd0  CALL EAX
+00792da3  b001  MOV AL,0x1
+00792da5  5e  POP ESI
+00792da6  c3  RET
+00792da7  cc  DATA ?? CCh
+00792da8  cc  DATA ?? CCh
+00792da9  cc  DATA ?? CCh
+00792daa  cc  DATA ?? CCh
+00792dab  cc  DATA ?? CCh
+00792dac  cc  DATA ?? CCh
+00792dad  cc  DATA ?? CCh
+00792dae  cc  DATA ?? CCh
+00792daf  cc  DATA ?? CCh

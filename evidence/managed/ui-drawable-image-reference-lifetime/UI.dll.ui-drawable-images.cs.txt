@@ -1,0 +1,154 @@
+Pristine PC1.67 UI.dll; actual selected decompiler member spans.
+MVID f2b782a4-2ca4-4935-8b75-5ae2cd2286d2.
+20 complete CIL bodies/533code bytes, headers and two16byte EH sections in paired IL.
+These excerpts are evidence, not a replacement assembly or recompilable source file.
+
+// Sims3.UI.DrawableBase — actual selected complete decompiled members
+
+
+	internal uint DrawableHandle => mDrawableHandle;
+
+	public DrawableBase(uint DrawableHandle)
+	{
+		mDrawableHandle = DrawableHandle;
+	}
+
+	~DrawableBase()
+	{
+		Dispose(fromDtor: true);
+	}
+
+	private void Dispose(bool fromDtor)
+	{
+		if (mDrawableHandle != 0)
+		{
+			UIManager.DestroyDrawable(this);
+			mDrawableHandle = 0u;
+		}
+		if (!fromDtor)
+		{
+			GC.SuppressFinalize(this);
+		}
+	}
+
+	public virtual void Dispose()
+	{
+		Dispose(fromDtor: false);
+	}
+
+// Sims3.UI.UIImage — actual selected complete decompiled members
+
+
+	internal uint UIImageHandle => mUIImageHandle;
+
+	public UIImage(uint imageHandle)
+	{
+		mUIImageHandle = imageHandle;
+	}
+
+	~UIImage()
+	{
+		Dispose(fromDtor: true);
+	}
+
+	private void Dispose(bool fromDtor)
+	{
+		if (mUIImageHandle != 0)
+		{
+			UIManager.DestroyUIImage(this);
+			mUIImageHandle = 0u;
+		}
+		if (!fromDtor)
+		{
+			GC.SuppressFinalize(this);
+		}
+	}
+
+	public void Dispose()
+	{
+		Dispose(fromDtor: false);
+	}
+
+// Sims3.UI.StdDrawable — actual constructor and both indexer accessors
+
+
+	public StdDrawable(uint drawableHandle)
+		: base(drawableHandle)
+	{
+	}
+
+	public UIImage this[ControlStates s]
+	{
+		get
+		{
+			return UIManager.GetImageProperty(DrawableHandle, 255510366u, (uint)s);
+		}
+		set
+		{
+			UIManager.SetImageProperty(DrawableHandle, 255510366u, (uint)s, value);
+		}
+	}
+
+// Sims3.UI.UIManager — actual selected complete decompiled members
+
+
+	public static UIImage LoadUIImage(ResourceKey resKey)
+	{
+		UIImage result = null;
+		if (resKey != ResourceKey.kInvalidResourceKey)
+		{
+			uint num = gUIMgr.LoadUIImage(resKey);
+			if (num != 0)
+			{
+				result = new UIImage(num);
+			}
+		}
+		return result;
+	}
+
+	internal static void DestroyDrawable(DrawableBase drawable)
+	{
+		gUIMgr.DestroyDrawable(drawable.DrawableHandle);
+	}
+
+	internal static void DestroyUIImage(UIImage image)
+	{
+		gUIMgr.DestroyUIImage(image.UIImageHandle);
+	}
+
+	internal static void SetImageProperty(uint handle, uint imagePropID, uint componentID, UIImage image)
+	{
+		gUIMgr.SetImageProperty(handle, imagePropID, componentID, (image != null) ? image.UIImageHandle : 0u);
+	}
+
+	internal static UIImage GetImageProperty(uint handle, uint imagePropID, uint componentID)
+	{
+		uint imageProperty = gUIMgr.GetImageProperty(handle, imagePropID, componentID);
+		if (imageProperty == 0)
+		{
+			return null;
+		}
+		return new UIImage(imageProperty);
+	}
+
+	internal static DrawableBase GetDrawableProperty(uint handle, uint drawablePropID, uint componentID)
+	{
+		return DrawableWrapperFromHandle(gUIMgr.GetDrawableProperty(handle, drawablePropID, componentID));
+	}
+
+	internal static DrawableBase DrawableWrapperFromHandle(uint drawableHandle)
+	{
+		return gUIMgr.GetClassID(drawableHandle) switch
+		{
+			2956728687u => (DrawableBase)new StdDrawable(drawableHandle), 
+			3476836014u => new ImageDrawable(drawableHandle), 
+			51205305u => new FrameDrawable(drawableHandle), 
+			1325614686u => new Button.ButtonDrawable(drawableHandle), 
+			794111182u => new ComboBox.ComboBoxDrawable(drawableHandle), 
+			251872823u => new Scrollbar.ScrollbarDrawable(drawableHandle), 
+			4009969156u => new Slider.SliderDrawable(drawableHandle), 
+			2956728703u => new MultiDrawable(drawableHandle), 
+			3212574256u => new IconDrawable(drawableHandle), 
+			_ => null, 
+		};
+	}

@@ -1,0 +1,203 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 1023e930..1023ec19; CAW_WorldQueryTerrainHeight
+1023e930: 55  PUSH EBP
+1023e931: 8bec  MOV EBP,ESP
+1023e933: 83e4f0  AND ESP,0xfffffff0
+1023e936: 83ec14  SUB ESP,0x14
+1023e939: f30f104508  MOVSS XMM0,dword ptr [EBP + 0x8]
+1023e93e: f30f1015cc8dac10  MOVSS XMM2,dword ptr [0x10ac8dcc]
+1023e946: 53  PUSH EBX
+1023e947: 8bd9  MOV EBX,ECX
+1023e949: 0f2f83b4000000  COMISS XMM0,dword ptr [EBX + 0xb4]
+1023e950: 56  PUSH ESI
+1023e951: 57  PUSH EDI
+1023e952: c644241300  MOV byte ptr [ESP + 0x13],0x0
+1023e957: c644241200  MOV byte ptr [ESP + 0x12],0x0
+1023e95c: f30f11542414  MOVSS dword ptr [ESP + 0x14],XMM2
+1023e962: 0f828b020000  JC 0x1023ebf3
+1023e968: f30f104d0c  MOVSS XMM1,dword ptr [EBP + 0xc]
+1023e96d: 0f2f8bb8000000  COMISS XMM1,dword ptr [EBX + 0xb8]
+1023e974: 0f8279020000  JC 0x1023ebf3
+1023e97a: f30f109bbc000000  MOVSS XMM3,dword ptr [EBX + 0xbc]
+1023e982: 0f2fd8  COMISS XMM3,XMM0
+1023e985: 0f8668020000  JBE 0x1023ebf3
+1023e98b: f30f1083c4000000  MOVSS XMM0,dword ptr [EBX + 0xc4]
+1023e993: f30f5883c0000000  ADDSS XMM0,dword ptr [EBX + 0xc0]
+1023e99b: 0f2fc1  COMISS XMM0,XMM1
+1023e99e: 0f864f020000  JBE 0x1023ebf3
+1023e9a4: 807d1400  CMP byte ptr [EBP + 0x14],0x0
+1023e9a8: 0f8428010000  JZ 0x1023ead6
+1023e9ae: d9450c  FLD float ptr [EBP + 0xc]
+1023e9b1: 83ec08  SUB ESP,0x8
+1023e9b4: d95c2404  FSTP float ptr [ESP + 0x4]
+1023e9b8: d94508  FLD float ptr [EBP + 0x8]
+1023e9bb: d91c24  FSTP float ptr [ESP]
+1023e9be: e8bde5ffff  CALL 0x1023cf80
+1023e9c3: 85c0  TEST EAX,EAX
+1023e9c5: 0f8405010000  JZ 0x1023ead0
+1023e9cb: 8b38  MOV EDI,dword ptr [EAX]
+1023e9cd: 8b4004  MOV EAX,dword ptr [EAX + 0x4]
+1023e9d0: 3bf8  CMP EDI,EAX
+1023e9d2: 8944241c  MOV dword ptr [ESP + 0x1c],EAX
+1023e9d6: 0f84f4000000  JZ 0x1023ead0
+1023e9dc: f30f10542414  MOVSS XMM2,dword ptr [ESP + 0x14]
+1023e9e2: 8b37  MOV ESI,dword ptr [EDI]
+1023e9e4: 85f6  TEST ESI,ESI
+1023e9e6: 0f84d5000000  JZ 0x1023eac1
+1023e9ec: 807d2400  CMP byte ptr [EBP + 0x24],0x0
+1023e9f0: 7432  JZ 0x1023ea24
+1023e9f2: 80bebc04000000  CMP byte ptr [ESI + 0x4bc],0x0
+1023e9f9: 0f85c2000000  JNZ 0x1023eac1
+1023e9ff: 807d2800  CMP byte ptr [EBP + 0x28],0x0
+1023ea03: 741f  JZ 0x1023ea24
+1023ea05: d9450c  FLD float ptr [EBP + 0xc]
+1023ea08: 83ec08  SUB ESP,0x8
+1023ea0b: d95c2404  FSTP float ptr [ESP + 0x4]
+1023ea0f: 8bce  MOV ECX,ESI
+1023ea11: d94508  FLD float ptr [EBP + 0x8]
+1023ea14: d91c24  FSTP float ptr [ESP]
+1023ea17: e83460e8ff  CALL 0x100c4a50
+1023ea1c: 84c0  TEST AL,AL
+1023ea1e: 0f8497000000  JZ 0x1023eabb
+1023ea24: 8b4510  MOV EAX,dword ptr [EBP + 0x10]
+1023ea27: d9450c  FLD float ptr [EBP + 0xc]
+1023ea2a: 50  PUSH EAX
+1023ea2b: 83ec08  SUB ESP,0x8
+1023ea2e: d95c2404  FSTP float ptr [ESP + 0x4]
+1023ea32: 8bce  MOV ECX,ESI
+1023ea34: d94508  FLD float ptr [EBP + 0x8]
+1023ea37: d91c24  FSTP float ptr [ESP]
+1023ea3a: e8c1e2e3ff  CALL 0x1007cd00
+1023ea3f: 8b4d10  MOV ECX,dword ptr [EBP + 0x10]
+1023ea42: d95c2414  FSTP float ptr [ESP + 0x14]
+1023ea46: d9450c  FLD float ptr [EBP + 0xc]
+1023ea49: 51  PUSH ECX
+1023ea4a: 83ec08  SUB ESP,0x8
+1023ea4d: d95c2404  FSTP float ptr [ESP + 0x4]
+1023ea51: d94508  FLD float ptr [EBP + 0x8]
+1023ea54: d91c24  FSTP float ptr [ESP]
+1023ea57: 56  PUSH ESI
+1023ea58: e8a3d9e8ff  CALL 0x100cc400
+1023ea5d: f30f10542424  MOVSS XMM2,dword ptr [ESP + 0x24]
+1023ea63: 83c410  ADD ESP,0x10
+1023ea66: 84c0  TEST AL,AL
+1023ea68: 740e  JZ 0x1023ea78
+1023ea6a: f30f5815c08dac10  ADDSS XMM2,dword ptr [0x10ac8dc0]
+1023ea72: f30f11542414  MOVSS dword ptr [ESP + 0x14],XMM2
+1023ea78: f30f100584e1aa10  MOVSS XMM0,dword ptr [0x10aae184]
+1023ea80: 0f28ca  MOVAPS XMM1,XMM2
+1023ea83: f30f5c0dcc8dac10  SUBSS XMM1,dword ptr [0x10ac8dcc]
+1023ea8b: 0fc6c000  SHUFPS XMM0,XMM0,0x0
+1023ea8f: 0fc6c900  SHUFPS XMM1,XMM1,0x0
+1023ea93: 0f59c1  MULPS XMM0,XMM1
+1023ea96: 0f5fc1  MAXPS XMM0,XMM1
+1023ea99: f30f100d808eac10  MOVSS XMM1,dword ptr [0x10ac8e80]
+1023eaa1: 0fc6c900  SHUFPS XMM1,XMM1,0x0
+1023eaa5: 0fc2c102  CMPLEPS XMM0,XMM1
+1023eaa9: 0f50d0  MOVMSKPS EDX,XMM0
+1023eaac: 83fa0f  CMP EDX,0xf
+1023eaaf: 7410  JZ 0x1023eac1
+1023eab1: c644241301  MOV byte ptr [ESP + 0x13],0x1
+1023eab6: e9de000000  JMP 0x1023eb99
+1023eabb: f30f10542414  MOVSS XMM2,dword ptr [ESP + 0x14]
+1023eac1: 83c704  ADD EDI,0x4
+1023eac4: 3b7c241c  CMP EDI,dword ptr [ESP + 0x1c]
+1023eac8: 0f8514ffffff  JNZ 0x1023e9e2
+1023eace: eb06  JMP 0x1023ead6
+1023ead0: f30f10542414  MOVSS XMM2,dword ptr [ESP + 0x14]
+1023ead6: 807d1800  CMP byte ptr [EBP + 0x18],0x0
+1023eada: 0f84b9000000  JZ 0x1023eb99
+1023eae0: 8b4b5c  MOV ECX,dword ptr [EBX + 0x5c]
+1023eae3: 85c9  TEST ECX,ECX
+1023eae5: f30f100584e1aa10  MOVSS XMM0,dword ptr [0x10aae184]
+1023eaed: c744241c00000000  MOV dword ptr [ESP + 0x1c],0x0
+1023eaf5: f30f11442418  MOVSS dword ptr [ESP + 0x18],XMM0
+1023eafb: 0f8498000000  JZ 0x1023eb99
+1023eb01: d9450c  FLD float ptr [EBP + 0xc]
+1023eb04: 6a00  PUSH 0x0
+1023eb06: 8d44241c  LEA EAX,[ESP + 0x1c]
+1023eb0a: 50  PUSH EAX
+1023eb0b: 8d542424  LEA EDX,[ESP + 0x24]
+1023eb0f: 52  PUSH EDX
+1023eb10: 6a00  PUSH 0x0
+1023eb12: 6a01  PUSH 0x1
+1023eb14: 83ec08  SUB ESP,0x8
+1023eb17: d95c2404  FSTP float ptr [ESP + 0x4]
+1023eb1b: d94508  FLD float ptr [EBP + 0x8]
+1023eb1e: d91c24  FSTP float ptr [ESP]
+1023eb21: e89a42f0ff  CALL 0x10142dc0
+1023eb26: 84c0  TEST AL,AL
+1023eb28: 7469  JZ 0x1023eb93
+1023eb2a: d9442418  FLD float ptr [ESP + 0x18]
+1023eb2e: 8b4c241c  MOV ECX,dword ptr [ESP + 0x1c]
+1023eb32: 83ec0c  SUB ESP,0xc
+1023eb35: d95c2408  FSTP float ptr [ESP + 0x8]
+1023eb39: d9450c  FLD float ptr [EBP + 0xc]
+1023eb3c: d95c2404  FSTP float ptr [ESP + 0x4]
+1023eb40: d94508  FLD float ptr [EBP + 0x8]
+1023eb43: d91c24  FSTP float ptr [ESP]
+1023eb46: e825ebefff  CALL 0x1013d670
+1023eb4b: 8b4b54  MOV ECX,dword ptr [EBX + 0x54]
+1023eb4e: d95c2414  FSTP float ptr [ESP + 0x14]
+1023eb52: 85c9  TEST ECX,ECX
+1023eb54: c644241201  MOV byte ptr [ESP + 0x12],0x1
+1023eb59: 7438  JZ 0x1023eb93
+1023eb5b: d9450c  FLD float ptr [EBP + 0xc]
+1023eb5e: 83ec08  SUB ESP,0x8
+1023eb61: d95c2404  FSTP float ptr [ESP + 0x4]
+1023eb65: d94508  FLD float ptr [EBP + 0x8]
+1023eb68: d91c24  FSTP float ptr [ESP]
+1023eb6b: e840befbff  CALL 0x101fa9b0
+1023eb70: d954241c  FST float ptr [ESP + 0x1c]
+1023eb74: d9442414  FLD float ptr [ESP + 0x14]
+1023eb78: d9c9  FXCH
+1023eb7a: dff1  FCOMIP ST0,ST1
+1023eb7c: ddd8  FSTP ST0
+1023eb7e: 7613  JBE 0x1023eb93
+1023eb80: f30f1054241c  MOVSS XMM2,dword ptr [ESP + 0x1c]
+1023eb86: f30f11542414  MOVSS dword ptr [ESP + 0x14],XMM2
+1023eb8c: c644241200  MOV byte ptr [ESP + 0x12],0x0
+1023eb91: eb06  JMP 0x1023eb99
+1023eb93: f30f10542414  MOVSS XMM2,dword ptr [ESP + 0x14]
+1023eb99: f30f5c15cc8dac10  SUBSS XMM2,dword ptr [0x10ac8dcc]
+1023eba1: f30f100584e1aa10  MOVSS XMM0,dword ptr [0x10aae184]
+1023eba9: f30f100d808eac10  MOVSS XMM1,dword ptr [0x10ac8e80]
+1023ebb1: 0fc6c000  SHUFPS XMM0,XMM0,0x0
+1023ebb5: f30f10d2  MOVSS XMM2,XMM2
+1023ebb9: 0fc6d200  SHUFPS XMM2,XMM2,0x0
+1023ebbd: 0f59c2  MULPS XMM0,XMM2
+1023ebc0: 0f5fc2  MAXPS XMM0,XMM2
+1023ebc3: 0fc6c900  SHUFPS XMM1,XMM1,0x0
+1023ebc7: 0fc2c102  CMPLEPS XMM0,XMM1
+1023ebcb: 0f50c0  MOVMSKPS EAX,XMM0
+1023ebce: 83f80f  CMP EAX,0xf
+1023ebd1: 7520  JNZ 0x1023ebf3
+1023ebd3: 8b4b54  MOV ECX,dword ptr [EBX + 0x54]
+1023ebd6: 85c9  TEST ECX,ECX
+1023ebd8: 7419  JZ 0x1023ebf3
+1023ebda: d9450c  FLD float ptr [EBP + 0xc]
+1023ebdd: 83ec08  SUB ESP,0x8
+1023ebe0: d95c2404  FSTP float ptr [ESP + 0x4]
+1023ebe4: d94508  FLD float ptr [EBP + 0x8]
+1023ebe7: d91c24  FSTP float ptr [ESP]
+1023ebea: e8c1bdfbff  CALL 0x101fa9b0
+1023ebef: d95c2414  FSTP float ptr [ESP + 0x14]
+1023ebf3: 8b451c  MOV EAX,dword ptr [EBP + 0x1c]
+1023ebf6: 85c0  TEST EAX,EAX
+1023ebf8: 7406  JZ 0x1023ec00
+1023ebfa: 8a4c2413  MOV CL,byte ptr [ESP + 0x13]
+1023ebfe: 8808  MOV byte ptr [EAX],CL
+1023ec00: 8b4520  MOV EAX,dword ptr [EBP + 0x20]
+1023ec03: d9442414  FLD float ptr [ESP + 0x14]
+1023ec07: 85c0  TEST EAX,EAX
+1023ec09: 7406  JZ 0x1023ec11
+1023ec0b: 8a542412  MOV DL,byte ptr [ESP + 0x12]
+1023ec0f: 8810  MOV byte ptr [EAX],DL
+1023ec11: 5f  POP EDI
+1023ec12: 5e  POP ESI
+1023ec13: 5b  POP EBX
+1023ec14: 8be5  MOV ESP,EBP
+1023ec16: 5d  POP EBP
+1023ec17: c22400  RET 0x24

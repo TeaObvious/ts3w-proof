@@ -1,0 +1,56 @@
+[Context] Operating on: TS3W.exe
+
+Disassembly of function: AudioEmitter_EvaluateDistanceCurve
+Entry Point: 008a1970
+
+008a1970: MOVSS XMM2, dword ptr [ESP + 0x4]
+008a1976: MOVSS XMM1, dword ptr [ESP + 0x10]
+008a197c: COMISS XMM2, XMM1
+008a197f: JBE 0x008a1986
+008a1981: FLDZ
+008a1983: RET 0x10
+008a1986: MOVAPS XMM0, XMM1
+008a1989: SUBSS XMM1, dword ptr [ESP + 0xc]
+008a198f: SUBSS XMM0, XMM2
+008a1993: DIVSS XMM0, XMM1
+008a1997: MOVSS XMM1, dword ptr [0x00f998f0]
+008a199f: SUBSS XMM1, XMM0
+008a19a3: MOVSS dword ptr [ESP + 0x4], XMM1
+008a19a9: MOV EAX, dword ptr [ESP + 0x4]
+008a19ad: XORPS XMM1, XMM1
+008a19b0: SAR EAX, 0x1f
+008a19b3: PUSH ESI
+008a19b4: MOVSS dword ptr [ESP + 0x14], XMM0
+008a19ba: MOV ESI, dword ptr [ESP + 0x14]
+008a19be: MOVSS XMM0, dword ptr [0x00f998f8]
+008a19c6: MOV EDX, EAX
+008a19c8: NOT EDX
+008a19ca: MOVSS dword ptr [ESP + 0x8], XMM1
+008a19d0: AND EDX, dword ptr [ESP + 0x8]
+008a19d4: AND ESI, EAX
+008a19d6: OR EDX, ESI
+008a19d8: MOV dword ptr [ESP + 0x8], EDX
+008a19dc: MOVSS XMM1, dword ptr [ESP + 0x8]
+008a19e2: MOVAPS XMM2, XMM0
+008a19e5: SUBSS XMM2, XMM1
+008a19e9: MOVSS dword ptr [ESP + 0x8], XMM2
+008a19ef: MOV EAX, dword ptr [ESP + 0x8]
+008a19f3: SAR EAX, 0x1f
+008a19f6: MOVSS dword ptr [ESP + 0x14], XMM0
+008a19fc: MOV ESI, dword ptr [ESP + 0x14]
+008a1a00: MOV EDX, EAX
+008a1a02: MOVSS dword ptr [ESP + 0x8], XMM1
+008a1a08: NOT EDX
+008a1a0a: AND EDX, dword ptr [ESP + 0x8]
+008a1a0e: AND ESI, EAX
+008a1a10: OR EDX, ESI
+008a1a12: MOV dword ptr [ESP + 0x8], EDX
+008a1a16: SUBSS XMM0, dword ptr [ESP + 0x8]
+008a1a1c: PUSH ECX
+008a1a1d: ADD ECX, 0x10
+008a1a20: MOVSS dword ptr [ESP], XMM0
+008a1a25: CALL 0x008a9b70
+008a1a2a: POP ESI
+008a1a2b: RET 0x10
+
+Total instructions: 49

@@ -1,0 +1,33 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67; full owned Ghidra Listing.
+Actual annotated Ghidra C: 00512170_UiTransform_TransformPoint.c
+Owned ranges: [[00512170, 005121bd]]
+
+00512170  55  PUSH EBP
+00512171  8bec  MOV EBP,ESP
+00512173  83e4f0  AND ESP,0xfffffff0
+00512176  8b450c  MOV EAX,dword ptr [EBP + 0xc]
+00512179  0f2800  MOVAPS XMM0,xmmword ptr [EAX]
+0051217c  0f2811  MOVAPS XMM2,xmmword ptr [ECX]
+0051217f  0f285910  MOVAPS XMM3,xmmword ptr [ECX + 0x10]
+00512183  8b4508  MOV EAX,dword ptr [EBP + 0x8]
+00512186  0f28c8  MOVAPS XMM1,XMM0
+00512189  0fc6c800  SHUFPS XMM1,XMM0,0x0
+0051218d  0f59ca  MULPS XMM1,XMM2
+00512190  0f285130  MOVAPS XMM2,xmmword ptr [ECX + 0x30]
+00512194  0f58ca  ADDPS XMM1,XMM2
+00512197  0f28d0  MOVAPS XMM2,XMM0
+0051219a  0fc6d055  SHUFPS XMM2,XMM0,0x55
+0051219e  0f59d3  MULPS XMM2,XMM3
+005121a1  0f58ca  ADDPS XMM1,XMM2
+005121a4  0f28d0  MOVAPS XMM2,XMM0
+005121a7  0fc6d0aa  SHUFPS XMM2,XMM0,0xaa
+005121ab  0f284120  MOVAPS XMM0,xmmword ptr [ECX + 0x20]
+005121af  0f59d0  MULPS XMM2,XMM0
+005121b2  0f58ca  ADDPS XMM1,XMM2
+005121b5  0f2908  MOVAPS xmmword ptr [EAX],XMM1
+005121b8  8be5  MOV ESP,EBP
+005121ba  5d  POP EBP
+005121bb  c20800  RET 0x8

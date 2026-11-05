@@ -1,0 +1,1187 @@
+// Original PC 1.67 Sims3GameplaySystems.dll; selected original metadata and complete method IL.
+	.class nested family auto ansi beforefieldinit FutureDescendantServicePersistableData
+		extends [mscorlib]System.Object
+	{
+		.custom instance void [SimIFace]Sims3.SimIFace.PersistableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		// Fields
+		.field public class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> ActiveDescendantHouseholdsInfo
+		.field public class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> InvalidDescendantHouseholdsInfo
+		.field public class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>> DescendantHouseholdsMap
+
+		// Methods
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x45568f
+			// Header size: 1
+			// Code size: 40 (0x28)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::.ctor()
+			IL_0006: stfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+			IL_000b: ldarg.0
+			IL_000c: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::.ctor()
+			IL_0011: stfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::InvalidDescendantHouseholdsInfo
+			IL_0016: ldarg.0
+			IL_0017: newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::.ctor()
+			IL_001c: stfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::DescendantHouseholdsMap
+			IL_0021: ldarg.0
+			IL_0022: call instance void [mscorlib]System.Object::.ctor()
+			IL_0027: ret
+		} // end of method FutureDescendantServicePersistableData::.ctor
+
+	} // end of class FutureDescendantServicePersistableData
+	.field private static class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData sPersistableData
+	.custom instance void [SimIFace]Sims3.SimIFace.PersistableStaticAttribute::.ctor(bool) = (
+		01 00 01 00 00
+	)
+	.method public hidebysig 
+		instance void PostFutureWorldLoadProcess () cil managed 
+	{
+		// Method begins at RVA 0x452ef8
+		// Header size: 12
+		// Code size: 388 (0x184)
+		.maxstack 3
+		.locals init (
+			[0] class Sims3.Gameplay.CAS.SimDescription,
+			[1] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>,
+			[2] int32,
+			[3] bool,
+			[4] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[5] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[6] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>,
+			[7] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>,
+			[8] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>,
+			[9] valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>
+		)
+
+		.try
+		{
+			IL_0000: ldarg.0
+			IL_0001: call instance void Sims3.Gameplay.TimeTravel.FutureDescendantService::PostWorldLoadFixupOfHouseholds()
+			IL_0006: ldarg.0
+			IL_0007: call instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService::ProcessDescendantHouseholds()
+			IL_000c: pop
+			IL_000d: ldarg.0
+			IL_000e: call instance void Sims3.Gameplay.TimeTravel.FutureDescendantService::BuildAvailableLotLists()
+			IL_0013: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.GameStates::get_TravelHousehold()
+			IL_0018: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_SimDescriptions()
+			IL_001d: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::GetEnumerator()
+			IL_0022: stloc.s 7
+			.try
+			{
+				IL_0024: br.s IL_003a
+				// loop start (head: IL_003a)
+					IL_0026: ldloca.s 7
+					IL_0028: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::get_Current()
+					IL_002d: stloc.0
+					IL_002e: ldarg.0
+					IL_002f: ldloc.0
+					IL_0030: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+					IL_0035: call instance void Sims3.Gameplay.TimeTravel.FutureDescendantService::RemoveDescendantMapTags(uint64)
+
+					IL_003a: ldloca.s 7
+					IL_003c: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::MoveNext()
+					IL_0041: brtrue.s IL_0026
+				// end loop
+
+				IL_0043: leave.s IL_0053
+			} // end .try
+			finally
+			{
+				IL_0045: ldloca.s 7
+				IL_0047: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+				IL_004d: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0052: endfinally
+			} // end handler
+
+			IL_0053: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::.ctor()
+			IL_0058: stloc.1
+			IL_0059: ldc.i4.0
+			IL_005a: stloc.2
+			IL_005b: br.s IL_00bf
+			// loop start (head: IL_00bf)
+				IL_005d: ldc.i4.1
+				IL_005e: stloc.3
+				IL_005f: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+				IL_0064: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+				IL_0069: ldloc.2
+				IL_006a: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Item(int32)
+				IL_006f: stloc.s 4
+				IL_0071: ldloc.s 4
+				IL_0073: callvirt instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::DoesHouseholdLotRequireUpdate()
+				IL_0078: brfalse.s IL_008e
+
+				IL_007a: ldarg.0
+				IL_007b: ldloca.s 4
+				IL_007d: call instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService::UpdateHouseholdHomeLot(class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo&)
+				IL_0082: stloc.3
+				IL_0083: ldloc.3
+				IL_0084: brtrue.s IL_008e
+
+				IL_0086: ldloc.1
+				IL_0087: ldloc.s 4
+				IL_0089: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Add(!0)
+
+				IL_008e: ldloc.3
+				IL_008f: brfalse.s IL_00bb
+
+				IL_0091: ldloc.s 4
+				IL_0093: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::UpdateHouseholdRelationship()
+				IL_0098: ldloc.s 4
+				IL_009a: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::SetupDescendantAlarm()
+				IL_009f: ldarg.0
+				IL_00a0: ldloc.s 4
+				IL_00a2: call instance void Sims3.Gameplay.TimeTravel.FutureDescendantService::FixupOccults(class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo)
+				IL_00a7: ldarg.0
+				IL_00a8: ldloc.s 4
+				IL_00aa: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mAncestorsSimIds
+				IL_00af: ldloc.s 4
+				IL_00b1: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::get_DescendantHousehold()
+				IL_00b6: call instance void Sims3.Gameplay.TimeTravel.FutureDescendantService::UpdateHouseholdMapTags(class [mscorlib]System.Collections.Generic.List`1<uint64>, class Sims3.Gameplay.CAS.Household)
+
+				IL_00bb: ldloc.2
+				IL_00bc: ldc.i4.1
+				IL_00bd: add
+				IL_00be: stloc.2
+
+				IL_00bf: ldloc.2
+				IL_00c0: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+				IL_00c5: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+				IL_00ca: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Count()
+				IL_00cf: blt.s IL_005d
+			// end loop
+
+			IL_00d1: ldloc.1
+			IL_00d2: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::GetEnumerator()
+			IL_00d7: stloc.s 8
+			.try
+			{
+				IL_00d9: br.s IL_0156
+				// loop start (head: IL_0156)
+					IL_00db: ldloca.s 8
+					IL_00dd: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Current()
+					IL_00e2: stloc.s 5
+					IL_00e4: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+					IL_00e9: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+					IL_00ee: ldloc.s 5
+					IL_00f0: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Remove(!0)
+					IL_00f5: pop
+					IL_00f6: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+					IL_00fb: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::DescendantHouseholdsMap
+					IL_0100: callvirt instance class [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::get_Values()
+					IL_0105: callvirt instance valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::GetEnumerator()
+					IL_010a: stloc.s 9
+					.try
+					{
+						IL_010c: br.s IL_012c
+						// loop start (head: IL_012c)
+							IL_010e: ldloca.s 9
+							IL_0110: call instance !1 valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::get_Current()
+							IL_0115: stloc.s 6
+							IL_0117: ldloc.s 6
+							IL_0119: ldloc.s 5
+							IL_011b: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Contains(!0)
+							IL_0120: brfalse.s IL_012c
+
+							IL_0122: ldloc.s 6
+							IL_0124: ldloc.s 5
+							IL_0126: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Remove(!0)
+							IL_012b: pop
+
+							IL_012c: ldloca.s 9
+							IL_012e: call instance bool valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::MoveNext()
+							IL_0133: brtrue.s IL_010e
+						// end loop
+
+						IL_0135: leave.s IL_0145
+					} // end .try
+					finally
+					{
+						IL_0137: ldloca.s 9
+						IL_0139: constrained. valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>
+						IL_013f: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+						IL_0144: endfinally
+					} // end handler
+
+					IL_0145: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+					IL_014a: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::InvalidDescendantHouseholdsInfo
+					IL_014f: ldloc.s 5
+					IL_0151: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Add(!0)
+
+					IL_0156: ldloca.s 8
+					IL_0158: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::MoveNext()
+					IL_015d: brtrue IL_00db
+				// end loop
+
+				IL_0162: leave.s IL_0172
+			} // end .try
+			finally
+			{
+				IL_0164: ldloca.s 8
+				IL_0166: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>
+				IL_016c: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0171: endfinally
+			} // end handler
+
+			IL_0172: ldarg.0
+			IL_0173: call instance void Sims3.Gameplay.TimeTravel.FutureDescendantService::CleanupdAvailableLotLists()
+			IL_0178: ldarg.0
+			IL_0179: call instance void Sims3.Gameplay.TimeTravel.FutureDescendantService::RemoveInactiveDescendantHouseholds()
+			IL_017e: leave.s IL_0183
+		} // end .try
+		catch [mscorlib]System.Exception
+		{
+			IL_0180: pop
+			IL_0181: leave.s IL_0183
+		} // end handler
+
+		IL_0183: ret
+	} // end of method FutureDescendantService::PostFutureWorldLoadProcess
+	.method private hidebysig 
+		instance void FixupOccults (
+			class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo descendantHouseholdInfo
+		) cil managed 
+	{
+		// Method begins at RVA 0x4530ec
+		// Header size: 12
+		// Code size: 452 (0x1c4)
+		.maxstack 6
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>,
+			[1] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>,
+			[2] class [mscorlib]System.Collections.Generic.List`1<valuetype [UI]Sims3.UI.Hud.OccultTypes>,
+			[3] uint64,
+			[4] class Sims3.Gameplay.CAS.SimDescription,
+			[5] class Sims3.Gameplay.CAS.CASSupernaturalData,
+			[6] float32,
+			[7] uint64,
+			[8] class Sims3.Gameplay.CAS.SimDescription,
+			[9] valuetype [UI]Sims3.UI.Hud.OccultTypes,
+			[10] class Sims3.Gameplay.CAS.SimDescription,
+			[11] class Sims3.Gameplay.CAS.SimDescription,
+			[12] class Sims3.Gameplay.CAS.CASFairyData,
+			[13] valuetype [SimIFace]Sims3.SimIFace.Vector3,
+			[14] valuetype [SimIFace]Sims3.SimIFace.CAS.WingTypes,
+			[15] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>,
+			[16] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: brfalse.s IL_000b
+
+		IL_0003: ldarg.1
+		IL_0004: ldfld bool Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mFutureDescendantHouseholdInfoDirty
+		IL_0009: brtrue.s IL_000c
+
+		IL_000b: ret
+
+		IL_000c: ldarg.1
+		IL_000d: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::get_DescendantHousehold()
+		IL_0012: brtrue.s IL_0015
+
+		IL_0014: ret
+
+		IL_0015: ldarg.1
+		IL_0016: ldc.i4.0
+		IL_0017: stfld bool Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mFutureDescendantHouseholdInfoDirty
+		IL_001c: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::.ctor()
+		IL_0021: stloc.0
+		IL_0022: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::.ctor()
+		IL_0027: stloc.1
+		IL_0028: newobj instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [UI]Sims3.UI.Hud.OccultTypes>::.ctor()
+		IL_002d: stloc.2
+		IL_002e: ldarg.1
+		IL_002f: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mProgenitorSimIds
+		IL_0034: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<uint64>::GetEnumerator()
+		IL_0039: stloc.s 15
+		.try
+		{
+			IL_003b: br.s IL_009d
+			// loop start (head: IL_009d)
+				IL_003d: ldloca.s 15
+				IL_003f: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>::get_Current()
+				IL_0044: stloc.3
+				IL_0045: ldloc.3
+				IL_0046: call class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.CAS.SimDescription::Find(uint64)
+				IL_004b: stloc.s 4
+				IL_004d: ldloc.s 4
+				IL_004f: brfalse.s IL_009d
+
+				IL_0051: ldloc.s 4
+				IL_0053: ldfld class Sims3.Gameplay.ActorSystems.OccultManager Sims3.Gameplay.CAS.SimDescription::OccultManager
+				IL_0058: brfalse.s IL_009d
+
+				IL_005a: ldloc.s 4
+				IL_005c: ldfld class Sims3.Gameplay.ActorSystems.OccultManager Sims3.Gameplay.CAS.SimDescription::OccultManager
+				IL_0061: callvirt instance bool Sims3.Gameplay.ActorSystems.OccultManager::HasAnyOccultType()
+				IL_0066: brfalse.s IL_009d
+
+				IL_0068: ldloc.s 4
+				IL_006a: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+				IL_006f: stloc.s 5
+				IL_0071: ldloc.s 5
+				IL_0073: brfalse.s IL_009d
+
+				IL_0075: ldloc.2
+				IL_0076: ldloc.s 5
+				IL_0078: callvirt instance valuetype [UI]Sims3.UI.Hud.OccultTypes Sims3.Gameplay.CAS.CASSupernaturalData::get_OccultType()
+				IL_007d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<valuetype [UI]Sims3.UI.Hud.OccultTypes>::Add(!0)
+				IL_0082: ldloc.s 4
+				IL_0084: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsFemale()
+				IL_0089: brfalse.s IL_0095
+
+				IL_008b: ldloc.0
+				IL_008c: ldloc.s 4
+				IL_008e: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::Add(!0)
+				IL_0093: br.s IL_009d
+
+				IL_0095: ldloc.1
+				IL_0096: ldloc.s 4
+				IL_0098: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::Add(!0)
+
+				IL_009d: ldloca.s 15
+				IL_009f: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>::MoveNext()
+				IL_00a4: brtrue.s IL_003d
+			// end loop
+
+			IL_00a6: leave.s IL_00b6
+		} // end .try
+		finally
+		{
+			IL_00a8: ldloca.s 15
+			IL_00aa: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>
+			IL_00b0: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_00b5: endfinally
+		} // end handler
+
+		IL_00b6: ldloc.2
+		IL_00b7: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<valuetype [UI]Sims3.UI.Hud.OccultTypes>::get_Count()
+		IL_00bc: conv.r4
+		IL_00bd: ldc.r4 25
+		IL_00c2: mul
+		IL_00c3: stloc.s 6
+		IL_00c5: ldarg.1
+		IL_00c6: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mHouseholdMembers
+		IL_00cb: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<uint64>::GetEnumerator()
+		IL_00d0: stloc.s 16
+		.try
+		{
+			IL_00d2: br IL_01a7
+			// loop start (head: IL_01a7)
+				IL_00d7: ldloca.s 16
+				IL_00d9: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>::get_Current()
+				IL_00de: stloc.s 7
+				IL_00e0: ldloc.s 7
+				IL_00e2: call class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.CAS.SimDescription::Find(uint64)
+				IL_00e7: stloc.s 8
+				IL_00e9: ldc.i4.0
+				IL_00ea: stloc.s 9
+				IL_00ec: ldloc.s 6
+				IL_00ee: call bool Sims3.Gameplay.Core.RandomUtil::RandomChance(float32)
+				IL_00f3: brfalse IL_01a7
+
+				IL_00f8: ldloc.2
+				IL_00f9: call !!0 Sims3.Gameplay.Core.RandomUtil::GetRandomObjectFromList<valuetype [UI]Sims3.UI.Hud.OccultTypes>(class [mscorlib]System.Collections.Generic.List`1<!!0>)
+				IL_00fe: stloc.s 9
+				IL_0100: ldnull
+				IL_0101: stloc.s 10
+				IL_0103: ldloc.0
+				IL_0104: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+				IL_0109: ldc.i4.0
+				IL_010a: ble.s IL_0114
+
+				IL_010c: ldloc.0
+				IL_010d: call !!0 Sims3.Gameplay.Core.RandomUtil::GetRandomObjectFromList<class Sims3.Gameplay.CAS.SimDescription>(class [mscorlib]System.Collections.Generic.List`1<!!0>)
+				IL_0112: stloc.s 10
+
+				IL_0114: ldnull
+				IL_0115: stloc.s 11
+				IL_0117: ldloc.1
+				IL_0118: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::get_Count()
+				IL_011d: ldc.i4.0
+				IL_011e: ble.s IL_0128
+
+				IL_0120: ldloc.1
+				IL_0121: call !!0 Sims3.Gameplay.Core.RandomUtil::GetRandomObjectFromList<class Sims3.Gameplay.CAS.SimDescription>(class [mscorlib]System.Collections.Generic.List`1<!!0>)
+				IL_0126: stloc.s 11
+
+				IL_0128: ldloc.s 9
+				IL_012a: call bool Sims3.Gameplay.ActorSystems.OccultManager::DoesOccultTransferToOffspring(valuetype [UI]Sims3.UI.Hud.OccultTypes)
+				IL_012f: brfalse.s IL_01a7
+
+				IL_0131: ldloc.s 9
+				IL_0133: ldc.i4 256
+				IL_0138: bne.un.s IL_0185
+
+				IL_013a: ldloc.s 8
+				IL_013c: callvirt instance void Sims3.Gameplay.CAS.SimDescriptionCore::RemoveSupernaturalData()
+				IL_0141: ldloc.s 8
+				IL_0143: ldc.i4 256
+				IL_0148: callvirt instance void Sims3.Gameplay.CAS.SimDescriptionCore::AddSupernaturalData(valuetype [UI]Sims3.UI.Hud.OccultTypes)
+				IL_014d: ldloc.s 8
+				IL_014f: callvirt instance class Sims3.Gameplay.CAS.CASSupernaturalData Sims3.Gameplay.CAS.SimDescriptionCore::get_SupernaturalData()
+				IL_0154: isinst Sims3.Gameplay.CAS.CASFairyData
+				IL_0159: stloc.s 12
+				IL_015b: ldloc.s 12
+				IL_015d: brfalse.s IL_0185
+
+				IL_015f: ldloc.s 8
+				IL_0161: ldloc.s 10
+				IL_0163: ldloc.s 11
+				IL_0165: newobj instance void [mscorlib]System.Random::.ctor()
+				IL_016a: ldloca.s 13
+				IL_016c: ldloca.s 14
+				IL_016e: call void Sims3.Gameplay.CAS.Genetics::InheritWings(class Sims3.Gameplay.CAS.SimDescription, class Sims3.Gameplay.CAS.SimDescription, class Sims3.Gameplay.CAS.SimDescription, class [mscorlib]System.Random, valuetype [SimIFace]Sims3.SimIFace.Vector3&, valuetype [SimIFace]Sims3.SimIFace.CAS.WingTypes&)
+				IL_0173: ldloc.s 12
+				IL_0175: ldloc.s 14
+				IL_0177: callvirt instance void Sims3.Gameplay.CAS.CASFairyData::set_WingType(valuetype [SimIFace]Sims3.SimIFace.CAS.WingTypes)
+				IL_017c: ldloc.s 12
+				IL_017e: ldloc.s 13
+				IL_0180: callvirt instance void Sims3.Gameplay.CAS.CASFairyData::set_WingColor(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+
+				IL_0185: ldloc.s 9
+				IL_0187: brfalse.s IL_01a7
+
+				IL_0189: ldloc.s 8
+				IL_018b: ldc.r4 0.0
+				IL_0190: callvirt instance void Sims3.Gameplay.CAS.SimDescription::SetAlienDNAPercentage(float32)
+				IL_0195: ldloc.s 8
+				IL_0197: ldfld class Sims3.Gameplay.ActorSystems.OccultManager Sims3.Gameplay.CAS.SimDescription::OccultManager
+				IL_019c: ldloc.s 9
+				IL_019e: ldc.i4.0
+				IL_019f: ldc.i4.0
+				IL_01a0: ldc.i4.0
+				IL_01a1: callvirt instance bool Sims3.Gameplay.ActorSystems.OccultManager::AddOccultType(valuetype [UI]Sims3.UI.Hud.OccultTypes, bool, bool, bool)
+				IL_01a6: pop
+
+				IL_01a7: ldloca.s 16
+				IL_01a9: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>::MoveNext()
+				IL_01ae: brtrue IL_00d7
+			// end loop
+
+			IL_01b3: leave.s IL_01c3
+		} // end .try
+		finally
+		{
+			IL_01b5: ldloca.s 16
+			IL_01b7: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>
+			IL_01bd: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_01c2: endfinally
+		} // end handler
+
+		IL_01c3: ret
+	} // end of method FutureDescendantService::FixupOccults
+	.method public hidebysig 
+		instance void BuildDescendantHouseholdSpecs () cil managed 
+	{
+		// Method begins at RVA 0x4532d8
+		// Header size: 12
+		// Code size: 284 (0x11c)
+		.maxstack 2
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>,
+			[1] class Sims3.Gameplay.CAS.SimDescription,
+			[2] class Sims3.Gameplay.CAS.SimDescription,
+			[3] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[4] int32,
+			[5] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[6] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>,
+			[7] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>,
+			[8] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>
+		)
+
+		.try
+		{
+			IL_0000: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+			IL_0005: brfalse IL_0116
+
+			IL_000a: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+			IL_000f: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_SimDescriptions()
+			IL_0014: stloc.0
+			IL_0015: ldloc.0
+			IL_0016: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::GetEnumerator()
+			IL_001b: stloc.s 6
+			.try
+			{
+				IL_001d: br.s IL_002f
+				// loop start (head: IL_002f)
+					IL_001f: ldloca.s 6
+					IL_0021: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::get_Current()
+					IL_0026: stloc.1
+					IL_0027: ldarg.0
+					IL_0028: ldloc.1
+					IL_0029: call instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService::ProcessSim(class Sims3.Gameplay.CAS.SimDescription)
+					IL_002e: pop
+
+					IL_002f: ldloca.s 6
+					IL_0031: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::MoveNext()
+					IL_0036: brtrue.s IL_001f
+				// end loop
+
+				IL_0038: leave.s IL_0048
+			} // end .try
+			finally
+			{
+				IL_003a: ldloca.s 6
+				IL_003c: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+				IL_0042: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0047: endfinally
+			} // end handler
+
+			IL_0048: ldloc.0
+			IL_0049: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::GetEnumerator()
+			IL_004e: stloc.s 7
+			.try
+			{
+				IL_0050: br.s IL_0061
+				// loop start (head: IL_0061)
+					IL_0052: ldloca.s 7
+					IL_0054: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::get_Current()
+					IL_0059: stloc.2
+					IL_005a: ldarg.0
+					IL_005b: ldloc.2
+					IL_005c: call instance void Sims3.Gameplay.TimeTravel.FutureDescendantService::GenerateAncestorMap(class Sims3.Gameplay.CAS.SimDescription)
+
+					IL_0061: ldloca.s 7
+					IL_0063: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::MoveNext()
+					IL_0068: brtrue.s IL_0052
+				// end loop
+
+				IL_006a: leave.s IL_007a
+			} // end .try
+			finally
+			{
+				IL_006c: ldloca.s 7
+				IL_006e: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+				IL_0074: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0079: endfinally
+			} // end handler
+
+			IL_007a: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_007f: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+			IL_0084: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::GetEnumerator()
+			IL_0089: stloc.s 8
+			.try
+			{
+				IL_008b: br.s IL_00ba
+				// loop start (head: IL_00ba)
+					IL_008d: ldloca.s 8
+					IL_008f: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Current()
+					IL_0094: stloc.3
+					IL_0095: ldloc.3
+					IL_0096: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+					IL_009b: callvirt instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::HasAncestorFromHousehold(class Sims3.Gameplay.CAS.Household)
+					IL_00a0: brfalse.s IL_00aa
+
+					IL_00a2: ldloc.3
+					IL_00a3: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::CalculateHouseholdScores()
+					IL_00a8: br.s IL_00ba
+
+					IL_00aa: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+					IL_00af: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::InvalidDescendantHouseholdsInfo
+					IL_00b4: ldloc.3
+					IL_00b5: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Add(!0)
+
+					IL_00ba: ldloca.s 8
+					IL_00bc: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::MoveNext()
+					IL_00c1: brtrue.s IL_008d
+				// end loop
+
+				IL_00c3: leave.s IL_00d3
+			} // end .try
+			finally
+			{
+				IL_00c5: ldloca.s 8
+				IL_00c7: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>
+				IL_00cd: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_00d2: endfinally
+			} // end handler
+
+			IL_00d3: ldc.i4.0
+			IL_00d4: stloc.s 4
+			IL_00d6: br.s IL_0103
+			// loop start (head: IL_0103)
+				IL_00d8: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+				IL_00dd: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::InvalidDescendantHouseholdsInfo
+				IL_00e2: ldloc.s 4
+				IL_00e4: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Item(int32)
+				IL_00e9: stloc.s 5
+				IL_00eb: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+				IL_00f0: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+				IL_00f5: ldloc.s 5
+				IL_00f7: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Remove(!0)
+				IL_00fc: pop
+				IL_00fd: ldloc.s 4
+				IL_00ff: ldc.i4.1
+				IL_0100: add
+				IL_0101: stloc.s 4
+
+				IL_0103: ldloc.s 4
+				IL_0105: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+				IL_010a: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::InvalidDescendantHouseholdsInfo
+				IL_010f: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Count()
+				IL_0114: blt.s IL_00d8
+			// end loop
+
+			IL_0116: leave.s IL_011b
+		} // end .try
+		catch [mscorlib]System.Exception
+		{
+			IL_0118: pop
+			IL_0119: leave.s IL_011b
+		} // end handler
+
+		IL_011b: ret
+	} // end of method FutureDescendantService::BuildDescendantHouseholdSpecs
+	.method private hidebysig 
+		instance bool ProcessSim (
+			class Sims3.Gameplay.CAS.SimDescription simDesc
+		) cil managed 
+	{
+		// Method begins at RVA 0x453464
+		// Header size: 12
+		// Code size: 384 (0x180)
+		.maxstack 3
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Socializing.Genealogy>,
+			[1] bool,
+			[2] class Sims3.Gameplay.Socializing.Genealogy,
+			[3] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[4] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[5] bool,
+			[6] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Socializing.Genealogy>,
+			[7] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>
+		)
+
+		.try
+		{
+			IL_0000: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_0005: brtrue.s IL_000f
+
+			IL_0007: ldc.i4.0
+			IL_0008: stloc.s 5
+			IL_000a: leave IL_017d
+
+			IL_000f: ldarg.1
+			IL_0010: brtrue.s IL_001a
+
+			IL_0012: ldc.i4.0
+			IL_0013: stloc.s 5
+			IL_0015: leave IL_017d
+
+			IL_001a: call class Sims3.Gameplay.CAS.Household Sims3.Gameplay.CAS.Household::get_ActiveHousehold()
+			IL_001f: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_SimDescriptions()
+			IL_0024: ldarg.1
+			IL_0025: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::Contains(!0)
+			IL_002a: brtrue.s IL_0034
+
+			IL_002c: ldc.i4.0
+			IL_002d: stloc.s 5
+			IL_002f: leave IL_017d
+
+			IL_0034: call class Sims3.Gameplay.ActorSystems.RoommateManager Sims3.Gameplay.CAS.Household::get_RoommateManager()
+			IL_0039: brfalse.s IL_0050
+
+			IL_003b: call class Sims3.Gameplay.ActorSystems.RoommateManager Sims3.Gameplay.CAS.Household::get_RoommateManager()
+			IL_0040: ldarg.1
+			IL_0041: callvirt instance bool Sims3.Gameplay.ActorSystems.RoommateManager::IsNPCRoommate(class Sims3.Gameplay.CAS.SimDescription)
+			IL_0046: brfalse.s IL_0050
+
+			IL_0048: ldc.i4.0
+			IL_0049: stloc.s 5
+			IL_004b: leave IL_017d
+
+			IL_0050: ldarg.1
+			IL_0051: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsRobot()
+			IL_0056: brfalse.s IL_0060
+
+			IL_0058: ldc.i4.0
+			IL_0059: stloc.s 5
+			IL_005b: leave IL_017d
+
+			IL_0060: ldarg.1
+			IL_0061: callvirt instance class Sims3.Gameplay.Socializing.Genealogy Sims3.Gameplay.CAS.SimDescriptionCore::get_Genealogy()
+			IL_0066: brfalse.s IL_00c7
+
+			IL_0068: ldarg.1
+			IL_0069: callvirt instance class Sims3.Gameplay.Socializing.Genealogy Sims3.Gameplay.CAS.SimDescriptionCore::get_Genealogy()
+			IL_006e: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Socializing.Genealogy> Sims3.Gameplay.Socializing.Genealogy::get_Children()
+			IL_0073: stloc.0
+			IL_0074: ldc.i4.0
+			IL_0075: stloc.1
+			IL_0076: ldloc.0
+			IL_0077: brfalse.s IL_00bc
+
+			IL_0079: ldloc.0
+			IL_007a: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Socializing.Genealogy>::get_Count()
+			IL_007f: ldc.i4.0
+			IL_0080: ble.s IL_00bc
+
+			IL_0082: ldloc.0
+			IL_0083: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Socializing.Genealogy>::GetEnumerator()
+			IL_0088: stloc.s 6
+			.try
+			{
+				IL_008a: br.s IL_00a3
+				// loop start (head: IL_00a3)
+					IL_008c: ldloca.s 6
+					IL_008e: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Socializing.Genealogy>::get_Current()
+					IL_0093: stloc.2
+					IL_0094: ldloc.1
+					IL_0095: ldarg.0
+					IL_0096: ldloc.2
+					IL_0097: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Socializing.Genealogy::get_SimDescription()
+					IL_009c: call instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService::ProcessSim(class Sims3.Gameplay.CAS.SimDescription)
+					IL_00a1: or
+					IL_00a2: stloc.1
+
+					IL_00a3: ldloca.s 6
+					IL_00a5: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Socializing.Genealogy>::MoveNext()
+					IL_00aa: brtrue.s IL_008c
+				// end loop
+
+				IL_00ac: leave.s IL_00bc
+			} // end .try
+			finally
+			{
+				IL_00ae: ldloca.s 6
+				IL_00b0: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Socializing.Genealogy>
+				IL_00b6: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_00bb: endfinally
+			} // end handler
+
+			IL_00bc: ldloc.1
+			IL_00bd: brfalse.s IL_00cf
+
+			IL_00bf: ldc.i4.1
+			IL_00c0: stloc.s 5
+			IL_00c2: leave IL_017d
+
+			IL_00c7: ldc.i4.0
+			IL_00c8: stloc.s 5
+			IL_00ca: leave IL_017d
+
+			IL_00cf: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_00d4: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+			IL_00d9: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::GetEnumerator()
+			IL_00de: stloc.s 7
+			.try
+			{
+				IL_00e0: br.s IL_010b
+				// loop start (head: IL_010b)
+					IL_00e2: ldloca.s 7
+					IL_00e4: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Current()
+					IL_00e9: stloc.3
+					IL_00ea: ldloc.3
+					IL_00eb: ldarg.1
+					IL_00ec: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+					IL_00f1: callvirt instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::IsSimAProgenitor(uint64)
+					IL_00f6: brtrue.s IL_0106
+
+					IL_00f8: ldloc.3
+					IL_00f9: ldarg.1
+					IL_00fa: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+					IL_00ff: callvirt instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::IsSimAnAncestor(uint64)
+					IL_0104: brfalse.s IL_010b
+
+					IL_0106: ldc.i4.1
+					IL_0107: stloc.s 5
+					IL_0109: leave.s IL_017d
+
+					IL_010b: ldloca.s 7
+					IL_010d: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::MoveNext()
+					IL_0112: brtrue.s IL_00e2
+				// end loop
+
+				IL_0114: leave.s IL_0124
+			} // end .try
+			finally
+			{
+				IL_0116: ldloca.s 7
+				IL_0118: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>
+				IL_011e: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_0123: endfinally
+			} // end handler
+
+			IL_0124: newobj instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::.ctor()
+			IL_0129: stloc.s 4
+			IL_012b: ldloc.s 4
+			IL_012d: ldarg.1
+			IL_012e: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+			IL_0133: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::AddProgenitorSim(uint64)
+			IL_0138: ldarg.1
+			IL_0139: callvirt instance class Sims3.Gameplay.Socializing.Genealogy Sims3.Gameplay.CAS.SimDescriptionCore::get_Genealogy()
+			IL_013e: callvirt instance class Sims3.Gameplay.Socializing.Genealogy Sims3.Gameplay.Socializing.Genealogy::get_Spouse()
+			IL_0143: brfalse.s IL_0161
+
+			IL_0145: ldloc.s 4
+			IL_0147: ldarg.1
+			IL_0148: callvirt instance class Sims3.Gameplay.Socializing.Genealogy Sims3.Gameplay.CAS.SimDescriptionCore::get_Genealogy()
+			IL_014d: callvirt instance class Sims3.Gameplay.Socializing.Genealogy Sims3.Gameplay.Socializing.Genealogy::get_Spouse()
+			IL_0152: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Socializing.Genealogy::get_SimDescription()
+			IL_0157: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+			IL_015c: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::AddProgenitorSim(uint64)
+
+			IL_0161: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_0166: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+			IL_016b: ldloc.s 4
+			IL_016d: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Add(!0)
+			IL_0172: ldc.i4.1
+			IL_0173: stloc.s 5
+			IL_0175: leave.s IL_017d
+		} // end .try
+		catch [mscorlib]System.Exception
+		{
+			IL_0177: pop
+			IL_0178: ldc.i4.0
+			IL_0179: stloc.s 5
+			IL_017b: leave.s IL_017d
+		} // end handler
+
+		IL_017d: ldloc.s 5
+		IL_017f: ret
+	} // end of method FutureDescendantService::ProcessSim
+	.method private hidebysig 
+		instance void GenerateAncestorMap (
+			class Sims3.Gameplay.CAS.SimDescription otherSimDesc
+		) cil managed 
+	{
+		// Method begins at RVA 0x45363c
+		// Header size: 12
+		// Code size: 255 (0xff)
+		.maxstack 3
+		.locals init (
+			[0] uint64,
+			[1] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>,
+			[2] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[3] int32,
+			[4] uint64,
+			[5] class [UI]Sims3.UI.CAS.IMiniSimDescription,
+			[6] class Sims3.Gameplay.Socializing.Genealogy,
+			[7] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+		IL_0006: stloc.0
+		IL_0007: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+		IL_000c: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::DescendantHouseholdsMap
+		IL_0011: ldloc.0
+		IL_0012: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::ContainsKey(!0)
+		IL_0017: brtrue.s IL_0035
+
+		IL_0019: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::.ctor()
+		IL_001e: stloc.1
+		IL_001f: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+		IL_0024: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::DescendantHouseholdsMap
+		IL_0029: ldarg.1
+		IL_002a: callvirt instance uint64 Sims3.Gameplay.CAS.SimDescription::get_SimDescriptionId()
+		IL_002f: ldloc.1
+		IL_0030: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::Add(!0, !1)
+
+		IL_0035: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+		IL_003a: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+		IL_003f: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::GetEnumerator()
+		IL_0044: stloc.s 7
+		.try
+		{
+			IL_0046: br IL_00e2
+			// loop start (head: IL_00e2)
+				IL_004b: ldloca.s 7
+				IL_004d: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Current()
+				IL_0052: stloc.2
+				IL_0053: ldc.i4.0
+				IL_0054: stloc.3
+				IL_0055: br.s IL_00d1
+				// loop start (head: IL_00d1)
+					IL_0057: ldloc.2
+					IL_0058: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mProgenitorSimIds
+					IL_005d: ldloc.3
+					IL_005e: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<uint64>::get_Item(int32)
+					IL_0063: stloc.s 4
+					IL_0065: ldloc.s 4
+					IL_0067: call class [UI]Sims3.UI.CAS.IMiniSimDescription Sims3.Gameplay.CAS.SimDescription::GetIMiniSimDescription(uint64)
+					IL_006c: stloc.s 5
+					IL_006e: ldloc.s 5
+					IL_0070: brfalse.s IL_00cd
+
+					IL_0072: ldloc.s 5
+					IL_0074: callvirt instance class [UI]Sims3.UI.CAS.IGenealogy [UI]Sims3.UI.CAS.IMiniSimDescription::get_CASGenealogy()
+					IL_0079: isinst Sims3.Gameplay.Socializing.Genealogy
+					IL_007e: stloc.s 6
+					IL_0080: ldloc.s 6
+					IL_0082: brfalse.s IL_00cd
+
+					IL_0084: ldloc.s 6
+					IL_0086: ldarg.1
+					IL_0087: callvirt instance class Sims3.Gameplay.Socializing.Genealogy Sims3.Gameplay.CAS.SimDescriptionCore::get_Genealogy()
+					IL_008c: callvirt instance bool Sims3.Gameplay.Socializing.Genealogy::IsAncestor(class Sims3.Gameplay.Socializing.Genealogy)
+					IL_0091: brtrue.s IL_0098
+
+					IL_0093: ldloc.s 4
+					IL_0095: ldloc.0
+					IL_0096: bne.un.s IL_00cd
+
+					IL_0098: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+					IL_009d: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::DescendantHouseholdsMap
+					IL_00a2: ldloc.0
+					IL_00a3: callvirt instance !1 class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::get_Item(!0)
+					IL_00a8: ldloc.2
+					IL_00a9: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Contains(!0)
+					IL_00ae: brtrue.s IL_00cd
+
+					IL_00b0: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+					IL_00b5: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::DescendantHouseholdsMap
+					IL_00ba: ldloc.0
+					IL_00bb: callvirt instance !1 class [mscorlib]System.Collections.Generic.Dictionary`2<uint64, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>>::get_Item(!0)
+					IL_00c0: ldloc.2
+					IL_00c1: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::Add(!0)
+					IL_00c6: ldloc.2
+					IL_00c7: ldloc.0
+					IL_00c8: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::AddAncestorSim(uint64)
+
+					IL_00cd: ldloc.3
+					IL_00ce: ldc.i4.1
+					IL_00cf: add
+					IL_00d0: stloc.3
+
+					IL_00d1: ldloc.3
+					IL_00d2: ldloc.2
+					IL_00d3: ldfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mProgenitorSimIds
+					IL_00d8: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<uint64>::get_Count()
+					IL_00dd: blt IL_0057
+				// end loop
+
+				IL_00e2: ldloca.s 7
+				IL_00e4: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::MoveNext()
+				IL_00e9: brtrue IL_004b
+			// end loop
+
+			IL_00ee: leave.s IL_00fe
+		} // end .try
+		finally
+		{
+			IL_00f0: ldloca.s 7
+			IL_00f2: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>
+			IL_00f8: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_00fd: endfinally
+		} // end handler
+
+		IL_00fe: ret
+	} // end of method FutureDescendantService::GenerateAncestorMap
+	.method private hidebysig 
+		instance bool ProcessDescendantHouseholds () cil managed 
+	{
+		// Method begins at RVA 0x453b34
+		// Header size: 12
+		// Code size: 250 (0xfa)
+		.maxstack 2
+		.locals init (
+			[0] int32,
+			[1] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[2] class Sims3.Gameplay.CAS.Household,
+			[3] uint64,
+			[4] class Sims3.Gameplay.CAS.SimDescription,
+			[5] class Sims3.Gameplay.CAS.SimDescription,
+			[6] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>,
+			[7] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: br IL_00de
+		// loop start (head: IL_00de)
+			IL_0007: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_000c: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+			IL_0011: ldloc.0
+			IL_0012: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Item(int32)
+			IL_0017: stloc.1
+			IL_0018: ldloc.1
+			IL_0019: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::get_DescendantHousehold()
+			IL_001e: stloc.2
+			IL_001f: ldloc.2
+			IL_0020: brtrue.s IL_0032
+
+			IL_0022: ldloc.1
+			IL_0023: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::Instantiate()
+			IL_0028: pop
+			IL_0029: br.s IL_0056
+			// loop start (head: IL_0032)
+				IL_002b: ldloc.1
+				IL_002c: callvirt instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::RemoveDescendant()
+				IL_0031: pop
+
+				IL_0032: ldloc.2
+				IL_0033: callvirt instance int32 Sims3.Gameplay.CAS.Household::get_NumMembers()
+				IL_0038: ldloc.1
+				IL_0039: ldfld int32 Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mCurrentDesiredHouseholdSize
+				IL_003e: bgt.s IL_002b
+			// end loop
+
+			IL_0040: br.s IL_0048
+			// loop start (head: IL_0048)
+				IL_0042: ldloc.1
+				IL_0043: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::CreateAndAddDescendant()
+
+				IL_0048: ldloc.2
+				IL_0049: callvirt instance int32 Sims3.Gameplay.CAS.Household::get_NumMembers()
+				IL_004e: ldloc.1
+				IL_004f: ldfld int32 Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::mCurrentDesiredHouseholdSize
+				IL_0054: blt.s IL_0042
+			// end loop
+
+			IL_0056: ldsfld class [mscorlib]System.Collections.Generic.List`1<uint64> Sims3.Gameplay.CAS.Household::mDirtyNameSimIds
+			IL_005b: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<uint64>::GetEnumerator()
+			IL_0060: stloc.s 6
+			.try
+			{
+				IL_0062: br.s IL_00c1
+				// loop start (head: IL_00c1)
+					IL_0064: ldloca.s 6
+					IL_0066: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>::get_Current()
+					IL_006b: stloc.3
+					IL_006c: ldloc.1
+					IL_006d: ldloc.3
+					IL_006e: callvirt instance bool Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::IsSimAProgenitor(uint64)
+					IL_0073: brfalse.s IL_00c1
+
+					IL_0075: ldloc.3
+					IL_0076: call class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.CAS.SimDescription::Find(uint64)
+					IL_007b: stloc.s 4
+					IL_007d: ldloc.1
+					IL_007e: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::get_DescendantHousehold()
+					IL_0083: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription> Sims3.Gameplay.CAS.Household::get_SimDescriptions()
+					IL_0088: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.CAS.SimDescription>::GetEnumerator()
+					IL_008d: stloc.s 7
+					.try
+					{
+						IL_008f: br.s IL_00a8
+						// loop start (head: IL_00a8)
+							IL_0091: ldloca.s 7
+							IL_0093: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::get_Current()
+							IL_0098: stloc.s 5
+							IL_009a: ldloc.s 5
+							IL_009c: ldloc.s 4
+							IL_009e: callvirt instance string Sims3.Gameplay.CAS.SimDescriptionCore::get_LastName()
+							IL_00a3: callvirt instance void Sims3.Gameplay.CAS.SimDescriptionCore::set_LastName(string)
+
+							IL_00a8: ldloca.s 7
+							IL_00aa: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>::MoveNext()
+							IL_00af: brtrue.s IL_0091
+						// end loop
+
+						IL_00b1: leave.s IL_00c1
+					} // end .try
+					finally
+					{
+						IL_00b3: ldloca.s 7
+						IL_00b5: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.CAS.SimDescription>
+						IL_00bb: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+						IL_00c0: endfinally
+					} // end handler
+
+					IL_00c1: ldloca.s 6
+					IL_00c3: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>::MoveNext()
+					IL_00c8: brtrue.s IL_0064
+				// end loop
+
+				IL_00ca: leave.s IL_00da
+			} // end .try
+			finally
+			{
+				IL_00cc: ldloca.s 6
+				IL_00ce: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<uint64>
+				IL_00d4: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+				IL_00d9: endfinally
+			} // end handler
+
+			IL_00da: ldloc.0
+			IL_00db: ldc.i4.1
+			IL_00dc: add
+			IL_00dd: stloc.0
+
+			IL_00de: ldloc.0
+			IL_00df: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_00e4: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+			IL_00e9: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Count()
+			IL_00ee: blt IL_0007
+		// end loop
+
+		IL_00f3: call void Sims3.Gameplay.CAS.Household::ClearDirtyNameSimIDs()
+		IL_00f8: ldc.i4.0
+		IL_00f9: ret
+	} // end of method FutureDescendantService::ProcessDescendantHouseholds
+	.method private hidebysig 
+		instance void PostWorldLoadFixupOfHouseholds () cil managed 
+	{
+		// Method begins at RVA 0x453c58
+		// Header size: 12
+		// Code size: 105 (0x69)
+		.maxstack 2
+		.locals init (
+			[0] int32,
+			[1] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo,
+			[2] int32,
+			[3] class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo
+		)
+
+		IL_0000: ldc.i4.0
+		IL_0001: stloc.0
+		IL_0002: br.s IL_0022
+		// loop start (head: IL_0022)
+			IL_0004: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_0009: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+			IL_000e: ldloc.0
+			IL_000f: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Item(int32)
+			IL_0014: stloc.1
+			IL_0015: ldloc.1
+			IL_0016: brfalse.s IL_001e
+
+			IL_0018: ldloc.1
+			IL_0019: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::PostWorldLoadFixUp()
+
+			IL_001e: ldloc.0
+			IL_001f: ldc.i4.1
+			IL_0020: add
+			IL_0021: stloc.0
+
+			IL_0022: ldloc.0
+			IL_0023: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_0028: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::ActiveDescendantHouseholdsInfo
+			IL_002d: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Count()
+			IL_0032: blt.s IL_0004
+		// end loop
+
+		IL_0034: ldc.i4.0
+		IL_0035: stloc.2
+		IL_0036: br.s IL_0056
+		// loop start (head: IL_0056)
+			IL_0038: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_003d: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::InvalidDescendantHouseholdsInfo
+			IL_0042: ldloc.2
+			IL_0043: callvirt instance !0 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Item(int32)
+			IL_0048: stloc.3
+			IL_0049: ldloc.3
+			IL_004a: brfalse.s IL_0052
+
+			IL_004c: ldloc.3
+			IL_004d: callvirt instance void Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo::PostWorldLoadFixUp()
+
+			IL_0052: ldloc.2
+			IL_0053: ldc.i4.1
+			IL_0054: add
+			IL_0055: stloc.2
+
+			IL_0056: ldloc.2
+			IL_0057: ldsfld class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData Sims3.Gameplay.TimeTravel.FutureDescendantService::sPersistableData
+			IL_005c: ldfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo> Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantServicePersistableData::InvalidDescendantHouseholdsInfo
+			IL_0061: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.TimeTravel.FutureDescendantService/FutureDescendantHouseholdInfo>::get_Count()
+			IL_0066: blt.s IL_0038
+		// end loop
+
+		IL_0068: ret
+	} // end of method FutureDescendantService::PostWorldLoadFixupOfHouseholds

@@ -8,7 +8,11 @@ Direkte aktuelle Nutzeranweisungen haben Vorrang; Ausnahmen mit ihrem konkreten
 Umfang dokumentieren und nicht auf andere Dienste übertragen.
 Benennungsregeln sind verbindlich: Adresse_Funktionsname.c/.asm, bestätigte
 Funktions-/Parameter-/Variablennamen tatsächlich in Ghidra, verständliche
-Funktionsköpfe und frische Neu-Exporte sämtlicher betroffener erfasster Caller.
+Funktionsköpfe und frische Neu-Exporte für geänderte Funktionsbezüge.
+Direkte Nutzerpräzisierung vom 05.11.2026: Die rückwirkende Variablenzuordnung
+in bestehenden C-Dateien entfällt während der Forschung; die tatsächliche
+Variablenpflege in Ghidra bleibt verbindlich. Den abschließenden C-Gesamtexport
+aus Ghidra erst am Ende durchführen.
 Siehe [Funktionsnamen](naming/functions.md), [Dateien](naming/files.md) und
 [Ghidra-Pflege](ghidra/annotations.md). Ungeklärte Rollen bleiben explizit offen.
 

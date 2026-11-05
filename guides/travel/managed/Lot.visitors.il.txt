@@ -1,0 +1,1452 @@
+// Original PC1.67 Sims3GameplaySystems.dll; Sims3.Gameplay.Core.Lot selected complete members.
+// Original IL is authoritative; omitted siblings are outside this evidence extract.
+	.field private class Sims3.Gameplay.Core.PortalPathPlanHandler mOnPortalPathPlanHandler
+	.method public hidebysig 
+		instance bool IsResidentialOwnedBy (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x440ce0
+		// Header size: 12
+		// Code size: 58 (0x3a)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.RealEstate.RealEstateManager
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: brfalse.s IL_0038
+
+		IL_0003: ldarg.1
+		IL_0004: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Actors.Sim::get_LotHome()
+		IL_0009: ldarg.0
+		IL_000a: bne.un.s IL_000e
+
+		IL_000c: ldc.i4.1
+		IL_000d: ret
+
+		IL_000e: ldarg.0
+		IL_000f: call instance bool Sims3.Gameplay.Core.Lot::get_IsResidentialLot()
+		IL_0014: brfalse.s IL_0038
+
+		IL_0016: ldarg.1
+		IL_0017: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsSelectable()
+		IL_001c: brfalse.s IL_0038
+
+		IL_001e: ldarg.1
+		IL_001f: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+		IL_0024: callvirt instance class Sims3.Gameplay.RealEstate.RealEstateManager Sims3.Gameplay.CAS.Household::get_RealEstateManager()
+		IL_0029: stloc.0
+		IL_002a: ldloc.0
+		IL_002b: brfalse.s IL_0038
+
+		IL_002d: ldloc.0
+		IL_002e: ldarg.0
+		IL_002f: callvirt instance class Sims3.Gameplay.RealEstate.PropertyData Sims3.Gameplay.RealEstate.RealEstateManager::FindProperty(class Sims3.Gameplay.Core.Lot)
+		IL_0034: brfalse.s IL_0038
+
+		IL_0036: ldc.i4.1
+		IL_0037: ret
+
+		IL_0038: ldc.i4.0
+		IL_0039: ret
+	} // end of method Lot::IsResidentialOwnedBy
+	.method public hidebysig 
+		instance bool CanSimTreatAsHome (
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x440e27
+		// Header size: 1
+		// Code size: 58 (0x3a)
+		.maxstack 8
+
+		IL_0000: ldarg.1
+		IL_0001: brtrue.s IL_0005
+
+		IL_0003: ldc.i4.0
+		IL_0004: ret
+
+		IL_0005: ldarg.0
+		IL_0006: ldarg.1
+		IL_0007: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Actors.Sim::get_LotHome()
+		IL_000c: bne.un.s IL_0010
+
+		IL_000e: ldc.i4.1
+		IL_000f: ret
+
+		IL_0010: ldarg.0
+		IL_0011: call instance bool Sims3.Gameplay.Core.Lot::get_IsResidentialLot()
+		IL_0016: brfalse.s IL_0038
+
+		IL_0018: ldarg.1
+		IL_0019: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsSelectable()
+		IL_001e: brfalse.s IL_0038
+
+		IL_0020: ldarg.1
+		IL_0021: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+		IL_0026: callvirt instance class Sims3.Gameplay.RealEstate.RealEstateManager Sims3.Gameplay.CAS.Household::get_RealEstateManager()
+		IL_002b: ldarg.0
+		IL_002c: callvirt instance class Sims3.Gameplay.RealEstate.PropertyData Sims3.Gameplay.RealEstate.RealEstateManager::FindProperty(class Sims3.Gameplay.Core.Lot)
+		IL_0031: ldnull
+		IL_0032: ceq
+		IL_0034: ldc.i4.0
+		IL_0035: ceq
+		IL_0037: ret
+
+		IL_0038: ldc.i4.0
+		IL_0039: ret
+	} // end of method Lot::CanSimTreatAsHome
+	.method public hidebysig 
+		instance void PostWorldLoad () cil managed 
+	{
+		// Method begins at RVA 0x441c80
+		// Header size: 12
+		// Code size: 668 (0x29c)
+		.maxstack 4
+		.locals init (
+			[0] string,
+			[1] class Sims3.Gameplay.Autonomy.MetaAutonomyTuning,
+			[2] bool,
+			[3] class Sims3.Gameplay.Core.Lot/CommercialSubTypeData,
+			[4] bool,
+			[5] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Core.Lot/CommercialSubTypeData>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld uint64 Sims3.Gameplay.Core.Lot::mLotId
+		IL_0006: call string [SimIFace]Sims3.SimIFace.World::GetLotNameKey(uint64)
+		IL_000b: stloc.0
+		IL_000c: ldloc.0
+		IL_000d: call bool [mscorlib]System.String::IsNullOrEmpty(string)
+		IL_0012: brtrue.s IL_0039
+
+		IL_0014: ldloc.0
+		IL_0015: call bool Sims3.Gameplay.Utilities.Localization::HasLocalizationString(string)
+		IL_001a: brfalse.s IL_0030
+
+		IL_001c: ldarg.0
+		IL_001d: ldloc.0
+		IL_001e: ldc.i4.0
+		IL_001f: newarr [mscorlib]System.Object
+		IL_0024: call string Sims3.Gameplay.Utilities.Localization::LocalizeString(string, object[])
+		IL_0029: stfld string Sims3.Gameplay.Core.Lot::mName
+		IL_002e: br.s IL_004a
+
+		IL_0030: ldarg.0
+		IL_0031: ldloc.0
+		IL_0032: stfld string Sims3.Gameplay.Core.Lot::mName
+		IL_0037: br.s IL_004a
+
+		IL_0039: ldarg.0
+		IL_003a: ldarg.0
+		IL_003b: ldfld uint64 Sims3.Gameplay.Core.Lot::mLotId
+		IL_0040: call string [SimIFace]Sims3.SimIFace.World::GetLotName(uint64)
+		IL_0045: stfld string Sims3.Gameplay.Core.Lot::mName
+
+		IL_004a: ldarg.0
+		IL_004b: ldarg.0
+		IL_004c: ldfld uint64 Sims3.Gameplay.Core.Lot::mLotId
+		IL_0051: call string [SimIFace]Sims3.SimIFace.World::GetLotSaveFileName(uint64)
+		IL_0056: stfld string Sims3.Gameplay.Core.Lot::mFileName
+		IL_005b: ldarg.0
+		IL_005c: ldarg.0
+		IL_005d: ldfld uint64 Sims3.Gameplay.Core.Lot::mLotId
+		IL_0062: call bool [SimIFace]Sims3.SimIFace.World::GetLotBuildBuyEnabledFlag(uint64)
+		IL_0067: stfld bool Sims3.Gameplay.Core.Lot::mAllowBuildBuyEdit
+		IL_006c: ldarg.0
+		IL_006d: ldarg.0
+		IL_006e: ldfld uint64 Sims3.Gameplay.Core.Lot::mLotId
+		IL_0073: call valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType [SimIFace]Sims3.SimIFace.World::GetCommercialLotSubType(uint64)
+		IL_0078: stfld valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot::mCommercialSubType
+		IL_007d: ldarg.0
+		IL_007e: ldarg.0
+		IL_007f: ldfld uint64 Sims3.Gameplay.Core.Lot::mLotId
+		IL_0084: call valuetype [SimIFace]Sims3.SimIFace.ResidentialLotSubType [SimIFace]Sims3.SimIFace.World::GetResidentialLotSubType(uint64)
+		IL_0089: stfld valuetype [SimIFace]Sims3.SimIFace.ResidentialLotSubType Sims3.Gameplay.Core.Lot::mResidentialSubType
+		IL_008e: ldarg.0
+		IL_008f: ldarg.0
+		IL_0090: ldfld uint64 Sims3.Gameplay.Core.Lot::mLotId
+		IL_0095: call bool [SimIFace]Sims3.SimIFace.World::IsHouseboatLot(uint64)
+		IL_009a: stfld bool Sims3.Gameplay.Core.Lot::mbIsEP10HouseboatLot
+		IL_009f: ldarg.0
+		IL_00a0: ldfld bool Sims3.Gameplay.Core.Lot::mbIsEP10HouseboatLot
+		IL_00a5: brfalse.s IL_00d4
+
+		IL_00a7: ldarg.0
+		IL_00a8: ldfld class Sims3.Gameplay.Core.Lot/SavedData Sims3.Gameplay.Core.Lot::mSavedData
+		IL_00ad: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Core.Lot/SavedData::mHouseboatParent
+		IL_00b2: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+		IL_00b7: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+		IL_00bc: brfalse.s IL_00d4
+
+		IL_00be: ldarg.0
+		IL_00bf: call instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_00c4: ldarg.0
+		IL_00c5: ldfld class Sims3.Gameplay.Core.Lot/SavedData Sims3.Gameplay.Core.Lot::mSavedData
+		IL_00ca: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid Sims3.Gameplay.Core.Lot/SavedData::mHouseboatParent
+		IL_00cf: call void [SimIFace]Sims3.SimIFace.World::ParentLotToHouseboat(uint64, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+
+		IL_00d4: ldarg.0
+		IL_00d5: call instance void Sims3.Gameplay.Core.Lot::UpdateLotPosition()
+		IL_00da: ldarg.0
+		IL_00db: call instance void Sims3.Gameplay.Core.Lot::CalculateMetaAutonomyTypeAndConsiderAddingToPublicMetaObjects()
+		IL_00e0: ldarg.0
+		IL_00e1: call instance void Sims3.Gameplay.Core.Lot::UpdateVirtualResidentialSlots()
+		IL_00e6: ldarg.0
+		IL_00e7: ldfld valuetype [SimIFace]Sims3.SimIFace.LotType Sims3.Gameplay.Core.Lot::mLotType
+		IL_00ec: brfalse IL_01d5
+
+		IL_00f1: ldarg.0
+		IL_00f2: ldfld valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot::mCommercialSubType
+		IL_00f7: brfalse IL_01d5
+
+		IL_00fc: ldarg.0
+		IL_00fd: call instance valuetype Sims3.Gameplay.Autonomy.MetaAutonomyVenueType Sims3.Gameplay.Core.Lot::GetMetaAutonomyVenueType()
+		IL_0102: call class Sims3.Gameplay.Autonomy.MetaAutonomyTuning Sims3.Gameplay.Autonomy.MetaAutonomyManager::GetTuning(valuetype Sims3.Gameplay.Autonomy.MetaAutonomyVenueType)
+		IL_0107: stloc.1
+		IL_0108: ldc.i4.0
+		IL_0109: stloc.2
+		IL_010a: ldsfld class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Core.Lot/CommercialSubTypeData> Sims3.Gameplay.Core.Lot::sCommnunityTypeData
+		IL_010f: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Core.Lot/CommercialSubTypeData>::GetEnumerator()
+		IL_0114: stloc.s 5
+		.try
+		{
+			IL_0116: br.s IL_0132
+			// loop start (head: IL_0132)
+				IL_0118: ldloca.s 5
+				IL_011a: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Core.Lot/CommercialSubTypeData>::get_Current()
+				IL_011f: stloc.3
+				IL_0120: ldloc.3
+				IL_0121: ldfld valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot/CommercialSubTypeData::CommercialLotSubType
+				IL_0126: ldarg.0
+				IL_0127: ldfld valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot::mCommercialSubType
+				IL_012c: bne.un.s IL_0132
+
+				IL_012e: ldc.i4.1
+				IL_012f: stloc.2
+				IL_0130: br.s IL_013b
+
+				IL_0132: ldloca.s 5
+				IL_0134: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Core.Lot/CommercialSubTypeData>::MoveNext()
+				IL_0139: brtrue.s IL_0118
+			// end loop
+
+			IL_013b: leave.s IL_014b
+		} // end .try
+		finally
+		{
+			IL_013d: ldloca.s 5
+			IL_013f: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Core.Lot/CommercialSubTypeData>
+			IL_0145: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_014a: endfinally
+		} // end handler
+
+		IL_014b: ldloc.1
+		IL_014c: ldnull
+		IL_014d: ceq
+		IL_014f: stloc.s 4
+		IL_0151: ldloc.s 4
+		IL_0153: brtrue.s IL_0196
+
+		IL_0155: ldarg.0
+		IL_0156: ldfld string Sims3.Gameplay.Core.Lot::mName
+		IL_015b: call bool [mscorlib]System.String::IsNullOrEmpty(string)
+		IL_0160: brtrue.s IL_0196
+
+		IL_0162: ldarg.0
+		IL_0163: ldfld string Sims3.Gameplay.Core.Lot::mName
+		IL_0168: call bool Sims3.Gameplay.Utilities.Localization::HasLocalizationString(string)
+		IL_016d: brtrue.s IL_0196
+
+		IL_016f: ldarg.0
+		IL_0170: ldfld string Sims3.Gameplay.Core.Lot::mName
+		IL_0175: ldstr "CatalogObjects/Name:"
+		IL_017a: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_017f: brtrue.s IL_0193
+
+		IL_0181: ldarg.0
+		IL_0182: ldfld string Sims3.Gameplay.Core.Lot::mName
+		IL_0187: ldstr "World/"
+		IL_018c: callvirt instance bool [mscorlib]System.String::Contains(string)
+		IL_0191: br.s IL_0194
+
+		IL_0193: ldc.i4.1
+
+		IL_0194: stloc.s 4
+
+		IL_0196: ldloc.s 4
+		IL_0198: brtrue.s IL_019d
+
+		IL_019a: ldloc.2
+		IL_019b: brtrue.s IL_020e
+
+		IL_019d: ldarg.0
+		IL_019e: ldc.i4.s 23
+		IL_01a0: call instance void Sims3.Gameplay.Core.Lot::set_CommercialLotSubType(valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType)
+		IL_01a5: ldarg.0
+		IL_01a6: ldarg.0
+		IL_01a7: ldfld valuetype [SimIFace]Sims3.SimIFace.LotType Sims3.Gameplay.Core.Lot::mLotType
+		IL_01ac: call string Sims3.Gameplay.Core.Lot::GetDefaultLotName(valuetype [SimIFace]Sims3.SimIFace.LotType)
+		IL_01b1: call instance void Sims3.Gameplay.Core.Lot::set_Name(string)
+		IL_01b6: ldarg.0
+		IL_01b7: ldsfld string [mscorlib]System.String::Empty
+		IL_01bc: call instance void Sims3.Gameplay.Core.Lot::set_Description(string)
+		IL_01c1: ldarg.0
+		IL_01c2: call instance void Sims3.Gameplay.Core.Lot::CalculateMetaAutonomyTypeAndConsiderAddingToPublicMetaObjects()
+		IL_01c7: ldarg.0
+		IL_01c8: ldfld class Sims3.Gameplay.Core.Lot/SavedData Sims3.Gameplay.Core.Lot::mSavedData
+		IL_01cd: ldc.i4.0
+		IL_01ce: stfld bool Sims3.Gameplay.Core.Lot/SavedData::mHasVirtualResidentialSlots
+		IL_01d3: br.s IL_020e
+
+		IL_01d5: ldarg.0
+		IL_01d6: ldfld valuetype [SimIFace]Sims3.SimIFace.LotType Sims3.Gameplay.Core.Lot::mLotType
+		IL_01db: brtrue.s IL_020e
+
+		IL_01dd: ldarg.0
+		IL_01de: ldfld string Sims3.Gameplay.Core.Lot::mName
+		IL_01e3: brfalse.s IL_020e
+
+		IL_01e5: ldarg.0
+		IL_01e6: ldfld string Sims3.Gameplay.Core.Lot::mName
+		IL_01eb: call bool Sims3.Gameplay.Core.Lot::IsValidName(string)
+		IL_01f0: brtrue.s IL_020e
+
+		IL_01f2: ldarg.0
+		IL_01f3: ldarg.0
+		IL_01f4: ldfld valuetype [SimIFace]Sims3.SimIFace.LotType Sims3.Gameplay.Core.Lot::mLotType
+		IL_01f9: call string Sims3.Gameplay.Core.Lot::GetDefaultLotName(valuetype [SimIFace]Sims3.SimIFace.LotType)
+		IL_01fe: call instance void Sims3.Gameplay.Core.Lot::set_Name(string)
+		IL_0203: ldarg.0
+		IL_0204: ldsfld string [mscorlib]System.String::Empty
+		IL_0209: call instance void Sims3.Gameplay.Core.Lot::set_Description(string)
+
+		IL_020e: ldarg.0
+		IL_020f: call instance bool Sims3.Gameplay.Core.Lot::get_IsApartmentLot()
+		IL_0214: brfalse.s IL_0229
+
+		IL_0216: ldc.i4 131072
+		IL_021b: call bool [SimIFace]Sims3.SimIFace.GameUtils::IsInstalled(valuetype [SimIFace]Sims3.SimIFace.ProductVersion)
+		IL_0220: brtrue.s IL_0229
+
+		IL_0222: ldarg.0
+		IL_0223: ldc.i4.0
+		IL_0224: call instance void Sims3.Gameplay.Core.Lot::set_ResidentialLotSubType(valuetype [SimIFace]Sims3.SimIFace.ResidentialLotSubType)
+
+		IL_0229: ldarg.0
+		IL_022a: call instance bool Sims3.Gameplay.Core.Lot::get_IsCommunityLot()
+		IL_022f: brfalse.s IL_0245
+
+		IL_0231: ldarg.0
+		IL_0232: ldfld valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot::mCommercialSubType
+		IL_0237: brtrue.s IL_0245
+
+		IL_0239: ldarg.0
+		IL_023a: ldarg.0
+		IL_023b: call instance valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot::GetCommercialLotSubTypeFromMetaAutonomyType()
+		IL_0240: call instance void Sims3.Gameplay.Core.Lot::set_CommercialLotSubType(valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType)
+
+		IL_0245: ldarg.0
+		IL_0246: ldfld class Sims3.Gameplay.Objects.Vehicles.StreetParking Sims3.Gameplay.Core.Lot::mStreetParking
+		IL_024b: brtrue.s IL_025b
+
+		IL_024d: ldarg.0
+		IL_024e: callvirt instance bool Sims3.Gameplay.Core.Lot::get_IsWorldLot()
+		IL_0253: brtrue.s IL_025b
+
+		IL_0255: ldarg.0
+		IL_0256: call instance void Sims3.Gameplay.Core.Lot::UpdateStreetParking()
+
+		IL_025b: ldarg.0
+		IL_025c: call instance void Sims3.Gameplay.Core.Lot::CacheRoomObjects<class Sims3.Gameplay.ObjectComponents.IPortalConnectionObject>()
+		IL_0261: ldarg.0
+		IL_0262: ldnull
+		IL_0263: ldftn void Sims3.Gameplay.Actors.Sim::OnPortalPathPlan(class Sims3.Gameplay.Core.PortalPlanEventArgs)
+		IL_0269: newobj instance void Sims3.Gameplay.Core.PortalPathPlanHandler::.ctor(object, native int)
+		IL_026e: call instance void Sims3.Gameplay.Core.Lot::add_PortalPathPlan(class Sims3.Gameplay.Core.PortalPathPlanHandler)
+		IL_0273: ldarg.0
+		IL_0274: ldfld class Sims3.Gameplay.Controllers.VenueAmbienceManager Sims3.Gameplay.Core.Lot::mVenueAmbienceManager
+		IL_0279: brtrue.s IL_0287
+
+		IL_027b: ldarg.0
+		IL_027c: ldarg.0
+		IL_027d: newobj instance void Sims3.Gameplay.Controllers.VenueAmbienceManager::.ctor(class Sims3.Gameplay.Core.Lot)
+		IL_0282: stfld class Sims3.Gameplay.Controllers.VenueAmbienceManager Sims3.Gameplay.Core.Lot::mVenueAmbienceManager
+
+		IL_0287: ldarg.0
+		IL_0288: ldarg.0
+		IL_0289: ldfld class Sims3.Gameplay.Core.Lot/SavedData Sims3.Gameplay.Core.Lot::mSavedData
+		IL_028e: ldfld int32 Sims3.Gameplay.Core.Lot/SavedData::mCachedCost
+		IL_0293: ldc.i4.m1
+		IL_0294: ceq
+		IL_0296: call instance void Sims3.Gameplay.Core.Lot::UpdateCachedValues(bool)
+		IL_029b: ret
+	} // end of method Lot::PostWorldLoad
+	.method public hidebysig 
+		instance void RefreshObjectCacheUsers () cil managed 
+	{
+		// Method begins at RVA 0x4424f8
+		// Header size: 12
+		// Code size: 59 (0x3b)
+		.maxstack 1
+		.locals init (
+			[0] class Sims3.Gameplay.Core.Lot/IObjectCache,
+			[1] valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<class [mscorlib]System.Type, class Sims3.Gameplay.Core.Lot/IObjectCache>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<class [mscorlib]System.Type, class Sims3.Gameplay.Core.Lot/IObjectCache> Sims3.Gameplay.Core.Lot::mObjectCaches
+		IL_0006: callvirt instance class [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2<class [mscorlib]System.Type, class Sims3.Gameplay.Core.Lot/IObjectCache>::get_Values()
+		IL_000b: callvirt instance valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<!0, !1> class [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection<class [mscorlib]System.Type, class Sims3.Gameplay.Core.Lot/IObjectCache>::GetEnumerator()
+		IL_0010: stloc.1
+		.try
+		{
+			IL_0011: br.s IL_0021
+			// loop start (head: IL_0021)
+				IL_0013: ldloca.s 1
+				IL_0015: call instance !1 valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<class [mscorlib]System.Type, class Sims3.Gameplay.Core.Lot/IObjectCache>::get_Current()
+				IL_001a: stloc.0
+				IL_001b: ldloc.0
+				IL_001c: callvirt instance void Sims3.Gameplay.Core.Lot/IObjectCache::RefreshUsers()
+
+				IL_0021: ldloca.s 1
+				IL_0023: call instance bool valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<class [mscorlib]System.Type, class Sims3.Gameplay.Core.Lot/IObjectCache>::MoveNext()
+				IL_0028: brtrue.s IL_0013
+			// end loop
+
+			IL_002a: leave.s IL_003a
+		} // end .try
+		finally
+		{
+			IL_002c: ldloca.s 1
+			IL_002e: constrained. valuetype [mscorlib]System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<class [mscorlib]System.Type, class Sims3.Gameplay.Core.Lot/IObjectCache>
+			IL_0034: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0039: endfinally
+		} // end handler
+
+		IL_003a: ret
+	} // end of method Lot::RefreshObjectCacheUsers
+	.method public hidebysig 
+		instance bool CommonVisitTest (
+			class Sims3.Gameplay.Actors.Sim a,
+			class Sims3.Gameplay.Core.Lot target,
+			bool isAutonomous,
+			bool shouldTestTimeOfLastVisit,
+			uint64 simFinderActorID,
+			class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+		) cil managed 
+	{
+		// Method begins at RVA 0x442bfc
+		// Header size: 12
+		// Code size: 1140 (0x474)
+		.maxstack 4
+		.locals init (
+			[0] float32,
+			[1] class Sims3.Gameplay.Objects.Island.Houseboat,
+			[2] class Sims3.Gameplay.Objects.Electronics.Callbox,
+			[3] class Sims3.Gameplay.Situations.NpcParty,
+			[4] class [mscorlib]System.Collections.Generic.IEnumerable`1<class Sims3.Gameplay.Actors.Sim>,
+			[5] bool,
+			[6] bool,
+			[7] class Sims3.Gameplay.Actors.Sim,
+			[8] float32,
+			[9] class Sims3.Gameplay.CAS.Household,
+			[10] bool,
+			[11] class Sims3.Gameplay.Actors.Sim,
+			[12] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback,
+			[13] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback,
+			[14] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback,
+			[15] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback,
+			[16] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback,
+			[17] class [UI]Sims3.SimIFace.GreyedOutTooltipCallback,
+			[18] class Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14',
+			[19] class [mscorlib]System.Collections.Generic.IEnumerator`1<class Sims3.Gameplay.Actors.Sim>,
+			[20] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: ldnull
+		IL_0001: stloc.s 12
+		IL_0003: ldnull
+		IL_0004: stloc.s 13
+		IL_0006: ldnull
+		IL_0007: stloc.s 14
+		IL_0009: ldnull
+		IL_000a: stloc.s 15
+		IL_000c: ldnull
+		IL_000d: stloc.s 16
+		IL_000f: ldnull
+		IL_0010: stloc.s 17
+		IL_0012: newobj instance void Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::.ctor()
+		IL_0017: stloc.s 18
+		IL_0019: ldloc.s 18
+		IL_001b: ldarg.1
+		IL_001c: stfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0021: ldloc.s 18
+		IL_0023: ldarg.2
+		IL_0024: stfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0029: ldarg.3
+		IL_002a: brfalse.s IL_0050
+
+		IL_002c: ldloc.s 18
+		IL_002e: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0033: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsSelectable()
+		IL_0038: brfalse.s IL_0050
+
+		IL_003a: ldloc.s 18
+		IL_003c: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0041: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsHuman()
+		IL_0046: call valuetype Sims3.Gameplay.Autonomy.AutonomyLevel Sims3.Gameplay.Autonomy.AutonomyRestrictions::GetLevel(bool)
+		IL_004b: ldc.i4.5
+		IL_004c: bge.s IL_0050
+
+		IL_004e: ldc.i4.0
+		IL_004f: ret
+
+		IL_0050: ldarg.s shouldTestTimeOfLastVisit
+		IL_0052: brfalse.s IL_00b2
+
+		IL_0054: ldarg.3
+		IL_0055: brfalse.s IL_00b2
+
+		IL_0057: ldloc.s 18
+		IL_0059: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_005e: ldflda valuetype Sims3.Gameplay.Utilities.DateAndTime Sims3.Gameplay.Actors.Sim::LastAutonomousVisitDate
+		IL_0063: ldfld int64 Sims3.Gameplay.Utilities.DateAndTime::Ticks
+		IL_0068: ldc.i4.0
+		IL_0069: conv.i8
+		IL_006a: beq.s IL_00b2
+
+		IL_006c: ldc.i4.3
+		IL_006d: ldloc.s 18
+		IL_006f: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0074: ldfld valuetype Sims3.Gameplay.Utilities.DateAndTime Sims3.Gameplay.Actors.Sim::LastAutonomousVisitDate
+		IL_0079: call float32 Sims3.Gameplay.Utilities.SimClock::ElapsedTime(valuetype Sims3.Gameplay.Utilities.TimeUnit, valuetype Sims3.Gameplay.Utilities.DateAndTime)
+		IL_007e: stloc.0
+		IL_007f: ldloc.0
+		IL_0080: call float32 Sims3.Gameplay.Core.Lot::get_AutonomousVisitFrequencyInDays()
+		IL_0085: bge.un.s IL_0089
+
+		IL_0087: ldc.i4.0
+		IL_0088: ret
+
+		IL_0089: ldloc.s 18
+		IL_008b: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0090: callvirt instance bool Sims3.Gameplay.Core.Lot::IsHouseboatLot()
+		IL_0095: brfalse.s IL_00b2
+
+		IL_0097: ldloc.s 18
+		IL_0099: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_009e: callvirt instance class Sims3.Gameplay.Objects.Island.Houseboat Sims3.Gameplay.Core.Lot::GetHouseboat()
+		IL_00a3: stloc.1
+		IL_00a4: ldloc.1
+		IL_00a5: brfalse.s IL_00b2
+
+		IL_00a7: ldloc.1
+		IL_00a8: callvirt instance valuetype Sims3.Gameplay.Objects.Island.Houseboat/Status Sims3.Gameplay.Objects.Island.Houseboat::get_CurrentStatus()
+		IL_00ad: ldc.i4.2
+		IL_00ae: beq.s IL_00b2
+
+		IL_00b0: ldc.i4.0
+		IL_00b1: ret
+
+		IL_00b2: ldloc.s 18
+		IL_00b4: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_00b9: callvirt instance bool Sims3.Gameplay.Core.Lot::get_IsCommunityLot()
+		IL_00be: brfalse.s IL_00c2
+
+		IL_00c0: ldc.i4.0
+		IL_00c1: ret
+
+		IL_00c2: ldloc.s 18
+		IL_00c4: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_00c9: ldloc.s 18
+		IL_00cb: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_00d0: callvirt instance bool Sims3.Gameplay.Core.Lot::IsResidentialOwnedBy(class Sims3.Gameplay.Actors.Sim)
+		IL_00d5: brfalse.s IL_00d9
+
+		IL_00d7: ldc.i4.0
+		IL_00d8: ret
+
+		IL_00d9: ldnull
+		IL_00da: stloc.2
+		IL_00db: ldloc.s 18
+		IL_00dd: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_00e2: callvirt instance bool Sims3.Gameplay.Core.Lot::get_IsResidentialLot()
+		IL_00e7: brfalse.s IL_00f6
+
+		IL_00e9: ldloc.s 18
+		IL_00eb: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_00f0: callvirt instance class Sims3.Gameplay.Objects.Electronics.Callbox Sims3.Gameplay.Core.Lot::FindCallbox()
+		IL_00f5: stloc.2
+
+		IL_00f6: ldloc.s 18
+		IL_00f8: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_00fd: brfalse.s IL_010d
+
+		IL_00ff: ldloc.s 18
+		IL_0101: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0106: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Core.Lot::get_Household()
+		IL_010b: brtrue.s IL_0170
+
+		IL_010d: ldloc.2
+		IL_010e: brtrue.s IL_0170
+
+		IL_0110: ldloc.s 18
+		IL_0112: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0117: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Actors.Sim::get_Household()
+		IL_011c: call valuetype [SimIFace]Sims3.SimIFace.WorldName [SimIFace]Sims3.SimIFace.GameUtils::GetCurrentWorld()
+		IL_0121: ldloc.s 18
+		IL_0123: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0128: callvirt instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_012d: call bool Sims3.Gameplay.RealEstate.RealEstateManager::IsVacationLotOwned(class Sims3.Gameplay.CAS.Household, valuetype [SimIFace]Sims3.SimIFace.WorldName, uint64)
+		IL_0132: brfalse.s IL_0156
+
+		IL_0134: ldarg.s greyedOutTooltipCallback
+		IL_0136: ldsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Core.Lot::'<>9__CachedAnonymousMethodDelegatec'
+		IL_013b: brtrue.s IL_014e
+
+		IL_013d: ldnull
+		IL_013e: ldftn string Sims3.Gameplay.Core.Lot::'<CommonVisitTest>b__4'()
+		IL_0144: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+		IL_0149: stsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Core.Lot::'<>9__CachedAnonymousMethodDelegatec'
+
+		IL_014e: ldsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Core.Lot::'<>9__CachedAnonymousMethodDelegatec'
+		IL_0153: stind.ref
+		IL_0154: br.s IL_016e
+
+		IL_0156: ldarg.s greyedOutTooltipCallback
+		IL_0158: ldloc.s 12
+		IL_015a: brtrue.s IL_016b
+
+		IL_015c: ldloc.s 18
+		IL_015e: ldftn instance string Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::'<CommonVisitTest>b__5'()
+		IL_0164: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+		IL_0169: stloc.s 12
+
+		IL_016b: ldloc.s 12
+		IL_016d: stind.ref
+
+		IL_016e: ldc.i4.0
+		IL_016f: ret
+
+		IL_0170: ldloc.s 18
+		IL_0172: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0177: call class Sims3.Gameplay.Situations.NpcParty Sims3.Gameplay.Situations.NpcParty::TryGetNpcPartyOnLot(class Sims3.Gameplay.Core.Lot)
+		IL_017c: stloc.3
+		IL_017d: ldloc.s 18
+		IL_017f: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0184: ldfld bool Sims3.Gameplay.Core.Lot::IsCelebrityLot
+		IL_0189: brfalse.s IL_01c5
+
+		IL_018b: ldloc.3
+		IL_018c: brtrue.s IL_01c5
+
+		IL_018e: ldloc.s 18
+		IL_0190: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0195: ldloc.s 18
+		IL_0197: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_019c: callvirt instance bool Sims3.Gameplay.Core.Lot::CanVisitCelebrityLot(class Sims3.Gameplay.Actors.Sim)
+		IL_01a1: brtrue.s IL_01c5
+
+		IL_01a3: ldarg.s greyedOutTooltipCallback
+		IL_01a5: ldsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Core.Lot::'<>9__CachedAnonymousMethodDelegatee'
+		IL_01aa: brtrue.s IL_01bd
+
+		IL_01ac: ldnull
+		IL_01ad: ldftn string Sims3.Gameplay.Core.Lot::'<CommonVisitTest>b__6'()
+		IL_01b3: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+		IL_01b8: stsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Core.Lot::'<>9__CachedAnonymousMethodDelegatee'
+
+		IL_01bd: ldsfld class [UI]Sims3.SimIFace.GreyedOutTooltipCallback Sims3.Gameplay.Core.Lot::'<>9__CachedAnonymousMethodDelegatee'
+		IL_01c2: stind.ref
+		IL_01c3: ldc.i4.0
+		IL_01c4: ret
+
+		IL_01c5: ldarg.s simFinderActorID
+		IL_01c7: ldc.i4.0
+		IL_01c8: conv.i8
+		IL_01c9: bne.un.s IL_01ec
+
+		IL_01cb: call bool Sims3.Gameplay.Situations.VisitSituation::IsTooLateToVisit()
+		IL_01d0: brfalse.s IL_01ec
+
+		IL_01d2: ldarg.s greyedOutTooltipCallback
+		IL_01d4: ldloc.s 13
+		IL_01d6: brtrue.s IL_01e7
+
+		IL_01d8: ldloc.s 18
+		IL_01da: ldftn instance string Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::'<CommonVisitTest>b__7'()
+		IL_01e0: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+		IL_01e5: stloc.s 13
+
+		IL_01e7: ldloc.s 13
+		IL_01e9: stind.ref
+		IL_01ea: ldc.i4.0
+		IL_01eb: ret
+
+		IL_01ec: ldloc.3
+		IL_01ed: brfalse.s IL_0220
+
+		IL_01ef: ldloc.3
+		IL_01f0: callvirt instance bool Sims3.Gameplay.Situations.NpcParty::IsVisibleToPlayer()
+		IL_01f5: brfalse.s IL_0220
+
+		IL_01f7: ldloc.3
+		IL_01f8: ldloc.s 18
+		IL_01fa: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_01ff: callvirt instance bool Sims3.Gameplay.Situations.NpcParty::IsSimBanned(class Sims3.Gameplay.Actors.Sim)
+		IL_0204: brfalse.s IL_0220
+
+		IL_0206: ldarg.s greyedOutTooltipCallback
+		IL_0208: ldloc.s 14
+		IL_020a: brtrue.s IL_021b
+
+		IL_020c: ldloc.s 18
+		IL_020e: ldftn instance string Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::'<CommonVisitTest>b__8'()
+		IL_0214: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+		IL_0219: stloc.s 14
+
+		IL_021b: ldloc.s 14
+		IL_021d: stind.ref
+		IL_021e: ldc.i4.0
+		IL_021f: ret
+
+		IL_0220: ldloc.s 18
+		IL_0222: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0227: callvirt instance class Sims3.Gameplay.Careers.Occupation Sims3.Gameplay.Actors.Sim::get_Occupation()
+		IL_022c: brfalse.s IL_024b
+
+		IL_022e: ldloc.s 18
+		IL_0230: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0235: callvirt instance class Sims3.Gameplay.Careers.Occupation Sims3.Gameplay.Actors.Sim::get_Occupation()
+		IL_023a: ldloc.s 18
+		IL_023c: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0241: callvirt instance bool Sims3.Gameplay.Careers.Occupation::HasJobAtLot(class Sims3.Gameplay.Core.Lot)
+		IL_0246: brtrue IL_0329
+
+		IL_024b: ldloc.2
+		IL_024c: brtrue IL_0329
+
+		IL_0251: ldloc.s 18
+		IL_0253: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0258: callvirt instance int32 Sims3.Gameplay.Core.Lot::GetSimsCount()
+		IL_025d: brtrue.s IL_0279
+
+		IL_025f: ldarg.s greyedOutTooltipCallback
+		IL_0261: ldloc.s 15
+		IL_0263: brtrue.s IL_0274
+
+		IL_0265: ldloc.s 18
+		IL_0267: ldftn instance string Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::'<CommonVisitTest>b__9'()
+		IL_026d: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+		IL_0272: stloc.s 15
+
+		IL_0274: ldloc.s 15
+		IL_0276: stind.ref
+		IL_0277: ldc.i4.0
+		IL_0278: ret
+
+		IL_0279: ldloc.s 18
+		IL_027b: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_0280: callvirt instance class [mscorlib]System.Collections.Generic.IEnumerable`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.Core.Lot::GetSims()
+		IL_0285: stloc.s 4
+		IL_0287: ldc.i4.0
+		IL_0288: stloc.s 5
+		IL_028a: ldc.i4.0
+		IL_028b: stloc.s 6
+		IL_028d: ldloc.s 4
+		IL_028f: callvirt instance class [mscorlib]System.Collections.Generic.IEnumerator`1<!0> class [mscorlib]System.Collections.Generic.IEnumerable`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+		IL_0294: stloc.s 19
+		.try
+		{
+			IL_0296: br.s IL_02bf
+			// loop start (head: IL_02bf)
+				IL_0298: ldloc.s 19
+				IL_029a: callvirt instance !0 class [mscorlib]System.Collections.Generic.IEnumerator`1<class Sims3.Gameplay.Actors.Sim>::get_Current()
+				IL_029f: stloc.s 7
+				IL_02a1: ldloc.s 7
+				IL_02a3: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsAtHome()
+				IL_02a8: brfalse.s IL_02ad
+
+				IL_02aa: ldc.i4.1
+				IL_02ab: stloc.s 5
+
+				IL_02ad: ldloc.s 7
+				IL_02af: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+				IL_02b4: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_Age()
+				IL_02b9: ldc.i4.4
+				IL_02ba: bne.un.s IL_02bf
+
+				IL_02bc: ldc.i4.1
+				IL_02bd: stloc.s 6
+
+				IL_02bf: ldloc.s 19
+				IL_02c1: callvirt instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+				IL_02c6: brtrue.s IL_0298
+			// end loop
+
+			IL_02c8: leave.s IL_02d6
+		} // end .try
+		finally
+		{
+			IL_02ca: ldloc.s 19
+			IL_02cc: brfalse.s IL_02d5
+
+			IL_02ce: ldloc.s 19
+			IL_02d0: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+
+			IL_02d5: endfinally
+		} // end handler
+
+		IL_02d6: ldloc.s 5
+		IL_02d8: brtrue.s IL_02f4
+
+		IL_02da: ldarg.s greyedOutTooltipCallback
+		IL_02dc: ldloc.s 16
+		IL_02de: brtrue.s IL_02ef
+
+		IL_02e0: ldloc.s 18
+		IL_02e2: ldftn instance string Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::'<CommonVisitTest>b__a'()
+		IL_02e8: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+		IL_02ed: stloc.s 16
+
+		IL_02ef: ldloc.s 16
+		IL_02f1: stind.ref
+		IL_02f2: ldc.i4.0
+		IL_02f3: ret
+
+		IL_02f4: ldloc.s 18
+		IL_02f6: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_02fb: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_0300: callvirt instance valuetype [SimIFace]Sims3.SimIFace.CAS.CASAgeGenderFlags Sims3.Gameplay.CAS.SimDescription::get_Age()
+		IL_0305: ldc.i4.4
+		IL_0306: bne.un.s IL_0329
+
+		IL_0308: ldloc.s 6
+		IL_030a: brtrue.s IL_0329
+
+		IL_030c: ldarg.3
+		IL_030d: brfalse.s IL_0329
+
+		IL_030f: ldarg.s greyedOutTooltipCallback
+		IL_0311: ldloc.s 17
+		IL_0313: brtrue.s IL_0324
+
+		IL_0315: ldloc.s 18
+		IL_0317: ldftn instance string Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::'<CommonVisitTest>b__b'()
+		IL_031d: newobj instance void [UI]Sims3.SimIFace.GreyedOutTooltipCallback::.ctor(object, native int)
+		IL_0322: stloc.s 17
+
+		IL_0324: ldloc.s 17
+		IL_0326: stind.ref
+		IL_0327: ldc.i4.0
+		IL_0328: ret
+
+		IL_0329: ldloc.s 18
+		IL_032b: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0330: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0335: ldloc.s 18
+		IL_0337: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_033c: bne.un.s IL_0368
+
+		IL_033e: ldloc.s 18
+		IL_0340: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0345: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::get_IsOutside()
+		IL_034a: brtrue.s IL_0368
+
+		IL_034c: ldloc.s 18
+		IL_034e: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0353: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Actors.Sim::get_VirtualLotHome()
+		IL_0358: ldloc.s 18
+		IL_035a: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_035f: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0364: beq.s IL_0368
+
+		IL_0366: ldc.i4.0
+		IL_0367: ret
+
+		IL_0368: ldarg.3
+		IL_0369: brfalse.s IL_037b
+
+		IL_036b: ldloc.s 18
+		IL_036d: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0372: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsNeighborOfPlayerWhoIsLastOneAtHome()
+		IL_0377: brfalse.s IL_037b
+
+		IL_0379: ldc.i4.0
+		IL_037a: ret
+
+		IL_037b: ldarg.s shouldTestTimeOfLastVisit
+		IL_037d: brfalse.s IL_03b6
+
+		IL_037f: ldloc.s 18
+		IL_0381: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_0386: ldflda valuetype Sims3.Gameplay.Utilities.DateAndTime Sims3.Gameplay.Actors.Sim::LastVisitedSomeone
+		IL_038b: ldfld int64 Sims3.Gameplay.Utilities.DateAndTime::Ticks
+		IL_0390: ldc.i4.0
+		IL_0391: conv.i8
+		IL_0392: beq.s IL_03b6
+
+		IL_0394: ldc.i4.3
+		IL_0395: ldloc.s 18
+		IL_0397: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_039c: ldfld valuetype Sims3.Gameplay.Utilities.DateAndTime Sims3.Gameplay.Actors.Sim::LastVisitedSomeone
+		IL_03a1: call float32 Sims3.Gameplay.Utilities.SimClock::ElapsedTime(valuetype Sims3.Gameplay.Utilities.TimeUnit, valuetype Sims3.Gameplay.Utilities.DateAndTime)
+		IL_03a6: stloc.s 8
+		IL_03a8: ldloc.s 8
+		IL_03aa: ldc.r4 1
+		IL_03af: bge.un.s IL_03b6
+
+		IL_03b1: ldarg.3
+		IL_03b2: brfalse.s IL_03b6
+
+		IL_03b4: ldc.i4.0
+		IL_03b5: ret
+
+		IL_03b6: ldloc.s 18
+		IL_03b8: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_03bd: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Actors.Sim::get_LotHome()
+		IL_03c2: ldloc.s 18
+		IL_03c4: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_03c9: bne.un.s IL_03cd
+
+		IL_03cb: ldc.i4.0
+		IL_03cc: ret
+
+		IL_03cd: ldarg.3
+		IL_03ce: brfalse IL_0472
+
+		IL_03d3: ldloc.s 18
+		IL_03d5: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_03da: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsNPC()
+		IL_03df: brfalse IL_0472
+
+		IL_03e4: ldloc.s 18
+		IL_03e6: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+		IL_03eb: callvirt instance class Sims3.Gameplay.CAS.SimDescription Sims3.Gameplay.Actors.Sim::get_SimDescription()
+		IL_03f0: callvirt instance bool Sims3.Gameplay.CAS.SimDescription::get_IsCelebrity()
+		IL_03f5: brfalse.s IL_0472
+
+		IL_03f7: ldloc.s 18
+		IL_03f9: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+		IL_03fe: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Core.Lot::get_Household()
+		IL_0403: stloc.s 9
+		IL_0405: ldloc.s 9
+		IL_0407: brfalse.s IL_0472
+
+		IL_0409: ldloc.s 9
+		IL_040b: callvirt instance bool Sims3.Gameplay.CAS.Household::get_IsActive()
+		IL_0410: brfalse.s IL_0472
+
+		IL_0412: ldc.i4.0
+		IL_0413: stloc.s 10
+		IL_0415: ldloc.s 9
+		IL_0417: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.CAS.Household::get_Sims()
+		IL_041c: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+		IL_0421: stloc.s 20
+		.try
+		{
+			IL_0423: br.s IL_0453
+			// loop start (head: IL_0453)
+				IL_0425: ldloca.s 20
+				IL_0427: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current()
+				IL_042c: stloc.s 11
+				IL_042e: ldloc.s 11
+				IL_0430: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+				IL_0435: ldloc.s 18
+				IL_0437: ldfld class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::target
+				IL_043c: bne.un.s IL_0453
+
+				IL_043e: ldloc.s 11
+				IL_0440: ldloc.s 18
+				IL_0442: ldfld class Sims3.Gameplay.Actors.Sim Sims3.Gameplay.Core.Lot/'<>c__DisplayClass14'::a
+				IL_0447: call bool Sims3.Gameplay.CelebritySystem.CelebrityManager::CanSocialize(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Actors.Sim)
+				IL_044c: brfalse.s IL_0453
+
+				IL_044e: ldc.i4.1
+				IL_044f: stloc.s 10
+				IL_0451: br.s IL_045c
+
+				IL_0453: ldloca.s 20
+				IL_0455: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::MoveNext()
+				IL_045a: brtrue.s IL_0425
+			// end loop
+
+			IL_045c: leave.s IL_046c
+		} // end .try
+		finally
+		{
+			IL_045e: ldloca.s 20
+			IL_0460: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+			IL_0466: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_046b: endfinally
+		} // end handler
+
+		IL_046c: ldloc.s 10
+		IL_046e: brtrue.s IL_0472
+
+		IL_0470: ldc.i4.0
+		IL_0471: ret
+
+		IL_0472: ldc.i4.1
+		IL_0473: ret
+	} // end of method Lot::CommonVisitTest
+	.method public hidebysig 
+		instance class Sims3.Gameplay.Actors.Sim CheckForHostWhenVisiting (
+			class Sims3.Gameplay.Actors.Sim actor,
+			class Sims3.Gameplay.Core.Lot lotTarget,
+			class [SimIFace]Sims3.SimIFace.Route r,
+			class [SimIFace]Sims3.SimIFace.RouteEvent re
+		) cil managed 
+	{
+		// Method begins at RVA 0x443098
+		// Header size: 12
+		// Code size: 137 (0x89)
+		.maxstack 2
+		.locals init (
+			[0] class Sims3.Gameplay.Situations.VisitSituation,
+			[1] class Sims3.Gameplay.Actors.Sim,
+			[2] class Sims3.Gameplay.Actors.Sim,
+			[3] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+		)
+
+		IL_0000: ldarg.1
+		IL_0001: call class Sims3.Gameplay.Situations.VisitSituation Sims3.Gameplay.Situations.VisitSituation::FindVisitSituationInvolvingGuest(class Sims3.Gameplay.Actors.Sim)
+		IL_0006: stloc.0
+		IL_0007: ldloc.0
+		IL_0008: brfalse.s IL_0014
+
+		IL_000a: ldloc.0
+		IL_000b: callvirt instance bool Sims3.Gameplay.Situations.VisitSituation::IsInStateHostOutside()
+		IL_0010: brfalse.s IL_0014
+
+		IL_0012: ldnull
+		IL_0013: ret
+
+		IL_0014: ldnull
+		IL_0015: stloc.1
+		IL_0016: ldarg.1
+		IL_0017: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_001c: ldarg.2
+		IL_001d: bne.un.s IL_0079
+
+		IL_001f: ldarg.1
+		IL_0020: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0025: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Core.Lot::get_Household()
+		IL_002a: brfalse.s IL_0079
+
+		IL_002c: ldarg.1
+		IL_002d: callvirt instance class Sims3.Gameplay.Core.Lot Sims3.Gameplay.Abstracts.GameObject::get_LotCurrent()
+		IL_0032: callvirt instance class Sims3.Gameplay.CAS.Household Sims3.Gameplay.Core.Lot::get_Household()
+		IL_0037: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim> Sims3.Gameplay.CAS.Household::get_Sims()
+		IL_003c: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Actors.Sim>::GetEnumerator()
+		IL_0041: stloc.3
+		.try
+		{
+			IL_0042: br.s IL_0060
+			// loop start (head: IL_0060)
+				IL_0044: ldloca.s 3
+				IL_0046: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::get_Current()
+				IL_004b: stloc.2
+				IL_004c: ldloc.2
+				IL_004d: callvirt instance bool Sims3.Gameplay.Actors.Sim::get_IsAtHome()
+				IL_0052: brfalse.s IL_0060
+
+				IL_0054: ldloc.2
+				IL_0055: callvirt instance bool Sims3.Gameplay.Abstracts.GameObject::get_IsOutside()
+				IL_005a: brfalse.s IL_0060
+
+				IL_005c: ldloc.2
+				IL_005d: stloc.1
+				IL_005e: br.s IL_0069
+
+				IL_0060: ldloca.s 3
+				IL_0062: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>::MoveNext()
+				IL_0067: brtrue.s IL_0044
+			// end loop
+
+			IL_0069: leave.s IL_0079
+		} // end .try
+		finally
+		{
+			IL_006b: ldloca.s 3
+			IL_006d: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Actors.Sim>
+			IL_0073: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0078: endfinally
+		} // end handler
+
+		IL_0079: ldloc.1
+		IL_007a: brfalse.s IL_0087
+
+		IL_007c: ldarg.3
+		IL_007d: brfalse.s IL_0087
+
+		IL_007f: ldarg.3
+		IL_0080: ldc.i4.2
+		IL_0081: callvirt instance bool [SimIFace]Sims3.SimIFace.Route::Stop(valuetype [SimIFace]Sims3.SimIFace.StopMode)
+		IL_0086: pop
+
+		IL_0087: ldloc.1
+		IL_0088: ret
+	} // end of method Lot::CheckForHostWhenVisiting
+	.method public hidebysig 
+		instance bool MoveAwayFromDoor (
+			class Sims3.Gameplay.Actors.Sim actor,
+			class Sims3.Gameplay.Core.Lot lotTarget
+		) cil managed 
+	{
+		// Method begins at RVA 0x443140
+		// Header size: 12
+		// Code size: 46 (0x2e)
+		.maxstack 8
+		.locals init (
+			[0] class Sims3.Gameplay.Abstracts.Door,
+			[1] class [SimIFace]Sims3.SimIFace.Route,
+			[2] bool
+		)
+
+		IL_0000: ldnull
+		IL_0001: stloc.0
+		IL_0002: ldnull
+		IL_0003: stloc.1
+		IL_0004: ldarg.2
+		IL_0005: ldarg.1
+		IL_0006: call float32 Sims3.Gameplay.Actors.Sim::get_MinStandBackFromDoorDistance()
+		IL_000b: call float32 Sims3.Gameplay.Actors.Sim::get_MaxStandBackFromDoorDistance()
+		IL_0010: ldloca.s 0
+		IL_0012: ldc.i4.1
+		IL_0013: ldloca.s 1
+		IL_0015: ldc.i4.1
+		IL_0016: callvirt instance bool Sims3.Gameplay.Core.Lot::RouteToFrontDoor(class Sims3.Gameplay.Actors.Sim, float32, float32, class Sims3.Gameplay.Abstracts.Door&, bool, class [SimIFace]Sims3.SimIFace.Route&, bool)
+		IL_001b: stloc.2
+		IL_001c: ldloc.0
+		IL_001d: brfalse.s IL_002c
+
+		IL_001f: ldarg.1
+		IL_0020: ldloc.0
+		IL_0021: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Abstracts.GameObject::get_Position()
+		IL_0026: callvirt instance bool Sims3.Gameplay.Actors.Sim::RouteTurnToFace(valuetype [SimIFace]Sims3.SimIFace.Vector3)
+		IL_002b: pop
+
+		IL_002c: ldloc.2
+		IL_002d: ret
+	} // end of method Lot::MoveAwayFromDoor
+	.method public hidebysig 
+		instance bool IsRoomRestricted (
+			int32 roomId,
+			class Sims3.Gameplay.Actors.Sim sim
+		) cil managed 
+	{
+		// Method begins at RVA 0x443378
+		// Header size: 12
+		// Code size: 76 (0x4c)
+		.maxstack 3
+		.locals init (
+			[0] class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck>,
+			[1] class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck,
+			[2] bool,
+			[3] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck>
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<int32, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck>> Sims3.Gameplay.Core.Lot::mRoomRestrictionCheckCallbacks
+		IL_0006: ldarg.1
+		IL_0007: ldloca.s 0
+		IL_0009: callvirt instance bool class [mscorlib]System.Collections.Generic.Dictionary`2<int32, class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck>>::TryGetValue(!0, !1&)
+		IL_000e: brfalse.s IL_0048
+
+		IL_0010: ldloc.0
+		IL_0011: callvirt instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck>::GetEnumerator()
+		IL_0016: stloc.3
+		.try
+		{
+			IL_0017: br.s IL_002f
+			// loop start (head: IL_002f)
+				IL_0019: ldloca.s 3
+				IL_001b: call instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck>::get_Current()
+				IL_0020: stloc.1
+				IL_0021: ldloc.1
+				IL_0022: ldarg.1
+				IL_0023: ldarg.2
+				IL_0024: callvirt instance bool Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck::Invoke(int32, class Sims3.Gameplay.Actors.Sim)
+				IL_0029: brtrue.s IL_002f
+
+				IL_002b: ldc.i4.1
+				IL_002c: stloc.2
+				IL_002d: leave.s IL_004a
+
+				IL_002f: ldloca.s 3
+				IL_0031: call instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck>::MoveNext()
+				IL_0036: brtrue.s IL_0019
+			// end loop
+
+			IL_0038: leave.s IL_0048
+		} // end .try
+		finally
+		{
+			IL_003a: ldloca.s 3
+			IL_003c: constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class Sims3.Gameplay.Core.Lot/OnAllowedInRoomCheck>
+			IL_0042: callvirt instance void [mscorlib]System.IDisposable::Dispose()
+			IL_0047: endfinally
+		} // end handler
+
+		IL_0048: ldc.i4.0
+		IL_0049: ret
+
+		IL_004a: ldloc.2
+		IL_004b: ret
+	} // end of method Lot::IsRoomRestricted
+	.method public hidebysig 
+		instance void RequestPrivacyUpdate () cil managed 
+	{
+		// Method begins at RVA 0x443550
+		// Header size: 1
+		// Code size: 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.Gameplay.Core.Lot::mbNeedPrivacyUpdate
+		IL_0007: ret
+	} // end of method Lot::RequestPrivacyUpdate
+	.method public hidebysig specialname 
+		instance void add_PortalPathPlan (
+			class Sims3.Gameplay.Core.PortalPathPlanHandler 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x443559
+		// Header size: 1
+		// Code size: 55 (0x37)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Core.PortalPathPlanHandler Sims3.Gameplay.Core.Lot::mOnPortalPathPlanHandler
+		IL_0006: brtrue.s IL_0018
+
+		IL_0008: ldarg.1
+		IL_0009: brfalse.s IL_0018
+
+		IL_000b: ldarg.0
+		IL_000c: call instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_0011: ldc.i4.1
+		IL_0012: call bool [SimIFace]Sims3.SimIFace.Route::SetPortalLockStatus(uint64, bool)
+		IL_0017: pop
+
+		IL_0018: ldarg.0
+		IL_0019: ldarg.0
+		IL_001a: ldfld class Sims3.Gameplay.Core.PortalPathPlanHandler Sims3.Gameplay.Core.Lot::mOnPortalPathPlanHandler
+		IL_001f: ldarg.1
+		IL_0020: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Combine(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+		IL_0025: castclass Sims3.Gameplay.Core.PortalPathPlanHandler
+		IL_002a: stfld class Sims3.Gameplay.Core.PortalPathPlanHandler Sims3.Gameplay.Core.Lot::mOnPortalPathPlanHandler
+		IL_002f: ldarg.0
+		IL_0030: ldc.i4.1
+		IL_0031: stfld bool Sims3.Gameplay.Core.Lot::mbNeedPrivacyUpdate
+		IL_0036: ret
+	} // end of method Lot::add_PortalPathPlan
+	.method public hidebysig specialname 
+		instance void remove_PortalPathPlan (
+			class Sims3.Gameplay.Core.PortalPathPlanHandler 'value'
+		) cil managed 
+	{
+		// Method begins at RVA 0x443591
+		// Header size: 1
+		// Code size: 58 (0x3a)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: stfld bool Sims3.Gameplay.Core.Lot::mbNeedPrivacyUpdate
+		IL_0007: ldarg.0
+		IL_0008: ldarg.0
+		IL_0009: ldfld class Sims3.Gameplay.Core.PortalPathPlanHandler Sims3.Gameplay.Core.Lot::mOnPortalPathPlanHandler
+		IL_000e: ldarg.1
+		IL_000f: call class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+		IL_0014: castclass Sims3.Gameplay.Core.PortalPathPlanHandler
+		IL_0019: stfld class Sims3.Gameplay.Core.PortalPathPlanHandler Sims3.Gameplay.Core.Lot::mOnPortalPathPlanHandler
+		IL_001e: ldarg.0
+		IL_001f: ldfld class Sims3.Gameplay.Core.PortalPathPlanHandler Sims3.Gameplay.Core.Lot::mOnPortalPathPlanHandler
+		IL_0024: brtrue.s IL_0039
+
+		IL_0026: ldarg.0
+		IL_0027: call instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_002c: ldc.i4.0
+		IL_002d: call bool [SimIFace]Sims3.SimIFace.Route::SetPortalLockStatus(uint64, bool)
+		IL_0032: pop
+		IL_0033: ldarg.0
+		IL_0034: call instance void Sims3.Gameplay.Core.Lot::UpdateDoorPrivacy()
+
+		IL_0039: ret
+	} // end of method Lot::remove_PortalPathPlan
+	.method public hidebysig 
+		instance valuetype [SimIFace]Sims3.SimIFace.PortalLockedCallbackResults OnPortalPathPlan (
+			class Sims3.Gameplay.Actors.Sim actor,
+			class Sims3.Gameplay.Abstracts.GameObject portalObj,
+			int32 roomFrom,
+			int32 roomTo,
+			bool initialLockedSetting
+		) cil managed 
+	{
+		// Method begins at RVA 0x4435cc
+		// Header size: 12
+		// Code size: 97 (0x61)
+		.maxstack 7
+		.locals init (
+			[0] class Sims3.Gameplay.Core.PortalPlanEventArgs,
+			[1] class [mscorlib]System.Delegate[],
+			[2] int32,
+			[3] int32,
+			[4] class Sims3.Gameplay.Core.PortalPathPlanHandler
+		)
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Core.PortalPathPlanHandler Sims3.Gameplay.Core.Lot::mOnPortalPathPlanHandler
+		IL_0006: brfalse.s IL_005f
+
+		IL_0008: ldarg.1
+		IL_0009: ldarg.2
+		IL_000a: ldarg.0
+		IL_000b: ldarg.3
+		IL_000c: ldarg.s roomTo
+		IL_000e: ldarg.s initialLockedSetting
+		IL_0010: newobj instance void Sims3.Gameplay.Core.PortalPlanEventArgs::.ctor(class Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Abstracts.GameObject, class Sims3.Gameplay.Core.Lot, int32, int32, bool)
+		IL_0015: stloc.0
+		IL_0016: ldarg.0
+		IL_0017: ldfld class Sims3.Gameplay.Core.PortalPathPlanHandler Sims3.Gameplay.Core.Lot::mOnPortalPathPlanHandler
+		IL_001c: callvirt instance class [mscorlib]System.Delegate[] [mscorlib]System.Delegate::GetInvocationList()
+		IL_0021: stloc.1
+		IL_0022: ldc.i4.0
+		IL_0023: stloc.2
+		IL_0024: ldloc.1
+		IL_0025: ldlen
+		IL_0026: conv.i4
+		IL_0027: stloc.3
+		IL_0028: br.s IL_0045
+		// loop start (head: IL_0045)
+			IL_002a: ldloc.1
+			IL_002b: ldloc.2
+			IL_002c: ldelem.ref
+			IL_002d: isinst Sims3.Gameplay.Core.PortalPathPlanHandler
+			IL_0032: stloc.s 4
+			.try
+			{
+				IL_0034: ldloc.s 4
+				IL_0036: ldloc.0
+				IL_0037: callvirt instance void Sims3.Gameplay.Core.PortalPathPlanHandler::Invoke(class Sims3.Gameplay.Core.PortalPlanEventArgs)
+				IL_003c: leave.s IL_0041
+			} // end .try
+			catch [mscorlib]System.Exception
+			{
+				IL_003e: pop
+				IL_003f: leave.s IL_0041
+			} // end handler
+
+			IL_0041: ldloc.2
+			IL_0042: ldc.i4.1
+			IL_0043: add
+			IL_0044: stloc.2
+
+			IL_0045: ldloc.2
+			IL_0046: ldloc.3
+			IL_0047: blt.s IL_002a
+		// end loop
+
+		IL_0049: ldloc.0
+		IL_004a: callvirt instance bool Sims3.Gameplay.Core.PortalPlanEventArgs::get_Locked()
+		IL_004f: brfalse.s IL_0053
+
+		IL_0051: ldc.i4.1
+		IL_0052: ret
+
+		IL_0053: ldloc.0
+		IL_0054: callvirt instance bool Sims3.Gameplay.Core.PortalPlanEventArgs::get_Discouraged()
+		IL_0059: brfalse.s IL_005d
+
+		IL_005b: ldc.i4.3
+		IL_005c: ret
+
+		IL_005d: ldc.i4.2
+		IL_005e: ret
+
+		IL_005f: ldc.i4.0
+		IL_0060: ret
+	} // end of method Lot::OnPortalPathPlan
+	.method public hidebysig 
+		instance bool IsRoomPublic (
+			int32 roomId
+		) cil managed 
+	{
+		// Method begins at RVA 0x443f1c
+		// Header size: 1
+		// Code size: 28 (0x1c)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Core.Lot/SavedData Sims3.Gameplay.Core.Lot::mSavedData
+		IL_0006: ldfld class [mscorlib]System.Collections.Generic.List`1<int32> Sims3.Gameplay.Core.Lot/SavedData::mPublicResidentialRooms
+		IL_000b: ldarg.1
+		IL_000c: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<int32>::Contains(!0)
+		IL_0011: brtrue.s IL_001a
+
+		IL_0013: ldarg.1
+		IL_0014: call bool Sims3.Gameplay.Core.LotManager::RoomIdIsOutside(int32)
+		IL_0019: ret
+
+		IL_001a: ldc.i4.1
+		IL_001b: ret
+	} // end of method Lot::IsRoomPublic
+	.method public hidebysig 
+		instance bool IsRoomHidden (
+			int32 roomId
+		) cil managed 
+	{
+		// Method begins at RVA 0x443f39
+		// Header size: 1
+		// Code size: 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class Sims3.Gameplay.Core.Lot/SavedData Sims3.Gameplay.Core.Lot::mSavedData
+		IL_0006: ldfld class [mscorlib]System.Collections.Generic.List`1<int32> Sims3.Gameplay.Core.Lot/SavedData::mHiddenRooms
+		IL_000b: ldarg.1
+		IL_000c: callvirt instance bool class [mscorlib]System.Collections.Generic.List`1<int32>::Contains(!0)
+		IL_0011: ret
+	} // end of method Lot::IsRoomHidden
+
+	.method public hidebysig 
+		instance void OnLotTypeChanged (
+			valuetype [SimIFace]Sims3.SimIFace.LotType lotType
+		) cil managed 
+	{
+		// Method begins at RVA 0x440fac
+		// Header size: 12
+		// Code size: 65 (0x41)
+		.maxstack 2
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: stfld valuetype [SimIFace]Sims3.SimIFace.LotType Sims3.Gameplay.Core.Lot::mLotType
+		IL_0007: ldarg.0
+		IL_0008: ldarg.0
+		IL_0009: call instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_000e: call valuetype [SimIFace]Sims3.SimIFace.ResidentialLotSubType [SimIFace]Sims3.SimIFace.World::GetResidentialLotSubType(uint64)
+		IL_0013: call instance void Sims3.Gameplay.Core.Lot::set_ResidentialLotSubType(valuetype [SimIFace]Sims3.SimIFace.ResidentialLotSubType)
+		IL_0018: ldarg.0
+		IL_0019: ldarg.0
+		IL_001a: call instance uint64 Sims3.Gameplay.Core.Lot::get_LotId()
+		IL_001f: call valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType [SimIFace]Sims3.SimIFace.World::GetCommercialLotSubType(uint64)
+		IL_0024: call instance void Sims3.Gameplay.Core.Lot::set_CommercialLotSubType(valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType)
+		IL_0029: ldsfld bool Sims3.Gameplay.Core.LotManager::sWorldHasDiveLots
+		IL_002e: brtrue.s IL_0040
+
+		IL_0030: ldarg.0
+		IL_0031: call instance valuetype [SimIFace]Sims3.SimIFace.CommercialLotSubType Sims3.Gameplay.Core.Lot::get_CommercialLotSubType()
+		IL_0036: ldc.i4.s 80
+		IL_0038: bne.un.s IL_0040
+
+		IL_003a: ldc.i4.1
+		IL_003b: stsfld bool Sims3.Gameplay.Core.LotManager::sWorldHasDiveLots
+
+		IL_0040: ret
+	} // end of method Lot::OnLotTypeChanged

@@ -1,0 +1,10 @@
+// Actual selected ILSpy member rendering; this excerpt is not a complete type declaration.
+// Analyst: original PC1.67 ScriptCore.TaskStateCollection MethodDef0x0600069D, RVA0x8CFA, 26CIL bytes/10instructions, no locals or EH.
+// IL0001 reads mTasks for Add; IL000D reads mTasks again and IL0012 reads its signed Count FIELD, not a property.
+// IL0018 is ordinary sub, then return. ChunkedList.Add internals, callback/concurrency invariants and a nonnegative result are not proved here.
+// Complete original IL: TaskStateCollection.il.txt. The central managed README identifies the original module.
+public int AddTaskState(ulong taskId)
+{
+	mTasks.Add(taskId);
+	return mTasks.Count - 1;
+}

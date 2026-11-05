@@ -1,0 +1,326 @@
+// Actual ILSpy class output from pristine PC1.67 UI.dll, not a reconstruction.
+// Analyst note: TextEdit delegates properties/events to original UIManager.
+// Its base constructor precedes UndoHistorySize0. Native default history10 and
+// native editing/validation/selection are separate producers; do not duplicate
+// managed policy in the runtime. Paired original CIL selects21 full constructor,
+// ReadOnly/limit/cursor/anchor/history accessors and event add/remove bodies.
+// Original native text/focus implementation and remaining actual C aliases are
+// documented in the canonical annotated native C/ASM pairs.
+
+namespace Sims3.UI;
+
+public class TextEdit : WindowBase
+{
+	public enum TextEditEvents : uint
+	{
+		kEventTextEditTextChange = 2601865944u,
+		kEventTextEditValidate = 2601865946u,
+		kEventTextEditError = 2601865947u,
+		kEventTextEditTab = 2601865948u,
+		kEventTextEditAccept = 22u
+	}
+
+	public enum TextEditErrors : uint
+	{
+		InvalidKey = 1u,
+		ValidateFailed,
+		CapacityReached,
+		CursorLimit,
+		UndoLimitReached,
+		Misc
+	}
+
+	protected new enum PropertyID : uint
+	{
+		kPropWindowFillDrawable = 4005670919u,
+		kPropTextEditStateFlags = 267458352u,
+		kPropTextEditLineWrapMode = 267458356u,
+		kPropTextEditMaxTextLength = 267458357u,
+		kPropTextEditCursorIndex = 267458358u,
+		kPropTextEditAnchorIndex = 267458359u,
+		kPropTextEditUndoHistorySize = 267458360u,
+		kPropTextEditHScrollbarEnabled = 267458361u,
+		kPropTextEditVScrollbarEnabled = 267458362u
+	}
+
+	protected enum TextEditStateFlags : uint
+	{
+		kMaskTextEditStateFlagsReadOnly = 1u,
+		kMaskTextEditStateFlagsAcceptsReturn = 2u,
+		kMaskTextEditStateFlagsAcceptsInsertKey = 4u,
+		kMaskTextEditStateFlagsOverwrite = 8u,
+		kMaskTextEditStateFlagsHideInactiveSelection = 0x10u,
+		kMaskTextEditStateFlagsHideCaret = 0x20u,
+		kMaskTextEditStateFlagsEnableClipboard = 0x40u,
+		kMaskTextEditStateFlagsPasswordMode = 0x80u
+	}
+
+	public enum ScrollbarEnabled : uint
+	{
+		Never,
+		AsNeeded,
+		Always
+	}
+
+	public enum WrapModes : uint
+	{
+		SingleLine,
+		MultiLine,
+		MultiLineWordWrap
+	}
+
+	internal const uint ClassId = 1866642672u;
+
+	public bool ReadOnly
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 267458352u, 1u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 267458352u, 1u, value);
+		}
+	}
+
+	public bool AcceptsReturn
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 267458352u, 2u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 267458352u, 2u, value);
+		}
+	}
+
+	public bool AcceptsInsertKey
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 267458352u, 4u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 267458352u, 4u, value);
+		}
+	}
+
+	public bool Overwrite
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 267458352u, 8u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 267458352u, 8u, value);
+		}
+	}
+
+	public bool HideInactiveSelection
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 267458352u, 16u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 267458352u, 16u, value);
+		}
+	}
+
+	public bool HideCaret
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 267458352u, 32u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 267458352u, 32u, value);
+		}
+	}
+
+	public bool EnableClipboard
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 267458352u, 64u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 267458352u, 64u, value);
+		}
+	}
+
+	public bool PasswordMode
+	{
+		get
+		{
+			return UIManager.GetFlagProperty(WinHandle, 267458352u, 128u);
+		}
+		set
+		{
+			UIManager.SetFlagProperty(WinHandle, 267458352u, 128u, value);
+		}
+	}
+
+	public ScrollbarEnabled HScrollbarEnabled
+	{
+		get
+		{
+			return (ScrollbarEnabled)UIManager.GetUInt32Property(WinHandle, 267458361u);
+		}
+		set
+		{
+			UIManager.SetUInt32Property(WinHandle, 267458361u, (uint)value);
+		}
+	}
+
+	public ScrollbarEnabled VScrollbarEnabled
+	{
+		get
+		{
+			return (ScrollbarEnabled)UIManager.GetUInt32Property(WinHandle, 267458362u);
+		}
+		set
+		{
+			UIManager.SetUInt32Property(WinHandle, 267458362u, (uint)value);
+		}
+	}
+
+	public WrapModes WrapMode
+	{
+		get
+		{
+			return (WrapModes)UIManager.GetUInt32Property(WinHandle, 267458356u);
+		}
+		set
+		{
+			UIManager.SetUInt32Property(WinHandle, 267458356u, (uint)value);
+		}
+	}
+
+	public uint MaxTextLength
+	{
+		get
+		{
+			return UIManager.GetUInt32Property(WinHandle, 267458357u);
+		}
+		set
+		{
+			UIManager.SetUInt32Property(WinHandle, 267458357u, value);
+		}
+	}
+
+	public uint CursorIndex
+	{
+		get
+		{
+			return UIManager.GetUInt32Property(WinHandle, 267458358u);
+		}
+		set
+		{
+			UIManager.SetUInt32Property(WinHandle, 267458358u, value);
+		}
+	}
+
+	public uint AnchorIndex
+	{
+		get
+		{
+			return UIManager.GetUInt32Property(WinHandle, 267458359u);
+		}
+		set
+		{
+			UIManager.SetUInt32Property(WinHandle, 267458359u, value);
+		}
+	}
+
+	public uint UndoHistorySize
+	{
+		get
+		{
+			return UIManager.GetUInt32Property(WinHandle, 267458360u);
+		}
+		set
+		{
+			UIManager.SetUInt32Property(WinHandle, 267458360u, value);
+		}
+	}
+
+	public DrawableBase Drawable => UIManager.GetDrawableProperty(WinHandle, 4005670919u, 0u);
+
+	public event UIEventHandler<UITextChangeEventArgs> TextChange
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 2601865944u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 2601865944u, value);
+		}
+	}
+
+	public event UIEventHandler<UITextValidateEventArgs> TextValidate
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 2601865946u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 2601865946u, value);
+		}
+	}
+
+	public event UIEventHandler<UITextEditAcceptEventArgs> TextAccept
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 22u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 22u, value);
+		}
+	}
+
+	public event UIEventHandler<UITextEditErrorEventArgs> TextEditError
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 2601865947u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 2601865947u, value);
+		}
+	}
+
+	public event UIEventHandler<UIEventArgs> TextEditTab
+	{
+		add
+		{
+			UIManager.RegisterEvent(this, 2601865948u, value);
+		}
+		remove
+		{
+			UIManager.DeRegisterEvent(this, 2601865948u, value);
+		}
+	}
+
+	protected internal TextEdit(uint winHandle)
+		: base(winHandle)
+	{
+		UndoHistorySize = 0u;
+	}
+
+	protected static TextEdit Create(uint winHandle)
+	{
+		return new TextEdit(winHandle);
+	}
+}

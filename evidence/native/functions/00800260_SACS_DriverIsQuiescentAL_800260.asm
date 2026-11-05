@@ -1,0 +1,34 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: uint SACS_DriverIsQuiescentAL_800260(int param_1)
+Owned ranges: [[00800260, 0080028c] [00800290, 008002a3]]
+
+00800260  56  PUSH ESI
+00800261  8bf1  MOV ESI,ECX
+00800263  8b861c010000  MOV EAX,dword ptr [ESI + 0x11c]
+00800269  3b8620010000  CMP EAX,dword ptr [ESI + 0x120]
+0080026f  750c  JNZ 0x0080027d
+00800271  8d4e44  LEA ECX,[ESI + 0x44]
+00800274  e8173dffff  CALL 0x007f3f90
+00800279  84c0  TEST AL,AL
+0080027b  7504  JNZ 0x00800281
+0080027d  32c0  XOR AL,AL
+0080027f  5e  POP ESI
+00800280  c3  RET
+00800281  8b4610  MOV EAX,dword ptr [ESI + 0x10]
+00800284  8b7614  MOV ESI,dword ptr [ESI + 0x14]
+00800287  3bc6  CMP EAX,ESI
+00800289  7415  JZ 0x008002a0
+0080028b  eb03  JMP 0x00800290
+0080028d  8d4900  .byte 8d4900 ; NONOWNED envelope gap bytes
+00800290  8b4804  MOV ECX,dword ptr [EAX + 0x4]
+00800293  83792400  CMP dword ptr [ECX + 0x24],0x0
+00800297  75e4  JNZ 0x0080027d
+00800299  83c008  ADD EAX,0x8
+0080029c  3bc6  CMP EAX,ESI
+0080029e  75f0  JNZ 0x00800290
+008002a0  b001  MOV AL,0x1
+008002a2  5e  POP ESI
+008002a3  c3  RET

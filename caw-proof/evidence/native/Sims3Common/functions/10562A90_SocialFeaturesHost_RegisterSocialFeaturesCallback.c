@@ -1,0 +1,19 @@
+/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
+   Historical body, types, variables and behavior qualifications remain below. */
+
+
+/* CAW 1.22.10 Sims3Common.dll PE export identity:
+   SocialFeaturesHost_RegisterSocialFeaturesCallback. Export ordinal(s): 975. Entry VA: 0x10562a90.
+   Original managed P/Invoke MethodDef(s): ScriptCore:0x06000913. This is an export/declaration
+   annotation only; ABI, behavior and runtime execution require the original instructions and caller
+   evidence. */
+
+void __cdecl SocialFeaturesHost_RegisterSocialFeaturesCallback(undefined4 param_1)
+
+{
+                    /* 0x562a90  975  SocialFeaturesHost_RegisterSocialFeaturesCallback */
+  DAT_10c7b09c = param_1;
+  return;
+}
+

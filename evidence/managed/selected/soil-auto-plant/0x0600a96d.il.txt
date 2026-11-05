@@ -1,0 +1,17 @@
+	.method public hidebysig newslot virtual 
+		instance valuetype Sims3.Gameplay.Objects.Gardening.PlantGrowthState GetInitGrowthState () cil managed 
+	{
+		// Method begins at RVA 0x301406
+		// Header size: 1
+		// Code size: 11 (0xb)
+		.maxstack 8
+
+		IL_0000: call bool Sims3.Gameplay.Core.RandomUtil::CoinFlip()
+		IL_0005: brtrue.s IL_0009
+
+		IL_0007: ldc.i4.5
+		IL_0008: ret
+
+		IL_0009: ldc.i4.4
+		IL_000a: ret
+	} // end of method SoilAutoPlant::GetInitGrowthState

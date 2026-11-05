@@ -1,0 +1,6 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x060006EF.
+// Assembly: ScriptCore; type: ScriptCore.UIManager.
+// Decompiled C# source: ScriptCore/ScriptCore/UIManager.cs:344
+	[DllImport("Sims3Common.dll")]
+	[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalType = "ScriptCore.StringFromVariantMarshaler")]
+	private static extern string UIManager_GetWorldMetadataImpl([MarshalAs(UnmanagedType.LPWStr)] string worldFile, ref uint lotCount, ref uint worldThumbnail, ref ulong worldNameKey, ref uint worldType, ref uint worldName);

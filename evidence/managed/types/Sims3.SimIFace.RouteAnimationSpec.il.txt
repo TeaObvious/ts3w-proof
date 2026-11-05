@@ -1,0 +1,72 @@
+// Original PC 1.67 SimIFace.dll; complete type Sims3.SimIFace.RouteAnimationSpec.
+// Analyst annotations describe static contracts; IL remains authoritative for decompiler artifacts.
+
+.class public sequential ansi sealed beforefieldinit Sims3.SimIFace.RouteAnimationSpec
+	extends [mscorlib]System.ValueType
+{
+	.custom instance void [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::.ctor(bool) = (
+		01 00 00 00 00
+	)
+	// Fields
+	.field public uint32 mStyleNameHash
+	.field public uint32 mAge
+	.field public uint32 mGender
+	.field public uint32 mSpecies
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			string styleName
+		) cil managed 
+	{
+		// Method begins at RVA 0x1710a
+		// Header size: 1
+		// Code size: 34 (0x22)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call uint32 Sims3.SimIFace.ResourceUtils::HashString32(string)
+		IL_0007: stfld uint32 Sims3.SimIFace.RouteAnimationSpec::mStyleNameHash
+		IL_000c: ldarg.0
+		IL_000d: ldc.i4.0
+		IL_000e: stfld uint32 Sims3.SimIFace.RouteAnimationSpec::mAge
+		IL_0013: ldarg.0
+		IL_0014: ldc.i4.0
+		IL_0015: stfld uint32 Sims3.SimIFace.RouteAnimationSpec::mGender
+		IL_001a: ldarg.0
+		IL_001b: ldc.i4.0
+		IL_001c: stfld uint32 Sims3.SimIFace.RouteAnimationSpec::mSpecies
+		IL_0021: ret
+	} // end of method RouteAnimationSpec::.ctor
+
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			string styleName,
+			uint32 age,
+			uint32 gender,
+			uint32 species
+		) cil managed 
+	{
+		// Method begins at RVA 0x1712d
+		// Header size: 1
+		// Code size: 35 (0x23)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call uint32 Sims3.SimIFace.ResourceUtils::HashString32(string)
+		IL_0007: stfld uint32 Sims3.SimIFace.RouteAnimationSpec::mStyleNameHash
+		IL_000c: ldarg.0
+		IL_000d: ldarg.2
+		IL_000e: stfld uint32 Sims3.SimIFace.RouteAnimationSpec::mAge
+		IL_0013: ldarg.0
+		IL_0014: ldarg.3
+		IL_0015: stfld uint32 Sims3.SimIFace.RouteAnimationSpec::mGender
+		IL_001a: ldarg.0
+		IL_001b: ldarg.s species
+		IL_001d: stfld uint32 Sims3.SimIFace.RouteAnimationSpec::mSpecies
+		IL_0022: ret
+	} // end of method RouteAnimationSpec::.ctor
+
+} // end of class Sims3.SimIFace.RouteAnimationSpec

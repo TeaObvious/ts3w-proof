@@ -1,0 +1,71 @@
+// Original PC 1.67 SimIFace.dll; complete type Sims3.SimIFace.PortalRoutingSpec.
+// Analyst annotations describe static contracts; IL remains authoritative for decompiler artifacts.
+
+.class public sequential ansi sealed beforefieldinit Sims3.SimIFace.PortalRoutingSpec
+	extends [mscorlib]System.ValueType
+{
+	.custom instance void [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::.ctor(bool) = (
+		01 00 00 00 00
+	)
+	// Fields
+	.field public uint64 mPortalObjID
+	.field public uint32 mnDirection
+	.field public uint32 mPortalLaneIndex
+	.field public uint32 mPortalSlotBegin
+	.field public uint32 mPortalSlotEnd
+	.field public valuetype Sims3.SimIFace.Quaternion mBeginOrient
+	.field public valuetype Sims3.SimIFace.Quaternion mEndOrient
+	.field public valuetype Sims3.SimIFace.Vector3 mBeginPosition
+	.field public valuetype Sims3.SimIFace.Vector3 mEndPosition
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor (
+			valuetype Sims3.SimIFace.ObjectGuid stairId,
+			uint32 laneNdx,
+			uint32 slotBegin,
+			uint32 slotEnd,
+			valuetype Sims3.SimIFace.Vector3 posBegin,
+			valuetype Sims3.SimIFace.Quaternion orientBegin,
+			valuetype Sims3.SimIFace.Vector3 posEnd,
+			valuetype Sims3.SimIFace.Quaternion orientEnd,
+			uint32 updown
+		) cil managed 
+	{
+		// Method begins at RVA 0x17154
+		// Header size: 12
+		// Code size: 76 (0x4c)
+		.maxstack 2
+
+		IL_0000: ldarg.0
+		IL_0001: ldarga.s stairId
+		IL_0003: call instance uint64 Sims3.SimIFace.ObjectGuid::get_Value()
+		IL_0008: stfld uint64 Sims3.SimIFace.PortalRoutingSpec::mPortalObjID
+		IL_000d: ldarg.0
+		IL_000e: ldarg.s updown
+		IL_0010: stfld uint32 Sims3.SimIFace.PortalRoutingSpec::mnDirection
+		IL_0015: ldarg.0
+		IL_0016: ldarg.2
+		IL_0017: stfld uint32 Sims3.SimIFace.PortalRoutingSpec::mPortalLaneIndex
+		IL_001c: ldarg.0
+		IL_001d: ldarg.3
+		IL_001e: stfld uint32 Sims3.SimIFace.PortalRoutingSpec::mPortalSlotBegin
+		IL_0023: ldarg.0
+		IL_0024: ldarg.s slotEnd
+		IL_0026: stfld uint32 Sims3.SimIFace.PortalRoutingSpec::mPortalSlotEnd
+		IL_002b: ldarg.0
+		IL_002c: ldarg.s posBegin
+		IL_002e: stfld valuetype Sims3.SimIFace.Vector3 Sims3.SimIFace.PortalRoutingSpec::mBeginPosition
+		IL_0033: ldarg.0
+		IL_0034: ldarg.s orientBegin
+		IL_0036: stfld valuetype Sims3.SimIFace.Quaternion Sims3.SimIFace.PortalRoutingSpec::mBeginOrient
+		IL_003b: ldarg.0
+		IL_003c: ldarg.s posEnd
+		IL_003e: stfld valuetype Sims3.SimIFace.Vector3 Sims3.SimIFace.PortalRoutingSpec::mEndPosition
+		IL_0043: ldarg.0
+		IL_0044: ldarg.s orientEnd
+		IL_0046: stfld valuetype Sims3.SimIFace.Quaternion Sims3.SimIFace.PortalRoutingSpec::mEndOrient
+		IL_004b: ret
+	} // end of method PortalRoutingSpec::.ctor
+
+} // end of class Sims3.SimIFace.PortalRoutingSpec

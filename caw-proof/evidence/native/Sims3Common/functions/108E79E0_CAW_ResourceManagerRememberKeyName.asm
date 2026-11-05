@@ -1,0 +1,57 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 108e79e0..108e7a8e; CAW_ResourceManagerRememberKeyName
+108e79e0: 83ec10  SUB ESP,0x10
+108e79e3: 53  PUSH EBX
+108e79e4: 56  PUSH ESI
+108e79e5: 8bf1  MOV ESI,ECX
+108e79e7: 57  PUSH EDI
+108e79e8: 8d9e40010000  LEA EBX,[ESI + 0x140]
+108e79ee: 688c7eb810  PUSH 0x10b87e8c
+108e79f3: 8bcb  MOV ECX,EBX
+108e79f5: e8c6ec0200  CALL 0x109166c0
+108e79fa: 8b7c2420  MOV EDI,dword ptr [ESP + 0x20]
+108e79fe: 81c618010000  ADD ESI,0x118
+108e7a04: 57  PUSH EDI
+108e7a05: 8bce  MOV ECX,ESI
+108e7a07: e854faffff  CALL 0x108e7460
+108e7a0c: c7400c907eb810  MOV dword ptr [EAX + 0xc],0x10b87e90
+108e7a13: 8b442424  MOV EAX,dword ptr [ESP + 0x24]
+108e7a17: 50  PUSH EAX
+108e7a18: 8d4c2410  LEA ECX,[ESP + 0x10]
+108e7a1c: c744241000000000  MOV dword ptr [ESP + 0x10],0x0
+108e7a24: c744241400000000  MOV dword ptr [ESP + 0x14],0x0
+108e7a2c: c744241800000000  MOV dword ptr [ESP + 0x18],0x0
+108e7a34: c744241cb47eb810  MOV dword ptr [ESP + 0x1c],0x10b87eb4
+108e7a3c: e8df2b78ff  CALL 0x1006a620
+108e7a41: 57  PUSH EDI
+108e7a42: 8bce  MOV ECX,ESI
+108e7a44: e817faffff  CALL 0x108e7460
+108e7a49: 8b74240c  MOV ESI,dword ptr [ESP + 0xc]
+108e7a4d: 8d4c240c  LEA ECX,[ESP + 0xc]
+108e7a51: 3bc8  CMP ECX,EAX
+108e7a53: 740d  JZ 0x108e7a62
+108e7a55: 8b542410  MOV EDX,dword ptr [ESP + 0x10]
+108e7a59: 52  PUSH EDX
+108e7a5a: 56  PUSH ESI
+108e7a5b: 8bc8  MOV ECX,EAX
+108e7a5d: e85e7e73ff  CALL 0x1001f8c0
+108e7a62: 8b442414  MOV EAX,dword ptr [ESP + 0x14]
+108e7a66: 2bc6  SUB EAX,ESI
+108e7a68: 83e0fe  AND EAX,0xfffffffe
+108e7a6b: 83f802  CMP EAX,0x2
+108e7a6e: 7e0d  JLE 0x108e7a7d
+108e7a70: 85f6  TEST ESI,ESI
+108e7a72: 7409  JZ 0x108e7a7d
+108e7a74: 56  PUSH ESI
+108e7a75: e816140300  CALL 0x10918e90
+108e7a7a: 83c404  ADD ESP,0x4
+108e7a7d: 8bcb  MOV ECX,EBX
+108e7a7f: e8fcec0200  CALL 0x10916780
+108e7a84: 5f  POP EDI
+108e7a85: 5e  POP ESI
+108e7a86: b001  MOV AL,0x1
+108e7a88: 5b  POP EBX
+108e7a89: 83c410  ADD ESP,0x10
+108e7a8c: c20800  RET 0x8

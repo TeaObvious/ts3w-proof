@@ -1,0 +1,46 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+TS3W.exe PC 1.67 original-byte window and independent linear disassembly
+Annotated Ghidra entry: 0x007880b0 (ScriptCore.World::World_ObjectDesigner_GetPresetContentCategoryFromKeyImpl)
+Paired Ghidra pseudocode: 007880B0_ScriptCore_World_World_ObjectDesigner_GetPresetContentCategoryFromKeyImpl.c
+Window: [0x007880b0, 0x007880f0) (64 bytes; stop exclusive)
+Next defined Ghidra entry: 0x007880f0
+Boundary rule: entry to the lesser of the next defined Ghidra entry
+and an 8 KiB byte cap measured from this entry.
+This is a bounded byte window, not a proven function extent; it can include padding
+or data, and branches or noncontiguous body blocks can lead outside the window.
+A next-entry bound can miss embedded routines and hidden branch targets.
+GNU objdump decodes linearly in Intel syntax; control-flow interpretation requires
+checking the bytes, Ghidra export, and call/branch targets together.
+
+ORIGINAL BYTES (16 per line)
+007880b0: 83 ec 10 8b 4c 24 20 8b 54 24 14 8b 44 24 1c 89
+007880c0: 4c 24 04 8b 4c 24 24 89 54 24 08 89 04 24 8b 44
+007880d0: 24 18 51 8d 54 24 04 52 89 44 24 14 e8 bf 81 3a
+007880e0: 00 8b c8 e8 28 a6 3a 00 83 c4 10 c3 cc cc cc cc
+
+LINEAR DISASSEMBLY
+007880b0 <.text+0x3870b0>:
+  7880b0:	83 ec 10                                        	sub    esp,0x10
+  7880b3:	8b 4c 24 20                                     	mov    ecx,DWORD PTR [esp+0x20]
+  7880b7:	8b 54 24 14                                     	mov    edx,DWORD PTR [esp+0x14]
+  7880bb:	8b 44 24 1c                                     	mov    eax,DWORD PTR [esp+0x1c]
+  7880bf:	89 4c 24 04                                     	mov    DWORD PTR [esp+0x4],ecx
+  7880c3:	8b 4c 24 24                                     	mov    ecx,DWORD PTR [esp+0x24]
+  7880c7:	89 54 24 08                                     	mov    DWORD PTR [esp+0x8],edx
+  7880cb:	89 04 24                                        	mov    DWORD PTR [esp],eax
+  7880ce:	8b 44 24 18                                     	mov    eax,DWORD PTR [esp+0x18]
+  7880d2:	51                                              	push   ecx
+  7880d3:	8d 54 24 04                                     	lea    edx,[esp+0x4]
+  7880d7:	52                                              	push   edx
+  7880d8:	89 44 24 14                                     	mov    DWORD PTR [esp+0x14],eax
+  7880dc:	e8 bf 81 3a 00                                  	call   0xb302a0
+  7880e1:	8b c8                                           	mov    ecx,eax
+  7880e3:	e8 28 a6 3a 00                                  	call   0xb32710
+  7880e8:	83 c4 10                                        	add    esp,0x10
+  7880eb:	c3                                              	ret
+  7880ec:	cc                                              	int3
+  7880ed:	cc                                              	int3
+  7880ee:	cc                                              	int3
+  7880ef:	cc                                              	int3

@@ -1,0 +1,80 @@
+# save-world-entry: retail TS3W.exe VA 0x00743880-0x0074396D, file offset 0x343880
+743880:	83 ec 40             	sub    esp,0x40
+  743883:	55                   	push   ebp
+  743884:	33 ed                	xor    ebp,ebp
+  743886:	39 2d c4 db 1e 01    	cmp    DWORD PTR ds:0x11edbc4,ebp
+  74388c:	0f 84 d7 00 00 00    	je     0x743969
+  743892:	56                   	push   esi
+  743893:	57                   	push   edi
+  743894:	55                   	push   ebp
+  743895:	55                   	push   ebp
+  743896:	55                   	push   ebp
+  743897:	55                   	push   ebp
+  743898:	68 c8 26 00 01       	push   0x10026c8
+  74389d:	6a 40                	push   0x40
+  74389f:	e8 5c 0c da ff       	call   0x4e4500
+  7438a4:	8b f0                	mov    esi,eax
+  7438a6:	83 c4 18             	add    esp,0x18
+  7438a9:	3b f5                	cmp    esi,ebp
+  7438ab:	74 2d                	je     0x7438da
+  7438ad:	8b ce                	mov    ecx,esi
+  7438af:	e8 9c 99 60 00       	call   0xd4d250
+  7438b4:	c7 46 20 c0 cf fe 00 	mov    DWORD PTR [esi+0x20],0xfecfc0
+  7438bb:	89 6e 28             	mov    DWORD PTR [esi+0x28],ebp
+  7438be:	c7 06 d0 23 00 01    	mov    DWORD PTR [esi],0x10023d0
+  7438c4:	c7 46 20 c0 23 00 01 	mov    DWORD PTR [esi+0x20],0x10023c0
+  7438cb:	c6 46 24 00          	mov    BYTE PTR [esi+0x24],0x0
+  7438cf:	8b 06                	mov    eax,DWORD PTR [esi]
+  7438d1:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+  7438d4:	8b ce                	mov    ecx,esi
+  7438d6:	8b ee                	mov    ebp,esi
+  7438d8:	ff d2                	call   edx
+  7438da:	e8 b1 5a 02 00       	call   0x769390
+  7438df:	8b 7c 24 50          	mov    edi,DWORD PTR [esp+0x50]
+  7438e3:	57                   	push   edi
+  7438e4:	8b cd                	mov    ecx,ebp
+  7438e6:	8b f0                	mov    esi,eax
+  7438e8:	e8 83 fd ff ff       	call   0x743670
+  7438ed:	84 c0                	test   al,al
+  7438ef:	75 64                	jne    0x743955
+  7438f1:	6a 01                	push   0x1
+  7438f3:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  7438f7:	51                   	push   ecx
+  7438f8:	88 44 24 24          	mov    BYTE PTR [esp+0x24],al
+  7438fc:	8b 06                	mov    eax,DWORD PTR [esi]
+  7438fe:	8b 80 34 01 00 00    	mov    eax,DWORD PTR [eax+0x134]
+  743904:	57                   	push   edi
+  743905:	8d 54 24 38          	lea    edx,[esp+0x38]
+  743909:	52                   	push   edx
+  74390a:	8b ce                	mov    ecx,esi
+  74390c:	c7 44 24 1c 6c 88 00 	mov    DWORD PTR [esp+0x1c],0x100886c
+  743913:	01 
+  743914:	66 c7 44 24 26 01 00 	mov    WORD PTR [esp+0x26],0x1
+  74391b:	66 c7 44 24 24 02 00 	mov    WORD PTR [esp+0x24],0x2
+  743922:	ff d0                	call   eax
+  743924:	f6 44 24 34 04       	test   BYTE PTR [esp+0x34],0x4
+  743929:	be f4 a6 fb 00       	mov    esi,0xfba6f4
+  74392e:	89 74 24 2c          	mov    DWORD PTR [esp+0x2c],esi
+  743932:	74 0b                	je     0x74393f
+  743934:	6a 00                	push   0x0
+  743936:	8d 4c 24 30          	lea    ecx,[esp+0x30]
+  74393a:	e8 21 1e db ff       	call   0x4f5760
+  74393f:	f6 44 24 14 04       	test   BYTE PTR [esp+0x14],0x4
+  743944:	89 74 24 0c          	mov    DWORD PTR [esp+0xc],esi
+  743948:	74 0b                	je     0x743955
+  74394a:	6a 00                	push   0x0
+  74394c:	8d 4c 24 10          	lea    ecx,[esp+0x10]
+  743950:	e8 0b 1e db ff       	call   0x4f5760
+  743955:	85 ed                	test   ebp,ebp
+  743957:	5f                   	pop    edi
+  743958:	5e                   	pop    esi
+  743959:	74 0e                	je     0x743969
+  74395b:	8b 55 00             	mov    edx,DWORD PTR [ebp+0x0]
+  74395e:	8b 42 08             	mov    eax,DWORD PTR [edx+0x8]
+  743961:	8b cd                	mov    ecx,ebp
+  743963:	5d                   	pop    ebp
+  743964:	83 c4 40             	add    esp,0x40
+  743967:	ff e0                	jmp    eax
+  743969:	5d                   	pop    ebp
+  74396a:	83 c4 40             	add    esp,0x40
+  74396d:	c3                   	ret

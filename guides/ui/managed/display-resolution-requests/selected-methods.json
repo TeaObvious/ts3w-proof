@@ -1,0 +1,1392 @@
+{
+  "format_version": 1,
+  "original": "The Sims 3 PC 1.67",
+  "containers": [
+    {
+      "name": "gameplay.package",
+      "sha256": "c2fef6f7ce66f124c48b3a26c58309ed53867b2f995912a5cb95f8f6ea41497a",
+      "bytes": 26112640
+    },
+    {
+      "name": "scripts.package",
+      "sha256": "1fc5e1a7a43c4019595c817631efc9bb5bc3bdfd3925a2a3a65783ad8229a76c",
+      "bytes": 1179275
+    }
+  ],
+  "resources": [
+    {
+      "id": "UI",
+      "package": "gameplay.package",
+      "resource_key": "073FAA07:00000000:F7C3ADE896D4E765",
+      "physical_index_row": 3,
+      "offset": 23063991,
+      "stored_bytes": 3048541,
+      "memory_bytes": 3048541,
+      "compression": 0,
+      "envelope_sha256": "12f7ea75ca73f4a03f707ceb09eaa42c18f98672c0765e9bfa643db086fe1100",
+      "s3sa_version": 2,
+      "game_version": "0.2.0.209",
+      "assembly": {
+        "name": "UI",
+        "bytes": 3014656,
+        "sha256": "d38676dc2b953c03f3d764b7c2d531c1f2a08c0232580b40a8880c188f659b89",
+        "mvid": "f2b782a4-2ca4-4935-8b75-5ae2cd2286d2"
+      }
+    },
+    {
+      "id": "SimIFace",
+      "package": "scripts.package",
+      "resource_key": "073FAA07:00000000:C356DF69B70ADD42",
+      "physical_index_row": 0,
+      "offset": 426749,
+      "stored_bytes": 618013,
+      "memory_bytes": 618013,
+      "compression": 0,
+      "envelope_sha256": "b110c11614dacdffa5ad0d9337ae23fd73dc914586efc92ebdc5da3b067c1f7a",
+      "s3sa_version": 2,
+      "game_version": "0.2.0.209",
+      "assembly": {
+        "name": "SimIFace",
+        "bytes": 618496,
+        "sha256": "6ddedb668e1b6da037e346cd5cf6f500f37407dca633b428e7ec410daa00fcb2",
+        "mvid": "e4365bd8-6054-4cb5-8702-c69b1c102ce9"
+      }
+    },
+    {
+      "id": "ScriptCore",
+      "package": "scripts.package",
+      "resource_key": "073FAA07:00000000:78CF6CF5304D0C4F",
+      "physical_index_row": 1,
+      "offset": 96,
+      "stored_bytes": 426653,
+      "memory_bytes": 426653,
+      "compression": 0,
+      "envelope_sha256": "3069fcfd09c7532ba4813668ad3c1d1673eed3ec0692b3a435a4cdbf654a19f5",
+      "s3sa_version": 2,
+      "game_version": "0.2.0.209",
+      "assembly": {
+        "name": "ScriptCore",
+        "bytes": 430080,
+        "sha256": "1ac13ea63f60ceb7ba3a91053da85358aa25635aba5d13053904a8e7c1278115",
+        "mvid": "da71f9d5-3a90-44c6-8f98-5bafd2fca18a"
+      }
+    }
+  ],
+  "token_identity": "Metadata tokens, local-signature tokens and CIL operands are build-local coordinates within the referenced original assembly SHA256/MVID.",
+  "selection": {
+    "whole_method_bodies": 19,
+    "declarations_without_body": 11,
+    "cil_bytes": 1477,
+    "instructions": 452,
+    "scope": "UI resolution request/notification, original Keep/Revert, callback roots/clear/shutdown and option-save boundary."
+  },
+  "methods": [
+    {
+      "assembly": "UI",
+      "token": "0x06000f2b",
+      "declaring_type": "Sims3.UI.ResolutionRollback",
+      "name": "Show",
+      "signature": "public static hidebysig bool Sims3.UI.ResolutionRollback::Show()",
+      "signature_blob": "000002",
+      "method_flags": "0x0096",
+      "implementation_flags": "0x0000",
+      "rva": "0x00047894",
+      "parameters": [],
+      "body": {
+        "format": "fat",
+        "file_offset": 288916,
+        "header_hex": "1b3001002100000055020011",
+        "header_flags": "0x301b",
+        "max_stack": 1,
+        "init_locals": true,
+        "cil_bytes": 33,
+        "instruction_count": 15,
+        "local_signature_token": "0x11000255",
+        "local_signature_blob": "070212875c02",
+        "locals": [
+          "class Sims3.UI.ResolutionRollback",
+          "bool"
+        ],
+        "exception_sections_hex": [
+          "01100000020006000f15000a00000000"
+        ],
+        "exception_regions": [
+          {
+            "flags": "0x0002",
+            "kind": "finally",
+            "try_offset": 6,
+            "try_length": 15,
+            "handler_offset": 21,
+            "handler_length": 10,
+            "class_token_or_filter_offset": "0x00000000"
+          }
+        ]
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "complete ResolutionRollback type"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x06000f2c",
+      "declaring_type": "Sims3.UI.ResolutionRollback",
+      "name": "get_Result",
+      "signature": "public hidebysig specialname instance bool Sims3.UI.ResolutionRollback::get_Result()",
+      "signature_blob": "200002",
+      "method_flags": "0x0886",
+      "implementation_flags": "0x0000",
+      "rva": "0x000478d4",
+      "parameters": [],
+      "body": {
+        "format": "tiny",
+        "file_offset": 288980,
+        "header_hex": "1e",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 7,
+        "instruction_count": 3,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "complete ResolutionRollback type"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x06000f2d",
+      "declaring_type": "Sims3.UI.ResolutionRollback",
+      "name": ".ctor",
+      "signature": "public hidebysig specialname rtspecialname instance void Sims3.UI.ResolutionRollback::.ctor()",
+      "signature_blob": "200001",
+      "method_flags": "0x1886",
+      "implementation_flags": "0x0000",
+      "rva": "0x000478dc",
+      "parameters": [],
+      "body": {
+        "format": "fat",
+        "file_offset": 288988,
+        "header_hex": "13300800ed00000056020011",
+        "header_flags": "0x3013",
+        "max_stack": 8,
+        "init_locals": true,
+        "cil_bytes": 237,
+        "instruction_count": 80,
+        "local_signature_token": "0x11000256",
+        "local_signature_blob": "0702128180128180",
+        "locals": [
+          "class Sims3.UI.Button",
+          "class Sims3.UI.Button"
+        ],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "complete ResolutionRollback type"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x06000f2e",
+      "declaring_type": "Sims3.UI.ResolutionRollback",
+      "name": "OnTick",
+      "signature": "private hidebysig instance void Sims3.UI.ResolutionRollback::OnTick(class Sims3.UI.WindowBase sender, class Sims3.UI.UIEventArgs eventArgs)",
+      "signature_blob": "200201120c128ab8",
+      "method_flags": "0x0081",
+      "implementation_flags": "0x0000",
+      "rva": "0x000479d8",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "sender",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "eventArgs",
+          "flags": "0x0000"
+        }
+      ],
+      "body": {
+        "format": "fat",
+        "file_offset": 289240,
+        "header_hex": "133006007d0000003f000011",
+        "header_flags": "0x3013",
+        "max_stack": 6,
+        "init_locals": true,
+        "cil_bytes": 125,
+        "instruction_count": 42,
+        "local_signature_token": "0x1100003f",
+        "local_signature_blob": "070109",
+        "locals": [
+          "uint32"
+        ],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "complete ResolutionRollback type"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x06000f2f",
+      "declaring_type": "Sims3.UI.ResolutionRollback",
+      "name": "OnButtonClick",
+      "signature": "private hidebysig instance void Sims3.UI.ResolutionRollback::OnButtonClick(class Sims3.UI.WindowBase sender, class Sims3.UI.UIButtonClickEventArgs eventArgs)",
+      "signature_blob": "200201120c128ae0",
+      "method_flags": "0x0081",
+      "implementation_flags": "0x0000",
+      "rva": "0x00047a61",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "sender",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "eventArgs",
+          "flags": "0x0000"
+        }
+      ],
+      "body": {
+        "format": "tiny",
+        "file_offset": 289377,
+        "header_hex": "52",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 20,
+        "instruction_count": 8,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "complete ResolutionRollback type"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x06000f30",
+      "declaring_type": "Sims3.UI.ResolutionRollback",
+      "name": "OnEnd",
+      "signature": "family virtual hidebysig instance bool Sims3.UI.ResolutionRollback::OnEnd(uint32 endID)",
+      "signature_blob": "20010209",
+      "method_flags": "0x00c4",
+      "implementation_flags": "0x0000",
+      "rva": "0x00047a76",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "endID",
+          "flags": "0x0000"
+        }
+      ],
+      "body": {
+        "format": "tiny",
+        "file_offset": 289398,
+        "header_hex": "da",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 54,
+        "instruction_count": 19,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "complete ResolutionRollback type"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x06001207",
+      "declaring_type": "Sims3.UI.UIManager",
+      "name": "ClearEventRegistry",
+      "signature": "public static hidebysig void Sims3.UI.UIManager::ClearEventRegistry()",
+      "signature_blob": "000001",
+      "method_flags": "0x0096",
+      "implementation_flags": "0x0000",
+      "rva": "0x000641a8",
+      "parameters": [],
+      "body": {
+        "format": "fat",
+        "file_offset": 405928,
+        "header_hex": "1b300800be0000001b030011",
+        "header_flags": "0x301b",
+        "max_stack": 8,
+        "init_locals": true,
+        "cil_bytes": 190,
+        "instruction_count": 57,
+        "local_signature_token": "0x1100031b",
+        "local_signature_blob": "0702091511847102091281b1",
+        "locals": [
+          "uint32",
+          "valuetype System.Collections.Generic.Dictionary`2/KeyCollection/Enumerator<uint32, class System.Reflection.ConstructorInfo>"
+        ],
+        "exception_sections_hex": [
+          "0110000002006c00218d000e00000000"
+        ],
+        "exception_regions": [
+          {
+            "flags": "0x0002",
+            "kind": "finally",
+            "try_offset": 108,
+            "try_length": 33,
+            "handler_offset": 141,
+            "handler_length": 14,
+            "class_token_or_filter_offset": "0x00000000"
+          }
+        ]
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "0x06001207"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x06001238",
+      "declaring_type": "Sims3.UI.UIManager",
+      "name": "ChangeResolution",
+      "signature": "public static hidebysig void Sims3.UI.UIManager::ChangeResolution(valuetype Sims3.SimIFace.Resolution res, bool fullScreen)",
+      "signature_blob": "0002011180a502",
+      "method_flags": "0x0096",
+      "implementation_flags": "0x0000",
+      "rva": "0x00064808",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "res",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "fullScreen",
+          "flags": "0x0000"
+        }
+      ],
+      "body": {
+        "format": "tiny",
+        "file_offset": 407560,
+        "header_hex": "86",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 33,
+        "instruction_count": 10,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "0x06001238"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x06001239",
+      "declaring_type": "Sims3.UI.UIManager",
+      "name": "AcceptResolutionChange",
+      "signature": "public static hidebysig void Sims3.UI.UIManager::AcceptResolutionChange()",
+      "signature_blob": "000001",
+      "method_flags": "0x0096",
+      "implementation_flags": "0x0000",
+      "rva": "0x0006482a",
+      "parameters": [],
+      "body": {
+        "format": "tiny",
+        "file_offset": 407594,
+        "header_hex": "32",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 12,
+        "instruction_count": 4,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "0x06001239"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x0600123a",
+      "declaring_type": "Sims3.UI.UIManager",
+      "name": "ToggleFullScreen",
+      "signature": "public static hidebysig void Sims3.UI.UIManager::ToggleFullScreen()",
+      "signature_blob": "000001",
+      "method_flags": "0x0096",
+      "implementation_flags": "0x0000",
+      "rva": "0x00064837",
+      "parameters": [],
+      "body": {
+        "format": "tiny",
+        "file_offset": 407607,
+        "header_hex": "66",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 25,
+        "instruction_count": 8,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "0x0600123a"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x0600123b",
+      "declaring_type": "Sims3.UI.UIManager",
+      "name": "UIResolutionChangedCallback",
+      "signature": "private static hidebysig void Sims3.UI.UIManager::UIResolutionChangedCallback(uint32 oldWidth, uint32 oldHeight, uint32 oldRefresh, bool oldFullScreen, uint32 newWidth, uint32 newHeight, uint32 newRefresh, bool newFullScreen, uint32 newUIWidth, uint32 newUIHeight)",
+      "signature_blob": "000a0109090902090909020909",
+      "method_flags": "0x0091",
+      "implementation_flags": "0x0000",
+      "rva": "0x00064854",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "oldWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "oldHeight",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "oldRefresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "oldFullScreen",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 5,
+          "name": "newWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 6,
+          "name": "newHeight",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 7,
+          "name": "newRefresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 8,
+          "name": "newFullScreen",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 9,
+          "name": "newUIWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 10,
+          "name": "newUIHeight",
+          "flags": "0x0000"
+        }
+      ],
+      "body": {
+        "format": "fat",
+        "file_offset": 407636,
+        "header_hex": "133006009c0000001d010011",
+        "header_flags": "0x3013",
+        "max_stack": 6,
+        "init_locals": true,
+        "cil_bytes": 156,
+        "instruction_count": 49,
+        "local_signature_token": "0x1100011d",
+        "local_signature_blob": "07011280c8",
+        "locals": [
+          "class Sims3.UI.SceneMgrWindow"
+        ],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "0x0600123b"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x0600123c",
+      "declaring_type": "Sims3.UI.UIManager",
+      "name": "RollbackDialogTask",
+      "signature": "private static hidebysig void Sims3.UI.UIManager::RollbackDialogTask()",
+      "signature_blob": "000001",
+      "method_flags": "0x0091",
+      "implementation_flags": "0x0000",
+      "rva": "0x000648fc",
+      "parameters": [],
+      "body": {
+        "format": "tiny",
+        "file_offset": 407804,
+        "header_hex": "aa",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 42,
+        "instruction_count": 12,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "0x0600123c"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x0600124a",
+      "declaring_type": "Sims3.UI.UIManager",
+      "name": ".cctor",
+      "signature": "private static hidebysig specialname rtspecialname void Sims3.UI.UIManager::.cctor()",
+      "signature_blob": "000001",
+      "method_flags": "0x1891",
+      "implementation_flags": "0x0000",
+      "rva": "0x00064e98",
+      "parameters": [],
+      "body": {
+        "format": "fat",
+        "file_offset": 409240,
+        "header_hex": "13300800e10100000a000011",
+        "header_flags": "0x3013",
+        "max_stack": 8,
+        "init_locals": true,
+        "cil_bytes": 481,
+        "instruction_count": 117,
+        "local_signature_token": "0x1100000a",
+        "local_signature_blob": "070102",
+        "locals": [
+          "bool"
+        ],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "0x0600124a"
+      }
+    },
+    {
+      "assembly": "UI",
+      "token": "0x0600124c",
+      "declaring_type": "Sims3.UI.UIManager",
+      "name": "Shutdown",
+      "signature": "public static hidebysig void Sims3.UI.UIManager::Shutdown()",
+      "signature_blob": "000001",
+      "method_flags": "0x0096",
+      "implementation_flags": "0x0000",
+      "rva": "0x00065087",
+      "parameters": [],
+      "body": {
+        "format": "tiny",
+        "file_offset": 409735,
+        "header_hex": "1a",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 6,
+        "instruction_count": 2,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "0x0600124c"
+      }
+    },
+    {
+      "assembly": "SimIFace",
+      "token": "0x0600005c",
+      "declaring_type": "Sims3.SimIFace.DeviceConfig",
+      "name": "SaveOptions",
+      "signature": "public static hidebysig void Sims3.SimIFace.DeviceConfig::SaveOptions()",
+      "signature_blob": "000001",
+      "method_flags": "0x0096",
+      "implementation_flags": "0x0000",
+      "rva": "0x000023e5",
+      "parameters": [],
+      "body": {
+        "format": "tiny",
+        "file_offset": 5093,
+        "header_hex": "2e",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 11,
+        "instruction_count": 3,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": null,
+      "csharp_limit": "No retained actual SimIFace.DeviceConfig decompiler member in this selection; full original CIL and signature are authoritative. ScriptCore.DeviceConfig is a separate callee, not its replacement."
+    },
+    {
+      "assembly": "SimIFace",
+      "token": "0x06000218",
+      "declaring_type": "Sims3.SimIFace.UIResolutionChangedCallback",
+      "name": ".ctor",
+      "signature": "public hidebysig specialname rtspecialname instance void Sims3.SimIFace.UIResolutionChangedCallback::.ctor(object object, native int method)",
+      "signature_blob": "2002011c18",
+      "method_flags": "0x1886",
+      "implementation_flags": "0x0003",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "object",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "method",
+          "flags": "0x0000"
+        }
+      ],
+      "body": null,
+      "classification": "Runtime delegate member; no CIL body",
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "delegate rendering; runtime members have no CIL body"
+      }
+    },
+    {
+      "assembly": "SimIFace",
+      "token": "0x06000219",
+      "declaring_type": "Sims3.SimIFace.UIResolutionChangedCallback",
+      "name": "Invoke",
+      "signature": "public virtual hidebysig newslot instance void Sims3.SimIFace.UIResolutionChangedCallback::Invoke(uint32 oldWidth, uint32 oldHeight, uint32 oldRefresh, bool oldFullScreen, uint32 newWidth, uint32 newHeight, uint32 newRefresh, bool newFullScreen, uint32 newUIWidth, uint32 newUIHeight)",
+      "signature_blob": "200a0109090902090909020909",
+      "method_flags": "0x01c6",
+      "implementation_flags": "0x0003",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "oldWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "oldHeight",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "oldRefresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "oldFullScreen",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 5,
+          "name": "newWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 6,
+          "name": "newHeight",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 7,
+          "name": "newRefresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 8,
+          "name": "newFullScreen",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 9,
+          "name": "newUIWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 10,
+          "name": "newUIHeight",
+          "flags": "0x0000"
+        }
+      ],
+      "body": null,
+      "classification": "Runtime delegate member; no CIL body",
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "delegate rendering; runtime members have no CIL body"
+      }
+    },
+    {
+      "assembly": "SimIFace",
+      "token": "0x0600021a",
+      "declaring_type": "Sims3.SimIFace.UIResolutionChangedCallback",
+      "name": "BeginInvoke",
+      "signature": "public virtual hidebysig newslot instance class System.IAsyncResult Sims3.SimIFace.UIResolutionChangedCallback::BeginInvoke(uint32 oldWidth, uint32 oldHeight, uint32 oldRefresh, bool oldFullScreen, uint32 newWidth, uint32 newHeight, uint32 newRefresh, bool newFullScreen, uint32 newUIWidth, uint32 newUIHeight, class System.AsyncCallback callback, object object)",
+      "signature_blob": "200c125909090902090909020909125d1c",
+      "method_flags": "0x01c6",
+      "implementation_flags": "0x0003",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "oldWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "oldHeight",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "oldRefresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "oldFullScreen",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 5,
+          "name": "newWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 6,
+          "name": "newHeight",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 7,
+          "name": "newRefresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 8,
+          "name": "newFullScreen",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 9,
+          "name": "newUIWidth",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 10,
+          "name": "newUIHeight",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 11,
+          "name": "callback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 12,
+          "name": "object",
+          "flags": "0x0000"
+        }
+      ],
+      "body": null,
+      "classification": "Runtime delegate member; no CIL body",
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "delegate rendering; runtime members have no CIL body"
+      }
+    },
+    {
+      "assembly": "SimIFace",
+      "token": "0x0600021b",
+      "declaring_type": "Sims3.SimIFace.UIResolutionChangedCallback",
+      "name": "EndInvoke",
+      "signature": "public virtual hidebysig newslot instance void Sims3.SimIFace.UIResolutionChangedCallback::EndInvoke(class System.IAsyncResult result)",
+      "signature_blob": "2001011259",
+      "method_flags": "0x01c6",
+      "implementation_flags": "0x0003",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "result",
+          "flags": "0x0000"
+        }
+      ],
+      "body": null,
+      "classification": "Runtime delegate member; no CIL body",
+      "actual_csharp": {
+        "path": "actual-csharp-excerpts.txt",
+        "source_selection": "delegate rendering; runtime members have no CIL body"
+      }
+    },
+    {
+      "assembly": "SimIFace",
+      "token": "0x0600025f",
+      "declaring_type": "Sims3.SimIFace.IUIManager",
+      "name": "SetUICallbacks",
+      "signature": "public virtual hidebysig newslot abstract instance void Sims3.SimIFace.IUIManager::SetUICallbacks(class Sims3.SimIFace.UIEventCallback eventCallback, class Sims3.SimIFace.UILocaleChangedCallback localeChangedCallback, class Sims3.SimIFace.UIResolutionChangedCallback resolutionChangedCallback, class Sims3.SimIFace.UIWindowShutdownCallback windowShutdownCallback, class Sims3.SimIFace.UINewContentInstalledCallback newContentCallback, class Sims3.SimIFace.UIInGameStoreCallback inGameStoreCallback, class Sims3.SimIFace.UINewHotInstallDataCallback newHotInstallDataCallback)",
+      "signature_blob": "20070112817c12818012818c128190128184128188128194",
+      "method_flags": "0x05c6",
+      "implementation_flags": "0x0000",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "eventCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "localeChangedCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "resolutionChangedCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "windowShutdownCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 5,
+          "name": "newContentCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 6,
+          "name": "inGameStoreCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 7,
+          "name": "newHotInstallDataCallback",
+          "flags": "0x0000"
+        }
+      ],
+      "body": null,
+      "classification": "Abstract method; no CIL body",
+      "actual_csharp": null
+    },
+    {
+      "assembly": "SimIFace",
+      "token": "0x06000284",
+      "declaring_type": "Sims3.SimIFace.IUIManager",
+      "name": "SetResolution",
+      "signature": "public virtual hidebysig newslot abstract instance void Sims3.SimIFace.IUIManager::SetResolution(uint32 width, uint32 height, uint32 refresh, bool fullScreen)",
+      "signature_blob": "20040109090902",
+      "method_flags": "0x05c6",
+      "implementation_flags": "0x0000",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "width",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "height",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "refresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "fullScreen",
+          "flags": "0x0000"
+        }
+      ],
+      "body": null,
+      "classification": "Abstract method; no CIL body",
+      "actual_csharp": null
+    },
+    {
+      "assembly": "SimIFace",
+      "token": "0x06000285",
+      "declaring_type": "Sims3.SimIFace.IUIManager",
+      "name": "UpdateResolution",
+      "signature": "public virtual hidebysig newslot abstract instance void Sims3.SimIFace.IUIManager::UpdateResolution(uint32 width, uint32 height, uint32 refresh, bool fullScreen)",
+      "signature_blob": "20040109090902",
+      "method_flags": "0x05c6",
+      "implementation_flags": "0x0000",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "width",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "height",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "refresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "fullScreen",
+          "flags": "0x0000"
+        }
+      ],
+      "body": null,
+      "classification": "Abstract method; no CIL body",
+      "actual_csharp": null
+    },
+    {
+      "assembly": "ScriptCore",
+      "token": "0x06000e23",
+      "declaring_type": "ScriptCore.UIManager",
+      "name": "UIManager_SetUICallbacksImpl",
+      "signature": "private static hidebysig pinvokeimpl void ScriptCore.UIManager::UIManager_SetUICallbacksImpl(class System.Delegate pEventCallback, class System.Delegate pLocaleChangedCallback, class System.Delegate pResolutionChangedCallback, class System.Delegate pWindowShutdownCallback, class System.Delegate pNewContentInstalledCallback, class System.Delegate pInGameStoreCallback, class System.Delegate pNewHotInstallDataCallback)",
+      "signature_blob": "0007011281a11281a11281a11281a11281a11281a11281a1",
+      "method_flags": "0x2091",
+      "implementation_flags": "0x0080",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "pEventCallback",
+          "flags": "0x2000",
+          "marshal_native_type_blob": "1c"
+        },
+        {
+          "sequence": 2,
+          "name": "pLocaleChangedCallback",
+          "flags": "0x2000",
+          "marshal_native_type_blob": "1c"
+        },
+        {
+          "sequence": 3,
+          "name": "pResolutionChangedCallback",
+          "flags": "0x2000",
+          "marshal_native_type_blob": "1c"
+        },
+        {
+          "sequence": 4,
+          "name": "pWindowShutdownCallback",
+          "flags": "0x2000",
+          "marshal_native_type_blob": "1c"
+        },
+        {
+          "sequence": 5,
+          "name": "pNewContentInstalledCallback",
+          "flags": "0x2000",
+          "marshal_native_type_blob": "1c"
+        },
+        {
+          "sequence": 6,
+          "name": "pInGameStoreCallback",
+          "flags": "0x2000",
+          "marshal_native_type_blob": "1c"
+        },
+        {
+          "sequence": 7,
+          "name": "pNewHotInstallDataCallback",
+          "flags": "0x2000",
+          "marshal_native_type_blob": "1c"
+        }
+      ],
+      "import": {
+        "module": "Sims3Common.dll",
+        "entry_point": "UIManager_SetUICallbacksImpl",
+        "mapping_flags": "0x0100"
+      },
+      "body": null,
+      "classification": "PInvoke declaration; no CIL body",
+      "actual_csharp": {
+        "path": "../../../../evidence/managed/types/ScriptCore.UIManager.cs",
+        "first_line": 186
+      }
+    },
+    {
+      "assembly": "ScriptCore",
+      "token": "0x06000e49",
+      "declaring_type": "ScriptCore.UIManager",
+      "name": "UIManager_SetResolutionImpl",
+      "signature": "private static hidebysig pinvokeimpl void ScriptCore.UIManager::UIManager_SetResolutionImpl(uint32 width, uint32 height, uint32 refresh, bool fullScreen)",
+      "signature_blob": "00040109090902",
+      "method_flags": "0x2091",
+      "implementation_flags": "0x0080",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "width",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "height",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "refresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "fullScreen",
+          "flags": "0x0000"
+        }
+      ],
+      "import": {
+        "module": "Sims3Common.dll",
+        "entry_point": "UIManager_SetResolutionImpl",
+        "mapping_flags": "0x0100"
+      },
+      "body": null,
+      "classification": "PInvoke declaration; no CIL body",
+      "actual_csharp": {
+        "path": "../../../../evidence/managed/types/ScriptCore.UIManager.cs",
+        "first_line": 309
+      }
+    },
+    {
+      "assembly": "ScriptCore",
+      "token": "0x06000e4a",
+      "declaring_type": "ScriptCore.UIManager",
+      "name": "UIManager_UpdateResolutionImpl",
+      "signature": "private static hidebysig pinvokeimpl void ScriptCore.UIManager::UIManager_UpdateResolutionImpl(uint32 width, uint32 height, uint32 refresh, bool fullScreen)",
+      "signature_blob": "00040109090902",
+      "method_flags": "0x2091",
+      "implementation_flags": "0x0080",
+      "rva": "0x00000000",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "width",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "height",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "refresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "fullScreen",
+          "flags": "0x0000"
+        }
+      ],
+      "import": {
+        "module": "Sims3Common.dll",
+        "entry_point": "UIManager_UpdateResolutionImpl",
+        "mapping_flags": "0x0100"
+      },
+      "body": null,
+      "classification": "PInvoke declaration; no CIL body",
+      "actual_csharp": {
+        "path": "../../../../evidence/managed/types/ScriptCore.UIManager.cs",
+        "first_line": 312
+      }
+    },
+    {
+      "assembly": "ScriptCore",
+      "token": "0x06000e94",
+      "declaring_type": "ScriptCore.UIManager",
+      "name": "SetUICallbacks",
+      "signature": "public final virtual hidebysig newslot instance void ScriptCore.UIManager::SetUICallbacks(class Sims3.SimIFace.UIEventCallback eventCallback, class Sims3.SimIFace.UILocaleChangedCallback localeChangedCallback, class Sims3.SimIFace.UIResolutionChangedCallback resolutionChangedCallback, class Sims3.SimIFace.UIWindowShutdownCallback windowShutdownCallback, class Sims3.SimIFace.UINewContentInstalledCallback newContentInstalledCallback, class Sims3.SimIFace.UIInGameStoreCallback newInGameStoreCallback, class Sims3.SimIFace.UINewHotInstallDataCallback newHotInstallDataCallBack)",
+      "signature_blob": "2007011283e51283e91283ed1283f11283f51283f91283fd",
+      "method_flags": "0x01e6",
+      "implementation_flags": "0x0000",
+      "rva": "0x00011c58",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "eventCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "localeChangedCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "resolutionChangedCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "windowShutdownCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 5,
+          "name": "newContentInstalledCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 6,
+          "name": "newInGameStoreCallback",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 7,
+          "name": "newHotInstallDataCallBack",
+          "flags": "0x0000"
+        }
+      ],
+      "body": {
+        "format": "tiny",
+        "file_offset": 68696,
+        "header_hex": "46",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 17,
+        "instruction_count": 9,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "../../../../evidence/managed/types/ScriptCore.UIManager.cs",
+        "first_line": 662
+      }
+    },
+    {
+      "assembly": "ScriptCore",
+      "token": "0x06000eba",
+      "declaring_type": "ScriptCore.UIManager",
+      "name": "SetResolution",
+      "signature": "public final virtual hidebysig newslot instance void ScriptCore.UIManager::SetResolution(uint32 width, uint32 height, uint32 refresh, bool fullScreen)",
+      "signature_blob": "20040109090902",
+      "method_flags": "0x01e6",
+      "implementation_flags": "0x0000",
+      "rva": "0x00011e96",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "width",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "height",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "refresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "fullScreen",
+          "flags": "0x0000"
+        }
+      ],
+      "body": {
+        "format": "tiny",
+        "file_offset": 69270,
+        "header_hex": "2e",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 11,
+        "instruction_count": 6,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "../../../../evidence/managed/types/ScriptCore.UIManager.cs",
+        "first_line": 865
+      }
+    },
+    {
+      "assembly": "ScriptCore",
+      "token": "0x06000ebb",
+      "declaring_type": "ScriptCore.UIManager",
+      "name": "UpdateResolution",
+      "signature": "public final virtual hidebysig newslot instance void ScriptCore.UIManager::UpdateResolution(uint32 width, uint32 height, uint32 refresh, bool fullScreen)",
+      "signature_blob": "20040109090902",
+      "method_flags": "0x01e6",
+      "implementation_flags": "0x0000",
+      "rva": "0x00011ea2",
+      "parameters": [
+        {
+          "sequence": 1,
+          "name": "width",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 2,
+          "name": "height",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 3,
+          "name": "refresh",
+          "flags": "0x0000"
+        },
+        {
+          "sequence": 4,
+          "name": "fullScreen",
+          "flags": "0x0000"
+        }
+      ],
+      "body": {
+        "format": "tiny",
+        "file_offset": 69282,
+        "header_hex": "2e",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 11,
+        "instruction_count": 6,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "../../../../evidence/managed/types/ScriptCore.UIManager.cs",
+        "first_line": 870
+      }
+    },
+    {
+      "assembly": "ScriptCore",
+      "token": "0x0600100a",
+      "declaring_type": "ScriptCore.DeviceConfig",
+      "name": "DeviceConfig_SaveOptions",
+      "signature": "private static hidebysig pinvokeimpl void ScriptCore.DeviceConfig::DeviceConfig_SaveOptions()",
+      "signature_blob": "000001",
+      "method_flags": "0x2091",
+      "implementation_flags": "0x0080",
+      "rva": "0x00000000",
+      "parameters": [],
+      "import": {
+        "module": "Sims3Common",
+        "entry_point": "DeviceConfig_SaveOptions",
+        "mapping_flags": "0x0100"
+      },
+      "body": null,
+      "classification": "PInvoke declaration; no CIL body",
+      "actual_csharp": {
+        "path": "../../../../evidence/managed/types/ScriptCore.DeviceConfig.cs",
+        "first_line": 74
+      }
+    },
+    {
+      "assembly": "ScriptCore",
+      "token": "0x06001021",
+      "declaring_type": "ScriptCore.DeviceConfig",
+      "name": "SaveOptions",
+      "signature": "public final virtual hidebysig newslot instance void ScriptCore.DeviceConfig::SaveOptions()",
+      "signature_blob": "200001",
+      "method_flags": "0x01e6",
+      "implementation_flags": "0x0000",
+      "rva": "0x00012a63",
+      "parameters": [],
+      "body": {
+        "format": "tiny",
+        "file_offset": 72291,
+        "header_hex": "1a",
+        "header_flags": "0x0002",
+        "max_stack": 8,
+        "init_locals": false,
+        "cil_bytes": 6,
+        "instruction_count": 2,
+        "local_signature_token": "0x00000000",
+        "local_signature_blob": "",
+        "locals": [],
+        "exception_sections_hex": [],
+        "exception_regions": []
+      },
+      "actual_csharp": {
+        "path": "../../../../evidence/managed/types/ScriptCore.DeviceConfig.cs",
+        "first_line": 194
+      }
+    }
+  ],
+  "reused_canonical": {
+    "ScriptCore_UIManager": "../../../../evidence/managed/types/ScriptCore.UIManager.cs",
+    "ScriptCore_DeviceConfig": "../../../../evidence/managed/types/ScriptCore.DeviceConfig.cs",
+    "existing_caller_IL": "../../../../evidence/managed/callers.il.txt",
+    "central_identities": "../../../../evidence/managed/README.md#matching-original-assembly-identities"
+  },
+  "limits": [
+    "Actual C# excerpts are unchanged decompiler renderings, not source replacements; complete raw-CIL instruction bytes are preserved in selected.il.txt.",
+    "SimIFace.DeviceConfig.SaveOptions has full original CIL/signature but no invented C# rendering.",
+    "Native display/device/backend, modal-base lifetime, scheduler/marshaller and original option-file writer are separate contracts.",
+    "Static metadata/header/locals/CIL/EH and original-resource checks do not establish runtime/platform acceptance."
+  ]
+}

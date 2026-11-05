@@ -1,0 +1,10 @@
+// Complete pristine UI MethodDef/CIL; pair with actual ILSpy group rendering and method index.
+Sims3.UI.BBCompositorManager::Load
+MethodDef=0x060037D8 RVA=0x0015906D SignatureBlob=000001 MaxStack=8 LocalSignature=11000000 InitLocals=False CodeBytes=23
+IL_0000: ldsfld 0x04003EDA Sims3.UI.BBCompositorManager::sController
+IL_0005: brtrue.s IL_0016
+IL_0007: newobj 0x060037DA Sims3.UI.BBCompositorManager::.ctor
+IL_000C: stsfld 0x04003EDA Sims3.UI.BBCompositorManager::sController
+IL_0011: call 0x06001A97 Sims3.UI.CAS.CASCompositorController::Load
+IL_0016: ret
+ExceptionRegions=[]

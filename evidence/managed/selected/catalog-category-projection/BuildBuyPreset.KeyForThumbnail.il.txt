@@ -1,0 +1,24 @@
+Original PC1.67 SimIFace.dll; central assembly identity applies.
+Exact MethodDef 0x060000B0 Sims3.SimIFace.BuildBuy.BuildBuyPreset::get_KeyForThumbnail
+RVA 0x00002AA8; file offset 6824; code size58; maxstack5; local signature token1100000D.
+Full original typed CIL decoded directly from file-backed method bytes; no target execution.
+
+IL_0000: 02           ldarg.0
+IL_0001: 28ab000006   call 0x060000AB Sims3.SimIFace.BuildBuy.BuildBuyPreset::get_Product [method-signature 20001258]
+IL_0006: 6f7c000006   callvirt 0x0600007C Sims3.SimIFace.BuildBuy.BuildBuyProduct::get_ProductResourceKey [method-signature 2000118810]
+IL_000B: 0a           stloc.0
+IL_000C: 1200         ldloca.s 0x00
+IL_000E: 7b750d0004   ldfld 0x04000D75 Sims3.SimIFace.ResourceKey::InstanceId [field-signature 060b]
+IL_0013: 1200         ldloca.s 0x00
+IL_0015: 7b730d0004   ldfld 0x04000D73 Sims3.SimIFace.ResourceKey::TypeId [field-signature 0609]
+IL_001A: 1200         ldloca.s 0x00
+IL_001C: 7b740d0004   ldfld 0x04000D74 Sims3.SimIFace.ResourceKey::GroupId [field-signature 0609]
+IL_0021: 20000000ff   ldc.i4 0xFF000000
+IL_0026: 5f           and
+IL_0027: 02           ldarg.0
+IL_0028: 7b5e010004   ldfld 0x0400015E Sims3.SimIFace.BuildBuy.BuildBuyPreset::mPresetID [field-signature 0609]
+IL_002D: 20ffffff00   ldc.i4 0x00FFFFFF
+IL_0032: 5f           and
+IL_0033: 60           or
+IL_0034: 73a40e0006   newobj 0x06000EA4 Sims3.SimIFace.ResourceKey::.ctor [method-signature 2003010b0909]
+IL_0039: 2a           ret

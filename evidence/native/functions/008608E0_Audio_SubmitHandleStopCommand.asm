@@ -1,0 +1,42 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Actual saved-clean original PC1.67 full owned Ghidra Listing
+# Entry 008608e0 Audio_SubmitHandleStopCommand
+# Body [[008608e0, 00860932]]; owned bytes=83
+008608e0  56  PUSH ESI
+008608e1  e81af50400  CALL 0x008afe00
+008608e6  8bf0  MOV ESI,EAX
+008608e8  85f6  TEST ESI,ESI
+008608ea  7445  JZ 0x00860931
+008608ec  57  PUSH EDI
+008608ed  8b7c240c  MOV EDI,dword ptr [ESP + 0xc]
+008608f1  85ff  TEST EDI,EDI
+008608f3  743b  JZ 0x00860930
+008608f5  8b06  MOV EAX,dword ptr [ESI]
+008608f7  8b5044  MOV EDX,dword ptr [EAX + 0x44]
+008608fa  686b534703  PUSH 0x347536b
+008608ff  8bce  MOV ECX,ESI
+00860901  ffd2  CALL EDX
+00860903  8b06  MOV EAX,dword ptr [ESI]
+00860905  8b504c  MOV EDX,dword ptr [EAX + 0x4c]
+00860908  57  PUSH EDI
+00860909  6885534703  PUSH 0x3475385
+0086090e  8bce  MOV ECX,ESI
+00860910  ffd2  CALL EDX
+00860912  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+00860916  8b06  MOV EAX,dword ptr [ESI]
+00860918  8b504c  MOV EDX,dword ptr [EAX + 0x4c]
+0086091b  51  PUSH ECX
+0086091c  68a0534703  PUSH 0x34753a0
+00860921  8bce  MOV ECX,ESI
+00860923  ffd2  CALL EDX
+00860925  8b06  MOV EAX,dword ptr [ESI]
+00860927  8b5068  MOV EDX,dword ptr [EAX + 0x68]
+0086092a  5f  POP EDI
+0086092b  8bce  MOV ECX,ESI
+0086092d  5e  POP ESI
+0086092e  ffe2  JMP EDX
+00860930  5f  POP EDI
+00860931  5e  POP ESI
+00860932  c3  RET

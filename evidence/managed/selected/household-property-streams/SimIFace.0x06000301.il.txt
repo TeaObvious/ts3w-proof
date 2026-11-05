@@ -1,0 +1,39 @@
+// Complete original typed CIL; exact identity in method-index.tsv.
+	.method public hidebysig 
+		instance bool Close () cil managed 
+	{
+		// Method begins at RVA 0x7c18
+		// Header size: 12
+		// Code size: 68 (0x44)
+		.maxstack 2
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld class [mscorlib]System.IO.BinaryReader Sims3.SimIFace.PropertyStreamReader::mStream
+		IL_0006: brtrue.s IL_000a
+
+		IL_0008: ldc.i4.0
+		IL_0009: ret
+
+		IL_000a: ldarg.0
+		IL_000b: ldfld class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, uint32> Sims3.SimIFace.PropertyStreamReader::mEntryMap
+		IL_0010: callvirt instance void class [mscorlib]System.Collections.Generic.Dictionary`2<uint32, uint32>::Clear()
+		IL_0015: ldarg.0
+		IL_0016: ldfld class [mscorlib]System.IO.BinaryReader Sims3.SimIFace.PropertyStreamReader::mStream
+		IL_001b: callvirt instance class [mscorlib]System.IO.Stream [mscorlib]System.IO.BinaryReader::get_BaseStream()
+		IL_0020: ldarg.0
+		IL_0021: ldfld int64 Sims3.SimIFace.PropertyStreamReader::mEndPosition
+		IL_0026: callvirt instance void [mscorlib]System.IO.Stream::set_Position(int64)
+		IL_002b: ldarg.0
+		IL_002c: ldnull
+		IL_002d: stfld class [mscorlib]System.IO.BinaryReader Sims3.SimIFace.PropertyStreamReader::mStream
+		IL_0032: ldarg.0
+		IL_0033: ldc.i4.m1
+		IL_0034: conv.i8
+		IL_0035: stfld int64 Sims3.SimIFace.PropertyStreamReader::mStartPosition
+		IL_003a: ldarg.0
+		IL_003b: ldc.i4.m1
+		IL_003c: conv.i8
+		IL_003d: stfld int64 Sims3.SimIFace.PropertyStreamReader::mEndPosition
+		IL_0042: ldc.i4.1
+		IL_0043: ret
+	} // end of method PropertyStreamReader::Close

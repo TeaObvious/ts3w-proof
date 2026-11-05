@@ -1,0 +1,5 @@
+// Original CAW 1.22.10 managed declaration; MethodDef 0x0600089A.
+// Assembly: CSHostWrap; type: Sims3.CSHost.ResourceMgr.
+// Decompiled C# source: CSHostWrap/Sims3/CSHost/ResourceMgr.cs:44
+	[DllImport("Sims3Common.dll")]
+	private static extern int ResourceMgr_SaveRecord(uint databaseId, ResourceKey key, [In][MarshalAs(UnmanagedType.LPArray)] byte[] bytes, int dataSize);

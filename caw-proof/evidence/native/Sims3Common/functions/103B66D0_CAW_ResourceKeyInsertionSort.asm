@@ -1,0 +1,67 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+# Original CAW 1.22.10 Sims3Common.dll; complete Ghidra function body 103b66d0..103b6777; CAW_ResourceKeyInsertionSort
+103b66d0: 8b542404  MOV EDX,dword ptr [ESP + 0x4]
+103b66d4: 8b442408  MOV EAX,dword ptr [ESP + 0x8]
+103b66d8: 83ec10  SUB ESP,0x10
+103b66db: 3bd0  CMP EDX,EAX
+103b66dd: 0f8491000000  JZ 0x103b6774
+103b66e3: 56  PUSH ESI
+103b66e4: 8d7210  LEA ESI,[EDX + 0x10]
+103b66e7: 3bf0  CMP ESI,EAX
+103b66e9: 0f8484000000  JZ 0x103b6773
+103b66ef: 53  PUSH EBX
+103b66f0: 55  PUSH EBP
+103b66f1: 57  PUSH EDI
+103b66f2: 3bf2  CMP ESI,EDX
+103b66f4: 8b4608  MOV EAX,dword ptr [ESI + 0x8]
+103b66f7: 8b3e  MOV EDI,dword ptr [ESI]
+103b66f9: 8b5e04  MOV EBX,dword ptr [ESI + 0x4]
+103b66fc: 8b6e0c  MOV EBP,dword ptr [ESI + 0xc]
+103b66ff: 89442418  MOV dword ptr [ESP + 0x18],EAX
+103b6703: 8bc6  MOV EAX,ESI
+103b6705: 8d4ef0  LEA ECX,[ESI + -0x10]
+103b6708: 744e  JZ 0x103b6758
+103b670a: 8d9b00000000  LEA EBX,[EBX]
+103b6710: 8b11  MOV EDX,dword ptr [ECX]
+103b6712: 3bfa  CMP EDI,EDX
+103b6714: 7515  JNZ 0x103b672b
+103b6716: 8b5104  MOV EDX,dword ptr [ECX + 0x4]
+103b6719: 3bda  CMP EBX,EDX
+103b671b: 750e  JNZ 0x103b672b
+103b671d: 8b510c  MOV EDX,dword ptr [ECX + 0xc]
+103b6720: 3bea  CMP EBP,EDX
+103b6722: 7507  JNZ 0x103b672b
+103b6724: 8b542418  MOV EDX,dword ptr [ESP + 0x18]
+103b6728: 3b5108  CMP EDX,dword ptr [ECX + 0x8]
+103b672b: 0f92c2  SETC DL
+103b672e: 84d2  TEST DL,DL
+103b6730: 7422  JZ 0x103b6754
+103b6732: 8b11  MOV EDX,dword ptr [ECX]
+103b6734: 8910  MOV dword ptr [EAX],EDX
+103b6736: 8b5104  MOV EDX,dword ptr [ECX + 0x4]
+103b6739: 895004  MOV dword ptr [EAX + 0x4],EDX
+103b673c: 8b5108  MOV EDX,dword ptr [ECX + 0x8]
+103b673f: 895008  MOV dword ptr [EAX + 0x8],EDX
+103b6742: 8b510c  MOV EDX,dword ptr [ECX + 0xc]
+103b6745: 89500c  MOV dword ptr [EAX + 0xc],EDX
+103b6748: 83e810  SUB EAX,0x10
+103b674b: 83e910  SUB ECX,0x10
+103b674e: 3b442424  CMP EAX,dword ptr [ESP + 0x24]
+103b6752: 75bc  JNZ 0x103b6710
+103b6754: 8b542424  MOV EDX,dword ptr [ESP + 0x24]
+103b6758: 8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+103b675c: 8938  MOV dword ptr [EAX],EDI
+103b675e: 895804  MOV dword ptr [EAX + 0x4],EBX
+103b6761: 83c610  ADD ESI,0x10
+103b6764: 3b742428  CMP ESI,dword ptr [ESP + 0x28]
+103b6768: 894808  MOV dword ptr [EAX + 0x8],ECX
+103b676b: 89680c  MOV dword ptr [EAX + 0xc],EBP
+103b676e: 7582  JNZ 0x103b66f2
+103b6770: 5f  POP EDI
+103b6771: 5d  POP EBP
+103b6772: 5b  POP EBX
+103b6773: 5e  POP ESI
+103b6774: 83c410  ADD ESP,0x10
+103b6777: c3  RET

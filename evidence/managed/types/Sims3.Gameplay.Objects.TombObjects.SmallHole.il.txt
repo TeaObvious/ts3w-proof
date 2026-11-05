@@ -1,0 +1,763 @@
+.class public auto ansi abstract beforefieldinit Sims3.Gameplay.Objects.TombObjects.SmallHole
+	extends Sims3.Gameplay.Objects.TombObjects.HideableTombObject
+	implements [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ISandsOfUnderstandingable,
+	           [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ICanHasTombObjectComponent,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IScriptObject,
+	           [SimIFace]Sims3.SimIFace.IScriptLogic,
+	           [SimIFace]Sims3.SimIFace.IHasScriptProxy,
+	           [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IObjectUI,
+	           [SimIFace]Sims3.SimIFace.CustomContent.IExportableContent
+{
+	// Nested Types
+	.class nested private auto ansi sealed beforefieldinit Inspect
+		extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>
+	{
+		// Nested Types
+		.class nested private auto ansi sealed beforefieldinit Definition
+			extends class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole, class Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect>
+		{
+			// Methods
+			.method family hidebysig virtual 
+				instance bool Test (
+					class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim actor,
+					class Sims3.Gameplay.Objects.TombObjects.SmallHole target,
+					bool isAutonomous,
+					class [UI]Sims3.SimIFace.GreyedOutTooltipCallback& greyedOutTooltipCallback
+				) cil managed 
+			{
+				// Method begins at RVA 0x2ad4fd
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.2
+				IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+				IL_0006: ret
+			} // end of method Definition::Test
+
+			.method public hidebysig specialname rtspecialname 
+				instance void .ctor () cil managed 
+			{
+				// Method begins at RVA 0x2ad505
+				// Header size: 1
+				// Code size: 7 (0x7)
+				.maxstack 8
+
+				IL_0000: ldarg.0
+				IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition`3<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole, class Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect>::.ctor()
+				IL_0006: ret
+			} // end of method Definition::.ctor
+
+		} // end of class Definition
+
+
+		// Fields
+		.field private static literal string sLocalizationKey = "Gameplay/Objects/TombObjects/SmallHole/Inspect"
+		.field public static initonly class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Singleton
+		.field public static float32 kMinimumMinutesUntilPullingHandOutOfHole
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field public static float32 kMaximumMinutesUntilPullingHandOutOfHole
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field public static float32 kChanceOfFailingAndGettingBugsOnHand
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field public static int32 kFearBuffMoodValue
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 55 52 61 6e 67 65 3a 20 4e 65 67 61 74 69
+			76 65 20 69 6e 74 65 67 65 72 2e 20 53 74 72 65
+			6e 67 74 68 20 6f 66 20 74 68 65 20 66 65 61 72
+			20 62 75 66 66 20 61 66 74 65 72 20 61 20 73 69
+			6d 20 67 65 74 73 20 62 75 67 73 20 6f 6e 20 68
+			69 73 20 68 61 6e 64 2e 00 00
+		)
+		.field private static int32 kFearBuffThresholdInspect
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableCommentAttribute::.ctor(string) = (
+			01 00 7d 52 61 6e 67 65 3a 20 4e 65 67 61 74 69
+			76 65 20 69 6e 74 65 67 65 72 2e 20 49 66 20 61
+			20 53 69 6d 20 68 61 73 20 61 20 66 65 61 72 20
+			62 75 66 66 20 77 69 74 68 20 61 20 67 72 65 61
+			74 65 72 20 73 74 72 65 6e 67 74 68 20 74 68 61
+			6e 20 74 68 69 73 20 76 61 6c 75 65 2c 20 74 68
+			65 79 20 77 69 6c 6c 20 6e 6f 74 20 69 6e 73 70
+			65 63 74 20 73 6d 61 6c 6c 20 68 6f 6c 65 73 2e
+			00 00
+		)
+		.custom instance void [SimIFace]Sims3.SimIFace.TunableAttribute::.ctor() = (
+			01 00 00 00
+		)
+		.field private class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> mTreasures
+
+		// Methods
+		.method private hidebysig static 
+			string LocalizeString (
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [2]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x2ad068
+			// Header size: 1
+			// Code size: 9 (0x9)
+			.maxstack 8
+
+			IL_0000: ldc.i4.0
+			IL_0001: ldarg.0
+			IL_0002: ldarg.1
+			IL_0003: call string Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::LocalizeString(bool, string, object[])
+			IL_0008: ret
+		} // end of method Inspect::LocalizeString
+
+		.method private hidebysig static 
+			string LocalizeString (
+				bool bIsFemale,
+				string name,
+				object[] parameters
+			) cil managed 
+		{
+			.param [3]
+				.custom instance void [mscorlib]System.ParamArrayAttribute::.ctor() = (
+					01 00 00 00
+				)
+			// Method begins at RVA 0x2ad072
+			// Header size: 1
+			// Code size: 19 (0x13)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: ldstr "Gameplay/Objects/TombObjects/SmallHole/Inspect:"
+			IL_0006: ldarg.1
+			IL_0007: call string [mscorlib]System.String::Concat(string, string)
+			IL_000c: ldarg.2
+			IL_000d: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_0012: ret
+		} // end of method Inspect::LocalizeString
+
+		.method public hidebysig virtual 
+			instance void Cleanup () cil managed 
+		{
+			// Method begins at RVA 0x2ad086
+			// Header size: 1
+			// Code size: 51 (0x33)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::Cleanup()
+			IL_0006: ldarg.0
+			IL_0007: ldfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_000c: brfalse.s IL_0032
+
+			IL_000e: ldarg.0
+			IL_000f: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_0014: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_0019: ldarg.0
+			IL_001a: ldfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_001f: ldarg.0
+			IL_0020: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0025: ldc.i4.0
+			IL_0026: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::GiveTreasuresToSim(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, bool)
+			IL_002b: ldarg.0
+			IL_002c: ldnull
+			IL_002d: stfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+
+			IL_0032: ret
+		} // end of method Inspect::Cleanup
+
+		.method family hidebysig virtual 
+			instance bool Run () cil managed 
+		{
+			// Method begins at RVA 0x2ad0bc
+			// Header size: 12
+			// Code size: 1013 (0x3f5)
+			.maxstack 6
+			.locals init (
+				[0] int32,
+				[1] bool,
+				[2] float32,
+				[3] bool,
+				[4] bool,
+				[5] bool,
+				[6] bool,
+				[7] object[],
+				[8] object[]
+			)
+
+			IL_0000: ldarg.0
+			IL_0001: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0006: ldsfld int32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kFearBuffThresholdInspect
+			IL_000b: call bool [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffFear::CanSimDoFearGatingAction(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, int32)
+			IL_0010: brtrue.s IL_006b
+
+			IL_0012: ldarg.0
+			IL_0013: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0018: ldarg.0
+			IL_0019: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_001e: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+			IL_0023: ldstr "Gameplay/Objects/TombObjects/FloorSwitch:FearRefuseTNS"
+			IL_0028: ldc.i4.1
+			IL_0029: newarr [mscorlib]System.Object
+			IL_002e: stloc.s 7
+			IL_0030: ldloc.s 7
+			IL_0032: ldc.i4.0
+			IL_0033: ldarg.0
+			IL_0034: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0039: stelem.ref
+			IL_003a: ldloc.s 7
+			IL_003c: call string [Sims3GameplaySystems]Sims3.Gameplay.Utilities.Localization::LocalizeString(bool, string, object[])
+			IL_0041: ldc.i4.4
+			IL_0042: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+			IL_0047: ldarg.0
+			IL_0048: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_004d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_0052: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_0057: pop
+			IL_0058: ldarg.0
+			IL_0059: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_005e: ldstr "a_fearModdlet_refuse_x"
+			IL_0063: ldc.i4.1
+			IL_0064: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::PlaySoloAnimation(string, bool)
+			IL_0069: ldc.i4.0
+			IL_006a: ret
+
+			IL_006b: ldarg.0
+			IL_006c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0071: ldarg.0
+			IL_0072: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_0077: ldarg.0
+			IL_0078: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_007d: callvirt instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.SmallHole::get_RoutingSlots()
+			IL_0082: ldloca.s 0
+			IL_0084: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::RouteToSlotListAndCheckInUse(class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject, valuetype [SimIFace]Sims3.SimIFace.Slot[], int32&)
+			IL_0089: brtrue.s IL_008d
+
+			IL_008b: ldc.i4.0
+			IL_008c: ret
+
+			IL_008d: ldarg.0
+			IL_008e: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_0093: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_SandsOfUnderstandingComponent()
+			IL_0098: ldnull
+			IL_0099: ceq
+			IL_009b: ldc.i4.0
+			IL_009c: ceq
+			IL_009e: stloc.1
+			IL_009f: ldarg.0
+			IL_00a0: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_00a5: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_SandsOfUnderstandingComponent()
+			IL_00aa: brfalse.s IL_00b7
+
+			IL_00ac: ldarg.0
+			IL_00ad: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_00b2: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::RemoveComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent>()
+
+			IL_00b7: ldarg.0
+			IL_00b8: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardEntry()
+			IL_00bd: ldarg.0
+			IL_00be: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::BeginCommodityUpdates()
+			IL_00c3: ldarg.0
+			IL_00c4: ldstr "SmallHole"
+			IL_00c9: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AcquireStateMachine(string)
+			IL_00ce: ldarg.0
+			IL_00cf: ldstr "x:Brave"
+			IL_00d4: ldarg.0
+			IL_00d5: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_00da: ldc.i8 -5175480303478029888 // 0xb82d0015b92941c0
+			IL_00e3: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::HasTrait(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitNames)
+			IL_00e8: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetParameter(string, bool)
+			IL_00ed: ldarg.0
+			IL_00ee: ldstr "x"
+			IL_00f3: ldarg.0
+			IL_00f4: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_00f9: ldstr "Enter"
+			IL_00fe: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActorAndEnter(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy, string)
+			IL_0103: ldarg.0
+			IL_0104: ldstr "SmallHole"
+			IL_0109: ldarg.0
+			IL_010a: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_010f: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::SetActor(string, class [SimIFace]Sims3.SimIFace.IHasScriptProxy)
+			IL_0114: ldarg.0
+			IL_0115: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_011a: ldarg.0
+			IL_011b: ldfld class [SimIFace]Sims3.SimIFace.StateMachineClient [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::mCurrentStateMachine
+			IL_0120: ldloc.0
+			IL_0121: callvirt instance void Sims3.Gameplay.Objects.TombObjects.SmallHole::SetStateMachineParams(class [SimIFace]Sims3.SimIFace.StateMachineClient, int32)
+			IL_0126: ldarg.0
+			IL_0127: ldstr "Inspect"
+			IL_012c: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0131: ldc.i4.s 80
+			IL_0133: ldarg.0
+			IL_0134: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0139: call void [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Tutorialette::TriggerLesson(valuetype [Sims3GameplaySystems]Sims3.Gameplay.Tutorial.Lessons, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_013e: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kMinimumMinutesUntilPullingHandOutOfHole
+			IL_0143: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kMaximumMinutesUntilPullingHandOutOfHole
+			IL_0148: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::GetFloat(float32, float32)
+			IL_014d: stloc.2
+			IL_014e: ldarg.0
+			IL_014f: ldloc.2
+			IL_0150: ldc.i4 -5652481 // 0xffa9bfff
+			IL_0155: call instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::DoTimedLoop(float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_015a: stloc.3
+			IL_015b: ldarg.0
+			IL_015c: ldloc.3
+			IL_015d: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::EndCommodityUpdates(bool)
+			IL_0162: ldloc.3
+			IL_0163: brtrue.s IL_0175
+
+			IL_0165: ldarg.0
+			IL_0166: ldstr "Exit - Nothing"
+			IL_016b: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0170: br IL_03ed
+
+			IL_0175: ldarg.0
+			IL_0176: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_017b: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_0180: ldc.i4.3
+			IL_0181: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::IsTriggerLinkedToAnyActivatedBehavior(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+			IL_0186: stloc.s 4
+			IL_0188: ldc.i4.0
+			IL_0189: stloc.s 5
+			IL_018b: ldarg.0
+			IL_018c: newobj instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::.ctor()
+			IL_0191: stfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_0196: ldarg.0
+			IL_0197: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_019c: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_01a1: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::HasAdventureTreasure()
+			IL_01a6: brfalse.s IL_01c9
+
+			IL_01a8: ldarg.0
+			IL_01a9: ldfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_01ae: ldarg.0
+			IL_01af: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_01b4: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_01b9: ldarg.0
+			IL_01ba: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_01bf: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::GetAdventureTreasure(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_01c4: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::AddRange(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+
+			IL_01c9: ldarg.0
+			IL_01ca: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_01cf: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_01d4: callvirt instance int32 [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::get_NumberOfTreasuresGivenThisVisit()
+			IL_01d9: ldc.i4.1
+			IL_01da: bge.s IL_01fd
+
+			IL_01dc: ldarg.0
+			IL_01dd: ldfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_01e2: ldarg.0
+			IL_01e3: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_01e8: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_01ed: ldarg.0
+			IL_01ee: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_01f3: callvirt instance class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::GetStandardTreasure(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_01f8: callvirt instance void class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::AddRange(class [mscorlib]System.Collections.Generic.IEnumerable`1<!0>)
+
+			IL_01fd: ldarg.0
+			IL_01fe: ldfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_0203: callvirt instance int32 class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>::get_Count()
+			IL_0208: ldc.i4.0
+			IL_0209: cgt
+			IL_020b: stloc.s 5
+			IL_020d: ldarg.0
+			IL_020e: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0213: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_SimDescription()
+			IL_0218: ldfld class [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking [Sims3GameplaySystems]Sims3.Gameplay.CAS.SimDescription::TombStats
+			IL_021d: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.Skills.TombStatTracking::IncrementHolesInspected()
+			IL_0222: ldloc.1
+			IL_0223: brtrue.s IL_02a1
+
+			IL_0225: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kChanceOfFailingAndGettingBugsOnHand
+			IL_022a: call bool [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::RandomChance01(float32)
+			IL_022f: brfalse.s IL_02a1
+
+			IL_0231: ldarg.0
+			IL_0232: ldstr "Bugs On Hand"
+			IL_0237: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_023c: ldarg.0
+			IL_023d: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0242: ldc.i8 -5175480303478029888 // 0xb82d0015b92941c0
+			IL_024b: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::HasTrait(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.TraitNames)
+			IL_0250: brtrue.s IL_026b
+
+			IL_0252: ldarg.0
+			IL_0253: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0258: ldsfld int32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kFearBuffMoodValue
+			IL_025d: ldc.i8 8118019981081782560
+			IL_0266: call void [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.BuffFear::GiveFear(class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, int32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.ActorSystems.Origin)
+
+			IL_026b: ldarg.0
+			IL_026c: ldstr "Inspect"
+			IL_0271: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_0276: ldloc.s 4
+			IL_0278: brtrue.s IL_027e
+
+			IL_027a: ldloc.s 5
+			IL_027c: brfalse.s IL_02a1
+
+			IL_027e: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kMinimumMinutesUntilPullingHandOutOfHole
+			IL_0283: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kMaximumMinutesUntilPullingHandOutOfHole
+			IL_0288: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::GetFloat(float32, float32)
+			IL_028d: ldc.r4 3
+			IL_0292: div
+			IL_0293: stloc.2
+			IL_0294: ldarg.0
+			IL_0295: ldloc.2
+			IL_0296: ldc.i4 -5652481 // 0xffa9bfff
+			IL_029b: call instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::DoTimedLoop(float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_02a0: stloc.3
+
+			IL_02a1: ldarg.0
+			IL_02a2: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_02a7: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TombObjectComponent()
+			IL_02ac: ldc.i4.3
+			IL_02ad: ldarg.0
+			IL_02ae: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_02b3: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::ActivateTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim)
+			IL_02b8: stloc.s 6
+			IL_02ba: ldloc.s 4
+			IL_02bc: brtrue.s IL_02ff
+
+			IL_02be: ldloc.s 5
+			IL_02c0: brtrue.s IL_02ff
+
+			IL_02c2: ldarg.0
+			IL_02c3: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_02c8: ldstr "HoleEmpty"
+			IL_02cd: ldc.i4.0
+			IL_02ce: newarr [mscorlib]System.Object
+			IL_02d3: call string Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::LocalizeString(string, object[])
+			IL_02d8: ldc.i4.3
+			IL_02d9: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+			IL_02de: ldarg.0
+			IL_02df: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_02e4: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_02e9: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_02ee: pop
+			IL_02ef: ldarg.0
+			IL_02f0: ldstr "Exit - Nothing"
+			IL_02f5: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_02fa: br IL_03ed
+
+			IL_02ff: ldloc.s 4
+			IL_0301: brfalse IL_03be
+
+			IL_0306: ldloc.s 6
+			IL_0308: brfalse.s IL_0350
+
+			IL_030a: ldarg.0
+			IL_030b: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0310: ldarg.0
+			IL_0311: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0316: callvirt instance bool [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::get_IsFemale()
+			IL_031b: ldstr "HiddenSwitchTNS"
+			IL_0320: ldc.i4.1
+			IL_0321: newarr [mscorlib]System.Object
+			IL_0326: stloc.s 8
+			IL_0328: ldloc.s 8
+			IL_032a: ldc.i4.0
+			IL_032b: ldarg.0
+			IL_032c: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0331: stelem.ref
+			IL_0332: ldloc.s 8
+			IL_0334: call string Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::LocalizeString(bool, string, object[])
+			IL_0339: ldc.i4.3
+			IL_033a: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid
+			IL_033f: ldarg.0
+			IL_0340: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0345: callvirt instance valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.ScriptObject::get_ObjectId()
+			IL_034a: callvirt instance class [UI]Sims3.UI.StyledNotification [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim::ShowTNSIfSelectable(string, valuetype [UI]Sims3.UI.StyledNotification/NotificationStyle, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid)
+			IL_034f: pop
+
+			IL_0350: ldloc.s 5
+			IL_0352: brfalse.s IL_03b1
+
+			IL_0354: ldarg.0
+			IL_0355: ldc.i4.0
+			IL_0356: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::set_CancellableByPlayer(bool)
+			IL_035b: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kMinimumMinutesUntilPullingHandOutOfHole
+			IL_0360: ldsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kMaximumMinutesUntilPullingHandOutOfHole
+			IL_0365: call float32 [Sims3GameplaySystems]Sims3.Gameplay.Core.RandomUtil::GetFloat(float32, float32)
+			IL_036a: stloc.2
+			IL_036b: ldloc.2
+			IL_036c: ldc.r4 2
+			IL_0371: div
+			IL_0372: stloc.2
+			IL_0373: ldarg.0
+			IL_0374: ldloc.2
+			IL_0375: ldc.i4 -5652481 // 0xffa9bfff
+			IL_037a: call instance bool class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::DoTimedLoop(float32, valuetype [Sims3GameplaySystems]Sims3.Gameplay.Actors.ExitReason)
+			IL_037f: pop
+			IL_0380: ldarg.0
+			IL_0381: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_0386: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_038b: ldarg.0
+			IL_038c: ldfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_0391: ldarg.0
+			IL_0392: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_0397: ldc.i4.1
+			IL_0398: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::GiveTreasuresToSim(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, bool)
+			IL_039d: ldarg.0
+			IL_039e: ldnull
+			IL_039f: stfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_03a4: ldarg.0
+			IL_03a5: ldstr "Exit - Found Treasure"
+			IL_03aa: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_03af: br.s IL_03ed
+
+			IL_03b1: ldarg.0
+			IL_03b2: ldstr "Exit - Found Switch"
+			IL_03b7: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+			IL_03bc: br.s IL_03ed
+
+			IL_03be: ldarg.0
+			IL_03bf: ldfld !1 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Target
+			IL_03c4: callvirt instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::get_TreasureComponent()
+			IL_03c9: ldarg.0
+			IL_03ca: ldfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_03cf: ldarg.0
+			IL_03d0: ldfld !0 class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::Actor
+			IL_03d5: ldc.i4.1
+			IL_03d6: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent::GiveTreasuresToSim(class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject>, class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, bool)
+			IL_03db: ldarg.0
+			IL_03dc: ldnull
+			IL_03dd: stfld class [mscorlib]System.Collections.Generic.List`1<class [Sims3GameplaySystems]Sims3.Gameplay.Interfaces.IGameObject> Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::mTreasures
+			IL_03e2: ldarg.0
+			IL_03e3: ldstr "Exit - Found Treasure"
+			IL_03e8: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::AnimateSim(string)
+
+			IL_03ed: ldarg.0
+			IL_03ee: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionInstance::StandardExit()
+			IL_03f3: ldc.i4.1
+			IL_03f4: ret
+		} // end of method Inspect::Run
+
+		.method public hidebysig specialname rtspecialname 
+			instance void .ctor () cil managed 
+		{
+			// Method begins at RVA 0x2ad4f5
+			// Header size: 1
+			// Code size: 7 (0x7)
+			.maxstack 8
+
+			IL_0000: ldarg.0
+			IL_0001: call instance void class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.Interaction`2<class [Sims3GameplaySystems]Sims3.Gameplay.Actors.Sim, class Sims3.Gameplay.Objects.TombObjects.SmallHole>::.ctor()
+			IL_0006: ret
+		} // end of method Inspect::.ctor
+
+		.method private hidebysig specialname rtspecialname static 
+			void .cctor () cil managed 
+		{
+			// Method begins at RVA 0x2ad4bd
+			// Header size: 1
+			// Code size: 55 (0x37)
+			.maxstack 8
+
+			IL_0000: newobj instance void Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect/Definition::.ctor()
+			IL_0005: stsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::Singleton
+			IL_000a: ldc.r4 5
+			IL_000f: stsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kMinimumMinutesUntilPullingHandOutOfHole
+			IL_0014: ldc.r4 15
+			IL_0019: stsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kMaximumMinutesUntilPullingHandOutOfHole
+			IL_001e: ldc.r4 0.25
+			IL_0023: stsfld float32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kChanceOfFailingAndGettingBugsOnHand
+			IL_0028: ldc.i4.s -30
+			IL_002a: stsfld int32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kFearBuffMoodValue
+			IL_002f: ldc.i4.s -45
+			IL_0031: stsfld int32 Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::kFearBuffThresholdInspect
+			IL_0036: ret
+		} // end of method Inspect::.cctor
+
+	} // end of class Inspect
+
+
+	// Fields
+	.field private static literal string kShowEffect = "ep1SmallHoleReveal"
+	.field private static valuetype [SimIFace]Sims3.SimIFace.Slot kEffectSlot
+
+	// Methods
+	.method public hidebysig specialname rtspecialname 
+		instance void .ctor () cil managed 
+	{
+		// Method begins at RVA 0x2acfed
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::.ctor()
+		IL_0006: ret
+	} // end of method SmallHole::.ctor
+
+	.method public hidebysig virtual 
+		instance void OnStartup () cil managed 
+	{
+		// Method begins at RVA 0x2acff5
+		// Header size: 1
+		// Code size: 44 (0x2c)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnStartup()
+		IL_0006: ldarg.0
+		IL_0007: ldc.i4.0
+		IL_0008: newarr [mscorlib]System.Object
+		IL_000d: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.TreasureComponent>(object[])
+		IL_0012: pop
+		IL_0013: ldarg.0
+		IL_0014: ldc.i4.0
+		IL_0015: newarr [mscorlib]System.Object
+		IL_001a: call instance bool [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddComponent<class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.AdventureComponent>(object[])
+		IL_001f: pop
+		IL_0020: ldarg.0
+		IL_0021: ldsfld class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition Sims3.Gameplay.Objects.TombObjects.SmallHole/Inspect::Singleton
+		IL_0026: call instance void [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::AddInteraction(class [Sims3GameplaySystems]Sims3.Gameplay.Interactions.InteractionDefinition)
+		IL_002b: ret
+	} // end of method SmallHole::OnStartup
+
+	.method public hidebysig virtual 
+		instance void OnAddTombObjectComponent (
+			class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent tombObjectComponent
+		) cil managed 
+	{
+		// Method begins at RVA 0x2ad022
+		// Header size: 1
+		// Code size: 15 (0xf)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldarg.1
+		IL_0002: call instance void Sims3.Gameplay.Objects.TombObjects.HideableTombObject::OnAddTombObjectComponent(class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent)
+		IL_0007: ldarg.1
+		IL_0008: ldc.i4.3
+		IL_0009: callvirt instance void [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.ITombObjectComponent::RegisterTrigger(valuetype [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.Trigger)
+		IL_000e: ret
+	} // end of method SmallHole::OnAddTombObjectComponent
+
+	.method family hidebysig specialname newslot abstract virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Slot[] get_RoutingSlots () cil managed 
+	{
+	} // end of method SmallHole::get_RoutingSlots
+
+	.method family hidebysig newslot abstract virtual 
+		instance void SetStateMachineParams (
+			class [SimIFace]Sims3.SimIFace.StateMachineClient smc,
+			int32 chosenSlot
+		) cil managed 
+	{
+	} // end of method SmallHole::SetStateMachineParams
+
+	.method family hidebysig specialname virtual 
+		instance string get_AppearDisappearEffectName () cil managed 
+	{
+		// Method begins at RVA 0x2ad032
+		// Header size: 1
+		// Code size: 6 (0x6)
+		.maxstack 8
+
+		IL_0000: ldstr "ep1SmallHoleReveal"
+		IL_0005: ret
+	} // end of method SmallHole::get_AppearDisappearEffectName
+
+	.method family hidebysig specialname virtual 
+		instance valuetype [SimIFace]Sims3.SimIFace.Vector3 get_AppearDisappearEffectPosition () cil managed 
+	{
+		// Method begins at RVA 0x2ad039
+		// Header size: 1
+		// Code size: 12 (0xc)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.SmallHole::kEffectSlot
+		IL_0006: call instance valuetype [SimIFace]Sims3.SimIFace.Vector3 [Sims3GameplaySystems]Sims3.Gameplay.Abstracts.GameObject::GetSlotPosition(valuetype [SimIFace]Sims3.SimIFace.Slot)
+		IL_000b: ret
+	} // end of method SmallHole::get_AppearDisappearEffectPosition
+
+	.method public final hidebysig newslot virtual 
+		instance bool CanTurnOnUnderstandingGlowNow () cil managed 
+	{
+		// Method begins at RVA 0x2ad046
+		// Header size: 1
+		// Code size: 7 (0x7)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldfld bool Sims3.Gameplay.Objects.TombObjects.HideableTombObject::mIsVisible
+		IL_0006: ret
+	} // end of method SmallHole::CanTurnOnUnderstandingGlowNow
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldUnderstandingGlowBePositive () cil managed 
+	{
+		// Method begins at RVA 0x2ad04e
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method SmallHole::ShouldUnderstandingGlowBePositive
+
+	.method public final hidebysig newslot virtual 
+		instance bool ShouldConsumeSandsOfUnderstanding () cil managed 
+	{
+		// Method begins at RVA 0x2ad051
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldc.i4.1
+		IL_0001: ret
+	} // end of method SmallHole::ShouldConsumeSandsOfUnderstanding
+
+	.method public final hidebysig newslot virtual 
+		instance class [Sims3GameplaySystems]Sims3.Gameplay.ObjectComponents.SandsOfUnderstandingComponent/OnGlowCallback GetOnGlowCallback () cil managed 
+	{
+		// Method begins at RVA 0x2ad054
+		// Header size: 1
+		// Code size: 2 (0x2)
+		.maxstack 8
+
+		IL_0000: ldnull
+		IL_0001: ret
+	} // end of method SmallHole::GetOnGlowCallback
+
+	.method private hidebysig specialname rtspecialname static 
+		void .cctor () cil managed 
+	{
+		// Method begins at RVA 0x2ad057
+		// Header size: 1
+		// Code size: 16 (0x10)
+		.maxstack 8
+
+		IL_0000: ldstr "_FX_0_holeFX"
+		IL_0005: call valuetype [SimIFace]Sims3.SimIFace.Slot [SimIFace]Sims3.SimIFace.Slots::Hash(string)
+		IL_000a: stsfld valuetype [SimIFace]Sims3.SimIFace.Slot Sims3.Gameplay.Objects.TombObjects.SmallHole::kEffectSlot
+		IL_000f: ret
+	} // end of method SmallHole::.cctor
+
+	// Properties
+	.property instance valuetype [SimIFace]Sims3.SimIFace.Slot[] RoutingSlots()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Slot[] Sims3.Gameplay.Objects.TombObjects.SmallHole::get_RoutingSlots()
+	}
+	.property instance string AppearDisappearEffectName()
+	{
+		.get instance string Sims3.Gameplay.Objects.TombObjects.SmallHole::get_AppearDisappearEffectName()
+	}
+	.property instance valuetype [SimIFace]Sims3.SimIFace.Vector3 AppearDisappearEffectPosition()
+	{
+		.get instance valuetype [SimIFace]Sims3.SimIFace.Vector3 Sims3.Gameplay.Objects.TombObjects.SmallHole::get_AppearDisappearEffectPosition()
+	}
+
+} // end of class Sims3.Gameplay.Objects.TombObjects.SmallHole

@@ -1,0 +1,562 @@
+[Context] Operating on: TS3W.exe
+
+Decompiled function FUN_00c2c770:
+
+
+char __thiscall
+FUN_00c2c770(void *this,undefined4 param_1,undefined4 param_2,char param_3,ushort *param_4)
+
+{
+  void *_Src;
+  int *piVar1;
+  int *******pppppppiVar2;
+  uint *puVar3;
+  size_t sVar4;
+  float fVar5;
+  char cVar6;
+  byte bVar7;
+  bool bVar8;
+  uint uVar9;
+  undefined1 *_Dst;
+  undefined4 uVar10;
+  undefined1 *puVar11;
+  int iVar12;
+  undefined4 *puVar13;
+  int *piVar14;
+  undefined *puVar15;
+  uint uVar16;
+  uint *puVar17;
+  uint *puVar18;
+  int *******pppppppiVar19;
+  uint *puVar20;
+  undefined8 uVar21;
+  uint *local_e4;
+  undefined1 local_e0 [8];
+  int *local_d8;
+  char local_cc;
+  void *local_c8;
+  void *local_c4;
+  uint *local_c0;
+  undefined1 *local_bc;
+  undefined2 *local_b8;
+  char *local_b4;
+  undefined8 local_b0;
+  undefined2 *local_a8;
+  undefined2 *local_a4;
+  char *local_a0;
+  uint *puStack_8c;
+  byte bStack_86;
+  byte bStack_85;
+  void *local_84;
+  uint *local_80;
+  uint local_7c;
+  int ******local_78;
+  int ******local_74;
+  char *local_70;
+  undefined4 local_6c;
+  uint *puStack_64;
+  undefined8 local_60;
+  int ******local_58;
+  int ******local_54;
+  char *local_50 [2];
+  int local_48;
+  uint local_40;
+  uint uStack_3c;
+  uint local_38;
+  undefined4 local_34;
+  int ******local_30;
+  int ******local_2c;
+  uint uStack_28;
+  uint uStack_24;
+  uint uStack_20;
+  uint uStack_1c;
+  uint uStack_18;
+  uint local_14 [4];
+  
+  local_84 = this;
+  FUN_007d7920(local_e0,param_1,param_2);
+  cVar6 = FUN_007d9410(local_e0,0x9063660d);
+  if (cVar6 == '\0') goto LAB_00c2d77e;
+  uVar9 = FUN_004dd8e0(local_d8,param_4);
+  FUN_007d79f0(local_e0,(byte)uVar9);
+  if ((*param_4 < 7) || ((param_3 != '\0' && (*param_4 < 8)))) {
+    FUN_007d79f0(local_e0,0);
+    local_cc = '\0';
+    goto LAB_00c2c7e5;
+  }
+  uVar9 = FUN_004dd980(local_d8,(uint *)((int)this + 0x10));
+  FUN_007d79f0(local_e0,(byte)uVar9);
+  uVar9 = FUN_004dd980(local_d8,(uint *)((int)this + 0x3c));
+  FUN_007d79f0(local_e0,(byte)uVar9);
+  uVar9 = FUN_004dd980(local_d8,(uint *)((int)this + 0x40));
+  FUN_007d79f0(local_e0,(byte)uVar9);
+  uVar9 = FUN_004dd980(local_d8,(uint *)((int)this + 0x38));
+  FUN_007d79f0(local_e0,(byte)uVar9);
+  uVar9 = FUN_004dd980(local_d8,(uint *)((int)this + 0x34));
+  FUN_007d79f0(local_e0,(byte)uVar9);
+  if (*param_4 < 9) {
+    uVar9 = 0;
+    do {
+      uVar21 = FUN_007d0090(*(char **)((int)&PTR_s_rock01_01077bd4 + uVar9));
+      local_b0 = uVar21;
+      puVar13 = FUN_004f3b50(&local_c0,*(LPCWSTR *)((int)&PTR_s_rock01_01077bd4 + uVar9),0xffffffff,
+                             (char *)0x0);
+      local_58 = (int ******)0xb2d882;
+      local_54 = (int ******)0x0;
+      local_60 = local_b0;
+      FUN_00408df0(local_50,puVar13);
+      FUN_00c2a830((void *)((int)this + 0x44),(undefined4 *)&local_60);
+      if ((2 < (int)(local_48 - (int)local_50[0] & 0xfffffffeU)) && (local_50[0] != (char *)0x0)) {
+        FUN_004e44e0((int)local_50[0]);
+      }
+      if ((2 < (int)((int)local_b8 - (int)local_c0 & 0xfffffffeU)) && (local_c0 != (uint *)0x0)) {
+        FUN_004e44e0((int)local_c0);
+      }
+      uVar9 = uVar9 + 4;
+    } while (uVar9 < 0x20);
+  }
+  else {
+    uVar9 = FUN_004dd980(local_d8,(uint *)&local_c8);
+    FUN_007d79f0(local_e0,(byte)uVar9);
+    FUN_00c295c0(*(uint *)((int)this + 0x44),*(uint *)((int)this + 0x48));
+    *(undefined4 *)((int)this + 0x48) = *(undefined4 *)((int)this + 0x44);
+    local_e4 = (void *)0x0;
+    if (local_c8 != (void *)0x0) {
+      do {
+        local_78 = (int ******)0x0;
+        local_74 = (int ******)0x0;
+        local_70 = (char *)0x0;
+        local_6c = 0;
+        bVar7 = FUN_007d7760(local_d8,(uint *)&local_78);
+        FUN_007d79f0(local_e0,bVar7);
+        local_c0 = (uint *)&DAT_011c8e54;
+        local_bc = &DAT_011c8e54;
+        local_b4 = "Terrain/TextureName";
+        local_b8 = &DAT_011c8e56;
+        FUN_007d96b0(local_e0,&local_c0);
+        FUN_007d8310(&local_38,(uint *)&local_78);
+        local_60._4_4_ = local_34;
+        local_60._0_4_ = local_38;
+        local_58 = local_30;
+        local_54 = local_2c;
+        FUN_00408df0(local_50,&local_c0);
+        FUN_00c2a830((undefined4 *)((int)this + 0x44),(undefined4 *)&local_60);
+        if ((2 < (int)(local_48 - (int)local_50[0] & 0xfffffffeU)) && (local_50[0] != (char *)0x0))
+        {
+          FUN_004e44e0((int)local_50[0]);
+        }
+        if ((2 < (int)((int)local_b8 - (int)local_c0 & 0xfffffffeU)) && (local_c0 != (uint *)0x0)) {
+          FUN_004e44e0((int)local_c0);
+        }
+        local_e4 = (uint *)((int)local_e4 + 1);
+      } while (local_e4 < local_c8);
+    }
+  }
+  if (*param_4 < 0xc) {
+    if (*param_4 < 9) {
+      local_e4 = (void *)0x0;
+      local_c4 = (void *)(*(int *)((int)this + 0x48) - *(int *)((int)this + 0x44) >> 5);
+      if (local_c4 != (void *)0x0) {
+        do {
+          local_c0 = (uint *)&DAT_011c8e54;
+          local_bc = &DAT_011c8e54;
+          local_b4 = "Terrain/layerName";
+          local_b8 = &DAT_011c8e56;
+          FUN_004af140(&local_c0,(ushort *)L"Layer%d");
+          iVar12 = (int)local_bc - (int)local_c0 >> 1;
+          uVar9 = iVar12 + 1;
+          local_b0._0_4_ = (undefined2 *)0x0;
+          local_a0 = local_b4;
+          if (uVar9 < 2) {
+            puVar11 = &DAT_011c8e54;
+            local_a4 = &DAT_011c8e56;
+          }
+          else {
+            uVar9 = uVar9 * 2;
+            puVar11 = (undefined1 *)FUN_004e4500(uVar9,local_b4,0);
+            local_a4 = (undefined2 *)(puVar11 + uVar9);
+            this = local_84;
+          }
+          sVar4 = iVar12 * 2;
+          local_b0._4_4_ = puVar11;
+          memmove(puVar11,local_c0,sVar4);
+          local_a8 = (undefined2 *)(puVar11 + sVar4);
+          *local_a8 = 0;
+          puVar13 = *(undefined4 **)((int)this + 0x58);
+          if (puVar13 < *(undefined4 **)((int)this + 0x5c)) {
+            *(undefined4 **)((int)this + 0x58) = puVar13 + 5;
+            if (puVar13 != (undefined4 *)0x0) {
+              *puVar13 = 0;
+              FUN_00408df0(puVar13 + 1,(undefined4 *)((int)&local_b0 + 4));
+            }
+          }
+          else {
+            FUN_00596360((void *)((int)this + 0x54),puVar13,(undefined4 *)&local_b0);
+            puVar11 = local_b0._4_4_;
+          }
+          if ((2 < (int)((int)local_a4 - (int)puVar11 & 0xfffffffeU)) &&
+             (puVar11 != (undefined1 *)0x0)) {
+            FUN_004e44e0((int)puVar11);
+          }
+          if ((2 < (int)((int)local_b8 - (int)local_c0 & 0xfffffffeU)) && (local_c0 != (uint *)0x0))
+          {
+            FUN_004e44e0((int)local_c0);
+          }
+          local_e4 = (uint *)((int)local_e4 + 1);
+        } while (local_e4 < local_c4);
+      }
+    }
+    else {
+      local_e4 = *(uint **)((int)this + 0x44);
+      local_80 = *(uint **)((int)this + 0x48);
+      local_c4 = (void *)DAT_011edbc4;
+      local_c8 = (void *)0x0;
+      if (local_e4 != local_80) {
+        do {
+          local_c0 = (uint *)&DAT_011c8e54;
+          local_bc = &DAT_011c8e54;
+          local_b4 = "Terrain/layerName";
+          local_b8 = &DAT_011c8e56;
+          FUN_004af140(&local_c0,(ushort *)L"Layer%d");
+          uVar10 = FUN_00c5f480(local_e4);
+          iVar12 = (int)local_bc - (int)local_c0 >> 1;
+          uVar9 = iVar12 + 1;
+          local_a0 = local_b4;
+          local_b0._0_4_ = (undefined2 *)uVar10;
+          if (uVar9 < 2) {
+            puVar11 = &DAT_011c8e54;
+            local_a4 = &DAT_011c8e56;
+          }
+          else {
+            uVar9 = uVar9 * 2;
+            puVar11 = (undefined1 *)FUN_004e4500(uVar9,local_b4,0);
+            local_a4 = (undefined2 *)(puVar11 + uVar9);
+            this = local_84;
+          }
+          sVar4 = iVar12 * 2;
+          local_b0._4_4_ = puVar11;
+          memmove(puVar11,local_c0,sVar4);
+          local_a8 = (undefined2 *)(puVar11 + sVar4);
+          *local_a8 = 0;
+          puVar13 = *(undefined4 **)((int)this + 0x58);
+          if (puVar13 < *(undefined4 **)((int)this + 0x5c)) {
+            *(undefined4 **)((int)this + 0x58) = puVar13 + 5;
+            if (puVar13 != (undefined4 *)0x0) {
+              *puVar13 = (undefined2 *)local_b0;
+              FUN_00408df0(puVar13 + 1,(undefined4 *)((int)&local_b0 + 4));
+            }
+          }
+          else {
+            FUN_00596360((void *)((int)this + 0x54),puVar13,(undefined4 *)&local_b0);
+            puVar11 = local_b0._4_4_;
+          }
+          if ((2 < (int)((int)local_a4 - (int)puVar11 & 0xfffffffeU)) &&
+             (puVar11 != (undefined1 *)0x0)) {
+            FUN_004e44e0((int)puVar11);
+          }
+          local_c8 = (void *)((int)local_c8 + 1);
+          if ((2 < (int)((int)local_b8 - (int)local_c0 & 0xfffffffeU)) && (local_c0 != (uint *)0x0))
+          {
+            FUN_004e44e0((int)local_c0);
+          }
+          local_e4 = local_e4 + 8;
+        } while (local_e4 != local_80);
+      }
+    }
+  }
+  else {
+    uVar9 = FUN_004dd980(local_d8,(uint *)&local_c8);
+    FUN_007d79f0(local_e0,(byte)uVar9);
+    FUN_005959c0(*(uint *)((int)this + 0x54),*(uint *)((int)this + 0x58));
+    *(undefined4 *)((int)this + 0x58) = *(undefined4 *)((int)this + 0x54);
+    local_e4 = (void *)0x0;
+    if (local_c8 != (void *)0x0) {
+      do {
+        uVar9 = FUN_004dd980(local_d8,(uint *)&local_c4);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        local_b4 = "Terrain/layerName";
+        local_c0 = (uint *)&DAT_011c8e54;
+        local_bc = &DAT_011c8e54;
+        local_b8 = &DAT_011c8e56;
+        FUN_007d96b0(local_e0,&local_c0);
+        puVar11 = local_bc;
+        local_b0._0_4_ = local_c4;
+        uVar9 = ((int)local_bc - (int)local_c0 >> 1) + 1;
+        local_a0 = local_b4;
+        local_80 = local_c0;
+        if (uVar9 < 2) {
+          _Dst = &DAT_011c8e54;
+          local_a4 = &DAT_011c8e56;
+        }
+        else {
+          uVar9 = uVar9 * 2;
+          _Dst = (undefined1 *)FUN_004e4500(uVar9,local_b4,0);
+          local_a4 = (undefined2 *)(_Dst + uVar9);
+          this = local_84;
+        }
+        sVar4 = ((int)puVar11 - (int)local_80 >> 1) * 2;
+        local_b0._4_4_ = _Dst;
+        memmove(_Dst,local_80,sVar4);
+        local_a8 = (undefined2 *)(_Dst + sVar4);
+        *local_a8 = 0;
+        puVar18 = *(uint **)((int)this + 0x58);
+        if (puVar18 < *(uint **)((int)this + 0x5c)) {
+          *(uint **)((int)this + 0x58) = puVar18 + 5;
+          if (puVar18 != (uint *)0x0) {
+            *puVar18 = (uint)(undefined2 *)local_b0;
+            FUN_00408df0(puVar18 + 1,(undefined4 *)((int)&local_b0 + 4));
+          }
+        }
+        else {
+          FUN_00596360((void *)((int)this + 0x54),puVar18,(undefined4 *)&local_b0);
+          _Dst = local_b0._4_4_;
+        }
+        if ((2 < (int)((int)local_a4 - (int)_Dst & 0xfffffffeU)) && (_Dst != (undefined1 *)0x0)) {
+          FUN_004e44e0((int)_Dst);
+        }
+        if ((2 < (int)((int)local_b8 - (int)local_c0 & 0xfffffffeU)) && (local_c0 != (uint *)0x0)) {
+          FUN_004e44e0((int)local_c0);
+        }
+        local_e4 = (uint *)((int)local_e4 + 1);
+      } while (local_e4 < local_c8);
+    }
+  }
+  if (*param_4 < 8) {
+    uVar9 = FUN_004dd980(local_d8,&local_7c);
+    FUN_007d79f0(local_e0,(byte)uVar9);
+    uVar9 = FUN_004dd980(local_d8,&local_40);
+    FUN_007d79f0(local_e0,(byte)uVar9);
+    if (7 < *param_4) goto LAB_00c2cff8;
+    FUN_00c2c580((int)this);
+  }
+  else {
+LAB_00c2cff8:
+    uVar9 = FUN_004dd980(local_d8,(uint *)&local_c8);
+    FUN_007d79f0(local_e0,(byte)uVar9);
+    if (local_cc == '\0') {
+LAB_00c2c7e5:
+      FUN_007d7990((int)local_e0);
+      return '\0';
+    }
+    FUN_00c2b540(*(uint *)((int)this + 0xac),*(uint *)((int)this + 0xb0));
+    *(undefined4 *)((int)this + 0xb0) = *(undefined4 *)((int)this + 0xac);
+    FUN_00c2c490((undefined4 *)((int)this + 0xac),(uint)local_c8);
+    uVar16 = *(int *)((int)this + 0x3c) + 0xffU >> 8;
+    uVar9 = *(int *)((int)this + 0x40) + 0xffU >> 8;
+    *(uint *)((int)this + 0xd0) = uVar9;
+    uVar9 = uVar9 * uVar16;
+    *(uint *)((int)this + 0xcc) = uVar16;
+    puVar13 = *(undefined4 **)((int)this + 0xc0);
+    uVar16 = (int)puVar13 - *(int *)((int)this + 0xbc) >> 2;
+    local_c4 = (void *)0x0;
+    if (uVar9 < uVar16 || uVar9 - uVar16 == 0) {
+      local_c4 = (void *)(*(int *)((int)this + 0xbc) + uVar9 * 4);
+      memmove(local_c4,puVar13,0);
+      *(int *)((int)this + 0xc0) =
+           *(int *)((int)this + 0xc0) + ((int)puVar13 - (int)local_c4 >> 2) * -4;
+    }
+    else {
+      FUN_006e4940((void *)((int)this + 0xbc),puVar13,uVar9 - uVar16,&local_c4);
+    }
+    local_c4 = (void *)0x0;
+    if (local_c8 != (void *)0x0) {
+      local_e4 = (uint *)0x0;
+      do {
+        puVar18 = (uint *)(*(int *)((int)local_84 + 0xac) + (int)local_e4);
+        uVar9 = FUN_004dd980(local_d8,local_14);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        iVar12 = (**(code **)(*local_d8 + 0x24))(0);
+        local_7c = iVar12 + local_14[0];
+        uVar9 = FUN_004dd980(local_d8,puVar18);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        uVar9 = FUN_004dd980(local_d8,puVar18 + 1);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        uVar9 = FUN_004dd980(local_d8,puVar18 + 2);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        uVar9 = FUN_004dd980(local_d8,puVar18 + 3);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        uVar9 = FUN_004dd980(local_d8,puVar18 + 4);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        uVar9 = FUN_004dd980(local_d8,puVar18 + 5);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        uVar9 = FUN_004dd980(local_d8,&uStack_20);
+        FUN_007d79f0(local_e0,(byte)uVar9);
+        if (local_cc == '\0') goto LAB_00c2c7e5;
+        _Src = (void *)puVar18[0x10];
+        uVar9 = puVar18[0xf];
+        if ((int)_Src - uVar9 < uStack_20) {
+          bStack_86 = 0;
+          FUN_00b6f4c0(puVar18 + 0xf,_Src,(void *)((uVar9 - (int)_Src) + uStack_20),&bStack_86);
+        }
+        else {
+          puStack_8c = (uint *)(uVar9 + uStack_20);
+          memmove(puStack_8c,_Src,0);
+          puVar18[0x10] = (uint)((int)puStack_8c + (puVar18[0x10] - (int)_Src));
+        }
+        uVar9 = puVar18[0xf];
+        bVar8 = FUN_004dd8b0(local_d8,uVar9,puVar18[0x10] - uVar9);
+        FUN_007d79f0(local_e0,bVar8);
+        local_a8 = (undefined2 *)puVar18[5];
+        local_b0._0_4_ = (undefined2 *)puVar18[4];
+        local_b0._4_4_ = (undefined1 *)0x0;
+        puVar18[8] = (uint)(undefined2 *)local_b0;
+        puVar18[9] = 0;
+        puVar18[10] = (uint)local_a8;
+        puVar18[0xb] = (uint)(undefined2 *)local_b0;
+        local_a4 = (undefined2 *)local_b0;
+        puVar13 = (undefined4 *)FUN_004e4520(0xb0,0x10,0,"Terrain/TerrainData/KDTree",0);
+        if (puVar13 == (undefined4 *)0x0) {
+          piVar14 = (int *)0x0;
+        }
+        else {
+          piVar14 = (int *)FUN_0067e7e0(puVar13);
+        }
+        piVar1 = (int *)puVar18[0xc];
+        if (piVar14 != piVar1) {
+          if (piVar14 != (int *)0x0) {
+            (**(code **)*piVar14)();
+          }
+          puVar18[0xc] = (uint)piVar14;
+          if (piVar1 != (int *)0x0) {
+            (**(code **)(*piVar1 + 4))();
+          }
+        }
+        FUN_006802e0((void *)puVar18[0xc],0,0,0,256.0,256.0);
+        uVar9 = *puVar18;
+        uVar16 = puVar18[2];
+        puStack_64 = (uint *)(puVar18[3] + puVar18[1] >> 8);
+        puStack_8c = (uint *)((int)uVar9 >> 8);
+        puVar18[0xe] = 0;
+        for (puVar17 = (uint *)((int)puVar18[1] >> 8); puVar20 = puStack_8c, puVar17 < puStack_64;
+            puVar17 = (uint *)((int)puVar17 + 1)) {
+          for (; puVar20 < (uint *)(uVar16 + uVar9 >> 8); puVar20 = (uint *)((int)puVar20 + 1)) {
+            *(uint **)(*(int *)((int)local_84 + 0xbc) +
+                      (int)(*(int *)((int)local_84 + 0xcc) * (int)puVar17 + (int)puVar20) * 4) =
+                 puVar18;
+          }
+        }
+        if (10 < *param_4) {
+          uVar9 = FUN_004dd980(local_d8,(uint *)&local_80);
+          FUN_007d79f0(local_e0,(byte)uVar9);
+          puStack_8c = (uint *)0x0;
+          if (local_80 != (uint *)0x0) {
+            puStack_64 = puVar18 + 0x14;
+            do {
+              uVar9 = FUN_004ddab0(local_d8,&local_38);
+              FUN_007d79f0(local_e0,(byte)uVar9);
+              local_78 = (int ******)&local_78;
+              local_60._4_4_ = local_34;
+              local_70 = "Terrain/LotTerrainPasses";
+              local_50[0] = "Terrain/LotTerrainPasses";
+              local_58 = (int ******)&local_58;
+              uStack_24 = uStack_24 & 0xffffff00;
+              local_60._0_4_ = local_38;
+              local_74 = local_78;
+              local_54 = local_58;
+              FUN_00c2a910(&local_58,(int)&local_58,&local_78,&local_78);
+              uStack_1c = uStack_1c & 0xffffff00;
+              FUN_00c2b470(puStack_64,&local_c0,(uint *)&local_60);
+              pppppppiVar19 = (int *******)local_58;
+              if ((int *******)local_58 != &local_58) {
+                do {
+                  pppppppiVar2 = (int *******)*pppppppiVar19;
+                  if (pppppppiVar19[10] != (int ******)0x0) {
+                    FUN_004e44e0((int)pppppppiVar19[10]);
+                  }
+                  FUN_004e44e0((int)pppppppiVar19);
+                  pppppppiVar19 = pppppppiVar2;
+                } while (pppppppiVar2 != &local_58);
+              }
+              pppppppiVar19 = (int *******)local_78;
+              if ((int *******)local_78 != &local_78) {
+                do {
+                  pppppppiVar2 = (int *******)*pppppppiVar19;
+                  if (pppppppiVar19[10] != (int ******)0x0) {
+                    FUN_004e44e0((int)pppppppiVar19[10]);
+                  }
+                  FUN_004e44e0((int)pppppppiVar19);
+                  pppppppiVar19 = pppppppiVar2;
+                } while (pppppppiVar2 != &local_78);
+              }
+              puVar17 = local_c0;
+              puVar20 = local_c0 + 2;
+              uVar9 = FUN_004dd980(local_d8,&uStack_3c);
+              FUN_007d79f0(local_e0,(byte)uVar9);
+              puVar18 = (uint *)*puVar20;
+              while (puVar18 != puVar20) {
+                puVar3 = (uint *)*puVar18;
+                if (puVar18[10] != 0) {
+                  FUN_004e44e0(puVar18[10]);
+                }
+                FUN_004e44e0((int)puVar18);
+                puVar18 = puVar3;
+              }
+              uVar9 = 0;
+              *puVar20 = (uint)puVar20;
+              puVar17[3] = (uint)puVar20;
+              if (uStack_3c != 0) {
+                uStack_18 = 4;
+                do {
+                  puVar13 = (undefined4 *)FUN_004e4500(0x38,puVar17[4],0);
+                  if (puVar13 != (undefined4 *)0xfffffff8) {
+                    puVar13[10] = 0;
+                    puVar13[0xb] = 0;
+                    puVar13[0xc] = 0;
+                    puVar13[0xd] = "Terrain/PassTriList";
+                  }
+                  *puVar13 = puVar20;
+                  puVar13[1] = puVar17[3];
+                  *(undefined4 **)puVar17[3] = puVar13;
+                  puVar17[3] = (uint)puVar13;
+                  uVar16 = FUN_004dd860(local_d8);
+                  FUN_007d79f0(local_e0,(byte)uVar16);
+                  uVar16 = FUN_004dd860(local_d8);
+                  FUN_007d79f0(local_e0,(byte)uVar16);
+                  bVar8 = FUN_004dd890(local_d8,&bStack_85);
+                  FUN_007d79f0(local_e0,bVar8);
+                  uStack_28 = (uint)bStack_85;
+                  puVar18 = &uStack_18;
+                  if (bStack_85 < 5) {
+                    puVar18 = &uStack_28;
+                  }
+                  uVar16 = *puVar18;
+                  puVar13[3] = uVar16;
+                  bVar8 = FUN_004dd8b0(local_d8,puVar13 + 4,uVar16);
+                  FUN_007d79f0(local_e0,bVar8);
+                  uVar16 = FUN_004dd980(local_d8,&local_40);
+                  FUN_007d79f0(local_e0,(byte)uVar16);
+                  FUN_007d8490(local_e0,local_40 * 4,1);
+                  uVar9 = uVar9 + 1;
+                } while (uVar9 < uStack_3c);
+              }
+              puStack_8c = (uint *)((int)puStack_8c + 1);
+            } while (puStack_8c < local_80);
+          }
+        }
+        (**(code **)(*local_d8 + 0x28))(local_7c,0);
+        local_e4 = (uint *)((int)local_e4 + 0x70);
+        local_c4 = (void *)((int)local_c4 + 1);
+        this = local_84;
+      } while (local_c4 < local_c8);
+    }
+  }
+  FUN_007d7a70((int)local_e0);
+  fVar5 = (float)*(int *)((int)this + 0x34);
+  if (*(int *)((int)this + 0x34) < 0) {
+    fVar5 = fVar5 + 4.2949673e+09;
+  }
+  *(float *)((int)this + 0x24) = fVar5 * 1.5258789e-05;
+  fVar5 = (float)*(int *)((int)this + 0x38);
+  if (*(int *)((int)this + 0x38) < 0) {
+    fVar5 = fVar5 + 4.2949673e+09;
+  }
+  *(float *)((int)this + 0x28) = fVar5;
+  *(float *)((int)this + 0x2c) = 1.0 / fVar5;
+  puVar15 = FUN_00c5fe00();
+  *(undefined4 *)((int)this + 0x30) = *(undefined4 *)(puVar15 + 4);
+LAB_00c2d77e:
+  FUN_007d7990((int)local_e0);
+  return local_cc;
+}
+
+

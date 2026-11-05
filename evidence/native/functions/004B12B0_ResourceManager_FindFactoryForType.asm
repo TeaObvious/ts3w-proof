@@ -1,0 +1,70 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined ResourceManager_FindFactoryForType(void)
+Owned ranges: [[004b12b0, 004b134c]]
+
+004b12b0  83ec0c  SUB ESP,0xc
+004b12b3  53  PUSH EBX
+004b12b4  55  PUSH EBP
+004b12b5  56  PUSH ESI
+004b12b6  8bf1  MOV ESI,ECX
+004b12b8  57  PUSH EDI
+004b12b9  8d9ea0010000  LEA EBX,[ESI + 0x1a0]
+004b12bf  68e03cfb00  PUSH 0xfb3ce0
+004b12c4  8bcb  MOV ECX,EBX
+004b12c6  895c2414  MOV dword ptr [ESP + 0x14],EBX
+004b12ca  e831090300  CALL 0x004e1c00
+004b12cf  8d442420  LEA EAX,[ESP + 0x20]
+004b12d3  50  PUSH EAX
+004b12d4  8d4c2418  LEA ECX,[ESP + 0x18]
+004b12d8  83c678  ADD ESI,0x78
+004b12db  51  PUSH ECX
+004b12dc  8bce  MOV ECX,ESI
+004b12de  e8ad5d0c00  CALL 0x00577090
+004b12e3  8b00  MOV EAX,dword ptr [EAX]
+004b12e5  8b5608  MOV EDX,dword ptr [ESI + 0x8]
+004b12e8  8b4e04  MOV ECX,dword ptr [ESI + 0x4]
+004b12eb  3b0491  CMP EAX,dword ptr [ECX + EDX*0x4]
+004b12ee  7435  JZ 0x004b1325
+004b12f0  8b7804  MOV EDI,dword ptr [EAX + 0x4]
+004b12f3  8b6808  MOV EBP,dword ptr [EAX + 0x8]
+004b12f6  3bfd  CMP EDI,EBP
+004b12f8  742b  JZ 0x004b1325
+004b12fa  8b5c2424  MOV EBX,dword ptr [ESP + 0x24]
+004b12fe  8bff  MOV EDI,EDI
+004b1300  83fbff  CMP EBX,-0x1
+004b1303  8b37  MOV ESI,dword ptr [EDI]
+004b1305  7431  JZ 0x004b1338
+004b1307  8b16  MOV EDX,dword ptr [ESI]
+004b1309  8b442420  MOV EAX,dword ptr [ESP + 0x20]
+004b130d  8b5230  MOV EDX,dword ptr [EDX + 0x30]
+004b1310  53  PUSH EBX
+004b1311  50  PUSH EAX
+004b1312  8bce  MOV ECX,ESI
+004b1314  ffd2  CALL EDX
+004b1316  84c0  TEST AL,AL
+004b1318  751e  JNZ 0x004b1338
+004b131a  83c708  ADD EDI,0x8
+004b131d  3bfd  CMP EDI,EBP
+004b131f  75df  JNZ 0x004b1300
+004b1321  8b5c2410  MOV EBX,dword ptr [ESP + 0x10]
+004b1325  8bcb  MOV ECX,EBX
+004b1327  e894090300  CALL 0x004e1cc0
+004b132c  5f  POP EDI
+004b132d  5e  POP ESI
+004b132e  5d  POP EBP
+004b132f  33c0  XOR EAX,EAX
+004b1331  5b  POP EBX
+004b1332  83c40c  ADD ESP,0xc
+004b1335  c20800  RET 0x8
+004b1338  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+004b133c  e87f090300  CALL 0x004e1cc0
+004b1341  5f  POP EDI
+004b1342  8bc6  MOV EAX,ESI
+004b1344  5e  POP ESI
+004b1345  5d  POP EBP
+004b1346  5b  POP EBX
+004b1347  83c40c  ADD ESP,0xc
+004b134a  c20800  RET 0x8

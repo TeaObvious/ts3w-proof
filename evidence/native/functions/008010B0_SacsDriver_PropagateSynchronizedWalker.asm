@@ -1,0 +1,62 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC 1.67 TS3W.exe, complete Ghidra-owned Listing.
+Signature: undefined SacsDriver_PropagateSynchronizedWalker(void * this, void * param_1)
+Owned ranges: [[008010b0, 00801140]]
+
+008010b0  51  PUSH ECX
+008010b1  53  PUSH EBX
+008010b2  8b5c240c  MOV EBX,dword ptr [ESP + 0xc]
+008010b6  8b4328  MOV EAX,dword ptr [EBX + 0x28]
+008010b9  55  PUSH EBP
+008010ba  8be9  MOV EBP,ECX
+008010bc  8b4b10  MOV ECX,dword ptr [EBX + 0x10]
+008010bf  57  PUSH EDI
+008010c0  8b7d10  MOV EDI,dword ptr [EBP + 0x10]
+008010c3  3b7d14  CMP EDI,dword ptr [EBP + 0x14]
+008010c6  894c2414  MOV dword ptr [ESP + 0x14],ECX
+008010ca  8944240c  MOV dword ptr [ESP + 0xc],EAX
+008010ce  746a  JZ 0x0080113a
+008010d0  56  PUSH ESI
+008010d1  eb04  JMP 0x008010d7
+008010d3  8b4c2418  MOV ECX,dword ptr [ESP + 0x18]
+008010d7  8b7704  MOV ESI,dword ptr [EDI + 0x4]
+008010da  3bf3  CMP ESI,EBX
+008010dc  7453  JZ 0x00801131
+008010de  8b4610  MOV EAX,dword ptr [ESI + 0x10]
+008010e1  85c0  TEST EAX,EAX
+008010e3  7505  JNZ 0x008010ea
+008010e5  39461c  CMP dword ptr [ESI + 0x1c],EAX
+008010e8  7447  JZ 0x00801131
+008010ea  3bc8  CMP ECX,EAX
+008010ec  740a  JZ 0x008010f8
+008010ee  894e10  MOV dword ptr [ESI + 0x10],ECX
+008010f1  8bce  MOV ECX,ESI
+008010f3  e848f5ffff  CALL 0x00800640
+008010f8  8b4624  MOV EAX,dword ptr [ESI + 0x24]
+008010fb  85c0  TEST EAX,EAX
+008010fd  8b4c2410  MOV ECX,dword ptr [ESP + 0x10]
+00801101  894e28  MOV dword ptr [ESI + 0x28],ECX
+00801104  7405  JZ 0x0080110b
+00801106  394324  CMP dword ptr [EBX + 0x24],EAX
+00801109  7526  JNZ 0x00801131
+0080110b  837e1c00  CMP dword ptr [ESI + 0x1c],0x0
+0080110f  7410  JZ 0x00801121
+00801111  6a00  PUSH 0x0
+00801113  8bce  MOV ECX,ESI
+00801115  c7461c00000000  MOV dword ptr [ESI + 0x1c],0x0
+0080111c  e86fecffff  CALL 0x007ffd90
+00801121  6a00  PUSH 0x0
+00801123  8bce  MOV ECX,ESI
+00801125  c7461800000000  MOV dword ptr [ESI + 0x18],0x0
+0080112c  e85fecffff  CALL 0x007ffd90
+00801131  83c708  ADD EDI,0x8
+00801134  3b7d14  CMP EDI,dword ptr [EBP + 0x14]
+00801137  759a  JNZ 0x008010d3
+00801139  5e  POP ESI
+0080113a  5f  POP EDI
+0080113b  5d  POP EBP
+0080113c  5b  POP EBX
+0080113d  59  POP ECX
+0080113e  c20400  RET 0x4

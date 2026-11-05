@@ -1,0 +1,24 @@
+# PC 1.67 TS3W.exe 694a81bf2554e8fee4df49da76976411f68b043500012d72ca6e3d1972c5b5e3
+# Registration: ScriptCore.CameraController::Camera_IsHorizontalRotationInverted
+# Entry: 0x0073d760; bounded stop: 0x0073d780; next Ghidra entry: 0x0073d780
+# Bounded window only; the Ghidra function body may differ or be truncated.
+
+TS3W.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0073d760 <.text+0x33c760>:
+  73d760:	e8 6b c4 22 00       	call   0x969bd0
+  73d765:	85 c0                	test   eax,eax
+  73d767:	74 12                	je     0x73d77b
+  73d769:	8b c8                	mov    ecx,eax
+  73d76b:	e8 80 48 7e 00       	call   0xf21ff0
+  73d770:	85 c0                	test   eax,eax
+  73d772:	74 07                	je     0x73d77b
+  73d774:	8a 80 e1 00 00 00    	mov    al,BYTE PTR [eax+0xe1]
+  73d77a:	c3                   	ret
+  73d77b:	32 c0                	xor    al,al
+  73d77d:	c3                   	ret
+  73d77e:	cc                   	int3
+  73d77f:	cc                   	int3

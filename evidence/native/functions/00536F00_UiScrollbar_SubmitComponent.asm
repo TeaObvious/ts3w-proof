@@ -1,0 +1,57 @@
+# Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
+# Filename/link maintenance only; historical bounds/instructions below, no fresh Listing or DB assertion.
+
+Original PC1.67 TS3W.exe; complete Ghidra function body.
+Actual annotated Ghidra pseudocode: 00536F00_UiScrollbar_SubmitComponent.c
+Owned ranges: [[00536f00, 00536fb3]]
+
+00536f00  83ec10  SUB ESP,0x10
+00536f03  56  PUSH ESI
+00536f04  8bf1  MOV ESI,ECX
+00536f06  83be0402000000  CMP dword ptr [ESI + 0x204],0x0
+00536f0d  0f849a000000  JZ 0x00536fad
+00536f13  8b8600020000  MOV EAX,dword ptr [ESI + 0x200]
+00536f19  8b8efc010000  MOV ECX,dword ptr [ESI + 0x1fc]
+00536f1f  8944240c  MOV dword ptr [ESP + 0xc],EAX
+00536f23  0fb68684020000  MOVZX EAX,byte ptr [ESI + 0x284]
+00536f2a  57  PUSH EDI
+00536f2b  8b7c2420  MOV EDI,dword ptr [ESP + 0x20]
+00536f2f  3bc7  CMP EAX,EDI
+00536f31  c744240800000000  MOV dword ptr [ESP + 0x8],0x0
+00536f39  897c240c  MOV dword ptr [ESP + 0xc],EDI
+00536f3d  894c2414  MOV dword ptr [ESP + 0x14],ECX
+00536f41  7521  JNZ 0x00536f64
+00536f43  0fb69685020000  MOVZX EDX,byte ptr [ESI + 0x285]
+00536f4a  3bd7  CMP EDX,EDI
+00536f4c  750a  JNZ 0x00536f58
+00536f4e  c744240803000000  MOV dword ptr [ESP + 0x8],0x3
+00536f56  eb0c  JMP 0x00536f64
+00536f58  3bc7  CMP EAX,EDI
+00536f5a  7508  JNZ 0x00536f64
+00536f5c  c744240802000000  MOV dword ptr [ESP + 0x8],0x2
+00536f64  8b4604  MOV EAX,dword ptr [ESI + 0x4]
+00536f67  8b5028  MOV EDX,dword ptr [EAX + 0x28]
+00536f6a  8d4e04  LEA ECX,[ESI + 0x4]
+00536f6d  ffd2  CALL EDX
+00536f6f  a802  TEST AL,0x2
+00536f71  7508  JNZ 0x00536f7b
+00536f73  c744240801000000  MOV dword ptr [ESP + 0x8],0x1
+00536f7b  83be8002000002  CMP dword ptr [ESI + 0x280],0x2
+00536f82  7508  JNZ 0x00536f8c
+00536f84  814c240880000000  OR dword ptr [ESP + 0x8],0x80
+00536f8c  8b8e04020000  MOV ECX,dword ptr [ESI + 0x204]
+00536f92  8b01  MOV EAX,dword ptr [ECX]
+00536f94  8b4010  MOV EAX,dword ptr [EAX + 0x10]
+00536f97  83c72b  ADD EDI,0x2b
+00536f9a  8d542408  LEA EDX,[ESP + 0x8]
+00536f9e  52  PUSH EDX
+00536f9f  8b542420  MOV EDX,dword ptr [ESP + 0x20]
+00536fa3  c1e704  SHL EDI,0x4
+00536fa6  03fe  ADD EDI,ESI
+00536fa8  57  PUSH EDI
+00536fa9  52  PUSH EDX
+00536faa  ffd0  CALL EAX
+00536fac  5f  POP EDI
+00536fad  5e  POP ESI
+00536fae  83c410  ADD ESP,0x10
+00536fb1  c20800  RET 0x8
