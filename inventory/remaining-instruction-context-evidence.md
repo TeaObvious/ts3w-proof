@@ -1,7 +1,13 @@
-# Required instruction evidence at an unowned slot target
+# Required instruction contexts outside declared functions
 
 The [typed context sidecar](remaining-instruction-context-assertions.tsv)
-records one exact `needed_instruction_evidence` assertion:
+records three `needed_instruction_evidence` assertions totaling 345 bytes:
+the 31-byte indirect slot-target context below, and
+[two registered enum entry contexts](remaining-enum-root-context-evidence.md)
+totaling 314 bytes / 102 whole instructions. All remain qualified contexts,
+with no current function definition or canonical ASM/C pair asserted.
+
+The original slot-target assertion is
 **`[0051A720,0051A73F)`, 31 bytes and eleven whole instruction starts**.
 Original table values and the existing caller's selected slot path establish
 why these bytes are required evidence. The target has a retained NoFunction

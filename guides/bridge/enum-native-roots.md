@@ -104,3 +104,9 @@ establish absence of callers. These roots remain relevant because the explicit
 binder and original managed declarations provide independent entry provenance.
 
 The [downstream lookup contract](enum-lookup-contract.md) records twelve complete existing definitions, width/sign dispatch and shared class-keyed cache storage. [Original enum inputs and aliases](../managed/enum-inputs-and-aliases.md) retain exact original Constant-table evidence; aliases alone do not establish warm/cold cache parity or a runtime failure.
+
+The [typed remaining-region context assertions](../../inventory/remaining-enum-root-context-evidence.md)
+retain the existing 314 original instruction bytes as two explicit evidence
+dispositions. The frozen complete ownership snapshot has no exact definition,
+containing owner or overlapping owned range for either entire candidate; current
+database state remains unqueried. These assertions add no canonical body/C pair.

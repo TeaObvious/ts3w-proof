@@ -15,7 +15,7 @@ The inherited census, ownership, registration and executable-region inputs retai
 | Original registration records / distinct native targets | 1,777 / 1,733 |
 | Registered targets with an exact pair | 1,731 |
 
-`0095F620` and `00C99950` retain qualified windows and comment-only C, not successful function decompilations. `00D7CE10` and `00D7CEA0` remain concrete original registered-entry questions. Neither absence from the definition snapshot nor a missing canonical pair proves that no useful evidence exists elsewhere. Unknowns are not excluded.
+`0095F620` and `00C99950` retain qualified windows and comment-only C, not successful function decompilations. `00D7CE10` and `00D7CEA0` now resolve to [qualified original instruction contexts](remaining-enum-root-context-evidence.md), 140/174 bytes with original binder/retail-IL provenance and no historical containing owner. Their current database definitions, canonical pairs, dependency closure and comprehensive entry dispositions remain open. Neither absence from the definition snapshot nor a missing canonical pair proves that no useful evidence exists elsewhere. Unknowns are not excluded.
 
 ## Reading a row
 
@@ -37,7 +37,7 @@ All **665 external locations** remain fully represented in the existing [externa
 
 The [unchanged 20261104 complement](remaining-executable-regions.tsv) contains **42,715 intervals / 1,404,655 bytes** outside the complete declared ownership union, split by the PE executable-input zones. It is a metadata complement, not proof that all these bytes are instructions or unrecognized independent functions. The [method and nontext-root limits](remaining-code-method.md) remain binding.
 
-Existing bounded assertions identify **118 necessary data bytes**, **1,690 instruction-evidence bytes** and **31 unowned indirect-target context bytes** inside six baseline parents. The source JSON joins every assertion to its exact parent and subtracts only its sourced half-open interval. All **42,709 untouched parents** remain unresolved. The six touched parents also retain explicit unresolved successors. This produces **42,719 unasserted successor intervals / 1,402,816 bytes**. No parent is closed, and no asserted instruction interval is silently converted into database ownership or whole-contract acceptance.
+Existing bounded assertions identify **118 necessary data bytes**, **1,690 singleton-root instruction-evidence bytes** and **345 context bytes** (31 indirect-target plus 314 registered enum-entry bytes) inside **7 baseline parents**. The source JSON joins every assertion to its exact parent and subtracts only its sourced half-open interval. All **42,708 untouched parents** remain unresolved. The touched parents also retain explicit unresolved successors. This produces **42,721 unasserted successor intervals / 1,402,502 bytes**. No parent is closed, and no asserted instruction interval is silently converted into database ownership or whole-contract acceptance.
 
 The original [data assertions](remaining-region-dispositions.md), [instruction assertions](remaining-instruction-evidence.md) and [unowned context assertion](remaining-instruction-context-evidence.md) retain their own consumer, CFG, source and review limits. Existing overlapping declared owners and the cross-section `00519010` relationship remain separate concerns. The recorded export root `011CF378` lies outside the initial `.text` domain and stays an unresolved code/data/initialization question; its name alone is not an exclusion.
 

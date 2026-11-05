@@ -20,7 +20,11 @@
     "inventory/remaining-code-method.md",
     "inventory/full-body-coverage.md",
     "guides/reference/retained-proof-snapshot.md",
-    "references/retained-proof-bd11-update.md"
+    "references/retained-proof-bd11-update.md",
+    "evidence/native/data/enum-registered-roots-ingress.json",
+    "evidence/native/data/enum-registered-roots-parent-rest.tsv",
+    "evidence/native/data/enum-registered-roots.context.tsv",
+    "inventory/remaining-enum-root-context-evidence.md"
   ],
   "counts": {
     "internal_definitions": 40854,
@@ -43,11 +47,11 @@
     "external_label_locations": 14,
     "baseline_remaining_regions": 42715,
     "baseline_remaining_bytes": 1404655,
-    "partially_asserted_baseline_regions": 6,
-    "asserted_complement_bytes": 1839,
-    "unasserted_complement_bytes": 1402816,
-    "untouched_baseline_remaining_regions": 42709,
-    "residual_interval_count_after_assertion_subtraction": 42719
+    "partially_asserted_baseline_regions": 7,
+    "asserted_complement_bytes": 2153,
+    "unasserted_complement_bytes": 1402502,
+    "untouched_baseline_remaining_regions": 42708,
+    "residual_interval_count_after_assertion_subtraction": 42721
   },
   "line_locator_convention": "All *_line and *_rows fields are physical 1-based TSV file lines including header; ranges inclusive; semicolon separates ranges. Empty is no exact selected-index relation, never global absence.",
   "line_locator_sources": {
@@ -63,7 +67,8 @@
     "ownership": "20261104 complete declared ownership snapshot, not real-function extent acceptance",
     "canonical": "Current canonical join includes the eleven f915 retained owned pairs in addition to maintained Research/Resource3 adoptions. Historical census and ownership names remain unchanged.",
     "transfers": "Current selected resolved-transfer index includes keyed f915 additions and target-name/availability corrections; physical incoming/outgoing row anchors are recomputed. This is not complete reachability or runtime.",
-    "runtime": "No target execution or live metadata observation performed by this join"
+    "runtime": "No target execution or live metadata observation performed by this join",
+    "registered_enum_contexts": "Additive reviewed original-byte/retained-GNU-LLVM/registration/retail-IL evidence; historical40854-definition/44903-range scope unchanged, current DB unqueried; rebased onto the separately recorded current source without replacing canonical/refresh joins"
   },
   "external_identity_scope": {
     "source": "inventory/native-imports.tsv",
@@ -266,8 +271,8 @@
         "bytes": 1690
       },
       "inventory/remaining-instruction-context-assertions.tsv": {
-        "rows": 1,
-        "bytes": 31
+        "rows": 3,
+        "bytes": 345
       }
     },
     "partially_asserted_parents": [
@@ -385,6 +390,45 @@
           ]
         ],
         "unasserted_bytes": 15,
+        "unasserted_disposition": "unresolved"
+      },
+      {
+        "parent_region_id": "ts3w-pc-1.67:0097ce02:0097cf50:20261104",
+        "baseline_source": "inventory/remaining-executable-regions.tsv#L35990",
+        "baseline_bytes": 334,
+        "assertions": [
+          {
+            "assertion_id": "enum-simple-name-registered-entry-context",
+            "source": "inventory/remaining-instruction-context-assertions.tsv#L3",
+            "start_va": "00D7CE10",
+            "stop_va_exclusive": "00D7CE9C",
+            "byte_count": 140,
+            "disposition": "needed_instruction_evidence"
+          },
+          {
+            "assertion_id": "enum-simple-hash-registered-entry-context",
+            "source": "inventory/remaining-instruction-context-assertions.tsv#L4",
+            "start_va": "00D7CEA0",
+            "stop_va_exclusive": "00D7CF4E",
+            "byte_count": 174,
+            "disposition": "needed_instruction_evidence"
+          }
+        ],
+        "unasserted_intervals_va_exclusive": [
+          [
+            "00D7CE02",
+            "00D7CE10"
+          ],
+          [
+            "00D7CE9C",
+            "00D7CEA0"
+          ],
+          [
+            "00D7CF4E",
+            "00D7CF50"
+          ]
+        ],
+        "unasserted_bytes": 20,
         "unasserted_disposition": "unresolved"
       },
       {
@@ -526,5 +570,23 @@
       "source_commit": "f915701b90809e4479c11adc4f726c826c6e9941",
       "scope": "eleven canonical evidence entries plus keyed selected transfer delta; only canonical/transfer physical joins refreshed"
     }
-  ]
+  ],
+  "registered_enum_context_join": {
+    "reviewed_source_base_commit": "b45b6162218b15f94f61b15534116059fa58954b",
+    "rebased_source_commit": "c7170306be37681fc280cb2d9281fdeec7f881fd",
+    "source_assertions": "inventory/remaining-instruction-context-assertions.tsv#L3-L4",
+    "context_source": "evidence/native/data/enum-registered-roots.context.tsv",
+    "ingress_source": "evidence/native/data/enum-registered-roots-ingress.json",
+    "parent_rest_source": "evidence/native/data/enum-registered-roots-parent-rest.tsv",
+    "guide": "inventory/remaining-enum-root-context-evidence.md",
+    "affected_entry_vas": [
+      "00D7CE10",
+      "00D7CEA0"
+    ],
+    "existing_assertions_unchanged": true,
+    "current_database_observed": false,
+    "canonical_pairs_added": 0,
+    "current_canonical_count_preserved": 5131,
+    "pending_genuine_C_refresh_callers_preserved": 0
+  }
 }
