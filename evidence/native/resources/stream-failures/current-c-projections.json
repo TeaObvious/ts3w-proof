@@ -1,235 +1,297 @@
 {
-  "schema": "ts3w-qualified-current-c/resource-streams-v1",
+  "schema": "ts3w-resource-stream-canonical-evidence-index-v2",
   "reference_id": "ts3w-pc-1.67",
   "reference_identity": "../../../reference.json",
-  "scope": "Three genuine current C suffixes, 636 Original bytes/249 starts reconciled; no canonical pair, ABI/type repair, complete function annotation or variable binding.",
+  "scope": "Canonical references for three maintained ASM/C pairs, plus four genuine qualified caller projections. The three canonical C bodies are stored once in their actual files.",
   "functions": [
     {
       "entry": "004DF1C0",
-      "observed_name": "FUN_004df1c0",
-      "Info_signature_projection": "undefined4 __thiscall FUN_004df1c0(void * this, uint param_1)",
-      "Prototype_projection": {
-        "name": "FUN_004df1c0",
-        "address": "004df1c0",
-        "calling_convention": "__thiscall",
-        "prototype": "undefined4 FUN_004df1c0(void * this, uint param_1)",
-        "return_type": "undefined4",
-        "parameter_count": 2
-      },
+      "name": "MemoryStream_ReplaceBackingCapacity",
       "recorded_range": [
         "004DF1C0",
         "004DF2A2"
       ],
       "Original_bytes": 226,
       "Original_starts": 100,
-      "decompiled_C": "\n\nuint __thiscall FUN_004df1c0(void *this,uint param_1)\n\n{\n  int *piVar1;\n  char *pcVar2;\n  undefined4 *puVar3;\n  uint uVar4;\n  int iVar5;\n  int *piVar6;\n  \n  if ((*(int *)((int)this + 4) == 0) ||\n     (piVar1 = *(int **)(*(int *)((int)this + 4) + 4), piVar1 == (int *)0x0)) {\n    piVar1 = (int *)FUN_004d9c90();\n  }\n  if (param_1 != 0) {\n    pcVar2 = *(char **)((int)this + 8);\n    if (pcVar2 == (char *)0x0) {\n      pcVar2 = \"Services/EAIO/EAStreamMemory/ptr\";\n    }\n    puVar3 = FUN_004e0a20(0x14,piVar1,pcVar2);\n    uVar4 = 0;\n    if (puVar3 != (undefined4 *)0x0) {\n      piVar1 = FUN_004def60(puVar3,param_1,piVar1,*(char **)((int)this + 8));\n      uVar4 = 0;\n      if (piVar1 != (int *)0x0) {\n        piVar1[3] = piVar1[3] + 1;\n        piVar6 = piVar1;\n        if (piVar1[2] != 0) goto LAB_004df22e;\n        uVar4 = FUN_004dee00(piVar1);\n      }\n    }\n    return uVar4 & 0xffffff00;\n  }\n  piVar6 = (int *)0x0;\nLAB_004df22e:\n  if (*(int *)((int)this + 4) != 0) {\n    if (piVar6 != (int *)0x0) {\n      uVar4 = *(uint *)((int)this + 0x14);\n      if (param_1 < *(uint *)((int)this + 0x14)) {\n        uVar4 = param_1;\n      }\n      memcpy((void *)piVar6[2],*(void **)(*(int *)((int)this + 4) + 8),uVar4);\n    }\n    puVar3 = *(undefined4 **)((int)this + 4);\n    if (1 < (int)puVar3[3]) {\n      iVar5 = puVar3[3] + -1;\n      puVar3[3] = iVar5;\n      *(int **)((int)this + 4) = piVar6;\n      *(uint *)((int)this + 0x14) = param_1;\n      return CONCAT31((int3)((uint)iVar5 >> 8),1);\n    }\n    if (*(char *)(puVar3 + 4) != '\\0') {\n      (**(code **)(*(int *)puVar3[1] + 0xc))(puVar3[2],0);\n    }\n    piVar1 = (int *)(**(code **)*puVar3)(1);\n  }\n  *(int **)((int)this + 4) = piVar6;\n  *(uint *)((int)this + 0x14) = param_1;\n  return CONCAT31((int3)((uint)piVar1 >> 8),1);\n}\n\n"
+      "canonical_asm": "evidence/native/resources/stream-failures/004DF1C0_MemoryStream_ReplaceBackingCapacity.asm",
+      "canonical_c": "evidence/native/resources/stream-failures/004DF1C0_MemoryStream_ReplaceBackingCapacity.c",
+      "behavior_head": "Actual Ghidra Plate and complete genuine canonical C; no duplicate C body is retained in this index.",
+      "ABI_qualification": "undefined4 __thiscall FUN_004df1c0(void * this, uint param_1)",
+      "signature_observation_status": "Historical pre-annotation signature projection retained for width/calling-convention context; actual types were not changed by the name-only work.",
+      "annotation_status": "Three names and Plates plus twelve variable names were applied/read back; seven semantic holds remain across the selected functions. One project Save was reported; no reopen/runtime test."
     },
     {
       "entry": "004DEE00",
-      "observed_name": "FUN_004dee00",
-      "Info_signature_projection": "int __fastcall FUN_004dee00(undefined4 * param_1)",
-      "Prototype_projection": {
-        "name": "FUN_004dee00",
-        "address": "004dee00",
-        "calling_convention": "__fastcall",
-        "prototype": "int FUN_004dee00(undefined4 * param_1)",
-        "return_type": "int",
-        "parameter_count": 1
-      },
+      "name": "MemoryBacking_ReleaseReference",
       "recorded_range": [
         "004DEE00",
         "004DEE37"
       ],
       "Original_bytes": 55,
       "Original_starts": 26,
-      "decompiled_C": "\n\nint __fastcall FUN_004dee00(undefined4 *param_1)\n\n{\n  int iVar1;\n  \n  if (1 < (int)param_1[3]) {\n    iVar1 = param_1[3] + -1;\n    param_1[3] = iVar1;\n    return iVar1;\n  }\n  if (*(char *)(param_1 + 4) != '\\0') {\n    (**(code **)(*(int *)param_1[1] + 0xc))(param_1[2],0);\n  }\n  (**(code **)*param_1)(1);\n  return 0;\n}\n\n"
+      "canonical_asm": "evidence/native/resources/stream-failures/004DEE00_MemoryBacking_ReleaseReference.asm",
+      "canonical_c": "evidence/native/resources/stream-failures/004DEE00_MemoryBacking_ReleaseReference.c",
+      "behavior_head": "Actual Ghidra Plate and complete genuine canonical C; no duplicate C body is retained in this index.",
+      "ABI_qualification": "int __fastcall FUN_004dee00(undefined4 * param_1)",
+      "signature_observation_status": "Historical pre-annotation signature projection retained for width/calling-convention context; actual types were not changed by the name-only work.",
+      "annotation_status": "Three names and Plates plus twelve variable names were applied/read back; seven semantic holds remain across the selected functions. One project Save was reported; no reopen/runtime test."
     },
     {
       "entry": "004E5700",
-      "observed_name": "FUN_004e5700",
-      "Info_signature_projection": "undefined __thiscall FUN_004e5700(void * this, int param_1)",
-      "Prototype_projection": {
-        "name": "FUN_004e5700",
-        "address": "004e5700",
-        "calling_convention": "__thiscall",
-        "prototype": "undefined FUN_004e5700(void * this, int param_1)",
-        "return_type": "undefined",
-        "parameter_count": 2
-      },
+      "name": "GeneralAllocator_FreeChunk",
       "recorded_range": [
         "004E5700",
         "004E5863"
       ],
       "Original_bytes": 355,
       "Original_starts": 123,
-      "decompiled_C": "\n\nvoid __thiscall FUN_004e5700(void *this,int param_1)\n\n{\n  uint *puVar1;\n  int *piVar2;\n  uint uVar3;\n  uint *puVar4;\n  undefined4 uVar5;\n  uint uVar6;\n  uint uVar7;\n  \n  if (param_1 != 0) {\n    uVar3 = *(uint *)(param_1 + -0xc);\n    puVar4 = (uint *)(param_1 + -0x10);\n    uVar7 = uVar3 & 0x7ffffff8;\n    if (uVar7 <= *(uint *)((int)this + 4)) {\n      *(uint *)((int)this + 4) = *(uint *)((int)this + 4) | 1;\n      uVar5 = *(undefined4 *)((int)this + (uVar7 >> 3) * 4);\n      *(uint *)(param_1 + -0xc) = *(uint *)(param_1 + -0xc) | 0x80000004;\n      *(undefined4 *)(param_1 + -4) = uVar5;\n      *(uint **)((int)this + (uVar7 >> 3) * 4) = puVar4;\n      return;\n    }\n    if ((uVar3 & 2) == 0) {\n      puVar1 = (uint *)(uVar7 + (int)puVar4);\n      uVar6 = *(uint *)(uVar7 + 4 + (int)puVar4) & 0x7ffffff8;\n      if ((uVar3 & 1) == 0) {\n        uVar3 = *puVar4;\n        puVar4 = (uint *)((int)puVar4 - uVar3);\n        uVar7 = uVar7 + uVar3;\n        puVar4[1] = uVar7 | 1;\n        *puVar1 = uVar7;\n        *(uint *)(puVar4[2] + 0xc) = puVar4[3];\n        *(uint *)(puVar4[3] + 8) = puVar4[2];\n      }\n      if ((*(byte *)((int)puVar1 + uVar6 + 4) & 1) == 0) {\n        *(uint *)(puVar1[2] + 0xc) = puVar1[3];\n        *(uint *)(puVar1[3] + 8) = puVar1[2];\n        uVar7 = uVar7 + uVar6;\n        puVar4[1] = uVar7 | 1;\n        *(uint *)(uVar7 + (int)puVar4) = uVar7;\n      }\n      else {\n        puVar1[1] = puVar1[1] & 0xfffffffe;\n        *puVar1 = uVar7;\n      }\n      if ((puVar4 == *(uint **)((int)this + 0x440)) || (puVar1 == *(uint **)((int)this + 0x440))) {\n        *(uint **)((int)this + 0x440) = puVar4;\n        puVar4[3] = (uint)puVar4;\n        puVar4[2] = (uint)puVar4;\n        puVar4[1] = uVar7 | 1;\n        *(uint *)(uVar7 + (int)puVar4) = uVar7;\n      }\n      else {\n        uVar3 = *(uint *)((int)this + 0x3c);\n        puVar4[2] = (int)this + 0x30;\n        puVar4[3] = uVar3;\n        *(uint **)((int)this + 0x3c) = puVar4;\n        *(uint **)(uVar3 + 8) = puVar4;\n      }\n      if (((0xffff < uVar7) && (uVar5 = FUN_004e5080(this,uVar7 + (int)puVar4), (char)uVar5 != '\\0')\n          ) && (*(uint *)((int)this + 0x4c8) <= uVar7)) {\n        FUN_004e54e0(this,*(int *)((int)this + 0x4cc));\n        return;\n      }\n    }\n    else {\n      uVar3 = *puVar4;\n      piVar2 = (int *)(uVar7 + 8 + (int)puVar4);\n      *(undefined4 *)(*piVar2 + 0xc) = *(undefined4 *)(uVar7 + 0xc + (int)puVar4);\n      *(int *)(*(int *)(uVar7 + 0xc + (int)puVar4) + 8) = *piVar2;\n      *(int *)((int)this + 0x48c) = *(int *)((int)this + 0x48c) - (uVar3 + 0x10 + uVar7);\n      *(int *)((int)this + 0x488) = *(int *)((int)this + 0x488) + -1;\n      VirtualFree((LPVOID)((int)puVar4 - uVar3),0,0x8000);\n    }\n  }\n  return;\n}\n\n"
+      "canonical_asm": "evidence/native/resources/stream-failures/004E5700_GeneralAllocator_FreeChunk.asm",
+      "canonical_c": "evidence/native/resources/stream-failures/004E5700_GeneralAllocator_FreeChunk.c",
+      "behavior_head": "Actual Ghidra Plate and complete genuine canonical C; no duplicate C body is retained in this index.",
+      "ABI_qualification": "undefined __thiscall FUN_004e5700(void * this, int param_1)",
+      "signature_observation_status": "Historical pre-annotation signature projection retained for width/calling-convention context; actual types were not changed by the name-only work.",
+      "annotation_status": "Three names and Plates plus twelve variable names were applied/read back; seven semantic holds remain across the selected functions. One project Save was reported; no reopen/runtime test."
     }
   ],
-  "visible_C_role_qualifications": [
+  "retained_variable_holds": [
     {
       "function": "004DF1C0",
-      "C_surface_name": "this",
-      "semantic_name_candidate": null,
-      "whole_visible_C_role_or_hold": "implicit-thisidentityunexposed; semanticstreamreceiver",
-      "status": "EXPLICIT_VISIBLE_C_MERGED_OR_AUTO_HOLD"
-    },
-    {
-      "function": "004DF1C0",
-      "C_surface_name": "param_1",
-      "semantic_name_candidate": "requestedCapacity",
-      "whole_visible_C_role_or_hold": "allusescapacityinput; notlogicallength; RET4stackword",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
+      "historical_C_surface_name": "this",
+      "held_role": "implicit-thisidentityunexposed; semanticstreamreceiver",
+      "status": "EXPLICIT_MERGED_OR_IMPLICIT_RECEIVER_HOLD_NOT_RENAMED_BY_THIS_PREPARATION",
+      "token_name_limit": "Historical role locator plus independently corrected final observed name. Automatic callee-parameter propagation can change caller-local C/Vars names; spelling does not resolve this semantic hold.",
+      "current_C_surface_name": "this"
     },
     {
       "function": "004DF1C0",
-      "C_surface_name": "piVar1",
-      "semantic_name_candidate": null,
-      "whole_visible_C_role_or_hold": "merged selectedallocator/newbacking/destructor-returnresidue; do notnameallocator orbackingalone",
-      "status": "EXPLICIT_VISIBLE_C_MERGED_OR_AUTO_HOLD"
+      "historical_C_surface_name": "piVar1",
+      "held_role": "merged selectedallocator/newbacking/destructor-returnresidue; do notnameallocator orbackingalone",
+      "status": "EXPLICIT_MERGED_OR_IMPLICIT_RECEIVER_HOLD_NOT_RENAMED_BY_THIS_PREPARATION",
+      "token_name_limit": "Historical role locator plus independently corrected final observed name. Automatic callee-parameter propagation can change caller-local C/Vars names; spelling does not resolve this semantic hold.",
+      "current_C_surface_name": "backingRecord"
     },
     {
       "function": "004DF1C0",
-      "C_surface_name": "pcVar2",
-      "semantic_name_candidate": "allocationLabel",
-      "whole_visible_C_role_or_hold": "stream+8orfallbackliteral forwarded toallocationhelper",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
+      "historical_C_surface_name": "puVar3",
+      "held_role": "merged newlyallocatedrecordstorage andoldbackingrecord before inline release",
+      "status": "EXPLICIT_MERGED_OR_IMPLICIT_RECEIVER_HOLD_NOT_RENAMED_BY_THIS_PREPARATION",
+      "token_name_limit": "Historical role locator plus independently corrected final observed name. Automatic callee-parameter propagation can change caller-local C/Vars names; spelling does not resolve this semantic hold.",
+      "current_C_surface_name": "puVar1"
     },
     {
       "function": "004DF1C0",
-      "C_surface_name": "puVar3",
-      "semantic_name_candidate": null,
-      "whole_visible_C_role_or_hold": "merged newlyallocatedrecordstorage andoldbackingrecord before inline release",
-      "status": "EXPLICIT_VISIBLE_C_MERGED_OR_AUTO_HOLD"
-    },
-    {
-      "function": "004DF1C0",
-      "C_surface_name": "uVar4",
-      "semantic_name_candidate": null,
-      "whole_visible_C_role_or_hold": "merged zero/statusresidue/helperreturn and copycount; copyCountalonewouldmisnamewholeHighVar",
-      "status": "EXPLICIT_VISIBLE_C_MERGED_OR_AUTO_HOLD"
-    },
-    {
-      "function": "004DF1C0",
-      "C_surface_name": "iVar5",
-      "semantic_name_candidate": "decrementedOldReferenceCount",
-      "whole_visible_C_role_or_hold": "signed>1decrementresult; upperEAXresidueinreturn isnotanAPIcount",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
-    },
-    {
-      "function": "004DF1C0",
-      "C_surface_name": "piVar6",
-      "semantic_name_candidate": "replacementBacking",
-      "whole_visible_C_role_or_hold": "newconstructedbacking ornull onzero-capacityreplacement",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
-    },
-    {
-      "function": "004DEE00",
-      "C_surface_name": "param_1",
-      "semantic_name_candidate": "backingRecord",
-      "whole_visible_C_role_or_hold": "ECXrecordwhosecount/data/allocator/flagandvirtualslotareusedthroughout",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
-    },
-    {
-      "function": "004DEE00",
-      "C_surface_name": "iVar1",
-      "semantic_name_candidate": "decrementedReferenceCount",
-      "whole_visible_C_role_or_hold": "count>1pathcountminus1storedandreturned; otherpathreturns0",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
+      "historical_C_surface_name": "uVar4",
+      "held_role": "merged zero/statusresidue/helperreturn and copycount; copyCountalonewouldmisnamewholeHighVar",
+      "status": "EXPLICIT_MERGED_OR_IMPLICIT_RECEIVER_HOLD_NOT_RENAMED_BY_THIS_PREPARATION",
+      "token_name_limit": "Historical role locator plus independently corrected final observed name. Automatic callee-parameter propagation can change caller-local C/Vars names; spelling does not resolve this semantic hold.",
+      "current_C_surface_name": "uVar2"
     },
     {
       "function": "004E5700",
-      "C_surface_name": "this",
-      "semantic_name_candidate": null,
-      "whole_visible_C_role_or_hold": "implicit-thisidentityunexposed; semanticallocatorreceiver",
-      "status": "EXPLICIT_VISIBLE_C_MERGED_OR_AUTO_HOLD"
+      "historical_C_surface_name": "this",
+      "held_role": "implicit-thisidentityunexposed; semanticallocatorreceiver",
+      "status": "EXPLICIT_MERGED_OR_IMPLICIT_RECEIVER_HOLD_NOT_RENAMED_BY_THIS_PREPARATION",
+      "token_name_limit": "Historical role locator plus independently corrected final observed name. Automatic callee-parameter propagation can change caller-local C/Vars names; spelling does not resolve this semantic hold.",
+      "current_C_surface_name": "this"
     },
     {
       "function": "004E5700",
-      "C_surface_name": "param_1",
-      "semantic_name_candidate": "payloadAddressWord",
-      "whole_visible_C_role_or_hold": "currentintwordisusedasaddress; preserveinttype,nopointertypecoercion",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
+      "historical_C_surface_name": "uVar3",
+      "held_role": "mergedoriginalheaderflags,precedingchunksize,andfreelisthead; notchunkFlagsalone",
+      "status": "EXPLICIT_MERGED_OR_IMPLICIT_RECEIVER_HOLD_NOT_RENAMED_BY_THIS_PREPARATION",
+      "token_name_limit": "Historical role locator plus independently corrected final observed name. Automatic callee-parameter propagation can change caller-local C/Vars names; spelling does not resolve this semantic hold.",
+      "current_C_surface_name": "uVar1"
     },
     {
       "function": "004E5700",
-      "C_surface_name": "puVar1",
-      "semantic_name_candidate": "initialSuccessorChunk",
-      "whole_visible_C_role_or_hold": "originalnextchunkheader,boundaryandneighboruses; noobjectlivenesspromise",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
-    },
-    {
-      "function": "004E5700",
-      "C_surface_name": "piVar2",
-      "semantic_name_candidate": "regionTailLinkWords",
-      "whole_visible_C_role_or_hold": "twoindirectlinkwordsatregiontail inmask02branch",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
-    },
-    {
-      "function": "004E5700",
-      "C_surface_name": "uVar3",
-      "semantic_name_candidate": null,
-      "whole_visible_C_role_or_hold": "mergedoriginalheaderflags,precedingchunksize,andfreelisthead; notchunkFlagsalone",
-      "status": "EXPLICIT_VISIBLE_C_MERGED_OR_AUTO_HOLD"
-    },
-    {
-      "function": "004E5700",
-      "C_surface_name": "puVar4",
-      "semantic_name_candidate": "freeChunkCursor",
-      "whole_visible_C_role_or_hold": "headerpointercanmovebackwardbycoalescing; notfixedincomingallocationbase",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
-    },
-    {
-      "function": "004E5700",
-      "C_surface_name": "uVar5",
-      "semantic_name_candidate": null,
-      "whole_visible_C_role_or_hold": "mergedsmallbinheadwordandtrim-helperALstatusword",
-      "status": "EXPLICIT_VISIBLE_C_MERGED_OR_AUTO_HOLD"
-    },
-    {
-      "function": "004E5700",
-      "C_surface_name": "uVar6",
-      "semantic_name_candidate": "successorChunkSpanBytes",
-      "whole_visible_C_role_or_hold": "maskednextheader span usedinforwardcoalescing",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
-    },
-    {
-      "function": "004E5700",
-      "C_surface_name": "uVar7",
-      "semantic_name_candidate": "coalescedChunkSpanBytes",
-      "whole_visible_C_role_or_hold": "maskedinitialspan andmergedsizes throughoutcasepaths",
-      "status": "SEMANTIC_ALIAS_PENDING_ACTUAL_INVENTORY_NO_OPERATION"
+      "historical_C_surface_name": "uVar5",
+      "held_role": "mergedsmallbinheadwordandtrim-helperALstatusword",
+      "status": "EXPLICIT_MERGED_OR_IMPLICIT_RECEIVER_HOLD_NOT_RENAMED_BY_THIS_PREPARATION",
+      "token_name_limit": "Historical role locator plus independently corrected final observed name. Automatic callee-parameter propagation can change caller-local C/Vars names; spelling does not resolve this semantic hold.",
+      "current_C_surface_name": "uVar2"
     }
   ],
-  "visible_C_roles_not_API_inventories": true,
-  "API_variable_operations": 0,
   "current_Info_NoFunction": [
     "004A6DD0",
     "004A7AB0",
     "004AFF30",
     "004AFFE0"
   ],
-  "name_and_head_source_proposals_only": [
+  "variable_policy": "Continue actual Ghidra maintenance; retained caller variable mappings are deferred to the final overall export. No variable-token rewriting or type/ABI change is supplied here.",
+  "limits": "Physical Original ABI and child allocator/provider/lifetime limits remain as documented in the guide. This index references genuine new canonical C files and separately qualifies four complete caller C projections; it does not prove runtime execution.",
+  "qualified_current_callers": [
     {
-      "entry": "004DF1C0",
-      "proposed_name": "MemoryStream_ReplaceBackingCapacity",
-      "behavior_head": "Replaces the MemoryStream backing record and capacity, preserving a capacity-bounded byte prefix when both old and new backing exist.\nECX is the stream and the one stack DWORD is requestedCapacity; RET4. Nonzero capacity allocates a0x14 backing object through004E0A20 and payload through004DEF60; null record/data returns false AL, with constructed-null-data backing released through004DEE00. These false exits have no explicit replacement store to stream+4/+14, but called allocation/release side effects remain open; no global rollback/OOM guarantee. Copy count is unsigned min(requestedCapacity, oldCapacity), not logical length. Old signed count+C>1 is decremented; otherwise byte+10 gates data allocator+0C and record virtual0(flag1). Success stores stream+4/+14 and AL1; zero request releases/clears backing and capacity. Logical length+10, position+18 and growth permission+1C are not changed or checked here. Only AL is the success contract; upper EAX bits are path-dependent residues. Preserve the current undefined4 nativeSignature/thiscall/types although C renders uint; valid backing/allocator storage and lifetime are prerequisites.",
-      "applied": false,
-      "not_execution_approval": true
+      "requested_entry": "004DF530",
+      "observed_Ghidra_name": "FUN_004df530",
+      "target_current_name": "MemoryStream_ReplaceBackingCapacity",
+      "genuine_C": "\n\nint __thiscall FUN_004df530(void *this,uint param_1)\n\n{\n  undefined4 in_EAX;\n  uint3 uVar2;\n  int iVar1;\n  \n  uVar2 = (uint3)((uint)in_EAX >> 8);\n  iVar1 = CONCAT31(uVar2,1);\n  if (param_1 != *(uint *)((int)this + 0x10)) {\n    if (*(char *)((int)this + 0x1c) == '\\0') {\n      iVar1 = (uint)uVar2 << 8;\n    }\n    else if (param_1 < *(uint *)((int)this + 0x10)) {\n      *(uint *)((int)this + 0x10) = param_1;\n      if (param_1 < *(uint *)((int)this + 0x18)) {\n        *(uint *)((int)this + 0x18) = param_1;\n        return iVar1;\n      }\n    }\n    else {\n      iVar1 = MemoryStream_ReplaceBackingCapacity(this,param_1);\n      if ((char)iVar1 != '\\0') {\n        *(uint *)((int)this + 0x10) = param_1;\n        return iVar1;\n      }\n    }\n  }\n  return iVar1;\n}\n\n",
+      "scope": "Complete genuine caller C projection, not a newly maintained canonical pair or a new body/ABI/Plate acceptance. No fresh Info/Vars/Stack is implied by this caller-only read.",
+      "Original_instruction_dependency": "reused-dependency-instructions.json"
     },
     {
-      "entry": "004DEE00",
-      "proposed_name": "MemoryBacking_ReleaseReference",
-      "behavior_head": "Drops a reference to the MemoryStream backing record, or dispatches its final payload/record release path.\nECX supplies the backing record and the body uses plain RET. If signed count+C>1, decrement that DWORD and return its new value in EAX. Otherwise byte+10 gates allocator+0C(data+8,0), then call record virtual0(flag1) and return EAX0, without first decrementing count. Zero is not a general Boolean success or proof of deallocation/liveness. This body has no null-record guard, LOCK instruction or lifetime validation. The selected constructor/prefix/default-adapter release chain is a separate dependency; foreign allocator/object callbacks and alias ownership remain open. Preserve int fastcall return/parameter projections and original bytes.",
-      "applied": false,
-      "not_execution_approval": true
+      "requested_entry": "004DF370",
+      "observed_Ghidra_name": "FUN_004df370",
+      "target_current_name": "MemoryStream_ReplaceBackingCapacity",
+      "genuine_C": "\n\nuint __thiscall FUN_004df370(void *this,void *param_1,size_t param_2)\n\n{\n  uint uVar1;\n  float fVar2;\n  undefined4 in_EAX;\n  uint uVar3;\n  size_t sVar4;\n  uint local_8;\n  \n  if (param_2 == 0) {\n    return CONCAT31((int3)((uint)in_EAX >> 8),1);\n  }\n  uVar3 = *(uint *)((int)this + 0x14);\n  uVar1 = *(int *)((int)this + 0x18) + param_2;\n  sVar4 = param_2;\n  if (uVar3 < uVar1) {\n    if (*(char *)((int)this + 0x1c) == '\\0') {\n      sVar4 = *(int *)((int)this + 0x10) - *(int *)((int)this + 0x18);\n      goto LAB_004df3fe;\n    }\n    fVar2 = (float)(int)uVar3;\n    if ((int)uVar3 < 0) {\n      fVar2 = fVar2 + 4.2949673e+09;\n    }\n    local_8 = (uint)(longlong)\n                    ROUND(fVar2 * *(float *)((int)this + 0x20) + (float)*(int *)((int)this + 0x24));\n    if (local_8 < uVar1) {\n      local_8 = uVar1;\n    }\n    uVar3 = MemoryStream_ReplaceBackingCapacity(this,local_8);\n    if ((char)uVar3 == '\\0') {\n      return uVar3;\n    }\n  }\n  else if (uVar1 <= *(uint *)((int)this + 0x10)) goto LAB_004df3fe;\n  *(uint *)((int)this + 0x10) = uVar1;\nLAB_004df3fe:\n  memcpy((void *)(*(int *)(*(int *)((int)this + 4) + 8) + *(int *)((int)this + 0x18)),param_1,sVar4)\n  ;\n  *(int *)((int)this + 0x18) = *(int *)((int)this + 0x18) + sVar4;\n  return (uint)(sVar4 == param_2);\n}\n\n",
+      "scope": "Complete genuine caller C projection, not a newly maintained canonical pair or a new body/ABI/Plate acceptance. No fresh Info/Vars/Stack is implied by this caller-only read.",
+      "Original_instruction_dependency": "reused-dependency-instructions.json"
     },
     {
-      "entry": "004E5700",
-      "proposed_name": "GeneralAllocator_FreeChunk",
-      "behavior_head": "Releases an allocator chunk through conditional bin/coalescing or region-dispatch paths; this is not a universal OS-free or successful-deallocation guarantee.\nECX is the allocator, the one raw stack DWORD is the payload address, RET4. Null skips metadata updates. Nonnull reads headers at payload-10h/-0Ch and requires valid chunk/list state. Masked span<=allocator+4 enters a size bin; larger mask02-clear chunks coalesce/list-update and may call004E5080/004E54E0 for trimming. Mask02-set regions unlink and decrement allocator+48Ch/+488h accounting before KERNEL32!VirtualFree(base,0,8000h), whose result is not checked or rolled back here. Different paths leave unrelated EAX residues, with no normalized success result. Shared wrapper004E5E70 conditionally brackets this body with allocator locking; no global thread/ownership/liveness/OOM/rollback contract follows. Preserve current undefined nativeSignature/thiscall and int address-word parameter although C renders void and pointer casts; no type/ABI/boundary edit.",
-      "applied": false,
-      "not_execution_approval": true
+      "requested_entry": "004CE070",
+      "observed_Ghidra_name": "FUN_004ce070",
+      "target_current_name": "MemoryBacking_ReleaseReference",
+      "genuine_C": "\n\nvoid * __thiscall FUN_004ce070(void *this,byte param_1)\n\n{\n  *(undefined ***)this = &PTR_FUN_00fb6c00;\n  if (*(undefined4 **)((int)this + 4) != (undefined4 *)0x0) {\n    MemoryBacking_ReleaseReference(*(undefined4 **)((int)this + 4));\n  }\n  *(undefined ***)this = &PTR_LAB_00faaa04;\n  if ((param_1 & 1) != 0) {\n    Memory_FreeIfNonNull(this);\n  }\n  return this;\n}\n\n",
+      "scope": "Complete genuine caller C projection, not a newly maintained canonical pair or a new body/ABI/Plate acceptance. No fresh Info/Vars/Stack is implied by this caller-only read.",
+      "Original_instruction_dependency": "reused-dependency-instructions.json"
+    },
+    {
+      "requested_entry": "004E5E70",
+      "observed_Ghidra_name": "FUN_004e5e70",
+      "target_current_name": "GeneralAllocator_FreeChunk",
+      "genuine_C": "\n\nvoid __thiscall FUN_004e5e70(void *this,int param_1)\n\n{\n  LPCRITICAL_SECTION lpCriticalSection;\n  \n  lpCriticalSection = *(LPCRITICAL_SECTION *)((int)this + 0x4e4);\n  if (lpCriticalSection != (LPCRITICAL_SECTION)0x0) {\n    EnterCriticalSection(lpCriticalSection);\n    lpCriticalSection[1].DebugInfo =\n         (PRTL_CRITICAL_SECTION_DEBUG)((int)&(lpCriticalSection[1].DebugInfo)->Type + 1);\n  }\n  GeneralAllocator_FreeChunk(this,param_1);\n  if (lpCriticalSection != (LPCRITICAL_SECTION)0x0) {\n    lpCriticalSection[1].DebugInfo =\n         (PRTL_CRITICAL_SECTION_DEBUG)((int)&lpCriticalSection[1].DebugInfo[-1].SpareWORD + 1);\n    LeaveCriticalSection(lpCriticalSection);\n  }\n  return;\n}\n\n",
+      "scope": "Complete genuine caller C projection, not a newly maintained canonical pair or a new body/ABI/Plate acceptance. No fresh Info/Vars/Stack is implied by this caller-only read.",
+      "Original_instruction_dependency": "reused-dependency-instructions.json"
     }
   ],
-  "limits": "Actual Vars/Stack/identity/storage are absent. The19Cnames are semantic aliases/holds, not API rows. Native signature and decompiled return/type surfaces remain distinct. Genuine caller refresh, guarded DB naming, afterimages and persistence remain separate."
+  "semantic_variable_maintenance": {
+    "renamed_variable_roles": 12,
+    "held_roles": 7,
+    "two_HASH_materializations": "Actual DB local materialization cases are separately reviewed; no type/ABI/body repair inferred."
+  },
+  "observed_final_variable_roles": [
+    {
+      "function": "004DF1C0",
+      "historical_C_surface_name": "this",
+      "actual_final_C_surface_name": "this",
+      "role_or_hold": "implicit-thisidentityunexposed; semanticstreamreceiver",
+      "status": "SEMANTIC_HOLD_RETAINED"
+    },
+    {
+      "function": "004DF1C0",
+      "historical_C_surface_name": "param_1",
+      "actual_final_C_surface_name": "requestedCapacity",
+      "role_or_hold": "allusescapacityinput; notlogicallength; RET4stackword",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004DF1C0",
+      "historical_C_surface_name": "piVar1",
+      "actual_final_C_surface_name": "backingRecord",
+      "role_or_hold": "merged selectedallocator/newbacking/destructor-returnresidue; do notnameallocator orbackingalone",
+      "status": "SEMANTIC_HOLD_RETAINED"
+    },
+    {
+      "function": "004DF1C0",
+      "historical_C_surface_name": "pcVar2",
+      "actual_final_C_surface_name": "allocationLabel",
+      "role_or_hold": "stream+8orfallbackliteral forwarded toallocationhelper",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004DF1C0",
+      "historical_C_surface_name": "puVar3",
+      "actual_final_C_surface_name": "puVar1",
+      "role_or_hold": "merged newlyallocatedrecordstorage andoldbackingrecord before inline release",
+      "status": "SEMANTIC_HOLD_RETAINED"
+    },
+    {
+      "function": "004DF1C0",
+      "historical_C_surface_name": "uVar4",
+      "actual_final_C_surface_name": "uVar2",
+      "role_or_hold": "merged zero/statusresidue/helperreturn and copycount; copyCountalonewouldmisnamewholeHighVar",
+      "status": "SEMANTIC_HOLD_RETAINED"
+    },
+    {
+      "function": "004DF1C0",
+      "historical_C_surface_name": "iVar5",
+      "actual_final_C_surface_name": "decrementedOldReferenceCount",
+      "role_or_hold": "signed>1decrementresult; upperEAXresidueinreturn isnotanAPIcount",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004DF1C0",
+      "historical_C_surface_name": "piVar6",
+      "actual_final_C_surface_name": "replacementBacking",
+      "role_or_hold": "newconstructedbacking ornull onzero-capacityreplacement",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004DEE00",
+      "historical_C_surface_name": "param_1",
+      "actual_final_C_surface_name": "backingRecord",
+      "role_or_hold": "ECXrecordwhosecount/data/allocator/flagandvirtualslotareusedthroughout",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004DEE00",
+      "historical_C_surface_name": "iVar1",
+      "actual_final_C_surface_name": "decrementedReferenceCount",
+      "role_or_hold": "count>1pathcountminus1storedandreturned; otherpathreturns0",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "this",
+      "actual_final_C_surface_name": "this",
+      "role_or_hold": "implicit-thisidentityunexposed; semanticallocatorreceiver",
+      "status": "SEMANTIC_HOLD_RETAINED"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "param_1",
+      "actual_final_C_surface_name": "payloadAddressWord",
+      "role_or_hold": "currentintwordisusedasaddress; preserveinttype,nopointertypecoercion",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "puVar1",
+      "actual_final_C_surface_name": "initialSuccessorChunk",
+      "role_or_hold": "originalnextchunkheader,boundaryandneighboruses; noobjectlivenesspromise",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "piVar2",
+      "actual_final_C_surface_name": "regionTailLinkWords",
+      "role_or_hold": "twoindirectlinkwordsatregiontail inmask02branch",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "uVar3",
+      "actual_final_C_surface_name": "uVar1",
+      "role_or_hold": "mergedoriginalheaderflags,precedingchunksize,andfreelisthead; notchunkFlagsalone",
+      "status": "SEMANTIC_HOLD_RETAINED"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "puVar4",
+      "actual_final_C_surface_name": "freeChunkCursor",
+      "role_or_hold": "headerpointercanmovebackwardbycoalescing; notfixedincomingallocationbase",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "uVar5",
+      "actual_final_C_surface_name": "uVar2",
+      "role_or_hold": "mergedsmallbinheadwordandtrim-helperALstatusword",
+      "status": "SEMANTIC_HOLD_RETAINED"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "uVar6",
+      "actual_final_C_surface_name": "successorChunkSpanBytes",
+      "role_or_hold": "maskednextheader span usedinforwardcoalescing",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    },
+    {
+      "function": "004E5700",
+      "historical_C_surface_name": "uVar7",
+      "actual_final_C_surface_name": "coalescedChunkSpanBytes",
+      "role_or_hold": "maskedinitialspan andmergedsizes throughoutcasepaths",
+      "status": "EXPLICIT_SEMANTIC_NAME_APPLIED_AND_READ_BACK"
+    }
+  ],
+  "automatic_callee_parameter_propagation": "Final MemoryStream backingRecord is an automatically propagated caller-local name for the original merged piVar1 hold. It is not an additional approved semantic role; the actual final C remains unchanged."
 }

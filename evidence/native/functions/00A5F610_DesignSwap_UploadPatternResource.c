@@ -1,7 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
-
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 /* Analyst PC1.67 static: ECX DesignSwap; hash,data,byteCount stack words, RET0x0C. Null/zero
@@ -45,14 +43,14 @@ DesignSwap_UploadPatternResource(void *this,undefined4 param_1,void *param_2,siz
       iVar4 = (**(code **)(*this_00 + 4))();
       ppuStack_2c = &PTR_FUN_00fb6c00;
       if (puStack_28 != (undefined4 *)0x0) {
-        iVar4 = FUN_004dee00(puStack_28);
+        iVar4 = MemoryBacking_ReleaseReference(puStack_28);
       }
       return CONCAT31((int3)((uint)iVar4 >> 8),1);
     }
     local_34[0] = (**(code **)(*this_00 + 4))();
     ppuStack_2c = &PTR_FUN_00fb6c00;
     if (puStack_28 != (undefined4 *)0x0) {
-      local_34[0] = FUN_004dee00(puStack_28);
+      local_34[0] = MemoryBacking_ReleaseReference(puStack_28);
     }
   }
   return local_34[0] & 0xffffff00;

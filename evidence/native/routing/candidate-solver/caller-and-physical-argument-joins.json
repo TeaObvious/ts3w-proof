@@ -1,0 +1,2668 @@
+{
+  "reference_id": "ts3w-pc-1.67",
+  "reference_identity": "../../../reference.json",
+  "historical_ownership_inventory": "../../../../inventory/native-owned-ranges.tsv",
+  "scope": "Finite retained complete Original bodies only; not all incoming xrefs or global closure. Direct E8 bytes recomputed.",
+  "schema": "ts3w-routing-candidate-solver-physical-joins-v1",
+  "edges": [
+    {
+      "caller": "0085AD20",
+      "site": "0085B484",
+      "target": "0085AB20",
+      "bytes_hex": "e897f6ffff",
+      "preceding_instructions": [
+        {
+          "va": "0085B43F",
+          "bytes_hex": "0f29442430",
+          "mnemonic": "movaps XMMWORD PTR [esp+0x30],xmm0"
+        },
+        {
+          "va": "0085B444",
+          "bytes_hex": "0f2f7c2430",
+          "mnemonic": "comiss xmm7,DWORD PTR [esp+0x30]"
+        },
+        {
+          "va": "0085B449",
+          "bytes_hex": "0f83a8f9ffff",
+          "mnemonic": "jae    0x85adf7"
+        },
+        {
+          "va": "0085B44F",
+          "bytes_hex": "e89cd8fcff",
+          "mnemonic": "call   0x828cf0"
+        },
+        {
+          "va": "0085B454",
+          "bytes_hex": "8b3dc4db1e01",
+          "mnemonic": "mov    edi,DWORD PTR ds:0x11edbc4"
+        },
+        {
+          "va": "0085B45A",
+          "bytes_hex": "8bf0",
+          "mnemonic": "mov    esi,eax"
+        },
+        {
+          "va": "0085B45C",
+          "bytes_hex": "32db",
+          "mnemonic": "xor    bl,bl"
+        },
+        {
+          "va": "0085B45E",
+          "bytes_hex": "85f6",
+          "mnemonic": "test   esi,esi"
+        },
+        {
+          "va": "0085B460",
+          "bytes_hex": "0f84b0010000",
+          "mnemonic": "je     0x85b616"
+        },
+        {
+          "va": "0085B466",
+          "bytes_hex": "85ff",
+          "mnemonic": "test   edi,edi"
+        },
+        {
+          "va": "0085B468",
+          "bytes_hex": "0f84a8010000",
+          "mnemonic": "je     0x85b616"
+        },
+        {
+          "va": "0085B46E",
+          "bytes_hex": "8bce",
+          "mnemonic": "mov    ecx,esi"
+        },
+        {
+          "va": "0085B470",
+          "bytes_hex": "e84be1fcff",
+          "mnemonic": "call   0x8295c0"
+        },
+        {
+          "va": "0085B475",
+          "bytes_hex": "8b4d34",
+          "mnemonic": "mov    ecx,DWORD PTR [ebp+0x34]"
+        },
+        {
+          "va": "0085B478",
+          "bytes_hex": "51",
+          "mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085B479",
+          "bytes_hex": "8d942404010000",
+          "mnemonic": "lea    edx,[esp+0x104]"
+        },
+        {
+          "va": "0085B480",
+          "bytes_hex": "52",
+          "mnemonic": "push   edx"
+        },
+        {
+          "va": "0085B481",
+          "bytes_hex": "50",
+          "mnemonic": "push   eax"
+        },
+        {
+          "va": "0085B482",
+          "bytes_hex": "56",
+          "mnemonic": "push   esi"
+        },
+        {
+          "va": "0085B483",
+          "bytes_hex": "57",
+          "mnemonic": "push   edi"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085B489",
+          "bytes_hex": "83c414",
+          "mnemonic": "add    esp,0x14"
+        },
+        {
+          "va": "0085B48C",
+          "bytes_hex": "84c0",
+          "mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085B48E",
+          "bytes_hex": "0f8482010000",
+          "mnemonic": "je     0x85b616"
+        },
+        {
+          "va": "0085B494",
+          "bytes_hex": "f30f1044242c",
+          "mnemonic": "movss  xmm0,DWORD PTR [esp+0x2c]"
+        },
+        {
+          "va": "0085B49A",
+          "bytes_hex": "f30f5905b4b5f900",
+          "mnemonic": "mulss  xmm0,DWORD PTR ds:0xf9b5b4"
+        },
+        {
+          "va": "0085B4A2",
+          "bytes_hex": "f30f590588fd0301",
+          "mnemonic": "mulss  xmm0,DWORD PTR ds:0x103fd88"
+        },
+        {
+          "va": "0085B4AA",
+          "bytes_hex": "f30f10c0",
+          "mnemonic": "movss  xmm0,xmm0"
+        },
+        {
+          "va": "0085B4AE",
+          "bytes_hex": "0fc6c000",
+          "mnemonic": "shufps xmm0,xmm0,0x0"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085B670",
+      "site": "0085BBC3",
+      "target": "0085AD20",
+      "bytes_hex": "e858f1ffff",
+      "preceding_instructions": [
+        {
+          "va": "0085BB91",
+          "bytes_hex": "8b4d24",
+          "mnemonic": "mov    ecx,DWORD PTR [ebp+0x24]"
+        },
+        {
+          "va": "0085BB94",
+          "bytes_hex": "52",
+          "mnemonic": "push   edx"
+        },
+        {
+          "va": "0085BB95",
+          "bytes_hex": "8b5518",
+          "mnemonic": "mov    edx,DWORD PTR [ebp+0x18]"
+        },
+        {
+          "va": "0085BB98",
+          "bytes_hex": "50",
+          "mnemonic": "push   eax"
+        },
+        {
+          "va": "0085BB99",
+          "bytes_hex": "8b4514",
+          "mnemonic": "mov    eax,DWORD PTR [ebp+0x14]"
+        },
+        {
+          "va": "0085BB9C",
+          "bytes_hex": "51",
+          "mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085BB9D",
+          "bytes_hex": "8b4d10",
+          "mnemonic": "mov    ecx,DWORD PTR [ebp+0x10]"
+        },
+        {
+          "va": "0085BBA0",
+          "bytes_hex": "83ec10",
+          "mnemonic": "sub    esp,0x10"
+        },
+        {
+          "va": "0085BBA3",
+          "bytes_hex": "d95c240c",
+          "mnemonic": "fstp   DWORD PTR [esp+0xc]"
+        },
+        {
+          "va": "0085BBA7",
+          "bytes_hex": "d9e8",
+          "mnemonic": "fld1"
+        },
+        {
+          "va": "0085BBA9",
+          "bytes_hex": "d95c2408",
+          "mnemonic": "fstp   DWORD PTR [esp+0x8]"
+        },
+        {
+          "va": "0085BBAD",
+          "bytes_hex": "d98424ec000000",
+          "mnemonic": "fld    DWORD PTR [esp+0xec]"
+        },
+        {
+          "va": "0085BBB4",
+          "bytes_hex": "d95c2404",
+          "mnemonic": "fstp   DWORD PTR [esp+0x4]"
+        },
+        {
+          "va": "0085BBB8",
+          "bytes_hex": "d9451c",
+          "mnemonic": "fld    DWORD PTR [ebp+0x1c]"
+        },
+        {
+          "va": "0085BBBB",
+          "bytes_hex": "d91c24",
+          "mnemonic": "fstp   DWORD PTR [esp]"
+        },
+        {
+          "va": "0085BBBE",
+          "bytes_hex": "57",
+          "mnemonic": "push   edi"
+        },
+        {
+          "va": "0085BBBF",
+          "bytes_hex": "57",
+          "mnemonic": "push   edi"
+        },
+        {
+          "va": "0085BBC0",
+          "bytes_hex": "52",
+          "mnemonic": "push   edx"
+        },
+        {
+          "va": "0085BBC1",
+          "bytes_hex": "50",
+          "mnemonic": "push   eax"
+        },
+        {
+          "va": "0085BBC2",
+          "bytes_hex": "51",
+          "mnemonic": "push   ecx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085BBC8",
+          "bytes_hex": "8b542444",
+          "mnemonic": "mov    edx,DWORD PTR [esp+0x44]"
+        },
+        {
+          "va": "0085BBCC",
+          "bytes_hex": "c70200ff00ff",
+          "mnemonic": "mov    DWORD PTR [edx],0xff00ff00"
+        },
+        {
+          "va": "0085BBD2",
+          "bytes_hex": "c706ccff66ff",
+          "mnemonic": "mov    DWORD PTR [esi],0xff66ffcc"
+        },
+        {
+          "va": "0085BBD8",
+          "bytes_hex": "83c430",
+          "mnemonic": "add    esp,0x30"
+        },
+        {
+          "va": "0085BBDB",
+          "bytes_hex": "5f",
+          "mnemonic": "pop    edi"
+        },
+        {
+          "va": "0085BBDC",
+          "bytes_hex": "5e",
+          "mnemonic": "pop    esi"
+        },
+        {
+          "va": "0085BBDD",
+          "bytes_hex": "5b",
+          "mnemonic": "pop    ebx"
+        },
+        {
+          "va": "0085BBDE",
+          "bytes_hex": "8be5",
+          "mnemonic": "mov    esp,ebp"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085B670",
+      "site": "0085BC20",
+      "target": "0085AD20",
+      "bytes_hex": "e8fbf0ffff",
+      "preceding_instructions": [
+        {
+          "va": "0085BBEC",
+          "bytes_hex": "51",
+          "mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085BBED",
+          "bytes_hex": "52",
+          "mnemonic": "push   edx"
+        },
+        {
+          "va": "0085BBEE",
+          "bytes_hex": "8b5518",
+          "mnemonic": "mov    edx,DWORD PTR [ebp+0x18]"
+        },
+        {
+          "va": "0085BBF1",
+          "bytes_hex": "83ec10",
+          "mnemonic": "sub    esp,0x10"
+        },
+        {
+          "va": "0085BBF4",
+          "bytes_hex": "d95c240c",
+          "mnemonic": "fstp   DWORD PTR [esp+0xc]"
+        },
+        {
+          "va": "0085BBF8",
+          "bytes_hex": "8d44246c",
+          "mnemonic": "lea    eax,[esp+0x6c]"
+        },
+        {
+          "va": "0085BBFC",
+          "bytes_hex": "d9e8",
+          "mnemonic": "fld1"
+        },
+        {
+          "va": "0085BBFE",
+          "bytes_hex": "8bc8",
+          "mnemonic": "mov    ecx,eax"
+        },
+        {
+          "va": "0085BC00",
+          "bytes_hex": "d95c2408",
+          "mnemonic": "fstp   DWORD PTR [esp+0x8]"
+        },
+        {
+          "va": "0085BC04",
+          "bytes_hex": "d984240c010000",
+          "mnemonic": "fld    DWORD PTR [esp+0x10c]"
+        },
+        {
+          "va": "0085BC0B",
+          "bytes_hex": "d95c2404",
+          "mnemonic": "fstp   DWORD PTR [esp+0x4]"
+        },
+        {
+          "va": "0085BC0F",
+          "bytes_hex": "d9451c",
+          "mnemonic": "fld    DWORD PTR [ebp+0x1c]"
+        },
+        {
+          "va": "0085BC12",
+          "bytes_hex": "d91c24",
+          "mnemonic": "fstp   DWORD PTR [esp]"
+        },
+        {
+          "va": "0085BC15",
+          "bytes_hex": "50",
+          "mnemonic": "push   eax"
+        },
+        {
+          "va": "0085BC16",
+          "bytes_hex": "8b4514",
+          "mnemonic": "mov    eax,DWORD PTR [ebp+0x14]"
+        },
+        {
+          "va": "0085BC19",
+          "bytes_hex": "51",
+          "mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085BC1A",
+          "bytes_hex": "8b4d10",
+          "mnemonic": "mov    ecx,DWORD PTR [ebp+0x10]"
+        },
+        {
+          "va": "0085BC1D",
+          "bytes_hex": "52",
+          "mnemonic": "push   edx"
+        },
+        {
+          "va": "0085BC1E",
+          "bytes_hex": "50",
+          "mnemonic": "push   eax"
+        },
+        {
+          "va": "0085BC1F",
+          "bytes_hex": "51",
+          "mnemonic": "push   ecx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085BC25",
+          "bytes_hex": "8b542444",
+          "mnemonic": "mov    edx,DWORD PTR [esp+0x44]"
+        },
+        {
+          "va": "0085BC29",
+          "bytes_hex": "83c430",
+          "mnemonic": "add    esp,0x30"
+        },
+        {
+          "va": "0085BC2C",
+          "bytes_hex": "5f",
+          "mnemonic": "pop    edi"
+        },
+        {
+          "va": "0085BC2D",
+          "bytes_hex": "c702ccff66ff",
+          "mnemonic": "mov    DWORD PTR [edx],0xff66ffcc"
+        },
+        {
+          "va": "0085BC33",
+          "bytes_hex": "c70600ff00ff",
+          "mnemonic": "mov    DWORD PTR [esi],0xff00ff00"
+        },
+        {
+          "va": "0085BC39",
+          "bytes_hex": "5e",
+          "mnemonic": "pop    esi"
+        },
+        {
+          "va": "0085BC3A",
+          "bytes_hex": "5b",
+          "mnemonic": "pop    ebx"
+        },
+        {
+          "va": "0085BC3B",
+          "bytes_hex": "8be5",
+          "mnemonic": "mov    esp,ebp"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085A250",
+      "site": "0085A2BC",
+      "target": "0055DDC0",
+      "bytes_hex": "e8ff3ad0ff",
+      "preceding_instructions": [
+        {
+          "va": "0085A27A",
+          "bytes_hex": "3ad0",
+          "mnemonic": "cmp    dl,al"
+        },
+        {
+          "va": "0085A27C",
+          "bytes_hex": "7503",
+          "mnemonic": "jne    0x85a281"
+        },
+        {
+          "va": "0085A27E",
+          "bytes_hex": "b001",
+          "mnemonic": "mov    al,0x1"
+        },
+        {
+          "va": "0085A280",
+          "bytes_hex": "c3",
+          "mnemonic": "ret"
+        },
+        {
+          "va": "0085A281",
+          "bytes_hex": "8bc1",
+          "mnemonic": "mov    eax,ecx"
+        },
+        {
+          "va": "0085A283",
+          "bytes_hex": "a900cf0000",
+          "mnemonic": "test   eax,0xcf00"
+        },
+        {
+          "va": "0085A288",
+          "bytes_hex": "7505",
+          "mnemonic": "jne    0x85a28f"
+        },
+        {
+          "va": "0085A28A",
+          "bytes_hex": "0d00010000",
+          "mnemonic": "or     eax,0x100"
+        },
+        {
+          "va": "0085A28F",
+          "bytes_hex": "2500cf0000",
+          "mnemonic": "and    eax,0xcf00"
+        },
+        {
+          "va": "0085A294",
+          "bytes_hex": "3d00060000",
+          "mnemonic": "cmp    eax,0x600"
+        },
+        {
+          "va": "0085A299",
+          "bytes_hex": "74e3",
+          "mnemonic": "je     0x85a27e"
+        },
+        {
+          "va": "0085A29B",
+          "bytes_hex": "8bc1",
+          "mnemonic": "mov    eax,ecx"
+        },
+        {
+          "va": "0085A29D",
+          "bytes_hex": "a900cf0000",
+          "mnemonic": "test   eax,0xcf00"
+        },
+        {
+          "va": "0085A2A2",
+          "bytes_hex": "7505",
+          "mnemonic": "jne    0x85a2a9"
+        },
+        {
+          "va": "0085A2A4",
+          "bytes_hex": "0d00010000",
+          "mnemonic": "or     eax,0x100"
+        },
+        {
+          "va": "0085A2A9",
+          "bytes_hex": "2500cf0000",
+          "mnemonic": "and    eax,0xcf00"
+        },
+        {
+          "va": "0085A2AE",
+          "bytes_hex": "3d00020000",
+          "mnemonic": "cmp    eax,0x200"
+        },
+        {
+          "va": "0085A2B3",
+          "bytes_hex": "74c9",
+          "mnemonic": "je     0x85a27e"
+        },
+        {
+          "va": "0085A2B5",
+          "bytes_hex": "81e100cf0000",
+          "mnemonic": "and    ecx,0xcf00"
+        },
+        {
+          "va": "0085A2BB",
+          "bytes_hex": "51",
+          "mnemonic": "push   ecx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085A2C1",
+          "bytes_hex": "83c404",
+          "mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085A2C4",
+          "bytes_hex": "84c0",
+          "mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085A2C6",
+          "bytes_hex": "0f95c0",
+          "mnemonic": "setne  al"
+        },
+        {
+          "va": "0085A2C9",
+          "bytes_hex": "c3",
+          "mnemonic": "ret"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": {
+        "name": "Routing_IsBoatSpeciesForPortalPermission",
+        "asm": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.asm",
+        "pseudocode": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      }
+    },
+    {
+      "caller": "0085EC50",
+      "site": "0085F1C4",
+      "target": "0085A2D0",
+      "bytes_hex": "e807b1ffff",
+      "preceding_instructions": [
+        {
+          "va": "0085F17E",
+          "bytes_hex": "8bd9",
+          "GNU_mnemonic": "mov    ebx,ecx"
+        },
+        {
+          "va": "0085F180",
+          "bytes_hex": "eb19",
+          "GNU_mnemonic": "jmp    0x85f19b"
+        },
+        {
+          "va": "0085F190",
+          "bytes_hex": "8b7c2418",
+          "GNU_mnemonic": "mov    edi,DWORD PTR [esp+0x18]"
+        },
+        {
+          "va": "0085F194",
+          "bytes_hex": "8b8c249c000000",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [esp+0x9c]"
+        },
+        {
+          "va": "0085F19B",
+          "bytes_hex": "837c242002",
+          "GNU_mnemonic": "cmp    DWORD PTR [esp+0x20],0x2"
+        },
+        {
+          "va": "0085F1A0",
+          "bytes_hex": "7349",
+          "GNU_mnemonic": "jae    0x85f1eb"
+        },
+        {
+          "va": "0085F1A2",
+          "bytes_hex": "8d7801",
+          "GNU_mnemonic": "lea    edi,[eax+0x1]"
+        },
+        {
+          "va": "0085F1A5",
+          "bytes_hex": "d90588d70601",
+          "GNU_mnemonic": "fld    DWORD PTR ds:0x106d788"
+        },
+        {
+          "va": "0085F1AB",
+          "bytes_hex": "33d2",
+          "GNU_mnemonic": "xor    edx,edx"
+        },
+        {
+          "va": "0085F1AD",
+          "bytes_hex": "8bc7",
+          "GNU_mnemonic": "mov    eax,edi"
+        },
+        {
+          "va": "0085F1AF",
+          "bytes_hex": "f7f6",
+          "GNU_mnemonic": "div    esi"
+        },
+        {
+          "va": "0085F1B1",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085F1B2",
+          "bytes_hex": "d91c24",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp]"
+        },
+        {
+          "va": "0085F1B5",
+          "bytes_hex": "8d04d1",
+          "GNU_mnemonic": "lea    eax,[ecx+edx*8]"
+        },
+        {
+          "va": "0085F1B8",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085F1B9",
+          "bytes_hex": "53",
+          "GNU_mnemonic": "push   ebx"
+        },
+        {
+          "va": "0085F1BA",
+          "bytes_hex": "8d4c2434",
+          "GNU_mnemonic": "lea    ecx,[esp+0x34]"
+        },
+        {
+          "va": "0085F1BE",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085F1BF",
+          "bytes_hex": "8d542440",
+          "GNU_mnemonic": "lea    edx,[esp+0x40]"
+        },
+        {
+          "va": "0085F1C3",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085F1C9",
+          "bytes_hex": "83c414",
+          "GNU_mnemonic": "add    esp,0x14"
+        },
+        {
+          "va": "0085F1CC",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085F1CE",
+          "bytes_hex": "7405",
+          "GNU_mnemonic": "je     0x85f1d5"
+        },
+        {
+          "va": "0085F1D0",
+          "bytes_hex": "8344242001",
+          "GNU_mnemonic": "add    DWORD PTR [esp+0x20],0x1"
+        },
+        {
+          "va": "0085F1D5",
+          "bytes_hex": "8bc7",
+          "GNU_mnemonic": "mov    eax,edi"
+        },
+        {
+          "va": "0085F1D7",
+          "bytes_hex": "83c308",
+          "GNU_mnemonic": "add    ebx,0x8"
+        },
+        {
+          "va": "0085F1DA",
+          "bytes_hex": "3bc6",
+          "GNU_mnemonic": "cmp    eax,esi"
+        },
+        {
+          "va": "0085F1DC",
+          "bytes_hex": "72b2",
+          "GNU_mnemonic": "jb     0x85f190"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085EC50",
+      "site": "0085F2F2",
+      "target": "00572500",
+      "bytes_hex": "e80932d1ff",
+      "preceding_instructions": [
+        {
+          "va": "0085F29D",
+          "bytes_hex": "f30f118424d4000000",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0xd4],xmm0"
+        },
+        {
+          "va": "0085F2A6",
+          "bytes_hex": "0f288424d4000000",
+          "GNU_mnemonic": "movaps xmm0,XMMWORD PTR [esp+0xd4]"
+        },
+        {
+          "va": "0085F2AE",
+          "bytes_hex": "6a00",
+          "GNU_mnemonic": "push   0x0"
+        },
+        {
+          "va": "0085F2B0",
+          "bytes_hex": "8bce",
+          "GNU_mnemonic": "mov    ecx,esi"
+        },
+        {
+          "va": "0085F2B2",
+          "bytes_hex": "0f29842468010000",
+          "GNU_mnemonic": "movaps XMMWORD PTR [esp+0x168],xmm0"
+        },
+        {
+          "va": "0085F2BA",
+          "bytes_hex": "ffd2",
+          "GNU_mnemonic": "call   edx"
+        },
+        {
+          "va": "0085F2BC",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085F2BE",
+          "bytes_hex": "7405",
+          "GNU_mnemonic": "je     0x85f2c5"
+        },
+        {
+          "va": "0085F2C0",
+          "bytes_hex": "c644241700",
+          "GNU_mnemonic": "mov    BYTE PTR [esp+0x17],0x0"
+        },
+        {
+          "va": "0085F2C5",
+          "bytes_hex": "8b7c2418",
+          "GNU_mnemonic": "mov    edi,DWORD PTR [esp+0x18]"
+        },
+        {
+          "va": "0085F2C9",
+          "bytes_hex": "8b44241c",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [esp+0x1c]"
+        },
+        {
+          "va": "0085F2CD",
+          "bytes_hex": "83c010",
+          "GNU_mnemonic": "add    eax,0x10"
+        },
+        {
+          "va": "0085F2D0",
+          "bytes_hex": "3b842494000000",
+          "GNU_mnemonic": "cmp    eax,DWORD PTR [esp+0x94]"
+        },
+        {
+          "va": "0085F2D7",
+          "bytes_hex": "8944241c",
+          "GNU_mnemonic": "mov    DWORD PTR [esp+0x1c],eax"
+        },
+        {
+          "va": "0085F2DB",
+          "bytes_hex": "0f856ffeffff",
+          "GNU_mnemonic": "jne    0x85f150"
+        },
+        {
+          "va": "0085F2E1",
+          "bytes_hex": "8d4c2460",
+          "GNU_mnemonic": "lea    ecx,[esp+0x60]"
+        },
+        {
+          "va": "0085F2E5",
+          "bytes_hex": "e846a4dcff",
+          "GNU_mnemonic": "call   0x629730"
+        },
+        {
+          "va": "0085F2EA",
+          "bytes_hex": "8b4d14",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [ebp+0x14]"
+        },
+        {
+          "va": "0085F2ED",
+          "bytes_hex": "8d442438",
+          "GNU_mnemonic": "lea    eax,[esp+0x38]"
+        },
+        {
+          "va": "0085F2F1",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085F2F7",
+          "bytes_hex": "e9c7fcffff",
+          "GNU_mnemonic": "jmp    0x85efc3"
+        },
+        {
+          "va": "0085F2FC",
+          "bytes_hex": "8b7c2418",
+          "GNU_mnemonic": "mov    edi,DWORD PTR [esp+0x18]"
+        },
+        {
+          "va": "0085F300",
+          "bytes_hex": "f30f104c2434",
+          "GNU_mnemonic": "movss  xmm1,DWORD PTR [esp+0x34]"
+        },
+        {
+          "va": "0085F306",
+          "bytes_hex": "f30f10442430",
+          "GNU_mnemonic": "movss  xmm0,DWORD PTR [esp+0x30]"
+        },
+        {
+          "va": "0085F30C",
+          "bytes_hex": "8b47fc",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [edi-0x4]"
+        },
+        {
+          "va": "0085F30F",
+          "bytes_hex": "8b90b8000000",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [eax+0xb8]"
+        },
+        {
+          "va": "0085F315",
+          "bytes_hex": "f30f114c2448",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x48],xmm1"
+        },
+        {
+          "va": "0085F31B",
+          "bytes_hex": "0f57c9",
+          "GNU_mnemonic": "xorps  xmm1,xmm1"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085BC40",
+      "site": "0085BDC8",
+      "target": "0085A250",
+      "bytes_hex": "e883e4ffff",
+      "preceding_instructions": [
+        {
+          "va": "0085BD6F",
+          "bytes_hex": "0f85c1010000",
+          "GNU_mnemonic": "jne    0x85bf36"
+        },
+        {
+          "va": "0085BD75",
+          "bytes_hex": "8b5008",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [eax+0x8]"
+        },
+        {
+          "va": "0085BD78",
+          "bytes_hex": "8b523c",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [edx+0x3c]"
+        },
+        {
+          "va": "0085BD7B",
+          "bytes_hex": "8d7808",
+          "GNU_mnemonic": "lea    edi,[eax+0x8]"
+        },
+        {
+          "va": "0085BD7E",
+          "bytes_hex": "8d442420",
+          "GNU_mnemonic": "lea    eax,[esp+0x20]"
+        },
+        {
+          "va": "0085BD82",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085BD83",
+          "bytes_hex": "8bcf",
+          "GNU_mnemonic": "mov    ecx,edi"
+        },
+        {
+          "va": "0085BD85",
+          "bytes_hex": "ffd2",
+          "GNU_mnemonic": "call   edx"
+        },
+        {
+          "va": "0085BD87",
+          "bytes_hex": "f60520a41d0101",
+          "GNU_mnemonic": "test   BYTE PTR ds:0x11da420,0x1"
+        },
+        {
+          "va": "0085BD8E",
+          "bytes_hex": "7536",
+          "GNU_mnemonic": "jne    0x85bdc6"
+        },
+        {
+          "va": "0085BD90",
+          "bytes_hex": "0f57c0",
+          "GNU_mnemonic": "xorps  xmm0,xmm0"
+        },
+        {
+          "va": "0085BD93",
+          "bytes_hex": "f30f100d88d70601",
+          "GNU_mnemonic": "movss  xmm1,DWORD PTR ds:0x106d788"
+        },
+        {
+          "va": "0085BD9B",
+          "bytes_hex": "830d20a41d0101",
+          "GNU_mnemonic": "or     DWORD PTR ds:0x11da420,0x1"
+        },
+        {
+          "va": "0085BDA2",
+          "bytes_hex": "f30f1144243c",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x3c],xmm0"
+        },
+        {
+          "va": "0085BDA8",
+          "bytes_hex": "f30f11442438",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x38],xmm0"
+        },
+        {
+          "va": "0085BDAE",
+          "bytes_hex": "f30f114c2434",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x34],xmm1"
+        },
+        {
+          "va": "0085BDB4",
+          "bytes_hex": "f30f11442430",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x30],xmm0"
+        },
+        {
+          "va": "0085BDBA",
+          "bytes_hex": "0f28442430",
+          "GNU_mnemonic": "movaps xmm0,XMMWORD PTR [esp+0x30]"
+        },
+        {
+          "va": "0085BDBF",
+          "bytes_hex": "0f290510a41d01",
+          "GNU_mnemonic": "movaps XMMWORD PTR ds:0x11da410,xmm0"
+        },
+        {
+          "va": "0085BDC6",
+          "bytes_hex": "8bce",
+          "GNU_mnemonic": "mov    ecx,esi"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085BDCD",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085BDCF",
+          "bytes_hex": "746c",
+          "GNU_mnemonic": "je     0x85be3d"
+        },
+        {
+          "va": "0085BDD1",
+          "bytes_hex": "8b07",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [edi]"
+        },
+        {
+          "va": "0085BDD3",
+          "bytes_hex": "8b5040",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [eax+0x40]"
+        },
+        {
+          "va": "0085BDD6",
+          "bytes_hex": "8d8c2480000000",
+          "GNU_mnemonic": "lea    ecx,[esp+0x80]"
+        },
+        {
+          "va": "0085BDDD",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085BDDE",
+          "bytes_hex": "8bcf",
+          "GNU_mnemonic": "mov    ecx,edi"
+        },
+        {
+          "va": "0085BDE0",
+          "bytes_hex": "ffd2",
+          "GNU_mnemonic": "call   edx"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085BC40",
+      "site": "0085BE1F",
+      "target": "0085B670",
+      "bytes_hex": "e84cf8ffff",
+      "preceding_instructions": [
+        {
+          "va": "0085BDEF",
+          "bytes_hex": "8b4520",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ebp+0x20]"
+        },
+        {
+          "va": "0085BDF2",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085BDF3",
+          "bytes_hex": "8b4d14",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [ebp+0x14]"
+        },
+        {
+          "va": "0085BDF6",
+          "bytes_hex": "83c674",
+          "GNU_mnemonic": "add    esi,0x74"
+        },
+        {
+          "va": "0085BDF9",
+          "bytes_hex": "56",
+          "GNU_mnemonic": "push   esi"
+        },
+        {
+          "va": "0085BDFA",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        },
+        {
+          "va": "0085BDFB",
+          "bytes_hex": "8b5510",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [ebp+0x10]"
+        },
+        {
+          "va": "0085BDFE",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085BDFF",
+          "bytes_hex": "8b450c",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ebp+0xc]"
+        },
+        {
+          "va": "0085BE02",
+          "bytes_hex": "83ec08",
+          "GNU_mnemonic": "sub    esp,0x8"
+        },
+        {
+          "va": "0085BE05",
+          "bytes_hex": "d95c2404",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp+0x4]"
+        },
+        {
+          "va": "0085BE09",
+          "bytes_hex": "d94518",
+          "GNU_mnemonic": "fld    DWORD PTR [ebp+0x18]"
+        },
+        {
+          "va": "0085BE0C",
+          "bytes_hex": "d91c24",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp]"
+        },
+        {
+          "va": "0085BE0F",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085BE10",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        },
+        {
+          "va": "0085BE11",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085BE12",
+          "bytes_hex": "8d8c24a8000000",
+          "GNU_mnemonic": "lea    ecx,[esp+0xa8]"
+        },
+        {
+          "va": "0085BE19",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085BE1A",
+          "bytes_hex": "8d54244c",
+          "GNU_mnemonic": "lea    edx,[esp+0x4c]"
+        },
+        {
+          "va": "0085BE1E",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085BE24",
+          "bytes_hex": "83c430",
+          "GNU_mnemonic": "add    esp,0x30"
+        },
+        {
+          "va": "0085BE27",
+          "bytes_hex": "83f803",
+          "GNU_mnemonic": "cmp    eax,0x3"
+        },
+        {
+          "va": "0085BE2A",
+          "bytes_hex": "0f8479030000",
+          "GNU_mnemonic": "je     0x85c1a9"
+        },
+        {
+          "va": "0085BE30",
+          "bytes_hex": "85c0",
+          "GNU_mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0085BE32",
+          "bytes_hex": "0f8591030000",
+          "GNU_mnemonic": "jne    0x85c1c9"
+        },
+        {
+          "va": "0085BE38",
+          "bytes_hex": "e94a030000",
+          "GNU_mnemonic": "jmp    0x85c187"
+        },
+        {
+          "va": "0085BE3D",
+          "bytes_hex": "d94518",
+          "GNU_mnemonic": "fld    DWORD PTR [ebp+0x18]"
+        },
+        {
+          "va": "0085BE40",
+          "bytes_hex": "0f28442420",
+          "GNU_mnemonic": "movaps xmm0,XMMWORD PTR [esp+0x20]"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085BC40",
+      "site": "0085BF18",
+      "target": "0085AD20",
+      "bytes_hex": "e803eeffff",
+      "preceding_instructions": [
+        {
+          "va": "0085BEDD",
+          "bytes_hex": "d90550890201",
+          "GNU_mnemonic": "fld    DWORD PTR ds:0x1028950"
+        },
+        {
+          "va": "0085BEE3",
+          "bytes_hex": "f30f1144242c",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x2c],xmm0"
+        },
+        {
+          "va": "0085BEE9",
+          "bytes_hex": "d91c24",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp]"
+        },
+        {
+          "va": "0085BEEC",
+          "bytes_hex": "e8cfe2ffff",
+          "GNU_mnemonic": "call   0x85a1c0"
+        },
+        {
+          "va": "0085BEF1",
+          "bytes_hex": "8b4d14",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [ebp+0x14]"
+        },
+        {
+          "va": "0085BEF4",
+          "bytes_hex": "dec9",
+          "GNU_mnemonic": "fmulp  st(1),st"
+        },
+        {
+          "va": "0085BEF6",
+          "bytes_hex": "83ec08",
+          "GNU_mnemonic": "sub    esp,0x8"
+        },
+        {
+          "va": "0085BEF9",
+          "bytes_hex": "8d54243c",
+          "GNU_mnemonic": "lea    edx,[esp+0x3c]"
+        },
+        {
+          "va": "0085BEFD",
+          "bytes_hex": "d8442434",
+          "GNU_mnemonic": "fadd   DWORD PTR [esp+0x34]"
+        },
+        {
+          "va": "0085BF01",
+          "bytes_hex": "8bc2",
+          "GNU_mnemonic": "mov    eax,edx"
+        },
+        {
+          "va": "0085BF03",
+          "bytes_hex": "d95c2404",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp+0x4]"
+        },
+        {
+          "va": "0085BF07",
+          "bytes_hex": "d94518",
+          "GNU_mnemonic": "fld    DWORD PTR [ebp+0x18]"
+        },
+        {
+          "va": "0085BF0A",
+          "bytes_hex": "d91c24",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp]"
+        },
+        {
+          "va": "0085BF0D",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        },
+        {
+          "va": "0085BF0E",
+          "bytes_hex": "8b5510",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [ebp+0x10]"
+        },
+        {
+          "va": "0085BF11",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085BF12",
+          "bytes_hex": "8b450c",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ebp+0xc]"
+        },
+        {
+          "va": "0085BF15",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085BF16",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        },
+        {
+          "va": "0085BF17",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085BF1D",
+          "bytes_hex": "83c430",
+          "GNU_mnemonic": "add    esp,0x30"
+        },
+        {
+          "va": "0085BF20",
+          "bytes_hex": "83f803",
+          "GNU_mnemonic": "cmp    eax,0x3"
+        },
+        {
+          "va": "0085BF23",
+          "bytes_hex": "0f848d020000",
+          "GNU_mnemonic": "je     0x85c1b6"
+        },
+        {
+          "va": "0085BF29",
+          "bytes_hex": "85c0",
+          "GNU_mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0085BF2B",
+          "bytes_hex": "0f8598020000",
+          "GNU_mnemonic": "jne    0x85c1c9"
+        },
+        {
+          "va": "0085BF31",
+          "bytes_hex": "e951020000",
+          "GNU_mnemonic": "jmp    0x85c187"
+        },
+        {
+          "va": "0085BF36",
+          "bytes_hex": "807c241200",
+          "GNU_mnemonic": "cmp    BYTE PTR [esp+0x12],0x0"
+        },
+        {
+          "va": "0085BF3B",
+          "bytes_hex": "740a",
+          "GNU_mnemonic": "je     0x85bf47"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085BC40",
+      "site": "0085C162",
+      "target": "0085AD20",
+      "bytes_hex": "e8b9ebffff",
+      "preceding_instructions": [
+        {
+          "va": "0085C12A",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        },
+        {
+          "va": "0085C12B",
+          "bytes_hex": "8b5520",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [ebp+0x20]"
+        },
+        {
+          "va": "0085C12E",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        },
+        {
+          "va": "0085C12F",
+          "bytes_hex": "8b550c",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [ebp+0xc]"
+        },
+        {
+          "va": "0085C132",
+          "bytes_hex": "83ec10",
+          "GNU_mnemonic": "sub    esp,0x10"
+        },
+        {
+          "va": "0085C135",
+          "bytes_hex": "d95c240c",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp+0xc]"
+        },
+        {
+          "va": "0085C139",
+          "bytes_hex": "f30f59c1",
+          "GNU_mnemonic": "mulss  xmm0,xmm1"
+        },
+        {
+          "va": "0085C13D",
+          "bytes_hex": "d90550890201",
+          "GNU_mnemonic": "fld    DWORD PTR ds:0x1028950"
+        },
+        {
+          "va": "0085C143",
+          "bytes_hex": "f30f58c5",
+          "GNU_mnemonic": "addss  xmm0,xmm5"
+        },
+        {
+          "va": "0085C147",
+          "bytes_hex": "d95c2408",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp+0x8]"
+        },
+        {
+          "va": "0085C14B",
+          "bytes_hex": "f30f11442404",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x4],xmm0"
+        },
+        {
+          "va": "0085C151",
+          "bytes_hex": "d94518",
+          "GNU_mnemonic": "fld    DWORD PTR [ebp+0x18]"
+        },
+        {
+          "va": "0085C154",
+          "bytes_hex": "d91c24",
+          "GNU_mnemonic": "fstp   DWORD PTR [esp]"
+        },
+        {
+          "va": "0085C157",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085C158",
+          "bytes_hex": "8b4514",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ebp+0x14]"
+        },
+        {
+          "va": "0085C15B",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085C15C",
+          "bytes_hex": "8b4d10",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [ebp+0x10]"
+        },
+        {
+          "va": "0085C15F",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085C160",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085C161",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085C167",
+          "bytes_hex": "83c430",
+          "GNU_mnemonic": "add    esp,0x30"
+        },
+        {
+          "va": "0085C16A",
+          "bytes_hex": "83f803",
+          "GNU_mnemonic": "cmp    eax,0x3"
+        },
+        {
+          "va": "0085C16D",
+          "bytes_hex": "7454",
+          "GNU_mnemonic": "je     0x85c1c3"
+        },
+        {
+          "va": "0085C16F",
+          "bytes_hex": "85c0",
+          "GNU_mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0085C171",
+          "bytes_hex": "7556",
+          "GNU_mnemonic": "jne    0x85c1c9"
+        },
+        {
+          "va": "0085C173",
+          "bytes_hex": "8bc7",
+          "GNU_mnemonic": "mov    eax,edi"
+        },
+        {
+          "va": "0085C175",
+          "bytes_hex": "8b3f",
+          "GNU_mnemonic": "mov    edi,DWORD PTR [edi]"
+        },
+        {
+          "va": "0085C177",
+          "bytes_hex": "8d4e08",
+          "GNU_mnemonic": "lea    ecx,[esi+0x8]"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "0085D030",
+      "site": "0085D32C",
+      "target": "0055DDC0",
+      "bytes_hex": "e88f0ad0ff",
+      "preceding_instructions": [
+        {
+          "va": "0085D2E5",
+          "bytes_hex": "8b4204",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [edx+0x4]"
+        },
+        {
+          "va": "0085D2E8",
+          "bytes_hex": "68f8d2cf14",
+          "GNU_mnemonic": "push   0x14cfd2f8"
+        },
+        {
+          "va": "0085D2ED",
+          "bytes_hex": "ffd0",
+          "GNU_mnemonic": "call   eax"
+        },
+        {
+          "va": "0085D2EF",
+          "bytes_hex": "8bd8",
+          "GNU_mnemonic": "mov    ebx,eax"
+        },
+        {
+          "va": "0085D2F1",
+          "bytes_hex": "8bb30c010000",
+          "GNU_mnemonic": "mov    esi,DWORD PTR [ebx+0x10c]"
+        },
+        {
+          "va": "0085D2F7",
+          "bytes_hex": "85f6",
+          "GNU_mnemonic": "test   esi,esi"
+        },
+        {
+          "va": "0085D2F9",
+          "bytes_hex": "895c2448",
+          "GNU_mnemonic": "mov    DWORD PTR [esp+0x48],ebx"
+        },
+        {
+          "va": "0085D2FD",
+          "bytes_hex": "0f84c5010000",
+          "GNU_mnemonic": "je     0x85d4c8"
+        },
+        {
+          "va": "0085D303",
+          "bytes_hex": "8b4304",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ebx+0x4]"
+        },
+        {
+          "va": "0085D306",
+          "bytes_hex": "8b4808",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [eax+0x8]"
+        },
+        {
+          "va": "0085D309",
+          "bytes_hex": "8b400c",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [eax+0xc]"
+        },
+        {
+          "va": "0085D30C",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085D30D",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085D30E",
+          "bytes_hex": "8b4c241c",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [esp+0x1c]"
+        },
+        {
+          "va": "0085D312",
+          "bytes_hex": "e8a9f2fbff",
+          "GNU_mnemonic": "call   0x81c5c0"
+        },
+        {
+          "va": "0085D317",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D319",
+          "bytes_hex": "0f85a9010000",
+          "GNU_mnemonic": "jne    0x85d4c8"
+        },
+        {
+          "va": "0085D31F",
+          "bytes_hex": "8b8fb8000000",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [edi+0xb8]"
+        },
+        {
+          "va": "0085D325",
+          "bytes_hex": "81e100cf0000",
+          "GNU_mnemonic": "and    ecx,0xcf00"
+        },
+        {
+          "va": "0085D32B",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085D331",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085D334",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D336",
+          "bytes_hex": "7576",
+          "GNU_mnemonic": "jne    0x85d3ae"
+        },
+        {
+          "va": "0085D338",
+          "bytes_hex": "8b96b8000000",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [esi+0xb8]"
+        },
+        {
+          "va": "0085D33E",
+          "bytes_hex": "81e200cf0000",
+          "GNU_mnemonic": "and    edx,0xcf00"
+        },
+        {
+          "va": "0085D344",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        },
+        {
+          "va": "0085D345",
+          "bytes_hex": "e8760ad0ff",
+          "GNU_mnemonic": "call   0x55ddc0"
+        },
+        {
+          "va": "0085D34A",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": {
+        "name": "Routing_IsBoatSpeciesForPortalPermission",
+        "asm": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.asm",
+        "pseudocode": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      }
+    },
+    {
+      "caller": "0085D030",
+      "site": "0085D345",
+      "target": "0055DDC0",
+      "bytes_hex": "e8760ad0ff",
+      "preceding_instructions": [
+        {
+          "va": "0085D2FD",
+          "bytes_hex": "0f84c5010000",
+          "GNU_mnemonic": "je     0x85d4c8"
+        },
+        {
+          "va": "0085D303",
+          "bytes_hex": "8b4304",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ebx+0x4]"
+        },
+        {
+          "va": "0085D306",
+          "bytes_hex": "8b4808",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [eax+0x8]"
+        },
+        {
+          "va": "0085D309",
+          "bytes_hex": "8b400c",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [eax+0xc]"
+        },
+        {
+          "va": "0085D30C",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085D30D",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085D30E",
+          "bytes_hex": "8b4c241c",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [esp+0x1c]"
+        },
+        {
+          "va": "0085D312",
+          "bytes_hex": "e8a9f2fbff",
+          "GNU_mnemonic": "call   0x81c5c0"
+        },
+        {
+          "va": "0085D317",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D319",
+          "bytes_hex": "0f85a9010000",
+          "GNU_mnemonic": "jne    0x85d4c8"
+        },
+        {
+          "va": "0085D31F",
+          "bytes_hex": "8b8fb8000000",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [edi+0xb8]"
+        },
+        {
+          "va": "0085D325",
+          "bytes_hex": "81e100cf0000",
+          "GNU_mnemonic": "and    ecx,0xcf00"
+        },
+        {
+          "va": "0085D32B",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085D32C",
+          "bytes_hex": "e88f0ad0ff",
+          "GNU_mnemonic": "call   0x55ddc0"
+        },
+        {
+          "va": "0085D331",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085D334",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D336",
+          "bytes_hex": "7576",
+          "GNU_mnemonic": "jne    0x85d3ae"
+        },
+        {
+          "va": "0085D338",
+          "bytes_hex": "8b96b8000000",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [esi+0xb8]"
+        },
+        {
+          "va": "0085D33E",
+          "bytes_hex": "81e200cf0000",
+          "GNU_mnemonic": "and    edx,0xcf00"
+        },
+        {
+          "va": "0085D344",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085D34A",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085D34D",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D34F",
+          "bytes_hex": "743a",
+          "GNU_mnemonic": "je     0x85d38b"
+        },
+        {
+          "va": "0085D351",
+          "bytes_hex": "8b4d0c",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [ebp+0xc]"
+        },
+        {
+          "va": "0085D354",
+          "bytes_hex": "8b01",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ecx]"
+        },
+        {
+          "va": "0085D356",
+          "bytes_hex": "8b5030",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [eax+0x30]"
+        },
+        {
+          "va": "0085D359",
+          "bytes_hex": "ffd2",
+          "GNU_mnemonic": "call   edx"
+        },
+        {
+          "va": "0085D35B",
+          "bytes_hex": "81380a95438d",
+          "GNU_mnemonic": "cmp    DWORD PTR [eax],0x8d43950a"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": {
+        "name": "Routing_IsBoatSpeciesForPortalPermission",
+        "asm": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.asm",
+        "pseudocode": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      }
+    },
+    {
+      "caller": "0085D030",
+      "site": "0085D3F4",
+      "target": "0055DDC0",
+      "bytes_hex": "e8c709d0ff",
+      "preceding_instructions": [
+        {
+          "va": "0085D3AE",
+          "bytes_hex": "8b4c242c",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [esp+0x2c]"
+        },
+        {
+          "va": "0085D3B2",
+          "bytes_hex": "6a01",
+          "GNU_mnemonic": "push   0x1"
+        },
+        {
+          "va": "0085D3B4",
+          "bytes_hex": "e8674d0f00",
+          "GNU_mnemonic": "call   0x952120"
+        },
+        {
+          "va": "0085D3B9",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D3BB",
+          "bytes_hex": "741e",
+          "GNU_mnemonic": "je     0x85d3db"
+        },
+        {
+          "va": "0085D3BD",
+          "bytes_hex": "8b4304",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ebx+0x4]"
+        },
+        {
+          "va": "0085D3C0",
+          "bytes_hex": "85c0",
+          "GNU_mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0085D3C2",
+          "bytes_hex": "7417",
+          "GNU_mnemonic": "je     0x85d3db"
+        },
+        {
+          "va": "0085D3C4",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085D3C5",
+          "bytes_hex": "e8f656d2ff",
+          "GNU_mnemonic": "call   0x582ac0"
+        },
+        {
+          "va": "0085D3CA",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085D3CD",
+          "bytes_hex": "85c0",
+          "GNU_mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0085D3CF",
+          "bytes_hex": "740a",
+          "GNU_mnemonic": "je     0x85d3db"
+        },
+        {
+          "va": "0085D3D1",
+          "bytes_hex": "f6400a01",
+          "GNU_mnemonic": "test   BYTE PTR [eax+0xa],0x1"
+        },
+        {
+          "va": "0085D3D5",
+          "bytes_hex": "0f85ed000000",
+          "GNU_mnemonic": "jne    0x85d4c8"
+        },
+        {
+          "va": "0085D3DB",
+          "bytes_hex": "8b8eb8000000",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [esi+0xb8]"
+        },
+        {
+          "va": "0085D3E1",
+          "bytes_hex": "f30f10442440",
+          "GNU_mnemonic": "movss  xmm0,DWORD PTR [esp+0x40]"
+        },
+        {
+          "va": "0085D3E7",
+          "bytes_hex": "81e100cf0000",
+          "GNU_mnemonic": "and    ecx,0xcf00"
+        },
+        {
+          "va": "0085D3ED",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085D3EE",
+          "bytes_hex": "f30f1144241c",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x1c],xmm0"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085D3F9",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085D3FC",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D3FE",
+          "bytes_hex": "752d",
+          "GNU_mnemonic": "jne    0x85d42d"
+        },
+        {
+          "va": "0085D400",
+          "bytes_hex": "8b97b8000000",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [edi+0xb8]"
+        },
+        {
+          "va": "0085D406",
+          "bytes_hex": "81e200cf0000",
+          "GNU_mnemonic": "and    edx,0xcf00"
+        },
+        {
+          "va": "0085D40C",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        },
+        {
+          "va": "0085D40D",
+          "bytes_hex": "e8ae09d0ff",
+          "GNU_mnemonic": "call   0x55ddc0"
+        },
+        {
+          "va": "0085D412",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": {
+        "name": "Routing_IsBoatSpeciesForPortalPermission",
+        "asm": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.asm",
+        "pseudocode": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      }
+    },
+    {
+      "caller": "0085D030",
+      "site": "0085D40D",
+      "target": "0055DDC0",
+      "bytes_hex": "e8ae09d0ff",
+      "preceding_instructions": [
+        {
+          "va": "0085D3C2",
+          "bytes_hex": "7417",
+          "GNU_mnemonic": "je     0x85d3db"
+        },
+        {
+          "va": "0085D3C4",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085D3C5",
+          "bytes_hex": "e8f656d2ff",
+          "GNU_mnemonic": "call   0x582ac0"
+        },
+        {
+          "va": "0085D3CA",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085D3CD",
+          "bytes_hex": "85c0",
+          "GNU_mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0085D3CF",
+          "bytes_hex": "740a",
+          "GNU_mnemonic": "je     0x85d3db"
+        },
+        {
+          "va": "0085D3D1",
+          "bytes_hex": "f6400a01",
+          "GNU_mnemonic": "test   BYTE PTR [eax+0xa],0x1"
+        },
+        {
+          "va": "0085D3D5",
+          "bytes_hex": "0f85ed000000",
+          "GNU_mnemonic": "jne    0x85d4c8"
+        },
+        {
+          "va": "0085D3DB",
+          "bytes_hex": "8b8eb8000000",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [esi+0xb8]"
+        },
+        {
+          "va": "0085D3E1",
+          "bytes_hex": "f30f10442440",
+          "GNU_mnemonic": "movss  xmm0,DWORD PTR [esp+0x40]"
+        },
+        {
+          "va": "0085D3E7",
+          "bytes_hex": "81e100cf0000",
+          "GNU_mnemonic": "and    ecx,0xcf00"
+        },
+        {
+          "va": "0085D3ED",
+          "bytes_hex": "51",
+          "GNU_mnemonic": "push   ecx"
+        },
+        {
+          "va": "0085D3EE",
+          "bytes_hex": "f30f1144241c",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x1c],xmm0"
+        },
+        {
+          "va": "0085D3F4",
+          "bytes_hex": "e8c709d0ff",
+          "GNU_mnemonic": "call   0x55ddc0"
+        },
+        {
+          "va": "0085D3F9",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085D3FC",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D3FE",
+          "bytes_hex": "752d",
+          "GNU_mnemonic": "jne    0x85d42d"
+        },
+        {
+          "va": "0085D400",
+          "bytes_hex": "8b97b8000000",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [edi+0xb8]"
+        },
+        {
+          "va": "0085D406",
+          "bytes_hex": "81e200cf0000",
+          "GNU_mnemonic": "and    edx,0xcf00"
+        },
+        {
+          "va": "0085D40C",
+          "bytes_hex": "52",
+          "GNU_mnemonic": "push   edx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085D412",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085D415",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085D417",
+          "bytes_hex": "7414",
+          "GNU_mnemonic": "je     0x85d42d"
+        },
+        {
+          "va": "0085D419",
+          "bytes_hex": "f30f10442440",
+          "GNU_mnemonic": "movss  xmm0,DWORD PTR [esp+0x40]"
+        },
+        {
+          "va": "0085D41F",
+          "bytes_hex": "f30f580588fd0301",
+          "GNU_mnemonic": "addss  xmm0,DWORD PTR ds:0x103fd88"
+        },
+        {
+          "va": "0085D427",
+          "bytes_hex": "f30f11442418",
+          "GNU_mnemonic": "movss  DWORD PTR [esp+0x18],xmm0"
+        },
+        {
+          "va": "0085D42D",
+          "bytes_hex": "8d4608",
+          "GNU_mnemonic": "lea    eax,[esi+0x8]"
+        },
+        {
+          "va": "0085D430",
+          "bytes_hex": "3900",
+          "GNU_mnemonic": "cmp    DWORD PTR [eax],eax"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": {
+        "name": "Routing_IsBoatSpeciesForPortalPermission",
+        "asm": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.asm",
+        "pseudocode": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      }
+    },
+    {
+      "caller": "0085F690",
+      "site": "0085FA02",
+      "target": "0055DDC0",
+      "bytes_hex": "e8b9e3cfff",
+      "preceding_instructions": [
+        {
+          "va": "0085F9BF",
+          "bytes_hex": "0f84fc000000",
+          "GNU_mnemonic": "je     0x85fac1"
+        },
+        {
+          "va": "0085F9C5",
+          "bytes_hex": "8b4c2428",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [esp+0x28]"
+        },
+        {
+          "va": "0085F9C9",
+          "bytes_hex": "6a01",
+          "GNU_mnemonic": "push   0x1"
+        },
+        {
+          "va": "0085F9CB",
+          "bytes_hex": "e850270f00",
+          "GNU_mnemonic": "call   0x952120"
+        },
+        {
+          "va": "0085F9D0",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085F9D2",
+          "bytes_hex": "741e",
+          "GNU_mnemonic": "je     0x85f9f2"
+        },
+        {
+          "va": "0085F9D4",
+          "bytes_hex": "8b4704",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [edi+0x4]"
+        },
+        {
+          "va": "0085F9D7",
+          "bytes_hex": "85c0",
+          "GNU_mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0085F9D9",
+          "bytes_hex": "7417",
+          "GNU_mnemonic": "je     0x85f9f2"
+        },
+        {
+          "va": "0085F9DB",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085F9DC",
+          "bytes_hex": "e8df30d2ff",
+          "GNU_mnemonic": "call   0x582ac0"
+        },
+        {
+          "va": "0085F9E1",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085F9E4",
+          "bytes_hex": "85c0",
+          "GNU_mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0085F9E6",
+          "bytes_hex": "740a",
+          "GNU_mnemonic": "je     0x85f9f2"
+        },
+        {
+          "va": "0085F9E8",
+          "bytes_hex": "f6400a01",
+          "GNU_mnemonic": "test   BYTE PTR [eax+0xa],0x1"
+        },
+        {
+          "va": "0085F9EC",
+          "bytes_hex": "0f85cf000000",
+          "GNU_mnemonic": "jne    0x85fac1"
+        },
+        {
+          "va": "0085F9F2",
+          "bytes_hex": "8b7c2420",
+          "GNU_mnemonic": "mov    edi,DWORD PTR [esp+0x20]"
+        },
+        {
+          "va": "0085F9F6",
+          "bytes_hex": "8b87b8000000",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [edi+0xb8]"
+        },
+        {
+          "va": "0085F9FC",
+          "bytes_hex": "2500cf0000",
+          "GNU_mnemonic": "and    eax,0xcf00"
+        },
+        {
+          "va": "0085FA01",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085FA07",
+          "bytes_hex": "83c404",
+          "GNU_mnemonic": "add    esp,0x4"
+        },
+        {
+          "va": "0085FA0A",
+          "bytes_hex": "84c0",
+          "GNU_mnemonic": "test   al,al"
+        },
+        {
+          "va": "0085FA0C",
+          "bytes_hex": "7524",
+          "GNU_mnemonic": "jne    0x85fa32"
+        },
+        {
+          "va": "0085FA0E",
+          "bytes_hex": "8d4608",
+          "GNU_mnemonic": "lea    eax,[esi+0x8]"
+        },
+        {
+          "va": "0085FA11",
+          "bytes_hex": "3900",
+          "GNU_mnemonic": "cmp    DWORD PTR [eax],eax"
+        },
+        {
+          "va": "0085FA13",
+          "bytes_hex": "751d",
+          "GNU_mnemonic": "jne    0x85fa32"
+        },
+        {
+          "va": "0085FA15",
+          "bytes_hex": "8b8eb8000000",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [esi+0xb8]"
+        },
+        {
+          "va": "0085FA1B",
+          "bytes_hex": "81e100cf0000",
+          "GNU_mnemonic": "and    ecx,0xcf00"
+        }
+      ],
+      "caller_canonical_pair": {
+        "name": "FUN_0085f690",
+        "asm": "evidence/native/functions/0085F690_FUN_0085f690.asm",
+        "pseudocode": "evidence/native/functions/0085F690_FUN_0085f690.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      },
+      "target_canonical_pair": {
+        "name": "Routing_IsBoatSpeciesForPortalPermission",
+        "asm": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.asm",
+        "pseudocode": "evidence/native/functions/0055DDC0_Routing_IsBoatSpeciesForPortalPermission.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      }
+    },
+    {
+      "caller": "0085F690",
+      "site": "0085FABC",
+      "target": "00572500",
+      "bytes_hex": "e83f2ad1ff",
+      "preceding_instructions": [
+        {
+          "va": "0085FA71",
+          "bytes_hex": "0f28c8",
+          "GNU_mnemonic": "movaps xmm1,xmm0"
+        },
+        {
+          "va": "0085FA74",
+          "bytes_hex": "0fc6c102",
+          "GNU_mnemonic": "shufps xmm0,xmm1,0x2"
+        },
+        {
+          "va": "0085FA78",
+          "bytes_hex": "0f28d1",
+          "GNU_mnemonic": "movaps xmm2,xmm1"
+        },
+        {
+          "va": "0085FA7B",
+          "bytes_hex": "0fc6d101",
+          "GNU_mnemonic": "shufps xmm2,xmm1,0x1"
+        },
+        {
+          "va": "0085FA7F",
+          "bytes_hex": "0f58c2",
+          "GNU_mnemonic": "addps  xmm0,xmm2"
+        },
+        {
+          "va": "0085FA82",
+          "bytes_hex": "0f58c1",
+          "GNU_mnemonic": "addps  xmm0,xmm1"
+        },
+        {
+          "va": "0085FA85",
+          "bytes_hex": "0fc6c000",
+          "GNU_mnemonic": "shufps xmm0,xmm0,0x0"
+        },
+        {
+          "va": "0085FA89",
+          "bytes_hex": "0f29842480000000",
+          "GNU_mnemonic": "movaps XMMWORD PTR [esp+0x80],xmm0"
+        },
+        {
+          "va": "0085FA91",
+          "bytes_hex": "f30f1005c8f80601",
+          "GNU_mnemonic": "movss  xmm0,DWORD PTR ds:0x106f8c8"
+        },
+        {
+          "va": "0085FA99",
+          "bytes_hex": "0f2f842480000000",
+          "GNU_mnemonic": "comiss xmm0,DWORD PTR [esp+0x80]"
+        },
+        {
+          "va": "0085FAA1",
+          "bytes_hex": "761e",
+          "GNU_mnemonic": "jbe    0x85fac1"
+        },
+        {
+          "va": "0085FAA3",
+          "bytes_hex": "8b03",
+          "GNU_mnemonic": "mov    eax,DWORD PTR [ebx]"
+        },
+        {
+          "va": "0085FAA5",
+          "bytes_hex": "8b5010",
+          "GNU_mnemonic": "mov    edx,DWORD PTR [eax+0x10]"
+        },
+        {
+          "va": "0085FAA8",
+          "bytes_hex": "8bcb",
+          "GNU_mnemonic": "mov    ecx,ebx"
+        },
+        {
+          "va": "0085FAAA",
+          "bytes_hex": "ffd2",
+          "GNU_mnemonic": "call   edx"
+        },
+        {
+          "va": "0085FAAC",
+          "bytes_hex": "8b4d10",
+          "GNU_mnemonic": "mov    ecx,DWORD PTR [ebp+0x10]"
+        },
+        {
+          "va": "0085FAAF",
+          "bytes_hex": "89442438",
+          "GNU_mnemonic": "mov    DWORD PTR [esp+0x38],eax"
+        },
+        {
+          "va": "0085FAB3",
+          "bytes_hex": "8d442438",
+          "GNU_mnemonic": "lea    eax,[esp+0x38]"
+        },
+        {
+          "va": "0085FAB7",
+          "bytes_hex": "50",
+          "GNU_mnemonic": "push   eax"
+        },
+        {
+          "va": "0085FAB8",
+          "bytes_hex": "89542440",
+          "GNU_mnemonic": "mov    DWORD PTR [esp+0x40],edx"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0085FAC1",
+          "bytes_hex": "8b74241c",
+          "GNU_mnemonic": "mov    esi,DWORD PTR [esp+0x1c]"
+        },
+        {
+          "va": "0085FAC5",
+          "bytes_hex": "8b7640",
+          "GNU_mnemonic": "mov    esi,DWORD PTR [esi+0x40]"
+        },
+        {
+          "va": "0085FAC8",
+          "bytes_hex": "85f6",
+          "GNU_mnemonic": "test   esi,esi"
+        },
+        {
+          "va": "0085FACA",
+          "bytes_hex": "7409",
+          "GNU_mnemonic": "je     0x85fad5"
+        },
+        {
+          "va": "0085FACC",
+          "bytes_hex": "83c6c0",
+          "GNU_mnemonic": "add    esi,0xffffffc0"
+        },
+        {
+          "va": "0085FACF",
+          "bytes_hex": "8974241c",
+          "GNU_mnemonic": "mov    DWORD PTR [esp+0x1c],esi"
+        },
+        {
+          "va": "0085FAD3",
+          "bytes_hex": "eb08",
+          "GNU_mnemonic": "jmp    0x85fadd"
+        },
+        {
+          "va": "0085FAD5",
+          "bytes_hex": "c744241c00000000",
+          "GNU_mnemonic": "mov    DWORD PTR [esp+0x1c],0x0"
+        }
+      ],
+      "caller_canonical_pair": {
+        "name": "FUN_0085f690",
+        "asm": "evidence/native/functions/0085F690_FUN_0085f690.asm",
+        "pseudocode": "evidence/native/functions/0085F690_FUN_0085f690.c",
+        "export_state": "retained_snapshot; function_identifier_sequences_checked_against_name_snapshot_only"
+      },
+      "target_canonical_pair": null
+    },
+    {
+      "caller": "00572500",
+      "site": "00572529",
+      "target": "00572360",
+      "bytes_hex": "e832feffff",
+      "preceding_instructions": [
+        {
+          "va": "00572500",
+          "bytes_hex": "8b4104",
+          "mnemonic": "mov    eax,DWORD PTR [ecx+0x4]"
+        },
+        {
+          "va": "00572503",
+          "bytes_hex": "3b4108",
+          "mnemonic": "cmp    eax,DWORD PTR [ecx+0x8]"
+        },
+        {
+          "va": "00572506",
+          "bytes_hex": "731b",
+          "mnemonic": "jae    0x572523"
+        },
+        {
+          "va": "00572508",
+          "bytes_hex": "85c0",
+          "mnemonic": "test   eax,eax"
+        },
+        {
+          "va": "0057250A",
+          "bytes_hex": "8d5008",
+          "mnemonic": "lea    edx,[eax+0x8]"
+        },
+        {
+          "va": "0057250D",
+          "bytes_hex": "895104",
+          "mnemonic": "mov    DWORD PTR [ecx+0x4],edx"
+        },
+        {
+          "va": "00572510",
+          "bytes_hex": "741c",
+          "mnemonic": "je     0x57252e"
+        },
+        {
+          "va": "00572512",
+          "bytes_hex": "8b4c2404",
+          "mnemonic": "mov    ecx,DWORD PTR [esp+0x4]"
+        },
+        {
+          "va": "00572516",
+          "bytes_hex": "8b11",
+          "mnemonic": "mov    edx,DWORD PTR [ecx]"
+        },
+        {
+          "va": "00572518",
+          "bytes_hex": "8910",
+          "mnemonic": "mov    DWORD PTR [eax],edx"
+        },
+        {
+          "va": "0057251A",
+          "bytes_hex": "8b4904",
+          "mnemonic": "mov    ecx,DWORD PTR [ecx+0x4]"
+        },
+        {
+          "va": "0057251D",
+          "bytes_hex": "894804",
+          "mnemonic": "mov    DWORD PTR [eax+0x4],ecx"
+        },
+        {
+          "va": "00572520",
+          "bytes_hex": "c20400",
+          "mnemonic": "ret    0x4"
+        },
+        {
+          "va": "00572523",
+          "bytes_hex": "8b542404",
+          "mnemonic": "mov    edx,DWORD PTR [esp+0x4]"
+        },
+        {
+          "va": "00572527",
+          "bytes_hex": "52",
+          "mnemonic": "push   edx"
+        },
+        {
+          "va": "00572528",
+          "bytes_hex": "50",
+          "mnemonic": "push   eax"
+        }
+      ],
+      "following_instructions": [
+        {
+          "va": "0057252E",
+          "bytes_hex": "c20400",
+          "mnemonic": "ret    0x4"
+        }
+      ],
+      "caller_canonical_pair": null,
+      "target_canonical_pair": null
+    }
+  ],
+  "AD20_physical_words": [
+    {
+      "ordinal": 1,
+      "entry_ESP_offset": 4,
+      "role": "aligned candidate in/out16B"
+    },
+    {
+      "ordinal": 2,
+      "entry_ESP_offset": 8,
+      "role": "aligned reference16B"
+    },
+    {
+      "ordinal": 3,
+      "entry_ESP_offset": 12,
+      "role": "aligned direction16B"
+    },
+    {
+      "ordinal": 4,
+      "entry_ESP_offset": 16,
+      "role": "aligned obstacle/probe16B"
+    },
+    {
+      "ordinal": 5,
+      "entry_ESP_offset": 20,
+      "role": "aligned second obstacle/probe16B"
+    },
+    {
+      "ordinal": 6,
+      "entry_ESP_offset": 24,
+      "role": "Float32 radius-like input"
+    },
+    {
+      "ordinal": 7,
+      "entry_ESP_offset": 28,
+      "role": "Float32 other radius"
+    },
+    {
+      "ordinal": 8,
+      "entry_ESP_offset": 32,
+      "role": "Float32 radius multiplier"
+    },
+    {
+      "ordinal": 9,
+      "entry_ESP_offset": 36,
+      "role": "Float32 candidate displacement scale"
+    },
+    {
+      "ordinal": 10,
+      "entry_ESP_offset": 40,
+      "role": "not read by complete body"
+    },
+    {
+      "ordinal": 11,
+      "entry_ESP_offset": 44,
+      "role": "not read by complete body"
+    },
+    {
+      "ordinal": 12,
+      "entry_ESP_offset": 48,
+      "role": "forwarded AB20 flags"
+    }
+  ],
+  "B670_to_AD20": {
+    "AD20_1": "B670_3",
+    "AD20_2": "B670_4",
+    "AD20_3": "B670_5",
+    "AD20_4_and_5": "same selected local probe",
+    "AD20_6": "B670_6",
+    "AD20_7": "selected local SQRTPS radius",
+    "AD20_8": "Float32 1.0",
+    "AD20_9": "B670_7",
+    "AD20_10": "B670_8 (not consumed in selected AD20 body)",
+    "AD20_11": "B670_11 (not consumed in selected AD20 body)",
+    "AD20_12": "B670_12",
+    "B670_9": "not read",
+    "B670_10": "four extent DWORD pointer"
+  },
+  "AD20_candidate_stack_slot_writes": [
+    {
+      "site": "0085B0DE",
+      "role": "save initial 2*a probe16B"
+    },
+    {
+      "site": "0085B60E",
+      "role": "replace only following positive AB20 AL, a*0.5*2 construction"
+    }
+  ],
+  "A2D0_argument_stack_scratch": [
+    {
+      "entry_ESP_offset": 4,
+      "site": "0085A368",
+      "role": "determinant then absolute bitmask A36E"
+    },
+    {
+      "entry_ESP_offset": 8,
+      "site": "0085A334",
+      "role": "D.y"
+    },
+    {
+      "entry_ESP_offset": 16,
+      "site": "0085A39A",
+      "role": "T/length(s)"
+    },
+    {
+      "entry_ESP_offset": 20,
+      "site": "0085A385",
+      "role": "T/length(r)"
+    }
+  ],
+  "exceptions": "All arithmetic/call-return statements conditional on valid accesses and completed operations. No general NaN/alias/runtime contract."
+}

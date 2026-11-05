@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 /* Verified PC 1.67 registration table at 0x01181690 (TS3W.exe).
@@ -56,17 +55,17 @@ ScriptCore.DownloadContent::DownloadContent_GetImportedSimResourceKeys
     sVar6 = iVar5 * 0x10 + 4;
     FUN_004df4c0(&ppuStack_38,(void *)0x0,sVar6,'\0',1,(int *)0x0,"Scratch/DownloadContent/KeyTable"
                 );
-    FUN_007d93e0(auStack_50,(int *)&ppuStack_38,1);
+    StreamReader_Construct(auStack_50,&ppuStack_38,1);
     cVar1 = FUN_007d8a00(&local_60,(int)auStack_50);
     if (cVar1 == '\0') {
-      FUN_007d7990((int)auStack_50);
+      StreamReader_ReleaseAuxiliary(auStack_50);
       ppuStack_38 = &PTR_FUN_00fb6c00;
       if (puStack_34 != (undefined4 *)0x0) {
-        FUN_004dee00(puStack_34);
+        MemoryBacking_ReleaseReference(puStack_34);
       }
       ppuStack_38 = &PTR_LAB_00faaa04;
       if (local_60 != (undefined **)0x0) {
-        FUN_004e44e0((int)local_60);
+        Memory_FreeIfNonNull(local_60);
       }
       return 0;
     }
@@ -79,14 +78,14 @@ ScriptCore.DownloadContent::DownloadContent_GetImportedSimResourceKeys
       uVar4 = *(undefined4 *)(iStack_3c + 8);
     }
     (**(code **)(*piVar2 + 0x98))(uStack_8,uVar4,0,sVar6);
-    FUN_007d7990((int)auStack_50);
+    StreamReader_ReleaseAuxiliary(auStack_50);
     ppuStack_38 = &PTR_FUN_00fb6c00;
     if (puStack_34 != (undefined4 *)0x0) {
-      FUN_004dee00(puStack_34);
+      MemoryBacking_ReleaseReference(puStack_34);
     }
   }
   if (local_60 != (undefined **)0x0) {
-    FUN_004e44e0((int)local_60);
+    Memory_FreeIfNonNull(local_60);
   }
   return iVar5;
 }

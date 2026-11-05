@@ -1,14 +1,14 @@
 # Function evidence and open disposition join
 
-The [joined inventory](function-disposition.tsv) resolves every entry in the retained **40,854-definition census** against the **5,117 currently adopted evidence entries**, original registration targets, declared ownership ranges and selected resolved transfers. It also preserves the two qualified nondefinition windows and two original registered targets without an exact definition. This is an evidence lookup and a concrete open frontier, not a semantic coverage percentage or comprehensive acceptance.
+The [joined inventory](function-disposition.tsv) resolves every entry in the retained **40,854-definition census** against the **5,120 currently adopted evidence entries**, original registration targets, declared ownership ranges and selected resolved transfers. It also preserves the two qualified nondefinition windows and two original registered targets without an exact definition. This is an evidence lookup and a concrete open frontier, not a semantic coverage percentage or comprehensive acceptance.
 
-The inputs are frozen at [34315bfd1e3f0978b3595c576f954cf1f9d0495e](https://github.com/TeaObvious/ts3w-proof/tree/34315bfd1e3f0978b3595c576f954cf1f9d0495e). The [source and schema record](function-disposition-source.json) names each table, its snapshot scope and exact counts. Reference identity and image base are defined in the [central reference](../references/pc-167.md). No target execution, Native request, annotation, save or new decompilation was performed to construct this join.
+The inherited census, ownership, registration, transfer and executable-region inputs retain their [34315bfd snapshot](https://github.com/TeaObvious/ts3w-proof/tree/34315bfd1e3f0978b3595c576f954cf1f9d0495e). The current canonical join additionally includes three Resource3 pairs and recomputed canonical-index line anchors; it is not an unchanged 34315bfd canonical snapshot. The [source and schema record](function-disposition-source.json) names each table, its snapshot scope and exact counts. Reference identity and image base are defined in the [central reference](../references/pc-167.md). No target execution, Native request, annotation, save or new decompilation was performed to construct this join.
 
 | Identity or relationship | Exact inventory result |
 | --- | ---: |
 | Internal definitions in the retained census | 40,854 |
-| Definitions with an exact adopted ASM/C evidence entry | 5,115 |
-| Definitions without an exact pair in the selected canonical index | 35,739 |
+| Definitions with an exact adopted ASM/C evidence entry | 5,118 |
+| Definitions without an exact pair in the selected canonical index | 35,736 |
 | Additional qualified windows, not definitions | 2 |
 | Original registered targets without an exact definition or pair | 2 |
 | Joined image-entry rows | 40,858 |

@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 /* Analyst note (PC1.67 SACS migration contract): ECX preset plus buffer,length,UTF16 flag RET0C,
@@ -49,7 +48,7 @@ byte __thiscall Preset_ReadBinaryOrTextBuffer(void *this,undefined *arg0,uint ar
     StreamReader_ReleaseAuxiliary(local_44);
     local_2c = &PTR_FUN_00fb6c00;
     if (local_28 != (undefined4 *)0x0) {
-      FUN_004dee00(local_28);
+      MemoryBacking_ReleaseReference(local_28);
     }
   }
   iVar5 = 0x60;

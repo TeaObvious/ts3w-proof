@@ -1,0 +1,407 @@
+{
+  "reference_id": "ts3w-pc-1.67",
+  "reference_identity": "../../../reference.json",
+  "historical_ownership_inventory": "../../../../inventory/native-owned-ranges.tsv",
+  "scope": "Complete selected historical stored ranges verified against Original PE bytes and independent GNU/LLVM decode; not fresh Ghidra body/ABI/annotation or runtime acceptance.",
+  "schema": "ts3w-routing-candidate-solver-data-v1",
+  "section_mapping": [
+    {
+      "name": ".text",
+      "virtual_size": 12141393,
+      "rva": 4096,
+      "raw_size": 12144640,
+      "raw_offset": 4096
+    },
+    {
+      "name": ".rdata",
+      "virtual_size": 1770633,
+      "rva": 12148736,
+      "raw_size": 1773568,
+      "raw_offset": 12148736
+    },
+    {
+      "name": ".data",
+      "virtual_size": 975748,
+      "rva": 13922304,
+      "raw_size": 434176,
+      "raw_offset": 13922304
+    },
+    {
+      "name": ".tls",
+      "virtual_size": 9,
+      "rva": 14901248,
+      "raw_size": 4096,
+      "raw_offset": 14356480
+    },
+    {
+      "name": ".rsrc",
+      "virtual_size": 144488,
+      "rva": 14905344,
+      "raw_size": 147456,
+      "raw_offset": 14360576
+    }
+  ],
+  "records": [
+    {
+      "va": "00F96688",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12150408,
+      "bytes_hex": "3257d400",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "00572360",
+          "site": "005723A6",
+          "instruction": "call   DWORD PTR ds:0xf96688"
+        },
+        {
+          "function": "00572360",
+          "site": "00572418",
+          "instruction": "call   DWORD PTR ds:0xf96688"
+        },
+        {
+          "function": "00572360",
+          "site": "00572444",
+          "instruction": "call   DWORD PTR ds:0xf96688"
+        }
+      ],
+      "DWORD_hex": "00D45732"
+    },
+    {
+      "va": "00F998F0",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12163312,
+      "bytes_hex": "00000080",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085AF49",
+          "instruction": "movss  xmm2,DWORD PTR ds:0xf998f0"
+        },
+        {
+          "function": "0085AD20",
+          "site": "0085B2C5",
+          "instruction": "movss  xmm2,DWORD PTR ds:0xf998f0"
+        }
+      ],
+      "DWORD_hex": "80000000",
+      "Float32": -0.0
+    },
+    {
+      "va": "00F998F8",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12163320,
+      "bytes_hex": "0000803f",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085AE50",
+          "instruction": "movss  xmm3,DWORD PTR ds:0xf998f8"
+        },
+        {
+          "function": "0085B670",
+          "site": "0085B688",
+          "instruction": "movss  xmm6,DWORD PTR ds:0xf998f8"
+        },
+        {
+          "function": "0085B670",
+          "site": "0085B7AB",
+          "instruction": "movss  xmm2,DWORD PTR ds:0xf998f8"
+        },
+        {
+          "function": "0085A2D0",
+          "site": "0085A3A4",
+          "instruction": "movss  xmm3,DWORD PTR ds:0xf998f8"
+        },
+        {
+          "function": "0085A2D0",
+          "site": "0085A405",
+          "instruction": "movss  xmm3,DWORD PTR ds:0xf998f8"
+        },
+        {
+          "function": "0085AB20",
+          "site": "0085AB63",
+          "instruction": "movss  xmm0,DWORD PTR ds:0xf998f8"
+        }
+      ],
+      "DWORD_hex": "3F800000",
+      "Float32": 1.0
+    },
+    {
+      "va": "00F9B5B4",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12170676,
+      "bytes_hex": "0000003f",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085AE18",
+          "instruction": "movss  xmm4,DWORD PTR ds:0xf9b5b4"
+        },
+        {
+          "function": "0085AD20",
+          "site": "0085B49A",
+          "instruction": "mulss  xmm0,DWORD PTR ds:0xf9b5b4"
+        },
+        {
+          "function": "0085B670",
+          "site": "0085B74D",
+          "instruction": "movss  xmm6,DWORD PTR ds:0xf9b5b4"
+        },
+        {
+          "function": "0085B670",
+          "site": "0085B89C",
+          "instruction": "mulss  xmm7,DWORD PTR ds:0xf9b5b4"
+        },
+        {
+          "function": "0085B670",
+          "site": "0085B8EC",
+          "instruction": "mulss  xmm2,DWORD PTR ds:0xf9b5b4"
+        }
+      ],
+      "DWORD_hex": "3F000000",
+      "Float32": 0.5
+    },
+    {
+      "va": "00FAB218",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12235288,
+      "bytes_hex": "000080bf",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085ADC5",
+          "instruction": "movss  xmm2,DWORD PTR ds:0xfab218"
+        }
+      ],
+      "DWORD_hex": "BF800000",
+      "Float32": -1.0
+    },
+    {
+      "va": "00FE4CC0",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12471488,
+      "bytes_hex": "3333733f",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085AEFC",
+          "instruction": "fld    DWORD PTR ds:0xfe4cc0"
+        }
+      ],
+      "DWORD_hex": "3F733333",
+      "Float32": 0.949999988079071
+    },
+    {
+      "va": "01028978",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12749176,
+      "bytes_hex": "00000034",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085ADDF",
+          "instruction": "movss  xmm3,DWORD PTR ds:0x1028978"
+        }
+      ],
+      "DWORD_hex": "34000000",
+      "Float32": 1.1920928955078125e-07
+    },
+    {
+      "va": "0102897C",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12749180,
+      "bytes_hex": "9a991940",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085B140",
+          "instruction": "mulss  xmm2,DWORD PTR ds:0x102897c"
+        }
+      ],
+      "DWORD_hex": "4019999A",
+      "Float32": 2.4000000953674316
+    },
+    {
+      "va": "01028980",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12749184,
+      "bytes_hex": "9a99893f",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085B670",
+          "site": "0085B8D1",
+          "instruction": "mulss  xmm6,DWORD PTR ds:0x1028980"
+        }
+      ],
+      "DWORD_hex": "3F89999A",
+      "Float32": 1.0750000476837158
+    },
+    {
+      "va": "01028984",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12749188,
+      "bytes_hex": "9a990940",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085B670",
+          "site": "0085B8A4",
+          "instruction": "addss  xmm7,DWORD PTR ds:0x1028984"
+        },
+        {
+          "function": "0085B670",
+          "site": "0085B974",
+          "instruction": "movss  xmm0,DWORD PTR ds:0x1028984"
+        }
+      ],
+      "DWORD_hex": "4009999A",
+      "Float32": 2.1500000953674316
+    },
+    {
+      "va": "0103FD88",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12844424,
+      "bytes_hex": "00000040",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085AF60",
+          "instruction": "mulss  xmm2,DWORD PTR ds:0x103fd88"
+        },
+        {
+          "function": "0085AD20",
+          "site": "0085B2D9",
+          "instruction": "mulss  xmm2,DWORD PTR ds:0x103fd88"
+        },
+        {
+          "function": "0085AD20",
+          "site": "0085B4A2",
+          "instruction": "mulss  xmm0,DWORD PTR ds:0x103fd88"
+        },
+        {
+          "function": "0085B670",
+          "site": "0085B6E4",
+          "instruction": "movss  xmm3,DWORD PTR ds:0x103fd88"
+        }
+      ],
+      "DWORD_hex": "40000000",
+      "Float32": 2.0
+    },
+    {
+      "va": "0106E6EC",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 13035244,
+      "bytes_hex": "0ad7233c",
+      "mode": "original_file_backed",
+      "uses": [
+        {
+          "function": "0085A2D0",
+          "site": "0085A358",
+          "instruction": "movss  xmm3,DWORD PTR ds:0x106e6ec"
+        }
+      ],
+      "DWORD_hex": "3C23D70A",
+      "Float32": 0.009999999776482582
+    },
+    {
+      "va": "011EDBC4",
+      "size": 4,
+      "section": ".data",
+      "bytes_hex": null,
+      "mode": "virtual_zero_fill_initial_image_only_not_runtime",
+      "uses": [
+        {
+          "function": "0085AD20",
+          "site": "0085B454",
+          "instruction": "mov    edi,DWORD PTR ds:0x11edbc4"
+        }
+      ]
+    },
+    {
+      "va": "01027E74",
+      "size": 16,
+      "section": ".rdata",
+      "file_offset": 12746356,
+      "bytes_hex": "4c6f636f6d6f74696f6e2f466f6f7470",
+      "mode": "original_file_backed",
+      "role": "AB20 local vector allocator/tag initialization immediate; no vtable role asserted"
+    },
+    {
+      "va": "0106D788",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 13031304,
+      "bytes_hex": "cdcc4c3d",
+      "mode": "original_file_backed",
+      "role": "EC50 tolerance and BC40 initial offset, reused caller relation",
+      "Float32": 0.05000000074505806
+    },
+    {
+      "va": "01028950",
+      "size": 4,
+      "section": ".rdata",
+      "file_offset": 12749136,
+      "bytes_hex": "33331340",
+      "mode": "original_file_backed",
+      "role": "BC40 scalar solver factor",
+      "Float32": 2.299999952316284
+    },
+    {
+      "va": "00F99988",
+      "size": 67,
+      "section": ".rdata",
+      "file_offset": 12163464,
+      "bytes_hex": "633a5c4275696c644167656e745c736c63312d6275696c643131315c434d4275696c645c436f72655c696e636c7564655c454153544c2f616c6c6f6361746f722e6800",
+      "mode": "original_file_backed",
+      "decoded_ASCII": "c:\\BuildAgent\\slc1-build111\\CMBuild\\Core\\include\\EASTL/allocator.h",
+      "role": "00572360 allocation source label immediate, not a runtime path"
+    }
+  ],
+  "initial_zero_fill_limit": "Virtual-tail zeros describe only PE initial image construction. No live global value is observed.",
+  "import_limit": "F96688 Original ILT/IAT identity is memmove as reused from formatter-growth; live IAT/CRT implementation and arbitrary import behavior are not claimed.",
+  "labels": [
+    {
+      "va": "01027E74",
+      "file_offset": 12746356,
+      "bytes": 24,
+      "bytes_hex": "4c6f636f6d6f74696f6e2f466f6f747072696e7453657400",
+      "ASCII": "Locomotion/FootprintSet",
+      "limit": "Original source label, not runtime path or pointer target."
+    },
+    {
+      "va": "00F99988",
+      "file_offset": 12163464,
+      "bytes": 67,
+      "bytes_hex": "633a5c4275696c644167656e745c736c63312d6275696c643131315c434d4275696c645c436f72655c696e636c7564655c454153544c2f616c6c6f6361746f722e6800",
+      "ASCII": "c:\\BuildAgent\\slc1-build111\\CMBuild\\Core\\include\\EASTL/allocator.h",
+      "limit": "Original source label, not runtime path or pointer target."
+    }
+  ],
+  "declared_import": {
+    "IAT_slot": "00F96688",
+    "name": "MSVCR80!memmove",
+    "no_live_IAT_observation": true
+  }
+}

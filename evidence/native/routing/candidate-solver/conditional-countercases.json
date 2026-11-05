@@ -1,0 +1,47 @@
+{
+  "schema": "ts3w-routing-candidate-solver-static-countercases-v1",
+  "reference_id": "ts3w-pc-1.67",
+  "mode": "Algebraic/instruction deductions only, not tests or observed Original runtime.",
+  "cases": [
+    {
+      "claim_rejected": "A250 full EAX is normalized boolean",
+      "premise": "B8 word=00000400",
+      "deduction": "Masked EAX=00000400; MOV AL,1 at A27E gives EAX=00000401. Only AL boolean."
+    },
+    {
+      "claim_rejected": "A2D0 negative tolerance is clamped",
+      "premise": "A=(0,0), B=(2,0), C=(-0.5,-1), D=(-0.5,1), T=-0.5, ordinary finite FP",
+      "deduction": "abs(det)=4; tA=-0.25,tB=0.5; both margins=-0.25. Inclusive tests admit this outside-A endpoint interval. Float32 values here exactly representable."
+    },
+    {
+      "claim_rejected": "AD20 later distance probe is necessarily saved for publication",
+      "premise": "Only two MOVAPS write local+100: B0DE and positive-query B60E",
+      "deduction": "2.4*a and opposite2*a tests do not save their vector. Their gates alone do not identify the published vector."
+    },
+    {
+      "claim_rejected": "BC40 byte0 implies no candidate write",
+      "premise": "AD20 level equality and BL0",
+      "deduction": "AD20 writes16B then returns1; BC40 nonzero return ends path without setting byte1."
+    },
+    {
+      "claim_rejected": "572360 no-growth branch is a checked append for insert=end",
+      "premise": "end!=capacityEnd, insert=end",
+      "deduction": "memmove length oldEnd-8-insert=FFFFFFF8. Well-formed selected572500 fallback instead enters growth at equality."
+    },
+    {
+      "claim_rejected": "572500 exhaustion gate is equality for arbitrary metadata",
+      "premise": "end>capacityEnd unsigned",
+      "deduction": "572500 JAE delegates;572360 JE does not enter growth. Normal begin<=end<=capacity invariant matters."
+    },
+    {
+      "claim_rejected": "post-SAR3 doubled-count-zero branch is reachable by simple 32-bit wrap",
+      "premise": "count=SAR32(delta,3), count!=0",
+      "deduction": "count is in [-2^28,2^28-1]; doubling cannot be 0 modulo2^32. The syntactic JZ exists but this straight-line local path cannot take it under ordinary execution."
+    },
+    {
+      "claim_rejected": "growth byte-size multiplication cannot wrap",
+      "premise": "raw end-begin DWORD=80000000 on malformed metadata",
+      "deduction": "SAR3=F0000000; doubled=E0000000; *8 wraps00000000. This is not a valid-container or Retail runtime example."
+    }
+  ]
+}

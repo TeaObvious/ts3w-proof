@@ -1,6 +1,5 @@
-/* Retained cf6f60a42fe8c5bd181495a32161217972cefebc export snapshot.
-   Filename/link maintenance only; this is not a fresh decompilation or an annotation/persistence claim.
-   Historical body, types, variables and behavior qualifications remain below. */
+/* Genuine /TS3W.exe C export, captured November 5; current function identifiers verified.
+   Earlier body/ABI/variable qualifications remain; no new runtime or whole-function acceptance. */
 
 
 /* Analyst PC1.67 native-object table writer. Physical writer ECX and stack4 output stream context;
@@ -131,7 +130,7 @@ void __thiscall NativeObjectTable_WriteRecords(void *this,void *outputContext)
   StreamReader_AccumulateStatus(outputContext,bVar3);
   local_2c = &PTR_FUN_00fb6c00;
   if (puStack_28 != (undefined4 *)0x0) {
-    FUN_004dee00(puStack_28);
+    MemoryBacking_ReleaseReference(puStack_28);
   }
   local_2c = &PTR_LAB_00faaa04;
   if (local_3c != (void *)0x0) {
