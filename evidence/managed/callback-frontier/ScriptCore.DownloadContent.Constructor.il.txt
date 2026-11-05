@@ -1,0 +1,27 @@
+// Original ScriptCore MethodDef 0x060000B8; identity: evidence/managed/reference-inputs.json, ScriptCore resource.
+// Static ILSpy rendering. Roots delegate field 04000008 and passes it to 060000B3 at IL_002E.
+
+.method /* 060000B8 */ public hidebysig specialname rtspecialname 
+	instance void .ctor () cil managed 
+{
+	// Method begins at RVA 0x29e5
+	// Header size: 1
+	// Code size: 52 (0x34)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: call instance void [mscorlib]System.Object::.ctor() /* 0A000014 */
+	IL_0006: call class [mscorlib]System.AppDomain [mscorlib]System.AppDomain::get_CurrentDomain() /* 0A000015 */
+	IL_000b: ldstr "DownloadContent" /* 7000002D */
+	IL_0010: ldarg.0
+	IL_0011: callvirt instance void [mscorlib]System.AppDomain::SetData(string, object) /* 0A000016 */
+	IL_0016: ldarg.0
+	IL_0017: ldarg.0
+	IL_0018: ldftn instance void ScriptCore.DownloadContent::DownloadContent_OnSimSaved(uint64, uint32, uint32) /* 06000114 */
+	IL_001e: newobj instance void ScriptCore.DownloadContent/SimSavedCallback::.ctor(object, native int) /* 06000115 */
+	IL_0023: stfld class ScriptCore.DownloadContent/SimSavedCallback ScriptCore.DownloadContent::mSimSavedDelegate /* 04000008 */
+	IL_0028: ldarg.0
+	IL_0029: ldfld class ScriptCore.DownloadContent/SimSavedCallback ScriptCore.DownloadContent::mSimSavedDelegate /* 04000008 */
+	IL_002e: call void ScriptCore.DownloadContent::DownloadContent_SetSimSavedCallbackImpl(class ScriptCore.DownloadContent/SimSavedCallback) /* 060000B3 */
+	IL_0033: ret
+} // end of method DownloadContent::.ctor

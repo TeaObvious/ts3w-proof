@@ -1,0 +1,455 @@
+{
+  "schema": "ts3w-managed-callback-frontier-v1",
+  "status": "bounded static original evidence; independent review pending; no Runtime observation or fresh Native read claimed",
+  "reference_id": "ts3w-pc-1.67",
+  "original_identity": {
+    "native_reference": "references/pc-167.md",
+    "managed_reference": "evidence/managed/reference-inputs.json",
+    "assembly_name": "ScriptCore",
+    "resource_key": "073faa07-00000000-78cf6cf5304d0c4f",
+    "assembly_join": "Use the ScriptCore row in the central resource manifest for package, resource hash, DLL SHA256, version and MVID. All three original packages, ten resource slices and ten decoded DLL identities were freshly rechecked for the offline frontier."
+  },
+  "method_identity_indexes": [
+    "evidence/managed/native-methods.jsonl",
+    "evidence/managed/method-identities.jsonl"
+  ],
+  "rendering": "ILSpy 11.1 selected methods via PEFile/MetadataReader; original DLL never executed. C# unresolved-reference warnings/type projections are retained; tokenized IL controls exact branch, call and operand claims.",
+  "methods": [
+    {
+      "method_id": "ScriptCore:060005F2",
+      "declaring_type": "[ScriptCore]ScriptCore.EventQueue",
+      "original_name": ".ctor",
+      "signature": "header=0x20;generic=0;required=0;ret=Void;params=()",
+      "rva": "0x00008118",
+      "files": {
+        "cs": "evidence/managed/callback-frontier/ScriptCore.EventQueue.Constructor.cs",
+        "il.txt": "evidence/managed/callback-frontier/ScriptCore.EventQueue.Constructor.il.txt"
+      }
+    },
+    {
+      "method_id": "ScriptCore:060005F1",
+      "declaring_type": "[ScriptCore]ScriptCore.EventQueue",
+      "original_name": "OnNativeEvent",
+      "signature": "header=0x20;generic=0;required=4;ret=Void;params=(UInt32,UInt32,UInt32,String)",
+      "rva": "0x000080AC",
+      "files": {
+        "cs": "evidence/managed/callback-frontier/ScriptCore.EventQueue.OnNativeEvent.cs",
+        "il.txt": "evidence/managed/callback-frontier/ScriptCore.EventQueue.OnNativeEvent.il.txt"
+      }
+    },
+    {
+      "method_id": "ScriptCore:060005EE",
+      "declaring_type": "[ScriptCore]ScriptCore.EventQueue",
+      "original_name": "EventQueue_CreateEventQueueImpl",
+      "signature": "header=0x00;generic=0;required=1;ret=UInt32;params=([mscorlib]System.Delegate)",
+      "rva": "0x00000000",
+      "files": {
+        "cs": "evidence/managed/callback-frontier/ScriptCore.EventQueue.EventQueue_CreateEventQueueImpl.cs",
+        "il.txt": "evidence/managed/callback-frontier/ScriptCore.EventQueue.EventQueue_CreateEventQueueImpl.il.txt"
+      }
+    },
+    {
+      "method_id": "ScriptCore:060000B8",
+      "declaring_type": "[ScriptCore]ScriptCore.DownloadContent",
+      "original_name": ".ctor",
+      "signature": "header=0x20;generic=0;required=0;ret=Void;params=()",
+      "rva": "0x000029E5",
+      "files": {
+        "cs": "evidence/managed/callback-frontier/ScriptCore.DownloadContent.Constructor.cs",
+        "il.txt": "evidence/managed/callback-frontier/ScriptCore.DownloadContent.Constructor.il.txt"
+      }
+    },
+    {
+      "method_id": "ScriptCore:06000114",
+      "declaring_type": "[ScriptCore]ScriptCore.DownloadContent",
+      "original_name": "DownloadContent_OnSimSaved",
+      "signature": "header=0x20;generic=0;required=3;ret=Void;params=(UInt64,UInt32,UInt32)",
+      "rva": "0x0000319D",
+      "files": {
+        "cs": "evidence/managed/callback-frontier/ScriptCore.DownloadContent.DownloadContent_OnSimSaved.cs",
+        "il.txt": "evidence/managed/callback-frontier/ScriptCore.DownloadContent.DownloadContent_OnSimSaved.il.txt"
+      }
+    },
+    {
+      "method_id": "ScriptCore:060000B3",
+      "declaring_type": "[ScriptCore]ScriptCore.DownloadContent",
+      "original_name": "DownloadContent_SetSimSavedCallbackImpl",
+      "signature": "header=0x00;generic=0;required=1;ret=Void;params=([ScriptCore]ScriptCore.DownloadContent+SimSavedCallback)",
+      "rva": "0x00000000",
+      "files": {
+        "cs": "evidence/managed/callback-frontier/ScriptCore.DownloadContent.DownloadContent_SetSimSavedCallbackImpl.cs",
+        "il.txt": "evidence/managed/callback-frontier/ScriptCore.DownloadContent.DownloadContent_SetSimSavedCallbackImpl.il.txt"
+      }
+    }
+  ],
+  "existing_registration_joins": [
+    {
+      "source_kind": "descriptor-table",
+      "table_va": "0x011611C0",
+      "table_label": "ScriptCore.EventQueue",
+      "record_or_call_va": "0x011611C0",
+      "record_file_offset": "14029248",
+      "record_bytes_hex": "9028740004230001",
+      "registration_name": "ScriptCore.EventQueue::EventQueue_CreateEventQueueImpl",
+      "name_va": "0x01002304",
+      "name_utf8_nul_hex": "536372697074436f72652e4576656e7451756575653a3a4576656e7451756575655f4372656174654576656e745175657565496d706c00",
+      "target_va": "0x00742890",
+      "managed_join_status": "unique-name-candidate",
+      "managed_candidate_ids": "ScriptCore:060005EE",
+      "candidate_import_matches": "true"
+    },
+    {
+      "source_kind": "descriptor-table",
+      "table_va": "0x01181610",
+      "table_label": "ScriptCore.DownloadContent",
+      "record_or_call_va": "0x011817D0",
+      "record_file_offset": "14161872",
+      "record_bytes_hex": "f056990070b30401",
+      "registration_name": "ScriptCore.DownloadContent::DownloadContent_SetSimSavedCallbackImpl",
+      "name_va": "0x0104B370",
+      "name_utf8_nul_hex": "536372697074436f72652e446f776e6c6f6164436f6e74656e743a3a446f776e6c6f6164436f6e74656e745f53657453696d536176656443616c6c6261636b496d706c00",
+      "target_va": "0x009956F0",
+      "managed_join_status": "unique-name-candidate",
+      "managed_candidate_ids": "ScriptCore:060000B3",
+      "candidate_import_matches": "true"
+    }
+  ],
+  "registration_join_limit": "Descriptor name/address bytes and original import names match. This is not independent proof of runtime resolver binding or ABI equivalence.",
+  "event_queue_wrapper_table_prefix": {
+    "va": "010022D0",
+    "file_offset": 12591824,
+    "bytes_hex": "9017b3009071ec0020a75100",
+    "pointer_store_site": "007428C5",
+    "slots": [
+      {
+        "offset": 0,
+        "target_va": "00B31790"
+      },
+      {
+        "offset": 4,
+        "target_va": "00EC7190"
+      },
+      {
+        "offset": 8,
+        "target_va": "0051A720"
+      }
+    ],
+    "entire_table_extent_proved": false
+  },
+  "sim_saved_edges": {
+    "registration_target": "009956F0",
+    "direct_call_site": "00995708",
+    "writer_target": "009C8AD0",
+    "global_va": "011EA958",
+    "store_site": "009C8AD4",
+    "read_sites": [
+      "009CB5C4",
+      "009CB661"
+    ],
+    "host_indirect_call_site": "009CB66F",
+    "host_slot_offset": "00000134",
+    "raw_scan_limit": "Only literal DWORD operands; no claim of complete computed/aliased reference closure."
+  },
+  "instruction_witnesses": [
+    {
+      "va": "00742899",
+      "bytes_hex": "8b07",
+      "instruction": "mov    eax,DWORD PTR [edi]",
+      "file_offset": 3418265,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "0074289B",
+      "bytes_hex": "8b9018010000",
+      "instruction": "mov    edx,DWORD PTR [eax+0x118]",
+      "file_offset": 3418267,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428A1",
+      "bytes_hex": "8bcf",
+      "instruction": "mov    ecx,edi",
+      "file_offset": 3418273,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428A3",
+      "bytes_hex": "ffd2",
+      "instruction": "call   edx",
+      "file_offset": 3418275,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428BE",
+      "bytes_hex": "8b4c240c",
+      "instruction": "mov    ecx,DWORD PTR [esp+0xc]",
+      "file_offset": 3418302,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428C2",
+      "bytes_hex": "897004",
+      "instruction": "mov    DWORD PTR [eax+0x4],esi",
+      "file_offset": 3418306,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428C5",
+      "bytes_hex": "c700d0220001",
+      "instruction": "mov    DWORD PTR [eax],0x10022d0",
+      "file_offset": 3418309,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428CB",
+      "bytes_hex": "894808",
+      "instruction": "mov    DWORD PTR [eax+0x8],ecx",
+      "file_offset": 3418315,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428D0",
+      "bytes_hex": "8b16",
+      "instruction": "mov    edx,DWORD PTR [esi]",
+      "file_offset": 3418320,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428D2",
+      "bytes_hex": "8b02",
+      "instruction": "mov    eax,DWORD PTR [edx]",
+      "file_offset": 3418322,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428D4",
+      "bytes_hex": "8bce",
+      "instruction": "mov    ecx,esi",
+      "file_offset": 3418324,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428D6",
+      "bytes_hex": "ffd0",
+      "instruction": "call   eax",
+      "file_offset": 3418326,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428D8",
+      "bytes_hex": "8b17",
+      "instruction": "mov    edx,DWORD PTR [edi]",
+      "file_offset": 3418328,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428DA",
+      "bytes_hex": "8b82c8000000",
+      "instruction": "mov    eax,DWORD PTR [edx+0xc8]",
+      "file_offset": 3418330,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428E0",
+      "bytes_hex": "6a22",
+      "instruction": "push   0x22",
+      "file_offset": 3418336,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428E2",
+      "bytes_hex": "56",
+      "instruction": "push   esi",
+      "file_offset": 3418338,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428E3",
+      "bytes_hex": "8bcf",
+      "instruction": "mov    ecx,edi",
+      "file_offset": 3418339,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "007428E5",
+      "bytes_hex": "ffd0",
+      "instruction": "call   eax",
+      "file_offset": 3418341,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "00995708",
+      "bytes_hex": "e8c3330300",
+      "instruction": "call   0x9c8ad0",
+      "file_offset": 5854984,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009C8AD0",
+      "bytes_hex": "8b442404",
+      "instruction": "mov    eax,DWORD PTR [esp+0x4]",
+      "file_offset": 6064848,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009C8AD4",
+      "bytes_hex": "a358a91e01",
+      "instruction": "mov    ds:0x11ea958,eax",
+      "file_offset": 6064852,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB5C4",
+      "bytes_hex": "392d58a91e01",
+      "instruction": "cmp    DWORD PTR ds:0x11ea958,ebp",
+      "file_offset": 6075844,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB64A",
+      "bytes_hex": "e841ddd9ff",
+      "instruction": "call   0x769390",
+      "file_offset": 6075978,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB64F",
+      "bytes_hex": "8b10",
+      "instruction": "mov    edx,DWORD PTR [eax]",
+      "file_offset": 6075983,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB651",
+      "bytes_hex": "8b9234010000",
+      "instruction": "mov    edx,DWORD PTR [edx+0x134]",
+      "file_offset": 6075985,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB657",
+      "bytes_hex": "6a03",
+      "instruction": "push   0x3",
+      "file_offset": 6075991,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB659",
+      "bytes_hex": "8d8c2480000000",
+      "instruction": "lea    ecx,[esp+0x80]",
+      "file_offset": 6075993,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB660",
+      "bytes_hex": "51",
+      "instruction": "push   ecx",
+      "file_offset": 6076000,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB661",
+      "bytes_hex": "8b0d58a91e01",
+      "instruction": "mov    ecx,DWORD PTR ds:0x11ea958",
+      "file_offset": 6076001,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB667",
+      "bytes_hex": "51",
+      "instruction": "push   ecx",
+      "file_offset": 6076007,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB668",
+      "bytes_hex": "8d4c2468",
+      "instruction": "lea    ecx,[esp+0x68]",
+      "file_offset": 6076008,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB66C",
+      "bytes_hex": "51",
+      "instruction": "push   ecx",
+      "file_offset": 6076012,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB66D",
+      "bytes_hex": "8bc8",
+      "instruction": "mov    ecx,eax",
+      "file_offset": 6076013,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    },
+    {
+      "va": "009CB66F",
+      "bytes_hex": "ffd2",
+      "instruction": "call   edx",
+      "file_offset": 6076015,
+      "scope": "selected original instruction witness, not a canonical function ASM export"
+    }
+  ],
+  "open_native_body_frontier": [
+    {
+      "target_va": "009C8AD0",
+      "candidate_stop_va_exclusive": "009C8ADC",
+      "responsibility": "sim-saved-callback-global-writer",
+      "canonical_pair_gap": "No exact canonical or legacy pair in the pinned offline inventory snapshot.",
+      "baseline_owned_range": true,
+      "boundary_status": "baseline-owned-range",
+      "live_state": "not queried for this evidence package"
+    },
+    {
+      "target_va": "00B31790",
+      "candidate_stop_va_exclusive": "00B3179A",
+      "responsibility": "event-queue-wrapper-slot0",
+      "canonical_pair_gap": "No exact canonical or legacy pair in the pinned offline inventory snapshot.",
+      "baseline_owned_range": true,
+      "boundary_status": "baseline-owned-range",
+      "live_state": "not queried for this evidence package"
+    },
+    {
+      "target_va": "00EC7190",
+      "candidate_stop_va_exclusive": "00EC71AE",
+      "responsibility": "event-queue-wrapper-slot4",
+      "canonical_pair_gap": "No exact canonical or legacy pair in the pinned offline inventory snapshot.",
+      "baseline_owned_range": true,
+      "boundary_status": "baseline-owned-range",
+      "live_state": "not queried for this evidence package"
+    },
+    {
+      "target_va": "0051A720",
+      "candidate_stop_va_exclusive": "0051A73F",
+      "responsibility": "event-queue-wrapper-slot8-candidate",
+      "canonical_pair_gap": "No exact canonical or legacy pair in the pinned offline inventory snapshot.",
+      "baseline_owned_range": false,
+      "boundary_status": "unowned-static-candidate; live containing-function/info first",
+      "live_state": "not queried for this evidence package"
+    }
+  ],
+  "indirect_dependencies": [
+    {
+      "site": "007428A3",
+      "host_slot_offset": "00000118",
+      "status": "host implementation unclosed here"
+    },
+    {
+      "site": "007428E5",
+      "host_slot_offset": "000000C8",
+      "status": "wrapper publication/ownership unclosed here"
+    },
+    {
+      "site": "009CB66F",
+      "host_slot_offset": "00000134",
+      "status": "original consumer forwards callback word; marshaling/return/error/lifetime contract unclosed here"
+    }
+  ],
+  "limits": [
+    "Twelve bytes establish a three-word table prefix, not its entire extent.",
+    "No new Native function definition, parameter type, calling convention, ABI or ownership proof.",
+    "Literal DWORD reference scanning cannot establish computed/aliased reference closure.",
+    "Three target ownership ranges reuse the archived baseline. 0051A720 remains only a static unowned candidate until current containing-function/info checks.",
+    "No private transport responses, Native task journals, operating directories, full assemblies or source trees are included."
+  ]
+}

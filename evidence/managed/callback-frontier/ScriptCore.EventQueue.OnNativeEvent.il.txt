@@ -1,0 +1,61 @@
+// Original ScriptCore MethodDef 0x060005F1; identity: evidence/managed/reference-inputs.json, ScriptCore resource.
+// Static ILSpy rendering. Optional handler dispatch or enqueue plus conditional Wake; native delivery order remains unproved.
+
+.method /* 060005F1 */ private hidebysig 
+	instance void OnNativeEvent (
+		uint32 'type',
+		uint32 subType,
+		uint32 id,
+		string message
+	) cil managed 
+{
+	// Method begins at RVA 0x80ac
+	// Header size: 12
+	// Code size: 95 (0x5f)
+	.maxstack 4
+	.locals /* 11000053 */ init (
+		[0] class ScriptCore.Event
+	)
+
+	IL_0000: ldarg.1
+	IL_0001: ldarg.2
+	IL_0002: ldarg.3
+	IL_0003: ldarg.s message
+	IL_0005: call class ScriptCore.Event ScriptCore.EventQueue::CreateEvent(uint32, uint32, uint32, string) /* 060005F0 */
+	IL_000a: stloc.0
+	IL_000b: ldarg.0
+	IL_000c: ldfld class [SimIFace]Sims3.SimIFace.OnEventDelegate ScriptCore.EventQueue::mPermissiveOnEvent /* 0400007B */
+	IL_0011: brfalse.s IL_001f
+
+	IL_0013: ldarg.0
+	IL_0014: ldfld class [SimIFace]Sims3.SimIFace.OnEventDelegate ScriptCore.EventQueue::mPermissiveOnEvent /* 0400007B */
+	IL_0019: ldloc.0
+	IL_001a: callvirt instance void [SimIFace]Sims3.SimIFace.OnEventDelegate::Invoke(class [SimIFace]Sims3.SimIFace.IEvent) /* 0A000110 */
+
+	IL_001f: ldarg.0
+	IL_0020: ldfld class [SimIFace]Sims3.SimIFace.OnEventDelegate ScriptCore.EventQueue::mOnEvent /* 0400007A */
+	IL_0025: brfalse.s IL_0034
+
+	IL_0027: ldarg.0
+	IL_0028: ldfld class [SimIFace]Sims3.SimIFace.OnEventDelegate ScriptCore.EventQueue::mOnEvent /* 0400007A */
+	IL_002d: ldloc.0
+	IL_002e: callvirt instance void [SimIFace]Sims3.SimIFace.OnEventDelegate::Invoke(class [SimIFace]Sims3.SimIFace.IEvent) /* 0A000110 */
+	IL_0033: ret
+
+	IL_0034: ldarg.0
+	IL_0035: ldfld class [System]System.Collections.Generic.Queue`1<class ScriptCore.Event> ScriptCore.EventQueue::mEvents /* 0400007C */
+	IL_003a: ldloc.0
+	IL_003b: callvirt instance void class [System]System.Collections.Generic.Queue`1<class ScriptCore.Event>::Enqueue(!0) /* 0A000111 */
+	IL_0040: ldarg.0
+	IL_0041: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid ScriptCore.EventQueue::mSleepingTask /* 0400007D */
+	IL_0046: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid /* 0A0000A1 */
+	IL_004b: call bool [SimIFace]Sims3.SimIFace.ObjectGuid::op_Inequality(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, valuetype [SimIFace]Sims3.SimIFace.ObjectGuid) /* 0A0000AD */
+	IL_0050: brfalse.s IL_005e
+
+	IL_0052: ldarg.0
+	IL_0053: ldfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid ScriptCore.EventQueue::mSleepingTask /* 0400007D */
+	IL_0058: ldc.i4.0
+	IL_0059: call void [SimIFace]Sims3.SimIFace.Simulator::Wake(valuetype [SimIFace]Sims3.SimIFace.ObjectGuid, bool) /* 0A000112 */
+
+	IL_005e: ret
+} // end of method EventQueue::OnNativeEvent

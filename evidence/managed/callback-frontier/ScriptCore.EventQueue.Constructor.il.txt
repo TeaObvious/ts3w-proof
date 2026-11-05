@@ -1,0 +1,32 @@
+// Original ScriptCore MethodDef 0x060005F2; identity: evidence/managed/reference-inputs.json, ScriptCore resource.
+// Static ILSpy rendering. Roots delegate field 04000079 and passes it to 060005EE at IL_0035.
+
+.method /* 060005F2 */ public hidebysig specialname rtspecialname 
+	instance void .ctor () cil managed 
+{
+	// Method begins at RVA 0x8118
+	// Header size: 12
+	// Code size: 69 (0x45)
+	.maxstack 4
+
+	IL_0000: ldarg.0
+	IL_0001: newobj instance void class [System]System.Collections.Generic.Queue`1<class ScriptCore.Event>::.ctor() /* 0A000113 */
+	IL_0006: stfld class [System]System.Collections.Generic.Queue`1<class ScriptCore.Event> ScriptCore.EventQueue::mEvents /* 0400007C */
+	IL_000b: ldarg.0
+	IL_000c: ldsfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid [SimIFace]Sims3.SimIFace.ObjectGuid::InvalidObjectGuid /* 0A0000A1 */
+	IL_0011: stfld valuetype [SimIFace]Sims3.SimIFace.ObjectGuid ScriptCore.EventQueue::mSleepingTask /* 0400007D */
+	IL_0016: ldarg.0
+	IL_0017: call instance void [mscorlib]System.Object::.ctor() /* 0A000014 */
+	IL_001c: ldarg.0
+	IL_001d: ldarg.0
+	IL_001e: ldftn instance void ScriptCore.EventQueue::OnNativeEvent(uint32, uint32, uint32, string) /* 060005F1 */
+	IL_0024: newobj instance void ScriptCore.EventQueue/OnNativeEventDelegate::.ctor(object, native int) /* 060005FA */
+	IL_0029: stfld class ScriptCore.EventQueue/OnNativeEventDelegate ScriptCore.EventQueue::mOnNativeEvent /* 04000079 */
+	IL_002e: ldarg.0
+	IL_002f: ldarg.0
+	IL_0030: ldfld class ScriptCore.EventQueue/OnNativeEventDelegate ScriptCore.EventQueue::mOnNativeEvent /* 04000079 */
+	IL_0035: call uint32 ScriptCore.EventQueue::EventQueue_CreateEventQueueImpl(class [mscorlib]System.Delegate) /* 060005EE */
+	IL_003a: newobj instance void ScriptCore.EventQueueHandle::.ctor(uint32) /* 060005EC */
+	IL_003f: stfld class ScriptCore.EventQueueHandle ScriptCore.EventQueue::mHandle /* 04000078 */
+	IL_0044: ret
+} // end of method EventQueue::.ctor

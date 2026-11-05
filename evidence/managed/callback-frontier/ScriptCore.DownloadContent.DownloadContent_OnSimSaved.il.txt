@@ -1,0 +1,29 @@
+// Original ScriptCore MethodDef 0x06000114; identity: evidence/managed/reference-inputs.json, ScriptCore resource.
+// Static ILSpy rendering. Constructs a ResourceKey and invokes the optional OnSimSaved delegate.
+
+.method /* 06000114 */ private hidebysig 
+	instance void DownloadContent_OnSimSaved (
+		uint64 longInstance,
+		uint32 'type',
+		uint32 group
+	) cil managed 
+{
+	// Method begins at RVA 0x319d
+	// Header size: 1
+	// Code size: 28 (0x1c)
+	.maxstack 8
+
+	IL_0000: ldarg.0
+	IL_0001: ldfld class [SimIFace]Sims3.SimIFace.CustomContent.SimSavedDelegate ScriptCore.DownloadContent::OnSimSaved /* 04000007 */
+	IL_0006: brfalse.s IL_001b
+
+	IL_0008: ldarg.0
+	IL_0009: ldfld class [SimIFace]Sims3.SimIFace.CustomContent.SimSavedDelegate ScriptCore.DownloadContent::OnSimSaved /* 04000007 */
+	IL_000e: ldarg.1
+	IL_000f: ldarg.2
+	IL_0010: ldarg.3
+	IL_0011: newobj instance void [SimIFace]Sims3.SimIFace.ResourceKey::.ctor(uint64, uint32, uint32) /* 0A00003F */
+	IL_0016: callvirt instance void [SimIFace]Sims3.SimIFace.CustomContent.SimSavedDelegate::Invoke(valuetype [SimIFace]Sims3.SimIFace.ResourceKey) /* 0A000040 */
+
+	IL_001b: ret
+} // end of method DownloadContent::DownloadContent_OnSimSaved
