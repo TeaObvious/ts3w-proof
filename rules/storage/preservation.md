@@ -18,7 +18,7 @@ Sinnvolle Gruppen nach Bedarf: inventory, raw, managed, analysis, tools,
 coordination, validation und handoffs. Suchbare Textdateien/JSON/TSV verwenden.
 Keine Tar-Sammlung als einzige lesbare Forschungsbasis.
 
-Versionierbare Ergebnisse zunächst im neuen TeaObvious/ts3w-proof versionieren.
+Versionierbare Ergebnisse zunächst im neuen TeaObvious/TS3W-Research versionieren.
 Proprietäre Inputs und Betriebsdaten bleiben lokal und ignoriert. Ein lokaler
 Git-Ignore ersetzt keine dauerhafte Aufbewahrung wichtiger Ergebnisse.
 

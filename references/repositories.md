@@ -2,7 +2,11 @@
 
 ## Jetzt: eigenständiges Forschungsrepository
 
-    git@github.com:TeaObvious/ts3w-proof.git
+    git@github.com:TeaObvious/TS3W-Research.git
+
+Am 06.11.2026 vom Nutzer von `TeaObvious/ts3w-proof` in
+`TeaObvious/TS3W-Research` umbenannt. Repository und Historie bleiben dieselben;
+Quellrevisionen und historische Herkunftsangaben behalten ihre Bedeutung.
 
 Lokaler Hauptcheckout: /home/lego/WorldTool/TS3W-Research.
 Weitere Research-Worktrees: TS3W-Research/checkouts/. Alle weiteren Arbeitsdaten

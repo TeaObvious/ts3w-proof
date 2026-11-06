@@ -44,7 +44,7 @@ These are candidates for checking existing final receipts before requesting miss
 
 ## Existing successors and adoption boundary
 
-The recomputed join uses the [75-entry Research snapshot](https://github.com/TeaObvious/ts3w-proof/blob/27699f4e4f37ec5103463a5f7e619ffe294f1f45/indexes/native-evidence.tsv). Its exact-entry intersection with the historical index is 17. The earlier reviewed 69-entry snapshot also intersected at 17; that remains a separate historical result. Recomputing the join against 75 happens to preserve the same intersection because the six additional UI pairs were outside this historical code index.
+The recomputed join uses the [75-entry Research snapshot](https://github.com/TeaObvious/TS3W-Research/blob/27699f4e4f37ec5103463a5f7e619ffe294f1f45/indexes/native-evidence.tsv). Its exact-entry intersection with the historical index is 17. The earlier reviewed 69-entry snapshot also intersected at 17; that remains a separate historical result. Recomputing the join against 75 happens to preserve the same intersection because the six additional UI pairs were outside this historical code index.
 
 Existing canonical successors take priority. Do not create another pair under an old name or give a second public body to the same reference/RVA. Their snapshot paired paths are recorded in the catalog; a successor can still retain explicit ABI, ownership, data or runtime questions. This catalog adds no native canonical pair: **5,054 catalog rows are not 5,054 newly adopted canonical pairs**.
 

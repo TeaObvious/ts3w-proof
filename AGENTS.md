@@ -13,7 +13,7 @@ Nach ausdrücklichem Forschungsstart gelten die im Startprompt dokumentierten
 neueren Nutzerentscheidungen zu Forschungsablage, parallelen Agenten und
 Forschungslock. Sie sind kein Umbau der Regeln eines fremden Board-Workers.
 
-Primäres Repository: TeaObvious/ts3w-proof, Branch main. Ergebnisse zunächst hier
+Primäres Repository: TeaObvious/TS3W-Research, Branch main. Ergebnisse zunächst hier
 erarbeiten; später geprüfte Inhalte gezielt in den bisherigen OpenTS3-Proof-Branch
 übertragen. Vor Veröffentlichung [Repo-Zuordnung](references/repositories.md)
 und [Proof-Regeln](rules/publication/proof.md) lesen.

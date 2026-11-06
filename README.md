@@ -1,5 +1,7 @@
 # TS3W PC 1.67 reference
 
+Repository: [TeaObvious/TS3W-Research](https://github.com/TeaObvious/TS3W-Research).
+
 A growing reference for the original The Sims 3 PC 1.67 executable, its managed bindings and behavioral contracts. Research is active; this is not a complete reference release. Static byte/IL findings, current database ownership, understood behavior and actual execution remain separate claims.
 
 The complete earlier proof corpus is now retained here: [API and system overview](references/retained-proof-overview.md), [1,775 registered API pages](api/README.md), and the separate [Create a World reference](caw-proof/README.md). The [snapshot scope](guides/reference/retained-proof-snapshot.md) distinguishes retained exports from maintained successors; the [source path map](indexes/retained-proof-paths.tsv) resolves every old proof path.

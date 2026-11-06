@@ -9,7 +9,7 @@ reclassify their whole parent regions, alter declared Ghidra ownership, or
 exclude any bytes as padding or irrelevant code.
 
 The baseline is the published
-[2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944 snapshot](https://github.com/TeaObvious/ts3w-proof/tree/2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944/inventory).
+[2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944 snapshot](https://github.com/TeaObvious/TS3W-Research/tree/2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944/inventory).
 Original identity and address conventions are in the
 [central reference](../references/pc-167.md). VA intervals here use exclusive
 stops. The [original data excerpt](../evidence/native/data/remaining-region-pilot.tsv)
@@ -27,8 +27,8 @@ original PE and bounded instruction decoding, without Ghidra access or execution
 | `frame-drawable-dispatch`: `[0077D39C,0077D3AC)`, 16 bytes | Registered FrameDrawableGeneric entry 77D320; 77D35C loads function ID from its physical stack slot; 77D360/363 require unsigned ID <= 3; 77D365 jumps through the table. | Four DWORD targets for function IDs 0..3, with no selector map. |
 
 The two fast-field assertions reuse the canonical
-[ASM](https://github.com/TeaObvious/ts3w-proof/blob/2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944/evidence/native/persistence/fast-fields/00D83038.asm.txt)
-([annotated C](https://github.com/TeaObvious/ts3w-proof/blob/2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944/evidence/native/persistence/fast-fields/00D83038.c))
+[ASM](https://github.com/TeaObvious/TS3W-Research/blob/2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944/evidence/native/persistence/fast-fields/00D83038.asm.txt)
+([annotated C](https://github.com/TeaObvious/TS3W-Research/blob/2ab2fa2a80e5ee1ea95622558bf2fcb7ee600944/evidence/native/persistence/fast-fields/00D83038.c))
 and the [existing fast-field contract](../guides/persistence/fast-field-reading.md).
 Each table has five targets, while the fourteen selector bytes range only 0..4.
 Every target is an actual instruction start in the independently decoded

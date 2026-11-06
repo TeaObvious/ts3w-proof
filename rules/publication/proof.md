@@ -4,7 +4,7 @@
 
 ## Zuerst ins neue Repository
 
-Primäres Ziel ist TeaObvious/ts3w-proof, Branch main.
+Primäres Ziel ist TeaObvious/TS3W-Research, Branch main.
 Alle versionierbaren Forschungsergebnisse zuerst dort erarbeiten.
 [Repository-Zuordnung](../../references/repositories.md) vor Git-Mutation lesen.
 

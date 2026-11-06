@@ -34,7 +34,7 @@ Jeden Ausschluss mit Begründung und Abhängigkeitsprüfung inventarisieren.
 Nach ausdrücklichem Start sind parallele Research-Agenten, ein koordinierter
 Forschungslock und geprüfte Ghidra-Annotationen gemäß den Fachkapiteln erlaubt.
 Neue Forschung liegt dauerhaft in TS3W-Research außerhalb der EssentialData-Grenze.
-Versionierbare Ergebnisse entstehen zuerst in TeaObvious/ts3w-proof. Die spätere
+Versionierbare Ergebnisse entstehen zuerst in TeaObvious/TS3W-Research. Die spätere
 Übertragung geprüfter Inhalte in den OpenTS3-Proof-Branch ist getrennte Arbeit.
 
 Keine Originalbytes verändern, keine DRM-Patches erstellen, keine fremden
